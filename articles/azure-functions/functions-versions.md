@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f816f661767d2e372b02b207d6fa7efd494e6ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como destino a versões de tempo de execução das funções do Azure
 
@@ -27,7 +27,7 @@ Uma aplicação de função é executada numa versão específica do tempo de ex
 > [!IMPORTANT] 
 > Tempo de execução 1. x é a única versão aprovada para utilização em produção.
 
-| Tempo de execução | Estado |
+| Runtime | Estado |
 |---------|---------|
 |1. x|Geralmente disponível (GA)|
 |2. x|Pré-visualização|
@@ -105,7 +105,7 @@ Quando precisar de uma versão diferente da versão principal atual ou a versão
 
 ## <a name="target-a-version-using-azure-cli"></a>Destino de uma versão utilizando a CLI do Azure
 
- Também pode definir o `FUNCTIONS_EXTENSION_VERSION` partir da CLI do Azure. Utilizar a CLI do Azure, atualizar a definição da aplicação na aplicação de função com o [az functionapp configuração appsettings conjunto](/cli/azure/functionapp/config/appsettings#set) comando.
+ Também pode definir o `FUNCTIONS_EXTENSION_VERSION` partir da CLI do Azure. Utilizar a CLI do Azure, atualizar a definição da aplicação na aplicação de função com o [az functionapp configuração appsettings conjunto](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) comando.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -116,7 +116,7 @@ Neste código, substitua `<function_app>` com o nome da sua aplicação de funç
 
 Pode executar este comando a partir de [Shell de nuvem do Azure](../cloud-shell/overview.md) escolhendo **experimente** no exemplo de código anterior. Também pode utilizar o [localmente a CLI do Azure](/cli/azure/install-azure-cli) para executar este comando depois de executar [início de sessão az](/cli/azure#az_login) para iniciar sessão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [O tempo de execução 2.0 no seu ambiente de desenvolvimento local de destino](functions-run-local.md)

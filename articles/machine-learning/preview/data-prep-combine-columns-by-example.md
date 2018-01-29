@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Combinar as colunas por transformação de exemplo
 Esta transformação permite ao utilizador adicionar uma nova coluna através da combinação de valores de várias colunas. Utilizador pode especificar um separador ou fornecem exemplos de valores combinados para efetuar esta transformação. Quando o utilizador fornece exemplos de combinação, a transformação é processada pelo mesmo **por exemplo** motor que é utilizado no **derivar coluna, por exemplo** transformação.
@@ -37,6 +37,10 @@ Selecionar **separador** em **combinar colunas por** permite que o utilizador es
 Selecionar **exemplos** em **combinar colunas por** permite que o utilizador a fornecer exemplos de valores combinados. Para promover uma linha por exemplo, faça duplo clique nas linhas na grelha. Escreva o resultado esperado na caixa de texto em relação a linha promovida. Separador enviados a partir de **separador** caixa de texto para pré-visualizar os resultados no gird a dados. Prima **OK** para consolidar a transformação. 
 
 Utilizador pode alternar entre o **modo básico** e **modo avançado** clicando nas ligações do Editor de transformação.
+
+### <a name="transform-editor-send-feedback"></a>Transformar o editor: enviar comentários
+
+Clicar no **enviar comentários** hiperligação abre o **comentários** forneceu a caixa de diálogo com a caixa de comentários pré-preenchida com o utilizador de exemplos. Utilizador deve rever o conteúdo da caixa de comentários e fornecem mais detalhes para o ajudar-na compreender o problema. Se o utilizador não pretender partilhar dados com a Microsoft, o utilizador deve eliminar os dados de exemplo pré-preenchida antes de clicar no **enviar comentários** botão. 
 
 ### <a name="editing-existing-transformation"></a>Editar transformação existente
 

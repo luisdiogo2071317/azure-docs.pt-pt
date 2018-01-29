@@ -1,6 +1,6 @@
 ---
 title: "Apenas na máquina virtual de tempo de acesso no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento explica como através de tal como no tempo VM aceder no Centro de segurança do Azure ajuda a controla o acesso às máquinas virtuais do Azure."
+description: "Este documento demonstra como apenas no tempo de acesso VM no Centro de segurança do Azure ajuda-o a controlar o acesso às máquinas virtuais do Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo (pré-visualização)
 
@@ -50,11 +50,13 @@ Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica s
 
 ## <a name="using-just-in-time-access"></a>Utilizar apenas o acesso de tempo
 
-O **apenas acesso de VM de tempo** mosaico em **Centro de segurança** mostra o número de VMs configuradas para apenas no acesso do tempo e o número de aprovação de pedidos de acesso efetuados na última semana.
+1. Abra o dashboard **Centro de Segurança**.
+
+2. No painel esquerdo, selecione **apenas acesso de VM de tempo**.
 
 ![Apenas no tempo de acesso VM mosaico][2]
 
-Selecione o **apenas acesso de VM de tempo** mosaico e **apenas acesso de VM de tempo** abre.
+O **apenas acesso de VM de tempo** é aberta a janela.
 
 ![Apenas no tempo de acesso VM mosaico][10]
 
@@ -170,7 +172,7 @@ Siga a documentação do cmdlet para saber mais.
 Para aceder a uma VM específica que está protegida com a solução de hora, terá de executar este comando na sua sessão do PowerShell: ASCJITAccess invocar.
 Siga a documentação do cmdlet para saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como apenas no tempo de acesso VM no Centro de segurança ajuda a controla o acesso às máquinas virtuais do Azure.
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:

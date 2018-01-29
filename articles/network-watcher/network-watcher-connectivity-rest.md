@@ -1,10 +1,10 @@
 ---
-title: Verifique a conectividade com o observador de rede do Azure - portal do Azure | Microsoft Docs
-description: "Esta página explica como verificar a conectividade com o observador de rede no portal do Azure"
+title: "Resolver problemas de ligações com o observador de rede do Azure - API REST do Azure | Microsoft Docs"
+description: "Saiba como utilizar a ligação de resolução de problemas de capacidade do observador de rede do Azure utilizando a API de REST do Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verifique a conectividade com o observador de rede do Azure no portal do Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Resolver problemas de ligações com o observador de rede do Azure utilizando a API de REST do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,17 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API REST do Azure](network-watcher-connectivity-rest.md)
 
-Saiba como utilizar conectividade para verificar se é possível estabelecer uma ligação de TCP direta de uma máquina virtual para um ponto final especificado.
+Saiba como utilizar a ligação de resolução de problemas para verificar se é possível estabelecer uma ligação de TCP direta de uma máquina virtual para um ponto final especificado.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que tem os seguintes recursos:
 
-* Uma instância do observador de rede na região que pretende verificar a conectividade.
-
-* Máquinas virtuais para verificar a conectividade com.
-
-ARMclient é utilizada para chamar a API de REST utilizando o PowerShell. ARMClient for encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient).
-
-Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+* Uma instância do observador de rede na região que pretende resolver problemas de uma ligação.
+* Máquinas virtuais para resolver problemas de ligações com.
 
 > [!IMPORTANT]
-> Verificação da conectividade requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> Resolver problemas de ligação requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Iniciar sessão com ARMClient
 
@@ -469,13 +464,11 @@ O exemplo seguinte é a resposta ao executar a chamada de API anterior. Como a v
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md).
 
-Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de verificação de IP](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
+Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de IP verifique](network-watcher-check-ip-flow-verify-portal.md).
 
 
 

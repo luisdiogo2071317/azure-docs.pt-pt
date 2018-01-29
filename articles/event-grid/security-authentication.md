@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 510e578f3ebeb6ad7a4d81249cdfd7ce1d3684ad
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
@@ -24,7 +24,7 @@ Grelha de eventos do Azure tem três tipos de autenticação:
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos do WebHook
 
-Webhooks são uma das várias formas para receber eventos em tempo real da grelha de eventos do Azure. Sempre que há um novo evento pronto para ser entregue, o Webhook de grelha de evento implementa um pedido HTTP para o ponto final de HTTP configurado com o evento no corpo.
+Webhooks são uma das várias formas para receber eventos em tempo real da grelha de eventos do Azure. Sempre que há um novo evento pronto para ser entregue, o Webhook de grelha de eventos envia um pedido HTTP para o ponto final de HTTP configurado com o evento no corpo.
 
 Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe um pedido POST com um código de validação simples para provar a propriedade de ponto final. A aplicação tem de responder ao echoing novamente o código de validação. Grelha de eventos não fornecer eventos para os pontos finais de WebHook que não passaram a validação.
 
@@ -234,6 +234,6 @@ Para atribuir a função a um utilizador, utilize:
 az role assignment create --assignee <user name> --role "<name of role>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md)

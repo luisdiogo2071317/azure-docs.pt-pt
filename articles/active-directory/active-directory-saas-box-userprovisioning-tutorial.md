@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com caixa | Microsoft Docs"
+title: "Tutorial: Configurar a caixa para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o início de sessão entre o Azure Active Directory e caixa."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 0f13fa47ef8eacd822f5744b9dde2bb1f0f2909f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento de utilizadores automática
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento de utilizadores automática
 
 O objetivo deste tutorial é mostrar os passos, que é necessário executar na caixa e do Azure AD automaticamente as contas de utilizador aprovisionar e aprovisionar desativação do Azure AD à caixa.
 
@@ -82,7 +82,7 @@ O objetivo desta secção consiste em descrevem como ativar o aprovisionamento d
 
 4. Definir o **modo de aprovisionamento** para **automática**. 
 
-    ![Aprovisionamento](./media/active-directory-saas-box-userprovisioning-tutorial/provisioning.png)
+    ![a aprovisionar](./media/active-directory-saas-box-userprovisioning-tutorial/provisioning.png)
 
 5. Sob o **credenciais de administrador** secção, clique em **autorizar** para abrir uma caixa de diálogo de início de sessão de caixa numa nova janela do browser.
 

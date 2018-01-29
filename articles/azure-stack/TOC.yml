@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Conceitos
   items:
+    - name: Integração no datacenter
+      items:
+        - name: Considerações de integração de pilha do geral do Azure
+          href: azure-stack-datacenter-integration.md
+        - name: Modelos de ligação de implementação de pilha do Azure
+          href: azure-stack-connection-models.md
+        - name: Considerações sobre a implementação ligado
+          href: azure-stack-connected-deployment.md
+        - name: Considerações sobre a implementação desligado
+          href: azure-stack-disconnected-deployment.md
+        - name: Integração de rede do Centro de dados
+          items:
+            - name: Integração de rede
+              href: azure-stack-network.md
+            - name: Conectividade de limite
+              href: azure-stack-border-connectivity.md
+            - name: Integração do DNS
+              href: azure-stack-integrate-dns.md
+            - name: Integração da firewall
+              href: azure-stack-firewall.md
+              items:
+                - name: Publicar pontos finais
+                  href: azure-stack-integrate-endpoints.md
+        - name: Requisitos do PKI de implementação de pilha do Azure
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Obter certificados PKI para a implementação de pilha do Azure
+              href: azure-stack-get-pki-certs.md
+        - name: Integração de identidade
+          href: azure-stack-integrate-identity.md
+        - name: Registar a pilha do Azure
+          href: azure-stack-registration.md
+        - name: Monitorização externo
+          href: azure-stack-integrate-monitor.md
+        - name: Integração de segurança
+          href: azure-stack-integrate-security.md
     - name: Política de manutenção
       href: azure-stack-servicing-policy.md
     - name: Funcionalidades e conceitos principais
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Criar uma VM de teste
           href: azure-stack-provision-vm.md
-    - name: Implementar sistemas de pilha do Azure integrada
-      items:
-        - name: Considerações de planeamento de implementação
-          href: azure-stack-deployment-planning.md
-        - name: Decisões de planeamento de implementação
-          href: azure-stack-deployment-decisions.md
-        - name: Implementar ligado ao Azure
-          href: azure-stack-connected-deployment.md
-        - name: Implementar desligado do Azure
-          href: azure-stack-disconnected-deployment.md
-        - name: Requisitos do PKI de implementação de pilha do Azure
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Obter certificados PKI para a implementação de pilha do Azure
-              href: azure-stack-get-pki-certs.md
-        - name: Registar a pilha do Azure
-          href: azure-stack-registration.md
-    - name: Integração no datacenter
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Identidade
-          href: azure-stack-integrate-identity.md
-        - name: Publicar pontos finais
-          href: azure-stack-integrate-endpoints.md
-        - name: Monitorização externo
-          href: azure-stack-integrate-monitor.md
-        - name: Segurança
-          href: azure-stack-integrate-security.md
     - name: Gerir
       items:
         - name: Gestão da região

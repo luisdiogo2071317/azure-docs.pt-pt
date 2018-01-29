@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Proteger uma implementação de aplicação multicamada SAP NetWeaver utilizando o Azure Site Recovery
 
@@ -81,7 +81,7 @@ Se estiver a utilizar um IP estático, pode especificar o IP que pretende que a 
 Um plano de recuperação permite a ativação pós-falha de várias camadas numa aplicação de várias camada, por conseguinte, manter a consistência da aplicação da sequência. Siga os passos descritos [aqui](site-recovery-create-recovery-plans.md) ao criar um plano de recuperação para uma aplicação web de várias camadas.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>A adição de scripts para o plano de recuperação
-Terá de fazer algumas operações em máquinas virtuais do Azure após ativação pós-falha de teste ativação pós-falha para as suas aplicações funcionar corretamente. Pode automatizar a operação de ativação pós-falha de post como atualizar a entrada DNS e alterar os vínculos e ligações, adicionando scripts correspondentes no plano de recuperação, conforme descrito em [neste artigo](site-recovery-create-recovery-plans.md#add-scripts).
+Terá de fazer algumas operações em máquinas virtuais do Azure após ativação pós-falha de teste ativação pós-falha para as suas aplicações funcionar corretamente. Pode automatizar a operação de ativação pós-falha de post como atualizar a entrada DNS e alterar os vínculos e ligações, adicionando scripts correspondentes no plano de recuperação, conforme descrito em [neste artigo](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>Atualização de DNS
 Se o DNS está configurado para a atualização dinâmica de DNS, em seguida, as máquinas virtuais, normalmente, atualize o DNS com as novas IP assim que for iniciado. Se pretender adicionar um passo explícito para atualizar o DNS com os IPs novo das máquinas virtuais, em seguida, adicionar este [script para atualizar o IP no DNS](https://aka.ms/asr-dns-update) como uma ação de post em grupos de plano de recuperação.  
@@ -114,7 +114,7 @@ Siga [esta orientação](site-recovery-failover.md) quando estão a fazer uma at
 3.  Clique em 'Failover'.
 4.  Selecione o ponto de recuperação para iniciar o processo de ativação pós-falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como criar uma solução de recuperação após desastre para as implementações do SAP NetWeaver utilizando o Azure Site Recovery no [deste documento técnico](http://aka.ms/asr-sap). O documento técnico também descreve as recomendações para diferentes arquiteturas SAP, apresenta uma lista de aplicações suportadas e tipos VM para SAP no Azure e descreve possíveis planos de teste para a sua solução de recuperação após desastre.
 
 Saiba mais sobre [replicar outras cargas de trabalho](site-recovery-workload.md) utilizando a recuperação de sites.

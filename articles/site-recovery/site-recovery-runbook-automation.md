@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de automatização do Azure para planos de recuperação
 Neste artigo, vamos descrever como o Azure Site Recovery se integra com a automatização do Azure para o ajudar a expandir os planos de recuperação. Planos de recuperação podem orquestrar a recuperação de VMs que estão protegidos com a recuperação de Site. Funcionam planos de recuperação para a replicação para uma nuvem secundária e para replicação no Azure. Planos de recuperação também ajudam a efetuar a recuperação **consistentemente exata**, **repetíveis**, e **automatizada**. Se a ativação pós-falha as suas VMs no Azure, a integração com a automatização do Azure expande os planos de recuperação. Pode utilizá-lo para executar runbooks, o que oferece tarefas de automatização de elevado desempenho.
 
-Se estiver familiarizado com a automatização do Azure, pode [inscrever](https://azure.microsoft.com/services/automation/) e [transfira scripts de exemplo](https://azure.microsoft.com/documentation/scripts/). Para obter mais informações e para saber como orquestrar recuperação para o Azure utilizando [planos de recuperação](https://azure.microsoft.com/blog/?p=166264), consulte [do Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Se estiver familiarizado com a automatização do Azure, pode [inscrever](https://azure.microsoft.com/services/automation/) e [transfira scripts de exemplo](https://azure.microsoft.com/documentation/scripts/). Para obter mais informações e para saber como orquestrar recuperação para o Azure utilizando [planos de recuperação](./site-recovery-create-recovery-plans.md), consulte [do Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 Neste artigo, vamos descrever a forma como pode integrar os runbooks de automatização do Azure os planos de recuperação. Utilizamos exemplos para automatizar tarefas básicas que anteriormente necessitavam de intervenção manual. Podemos também descrevem como converter uma recuperação de vários passo para uma ação de recuperação de clique único.
 
@@ -99,7 +99,7 @@ Neste artigo, vamos descrever a forma como pode integrar os runbooks de automati
     | SubscriptionId |O ID de subscrição do Azure na qual a VM foi criada. |
     | RoleName |O nome da VM do Azure que está a ser recuperada. |
     | CloudServiceName |O nome do serviço em nuvem do Azure no qual a VM foi criada. |
-    | resourceGroupName|O nome do grupo de recursos do Azure no qual a VM foi criada. |
+    | ResourceGroupName|O nome do grupo de recursos do Azure no qual a VM foi criada. |
     | RecoveryPointId|Timestamp para quando a VM é recuperada. |
 
 * Certifique-se de que a conta de automatização tem os seguintes módulos:
@@ -256,8 +256,10 @@ Para obter outro exemplo, veja o vídeo seguinte. -Demonstra como recuperar uma 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Conta do Azure Automation serviço Run As](../automation/automation-sec-configure-azure-runas-account.md)
+* [Conta do Azure Automation serviço Run As](../automation/automation-create-runas-account.md)
 * [Descrição geral de automatização do Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx "descrição geral da automatização do Azure")
 * [Scripts de exemplo de automatização do Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "scripts de exemplo da automatização do Azure")
+
+## <a name="next-steps"></a>Passos Seguintes
+[Saiba mais](site-recovery-failover.md) sobre como executar as ativações pós-falha.

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 09aee1ba9ec3ce72732cb1f60c9a840ffc4beb2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desativar)
 
-Filas, tópicos e subscrições podem temporariamente suspensa. Suspensão coloca a entidade no estado desativado, na qual todas as mensagens são mantidas no armazenamento. No entanto, não podem ser removidas ou adicionadas mensagens e as operações de protocolo respetivos produzem erros.
+Filas, tópicos e subscrições podem temporariamente suspensa. Suspensão coloca a entidade no estado desativado em que todas as mensagens são mantidas no armazenamento. No entanto, não podem ser removidas ou adicionadas mensagens e as operações de protocolo respetivos produzem erros.
 
 Suspender uma entidade é geralmente feito para urgentes motivos administrativos. Um cenário é ter implementado um recetor defeituoso que recebe mensagens de fila, ocorre uma falha de processamento e ainda incorretamente conclui as mensagens e remove-os. Se esse comportamento é diagnosticado, a fila pode ser desativada para recebe até código corrigido é implementado e ainda pode ser impedida perda de dados causada pelo código da defeituoso.
 
@@ -31,7 +31,7 @@ No portal, o **propriedades** secção para a respetiva entidade permite alterar
 
 ![][1]
 
-O portal apenas permite desativar completamente filas. Também pode desativar o envio e receção operações separadamente utilizando o Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API no .NET Framework SDK ou com um modelo Azure Resource Manager através da CLI do Azure ou do Azure PowerShell.
+O portal apenas permite desativar completamente filas. Também pode desativar o envio e receção operações separadamente utilizando o Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs no .NET Framework SDK ou com um modelo Azure Resource Manager através da CLI do Azure ou do Azure PowerShell.
 
 ## <a name="suspension-states"></a>Estados de suspensão
 
@@ -54,7 +54,7 @@ $q.Status = "Disabled"
 Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve as funcionalidades de sistema operativo comuns de linha de base que está disponível para todas as aplicações em execução no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui ficheiros, rede, o acesso ao registo e os registos de diagnóstico e eventos. 
@@ -49,7 +49,7 @@ Existem várias unidades no App Service, incluindo unidades locais e unidades de
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unidades locais
-O núcleo, o serviço de aplicações é um serviço em execução em cima da infraestrutura do Azure PaaS (plataforma como serviço). Como resultado, as unidades locais "anexados" a uma máquina virtual são os mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isto inclui uma unidade de sistema operativo (a unidade D:\), uma unidade de aplicação que contém os ficheiros de cspkg do pacote do Azure utilizados exclusivamente pelo App Service (e acessível aos clientes) e uma unidade de "utilizador" (a unidade C:\), cujo tamanho varia consoante o tamanho da VM .
+O núcleo, o serviço de aplicações é um serviço em execução em cima da infraestrutura do Azure PaaS (plataforma como serviço). Como resultado, as unidades locais "anexados" a uma máquina virtual são os mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isto inclui uma unidade de sistema operativo (a unidade D:\), uma unidade de aplicação que contém os ficheiros de cspkg do pacote do Azure utilizados exclusivamente pelo App Service (e acessível aos clientes) e uma unidade de "utilizador" (a unidade C:\), cujo tamanho varia consoante o tamanho da VM . É importante monitorizar a utilização do disco, à medida que aumenta a sua aplicação. Se for atingida a quota de disco, pode ter efeitos adversos à sua aplicação.
 
 <a id="NetworkDrives"></a>
 

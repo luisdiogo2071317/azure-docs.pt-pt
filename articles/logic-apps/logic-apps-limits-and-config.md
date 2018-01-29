@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Configuração e os limites de aplicações lógicas
 
@@ -85,12 +85,12 @@ Estes limites aplicam-se para uma aplicação lógica única de executar.
 Estes limites aplicam-se a uma instância de aplicação lógica única.
 
 | Nome | Limite | Notas | 
-| ---- | ----- | ----- | 
-| Execuções de ações por 5 minutos | 100,000 | Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
+| ----- | ----- | ----- | 
+| Execuções de ações por 5 minutos | 100,000 |<p>O limite pode ser aumentado até 300,000 ao executar uma aplicação lógica na `High Througput` modo e isto podem ser efetuadas definindo a `operationOptions` propriedade`runtimeConfiguration` do recurso de fluxo de trabalho para `OptimizedForHighThroughput`. <p>Tenha em atenção de que modo débito elevado está em pré-visualização. Também uma carga de trabalho pode ser distribuída por várias aplicações conforme necessário. | 
 | Chamadas de saída em simultâneo de ações | ~2,500 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
-| Ponto final de Runtime: entradas de chamadas em simultâneo | ~1,000 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
-| Ponto final de Runtime: ler chamadas por 5 minutos | 60,000 | Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
-| Ponto final de Runtime: invocar chamadas por 5 minutos | 45,000 | Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
+| Ponto final de Runtime: entradas de chamadas em simultâneo |~1,000 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
+| Ponto final de Runtime: ler chamadas por 5 minutos  | 60,000 | Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
+| Ponto final de Runtime: invocar chamadas por 5 minutos| 45,000 |Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
 |||| 
 
 Exceda estes limites de processamento normal ou teste de carga de execução que poderão exceder estes limites [contacte-nos](mailto://logicappsemail@microsoft.com) , de modo a que o possamos ajudar com as suas necessidades.

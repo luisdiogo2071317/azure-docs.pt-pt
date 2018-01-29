@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: ea0bc72c03c7c51f79b838493eb2f6d3efe4f8f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 160893f5b2e9c78bd62355782c279fb08f7f6b48
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Criar uma máquina virtual Linux utilizando a CLI do Azure na pilha do Azure
 
@@ -37,7 +37,7 @@ CLI do Azure é utilizado para criar e gerir recursos de pilha do Azure a partir
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico na qual pilha do Azure recursos são implementados e geridos. O kit de desenvolvimento ou a pilha do Azure integrado no sistema, execute o [criar grupo az](/cli/azure/group#create) comando para criar um grupo de recursos. Iremos atribuiu valores para todas as variáveis neste documento, pode utilizá-los tal como está ou atribuir um valor diferente. O exemplo seguinte cria um grupo de recursos denominado myResourceGroup na localização local.
+Um grupo de recursos é um contentor lógico na qual pilha do Azure recursos são implementados e geridos. O kit de desenvolvimento ou a pilha do Azure integrado no sistema, execute o [criar grupo az](/cli/azure/group#az_group_create) comando para criar um grupo de recursos. Iremos atribuiu valores para todas as variáveis neste documento, pode utilizá-los tal como está ou atribuir um valor diferente. O exemplo seguinte cria um grupo de recursos denominado myResourceGroup na localização local.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Criar uma VM utilizando o [az vm criar](/cli/azure/vm#create) comando. O exemplo seguinte cria uma VM com o nome myVM. Este exemplo utiliza Demouser para um nome de utilizador administrativo e Demouser@123 como a palavra-passe. Atualize estes valores para algo adequado ao ambiente. Estes valores são necessários quando ligar à máquina virtual.
+Criar uma VM utilizando o [az vm criar](/cli/azure/vm#az_vm_create) comando. O exemplo seguinte cria uma VM com o nome myVM. Este exemplo utiliza Demouser para um nome de utilizador administrativo e Demouser@123 como a palavra-passe. Atualize estes valores para algo adequado ao ambiente. Estes valores são necessários quando ligar à máquina virtual.
 
 ```cli
 az vm create \
@@ -98,13 +98,13 @@ Com o NGINX instalado e a porta 80 agora aberta na sua VM a partir da Internet, 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#delete) para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
 
 ```cli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este guia de introdução, implementou uma máquina virtual do Linux simple. Para saber mais sobre as máquinas virtuais de pilha do Azure, avance para [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).
 

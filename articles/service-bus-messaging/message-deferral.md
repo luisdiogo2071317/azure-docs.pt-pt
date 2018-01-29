@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f84b870de4b79399d5edc90284c9c56222156b5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bece2be88a020610dfd3d22f15f7d276d99bb153
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-deferral"></a>Diferimento por da mensagem
 
@@ -35,13 +35,13 @@ A API está [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.b
 
 Mensagens diferidas permanecem na fila de principal, juntamente com todas as outras mensagens Active Directory (ao contrário de mensagens entregues que em direto numa fila secundárias), mas já não pode ser recebidos com as funções de receção/ReceiveAsync regulares. Mensagens diferidas podem ser detetadas através de [mensagem navegação](message-browsing.md) se perder a uma aplicação controlar deles.
 
-Para obter uma mensagem diferida, o "proprietário" é responsável por tendo em conta o [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) conforme-defers-lo. Qualquer recetor que sabe o **SequenceNumber** de uma mensagem diferida mais tarde pode receber a mensagem explicitamente com Receive(sequenceNumber).
+Para obter uma mensagem diferida, respetivo proprietário é responsável por tendo em conta o [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) conforme-defers-lo. Qualquer recetor que sabe o número de sequência de uma mensagem diferida mais tarde pode receber a mensagem explicitamente com `Receive(sequenceNumber)`.
 
-Se uma mensagem não pode ser processada porque um recurso específico para processar essa mensagem está temporariamente indisponível, mas o processamento da mensagem não deve ser suspensas summarily, uma forma elegante colocar essa mensagem no lado de alguns minutos é de memorizar o **SequenceNumber** num [mensagem agendada](message-sequencing.md) publicados dentro de alguns minutos e novamente obter a mensagem diferida quando chega a mensagem agendada. Tenha em atenção que se um processador de mensagens depende de uma base de dados para todas as operações e a base de dados está temporariamente indisponível, este deve não utilizar diferimento por, mas em vez disso suspender a receção de mensagens Folders até que a base de dados estiver novamente disponível.
+Se uma mensagem não pode ser processada porque um recurso específico para processar essa mensagem está temporariamente indisponível, mas o processamento da mensagem não deve ser suspensas summarily, uma forma de colocar essa mensagem no lado de alguns minutos é de memorizar o  **SequenceNumber** num [mensagem agendada](message-sequencing.md) publicados dentro de alguns minutos e novamente obter a mensagem diferida quando chega a mensagem agendada. Tenha em atenção que se um processador de mensagens depende de uma base de dados para todas as operações e a base de dados está temporariamente indisponível, este deve não utilizar diferimento por, mas em vez disso suspender a receção de mensagens Folders até que a base de dados estiver novamente disponível.
 
 Diferir o mensagens não afeta a expiração da mensagem, que significa que diferidas e as mensagens ainda expirarem na hora agendada inicialmente, em seguida, são movidas para a fila de entregues, se configurados para o fazer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

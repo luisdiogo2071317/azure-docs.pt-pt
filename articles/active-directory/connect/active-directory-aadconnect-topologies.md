@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve as várias topologias do Azure Active Directory (Azure AD) que utilizam a sincronização do Azure AD Connect como solução de integração de chave e no local. Este artigo inclui as configurações suportadas e não suportadas.
@@ -110,10 +110,11 @@ Neste cenário, um (ou mais) recursos confianças de floresta todas as florestas
 Algumas cargas de trabalho do Office 365 têm determinadas restrições em topologias suportadas:
 
 | Carga de trabalho | Restrições |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Para obter mais informações sobre topologias híbridas suportado pelo Exchange Online, consulte [implementações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype para Empresas | Quando estiver a utilizar várias florestas no local, apenas a topologia de floresta de recursos de conta é suportada. Para obter mais informações, consulte [requisitos ambientais para o Skype para empresas servidor 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Se for uma maior organização, em seguida, deve considerar a utilizar o [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) funcionalidade. Permite-lhe definir em cada região do Centro de dados se encontram resocues do utilizador.
 
 ## <a name="staging-server"></a>Servidor de teste
 ![Servidor de teste numa topologia](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

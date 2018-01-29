@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>VMs de prioridade baixa utilização com o Batch
 
@@ -71,9 +71,12 @@ O Azure Batch permite várias capacidades de que o facilitam a consumir e benefi
 
 -   Quando as tarefas são interrompidas, o Batch Deteta e requeues automaticamente as tarefas sejam executadas novamente.
 
--   VMs de prioridade baixa tem uma quota de vCPU separado, diferente para VMs dedicadas. 
+-   Prioridade baixa VMs tem uma quota de vCPU separado que difere para VMs dedicadas. 
     A quota para as VMs de prioridade baixa é superior à quota para VMs dedicadas, porque as VMs de prioridade baixa custo inferior. Para obter mais informações, consulte [serviço quotas e limites do Batch](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Prioridade baixa VMs não são atualmente suportadas para contas do Batch criadas no [modo de subscrição de utilizador](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Criar e atualizar os agrupamentos
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
@@ -181,7 +184,7 @@ Para ver as métricas no portal do Azure:
 
 ![Métricas de nós de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.

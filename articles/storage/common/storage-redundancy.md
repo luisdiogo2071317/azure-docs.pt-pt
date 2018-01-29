@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -72,7 +72,7 @@ Não não possível converter o ZRS clássico contas para ou do LRS, GRS ou RA-G
 Assim que o ZRS estiver geralmente disponível numa região, já não será capaz de criar uma conta clássica ZRS a partir do portal nessa região, mas é possível criar um através de outros meios.  
 Um processo de migração automática do ZRS clássico para o ZRS será fornecido no futuro.
 
-As contas de ZRS suportam migrar manualmente uma conta ZRS nessa região de ou para uma conta LRS, GRS ou RAGRS. Pode efetuar esta migração manual utilizando o AzCopy, o Explorador de armazenamento do Azure, Azure PowerShell, CLI do Azure ou uma das bibliotecas de cliente do Storage do Azure.
+Pode migrar manualmente os dados de conta de ZRS para ou a partir de uma conta LRS, ZRS clássico, GRS ou RAGRS. Pode efetuar esta migração manual utilizando o AzCopy, o Explorador de armazenamento do Azure, Azure PowerShell, CLI do Azure ou uma das bibliotecas de cliente do Storage do Azure.
 
 > [!NOTE]
 > Contas ZRS clássico estejam planeadas para preterição e migração necessária no 31 de Março de 2021. A Microsoft enviará mais detalhes para os clientes ZRS clássico antes de preterição.

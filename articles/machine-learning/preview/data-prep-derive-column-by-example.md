@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Derivar coluna, transformação de exemplo
 
@@ -68,6 +68,10 @@ O modo avançado, pode adicionar qualquer linha como uma linha de exemplo, fazen
 
 Utilizador pode alternar entre o **modo básico** e **modo avançado** clicando nas ligações do Editor de transformação.
 
+### <a name="transform-editor-send-feedback"></a>Transformar o editor: enviar comentários
+
+Clicar no **enviar comentários** hiperligação abre o **comentários** forneceu a caixa de diálogo com a caixa de comentários pré-preenchida com o utilizador de exemplos. Utilizador deve rever o conteúdo da caixa de comentários e fornecem mais detalhes para o ajudar-na compreender o problema. Se o utilizador não pretender partilhar dados com a Microsoft, o utilizador deve eliminar os dados de exemplo pré-preenchida antes de clicar no **enviar comentários** botão. 
+
 ### <a name="editing-existing-transformation"></a>Editar transformação existente
 
 Um utilizador pode editar uma existente **derivar coluna por exemplo** transformar selecionando **editar** opção do passo de transformação. Clicar no **editar** abre o Editor de transformação de mensagens em fila no **modo avançado**, e são apresentados todos os exemplos que foram fornecidos durante a criação de transformação.
@@ -85,16 +89,16 @@ Número de exemplos que são necessários para este cenário: 2
 
 |Input|Saída|
 |:-----|:-----|
-|C:\Python35\Tools\pynche\TypeinViewer.PY|**TypeinViewer.py**|
+|C:\Python35\Tools\pynche\TypeinViewer.py|**TypeinViewer.py**|
 |C:\Python35\Tools\pynche\webcolors.txt|webcolors.txt|
 |C:\Python35\Tools\pynche\websafe.txt|websafe.txt|
-|C:\Python35\Tools\pynche\X\rgb.txt|RGB.txt|
+|C:\Python35\Tools\pynche\X\rgb.txt|rgb.txt|
 |C:\Python35\Tools\pynche\X\xlicense.txt|xlicense.txt|
-|C:\Python35\Tools\Scripts\2to3.PY|2to3.PY|
-|C:\Python35\Tools\Scripts\analyze_dxp.PY|**analyze_dxp.PY**|
-|C:\Python35\Tools\Scripts\byext.PY|byext.PY|
-|C:\Python35\Tools\Scripts\byteyears.PY|byteyears.PY|
-|C:\Python35\Tools\Scripts\checkappend.PY|checkappend.PY|
+|C:\Python35\Tools\Scripts\2to3.py|2to3.py|
+|C:\Python35\Tools\Scripts\analyze_dxp.py|**analyze_dxp.py**|
+|C:\Python35\Tools\Scripts\byext.py|byext.PY|
+|C:\Python35\Tools\Scripts\byteyears.py|byteyears.PY|
+|C:\Python35\Tools\Scripts\checkappend.py|checkappend.py|
 
 ### <a name="s2-case-manipulation-during-string-extraction"></a>S2. Manipulação de maiúsculas e durante a extração de cadeia
 
@@ -102,7 +106,7 @@ Número de exemplos que são necessários para este cenário: 3
 
 |Input|Saída|
 |:-----|:-----|
-|REINDEER Cionar & fim de mensagens não;  NOVO HANOVER; Estação 332; 2015-12-10 @ 17:10:52;|**Novo Hanover**|
+|REINDEER Cionar & fim de mensagens não;  NOVO HANOVER; Estação 332; 2015-12-10 @ 17:10:52;|**New Hanover**|
 |CAMINHO de BRIAR & WHITEMARSH LN;  HATFIELD TOWNSHIP; Estação 345; 2015-12-10 @ 17:29:21;|Hatfield Township|
 |HAWS AVE; NORRISTOWN; 2015-12-10 @ 14:39:21-estação: STA27;|**Norristown**|
 |Santa AIRY & SWEDE ST;  NORRISTOWN; Estação 308A; 2015-12-10 @ 16:47:36;|**Norristown**|
@@ -139,21 +143,21 @@ Número de exemplos que são necessários para este cenário: 1
 
 |Nome Próprio|Média inicial|Apelido|Saída|
 |:-----|:-----|:-----|:-----|
-|Laquanda||Lohmann|Laquanda·· Lohmann|
-|Claudio|A|Chew|**Claudio· A· Chew**|
+|Laquanda||Lohmann|Laquanda··Lohmann|
+|Claudio|A|Chew|**Claudio·A·Chew**|
 |Joana o Sarah|S|Santos|Sarah Jane· S· Santos|
-|Brandi||Blumenthal|Brandi·· Blumenthal|
+|Brandi||Blumenthal|Brandi··Blumenthal|
 |Jesusita|R|Journey|Jesusita· R· Journey|
 |Hermina||Hults|Hermina·· Hults|
-|Anne Marie|W|Jones|Anne Marie· W· Jones|
-|Rico||Ropp|Rico·· Ropp|
-|Maio de Lauren||Fullmer|Lauren May·· Fullmer|
+|Anne Marie|W|Jones|Anne-Marie·W·Jones|
+|Rico||Ropp|Rico··Ropp|
+|Maio de Lauren||Fullmer|Lauren-May··Fullmer|
 |Marc|T|Maine|Marc· T· Maine|
-|Angie||Adelman|Angie·· Adelman|
-|O João Paul||Santos|O João Paul·· Santos|
+|Angie||Adelman|Angie··Adelman|
+|John-Paul||Santos|John-Paul··Smith|
 |Song|W|Staller|Song· W· Staller|
 |Jill||Jefferies|Jill·· Jefferies|
-|Tolerância Ruby|M|Simmons|Ruby Grace· M· Simmons|
+|Tolerância Ruby|M|Simmons|Ruby-Grace·M·Simmons|
 
 ### <a name="s5-generating-initials"></a>S5. Gerar iniciais
 
@@ -172,7 +176,7 @@ Número de exemplos que são necessários para este cenário: 2
 |Maio de Lauren Fullmer|L.F.|
 |Marc Maine|M.M.|
 |Angie Adelman|A.A.|
-|Paul João Silva|**J.S.**|
+|John-Paul Smith|**J.S.**|
 |Song Staller|S.S.|
 |Jill Jefferies|J.J.|
 |Simmons tolerância Ruby|R.S.|
@@ -290,20 +294,20 @@ Estas partes da data foram extraídos utilizando transformações por exemplo di
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |2031 de Janeiro de 31 05:54 em: 18|**Sab**|**31**|**Janeiro**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Qua.|17|Jan.|1990|13|32|01|
-|14-Fev-2034 05:36:07|Ter.|14|Fev.|2034|5|36|07|
+|14-Feb-2034 05:36:07|Ter.|14|Fev.|2034|5|36|07|
 |Mar-14-2002 13:16:16|Qui.|14|Mar.|2002|13|16|16|
-|Jan-21-1985 05:44:43|Seg.|21|Jan.|1985|5|44|**43**|
+|21-Jan-1985 05:44:43|Seg.|21|Jan.|1985|5|44|**43**|
 |16-Aug-1985 01:11:56|Sex.|16|Ago.|1985|1|11|56|
 |20-Dec-2033 18:36:29|Ter.|20|Dez.|2033|18|36|29|
 |16-Jul-1984 10:21:59|Seg.|16|Jul.|1984|10|21|59|
 |13-Janeiro de 2038 10:59:36|Qua.|13|Jan.|2038|10|59|36|
 |Aug-14-1982 15:13:54 em|Sáb.|14|Ago.|1982|15|13|54|
-|22-Novembro-2030 08:18:08|Sex.|22|Nov.|2030|8|18|08|
+|22-Nov-2030 08:18:08|Sex.|22|Nov.|2030|8|18|08|
 |FPO-21-1997 08:42:58|Ter.|21|Out.|1997|8|42|58|
-|2006 de Novembro de 28 14:19:15|Ter.|28|Nov.|2006|14|19|15|
-|29-Apr-2031 04:59:45.|Ter.|29|Abr.|2031|4|59|45|
+|28-Nov-2006 14:19:15|Ter.|28|Nov.|2006|14|19|15|
+|29-Apr-2031 04:59:45|Ter.|29|Abr.|2031|4|59|45|
 |29-Jan-2032 02:38:36|Qui.|29|Jan.|2032|2|38|36|
-|2028 de Maio de 11 15:31:52|Qui.|11|Maio|2028|15|31|52|
+|2028 de Maio de 11 15:31:52|Qui.|11|Mai|2028|15|31|52|
 |15-Jul-1977 12:45:39|Sex.|15|Jul.|1977|12|45|39|
 |27-Jan-2029 05:55:41|Sáb.|27|Jan.|2029|5|55|41|
 |Mar-03-2024 10:17:49|Dom.|3|Mar.|2024|10|17|49|
@@ -317,18 +321,18 @@ Estes formattings data foram efetuadas utilizando transformações por exemplo d
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |2031 de Janeiro de 31 05:54 em: 18|**1/31/2031**|**Sexta-feira, 31 de Janeiro de 2031**|**01312031 5:54**|**1/31/2031 5:54 EM AM**|**Q1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Quarta-feira, 17 de Janeiro de 1990|01171990 13:32|17/1/1990 1:32 PM|Q1 1990|
-|14-Fev-2034 05:36:07|2/14/2034|Terça-feira, 14 de Fevereiro de 2034|02142034 5:36|14/2/2034 5:36 AM|Q1 2034
+|14-Feb-2034 05:36:07|2/14/2034|Terça-feira, 14 de Fevereiro de 2034|02142034 5:36|14/2/2034 5:36 AM|Q1 2034
 |Mar-14-2002 13:16:16|3/14/2002|Quinta-feira, 14 de Março de 2002|03142002 13:16|3/14/2002 1:16 PM|Q1 2002
-|Jan-21-1985 05:44:43|1/21/1985|Segunda-feira, 21 de Janeiro de 1985|01211985 5:44|21/1/1985 5:44 AM|Q1 1985
+|21-Jan-1985 05:44:43|1/21/1985|Segunda-feira, 21 de Janeiro de 1985|01211985 5:44|21/1/1985 5:44 AM|Q1 1985
 |16-Aug-1985 01:11:56|8/16/1985|Sexta-feira, 16 de Agosto de 1985|08161985 1:11|8/16/1985 1:11:00|Q3 1985
 |20-Dec-2033 18:36:29|12/20/2033|Terça-feira, 20 de Dezembro de 2033|12202033 18:36|20/12/2033 6:36 PM|Q4 2033
 |16-Jul-1984 10:21:59|7/16/1984|Segunda, 16 de Julho de 1984|07161984 10:21|16/7/1984 10:21 AM|Q3 1984
 |13-Janeiro de 2038 10:59:36|1/13/2038|Quarta-feira, 13 de Janeiro de 2038|01132038 10:59|13/1/2038 10:59 AM|Q1 2038
 |Aug-14-1982 15:13:54 em|8/14/1982|Sábado, 14 de Agosto de 1982|08141982 15:13|8/14/1982 ÀS 15:13|Q3 1982
-|22-Novembro-2030 08:18:08|11/22/2030|Sexta-feira, 22 de Novembro de 2030|11222030 8:18|22/11/2030 8:18 AM|Q4 2030
+|22-Nov-2030 08:18:08|11/22/2030|Sexta-feira, 22 de Novembro de 2030|11222030 8:18|22/11/2030 8:18 AM|Q4 2030
 |FPO-21-1997 08:42:58|10/21/1997|Terça-feira, 21 de Outubro de 1997|10211997 8:42|21/10/1997 8:42 AM|Q4 1997
-|2006 de Novembro de 28 14:19:15|11/28/2006|Terça-feira, 28 de Novembro de 2006|11282006 14:19|11/28/2006 2:19 PM|Q4 2006
-|29-Apr-2031 04:59:45.|4/29/2031|Terça-feira, 29 de Abril de 2031|04292031 4:59|4/29/2031 4:59 AM|Q2 2031
+|28-Nov-2006 14:19:15|11/28/2006|Terça-feira, 28 de Novembro de 2006|11282006 14:19|11/28/2006 2:19 PM|Q4 2006
+|29-Apr-2031 04:59:45|4/29/2031|Terça-feira, 29 de Abril de 2031|04292031 4:59|4/29/2031 4:59 AM|Q2 2031
 |29-Jan-2032 02:38:36|1/29/2032|Quinta-feira, 29 de Janeiro de 2032|01292032 2:38|29/1/2032 2:38 AM|Q1 2032
 |2028 de Maio de 11 15:31:52|5/11/2028|Quinta-feira, 11 de Maio de 2028|05112028 15:31|11/5/2028 ÀS 15:31|Q2 2028
 |15-Jul-1977 12:45:39|7/15/1977|Sexta-feira, 15 de Julho de 1977|07151977 12:45|15/7/1977 12:45 PM|Q3 1977
@@ -341,28 +345,28 @@ Estes formattings data foram efetuadas utilizando transformações por exemplo d
 
 Estes DateTime para mapeamentos de período foram efetuadas utilizando transformações por exemplo diferentes no mesmo conjunto de dados. Cadeias de negrito representam os exemplos que foram fornecidos na respetiva transformação correspondentes.
 
-|DateTime|Period(seconds)|Period(minutes)|Período (duas horas)|Período (30 minutos)|
+|DateTime|Period(Seconds)|Period(minutes)|Período (duas horas)|Período (30 minutos)|
 |-----:|-----:|-----:|-----:|-----:|
-|2031 de Janeiro de 31 05:54 em: 18|**0-20**|**45-60**|**5 AM - 7 AM**|**5:30-6:00**|
-|17-Jan-1990 13:32:01|**0-20**|30-45|ÀS 1 PM - 15|13:30-14:00|
-|14-Fev-2034 05:36:07|0-20|30-45|5 AM - 7 AM|5:30-6:00|
-|Mar-14-2002 13:16:16|0-20|15-30|ÀS 1 PM - 15|13:00-13:30|
-|Jan-21-1985 05:44:43|40-60|30-45|5 AM - 7 AM|5:30-6:00|
-|16-Aug-1985 01:11:56|40-60|0-15|1: 00 - 3 AM|1:00-1:30|
-|20-Dec-2033 18:36:29|20-40|30-45|AS 17: 00 - 7 PM|18:30-19:00|
+|2031 de Janeiro de 31 05:54 em: 18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
+|17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
+|14-Feb-2034 05:36:07|0-20|30-45|5 AM - 7 AM|5:30-6:00|
+|Mar-14-2002 13:16:16|0-20|15-30|1PM-3PM|13:00-13:30|
+|21-Jan-1985 05:44:43|40-60|30-45|5 AM - 7 AM|5:30-6:00|
+|16-Aug-1985 01:11:56|40-60|0-15|1AM-3AM|1:00-1:30|
+|20-Dec-2033 18:36:29|20-40|30-45|5PM-7PM|18:30-19:00|
 |16-Jul-1984 10:21:59|40-60|15-30|09: 00 - 11 AM|10:00-10:30|
 |13-Janeiro de 2038 10:59:36|20-40|45-60|09: 00 - 11 AM|10:30-11:00|
-|Aug-14-1982 15:13:54 em|40-60|0-15|3 PM - AS 17: 00|15:00-15:30|
-|22-Novembro-2030 08:18:08|0-20|15-30|7 AM - 09: 00|8:00-8:30|
+|Aug-14-1982 15:13:54 em|40-60|0-15|3PM-5PM|15:00-15:30|
+|22-Nov-2030 08:18:08|0-20|15-30|7 AM - 09: 00|8:00-8:30|
 |FPO-21-1997 08:42:58|40-60|30-45|7 AM - 09: 00|8:30-9:00|
-|2006 de Novembro de 28 14:19:15|0-20|15-30|ÀS 1 PM - 15|14:00-14:30|
-|29-Apr-2031 04:59:45.|40-60|45-60|AM DE 3-5 AM|4:30-5:00|
-|29-Jan-2032 02:38:36|20-40|30-45|1: 00 - 3 AM|2:30-3:00|
-|2028 de Maio de 11 15:31:52|40-60|30-45|3 PM - AS 17: 00|15:30-16:00|
-|15-Jul-1977 12:45:39|20-40|45-60|11 AM - 1 PM|12:30-13:00|
+|28-Nov-2006 14:19:15|0-20|15-30|1PM-3PM|14:00-14:30|
+|29-Apr-2031 04:59:45|40-60|45-60|3AM-5AM|4:30-5:00|
+|29-Jan-2032 02:38:36|20-40|30-45|1AM-3AM|2:30-3:00|
+|2028 de Maio de 11 15:31:52|40-60|30-45|3PM-5PM|15:30-16:00|
+|15-Jul-1977 12:45:39|20-40|45-60|11AM-1PM|12:30-13:00|
 |27-Jan-2029 05:55:41|40-60|45-60|5 AM - 7 AM|5:30-6:00|
 |Mar-03-2024 10:17:49|40-60|15-30|09: 00 - 11 AM|10:00-10:30|
-|00:23:13 de 14-Apr-2010|0-20|15-30|23: 00 - 1: 00|0:00-0:30|
+|00:23:13 de 14-Apr-2010|0-20|15-30|11PM-1AM|0:00-0:30|
 
 ## <a name="examples-of-composite-transformations-by-example"></a>Exemplos de transformações compostos por exemplo
 

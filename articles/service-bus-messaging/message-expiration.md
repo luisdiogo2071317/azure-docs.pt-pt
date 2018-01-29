@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração de mensagem (TTL de)
 
@@ -25,11 +25,11 @@ O payload dentro de uma mensagem, ou um comando ou consulta que transmite uma me
 
 Para desenvolvimento e ambientes de teste na qual as filas e tópicos, muitas vezes, são utilizados no contexto de execuções parciais de aplicações ou partes de aplicação, também é aconselhável teste stranded mensagens automaticamente libertados para que execute o seguinte teste pode Inicie limpa.
 
-A expiração de quaisquer mensagens individuais pode ser controlada através da definição de [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) propriedade de sistema, que especifica um período de tempo relativo. A expiração fica instante absoluto quando a mensagem é colocados em fila para a entidade. Nessa altura, o [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) propriedade demora no valor [ **EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+A expiração de quaisquer mensagens individuais pode ser controlada através da definição de [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) propriedade de sistema, que especifica um período de tempo relativo. A expiração fica instante absoluto quando a mensagem é colocados em fila para a entidade. Nessa altura, o [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) propriedade demora no valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 Últimos o **ExpiresAtUtc** instantâneas, mensagens de se tornar elegível para obtenção. A expiração não afeta as mensagens que estão bloqueadas atualmente para entrega; essas mensagens ainda são processadas normalmente. Se o bloqueio expira ou a mensagem é abandonada, a expiração vigor imediata.
 
-Enquanto a mensagem está em bloqueio, a aplicação pode estar na posse de uma mensagem que nominally expirou. Indica se a aplicação é disposta em avançar com processamento ou optar por abandonar a mensagem é até o implementador.
+Enquanto a mensagem está em bloqueio, a aplicação pode estar na posse de uma mensagem que expirou. Indica se a aplicação é disposta em avançar com processamento ou optar por abandonar a mensagem é até o implementador.
 
 ## <a name="entity-level-expiration"></a>Expiração de nível de entidade
 
@@ -47,14 +47,14 @@ Por exemplo, considere um web site que tem de forma fiável executar tarefas de 
 
 Filas do Service Bus, tópicos e subscrições podem ser criadas como entidades temporárias, que são automaticamente removidas quando estes não foram utilizados durante um período de tempo especificado.
  
-A limpeza automática é útil em cenários de desenvolvimento e teste em que as entidades são criadas dinamicamente em não limpa após a utilização, devido ao teste ou de depuração execução ter sido interrompidos. Também é útil quando uma aplicação cria dinâmicas entidades, como uma fila de resposta, para a receção de respostas de volta para um processo de servidor web, ou para outro objeto relativamente curta duração em que é difícil de forma fiável limpar esses entidades quando o objeto instância desaparece.
+A limpeza automática é útil em cenários de desenvolvimento e teste em que as entidades são criadas dinamicamente em não limpa após a utilização, devido a algumas interrupção do teste ou execução de depuração. Também é útil quando uma aplicação cria dinâmicas entidades, como uma fila de resposta, para a receção de respostas de volta para um processo de servidor web, ou para outro objeto relativamente curta duração em que é difícil de forma fiável limpar esses entidades quando o objeto instância desaparece.
 
 A funcionalidade está ativada utilizando o [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) propriedade, o que está definida para a duração para que uma entidade tem de estar inativo (não utilizado) antes de ser eliminado automaticamente. A duração mínima é de 5 minutos.
  
-A propriedade tem de ser definida através de uma operação do Gestor de recursos do Azure ou através do cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs. Não é possível definir através do portal.
+O **autoDeleteOnIdle** propriedade tem de ser definida através de uma operação do Gestor de recursos do Azure ou através do cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs. Não é possível definir através do portal.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

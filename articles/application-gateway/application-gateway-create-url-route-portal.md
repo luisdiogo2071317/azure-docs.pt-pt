@@ -1,92 +1,180 @@
 ---
-title: "Criar uma regra com base no caminho para um gateway de aplicação - portal do Azure | Microsoft Docs"
-description: "Saiba como criar uma regra com base no caminho para um gateway de aplicação utilizando o portal do Azure."
+title: "Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - portal do Azure | Microsoft Docs"
+description: "Saiba como criar URL caminho com base em regras de encaminhamento para um gateway de aplicação e o dimensionamento da máquina virtual definido no portal do Azure."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Criar uma regra com base no caminho para um gateway de aplicação utilizando o portal do Azure
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento utilizando o portal do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [CLI 2.0 do Azure](application-gateway-create-url-route-cli.md)
+Pode utilizar o portal do Azure para configurar [regras de encaminhamento com base no caminho de URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end a utilizar máquinas virtuais. Em seguida, crie as regras de encaminhamento que certifique-se de que o tráfego web chega os servidores adequados nos agrupamentos de.
 
-Com o URL com base no caminho encaminhamento, associa as rotas com base no caminho de URL de pedidos HTTP. Verifica se existe uma rota para um conjunto de servidores de back-end configurado para o URL listado no gateway de aplicação e, em seguida, envia o tráfego de rede para o conjunto definido. Uma utilização comum para o URL com base no caminho de encaminhamento está a carga de pedidos de saldo para diferentes tipos de conteúdo em agrupamentos de diferentes servidores de back-end.
+Neste artigo, saiba como:
 
-Gateways de aplicação têm dois tipos de regra: básico e as regras com base no caminho de URL. O tipo de regra básica fornece um serviço round robin para os conjuntos de back-end. As regras com base no caminho, para além de distribuição de round robin, também utilizam o padrão do caminho do URL do pedido quando escolher o conjunto de back-end adequado.
+> [!div class="checklist"]
+> * Criar um gateway de aplicação
+> * Criar máquinas virtuais para servidores back-end
+> * Criar conjuntos de back-end com os servidores de back-end
+> * Criar um serviço de escuta de back-end
+> * Criar uma regra de encaminhamento com base no caminho
 
-## <a name="scenario"></a>Cenário
+![Exemplo de encaminhamento de URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
-O cenário seguinte cria uma regra de caminho num gateway de aplicação existente.
-Este cenário pressupõe que já tiver seguido os passos em [criar um gateway de aplicação com o portal](application-gateway-create-gateway-portal.md).
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-![Rota de URL][scenario]
+## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-## <a name="createrule"></a>Criar a regra de caminho
+Inicie sessão no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
-Uma regra com base no caminho requer o seu próprio serviço de escuta. Antes de criar a regra, lembre-se de que verifique se tem um serviço de escuta disponível para utilizar.
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-### <a name="step-1"></a>Passo 1
+É necessária uma rede virtual para a comunicação entre os recursos que criar. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicação e outra para servidores de back-end. Pode criar uma rede virtual ao mesmo tempo que criar o gateway de aplicação.
 
-Vá para o [portal do Azure](http://portal.azure.com) e selecione um gateway de aplicação existente. Clique em **regras**.
+1. Clique em **novo** encontrado no canto superior esquerdo do portal do Azure.
+2. Selecione **redes** e, em seguida, selecione **Gateway de aplicação** na lista em destaque.
+3. Introduza estes valores para o gateway de aplicação:
 
-![Descrição geral do Gateway de Aplicação][1]
+    - *myAppGateway* - para que o nome do gateway de aplicação.
+    - *myResourceGroupAG* – para o novo grupo de recursos.
 
-### <a name="step-2"></a>Passo 2
+    ![Criar o novo gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-Clique em de **com base no caminho** botão para adicionar uma nova regra de acesso com base no caminho.
+4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
+5. Clique em **escolha uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
 
-### <a name="step-3"></a>Passo 3
+    - *myVNet* - para que o nome da rede virtual.
+    - *10.0.0.0/16* - para que o espaço de endereços de rede virtual.
+    - *myAGSubnet* - para que o nome de sub-rede.
+    - *10.0.0.0/24* - para que o espaço de endereços de sub-rede.
 
-O **Adicionar regra de caminho com base em** painel tem duas secções. A primeira secção é onde o serviço de escuta, o nome da regra de, as predefinições de caminho que definiu. As predefinições de caminho são para as rotas não abrangidos por rota personalizada com base no caminho. A segunda secção do **Adicionar regra de caminho com base em** painel é onde é possível definir as regras com base no caminho próprios.
+    ![Criar a rede virtual](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**Definições básicas**
+6. Clique em **OK** para criar a rede virtual e a sub-rede.
+7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
+8. Aceite os valores predefinidos para a configuração do serviço de escuta, deixe a firewall de aplicações Web desativada e, em seguida, clique em **OK**.
+9. Reveja as definições na página de resumo e, em seguida, clique em **OK** para criar os recursos de rede e o gateway de aplicação. Pode demorar alguns minutos até o gateway de aplicação ser criado, aguarde a conclusão da implementação com êxito antes de continuar para a secção seguinte.
 
-* **Nome**: um nome amigável para a regra que está acessível no portal.
-* **Serviço de escuta**: O serviço de escuta que é utilizado para a regra.
-* **Predefinição conjunto back-end**: O back-end a utilizar para a regra predefinida.
-* **Predefinições de HTTP**: as definições de HTTP a ser utilizado para a regra predefinida.
+### <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-**Definições das regras com base no caminho**
+1. Clique em **todos os recursos** no menu da esquerda e, em seguida, clique em **myVNet** na lista de recursos.
+2. Clique em **sub-redes**e, em seguida, clique em **sub-rede**.
 
-* **Nome**: um nome amigável para a regra de caminho.
-* **Caminhos**: O caminho a regra procura quando reencaminham o tráfego.
-* **Conjunto back-end**: O back-end para ser utilizado para a regra.
-* **Definição de HTTP**: definições de HTTP à ser utilizado para a regra.
+    ![Criar sub-rede](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> O **caminhos** definição se a lista de padrões de caminho para corresponder. Cada padrão tem de começar com uma barra e um asterisco só é permitido no fim. Exemplos válidos: /xyz, /xyz*e /xyz/*.  
+3. Introduza *myBackendSubnet* para o nome da sub-rede e, em seguida, clique em **OK**.
 
-![Adicionar um painel com base no caminho da regra com informações preenchidas][2]
+## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Adicionar uma regra com base no caminho para um gateway de aplicação existente é um processo fácil através do portal do Azure. Depois de criar uma regra com base no caminho, pode editá-la para incluir regras adicionais. 
+Neste exemplo, crie três máquinas virtuais a ser utilizada como servidores de back-end para o gateway de aplicação. Também pode instala o IIS nas máquinas virtuais para verificar se o gateway de aplicação foi criado com êxito.
 
-![Adicione regras adicionais com base no caminho][3]
+1. Clique em **Novo**.
+2. Clique em **computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em destaque.
+3. Introduza estes valores para a máquina virtual:
 
-Este passo configura uma rota com base no caminho. É importante compreender a pedidos não foi reescritos. Tal como pedidos são fornecidos, o gateway de aplicação inspeciona o pedido e, com base num padrão de URL, envia o pedido para o conjunto de back-end adequado.
+    - *myVM1* - para que o nome da máquina virtual.
+    - *azureuser* - para que o nome de utilizador administrador.
+    - *Azure123456!* a palavra-passe.
+    - Selecione **utilizar existente**e, em seguida, selecione *myResourceGroupAG*.
+
+4. Clique em **OK**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **selecione**.
+6. Certifique-se de que **myVNet** está selecionado para a rede virtual e a sub-rede é **myBackendSubnet**. 
+7. Clique em **desativado** para desativar o diagnóstico de arranque.
+8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **criar**.
+
+### <a name="install-iis"></a>Instalar o IIS
+
+1. Abra a shell interativa e certifique-se de que está definido como **PowerShell**.
+
+    ![Instalar a extensão personalizado](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. Execute o seguinte comando para instalar o IIS na máquina virtual: 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. Crie duas máquinas virtuais mais e instalar o IIS utilizando os passos que acabou de concluir. Introduza os nomes dos *myVM2* e *myVM3* para os nomes de e para os valores de VMName no conjunto AzureRmVMExtension.
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar conjuntos de back-end com as máquinas virtuais
+
+1. Clique em **todos os recursos** e, em seguida, clique em **myAppGateway**.
+2. Clique em **conjuntos back-end**. Um conjunto predefinido foi criado automaticamente com o gateway de aplicação. Clique em **appGateayBackendPool**.
+3. Clique em **adicionar destino** adicionar *myVM1* para appGatewayBackendPool.
+
+    ![Adicionar servidores de back-end](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. Clique em **Guardar**.
+5. Clique em **conjuntos back-end** e, em seguida, clique em **adicionar**.
+6. Introduza um nome de *imagesBackendPool* e adicione *myVM2* utilizando **adicionar destino**.
+7. Clique em **OK**.
+8. Clique em **adicionar** novamente para adicionar outro conjunto de back-end com um nome de *videoBackendPool* e adicione *myVM3* ao mesmo.
+
+## <a name="create-a-backend-listener"></a>Criar um serviço de escuta de back-end
+
+1. Clique em **os serviços de escuta** e clique em **básico**.
+2. Introduza *myBackendListener* para o nome, *myFrontendPort* para o nome da porta de front-end e, em seguida, *8080* como a porta para o serviço de escuta.
+3. Clique em **OK**.
+
+## <a name="create-a-path-based-routing-rule"></a>Criar uma regra de encaminhamento com base no caminho
+
+1. Clique em **regras** e, em seguida, clique em **com base no caminho**.
+2. Introduza *rule2* para o nome.
+3. Introduza *imagens* para o nome do caminho primeiro. Introduza */images/** para o caminho. Selecione **imagesBackendPool** para o conjunto de back-end.
+4. Introduza *vídeo* para o nome do caminho segundo. Introduza */video/** para o caminho. Selecione **videoBackendPool** para o conjunto de back-end.
+
+    ![Criar uma regra de caminho](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. Clique em **OK**.
+
+## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
+
+1. Clique em **todos os recursos**e, em seguida, clique em **myAGPublicIPAddress**.
+
+    ![Registar o endereço IP público do application gateway](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser. Por exemplo, http://http: / / 40.121.222.19.
+
+    ![URL de base de teste no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. Altere o URL para http://&lt;endereço ip&gt;: 8080/video/test.htm, substituindo &lt;endereço ip&gt; endereço e com o IP deverá ver algo semelhante ao seguinte exemplo:
+
+    ![Testar o URL de imagens no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. Altere o URL para http://&lt;endereço ip&gt;: 8080/video/test.htm, substituindo &lt;endereço ip&gt; endereço e com o IP deverá ver algo semelhante ao seguinte exemplo:
+
+    ![URL de vídeo de teste no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como configurar a descarga de SSL com o Gateway de aplicação do Azure, consulte [configurar um gateway de aplicação para a descarga de SSL com o portal do Azure](application-gateway-ssl-portal.md).
+Neste artigo, aprendeu como
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+> [!div class="checklist"]
+> * Criar um gateway de aplicação
+> * Criar máquinas virtuais para servidores back-end
+> * Criar conjuntos de back-end com os servidores de back-end
+> * Criar um serviço de escuta de back-end
+> * Criar uma regra de encaminhamento com base no caminho
+
+Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.

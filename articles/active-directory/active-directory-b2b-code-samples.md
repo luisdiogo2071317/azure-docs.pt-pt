@@ -7,19 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
-ms.author: sasubram
-ms.openlocfilehash: 6a75fdd6c6f8fc03945be4b7d843777286cc70a7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: b2562f807ac970552db0ac385e2992580a312b97
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Código de colaboração B2B do Active Directory do Azure e exemplos do PowerShell
 
@@ -231,7 +231,7 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
 

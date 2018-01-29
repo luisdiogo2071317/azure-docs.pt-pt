@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
-Os subscritores podem definir quais as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas sob a forma de uma ou várias regras de subscrição com nome. Cada regra é composta por uma condição que seleciona mensagens específicas e uma ação que annotates a mensagem selecionada. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente.
+Os subscritores podem definir quais as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas sob a forma de uma ou mais regras de subscrição com nome. Cada regra é composta por uma condição que seleciona mensagens específicas e uma ação que annotates a mensagem selecionada. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente.
 
 Cada subscrição de tópico recém-criado tem uma regra de subscrição inicial predefinido. Se não especificar explicitamente uma condição de filtro para a regra, é o filtro aplicado a **verdadeiro** filtro que permite que todas as mensagens de ser selecionada para a subscrição. A regra predefinida não tem nenhuma ação de anotação associado.
 
@@ -39,7 +39,7 @@ Regras do filtro complexas requerem a capacidade de processamento. Em particular
 
 ## <a name="actions"></a>Ações
 
-Com condições de filtro do SQL Server e apenas com os, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL,](service-bus-messaging-sql-filter.md) que aproximadamente ligado leans sobre a sintaxe de declaração de ATUALIZAÇÃO do SQL Server. A ação é executada na mensagem após é tem sido correspondência e antes da mensagem está selecionada para o tópico. As alterações às propriedades de mensagem estão privadas para a mensagem copiada para a subscrição.
+Com condições de filtro do SQL Server e apenas com os, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL,](service-bus-messaging-sql-filter.md) que aproximadamente ligado leans sobre a sintaxe de declaração de ATUALIZAÇÃO do SQL Server. A ação é executada na mensagem depois que tem sido correspondência e antes da mensagem está selecionada para o tópico. As alterações às propriedades de mensagem estão privadas para a mensagem copiada para a subscrição.
 
 ## <a name="usage-patterns"></a>Padrões de utilização
 
@@ -51,7 +51,7 @@ Criação de partições utiliza filtros para distribuir mensagens entre várias
 
 Encaminhamento utiliza filtros para distribuir mensagens entre subscrições de tópico de forma previsível, mas não necessariamente exclusivo. Em conjunto com o [reencaminhamento automática](service-bus-auto-forwarding.md) funcionalidade, tópico podem ser utilizados filtros para criar encaminhamentos complexos gráficos dentro de um espaço de nomes do Service Bus para distribuição de mensagem dentro de uma região do Azure. Com as funções do Azure ou do Azure Logic Apps funcionam como uma ponte entre os espaços de nomes do Service Bus do Azure, pode criar topologias global complexas com integração direta na linha de aplicações empresariais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

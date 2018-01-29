@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 
-Se uma aplicação encontra um erro fatal imediatamente depois envia uma mensagem e a instância da aplicação reiniciar, por conseguinte, indica Deteta que a entrega de mensagens anteriores não ocorriam, uma atividade send subsequente faz com que a mesma mensagem a aparecer no sistema duas vezes.
+Se uma aplicação detetar um erro fatal imediatamente depois envia uma mensagem e a instância da aplicação reiniciadas Deteta indica que a entrega de mensagens anteriores não ocorriam, uma atividade send subsequente faz com que a mesma mensagem aparecer duas vezes no sistema.
 
-Também é possível para um erro ao nível do cliente ou rede ocorra anteriormente um momento e para uma mensagem enviada para ser consolidadas numa fila, com a confirmação não tornando-a novamente para o cliente com êxito. Este cenário deixa o cliente em dúvida sobre o resultado da operação de envio.
+Também é possível que um erro ao nível do cliente ou rede ocorra um momento anteriormente e, de uma mensagem enviada ser consolidadas numa fila, com a confirmação não com êxito devolvida ao cliente. Este cenário deixa o cliente em dúvida sobre o resultado da operação de envio.
 
 Deteção duplicada demora dúvida fora nestas situações, ativando o remetente reenviar a mesma mensagem e a fila ou um tópico elimina quaisquer cópias duplicadas.
 
@@ -53,7 +53,7 @@ Tenha em atenção que afetam o débito de fila (e tópico), uma vez que todos o
 
 Manter a janela pequenos significa que menos de ids de mensagem tem de ser mantidos e correspondência e débito é afetado inferior. Para entidades de débito elevado que requerem a deteção duplicada, deve manter a janela tão reduzida quanto possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

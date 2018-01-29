@@ -1,273 +1,275 @@
 ---
-title: "Configurar a descarga de SSL - Gateway de aplicação do Azure - PowerShell | Microsoft Docs"
-description: "Este artigo fornece instruções para criar um gateway de aplicação com SSL offload utilizando o Gestor de recursos do Azure"
-documentationcenter: na
+title: "Criar um gateway de aplicação com a terminação de SSL - Azure PowerShell | Microsoft Docs"
+description: "Saiba como criar um gateway de aplicação e adicionar um certificado para a terminação de SSL com o Azure PowerShell."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 3c3681e0-f928-4682-9d97-567f8e278e13
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: ee48ca45ae0d337b5b919dbbb28341caf8af0d45
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 4972597e8e2db36be47c86b9aa1e592d94d4c2fe
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Configurar um gateway de aplicação para a descarga de SSL com o Azure Resource Manager
+# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Criar um gateway de aplicação com a terminação de SSL com o Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-ssl-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> * [PowerShell clássico do Azure](application-gateway-ssl.md)
-> * [CLI 2.0 do Azure](application-gateway-ssl-cli.md)
+Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](application-gateway-introduction.md) com um certificado para [terminação de SSL](application-gateway-backend-ssl.md) que utiliza um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao conjunto predefinido de back-end do gateway de aplicação. 
 
-Pode configurar o Azure Application Gateway para terminar a sessão SSL (Secure Sockets Layer) no gateway para evitar tarefas dispendiosas de desencriptação de SSL que ocorrem no farm Web. A descarga de SSL simplifica ainda a configuração do servidor de front-end e a gestão da aplicação Web.
+Neste artigo, saiba como:
 
-## <a name="before-you-begin"></a>Antes de começar
+> [!div class="checklist"]
+> * Criar um certificado autoassinado
+> * Configurar uma rede
+> * Criar um gateway de aplicação com o certificado
+> * Criar um conjunto com o conjunto de back-end predefinido de dimensionamento de máquina virtual
 
-1. Instale a versão mais recente dos cmdlets Azure PowerShell com o Instalador de Plataforma Web. Pode transferir e instalar a versão mais recente a partir da secção **Windows PowerShell** da página [Transferências](https://azure.microsoft.com/downloads/).
-2. Crie uma rede virtual e uma sub-rede para o gateway de aplicação. Verifique se a sub-rede não está a ser utilizada por nenhuma máquina virtual ou implementação na nuvem. O gateway de aplicação tem de constar, por si só, numa sub-rede de rede virtual.
-3. Os servidores que configurar para utilizar o gateway de aplicação devem existir ou tem os respetivos pontos finais criados na rede virtual ou com um endereço IP público ou endereço IP virtual (VIP) atribuído.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="what-is-required-to-create-an-application-gateway"></a>O que é necessário para criar um gateway de aplicação?
+Este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
-* **Agrupamento de servidores de back-end**: A lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
-* **Definições de agrupamento de servidores de back-end**: cada conjunto tem definições como a porta, protocolo e a afinidade com base em cookies. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
-* **Porta de front-end**: esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
-* **Serviço de escuta**: O serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https; estas definições são maiúsculas e minúsculas) e o nome do certificado SSL (se configurar o SSL offload).
-* **Regra**: A regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end para direcionar o tráfego para quando chegar a um determinado serviço de escuta. Atualmente, apenas é suportada a regra *básica*. A regra *básica* refere-se à distribuição de carga round robin.
+## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-**Notas de configuração adicionais**
+Para utilização em produção, deve importar um certificado válido assinado pelo fornecedor fidedigno. Para este tutorial, crie um certificado autoassinado utilizando [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Pode utilizar [exportação PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com o Thumbprint que foi devolvido para exportar um ficheiro pfx de certificado.
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deverá passar para **Https** (sensível às maiúsculas e minúsculas). Adicionar o **SslCertificate** elemento **HttpListener** com o valor da variável configurado para o certificado SSL. A porta de front-end deve ser atualizada para **443**.
+```powershell
+New-SelfSignedCertificate `
+  -certstorelocation cert:\localmachine\my `
+  -dnsname www.contoso.com
+```
 
-**Para ativar a afinidade com base em cookies**: pode configurar um gateway de aplicação para se certificar de que um pedido de uma sessão de cliente é sempre direcionado para a mesma VM no web farm. Para tal, insira um cookie de sessão que permite ao gateway direcionar adequadamente o tráfego. Para ativar a afinidade com base em cookies, defina **CookieBasedAffinity** como **Ativado** no elemento **BackendHttpSettings**.
+Deverá ver algo semelhante a este resultado de:
+
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
+
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+```
+
+Utilize o thumbprint para criar o ficheiro pfx:
+
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate `
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
+  -FilePath c:\appgwcert.pfx `
+  -Password $pwd
+```
+
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Criar um grupo de recursos do Azure com o nome *myResourceGroupAG* com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
+
+## <a name="create-network-resources"></a>Criar recursos de rede
+
+Configure as sub-redes denominadas *myBackendSubnet* e *myAGSubnet* utilizando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Criar a rede virtual denominada *myVNet* utilizando [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) com as configurações de sub-rede. E por fim, crie o endereço IP público com o nome *myAGPublicIPAddress* utilizando [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Estes recursos são utilizados para fornecer conectividade de rede para o gateway de aplicação e os respetivos recursos associados.
+
+```powershell
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-A diferença entre utilizar o modelo de implementação clássico do Azure e com o Azure Resource Manager é a ordem pela qual criar um gateway de aplicação e os itens que devem ser configurados.
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e porta de front-end
 
-Com o Resource Manager, todos os componentes de um gateway de aplicação são configurados individualmente e, em seguida, colocar em conjunto para criar um recurso de gateway de aplicação.
-
-Os passos necessários para criar um gateway de aplicação encontram-se descritos abaixo:
-
-1. [Criar um grupo de recursos para o Resource Manager](#create-a-resource-group-for-resource-manager)
-2. [Criar rede virtual, uma sub-rede e um IP público para o gateway de aplicação](#create-virtual-network-subnet-and-public-IP-for-the-application-gateway)
-3. [Criar um objeto de configuração do gateway de aplicação](#create-an-application-gateway-configuration-object)
-4. [Crie um recurso de gateway de aplicação](#create-an-application-gateway-resource)
-
-## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Resource Manager
-
-Não se esqueça de mudar o modo do PowerShell para utilizar o cmdlets do Azure Resource Manager. Para obter mais informações, veja [Utilizar o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md).
-
-   1. Introduza o seguinte comando:
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-   2. Para verificar as subscrições para a conta, introduza os seguintes comandos:
-
-   ```powershell
-   Get-AzureRmSubscription
-   ```
-
-   Ser-lhe-á solicitado para autenticar com as suas credenciais.
-
-   3. A escolha qual das suas subscrições do Azure a utilizar, introduza o seguinte comando:
-
-   ```powershell
-   Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-   ```
-
-   4. Para criar um grupo de recursos, introduza o seguinte comando. (Ignore este passo se estiver a utilizar um grupo de recursos existente.)
-
-   ```powershell
-   New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
-   ```
-
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização, Esta definição é utilizada como a localização predefinida para recursos nesse grupo de recursos. Certifique-se de que todos os comandos para criar um gateway de aplicação utilizem o mesmo grupo de recursos.
-
-No exemplo anterior, criámos um grupo de recursos denominado **appgw-RG** e a localização é **EUA oeste**.
-
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Criar uma rede virtual e uma sub-rede para o gateway de aplicação
-
-O exemplo que se segue mostra como criar uma rede virtual utilizando o Resource Manager:
-
-   1. Introduza o seguinte comando:
-
-   ```powershell
-   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-   ```
-
-   Este exemplo atribui o intervalo de endereços **10.0.0.0/24** a uma variável de sub-rede a utilizar para criar uma rede virtual.
-
-   2. Introduza o seguinte comando:
-
-   ```powershell
-   $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-   ```
-
-   Este exemplo cria uma rede virtual denominada **appgwvnet** no grupo de recursos **appgw-rg** para o **EUA oeste** região utilizando o prefixo **10.0.0.0/16** com sub-rede **10.0.0.0/24**.
-
-   3. Introduza o seguinte comando:
-
-   ```powershell
-   $subnet = $vnet.Subnets[0]
-   ```
-
-   Este exemplo atribui o objeto de sub-rede à variável **$subnet** para conhecer os passos seguintes.
-
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
-
-Para criar um endereço IP público para a configuração de front-end, introduza o seguinte comando:
+Associar *myAGSubnet* que criou anteriormente para o gateway de aplicação com [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Atribuir *myAGPublicIPAddress* para o gateway de aplicação com [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$subnet=$vnet.Subnets[0]
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 443
 ```
 
-Este exemplo cria um recurso IP público **publicIP01** no grupo de recursos **appgw-rg** para o **EUA oeste** região.
+### <a name="create-the-backend-pool-and-settings"></a>Criar o conjunto back-end e as definições
 
-## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway de aplicação
-
-   1. Para criar um objeto de configuração do gateway de aplicação, introduza o seguinte comando:
-
-   ```powershell
-   $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-   ```
-
-   Este exemplo cria uma configuração de IP do gateway de aplicação com o nome **gatewayIP01**. Quando é iniciado o Gateway de aplicação, escolherá um endereço IP da sub-rede configurado e encaminha o tráfego de rede para os endereços IP no conjunto de IP back-end. Note que cada instância terá um endereço IP.
-
-   2. Introduza o seguinte comando:
-
-   ```powershell
-   $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
-   ```
-
-   Este exemplo configura o conjunto de endereços IP back-end com o nome **pool01** com endereços IP **134.170.185.46**, **134.170.188.221**, e **134.170.185.50** . Estes valores são os endereços IP que irão receber o tráfego de rede proveniente do ponto final do IP de front-end. Substitua os endereços IP do exemplo acima pelos endereços IP dos pontos finais da sua aplicação Web.
-
-   3. Introduza o seguinte comando:
-
-   ```powershell
-   $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
-   ```
-
-   Este exemplo configura a definição de gateway de aplicação **poolsetting01** para tráfego de rede de balanceamento de carga no conjunto de back-end.
-
-   4. Introduza o seguinte comando:
-
-   ```powershell
-   $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
-   ```
-
-   Este exemplo configura a porta IP de front-end com o nome **frontendport01** para o ponto final IP público.
-
-   5. Introduza o seguinte comando:
-
-   ```powershell
-   $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password "<password>"
-   ```
-
-   Este exemplo configura o certificado utilizado para a ligação SSL. O certificado tem de estar no formato PFX e a palavra-passe tem de ter entre 4 e 12 carateres.
-
-   6. Introduza o seguinte comando:
-
-   ```powershell
-   $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-   ```
-
-   Este exemplo cria a configuração de IP Front-end com o nome **fipconfig01** e associa o endereço IP público com a configuração de IP Front-end.
-
-   7. Introduza o seguinte comando:
-
-   ```powershell
-   $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-   ```
-
-   Este exemplo cria o serviço de escuta com o nome **listener01** e associa a porta de front-end para a configuração de IP Front-end e um certificado.
-
-   8. Introduza o seguinte comando:
-
-   ```powershell
-   $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-   ```
-
-   Este exemplo cria a regra de encaminhamento do Balanceador de carga com o nome **rule01** que configura o comportamento do Balanceador de carga.
-
-   9. Introduza o seguinte comando:
-
-   ```powershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-   ```
-
-   Este exemplo configura o tamanho da instância do gateway de aplicação.
-
-   > [!NOTE]
-   > O valor predefinido para **InstanceCount** é **2**, com um valor máximo de 10. O valor predefinido para **GatewaySize** é **média**. Pode escolher entre Standard_Small, Standard_Medium e Standard_Large.
-
-   10. Introduza o seguinte comando:
-
-   ```powershell
-   $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
-   ```
-
-   Este passo define a política SSL a utilizar no gateway de aplicação. Para obter mais informações, consulte [versões de política de configurar o SSL e conjuntos de cifras no Gateway de aplicação](application-gateway-configure-ssl-policy-powershell.md).
-
-## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Criar um gateway de aplicação com o New-AzureApplicationGateway
-
-Introduza o seguinte comando:
+Criar o conjunto de back-end com o nome *appGatewayBackendPool* para o gateway de aplicação com [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configurar as definições para o conjunto de back-end utilizando [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-Este exemplo cria um gateway de aplicação com todos os itens de configuração dos passos anteriores. No exemplo, o gateway de aplicação é designado **appgwtest**.
+### <a name="create-the-default-listener-and-rule"></a>Criar o serviço de escuta de predefinição e a regra
 
-## <a name="get-the-application-gateway-dns-name"></a>Obter o nome DNS do gateway de aplicação
+Um serviço de escuta é obrigatório para ativar o gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste exemplo, pode criar um serviço de escuta básico que escuta tráfego HTTPS do URL de raiz. 
 
-Depois de criado o gateway, o próximo passo é configurar o front-end para comunicação. Gateway de aplicação requer um nome DNS dinamicamente atribuído ao utilizar um IP público, que não é amigável. Para garantir que os utilizadores finais podem aceder o gateway de aplicação, pode utilizar um registo CNAME para apontar para o ponto final público do gateway de aplicação. Para obter mais informações, consulte [configurar um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
-
-Para obter o nome DNS do gateway de aplicação, obter os detalhes do gateway de aplicação e o seu nome IP/DNS associado ao utilizar o **PublicIPAddress** elemento ligado ao gateway de aplicação. Utilize o nome DNS do gateway de aplicação para criar um registo CNAME, que aponta de aplicações dois web para este nome DNS. Iremos não recomendamos a utilização de registos de um, porque o VIP pode ser alterado de reiniciar o gateway de aplicação.
-
+Criar um objeto de certificado utilizando [New-AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) e, em seguida, crie um serviço de escuta com o nome *mydefaultListener* utilizando [ Novo AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) com a configuração de front-end, uma porta de front-end e um certificado que criou anteriormente. Uma regra é necessária para o serviço de escuta saber que conjunto de back-end a utilizar para tráfego de entrada. Criar uma regra básica com o nome *rule1* utilizando [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+$pwd = ConvertTo-SecureString `
+  -String "Azure123456!" `
+  -Force `
+  -AsPlainText
+$cert = New-AzureRmApplicationGatewaySslCertificate `
+  -Name "appgwcert" `
+  -CertificateFile "c:\appgwcert.pfx" `
+  -Password $pwd
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name mydefaultListener `
+  -Protocol Https `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport `
+  -SslCertificate $cert
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
+### <a name="create-the-application-gateway-with-the-certificate"></a>Criar o gateway de aplicação com o certificado
+
+Agora que criou os recursos de suporte necessários, especifique os parâmetros para o gateway de aplicação com o nome *myAppGateway* utilizando [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)e, em seguida, crie-o utilizando [ Novo-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) com o certificado.
+
+### <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
+
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku `
+  -SslCertificates $cert
 ```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
+
+## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquina virtual
+
+Neste exemplo, pode criar um conjunto para fornecer os servidores para o conjunto de back-end no gateway de aplicação de dimensionamento de máquina virtual. Atribuir a escala definida para o conjunto de back-end, quando configurar as definições de IP.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name myVmssIPConfig `
+  -SubnetId $vnet.Subnets[1].Id `
+  -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
+$vmssConfig = New-AzureRmVmssConfig `
+  -Location eastus `
+  -SkuCapacity 2 `
+  -SkuName Standard_DS2 `
+  -UpgradePolicyMode Automatic
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher MicrosoftWindowsServer `
+  -ImageReferenceOffer WindowsServer `
+  -ImageReferenceSku 2016-Datacenter `
+  -ImageReferenceVersion latest
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername azureuser `
+  -AdminPassword "Azure123456!" `
+  -ComputerNamePrefix myvmss
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name myVmssNetConfig `
+  -Primary $true `
+  -IPConfiguration $ipConfig
+New-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmssConfig
 ```
+
+### <a name="install-iis"></a>Instalar o IIS
+
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
+Update-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmss
+```
+
+## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
+
+Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+```
+
+![Aviso seguro](./media/application-gateway-ssl-arm/application-gateway-secure.png)
+
+Para aceitar a segurança de aviso se utilizou um certificado autoassinado, selecione **detalhes** e, em seguida, **avance para a página Web**. O Web site do IIS protegido, em seguida, é apresentado como no exemplo seguinte:
+
+![URL de base de teste no gateway de aplicação](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se pretender configurar um gateway de aplicação para utilizar com um balanceador de carga interno, consulte [criar um gateway de aplicação com um balanceador de carga interno](application-gateway-ilb.md).
+Neste tutorial, ficou a saber como:
 
-Para obter mais informações sobre balanceamento de carga em geral, consulte opções:
+> [!div class="checklist"]
+> * Criar um certificado autoassinado
+> * Configurar uma rede
+> * Criar um gateway de aplicação com o certificado
+> * Criar um conjunto com o conjunto de back-end predefinido de dimensionamento de máquina virtual
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Gestor de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
+Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.

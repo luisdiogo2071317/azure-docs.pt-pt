@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Resolução de problemas comuns na automatização do Azure 
 Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.
@@ -195,11 +195,19 @@ Pode eliminar a consulta para esta solução e reonboard a solução, a qual rec
 
 **Razão para o erro:**
 
-Este código de erro significa que a implementação falha devido a violação de uma política.
+Este código de erro significa que a implementação falha devido a violação de uma ou mais políticas.
 
 **Sugestões de resolução de problemas:**
 
-Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém a sua conta de automatização e selecione **implementações** em **definições** para ver a implementação. Para obter mais informações sobre a visita de política do Azure: [descrição geral da política do Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+Para implementar com êxito a solução, terá de considerar alterar a política indicada. Como existem vários tipos de políticas que podem ser definidas, as necessidade de alterações específicas dependem a política é violada. Por exemplo, se uma política foi definida num grupo de recursos que negou permissão ao alterar o conteúdo de determinados tipos de recursos nesse grupo de recursos, pode, por exemplo, efetuar qualquer uma das seguintes:
+
+*   Remova-a completamente.
+* Tente carregar para um grupo de recursos diferentes.
+* Rever a política para ao, por exemplo:
+   * Novamente direcionar a política para um um recurso específico (como juntar uma conta de automatização específica).
+   * A revisão o conjunto de recursos, essa política foi configurada para negar.
+
+Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém a sua conta de automatização e selecione **implementações** em **definições** para ver a implementação. Para obter mais informações sobre a visita de política do Azure: [descrição geral da política do Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

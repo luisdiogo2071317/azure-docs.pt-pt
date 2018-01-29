@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/24/2018
 ms.author: billmath
-ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: eaa9995430833c0c087ed0d4044f6c41d254e3ff
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentication do Azure Active Directory pass-through: Descrição profunda técnica
 Este artigo é uma descrição geral sobre como funciona o Azure Active directory (Azure AD) autenticação pass-through. Para avançada técnica e informações de segurança, consulte o [detalhada da segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artigo.
@@ -31,7 +31,7 @@ Quando um utilizador tenta iniciar sessão a uma aplicação protegida pelo Azur
 2. Se o utilizador não está já iniciou sessão, o utilizador é redirecionado para o Azure AD **sessão do utilizador** página.
 3. O utilizador introduz o respetivo nome de utilizador e palavra-passe para o página de início de sessão do Azure AD e, em seguida, seleciona o **sessão** botão.
 4. Azure AD, no receber o pedido para iniciar sessão, coloca o nome de utilizador e palavra-passe (encriptadas através da utilização de uma chave pública) numa fila.
-5. Um agente de autenticação no local obtém o nome de utilizador e palavra-passe encriptada da fila. Tenha em atenção que o agente não frequentemente consulta pedidos da fila, mas obtém pedidos através de uma ligação de persistant previamente estabelecida.
+5. Um agente de autenticação no local obtém o nome de utilizador e palavra-passe encriptada da fila. Tenha em atenção que o agente não frequentemente consulta pedidos da fila, mas obtém pedidos através de uma ligação persistente previamente estabelecida.
 6. O agente desencripta a palavra-passe utilizando a respetiva chave privada.
 7. O agente valida o nome de utilizador e palavra-passe no Active Directory, utilizando APIs padrão do Windows, que é um mecanismo semelhante para os serviços de Federação do Active Directory (AD FS) utiliza. O nome de utilizador pode ser qualquer um do local no nome de utilizador predefinido, normalmente, `userPrincipalName`, ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID`).
 8. O controlador de domínio do Active Directory no local (DC) avalia o pedido e devolve a resposta adequada (êxito, falha, palavra-passe expirou ou utilizador bloqueadas) para o agente.

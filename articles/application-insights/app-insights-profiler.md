@@ -12,86 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Perfil live aplicações web do Azure com o Application Insights
 
 *Esta funcionalidade do Application Insights está normalmente disponível para o App Service do Azure e está em pré-visualização para os recursos de computação do Azure.*
 
-Saber quanto tempo é gasto a cada método na sua aplicação web em direto utilizando [gerador de perfis do Application Insights](app-insights-overview.md). A ferramenta de criação de perfis do Application Insights mostra perfis de detalhado de pedidos em direto que foram processados pela sua aplicação e realça o *caminho frequente* que utiliza mais tempo. O gerador de perfis seleciona automaticamente os exemplos que tenham tempos de resposta diferentes e, em seguida, utiliza várias técnicas para minimizar os custos gerais.
+Saber quanto tempo é gasto a cada método na sua aplicação web em direto quando utilizar [Application Insights](app-insights-overview.md). A ferramenta de criação de perfis do Application Insights mostra perfis de detalhado de pedidos em direto que foram processados pela sua aplicação e realça o *caminho frequente* que utiliza mais tempo. Pedidos com tempos de resposta diferentes são profiled numa base de amostragem. O overhead para a aplicação é minimizado através de várias técnicas.
 
-Atualmente, o gerador de perfis funciona para aplicações web ASP.NET em execução no App Service do Azure,, pelo menos, a camada de serviço básico.
+O gerador de perfis funciona atualmente para ASP.NET e o ASP.NET core em execução no App Service do Azure, além das aplicações web, pelo menos, o **básico** camada de serviço.
 
-## <a id="installation"></a>Ativar o gerador de perfis
+## <a id="installation"></a>Ativar o gerador de perfis de aplicação Web de serviços de aplicações
+Se já tiver a aplicação publicada nos serviços de uma aplicação, mas não o fez nada com o código de origem para utilizar o Application Insights, navegue até ao painel de serviços de aplicação no portal do Azure, aceda a **monitorização | Application Insights**, siga as instruções no painel para criar um novo ou selecione o recurso do Application Insights existente para monitorizar a aplicação Web. Tenha em atenção que o gerador de perfis só funciona com **básico** planear serviços aplicacionais ou superior.
 
-[Instale o Application Insights](app-insights-asp-net.md) no seu código. Se já estiver instalado, certifique-se de que dispõe da versão mais recente. Para verificar a versão mais recente, no Explorador de soluções, clique no seu projeto e, em seguida, selecione **pacotes NuGet gerir** > **atualizações** > **Atualize todos os pacotes**. Em seguida, volte a implementar a aplicação.
+![Ativar o Insights de aplicação no portal de serviços aplicacionais][appinsights-in-appservices]
 
-*Com o ASP.NET Core? Obter [obter mais informações](#aspnetcore).*
+Se tiver acesso para o código de origem do projeto, [instale Application Insights](app-insights-asp-net.md). Se já estiver instalado, certifique-se de que dispõe da versão mais recente. Para verificar a versão mais recente, no Explorador de soluções, clique no seu projeto e, em seguida, selecione **pacotes NuGet gerir** > **atualizações** > **Atualize todos os pacotes**. Em seguida, implemente a sua aplicação.
+
+Uma aplicação ASP.NET Core tem de instalar o 2.1.0-beta6 de pacote Microsoft.ApplicationInsights.AspNetCore NuGet ou posterior para trabalhar com o gerador de perfis. A partir 27 de Junho de 2017, não suportamos versões anteriores.
 
 No [portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para a sua aplicação web. Selecione **desempenho** > **ativar o gerador de perfis do Application Insights**.
 
 ![Selecione a faixa de gerador de perfis de ativação][enable-profiler-banner]
 
-Em alternativa, pode selecionar **configurar** para ver o estado e ativar ou desativar o gerador de perfis.
+Em alternativa, pode selecionar **gerador de perfis** configuração para ver o estado e ativar ou desativar o gerador de perfis.
 
-![Em desempenho, configurar, selecione][performance-blade]
+![Em desempenho, selecione configuração do gerador de perfis][performance-blade]
 
-Aplicações Web que estão configuradas com o Application Insights estão listadas na **configurar**. Siga as instruções para instalar o agente do gerador de perfis, se necessário. Se nenhuma aplicação web foram configuradas com o Application Insights, selecione **adicionar aplicações ligadas**.
+Aplicações Web que estão configuradas com o Application Insights estão listadas no **gerador de perfis** painel de configuração. Se seguiu os passos acima, o agente do gerador de perfis deve ser instalado já. Selecione **ativar o gerador de perfis** no **gerador de perfis** painel de configuração.
 
-Para controlar o gerador de perfis em todas as suas aplicações web ligado, do **configurar** painel, selecione **ativar o gerador de perfis** ou **desativar o gerador de perfis**.
+Siga as instruções para instalar o agente do gerador de perfis, se necessário. Se nenhuma aplicação web foram configuradas com o Application Insights, selecione **adicionar aplicações ligadas**.
 
 ![Configurar opções do painel][linked app services]
 
 Ao contrário das aplicações web alojadas através de planos de serviço de aplicações, as aplicações alojadas nos recursos de computação do Azure (por exemplo, Virtual Machines do Azure, conjuntos de dimensionamento de máquina virtual, do Azure Service Fabric ou Cloud Services do Azure) não são geridas diretamente pelo Azure. Neste caso, não há nenhuma aplicação web para ligar a. Em vez de ligar a uma aplicação, selecione o **ativar o gerador de perfis** botão.
 
-## <a name="disable-the-profiler"></a>Desativar o gerador de perfis
-Para interromper ou reiniciar o gerador de perfis para uma instância de serviço de aplicações individuais, em **trabalhos Web**, vá para o recurso de serviço de aplicações. Para eliminar o gerador de perfis, aceda a **extensões**.
-
-![Desativar o gerador de perfis para das tarefas da web][disable-profiler-webjob]
-
-Recomendamos que tenha o gerador de perfis ativado todas as suas aplicações web para detetar como antecipadamente quaisquer problemas de desempenho possível.
-
-Se utilizar o WebDeploy para implementar as alterações à sua aplicação web, certifique-se de que excluir pasta App_Data seja eliminado durante a implementação. Caso contrário, a extensão de gerador de perfis são eliminados ficheiros da próxima vez que implementar a aplicação web no Azure.
-
-### <a name="using-profiler-with-azure-vms-and-azure-compute-resources-preview"></a>Utilizar o gerador de perfis com as VMs do Azure e recursos de computação do Azure (pré-visualização)
-
-Quando lhe [ativar Application Insights para o App Service do Azure no tempo de execução](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), o gerador de perfis do Application Insights está automaticamente disponível. Se já tiver ativado o Application Insights para o recurso, poderá ter de atualizar para a versão mais recente, utilizando o Assistente de configuração.
+### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>Ativar o gerador de perfis para os recursos de computação do Azure (pré-visualização)
 
 Obter informações um [versão de pré-visualização do gerador de perfis para os recursos de computação do Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
-
-## <a name="limitations"></a>Limitações
-
-A retenção de dados predefinido é de cinco dias. Os dados máximos ingeridos diário são de 10 GB.
-
-Não existem sem custos de utilização do serviço de gerador de perfis. Para utilizar o serviço do gerador de perfis, a aplicação web tem de ser alojados em, pelo menos, o escalão básico do serviço de aplicações.
-
-## <a name="overhead-and-sampling-algorithm"></a>Sobrecarga e o algoritmo de amostragem
-
-O gerador de perfis aleatoriamente executa dois minutos a cada hora em cada máquina virtual que aloja a aplicação que tenha ativado para capturar rastreios de gerador de perfis. Quando estiver a executar o gerador de perfis, adiciona entre 5% e 15% sobrecarga da CPU no servidor.
-Os mais servidores que estão disponíveis para alojar a aplicação, tem do gerador de perfis o menor impacto no desempenho da aplicação global. Isto acontece porque o algoritmo de amostragem resulta no gerador de perfis em execução em apenas 5% dos servidores em qualquer altura. Estão disponíveis para servir pedidos web e a sobrecarga de servidor causada executando o gerador de perfis de deslocamento mais servidores.
-
-
 ## <a name="view-profiler-data"></a>Ver dados do gerador de perfis
 
-Vá para o **desempenho** painel e, em seguida, desloque-se para baixo para a lista de operações.
+**Certifique-se que a aplicação está a receber traffics.** Se estão a fazer uma experimentação, pode gerar pedidos para a sua aplicação Web utilizando o [teste de desempenho do Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se tiver ativado recentemente o gerador de perfis, pode executar um teste de carga curto para cerca de 15 minutos e deve obter rastreios de gerador de perfis. Se tiver ativado para tempo já o gerador de perfis,. tenha em atenção que o gerador de perfis aleatoriamente executa duas vezes a que cada hora e dois minutos cada vez que é executado. Sugerimos a executar o teste de carga para uma hora para se certificar de que a obter rastreios de gerador de perfis de exemplo.
 
-![Coluna de exemplos de painel de informações de desempenho de aplicações][performance-blade-examples]
-
-A tabela de operações tem estas colunas:
-
-* **CONTAGEM**: O número destes pedidos no intervalo de tempo a **CONTAGEM** painel.
-* **MEDIANA**: O típico tempo demora a aplicação para responder a um pedido. Metade de todas as respostas foram mais rápida do que este valor.
-* **PERCENTIL 95TH**: 95% das respostas foram mais rápida do que este valor. Se este valor for substancialmente diferente da mediana, poderá existir um problema intermitente faça com a sua aplicação. (Em alternativa, pode ser explicado por uma funcionalidade de design, como a colocação em cache.)
-* **Os RASTREIOS de gerador de perfis**: um ícone indica que o gerador de perfis tiver capturado os rastreios de pilha para esta operação.
-
-Selecione **vista** para abrir o Explorador de rastreio. O Explorador de mostra alguns exemplos que foi capturada o gerador de perfis, classificados por tempo de resposta.
-
-Se estiver a utilizar o **desempenho de pré-visualização** painel, vá para o **tomar ações** secção da página para ver os rastreios de gerador de perfis. Selecione o **rastreios de gerador de perfis** botão.
+Assim que a sua aplicação recebida algum tráfego, vá para o **desempenho** painel, vá para o **tomar ações** secção da página para ver os rastreios de gerador de perfis. Selecione o **rastreios de gerador de perfis** botão.
 
 ![Rastreios de gerador de perfis de pré-visualização de painel de informações de desempenho de aplicações][performance-blade-v2-examples]
 
@@ -113,7 +81,7 @@ Gerador de perfis de serviço da Microsoft utiliza uma combinação de métodos 
 A pilha de chamadas que é apresentada na vista de linha cronológica é o resultado da amostragem e instrumentação. Porque cada amostra captura a pilha de chamadas completa do thread, inclui código do Microsoft .NET Framework e a partir de outras estruturas que referenciar.
 
 ### <a id="jitnewobj"></a>Alocação de objeto CLR (Common! JIT\_novo ou clr! JIT\_Newarr1)
-**CLR! JIT\_novo** e **clr! JIT\_Newarr1** são funções de programa auxiliar no .NET Framework que alocar memória a partir de uma pilha gerida. **CLR! JIT\_novo** é invocada quando existe um objeto é alocado. **CLR! JIT\_Newarr1** é invocada quando é atribuída uma matriz de objetos. Normalmente, estas duas funções são muito rápidas em tomar relativamente pequenas quantidades de tempo. Se vir **clr! JIT\_novo** ou **clr! JIT\_Newarr1** demorar uma quantidade substancial de tempo na sua linha cronológica, é uma indicação de que o código pode alocar muitos objetos e consumir quantidades significativas de memória.
+**CLR! JIT\_novo** e **clr! JIT\_Newarr1** são funções de programa auxiliar no .NET Framework que alocar memória a partir de uma pilha gerida. **CLR! JIT\_novo** é invocada quando existe um objeto é alocado. **CLR! JIT\_Newarr1** é invocada quando é atribuída uma matriz de objetos. Normalmente, estas duas funções são rápidas em tomar relativamente pequenas quantidades de tempo. Se vir **clr! JIT\_novo** ou **clr! JIT\_Newarr1** demorar uma quantidade substancial de tempo na sua linha cronológica, é uma indicação de que o código pode alocar muitos objetos e consumir quantidades significativas de memória.
 
 ### <a id="theprestub"></a>Código de carregamento de CLR (Common! ThePreStub)
 **CLR! ThePreStub** é uma função de programa auxiliar no .NET Framework que prepara o código para executar pela primeira vez. Isto normalmente inclui, mas não está limitado a compilação de just-in-time (JIT). Para cada método c#, **clr! ThePreStub** deve ser invocado no máximo uma vez durante a duração de um processo.
@@ -151,6 +119,26 @@ A aplicação está a efetuar operações de rede.
 
 ### <a id="when"></a>Quando coluna
 O **quando** coluna é uma visualização de como os exemplos INCLUSIVE recolhidos para um nó variam ao longo do tempo. O intervalo total do pedido está dividido em 32 registos de tempo. Os exemplos inclusive para esse nó são acumulados nesses registos 32. Cada registo é representado como uma barra. A altura da barra representa um valor expandido. Para nós marcado **CPU_TIME** ou **BLOCKED_TIME**, ou onde existe uma relação óbvias de consumir um recurso (CPU, disco, thread), a barra representa consumir um destes recursos para o período de hora desse registo. Para estas métricas, é possível obter um valor superior a 100% de consumir a vários recursos. Por exemplo, se utilizar em média duas CPUs durante um intervalo, obter 200%.
+
+## <a name="limitations"></a>Limitações
+
+A retenção de dados predefinido é de cinco dias. Os dados máximos ingeridos diário são de 10 GB.
+
+Não existem sem custos de utilização do serviço de gerador de perfis. Para utilizar o serviço do gerador de perfis, a aplicação web tem de ser alojados em, pelo menos, o escalão básico do serviço de aplicações.
+
+## <a name="overhead-and-sampling-algorithm"></a>Sobrecarga e o algoritmo de amostragem
+
+O gerador de perfis aleatoriamente executa dois minutos a cada hora em cada máquina virtual que aloja a aplicação que tenha ativado para capturar rastreios de gerador de perfis. Quando estiver a executar o gerador de perfis, adiciona entre 5% e 15% sobrecarga da CPU no servidor.
+Os mais servidores que estão disponíveis para alojar a aplicação, tem do gerador de perfis o menor impacto no desempenho da aplicação global. Isto acontece porque o algoritmo de amostragem resulta no gerador de perfis em execução em apenas 5% dos servidores em qualquer altura. Estão disponíveis para servir pedidos web e a sobrecarga de servidor causada executando o gerador de perfis de deslocamento mais servidores.
+
+## <a name="disable-the-profiler"></a>Desativar o gerador de perfis
+Para interromper ou reiniciar o gerador de perfis para uma instância de serviço de aplicações individuais, em **trabalhos Web**, vá para o recurso de serviço de aplicações. Para eliminar o gerador de perfis, aceda a **extensões**.
+
+![Desativar o gerador de perfis para das tarefas da web][disable-profiler-webjob]
+
+Recomendamos que tenha o gerador de perfis ativado todas as suas aplicações web para detetar como antecipadamente quaisquer problemas de desempenho possível.
+
+Se utilizar o WebDeploy para implementar as alterações à sua aplicação web, certifique-se de que excluir pasta App_Data seja eliminado durante a implementação. Caso contrário, a extensão de gerador de perfis são eliminados ficheiros da próxima vez que implementar a aplicação web no Azure.
 
 
 ## <a id="troubleshooting"></a>Resolução de Problemas
@@ -229,12 +217,12 @@ Quando configura o gerador de perfis, as atualizações são efetuadas às defin
 9. Reinicie a aplicação web.
 
 ## <a id="profileondemand"></a>Gerador de perfis do acionador manualmente
-Quando foi desenvolvido o gerador de perfis foi adicionada uma interface de linha de comandos para que iremos foi testar o gerador de perfis nos serviços de aplicação. Utilizar este mesmo utilizadores de interface também pode personalizar como inicia o gerador de perfis. Um elevado nível o gerador de perfis utiliza o sistema do Kudu de serviço de aplicações para gerir a criação de perfis em segundo plano. Quando instala a extensão do Application Insights, iremos criar uma tarefa de contínua web que aloja o gerador de perfis. Utilizaremos esta mesma tecnologia para criar uma nova tarefa de web que pode personalizar para se ajustarem às suas necessidades.
+Quando foi desenvolvido o gerador de perfis foi adicionada uma interface de linha de comandos para que iremos foi testar o gerador de perfis nos serviços de aplicação. Utilizar estes mesmos utilizadores interface também pode personalizar como inicia o gerador de perfis. Um nível elevado, o gerador de perfis utiliza o sistema do Kudu de serviço de aplicações para gerir a criação de perfis em segundo plano. Quando instalar a extensão do Application Insights, iremos criar uma tarefa de contínua web que aloja o gerador de perfis. Esta mesma tecnologia são utilizadas para criar uma nova tarefa de web que pode personalizar para se ajustarem às suas necessidades.
 
 Esta secção explica como:
 
-1.  Crie uma tarefa de web que pode começar a utilizar o gerador de perfis de dois minutos prima de um botão.
-2.  Crie uma tarefa de web que pode agendar o gerador de perfis para ser executada.
+1.  Crie uma tarefa web, que pode começar a utilizar o gerador de perfis de dois minutos prima de um botão.
+2.  Crie uma tarefa web, que pode agendar o gerador de perfis para ser executada.
 3.  Conjunto de argumentos para o gerador de perfis.
 
 
@@ -243,9 +231,9 @@ Primeiro vamos familiarizar com o dashboard do trabalho web. Em definições cli
 
 ![Painel de webjobs](./media/app-insights-profiler/webjobs-blade.png)
 
-Como pode ver este dashboard mostra todas as tarefas da web que estão actualmente instaladas no seu site. Pode ver a tarefa de web ApplicationInsightsProfiler2 que tenha a tarefa de gerador de perfis em execução. Este é onde iremos irá criar o nosso novas tarefas de web para manual e agendada de criação de perfis.
+Como pode ver este dashboard mostra todas as tarefas da web que estão actualmente instaladas no seu site. Pode ver a tarefa de web ApplicationInsightsProfiler2 cujo, a tarefa de gerador de perfis em execução. Este é onde iremos acaba por ficar criar nosso novas tarefas de web para manual e agendada de criação de perfis.
 
-Primeiro vamos obter os binários vamos precisar.
+Primeiro vamos obter os binários, é necessário.
 
 1.  Primeiro, vá para o site do kudu. Em desenvolvimento separador de ferramentas, clique no separador "Ferramentas avançadas" com o logótipo do Kudu. Clique em "Ir". Isto irá demorar para um novo site e iniciar sessão automaticamente.
 2.  Em seguida, é necessário transferir os binários do gerador de perfis. Navegue para o Explorador de ficheiros através da consola de depuração -> CMD localizado na parte superior da página.
@@ -263,7 +251,7 @@ a.  O `start` comando indica o gerador de perfis para iniciar.
 b.  `--engine-mode immediate`indica o gerador de perfis que queremos iniciar imediatamente a criação de perfis.
 c.  `--single`meios para executar e, em seguida, pare automaticamente d.  `--immediate-profiling-duration 120`significa que tenham o gerador de perfis executar para por 120 segundos ou dois minutos.
 5.  Guarde este ficheiro.
-6.  Esta pasta de arquivo, pode botão direito do rato clique na pasta e escolha envie a -> pasta (zipped) Compressed. Isto irá criar um ficheiro. zip com o nome da sua pasta.
+6.  Esta pasta de arquivo, pode com o botão direito na pasta e escolha envie a -> pasta Compressed (em zipado). Isto irá criar um ficheiro. zip com o nome da sua pasta.
 
 ![iniciar o gerador de perfis comando](./media/app-insights-profiler/start-profiler-command.png)
 
@@ -275,7 +263,7 @@ Em seguida iremos adicionar uma nova tarefa de web no nosso site. Este exemplo m
 1.  Aceda ao dashboard de trabalhos web.
 2.  Clique no comando Adicionar da barra de ferramentas.
 3.  Dê um nome, a sua tarefa web devo escolher para corresponder ao nome do meu arquivo para efeitos de clareza e abri-lo até ter versões diferentes do run.cmd.
-4.  O ficheiro carregar parte do formulário clique no ícone do ficheiro aberto em encontrar o ficheiro. zip que criou acima.
+4.  O ficheiro carregar peças o formulário clique no ícone do ficheiro aberto em encontrar o ficheiro. zip que criou acima.
 5.  Para o tipo, escolha Triggered.
 6.  Para os Acionadores escolher Manual.
 7.  Clique em OK para guardar.
@@ -297,21 +285,15 @@ Agora que temos uma nova tarefa web, que iremos podem acionar manualmente, pode 
 Apesar deste método é relativamente simples, existem alguns aspetos a considerar.
 
 1.  Porque esta não é gerida pelo nosso serviço não temos nenhuma forma de atualizar os binários do agente para a tarefa de web. Não atualmente temos uma página de transferência estável para os nossos binários pelo que é a única forma de obter a versão mais recente através da atualização da sua extensão e a obtenção da pasta contínua, como fizemos acima.
-2.  Como esta é a utilização de linha de comandos, argumentos que foram originalmente concebidos com utilizar o programador, em vez de utilização do utilizador final, estes argumentos podem ser alterados no futuro, pelo que apenas tenha em atenção que ao atualizar. Não deve ser muito um problema porque pode adicionar uma tarefa web, executar e teste funciona. Eventualmente, iremos criar da IU para fazê-lo sem o processo manual mas é algo a ter em consideração.
+2.  Como esta é a utilização de argumentos da linha de comandos que foram originalmente concebidos com utilizar o programador, em vez de utilização do utilizador final, estes argumentos pode alterar no futuro, por isso, basta tenha em atenção que ao atualizar. Não deve ser muito um problema porque pode adicionar uma tarefa web, executar e teste funciona. Eventualmente, iremos criar da IU para fazê-lo sem o processo manual mas é algo a ter em consideração.
 3.  A funcionalidade de trabalhos Web para os serviços de aplicação é exclusiva quando é executada a tarefa de web assegura que o processo tem o mesmo variáveis de ambiente e definições de aplicação que o web site irá ter. Isto significa que não é necessário para passar a chave de instrumentação através da linha de comandos para o gerador de perfis, deve apenas processará a chave de instrumentação do ambiente. No entanto se pretender executar o gerador de perfis na sua caixa de desenvolvimento ou num computador fora de serviços aplicacionais terá de fornecer uma chave de instrumentação. Pode fazê-lo mediante a transmissão num argumento `--ikey <instrumentation-key>`. Tenha em atenção que este valor tem de corresponder à sua aplicação está a utilizar a chave de instrumentação. No resultado do registo do gerador de perfis que irá dizer que ikey o gerador de perfis começar a utilizar e se foi detetada atividade a partir dessa chave de instrumentação ao estão a criação de perfis.
-4.  As tarefas de web accionadas manualmente, na verdade, podem ser acionadas via Web Hook. Pode obter este url do botão direito do rato clicando na tarefa de web a partir do dashboard e visualizar as propriedades ou escolher propriedades na barra de ferramentas depois de selecionar o trabalho web a partir da tabela. Existem muitos dos artigos que pode encontrar online sobre esta para estar passará não muito detalhes acerca do mesmo, mas esta abre-se a possibilidade de acionar o gerador de perfis do seu pipeline CI/CD (como VSTS) ou algo semelhante Microsoft Flow (https://flow.microsoft.com/en-us/). Dependendo de como fancy que pretende tornar a sua run.cmd, que, pela forma, pode ser um run.ps1, as possibilidades são um vasto conjunto.  
-
-
-
-
-## <a id="aspnetcore"></a>Suporte de ASP.NET Core
-
-Uma aplicação ASP.NET Core tem de instalar o 2.1.0-beta6 de pacote Microsoft.ApplicationInsights.AspNetCore NuGet ou posterior para trabalhar com o gerador de perfis. A partir 27 de Junho de 2017, não suportamos versões anteriores.
+4.  As tarefas de web accionadas manualmente, na verdade, podem ser acionadas via Web Hook. Pode obter este url de clicar na tarefa de web do dashboard e visualizar as propriedades ou escolher propriedades na barra de ferramentas depois de selecionar o trabalho web a partir da tabela. Existem muitos dos artigos que pode encontrar online sobre esta para estar passará não muito detalhes acerca do mesmo, mas esta abre-se a possibilidade de acionar o gerador de perfis do seu pipeline CI/CD (como VSTS) ou algo semelhante Microsoft Flow (https://flow.microsoft.com/en-us/). Dependendo de como fancy que pretende tornar a sua run.cmd, que, pela forma, pode ser um run.ps1, as possibilidades são um vasto conjunto.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Trabalhar com o Application Insights no Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
+[appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png

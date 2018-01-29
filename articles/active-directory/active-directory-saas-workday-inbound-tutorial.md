@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configurar Workday para automática aprovisionamento de utilizadores no local do Active Directory e do Azure Active Directory | Microsoft Docs"
+title: "Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas com o Azure Active Directory | Microsoft Docs"
 description: Saiba como utilizar Workday como origem de dados de identidade do Active Directory e o Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: Configurar Workday para automática aprovisionamento de utilizadores no local do Active Directory e do Azure Active Directory
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
+
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar para importar as pessoas do Workday para o Active Directory e o Azure Active Directory, com repetição de escrita opcional de alguns atributos ao Workday. 
 
 
@@ -209,7 +210,7 @@ Neste passo, pode conceder as permissões de grupo de segurança nova para **obt
 
 1. Introduza ativar na caixa de pesquisa e, em seguida, clique na ligação **ativar alterações de política de segurança pendentes**. 
    
-    ![Ativar](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "ativar") 
+    ![Activate](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
 2. Iniciar a tarefa ativar alterações de política de segurança pendentes ao introduzir um comentário para fins de auditoria e, em seguida, clique em **OK**. 
    
     ![Ativar pendente segurança](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "ativar pendente segurança")   
@@ -328,25 +329,25 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 |  **Municipality**   |   l   |     | Criar + atualizar |
 |  **Empresa**         | Empresa   |     |  Criar + atualizar |
 |  **CountryReferenceTwoLetter**      |   Co |     |   Criar + atualizar |
-| **CountryReferenceTwoLetter**    |  C  |     |         Criar + atualizar |
+| **CountryReferenceTwoLetter**    |  c  |     |         Criar + atualizar |
 | **SupervisoryOrganization**  | Departamento  |     |  Criar + atualizar |
 |  **PreferredNameData**  |  displayName |     |   Criar + atualizar |
-| **Campo IDdeEmpregado**    |  CN    |   |   Escrito no apenas a criar |
+| **EmployeeID**    |  CN    |   |   Escrito no apenas a criar |
 | **Fax**      | facsimileTelephoneNumber     |     |    Criar + atualizar |
-| **Nome próprio**   | givenName       |     |    Criar + atualizar |
-| **Comutador (\[Active Directory\],, "0", "True", "1")** |  AccountDisabled      |     | Criar + atualizar |
+| **FirstName**   | givenName       |     |    Criar + atualizar |
+| **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Criar + atualizar |
 | **Mobile**  |    Mobile       |     |       Criar + atualizar |
-| **Endereço de correio eletrónico**    | capacidade de correio    |     |     Criar + atualizar |
+| **EmailAddress**    | capacidade de correio    |     |     Criar + atualizar |
 | **ManagerReference**   | Gestor  |     |  Criar + atualizar |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Criar + atualizar |
-| **PostalCode**  |   PostalCode  |     | Criar + atualizar |
+| **PostalCode**  |   postalCode  |     | Criar + atualizar |
 | **LocalReference** |  preferredLanguage  |     |  Criar + atualizar |
-| * * Substitua (Mid (substitua (\[campo IDdeEmpregado\], "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Escrito no apenas a criar |
-| **Apelido**   |   sn   |     |  Criar + atualizar |
+| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito no apenas a criar |
+| **LastName**   |   sn   |     |  Criar + atualizar |
 | **CountryRegionReference** |  St     |     | Criar + atualizar |
-| **AddressLineData**    |  StreetAddress  |     |   Criar + atualizar |
+| **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Criar + atualizar |
-| **BusinessTitle**   |  Título     |     |  Criar + atualizar |
+| **BusinessTitle**   |  título     |     |  Criar + atualizar |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "p",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([M])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",, "",), "contoso.com")**   | userPrincipalName     |     | Criar + atualizar                                                   
 | **Comutador (\[Municipality\], "UO = padrão UO dos utilizadores, = utilizadores, UO = predefinido, UO = localizações, DC = contoso, DC = com", "Dallas", "UO = utilizadores padrão, UO = utilizadores, UO = Dallas, UO = localizações, DC = contoso, DC = com", "Austin", "UO = padrão UO dos utilizadores, = utilizadores, UO = Austin, UO = localizações, DC = contoso, DC = com", "Coimbra", "UO = utilizadores padrão, UO = utilizadores, UO = Seattle, UO = localizações, DC = contoso, DC = com", "Londres", "UO = utilizadores padrão UO = utilizadores, UO = Londres, UO = localizações, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Criar + atualizar |
   
@@ -362,18 +363,18 @@ Depois de instalar o agente, execute os comandos do Powershell abaixo para confi
 
 > CD c:\\ficheiros de programa\\agente de sincronização do Active Directory do Microsoft Azure\\módulos\\AADSyncAgent
 
-> AADSyncAgent.psd1 Import-module
+> import-module AADSyncAgent.psd1
 
 **Comando #2**
 
-> ADSyncAgentActiveDirectoryConfiguration adicionar
+> Add-ADSyncAgentActiveDirectoryConfiguration
 
 * Entrada: Para "Nome do diretório", introduza o nome de floresta do AD, tal como foi introduzido em parte \#2
 * Entrada: Nome de utilizador de administrador e a palavra-passe para a floresta do Active Directory
 
 **Comando #3**
 
-> ADSyncAgentAzureActiveDirectoryConfiguration adicionar
+> Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Entrada: Nome de utilizador de Administrador Global e a palavra-passe para o seu inquilino do Azure AD
 
@@ -395,11 +396,11 @@ Depois de instalar o agente, execute os comandos do Powershell abaixo para confi
 >
 > Credentialed: False
 >
-> Identificador: WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
+> Identifier    : WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
 
 **Comando #5**
 
-> Início AdSyncAgentSynchronization-automática
+> Start-AdSyncAgentSynchronization -Automatic
 
 **Comando #6**
 
@@ -648,6 +649,6 @@ Depois de partes 1-2 tem sido concluídas, pode iniciar o serviço de aprovision
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre o aprovisionamento de atividade](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

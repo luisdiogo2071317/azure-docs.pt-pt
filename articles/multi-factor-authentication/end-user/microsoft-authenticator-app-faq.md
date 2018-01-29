@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Aplicação de autenticação do Microsoft FAQ
 
 Este artigo responde a questões recorrentes que recebemos sobre a aplicação Microsoft Authenticator. Se não vir uma resposta à sua pergunta, vá para o [fórum de aplicação do Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Além disso, temos outro FAQ sobre uma funcionalidade específica da aplicação, [iniciar sessão com o seu telefone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
 
-A aplicação Microsoft Authenticator substituído a aplicação Azure Authenticator, não sendo a aplicação recomendada quando utiliza o Azure multi-factor Authentication. A aplicação Authenticator da Microsoft está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+A aplicação Microsoft Authenticator substituído a aplicação Azure Authenticator, não sendo a aplicação recomendada quando utiliza o Azure multi-factor Authentication. A aplicação Authenticator da Microsoft está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -100,7 +100,7 @@ Não tem de desbloquear o dispositivo para aprovar pedidos de verificação porq
 
 O ícone de cadeado indica que o dispositivo é registado no Azure AD e registado para a conta. Registo de dispositivos para iOS ocorre durante a inscrição no Microsoft Intune.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="contact-us"></a>Contacte-nos
 Se a sua pergunta não foi respondida aqui, Queremos ouvi do utilizador. Vá para o [fórum de aplicação do Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) após a sua pergunta e obter ajuda da Comunidade ou deixe um comentário nesta página.

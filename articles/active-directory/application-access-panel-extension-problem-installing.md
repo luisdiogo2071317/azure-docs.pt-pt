@@ -1,6 +1,6 @@
 ---
-title: "Extensão de browser de painel de problema a instalar o acesso de aplicação | Microsoft Docs"
-description: "Como resolver erros comuns encontrados quando instalar a extensão de browser do painel de acesso"
+title: "Instale a extensão de browser de painel de acesso de aplicação - Azure | Microsoft Docs"
+description: "Corrija os erros comuns encontrados quando instalar a extensão de browser do painel de acesso."
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,113 +14,108 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problema de acesso da aplicação a instalar painel extensão de browser
+# <a name="install-the-access-panel-browser-extension"></a>Instale a extensão de browser do painel de acesso
 
-O painel de acesso é um portal baseado na web que permite que um utilizador que tenha uma conta escolar ou profissional no Azure Active Directory (Azure AD) para ver e iniciar baseado na nuvem as aplicações que o administrador do Azure AD concedeu-lhes acesso. Um utilizador que possua as edições do Azure AD também pode utilizar grupos self-service e capacidades de gestão de aplicações através do painel de acesso. O painel de acesso separado do portal do Azure e não exige que os utilizadores tenham uma subscrição do Azure.
+O painel de acesso é um portal baseado na web. Se tiver um trabalho ou escola conta no Azure Active Directory (Azure AD), pode utilizar o painel de acesso para ver e iniciar a aplicações baseadas na nuvem que um administrador do Azure AD concedeu que acesso ao. 
 
-Para utilizar com base em palavra-passe-início de sessão único (SSO) no painel de acesso, a extensão do painel de acesso tem de estar instalada no browser do utilizador. Esta extensão é transferida automaticamente quando um utilizador seleciona uma aplicação que está configurada para SSO baseada em palavra-passe.
+Se estiver a utilizar edições do Azure AD, pode também utilizar grupos self-service e capacidades de gestão de aplicações através do painel de acesso. 
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Que cumprem os requisitos de browser para o painel de acesso
+O painel de acesso está separado do portal do Azure. Não requer que tenha uma subscrição do Azure.
 
-O painel de acesso necessita de um browser que suporte JavaScript e ativou CSS. Para utilizar com base em palavra-passe-início de sessão único (SSO) no painel de acesso, a extensão do painel de acesso tem de estar instalada no browser do utilizador. Esta extensão é transferida automaticamente quando um utilizador seleciona uma aplicação que está configurada para SSO baseada em palavra-passe.
+## <a name="web-browser-requirements"></a>Requisitos de Web browsers
 
-Para SSO baseada em palavra-passe, os browsers do utilizador final podem ser:
+No mínimo, o painel de acesso necessita de um browser que suporte JavaScript e ativou CSS. Para iniciar sessão no aplicações através do SSO baseada em palavra-passe no painel de acesso, tem de ter a extensão do painel de acesso instalada no seu browser. A extensão é transferida automaticamente quando seleciona uma aplicação que está configurada para SSO baseada em palavra-passe.
 
--   Limite de aniversário da edição do Windows 10 ou posterior 
+Para SSO baseada em palavra-passe, pode utilizar qualquer um dos browsers seguintes:
 
--   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
+- **Limite**: aniversário da edição do Windows 10 ou posterior. 
+- **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
+- **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
+- **Internet Explorer 8, 9, 10, 11**: no Windows 7 ou posterior (suporte limitado).
 
--   Firefox 26.0 ou posterior – no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
+## <a name="install-the-access-panel-browser-extension"></a>Instale a extensão de browser do painel de acesso
 
--   Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior (suporte limitado)
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão de Browser do painel de acesso
+Para instalar a extensão de browser do painel de acesso, efetue o seguinte:
 
-Para instalar a extensão de Browser do painel de acesso, siga os passos abaixo:
+1.  Dos browsers suportados, abra o [painel de acesso](https://myapps.microsoft.com)e, em seguida, inicie sessão como um utilizador na sua conta do Azure AD.
 
-1.  Abra o [painel de acesso](https://myapps.microsoft.com) dos browsers suportados e início de sessão como um **utilizador** no seu Azure AD.
+2.  Selecione uma aplicação de SSO baseada em palavra-passe.
 
-2.  Clique num **aplicação de palavra-passe SSO** no painel de acesso.
+3.  Quando lhe for pedido, selecione **instalar agora**.  
+    O utilizador é direcionado para a hiperligação de transferência para o seu browser selecionado. 
+    
+4.  Selecione **Adicionar**.
 
-3.  Na linha de pedir instalar o software, selecione **instalar agora**.
+5.  Se lhe for indicado, ou **ativar** ou **permitir** a extensão.
 
-4.  Com base no seu browser, direcionado para a hiperligação de transferência. **Adicionar** a extensão para o seu browser.
+6.  Após a instalação estiver concluída, reinicie o seu browser.
 
-5.  Se o browser pede-lhe, selecione como **ativar** ou **permitir** a extensão.
+7.  Iniciar sessão para o painel de acesso e verificação para ver se é possível iniciar as aplicações de SSO baseada em palavra-passe.
 
-6.  Uma vez instalado, **reiniciar** a sessão do browser.
+Também pode transferir a extensão para Chrome e limite diretamente a partir de sites seguintes:
 
-7.  Inicie sessão no painel de acesso e veja se pode **iniciar** as aplicações de SSO de palavra-passe
+- [Extensões do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+- [Extensão de limite](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
-Também pode transferir a extensão para Chrome e limite de ligações diretas abaixo:
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Utilize o início de sessão da extensão de proteger as minhas aplicações
+* Se estiver a utilizar um URL de aplicações My diferente de `https://myapps.microsoft.com`, configurar o URL predefinido efetuando o seguinte procedimento:
+   1. Enquanto estiver *não* sessão para a extensão, faça duplo clique no ícone de extensão.
+   2. No menu, selecione **minhas aplicações URL**.
+   3. Selecione o seu URL de predefinição.
+   4. Selecione o ícone de extensão.
+   5. Para iniciar sessão para a extensão, selecione **iniciar sessão começar a utilizar**.
 
--   [Extensão de painel de acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+* Para iniciar sessão diretamente a uma aplicação do browser, efetue o seguinte:
+   1. Depois de instalar a extensão, inicie sessão no mesmo selecionando **iniciar sessão começar a utilizar**.
+   2. Inicie sessão na aplicação com o URL de início de sessão.  
+       O URL de início de sessão é, normalmente, o URL da aplicação que apresenta o formulário de início de sessão.
+      A extensão deve alterar o estado e informá-lo de que uma palavra-passe está disponível.
+   3. Para iniciar sessão, selecione o ícone de extensão.
 
--   [Extensão de painel de acesso de limite](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
-
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Como utilizar o Secure de aplicações My início de sessão extensão?
-Alterar o URL predefinido do meu aplicações para a extensão
-
-Se estiver a utilizar outro URL aplicações My que https://myapps.microsoft.com, em seguida, tem de configurar o URL predefinido embora os seguintes passos:
-1. Enquanto não tiver sessão iniciada para a extensão, **certo** o ícone de extensão.
-2. Clique em **URL para selecionar os meus aplicações** no menu.
-3. **Selecione** o URL predefinido.
-4. Clique no ícone de extensão.
-5. Início de sessão para a extensão, selecionando **iniciar sessão começar a utilizar**.
-
-Iniciar sessão diretamente numa aplicação do browser
-1. Depois de instalar a extensão, início de sessão para a extensão, selecionando **iniciar sessão começar a utilizar**.
-2. Navegue para o **início de sessão URL** da aplicação que pretende iniciar sessão, este é normalmente o URL da aplicação que apresenta o formulário de início de sessão.
-3. A extensão deve alterar o estado e permitem-lhe a conhecer uma palavra-passe está disponível, clique em de **ícone de extensão** para iniciar sessão.
-
-Iniciar uma aplicação da extensão do
-1. Depois de instalar a extensão, início de sessão para a extensão, selecionando **iniciar sessão começar a utilizar**.
-2. Clique no ícone de extensão para abrir o respetivo **menu**.
-3. **Pesquisa** para uma aplicação disponível no portal do meu aplicações.
-4. Clique na aplicação do **resultados da pesquisa** para o iniciar.
-5. As últimas três aplicações iniciadas também irão aparecer no **utilizados recentemente** lista de atalho
+* Para iniciar uma aplicação a partir da extensão, efetue o seguinte:
+   1. Depois de instalar a extensão, inicie sessão no mesmo selecionando **iniciar sessão começar a utilizar**.
+   2. Selecione o ícone de extensão para abrir o menu.
+   3. Procurar uma aplicação que está disponível no portal do meu aplicações.
+   4. Na lista de resultados de pesquisa, selecione a aplicação.  
+       São apresentadas as últimas três aplicações que utilizou no **utilizados recentemente** lista de atalho.
 
 > [!NOTE]
-> Estas opções só estão disponíveis para o limite, o Chrome, o Firefox.
+> As opções anteriores estão disponíveis apenas para o limite, o Chrome e o Firefox.
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
 
-Pode configurar uma política de grupo que lhe permitem instalar remotamente a extensão do painel de acesso para o Internet Explorer em máquinas dos seus utilizadores.
+Pode configurar uma política de grupo que lhe permite instalar remotamente a extensão do painel de acesso para o Internet Explorer em máquinas dos seus utilizadores.
 
-Os pré-requisitos incluem:
+Antes de configurar uma política de grupo, certifique-se de que:
 
 -   Configurou [serviços de domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), e associar máquinas dos utilizadores ao seu domínio.
 
--   Tem de ter a permissão "Definições de editar" para editar o objeto de política de grupo (GPO). Por predefinição, os membros dos grupos de segurança seguinte têm esta permissão: os administradores do domínio, administradores da empresa e proprietários de criador de política de grupo. [Saiba mais](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Para editar o objeto de política de grupo (GPO), tem de ter *editar definições* permissões. Por predefinição, esta permissão é concedida aos membros dos grupos de segurança seguintes: os administradores do domínio, administradores da empresa e proprietários de criador de política de grupo.
 
-Siga o tutorial [como implementar a extensão do painel de acesso para o Internet Explorer utilizando a política de grupo](active-directory-saas-ie-group-policy.md) para instruções passo a passo sobre como configurar a política de grupo e implementá-la aos utilizadores.
+Para instruções passo a passo sobre como configurar a política de grupo e implementar a política para utilizadores, consulte [implementar a extensão do painel de acesso para o Internet Explorer utilizando a política de grupo](active-directory-saas-ie-group-policy.md).
 
 ## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Resolver problemas relacionados com a extensão do painel de acesso no Internet Explorer
 
-Siga o [resolver problemas relacionados com a extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) guia para acesso de uma ferramenta de diagnóstico e instruções passo a passo sobre como configurar a extensão de i/e.
+Para aceder a uma ferramenta de diagnóstico e informações sobre como configurar a extensão para o Internet Explorer, consulte [resolver problemas relacionados com a extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> I/e está no suporte limitado e deixará de receber novas atualizações de software. Limite é o browser recomendado.
+> Internet Explorer está no suporte limitado e deixará de receber novas atualizações de software. Limite é o browser recomendado.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se estes passos de resolução de problemas não resolverem o problema
+## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Se os passos anteriores não resolverem o problema
 
-Abra um pedido de suporte com as seguintes informações se disponíveis:
+Se estiver disponível, abra um pedido de suporte com as seguintes informações:
 
 -   ID de correlação de erro
-
 -   UPN (endereço de e-mail do utilizador)
-
 -   TenantID
-
 -   Tipo de browser
-
--   Fuso horário e tempo/período de tempo durante o erro ocorre
-
+-   Fuso horário e a hora ou o período de tempo quando ocorreu o erro
 -   Rastreios de fiddler
 
 ## <a name="next-steps"></a>Passos Seguintes

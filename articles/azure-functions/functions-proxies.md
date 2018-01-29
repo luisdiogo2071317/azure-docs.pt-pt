@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -62,6 +62,11 @@ Atualmente, não há nenhum experiência do portal para modificar as respostas. 
 
 A configuração para um proxy não precisa de ser estático. Pode condição-a para utilizar variáveis de pedido do cliente original, a resposta de back-end ou as definições da aplicação.
 
+### <a name="reference-localhost"></a>Funções de locais de referência
+Pode utilizar `localhost` para fazer referência a uma função dentro da mesma aplicação de função diretamente, sem um pedido de proxy de ida e volta.
+
+`"backendurl": "localhost/api/httptriggerC#1"`fará referência uma função HTTP acionada local na rota`/api/httptriggerC#1`
+
 ### <a name="request-parameters"></a>Parâmetros do pedido de referência
 
 Pode utilizar os parâmetros do pedido como entradas para a propriedade de URL de back-end ou como parte de modificar os pedidos e respostas. Podem estar vinculados alguns parâmetros do modelo de rota que é especificado na configuração do proxy de base e outros utilizadores podem ter a partir das propriedades do pedido a receber.
@@ -94,6 +99,18 @@ Por exemplo, um URL de back-end de *https://%ORDER_PROCESSING_HOST%/api/orders* 
 
 > [!TIP] 
 > Utilize as definições da aplicação para os anfitriões de back-end, se tiver múltiplas implementações ou ambientes de teste. Dessa forma, pode certificar-se que estamos a falar sempre para o back-end à direita nesse ambiente.
+
+## <a name="debugProxies"></a>Resolver problemas de Proxies
+
+Ao adicionar o sinalizador `"debug":true` para qualquer proxy no seu `proxy.json` irá ativar o registo de depuração. Os registos são armazenados em `D:\home\LogFiles\Application\Proxies\DetailedTrace` e acessível através de ferramentas avançadas (kudu). As respostas HTTP irão conter também uma `Proxy-Trace-Location` cabeçalho com um URL para aceder ao ficheiro de registo.
+
+Pode depurar um proxy no lado do cliente, adicionando um `Proxy-Trace-Enabled` cabeçalho definido como `true`. Isto será um rastreio de registo para o sistema de ficheiros e o URL de rastreio ser devolvido como um cabeçalho na resposta.
+
+### <a name="block-proxy-traces"></a>Rastreios de proxy do bloco
+
+Por motivos de segurança não poderá permitir que qualquer pessoa chamar o serviço para gerar um rastreio. Não poderão aceder ao conteúdo de rastreio sem as suas credenciais de início de sessão, mas a gerar o rastreio consome recursos e expõe que está a utilizar os Proxies de função.
+
+Desativar completamente os rastreios adicionando `"debug":false` para qualquer proxy específica no seu `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
@@ -130,6 +147,24 @@ Cada proxy tem um nome amigável, tais como *proxy1* no exemplo anterior. O obje
 
 > [!NOTE] 
 > O *rota* propriedade de Proxies de funções do Azure não honrar o *routePrefix* propriedade da configuração de anfitrião de aplicação de função. Se pretender incluir um prefixo como `/api`, devem ser incluída no *rota* propriedade.
+
+### <a name="disableProxies"></a>Desativar proxies individuais
+
+Pode desativar proxies individuais, adicionando `"disabled": true` para o proxy no `proxies.json` ficheiro. Isto fará com que todos os pedidos de reunião do matchCondidtion devolver 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Definir um objeto de requestOverrides
 

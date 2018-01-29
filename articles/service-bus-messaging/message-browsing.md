@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Mensagem de navegação
 
-Mensagem de navegação ("leitura") permite que um cliente de enumerar todas as mensagens que reside numa fila ou a subscrição, normalmente de diagnóstico e fins de depuração.
+Mensagem de navegação ("leitura") permite que um cliente de Service Bus enumerar todas as mensagens que reside numa fila ou a subscrição, normalmente de diagnóstico e fins de depuração.
 
-As operações de peek devolvem todas as mensagens que existem no registo de mensagens fila ou a subscrição, não apenas os disponíveis para a aquisição de imediato com *Receive()* ou *onmessage ()* ciclo. O *estado* propriedade de cada mensagem a indicar se a mensagem está ativa (disponível para ser recebida) diferida (consulte diferimento por [ligação TBD]) ou agendada (consulte as mensagens de agendada [ligação TBD]).
+As operações de peek devolvem todas as mensagens que existem no registo de mensagens fila ou a subscrição, não apenas os disponíveis para a aquisição de imediato com `Receive()` ou `OnMessage()` ciclo. O `State` propriedade de cada mensagem a indicar se a mensagem está ativa (disponível para ser recebida) [diferida](message-deferral.md), ou [agendada](message-sequencing.md).
 
-As mensagens foram consumidas e expiradas são limpos por um assíncrona executar "recolha de lixo" e não necessariamente exatamente quando mensagens expirem e, por conseguinte, observar poderão, de facto, devolver mensagens que já expiraram e serão removido ou mensagens não-lettered quando receber operação seguinte é invocada na fila ou a subscrição.
+As mensagens foram consumidas e expiradas são limpos por um assíncrona "libertação" executar e não necessariamente exatamente quando mensagens expirarem e, por isso `Peek` realmente podem devolver mensagens que já expiraram e serão removidas ou quando lettered de mensagens não uma operação de receção seguinte é invocada na fila ou a subscrição.
 
 Isto é especialmente importante para manter em mente quando tenta recuperar diferidas mensagens da fila. Uma mensagem para o qual o [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) instantâneas passou já não é elegível para regular obtenção através de outros meios, mesmo quando está a ser devolvido por observar. Devolver estas mensagens é deliberate, uma vez que observar é uma ferramenta de diagnóstico ao refletir o estado atual do registo.
 
@@ -41,7 +41,7 @@ Quando chamado repetidamente, o método observar enumera todas as mensagens que 
 
 Também pode seed uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) no qual pretende iniciar e, em seguida, chame a sobrecarga do método sem parâmetros ao enumerar adicional. **PeekBatch** equivalently funciona, mas obtém um conjunto de mensagens ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

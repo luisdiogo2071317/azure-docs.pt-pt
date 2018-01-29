@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure? 
 
@@ -156,7 +156,7 @@ A Base de Dados suporta a criação de aplicações com Python, Java, Node.js, P
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): colocar questões de administração de base de dados
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): colocar questões de desenvolvimento
 - [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): colocar questões técnicas
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): relatar erros e pedir funcionalidades
+- [Comentários](http://aka.ms/sqlfeedback): relatar erros e pedir funcionalidades
 - [Reddit](https://www.reddit.com/r/SQLServer/): discutir sobre o SQL Server
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5d2aa551bbe77a66459907cf5cd1313bb907981
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6524fe056ee2a1d81c9cccf257008b2369352b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-counters"></a>Contadores de mensagem
 
@@ -41,7 +41,7 @@ Saber a contagem de mensagens de Active Directory é útil para determinar se um
 
 Se uma aplicação pretende dimensionar recursos com base no comprimento da fila, deve fazer com uma medida muito ritmo. A aquisição de contadores de mensagem é uma operação dispendiosa dentro do Mediador de mensagens e, em execução com frequência diretamente e negativamente tem impacto no desempenho de entidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

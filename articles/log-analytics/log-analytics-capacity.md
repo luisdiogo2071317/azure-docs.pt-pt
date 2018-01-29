@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planear a capacidade de máquina virtual de Hyper-V com a solução de capacidade e o desempenho (pré-visualização)
 
@@ -47,7 +47,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 |---|---|---|
 | [Agentes do Windows](log-analytics-windows-agent.md) | Sim | A solução recolhe informações de dados de capacidade e o desempenho de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não    | A solução recolhe informações de dados de capacidade e o desempenho de agentes diretos do Linux.|
-| [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Sim |A solução recolhe dados de capacidade e o desempenho de agentes num grupo de gestão do SCOM ligado. Não é necessária uma ligação direta do agente do SCOM para OMS. Os dados são reencaminhados do grupo de gestão para o repositório do OMS.|
+| [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Sim |A solução recolhe dados de capacidade e o desempenho de agentes num grupo de gestão do SCOM ligado. Não é necessária uma ligação direta do agente do SCOM para análise de registos.|
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | Armazenamento do Azure não inclui dados de desempenho e da capacidade.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -59,11 +59,11 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 Execute o passo seguinte para adicionar a solução de capacidade e desempenho para a sua área de trabalho.
 
-- Adicionar a solução de capacidade e desempenho para a sua área de trabalho do OMS utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
+- Adicionar a solução de capacidade e desempenho para a sua área de trabalho de análise de registos com o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
-Se o grupo de gestão do SCOM é ligado à sua área de trabalho do OMS, em seguida, os seguintes pacotes de gestão serão instalados no SCOM quando adicionar esta solução. Estes pacotes de gestão não precisam de configurações nem de manutenção.
+Se o grupo de gestão do SCOM é ligado à sua área de trabalho de análise de registos, em seguida, os seguintes pacotes de gestão serão instalados no SCOM quando adicionar esta solução. Estes pacotes de gestão não precisam de configurações nem de manutenção.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -89,7 +89,7 @@ Quando adiciona a solução de capacidade e desempenho para a sua área de traba
 
 Clique no mosaico para abrir o dashboard de desempenho e capacidade de capacidade e o desempenho. O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta uma lista de até dez itens que correspondem aos critérios dessa coluna para o âmbito e o intervalo de tempo especificados. Pode executar uma pesquisa de registos que devolve todos os registos ao clicar em **Ver tudo**, na parte inferior da coluna, ou ao clicar no cabeçalho da coluna.
 
-- **Anfitriões**
+- **Hosts**
     - **Utilização da CPU do anfitrião** mostra uma tendência gráfica de utilização da CPU de computadores de anfitrião e uma lista de anfitriões, com base no período de tempo selecionado. Coloque o cursor sobre o gráfico de linhas para ver os detalhes para um ponto específico no tempo. Clique em gráfico para ver mais detalhes na pesquisa de registo. Clique em qualquer nome de anfitrião para abrir a pesquisa de registo e ver os detalhes do contador de CPU para as VMs alojadas.
     - **Utilização da memória de anfitrião** mostra uma tendência gráfica da utilização de memória de computadores de anfitrião e uma lista de anfitriões, com base no período de tempo selecionado. Coloque o cursor sobre o gráfico de linhas para ver os detalhes para um ponto específico no tempo. Clique em gráfico para ver mais detalhes na pesquisa de registo. Clique em qualquer nome de anfitrião para abrir a pesquisa de registo e ver os detalhes do contador de memória para VMs alojadas.
 - **Máquinas Virtuais**
@@ -144,5 +144,5 @@ A tabela seguinte fornece pesquisas de registo de exemplo para dados de desempen
 | Divisão de latência Total em todos os CSVs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "Latência de leitura do CSV" ou CounterName = = "Latência de escrita de CSV") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados de desempenho e capacidade de detalhado.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: a97038b942998b611bdde50ccf67c5b2e3fa4cd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c5d6eb8333083cf87e35a667159ecc71b944e9a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integração do Azure Active Directory com New Relic
 
@@ -108,12 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Novo domínio Relic e os URLs únicos de informações de início de sessão](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.newrelic.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão seguinte: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` -não se esqueça de substituir o seu próprio ID novo Relic conta.
 
     b. No **identificador** caixa de texto, digite o valor:`rpm.newrelic.com`
-
-    > [!NOTE] 
-    > Início de sessão do valor de URL não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte do novo cliente Relic](https://support.newrelic.com/) para obter este valor. 
 
 4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

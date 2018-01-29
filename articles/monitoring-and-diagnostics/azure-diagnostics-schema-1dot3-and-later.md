@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 de diagnóstico do Azure e o esquema de configuração posterior
 > [!NOTE]
@@ -399,7 +399,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**LocalResourceDirectory**|O diretório na máquina virtual em que o agente de monitorização armazena dados de eventos. Se não, definido, é utilizado o diretório predefinido:<br /><br /> Para uma função de trabalho/web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> - **caminho** -o diretório no sistema para ser utilizado por diagnósticos do Azure.<br /><br /> - **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
- *Árvore: - DiagnosticsConfiguration - PublicConfig - WadCFG de raiz*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
  
  Identifica e configura os dados de telemetria a ser recolhido.  
 
@@ -411,7 +411,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributos|Descrição|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | A quantidade máxima de espaço no disco local que pode ser utilizada por vários tipos de dados de diagnóstico recolhidos pelo diagnósticos do Azure. O valor predefinido é 5120 MB.<br />
+| **overallQuotaInMB** | A quantidade máxima de espaço no disco local que pode ser utilizada por vários tipos de dados de diagnóstico recolhidos pelo diagnósticos do Azure. A predefinição é 4 096 MB.<br />
 |**useProxyServer** | Configure o diagnóstico do Azure para utilizar as definições do servidor proxy conforme definido nas definições de i/e.|  
 
 <br /> <br />
@@ -557,7 +557,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento subordinado|Descrição|  
 |-------------------|-----------------|  
-|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especifique "*"|  
+|**DataSource**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especifique "*"|  
 
 
 
@@ -572,9 +572,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**scheduledTransferLogLevelFilterr**|**cadeia**|Opcional. Especifica o nível de gravidade mínimo para as entradas de registo que são transferidos. O valor predefinido é **Undefined**, que transfere todos os registos. Outros valores possíveis (por ordem de mais informações, pelo menos,) são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
-|**scheduledTransferPeriod**|**duração**|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
-|**sinks** adicionado no 1.5|**cadeia**|Opcional. Aponta para uma localização de receptores também enviar dados de diagnóstico. Por exemplo, Application Insights.|  
+|**scheduledTransferLogLevelFilterr**|**string**|Opcional. Especifica o nível de gravidade mínimo para as entradas de registo que são transferidos. O valor predefinido é **Undefined**, que transfere todos os registos. Outros valores possíveis (por ordem de mais informações, pelo menos,) são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
+|**scheduledTransferPeriod**|**duration**|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**sinks** adicionado no 1.5|**string**|Opcional. Aponta para uma localização de receptores também enviar dados de diagnóstico. Por exemplo, Application Insights.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources de raiz*
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**nome**|Cadeia|Uma cadeia que identifica o sinkname.|  
+|**name**|cadeia|Uma cadeia que identifica o sinkname.|  
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Application Insights**|Cadeia|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights que tenha acesso.|  
-|**Canais**|Cadeia|Um para cada adicionais de filtragem de fluxo que|  
+|**Application Insights**|cadeia|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights que tenha acesso.|  
+|**Channels**|cadeia|Um para cada adicionais de filtragem de fluxo que|  
 
 ## <a name="channels-element"></a>Elemento de canais  
  *Árvore: Canais de SinksConfig - Sink - raiz - DiagnosticsConfiguration - PublicConfig - WadCFG -*
@@ -619,7 +619,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Canal**|Cadeia|Ver descrição noutro local nesta página.|  
+|**Channel**|cadeia|Ver descrição noutro local nesta página.|  
 
 ## <a name="channel-element"></a>Canal de elemento
  *Árvore: Canais de SinksConfig - Sink - raiz - DiagnosticsConfiguration - PublicConfig - WadCFG --canal*
@@ -630,8 +630,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
-|**logLevel**|**cadeia**|Especifica o nível de gravidade mínimo para as entradas de registo que são transferidos. O valor predefinido é **Undefined**, que transfere todos os registos. Outros valores possíveis (por ordem de mais informações, pelo menos,) são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
-|**nome**|**cadeia**|Um nome exclusivo do canal para fazer referência aos|  
+|**logLevel**|**string**|Especifica o nível de gravidade mínimo para as entradas de registo que são transferidos. O valor predefinido é **Undefined**, que transfere todos os registos. Outros valores possíveis (por ordem de mais informações, pelo menos,) são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
+|**name**|**string**|Um nome exclusivo do canal para fazer referência aos|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig 

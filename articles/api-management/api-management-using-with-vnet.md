@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começar a utilizar as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -79,7 +79,7 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 >
 
 > [!IMPORTANT]
-> Se remover a API Management a partir de uma VNET ou alterar um que está implementada numa, a VNET utilizada anteriormente pode permanecer bloqueada para 4 horas. Durante este período, não é possível eliminar a VNET ou implementar um novo recurso.
+> Se remover a API Management a partir de uma VNET ou alterar um que está implementada numa, a VNET utilizada anteriormente pode permanecer bloqueada de até duas horas. Durante este período, não é possível eliminar a VNET ou implementar um novo recurso.
 
 ## <a name="enable-vnet-powershell"></a>Ligação de VNET ativar utilizando cmdlets do PowerShell
 Também pode ativar a conectividade VNET utilizando os cmdlets do PowerShell
@@ -99,7 +99,7 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 * **Configuração do servidor DNS personalizada**: gestão de API o serviço depende de vários serviços do Azure. Quando a API Management está alojado numa VNET com um servidor DNS personalizado, tem de resolver os nomes de anfitriões desses serviços do Azure. Siga [isto](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) orientações sobre a configuração DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para referência.
 
 > [!IMPORTANT]
-> Recomenda-se que, se estiver a utilizar um servidor de DNS personalizado (es) para a VNET, configure que **antes** implementar um serviço de API Management para a mesma. Caso contrário, terá de atualizar o serviço de API Management sempre que alterar os servidores de DNS (s) executando o [aplicar a operação de configuração de rede](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Se planeia utilizar um servidor de DNS personalizado (es) para a VNET, deve configurá-lo **antes** implementar um serviço de API Management para a mesma. Caso contrário, terá de atualizar o serviço de API Management sempre que alterar o servidor de DNS (es) executando o [aplicar a operação de configuração de rede](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **As portas necessárias para a API Management**: tráfego de entrada e saída para a sub-rede na qual a API Management está implementada pode ser controlado através de [grupo de segurança de rede][Network Security Group]. Se qualquer uma destas portas não estão disponíveis, a gestão de API poderá não funcionar corretamente e podem ficar inacessível. Um ou mais destas portas bloqueadas é ter outro problema de configuração incorreta comum quando utilizar a API Management com uma VNET.
 
@@ -124,7 +124,7 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
 
 * **Acesso de DNS**: acesso de saída na porta 53 é necessário para comunicação com os servidores DNS. Se existir um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deve ser acessível a partir de sub-rede que aloja a API Management.
 
-* **Métricas e monitorização de estado de funcionamento**: conectividade de rede de saída para Azure pontos finais de monitorização, que resolver em seguintes domínios: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
+* **Métricas e monitorização de estado de funcionamento**: conectividade de rede de saída para Azure pontos finais de monitorização, que resolver em seguintes domínios: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, Prod.warmpath.msftcloudes.com.
 
 * **Configuração de rota rápida**: uma configuração de cliente comum consiste em definir as seus próprios rota predefinida (0.0.0.0/0) que força o tráfego de Internet de saída para o fluxo em vez disso, no local. Este fluxo de tráfego invariably de quebras de conectividade com a API Management do Azure porque o tráfego de saída é bloqueado no local ou NAT faria para um conjunto de endereços que deixará de funcionar com pontos finais Azure vários irreconhecível. A solução é definir um (ou mais) rotas definidas pelo utilizador ([UDRs][UDRs]) na sub-rede que contém a API Management do Azure. Um UDR define as rotas de sub-rede específicos que serão cumpridas em vez da rota predefinida.
   Se for possível, recomenda-se para utilizar a seguinte configuração:
@@ -150,6 +150,13 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
 
 * **Ligações de navegação de recursos**: ao implementar numa sub-rede de vnet do Resource Manager estilo, gestão de API reserva-se a sub-rede através da criação de uma ligação de navegação de recursos. Se a sub-rede já contém um recurso de um fornecedor diferente, a implementação será **falhar**. Da mesma forma, quando mover um serviço de API Management para outra sub-rede ou eliminá-lo, vamos remover dessa ligação de navegação de recursos. 
 
+## <a name="subnet-size"></a> Requisito de tamanho de sub-rede
+Azure reserva-se alguns endereços IP dentro de cada sub-rede e estes endereços não podem ser utilizados. Os endereços IP primeiro e últimos das sub-redes estão reservados para compatibilidade com o protocolo, juntamente com três endereços mais utilizados para serviços do Azure. Para obter mais informações, consulte [existem restrições sobre como utilizar estas sub-redes de endereços IP?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
+Para além dos endereços IP utilizados pela infraestrutura do Azure VNET, cada instância de Api Management na sub-rede utiliza dois endereços IP por unidade de Premium SKU ou um 1 endereço IP para o SKU de programador. Cada instância reserva-se 1 endereço IP para o Balanceador de carga externo. Ao implementar numa vnet interna, requer um endereço IP adicional para o Balanceador de carga interno.
+
+Dado o cálculo acima o tamanho mínimo da sub-rede, na qual pode ser implementado a API Management é /29 que lhe dá 3 endereços IP.
+
 ## <a name="routing"></a> Encaminhamento
 + Será possível reservar um endereço IP público com balanceamento de carga (VIP) para fornecer acesso a todos os pontos finais de serviço.
 + Um endereço IP de um intervalo de sub-rede IP (DIP) será utilizado para aceder a recursos dentro da vnet e um endereço IP público (VIP) será utilizado para aceder a recursos fora da vnet.
@@ -166,13 +173,14 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
 * [Ligar uma rede Virtual ao back-end utilizando o Gateway de Vpn](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Ligar uma rede Virtual a partir de modelos de implementação diferentes](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Como utilizar a API de Inspector para rastreio chama-se na API Management do Azure](api-management-howto-api-inspector.md)
+* [Faq da rede virtual](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
-[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-private.png
-[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-public.png
+[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png
+[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-external.png
 
 [Enable VPN connections]: #enable-vpn
 [Connect to a web service behind VPN]: #connect-vpn

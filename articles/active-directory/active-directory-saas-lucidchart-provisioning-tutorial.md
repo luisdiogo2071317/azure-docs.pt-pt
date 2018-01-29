@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: be93059111202deca2e0582112ab8f09508d6c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bbf62986a9e6e68149a1908d079d82e2faf4bd54
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configurar LucidChart para aprovisionamento de utilizadores automática
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configurar LucidChart para aprovisionamento de utilizadores automática
 
 
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar LucidChart e o Azure AD para aprovisionar e anular o aprovisionamento contas de utilizador do Azure AD para LucidChart automaticamente. 
@@ -97,6 +97,6 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre o aprovisionamento de atividade](active-directory-saas-provisioning-reporting.md)

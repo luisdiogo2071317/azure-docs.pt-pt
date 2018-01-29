@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 89ecd5ac2b8816e4efc5f8bf37dd7390bbf39ae8
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0686e3fe129abcdcecc5870f7384dd68271e7b3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um peering de rede virtual - Resource Manager, subscrições diferentes 
 
@@ -31,7 +31,7 @@ Os passos para criar um peering de rede virtual são diferentes, dependendo se a
 |--------- |---------|
 |[O Gestor de recursos](virtual-network-create-peering.md) |mesmo|
 |[Um Gestor de recursos, um clássico](create-peering-different-deployment-models.md) |mesmo|
-|[Um Gestor de recursos, um clássico](create-peering-different-deployment-models-subscriptions.md) |Diferentes|
+|[Um Gestor de recursos, um clássico](create-peering-different-deployment-models-subscriptions.md) |Diferente|
 
 Não é possível criar uma rede virtual peering entre duas redes virtuais implementadas através do modelo de implementação clássica. Se pretender ligar redes virtuais que foram criados através do modelo de implementação clássica, pode utilizar um Azure [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ligar as redes virtuais. 
 
@@ -46,7 +46,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como UserA. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Consulte o [permissões](#permissions) secção deste artigo para obter mais detalhes.
 2. Clique em **+ novo**, clique em **redes**, em seguida, clique em **rede Virtual**.
 3. No **criar rede virtual** painel, introduza, ou selecione os valores para as seguintes definições, em seguida, clique em **criar**:
-    - **Nome**: *myVnetA*
+    - **Name**: *myVnetA*
     - **Espaço de endereços**: *10.0.0.0/16*
     - **Nome da sub-rede**: *predefinido*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
@@ -63,7 +63,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 11. Termine sessão no portal como UserA, em seguida, inicie sessão como utilizador b.
 12. Conclua os passos 2-3, introduzir ou selecionar os seguintes valores no passo 3:
 
-    - **Nome**: *myVnetB*
+    - **Name**: *myVnetB*
     - **Espaço de endereços**: *10.1.0.0/16*
     - **Nome da sub-rede**: *predefinido*
     - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
@@ -80,7 +80,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 19. No **myVnetA** painel apresentado, clique em **Peerings** na vertical lista das opções no lado esquerdo do painel.
 20. No **myVnetA - Peerings** painel que antes eram, clique em **+ adicionar**
 21. No **adicionar peering** painel apresentado, introduza, ou selecione as seguintes opções, em seguida, clique em **OK**:
-     - **Nome**: *myVnetAToMyVnetB*
+     - **Name**: *myVnetAToMyVnetB*
      - **Modelo de implementação de rede virtual**: selecione **Resource Manager**.
      - **Sei o ID de recurso**: esta caixa de verificação.
      - **ID de recurso**: introduza o ID de recurso do passo 14.
@@ -334,9 +334,7 @@ Quando tiver terminado neste tutorial, pode querer eliminar os recursos que crio
 
 ## <a name="register"></a>Registar-se para a pré-visualização de peering de rede virtual global
 
-A capacidade de elemento redes virtuais em diferentes regiões está atualmente em pré-visualização. A capacidade está disponível um conjunto limitado de regiões (inicialmente, EUA oeste Central, Canadá Central e dos EUA oeste 2). Peerings de rede virtual criada entre redes virtuais em regiões diferentes poderão não ter o mesmo nível de disponibilidade e fiabilidade como um peering entre redes virtuais na mesma região. Para obter as notificações mais atualizadas sobre a disponibilidade e o estado desta funcionalidade, veja a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
-
-A ponto redes virtuais em regiões, primeiro tem de registar para a pré-visualização, concluindo os seguintes passos (dentro da subscrição cada rede virtual que pretende elemento está no) utilizando o Azure PowerShell ou a CLI do Azure:
+O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. Peering redes virtuais em diferentes regiões está atualmente em pré-visualização. Consulte [atualizações da rede Virtual](https://azure.microsoft.com/en-us/updates/?product=virtual-network) de regiões disponíveis. A ponto redes virtuais em regiões, primeiro tem de registar para a pré-visualização, concluindo os seguintes passos (dentro da subscrição cada rede virtual que pretende elemento está no) utilizando o Azure PowerShell ou a CLI do Azure:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -382,7 +380,7 @@ A ponto redes virtuais em regiões, primeiro tem de registar para a pré-visuali
 
     Não efetue os passos nas secções de Portal, CLI do Azure, PowerShell ou Gestor de recursos do modelo deste artigo até o **RegistrationState** recebe depois de introduzir o comando anterior é de saída **registada**  para ambas as subscrições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Exaustivamente familiarizar-se com importante [restrições de peering de rede virtual e comportamentos](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar uma rede virtual para a produção de peering utilize.
 - Saiba mais sobre todos os [definições de rede virtual peering](virtual-network-manage-peering.md#create-a-peering).

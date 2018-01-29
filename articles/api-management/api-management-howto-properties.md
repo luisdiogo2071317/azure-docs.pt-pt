@@ -6,46 +6,76 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 517f434c8f7fabc1402fb938d5ff5c733b86f2fd
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: e0559380f6d686a4e559779c4271ea85106558d6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Como utilizar propriedades nas políticas de API Management do Azure
-Políticas de API Management são uma funcionalidade poderosa do sistema que permite ao publicador alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. Declarações de política podem ser construídas com valores de texto literal, expressões de política e as propriedades. 
+Políticas de API Management são uma funcionalidade poderosa do sistema que permitem que o portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. Declarações de política podem ser construídas com valores de texto literal, expressões de política e as propriedades. 
 
-Cada instância de serviço de API Management tem uma coleção de propriedades de pares chave/valor que são globais para a instância de serviço. Estas propriedades podem ser utilizadas para gerir os valores de cadeia constante em todas as políticas de configuração da API e. Cada propriedade tem os seguintes atributos.
+Cada instância de serviço de API Management tem uma coleção de propriedades de pares chave/valor que são globais para a instância de serviço. Estas propriedades podem ser utilizadas para gerir os valores de cadeia constante em todas as políticas de configuração da API e. Cada propriedade pode ter os seguintes atributos:
 
 | Atributo | Tipo | Descrição |
 | --- | --- | --- |
-| Nome |Cadeia |O nome da propriedade. Pode conter apenas letras, dígitos, período, dash e carateres de caráter de sublinhado. |
-| Valor |Cadeia |O valor da propriedade. Não pode estar vazios ou consistir apenas em espaço em branco. |
-| Segredo |Valor booleano |Determina se o valor é um segredo e deve ser encriptado ou não. |
+| Nome a apresentar |cadeia |Cadeia alfanumérica utilizada para referenciar a propriedade nas políticas. |
+| Valor |cadeia |O valor da propriedade. Não pode estar vazios ou consistir apenas em espaço em branco. |
+|Segredo|boolean|Determina se o valor é um segredo e deve ser encriptado ou não.|
 | Etiquetas |Matriz da cadeia |Opcional de etiquetas que quando é fornecido pode ser utilizado para filtrar a lista de propriedades. |
 
-Propriedades são configuradas no portal do publicador no **propriedades** separador. No exemplo seguinte, as três propriedades estão configuradas.
+![Valores com nome](./media/api-management-howto-properties/named-values.png)
 
-![Propriedades][api-management-properties]
-
-Os valores de propriedade podem conter cadeias literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). A tabela seguinte mostra as propriedades de três exemplo anterior e respetivos atributos. O valor de `ExpressionProperty` é uma expressão de política que devolve uma cadeia contendo a data e hora atuais. A propriedade `ContosoHeaderValue` está marcada como um segredo, pelo que não é apresentado o respetivo valor.
+Os valores de propriedade podem conter cadeias literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que devolve uma cadeia contendo a data e hora atuais. A propriedade `ContosoHeaderValue` está marcada como um segredo, pelo que não é apresentado o respetivo valor.
 
 | Nome | Valor | Segredo | Etiquetas |
 | --- | --- | --- | --- |
-| ContosoHeader |trackingId |Falso |Contoso |
+| ContosoHeader |TrackingId |Falso |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |Verdadeiro |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |Falso | |
 
+## <a name="to-add-and-edit-a-property"></a>Para adicionar e editar uma propriedade
+
+![Adicionar uma propriedade](./media/api-management-howto-properties/add-property.png)
+
+1. Selecione **APIs** em **gestão de API**.
+2. Selecione **denominado valores**.
+3. Prima **+ adicionar**.
+
+  Nome e valor são os valores necessários. Se este valor de propriedade é um segredo, verifique a esta é uma caixa de verificação secreta. Introduza um ou mais etiquetas opcionais para ajudar a organizar as propriedades e clique em Guardar.
+4. Clique em **Criar**.
+
+Quando a propriedade for criada, pode editá-lo ao clicar na propriedade. Se alterar o nome da propriedade, as políticas que referenciem essa propriedade são atualizadas automaticamente para utilizar o novo nome.
+
+Para informações sobre como editar uma propriedade utilizando a API REST, consulte [editar uma propriedade utilizando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+
+## <a name="to-delete-a-property"></a>Para eliminar uma propriedade
+
+Para eliminar uma propriedade, clique em **eliminar** junto a propriedade para eliminar.
+
+> [!IMPORTANT]
+> Se a propriedade é referenciada pelas políticas, será possível eliminá-lo com êxito até que remova a propriedade de todas as políticas que a utilizam.
+> 
+> 
+
+Para obter informações sobre como eliminar uma propriedade utilizando a API REST, consulte [eliminar uma propriedade utilizando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+
+## <a name="to-search-and-filter-properties"></a>Para procurar e filtrar as propriedades
+
+O **denominado valores** separador inclui a procura e filtragem de funcionalidades para o ajudar a gerir as propriedades. Para filtrar a lista de propriedades por nome de propriedade, introduza um termo de pesquisa no **Procurar propriedade** caixa de texto. Para apresentar todas as propriedades, desmarque a **Procurar propriedade** caixa de texto e prima introduza.
+
+Para filtrar a lista de propriedades por valores de etiqueta, introduza uma ou mais etiquetas para o **filtrar por etiquetas** caixa de texto. Para apresentar todas as propriedades, desmarque a **filtrar por etiquetas** caixa de texto e prima introduza.
+
 ## <a name="to-use-a-property"></a>Para utilizar uma propriedade
-Para utilizar uma propriedade de uma política, coloque o nome da propriedade dentro de um par duplo de chavetas como `{{ContosoHeader}}`, conforme mostrado no exemplo seguinte.
+
+Para utilizar uma propriedade de uma política, coloque o nome da propriedade dentro de um par duplo de chavetas como `{{ContosoHeader}}`, conforme mostrado no exemplo seguinte:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -75,79 +105,14 @@ Se observar o [rastreio API Inspector](api-management-howto-api-inspector.md) pa
 
 ![Rastreio de API Inspector][api-management-api-inspector-trace]
 
-Tenha em atenção que, enquanto os valores de propriedade podem conter expressões de política, os valores de propriedade não podem conter outras propriedades. Se o texto que contém uma referência de propriedade é utilizado para um valor de propriedade, tais como `Property value text {{MyProperty}}`, esse referência da propriedade não será substituída e serão incluída como parte do valor de propriedade.
+Enquanto os valores de propriedade podem conter expressões de política, os valores de propriedade não podem conter outras propriedades. Se o texto que contém uma referência de propriedade é utilizado para um valor de propriedade, tais como `Property value text {{MyProperty}}`, esse referência da propriedade não será substituída e serão incluída como parte do valor de propriedade.
 
-## <a name="to-create-a-property"></a>Para criar uma propriedade
-Para criar uma propriedade, clique em **Adicionar propriedade** no **propriedades** separador.
-
-![Adicionar propriedade][api-management-properties-add-property-menu]
-
-**Nome** e **valor** são os valores necessários. Se este valor de propriedade é um segredo, verifique o **este é um segredo** caixa de verificação. Introduza uma ou mais etiquetas opcionais para ajudar a organizar as propriedades e clique em **guardar**.
-
-![Adicionar propriedade][api-management-properties-add-property]
-
-Quando uma nova propriedade for guardada, a **Procurar propriedade** caixa de texto é preenchida com o nome da nova propriedade e é apresentada a nova propriedade. Para apresentar todas as propriedades, desmarque a **Procurar propriedade** caixa de texto e prima introduza.
-
-![Propriedades][api-management-properties-property-saved]
-
-Para obter informações sobre a criação de uma propriedade utilizando a API REST, consulte [criar uma propriedade utilizando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
-
-## <a name="to-edit-a-property"></a>Para editar uma propriedade
-Para editar uma propriedade, clique em **editar** junto a propriedade para editar.
-
-![Editar a propriedade][api-management-properties-edit]
-
-Efetue as alterações pretendidas e clique em **guardar**. Se alterar o nome da propriedade, as políticas que referenciem essa propriedade são atualizadas automaticamente para utilizar o novo nome.
-
-![Editar a propriedade][api-management-properties-edit-property]
-
-Para informações sobre como editar uma propriedade utilizando a API REST, consulte [editar uma propriedade utilizando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
-
-## <a name="to-delete-a-property"></a>Para eliminar uma propriedade
-Para eliminar uma propriedade, clique em **eliminar** junto a propriedade para eliminar.
-
-![Eliminar a propriedade][api-management-properties-delete]
-
-Clique em **Sim, elimine-o** para confirmar.
-
-![Confirmar eliminação][api-management-delete-confirm]
-
-> [!IMPORTANT]
-> Se a propriedade é referenciada pelas políticas, será possível eliminá-lo com êxito até que remova a propriedade de todas as políticas que a utilizam.
-> 
-> 
-
-Para obter informações sobre como eliminar uma propriedade utilizando a API REST, consulte [eliminar uma propriedade utilizando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
-
-## <a name="to-search-and-filter-properties"></a>Para procurar e filtrar as propriedades
-O **propriedades** separador inclui a procura e filtragem de funcionalidades para o ajudar a gerir as propriedades. Para filtrar a lista de propriedades por nome de propriedade, introduza um termo de pesquisa no **Procurar propriedade** caixa de texto. Para apresentar todas as propriedades, desmarque a **Procurar propriedade** caixa de texto e prima introduza.
-
-![Pesquisa][api-management-properties-search]
-
-Para filtrar a lista de propriedades por valores de etiqueta, introduza uma ou mais etiquetas para o **filtrar por etiquetas** caixa de texto. Para apresentar todas as propriedades, desmarque a **filtrar por etiquetas** caixa de texto e prima introduza.
-
-![Filtro][api-management-properties-filter]
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como trabalhar com políticas
   * [Políticas de gestão de API](api-management-howto-policies.md)
   * [Referência de políticas](https://msdn.microsoft.com/library/azure/dn894081.aspx)
   * [Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## <a name="watch-a-video-overview"></a>Veja uma descrição geral do vídeo
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
-> 
-> 
-
-[api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
-[api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png
-[api-management-properties-edit-property]: ./media/api-management-howto-properties/api-management-properties-edit-property.png
-[api-management-properties-add-property-menu]: ./media/api-management-howto-properties/api-management-properties-add-property-menu.png
-[api-management-properties-property-saved]: ./media/api-management-howto-properties/api-management-properties-property-saved.png
-[api-management-properties-delete]: ./media/api-management-howto-properties/api-management-properties-delete.png
-[api-management-properties-edit]: ./media/api-management-howto-properties/api-management-properties-edit.png
-[api-management-delete-confirm]: ./media/api-management-howto-properties/api-management-delete-confirm.png
-[api-management-properties-search]: ./media/api-management-howto-properties/api-management-properties-search.png
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png

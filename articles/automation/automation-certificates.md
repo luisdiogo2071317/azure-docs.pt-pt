@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na automatização do Azure
 
@@ -28,18 +28,26 @@ Certificados podem ser armazenados em segurança na automatização do Azure par
 > Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é encriptada por um certificado principal e armazenada na automatização do Azure. Antes de o armazenamento de um recurso seguro, a chave da conta de automatização é desencriptada utilizando o certificado principal e, em seguida, utilizado para encriptar o elemento.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
-
-Os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de certificado de automatização com o Windows PowerShell. Estes são enviados como parte do [módulo Azure PowerShell](../powershell-install-configure.md) que está disponível para utilização nos runbooks de automatização e configurações de DSC.
+## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell
+Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial de automatização com o Windows PowerShell.  Estes são enviados como parte do [AzureRM.Automation módulo](/powershell/azure/overview) que está disponível para utilização nos runbooks de automatização e configurações de DSC.
 
 |Cmdlets|Descrição|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Obtém informações sobre um certificado a utilizar num runbook ou configuração de DSC. Apenas pode obter o certificado propriamente dito da atividade de Get-AutomationCertificate.|
-|[Novo AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Cria um novo certificado para a automatização do Azure.|
-[Remover AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Remove um certificado da automatização do Azure.|Cria um novo certificado para a automatização do Azure.
-|[Conjunto AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Define as propriedades de um certificado existente, incluindo o carregamento do ficheiro de certificado e definir a palavra-passe para um ficheiro. pfx.|
-|[AzureCertificate adicionar](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carrega um certificado de serviço para o serviço de nuvem especificada.|
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Cria um novo certificado para a automatização do Azure.|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Remove um certificado da automatização do Azure.|Cria um novo certificado para a automatização do Azure.
+|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Define as propriedades de um certificado existente, incluindo o carregamento do ficheiro de certificado e definir a palavra-passe para um ficheiro. pfx.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carrega um certificado de serviço para o serviço de nuvem especificada.|
 
+## <a name="activities"></a>Atividades
+As atividades na tabela seguinte são utilizadas para aceder aos certificados de um runbook e configurações de DSC.
+
+| Atividades | Descrição |
+|:---|:---|
+|Get-AutomationCertificate|Obtém um certificado a utilizar num runbook ou configuração de DSC. Devolve um [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) objeto.|
+
+> [!NOTE] 
+> Deve evitar utilizar variáveis no parâmetro – Name de **Get-AutomationCertificate** num runbook ou configuração de DSC, uma vez que isso pode dificultar a deteção de dependências entre runbooks ou de configuração de DSC e de automatização variáveis no momento da concepção.
 
 ## <a name="python2-functions"></a>Funções de Python2
 
@@ -112,6 +120,6 @@ O exemplo seguinte mostra como aceder a certificados em Python2 runbooks.
     # returns the binary cert content  
     print cert 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre como trabalhar com ligações para controlar o fluxo lógico de atividades de runbook foi concebido para efetuar, consulte [nas hiperligações na criação de gráficos](automation-graphical-authoring-intro.md#links-and-workflow). 

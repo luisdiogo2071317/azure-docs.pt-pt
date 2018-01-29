@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -63,7 +63,7 @@ Antes de preparar o seu ambiente, é necessário compreender estas limitações:
 * Dados de cópia de segurança não incluem unidades de rede montado ligadas a uma VM.
 * A substituição de uma máquina virtual existente durante o restauro não é suportada. Se tentar restaurar a VM quando existe a VM, a operação de restauro irá falhar.
 * Não são suportados por várias regiões cópia de segurança e restauro.
-* Cópia de segurança e restauro de armazenamento ACLed VMs, não é suportada a partir de agora. Cópia de segurança de VMs não é suportada se tiver ativado o armazenamento na funcionalidade VNET que permite a contas de armazenamento para poderem ser acedidos apenas a partir de determinados VNETs/sub-redes e/ou IPs.
+* Cópia de segurança e restauro de máquinas virtuais utilizando discos não geridos em contas de armazenamento com regras de rede aplicadas atualmente não é suportada. Ao configurar a cópia de segurança, certifique-se de que as definições de "Firewalls e redes virtuais" para a conta de armazenamento permitem o acesso a partir de "Todas as redes".
 * Pode criar cópias de segurança máquinas virtuais em todas as regiões públicas do Azure. (Consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões suportadas.) Se a região que procura não é suportada atualmente, não serão apresentados na lista pendente durante a criação do cofre.
 * Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração de várias DC é suportada apenas através do PowerShell. Para obter mais informações, consulte [restaurar um controlador de domínio do DC várias](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Máquinas virtuais que têm as seguintes configurações de rede especiais o restauro é suportado apenas através do PowerShell. VMs criadas através do fluxo de trabalho de restauro na IU não terá estas configurações de rede após a conclusão da operação de restauro. Para obter mais informações, consulte [restaurar VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

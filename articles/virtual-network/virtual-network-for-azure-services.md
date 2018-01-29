@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
 
@@ -58,7 +58,7 @@ Cada serviço implementado diretamente numa rede virtual tem requisitos específ
 - [Gateway de aplicação (interno)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Motor do serviço de contentor do Azure](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): O serviço de contentor do Azure cria uma rede virtual predefinido. Pode criar uma rede virtual personalizada para utilizar com o [motor do serviço de contentor do Azure](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
 - [Os serviços de domínio do Active Directory do Azure](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): (Virtual network clássica) apenas
-- [O Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration): (Virtual network clássica) apenas
+- [O Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Serviços em nuvem](https://msdn.microsoft.com/library/azure/jj156091): (Virtual network clássica) apenas
 
 Pode implementar um [Balanceador de carga do Azure interno](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) carregar equilibrar muitos dos recursos na lista anterior. Em alguns casos, o serviço cria e implementa automaticamente um balanceador de carga, quando cria um recurso.
