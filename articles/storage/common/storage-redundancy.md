@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -50,16 +50,7 @@ Consulte [preços do Storage do Azure](https://azure.microsoft.com/pricing/detai
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Armazenamento com redundância de zona
-
-Armazenamento com redundância de zona (ZRS) (pré-visualização) foi concebido para simplificar o desenvolvimento de aplicações de elevada disponibilidade. O ZRS fornece durabilidade para objetos de armazenamento de, pelo menos, 99.9999999999% (12 do 9) ao longo de um ano específico. O ZRS replica os dados de forma síncrona em várias zonas de disponibilidade. Considere o ZRS para cenários, como aplicações transacionais onde o período de indisponibilidade não é aceitável.
-
-O ZRS permite aos clientes ler e escrever dados, mesmo se uma única zona está indisponível ou irrecuperáveis. Insere e atualizações para os dados são efetuadas de forma síncrona e são vivamente consistentes.   
-
-O ZRS está atualmente disponível para pré-visualização nas seguintes regiões, com mais regiões brevemente:
-
-- Este dos EUA 2 
-- Centro dos EUA 
-- França Central (esta região está atualmente em pré-visualização. Consulte [pré-visualização do Microsoft Azure com zonas de disponibilidade do Azure agora abrir no França](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) para pedir acesso.)
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>Contas ZRS clássico
 

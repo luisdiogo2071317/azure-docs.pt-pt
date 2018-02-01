@@ -1,6 +1,6 @@
 ---
-title: "Diagnosticar exceções de tempo de execução, utilizar o Azure Application Insights | Microsoft Docs"
-description: "Tutorial para localizar e diagnosticar exceções de tempo de execução na sua aplicação com o Azure Application Insights."
+title: "Diagnosticar exceções de runtime com o Azure Application Insights | Microsoft Docs"
+description: "Tutorial para localizar e diagnosticar exceções de runtime na sua aplicação com o Azure Application Insights."
 services: application-insights
 keywords: 
 author: mrbullwinkle
@@ -10,23 +10,23 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
+# <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
-Azure Application Insights recolhe telemetria da sua aplicação para ajudar a identificar e diagnosticar exceções de tempo de execução.  Este tutorial guia-o ao longo deste processo com a sua aplicação.  Saiba como:
+O Azure Application Insights recolhe telemetria da sua aplicação para ajudar a identificar e diagnosticar exceções de runtime.  Este tutorial guia-o ao longo deste processo com a sua aplicação.  Saiba como:
 
 > [!div class="checklist"]
 > * Modificar o seu projeto para ativar o controlo de exceções
-> * Identificar as exceções de diferentes componentes da aplicação
+> * Identificar exceções de diferentes componentes da aplicação
 > * Ver detalhes de uma exceção
-> * Transfira um instantâneo da exceção para o Visual Studio para depuração
-> * Analise os detalhes de pedidos falhados utilizando a linguagem de consulta
-> * Criar um novo item de trabalho para corrigir o código defeituoso
+> * Transferir um instantâneo da exceção para o Visual Studio para depuração
+> * Analisar os detalhes de pedidos falhados com a linguagem de consulta
+> * Criar um novo item de trabalho para corrigir o código com erros
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,80 +36,85 @@ Para concluir este tutorial:
 - Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
-- Transfira e instale o [depurador de instantâneo do Visual Studio](http://aka.ms/snapshotdebugger).
-- Ativar [depurador de instantâneos do Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
-- Implementar uma aplicação .NET do Azure e [ativar o Application Insights SDK](app-insights-asp-net.md). 
-- O tutorial controla a identificação de uma exceção na sua aplicação, por isso, modifique o código no seu ambiente de desenvolvimento ou teste para gerar uma exceção. 
+- Transfira e instale o [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
+- Ative o [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger).
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](app-insights-asp-net.md). 
+- O tutorial controla a identificação de uma exceção na sua aplicação, por isso, modifique o código no seu ambiente de desenvolvimento ou de teste para gerar uma exceção. 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="analyze-failures"></a>Analisar falhas
-Application Insights recolhe eventuais falhas na sua aplicação e permite-lhe ver os respetivos frequência em operações diferentes para o ajudar a focar-se os esforços nessas com o maior impacto.  Pode, em seguida, desagregar em detalhes uma destas falhas para identificar a causa raiz.   
+O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-lhe ver a frequência das mesmas em operações diferentes para o ajudar a centrar os seus esforços naquelas cujo impacto é mais significativo.  Pode, em seguida, desagregar os detalhes destas falhas para identificar a raiz do problema.   
 
 1. Selecione **Application Insights** e, em seguida, a sua subscrição.  
-1. Para abrir o **falhas** painel selecione **falhas** sob o **investigar** menu ou clique o **pedidos falhados** gráfico.
+2. Para abrir o painel **Falhas**, selecione **Falhas** no menu **Investigar** ou clique no gráfico **Pedidos falhados**.
 
     ![Pedidos falhados](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. O **pedidos falhados** painel mostra a contagem de pedidos falhados e o número de utilizadores afetados para cada operação para a aplicação.  Por estas informações ao utilizador a ordenação pode identificar as falhas de que a maioria afeta os utilizadores.  Neste exemplo, o **obter funcionários/cria** e **obter clientes/detalhes** provável candidatos para investigar devido ao respetivo grande número de falhas e que os utilizadores afetados.  Selecionar uma operação mostra mais informações sobre esta operação no painel à direita.
+3. O painel **Pedidos falhados** mostra a contagem de pedidos falhados e o número de utilizadores afetados para cada operação da aplicação.  A ordenação destas informações por utilizador permite-lhe identificar as falhas com maior impacto sobre os utilizadores.  Neste exemplo, **GET Employees/Create** e **GET Customers/Details** são candidatos prováveis a serem investigados devido ao número elevado de falhas e utilizadores afetados que apresentam.  Se selecionar uma determinada operação serão mostradas mais informações sobre a mesma no painel à direita.
 
-    ![Falha ao painel de pedidos](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
+    ![Painel de pedidos falhados](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
-3. Reduza a janela de tempo para aplicar zoom no período em que a taxa de falhas mostra um pico de pedidos.
+4. Reduza o intervalo de tempo para ampliar o período em que a taxa de falhas mostra um pico.
 
     ![Janela de pedidos falhados](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. Clique em **ver detalhes** para ver os detalhes para a operação.  Isto inclui um Gantt gráfico que mostra as duas dependências falhadas que coletivamente demorou quase metade de um segundo para concluir.  Pode saber mais sobre como analisar problemas de desempenho por concluir o tutorial [localizar e diagnosticar problemas de desempenho com o Azure Application Insights](app-insights-tutorial-performance.md).
+5. Clique em **Ver Detalhes** para ver os detalhes da operação.  Os detalhes incluem um gráfico Gantt que mostra duas dependências falhadas, as quais coletivamente demoraram quase meio segundo a serem concluídas.  Saiba mais sobre como analisar problemas de desempenho ao completar o tutorial [Localizar e diagnosticar problemas de desempenho com o Azure Application Insights](app-insights-tutorial-performance.md).
 
-    ![Falha ao obter detalhes de pedidos](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Detalhes de pedidos falhados](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. Os detalhes de operações também mostra um FormatException que parece ter causou a falha.  Clique em de exceção ou no **tipos de exceção da parte superior 3** contagem para ver os detalhes.  Pode ver o que é devido a um código postal inválido.
+6. Os detalhes das operações também mostram um FormatException que parece estar na origem da falha.  Clique na exceção ou na contagem **Três principais tipos de exceção** para ver os detalhes.  Pode ver que o problema deve-se a um código postal inválido.
 
     ![Detalhes da exceção](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
+> [!NOTE]
+Ative a [experiência de pré-visualização](app-insights-previews.md) "Detalhes unificados: Diagnósticos de Transação E2E" para ver toda a telemetria relacionada do lado do servidor, como pedidos, dependências, exceções, rastreios, eventos, entre outros, numa única vista de ecrã inteiro. 
 
+Com a pré-visualização ativada, pode ver o tempo despendido em chamadas de dependência, juntamente com quaisquer falhas ou exceções, numa experiência unificada. Para as transações entre componentes, o gráfico Gantt, juntamente com o painel de detalhes, pode ajudá-lo a diagnosticar rapidamente o componente, a dependência ou a exceção onde reside a raiz do problema. Pode expandir a secção inferior para ver a sequência de tempo de quaisquer rastreios ou eventos recolhidos para a operação de componente selecionada. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md)  
 
-## <a name="identify-failing-code"></a>Identificar com falhas de código
-O depurador de instantâneo recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a causa de raiz na produção.  Pode ver instantâneos de depuração no portal para ver a chamada da pilha e inspecionar as variáveis em cada frame de pilha de chamadas. Em seguida, pode depurar o código de origem ao descarregar o instantâneo e abri-lo no Visual Studio 2017.
+![Diagnóstico da transação](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
-1. Nas propriedades da exceção, clique em **depuração Abrir instantâneo**.
-2. O **depurar instantâneo** painel abre-se com a pilha de chamadas para o pedido.  Clique em qualquer método para ver os valores de todas as variáveis locais no momento do pedido.  A partir do método superior neste exemplo, é possível ver as variáveis locais que não tenham nenhum valor.
+## <a name="identify-failing-code"></a>Identificar o código com falhas
+O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a raiz do problema na produção.  Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Em seguida, pode depurar o código fonte ao transferir o instantâneo e abri-lo no Visual Studio 2017.
+
+1. Nas propriedades da exceção, clique em **Abrir instantâneo de depuração**.
+2. O painel **Depurar Instantâneo** é aberto com a pilha de chamadas relativas ao pedido.  Clique num dos métodos disponíveis para ver os valores de todas as variáveis locais no momento do pedido.  Tomando como ponto de partida o método principal neste exemplo, é possível ver variáveis locais que não têm qualquer valor.
 
     ![Depurar o instantâneo](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. É a primeira chamada que tem os valores válidos **ValidZipCode**, e for possível ver que um código postal fornecido com letras que não não capazes de ser convertido de um número inteiro.  Isto parece ser o erro no código que tem de ser corrigido.
+4. A primeira chamada com valores válidos é **ValidZipCode** e podemos ver que foi fornecido um código postal com letras que não é possível converter num número inteiro.  Aparentemente, este é o erro no código que precisa de ser corrigido.
 
     ![Depurar o instantâneo](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Para transferir este instantâneo para o Visual Studio onde iremos possam localizar o código real que tem de ser corrigido, clique em **transferir instantâneo**.
+5. Para transferir este instantâneo para o Visual Studio, onde poderemos localizar o código real que precisa de ser corrigido, clique em **Transferir Instantâneo**.
 6. O instantâneo é carregado para o Visual Studio.
-7. Agora, pode executar uma sessão de depuração no Visual Studio rapidamente identifica a linha de código que causou a exceção.
+7. Agora, pode executar uma sessão de depuração no Visual Studio que identifica rapidamente a linha de código responsável pela exceção.
 
     ![Exceção no código](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 
 
-## <a name="use-analytics-data"></a>Dados de análise de utilização
-Todos os dados recolhidos pelo Application Insights é armazenado no Log Analytics do Azure, que fornece um idioma de consulta avançada permite-lhe analisar os dados de diversas formas.  Podemos utilizar estes dados para analisar os pedidos que gerou a exceção que está a pesquisar. 
+## <a name="use-analytics-data"></a>Utilizar dados de análise
+Todos os dados recolhidos pelo Application Insights são armazenados no Azure Log Analytics, o qual fornece uma linguagem de consulta avançada que lhe permite analisar os dados de diversas formas.  Podemos utilizar estes dados para analisar os pedidos que geraram a exceção que estamos a pesquisar. 
 
-8. Clique nas informações de CodeLens acima o código para ver a telemetria fornecida pelo Application Insights.
+8. Clique nas informações de CodeLens por cima do código para ver a telemetria fornecida pelo Application Insights.
 
     ![Código](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
-9. Clique em **analisar impacto** para abrir o Application Insights Analytics.  Este é preenchido com várias consultas que fornecem detalhes sobre pedidos com falhas, tais como utilizadores afectados, os browsers e regiões.<br><br>![Análise](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+9. Clique em **Analisar o impacto** para abrir o Application Insights Analytics.  Este é povoado com várias consultas que fornecem detalhes sobre os pedidos falhados, tais como os utilizadores, os browsers e as regiões afetados.<br><br>![Análise](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Adicionar item de trabalho
-Se ligar Application Insights para um sistema de controlo, tais como o Visual Studio Team Services ou o GitHub, pode criar um item de trabalho diretamente a partir do Application Insights.
+Se ligar o Application Insights a um sistema de controlo, como o Visual Studio Team Services ou o GitHub, pode criar um item de trabalho diretamente a partir do Application Insights.
 
-1. Volte à **exceção propriedades** painel no Application Insights.
-2. Clique em **Novo Item de trabalho**.
-3. O **Novo Item de trabalho** painel abre-se com detalhes sobre a exceção já preenchidos.  Pode adicionar qualquer informação adicional antes de guardar.
+1. Volte ao painel **Propriedades da Exceção** no Application Insights.
+2. Clique em **Novo Item de Trabalho**.
+3. O painel **Novo Item de Trabalho** é aberto com os detalhes sobre a exceção já povoados.  Pode adicionar as informações adicionais que quiser antes de o guardar.
 
-    ![Novo Item de trabalho](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
+    ![Novo Item de Trabalho](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que aprendeu como identificar as exceções de tempo de execução, avançar para o próximo tutorial para saber como identificar e diagnosticar problemas de desempenho.
+Agora que aprendeu a identificar exceções de runtime, avance para o próximo tutorial para saber como identificar e diagnosticar problemas de desempenho.
 
 > [!div class="nextstepaction"]
 > [Identificar problemas de desempenho](app-insights-tutorial-performance.md)

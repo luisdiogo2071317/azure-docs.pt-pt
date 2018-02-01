@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são os conjuntos de dimensionamento de máquinas virtuais do Azure?
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir um conjunto de VMs idênticas. Com todas as VMs configuradas da mesma forma, os conjuntos de dimensionamento foram concebidos para suportar um autêntico dimensionamento automático, sem que seja necessário o pré-aprovisionamento de VMs. Assim, é mais fácil criar serviços em grande escala orientados para macrocomputação, macrodados e cargas de trabalho em contentores.
@@ -35,10 +35,7 @@ Para obter mais informações sobre os conjuntos de dimensionamento, veja estes 
 ## <a name="creating-and-managing-scale-sets"></a>Criar e gerir conjuntos de dimensionamento
 Pode criar um conjunto de dimensionamento no [portal do Azure](https://portal.azure.com) ao selecionar **novo** e escrever **dimensionamento** na barra de pesquisa. É apresentado **Conjunto de dimensionamento de máquinas virtuais** nos resultados. A partir daí, pode preencher os campos necessários para personalizar e implementar o seu conjunto de dimensionamento. Também tem opções no portal para configurar regras de dimensionamento automático básicas com base na utilização da CPU. Para gerir o seu conjunto de dimensionamento, pode utilizar o portal do Azure, [cmdlets do Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) ou a CLI 2.0 do Azure.
 
-Os conjuntos de dimensionamento podem ser implementados numa [zona de disponibilidade](../availability-zones/az-overview.md).
-
-> [!NOTE]
-> Atualmente, os conjuntos de dimensionamento de máquinas virtuais só suportam a implementação de uma zona de disponibilidade única. A implementação de várias zonas será suportada no futuro.
+Os conjuntos de dimensionamento podem ser implementados em [zonas de disponibilidade](virtual-machine-scale-sets-use-availability-zones.md).
 
 Pode utilizar modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx), tais como VMs do Azure Resource Manager individuais, para definir e implementar conjuntos de dimensionamento. Por conseguinte, pode utilizar qualquer método de implementação Azure Resource Manager padrão. Para obter mais informações sobre os modelos, veja [Authoring Azure Resource Manager templates (Criar modelos do Azure Resource Manager)](../azure-resource-manager/resource-group-authoring-templates.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 142b9e052e09f88826ae8ea3866316444a5d7acc
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="network-security"></a>Segurança da rede
 
@@ -119,7 +119,7 @@ Não pode remover as regras predefinidas, mas pode criar regras com prioridades 
 * **VirtualNetwork** (*Resource Manager) (**VIRTUAL_NETWORK** para a clássica): esta etiqueta inclui o espaço de endereços das redes virtuais (todos os intervalos de CIDR definidos para as redes virtuais), todos os espaços de endereços no local ligados e as redes em [modo de peering](virtual-network-peering-overview.md) ou as redes virtuais ligadas a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** par clássica): esta etiqueta denota o balanceador de carga da infraestrutura do Azure. A etiqueta traduz-se num [endereço IP de um datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), onde as sondas de estado de funcionamento do Azure têm origem. Se não estiver a utilizar o balanceador de carga do Azure, pode substituir esta regra.
 * **Internet** (Gestor de Recursos) (**INTERNET** para clássica): esta etiqueta denota o espaço de endereços IP que está fora da rede virtual e acessível pela Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureTrafficManager** (apenas Resource Manager): esta etiqueta denota o espaço de endereços IP do serviço Gestor de Tráfego do Azure.
+* **AzureTrafficManager** (apenas Resource Manager): esta etiqueta denota o espaço de endereços IP de pesquisa do Gestor de Tráfego do Azure. Pode encontrar mais informações no Gestor de Tráfego de pesquisa de IPs nas [Perguntas e Respostas do Gestor de Tráfego do Azure](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs).
 * **Armazenamento** (apenas Resource Manager): esta etiqueta denota o espaço de endereços IP do serviço Armazenamento do Azure. Se especificar *Storage* no valor, o tráfego é permitido ou negado para o armazenamento. Se quiser apenas permitir o acesso ao armazenamento numa determinada [região](https://azure.microsoft.com/regions), pode especificá-la. Por exemplo, se pretender permitir o acesso ao Armazenamento do Azure apenas na região E.U.A. Leste, pode especificar *Storage.EastUS* como a etiqueta de serviço. A etiqueta representa o serviço, mas não instâncias específicas do mesmos. Por exemplo, representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica.
 * **Sql** (apenas Resource Manager): esta etiqueta denota os prefixos de endereços dos serviços Base de Dados SQL do Azure e Azure SQL Data Warehouse. Se especificar *Sql* no valor, o tráfego é permitido ou negado para o Sql. Se quiser apenas permitir o acesso ao Sql numa determinada [região](https://azure.microsoft.com/regions), pode especificá-la. Por exemplo, se pretender permitir o acesso à Base de Dados SQL do Azure apenas na região E.U.A. Leste, pode especificar *Sql.EastUS* como a etiqueta de serviço. A etiqueta representa o serviço, mas não instâncias específicas do mesmos. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL.
 

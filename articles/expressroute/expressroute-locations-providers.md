@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 01/17/2018
 ms.author: kaanan
-ms.openlocfilehash: d7b7204f218cf67b1749e4fcdbc78d134e6d80e7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 679c3093a1feb4589ff96dab398d38a866c9ad2a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -44,7 +44,7 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Washington D.C., Montreal, Cidade do Quebeque, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
 | **Europa** |Europa do Norte, Europa Ocidental, Reino Unido Oeste, Reino Unido Sul |Amesterdão, Dublin, Londres, Newport (País de Gales), Paris |
-| **Ásia** |Ásia Oriental, Sudeste Asiático |RAE de Hong Kong, Singapura |
+| **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Singapura, Singapura2 |
 | **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
 | **Índia** |Índia Ocidental, Índia Central, Sul da Índia |Chennai, Mumbai |
@@ -83,7 +83,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Miami** |C3ntro+, Megaport, Neutrona Networks |
-| **Montreal** |Bell Canada, Cologix |
+| **Montreal** |Bell Canada, Cologix, Telus |
 | **Mumbai** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
 | **Nova Iorque** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo Group |
 | **Newport (País de Gales)** |Comunicações de Nível 3, Dados da Próxima Geração |
@@ -96,6 +96,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Seul** |KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Coresite, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapura** |Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapura2** |Megaport, SingTel |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tóquio** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Level 3 Communications, NTT Communications, Softbank, Verizon |
 | **Toronto** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |

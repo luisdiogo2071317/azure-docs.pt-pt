@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: c7625a5670aca5d105601432fedfd0d7a78bb53c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -143,11 +143,16 @@ Contém a implementação de ator e o código de registo de ator. A classe de at
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
 ```java
-@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@ActorServiceAttribute(name = "HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
-    Logger logger = Logger.getLogger(this.getClass().getName());
+public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor {
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    public HelloWorldActorImpl(FabricActorService actorService, ActorId actorId){
+        super(actorService, actorId);
+    }
+
+    @Override
     protected CompletableFuture<?> onActivateAsync() {
         logger.log(Level.INFO, "onActivateAsync");
 
@@ -176,15 +181,16 @@ O serviço de ator tem de ser registado com um tipo de serviço no runtime do Se
 ```java
 public class HelloWorldActorHost {
 
-    public static void main(String[] args) throws Exception {
-
+private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
+    
+public static void main(String[] args) throws Exception {
+        
         try {
-            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
 
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
-
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Exception occured", e);
             throw e;
         }
     }
@@ -203,14 +209,14 @@ As dependências Java do Service Fabric são obtidas do Maven. Para criar e trab
 Para criar e empacotar a aplicação, execute o seguinte:
 
   ```bash
-  cd myapp
+  cd HelloWorldActorApplication
   gradle
   ```
 
 ## <a name="deploy-the-application"></a>Implementar a aplicação
 Depois de criada a aplicação, pode implementá-la no cluster local.
 
-1. Ligue ao cluster do Service Fabric local.
+1. Ligue ao cluster do Service Fabric local (o cluster tem de estar [configurado e em execução](service-fabric-get-started-linux.md#set-up-a-local-cluster)).
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
@@ -235,7 +241,7 @@ Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lh
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.  O script de teste chama o método `setCountAsync()` no ator para incrementar um contador, chama o método `getCountAsync()` no ator para obter o valor do novo contador e apresenta esse valor à consola.
 
     ```bash
-    cd myactorsvcTestClient
+    cd HelloWorldActorTestClient
     watch -n 1 ./testclient.sh
     ```
 

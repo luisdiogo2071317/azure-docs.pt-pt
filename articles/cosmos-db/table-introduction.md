@@ -2,7 +2,7 @@
 title: "Introdução à API de Tabela do Azure Cosmos DB | Microsoft Docs"
 description: "Saiba como pode utilizar o Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chaves-valores com baixa latência através da utilização das populares APIs OSS MongoDB."
 services: cosmos-db
-author: mimig
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.openlocfilehash: 9321cf648e149408e68456d30e331e05720b60ab
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.author: mimig
+ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução à API de Tabelas do Azure Cosmos DB
 
@@ -30,7 +30,7 @@ O [Azure Cosmos DB](introduction.md) disponibiliza a API de Tabelas às aplicaç
 * Elevada disponibilidade garantida.
 * [Indexação secundária automática](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-As aplicações escritas para o armazenamento de Tabelas do Azure podem migrar para o Azure Cosmos BD com a API de Tabela sem alterações de código e tirar partido das funcionalidades premium. A API de Tabela tem um SDK de cliente disponível para .NET.
+As aplicações escritas para o armazenamento de Tabelas do Azure podem migrar para o Azure Cosmos BD com a API de Tabela sem alterações de código e tirar partido das funcionalidades premium. A API de Tabela tem SDKs do cliente disponíveis para .NET, Java, Python e Node.js.
 
 Recomendamos que veja o vídeo seguinte, onde Aravind Ramachandran explica como começar a utilizar a API de Tabela do Azure Cosmos DB:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 Este tutorial demonstra como **copiar várias tabelas da Base de Dados SQL do Azure para o Azure SQL Data Warehouse**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
@@ -195,7 +195,7 @@ Neste tutorial, as tabelas SQL de origem e destino não estão hard-coded nas de
 5. Mude para o separador **Parâmetros** e clique em **+ Novo**
 
     ![Página de ligação do conjunto de dados de origem](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Introduza **DWTableName** no nome do parâmetro. 
+6. Introduza **DWTableName** no nome do parâmetro. Se copiar/colar este nome da página, certifique-se de que não **há nenhuma um espaço** no final de **DWTableName**. 
 7. Na secção **Propriedades parametrizadas**, introduza `@{dataset().DWTableName}` na propriedade **tableName**. A propriedade **tableName** do conjunto de dados está definida como o valor que é transmitido como argumento ao parâmetro **DWTableName**. A atividade ForEach itera através de uma lista de tabelas e transmite-as uma a uma à atividade Cópia. 
    
     ![Nome do parâmetro](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

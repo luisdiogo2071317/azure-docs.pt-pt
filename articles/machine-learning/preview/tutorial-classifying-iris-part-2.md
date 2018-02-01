@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Classificar Íris, parte 2: criar um modelo
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados ponto a ponto integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
@@ -326,7 +326,7 @@ Para executar o script num contentor do Docker num computador Linux remoto, tem 
 3. Emita o comando utilizado anteriormente na janela da CLI, mas desta vez vamos escolher _myvm_ como o destino:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    O comando é executado como se estivesse a utilizar um ambiente `docker-python`, com a diferença de que a execução tem lugar na VM do Linux remota. A janela da CLI apresenta as mesmas informações de saída.
 
@@ -346,7 +346,7 @@ Para executar o script num contentor do Docker num computador Linux remoto, tem 
 Também pode executar este script num cluster do HDInsight Spark. Saiba [como criar o Cluster do Spark HDInsight para utilizar no Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
 >[!NOTE] 
->O cluster do HDInsight tem de utilizar BLOBs do Azure como o armazenamento principal. A utilização do armazenamento do Azure Data Lake ainda não é suportada.
+>O cluster do HDInsight tem de utilizar o Blob do Azure como armazenamento principal. A utilização do armazenamento do Azure Data Lake ainda não é suportada.
 
 1. Se tiver acesso a um cluster do Spark para o Azure HDInsight, gere um comando de configuração de execução do HDInsight, conforme mostrado aqui. Indique como parâmetros o nome do cluster do HDInsight e o seu nome de utilizador e a sua palavra-passe do HDInsight. Utilize o seguinte comando:
 
@@ -374,7 +374,7 @@ Também pode executar este script num cluster do HDInsight Spark. Saiba [como cr
    >Quando executa num cluster do HDInsight remoto, também pode ver os detalhes da execução do trabalho do Yet Another Resource Negotiator (YARN), em `https://<cluster_name>.azurehdinsight.net/yarnui`, com a conta de utilizador `admin`.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Nesta segunda parte da série do tutorial de três partes, aprendeu a utilizar os serviços do Azure Machine Learning para:
 > [!div class="checklist"]
 > * Utilizar o Azure Machine Learning Workbench.

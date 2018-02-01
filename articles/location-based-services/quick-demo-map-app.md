@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Iniciar uma pesquisa de mapas interativa de demonstração com o Azure Location Based Services (pré-visualização)
 
@@ -38,13 +38,13 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
     ![Criar conta do Location Based Services no portal](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Assim que a conta for criada com êxito, abra-a e navegue para **DEFINIÇÕES**. Clique em **Chaves** para obter as chaves de subscrição primária e secundária da conta. Copie o valor da **Chave Primária** para a área de transferência local para utilizar na secção seguinte. 
+5. Assim que a conta for criada com êxito, abra-a e navegue para **DEFINIÇÕES**. Clique em **Chaves** para obter as chaves primárias e secundárias da conta do Azure Location Based Services. Copie o valor da **Chave Primária** para a área de transferência local para utilizar na secção seguinte. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Transferir a aplicação de demonstração para o Azure Maps
 
 1. Transfira ou copie o conteúdo do ficheiro [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Guarde o conteúdo deste ficheiro localmente como **AzureMapDemo.html** e abra-o num editor de texto.
-3. Procure a cadeia **&#60;insert-key&#62;** e substitua-a pelo valor da **Chave Primária** obtido na secção anterior. 
+3. Procure a cadeia `<insert-key>` e substitua-a pelo valor da **Chave Primária** obtido na secção anterior. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Iniciar a aplicação de demonstração para o Azure Maps

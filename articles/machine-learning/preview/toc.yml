@@ -140,6 +140,8 @@
           href: data-prep-python-extensibility-overview.md
         - name: Origens de dados suportadas
           href: data-prep-appendix2-supported-data-sources.md
+        - name: Carregar o Azure Cosmos DB como origem de dados
+          href: data-prep-load-azure-cosmos-db.md
         - name: Inspetores suportados
           href: data-prep-appendix4-supported-inspectors.md
         - name: Destinos de dados suportados

@@ -1,6 +1,6 @@
 ---
-title: "Recursos do Azure de dimensionamento automático com base nos dados de desempenho ou numa agenda | Microsoft Docs"
-description: "Criar uma definição de dimensionamento automático para um plano do app service utilizando dados métricos e uma agenda"
+title: "Dimensionamento automático dos recursos do Azure com base nos dados de desempenho ou numa agenda | Microsoft Docs"
+description: "Criar uma definição de dimensionamento automático para um plano do serviço de aplicações através de dados métricos e de uma agenda"
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: MT
+ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma definição de dimensionamento automático para recursos do Azure com base nos dados de desempenho ou numa agenda
+# <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Definição de Dimensionamento Automático para recursos do Azure com base nos dados de desempenho ou numa agenda
 
-Definições de dimensionamento automático permitem-lhe adicionar/remover instâncias de serviço com base nas condições predefinidas. Estas definições podem ser criadas através do portal. Este método fornece uma interface de utilizador baseada no browser para criar e configurar uma definição de dimensionamento automático. 
+As definições de dimensionamento automático permitem adicionar/remover instâncias de serviço com base nas condições predefinidas. Estas definições podem ser criadas através do portal. Este método fornece uma interface de utilizador baseada no browser para criar e configurar uma definição de dimensionamento automático. 
 
-Neste tutorial, irá 
+Neste tutorial, irá: 
 > [!div class="checklist"]
-> * Criar uma aplicação Web e o plano do App Service
-> * Configurar regras para a escala de entrada e de escalamento horizontal com base no número de pedidos a receber de uma aplicação Web de dimensionamento automático
-> * Acionar uma ação de escalamento horizontal e ver o número de instâncias aumentar
-> * Acionar uma ação de dimensionamento e ver o número de instâncias diminuir
+> * Crie uma Aplicação Web e um Plano do Serviço de Aplicações
+> * Configurar regras de dimensionamento automático para aumentar e reduzir horizontalmente com base no número de pedidos recebidos por uma Aplicação Web
+> * Acionar uma ação de aumento horizontal e ver o número de instâncias aumentar
+> * Acionar uma ação de redução horizontal e ver o número de instâncias diminuir
 > * Apague os seus recursos
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -34,156 +34,156 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-web-app-and-app-service-plan"></a>Criar uma aplicação Web e o plano do App Service
-Clique em de **novo** opção no painel de navegação esquerdo
+## <a name="create-a-web-app-and-app-service-plan"></a>Crie uma Aplicação Web e um Plano do Serviço de Aplicações
+Clique na opção **Novo** no painel de navegação esquerdo
 
-Procure e selecione o *aplicação Web* item e clique em **criar**
+Procure e selecione o item *Aplicação Web* e clique em **Criar**
 
-Selecione um nome de aplicação como *MyTestScaleWebApp*. Criar um novo grupo de recursos * myResourceGroup' e coloque-o para o grupo de recursos da sua escolha.
+Selecione um nome de aplicação, como *MyTestScaleWebApp*. Crie um novo grupo de recursos *myResourceGroup e coloque-o no grupo de recursos da sua escolha.
 
-Dentro de alguns minutos, os recursos deverão ser aprovisionados. Utilizar a aplicação Web e correspondente plano do App Service no resto deste tutorial.
+Dentro de alguns minutos, os recursos deverão ser aprovisionados. Utilize a Aplicação Web e o Plano do Serviço de Aplicações correspondente no resto deste tutorial.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Criar um novo serviço de aplicações no portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
-## <a name="navigate-to-autoscale-settings"></a>Navegue para definições de dimensionamento automático
-1. A partir do painel de navegação esquerdo, selecione o **Monitor** opção. Depois da página for carregada selecione o **dimensionamento automático** separador.
-2. Uma lista de recursos na sua subscrição que suporta o dimensionamento automático estão listados aqui. Identificar o plano do App Service que foi criado anteriormente no tutorial e clique no mesmo.
+## <a name="navigate-to-autoscale-settings"></a>Navegar para as definições de Dimensionamento Automático
+1. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Depois da página ser carregada, selecione o separador **Dimensionamento Automático**.
+2. É apresentada uma lista dos recursos na sua subscrição que suportam o dimensionamento automático. Identifique o Plano do Serviço de Aplicações criado anteriormente no tutorial e clique no mesmo.
 
-    ![Navegue para definições de dimensionamento automático](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Navegar para as definições de dimensionamento automático](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. Na definição de dimensionamento automático, clique em de **ativar o dimensionamento automático** botão
+3. Na definição de dimensionamento automático, clique no botão **Ativar Dimensionamento Automático**
 
-A seguinte ajuda de passos alguns preenchidos o ecrã de dimensionamento automático para aspeto a imagem seguinte:
+Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático para ter o aspeto da imagem que se segue:
 
    ![Guardar a definição de dimensionamento automático](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
  ## <a name="configure-default-profile"></a>Configurar o perfil predefinido
-1. Forneça um **nome** para a definição de dimensionamento automático
-2. No perfil predefinido, certifique-se a **modo de dimensionamento** está definido como 'Escala a uma contagem de instâncias específicas'
-3. Definir a contagem de instâncias **1**. Esta definição garante que, quando nenhum outro perfil estiver ativo ou em vigor, o perfil predefinido devolve a contagem de instâncias para 1.
+1. Forneça um **Nome** para a definição de dimensionamento automático
+2. No perfil predefinido, certifique-se de que a opção **Modo de dimensionamento** está definida como "Dimensionar para uma contagem de instâncias específica"
+3. Defina a contagem de instâncias como **1**. Esta definição garante que, quando não estiver ativo ou em vigor nenhum outro perfil, o perfil predefinido devolve a contagem de instâncias como 1.
 
-  ![Navegue para definições de dimensionamento automático](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+  ![Navegar para as definições de dimensionamento automático](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>Criar perfil de recurrance
+## <a name="create-recurrance-profile"></a>Criar um perfil de periodicidade
 
-1. Clique em de **adicionar uma condição de escala** ligação sob o perfil predefinido
+1. Clique na ligação **Adicionar uma condição de dimensionamento** no perfil predefinido
 
-2. Editar o **nome** deste perfil para ser 'Perfil de segunda a sexta '
+2. Edite o **Nome** deste perfil para "Perfil de segunda a sexta"
 
-3. Certifique-se a **modo de dimensionamento** está definido como 'Escala com base numa métrica'
+3. Certifique-se de que a opção **Modo de dimensionamento** está definida como "Dimensionamento com base na métrica"
 
-4. Para **instância limites** definido o **mínimo** como '1', o **máximo** como '2' e o **predefinido** como '1'. Esta definição garantirá que este perfil a não dimensionamento automático da serviço planeia ter menos do que 1 instância ou mais de 2 instâncias. Se o perfil não tem dados suficientes para tomar uma decisão, utiliza o número predefinido de instâncias (em 1 neste caso).
+4. Para **Limites de instância**, defina **Mínimo** como "1", **Máximo** como "2" e **Predefinição** como "1". Esta definição assegura que este perfil não dimensiona automaticamente o plano do serviço para ter menos de 1 instância ou mais de 2 instâncias. Se o perfil não tiver dados suficientes para tomar uma decisão, utiliza o número predefinido de instâncias (neste caso, 1).
 
-5. Para **agenda**, selecione 'dias específicos Repeat'
+5. Para **Agendar**, selecione "Repetir dias específicos"
 
-6. Defina o perfil de repetir a segunda através de sexta-feira, de 09:00 PST para 18:00 PST. Esta definição garantirá que este perfil é apenas aplicável e Active Directory 09: 00 para as 18: 00, segunda através de sexta-feira. Todos os outros fora das horas, o 'Default' é o perfil utiliza o definição de dimensionamento automático.
+6. Defina o perfil para repetir de segunda a sexta, das 09:00 PST às 18:00 PST. Esta definição assegura que este perfil só está ativo e é aplicável das 09: 00 às 18:00, de segunda a sexta. Durante as restantes horas, o perfil "Predefinido" é o perfil utilizado pela definição de dimensionamento automático.
 
-## <a name="create-a-scale-out-rule"></a>Criar uma regra de escalamento horizontal
+## <a name="create-a-scale-out-rule"></a>Criar uma regra de aumento horizontal
 
-1. Na segunda ao perfil sexta-feira
+1. No "Perfil de segunda a sexta"
 
-2. Clique em de **adicionar uma regra** ligação
+2. Clique na ligação **Adicionar uma regra**
 
-3. Definir o **origem métrica** ser 'outros recursos'. Definir o **tipo de recurso** como serviços de aplicações e o **recursos** enquanto a aplicação Web criada anteriormente no tutorial.
+3. Defina **Origem métrica** como "outros recursos". Defina **Tipo de recurso** como "Serviços de Aplicações" e **Recurso** como a Aplicação Web criada anteriormente neste tutorial.
 
-4. Definir o **tempo agregação** como 'Totais', o **o nome da métrica** como 'Pedidos' e o **estatística de grão de tempo** como 'Soma'
+4. Defina **Agregação de tempo** como "Total", **Nome da métrica** como "Pedidos" e **Estatística de intervalo de agregação** como "Soma"
 
-5. Definir o **operador** "Maior do que", como o **limiar** como '10' e o **duração** como '5' minutos.
+5. Defina **Operador** como "Maior que", **Limiar** como "10" e **Duração** como "5 minutos".
 
-6. Selecione o **operação** como 'Aumento contagem por', o **instância contagem** como '1' e o **útil para baixo** como '5' minutos
+6. Selecione **Operação** como "Aumentar contagem em", **Contagem de instâncias** como "1" e **Repouso** como "5 minutos"
 
-7. Clique em de **adicionar** botão
+7. Clique no botão **Adicionar**
 
-Esta regra assegura que o se a sua aplicação Web recebe mais de 10 pedidos dentro de 5 minutos ou menos, uma instância adicional é adicionada ao seu plano do App Service para gerir a carga.
+Esta regra assegura que, se a Aplicação Web receber mais de 10 pedidos em 5 minutos ou menos, uma instância adicional é adicionada ao Plano do Serviço de Aplicações para gerir a carga.
 
-   ![Criar uma regra de escalamento horizontal](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
+   ![Criar uma regra de aumento horizontal](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
 
-## <a name="create-a-scale-in-rule"></a>Criar uma regra de escala
-Recomendamos-lhe sempre ter uma regra de dimensionamento para acompanham uma regra de escalamento horizontal. Que assegura que os recursos não são mais aprovisionados. Relativamente ao aprovisionamento significa que tem mais instâncias em execução que necessária para processar a carga atual. 
+## <a name="create-a-scale-in-rule"></a>Criar uma regra de redução horizontal
+Recomendamos que tenha sempre uma regra de redução horizontal a acompanhar uma regra de aumento horizontal. Ter ambas assegura que os recursos não são sobreaprovisionados. O sobreaprovisionamento significa que tem mais instâncias em execução do que as necessárias para processar a carga atual. 
 
-1. Na segunda ao perfil sexta-feira
+1. No "Perfil de segunda a sexta"
 
-2. Clique em de **adicionar uma regra** ligação
+2. Clique na ligação **Adicionar uma regra**
 
-3. Definir o **origem métrica** ser 'outros recursos'. Definir o **tipo de recurso** como serviços de aplicações e o **recursos** enquanto a aplicação Web criada anteriormente no tutorial.
+3. Defina **Origem métrica** como "outros recursos". Defina **Tipo de recurso** como "Serviços de Aplicações" e **Recurso** como a Aplicação Web criada anteriormente neste tutorial.
 
-4. Definir o **tempo agregação** como 'Totais', o **o nome da métrica** como 'Pedidos' e o **estatística de grão de tempo** como 'Média'
+4. Defina **Agregação de tempo** como "Total", **Nome da métrica** como "Pedidos" e **Estatística de intervalo de agregação** como "Média"
 
-5. Definir o **operador** como 'Inferior a', o **limiar** como '5' e o **duração** como '5' minutos.
+5. Defina **Operador** como "Menor que", **Limiar** como "5" e **Duração** como "5 minutos".
 
-6. Selecione o **operação** como 'Diminuir contagem por', o **instância contagem** como '1' e o **útil para baixo** como '5' minutos
+6. Selecione **Operação** como "Diminuir contagem em", **Contagem de instâncias** como "1" e **Repouso** como "5 minutos"
 
-7. Clique em de **adicionar** botão
+7. Clique no botão **Adicionar**
 
-    ![Criar uma regra de escala](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
+    ![Criar uma regra de redução horizontal](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
 8. **Guardar** a definição de dimensionamento automático
 
     ![Guardar a definição de dimensionamento automático](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
-## <a name="trigger-scale-out-action"></a>Ação de escalamento horizontal do acionador
-Para acionar a condição de ampliação na definição de dimensionamento automático acabou de criar, a aplicação Web tem de ter mais de 10 pedidos em menos de 5 minutos.
+## <a name="trigger-scale-out-action"></a>Acionar uma ação de aumento horizontal
+Para acionar a condição de aumento horizontal na definição de dimensionamento automático que acabou de criar, a Aplicação Web tem de receber mais de 10 pedidos em menos de 5 minutos.
 
-1. Abra uma janela do browser e navegue para a aplicação Web que criou anteriormente neste tutorial. Pode encontrar o URL para a sua aplicação Web no Portal do Azure, ao navegar para o recurso de aplicação Web e clicando no **procurar** botão no separador de 'Descrição Geral'.
+1. Abra uma janela do browser e navegue para a Aplicação Web que criou anteriormente neste tutorial. Pode encontrar o URL para a Aplicação Web no Portal do Azure ao navegar para o recurso da Aplicação Web e ao clicar no botão **Procurar** no separador "Descrição Geral".
 
-2. Sucessivamente rápida recarregar a página mais de 10 vezes
+2. Numa sucessão rápida, recarregue a página mais de 10 vezes
 
-3. A partir do painel de navegação esquerdo, selecione o **Monitor** opção. Depois da página for carregada selecione o **dimensionamento automático** separador.
+3. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Depois da página ser carregada, selecione o separador **Dimensionamento Automático**.
 
-4. Na lista, selecione o plano do App Service utilizados neste tutorial
+4. Na lista, selecione o Plano do Serviço de Aplicações utilizado neste tutorial
 
-5. Na definição de dimensionamento automático, clique em de **histórico de execução** separador
+5. Na definição de dimensionamento automático, clique no separador **Histórico de execuções**
 
-6. Verá um gráfico ao refletir a contagem de instâncias do plano do App Service ao longo do tempo
+6. Verá um gráfico que reflete a contagem de instâncias do Plano do Serviço de Aplicações ao longo do tempo
 
-7. Dentro de alguns minutos, a contagem de instâncias deve aumentar a partir de 1 para 2.
+7. Dentro de alguns minutos, a contagem de instâncias deve aumentar de 1 para 2.
 
-8. Sob o gráfico, consulte as entradas de registo de atividade para cada ação de dimensionamento executadas por esta definição de dimensionamento automático.
+8. No gráfico, pode ver as entradas do registo de atividade para cada ação de dimensionamento executada por esta definição de dimensionamento automático.
 
-## <a name="trigger-scale-in-action"></a>Ação de dimensionamento de Acionador
-A condição de escala na definir acionadores se existirem menos de 5 pedidos para a aplicação Web durante um período de 10 minutos de dimensionamento automático. 
+## <a name="trigger-scale-in-action"></a>Acionar uma ação de redução horizontal
+A condição de redução horizontal na definição de dimensionamento automático é acionada se existirem menos de 5 pedidos para a Aplicação Web durante um período de 10 minutos. 
 
-1. Certifique-se de que não existem pedidos estão a ser enviados para a sua aplicação Web
+1. Certifique-se de que não estão a ser enviados pedidos para a Aplicação Web
 
 2. Carregar o Portal do Azure
 
-3. A partir do painel de navegação esquerdo, selecione o **Monitor** opção. Depois da página for carregada selecione o **dimensionamento automático** separador.
+3. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Depois da página ser carregada, selecione o separador **Dimensionamento Automático**.
 
-4. Na lista, selecione o plano do App Service utilizados neste tutorial
+4. Na lista, selecione o Plano do Serviço de Aplicações utilizado neste tutorial
 
-5. Na definição de dimensionamento automático, clique em de **histórico de execução** separador
+5. Na definição de dimensionamento automático, clique no separador **Histórico de execuções**
 
-6. Verá um gráfico ao refletir a contagem de instâncias do plano do App Service ao longo do tempo.
+6. Verá um gráfico que reflete a contagem de instâncias do Plano do Serviço de Aplicações ao longo do tempo.
 
-7. Dentro de alguns minutos, a contagem de instâncias deve remover o 2, como 1. O processo demora menos de 100 minutos.  
+7. Dentro de alguns minutos, a contagem de instâncias deve diminuir de 2 para 1. O processo demora pelo menos 100 minutos.  
 
-8. Sob o gráfico, é o conjunto de atividade correspondente entradas de registo para cada ação de dimensionamento executadas por esta definição de dimensionamento automático
+8. No gráfico, pode ver o conjunto correspondente de entradas do registo de atividade para cada ação de dimensionamento executada por esta definição de dimensionamento automático
 
-    ![Ações de dimensionamento de vista](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
+    ![Ver ações de redução horizontal](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-1. No menu da esquerda no portal do Azure, clique em **todos os recursos** e, em seguida, selecione a aplicação Web criada neste tutorial.
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione a Aplicação Web criada neste tutorial.
 
-2. Na sua página de recursos, clique em **eliminar**, confirmar a eliminação escrevendo **Sim** na caixa de texto e, em seguida, clique em **eliminar**.
+2. Na página de recursos, clique em **Eliminar**, confirme a eliminação ao escrever **sim** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-3. Em seguida, selecione o recurso do plano do App Service e clique em **eliminar**
+3. Em seguida, selecione o recurso do Plano do Serviço de Aplicações e clique em **Eliminar**
 
-4. Confirmar eliminação escrevendo **Sim** na caixa de texto e, em seguida, clique em **eliminar**.
+4. Confirme a eliminação ao escrever **sim** na caixa de texto e, em seguida, clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, é  
+Neste tutorial:  
 > [!div class="checklist"]
-> * Criar uma aplicação Web e o plano do App Service
-> * Regras de dimensionamento automático configurado para dimensionamento e ampliação com base no número de pedidos da aplicação Web recebidos
-> * Acionada uma ação de escalamento horizontal e observada o número de instâncias aumentar
-> * Acionada uma ação de dimensionamento e observada o número de instâncias diminuir
-> * Limpar os recursos
+> * Criou uma Aplicação Web e um Plano do Serviço de Aplicações
+> * Configurou regras de dimensionamento automático para aumentar e reduzir horizontalmente com base no número de pedidos recebidos pela Aplicação Web
+> * Acionou uma ação de aumento horizontal e viu o número de instâncias aumentar
+> * Acionou uma ação de redução horizontal e viu o número de instâncias diminuir
+> * Limpou os recursos
 
 
-Para saber mais sobre as definições de dimensionamento automático, avançar para o [descrição geral de dimensionamento automático](monitoring-overview-autoscale.md).
+Para saber mais sobre definições de dimensionamento automático, avance para a [descrição geral de dimensionamento automático](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Arquivar dados de monitorização](monitor-tutorial-archive-monitoring-data.md)
+> [Arquivamento dos dados de monitorização](monitor-tutorial-archive-monitoring-data.md)

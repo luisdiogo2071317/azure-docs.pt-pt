@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
+# <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Uma conta de armazenamento do Azure oferece um espaço de nomes exclusivo na cloud para armazenar e aceder aos seus objetos de dados no Armazenamento do Azure. Uma conta de armazenamento contém quaisquer blobs, ficheiros, filas, tabelas e discos que cria nessa conta. 
 
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>Criar uma conta de armazenamento para fins gerais
+## <a name="create-a-general-purpose-storage-account"></a>Criar uma conta de armazenamento para fins gerais
 
-Uma conta de armazenamento para fins gerais concede acesso a todos os serviços de Armazenamento do Azure: blobs, ficheiros, filas e tabelas. Pode criar uma conta de armazenamento para fins gerais num escalão standard ou premium. Os exemplos neste artigo mostram como criar uma conta de armazenamento para fins gerais no escalão standard (predefinição). Para obter mais informações sobre as opções de conta de armazenamento, veja [Introduction to Microsoft Azure Storage (Introdução ao Armazenamento do Microsoft Azure)](storage-introduction.md).
+Uma conta de armazenamento para fins gerais concede acesso a todos os serviços de Armazenamento do Azure: blobs, ficheiros, filas e tabelas. Pode criar uma conta de armazenamento para fins gerais num escalão standard ou premium. Os exemplos neste artigo mostram como criar uma conta de armazenamento para fins gerais no escalão standard (predefinição).
+
+O Armazenamento do Microsoft Azure oferece dois tipos de contas de armazenamento para fins gerais:
+
+- Contas de armazenamento para fins gerais v2 
+- Contas de armazenamento para fins gerais v1. 
+
+> [!NOTE]
+> Recomenda-se a criação de novas contas de armazenamento como **contas de armazenamento para fins gerais v2**, de forma a tirar partido das funcionalidades mais recentes disponíveis para essas contas.  
+
+Para obter mais informações sobre os tipos de contas de armazenamento, consulte [opções de contas de Armazenamento do Microsoft Azure](storage-account-options.md).
 
 Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em mente:
 
@@ -149,43 +159,72 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Para criar uma conta de armazenamento para fins gerais no portal do Azure, siga estes passos:
+Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
 1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Mais Serviços**. Em seguida, desloque para baixo até **Armazenamento**e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
 2. Introduza um nome para a conta do Storage.
-3. Deixe estes campos definidos para as predefinições: **Modelo de implementação**, **Tipo de conta**, **Desempenho**, **Replicação**,  **Transferência segura necessária**.
-4. Escolha a subscrição na qual pretende criar a conta de armazenamento.
-5. Na secção **Grupo de recursos**, selecione **Utilizar existente** e, em seguida, escolha o grupo de recursos que criou na secção anterior.
-6. Escolha a localização para a nova conta de armazenamento.
-7. Clique em **Criar** para criar a conta do Storage.      
+3. Defina o **Tipo de conta** como **StorageV2 (armazenamento para fins gerais v2)**.
+4. Deixe o campo **Replicação** definido como **Armazenamento Localmente Redundante (LRS)**. Em alternativa, pode selecionar **Armazenamento com redundância de zona (Pré-visualização ZRS)**, **Armazenamento georredundante (GRS)** ou **Armazenamento georredundante com acesso de leitura (RA-GRS)**.
+5. Deixe estes campos nas predefinições: **Modelo de implementação**, **Desempenho**, **Transferência segura necessária**.
+6. Escolha a subscrição na qual pretende criar a conta de armazenamento.
+7. Na secção **Grupo de recursos**, selecione **Utilizar existente** e, em seguida, escolha o grupo de recursos que criou na secção anterior.
+8. Escolha a localização para a nova conta de armazenamento.
+9. Clique em **Criar** para criar a conta do Storage.      
 
 ![A captura de ecrã mostra a criação da conta de armazenamento no portal do Azure](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Para criar uma conta de armazenamento para fins gerais do PowerShell, utilize o comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Para criar uma conta de armazenamento para fins gerais v2 do PowerShell, com armazenamento localmente redundante (LRS), utilize o comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com redundância de zona (Pré-visualização ZRS), armazenamento georredundante (GRS) ou armazenamento georredundante com acesso de leitura (RA-GRS), substitua o valor desejado na tabela abaixo pelo parâmetro **SkuName**. 
+
+|Opção de replicação  |Parâmetro SkuName  |
+|---------|---------|
+|Armazenamento localmente redundante (LRS)     |Standard_LRS         |
+|Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
+|Armazenamento georredundante (GRS)     |Standard_GRS         |
+|Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para criar uma conta de armazenamento para fins gerais a partir da CLI do Azure, utilize o comando de [criação de conta de armazenamento az](/cli/azure/storage/account#create).
+Para criar uma conta de armazenamento para fins gerais v2 a partir da CLI do Azure com armazenamento localmente redundante, utilize o comando [az storage account create](/cli/azure/storage/account#create).
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+Para criar uma conta de armazenamento para fins gerais v2 com armazenamento com redundância de zona (Pré-visualização ZRS), armazenamento georredundante (GRS) ou armazenamento georredundante com acesso de leitura (RA-GRS), substitua o valor desejado na tabela abaixo pelo parâmetro **sku**. 
+
+|Opção de replicação  |parâmetro de sku  |
+|---------|---------|
+|Armazenamento localmente redundante (LRS)     |Standard_LRS         |
+|Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
+|Armazenamento georredundante (GRS)     |Standard_GRS         |
+|Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> O [Armazenamento com redundância de zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) encontra-se atualmente em pré-visualização e está disponível apenas nas seguintes localizações:
+>    - Este dos EUA 2
+>    - Centro dos EUA
+>    - Centro de França (Esta região encontra-se atualmente em pré-visualização. Consulte a [pré-visualização do Microsoft Azure com Zonas de Disponibilidade do Facebook aberta em França](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) para solicitar acesso.)
+    
+Para obter mais informações sobre os diferentes tipos de replicação disponíveis, consulte [Opções de replicação de armazenamento](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -6,6 +6,10 @@
 # Inícios rápidos
 
 ## [Criar e ligar - portal](create-data-warehouse-portal.md)
+## Colocar em pausa e retomar a computação
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Tutoriais
 ## [1 - Carregar dados do blob](load-data-from-azure-blob-storage-using-polybase.md)

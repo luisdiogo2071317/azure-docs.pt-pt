@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 534d00c0938aaadf9abd9942be80eb456787fcf9
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 0e9615ca52fe981f49eb85f68cd1ab0204406bfc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 O módulo Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como fazer uma cópia de segurança de uma máquina virtual (VM) com o módulo Azure PowerShell. Também pode executar estes passos com a [CLI do Azure](quick-backup-vm-cli.md) ou o [portal do Azure](quick-backup-vm-portal.md).
@@ -44,7 +44,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
+## <a name="create-a-recovery-services-vaults"></a>Criar cofres de serviços de recuperação
 Um cofre dos Serviços de Recuperação é um contentor lógico que armazena os dados da cópia de segurança de todos os recursos protegidos, como as VMs do Azure. Quando a tarefa de cópia de segurança de um recurso protegido é executada, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
 Crie um cofre dos Serviços de Recuperação com [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Especifique o mesmo grupo de recursos e a mesma localização da VM que quer proteger. Se tiver utilizado o [script de exemplo](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para criar a sua VM, o grupo de recursos terá o nome *myResourceGroup*, a VM *myVM* e os recursos estarão na localização *Europa Ocidental*.

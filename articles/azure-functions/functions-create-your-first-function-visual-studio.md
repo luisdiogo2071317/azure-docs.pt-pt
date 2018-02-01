@@ -14,60 +14,52 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar a sua primeira função com o Visual Studio
 
 As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web.
 
-Neste tópico, aprenderá a utilizar as ferramentas do Visual Studio 2017 para as Funções do Azure para criar e testar localmente uma função de "hello world". Em seguida, publicará o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017 versão 15.3 ou uma versão posterior.
+Neste artigo, aprenderá a utilizar as ferramentas do Visual Studio 2017 para as Funções do Azure para criar localmente e testar uma função de "hello world". Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017.
 
 ![Código de funções do Azure num projeto do Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-Se preferir, em vez disso, pode [ver o vídeo](#watch-the-video).
+Este tópico inclui [um vídeo](#watch-the-video) que demonstra os mesmos passos básicos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, instale:
+Para concluir este tutorial:
 
-* [Visual Studio 2017 versão 15.4](https://www.visualstudio.com/vs/) ou posterior, incluindo a carga de trabalho de **desenvolvimento do Azure**.
+* Instale o [Visual Studio 2017 versão 15.4](https://www.visualstudio.com/vs/) ou posterior, incluindo a carga de trabalho de **desenvolvimento do Azure**.
 
     ![Instalar o Visual Studio 2017 com a carga de trabalho de desenvolvimento do Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* Certifique-se que atualizou para a versão mais recente das Funções do Azure e ferramentas do WebJobs. Efetue este procedimento em **Atualizações** > **Marketplace do Visual Studio** em **Extensões e Atualizações**.
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## <a name="create-an-azure-functions-project-in-visual-studio"></a>Criar um projeto de funções do Azure no Visual Studio
+## <a name="create-a-function-app-project"></a>Criar um projeto de aplicação de função
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Agora que criou o projeto, pode criar sua primeira função.
+O Visual Studio cria um projeto e neste uma classe que contém o código automático de tipo de função de escolhida. O atributo **FunctionName** nos conjuntos define o nome da função. O atributo **HttpTrigger** especifica que a função é acionada por um pedido de HTTP. O código automático envia uma resposta HTTP que inclui um valor da cadeia de consulta ou de corpo de pedido. Pode adicionar enlaces de entrada e saída para uma função aplicando os atributos adequados para o método. Para obter mais informações, veja a secção [Acionadores e enlaces](functions-dotnet-class-library.md#triggers-and-bindings) da [Referência para Programadores do Funções do Azure C#](functions-dotnet-class-library.md).
 
-## <a name="create-the-function"></a>Criar a função
+![Ficheiro de código de função](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. No **Explorador de Soluções**, clique com o botão direito do rato no nó do projeto e selecione **Adicionar** > **Novo item**. Selecione **Função do Azure**, introduza `HttpTriggerCSharp.cs` para **Nome** e clique em **Adicionar**.
-
-2. Selecione **HttpTrigger**, selecione **Anónimo** para **Direitos de acesso** e clique em **OK**. A função criada é acedida por uma solicitação HTTP por parte de qualquer cliente. 
-
-    ![Criar uma nova função do Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    É adicionado um ficheiro de código ao seu projeto que contém uma classe que implementa o código de função. Este código é baseado num modelo, que recebe um valor de nome e o ecoa de volta. O atributo **FunctionName** define o nome da sua função. O atributo **HttpTrigger** indica a mensagem que aciona a função. 
-
-    ![Ficheiro de código de função](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-Agora que criou uma função acionada por HTTP, poderá testá-la no seu computador local.
+Agora que criou o projeto de função e uma função acionada por HTTP, poderá testá-la no seu computador local.
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 
-As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar o projeto de funções do Azure no seu computador de programação local. Deverá instalar essas ferramentas da primeira vez que iniciar uma função do Visual Studio.  
+As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. Deverá instalar essas ferramentas da primeira vez que iniciar uma função do Visual Studio.  
 
-1. Para testar a sua função, prima F5. Se solicitado, aceite o pedido do Visual Studio para transferir e instalar as ferramentas de Núcleo das Funções do Azure (CLI).  Também poderá ativar a exceção da firewall para que todas as ferramentas possam aceitar os pedidos de HTTP.
+1. Para testar a sua função, prima F5. Se solicitado, aceite o pedido do Visual Studio para transferir e instalar as ferramentas de Núcleo das Funções do Azure (CLI). Também poderá ativar a exceção da firewall para que todas as ferramentas possam aceitar os pedidos de HTTP.
 
 2. Copie o URL da sua função na saída do tempo de execução das funções do Azure.  
 
@@ -91,7 +83,7 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 
 1. Copie a URL de base da aplicação de funções a partir da página de perfil Publicar. Substitua a `localhost:port` parte da URL que utilizou ao testar a localmente a função com a nova URL de base. Tal como antes, certifique-se de que anexa a cadeia de consulta `?name=<yourname>` a este URL e execute o pedido.
 
-    O URL que remete para a função ativada por HTTP tem esta aparência:
+    O URL que chama a função de acionada por HTTP deve estar no seguinte formato:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 

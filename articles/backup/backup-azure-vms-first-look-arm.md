@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer cópia de segurança de máquinas virtuais do Azure para cofres dos Serviços de Recuperação
 
@@ -312,7 +312,7 @@ Para executar a tarefa de cópia de segurança inicial:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o Agente da VM na máquina virtual
-Estas informações são fornecidas no caso de serem necessárias. O Agente da VM do Azure tem de estar instalado na máquina virtual do Azure para que a extensão da Cópia de Segurança funcione. Contudo, se a VM foi criada a partir da galeria do Azure, o Agente da VM já se encontra presente na máquina virtual. As VMs que são migradas dos datacenters no local não teriam o Agente da VM instalado. Nesse caso, o Agente da VM tem de ser instalado. Se tiver problemas a efetuar a cópia de segurança da VM do Azure, verifique se o Agente da VM do Azure está corretamente instalado na máquina virtual (veja a tabela seguinte). Se criar uma VM personalizada, [confirme que a caixa de verificação **Instalar o Agente da VM** está selecionada](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) antes de aprovisionar a máquina virtual.
+Estas informações são fornecidas no caso de serem necessárias. O Agente da VM do Azure tem de estar instalado na máquina virtual do Azure para que a extensão da Cópia de Segurança funcione. Contudo, se a VM foi criada a partir da galeria do Azure, o Agente da VM já se encontra presente na máquina virtual. As VMs que são migradas dos datacenters no local não teriam o Agente da VM instalado. Nesse caso, o Agente da VM tem de ser instalado. Se tiver problemas a efetuar a cópia de segurança da VM do Azure, verifique se o Agente da VM do Azure está corretamente instalado na máquina virtual (veja a tabela seguinte). Se criar uma VM personalizada, instale o Agente da VM antes de aprovisionar a máquina virtual.
 
 Saiba mais sobre o [Agente da VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como o instalar](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

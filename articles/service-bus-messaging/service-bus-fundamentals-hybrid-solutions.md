@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-service-bus"></a>Service Bus do Azure
 
 Se uma aplicação ou serviço é executado na nuvem ou de modo local, muitas vezes, tem de interagir com outros serviços ou aplicações. Para fornecer uma forma amplamente útil de efetuar este procedimento, o Microsoft Azure oferece o Service Bus. Este artigo analisa esta tecnologia, descreve o que é e por que razão poderá querer utilizá-la.
 
-## <a name="service-bus-fundamentals"></a>Noções básicas sobre o Service Bus
+## <a name="service-bus-fundamentals"></a>Noções básicas do Service Bus
 
 Situações diferentes exigem estilos diferentes de comunicação. Por vezes, permitir às aplicações enviar e receber mensagens através de uma fila simples é a melhor solução. Noutras situações, uma fila comum não é suficiente e é melhor uma fila com um mecanismo de publicação e subscrição. Em alguns casos, o necessário é uma ligação entre as aplicações e não são precisas filas. O Service Bus fornece as três opções pelo que as suas aplicações podem interagir de várias maneiras diferentes.
 
@@ -44,7 +44,7 @@ Quando cria uma fila, tópico ou reencaminhamento, dá-lhe um nome. Quando combi
 
 Para utilizar qualquer um destes objetos no cenário de reencaminhamento, as aplicações do Windows podem utilizar o Windows Communication Foundation (WCF). Este serviço é conhecido como [Reencaminhamento do WCF](../service-bus-relay/relay-what-is-it.md). Para as filas e tópicos, as aplicações do Windows podem utilizar as APIs de mensagens definidas pelo Service Bus. Para facilitar a utilização destes objetos a partir de aplicações que não sejam de Windows, a Microsoft disponibiliza SDKs para Java, Node.js e outras linguagens. Também pode aceder às filas e tópicos com as [REST APIs](/rest/api/servicebus/) através de HTTP(s). 
 
-É importante compreender que, apesar do Service Bus propriamente dito ser executado na nuvem (ou seja, nos datacenters de Azure da Microsoft), as aplicações que o utilizam podem ser executadas em qualquer lugar. Pode utilizar o Service Bus para ligar aplicações que se executam, por exemplo, no Azure, ou aplicações que se executam dentro do seu próprio datacenter. Também pode utilizá-lo para ligar uma aplicação em execução no Azure ou noutra plataforma na nuvem com uma aplicação no local ou com telemóveis e tablets. Também é possível ligar aparelhos domésticos, sensores e outros dispositivos a uma aplicação central ou entre si. O Service Bus é um mecanismo de comunicação na nuvem que é acessível em praticamente qualquer lugar. O modo como o utiliza depende do que tem de realizar a aplicação.
+É importante compreender que, apesar do Service Bus propriamente dito ser executado na nuvem (ou seja, nos datacenters de Azure da Microsoft), as aplicações que o utilizam podem ser executadas em qualquer lugar. Pode utilizar o Service Bus para ligar aplicações que se executam, por exemplo, no Azure, ou aplicações que se executam dentro do seu próprio datacenter. Também pode utilizá-lo para ligar uma aplicação em execução no Azure ou noutra plataforma na nuvem com uma aplicação no local ou com telemóveis e tablets. Também é possível ligar aparelhos domésticos, sensores e outros dispositivos a uma aplicação central ou ligue estes dispositivos entre si. O Service Bus é um mecanismo de comunicação na nuvem que é acessível em praticamente qualquer lugar. O modo como o utiliza depende do que tem de realizar a aplicação.
 
 ## <a name="queues"></a>Filas
 

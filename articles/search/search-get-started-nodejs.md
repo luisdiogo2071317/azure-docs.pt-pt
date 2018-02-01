@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introdução à Azure Search no Node.js
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Nesta aplicação, o programa **DataIndexer** compila e carrega o índice utiliz
 ## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Localizar o nome de serviço e a chave de API do serviço da Azure Search
 Depois de criar o serviço, volte ao portal para obter o URL ou `api-key`. As ligações ao serviço Search requerem que tenha o URL e uma `api-key` para autenticar a chamada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de índice, clique em **Serviço de pesquisa** para listar todos os serviços Azure Search aprovisionados para a sua subscrição.
 3. Selecione o serviço que pretende utilizar.
 4. No dashboard do serviço, deve os mosaicos com informações essenciais, como o ícone da chave para aceder às chaves de administração.
@@ -57,7 +57,7 @@ Depois de criar o serviço, volte ao portal para obter o URL ou `api-key`. As li
 ## <a name="download-the-sample-files"></a>Transferir os ficheiros de exemplo
 Utilize uma das seguintes abordagens para transferir o exemplo.
 
-1. Aceda a [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Vá para [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Clique em **Transferir ZIP**, guarde o ficheiro .zip e, em seguida, extraia todos os ficheiros nele contidos.
 
 Todas as modificações do ficheiro e instruções de execução subsequentes são realizadas em ficheiros nesta pasta.

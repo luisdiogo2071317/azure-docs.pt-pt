@@ -2,69 +2,96 @@
 title: "Opções de contas de Armazenamento do Azure | Microsoft Docs"
 description: "Compreenda as opções para utilizar o Armazenamento do Azure."
 services: storage
-documentationcenter: 
 author: jirwin
 manager: jwillis
-editor: 
 ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-storage-account-options"></a>Opções de contas do Armazenamento do Azure
 
 ## <a name="overview"></a>Descrição geral
-O Armazenamento do Azure oferece três opções de contas diferentes, com preços e funcionalidades distintas suportadas. É importante que os utilizadores tenham em conta estas diferenças para saberem qual das opções melhor se adequa às respetivas aplicações.  As três opções são as seguintes:
+O Armazenamento do Azure oferece três opções de contas diferentes, com preços e funcionalidades distintas suportadas. Considere estas diferenças antes de criar uma conta de armazenamento para determinar a opção mais adequada às suas aplicações. As três opções de conta de armazenamento distintas são:
 
-* Contas de **Fins Gerais v2 (GPv2)**, que disponibilizam todas as funcionalidades mais recentes e suportam Blobs, Ficheiros, Filas e Tabelas. Hoje em dia, estas funcionalidades mais recentes incluem a atribuição de camadas ao nível do blob, o armazenamento de arquivo, limites de contas com maior dimensionamento e eventos de armazenamento. Os preços foram estabelecidos para serem os mais baixos por GB e os mais competitivos da indústria para transações.
+* Contas para **Fins gerais v2 (GPv2)** 
+* Contas para **Fins gerais v1 (GPv1)**
+* Contas de **armazenamento de blobs**
 
-* Contas de **Armazenamento de Blobs**, que oferecem todas as últimas funcionalidades para blobs de bloco, mas que só suportam este tipo de blobs.  Os preços são essencialmente semelhantes aos das contas de Fins Gerais v2. Encorajamos a maioria dos utilizadores a utilizar contas de Fins Gerais v2 em vez de Armazenamento de Blobs.
+Cada tipo de conta é descrito mais detalhadamente na secção seguinte:
 
-* Contas de **Fins Gerais v1 (GPv1)**, que permitem utilizar todos os Serviços do Armazenamento do Azure, mas podem não ter as mais recentes funcionalidades ou os preços mais baixos por GB. Por exemplo, o armazenamento esporádico e de arquivo não são suportados nas contas GPv1.  O preço é mais baixo para as transações, pelo que as cargas de trabalho com elevado número de alterações ou velocidades de leitura altas podem tirar partido deste tipo de conta.
+## <a name="storage-account-options"></a>Opções da conta de armazenamento
 
-### <a name="changing-account-kind"></a>Alterar o tipo de conta
-Os utilizadores podem atualizar a conta GPv1 para uma conta GPv2 em qualquer altura através do portal, da CLI ou do PowerShell. Esta alteração não pode ser revertida e não são permitidas quaisquer outras alterações. A capacidade para atualizar as contas de armazenamento de BLOBs para GPv2 estará disponível brevemente.
+### <a name="general-purpose-v2"></a>Fins gerais v2
 
-## <a name="general-purpose-v2"></a>Fins Gerais v2
-As contas de **Fins Gerais v2 (GPv2)** são contas de armazenamento que suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Para os Blobs de Blocos, pode escolher as camadas de armazenamento frequente e esporádico ao nível da conta ou as camadas frequente, esporádica e de arquivo ao nível do blob com base nos padrões de acesso. Armazene dados acedidos com muita frequência, com pouca frequência e raramente nas camadas de armazenamento frequente, esporádico e de arquivo, respetivamente, para otimizar os custos. Mais importante ainda, qualquer conta GPv1 pode ser atualizada para uma GPv2 no portal, na CLI ou no PowerShell. As contas GPv2 suportam as mesmas APIs e funcionalidades das contas de Armazenamento de Blobs e GPv1 e partilham as mesmas excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho daqueles tipos de contas.
+As contas para Fins gerais v2 (GPv2) são contas de armazenamento que suportam todas as funcionalidades mais recentes para blobs, ficheiros, filas e tabelas. As contas GPv2 suportam todas as APIs e funcionalidades suportadas nas contas GPv1 e nas contas de armazenamento de blobs. Também suportam as mesmas funcionalidades de durabilidade, disponibilidade, escalabilidade e desempenho nesses tipos de conta. Os preços das contas GPv2 foram estabelecidos para oferecerem os preços mais baixos por gigabyte e os preços mais competitivos da indústria para transações.
 
-As contas de Armazenamento de blobs expõem o atributo **Access Tier** ao nível da conta, o qual especifica a camada da conta de armazenamento predefinida como **Frequente** ou **Esporádica**. A camada da conta de armazenamento predefinida é aplicada a qualquer blob que não tenha uma camada explícita definida ao nível do blob. Se o padrão de utilização dos dados sofrer uma alteração, pode também alternar entre estas camadas de armazenamento em qualquer altura. A **camada de arquivo** só pode ser aplicada ao nível do blob.
+Pode atualizar a conta GPv1 para uma conta GPv2 com o PowerShell ou a CLI do Azure. 
 
-> [!NOTE]
-> A alteração da camada de armazenamento poderá resultar em encargos adicionais. Veja a secção [Preços e faturação](#pricing-and-billing) para obter mais detalhes.
+Para blobs de blocos numa conta de armazenamento GPv2, pode optar entre as camadas de armazenamento frequente e esporádico ao nível da conta ou as camadas frequente, esporádica e de arquivo ao nível do blob com base nos padrões de acesso. Armazene dados acedidos com muita frequência, com pouca frequência e raramente nas camadas de armazenamento frequente, esporádico e de arquivo, respetivamente, para otimizar os custos. 
 
-## <a name="blob-storage-accounts"></a>Contas de Armazenamento de blobs
-
-As **contas de Armazenamento de Blobs** suportam as mesmas funcionalidades de Blobs de Blocos de GPv2, mas têm a limitação de só suportar este tipo de blocos. Os clientes devem analisar as diferenças nos preços entre as contas de Armazenamento de Blobs e GPv2 e considerar atualizar para esta última. Tenha em atenção que esta atualização não pode ser anulada.
+As contas de armazenamento GPv2 expõem o atributo de **Camada de acesso** ao nível da conta, o qual especifica a camada da conta de armazenamento predefinida como **Frequente** ou **Esporádica**. A camada da conta de armazenamento predefinida é aplicada a qualquer blob que não tenha uma camada explícita definida ao nível do blob. Se o padrão de utilização dos dados sofrer uma alteração, pode também alternar entre estas camadas de armazenamento em qualquer altura. A **camada de arquivo** só pode ser aplicada ao nível do blob.
 
 > [!NOTE]
-> As contas de Armazenamento de Blobs suportam apenas blobs de blocos e blobs de acréscimo e não suportam blobs de páginas.
+> A alteração da camada de armazenamento poderá resultar em encargos adicionais. Para obter mais informações, veja a secção [Preços e faturação](#pricing-and-billing).
+>
+> A Microsoft recomenda a utilização de contas de armazenamento para fins gerais v2 em detrimento de contas de armazenamento de blobs para a maioria dos cenários.
 
-## <a name="general-purpose-v1"></a>Fins Gerais v1
-As contas de **Fins Gerais v1 (GPv1)** são as contas de armazenamento mais antigas e as únicas que podem ser utilizadas no modelo de implementação clássica. Funcionalidades como armazenamento esporádico e de arquivo não estão disponíveis em GPv1. Geralmente, estas contas têm custos de armazenamento por GB superiores, mas custos de transação inferiores do que as contas GPv2 ou de Armazenamento de Blobs.
+### <a name="upgrade-a-storage-account-to-gpv2"></a>Atualizar uma conta de armazenamento para GPv2
+
+Os utilizadores podem atualizar uma conta GPv1 para uma conta GPv2 em qualquer altura com o PowerShell ou a CLI do Azure. Esta alteração não pode ser revertida e não são permitidas quaisquer outras alterações.
+
+#### <a name="upgrade-with-powershell"></a>Atualizar com o PowerShell
+
+Para atualizar uma conta GPv1 para uma conta GPv2 com o PowerShell, primeiro atualize o PowerShell para utilizar a versão mais recente do módulo **AzureRm.Storage**. Veja [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) para obter informações sobre a instalação do PowerShell. Em seguida, chame o comando seguinte para atualizar a conta, substituindo o nome do grupo de recursos e da conta de armazenamento:
+
+```powershell
+Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+```
+
+#### <a name="upgrade-with-azure-cli"></a>Atualizar com a CLI do Azure
+
+Para atualizar uma conta GPv1 para uma conta GPv2 com a CLI do Azure, instale primeiro a versão mais recente da CLI do Azure. Veja [Install the Azure CLI 2.0 ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalar a CLI 2.0 do Azure) para obter informações sobre a instalação da CLI. Em seguida, chame o comando seguinte para atualizar a conta, substituindo o nome do grupo de recursos e da conta de armazenamento:
+
+```cli
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+```` 
+
+### <a name="general-purpose-v1"></a>Fins gerais v1
+
+As contas para Fins gerais v1 (GPv1) proporcionam acesso a todos os serviços do Armazenamento do Azure, mas podem não ter as funcionalidades mais recentes ou os preços mais baixos por gigabyte. Por exemplo, o armazenamento esporádico e o armazenamento de arquivo não são suportados nas contas GPv1. O preço é mais baixo para as transações GPv1, pelo que as cargas de trabalho com elevado número de alterações ou velocidades de leitura altas podem tirar partido deste tipo de conta.
+
+As contas de armazenamento para Fins gerais v1 (GPv1) são o tipo mais antigo de contas de armazenamento e as únicas que podem ser utilizadas com o modelo de implementação clássica. 
+
+### <a name="blob-storage-accounts"></a>Contas do Blob Storage
+
+As contas de armazenamento de blobs suportam as mesmas funcionalidades de blob de blocos que as contas GPv2, mas têm a limitação de suportar apenas blobs de blocos. Os preços são essencialmente semelhantes aos preços das contas para fins gerais v2. Os clientes devem analisar as diferenças nos preços entre as contas de Armazenamento de blobs e GPv2 e considerar a atualização para GPv2. Esta atualização não pode ser anulada.
+
+A capacidade de atualizar as Contas de armazenamento de blobs para GPv2 estará disponível em breve.
+
+> [!NOTE]
+> As contas de armazenamento de Blobs suportam apenas blobs de blocos e blobs de acréscimo e não suportam blobs de páginas.
 
 ## <a name="recommendations"></a>Recomendações
 
-Consulte [Acerca das contas do Storage do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter mais informações sobre contas do Storage.
+Para obter mais informações sobre contas de armazenamento, veja [Acerca das contas de armazenamento do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Para as aplicações que requerem apenas o armazenamento de blobs de blocos ou de acréscimo, recomendamos que utilize contas de armazenamento GPv2, de modo a tirar partido do modelo de preços diferenciado do armazenamento em camadas. No entanto, compreendemos que tal pode não ser possível em determinadas circunstâncias, nas quais a utilização de contas de armazenamento GPv1 seria mais adequada, tais como:
+Para as aplicações que requerem apenas o armazenamento de blobs de blocos ou de acréscimo, recomendamos que utilize contas de armazenamento GPv2, de modo a tirar partido do modelo de preços diferenciado do armazenamento em camadas. No entanto, pode querer utilizar as contas GPv1 em determinados cenários, tais como:
 
-* Ainda tem de utilizar o modelo de implementação clássica. As contas do Armazenamento de Blobs só estão disponíveis através do modelo de implementação Azure Resource Manager.
+* Ainda tem de utilizar o modelo de implementação clássica. As contas do Blob Storage estão disponíveis apenas através do modelo de implementação Azure Resource Manager.
 
-* Se utilizar elevados volumes de transações ou de largura de rede de georreplicação, os quais são ambos mais caros nas contas GPv2 e de Armazenamento de Blos do que em GPv1, e não tem armazenamento suficiente que lhe permita tirar partido dos custos mais baixos de armazenamento por GB.
+* Se utilizar elevados volumes de transações ou de largura de rede de georreplicação, os quais são ambos mais caros nas contas GPv2 e nas contas de Armazenamento de blobs do que nas contas GPv1, e não tem armazenamento suficiente que lhe permita tirar partido dos custos mais baixos de armazenamento por GB.
 
 * Utiliza uma versão da [API REST dos Serviços do Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior a 14/02/2014 ou uma biblioteca de cliente com uma versão inferior à 4.x e não pode atualizar a sua aplicação.
 
 > [!NOTE]
-> As contas de Armazenamento de Blobs são suportadas em todas as regiões do Azure.
+> Atualmente, as contas do armazenamento de Blobs são suportadas em todas as regiões do Azure.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 Todas as contas de armazenamento utilizam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao utilizar uma conta de armazenamento, aplicam-se as seguintes considerações de faturação:
@@ -75,21 +102,21 @@ Todas as contas de armazenamento utilizam um modelo de preços para o armazename
 
 * **Custos de transação**: há um encargo por transação para todas as camadas que aumenta cada vez que a camada é mais esporádica.
 
-* **Custos de transferência de dados de georreplicação**: aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
+* **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
 
 * **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
 
 * **Alteração da camada de armazenamento**: a alteração da camada de armazenamento de conta esporádica para armazenamento frequente está sujeita à cobrança de uma taxa igual à leitura de todos os dados existentes na conta do armazenamento. No entanto, a alteração da camada de armazenamento de conta de frequente para esporádica incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
 
 > [!NOTE]
-> Para obter mais detalhes sobre o modelo de preços das contas do Armazenamento de Blobs, veja a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais detalhes sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Para obter mais informações sobre o modelo de preços das contas do Armazenamento de blobs, veja a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
 Nesta secção os seguintes cenários são demonstrados através do portal do Azure:
 
 * Como criar uma conta de armazenamento GPv2.
-* Como converter uma conta de Armazenamento de Blobs ou GPv1 numa conta de armazenamento GPv2.
+* Como converter uma conta de Armazenamento de blobs ou GPv1 numa conta de armazenamento GPv2.
 * Como definir a camada da conta e dos blobs em contas de armazenamento GPv2.
 
 Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque esta definição aplica-se a toda a conta de armazenamento. O armazenamento de arquivo só pode ser definido em blobs específicos.
@@ -106,19 +133,17 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 
 4. Selecione **Resource Manager** como o modelo de implementação.
 
-    O armazenamento em camadas só pode ser utilizado com contas de armazenamento do Resource Manager; este é o modelo de implementação recomendado para novos recursos. Para obter mais informações, veja [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
+    O armazenamento em camadas só pode ser utilizado com contas de armazenamento do Resource Manager; o Resource Manager é o modelo de implementação recomendado para novos recursos. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
 
-5. Na lista pendente Tipo de Conta, selecione **Fins Gerais v2**.
+5. Na lista pendente **Tipo de conta**, selecione **Fins gerais v2**.
 
-    É aqui que pode seleciona o tipo de conta de armazenamento. O armazenamento em camadas não está disponível no armazenamento para fins gerais; só está disponível na conta de tipo de Armazenamento de Blobs.     
+    Quando seleciona GPv2, a camada de desempenho é definida como Standard. O armazenamento em camadas não está disponível com a camada de desempenho Premium.
 
-    Quando seleciona esta opção, a camada de desempenho fica definida como Standard. O armazenamento em camadas não está disponível com a camada de desempenho Premium.
+6. Selecione a opção de replicação para a conta de armazenamento: **LRS**, **ZRS**, **GRS** ou **RA-GRS**. A predefinição é **RA-GRS**.
 
-6. Selecione a opção de replicação para a conta do Storage: **LRS**, **GRS** ou **RA-GRS**. A predefinição é **RA-GRS**.
+    LRS = armazenamento localmente redundante; ZRS = armazenamento com redundância de zona; GRS = armazenamento georredundante (duas regiões); RA-GRS = armazenamento georredundante com acesso de leitura (duas regiões com acesso de leitura para a segunda).
 
-    LRS = armazenamento localmente redundante; GRS = armazenamento georredundante (duas regiões); RA-GRS é armazenamento georredundante com acesso de leitura (2 regiões com acesso de leitura para a segunda).
-
-    Consulte [Azure Storage replication (Replicação do Armazenamento do Azure)](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter detalhes adicionais sobre as opções de replicação do Armazenamento do Azure.
+    Consulte [Replicação do Storage do Azure](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter detalhes adicionais sobre as opções de replicação do Storage do Azure.
 
 7. Selecione a camada de armazenamento correta para as suas necessidades: defina a **Camada de acesso** como **Esporádica** ou **Frequente**. A predefinição é **Frequente**.
 
@@ -136,11 +161,11 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 
 2. Para navegar para a sua conta de armazenamento, selecione Todos os Recursos, em seguida, selecione a sua conta de armazenamento.
 
-3. No painel Definições, clique em **Configuração**.
+3. Na secção Definições, clique em **Configuração**.
 
-4. Em Tipo de Conta, clique em **Atualizar**.
+4. Em **Tipo de conta**, clique em **Atualizar**.
 
-5. É apresentado um painel novo à direita, para confirmação. Em Confirmar atualização, escreva o nome da sua conta. 
+5. Em **Confirmar atualização**, introduza o nome da sua conta. 
 
 5. Clique em Atualizar, na parte inferior do painel.
 
@@ -167,7 +192,7 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 5. Clique em Guardar na parte superior do painel.
 
 > [!NOTE]
-> A alteração da camada de armazenamento poderá resultar em encargos adicionais. Veja a secção [Preços e faturação](#pricing-and-billing) para obter mais detalhes.
+> A alteração da camada de armazenamento poderá resultar em encargos adicionais. Para obter mais informações, veja a secção [Preços e Faturação](#pricing-and-billing).
 
 
 ## <a name="evaluating-and-migrating-to-gpv2-storage-accounts"></a>Avaliar e migrar para contas de armazenamento GPv2
@@ -188,20 +213,20 @@ Para estimar os custos de armazenar e aceder aos dados armazenados numa conta de
 
 ## <a name="monitoring-existing-storage-accounts"></a>Monitorizar contas de armazenamento existentes
 
-Para monitorizar as suas contas de armazenamento existentes e recolher estes dados, pode utilizar a Análise do Armazenamento do Azure, que efetua o registo e fornece dados de métricas para uma conta de armazenamento. A Análise do Armazenamento pode armazenar métricas que incluem estatísticas agregadas de transações e dados de capacidade sobre pedidos enviados ao serviço de armazenamento relativamente aos tipos de contas de Armazenamento de Blobs, GPv1 e GPv2. Estes dados são armazenados em tabelas bem conhecidas na mesma conta de armazenamento.
+Para monitorizar as suas contas de armazenamento existentes e recolher estes dados, pode utilizar a Análise do Armazenamento do Azure, que efetua o registo e fornece dados de métricas para uma conta de armazenamento. A Análise de Armazenamento pode armazenar métricas que incluem estatísticas agregadas de transações e dados de capacidade sobre pedidos enviados para o serviço de armazenamento relativamente aos tipos de contas de Armazenamento de blobs, GPv1 e GPv2. Estes dados são armazenados em tabelas bem conhecidas na mesma conta de armazenamento.
 
-Para obter mais detalhes, veja [About Storage Analytics Metric (Sobre Métricas da Análise do Armazenamento)](https://msdn.microsoft.com/library/azure/hh343258.aspx) e [Storage Analytics Metrics Table Schema (Esquema da Tabela de Métricas da Análise do Armazenamento)](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+Para obter mais informações, veja [About Storage Analytics Metrics (Sobre Métricas da Análise de Armazenamento)](https://msdn.microsoft.com/library/azure/hh343258.aspx) e [Storage Analytics Metrics Table Schema (Esquema da Tabela de Métricas da Análise de Armazenamento)](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> As contas do Armazenamento de Blobs expõem o ponto final de serviço de tabelas apenas para armazenar e aceder aos dados de métricas para essa conta. As contas de armazenamento GPv1 ZRS não suportam os dados de métricas.
+> As contas de Armazenamento de blobs expõem o ponto final do serviço Tabela apenas para armazenar e aceder aos dados de métricas relativos a essa conta. As contas de armazenamento com redundância de zona (ZRS) suportam a recolha de dados de métricas, enquanto as contas de armazenamento ZRS clássico não. Para obter mais informações sobre ZRS, veja [Armazenamento com redundância de zona](storage-redundancy.md#zone-redundant-storage). 
 
-Para monitorizar o consumo de armazenamento do serviço de Armazenamento de Blobs, tem de ativar as métricas de capacidade.
+Para monitorizar o consumo de armazenamento do Armazenamento de blobs, tem de ativar as métricas de capacidade.
 Com esta opção ativada, os dados de capacidade são registados diariamente para um serviço Blob de uma conta de armazenamento e registados como uma entrada que é escrita na tabela *$MetricsCapacityBlob* dentro da mesma conta de armazenamento.
 
-Para monitorizar o padrão de acesso a dados do serviço de Armazenamento de Blobs, tem de ativar as métricas de transação horária ao nível da API. Com esta opção ativada, as transações por API são agregadas ao fim de cada hora e registadas como uma entrada que é escrita na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* regista as transações para o ponto final secundário quando são utilizadas contas de armazenamento RA-GRS.
+Para monitorizar os padrões de acesso a dados do Armazenamento de blobs, tem de ativar as métricas de transação horária a partir da API. Com as métricas de transação horária ativadas, as transações por API são agregadas ao fim de cada hora e registadas como uma entrada que é escrita na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* regista as transações para o ponto final secundário quando são utilizadas contas de armazenamento RA-GRS.
 
 > [!NOTE]
-> No caso de ter uma conta de armazenamento de fins gerais em que tem armazenados blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas em conjunto com dados de blobs de blocos e de acréscimo, este processo de estimativa não é aplicável. Isto acontece porque os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibiliza dados de capacidade aos outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
+> Se tiver uma conta de armazenamento de fins gerais na qual armazenou blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com dados de blobs de blocos e de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e, por isso, não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
 
 Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante sete dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
 
@@ -212,17 +237,17 @@ Para obter detalhes sobre como ativar, recolher e ver dados de métricas, veja [
 
 ### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Utilizar métricas de utilização para estimar os custos
 
-### <a name="storage-costs"></a>Custos de armazenamento
+#### <a name="storage-costs"></a>Custos de armazenamento
 
 A entrada mais recente na tabela de métricas de capacidade *$MetricsCapacityBlob* com a chave de linha *'data'* mostra a capacidade de armazenamento consumida pelos dados do utilizador. A entrada mais recente na tabela de métricas de capacidade *$MetricsCapacityBlob* com a chave de linha *'analytics'* mostra a capacidade de armazenamento consumida pelos registos de análise.
 
 Esta capacidade total consumida pelos dados de utilizador e pelos registos de análise (se ativados) pode depois ser utilizada para estimar o custo do armazenamento dos dados na conta de armazenamento. O mesmo método também pode ser utilizado para estimar os custos de armazenamento nas contas GPv1.
 
-### <a name="transaction-costs"></a>Custos de transação
+#### <a name="transaction-costs"></a>Custos de transação
 
 A soma dos *'TotalBillableRequests'*, em todas as entradas de uma API na tabela de métricas de transação indica o número total de transações para essa API específica. *Por exemplo,*, o número total de transações *'GetBlob'* num determinado período pode ser calculado pela soma do total de pedidos faturáveis para todas as entradas com a chave de linha *'user;GetBlob'*.
 
-Para que possa estimar os custos de transação para as contas do Armazenamento de Blobs, tem de dividir as transações em três grupos, uma vez que têm um preço diferente.
+Para que possa estimar os custos de transação para as contas do Armazenamento de blobs, tem de dividir as transações em três grupos, uma vez que têm um preço diferente.
 
 * Transações de escrita como *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* e *'CopyBlob'*.
 * Transações de eliminação como *'DeleteBlob'* e *'DeleteContainer'*.
@@ -234,63 +259,63 @@ Para estimar os custos de transação nas contas de armazenamento GPv1, tem de a
 
 Embora a análise de armazenamento não forneça a quantidade de dados lidos e escritos numa conta de armazenamento, esta pode ser aproximadamente estimada ao consultar a tabela de métricas de transação. A soma de *'TotalIngress'* de todas as entradas de uma API na tabela de métricas de transação indica a quantidade total de dados de entrada em bytes para essa API específica. Do mesmo modo, a soma de *'TotalEgress'* indica a quantidade total de dados de saída, em bytes.
 
-Para poder estimar os custos de acesso a dados para as contas do Armazenamento de Blobs, tem de dividir as transações em dois grupos.
+Para que possa estimar os custos de acesso a dados para as contas do Armazenamento de blobs, precisa de dividir as transações em dois grupos.
 
 * A quantidade de dados obtidos a partir da conta de armazenamento pode ser estimada ao ver a soma de *'TotalEgress'* para, principalmente, as operações *'GetBlob'* e *'CopyBlob'*.
 
 * A quantidade de dados escritos na conta de armazenamento pode ser estimada ao ver a soma de *'TotalIngress'* para, principalmente, as operações *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* e *'AppendBlock'*.
 
-Também pode ser calculado o custo de transferência de dados de georreplicação para contas do Armazenamento de Blobs mediante a utilização da estimativa da quantidade de dados escritos, se for utilizada uma conta de armazenamento GRS ou RA-GRS.
+Também pode ser calculado o custo de transferência de dados de georreplicação para contas do Armazenamento de blobs mediante a utilização da estimativa da quantidade de dados escritos se for utilizada uma conta de armazenamento GRS ou RA-GRS.
 
 > [!NOTE]
 > Para obter um exemplo mais detalhado sobre o cálculo dos custos de utilização da camada de armazenamento frequente ou esporádico, veja as perguntas mais frequentes com o nome *“O que são as camadas de acesso Frequente e Esporádico e como posso determinar qual delas utilizar?”* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="migrating-existing-data"></a>Migração de dados existentes
 
-As contas GPv1 pode ser facilmente atualizada para GPv2 sem tempo de inatividade ou alterações à API e sem ser necessário movimentar dados. Este é um dos principais benefícios das contas GPv2 face às contas de Armazenamento de Blobs.
+Uma conta GPv1 pode ser facilmente atualizada para GPv2 sem tempo de inatividade ou alterações à API e sem ser necessário migrar dados. Por este motivo, recomenda-se a migração das contas GPv1 para contas GPv2, em vez da migração para contas de Armazenamento de blobs.
 
-No entanto, se tiver de migrar para uma conta de Armazenamento de Blobs, pode utilizar as instruções abaixo.
+No entanto, se precisar de migrar para uma conta de Armazenamento de blobs, pode utilizar as instruções seguintes.
 
-As contas de Armazenamento de Blobs foram criadas especificamente para armazenar apenas blobs de blocos e de acréscimo. Não é possível converter as contas de armazenamento de fins gerais existentes, que lhe permitem armazenar tabelas, filas, ficheiros, discos e também blobs, em contas de Armazenamento de Blobs. Para utilizar as camadas de armazenamento, tem de criar contas de Armazenamento de Blobs novas e migrar os dados existentes para as mesmas.
+Uma conta do Blob Storage é especializada para o armazenamento apenas de blobs de blocos e de acréscimo. Não é possível converter as contas de armazenamento para fins gerais existentes, que lhe permitem armazenar tabelas, filas, ficheiros, discos e também blobs, em contas do Armazenamento de blobs. Para utilizar as camadas de armazenamento, tem de criar contas do Armazenamento de blobs novas e migrar os dados existentes para as mesmas.
 
-Pode utilizar os métodos seguintes para migrar os dados existentes para contas de Armazenamento de Blobs a partir de dispositivos de armazenamento no local, fornecedores de armazenamento na cloud externos ou das suas contas de armazenamento de fins gerais existentes no Azure:
+Pode utilizar os métodos seguintes para migrar os dados existentes para contas do Armazenamento de Blobs a partir de dispositivos de armazenamento no local, fornecedores de armazenamento na cloud externos ou das suas contas do armazenamento para fins gerais existentes no Azure:
 
 ### <a name="azcopy"></a>AzCopy
 
-O AzCopy é um utilitário de linha de comandos do Windows concebido para copiar dados de e para o Storage do Azure com um elevado desempenho. Pode utilizar AzCopy para copiar dados para a sua conta de Armazenamento de Blobs a partir das suas contas de Armazenamento de fins gerais existentes ou para carregar dados de dispositivos de armazenamento no local para a sua conta de Armazenamento de Blobs.
+O AzCopy é um utilitário de linha de comandos do Windows concebido para copiar dados de e para o Storage do Azure com um elevado desempenho. Pode utilizar o AzCopy para copiar dados para a sua conta do Blob Storage a partir das suas contas do Storage para fins gerais existentes ou para carregar dados dos dispositivos de armazenamento no local para a conta do Blob Storage.
 
-Para obter mais detalhes, consulte [Transferir dados com o utilitário de linha de comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para obter mais informações, veja [Transferir dados com o Utilitário de Linha de Comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Biblioteca de Movimento de Dados
 
-A biblioteca de movimento de dados do Storage do Azure para .NET baseia-se na arquitetura de movimento de dados central do AzCopy. A biblioteca foi concebida para operações de transferência de dados de elevado desempenho, fiáveis e simples, semelhantes às de AzCopy. Isto permite-lhe tirar o máximo partido das funcionalidades fornecidas pelo AzCopy na sua aplicação de forma nativa, sem ter de executar e monitorizar instâncias externas do AzCopy.
+A biblioteca de movimento de dados do Armazenamento do Azure para .NET baseia-se na arquitetura de movimento de dados central do AzCopy. A biblioteca foi concebida para operações de transferência de dados de elevado desempenho, fiáveis e simples, semelhantes às de AzCopy. Pode utilizá-la para tirar partido das funcionalidades fornecidas pelo AzCopy na sua aplicação de forma nativa, sem ter de executar e monitorizar instâncias externas do AzCopy.
 
-Para obter mais detalhes, consulte [Biblioteca de Movimento de Dados do Storage do Azure para .Net](https://github.com/Azure/azure-storage-net-data-movement)
+Para obter mais informações, veja [Biblioteca de Movimento de Dados do Armazenamento do Azure para .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### <a name="rest-api-or-client-library"></a>API REST ou biblioteca de cliente
 
-Pode criar uma aplicação personalizada para migrar os dados para uma conta de Armazenamento de Blobs com uma das bibliotecas de cliente do Azure ou a API REST dos serviços de Armazenamento do Azure. O Storage do Azure fornece bibliotecas de cliente avançadas para várias linguagens e plataformas como .NET, Java, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem funcionalidades avançadas, tais como lógica de repetição, registo e carregamentos paralelos. Também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que efetue pedidos HTTP/HTTPS.
+Pode criar uma aplicação personalizada para migrar os dados para uma conta do Blob Storage utilizando uma das bibliotecas de cliente do Azure ou a API REST dos serviços do Storage do Azure. O Storage do Azure fornece bibliotecas de cliente avançadas para várias linguagens e plataformas como .NET, Java, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem funcionalidades avançadas, tais como lógica de repetição, registo e carregamentos paralelos. Também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que efetue pedidos HTTP/HTTPS.
 
-Para obter mais detalhes, veja [Introdução ao Armazenamento de Blobs do Azure](../blobs/storage-dotnet-how-to-use-blobs.md).
+Para obter mais informações, veja [Introdução ao Armazenamento de Blobs do Azure](../blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação armazenados com o blob. É fundamental que os mecanismos de cópia utilizados assegurem que os metadados do blob, e, em especial, os metadados relacionados com a encriptação, são preservados. Se copiar os blobs sem estes metadados, não será possível obter novamente o conteúdo do mesmo. Para obter mais detalhes acerca dos metadados relacionados com a encriptação, consulte [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação armazenados com o blob. É fundamental que os mecanismos de cópia utilizados assegurem que os metadados do blob, e, em especial, os metadados relacionados com a encriptação, são preservados. Se copiar os blobs sem estes metadados, não será possível obter novamente o conteúdo do mesmo. Para obter mais informações acerca dos metadados relacionados com a encriptação, veja [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="faq"></a>FAQ
 
 **As contas de armazenamento existentes continuam disponíveis?**
 
-Sim, as contas de armazenamento (GPv1) existentes continuam disponíveis e permanecem inalteradas em termos de preços e funcionalidade.  As contas GPv1 não têm a capacidade de escolher uma camada de armazenamento e não terão capacidades de camadas no futuro.
+Sim, as contas de armazenamento (GPv1) existentes continuam disponíveis e permanecem inalteradas em termos de preços e funcionalidade. As contas GPv1 não têm a capacidade de escolher uma camada de armazenamento e não terão capacidades de camadas no futuro.
 
 **Por que razão devo começar a utilizar as contas de armazenamento GPv2 e quando o devo fazer?**
 
-As contas de armazenamento GPv2 são especializadas para proporcionar os custos de armazenamento por GB mais baixos, oferecendo ao mesmo tempo os custos de transação e acesso a dados mais competitivos da indústria. Doravante, as contas de armazenamento GPv2 são a forma recomendada de armazenar blobs, uma vez que serão introduzidas capacidades futuras, como, por exemplo, notificações de alterações, baseadas neste tipo de conta. No entanto, o momento da migração fica ao seu critério, consoante os seus requisitos empresariais.  Por exemplo, pode optar por otimizar os seus padrões de otimização antes de atualizar.
+As contas de armazenamento GPv2 são especializadas para proporcionar os custos de armazenamento por GB mais baixos, oferecendo ao mesmo tempo os custos de transação e acesso a dados mais competitivos da indústria. Doravante, as contas de armazenamento GPv2 são a forma recomendada de armazenar blobs, uma vez que serão introduzidas capacidades futuras, como, por exemplo, notificações de alterações, baseadas neste tipo de conta. No entanto, o momento da migração fica ao seu critério, consoante os seus requisitos empresariais. Por exemplo, pode optar por otimizar os seus padrões de otimização antes de atualizar.
 
 Não é suportada a mudança para versão anterior do GPv2, por isso considere todas as implicações de preços antes de atualizar as suas contas para GPv2.
 
 **Posso atualizar a minha conta de armazenamento existente numa conta de armazenamento GPv2?**
 
-Sim. As contas GPv1 podem ser facilmente atualizadas para GPv2 no portal ou utilizando o PowerShell ou a CLI. As contas do Armazenamento de Blobs podem ser atualizadas para GPv2 utilizando o PowerShell ou a CLI. A capacidade para atualizar uma conta de Armazenamento de Blobs para GPv2 no portal estará disponível brevemente.
+Sim. As contas GPv1 podem ser facilmente atualizadas para GPv2 no portal ou utilizando o PowerShell ou a CLI. As contas do Armazenamento de blobs podem ser atualizadas para GPv2 com o PowerShell ou a CLI. A capacidade de atualizar uma conta de Armazenamento de blobs para GPv2 no portal estará disponível em breve.
 
 Não é suportada a mudança para versão anterior do GPv2, por isso considere todas as implicações de preços antes de atualizar as suas contas para GPv2.
 
@@ -302,45 +327,45 @@ Sim. O atributo **Access Tier** definido ao nível de uma conta é a camada pred
 
 Sim, pode definir o atributo **Access Tier** na conta de armazenamento para alterar a camada de armazenamento da conta. A alteração da camada de armazenamento da conta aplica-se a todos os objetos armazenados na conta que não têm uma camada explícita definida. A alteração da camada de armazenamento de frequente para esporádica acarreta custos com operações de escrita (por 10 000) (contas GPv2 apenas), enquanto a alteração de esporádica para frequente acarreta custos com operações de leitura (por 10 000) e obtenção de dados (por GB) pela leitura de todos os dados na conta.
 
-**Com que frequência posso alterar a camada de armazenamento da minha conta de Armazenamento de Blobs?**
+**Com que frequência posso alterar a camada de armazenamento da minha conta de armazenamento de Blobs?**
 
 Apesar de não impormos uma limitação à frequência com que é possível alterar a camada de armazenamento, tenha em atenção que a alteração da camada de esporádica para frequente resulta em encargos significativos. Não é recomendada uma alteração da camada de armazenamento frequentemente.
 
 **O comportamento dos blobs na camada de armazenamento esporádico é diferente dos blobs na camada de armazenamento frequente?**
 
-Os blobs na camada de armazenamento frequente das contas de Armazenamento de Blobs e GPv2 têm a mesma latência dos blobs nas contas GPv1. Os blobs na camada de armazenamento esporádico têm uma latência semelhante (em milissegundos) aos blobs na camada frequente. Os blobs na camada de armazenamento de arquivo têm várias horas de latência.
+Os blobs na camada de armazenamento frequente das contas de Armazenamento de blobs e GPv2 têm a mesma latência dos blobs nas contas de armazenamento GPv1. Os blobs na camada de armazenamento esporádico têm uma latência semelhante (em milissegundos) aos blobs na camada frequente. Os blobs na camada de armazenamento de arquivo têm várias horas de latência.
 
-Os blobs na camada de armazenamento esporádico têm um nível de serviço (SLA) de disponibilidade ligeiramente inferior ao dos blobs armazenados na camada de armazenamento frequente. Para obter mais detalhes, consulte [SLA para o armazenamento](https://azure.microsoft.com/support/legal/sla/storage).
+Os blobs na camada de armazenamento esporádico têm um nível de serviço (SLA) de disponibilidade ligeiramente inferior ao dos blobs armazenados na camada de armazenamento frequente. Para obter mais informações, veja [SLA para Armazenamento](https://azure.microsoft.com/support/legal/sla/storage).
 
-**Posso armazenar blobs de páginas e discos de máquinas virtuais em contas de Armazenamento de Blobs?**
+**Posso armazenar blobs de páginas e discos de máquinas virtuais em contas de armazenamento de Blobs?**
 
-Não. As contas de Armazenamento de Blobs suportam apenas blobs de blocos e blobs de acréscimo e não suportam blobs de páginas. Os discos de máquinas virtuais do Azure são apoiados por blobs de páginas e, como consequência, não é possível utilizar contas do Armazenamento de Blobs para armazená-los. No entanto, é possível armazenar cópias de segurança dos discos de máquinas virtuais como blobs de blocos numa conta de Armazenamento de Blobs. Esta é uma das razões para considerar a utilização de GPv2 em vez de contas de Armazenamento de Blobs.
+Não. As contas de armazenamento de Blobs suportam apenas blobs de blocos e blobs de acréscimo e não suportam blobs de páginas. Os discos de Virtual Machines do Azure são apoiados por blobs de páginas e, como consequência, não é possível utilizar contas do Blob Storage para armazenar discos de máquinas virtuais. No entanto, é possível armazenar cópias de segurança dos discos de máquinas virtuais como blobs de blocos numa conta do Blob Storage. Esta é uma das razões para considerar a utilização de GPv2 em vez de contas de Armazenamento de blobs.
 
 **Tenho de alterar as minhas aplicações existentes para utilizar as contas de armazenamento GPv2?**
 
-As contas de armazenamento GPv2 são 100% consistentes com as contas GPv1 e de Armazenamento de Blobs. Desde que a aplicação utilize blobs de blocos ou blobs de acréscimo e esteja a utilizar a versão de 14/02/2014 da [API REST dos Serviços do Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou superior, a aplicação deverá funcionar normalmente. Se estiver a utilizar uma versão mais antiga do protocolo, tem de atualizar a sua aplicação para utilizar a versão nova, de modo a trabalhar de forma totalmente integrada com ambos os tipos de contas de armazenamento. Em geral, recomendamos sempre que utilize a versão mais recente, independentemente da conta do Storage utilizada.
+As contas de armazenamento GPv2 são 100% consistentes em termos de API com as contas GPv1 e de Armazenamento de blobs. Desde que a aplicação utilize blobs de blocos ou blobs de acréscimo e esteja a utilizar a versão de 14/02/2014 da [API REST dos Serviços do Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou superior, a aplicação deverá funcionar normalmente. Se estiver a utilizar uma versão mais antiga do protocolo, tem de atualizar a sua aplicação para utilizar a versão nova, de modo a trabalhar de forma totalmente integrada com ambos os tipos de contas de armazenamento. Em geral, recomendamos sempre que utilize a versão mais recente, independentemente da conta do Storage utilizada.
 
 Os preços de GPv2 são, geralmente, superiores aos de GPv1 para transações e largura de banda. Por conseguinte, poderá ser necessário otimizar os padrões de transação antes de atualizar para que a fatura total não aumente.
 
 **Existem alterações relativas à experiência do utilizador?**
 
-As contas de armazenamento GPv2 são muito semelhantes às GPv1 e suportam todas as principais funcionalidades do Armazenamento do Azure, incluindo elevada durabilidade e disponibilidade, escalabilidade, desempenho e segurança. Com exceção das funcionalidades e restrições específicas das contas do Armazenamento de Blobs e das respetivas camadas de armazenamento que foram descritas acima, tudo o resto permanece igual após a atualização para a conta GPv2 ou de Armazenamento do Azure.
+As contas de armazenamento GPv2 são muito semelhantes às GPv1 e suportam todas as principais funcionalidades do Armazenamento do Azure, incluindo elevada durabilidade e disponibilidade, escalabilidade, desempenho e segurança. Com exceção das funcionalidades e restrições específicas das contas do Armazenamento de blobs e das respetivas camadas de armazenamento que foram descritas acima, tudo o resto permanece igual após a atualização para a conta GPv2 ou de Armazenamento de blobs.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-### <a name="evaluate-blob-storage-accounts"></a>Avaliar as contas de Armazenamento do Azure
+### <a name="evaluate-blob-storage-accounts"></a>Avaliar as contas do Blob Storage
 
-[Verificar a disponibilidade das contas do Armazenamento de Blobs por região](https://azure.microsoft.com/regions/#services)
+[Verificar a disponibilidade das contas do armazenamento de Blobs por região](https://azure.microsoft.com/regions/#services)
 
 [Avaliar a utilização das suas contas de armazenamento atuais ao ativar as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Verificar os preços do Armazenamento de Blobs por região](https://azure.microsoft.com/pricing/details/storage/)
+[Verificar os preços do armazenamento de Blobs por região](https://azure.microsoft.com/pricing/details/storage/)
 
 [Verificar os preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ### <a name="start-using-gpv2-storage-accounts"></a>Começar a utilizar as contas de armazenamento GPv2
 
-[Introdução ao Armazenamento de Blobs do Azure](../blobs/storage-dotnet-how-to-use-blobs.md)
+[Introdução ao armazenamento de Blobs do Azure](../blobs/storage-dotnet-how-to-use-blobs.md)
 
 [Mover dados de e para o Armazenamento do Azure](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

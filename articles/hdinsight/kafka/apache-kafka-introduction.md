@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 945b16553d56d5138b17e7768e43a298b310551d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
@@ -29,23 +29,45 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em 
 
 O Kafka no HDInsight oferece as funcionalidades :
 
-* Contrato de Nível de Serviço (SLA): [informações do SLA do HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __99% de tempo de atividade do Contrato de Nível de Serviço (SLA) no Kafka__: para obter mais informações, veja o documento [Informações do SLA para o HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* Padrão de mensagem de publicação-subscrição: o Kafka fornece uma API de Produtor para publicar registos num tópico do Kafka. A API de Consumidor é utilizada ao subscrever um tópico.
+* __Tolerância a falhas e conhecimento de bastidores__: o Kafka foi concebido com uma visão uni-dimensional de um bastidor que funciona bem em alguns ambientes. No entanto, em ambientes como o Azure, um bastidor é separado em duas dimensões - Domínios de Atualização (UDs) e Domínios de Falha (FDs). A Microsoft fornece ferramentas que garantem o reequilíbrio de réplicas e partições do Kafka em UDs e FDs. 
 
-* Processamento de fluxo: o Kafka é muitas vezes utilizado com o Apache Storm ou Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (versão 3.5 e 3.6 do HDInsight) introduziu uma API de transmissão em fluxo que lhe permite criar soluções de transmissão em fluxo, sem precisar do Storm ou do Spark.
+    Para obter mais informações, consulte [Elevada disponibilidade com o Kafka no HDInsight](apache-kafka-high-availability.md).
 
-* Escala horizontal: transmissões em fluxo de partições do Kafka nos nós no cluster do HDInsight. Os processos de consumidor podem estar associados a partições individuais para fornecer balanceamento de carga ao consumir registos.
-
-* Entrega por ordem: em cada partição, os registos são armazenados na transmissão em fluxo pela ordem em que foram recebidos. Ao associar um processo de consumidor por partição, pode garantir que os registos são processados por ordem.
-
-* Com tolerância a falhas: as partições podem ser replicadas entre nós para fornecer tolerância a falhas.
-
-* Integração com os Azure Managed Disks: os discos geridos permitem uma maior escala e taxa de débito para os discos utilizados pelas máquinas virtuais no cluster do HDInsight.
-
-    Os discos geridos estão ativados por predefinição no Kafka no HDInsight. O número de discos utilizados por nó pode ser configurado durante a criação do HDInsight. Para obter mais informações sobre os discos geridos, consulte [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+* **Integração com os Azure Managed Disks**: os discos geridos permitem uma maior escala e taxa de débito para os discos utilizados pelo Kafka no HDInsight, até 16 TB por nó no cluster.
 
     Para obter mais informações sobre como configurar os discos geridos com o Kafka no HDInsight, consulte [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md) (Aumentar a escalabilidade do Kafka no HDInsight).
+
+    Para obter mais informações sobre os discos geridos, consulte [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+
+* **Alertas, monitorização e manutenção preditiva**: o Log Analytics do Azure pode ser utilizado para monitorizar o Kafka no HDInsight. O Log Analytics apresenta informações ao nível de máquinas virtuais, como métricas de discos e NIC e métricas de JMX do Kafka.
+
+    Para obter mais informações, consulte [Analisar registos para o Kafka no HDInsight](apache-kafka-log-analytics-operations-management.md).
+
+* **Replicação de dados do Kafka**: o Kafka proporciona o utilitário MirrorMaker, que replica os dados entre clusters do Kafka.
+
+    Para obter mais informações sobre como utilizar o MirrorMaker, consulte [Replicar tópicos do Kafka com o Kafka no HDInsight](apache-kafka-mirroring.md).
+
+* **Dimensionamento de clusters**: o HDInsight permite-lhe alterar o número de nós de trabalhadores (que alojam o mediador Kafka) após a criação do cluster. Aumente verticalmente um cluster à medida que as cargas de trabalho aumentam ou reduza verticalmente para diminuir os custos. O escalonamento pode ser executado a partir do portal do Azure, do Azure PowerShell e de outras interfaces de gestão do Azure. Para o Kafka, deve reequilibrar as réplicas de partições após as operações de dimensionamento. Reequilibrar partições permite ao Kafka tirar partido do novo número de nós de trabalho.
+
+    Para obter mais informações, consulte [Elevada disponibilidade com o Kafka no HDInsight](apache-kafka-high-availability.md).
+
+* **Padrão de mensagem de publicação-subscrição**: o Kafka fornece uma API de Produtor para publicar registos num tópico do Kafka. A API de Consumidor é utilizada ao subscrever um tópico.
+
+    Para obter mais informações, consulte [Introdução ao Kafka no HDInsight](apache-kafka-get-started.md).
+
+* **Processamento de fluxo**: o Kafka é muitas vezes utilizado com o Apache Storm ou Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (versão 3.5 e 3.6 do HDInsight) introduziu uma API de transmissão em fluxo que lhe permite criar soluções de transmissão em fluxo, sem precisar do Storm ou do Spark.
+
+    Para obter mais informações, consulte [Introdução ao Kafka no HDInsight](apache-kafka-get-started.md).
+
+* **Escala horizontal**: transmissões em fluxo de partições do Kafka nos nós no cluster do HDInsight. Os processos de consumidor podem estar associados a partições individuais para fornecer balanceamento de carga ao consumir registos.
+
+    Para obter mais informações, consulte [Introdução ao Kafka no HDInsight](apache-kafka-get-started.md).
+
+* **Entrega por ordem**: em cada partição, os registos são armazenados na transmissão em fluxo pela ordem em que foram recebidos. Ao associar um processo de consumidor por partição, pode garantir que os registos são processados por ordem.
+
+    Para obter mais informações, consulte [Introdução ao Kafka no HDInsight](apache-kafka-get-started.md).
 
 ## <a name="use-cases"></a>Casos de utilização
 
@@ -66,7 +88,7 @@ Este diagrama mostra uma configuração do Kafka comum que utiliza grupos de con
 Cada mediador Kafka utiliza Managed Disks do Azure. O número de discos é definido pelo utilizador e pode oferecer até 16 TB de armazenamento por mediador.
 
 > [!IMPORTANT]
-> O Kafka não tem conhecimento do hardware subjacente (bastidor) no datacenter do Azure. Para garantir o correto equilíbrio das partições no hardware subjacente, veja [configure high availability of data (Kafka)](apache-kafka-high-availability.md) [Configurar a elevada disponibilidade dos dados (Kafka)]
+> O Kafka não tem conhecimento do hardware subjacente (bastidor) no datacenter do Azure. Para garantir o correto equilíbrio das partições no hardware subjacente, veja o documento [Configurar a elevada disponibilidade dos dados (Kafka)](apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

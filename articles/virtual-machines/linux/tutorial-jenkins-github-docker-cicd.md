@@ -1,6 +1,6 @@
 ---
-title: Criar um pipeline de desenvolvimento no Azure com Jenkins | Microsoft Docs
-description: "Saiba como criar uma máquina virtual de Jenkins no Azure que obtém a partir do GitHub em cada consolidação de código e cria um novo contentor de Docker para executar a aplicação"
+title: Criar um pipeline de desenvolvimento no Azure com o Jenkins | Microsoft Docs
+description: "Saiba como criar uma máquina virtual do Jenkins no Azure que solicita dados do GitHub em cada consolidação de código e cria um novo contentor do Docker para executar a aplicação"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,32 +16,32 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Como criar uma infraestrutura de desenvolvimento numa VM com Linux no Azure com Jenkins, GitHub e Docker
-Para automatizar a fase de criação e teste de desenvolvimento de aplicações, pode utilizar uma integração contínua e o pipeline de implementação (CI/CD). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure incluindo como:
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Como criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
+Para automatizar a fase de criação e teste do desenvolvimento de aplicações, pode utilizar um pipeline de integração e implementação (CI/CD) contínuas. Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
 
 > [!div class="checklist"]
-> * Criar uma VM Jenkins
-> * Instalar e configurar Jenkins
-> * Criar o webhook integração entre o GitHub e Jenkins
-> * Criar e consolida acionador que jenkins criar tarefas a partir do GitHub
-> * Criar uma imagem de Docker para a sua aplicação
-> * Certifique-se de consolidações de GitHub criem nova imagem do Docker e executar a aplicação de atualizações
+> * Criar uma VM do Jenkins
+> * Instalar e configurar o Jenkins
+> * Criar a integração de webhooks entre o GitHub e Jenkins
+> * Criar e acionar tarefas de compilação do Jenkins a partir de consolidações do GitHub
+> * Criar uma imagem do Docker para a aplicação
+> * Verificar se as consolidações do GitHub criam uma nova imagem do Docker e atualizam a aplicação em execução
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.22 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.22 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="create-jenkins-instance"></a>Criar uma instância de Jenkins
-Um tutorial anterior em [como personalizar uma máquina virtual do Linux no primeiro arranque](tutorial-automate-vm-deployment.md), aprendeu a automatizar a personalização de VM com init de nuvem. Este tutorial utiliza um ficheiro de nuvem init para instalar Jenkins e Docker numa VM. Jenkins é um servidor de automatização de open source para populares que se integra perfeitamente com o Azure para ativar a integração contínua (CI) e entrega contínua (CD). Para obter tutoriais mais sobre como utilizar Jenkins, consulte o [Jenkins no hub do Azure](https://docs.microsoft.com/azure/jenkins/).
+## <a name="create-jenkins-instance"></a>Criar instância do Jenkins
+Num tutorial anterior sobre [Como personalizar uma máquina virtual do Linux no primeiro arranque](tutorial-automate-vm-deployment.md), aprendeu a automatizar a personalização de VMs com inicialização da cloud. Este tutorial utiliza um ficheiro de inicialização da cloud para instalar o Jenkins e o Docker numa VM. O Jenkins é um servidor de automatização de código aberto popular, que se integra totalmente no Azure para permitir a integração contínua (CI) e a entrega contínua (CD). Para obter mais tutoriais sobre como utilizar o Jenkins, veja o [Jenkins no hub do Azure](https://docs.microsoft.com/azure/jenkins/).
 
-Na sua shell atual, crie um ficheiro denominado *nuvem-init-jenkins.txt* e cole a seguinte configuração. Por exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Introduza `sensible-editor cloud-init-jenkins.txt` para criar o ficheiro e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha:
+Na sua shell atual, crie um ficheiro com o nome *cloud-init-jenkins.txt* e cole a seguinte configuração. Por exemplo, crie o ficheiro no Cloud Shell, não no seu computador local. Introduza `sensible-editor cloud-init-jenkins.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -64,16 +64,17 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
+  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
-Antes de poder criar uma VM, crie um grupo de recursos com [criar grupo az](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupJenkins* no *eastus* localização:
+Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupJenkins* na localização *eualeste*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Agora criar uma VM com [az vm criar](/cli/azure/vm#create). Utilize o `--custom-data` parâmetro para passar o ficheiro de configuração de nuvem init. Forneça o caminho completo para *nuvem-init-jenkins.txt* se guardou o ficheiro fora do diretório de trabalho presente.
+Agora, crie uma VM com [az vm create](/cli/azure/vm#create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para *cloud-init-jenkins.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -84,9 +85,9 @@ az vm create --resource-group myResourceGroupJenkins \
     --custom-data cloud-init-jenkins.txt
 ```
 
-Demora alguns minutos para que a VM ser criada e configurada.
+Demora alguns minutos até que a VM seja criada e configurada.
 
-Para permitir o tráfego da web alcançar a VM, utilize [az vm open-porta](/cli/azure/vm#open-port) para abrir a porta *8080* Jenkins para tráfego de e porta *1337* para a aplicação Node.js que é utilizada para executar uma aplicação de exemplo:
+Para permitir que o tráfego Web alcance a sua VM, utilize [az vm open-port](/cli/azure/vm#open-port) para abrir a porta *8080* para o tráfego do Jenkins e a porta *1337* para a aplicação Node.js que é utilizada para executar uma aplicação de exemplo:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -94,86 +95,86 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ```
 
 
-## <a name="configure-jenkins"></a>Configurar Jenkins
-Para aceder à sua instância Jenkins, obter o endereço IP público da sua VM:
+## <a name="configure-jenkins"></a>Configurar o Jenkins
+Para aceder à sua instância do Jenkins, obtenha o endereço IP público da sua VM:
 
 ```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Por motivos de segurança, tem de introduzir a palavra-passe de administrador inicial que é armazenada num ficheiro de texto na VM para iniciar a instalação de Jenkins. Utilize o endereço IP público que obteve no passo anterior para SSH para a VM:
+Por motivos de segurança, tem de introduzir a palavra-passe de administrador inicial que é armazenada num ficheiro de texto na VM para iniciar a instalação do Jenkins. Utilize o endereço IP público que obteve no passo anterior para encaminhar o SSH para a VM:
 
 ```bash
 ssh azureuser@<publicIps>
 ```
 
-Ver o `initialAdminPassword` para sua Jenkins instalar e copie-o:
+Veja o `initialAdminPassword` da sua instalação do Jenkins e copie-o:
 
 ```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-Se o ficheiro ainda não está disponível, aguarde alguns minutos para a nuvem-init concluir a instalação Jenkins e Docker.
+Se o ficheiro ainda não estiver disponível, aguarde alguns minutos para que a inicialização da cloud conclua a instalação do Jenkins e do Docker.
 
-Agora abra um browser e aceda a `http://<publicIps>:8080`. Conclua a configuração inicial do Jenkins da seguinte forma:
+Agora, abra um browser e vá para `http://<publicIps>:8080`. Conclua a configuração inicial do Jenkins da seguinte forma:
 
-- Introduza o nome de utilizador **admin**, em seguida, forneça o *initialAdminPassword* obtido a partir da VM no passo anterior.
-- Selecione **gerir Jenkins**, em seguida, **gerir plug-ins**.
-- Escolha **disponível**, em seguida, procure *GitHub* na caixa de texto na parte superior. Marque a caixa de *Plug-in do GitHub*, em seguida, selecione **agora transferir e instalar após o reinício**.
-- Marque a caixa de **Jenkins reinicie quando concluir a instalação e não existem tarefas em execução**, em seguida, aguarde até que o plug-in do processo de instalação estiver concluída.
-
-
-## <a name="create-github-webhook"></a>Criar o GitHub webhook
-Para configurar a integração com o GitHub, abra o [aplicação de exemplo Olá mundo Node.js](https://github.com/Azure-Samples/nodejs-docs-hello-world) do repositório exemplos do Azure. Para copiar o repositório à sua própria conta do GitHub, selecione o **bifurcação** botão no canto superior direito.
-
-Crie um webhook no interior de bifurcação que criou:
-
-- Selecione **definições**, em seguida, selecione **integrações & serviços** no lado esquerdo.
-- Escolha **Adicionar serviço**, em seguida, introduza *Jenkins* na caixa Filtro.
-- Selecione *Jenkins (GitHub Plug-in)*
-- Para o **Jenkins ligue URL**, introduza `http://<publicIps>:8080/github-webhook/`. Certifique-se de que incluiu /
-- Selecione **Adicionar serviço**
-
-![Adicionar GitHub webhook ao seu repositório forked](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+- Introduza o nome de utilizador **admin** e forneça a *initialAdminPassword* obtida da VM no passo anterior.
+- Selecione **Gerir Jenkins** e em **Gerir plug-ins**.
+- Escolha **Disponível** e procure *GitHub* na caixa de texto na parte superior. Marque a caixa de *Plug-in do GitHub* e selecione **Transferir agora e instalar após o reinício**.
+- Marque a caixa **Reiniciar o Jenkins quando a instalação estiver concluída e nenhuma tarefa se encontrar em execução** e aguarde até que o plug-in do processo de instalação esteja concluído.
 
 
-## <a name="create-jenkins-job"></a>Criar tarefa de Jenkins
-Para ter Jenkins respondeu a um evento no GitHub, tais como consolidar o código, crie uma tarefa de Jenkins. 
+## <a name="create-github-webhook"></a>Criar um webhook do GitHub
+Para configurar a integração com o GitHub, abra a [aplicação de exemplo Node.js Hello World](https://github.com/Azure-Samples/nodejs-docs-hello-world) do repositório de exemplos do Azure. Para bifurcar o repositório para a sua própria conta do GitHub, selecione o botão **Fork** no canto superior direito.
 
-No seu Web site Jenkins, selecione **criar novas tarefas** na home page:
+Crie um webhook no interior do fork que criou:
 
-- Introduza *Olámundo* como o nome da tarefa. Escolha **projeto Freestyle**, em seguida, selecione **OK**.
-- Sob o **geral** secção, selecione **GitHub** projeto e introduza o URL do repositório escolhido, tais como *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- Sob o **gestão de código de origem** secção, selecione **Git**, introduza o seu repositório forked *.git* URL, tais como *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
-- Sob o **criar Acionadores** secção, selecione **acionador de rotina do GitHub para consulta GITscm**.
-- Sob o **criar** secção, escolha **Adicionar passo de compilação**. Selecione **executar shell**, em seguida, introduza `echo "Testing"` na janela de comandos.
-- Selecione **guardar** na parte inferior da janela tarefas.
+- Selecione **Definições** e selecione **Integrações e serviços** no lado esquerdo.
+- Escolha **Adicionar serviço** e introduza *Jenkins* na caixa de filtro.
+- Selecionar *Jenkins (plug-in do GitHub)*
+- No **URL do hook do Jenkins**, introduza `http://<publicIps>:8080/github-webhook/`. Certifique-se de que inclui / à direita
+- Selecionar **Adicionar serviço**
+
+![Adicionar webhook do GitHub ao seu repositório bifurcado](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 
-## <a name="test-github-integration"></a>Integração do GitHub de teste
-Para testar a integração do GitHub com Jenkins, consolide uma alteração na sua bifurcação. 
+## <a name="create-jenkins-job"></a>Criar tarefa do Jenkins
+Para que o Jenkins responda a um evento no GitHub, como consolidar código, crie uma tarefa do Jenkins. 
 
-No GitHub da IU da web, selecione o seu repositório forked e, em seguida, selecione o **index.js** ficheiro. Selecione o ícone de lápis para editar este ficheiro para a linha 6 lê:
+No seu site do Jenkins, selecione **Criar novas tarefas** na home page:
+
+- Introduza *HelloWorld* no nome da tarefa. Escolha **Projeto de estilo livre** e selecione **OK**.
+- Na secção **Geral**, selecione o projeto **GitHub** e introduza o URL do repositório bifurcado, como *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- Na secção  **Gestão de código fonte**, selecione o projeto **Git** e introduza o URL *.git* do repositório bifurcado, como *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- Na secção **Criar Acionadores**, selecione **Acionador de hook do GitHub para consulta GITScm**.
+- Na secção **Compilar**, escolha **Adicionar passo de compilação**. Selecione **Executar shell** e introduza `echo "Testing"` na janela de comandos.
+- Selecione **Guardar** na parte inferior da janela de tarefas.
+
+
+## <a name="test-github-integration"></a>Testar integração do GitHub
+Para testar a integração do GitHub no Jenkins, consolide uma alteração no seu fork. 
+
+Na IU Web do GitHub, selecione o repositório bifurcado e selecione o ficheiro **index.js**. Selecione o ícone de lápis para editar este ficheiro, de forma que a linha 6 seja:
 
 ```nodejs
 response.end("Hello World!");
 ```
 
-Para consolidar as alterações, selecione o **consolidar alterações** na parte inferior.
+Para consolidar as alterações, selecione o botão **Consolidar alterações** na parte inferior.
 
-No Jenkins, uma nova compilação inicia sob o **histórico de compilação** secção do canto inferior esquerdo da sua página de tarefa. Escolha a ligação de número de compilação e selecione **consola saída** no lado esquerdo. Pode ver os passos Jenkins demora como o seu código é solicitado a partir do GitHub e a ação de compilação produz a mensagem `Testing` para a consola. Sempre que uma consolidação é efetuada no GitHub, o webhook acede ao Jenkins e aciona uma nova compilação desta forma.
+No Jenkins, uma nova compilação é iniciada na secção **Histórico de compilações** do canto inferior esquerdo da página de tarefas. Escolha a ligação do número da compilação e selecione **Saída da consola** no lado esquerdo. Pode ver os passos que o Jenkins executa, à medida que o seu código é obtido do GitHub e a ação de compilação gera a saída da mensagem `Testing` para a consola. Sempre que uma consolidação é efetuada no GitHub, o webhook acede ao Jenkins e aciona uma nova compilação desta forma.
 
 
 ## <a name="define-docker-build-image"></a>Definir imagem de compilação do Docker
-Para ver a aplicação Node.js em execução com base no seu consolidações do GitHub, permite construir uma imagem do Docker para executar a aplicação. A imagem é criada a partir de um Dockerfile que define como configurar o contentor que executa a aplicação. 
+Para ver a aplicação Node.js em execução com base nas suas consolidações do GitHub, vamos construir uma imagem do Docker para executar a aplicação. A imagem é criada a partir de um Dockerfile que define como configurar o contentor que executa a aplicação. 
 
-A ligação de SSH para a VM, mude para o diretório de área de trabalho de Jenkins chamado após a tarefa que criou no passo anterior. Neste exemplo, que foi atribuído o nome *Olámundo*.
+A partir da ligação SSH à sua VM, mude para o diretório de área de trabalho do Jenkins que tem o nome da tarefa que criou no passo anterior. Neste exemplo, foi-lhe atribuído o nome *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Criar um ficheiro no diretório área de trabalho com `sudo sensible-editor Dockerfile` e cole o seguinte conteúdo. Certifique-se de que o Dockerfile todo é copiado corretamente, especialmente a primeira linha:
+Crie um ficheiro neste diretório de área de trabalho com `sudo sensible-editor Dockerfile` e cole os seguintes conteúdos. Certifique-se de que todo o Dockerfile é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 FROM node:alpine
@@ -186,17 +187,17 @@ RUN npm install
 COPY index.js /var/www/
 ```
 
-Este Dockerfile utiliza a imagem base do Node.js com Linux Extreme, porta expõe 1337 que executa a aplicação Olá, mundo, em seguida, copia os ficheiros de aplicação e inicializa-lo.
+Este Dockerfile utiliza a imagem base do Node.js com Alpine Linux, expõe a porta 1337 na qual a aplicação Hello World é executada e, em seguida, copia os ficheiros da aplicação e inicializa-a.
 
 
-## <a name="create-jenkins-build-rules"></a>Criar regras de compilação Jenkins
-No passo anterior, criou uma regra de compilação Jenkins básica que uma mensagem para a consola de saída. Permite criar o passo de compilação para utilizar o nosso Dockerfile e executar a aplicação.
+## <a name="create-jenkins-build-rules"></a>Criar regras de compilação do Jenkins
+Num passo anterior, criou uma regra de compilação básica do Jenkins que gera a saída de uma mensagem para a consola. Vamos criar o passo de compilação para utilizar o nosso Dockerfile e executar a aplicação.
 
-Novamente na instância Jenkins, selecione a tarefa que criou no passo anterior. Selecione **configurar** no lado esquerdo e desloque-se para baixo até o **criar** secção:
+Novamente na instância do Jenkins, selecione a tarefa que criou no passo anterior. Selecione **Configurar** no lado esquerdo e desloque-se para baixo até à secção **Compilar**:
 
-- Remover existentes `echo "Test"` passo de compilação. Selecione entre a vermelho no canto superior direito da caixa de passo de compilação existente.
-- Escolha **Adicionar passo de compilação**, em seguida, selecione **executar shell**
-- No **comando** caixa, introduza os seguintes comandos do Docker, em seguida, selecione **guardar**:
+- Remova o passo de compilação `echo "Test"` existente. Selecione a cruz vermelha no canto superior direito da caixa de passos de compilação existente.
+- Escolha **Adicionar passo de compilação** e selecione **Executar shell**
+- Na caixa **Comando**, introduza os seguintes comandos do Docker e selecione **Guardar**:
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -204,39 +205,39 @@ Novamente na instância Jenkins, selecione a tarefa que criou no passo anterior.
   docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
-Os passos de compilação do Docker criar uma imagem e a etiqueta com o Jenkins número de compilação para pode manter um histórico de imagens. Quaisquer contentores existentes a executar a aplicação são parados e, em seguida, são removidos. Um novo contentor, em seguida, é iniciado utilizando a imagem e executa a aplicação Node.js com base de consolidações mais recentes no GitHub.
+Os passos de compilação do Docker criam uma imagem e identificam-na com o número de compilação do Jenkins para que possa manter um histórico de imagens. Quaisquer contentores existentes em execução na aplicação são parados e, em seguida, removidos. Um novo contentor é então iniciado com a imagem e executa a aplicação Node.js com base nas consolidações mais recentes no GitHub.
 
 
 ## <a name="test-your-pipeline"></a>Testar o pipeline
-Para ver o pipeline todo em ação, edite o *index.js* ficheiros no seu repositório do GitHub forked novamente e selecione **Confirmar alteração**. Inicia uma nova tarefa em Jenkins com base no webhook GitHub. Demora alguns segundos para criar a imagem do Docker e iniciar a sua aplicação num contentor de novo.
+Para ver todo o pipeline em ação, edite novamente o ficheiro *index.js* no seu repositório bifurcado do GitHub e selecione **Consolidar alteração**. Uma nova tarefa é iniciada no Jenkins, com base no webhook do GitHub. Demora alguns segundos para criar a imagem do Docker e iniciar a sua aplicação num novo contentor.
 
-Se for necessário, obter novamente o endereço IP público da sua VM:
+Se for necessário, obtenha novamente o endereço IP público da sua VM:
 
 ```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Abra um browser e introduza `http://<publicIps>:1337`. A aplicação Node.js é apresentada e reflete as consolidações mais recentes no seu bifurcação de GitHub da seguinte forma:
+Abra um browser e introduza `http://<publicIps>:1337`. A aplicação Node.js é apresentada e reflete as consolidações mais recentes no fork do GitHub da seguinte forma:
 
-![Aplicação Node.js em execução](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+![Executar aplicação Node.js](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
-Agora a efetuar outra edição para o *index.js* de ficheiros no GitHub e a consolidação da alteração. Aguarde alguns segundos para a tarefa para concluir a Jenkins, em seguida, atualize o browser para ver a versão atualizada da sua aplicação em execução num novo contentor da seguinte forma:
+Agora, efetue outra edição no ficheiro *index.js* no GitHub e consolide a alteração. Aguarde alguns segundos até que a tarefa seja concluída no Jenkins e, em seguida, atualize o browser para ver a versão atualizada da sua aplicação em execução num novo contentor da seguinte forma:
 
-![Aplicação Node.js em execução depois de outra consolidação do GitHub](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+![Executar a aplicação Node.js após outra consolidação do GitHub](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, configurou GitHub para executar uma tarefa de compilação Jenkins em cada consolidação de código e, em seguida, implementar um contentor de Docker para testar a aplicação. Aprendeu a:
+## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, configurou o GitHub para executar uma tarefa de compilação do Jenkins em cada consolidação de código e, em seguida, implementar um contentor do Docker para testar a aplicação. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar uma VM Jenkins
-> * Instalar e configurar Jenkins
-> * Criar o webhook integração entre o GitHub e Jenkins
-> * Criar e consolida acionador que jenkins criar tarefas a partir do GitHub
-> * Criar uma imagem de Docker para a sua aplicação
-> * Certifique-se de consolidações de GitHub criem nova imagem do Docker e executar a aplicação de atualizações
+> * Criar uma VM do Jenkins
+> * Instalar e configurar o Jenkins
+> * Criar a integração de webhooks entre o GitHub e Jenkins
+> * Criar e acionar tarefas de compilação do Jenkins a partir de consolidações do GitHub
+> * Criar uma imagem do Docker para a aplicação
+> * Verificar se as consolidações do GitHub criam uma nova imagem do Docker e atualizam a aplicação em execução
 
-Avançar para o próximo tutorial para saber mais sobre como integrar Jenkins no Visual Studio Team Services.
+Avance para o próximo tutorial para obter mais informações sobre como integrar o Jenkins no Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Implementar aplicações com Jenkins e serviços da equipa](tutorial-build-deploy-jenkins.md)
+> [Implementar aplicações com o Jenkins e Team Services](tutorial-build-deploy-jenkins.md)

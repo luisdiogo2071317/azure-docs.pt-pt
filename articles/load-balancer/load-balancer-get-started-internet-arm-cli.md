@@ -1,6 +1,6 @@
 ---
-title: "Criar um balanceador de carga com acesso à Internet – CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga com acesso à Internet no Resource Manager com a CLI do Azure"
+title: "Criar um balanceador de carga público – CLI do Azure | Microsoft Docs"
+description: "Saiba como criar um balanceador de carga público utilizando a CLI do Azure"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Criar um balanceador de carga da Internet com a CLI do Azure
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Criar um balanceador de carga público com uma CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-Este artigo abrange o modelo de implementação do Resource Manager. Também pode [saber como criar um balanceador de carga com acesso à Internet com a implementação clássica](load-balancer-get-started-internet-classic-portal.md)
+Este artigo abrange o modelo de implementação do Resource Manager. Também pode [saber como criar um balanceador de carga público com a implementação clássica](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>Implementar a solução com a CLI do Azure
 
-Os passos seguintes mostram como criar um balanceador de carga com acesso à Internet com o Azure Resource Manager com CLI. Com o Azure Resource Manager, cada recurso é criado e configurado individualmente e, em seguida, colocado em conjunto para criar um recurso.
+Os passos seguintes mostram como criar um balanceador de carga público com o Azure Resource Manager com CLI. Com o Azure Resource Manager, cada recurso é criado e configurado individualmente e, em seguida, colocado em conjunto para criar um recurso.
 
 Tem de criar e configurar os seguintes objetos para implementar um balanceador de carga:
 

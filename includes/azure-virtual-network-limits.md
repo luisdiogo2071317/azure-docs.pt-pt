@@ -31,7 +31,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |500 K |
 | Interfaces de Rede (NIC) |350 |20000 |
 | Grupos de Segurança de Rede (NSG) |100 |5000 |
-| Regras do NSG por NSG |200 |500 |
+| Regras do NSG por NSG |200 |1000 |
 | Endereços IP e intervalos especificados para a origem ou de destino num grupo de segurança |2000 |4000 |
 | Grupos de segurança de aplicações |200 |500 |
 | Grupos de segurança de aplicações por configuração de IP, por NIC |10 |20 |
