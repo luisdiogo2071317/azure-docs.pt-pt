@@ -76,7 +76,7 @@
 ### [Descrição geral e configuração do Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Exemplo: dispositivo Cisco ASA (IKEv2/não-BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Clássico para migração do Gestor de Recursos](vpn-gateway-classic-resource-manager-migration.md)
-## Resolução de problemas
+## [Resolução de problemas](vpn-gateway-troubleshoot.md)
 ### [Validar o débito de VPN para uma VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Definições do dispositivo VPN ou de firewall sugeridas pela comunidade](vpn-gateway-third-party-settings.md)
 ### [Problema de ligação Ponto a Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
