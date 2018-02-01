@@ -1,6 +1,5 @@
 # Descrição geral
 ## [Sobre o Serviço de Migração de Bases de Dados](dms-overview.md)
-## [Descrição de pré-requisitos](pre-reqs.md)
 
 # Inícios rápidos
 ## [Criar Serviço - Portal](quickstart-create-data-migration-service-portal.md)
@@ -17,4 +16,6 @@
 ## [Guia de Migração de Bases de Dados](https://aka.ms/datamigration)
 ## [Assistente de Migração de Dados](https://aka.ms/dma)
 ## [Preços](https://aka.ms/dms-pricing)
+## [Descrição de pré-requisitos](pre-reqs.md)
 ## [FAQ](faq.md)
+

@@ -1,7 +1,7 @@
 <!--
-    Separate the generic "Getting started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
+    Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-Pode criar um pipeline com atividade de cópia utilizando uma das ferramentas/SDKs seguintes: clicar numa ligação para navegar para um tutorial com instruções passo a passo sobre como criar um pipeline com uma atividade de cópia. 
+Pode criar um pipeline com a atividade de cópia utilizando um dos seguintes ferramentas ou SDKs. Selecione uma ligação para ir para um tutorial com instruções passo a passo sobre como criar um pipeline com uma atividade de cópia. 
 
 - [Ferramenta de cópia de dados](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Portal do Azure](../articles/data-factory/quickstart-create-data-factory-portal.md)

@@ -13,17 +13,17 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/18/2018
 ms.author: larryfr
-ms.openlocfilehash: 24133adc6e6b16c69a8b124f13e684fce26b115f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
-Saiba como criar e utilizar um cluster do [Apache Kafka](https://kafka.apache.org) no Azure HDInsight. O Kafka é uma plataforma open source de transmissão em fluxo distribuída, disponível com o HDInsight. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição.
+Saiba como criar e utilizar um cluster do [Apache Kafka](https://kafka.apache.org) no Azure HDInsight. O Kafka é uma plataforma open source de transmissão em fluxo distribuída, disponível com o HDInsight. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. Kafka, muitas vezes, é utilizado com o Apache Spark e o Apache Storm.
 
 > [!NOTE]
 > Atualmente, existem duas versões do Kafka disponíveis com o HDInsight: 0.9.0 (HDInsight 3.4) e 0.10.0 (HDInsight 3.5 e 3.6). Os passos neste documento partem do princípio de que está a utilizar o Kafka no HDInsight 3.6.
@@ -34,7 +34,7 @@ Saiba como criar e utilizar um cluster do [Apache Kafka](https://kafka.apache.or
 
 Utilize os seguintes passos para criar um Kafka num cluster HDInsight:
 
-1. No [portal do Azure](https://portal.azure.com), selecione **+ NOVO**, **Inteligência + Análise**e, em seguida, selecione **HDInsight**.
+1. No [portal do Azure](https://portal.azure.com), selecione **+ Criar um recurso**, **Dados + Análise** e, em seguida, selecione **HDInsight**.
    
     ![Criar um cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -55,12 +55,9 @@ Utilize os seguintes passos para criar um Kafka num cluster HDInsight:
 3. Selecione **Tipo de cluster** e, em seguida, defina os seguintes valores em **Configuração de cluster**:
    
     * **Tipo de Cluster**: Kafka
-
     * **Versão**: Kafka 0.10.0 (HDI 3.6)
 
-    * **Escalão do Cluster**: Standard
-     
- Por fim, utilize o botão **Selecionar** para guardar as definições.
+    Por fim, utilize o botão **Selecionar** para guardar as definições.
      
  ![Selecionar tipo de cluster](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
@@ -122,17 +119,16 @@ Utilize os seguintes passos para criar variáveis de ambiente que contêm as inf
 
     ```bash
     CLUSTERNAME='your cluster name'
-    PASSWORD='your cluster password'
-    export KAFKAZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
 
-    export KAFKABROKERS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
     > [!IMPORTANT]
-    > Defina `CLUSTERNAME=` com o nome do cluster do Kafka. Defina `PASSWORD=` com a palavra-passe de início de sessão (admin) que utilizou quando criou o cluster.
+    > Defina `CLUSTERNAME=` com o nome do cluster do Kafka. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
     O texto seguinte é um exemplo dos conteúdos dos `$KAFKAZKHOSTS`:
    
@@ -183,164 +179,17 @@ Utilize os seguintes passos para armazenar registos no tópico de teste que crio
 2. Utilize um script fornecido com Kafka para ler registos do tópico:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
    
     Este comando obtém os registos do tópico e apresenta-os. A utilização de `--from-beginning` indica ao consumidor para iniciar a partir do início da transmissão em fluxo, para que todos os registos sejam obtidos.
 
+    > [!NOTE]
+    > Se estiver a utilizar uma versão antiga do Kafka, poderá ter de substituir `--bootstrap-server $KAFKABROKERS` por `--zookeeper $KAFKAZKHOSTS`.
+
 3. Utilize __Ctrl + C__ para parar o consumidor.
 
-## <a name="producer-and-consumer-api"></a>API de produtor e de consumidor
-
-Pode também produzir e consumir registos através de programação, utilizando as [APIs Kafka](http://kafka.apache.org/documentation#api). Para criar um produtor e consumidor de Java, utilize os seguintes passos a partir do seu ambiente de desenvolvimento.
-
-> [!IMPORTANT]
-> Tem de ter os seguintes componentes instalados no seu ambiente de desenvolvimento:
->
-> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ou equivalente, como OpenJDK.
->
-> * [Apache Maven](http://maven.apache.org/)
->
-> * Um cliente SSH e o comando `scp`. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-1. Transfira os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). Para o exemplo produtor/consumidor, utilize o projeto no diretório `Producer-Consumer`. Este exemplo contém as seguintes classes:
-   
-    * **Executar** - inicia o consumidor ou o produtor.
-
-    * **Produtor** - armazena 1 000 000 registos no tópico.
-
-    * **Consumidor** - lê registos do tópico.
-
-2. Para criar um pacote de jar, mude os diretórios para a localização do diretório `Producer-Consumer` e utilize o seguinte comando:
-
-    ```
-    mvn clean package
-    ```
-
-    Este comando cria um diretório com o nome `target`, que contém um ficheiro com o nome `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
-
-3. Utilize os seguintes comandos para copiar o ficheiro `kafka-producer-consumer-1.0-SNAPSHOT.jar` para o cluster HDInsight:
-   
-    ```bash
-    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
-    ```
-   
-    Substitua **SSHUSER** pelo utilizador SSH do seu cluster, e substitua **CLUSTERNAME** pelo nome do seu cluster. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
-
-4. Quando o comando `scp` terminar de copiar o ficheiro, ligue-se ao cluster através de SSH. Utilize o seguinte comando para escrever os registos no tópico de teste:
-
-    ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
-    ```
-
-5. Depois de o processo estar concluído, utilize o seguinte comando para ler a partir do tópico:
-   
-    ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
-    ```
-   
-    A leitura dos registos, juntamente com uma contagem de registos, é apresentada. Poderá ver um pouco mais do que 1 000 000 registos, uma vez que enviou vários registos para o tópico utilizando um script num passo anterior.
-
-6. Utilize __Ctrl + C__ para sair do consumidor.
-
-### <a name="multiple-consumers"></a>Vários consumidores
-
-Os consumidores de Kafka utilizam um grupo de consumidores quando leem os registos. Utilizar o mesmo grupo com vários consumidores resulta em leituras com balanceamento de carga de um tópico. Cada consumidor no grupo recebe uma parte dos registos. Para ver este processo em ação, utilize os seguintes passos:
-
-1. Abra uma nova sessão SSH para o cluster, para ter duas sessões. Em cada sessão, utilize o seguinte procedimento para iniciar um consumidor com o mesmo ID de grupo de consumidores:
-   
-    ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
-    ```
-
-    Este comando inicia um consumidor com o ID de grupo `mygroup`.
-
-    > [!NOTE]
-    > Utilize os comandos na secção [Obter as informações dos anfitriões Zookeeper e Mediador](#getkafkainfo) para definir os `$KAFKABROKERS` para esta sessão SSH.
-
-2. Veja como cada sessão conta os registos que recebe do tópico. O total das duas sessões deve ser o mesmo que recebeu anteriormente de um consumidor.
-
-O consumo pelos clientes dentro do mesmo grupo é processado pelas partições do tópico. Para o tópico `test` criado anteriormente, tem oito partições. Se abrir oito sessões SSH e iniciar um consumidor em todas as sessões, cada consumidor lê registos de uma única partição do tópico.
-
-> [!IMPORTANT]
-> Não podem existir mais instâncias de consumidor num grupo de consumidores do que partições. Neste exemplo, um grupo de consumidores pode incluir até oito consumidores, pois esse é o número de partições no tópico. Também pode ter vários grupos de consumidores, em que cada grupo não tem mais do que oito consumidores.
-
-Os registos armazenados no Kafka são armazenados pela ordem em que são recebidos dentro de uma partição. Para obter uma entrega por ordem dos registos *dentro de uma partição*, crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico*, crie um grupo de consumidores com apenas uma instância de consumidor.
-
-## <a name="streaming-api"></a>API de Transmissão em Fluxo
-
-A API de transmissão em fluxo foi adicionada ao Kafka na versão 0.10.0; as versões anteriores dependem do Apache Spark ou Storm para o processamento de fluxo.
-
-1. Se ainda não o fez, transfira os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) para o seu ambiente de desenvolvimento. Para o exemplo de transmissão em fluxo, utilize o projeto no diretório `streaming`.
-   
-    Este projeto contém apenas uma classe, `Stream`, que lê registos a partir do tópico `test` criado anteriormente. Faz a contagem da leitura de palavras e emite cada palavra e contagem para um tópico com o nome `wordcounts`. O tópico `wordcounts` é criado num passo posterior desta secção.
-
-2. Na linha de comandos do seu ambiente de desenvolvimento, altere os diretórios para a localização do diretório `Streaming` e, em seguida, utilize o seguinte comando para criar um pacote de jar:
-
-    ```bash
-    mvn clean package
-    ```
-
-    Este comando cria um diretório com o nome `target`, que contém um ficheiro com o nome `kafka-streaming-1.0-SNAPSHOT.jar`.
-
-3. Utilize os seguintes comandos para copiar o ficheiro `kafka-streaming-1.0-SNAPSHOT.jar` para o cluster HDInsight:
-   
-    ```bash
-    scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-streaming.jar
-    ```
-   
-    Substitua **SSHUSER** pelo utilizador SSH do seu cluster, e substitua **CLUSTERNAME** pelo nome do seu cluster. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
-
-4. Assim que o comando `scp` acabar de copiar o ficheiro, ligue ao cluster através de SSH e, em seguida, utilize o comando seguinte para criar o tópico `wordcounts`:
-
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
-    ```
-
-5. Em seguida, inicie o processo de transmissão em fluxo através do seguinte comando:
-   
-    ```bash
-    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
-    ```
-   
-    Este comando inicia o processo de transmissão em fluxo em segundo plano.
-
-6. Utilize o comando seguinte para enviar mensagens para o tópico `test`. Estas mensagens são processadas pelo exemplo de transmissão em fluxo:
-   
-    ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
-    ```
-
-7. Utilize o seguinte comando para ver o resultado que é escrito no tópico `wordcounts` pelo processo de transmissão em fluxo:
-   
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
-    ```
-   
-    > [!NOTE]
-    > Para ver os dados, tem de pedir ao consumidor para imprimir a chave e o desserializador a utilizar para a chave e o valor. O nome da chave é a palavra, e o valor da chave contém a contagem.
-   
-    O resultado é semelhante ao seguinte texto:
-   
-        dwarfs  13635
-        ago     13664
-        snow    13636
-        dwarfs  13636
-        ago     13665
-        a       13803
-        ago     13666
-        a       13804
-        ago     13667
-        ago     13668
-        jumped  13640
-        jumped  13641
-        a       13805
-        snow    13637
-   
-    > [!NOTE]
-    > A contagem aumenta sempre que uma palavra é encontrada.
-
-7. Utilize __Ctrl + C__ para sair do consumidor e, em seguida, utilize o comando `fg` para trazer a tarefa de transmissão em fluxo do segundo para o primeiro plano. Utilize também __Ctrl + C__ para sair.
+Também podem criar programaticamente produtores e consumidores. Para obter um exemplo de utilização desta API, veja o documento [Produtor Kafka e a API de Consumidor com o HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="data-high-availability"></a>Elevada disponibilidade de dados
 
@@ -377,7 +226,10 @@ Neste documento, aprendeu as noções básicas para trabalhar com o Apache Kafka
 
 * [Analisar os registos do Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Replicar dados entre clusters do Kafka](apache-kafka-mirroring.md)
+* [Produtor Kafka e API de Consumidor com o HDInsight](apache-kafka-producer-consumer-api.md)
+* [API de Fluxos Kafka com o HDInsight](apache-kafka-streams-api.md)
 * [Utilizar a transmissão em fluxo de Apache Spark (DStream) com o Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Utilizar a Transmissão em Fluxo Estruturada de Apache Spark com o Kafka no HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Utilizar a Transmissão em Fluxo Estruturada do Apache Spark para mover dados do Kafka no HDInsight para o Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Utilizar o Apache Storm com Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Ligar ao Kafka através de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)

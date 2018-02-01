@@ -1,6 +1,6 @@
 ---
-title: "Carregar um certificado da API de gestão do Azure | Microsoft Docs"
-description: "Saiba como carregar o certificado da API de gestão para o portal do Azure."
+title: "Carregar um certificado de gestão de serviço do Azure | Microsoft Docs"
+description: "Saiba como carregar o certificado de gestão de serviço para o portal do Azure."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>Carregar um certificado de gestão de API de gestão do Azure
+# <a name="upload-an-azure-service-management-certificate"></a>Carregar um certificado de gestão de serviço do Azure
 Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pelo Azure. Muitos programas e ferramentas (tais como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação de vários serviços do Azure. 
 
 > [!WARNING]
@@ -54,5 +54,5 @@ Depois de ter um certificado de gestão criado, (ficheiro. cer com apenas a chav
 
     ![Definições](./media/azure-api-management-certs/certificate_details.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que tem um certificado de gestão associado a uma subscrição, pode (depois de instalar o certificado correspondente localmente) através de programação ligar para o [REST API do modelo de implementação clássica](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizar os vários recursos do Azure que também estão associados essa subscrição.

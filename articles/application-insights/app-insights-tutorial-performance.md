@@ -1,6 +1,6 @@
 ---
 title: Diagnosticar problemas de desempenho com o Azure Application Insights | Microsoft Docs
-description: "Tutorial para localizar e diagnosticar problemas de desempenho na sua aplicação utilizar o Azure Application Insights."
+description: "Tutorial para localizar e diagnosticar problemas de desempenho na sua aplicação com o Azure Application Insights."
 services: application-insights
 keywords: 
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
-Azure Application Insights recolhe telemetria da sua aplicação para ajudar a analisar o desempenho e operação.  Pode utilizar estas informações para identificar problemas que poderão estar a ocorrer ou para identificar melhoramentos para a aplicação que teria maior parte dos utilizadores de impacto.  Este tutorial guia-o ao longo do processo de analisar o desempenho de ambos os componentes de servidor da sua aplicação e a perspetiva do cliente.  Saiba como:
+O Azure Application Insights recolhe telemetria da sua aplicação para ajudar a analisar o funcionamento e o desempenho.  Pode utilizar estas informações para identificar problemas que poderão estar a ocorrer ou para identificar melhorias na aplicação que teriam um maior impacto nos utilizadores.  Este tutorial guia-o ao longo do processo de analisar o desempenho dos componentes de servidor da sua aplicação e a perspetiva do cliente.  Saiba como:
 
 > [!div class="checklist"]
 > * Identificar o desempenho de operações do lado do servidor
-> * Analisar as operações de servidor para determinar a causa de raiz de um desempenho lento
+> * Analisar as operações de servidor para determinar a causa raiz de um desempenho lento
 > * Identificar operações mais lentas do lado do cliente
-> * Analise os detalhes de vistas de página utilizando a linguagem de consulta
+> * Analisar os detalhes de vistas de página com a linguagem de consulta
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -34,94 +34,102 @@ Para concluir este tutorial:
 - Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
-- Implementar uma aplicação .NET do Azure e [ativar o Application Insights SDK](app-insights-asp-net.md).
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](app-insights-asp-net.md).
 - [Ativar o gerador de perfis do Application Insights](app-insights-profiler.md#installation) para a sua aplicação.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="identify-slow-server-operations"></a>Identificar as operações do servidor lenta
-Application Insights recolhe detalhes de desempenho para as operações diferentes na sua aplicação.  Ao identificar essas operações com a duração mais longo, pode diagnosticar potenciais problemas ou melhor o desenvolvimento em curso a melhorar o desempenho global da aplicação de destino.
+## <a name="identify-slow-server-operations"></a>Identificar as operações de servidor lentas
+O Application Insights recolhe detalhes de desempenho das várias operações da sua aplicação.  Ao identificar as operações com a duração mais longa, pode diagnosticar potenciais problemas ou direcionar melhor o desenvolvimento contínuo para melhorar o desempenho global da aplicação.
 
 1. Selecione **Application Insights** e, em seguida, selecione a sua subscrição.  
-1. Para abrir o **desempenho** painel selecione **desempenho** sob o **investigar** menu ou clique o **tempo de resposta do servidor** gráfico .
+1. Para abrir o painel **Desempenho**, selecione **Desempenho** no menu **Investigar** ou clique no gráfico **Tempo de Resposta do Servidor**.
 
     ![Desempenho](media/app-insights-tutorial-performance/performance.png)
 
-2. O **desempenho** painel mostra a duração da contagem e a média de cada operação para a aplicação.  Pode utilizar estas informações para identificar essas operações que maioria afeta os utilizadores. Neste exemplo, o **obter clientes/detalhes** e **GET Home/Index** provável candidatos para investigar devido a respetiva duração relativamente elevada e o número de chamadas.  Outras operações podem ter uma duração superior, mas foram raramente chamadas, pelo que o efeito da respetiva melhoramento estarão mínimo.  
+2. O painel **Desempenho** mostra a contagem e a duração média de cada operação da aplicação.  Pode utilizar estas informações para identificar as operações que têm maior impacto nos utilizadores. Neste exemplo, **GET Customers/Details** e **GET Home/Index** são candidatos prováveis à investigação, devido à relativamente elevada duração e ao número de chamadas.  Outras operações podem ter uma duração superior, mas foram raramente chamadas, pelo que o efeito da respetiva melhoria seria mínimo.  
 
     ![Painel de desempenho](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. O gráfico mostra a duração média de todas as operações ao longo do tempo.  Adicione as operações que está a interessadas por afixação-los ao gráfico.  Isto mostra que existem alguns picos vale a investigar.  Isole isto ainda mais ao reduzir a janela de tempo do gráfico.
+3. O gráfico mostra a duração média de todas as operações ao longo do tempo.  Adicione as operações nas quais tem interesse, afixando-as ao gráfico.  Isto mostra que existem alguns picos que vale a investigar.  Isole isto ainda mais ao reduzir a janela de tempo do gráfico.
 
-    ![Operações de PIN](media/app-insights-tutorial-performance/pin-operations.png)
+    ![Afixar operações](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Clique uma operação para ver o painel de desempenho à direita. Isto mostra a distribuição das durações para pedidos de diferentes.  Os utilizadores, normalmente, repare abrandar o desempenho em cerca de meio segundo, por isso, reduzir a janela de pedidos por 500 milissegundos.  
+4.  Clique numa operação para ver o painel de desempenho à direita. Isto mostra a distribuição das durações para pedidos diferentes.  Normalmente, os utilizadores reparam no desempenho em cerca de meio segundo. Por conseguinte, reduza a janela para pedidos com mais de 500 milissegundos.  
 
     ![Distribuição da duração](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  Neste exemplo, pode ver que um número significativo de pedidos está a demorar através de um segundo para processar. Pode ver os detalhes desta operação, clicando no **detalhes de operação**.
+5.  Neste exemplo, pode ver que um número significativo de pedidos está a demorar mais de um segundo para ser processado. Pode ver os detalhes desta operação, clicando em **Detalhes da operação**.
 
-    ![Detalhes de operação](media/app-insights-tutorial-performance/operation-details.png)
+    ![Detalhes da operação](media/app-insights-tutorial-performance/operation-details.png)
 
-6.  As informações que tiver recolheu até ao momento apenas confirma que existe um desempenho lento, mas existir pouco para obter a causa raiz.  O **gerador de perfis** ajuda-o com esta mostrando o código real que foi executada para a operação e o tempo necessário para cada passo. Algumas operações não podem ter um rastreio de uma vez que o gerador de perfis é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreios.  Para iniciar o gerador de perfis para a operação, clique em **rastreios de gerador de perfis**.
-5.  O rastreio mostra os eventos individuais para cada operação, pelo que pode diagnosticar a causa de raiz para a duração da operação geral.  Clique dos exemplos de principais, que têm a duração mais longo.
-6.  Clique em **Mostrar frequente caminho** para realçar o caminho específico dos eventos mais contribuem para a duração total da operação.  Neste exemplo, pode ver que a chamada mais lentas é de *FabrikamFiberAzureStorage.GetStorageTableData* método. É a parte que demora mais tempo a *CloudTable.CreateIfNotExist* método. Se esta linha de código é executada sempre que a função é chamada, serão consumidas chamada de rede desnecessárias e recursos de CPU. A melhor forma para corrigir o seu código é colocar esta linha em algum método de arranque apenas por uma vez a executar. 
+    > [!NOTE]
+    Ative a [experiência de pré-visualização](app-insights-previews.md) "Detalhes unificados: Diagnósticos de Transação E2E" para ver toda a telemetria relacionada do lado do servidor, como pedidos, dependências, exceções, rastreios, eventos, entre outros, numa única vista de ecrã inteiro. 
+
+    Com a pré-visualização ativada, pode ver o tempo despendido em chamadas de dependência, juntamente com quaisquer falhas ou exceções, numa experiência unificada. Para as transações entre componentes, o gráfico Gantt, juntamente com o painel de detalhes, pode ajudá-lo a diagnosticar rapidamente o componente, a dependência ou a exceção onde reside a raiz do problema. Pode expandir a secção inferior para ver a sequência de tempo de quaisquer rastreios ou eventos recolhidos para a operação de componente selecionada. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md)  
+
+    ![Diagnóstico da transação](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
+
+6.  As informações que recolheu até ao momento apenas confirmam que existe um desempenho lento, mas não fazem muito para obter a causa raiz.  O **Gerador de Perfis** ajuda-o nisto, mostrando o código atual que foi executado para a operação e o tempo necessário para cada passo. Algumas operações podem não ter um rastreio, dado que o gerador de perfis é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreios.  Para iniciar o gerador de perfis para a operação, clique em **Rastreios do gerador de perfis**.
+5.  O rastreio mostra os eventos individuais de cada operação, para que possa diagnosticar a causa raiz da duração da operação global.  Clique num dos exemplos superiores, que têm a duração mais longa.
+6.  Clique em **Mostrar Caminho Mais Utilizado** para realçar o caminho específico dos eventos que mais contribuem para a duração total da operação.  Neste exemplo, pode ver que a chamada mais lenta é a do método *FabrikamFiberAzureStorage.GetStorageTableData*. A parte que demora mais tempo é o método *CloudTable.CreateIfNotExist*. Se esta linha de código for executada sempre que a função é chamada, serão consumidas chamadas de rede e recursos de CPU desnecessários. A melhor forma de corrigir o seu código é colocar esta linha em algum método de arranque que seja executado apenas uma vez. 
 
     ![Detalhes do gerador de perfis](media/app-insights-tutorial-performance/profiler-details.png)
 
-7.  O **desempenho sugestão** na parte superior do ecrã suporta a avaliação de que a duração excessiva devido à espera.  Clique em de **a aguardar** ligação para obter documentação sobre como interpretar os diferentes tipos de eventos.
+7.  A **Sugestão de Desempenho** na parte superior do ecrã apoia a avaliação de que a duração excessiva se deve ao tempo de espera.  Clique na ligação **a aguardar** para obter documentação sobre como interpretar os diferentes tipos de eventos.
 
     ![Sugestão de desempenho](media/app-insights-tutorial-performance/performance-tip.png)
 
-8.  Para análise adicional, pode clicar em **transferir. etl rastreio** para transferir o rastreio no Visual Studio.
+8.  Para análise adicional, pode clicar em **Download .etl trace** para transferir o rastreio para o Visual Studio.
 
-## <a name="use-analytics-data-for-server"></a>Dados de análise de utilização para o servidor
-Application Insights Analytics fornece um idioma de consulta avançada permite-lhe analisar todos os dados recolhidos pelo Application Insights.  Pode utilizar este para efetuar uma análise detalhada nos dados de pedido e o desempenho.
+## <a name="use-analytics-data-for-server"></a>Utilizar dados de análise para o servidor
+O Application Insights Analytics fornece uma linguagem de consulta avançada que permite analisar todos os dados recolhidos pelo Application Insights.  Pode utilizá-lo para efetuar uma análise detalhada dos dados de pedido e desempenho.
 
-1. Regresse ao painel de detalhes de operação e clique no botão de análise.
+1. Regresse ao painel de detalhes da operação e clique no botão Análise.
 
-    ![Botão de análise](media/app-insights-tutorial-performance/server-analytics-button.png)
+    ![Botão Análise](media/app-insights-tutorial-performance/server-analytics-button.png)
 
-2. Application Insights Analytics abre-se com uma consulta para cada uma das vistas no painel.  Pode executar estas consultas como estão ou modificá-las para os seus requisitos.  A primeira consulta mostra a duração para esta operação ao longo do tempo.
+2. O Application Insights Analytics abre-se com uma consulta para cada uma das vistas no painel.  Pode executar estas consultas como estão ou modificá-las de acordo com os seus requisitos.  A primeira consulta mostra a duração desta operação ao longo do tempo.
 
     ![Análise](media/app-insights-tutorial-performance/server-analytics.png)
 
 
-## <a name="identify-slow-client-operations"></a>Identificar as operações de cliente lenta
-Para além de identificar os processos do servidor para otimizar, Application Insights pode analisar a perspetiva dos browsers cliente.  Isto pode ajudar a identificar possíveis melhoramentos para os componentes de cliente e até mesmo identificam problemas com os browsers diferentes ou em diferentes localizações.
+## <a name="identify-slow-client-operations"></a>Identificar as operações do cliente lentas
+Além de identificar os processos de servidor a otimizar, o Application Insights pode analisar a perspetiva dos browsers cliente.  Isto pode ajudar a identificar possíveis melhorias nos componentes de cliente e até mesmo a identificar problemas em browsers diferentes ou em localizações diferentes.
 
-1. Selecione **Browser** em **investigar** para abrir o browser resumo.  Esta opção fornece um resumo visual de vários telemetries da sua aplicação da perspetiva do browser.
+1. Selecione **Browser** em **Investigar** para abrir o resumo do browser.  Esta opção fornece um resumo visual de várias telemetrias da sua aplicação da perspetiva do browser.
 
     ![Resumo do browser](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  Desloque para baixo até **quais são as minhas páginas mais lentas?**.  Mostra uma lista das páginas na sua aplicação que efetuou o tempo mais longo para os clientes de carga.  Pode utilizar esta informação para atribuir prioridades a essas páginas que tenham o impacto mais significativo no utilizador.
-3.  Clique das páginas para abrir o **página vista** painel.  No exemplo, o **/FabrikamProd** página é apresentada uma duração média excessiva.  O **página vista** painel fornece detalhes sobre esta página, incluindo uma divisão de intervalos de duração diferentes.
+2.  Desloque-se para baixo até **Quais são as minhas páginas mais lentas?**.  Mostra uma lista das páginas na sua aplicação que os clientes demoraram mais tempo a carregar.  Pode utilizar esta informação para atribuir prioridades às páginas que têm o impacto mais significativo no utilizador.
+3.  Clique numa das páginas para abrir o painel **Vista de página**.  No exemplo, a página **/FabrikamProd** está a mostrar uma duração média excessiva.  O painel **Vista de página** fornece detalhes sobre esta página, incluindo uma divisão dos vários intervalos de duração.
 
     ![Vista de página](media/app-insights-tutorial-performance/page-view.png)
 
-4.  Clique na duração máxima para inspecionar os detalhes sobre estes pedidos.  Em seguida, clique em de pedido individual para ver os detalhes do cliente solicitar a página, incluindo o tipo de browser e a respetiva localização.  Estas informações podem ajudar a determinar se existem problemas de desempenho relacionados específica para tipos de clientes.
+4.  Clique na duração máxima para inspecionar os detalhes destes pedidos.  Em seguida, clique no pedido individual para ver os detalhes do cliente que solicitou a página, incluindo o tipo de browser e a respetiva localização.  Estas informações podem ajudá-lo a determinar se existem problemas de desempenho relacionados com tipos de clientes específicos.
 
     ![Detalhes do pedido](media/app-insights-tutorial-performance/request-details.png)
 
-## <a name="use-analytics-data-for-client"></a>Dados de análise de utilização para o cliente
-Como os dados recolhidos para desempenho do servidor, Application Insights disponibiliza todos os dados de cliente para uma análise detalhada através da análise.
+## <a name="use-analytics-data-for-client"></a>Utilizar os dados de análise para o cliente
+Como acontece nos dados recolhidos do desempenho do servidor, o Application Insights disponibiliza todos os dados de cliente para uma análise detalhada através da Análise.
 
-1. Regresse ao navegador resumo e clique no ícone de análise.
+1. Regresse ao resumo do browser e clique no ícone de Análise.
 
-    ![Ícone de análise](media/app-insights-tutorial-performance/client-analytics-icon.png)
+    ![Ícone de Análise](media/app-insights-tutorial-performance/client-analytics-icon.png)
 
-2. Application Insights Analytics abre-se com uma consulta para cada uma das vistas no painel. A primeira consulta mostra a duração das vistas de página diferente ao longo do tempo.
+2. O Application Insights Analytics abre-se com uma consulta para cada uma das vistas no painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
     ![Análise](media/app-insights-tutorial-performance/client-analytics.png)
 
-3.  Diagnóstico inteligente é uma funcionalidade do Application Insights Analytics que identifica exclusivos padrões nos dados.  Ao clicar o ponto de diagnóstico inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causou a anomalias.  Detalhes desses registos são apresentados na secção de comentário da consulta para que possa identificar as propriedades dessas vistas de página que estão a causar a duração excessiva.
+3.  O Diagnóstico Inteligente é uma funcionalidade do Application Insights Analytics que identifica padrões únicos nos dados.  Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia.  Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
 
-    ![Diagnóstico inteligente](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
+    ![Diagnóstico Inteligente](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que aprendeu como identificar as exceções de tempo de execução, avançar para o próximo tutorial para saber como criar alertas em resposta a falhas.
+Agora que aprendeu a identificar as exceções do tempo de execução, avance para o próximo tutorial para saber como criar alertas em resposta a falhas.
 
 > [!div class="nextstepaction"]
-> [Alerta sobre o estado de funcionamento da aplicação](app-insights-tutorial-alert.md)
+> [Alertar relativamente ao estado de funcionamento das aplicações](app-insights-tutorial-alert.md)

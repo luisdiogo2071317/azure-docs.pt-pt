@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução à Azure Search em Java
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Todas as chamadas da API REST na Azure Search requerem que forneça o URL do ser
 5. Copie o URL de serviço e uma chave de administração. Vai precisar deles mais tarde, quando os adicionar ao ficheiro **config.properties**.
 
 ## <a name="download-the-sample-files"></a>Transferir os ficheiros de exemplo
-1. Aceda a [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) no GitHub.
+1. Aceda a [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) no GitHub.
 2. Clique em **Transferir ZIP**, guarde o ficheiro .zip no disco e, em seguida, extraia todos os ficheiros nele contidos. Considere extrair os ficheiros para a sua área de trabalho Java para tornar mais fácil localizar o projeto mais tarde.
 3. Os ficheiros de exemplo são só de leitura. Clique com o botão direito nas propriedades da pasta e desmarque o atributo só de leitura.
 

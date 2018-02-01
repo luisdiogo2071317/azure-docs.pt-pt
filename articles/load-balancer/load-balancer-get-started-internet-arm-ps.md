@@ -1,6 +1,6 @@
 ---
-title: "Criar um balanceador de carga com acesso à Internet do Azure – PowerShell | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga com acesso à Internet no Resource Manager com o PowerShell"
+title: "Criar um balanceador de carga público – PowerShell | Microsoft Docs"
+description: "Saiba como criar um balanceador de carga público no Resource Manager com o PowerShell"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Criar um balanceador de carga com acesso à Internet no Resource Manager com o PowerShell
+# <a name="get-started"></a>Criar um balanceador de carga público no Resource Manager com o PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Implementar a solução com o Azure PowerShell
 
-Os procedimentos seguintes explicam como criar um balanceador de carga com acesso à Internet, através do Azure Resource Manager com o PowerShell. Com o Azure Resource Manager, cada recurso é criado e configurado individualmente e, em seguida, colocado em conjunto para criar um balanceador de carga.
+Os procedimentos seguintes explicam como criar um balanceador de carga público através do Azure Resource Manager com o PowerShell. Com o Azure Resource Manager, cada recurso é criado e configurado individualmente e, em seguida, colocado em conjunto para criar um balanceador de carga.
 
 Tem de criar e configurar os seguintes objetos para implementar um balanceador de carga:
 

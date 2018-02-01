@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas mais frequentes sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (também conhecido como sistema de ficheiros Internet comum ou CIFS). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
@@ -27,7 +27,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 1. A secção de comentários deste artigo.
 2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
+4. Microsoft Support. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
 
 ## <a name="general"></a>Geral
 * <a id="why-files-useful"></a>
@@ -73,7 +73,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 
 * <a id="redundancy-options"></a>
 **Que opções de redundância de armazenamento são suportadas pelo Azure ficheiros?**  
-    Atualmente, os ficheiros do Azure suporta armazenamento apenas localmente redundante (LRS) e armazenamento georredundante (GRS). Planeamos suportar o armazenamento com redundância de zona (ZRS) e armazenamento (RA-GRS) georredundante com acesso de leitura no futuro, mas não temos linhas cronológicas partilhar neste momento.
+    Atualmente, os ficheiros do Azure suporta armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS) e o armazenamento georredundante (GRS). Planeamos suportar o armazenamento (RA-GRS) georredundante com acesso de leitura no futuro, mas não temos linhas cronológicas partilhar neste momento.
 
 * <a id="tier-options"></a>
 **As camadas de armazenamento são suportadas em ficheiros do Azure?**  
@@ -86,7 +86,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 **Quero realmente ver uma funcionalidade específica adicionada aos ficheiros do Azure. Pode adicioná-lo?**  
     A equipa de ficheiros do Azure está interessada em hearing todos os comentários que tem sobre o nosso serviço. Votar em pedidos de funcionalidades em [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Iremos procura reencaminhar para delighting com muitas funcionalidades novas.
 
-## <a name="azure-file-sync"></a>Sincronização de ficheiros do Azure
+## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
 **As regiões são suportadas para a sincronização de ficheiros do Azure (pré-visualização)?**  
@@ -103,7 +103,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 * <a id="afs-conflict-resolution"></a>**Se o mesmo ficheiro é alterado em dois servidores aproximadamente à mesma hora, o que acontece?**  
     Sincronização de ficheiros do Azure utiliza uma estratégia de resolução de conflitos simples: vamos manter ambas as alterações a ficheiros que são alterados em dois servidores ao mesmo tempo. A alteração mais recentemente gravada mantém o nome de ficheiro original. O ficheiro mais antigo tem a máquina "origem" e o número de conflito acrescentado ao nome. Segue-se esta taxonomia: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< Ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Por exemplo, o conflito de CompanyReport.docx primeiro iria tornar-se CompanyReport CentralServer.docx se CentralServer onde ocorreu a operação de escrita mais antiga. O segundo conflito seria ter um nome CompanyReport-CentralServer-1.docx.
 
@@ -127,7 +127,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
         | A | Arquivo | Indica que o ficheiro deve ser feito pelo software de cópia de segurança. Este atributo é sempre definido, independentemente se o ficheiro está em camadas ou totalmente armazenado no disco. |
         | P | Ficheiro disperso | Indica que o ficheiro é um ficheiro disperso. Um ficheiro disperso é um tipo especializado de ficheiros NTFS oferece para uma utilização eficiente quando o ficheiro no fluxo de disco principalmente está vazio. Sincronização de ficheiros do Azure utiliza ficheiros dispersos porque um ficheiro é totalmente camado ou parcialmente resgatar os. Num ficheiro totalmente em camadas, a sequência de ficheiros é armazenada na nuvem. Um ficheiro parcialmente recalled, que parte dos ficheiros já se encontra no disco. Se um ficheiro é totalmente resgatar os para o disco, sincronização de ficheiros do Azure converte-o partir de um ficheiro disperso para um ficheiro regular. |
         | L | Ponto de reanálise | Indica que o ficheiro tem um ponto de reanálise. Um ponto de reanálise é um ponteiro especial para utilização por um filtro de sistema de ficheiros. Sincronização de ficheiros do Azure utiliza pontos de reanálise, para definir o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) a localização de nuvem onde está armazenado o ficheiro. Isto suporta o acesso totalmente integrado. Os utilizadores não precisam de saber que a sincronização de ficheiros do Azure está a ser utilizada ou como obter acesso ao ficheiro na partilha de ficheiros do Azure. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove o ponto de reanálise do ficheiro. |
-        | NÃ | Offline | Indica que alguns ou todos os conteúdos do ficheiro não estão armazenados num disco. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove este atributo. |
+        | O | Offline | Indica que alguns ou todos os conteúdos do ficheiro não estão armazenados num disco. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove este atributo. |
 
         ![A caixa de diálogo de propriedades para um ficheiro, o separador de detalhes, selecionado](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
@@ -171,9 +171,9 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 * <a id="afs-files-excluded"></a>
 **Os ficheiros ou pastas são excluídas automaticamente por uma sincronização de ficheiros do Azure?**  
     Por predefinição, a sincronização de ficheiros do Azure exclui os seguintes ficheiros:
-    * Desktop.ini
-    * thumbs.dB
-    * ehthumbs.dB
+    * desktop.ini
+    * thumbs.db
+    * ehthumbs.db
     * ~$\*.\*
     * \*.laccdb
     * \*.tmp
@@ -182,7 +182,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
     As seguintes pastas também são excluídas por predefinição:
 
     * Informações de volume \System
-    * \$RECICLAGEM. RECICLAGEM
+    * \$RECYCLE.BIN
     * \SyncShareState
 
 * <a id="afs-os-support"></a>

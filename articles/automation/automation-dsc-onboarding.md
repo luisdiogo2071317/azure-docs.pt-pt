@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ffe08f0f85f07accdce9e3b8fa9524ef3c99c878
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração de gestão do Automation DSC do Azure
 
@@ -43,7 +43,7 @@ As secções seguintes descrevem como pode carregar cada tipo de máquina Automa
 
 ## <a name="azure-virtual-machines-classic"></a>Máquinas virtuais do Azure (clássica)
 
-Com o DSC de automatização do Azure, pode facilmente carregar virtual machines do Azure (clássica) para gestão de configuração utilizando o portal do Azure, ou o PowerShell. Os bastidores e sem um administrador ter de remoto para a VM, a extensão de configuração de estado pretendido do Azure VM regista a VM no Automation DSC do Azure. Uma vez que a extensão de configuração de estado pretendido do Azure VM é executado no modo assíncrono, os passos para controlar o progresso da mesma ou a resolução de problemas são fornecidos no [ **integração de máquina virtual do Azure de resolução de problemas** ](#troubleshooting-azure-virtual-machine-onboarding) secção abaixo.
+Com o DSC de automatização do Azure, pode facilmente carregar virtual machines do Azure (clássica) para gestão de configuração utilizando o portal do Azure, ou o PowerShell. Os bastidores e sem um administrador ter de remoto para a VM, a extensão de configuração de estado pretendido do Azure VM regista a VM no Automation DSC do Azure. Uma vez que a extensão de configuração de estado pretendido do Azure VM é executado no modo assíncrono, os passos para controlar o progresso da mesma ou a resolução de problemas são fornecidos a seguir [ **integração de máquina virtual do Azure de resolução de problemas** ](#troubleshooting-azure-virtual-machine-onboarding) secção.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -51,7 +51,7 @@ No [portal do Azure](http://portal.azure.com/), clique em **procurar** -> **máq
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
-Para localizar o URL de registo e da chave da conta de automatização para carregar a máquina para ver o [ **Secure registo** ](#secure-registration) secção abaixo.
+Para localizar o URL de registo e da chave da conta de automatização para carregar a máquina para ver o seguinte [ **Secure registo** ](#secure-registration) secção:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -119,11 +119,11 @@ $VM | Update-AzureVM
 
 ## <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
-Automation DSC do Azure permite carregar facilmente máquinas virtuais do Azure para a gestão de configuração, utilizando o portal do Azure, modelos Azure Resource Manager ou o PowerShell. Os bastidores e sem um administrador ter de remoto para a VM, a extensão de configuração de estado pretendido do Azure VM regista a VM no Automation DSC do Azure. Uma vez que a extensão de configuração de estado pretendido do Azure VM é executado no modo assíncrono, os passos para controlar o progresso da mesma ou a resolução de problemas são fornecidos no [ **integração de máquina virtual do Azure de resolução de problemas** ](#troubleshooting-azure-virtual-machine-onboarding) secção abaixo.
+Automation DSC do Azure permite carregar facilmente máquinas virtuais do Azure para a gestão de configuração, utilizando o portal do Azure, modelos Azure Resource Manager ou o PowerShell. Os bastidores e sem um administrador ter de remoto para a VM, a extensão de configuração de estado pretendido do Azure VM regista a VM no Automation DSC do Azure. Uma vez que a extensão de configuração de estado pretendido do Azure VM é executado no modo assíncrono, os passos para controlar o progresso da mesma ou a resolução de problemas são fornecidos a seguir [ **integração de máquina virtual do Azure de resolução de problemas** ](#troubleshooting-azure-virtual-machine-onboarding) secção.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No [portal do Azure](https://portal.azure.com/), navegue para a conta de automatização do Azure onde pretende carregar máquinas virtuais. No painel de conta de automatização, clique em **nós de DSC** -> **adicionar a VM do Azure**.
+No [portal do Azure](https://portal.azure.com/), navegue para a conta de automatização do Azure onde pretende carregar máquinas virtuais. No painel de conta de automatização, clique em **nós de DSC** -> **+ adicionar a VM do Azure**.
 
 Selecione uma máquina virtual do Azure para carregar.
 
@@ -135,7 +135,7 @@ Em **registo**, introduza o [valores de Gestor de configuração Local do PowerS
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-Máquinas virtuais do Azure pode ser implementadas e integrado no DSC de automatização do Azure através de modelos Azure Resource Manager. Consulte [configurar uma VM através de extensão de DSC e Automation DSC do Azure](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) para um modelo de exemplo que onboards uma VM existente no DSC de automatização do Azure. Para localizar a chave de registo e o URL de registo tomada como entrada neste modelo, consulte o [ **Secure registo** ](#secure-registration) secção abaixo.
+Máquinas virtuais do Azure pode ser implementadas e integrado no DSC de automatização do Azure através de modelos Azure Resource Manager. Consulte [configurar uma VM através de extensão de DSC e Automation DSC do Azure](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) para um modelo de exemplo que onboards uma VM existente no DSC de automatização do Azure. Para localizar a chave de registo e o URL de registo tomada como entrada neste modelo, consulte o seguinte [ **Secure registo** ](#secure-registration) secção.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -150,7 +150,7 @@ Pode carregar facilmente máquinas de virtuais Amazon Web Services para a gestã
 Máquinas do Windows no local e as máquinas do Windows em nuvens não do Azure (por exemplo, Amazon Web Services) também podem ser integrado no DSC da automatização do Azure, desde que tenham acesso externo à internet, através de alguns passos simples:
 
 1. Certifique-se a versão mais recente do [WMF 5](http://aka.ms/wmf5latest) está instalado nas máquinas que pretende integrar no DSC de automatização do Azure.
-2. Siga as indicações na secção [ **gerar DSC metaconfigurations** ](#generating-dsc-metaconfigurations) abaixo para gerar uma pasta que contém o metaconfigurations DSC necessários.
+2. Siga as indicações na secção seguinte [ **gerar DSC metaconfigurations** ](#generating-dsc-metaconfigurations) para gerar uma pasta que contém o metaconfigurations DSC necessários.
 3. Aplicam-se remotamente a configuração meta do DSC do PowerShell para as máquinas que pretende integrar. **A máquina este comando é executado a partir tem de ter a versão mais recente do [WMF 5](http://aka.ms/wmf5latest) instalado**:
 
     ```powershell
@@ -171,11 +171,11 @@ Máquinas do Linux no local, computadores Linux no Azure e os computadores Linux
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   + Para localizar a chave de registo e o URL de registo para a sua conta de automatização, consulte o [ **Secure registo** ](#secure-registration) secção abaixo.
+   + Para localizar a chave de registo e o URL de registo para a sua conta de automatização, consulte o seguinte [ **Secure registo** ](#secure-registration) secção.
 
      Se o Gestor de configuração Local do PowerShell DSC predefinições **fazer** **não** correspondência o caso de utilização ou pretende integrar máquinas de forma a que estes relatórios apenas no DSC da automatização do Azure, mas não não configuração de extração ou os módulos do PowerShell a partir do mesmo, siga os passos 3 a 6. Caso contrário, a prosseguir diretamente para o passo 6.
 
-3. Siga as indicações o [ **gerar DSC metaconfigurations** ](#generating-dsc-metaconfigurations) secção abaixo para gerar uma pasta que contém o metaconfigurations DSC necessários.
+3. Siga as instruções a seguir [ **gerar DSC metaconfigurations** ](#generating-dsc-metaconfigurations) secção para gerar uma pasta que contém o metaconfigurations DSC necessários.
 4. Aplicam-se remotamente a configuração meta do DSC do PowerShell para as máquinas que pretende carregar:
 
     ```powershell
@@ -321,7 +321,7 @@ Para carregar genericamente qualquer computador no DSC da automatização do Azu
     DscMetaConfigs @Params
     ```
 
-3. Preencha o URL e a chave de registo para a sua conta de automatização, bem como os nomes das máquinas para carregar. Todos os outros parâmetros são opcionais. Para localizar a chave de registo e o URL de registo para a sua conta de automatização, consulte o [ **Secure registo** ](#secure-registration) secção abaixo.
+3. Preencha o URL e a chave de registo para a sua conta de automatização, bem como os nomes das máquinas para carregar. Todos os outros parâmetros são opcionais. Para localizar a chave de registo e o URL de registo para a sua conta de automatização, consulte o seguinte [ **Secure registo** ](#secure-registration) secção.
 4. Se pretender que as máquinas para relatar informações de estado de DSC Automation DSC do Azure, mas não a configuração de extração ou módulos do PowerShell, defina o **ReportOnly** parâmetro como true.
 5. Execute o script. Agora, deve ter uma pasta denominada **DscMetaConfigs** no seu diretório de trabalho, que contém o metaconfigurations DSC do PowerShell para as máquinas integrar (como administrador):
 
@@ -359,9 +359,9 @@ Se as predefinições do Gestor de configuração Local do PowerShell DSC corres
 
 ## <a name="secure-registration"></a>Registo seguro
 
-As máquinas podem em segurança para uma conta de automatização do Azure através do protocolo de registo DSC do WMF 5, que permite que um nó de DSC autenticar para um servidor de solicitação do PowerShell DSC V2 ou relatórios (incluindo o Automation DSC do Azure). Regista o nó para o servidor de cada um **URL de registo**, autenticação utilizando um **chave de registo**. Durante o registo, o nó de DSC e o servidor de solicitação do DSC/relatórios negociar um certificado exclusivo para este nó utilizar para autenticação para o pós-registo de do servidor. Este processo impede que nós de integrado de representar um que outro, por exemplo, se um nó for comprometido e comportam de forma maliciosa. Após o registo, a chave de registo não é utilizada para autenticação novamente e é eliminada do nó.
+As máquinas podem em segurança para uma conta de automatização do Azure através do protocolo de registo DSC do WMF 5, que permite que um nó de DSC autenticar para um servidor de solicitação do DSC de PowerShell ou de relatórios (incluindo o Automation DSC do Azure). Regista o nó para o servidor de cada um **URL de registo**, autenticação utilizando um **chave de registo**. Durante o registo, o nó de DSC e o servidor de solicitação do DSC/relatórios negociar um certificado exclusivo para este nó utilizar para autenticação para o pós-registo de do servidor. Este processo impede que nós de integrado de representar um que outro, por exemplo, se um nó for comprometido e comportam de forma maliciosa. Após o registo, a chave de registo não é utilizada para autenticação novamente e é eliminada do nó.
 
-Pode obter as informações necessárias para o protocolo de registo DSC do **gerir chaves** painel no portal de pré-visualização do Azure. Abrir este painel ao clicar no ícone de chave no **Essentials** painel da conta de automatização.
+Pode obter as informações necessárias para o protocolo de registo DSC de **chaves** em **as definições da conta** no portal do Azure. Abrir este painel ao clicar no ícone de chave no **Essentials** painel da conta de automatização.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
@@ -377,15 +377,13 @@ Automation DSC do Azure permite-lhe facilmente Windows VMs do Azure para gestão
 > [!NOTE]
 > Qualquer método de integração uma VM do Windows Azure no DSC da automatização do Azure que utiliza a extensão de configuração de estado pretendido do Azure VM pode demorar até uma hora para o nó Mostrar conforme registado na automatização do Azure. Isto acontece porque a instalação do Windows Management Framework 5.0 na VM pela extensão do DSC da VM do Azure, o que é necessária para carregar a VM do Azure Automation DSC.
 
-Para resolver problemas ou ver o estado da extensão da configuração de estado pretendido do Azure VM, no portal do Azure, navegue para a VM que está a ser integrado, em seguida, clique em -> **todas as definições** -> **extensões** -> **DSC**. Para obter mais detalhes, pode clicar em **ver o estado detalhado**.
-
-[![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
+Para resolver problemas ou ver o estado da extensão da configuração de estado pretendido do Azure VM, no portal do Azure navegue para a VM que está a ser integrado, em seguida, clique em **extensões** em **definições**. Em seguida, clique em **DSC** ou **DSCForLinux** consoante o sistema operativo. Para obter mais detalhes, pode clicar em **ver o estado detalhado**.
 
 ## <a name="certificate-expiration-and-reregistration"></a>Expiração do certificado e o novo registo
 
 Depois de registar uma máquina como um nó de DSC no Automation DSC do Azure, existem vários motivos por que razão poderá ter de voltar a registar esse nó no futuro:
 
-* Depois de registar, cada nó negoceia automaticamente um certificado exclusivo para a autenticação expira após um ano. Atualmente, o protocolo de registo do PowerShell DSC não é possível renovar automaticamente certificados quando estes estão prestes a expirar, por isso terá de voltar a registar os nós após o tempo de um ano. Antes de ao registar novamente, certifique-se de que cada nó está a executar Windows Management Framework 5.0 RTM. Se expira do certificado de autenticação de um nó e o nó não é reregistered, o nó não é possível comunicar com a automatização do Azure e serão marcadas como 'Unresponsive'. O novo registo efetuada 90 dias ou menor do que a hora de expiração do certificado ou em qualquer momento depois da hora de expiração do certificado, irá resultar num novo certificado a ser gerado e utilizado.
+* Depois de registar, cada nó negoceia automaticamente um certificado exclusivo para a autenticação expira após um ano. Atualmente, o protocolo de registo do PowerShell DSC não é possível renovar automaticamente certificados quando estes estão prestes a expirar, por isso terá de voltar a registar os nós após o tempo de um ano. Antes de ao registar novamente, certifique-se de que cada nó está a executar Windows Management Framework 5.0 RTM. Se o certificado de autenticação de um nó expira e o nó não é reregistered, o nó não consegue comunicar com a automatização do Azure e está marcado como 'Unresponsive'. O novo registo efetuada 90 dias ou menor do que a hora de expiração do certificado ou em qualquer momento depois da hora de expiração do certificado, irá resultar num novo certificado a ser gerado e utilizado.
 * Para alterar as [valores de Gestor de configuração Local do PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) que foram definidas durante o registo inicial do nó, tais como ConfigurationMode. Atualmente, estes valores de agente do DSC só podem ser alterados através do novo registo. A única exceção é a configuração do nó atribuído para o nó – Isto pode ser alterado no Automation DSC do Azure diretamente.
 
 O novo registo pode ser executado da mesma forma que registou o nó inicialmente, utilizando qualquer um dos métodos de integração descritos neste documento. Não é necessário anular o registo de um nó do DSC da automatização do Azure antes de ao registar novamente-lo.

@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d5364dbc1a155c7852b5581d563e4938ad116402
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux
 
@@ -140,11 +140,11 @@ Utilize o browser para navegar para a aplicação implementada.
 http://<app_name>.azurewebsites.net
 ```
 
-O código Node.js de exemplo está em execução numa aplicação Web com imagem incorporada.
+O código .NET Core de exemplo está em execução numa aplicação Web com imagem incorporada.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Parabéns!** Implementou a sua primeira aplicação Node.js no Serviço de Aplicações no Linux.
+**Parabéns!** Implementou a sua primeira aplicação .NET Core no Serviço de Aplicações no Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Atualizar e voltar a implementar o código
 

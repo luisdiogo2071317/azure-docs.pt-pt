@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -30,6 +30,12 @@ Existem dois tipos de testes de disponibilidade:
 * [Teste Web de vários passos](#multi-step-web-tests): pode criá-lo no Visual Studio Enterprise e carregá-lo no Portal.
 
 Pode criar até 100 testes de disponibilidade por recurso de aplicação.
+
+
+> [!NOTE] 
+> * As localizações de teste de disponibilidade foram movidas recentemente para os datacenters do Azure. Esta mudança permite-nos adicionar localizações à crescente rede de datacenters do Azure.  
+> * Não é necessário atualizar os testes. Todos os testes são migrados e estão em execução a partir das novas localizações. 
+>* Veja a [atualização de serviço](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) para mais informações.
 
 ## <a name="create"></a>Abra um recurso para os relatórios de teste de disponibilidade
 
@@ -118,7 +124,8 @@ Pode monitorizar um cenário que envolva uma sequência de URLs. Por exemplo, se
 Para criar um teste com vários passos, registe o cenário com o Visual Studio Enterprise e, em seguida, carregue o registo no Application Insights. O Application Insights reproduz o cenário de tempos a tempos e verifica as respostas.
 
 > [!NOTE]
-> Não pode utilizar funções codificadas ou ciclos no seus testes. O teste tem de estar contido completamente no script .webtest. No entanto, pode utilizar plug-ins standard.
+> * Não pode utilizar funções codificadas ou ciclos no seus testes. O teste tem de estar contido completamente no script .webtest. No entanto, pode utilizar plug-ins standard.
+> * Os testes web com vários passos são suportados apenas com carateres em inglês. Se utilizar o Visual Studio noutras linguagens, atualize o ficheiro de definição de teste web para traduzir/excluir carateres não ingleses.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Registar um cenário

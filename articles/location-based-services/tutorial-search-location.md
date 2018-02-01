@@ -1,6 +1,6 @@
 ---
-title: "Pesquisa com a localização do Azure com base em serviços | Microsoft Docs"
-description: "Procurar próximas pontos de interesse utilizando com base dos serviços de localização do Azure"
+title: Procurar com o Azure Location Based Services | Microsoft Docs
+description: Procurar pontos de interesse nas proximidades com o Azure Location Based Services
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Procurar próximas pontos de interesse utilizando com base dos serviços de localização do Azure
+# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Procurar pontos de interesse nas proximidades com o Azure Location Based Services
 
-Este tutorial mostra como configurar uma conta com base dos serviços de localização do Azure e, em seguida, utilizar as APIs fornecidas para procurar um ponto de interesse. Neste tutorial, ficará a saber como:
+Este tutorial mostra como configurar uma conta com o Azure Location Based Services e, em seguida, utilizar as APIs fornecidas para procurar um ponto de interesse. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma conta com base dos serviços de localização do Azure
-> * Obter a chave de subscrição para a sua conta
-> * Criar nova página web utilizando a API de controlo de mapa
-> * Utilizar o serviço de pesquisa para localizar próximas pontos de interesse
+> * Criar uma conta com o Azure Location Based Services
+> * Conhecer a chave primária para a sua conta do Azure Location Based Services
+> * Criar uma nova página Web com a API de Controlo de Mapas
+> * Utilizar o Search Service para localizar pontos de interesse nas proximidades
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -35,44 +35,44 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
-## <a name="create-an-account-with-azure-location-based-services"></a>Criar uma conta com base dos serviços de localização do Azure
+## <a name="create-an-account-with-azure-location-based-services"></a>Criar uma conta com o Azure Location Based Services
 
-Siga estes passos para criar uma nova conta de localização com base em serviços.
+Siga estes passos para criar uma nova conta do Location Based Services.
 
 1. No canto superior esquerdo do [portal do Azure](https://portal.azure.com), clique em **Criar um recurso**.
 2. Na caixa *Procurar no Marketplace*, escreva **location based services**.
 3. Em *Resultados*, clique em **Location Based Services (pré-visualização)**. Clique no botão **Criar** que aparece abaixo do mapa. 
-4. No **criar localização com base em conta serviços** página, introduza os seguintes valores:
-    - O *nome* da sua conta nova. 
-    - O *subscrição* que pretende utilizar para esta conta.
-    - O *grupo de recursos* nome para esta conta. Pode optar por *criar nova* ou *utilizar existente* grupo de recursos.
-    - Selecione o *localização do grupo de recursos*.
-    - Leia o *termos de pré-visualização* e marque a caixa de verificação para aceitar os termos de licenciamento. 
-    - Por fim, clique em de **criar** botão.
+4. Na página **Criar Conta do Location Based Services**, introduza os seguintes valores:
+    - O *Nome* da nova conta. 
+    - A *Subscrição* que quer utilizar para esta conta.
+    - O nome do *Grupo de recursos* para esta conta. Pode optar por *Criar um grupo de recursos novo* ou *Utilizar um grupo de recursos existente*.
+    - Selecione a *Localização do grupo de recursos*.
+    - Leia os *Termos da pré-visualização* e marque a caixa de verificação para aceitar os termos. 
+    - Por último, clique no botão **Criar**.
    
     ![Criar conta do Location Based Services no portal](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Obter a chave de subscrição para a sua conta
+## <a name="get-the-primary-key-for-your-account"></a>Obter a chave primária para a sua conta
 
-Assim que a sua conta de serviços com base de localização é criada com êxito, siga os passos para ligá-lo para as respetiva APIs de pesquisa do mapa:
+Assim que a sua conta do Location Based Services for criada com êxito, siga os passos para ligá-la às respetivas APIs de pesquisa de mapas:
 
-1. Abra a sua conta de localização com base em serviços no portal.
-2. Navegue até à sua conta **definições**e, em seguida, selecione **chaves**.
-3. Copiar o **chave primária** a sua área de transferência. Guardá-lo localmente ao utilizar os passos de continuar. 
+1. Abra a sua conta do Location Based Services no portal.
+2. Navegue até às **DEFINIÇÕES** da conta e selecione **Chaves**.
+3. Copie a **Chave primária** para a área de transferência. Guarde-a localmente para utilizar nos passos seguintes. 
 
-    ![Obter a chave primária no portal](./media/tutorial-search-location/lbs-get-key.png)
+    ![Obter a Chave Primária no portal](./media/tutorial-search-location/lbs-get-key.png)
 
 
 <a id="createmap"></a>
 
-## <a name="create-new-web-page-using-azure-map-control-api"></a>Criar nova página web utilizando a API de controlo de mapa do Azure
-API de controlo de mapa do Azure é uma biblioteca de cliente conveniente que lhe permite facilmente integrar com base dos serviços de localização do Azure na sua aplicação web. Oculta a complexidade das chamadas de serviço REST bare e boosts sua produtividade com componentes styleable e personalizáveis. Os passos seguintes mostram como criar uma página HTML estática incorporada com API de controlo de mapa a localização com base em serviços. 
+## <a name="create-new-web-page-using-azure-map-control-api"></a>Criar uma nova página Web com a API de Controlo de Mapas do Azure
+A API de Controlo de Mapas do Azure é uma biblioteca de cliente conveniente que lhe permite integrar facilmente o Azure Location Based Services na sua aplicação Web. Oculta a complexidade das chamadas de serviço REST bare e aumenta a produtividade com componentes personalizáveis, cujo estilo pode ser definido. Os passos seguintes mostram como criar uma página HTML estática incorporada com a API de Controlo de Mapas do Location Based Services. 
 
-1. No seu computador local, crie um novo ficheiro e nome **MapSearch.html**. 
-2. Adicione os seguintes componentes HTML para o ficheiro:
+1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapSearch.html**. 
+2. Adicione os seguintes componentes HTML ao ficheiro:
 
     ```HTML
     <!DOCTYPE html>
@@ -111,20 +111,20 @@ API de controlo de mapa do Azure é uma biblioteca de cliente conveniente que lh
 
     </html>
     ``` 
-    Tenha em atenção de que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript hospedados a biblioteca de controlo de mapa do Azure. Tenha em atenção o *script* segmento adicionado para o *corpo* do ficheiro HTML. Este segmento irá conter o código JavaScript para acesso a APIs do Azure localização com base do serviço de inline.
+    Repare que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca de Controlo de Mapas do Azure. Tenha em atenção o segmento de *script* adicionado ao *corpo* do ficheiro HTML. Este segmento irá conter o código JavaScript inline para aceder às APIs do Azure Location Based Services.
  
-3.  Adicione o seguinte código JavaScript para a *script* bloco do ficheiro HTML. Substitua o marcador de posição *< chave de inserção >* com a chave primária da sua conta de localização com base em serviços. 
+3.  Adicione o seguinte código JavaScript ao bloco *script* do ficheiro HTML. Utilize a chave primária da sua conta do Location Based Services no script. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Este segmento inicia a API de controlo de mapa para a sua chave de subscrição. **Atlas** é o espaço de nomes que contém a API de controlo de mapa do Azure e os componentes de visual relacionados. **Atlas. Mapa** fornece o controlo de um mapa de interativa e visual web. Pode observar como mapa do aspeto, abrindo a página HTML no browser. 
+    Este segmento inicia a API de Controlo de Mapas para a sua chave de conta do Azure Location Based Services. **Atlas** é o espaço de nomes que contém a API de Controlo de Mapas do Azure e os componentes visuais relacionados. **atlas.Map** fornece o controlo para um mapa Web interativo e visual. Pode observar o aspeto do mapa, abrindo a página HTML no browser. 
 
-4. Adicione o seguinte código JavaScript para a *script* bloco, para adicionar uma camada de pins de pesquisa para o controlo de mapa:
+4. Adicione o seguinte código JavaScript ao bloco de *script*, para adicionar uma camada de marcadores de pesquisa ao Controlo de Mapas:
 
     ```JavaScript
     // Initialize the pin layer for search results to the map
@@ -141,11 +141,11 @@ API de controlo de mapa do Azure é uma biblioteca de cliente conveniente que lh
 
 <a id="usesearch"></a>
 
-## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Utilizar o serviço de pesquisa para localizar próximas pontos de interesse
+## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Utilizar o Search Service para localizar pontos de interesse nas proximidades
 
-Esta secção mostra como utilizar API do Azure com base dos serviços de localização do serviço de pesquisa para localizar um ponto de interesse no seu mapa. É uma API RESTful concebido para programadores procurar os endereços, os pontos de interesse e outras informações geográficas. O serviço de pesquisa atribui um latitude e longitude informações para um endereço especificado. 
+Esta secção mostra como utilizar a API do Search Service do Azure Location Based Services para localizar um ponto de interesse no seu mapa. É uma API RESTful concebida para os programadores procurarem endereços, pontos de interesse e outras informações geográficas. O Search Service atribui uma informação de latitude e longitude a um endereço especificado. 
 
-1. Abra o **MapSearch.html** ficheiro criado na secção anterior e adicione o seguinte código JavaScript para a *script* bloco, para ilustrar o serviço de pesquisa. 
+1. Abra o ficheiro **MapSearch.html**, criado na secção anterior, e adicione o seguinte código JavaScript ao bloco de *script*, para ilustrar o Search Service. 
     ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
@@ -185,15 +185,15 @@ Esta secção mostra como utilizar API do Azure com base dos serviços de locali
         }
     };
     ```
-    Este fragmento de código cria um [XMLHttpRequest](https://xhr.spec.whatwg.org/), e adiciona um processador de eventos ao analisar a resposta de entrada. Para uma resposta com êxito, recolhe endereços, os nomes de latitude e logitude informações para cada localização devolvida, além de `searchPins` variável. Por fim, é adicionado esta coleção de pontos de localização para o `map` controlo como pins. 
+    Este fragmento de código cria um [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adiciona um processador de eventos para analisar a resposta recebida. Para uma resposta com êxito, recolhe os endereços, os nomes e as informações de latitude e longitude para cada localização devolvida, na variável `searchPins`. Por fim, adiciona esta coleção de pontos de localização ao controlo `map` como marcadores. 
 
-2. Adicione o seguinte código para o *script* bloco, para enviar o XMLHttpRequest para o serviço de pesquisa do Azure com base dos serviços de localização:
+2. Adicione o seguinte código ao bloco de *script* para enviar o XMLHttpRequest para o Search Service do Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,9 +201,9 @@ Esta secção mostra como utilizar API do Azure com base dos serviços de locali
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Este fragmento utiliza a API de pesquisa básica do serviço de pesquisa, denominado o **pesquisa difusa**. Processa o mais difusa entradas lidar com qualquer combinação de endereço ou *POI* tokens. Este procura para os próximos em **estação gasoline**, para o endereço indicado no latitude e longitude e dentro do raio especificado. Utiliza a chave de subscrição da sua conta fornecido anteriormente no ficheiro de exemplo, para efetuar a chamada para os serviços de localização com base. Devolve os resultados como latitude/longitude pares para as localizações encontradas. Pode observar os pins de pesquisa, abrindo a página HTML no browser. 
+    Este fragmento utiliza a API de pesquisa básica do Search Service, denominada **Fuzzy Search**. Processa as entradas mais difusas que lidam com qualquer combinação de endereço ou tokens *POI*. Procura o **posto de gasolina** nas proximidades para o endereço indicado na latitude e longitude e dentro do raio especificado. Utiliza a chave primária da sua conta fornecida anteriormente no ficheiro de exemplo, para fazer a chamada para o Location Based Services. Devolve os resultados como pares latitude/longitude para as localizações encontradas. Pode observar os marcadores de pesquisa, abrindo a página HTML no browser. 
 
-3. Adicione as seguintes linhas à *script* bloco, para criar o pop-ups para os pontos de interesse devolvido pelo serviço de pesquisa:
+3. Adicione as seguintes linhas ao bloco de *script*, para criar pop-ups para os pontos de interesse devolvidos pelo Search Service:
 
     ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
@@ -232,20 +232,20 @@ Esta secção mostra como utilizar API do Azure com base dos serviços de locali
         popup.open(map);
     });
     ```
-    A API **atlas. Pop-up** fornece informações de uma janela ancorada na posição necessária no mapa. Este fragmento de código define o conteúdo e a posição para o pop-up, bem como adiciona um serviço de escuta de eventos para o `map` controlo, a aguardar o _rato_ para rollover de pop-up. 
+    A API **atlas.Popup** fornece uma janela de informações ancorada na posição necessária no mapa. Este fragmento de código define o conteúdo e a posição para o pop-up, e adiciona uma escuta de eventos ao controlo `map`, que aguarda que o _rato_ paire sobre o pop-up. 
 
-4. Guarde o ficheiro e, em seguida, abra o **MapSearch.html** ficheiro num browser da sua preferência e observe o resultado. Neste momento, o mapa no browser mostra pop-ups de informações quando paira o rato sobre qualquer um dos pins a pesquisa mostrados, semelhantes ao seguinte. 
+4. Guarde o ficheiro e abra o ficheiro **MapSearch.html** num browser à escolha e veja o resultado. Neste momento, o mapa no browser mostra pop-ups de informações quando paira o rato sobre qualquer um dos marcadores de pesquisa apresentados, semelhantes aos seguintes. 
 
-    ![Controlo de mapa do Azure e o serviço de pesquisa](./media/tutorial-search-location/lbs-map-search.png)
+    ![Search Service e Controlo de Mapas do Azure](./media/tutorial-search-location/lbs-map-search.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar uma conta com base dos serviços de localização do Azure
-> * Obter a chave de subscrição para a sua conta
-> * Criar nova página web utilizando a API de controlo de mapa
-> * Utilizar o serviço de pesquisa para localizar próximas pontos de interesse
+> * Criar uma conta com o Azure Location Based Services
+> * Obter a chave primária para a sua conta
+> * Criar uma nova página Web com a API de Controlo de Mapas
+> * Utilizar o Search Service para localizar pontos de interesse nas proximidades
 
-Avance para o tutorial [rota para um ponto de interesse com base dos serviços de localização do Azure a utilizar](./tutorial-route-location.md) para saber como utilizar o Azure com base dos serviços de localização para encaminhar para o ponto de interesse. 
+Avance para o tutorial [Encaminhar para um ponto de interesse com o Azure Location Based Services](./tutorial-route-location.md) para saber como utilizar o Azure Location Based Services para encaminhar para o ponto de interesse. 

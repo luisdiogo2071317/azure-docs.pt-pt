@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Criar a sua primeira aplicação Reliable Services sem monitorização de estado do Service Fabric em C#
 
@@ -82,7 +82,7 @@ Uma vez iniciada a aplicação, o Visual Studio apresentará automaticamente o *
    
 ![Visualizador de eventos de diagnóstico][5]
 
-O modelo de serviço com estado que utilizámos mostra simplesmente um valor de contador que se incrementa no método `RunAsync` de **MyStatefulService.cs**.
+O modelo de serviço com estado utilizado mostra simplesmente um valor de contador que se incrementa no método `RunAsync` de **MyStatefulService.cs**.
 
 Expanda um dos eventos para ver mais detalhes, incluindo o nó em que se executa o código. Neste caso, é \_Nó\_0, embora possa ser diferente no seu computador.
    

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introdução ao Azure Automation DSC
 Este artigo explica como efetuar tarefas mais comuns com Automation DSC do Azure pretendido Estado Configuration (), tais como criar, importar e configurações de máquinas de integração para gerir, a compilação e visualizar relatórios. Para obter uma descrição geral sobre o DSC de automatização do Azure é, consulte [descrição geral do Azure Automation DSC](automation-dsc-overview.md). Para obter documentação de DSC, consulte [Windows PowerShell Desired Configuration descrição geral do estado](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Este artigo fornece um guia passo a passo para utilizar o DSC de automatização do Azure. Se pretender que um ambiente de exemplo que já está definido sem seguir os passos descritos neste artigo, pode utilizar o seguinte [modelo do Resource Manager](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Este modelo configura um ambiente de DSC de automatização do Azure foi concluído, incluindo uma VM do Azure que é gerido pelo Automation DSC do Azure.
+Este artigo fornece um guia passo a passo para utilizar o DSC de automatização do Azure. Se pretender que um ambiente de exemplo que já está definido sem seguir os passos descritos neste artigo, pode utilizar o modelo do Resource Manager seguintes: este modelo configura um ambiente de Automation DSC do Azure foi concluído, incluindo uma VM do Azure que é gerido pelo Automation DSC do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir os exemplos neste artigo, é necessário o seguinte:
@@ -134,11 +134,11 @@ Pode utilizar o DSC de automatização do Azure para gerir VMs do Azure (clássi
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Integrar VM do Azure Resource Manager para gestão pelo Automation DSC do Azure
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, clique em **todos os recursos** e, em seguida, o nome da sua conta de automatização.
-3. No **conta de automatização** página, clique em **nós de DSC** em **gestão de configuração**...
+3. No **conta de automatização** página, clique em **nós de DSC** em **gestão de configuração**.
 4. No **nós de DSC** página, clique em **adicionar a VM do Azure**.
    
     ![Captura de ecrã da página de nós de DSC realçando o botão de adicionar a VM do Azure](./media/automation-dsc-getting-started/OnboardVM.png)
-5. No **máquinas virtuais** página selecionar a VM.  **Adicionar VMs do Azure** página, clique em **selecionar máquinas virtuais para carregar**.
+5. Na página de máquinas virtuais, selecione a VM. **Adicionar VMs do Azure** página, clique em **selecionar máquinas virtuais para carregar**.
 6. Clique em **Ligar**.
    
    > [!IMPORTANT]
