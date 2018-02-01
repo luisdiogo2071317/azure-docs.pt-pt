@@ -5,20 +5,20 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 41a9df712b07253d9f5f9db8542fb9917592320f
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 0f157b465a9da266481be8d208fc18307cd3bb16
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registe um Contrato Enterprise do Azure e veja os dados de custos
 
-Utiliza o Contrato Enterprise do Azure para registar com o Azure Cost Management da Cloudyn. O registo concede acesso ao portal da Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação da Cloudyn e iniciar sessão no portal da Cloudyn. Também lhe mostra como começar a ver os dados de custo imediatamente.
+Utiliza o Contrato Enterprise do Azure para registar com o Azure Cost Management da Cloudyn. O registo concede acesso ao portal Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn. Também lhe mostra como pode começar a ver de imediato os dados dos custos.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -47,7 +47,7 @@ Para ver um vídeo tutorial sobre como registar o Contrato Enterprise, veja [How
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de introdução utilizou as sua informações do Contrato Enterprise do Azure para registar com o Cost Management. Também se inscreveu no portal da Cloudyn e começou a ver os dados de custos. Para saber mais sobre o Azure Cost Management da Cloudyn, continue para o tutorial do Cost Management.
+Neste guia de introdução utilizou as sua informações do Contrato Enterprise do Azure para registar com o Cost Management. Também se inscreveu no portal da Cloudyn e começou a ver os dados de custos. Para saber mais sobre o Azure Cost Management por Cloudyn, continue para o tutorial do Cost Management.
 
 > [!div class="nextstepaction"]
 > [Rever a utilização e os custos](./tutorial-review-usage.md)

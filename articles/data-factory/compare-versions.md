@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparar Azure Data Factory V1 e V2
 Este artigo compara a V2 e a V1 do Azure Data Factory. Para uma introdução ao V1, veja [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). Para uma introdução ao V2, veja [Introdução ao Azure Data Factory (V2 – pré-visualização)](introduction.md).
@@ -86,7 +86,7 @@ Vai utilizar o Azure-SSIS se quiser mover as cargas de trabalho SSIS para a clou
 
 O Integration Runtime do Azure-SSIS é um cluster totalmente gerido de VMs do Azure (nós) dedicadas à execução dos pacotes do SSIS na cloud. Depois de aprovisionar o Integration Runtime do Azure-SSIS, tem as mesmas ferramentas que tem estado a utilizar para implementar pacotes do SSIS num ambiente SSIS local. 
 
-Por exemplo, pode utilizar o SQL Server Data Tools ou o SQL Server Management Studio para implementar pacotes do SSIS neste runtime no Azure. Para obter instruções passo a passo, veja o tutorial [Implementar pacotes de serviços de integração do SQL Server no Azure](tutorial-deploy-ssis-packages-azure.md). 
+Por exemplo, pode utilizar o SQL Server Data Tools ou o SQL Server Management Studio para implementar pacotes do SSIS neste runtime no Azure. Para obter instruções passo a passo, veja o tutorial [Implementar pacotes de serviços de integração do SQL Server no Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Agendamento flexível
 No Data Factory V2, não terá de definir agendas de disponibilidade para conjuntos de dados. Pode definir um recurso de acionador que agende os pipelines a partir de um paradigma de programador de relógio. Pode também passar parâmetros para os pipelines a partir de um acionador para um modelo de agendamento e execução flexível. 

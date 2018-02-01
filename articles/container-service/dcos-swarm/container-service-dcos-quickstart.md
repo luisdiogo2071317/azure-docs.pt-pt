@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 69f8f415ce851a5d8034d8196ab541e8491dc417
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: b81dc61e61f97e34ace21c1239681c1254efb7be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-a-dcos-cluster"></a>Criar um cluster do DC/OS
 
@@ -25,7 +25,7 @@ Este tutorial requer a versão do módulo 2.0.4 ou posterior da CLI do Azure. Ex
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure 
 
-Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/#login) e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/#az_login) e siga as instruções no ecrã.
 
 ```azurecli
 az login
@@ -33,7 +33,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>Criar cluster DC/OS
 
-Crie um cluster DC/OS, com o comando [az acs create](/cli/azure/acs#create).
+Crie um cluster DC/OS, com o comando [az acs create](/cli/azure/acs#az_acs_create).
 
 O exemplo seguinte cria uma cluster DC/OS com o nome *myDCOSCluster* e cria chaves SSH caso estas ainda não existam. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  
 
@@ -51,7 +51,7 @@ O exemplo seguinte cria uma cluster DC/OS com o nome *myDCOSCluster* e cria chav
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#create). 
+Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az_acs_create). 
 
 Após alguns minutos, o comando é concluído e devolve informações sobre a implementação.
 
@@ -156,7 +156,7 @@ Navegar para este endereço devolve o site NGINX predefinido.
 
 ## <a name="delete-dcos-cluster"></a>Eliminar cluster DC/OS
 
-Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#delete) para remover o Grupo de Recursos, o cluster DC/OS e todos os recursos relacionados.
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o Grupo de Recursos, o cluster DC/OS e todos os recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait

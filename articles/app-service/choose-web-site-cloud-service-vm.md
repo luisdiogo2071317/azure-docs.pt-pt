@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 ## <a name="overview"></a>Descrição geral
@@ -49,7 +49,7 @@ A tabela seguinte compara as capacidades do Serviço de Aplicações, dos Servi�
 | Alojar a camada Web ou a camada dos serviços Web de uma arquitetura com várias camadas |X |X |X |X | |
 | Alojar a camada média de uma arquitetura com várias camadas |X |X |X |X |As aplicações Web do Serviço de Aplicações podem alojar facilmente uma camada intermédia da API REST e a funcionalidade [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode alojar trabalhos de processamento em segundo plano. Pode executar o WebJobs num site dedicado para obter escalabilidade independente para a camada. |
 | Suporte integrado para MySQL como serviço |X |X | | | |
-| Suporte para ASP.NET, ASP clássico, Node.js, PHP, Python |X |X |X |X |O Service Fabric suporta a criação de front-ends da Web através de [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) ou a implementação de qualquer tipo de aplicação (Node.js, Java, etc.) como [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Suporte para ASP.NET, ASP clássico, Node.js, PHP, Python |X |X |X |X |O Service Fabric suporta a criação de front-ends da Web através de [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) ou a implementação de qualquer tipo de aplicação (Node.js, Java, etc.) como [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Aumentar horizontalmente para várias instâncias sem reimplementar |X |X |X |X |As Máquinas Virtuais podem ser aumentadas horizontalmente para várias instâncias, mas os serviços que estão em execução nas mesmas têm de ser escritos de forma a suportar esse aumento horizontal. Tem de configurar um balanceador de carga para encaminhar os pedidos entre as máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a falhas de manutenção ou do hardware. |
 | Suporte para SSL |X |X |X |X |Nas aplicações Web do Serviço de Aplicações, o SSL para nomes de domínios personalizados só é suportado nos modos Básico e Standard. Para obter informações sobre como utilizar o SSL com as aplicações Web, veja [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Configurar certificados SSL para sites do Azure). |
 | Integração com o Visual Studio |X |X |X |X | |

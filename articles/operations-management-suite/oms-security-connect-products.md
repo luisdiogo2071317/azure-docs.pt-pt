@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Ligar os produtos de segurança à Solução de Segurança e Auditoria Operations Management Suite (OMS) 
 Este documento ajuda-o a ligar os seus produtos de segurança à Solução de Segurança e Auditoria OMS. São suportadas as seguintes origens:
@@ -95,7 +95,7 @@ No computador agente, os eventos têm de ser enviados a partir do syslog daemon 
 
 ## <a name="reviewing-collected-security-events"></a>Rever os eventos de segurança recolhidos
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Depois de terminada a configuração, o evento de segurança vai começar a ser ingerido pela Segurança OMS. Para visualizar esses eventos, abra a Pesquisa de Registos, escreva o comando *Type=CommonSecurityLog* no campo de pesquisa e prima ENTER. O exemplo seguinte mostra o resultado deste comando. Repare que, neste caso, a Segurança OMS já ingeriu registos de segurança de vários fornecedores:
    
@@ -106,7 +106,7 @@ Pode refinar esta pesquisa para que um fornecedor único, por exemplo, visualize
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Aceder a computadores com avaliação da linha de base em falta
 O OMS suporta a linha da base de membro de domínio no Windows Server 2008 R2 para Windows Server 2012 R2. A linha de base do Windows Server 2016 ainda não é final e será adicionada assim que for publicada. Todos os outros sistemas operativos analisados através da avaliação da linha de base de Segurança e Auditoria do OMS aparecem na secção **Computadores com a avaliação da linha de base em falta**.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Neste documento, aprendeu a ligar a sua solução CEF ao OMS. Para saber mais sobre a Segurança do OMS, veja os artigos seguintes:
 
 * [Descrição geral do Operations Management Suite (OMS)](operations-management-suite-overview.md)

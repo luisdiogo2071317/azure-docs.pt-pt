@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos, como CPU, exigência de memória ou tráfego de rede. Neste artigo de introdução, vai criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure Resource Manager. Também pode criar um conjunto de dimensionamento com a [CLI 2.0 do Azure](virtual-machine-scale-sets-create-cli.md), o [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) ou o [portal do Azure](virtual-machine-scale-sets-create-portal.md).
@@ -135,7 +135,7 @@ Pode implementar o modelo [Servidor HTTP de Python em Linux](https://github.com/
 
 [![Implementar o modelo no Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Também pode utilizar a CLI 2.0 do Azure para instalar o servidor HTTP de Python em Linux com [az group deployment create](/cli/azure/group/deployment#create) da seguinte forma:
+Também pode utilizar a CLI 2.0 do Azure para instalar o servidor HTTP de Python em Linux com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) da seguinte forma:
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ Responda aos pedidos para fornecer um nome do conjunto de dimensionamento, uma c
 
 
 ## <a name="test-your-sample-application"></a>Testar o exemplo de aplicação
-Para ver a sua aplicação em ação, obtenha o endereço IP público do balanceador de carga com [az network public-ip list](/cli/azure/network/public-ip#show) da seguinte forma:
+Para ver a sua aplicação em ação, obtenha o endereço IP público do balanceador de carga com [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) da seguinte forma:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Introduza o endereço IP público do balanceador de carga num browser no formato
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados da seguinte forma:
+Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Criar imagens de contentor para o Service Fabric
 
@@ -188,7 +188,7 @@ Os comandos de envio do docker demoram alguns minutos a concluir.
 
 ## <a name="list-images-in-registry"></a>Listar imagens no registo
 
-Para devolver uma lista de imagens que foram enviadas para o seu registo de contentor do Azure, utilize o comando [az acr repository list](/cli/azure/acr/repository#list). Atualize o comando com o nome de instância do ACR.
+Para devolver uma lista de imagens que foram enviadas para o seu registo de contentor do Azure, utilize o comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Atualize o comando com o nome de instância do ACR.
 
 ```bash
 az acr repository list --name <acrName> --output table
