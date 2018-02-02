@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -118,6 +118,9 @@ Do portal do Microsoft Azure, pode criar a VM com base numa imagem base aprovada
 Recomendamos vivamente que desenvolver o VHD na nuvem utilizando o protocolo RDP (Remote Desktop Protocol). Ligar para o RDP com o nome de utilizador e palavra-passe especificada durante o aprovisionamento.
 
 > [!IMPORTANT]
+> **Não utilize discos geridos.** A máquina virtual utilizada para desenvolver o VHD para a nuvem não deve basear-se em discos geridos como atualmente não suporta a criação de uma imagem dos mesmos.
+> Criar a máquina virtual na alteração de funcionalidade opcional a predefinição para discos geridos.
+
 > Se desenvolver o VHD no local (que não seja recomendado), consulte [criar uma imagem de máquina virtual no local](marketplace-publishing-vm-image-creation-on-premise.md). Transferir o VHD não é necessário se estiver a desenvolver na nuvem.
 >
 >

@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Serviço de aplicações na pilha do Azure: adicionar várias funções de infraestrutura ou de trabalho
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*  
 
 Este documento fornece instruções sobre como dimensionar o serviço de aplicações nas funções de infraestrutura e de trabalho de pilha do Azure. Contém passos para criar funções de trabalho adicionais para suportar aplicações de qualquer dimensão.
 
@@ -40,15 +41,15 @@ Adicionar técnicos adicionais diretamente no Admin de fornecedor de recursos de
 2. Navegue até à **serviços aplicacionais**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Clique em **funções**. Aqui pode ver a repartição de todas as funções do serviço de aplicações implementadas.
 
 4. Clique na linha do tipo pretende dimensionar e, em seguida, clique em **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Clique em **dimensionamento**, selecione o número de instâncias que pretende dimensionar e, em seguida, clique em **guardar**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. Serviço de aplicações na pilha do Azure irá agora adição de mais VMs, configurá-los, instalar o software necessário e marcá-los como preparada quando este processo esteja concluído. Este processo pode demorar cerca de 80 minutos.
@@ -64,6 +65,6 @@ Depois de estarem totalmente implementado e pronto, os trabalhadores ficam dispo
 
 Para ampliar a gestão, Front-End ou funções do publicador, siga os mesmos passos selecionar o tipo de função adequados. Os controladores não são implementados como conjuntos de dimensionamento e, por conseguinte, duas devem ser implementadas no momento de instalação para todas as implementações de produção.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 
 [Configurar origens de implementação](azure-stack-app-service-configure-deployment-sources.md)

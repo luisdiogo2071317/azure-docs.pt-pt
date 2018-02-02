@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Esta consulta de agrupamento iria devolver um resultado semelhante ao seguinte exemplo. Aqui, três dispositivos comunicam configuração com êxito, dois continua a aplicar a configuração e um comunicou um erro. 
+Esta consulta de agrupamento iria devolver um resultado semelhante ao seguinte exemplo:
 
 ```json
 [
@@ -149,6 +149,8 @@ Esta consulta de agrupamento iria devolver um resultado semelhante ao seguinte e
     }
 ]
 ```
+
+Neste exemplo, três dispositivos comunicados configuração com êxito, dois continua a aplicar a configuração e um comunicou um erro.
 
 Consultas de projecção permitem aos programadores devolver apenas as propriedades que são mais importantes para si. Por exemplo obter a última atividade de todos os desligada dispositivos utilize a seguinte consulta:
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Tenha em atenção o **consulta** é criar instâncias do objecto com um tamanho de página (até 100) e, em seguida, várias páginas podem ser obtidas chamando a **GetNextAsTwinAsync** métodos várias vezes.
-Tenha em atenção que o objeto da consulta expõe vários **seguinte***, consoante a opção de serialização, é necessária para a consulta, tais como objetos de dispositivo duplo ou a tarefa ou JSON simples para ser utilizados quando usar projeções.
+O **consulta** é criar instâncias do objecto com um tamanho de página (até 100). Em seguida, várias páginas são obtidas ao chamar o **GetNextAsTwinAsync** métodos várias vezes.
+
+O objeto da consulta expõe vários **seguinte** valores, dependendo da opção de serialização, é necessário para a consulta. Por exemplo, os objetos de duplo ou a tarefa de dispositivo, ou JSON simples quando utilizar projeções.
 
 ### <a name="nodejs-example"></a>Exemplo de node.js
 A funcionalidade de consulta é exposta pelo [o serviço de IoT do Azure SDK para Node.js] [ lnk-hub-sdks] no **registo** objeto.
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Tenha em atenção o **consulta** é criar instâncias do objecto com um tamanho de página (até 100) e, em seguida, várias páginas podem ser obtidas chamando a **nextAsTwin** métodos várias vezes.
-Tenha em atenção que o objeto da consulta expõe vários **seguinte***, consoante a opção de serialização, é necessária para a consulta, tais como objetos de dispositivo duplo ou a tarefa ou JSON simples para ser utilizados quando usar projeções.
+O **consulta** é criar instâncias do objecto com um tamanho de página (até 100). Em seguida, várias páginas são obtidas ao chamar o **nextAsTwin** método várias vezes.
+
+O objeto da consulta expõe vários **seguinte** valores, dependendo da opção de serialização, é necessário para a consulta. Por exemplo, os objetos de duplo ou a tarefa de dispositivo, ou JSON simples quando utilizar projeções.
 
 ### <a name="limitations"></a>Limitações
+
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso no que respeita aos valores mais recentes nos dispositivos duplos. Se a consultar os dispositivos individuais duplos por id, é sempre preferível utilizar obter dispositivo duplo API, que sempre contém os valores mais recentes e tem os limites de limitação superior.
+> Os resultados da consulta podem ter alguns minutos de atraso no que respeita aos valores mais recentes nos dispositivos duplos. Se consultar duplos dispositivo individual por ID, utilize a API do obter dispositivo duplo. Esta API sempre contém os valores mais recentes e tem os limites de limitação superior.
 
 Atualmente, em que comparações são suportadas para a instância apenas entre tipos primitivos (não existem objetos), `... WHERE properties.desired.config = properties.reported.config` só é suportada se essas propriedades têm valores primitivos.
 
 ## <a name="get-started-with-jobs-queries"></a>Começar a utilizar consultas de tarefas
+
 [As tarefas] [ lnk-jobs] proporcionam uma forma para executar operações em conjuntos de dispositivos. Cada dispositivo duplo contém as informações das tarefas do qual faz parte de uma coleção chamada **tarefas**.
 Logicamente,
 
@@ -243,7 +249,7 @@ Logicamente,
 Atualmente, esta coleção está consultável como **devices.jobs** no IoT Hub do idioma de consulta.
 
 > [!IMPORTANT]
-> Atualmente, a propriedade de tarefas nunca é devolvida ao consultar dispositivos duplos (ou seja, as consultas que contém 'a partir de dispositivos'). Só pode ser acedido diretamente com consultas através de `FROM devices.jobs`.
+> Atualmente, a propriedade de tarefas nunca é devolvida ao consultar dispositivos duplos. Ou seja, as consultas que contenham 'a partir de dispositivos'. A propriedade de tarefas só pode ser acedida diretamente com consultas através de `FROM devices.jobs`.
 >
 >
 
@@ -282,9 +288,9 @@ Atualmente, a consulta do **devices.jobs** não suportam:
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>As expressões de consulta de rotas de mensagens do dispositivo-nuvem
 
-Utilizar [rotas de dispositivo para nuvem][lnk-devguide-messaging-routes], pode configurar o IoT Hub para emitir mensagens do dispositivo para a nuvem para os pontos finais diferentes com base em expressões avaliadas em comparação com as mensagens individuais.
+Utilizar [rotas de dispositivo para nuvem][lnk-devguide-messaging-routes], pode configurar o IoT Hub para emitir mensagens do dispositivo para a nuvem para pontos finais diferentes. Emissão baseia-se em expressões avaliadas em comparação com as mensagens individuais.
 
-A rota [condição] [ lnk-query-expressions] utiliza a mesma linguagem de consulta do IoT Hub como condições em consultas duplo e a tarefa. Rota condições são avaliadas nos cabeçalhos de mensagens e um corpo. A expressão de consulta encaminhamento poderá envolver o método apenas cabeçalhos de mensagens, apenas o corpo da mensagem, ou ambos os cabeçalhos de mensagens e corpo da mensagem. IoT Hub assume um esquema para os cabeçalhos e o corpo da mensagem específico para encaminhar mensagens. As secções seguintes descrevem o que é necessário para o IoT Hub encaminhar corretamente.
+A rota [condição] [ lnk-query-expressions] utiliza a mesma linguagem de consulta do IoT Hub como condições em consultas duplo e a tarefa. Rota condições são avaliadas nos cabeçalhos de mensagens e um corpo. A expressão de consulta encaminhamento poderá envolver o método só os cabeçalhos de mensagens, apenas o corpo da mensagem, ou ambos. IoT Hub assume um esquema para os cabeçalhos e o corpo da mensagem específico para encaminhar mensagens. As secções seguintes descrevem o que é necessário para o IoT Hub encaminhar corretamente.
 
 ### <a name="routing-on-message-headers"></a>Encaminhamento nos cabeçalhos de mensagens
 
@@ -311,7 +317,7 @@ IoT Hub assume a representação JSON seguinte de cabeçalhos de mensagens para 
 ```
 
 Propriedades do sistema de mensagens têm o prefixo de `'$'` símbolo.
-Propriedades do utilizador são sempre acedidas com os respetivos nomes. Se um nome de propriedade de utilizador acontece a operação com uma propriedade de sistema (tais como `$to`), será possível obter a propriedade de utilizador com o `$to` expressão.
+Propriedades do utilizador são sempre acedidas com os respetivos nomes. Se um nome de propriedade de utilizador coincida com uma propriedade de sistema (tais como `$to`), a propriedade de utilizador é obtida com o `$to` expressão.
 Pode aceder sempre a propriedade de sistema utilizando parênteses Retos `{}`: por exemplo, pode utilizar a expressão `{$to}` para aceder a propriedade de sistema `to`. Os nomes de propriedade entre parênteses obtêm sempre a propriedade de sistema correspondente.
 
 Lembre-se de que os nomes de propriedades são sensível a maiúsculas e minúsculas.
@@ -342,7 +348,7 @@ Consulte o [expressão e condições] [ lnk-query-expressions] secção para obt
 
 ### <a name="routing-on-message-bodies"></a>Encaminhamento corpos de mensagens
 
-IoT Hub apenas pode encaminhar com base no corpo da mensagem conteúdos se o corpo da mensagem está corretamente formado JSON com codificação UTF-8, UTF-16 ou UTF-32. Definir o tipo de conteúdo da mensagem para `application/json` e a codificação de conteúdo para um das codificações suportadas de UTF nos cabeçalhos da mensagem. Se qualquer um dos cabeçalhos não for especificado, o IoT Hub não irá tentar avaliar uma expressão de consulta que envolvem o corpo da mensagem. Se a mensagem não é uma mensagem JSON ou se a mensagem não especificar o tipo de conteúdo e a codificação de conteúdo, pode continuar a utilizar o encaminhamento de mensagens para encaminhar a mensagem com base nos cabeçalhos de mensagens.
+IoT Hub apenas pode encaminhar com base no corpo da mensagem conteúdos se o corpo da mensagem está corretamente formado JSON com codificação UTF-8, UTF-16 ou UTF-32. Definir o tipo de conteúdo da mensagem para `application/json`. Defina o conteúdo a codificação a um das codificações suportadas de UTF nos cabeçalhos da mensagem. Se qualquer um dos cabeçalhos não for especificado, o IoT Hub não tentar avaliar uma expressão de consulta que envolvem o corpo da mensagem. Se a mensagem não é uma mensagem JSON ou se a mensagem não especificar o tipo de conteúdo e a codificação de conteúdo, pode continuar a utilizar o encaminhamento de mensagens para encaminhar a mensagem com base nos cabeçalhos de mensagens.
 
 Pode utilizar `$body` na expressão de consulta para encaminhar a mensagem. Pode utilizar uma referência de corpo simples, de referência de matriz de corpo ou várias referências de corpo na expressão de consulta. A expressão de consulta também pode combinar uma referência de corpo com uma referência de cabeçalho da mensagem. Por exemplo, seguem-se todas as expressões de consulta válida:
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta do IoT Hub
-Cada consulta de IoT Hub é composta por de SELECIONE e cláusulas, com WHERE opcional e cláusulas GROUP BY. Cada consulta é executada numa coleção de documentos JSON, por exemplo, dispositivos duplos. A cláusula FROM indica a coleção de documentos para iterated no (**dispositivos** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados deste passo são agrupados, como especificado na cláusula GROUP BY e, para cada grupo, é gerada uma linha conforme especificado na cláusula SELECT.
+Cada consulta de IoT Hub é composta por de SELECIONE e cláusulas, com WHERE opcional e cláusulas GROUP BY. Cada consulta é executada numa coleção de documentos JSON, por exemplo, dispositivos duplos. A cláusula FROM indica a coleção de documentos para iterated no (**dispositivos** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados deste passo são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, é gerada uma linha conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ As condições permitidas são descritas na secção [expressões e condições]
 
 ## <a name="select-clause"></a>Cláusula SELECT
 O **SELECIONE < select_list >** é obrigatória e especifica quais os valores são obtidos a partir da consulta. Especifica os valores JSON para ser utilizado para gerar novos objetos JSON.
-Para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON, construído com os valores especificados na cláusula SELECT.
+Para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON. Este objecto é construído com os valores especificados na cláusula SELECT.
 
 Segue-se a gramática de cláusula SELECT:
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 Atualmente, seleção cláusulas diferentes **SELECIONE*** só são suportados em consultas de agregação em dispositivos duplos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
-O **GROUP BY < group_specification >** cláusula passo é opcional que pode ser executado após o filtro especificado na cláusula WHERE e antes da projecção especificada em SELECIONAR. Grupos de documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados conforme especificado na cláusula SELECT.
+O **GROUP BY < group_specification >** cláusula passo é opcional que é executada após o filtro especificado na cláusula WHERE e antes da projecção especificada em SELECIONAR. Grupos de documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados conforme especificado na cláusula SELECT.
 
 Um exemplo de uma consulta com GROUP BY é:
 
@@ -433,7 +439,7 @@ Um nível elevado, um *expressão*:
 * Avalia a uma instância de um tipo JSON (por exemplo, booleano, número, cadeia, matriz ou objeto).
 * É definido pela manipulação de dados provenientes do documento JSON de dispositivo e constantes utilizando operadores incorporados e funções.
 
-*Condições* são expressões avaliadas como um valor booleano. Qualquer constante diferente booleano **verdadeiro** são considerados como estando **falso** (incluindo **nulo**, **indefinido**, qualquer instância de objeto ou a matriz qualquer cadeia e claramente o booleano **falso**).
+*Condições* são expressões avaliadas como um valor booleano. Qualquer constante diferente booleano **verdadeiro** são considerados como estando **falso**. Esta regra inclui **nulo**, **indefinido**, qualquer instância do objeto ou a matriz, qualquer cadeia e o valor de booleano **falso**.
 
 A sintaxe para expressões é:
 
@@ -494,13 +500,13 @@ Em condições de rotas, são suportadas as seguintes funções de bibliotecas:
 
 | Função | Descrição |
 | -------- | ----------- |
-| Abs(x) | Devolve o valor absoluto (positivo) da expressão numérica especificada. |
+| ABS(x) | Devolve o valor absoluto (positivo) da expressão numérica especificada. |
 | Exp(x) | Devolve o valor da expressão especificada numérico exponencial (i ^ x). |
 | Power(x,y) | Devolve o valor da expressão especificada para a potência especificada (x ^ y).|
 | SQUARE(x) | Devolve o quadrado do valor numérico especificado. |
 | CEILING(x) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
 | FLOOR(x) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
-| Sign(x) | Devolve o positivo (+ 1), zero (0) ou negativo sessão (-1) da expressão numérica especificada.|
+| SIGN(x) | Devolve o positivo (+ 1), zero (0) ou negativo sessão (-1) da expressão numérica especificada.|
 | SQRT(x) | Devolve a raiz quadrada do valor numérico especificado. |
 
 Em condições de rotas, são suportadas as funções de conversão e verificação de tipo seguintes:
@@ -514,7 +520,7 @@ Em condições de rotas, são suportadas as funções de conversão e verificaç
 | IS_NULL | Devolve um valor booleano que indica se o tipo da expressão especificada é nulo. |
 | IS_NUMBER | Devolve um valor booleano que indica se o tipo de expressão especificado é um número. |
 | IS_OBJECT | Devolve um valor booleano que indica se o tipo de expressão especificado é um objeto JSON. |
-| IS_PRIMITIVE | Devolve um valor booleano que indica se o tipo da expressão especificada é uma primitiva (string, Boolean, numéricos ou `null`). |
+| IS_PRIMITIVE | Devolve um valor booleano que indica se o tipo da expressão especificada é uma primitiva (string, Boolean, numérico, ou `null`). |
 | IS_STRING | Devolve um valor booleano que indica se o tipo da expressão especificada é uma cadeia. |
 
 Em condições de rotas, são suportadas as seguintes funções de cadeia:

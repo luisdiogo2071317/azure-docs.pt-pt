@@ -4,20 +4,20 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Azure Active Directory com Veritas Enterprise Vault.cloud SSO
 
@@ -110,7 +110,23 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. No **identificador** caixa de texto, utilize o URL de acordo com o Centro de dados
+
+    | Datacenter| URL |
+    |----------|----|
+    | América do Norte| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Ásia-Pacífico| `https://auth.syd.archivecloud.net`|
+
+    c. No **URL de resposta** caixa de texto, utilize o URL de acordo com o Centro de dados
+
+    | Datacenter| URL |
+    |----------|----|
+    | América do Norte| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Ásia-Pacífico| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente do Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html) para obter este valor. 

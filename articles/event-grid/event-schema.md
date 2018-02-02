@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: caa709fdc2a59472ee812bde91f7300396aa5755
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de grelha de eventos do Azure
 
 Este artigo descreve as propriedades e o esquema que estão presentes todos os eventos. Eventos são compostos por um conjunto de propriedades de cadeia necessário cinco e um objeto de dados necessário. As propriedades são comuns a todos os eventos a partir de qualquer fabricante. O objeto de dados contém as propriedades que são específicas para cada publicador. Tópicos de sistema, estas propriedades são específicas ao fornecedor de recursos, tais como o Storage do Azure ou Event Hubs do Azure.
 
 Eventos são enviados à grelha de eventos do Azure numa matriz, que pode conter muitos objetos de eventos. Se houver apenas um único evento, a matriz tem um comprimento de 1. A matriz pode ter um tamanho total de 1 MB. Cada evento na matriz está limitado a 64 KB.
+
+Pode encontrar o esquema JSON para o evento de grelha de evento e o payload de dados de cada fabricante do Azure no [arquivo de esquema de eventos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Esquema de eventos
 
@@ -34,7 +36,9 @@ O exemplo seguinte mostra as propriedades que são utilizadas por todos os publi
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -62,7 +66,9 @@ Por exemplo, se o esquema publicado um evento de armazenamento de Blobs do Azure
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -73,12 +79,14 @@ Todos os eventos contenham os seguintes dados de nível superior mesmos:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | Cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. |
-| Requerente | Cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| EventType | Cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | Cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
-| ID | Cadeia | Identificador exclusivo para o evento. |
+| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
+| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
+| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos específicos do fornecedor de recursos. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 Para saber mais sobre as propriedades no objecto de dados, consulte a origem do evento:
 
@@ -89,7 +97,7 @@ Para saber mais sobre as propriedades no objecto de dados, consulte a origem do 
 
 Para tópicos personalizados, o publicador de eventos determina o objeto de dados. Os dados de nível superior devem conter os campos mesmos como eventos definidos pelo recurso padrão. Quando publica eventos tópicos personalizados, deve considerar o assunto do seu eventos para ajudar a filtragem e de encaminhamento de modelação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma introdução à grelha de eventos do Azure, consulte [Novidades grelha de evento?](overview.md)
 * Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).

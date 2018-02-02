@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo a partir do IoT Hub
 
@@ -41,12 +41,12 @@ Quando o serviço de IoT Hub envia uma mensagem para um dispositivo, o serviço 
 
 Um dispositivo também pode optar por:
 
-* *Rejeitar* mensagem, que faz com que o IoT Hub para o definir como o **Deadlettered** estado. Os dispositivos que ligam através do protocolo MQTT não podem rejeitar mensagens da nuvem para o dispositivo.
+* *Rejeitar* mensagem, que faz com que o IoT Hub para o definir como o **inutilizado lettered** estado. Os dispositivos que ligam através do protocolo MQTT não podem rejeitar mensagens da nuvem para o dispositivo.
 * *Abandonar* mensagem, que faz com que o IoT Hub colocar a mensagem na fila, com o estado definido como **colocados em fila**. Os dispositivos que ligam através do protocolo MQTT não é possível abandonar mensagens da nuvem para o dispositivo.
 
 Um thread pode não conseguir processar uma mensagem sem que seja notificado IoT Hub. Neste caso, as mensagens são automaticamente transitar do **invisível** Estado volta para o **colocados em fila** Estado após um *tempo limite de visibilidade (ou bloqueio)*. O valor predefinido deste tempo limite é de um minuto.
 
-O **máximo de contagem de entrega** propriedade no IoT Hub determina o número máximo de vezes que uma mensagem pode transitar entre o **colocados em fila** e **invisível** Estados. Após esse número de transições, o IoT Hub define o estado da mensagem para **Deadlettered**. Da mesma forma, o IoT Hub define o estado de uma mensagem para **Deadlettered** após a respetiva hora de expiração (consulte [TTL][lnk-ttl]).
+O **máximo de contagem de entrega** propriedade no IoT Hub determina o número máximo de vezes que uma mensagem pode transitar entre o **colocados em fila** e **invisível** Estados. Após esse número de transições, o IoT Hub define o estado da mensagem para **inutilizado lettered**. Da mesma forma, o IoT Hub define o estado de uma mensagem para **inutilizado lettered** após a respetiva hora de expiração (consulte [TTL][lnk-ttl]).
 
 O [como enviar mensagens da nuvem para o dispositivo com o IoT Hub] [ lnk-c2d-tutorial] mostra como enviar mensagens de nuvem para o dispositivo a partir da nuvem e recebê-las num dispositivo.
 
@@ -75,9 +75,9 @@ Quando enviar uma mensagem da nuvem para o dispositivo, o serviço pode solicita
 
 | Propriedade de confirmação | Comportamento |
 | ------------ | -------- |
-| **positivo** | Se a mensagem da nuvem para o dispositivo atingir o **concluído** Estado, o IoT Hub gera uma mensagem de comentários. |
-| **negativo** | Se a mensagem da nuvem para o dispositivo atingir o **Deadlettered** Estado, o IoT Hub gera uma mensagem de comentários. |
-| **completa**     | IoT Hub gera uma mensagem de comentários em ambos os casos. |
+| **positive** | Se a mensagem da nuvem para o dispositivo atingir o **concluído** Estado, o IoT Hub gera uma mensagem de comentários. |
+| **negative** | Se a mensagem da nuvem para o dispositivo atingir o **inutilizado lettered** Estado, o IoT Hub gera uma mensagem de comentários. |
+| **full**     | IoT Hub gera uma mensagem de comentários em ambos os casos. |
 
 Se **Ack** é **completa**e não receberá uma mensagem de comentários, significa que a mensagem de comentários expirou. O serviço não é possível saber o que aconteceu à mensagem original. Na prática, um serviço deve certificar-se de que consegue processar os comentários antes de expirar. A hora de expiração máximo é dois dias, o que deixa a tempo ao obter o serviço de executar novamente se ocorrer uma falha.
 
@@ -86,7 +86,7 @@ Conforme explicado no [pontos finais][lnk-endpoints], o IoT Hub fornece comentá
 | Propriedade     | Descrição |
 | ------------ | ----------- |
 | EnqueuedTime | Timestamp com a indicação de que a mensagem foi criada. |
-| ID de utilizador       | `{iot hub name}` |
+| UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 O corpo é uma JSON serializado matriz de registos, cada um com as seguintes propriedades:
@@ -94,8 +94,8 @@ O corpo é uma JSON serializado matriz de registos, cada um com as seguintes pro
 | Propriedade           | Descrição |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Timestamp que indica quando ocorreu o resultado da mensagem. Por exemplo, o dispositivo foi concluída ou a mensagem expirou. |
-| originalMessageId  | **MessageId** da mensagem de nuvem para o dispositivo para que estas informações de feedback relacionada com. |
-| statusCode         | Cadeia necessária. Utilizado em mensagens de comentários geradas pelo IoT Hub. <br/> 'Êxito' <br/> 'Expirou' <br/> 'DeliveryCountExceeded' <br/> 'Rejeitado' <br/> 'Removidos' |
+| OriginalMessageId  | **MessageId** da mensagem de nuvem para o dispositivo para que estas informações de feedback relacionada com. |
+| StatusCode         | Cadeia necessária. Utilizado em mensagens de comentários geradas pelo IoT Hub. <br/> 'Êxito' <br/> 'Expirou' <br/> 'DeliveryCountExceeded' <br/> 'Rejeitado' <br/> 'Removidos' |
 | Descrição        | A cadeia de valores para **StatusCode**. |
 | DeviceId           | **DeviceId** do dispositivo de destino da mensagem de nuvem para o dispositivo para o qual relacionado com esta peça de comentários. |
 | DeviceGenerationId | **DeviceGenerationId** do dispositivo de destino da mensagem de nuvem para o dispositivo para o qual relacionado com esta peça de comentários. |
@@ -134,7 +134,7 @@ Cada IoT hub expõe as seguintes opções de configuração para as mensagens da
 
 Para obter mais informações sobre como definir estas opções de configuração, consulte [os hubs IoT criar][lnk-portal].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para informações sobre os SDKs que pode utilizar para receber mensagens da nuvem para o dispositivo, consulte [SDKs IoT do Azure][lnk-sdks].
 

@@ -2,17 +2,17 @@
 title: Aprovisionar conjuntos do Azure Batch de imagens personalizadas | Microsoft Docs
 description: "Pode criar um lote de nós que contêm o software e os dados que precisa para a sua aplicação de computação do conjunto a partir de uma imagem personalizada para aprovisionar. Imagens personalizadas são uma forma eficaz para configurar nós de computação para executar as cargas de trabalho do Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais 
 
@@ -93,6 +93,6 @@ Para verificar se um conjunto existente é baseado numa imagem personalizada, co
 
 Todas as imagens personalizadas associadas um agrupamento são apresentadas no agrupamento de **propriedades** janela.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma descrição geral aprofundada do Batch, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md).

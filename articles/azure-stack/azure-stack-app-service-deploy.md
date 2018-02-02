@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações a pilha do Azure
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 Como um operador de nuvem de pilha do Azure, pode conceder aos seus utilizadores a capacidade de criar aplicações API e web. Para tal, terá de adicionar primeiro o [fornecedor de recursos do serviço de aplicações](azure-stack-app-service-overview.md) para a implementação da pilha de Azure conforme descrito neste artigo. Depois de ter instalado o fornecedor de recursos do serviço de aplicações, pode incluí-la nas suas ofertas e planos. Os utilizadores, em seguida, podem subscrever para obter o serviço e começar a criar aplicações.
 
 > [!IMPORTANT]
 > Antes de executar o programa de instalação, certifique-se de que seguiu as orientações no [antes de começar](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -85,7 +86,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     | Box | Exemplo de nome de ficheiro de certificado |
     | --- | --- |
-    | **Ficheiro de certificado SSL do serviço de aplicações predefinido** | \_. appservice.local.AzureStack.external.pfx |
+    | **Ficheiro de certificado SSL do serviço de aplicações predefinido** | \_.appservice.local.AzureStack.external.pfx |
     | **Ficheiro de certificado SSL de API do serviço de aplicações** | api.appservice.local.AzureStack.external.pfx |
     | **Ficheiro de certificado de SSL de publicador do serviço de aplicações** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -101,7 +102,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     > [!NOTE]
     > Para implementações de produção, seguir as orientações no [planeamento de capacidade de funções de servidor do App Service do Azure na pilha de Azure](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Função | Instâncias mínimas | SKU mínima | Notas |
@@ -183,7 +184,7 @@ Criar web, a API e o Azure funciona aplicações, tem de utilizar o portal de in
 
 3. Se implementou também um fornecedor de recursos do SQL Server, pode implementar um site DNN do Marketplace. Quando lhe for pedida para parâmetros de base de dados, escolha uma base de dados no computador que executa o SQL Server que está ligada ao seu fornecedor de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Também pode experimentar o outro [plataforma como dos serviços de serviço (PaaS)](azure-stack-tools-paas-services.md).
 

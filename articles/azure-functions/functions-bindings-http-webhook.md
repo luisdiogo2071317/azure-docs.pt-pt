@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 5fe981b96725917b9cf567ded9ff38a8055fdb4d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -528,6 +528,8 @@ Autorização de Webhook é processada pelo componente de recetor de webhook, pa
 ## <a name="trigger---limits"></a>Acionador - limites
 
 O comprimento do pedido HTTP está limitado a 100 (102,400) KBytes e o comprimento do URL é limitado a 4 k (4,096) bytes. Estes limites especificados pelo `httpRuntime` elemento do tempo de execução [ficheiro Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+Se uma função que utiliza o acionador HTTP não concluída dentro do cerca de 2,5 minutos, o limite de tempo do gateway será e devolver um erro de HTTP 502. A função continuará em execução, mas será possível devolver uma resposta HTTP. Para funções de longa execução, recomendamos que siga async padrões e devolver uma localização onde consegue enviar pings para o estado do pedido. Para obter informações sobre como o tempo que uma função pode executar, consulte [escala e aloja - consumo planear](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Acionador - host.json propriedades
 

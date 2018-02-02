@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f927aa7a33a650354abd090b6280795875ab693f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: efcfad2834c2d6775c6693f5c705a0531b2650d6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens do Service Bus
 Este artigo apresenta uma lista de algumas exceções geradas pelo Microsoft Azure Service Bus APIs de mensagens. Esta referência está sujeita a alterações, por isso, verifique novamente para as atualizações.
 
 ## <a name="exception-categories"></a>Categorias de exceção
-As APIs de mensagens geram exceções que podem enquadram-se nas seguintes categorias, juntamente com a ação associada, que pode tomar para tentar corrigir. Tenha em atenção que o significado e causas de uma exceção podem variar consoante o tipo de entidade de mensagens (filas/tópicos ou Event Hubs):
+As APIs de mensagens geram exceções que podem enquadram-se nas seguintes categorias, juntamente com a ação associada, que pode tomar para tentar corrigir. Tenha em atenção que o significado e causas de uma exceção podem variar consoante o tipo de entidade de mensagens:
 
 1. Erro de codificação de utilizador ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Ação geral: tentar corrigir o código antes de continuar.
 2. Erro de configuração/configuração ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System. unauthorizedaccessexception](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Ação geral: rever a configuração e alterar se necessário.
@@ -66,7 +66,7 @@ A tabela seguinte lista os tipos de exceção do serviço de mensagens e os resp
 ### <a name="queues-and-topics"></a>As filas e tópicos
 Para filas e tópicos, isto é, muitas vezes, o tamanho da fila. A propriedade de mensagem de erro contém mais detalhes, como no exemplo seguinte:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
@@ -79,7 +79,7 @@ A mensagem indica que o tópico excedeu o limite de tamanho, neste cenário 1 GB
 
 Para espaços de nomes, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) pode indicar que uma aplicação excedeu o número máximo de ligações com um espaço de nomes. Por exemplo:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
 <tracking-id-guid>_G12 ---> 
 System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
@@ -94,9 +94,6 @@ Existem duas causas comuns deste erro: a fila de entregues e recetores de mensag
     Para resolver o problema, ler e conclua as mensagens da fila entregues, tal como faria com qualquer outra fila. Pode utilizar o [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) método para ajudar a formatar o caminho de fila de entregues.
 2. **Recetor parado** um recetor parou a receção de mensagens de uma fila ou a subscrição. A forma de identificar esta está a observar a [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) propriedade, que mostra a repartição total das mensagens. Se o [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) propriedade é alta ou crescente, em seguida, as mensagens não estão a ser lidos tão rápido estão a ser escritos.
 
-### <a name="event-hubs"></a>Event Hubs
-Os Event Hubs tem um limite de 20 grupos de consumidores do Hub de eventos. Ao tentar criar mais, recebe um [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
-
 ## <a name="timeoutexception"></a>TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica que uma operação iniciada pelo utilizador está a demorar mais do que o tempo limite da operação. 
 
@@ -107,7 +104,7 @@ O tempo limite, para filas e tópicos, é especificado no [MessagingFactorySetti
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para referência de API .NET do Service Bus completa, consulte o [referência da API de .NET do Azure](/dotnet/api/overview/azure/service-bus).
 

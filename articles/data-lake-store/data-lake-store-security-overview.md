@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 52e176711f512e8a3788309a58011c8484821a1e
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Segurança no Azure Data Lake Store
 Muitas empresas são tirar partido da análise de macrodados informações empresariais ajudar a tomar decisões inteligentes. Uma organização pode ter um ambiente complexo e regulado, com um número crescente de diversos utilizadores. É vital para uma empresa para se certificar de que os dados empresariais críticos são armazenados de forma mais segura, com o nível correto de acesso concedido a utilizadores individuais. O Azure Data Lake Store foi concebido para ajudar que cumpram estes requisitos de segurança. Neste artigo, saiba mais sobre as capacidades de segurança do Data Lake Store, incluindo:
@@ -63,7 +63,7 @@ Tenha em atenção que, apesar das funções são atribuídas para gestão de co
 Para obter instruções, consulte [atribuir utilizadores ou grupos de segurança para contas de Data Lake Store](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Utilizando ACLs para operações em sistemas de ficheiros
-Data Lake Store é um sistema de ficheiros hierárquico como distribuídas ficheiro sistema Hadoop (HDFS) e suporta [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Controla (r) de leitura, escrita (m) e executar (permissões para recursos para a função de proprietário, para o grupo de proprietários e para outros utilizadores e grupos x). Na Pré-visualização Pública do Data Lake Store (a versão atual), as ACLs podem ser ativadas na pasta raiz, em subpastas e em ficheiros individuais. Para obter mais informações sobre como as ACLs funcionam no contexto do Data Lake Store, veja [Controlo de acesso no Data Lake Store](data-lake-store-access-control.md).
+Data Lake Store é um sistema de ficheiros hierárquico como distribuídas ficheiro sistema Hadoop (HDFS) e suporta [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Controla (r) de leitura, escrita (m) e executar (permissões para recursos para a função de proprietário, para o grupo de proprietários e para outros utilizadores e grupos x). No Data Lake Store, os ACLs podem ser ativados na pasta raiz, subpastas e ficheiros individuais. Para obter mais informações sobre como as ACLs funcionam no contexto do Data Lake Store, veja [Controlo de acesso no Data Lake Store](data-lake-store-access-control.md).
 
 Recomendamos que definir ACLs para vários utilizadores utilizando [grupos de segurança](../active-directory/active-directory-groups-create-azure-portal.md). Adicionar utilizadores a um grupo de segurança e, em seguida, atribua as ACLs para um ficheiro ou pasta para o grupo de segurança. Isto é útil quando pretende fornecer acesso personalizados, porque está limitado a adição de um máximo de nove entradas de acesso personalizados. Para obter mais informações sobre como proteger melhor os dados armazenados no Data Lake Store utilizando grupos de segurança do Azure Active Directory, consulte [atribuir utilizadores ou grupo de segurança como ACLs para o sistema de ficheiros do Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
@@ -110,7 +110,7 @@ Os clientes empresariais exigem uma plataforma de nuvem de análise de dados que
 
 Se pretender ver as novas funcionalidades no Data Lake Store, envie-nos seus comentários [fórum do Data Lake Store UserVoice](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
 * [Introdução ao Data Lake Store](data-lake-store-get-started-portal.md)
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)

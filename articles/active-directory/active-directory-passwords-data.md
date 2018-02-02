@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementar sem necessidade de registo de utilizador final de reposição de palavra-passe
 
@@ -44,6 +44,11 @@ Se utilizar as predefinições no Azure AD Connect, são efetuados os seguintes 
 | telephoneNumber | Telefone do emprego | Telefone alternativo |
 | Mobile | Número de telemóvel | Telefone |
 
+Estes campos podem aparecer em branco, até que um utilizador confirma que os seus dados de autenticação.
+
+Um Administrador Global pode definir manualmente as informações de contacto de autenticação para o utilizador, tal como apresentado na seguinte captura de ecrã.
+
+![Contact][Contact]
 
 ## <a name="security-questions-and-answers"></a>Perguntas de segurança e respostas
 
@@ -154,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Quais são todas as opções na SSPR e o que significam?](active-directory-passwords-how-it-works.md)
 * [Creio que algo está a funcionar incorretamente. Como posso resolver problemas da SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Os administradores globais podem modificar informações de contacto de autenticação de um utilizador"

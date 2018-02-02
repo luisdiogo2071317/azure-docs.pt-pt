@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 66b4f068189fd17f08a6a57ed44233c04c16fff7
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 99e3365a846f35262489fdccd753b4ce2e50fa49
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
@@ -31,7 +31,7 @@ Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Fa
 As instruções neste artigo utilizam uma base de dados SQL do Azure que aloja o catálogo SSIS. Também pode utilizar uma instância de geridos de SQL no Azure (pré-visualização privada).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Criar um integration runtime do Azure-SSIS
-Criar um tempo de execução de integração do Azure-SSIS se não tiver uma, seguindo as instruções passo a passo no [Tutorial: pacotes SSIS implementar](../tutorial-deploy-ssis-packages-azure.md). Tem de criar uma fábrica de dados da versão 2 para criar um tempo de execução de integração de SSIS do Azure. 
+Criar um tempo de execução de integração do Azure-SSIS se não tiver uma, seguindo as instruções passo a passo no [Tutorial: pacotes SSIS implementar](../tutorial-create-azure-ssis-runtime-portal.md). Tem de criar uma fábrica de dados da versão 2 para criar um tempo de execução de integração de SSIS do Azure. 
 
 ## <a name="azure-portal"></a>Portal do Azure
 Esta secção utiliza o portal do Azure para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS.
@@ -43,11 +43,11 @@ Primeiro passo é criar uma fábrica de dados utilizando o portal do Azure.
 2. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. No **nova fábrica de dados** página, introduza **ADFTutorialDataFactory** para o **nome**. 
+2. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** no **nome**. 
       
-     ![Nova página da fábrica de dados](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     ![Página Nova fábrica de dados](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se vir o seguinte erro para o campo de nome, altere o nome da fábrica de dados (por exemplo, Seunomeadftutorialdatafactory). Consulte [fábrica de dados - as regras de nomenclatura](data-factory-naming-rules.md) artigo para regras de nomenclatura artefactos do Data Factory de dados.
+   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se vir o erro seguinte no campo de nome, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory). Veja o artigo [Data Factory – Naming Rules](data-factory-naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
     `Data factory name ADFTutorialDataFactory is not available`
 3. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados. 
@@ -58,13 +58,13 @@ Primeiro passo é criar uma fábrica de dados utilizando o portal do Azure.
          
     Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../../azure-resource-manager/resource-group-overview.md).  
 4. Selecione **V1** para o **versão**.
-5. Selecione a **localização** da fábrica de dados. Apenas as localizações que são suportadas pela fábrica de dados são apresentadas na lista pendente. Os dados armazena (Storage do Azure, SQL Database do Azure, etc.) e computações (HDInsight, etc.) utilizadas pela fábrica de dados podem ser noutras localizações.
+5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que o Data Factory suporta. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras localizações.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.
 8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Depois de concluída a criação, consulte o **Data Factory** página conforme mostrado na imagem.
+9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
    
     ![Home page da fábrica de dados](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Clique em **autor e implementar** mosaico para iniciar o Editor do Data Factory.

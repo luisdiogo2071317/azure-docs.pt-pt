@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -345,7 +345,7 @@ Os guias seguintes estão disponíveis para o tópico de implementações de SAP
 
 As seguintes notas de SAP estão relacionadas com o tópico do SAP no Azure:
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicações SAP no Azure: os tipos de produtos suportados e VM do Azure |
 | [2015553] |SAP no Microsoft Azure: suporta a pré-requisitos |
@@ -1323,7 +1323,7 @@ Da mesma forma, para os tipos de instância do todas as VM do Azure suportados p
 
 Esta perspetiva, recomenda vivamente a utilizar o novo tipo de série D ou VM do Azure-série DS (em combinação com o Premium Storage do Azure), que têm processadores mais rápidos de 60% a série de D. Para a maior carga de RAM e da CPU, pode utilizar série G e VMs de série GS (em combinação com o Premium Storage do Azure) com o Intel mais recente?? Xeon?? processador E5 v3 família, que tem duas vezes a memória e quatro vezes o armazenamento de unidade de estado sólido (SSDs) de série de D/DS.
 
-#### <a name="storage-configuration"></a>Configuração de armazenamento
+#### <a name="storage-configuration"></a>Configuração do Armazenamento
 Como SAP liveCache baseia-se na tecnologia de SAP MaxDB, o armazenamento do Azure melhores recomendados mencionados para SAP MaxDB capítulo [configuração de armazenamento] [ dbms-guide-8.4.1] também são válidas para SAP liveCache. 
 
 #### <a name="dedicated-azure-vm-for-livecache"></a>VM do Azure dedicada para liveCache
@@ -1360,7 +1360,7 @@ Para obter a versão suportada do Windows para o servidor de conteúdo de SAP no
 Recomenda-se vivamente a utilização a versão mais recente do Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do servidor de conteúdo de SAP para SAP instalações em VMs do Azure
-#### <a name="storage-configuration"></a>Configuração de armazenamento
+#### <a name="storage-configuration"></a>Configuração do Armazenamento
 Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros na base de dados SAP MaxDB, todo o armazenamento do Azure melhores práticas recomendação mencionada para SAP MaxDB capítulo [configuração de armazenamento] [ dbms-guide-8.4.1] também são válidas para o cenário de servidor de conteúdo de SAP. 
 
 Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros no sistema de ficheiros, recomenda-se para utilizar uma unidade lógica dedicada. Utilizar espaços de armazenamento do Windows permite-lhe aumentar também o tamanho do disco lógico e débito IOPS, conforme descrito em capítulo [RAID de Software][dbms-guide-2.2]. 
@@ -1406,7 +1406,7 @@ SAP no IBM DB2 para LUW nos serviços de Máquina Virtual do Microsoft Azure é 
 Para obter informações sobre produtos SAP suportados e tipos de VM do Azure, consulte a nota SAP [1928533].
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM DB2 para Linux, UNIX e diretrizes de configuração do Windows para SAP instalações em VMs do Azure
-#### <a name="storage-configuration"></a>Configuração de armazenamento
+#### <a name="storage-configuration"></a>Configuração do Armazenamento
 Todos os ficheiros de base de dados devem ser armazenados no sistema de ficheiros NTFS com base nos discos ligados diretamente. Estes discos são montados à VM do Azure e baseiam-se no armazenamento de BLOBS de página do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou discos geridos (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer tipo de unidades de rede ou partilhas remotas, como os seguintes serviços de ficheiros do Azure são **não** suportado para ficheiros de base de dados: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/Archive/2014/05/12/Introducing-Microsoft-Azure-File-Service.aspx>
@@ -1462,7 +1462,7 @@ SAP no IBM DB2 para LUW nos serviços de Máquina Virtual do Microsoft Azure é 
 Para obter informações sobre produtos SAP suportados e tipos de VM do Azure, consulte a nota SAP [1928533].
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM DB2 para Linux, UNIX e diretrizes de configuração do Windows para SAP instalações em VMs do Azure
-#### <a name="storage-configuration"></a>Configuração de armazenamento
+#### <a name="storage-configuration"></a>Configuração do Armazenamento
 Todos os ficheiros de base de dados devem ser armazenados num sistema de ficheiros com base nos discos ligados diretamente. Estes discos são montados à VM do Azure e baseiam-se no armazenamento de BLOBS de página do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou discos geridos (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer tipo de unidades de rede ou partilhas remotas, como os seguintes serviços de ficheiros do Azure são **não** suportado para ficheiros de base de dados:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/Archive/2014/05/12/Introducing-Microsoft-Azure-File-Service.aspx>

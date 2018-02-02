@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 2738af56782dbe8c917afd942e3f6b1eada026b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 47ba146d18a20cf6c7e7480d74a02ba354486988
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Tutorial: Integração do Azure Active Directory com PatentSQUARE
 
@@ -118,7 +118,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-patentsquare-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único em **PatentSQUARE** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de PatentSQUARE](http://www.panasonic.com/jp/company/pstc.html). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+6. Para configurar o início de sessão único em **PatentSQUARE** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,7 +158,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
 ### <a name="create-a-patentsquare-test-user"></a>Criar um utilizador de teste PatentSQUARE
 
-Nesta secção, vai criar um utilizador chamado Britta Simon PatentSQUARE. Trabalhar com [equipa de suporte de PatentSQUARE](http://www.panasonic.com/jp/company/pstc.html) para adicionar os utilizadores na plataforma PatentSQUARE. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um utilizador chamado Britta Simon PatentSQUARE. Trabalhar com [equipa de suporte de PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html) para adicionar os utilizadores na plataforma PatentSQUARE. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

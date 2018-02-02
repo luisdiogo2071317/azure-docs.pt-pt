@@ -2,17 +2,17 @@
 title: Azure de entrega de eventos grelha e tente novamente
 description: Descreve como grelha de eventos do Azure oferece eventos e como se processa mensagens undelivered.
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens de grelha de eventos e tente novamente 
 
@@ -58,11 +58,11 @@ Grelha de evento utiliza uma política de repetição de término exponencial pa
 6. 30 minutos
 7. 1 hora
 
-Grelha de eventos adiciona uma pequena aleatoriedade para todos os intervalos de repetição.
+Grelha de eventos adiciona uma pequena aleatoriedade para todos os intervalos de repetição. Depois de uma hora, a entrega de eventos é repetida uma vez a uma hora.
 
 ## <a name="retry-duration"></a>Repita a duração
 
-Durante a pré-visualização do Azure eventos grelha expira todos os eventos que não são fornecidos no prazo de duas horas.
+Grelha de eventos do Azure expira todos os eventos que não foram fornecidos dentro de 24 horas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

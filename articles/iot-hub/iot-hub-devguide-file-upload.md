@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o IoT Hub
 
@@ -96,7 +96,7 @@ Os seguintes tópicos de referência, poderá obter mais informações sobre com
 
 ## <a name="file-upload-notifications"></a>Notificações de carregamento de ficheiros
 
-Opcionalmente, quando um dispositivo notifica o IoT Hub que um carregamento estiver concluído, o IoT Hub pode gerar uma mensagem de notificação que contém a localização de armazenamento e o nome do ficheiro.
+Opcionalmente, quando um dispositivo notifica o IoT Hub que um carregamento estiver concluído, o IoT Hub gera uma mensagem de notificação que contém a localização de armazenamento e o nome do ficheiro.
 
 Conforme explicado no [pontos finais][lnk-endpoints], o IoT Hub disponibiliza notificações de carregamento de ficheiros através de um ponto final de serviço com acesso à (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de receção de notificações de carregamento de ficheiros são iguais às mensagens da nuvem para o dispositivo e ter o mesmo [ciclo de vida de mensagem][lnk-lifecycle]. Cada mensagem obtida a partir do ponto final de notificação do carregamento de ficheiros é um registo JSON com as seguintes propriedades:
 
@@ -143,7 +143,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * [A linguagem de consulta do IoT Hub] [ lnk-query] descreve o idioma de consulta pode utilizar para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como carregar ficheiros a partir de dispositivos com o IoT Hub, poderá estar interessado nos seguintes tópicos do guia de programadores do IoT Hub:
 
@@ -153,7 +153,7 @@ Agora que aprendeu como carregar ficheiros a partir de dispositivos com o IoT Hu
 * [Invocar um método direto num dispositivo][lnk-devguide-directmethods]
 * [Agenda de tarefas em vários dispositivos][lnk-devguide-jobs]
 
-Se pretender experimentar alguns dos conceitos descritos neste artigo, poderá estar interessado no tutorial seguinte do IoT Hub:
+Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do IoT Hub seguinte:
 
 * [Como carregar ficheiros a partir de dispositivos para a nuvem com o IoT Hub][lnk-fileupload-tutorial]
 

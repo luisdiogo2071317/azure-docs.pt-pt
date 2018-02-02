@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Um cluster do Service Fabric no ou utilizando regras de dimensionamento automático de escala
 Conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster de Service Fabric está configurado como um conjunto de dimensionamento de Máquina Virtual separado. Cada tipo de nó, em seguida, pode ser ampliado na ou saída de forma independente, têm conjuntos diferentes de portas abertas e pode ter as métricas de capacidade diferentes. Saiba mais sobre-na [nodetypes de Service Fabric](service-fabric-cluster-nodetypes.md) documento. Uma vez que os tipos de nó de Service Fabric no seu cluster são constituídos por conjuntos de dimensionamento de Máquina Virtual no back-end, terá de configurar regras de dimensionamento automático para cada conjunto de dimensionamento da Máquina Virtual/tipo nó.
@@ -91,7 +91,7 @@ Tem a executar a seguinte passos uma instância de VM de cada vez. Este procedim
 4. Repita os passos 1 a 3 conforme necessário, mas nunca reduzir verticalmente o número de instâncias nos tipos de nó principal inferior ao que warrants o escalão de fiabilidade. Consulte [os detalhes sobre camadas de fiabilidade aqui](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Comportamentos que pode observar no Service Fabric Explorer
-Quando dimensionar um cluster do Service Fabric Explorer irá refletir o número de nós (as instâncias do conjunto de dimensionamento de Máquina Virtual), que fazem parte do cluster.  No entanto, quando dimensiona um cluster inativo, verá a instância VM/nó removido apresentada em mau estado de funcionamento, a menos que tem de chamar [remover ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) com o nome de nó adequado.   
+Quando dimensionar um cluster do Service Fabric Explorer irá refletir o número de nós (as instâncias do conjunto de dimensionamento de Máquina Virtual), que fazem parte do cluster.  No entanto, quando dimensiona um cluster inativo, verá a instância VM/nó removido apresentada em mau estado de funcionamento, a menos que tem de chamar [remover ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome de nó adequado.   
 
 Eis a explicação para este comportamento.
 
@@ -109,7 +109,7 @@ Consulte [os detalhes sobre níveis de durabilidade aqui](service-fabric-cluster
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Leia o seguinte para também saber mais sobre o planeamento da capacidade de cluster, atualização de um cluster e a criação de partições de serviços:
 
 * [Planear a capacidade de cluster](service-fabric-cluster-capacity.md)

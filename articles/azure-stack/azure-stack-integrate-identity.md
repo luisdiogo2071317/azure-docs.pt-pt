@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do Centro de dados do Azure pilha - identidade
-
-*Aplica-se a: Azure pilha integrado sistemas*
-
 Pode implementar a pilha do Azure utilizando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Tem de se a opção antes de implementar pilha do Azure. Implementação a utilizar o AD FS é também referida como implementar a pilha do Azure no modo desligado.
 
 A tabela seguinte mostra as diferenças entre as opções de duas identidade:
@@ -26,7 +24,7 @@ A tabela seguinte mostra as diferenças entre as opções de duas identidade:
 |---------|---------|---------|
 |Faturação|Tem de ser capacidade<br> Apenas Enterprise Agreement (EA)|Capacidade ou Pay-como-utiliza<br>EA ou o fornecedor de solução em nuvem (CSP)|
 |Identidade|Tem de ser do AD FS|Azure AD ou AD FS|
-|Sindicação do Marketplace|Não se encontra disponível|Suportado<br>BYOL de licenciamento|
+|Sindicação do Marketplace|Suportadas<br>BYOL de licenciamento|Suportadas<br>BYOL de licenciamento|
 |Registo|Recomendado, necessita de suporte de dados amovível<br> e um dispositivo ligado separado.|Automatizada|
 |Patch e atualização|Necessário, necessita de suporte de dados amovível<br> e um dispositivo ligado separado.|Pacote de atualização pode ser transferido diretamente<br> através da Internet para a pilha do Azure.|
 
@@ -66,7 +64,7 @@ São necessárias como entradas para os parâmetros de automatização as seguin
 
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
-|CustomADGlobalCatalog|FQDN da floresta do Active Directory de destino<br>que pretende integrar com o|contoso.com|
+|CustomADGlobalCatalog|FQDN da floresta do Active Directory de destino<br>que pretende integrar com o|Contoso.com|
 |CustomADAdminCredentials|Um utilizador com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Criar conta de utilizador no Active Directory existente (opcional)
@@ -110,7 +108,7 @@ Serviço de gráfico na pilha do Azure utiliza as seguintes portas e protocolos 
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
-|SSL LDAP DE GC|3269|TCP|
+|LDAP GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Configurar a integração do AD FS ao transferir os metadados de Federação
 
@@ -119,7 +117,7 @@ As seguintes informações não são necessárias como entrada para os parâmetr
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do fornecedor de afirmações. <cr>Parece dessa forma, na página de destino do AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Ligação de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomAD<br>FSFederationMetadataEndpointUri|Ligação de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatização de Acionador para configurar a confiança do fornecedor de afirmações na pilha do Azure
@@ -158,7 +156,7 @@ As seguintes informações não são necessárias como entrada para os parâmetr
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do fornecedor de afirmações. Parece que forma na página de destino do AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Ficheiro de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomADFSFederationMetadataFile|Ficheiro de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Criar ficheiro de metadados de Federação
 
@@ -333,6 +331,6 @@ Se qualquer um dos cmdlets falharem, podem recolher registos adicionais utilizan
    ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Azure pilha integração do Centro de dados - publicar pontos finais](azure-stack-integrate-endpoints.md)
+[Registar a pilha do Azure](azure-stack-registration.md)

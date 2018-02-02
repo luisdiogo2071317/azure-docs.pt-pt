@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurar o Monitor de desempenho de rede para o ExpressRoute (pré-visualização)
 
@@ -46,8 +46,9 @@ Pode monitorizar os circuitos do ExpressRoute em qualquer parte do mundo atravé
 * Europa Ocidental 
 * EUA Leste 
 * Sudeste Asiático 
+* Austrália Leste-Sul
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Workflow
 
 Se encontram instalados agentes de monitorização em vários servidores, no local e no Azure. Os agentes de comunicarem entre si, mas não enviam dados, enviam pacotes de handshake TCP. A comunicação entre os agentes permite ao Azure mapear a topologia de rede e o caminho que o tráfego pode demorar algum.
 
@@ -174,16 +175,13 @@ Para monitorizar os servidores de agente que se encontrem no Azure, tem de confi
 
 Para mais informações sobre o NSG, consulte [grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Passo 4: Pedido lista branca área de trabalho
-
 >[!NOTE]
 >Certifique-se de que instalou os agentes (o agente de servidor no local e o agente do servidor do Azure) e ter a executar o script do PowerShell antes de continuar com este passo.
 >
 >
 
-Antes de começar a utilizar a funcionalidade de monitorização do ExpressRoute de NPM, tem de solicitar para ter a sua área de trabalho na lista de permissões. [Clique aqui para ir para a página e preencher o formulário de pedido](https://aka.ms/npmcohort). (Sugestão: pretende abrir esta ligação numa nova janela ou separador). O processo de adicionar à lista branca pode demorar um dia útil ou mais. Depois do adicionar à lista branca estiver concluída, receberá uma mensagem de e-mail.
 
-## <a name="setupmonitor"></a>Passo 5: Configurar NPM para monitorização do ExpressRoute
+## <a name="setupmonitor"></a>Passo 4: Configurar NPM para monitorização do ExpressRoute
 
 >[!WARNING]
 >Não continue até que a sua área de trabalho foi na lista de permissões e receber um e-mail de confirmação.
@@ -208,7 +206,7 @@ Depois de concluir as secções anteriores e certifique-se de que foram na lista
 
   ![monitorização de mosaicos](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Passo 6: Ver mosaicos de monitorização
+## <a name="explore"></a>Passo 5: Ver mosaicos de monitorização
 
 ### <a name="dashboard"></a>Página de Monitor de desempenho de rede
 

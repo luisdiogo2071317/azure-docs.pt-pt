@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>Conectividade de rede
+# <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede de pilha do Azure para o ajudar a decidir como pretende integrar melhor pilha do Azure no seu ambiente de rede existente. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Este /24 254 anfitrião do rede (IP) é privado para a região de pilha do Azure
 - **Rede IP virtual interna**. A/25 VIPs dedicados para meramente internos para o Balanceador de carga do software de rede.
 
 ### <a name="azure-stack-infrastructure-network"></a>Rede de infraestrutura de pilha do Azure
-Isto/24 rede se encontra dedicado para componentes internos de pilha do Azure para que estes possam comunicar e trocar dados entre si próprios. Esta sub-rede necessita de endereços IP encaminháveis, mas é mantida privada para a solução através de listas de controlo de acesso (ACL), não é esperado para ser encaminhados para além dos comutadores de limite, exceto para um intervalo muito pequeno equivalente num tamanho de ao/27 rede utilizada pelas alguns deles serviços quando necessitem de acesso a recursos externos e/ou da internet. 
+Isto/24 rede se encontra dedicado para componentes internos de pilha do Azure para que estes possam comunicar e trocar dados entre si próprios. Esta sub-rede necessita de endereços IP encaminháveis, mas é mantida privada para a solução através de listas de controlo de acesso (ACL). Não é esperado para ser encaminhados para além dos comutadores de limite, exceto para um intervalo de pequeno equivalente num tamanho de ao/27 rede utilizada pelas alguns destes serviços quando necessitem de acesso a recursos externos e/ou da internet. 
 
 ### <a name="public-infrastructure-network"></a>Rede de infraestrutura públicas
-Isto/27 rede é o intervalo muito pequeno da sub-rede de infraestrutura do Azure pilha mencionado anteriormente, não necessita de endereços IP públicos, mas requerem acesso à internet através de um NAT ou um Proxy transparente. Esta rede será atribuída para o sistema de consola de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registo para o Azure e devem ser encaminhável para a sua rede de gestão para fins de resolução de problemas.
+Isto/27 rede é o intervalo de pequeno da sub-rede de infraestrutura do Azure pilha mencionado anteriormente, não necessita de endereços IP públicos, mas requerem acesso à internet através de um NAT ou um Proxy transparente. Esta rede será atribuída para o sistema de consola de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registo para o Azure e devem ser encaminhável para a sua rede de gestão para fins de resolução de problemas.
 
 ### <a name="public-vip-network"></a>Rede de VIP pública
 A rede de VIP público é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB utiliza o conjunto de endereços e atribui/32 redes para cargas de trabalho inquilinas. Na tabela de encaminhamento de comutador, estes IPs 32 estão anunciados como uma rota disponível através do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure utiliza, pelo menos, 8 endereços desta rede VIP público enquanto o resto é utilizado pelas VMs inquilino. O tamanho da rede nesta sub-rede variam entre um mínimo de /26 (64 anfitriões) para um máximo de /22 (1022 anfitriões), recomendamos que planeie um /24 rede.
@@ -82,12 +82,7 @@ Terá de disponibilizar os serviços do Azure pilha aos utilizadores da pilha fo
 ### <a name="ports-and-urls"></a>URLs e portas
 Para tornar os serviços de pilha do Azure (por exemplo, portais do Azure Resource Manager, DNS, etc.) disponível para redes externas, tem de permitir tráfego de entrada para estes pontos finais para URLs, portas e protocolos específicos.
  
-Numa implementação em que um uplink de proxy transparentes para um servidor proxy tradicionais, tem de permitir URLs e portas específicas para comunicação de saída. Estes incluem portas e URLs para identidade, sindicação do marketplace, patch e atualização, registo e dados de utilização.
-
-Para obter mais informações, consulte:
-- [Protocolos e portas de entrada](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [URLs e portas de saída](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+Numa implementação em que um uplinks de proxy transparentes para um servidor proxy tradicionais, tem de permitir URLs e portas específicas para ambos [entrada](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) e [saída](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) comunicação. Estes incluem portas e URLs para identidade, sindicação do marketplace, patch e atualização, registo e dados de utilização.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Conectividade de limite de pilha do Azure](azure-stack-border-connectivity.md)
+[Conectividade de limite](azure-stack-border-connectivity.md)

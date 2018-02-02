@@ -3,8 +3,8 @@ title: "Utilizar o Azure Active Directory para autenticação de soluções de s
 description: "Batch suporta do Azure AD para a autenticação do serviço Batch."
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
-ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: danlep
+ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço Batch com o Active Directory
 
@@ -310,7 +310,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais acerca do Azure AD, consulte o [documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Exemplos aprofundados que mostra como utilizar a ADAL estão disponíveis no [exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteca.
 

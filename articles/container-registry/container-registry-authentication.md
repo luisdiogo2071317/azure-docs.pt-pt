@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo de contentor do Docker privado
 
@@ -45,7 +45,7 @@ As funções disponíveis são:
 
 Principais de serviço ativar a conetividade sem interface para um registo em push e pull cenários como o seguinte:
 
-  * *Leitor*: implementações de contentores de um registo para sistemas de orquestração, incluindo Kubernetes, DC/OS e Docker Swarm. Pode também solicitar a partir os registos do contentor para os serviços do Azure relacionados, tais como [AKS](../aks/index.yml), [do serviço de aplicações](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), e outras pessoas.
+  * *Leitor*: implementações de contentores de um registo para sistemas de orquestração, incluindo Kubernetes, DC/OS e Docker Swarm. Pode também solicitar a partir os registos do contentor para os serviços do Azure relacionados, tais como [AKS](../aks/index.yml), [do serviço de aplicações](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), e outras pessoas.
 
   * *Contribuidor*: soluções de integração e a implementação contínua, como os serviços de equipa do Visual Studio (VSTS) ou Jenkins que criar imagens de contentor e emiti-las para um registo.
 

@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Controlos de acesso condicional do Azure Active Directory 
 
@@ -46,7 +46,7 @@ Existem dois tipos de controlos:
 
 Este tópico explica os vários controlos que estão disponíveis no acesso condicional do Azure AD. 
 
-## <a name="grant-controls"></a>Controlos de conceder
+## <a name="grant-controls"></a>Controlos de concessão
 
 Com controlos de conceder, pode bloquear o acesso totalmente ou permitir o acesso com requisitos adicionais ao selecionar os controlos pretendidos. Para os vários controlos, pode exigir a:
 
@@ -107,7 +107,7 @@ Estes controlos permitem a utilização de determinados serviços externos ou pe
 
 Fornecedores atualmente oferece um serviço compatível incluem:
 
-- Segurança Duo
+- [Segurança Duo](https://duo.com/docs/azure-ca)
 
 - RSA
 
@@ -150,18 +150,18 @@ Para editar um controlo personalizado, tem de eliminar o controlo atual e criar 
 
 ## <a name="session-controls"></a>Controlos de sessão
 
-Controlos de sessão ativar experiência limitada dentro de uma aplicação de nuvem. Os controlos de sessão são impostos pelo aplicações na nuvem e dependem das informações adicionais fornecidas pelo Azure AD para a aplicação sobre a sessão.
+Os controlos de sessão proporcionam uma experiência limitada dentro de uma aplicação na cloud. Os controlos de sessão são impostos pelo aplicações na nuvem e dependem das informações adicionais fornecidas pelo Azure AD para a aplicação sobre a sessão.
 
 ![Controlo](./media/active-directory-conditional-access-controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Utilize as restrições da aplicação imposta
+### <a name="use-app-enforced-restrictions"></a>Utilizar as restrições da aplicação imposta
 
 Pode utilizar este controlo para exigir o Azure AD para passar as informações do dispositivo para a aplicação de nuvem. Isto ajuda a aplicação na nuvem saber se o utilizador for proveniente de um dispositivo compatível com ou um dispositivo associado a um domínio. Este controlo está atualmente só é suportada com o SharePoint que a aplicação de nuvem. SharePoint utiliza as informações do dispositivo para fornecer aos utilizadores uma experiência completa ou limitada, consoante o estado do dispositivo.
 Para obter mais informações sobre como exigir acesso limitado com o SharePoint, consulte [controlar o acesso a partir de dispositivos não geridos](https://aka.ms/spolimitedaccessdocs).
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

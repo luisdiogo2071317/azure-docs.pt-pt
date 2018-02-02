@@ -1,5 +1,5 @@
 ---
-title: "Sincronização do Azure AD Connect: configurar a localização de dados preferencial para utilizadores do Office 365 | Microsoft Docs"
+title: "Sincronização do Azure AD Connect: configurar a localização de dados preferencial para Georreplicação várias capacidades no Office 365 | Microsoft Docs"
 description: "Descreve como colocar os recursos de utilizador do Office 365 próximo do utilizador com a sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 01/30/2018
 ms.author: billmath
-ms.openlocfilehash: 73b9b8d208b5eac2e62f62ab786efafa056e3cb4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure AD Connect: configurar a localização de dados preferencial para os recursos do Office 365
-O objetivo se este tópico explica como configurar preferredDataLocation na sincronização do Azure AD Connect. Este atributo é utilizado para indicar ao Office 365 em que o utilizador está localizado para que os recursos podem ser colocados próximo do utilizador. Esta funcionalidade destina-se a clientes maior.
+É o objetivo deste tópico explica como configurar PreferredDataLocation no Azure AD Connect Sync. Quando um cliente utiliza as capacidades de várias Georreplicação no Office 365, este atributo é utilizado para designar a geolocalização os dados do utilizador do Office 365.
 
 > [!IMPORTANT]
-> Esta funcionalidade está atualmente em pré-visualização e desativado por predefinição na nuvem. Se pretende aderir ao programa de pré-visualização, contacte o seu representante da Microsoft.
+> Várias Georreplicação está atualmente em pré-visualização. Se pretende aderir ao programa de pré-visualização, contacte o seu representante da Microsoft.
 >
 >
 
@@ -34,11 +34,11 @@ Por predefinição, os recursos do Office 365 para os seus utilizadores estão l
 Pelas definições este atributo, pode ter recursos do Office 365 do utilizador, tais como a caixa de correio e o OneDrive, na mesma região que o utilizador e continuará a ter um inquilino para toda a organização.
 
 > [!IMPORTANT]
-> Para ser elegível para esta funcionalidade tem de ter menos de 5000 utilizadores individuais na sua subscrição do Office 365.
+> Para ser elegível para várias Georreplicação, tem de ter menos de 5000 utilizadores individuais na sua subscrição do Office 365
 >
 >
 
-As regiões no Office 365 são:
+As regiões no Office 365 disponíveis para várias Georreplicação são:
 
 | Região | Descrição |
 | --- | --- |
@@ -56,7 +56,6 @@ Nem todas as cargas de trabalho do Office 365 suporta a utilização de definiç
 Azure AD Connect suporta a sincronização do **PreferredDataLocation** atributo para **utilizador** objetos na versão 1.1.524.0 e depois. Mais especificamente, as seguintes alterações foram introduzidas:
 
 * O esquema do tipo de objeto **utilizador** no conector Azure AD é expandido para incluir o atributo PreferredDataLocation, que é do tipo cadeia de valor único.
-
 * O esquema do tipo de objeto **pessoa** no Metaverso é expandido para incluir o atributo de PreferredDataLocation, o que é do tipo cadeia e é o valor único.
 
 Por predefinição, o atributo PreferredDataLocation não está ativado para sincronização. Esta funcionalidade foi concebida para organizações de maior e não todos seriam beneficiar do mesmo. Tem também de identificar um atributo para conter a região do Office 365 para os seus utilizadores, uma vez que não existe nenhum atributo PreferredDataLocation no Active Directory no local. Isto vai ser diferentes para cada organização.
@@ -69,14 +68,13 @@ Por predefinição, o atributo PreferredDataLocation não está ativado para sin
 
 Antes de ativar a sincronização do atributo PreferredDataLocation, tem de:
 
- * Primeiro, tem de decidir que atributo do Active Directory no local para ser utilizado como o atributo de origem. Deve ser do tipo **cadeia de valor único**. Os passos abaixo de um do extensionAttributes são utilizados.
-
- * Se configurou anteriormente o atributo PreferredDataLocation no existente sincronizados objetos de utilizador no Azure AD com o Azure AD PowerShell, tem **backport** os valores de atributo para os objetos de utilizador correspondentes no Active Directory no local.
+* Primeiro, tem de decidir que atributo do Active Directory no local para ser utilizado como o atributo de origem. Deve ser do tipo **cadeia de valor único**. Os passos abaixo de um do extensionAttributes são utilizados.
+* Se configurou anteriormente o atributo PreferredDataLocation no existente sincronizados objetos de utilizador no Azure AD com o Azure AD PowerShell, tem **backport** os valores de atributo para os objetos de utilizador correspondentes no Active Directory no local.
 
     > [!IMPORTANT]
     > Se o fizer não backport os valores de atributo para os objetos de utilizador correspondentes no Active Directory no local, o Azure AD Connect irá remover os valores de atributo existentes no Azure AD quando a sincronização para o atributo PreferredDataLocation está ativada.
 
- * É recomendável que configure o atributo de origem em, pelo menos, duas no local utilizador AD objetos agora, que pode ser utilizado para a verificar mais tarde.
+* É recomendável que configure o atributo de origem em, pelo menos, duas no local utilizador AD objetos agora, que pode ser utilizado para a verificar mais tarde.
 
 Os passos para ativar a sincronização do atributo PreferredDataLocation podem ser resumidos como:
 
@@ -102,7 +100,7 @@ Certifique-se de que não sincronização ocorre enquanto estiver a atualizar as
 
 ![Verificação de Gestor do serviço de sincronização - não existem operações em curso](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Passo 2: Adicionar o atributo de origem para o esquema de conector do ADDS no local
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Passo 2: Adicionar o atributo de origem para o esquema de conector do ADDS no local
 Nem todos os atributos de AD são importados para o local espaço de conector do AD. Se tiver optado por utilizar um atributo não sincronizado por predefinição, em seguida, terá de importá-la. Para adicionar o atributo de origem para a lista dos atributos importados:
 
 1. Vá para o **conectores** separador o Synchronization Service Manager.
@@ -124,7 +122,7 @@ Por predefinição, o atributo PreferredDataLocation não é importado para o es
 
 ![Adicione o atributo de origem para o esquema do conector do Azure AD](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Passo 4: Criar uma regra de sincronização de entrada para passar o valor do atributo do Active Directory no local
+## <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Passo 4: Criar uma regra de sincronização de entrada para passar o valor do atributo do Active Directory no local
 A regra de sincronização de entrada permite que o valor de atributo para o fluxo a partir do atributo de origem do Active Directory no local para o Metaverso:
 
 1. Iniciar o **Editor de regras de sincronização** acedendo a **iniciar** > **Editor de regras de sincronização**.
@@ -256,6 +254,15 @@ Pressupondo que o inquilino foi marcado para poder utilizar esta funcionalidade,
 4. Para verificar que esta definição foi eficaz através de várias caixas de correio, utilize o script no [Galeria de Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Este script também tem uma lista de todos os prefixos de servidor de centros de dados do Office 365 e que região, este ficará localizado no. Pode ser utilizado como referência no passo anterior para verificar a localização da caixa de correio.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+**Saiba mais sobre várias geográfica no Office 365:**
+
+* Georreplicação de várias sessões no Ignite: https://aka.ms/MultiGeoIgnite
+* Várias geográfica no OneDrive: https://aka.ms/OneDriveMultiGeo
+* Várias geográfica no SharePoint Online: https://aka.ms/SharePointMultiGeo
+
+**Saiba mais sobre o modelo de configuração no motor de sincronização:**
+
 * Saiba mais sobre o modelo de configuração [compreender de aprovisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Saiba mais sobre o idioma de expressão no [expressões compreender de aprovisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 

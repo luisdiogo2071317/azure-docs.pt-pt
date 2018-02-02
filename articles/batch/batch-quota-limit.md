@@ -3,8 +3,8 @@ title: "Quotas e limites de serviço para o Azure Batch | Microsoft Docs"
 description: "Saiba mais sobre quotas do Azure Batch predefinidas, os limites e restrições e aumenta como pedir quota"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -48,14 +48,14 @@ Se utilizou uma versão anterior da API do Batch para criar uma conta do Batch c
 | --- | --- |
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 x número de núcleos de nó |
 | [Aplicações](batch-application-packages.md) por conta do Batch |20 |
-| Pacotes de aplicações por aplicação |40 |
+| Pacotes de aplicação por aplicação |40 |
 | Tamanho do pacote de aplicação (cada) |Aprox 195GB<sup>1</sup> |
 | Tamanho de tarefa de início máximo | 32768 carateres<sup>2</sup> |
 | Duração máxima de tarefas | 7 dias<sup>3</sup> |
 
 <sup>1</sup> limite de armazenamento do azure para o tamanho do blob de bloco máximo<br />
 <sup>2</sup> inclui ficheiros de recursos e as variáveis de ambiente<br />
-<sup>3</sup> a duração máxima de uma tarefa, a partir da quando é adicionada à tarefa para quando estiver concluída, é de 7 dias. Tarefas de conclusão manter indefinidamente; dados de tarefas não foi concluída dentro da duração máxima não estão acessíveis.
+<sup>3</sup> a duração máxima de uma tarefa, a partir da quando é adicionada à tarefa para quando estiver concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
 
 
 ## <a name="view-batch-quotas"></a>Ver as quotas de Batch

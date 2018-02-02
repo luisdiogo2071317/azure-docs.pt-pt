@@ -64,4 +64,4 @@ Pode restringir o acesso de início de sessão para contas de utilizador único 
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Utilize um método personalizado para validar emissores
 Pode implementar um método personalizado para validar os emissores utilizando o **IssuerValidator** parâmetro. Para obter mais informações sobre como utilizar este parâmetro, leia sobre o [TokenValidationParameters classe](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) no MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

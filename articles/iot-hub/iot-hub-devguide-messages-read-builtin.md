@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens do dispositivo para nuvem a partir do ponto de final incorporado
 
@@ -32,7 +32,7 @@ IoT Hub também permite-lhe gerir os grupos de consumidores do dispositivo para 
 
 Por predefinição, todas as mensagens que não correspondam a uma regra de encaminhamento de mensagens explicitamente são escritas para o ponto final incorporado. Se desativar esta rota de contingência, mensagens que não correspondem explicitamente quaisquer regras de encaminhamento de mensagens são ignoradas.
 
-Pode modificar o período de retenção, quer através de programação através o [fornecedor de recursos do IoT Hub REST APIs][lnk-resource-provider-apis], ou utilizando o [portal do Azure][lnk-management-portal].
+Pode modificar o período de retenção, ou através de programação utilizando o [fornecedor de recursos do IoT Hub REST APIs][lnk-resource-provider-apis], ou com o [portal do Azure] [ lnk-management-portal].
 
 IoT Hub expõe o **mensagens/eventos** ponto final incorporado para os serviços de back-end ler as mensagens do dispositivo para nuvem recebidas pelo seu hub. Este ponto final é evento compatível com o Hub, que lhe permite utilizar qualquer um dos mecanismos de que o serviço de Event Hubs suporte para ler mensagens.
 
@@ -40,14 +40,14 @@ IoT Hub expõe o **mensagens/eventos** ponto final incorporado para os serviços
 
 Quando utiliza o [o SDK .NET do Azure Service Bus] [ lnk-servicebus-sdk] ou o [Hubs de eventos - evento processador anfitrião][lnk-eventprocessorhost], pode utilizar qualquer cadeias de ligação do IoT Hub com as permissões corretas. Em seguida, utilize **mensagens/eventos** como o nome de Hub de eventos.
 
-Ao utilizar SDKs (ou integrações de produto) não tem conhecimento do IoT Hub, tem de obter um ponto de final compatível com o Event Hub e o nome compatível com o Event Hub das definições de hub IoT:
+Ao utilizar SDKs (ou integrações de produto) não tem conhecimento do IoT Hub, tem de obter um ponto de final compatível com o Event Hub e o nome compatível com o Event Hub:
 
 1. Iniciar sessão para o [portal do Azure] [ lnk-management-portal] e navegue até ao seu IoT hub.
 1. Clique em **Pontos Finais**.
 1. No **pontos finais incorporados** secção, clique em **eventos**. 
 1. É aberta uma página de propriedades, que contém os seguintes valores: **endpoint compatível com o Event Hub**, **nome compatível com o Event Hub**, **partições**,  **Período de retenção**, e **grupos de consumidores**.
 
-    ![Definições do dispositivo-nuvem][img-eventhubcompatible]
+    ![Definições do dispositivo para a nuvem][img-eventhubcompatible]
 
 O SDK do Hub IoT requer o nome de ponto final de IoT Hub, que é **mensagens/eventos** conforme mostrado em **pontos finais**.
 
@@ -65,7 +65,7 @@ Os SDKs e integrações que pode utilizar com pontos finais de compatível com o
 * [Spout do Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Pode ver o [spout origem](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
 * [Integração do Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre pontos finais de IoT Hub, consulte [pontos finais de IoT Hub][lnk-endpoints].
 

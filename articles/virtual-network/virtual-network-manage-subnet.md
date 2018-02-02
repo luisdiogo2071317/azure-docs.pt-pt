@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -35,7 +35,7 @@ Este artigo explica como adicionar, alterar e eliminar uma sub-rede para redes v
 
 Antes de iniciar as tarefas que são descritas neste artigo, conclua os seguintes pré-requisitos:
 
-- Se estiver a trabalhar com redes virtuais, recomendamos que reveja o exercício no [criar a sua primeira rede virtual do Azure](virtual-network-get-started-vnet-subnet.md). Neste exercício pode ajudar a tornar-se mais familiar com redes virtuais.
+- Se estiver a trabalhar com redes virtuais, recomendamos que reveja o exercício no [criar a sua primeira rede virtual do Azure](quick-create-portal.md). Neste exercício pode ajudar a tornar-se mais familiar com redes virtuais.
 - Para saber mais sobre os limites de redes virtuais, reveja [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Inicie sessão no portal do Azure, a ferramenta de linha de comandos do Azure (CLI do Azure) ou o Azure PowerShell, utilizando a sua conta do Azure. Se não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se planeia utilizar comandos do PowerShell para concluir as tarefas descritas neste artigo, tem primeiro [instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que tem a versão mais recente dos cmdlets Azure PowerShell instaladas. Para obter ajuda para comandos do PowerShell nos exemplos, introduza `get-help <command> -full`.
@@ -66,8 +66,8 @@ Para adicionar uma sub-rede:
 
 |Ferramenta|Comando|
 |---|---|
-|CLI do Azure|[criar a sub-rede da vnet AZ rede](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Novo AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [AzureRmVirtualNetworkSubnetConfig adicionar](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI do Azure|[az network vnet subnet create](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>Alterar definições da sub-rede
 
@@ -85,7 +85,7 @@ Pode alterar os grupos de segurança de rede, as tabelas de rotas e acesso de ut
 |Ferramenta|Comando|
 |---|---|
 |CLI do Azure|[atualização de sub-rede da vnet de rede de AZ](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Conjunto AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="delete-subnet"></a>Eliminar uma sub-rede
@@ -102,9 +102,9 @@ Pode eliminar uma sub-rede apenas se existem não existem recursos na sub-rede. 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI do Azure|[AZ rede vnet elimine](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remover AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI do Azure|[az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para criar uma máquina virtual numa sub-rede, consulte [criar uma rede virtual e implementar as VMs na sub-rede](virtual-network-get-started-vnet-subnet.md#create-vms).
+Para criar uma máquina virtual numa sub-rede, consulte [criar uma rede virtual e implementar as VMs na sub-rede](quick-create-portal.md#create-virtual-machines).

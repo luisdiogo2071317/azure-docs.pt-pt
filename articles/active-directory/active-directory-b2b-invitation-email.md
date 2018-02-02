@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do e-mail de convite de colaboração B2B - Azure Active Directory
 
@@ -32,7 +32,7 @@ Vamos ver alguns elementos da mensagem de e-mail para saber como melhor para uti
 O assunto do e-mail segue o padrão seguinte: está convidado para o &lt;tenantname&gt; organização
 
 ### <a name="from-address"></a>Do endereço
-Podemos utilizar um padrão como o LinkedIn para o endereço.  Deve ser claro que seja o inviter e endereço de e-mail da empresa e também esclarecer que o e-mail é proveniente de um Microsoft. O formato é: &lt;nome a apresentar do inviter&gt; de &lt;tenantname&gt; (através do Microsoft) <invites@microsoft.com&gt;
+Podemos utilizar um padrão como o LinkedIn para o endereço.  Deve ser claro que seja o inviter e endereço de e-mail da empresa e também esclarecer que o e-mail é proveniente de um Microsoft. O formato é: &lt;nome a apresentar do inviter&gt; de &lt;tenantname&gt; (através do Microsoft)<invites@microsoft.com>
 
 ### <a name="reply-to"></a>Responder A
 O e-mail de resposta é definido ao e-mail a inviter se estiver disponível, para que a resposta para o e-mail envia um e-mail para o inviter.

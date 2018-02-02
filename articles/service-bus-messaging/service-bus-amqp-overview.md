@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: e2d190dddc3b84eb07eaf2ffea1af48bba0ea13a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2dffd22ecfc0aaf6e338567d5cf107a2c07383
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte de AMQP 1.0 no Service Bus
 O serviço de nuvem de Service Bus do Azure e no local [Service Bus para o Windows Server (1.1 de barramento de serviço)](https://msdn.microsoft.com/library/dn282144.aspx) suportar o Advanced mensagem de colocação de protocolo (AMQP) 1.0. AMQP permite-lhe criar várias plataformas, aplicações híbridas com um protocolo padrão aberto. Pode criar aplicações com os componentes que são criadas com linguagens diferentes e arquiteturas, e que são executadas em sistemas operativos diferentes. Todos estes componentes podem ligar ao Service Bus e totalmente integrada trocam mensagens empresariais estruturados de forma eficiente e a fidelidade completa.
@@ -76,7 +76,7 @@ Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalha
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP .net Lite |
+| C# |AMQP .Net Lite |
 
 **Figura 2: Tabela das bibliotecas de cliente AMQP 1.0**
 
@@ -84,7 +84,7 @@ Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalha
 * AMQP 1.0 é um protocolo de mensagens fiável, abra que pode utilizar para criar várias plataformas, aplicações híbridas. AMQP 1.0 é uma norma OASIS.
 * Suporte de AMQP 1.0 está agora disponível no Service Bus do Azure, bem como o Service Bus para o Windows Server (1.1 de barramento de serviço). Preços de é igual para os protocolos existentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Está pronto para obter mais informações? Visite as seguintes ligações:
 
 * [Utilização do Service Bus a partir do .NET com AMQP]

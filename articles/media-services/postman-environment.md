@@ -1,11 +1,24 @@
- ---
-Título: importar o ambiente do Postman para REST de serviços de suporte de dados do Azure chama Descrição: Este tópico fornece uma definição do ambiente Postman para chamadas de REST de serviços de suporte de dados do Azure.
-serviços: documentationcenter de serviços de suporte de dados: ' autor: Gestor Juliako: cfowler editor: '
-
-MS. Service: dos media services workload: MS. tgt_pltfrm do suporte de dados: na devlang: MS. topic de na: article MS. Date: 04/01/2017 Author: juliako
-
 ---
-
+title: "Importar o ambiente do Postman para chamadas de REST de serviços de suporte de dados do Azure"
+description: "Este tópico fornece uma definição do ambiente Postman para chamadas de REST de serviços de suporte de dados do Azure."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>Importar o ambiente do Postman 
 
 Este artigo contém uma definição do **Postman** variáveis de ambiente que são utilizadas o [coleção Postman](postman-collection.md) que contenha agrupados pedidos de HTTP chamar APIs REST do suporte de dados de serviços. Os ficheiros de ambiente e a coleção são utilizados pelo [chama de configurar o Postman para API de REST dos serviços de suporte de dados](media-rest-apis-with-postman.md) tutorial.

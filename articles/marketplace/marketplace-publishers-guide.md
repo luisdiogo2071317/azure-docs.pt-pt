@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7a980a9a4f0a4fa22e72aa9d6eec83865250a084
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-publisher-guide"></a>Guia de publicador do Azure Marketplace
 
@@ -225,7 +225,7 @@ Qualquer cliente do Contrato Enterprise pode adicionar o Azure ao respetivo cont
 
 |**Requisito**  |**Detalhes**  |**Opção de publicação**  |
 |---------|---------|---------|
-|**Políticas de participação**    |  Verifique o contrato de publicador do Azure Marketplace [here](file:///C:/Users/ellacroi/Downloads/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Reveja as do Azure Marketplace participação políticas [aqui] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, a versão de avaliação, Transact        |
+|**Políticas de participação**    | Reveja as do Azure Marketplace participação políticas [aqui] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, a versão de avaliação, Transact        |
 |**Integração com a Microsoft**    | Ofertas do Azure Marketplace devem tirar partido ou expandir os serviços Microsoft Azure, tais como a computação, o funcionamento em rede ou o armazenamento e alinhar a uma categoria existente do Azure Marketplace como bases de dados, segurança, funcionamento em rede, etc. Localizar a lista completa [aqui](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, a versão de avaliação, Transact        |
 |**Público-alvo**    | Tem de ser ofertas do Azure Marketplace para os profissionais de TI, os programadores de nuvem ou outras funções do cliente técnica.       |  Lista, a versão de avaliação, Transact 
 |**Levar gestão**    | Para receber clientes potenciais clientes potenciais do Marketplace, tem de ativar o CRM (Marketo, Microsoft Dynamics ou Salesforce) para aceitar dados de oportunidades potenciais.        |   Lista, a versão de avaliação, Transact      |

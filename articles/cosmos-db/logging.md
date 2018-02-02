@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/29/2018
 ms.author: mimig
-ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -30,7 +30,7 @@ Utilize este tutorial para começar com Azure Cosmos DB registo através do port
 
 ## <a name="what-is-logged"></a>O que é registado?
 
-* Todos os pedidos de API do REST SQL autenticados são registados, que inclui os pedidos falhados resultantes de permissões de acesso, erros de sistema ou pedidos incorretos. Suporte para o MongoDB, gráfico e APIs de tabela não está atualmente disponível.
+* Todos os pedidos de back-end autenticado (TCP/REST) em todos os APIs, são registados, que inclui os pedidos falhados resultantes de permissões de acesso, erros de sistema ou pedidos incorretos. Suporte para o utilizador iniciada no gráfico, Cassandra, e pedidos de API de tabela não estão atualmente disponíveis.
 * Operações de na base de dados autónomo, que inclui as operações CRUD em todos os documentos, contentores e bases de dados.
 * Operações sobre chaves de conta, que incluem a criar, modificar ou eliminar estas chaves.
 * Pedidos não autenticados que resultam numa resposta 401. Por exemplo, pedidos que não têm um token de portador ou pedidos incorretamente formulados ou expirados ou com um token inválido.
@@ -54,8 +54,8 @@ Para concluir este tutorial, tem de ter os seguintes recursos:
     * **Arquivo para uma conta de armazenamento**. Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Para criar uma nova conta do storage no portal, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar uma conta para fins gerais do Resource Manager. Em seguida, regresse a esta página no portal para selecionar a sua conta do storage. Pode demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
     * **Fluxo para um hub de eventos**. Para utilizar esta opção, terá de um existente Hub de eventos espaço de nomes e event hub para ligar a. Para criar um espaço de nomes de Event Hubs, consulte [criar um espaço de nomes de Event Hubs e um hub de eventos no portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política de Hub de eventos.
     * **Enviar ao Log Analytics**.     Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho de análise de registos, seguindo os passos para [criar uma nova área de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre a visualização dos registos na análise de registos, consulte [ver os registos na análise de registos](#view-in-loganalytics).
-    * **Inicie sessão DataPlaneRequests**. Selecione esta opção para registar os diagnósticos para contas SQL, gráfico e API de tabela. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
-    * **Inicie sessão MongoRequests**. Selecione esta opção para registar os diagnósticos para contas de API do MongoDB. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
+    * **Inicie sessão DataPlaneRequests**. Selecione esta opção para registar pedidos de back-end da plataforma distribuída subjacente da BD do Azure Cosmos para contas SQL, gráfico, MongoDB, Cassandra e API de tabela. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
+    * **Inicie sessão MongoRequests**. Selecione esta opção para registar pedidos iniciada pelo utilizador de front-end da BD do Cosmos do Azure para que serve de contas de API do MongoDB.  Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
     * **Pedidos de métricos**. Selecione esta opção para armazenar dados verbosos no [Azure métricas](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
 
 3. Clique em **Guardar**.
@@ -426,7 +426,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | responseLength | responseLength_s | O comprimento da resposta, em bytes.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Isto é não vazia quando [tokens de recurso](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para autenticação e de pontos para o ID de recurso do utilizador. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma compreensão dos não só como ativar o registo, mas também as categorias de métricas e registo suportadas do Azure de várias a serviços ler o [descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [descrição geral do Azure Os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artigos.
 - Estes artigos para saber mais sobre os event hubs de leitura:

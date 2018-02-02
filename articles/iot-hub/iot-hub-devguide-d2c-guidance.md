@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientações de comunicações do dispositivo-nuvem
 Quando o envio de informações da aplicação de dispositivo para a solução de back-end, o IoT Hub expõe três opções:
@@ -34,10 +34,10 @@ Eis uma comparação detalhada das várias opções de comunicação do disposit
 | Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados de sensores de 256 KB enviado a cada 5 minutos. | Capacidades disponíveis e condições. Por exemplo, o dispositivo conectividade modo atual, tais como a rede móvel ou Wi-Fi. A sincronizar os fluxos de trabalho de longa execução, tais como atualizações de software e configuração. | Ficheiros de suporte de dados. Lotes de telemetria (normalmente comprimido) grande. |
 | Armazenamento e a obtenção | Armazenados temporariamente pelo IoT Hub, até a 7 dias. Apenas leitura sequencial. | Armazenados pelo IoT Hub no dispositivo duplo. Recuperável utilizando o [idioma de consulta do IoT Hub][lnk-query]. | Armazenados na conta de armazenamento do Azure fornecidos pelo utilizador. |
 | Tamanho | Até 256 KB mensagens. | Tamanho máximo de propriedades comunicado é de 8 KB. | Tamanho de ficheiro máximo suportado pelo Blob Storage do Azure. |
-| Frequência | Elevada. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Média. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Baixa. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. |
+| Frequência | Elevada. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Média. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Baixo. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. |
 | Protocolo | Disponível em todos os protocolos. | Disponível através de MQTT ou AMQP. | Estão disponíveis ao utilizar qualquer protocolo, mas necessitar de HTTPS no dispositivo. |
 
-É possível que uma aplicação requer a enviar informações como uma série de tempo de telemetria ou a um alerta e também para disponibilizá-lo no dispositivo duplo. Neste cenário, pode escolher uma das seguintes opções:
+Uma aplicação poderá ter de enviar informações tanto como um alerta ou uma série de tempo de telemetria e disponibilizá-lo no dispositivo duplo. Neste cenário, pode escolher uma das seguintes opções:
 
 * A aplicação de dispositivo envia uma mensagem de dispositivo para a nuvem e reporta uma alteração de propriedade.
 * O solução de back-end pode armazenar as informações nas tags do dispositivo duplo quando recebe a mensagem.

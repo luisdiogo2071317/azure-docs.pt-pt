@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
-ms.translationtype: MT
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -53,7 +53,10 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Se o inquilino IDs para as subscrições de origem e de destino não forem iguais, tem de contactar o [suporta](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para mover os recursos para um novo inquilino.
+  Se o inquilino IDs para as subscrições de origem e de destino não forem iguais, utilize os seguintes métodos para reconciliar o IDs do inquilino: 
+
+  * [Transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md)
+  * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. O serviço tem de permitir a capacidade de mover recursos. Este artigo apresenta uma lista que serviços ativar mover recursos e os serviços não ative a mover recursos.
 3. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Se não, receberá um erro a indicar que o **subscrição não está registada para um tipo de recurso**. Poderá encontrar este problema ao mover um recurso para uma nova subscrição, mas em que esta nunca foi utilizada com esse tipo de recurso.
@@ -93,7 +96,7 @@ Pode mover a maioria dos recursos através de operações de self-service aprese
 
 Contacte [suporta](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) quando precisa de:
 
-* Mova os recursos para uma nova conta do Azure (e de inquilino do Azure Active Directory).
+* Mover os recursos para uma nova conta do Azure (e de inquilino do Azure Active Directory) e precisa de ajuda com as instruções na secção anterior.
 * Mover recursos clássicos mas estão a ter problemas com as limitações.
 
 ## <a name="services-that-enable-move"></a>Serviços que permitem mover
@@ -319,7 +322,7 @@ Para mover uma VM inscrita no **cópia de segurança do Azure** entre grupos de 
  1. Temporariamente parar a cópia de segurança e manter os dados de cópia de segurança
  2. Mova a VM para o grupo de recursos de destino
  3. Volte a protegê-lo sob o mesmo/novo cofre que os utilizadores podem restaurar a partir dos pontos de restauro disponíveis criados antes da operação de movimentação.
-Se o utilizador move a VM de cópia de segurança entre subscrições, passo 1 e o passo 2 se alteram. No passo 3, o utilizador precisa de proteger a VM novo cofre presente / criada na subscrição de destino. Suporte entre cópias de segurança de subscrição do cofre dos serviços de recuperação.
+Se o utilizador move a VM de cópia de segurança entre subscrições, passo 1 e o passo 2 se alteram. No passo 3, o utilizador precisa de proteger a VM novo cofre presente / criada na subscrição de destino. O Cofre de serviços de recuperação não suporta cópias de segurança de subscrição cruzada.
 
 ## <a name="hdinsight-limitations"></a>Limitações do HDInsight
 

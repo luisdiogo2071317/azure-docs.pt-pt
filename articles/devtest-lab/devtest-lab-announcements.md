@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicar um anúncio para um laboratório no Azure DevTest Labs
 
@@ -47,6 +47,13 @@ A funcionalidade de anúncio destina-se a ser utilizado para notificações temp
 
 1. Para criar uma mensagem para os utilizadores neste laboratório, defina **ativado** para **Sim**.
 
+1. Pode introduzir um **data de expiração** para especificar uma data e hora após o qual o anúncio já não é apresentado aos utilizadores. Se não introduzir uma data de expiração, o anúncio permanece até que desativá-lo.
+
+   > [!NOTE]
+   > Depois do anúncio expira, já não é apresentado aos utilizadores, mas continuará a existir no **anúncio de laboratório** painel. Pode efetuar edições ao mesmo e reativá-la para torná-lo Active Directory novamente.
+   >
+   >
+
 1. Introduza um **título do anúncio** e **texto de anúncio**.
 
    O título pode ser até 100 carateres e é apresentado ao utilizador na página de descrição geral do laboratório. Se o utilizador seleciona o título, é apresentado o texto de anúncio.
@@ -58,7 +65,7 @@ A funcionalidade de anúncio destina-se a ser utilizado para notificações temp
 
 1. Selecione **guardar** assim que o anúncio está pronto para publicar.
 
-Se já não pretende mostrar este anúncio aos utilizadores de laboratório, volte ao **anúncio de laboratório** página e defina **ativado** para **não**.
+Se já não pretende mostrar este anúncio aos utilizadores de laboratório, volte ao **anúncio de laboratório** página e defina **ativado** para **não**. Se for especificada uma data de expiração, o anúncio é desativado automaticamente em que a data e hora.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Passos para que os utilizadores vejam um anúncio
 

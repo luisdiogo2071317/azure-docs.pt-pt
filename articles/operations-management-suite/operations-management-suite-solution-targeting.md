@@ -1,6 +1,6 @@
 ---
-title: "Solução filtragem no OMS | Microsoft Docs"
-description: "Filtragem de solução é uma funcionalidade no Operations Management Suite (OMS) que lhe permite limitar as soluções de gestão a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de âmbito e aplicá-la para uma solução."
+title: "Filtragem de soluções de gestão no Azure | Microsoft Docs"
+description: "Soluções de gestão de destino permite limitar as soluções de gestão a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de âmbito e aplicá-la para uma solução."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Utilizar a solução filtragem no Operations Management Suite (OMS) para soluções de gestão do âmbito para agentes específicos (pré-visualização)
-Quando adiciona uma solução para OMS, é automaticamente implementada por predefinição para todos os agentes Windows e Linux ligado à sua área de trabalho de análise de registos.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução, limitando-la a um conjunto específico de agentes.  Este artigo descreve como utilizar **solução filtragem** que é uma funcionalidade do OMS que lhe permite aplicar um âmbito para as suas soluções.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Soluções de gestão de destino no Azure (pré-visualização)
+Quando adiciona uma solução de gestão à sua subscrição, é automaticamente implementada por predefinição para todos os agentes Windows e Linux ligado à sua área de trabalho de análise de registos.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução, limitando-la a um conjunto específico de agentes.  Este artigo descreve como utilizar **solução filtragem** que é uma funcionalidade que permite-lhe aplicar um âmbito para as suas soluções.
 
 ## <a name="how-to-target-a-solution"></a>Como uma solução de destino
-Existem três passos para uma solução de filtragem, tal como descrito nas secções seguintes.  Tenha em atenção que, terá do portal do OMS e portal do Azure para outros passos.
+Existem três passos para uma solução de filtragem, tal como descrito nas secções seguintes. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Criar um grupo de computadores
@@ -72,6 +72,6 @@ Não é possível utilizar a filtragem de solução com as seguintes soluções,
 
 - Avaliação de estado de funcionamento do agente
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre as soluções de gestão, incluindo as soluções que estão disponíveis para instalação no seu ambiente no [soluções de gestão do Log Analytics do Azure adicionar à sua área de trabalho](../log-analytics/log-analytics-add-solutions.md).
 - Saiba mais sobre como criar grupos de computadores em [pesquisas de registo de grupos de computadores na análise de registos](../log-analytics/log-analytics-computer-groups.md).

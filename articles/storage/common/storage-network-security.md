@@ -1,5 +1,5 @@
 ---
-title: "Configurar Firewalls de armazenamento do Azure e as redes virtuais (pré-visualização) | Microsoft Docs"
+title: Configurar Firewalls de armazenamento do Azure e as redes virtuais | Microsoft Docs
 description: "Configure a segurança de rede em camadas para a sua conta de armazenamento."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar Firewalls de armazenamento do Azure e as redes virtuais (pré-visualização)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar Firewalls de armazenamento do Azure e as redes virtuais
 Armazenamento do Azure fornece um modelo de segurança por camadas que permite proteger as contas de armazenamento para um conjunto específico de redes permitidos.  Quando as regras de rede estiverem configuradas, apenas as aplicações permitidas redes podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, as aplicações continuam a exigir autorização adequada (uma chave de acesso válido ou SAS token) para aceder à conta de armazenamento.
 
-## <a name="preview-availability-and-support"></a>Disponibilidade de pré-visualização e suporte
-Firewalls de armazenamento e redes virtuais estão em pré-visualização.  Esta capacidade está atualmente disponível para contas de armazenamento novo ou existente em todas as regiões de nuvem pública do Azure.
-
-> [!NOTE]
-> Cargas de trabalho de produção não são suportadas durante a pré-visualização.
+> [!IMPORTANT]
+> Ativar as regras de Firewall para a sua conta de armazenamento irá bloquear o acesso a pedidos recebidos para os dados, incluindo a partir de outros serviços do Azure.  Isto inclui a utilizar o Portal escrever os registos, etc.  Para serviços participantes pode reativar o funcionalidade através do [exceções](#Exceptions) secção abaixo.  Para aceder ao Portal terá de fazê-lo a partir de uma máquina dentro do limite fidedigno (IP ou VNet) que configurou.
 >
 
 ## <a name="scenarios"></a>Cenários
@@ -55,9 +52,6 @@ Por predefinição, as contas do storage aceitam ligações de clientes em qualq
 
 #### <a name="azure-portal"></a>Portal do Azure
 1. Navegue para a conta de armazenamento que pretende proteger.  
-> [!NOTE]
-> Certifique-se a sua conta de armazenamento é de uma das regiões suportadas para a pré-visualização pública.
->
 
 2. Clique no menu de definições denominado **Firewalls e redes virtuais**.
 3. Negar o acesso por predefinição, optar por permitir acesso a partir de 'Selecionados redes'.  Para permitir tráfego de todas as redes, optar por permitir acesso a partir de 'Todas as redes'.

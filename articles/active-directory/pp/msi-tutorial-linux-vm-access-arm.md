@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 51e14d0e9130a5a870ed120010508dc5eda125f9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Utilize um utilizador atribuído geridos serviço de identidade (MSI) numa VM com Linux, para aceder ao Gestor de recursos do Azure
 
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI fornece o seu código com um token de acesso para autenticar para o recurso APIs que suportam a autenticação do Azure AD. Neste tutorial, o seu código acede a API do Azure Resource Manager. 
 
-Antes do seu código pode aceder à API do apesar, terá de conceder acesso de identidade do MSI para um recurso no Gestor de recursos do Azure. Neste caso, o grupo de recursos no qual a VM está contida. Não se esqueça de substituir o `<CLIENT ID>`, `<SUBSCRIPTION ID>`, e `<RESOURCE GROUP>` valores de parâmetros com os seus próprios valores. Substitua `<CLIENT ID>` com o `clientId` propriedade devolvida pelo `az identity create` no [criar um MSI utilizador atribuído](#create-a-user-assigned-msi): 
+Antes do seu código pode aceder à API do apesar, terá de conceder acesso de identidade do MSI para um recurso no Gestor de recursos do Azure. Neste caso, o grupo de recursos no qual a VM está contida. Atualize os valores para `<SUBSCRIPTION ID>` e `<RESOURCE GROUP>` conforme adequado para o seu ambiente. Além disso, substitua `<MSI PRINCIPALID>` com o `principalId` propriedade devolvida pelo `az identity create` no [criar um MSI utilizador atribuído](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 A resposta contém detalhes para a atribuição de função criada, semelhante ao seguinte exemplo:

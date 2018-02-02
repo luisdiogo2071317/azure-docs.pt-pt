@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Descrição geral de segurança operacionais do Azure
 Segurança operacionais do Azure refere-se os serviços, controlos e funcionalidades disponíveis para os utilizadores para proteger os seus dados, aplicações e outros recursos no Microsoft Azure. [Segurança operacionais do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) é uma estrutura que incorpora o conhecimento adquirida através de uma variedade de capacidades que são exclusivos para a Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), a resposta de segurança da Microsoft Programa do System Center e a deteção de ameaças de segurança informático.
@@ -56,7 +56,7 @@ Microsoft [da automatização do Azure](https://docs.microsoft.com/azure/automat
 [Cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) é o serviço baseado no Azure, pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem da Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Consulte o [tabela de componentes do Backup do Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Recuperação de sites
-O [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade de negócio ao orquestrar a replicação de computadores e máquinas virtuais no local para o Azure ou para um site secundário. Se o site primário não estiver disponível, é feita a ativação pós-falha para a localização secundária, para que os utilizadores possam continuar a trabalhar, e é feita a reativação pós-falha quando os sistemas estiverem a funcionar novamente. Deteção de ameaças eficiente e inteligente.
+O [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade de negócio ao orquestrar a replicação de computadores e máquinas virtuais no local para o Azure ou para um site secundário. Se o site primário não estiver disponível, é feita a ativação pós-falha para a localização secundária, para que os utilizadores possam continuar a trabalhar, e é feita a reativação pós-falha quando os sistemas estiverem a funcionar novamente. Centro de segurança do Azure utilizada para efetuar mais a deteção de ameaças inteligente e eficaz.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) é identidade abrangente da Microsoft como uma solução de serviço (IDaaS) que:
@@ -154,7 +154,7 @@ Verão de DevOps madura adotar várias as seguintes práticas. Estas práticas [
 -   [Infraestrutura como código (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática recomendada, que permite a automatização e a validação da criação e teardown de redes e máquinas virtuais para ajudar a entrega de aplicações seguras e estável plataformas de alojamento.
 -   [Micro-serviços](https://www.visualstudio.com/learn/what-are-microservices/) arquitetura é utilizada para isolar os casos de utilização empresarial para os serviços de reutilizáveis pequenos.  Esta arquitetura ativa escalabilidade e a eficiência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a solução de auditoria e segurança do OMS, consulte os artigos seguintes:
 
 - [Operations Management Suite | Segurança e conformidade](https://www.microsoft.com/cloud-platform/security-and-compliance).

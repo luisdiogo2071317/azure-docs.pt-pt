@@ -1,5 +1,5 @@
 ---
-title: "Colocar em pausa e retomar de computação no armazém de dados de SQL do Azure - PowerShell | Microsoft Docs"
+title: "Início rápido: Colocar em pausa e retomar de computação no armazém de dados de SQL do Azure - PowerShell | Microsoft Docs"
 description: "As tarefas do PowerShell que colocar em pausa para um Azure SQL Data Warehouse reduzir os custos de computação. Retomar a computação quando estiver pronto para utilizar o armazém de dados."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 984cfbcd2e53978abedc2a96d3dd9965213c5685
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Colocar em pausa e retomar a computação para um Azure SQL Data Warehouse no PowerShell
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Início rápido: Colocar em pausa e retomar a computação para um Azure SQL Data Warehouse no PowerShell
 Utilize o PowerShell para colocar em pausa computação para um Azure SQL Data Warehouse reduzir os custos. Retomar a computação quando estiver pronto para utilizar o armazém de dados.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.

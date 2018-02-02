@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Gerar os certificados PKI para a implementação de pilha do Azure
 Agora que já sabe [os requisitos de certificado PKI](azure-stack-pki-certs.md) para implementações de pilha do Azure, terá de obter esses certificados a partir da autoridade de certificação (CA) à sua escolha. 
@@ -74,3 +74,5 @@ O fluxo de trabalho seguinte descreve como pode personalizar e utilize o ficheir
 4. **Importe. CER**. Devolve a AC um. Ficheiro CER. Utilizar o mesmo. o computador Windows a partir do qual gerou o ficheiro de pedido, importar o. Ficheiro CER devolvido para o arquivo do computador/pessoal. 
 5. **Exportar e copiar. PFX para pastas de implementação**. Exportar o certificado (incluindo a chave privada) como um. PFX ficheiro e copie o. Ficheiro PFX para as pastas de implementação descrita no [requisitos do Azure pilha implementação PKI](azure-stack-pki-certs.md).
 
+## <a name="next-steps"></a>Passos Seguintes
+[Integração de identidade](azure-stack-integrate-identity.md)

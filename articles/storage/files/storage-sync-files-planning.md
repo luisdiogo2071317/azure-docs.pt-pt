@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -42,8 +42,8 @@ O agente de sincronização de ficheiros do Azure é um pacote transferível, qu
 - **FileSyncSvc.exe**: O serviço do Windows que é responsável para monitorização de alterações em pontos finais do servidor e para iniciar sessões de sincronização para o Azure em segundo plano.
 - **StorageSync.sys**: A sincronização de ficheiros do Azure ficheiro filtro do sistema, que é responsável por camadas ficheiros para ficheiros do Azure (nuvem quando camadas está ativado).
 - **Cmdlets de gestão do PowerShell**: cmdlets do PowerShell que utilizar para interagir com o fornecedor de recursos do Microsoft.StorageSync Azure. Pode encontrar estas nas seguintes localizações (predefinição):
-    - C:\Programas\Microsoft Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
-    - C:\Programas\Microsoft Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
+    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto final do servidor
 Um ponto final do servidor representa uma localização específica num servidor registado, tais como uma pasta no volume do servidor. Vários pontos finais de servidor podem existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, `F:\sync1` e `F:\sync2`). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. Atualmente, não é possível criar um ponto final do servidor para a raiz de um volume (por exemplo `F:\` ou `C:\myvolume`, se está montado um volume como um ponto de montagem).
@@ -85,11 +85,11 @@ Versões futuras do Windows Server serão adicionadas à medida que são lançad
 | Funcionalidade | Estado de suporte | Notas |
 |---------|----------------|-------|
 | Listas de controlo de acesso (ACLs) | Totalmente suportado | ACLs do Windows são mantidas através da sincronização de ficheiros do Azure e são impostas pelo Windows Server em pontos finais do servidor. ACLs do Windows não são (ainda) suportado pelo Azure ficheiros se os ficheiros são acedidos diretamente na nuvem. |
-| Ligações fixas | Ignorado | |
-| Ligações simbólicas | Ignorado | |
+| Ligações fixas | Ignorada | |
+| Ligações simbólicas | Ignorada | |
 | Os pontos de montagem | Parcialmente suportada | Pontos de montagem poderão ser a raiz de um ponto final do servidor, mas são ignorados se estes estão contidos no espaço de nomes de um ponto final do servidor. |
-| Junctions | Ignorado | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
-| Pontos de reanálise | Ignorado | |
+| Junctions | Ignorada | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
+| Pontos de reanálise | Ignorada | |
 | Compressão NTFS | Totalmente suportado | |
 | Ficheiros dispersos | Totalmente suportado | Sincronização de ficheiros dispersos (não são bloqueadas), mas que a sincronização na nuvem como um ficheiro completo. Se alterar o conteúdo do ficheiro na nuvem (ou noutro servidor), o ficheiro já não consta disperso quando a alteração é transferida. |
 | Fluxos de dados alternativos (anúncios) | Preservados, mas não sincronizado | |
@@ -158,11 +158,13 @@ Sincronização de ficheiros do Azure está disponível apenas nas regiões segu
 
 | Região | Localização do Centro de dados |
 |--------|---------------------|
-| EUA Leste | Virginia, EUA |
-| EUA Oeste | Califórnia, EUA |
-| Europa Ocidental | Países Baixos |
+| Leste da Austrália | Nova Gales do Sul |
+| Canadá Central | Toronto |
+| EUA Leste | Virgínia |
 | Sudeste Asiático | Singapura |
-| Leste da Austrália | Novo Wales-Sul, da Austrália |
+| Reino Unido Sul | Londres |
+| Europa Ocidental | Países Baixos |
+| EUA Oeste | Califórnia |
 
 Pré-visualização, suportamos a sincronizar apenas com uma partilha de ficheiros do Azure que se encontra na mesma região que o serviço de sincronização de armazenamento.
 

@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Como funciona o Bash no armazenamento de nuvem Shell 
 Bash na Shell de nuvem persistir ficheiros através de ambos dos seguintes métodos: 
@@ -69,12 +69,12 @@ A partilha de ficheiros irá continuar a existir, a menos que eliminá-lo manual
 ![Com o ' clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Embora a executar este comando não eliminará quaisquer recursos, como eliminar manualmente um grupo de recursos, a conta de armazenamento, ou partilha de ficheiros que está mapeada para a nuvem Shell erase sua `$Home` imagem de disco de diretório e os ficheiros a partilha de ficheiros. Esta ação não pode ser anulada.
+> Apesar de executar este comando não eliminará quaisquer recursos, como eliminar manualmente um grupo de recursos, a conta de armazenamento ou a partilha de ficheiros que está mapeada para a nuvem Shell apague o `$Home` imagem de disco de diretório e os ficheiros a partilha de ficheiros. Esta ação não pode ser anulada.
 
 ## <a name="list-clouddrive"></a>Lista`clouddrive`
 Para detetar que partilha de ficheiros está montada como `clouddrive`, execute o `df` comando. 
 
-O caminho de ficheiro para clouddrive irá mostrar que o nome da conta de armazenamento e o ficheiro partilham no URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
+O caminho de ficheiro para clouddrive mostra que o nome da conta de armazenamento e o ficheiro partilham no URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,9 +88,9 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Bash no guia de introdução de Shell de nuvem](quickstart.md) <br>
 [Saiba mais sobre armazenamento de ficheiros do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Saiba mais sobre as etiquetas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -36,7 +36,7 @@ Este artigo explica como criar, alterar e eliminar redes virtuais utilizando o m
 
 Antes de iniciar as tarefas que são descritas neste artigo, conclua os seguintes pré-requisitos:
 
-- Se estiver a trabalhar com redes virtuais, recomendamos que reveja o exercício no [criar a sua primeira rede virtual do Azure](virtual-network-get-started-vnet-subnet.md). Neste exercício pode ajudar a tornar-se mais familiar com redes virtuais.
+- Se estiver a trabalhar com redes virtuais, recomendamos que reveja o exercício no [criar a sua primeira rede virtual do Azure](quick-create-portal.md). Neste exercício pode ajudar a tornar-se mais familiar com redes virtuais.
 - Para saber mais sobre os limites de redes virtuais, reveja [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Inicie sessão no portal do Azure, a ferramenta de linha de comandos do Azure (CLI do Azure) ou o Azure PowerShell, utilizando a sua conta do Azure. Se não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se planeia utilizar comandos do PowerShell para concluir as tarefas descritas neste artigo, tem primeiro [instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que tem a versão mais recente dos cmdlets Azure PowerShell instaladas. Para obter ajuda para comandos do PowerShell nos exemplos, introduza `get-help <command> -full`.
@@ -81,8 +81,8 @@ Para criar uma rede virtual:
 
 |Ferramenta|Comando|
 |---|---|
-|CLI do Azure|[Criar AZ rede vnet](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Novo-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI do Azure|[az network vnet create](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Ver redes virtuais e definições
 
@@ -115,7 +115,7 @@ Para ver as definições e redes virtuais:
 
 |Ferramenta|Comando|
 |---|---|
-|CLI do Azure|[Mostrar de vnet AZ rede](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|CLI do Azure|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -194,7 +194,7 @@ Todas as VMs que estão ligadas ao registar a rede virtual com os servidores DNS
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para criar uma VM e, em seguida, ligue-o a uma rede virtual, consulte [criar uma rede virtual e ligar as VMs](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Para criar uma VM e, em seguida, ligue-o a uma rede virtual, consulte [criar uma rede virtual e ligar as VMs](quick-create-portal.md#create-virtual-machines).
 - Para filtrar o tráfego de rede entre sub-redes dentro de uma rede virtual, consulte [criar grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
 - Para o elemento de uma rede virtual a outra rede virtual, consulte o artigo [criar um peering de rede virtual](virtual-network-create-peering.md#portal).
 - Para saber mais sobre as opções para ligar uma rede virtual a uma rede no local, consulte [sobre o Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

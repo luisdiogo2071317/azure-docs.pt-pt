@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -42,14 +42,13 @@ Com o Microsoft Azure, pode:
 
 ## <a name="scope"></a>Âmbito
 
-O ponto focal deste documento seja relativo a funcionalidades de segurança e a funcionalidade suportar os componentes de principais do Microsoft Azure, nomeadamente [armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [bases de dados do Microsoft Azure SQL](https://docs.microsoft.com/azure/sql-database/), [ Modelo de máquina virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/    )e a infraestrutura e ferramentas que gerem tudo. Foco este documento técnico no Microsoft Azure capacidades técnicas disponibilizadas como os clientes para satisfazer a respetiva função de proteger a segurança e privacidade dos respetivos dados.
+O ponto focal deste documento seja relativo a funcionalidades de segurança e a funcionalidade suportar os componentes de principais do Microsoft Azure, nomeadamente [armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [bases de dados do Microsoft Azure SQL](https://docs.microsoft.com/azure/sql-database/), [ Modelo de máquina virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/)e a infraestrutura e ferramentas que gerem tudo. Foco este documento técnico no Microsoft Azure capacidades técnicas disponibilizadas como os clientes para satisfazer a respetiva função de proteger a segurança e privacidade dos respetivos dados.
 
 A importância de compreender este modelo de responsabilidade partilhado é essencial para os clientes que estão a mover para a nuvem. Os fornecedores de nuvem oferecem considerável vantagens para os esforços de segurança e conformidade, mas as seguintes vantagens não absolve o cliente de proteger os seus utilizadores, aplicações e ofertas de serviço.
 
 Para soluções de IaaS, o cliente é responsável ou tem uma responsabilidade para proteger e gerir o sistema operativo, a configuração de rede, aplicações, identidade, os clientes e dados partilhada.  Compilação de soluções de PaaS em implementações de IaaS, o cliente continua a ser responsável ou tem uma responsabilidade para proteger e gerir aplicações, identidade, os clientes e dados partilhada. Soluções de SaaS, Nonetheless, o cliente continua a ser responsável. Estes tem de garantir que os dados são classificados corretamente e partilham uma responsabilidade para gerir os seus utilizadores e dispositivos de ponto final.
 
 Este documento não fornece cobertura de detalhado de qualquer um dos componentes de plataforma Microsoft Azure relacionados, tais como Azure Web Sites, Azure Active Directory, HDInsight, os Media Services e outros serviços que estão em camadas visível os componentes principais. Embora é fornecido um nível mínimo de informações gerais, leitores são considerados familiarizados com conceitos básicos do Azure, conforme descrito em outras referências a fornecidos pela Microsoft e incluído nas ligações fornecidas neste documento em branco.
-
 
 ## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Capacidades técnicas de segurança disponíveis para satisfazer responsabilidade do utilizador (cliente) - visão geral
 
@@ -61,11 +60,11 @@ Microsoft Azure fornece serviços que podem ajudar os clientes para satisfazer a
 
 Azure ajuda-o a proteger o negócio e as informações pessoais, permitindo gerir identidades de utilizador e as credenciais e controlar o acesso.
 
-### <a name="azure-active-directory"></a>Do Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Microsoft identidades e acessos soluções ajuda da gestão de IT proteger o acesso a aplicações e recursos em todo o datacenter empresarial e para a nuvem, permitindo níveis adicionais de validação, tais como autenticação multifator e políticas de acesso condicional. Monitorização de atividade suspeita através de segurança avançada, auditoria e relatórios de alerta ajuda a mitigar potenciais problemas de segurança. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fornece início de sessão único a milhares de nuvem aplicações (SaaS) e acesso a aplicações web é executado no local.
 
-Vantagens de segurança do Azure Active Directory (AD) incluem a capacidade para:
+Vantagens de segurança do Azure Active Directory (Azure AD) incluem a capacidade para:
 
 - Criar e gerir uma identidade única para cada utilizador em toda a empresa híbrida, mantendo os utilizadores, grupos e dispositivos sincronizadas.
 
@@ -75,11 +74,11 @@ Vantagens de segurança do Azure Active Directory (AD) incluem a capacidade para
 
 - Aprovisionar o acesso remoto seguro a aplicações web no local, através do Proxy de aplicações do Azure AD.
 
-[Portal do Azure active directory](http://aad.portal.azure.com/) está disponível uma parte no portal do azure. Este dashboard, pode obter uma descrição geral do Estado da sua organização e facilmente aprofundar gerir o diretório, utilizadores ou à aplicação o acesso.
+O [portal do Azure Active Directory](http://aad.portal.azure.com/) está disponível uma parte do portal do Azure. Este dashboard, pode obter uma descrição geral do Estado da sua organização e facilmente aprofundar gerir o diretório, utilizadores ou à aplicação o acesso.
 
-![Do Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-Seguintes são principais capacidades de gestão de identidade do Azure:
+Seguem-se as capacidades de gestão de identidade do Azure core:
 
 - Início de sessão único
 
@@ -107,13 +106,13 @@ Não apenas os utilizadores não é necessário gerir vários conjuntos de nomes
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure multi-factor authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) é um método de autenticação que requer a utilização de mais do que um método de verificação e adiciona uma segunda camada crítica de segurança aos inícios de sessão de utilizador e de transações. [MFA ajuda a salvaguardar](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) acesso a dados e aplicações, cumprindo o pedido do utilizador para um processo de início de sessão simple. Fornece autenticação forte através de uma gama de opções de verificação — chamada telefónica, mensagem de texto ou aplicação móvel notificação ou da verificação de código e de terceiros OAuth tokens.
+[Azure multi-factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) é um método de autenticação que requer a utilização de mais do que um método de verificação e adiciona uma segunda camada crítica de segurança aos inícios de sessão de utilizador e de transações. [MFA ajuda a salvaguardar](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) acesso a dados e aplicações, cumprindo o pedido do utilizador para um processo de início de sessão simple. Fornece autenticação forte através de uma gama de opções de verificação — chamada telefónica, mensagem de texto ou aplicação móvel notificação ou da verificação de código e de terceiros OAuth tokens.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorização de segurança, alertas e relatórios com base na aprendizagem do computador
 
 Monitorização de segurança e alertas e relatórios com base na aprendizagem de máquina identificam padrões de acesso inconsistentes podem ajudar a proteger a sua empresa. Pode utilizar o acesso do Azure Active Directory e os relatórios de utilização para ganhar visibilidade a integridade e a segurança do diretório da sua organização. Com esta informação, um administrador da directory melhor determinar onde pode ficar os possíveis riscos de segurança para que estes podem planear adequadamente a mitigar os riscos.
 
-No portal do Azure ou através de [portal do Azure Active directory](http://aad.portal.azure.com/), [relatórios](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) são categorizados das seguintes formas:
+No portal do Azure ou através de [portal do Azure Active Directory](http://aad.portal.azure.com/), [relatórios](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) são categorizados das seguintes formas:
 
 - Relatórios de anomalias – contém eventos que são identificadas como estando anómala de início de sessão. O nosso objetivo é fazer com que conhecimento essa atividade e permitem-lhe poder decidir sobre se um evento é suspeito.
 
@@ -133,9 +132,9 @@ Nos programadores da aplicação nos últimos, que pretendiam [inscrever-se e in
 
 Quando utiliza o Azure Active Directory B2C, os consumidores podem inscrever-se para as suas aplicações através das respetivas contas de redes sociais existentes (Facebook, Google, Amazon, LinkedIn) ou através da criação de novas credenciais (endereço de correio eletrónico e palavra-passe, ou nome de utilizador e palavra-passe).
 
-Registo de dispositivo
+#### <a name="device-registration"></a>Registo de dispositivo
 
-[Registo de dispositivos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) é o alicerce da baseado nos dispositivos [acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) cenários. Quando um dispositivo é registado, o registo de dispositivos do Azure Active Directory fornece o dispositivo com uma identidade que é utilizado para autenticar o dispositivo quando o utilizador inicia sessão. O dispositivo autenticado e os atributos do dispositivo podem então ser utilizados para aplicar políticas de acesso condicional para aplicações alojadas na nuvem e no local.
+[Registo de dispositivos do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) é o alicerce da baseado nos dispositivos [acesso condicional](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) cenários. Quando um dispositivo é registado, o registo de dispositivos do Azure AD fornece o dispositivo com uma identidade que é utilizado para autenticar o dispositivo quando o utilizador inicia sessão. O dispositivo autenticado e os atributos do dispositivo podem então ser utilizados para aplicar políticas de acesso condicional para aplicações alojadas na nuvem e no local.
 
 Quando combinada com um [gestão de dispositivos móveis (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) solução, como o Intune, os atributos do dispositivo no Azure Active Directory são atualizados com informações adicionais sobre o dispositivo. Isto permite criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade.
 
@@ -173,7 +172,7 @@ Segurança e orientado para empresas devem focar-se em fornecer aos funcionário
 
 Utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso aos utilizadores que precisam para desempenhar as suas funções. Em vez de dar everybody sem restrições permissões na sua subscrição do Azure ou recursos, pode permitir que apenas determinadas ações. Por exemplo, utilize o RBAC para permitir que um empregado gerir máquinas virtuais numa subscrição, enquanto outro pode gerir bases de dados SQL dentro da mesma subscrição.
 
-![Acesso a recursos protegidos na Azure(RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Acesso a recursos protegidos no Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="azure-data-security-and-encryption-protect"></a>Encriptação e de segurança dos dados do Azure (proteger)
 
@@ -183,9 +182,9 @@ Uma das chaves para proteção de dados na nuvem é contabilidade para os Estado
 
 - Em trânsito: Quando a dados está a ser transferidos entre componentes, localizações ou programas, tal como através da rede, entre um barramento de serviço (a partir de no local para a nuvem e vice-versa, incluindo as ligações híbridas, tais como o ExpressRoute), ou durante um processo de entrada/saída, é considerar como estando em movimento.
 
-### <a name="encryption--rest"></a>Encriptação @ rest
+### <a name="encryption-at-rest"></a>Encriptação inativa
 
-Para alcançar a encriptação inativa, cada uma das seguintes opções:
+Para alcançar a encriptação de inativos, efetue cada um dos seguintes:
 
 Suporte, pelo menos, um dos modelos de encriptação recomendada detalhados na tabela seguinte para encriptar dados.
 
@@ -224,15 +223,15 @@ Para cada loja, utilizar, tirar partido da encriptação existente no suporte de
 
 Para armazenamento de disco da VM e Local utilizar Azure Disk Encryption se suportado:
 
-IaaS
+#### <a name="iaas"></a>IaaS
 
 Devem utilizar serviços com as VMs de IaaS (Windows ou Linux) [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) para encriptar os volumes que contêm dados de cliente.
 
-PaaS v2
+#### <a name="paas-v2"></a>PaaS v2
 
 Os serviços executados em PaaS v2 utilizar o Service Fabric pode utilizar encriptação de disco do Azure para o conjunto de dimensionamento da Máquina Virtual [VMSS] para encriptar as respetivas VMs de v2 PaaS.
 
-PaaS v1
+#### <a name="paas-v1"></a>PaaS v1
 
 Atualmente, a Azure Disk Encryption não é suportada no PaaS v1. Por conseguinte, tem de utilizar encriptação de nível de aplicação para encriptar dados persistentes inativos.  Isto inclui, mas não está limitado a dados da aplicação, ficheiros temporários, os registos e informações de falhas.
 
@@ -319,13 +318,11 @@ O Azure também oferece várias funcionalidades de fácil utilização para ajud
 
 - [Configurar a autenticação do Azure Active Directory para a sua aplicação](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-
 - [Proteger o tráfego para a sua aplicação, permitindo Transport Layer Security (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-    - [Forçar todo o tráfego de entrada através de ligação HTTPS](http://microsoftazurewebsitescheatsheet.info/)
+  - [Forçar todo o tráfego de entrada através de ligação HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
   - [Ativar segurança de transporte Strict (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
-
 
 - [Restringir o acesso à sua aplicação ao endereço IP do cliente](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
@@ -416,7 +413,7 @@ O [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytic
 
 Este método permite-lhe consolidar os dados a partir de uma variedade de origens de, pelo que pode combinar dados a partir do seu serviços do Azure com existentes no local ambiente. Também separa claramente a recolha dos dados das ações tomadas em relação aos mesmos, para que todas as ações estejam disponíveis para todos os tipos de dados.
 
-### <a name="azure-security-center"></a>Centro de segurança do Azure
+### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
 O [Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
 
@@ -462,7 +459,7 @@ Auditoria de segurança de rede é vital para detetar vulnerabilidades de rede e
 
 [Análise de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) pode armazenar métricas que incluem dados de capacidade e estatísticas agregadas de transações sobre pedidos para um serviço de armazenamento. As transações são reportadas ao ambos o nível de operação de API, bem como a nível de serviço de armazenamento e a capacidade é comunicada a nível de serviço de armazenamento. Dados de métricas, podem ser utilizados para analisar a utilização do serviço de armazenamento, diagnosticar problemas com pedidos efetuados contra o serviço de armazenamento e para melhorar o desempenho das aplicações que utilizam um serviço.
 
-### <a name="application-insights"></a>Informações de aplicação
+### <a name="application-insights"></a>Application Insights
 
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para programadores de web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, Inclui as ferramentas de análise poderosas para ajudar a diagnosticar problemas e para saber o que fazem os utilizadores com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações em diversas plataformas, incluindo .NET, Node.js e J2EE, alojadas no local ou na cloud. Integra-se com o processo de devOps e pontos de ligação para uma várias ferramentas de desenvolvimento.
 
@@ -487,7 +484,8 @@ Monitoriza:
 - **Registos de rastreio de diagnóstico** da sua aplicação - para que possa correlacionar eventos de rastreio a pedidos.
 
 - **Métricas e eventos personalizados** escrever pessoalmente o código de cliente ou servidor, para controlar eventos empresariais, tais como vendidos, ou jogos won.
-Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta do Storage e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Não vê estes componentes como entidades separadas. Em vez disso, vê-os como partes relacionadas e interdependentes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite-lhe trabalhar com os recursos na sua solução como um grupo.
+
+Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Não vê estes componentes como entidades separadas. Em vez disso, vê-os como partes relacionadas e interdependentes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite-lhe trabalhar com os recursos na sua solução como um grupo.
 
 Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utiliza um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, como de teste e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação.
 
@@ -512,7 +510,7 @@ O Resource Manager oferece várias vantagens:
 > [!Note]
 > O Resource Manager proporciona uma nova forma de implementar e gerir as suas soluções. Se utilizou o modelo de implementação e pretender anteriores para saber mais sobre as alterações, consulte [Gestor de recursos de compreender implementação clássica e](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saber mais sobre a segurança ao ler alguns dos nossos tópicos de segurança aprofundados:
 

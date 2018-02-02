@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: d586ee1b96b34d6ca83e1ffd76aee38e79bdd727
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure com ferramentas de ITSM utilizando o conector de gestão do serviço de TI
 
@@ -334,10 +334,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-itsm-connections"></a>Resolver problemas de ligações de ITSM
 1.  Se a ligação falhar da IU da origem ligados com um **erro na ligação de guardar** da mensagem, siga os passos seguintes:
 - Para ligações de ServiceNow, Cherwell e Provance,  
-       -Certifique-se corretamente introduziu o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.  
-       -Verifique se tem privilégios suficientes no produto ITSM correspondente para efetuar a ligação.  
+           -Certifique-se corretamente introduziu o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.  
+           -Verifique se tem privilégios suficientes no produto ITSM correspondente para efetuar a ligação.  
 - Para ligações do Service Manager,  
-       -Certifique-se de que a aplicação Web é implementada com êxito e é criada a ligação híbrida. Para verificar a ligação é estabelecida com êxito com a máquina do Service Manager no local, visite o URL da aplicação Web como detalhadas da documentação para efetuar o [da ligação híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+           -Certifique-se de que a aplicação Web é implementada com êxito e é criada a ligação híbrida. Para verificar a ligação é estabelecida com êxito com a máquina do Service Manager no local, visite o URL da aplicação Web como detalhadas da documentação para efetuar o [da ligação híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se não está a obter sincronizados dados a partir do ServiceNow ao Log Analytics, certifique-se de que o ServiceNow instância não está suspenso. Instâncias de desenvolvimento do ServiceNow, por vezes, aceda a suspensão quando inativo durante um longo período. Relatório de outra forma, o problema.
 3.  Se OMS alertas acionados mas funcionar itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para outras informações genéricos, procure nos seguintes locais:

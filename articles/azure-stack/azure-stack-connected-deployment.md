@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisões sobre a pilha do Azure de planeamento de implementação ligada do Azure integrado sistemas
 Depois de tiver decidido [como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida](azure-stack-deployment-decisions.md), em seguida, pode finalizar as suas decisões de implementação de pilha do Azure.
@@ -41,7 +41,7 @@ Quando utilizar o Azure AD para o arquivo de identidade requer duas contas do Az
     - Como a conta de administrador de serviço. Este é o proprietário da subscrição de fornecedor predefinido (que é possível alterar mais tarde). Pode iniciar sessão no portal de administração do Azure pilha com esta conta e pode utilizá-la para criar ofertas e planos, defina quotas e efetuar outras administrativas funções na pilha do Azure.
 2. **Conta de faturação** (necessário para ambos ligado e desligado implementações). Esta conta do Azure é utilizada para estabelecer a relação de faturação entre o sistema de pilha do Azure integrado e o back-end de comércio do Azure. Esta é a conta que será faturada por taxas de pilha do Azure. Esta conta também será utilizada para sindicação marketplace e outros cenários híbridos. 
 
-### <a name="ad-fs-identity-store"></a>ARQUIVO DE IDENTIDADE DO AD FS
+### <a name="ad-fs-identity-store"></a>Arquivo de identidade do AD FS
 Escolha esta opção se pretender utilizar o seu próprio arquivo de identidade, tais como o Active Directory empresarial, para as contas de administrador de serviço.  
 
 ## <a name="choose-a-billing-model"></a>Escolha um modelo de faturação
@@ -57,9 +57,8 @@ Se pretender utilizar uma subscrição do CSP, reveja a tabela abaixo para ident
 
 |Cenário|Opções de domínio e de subscrição|
 |-----|-----|
-|É um direta ou Indireta parceiro de CSP e irá funcionar a pilha do Azure|Utilize uma subscrição de CSL (camada de serviço comum).|
-|É um direta ou Indireta parceiro de CSP e irá funcionar a pilha do Azure|Centro de parceiros, criar um inquilino do Azure AD com um nome descritivo, por exemplo <your organization>CSPAdmin e uma subscrição do Azure CSP associados à mesma.|
-|São um revendedor de CSP Indireta e irá funcionar a pilha do Azure|Peça ao seu fornecedor de CSP Indireta para criar, utilizando o Centro de parceiros, um inquilino do Azure AD para a sua organização e uma subscrição do Azure CSP associados à mesma.|
+|É um **direta CSP parceiro** ou um **Indireta fornecedor CSP**, e irá funcionar a pilha do Azure|Utilize uma subscrição de CSL (camada de serviço comum).<br>     ou<br>Crie um inquilino do Azure AD com um nome descritivo no Centro de parceiros. Por exemplo &lt;organização > CSPAdmin com uma subscrição do Azure CSP associada à mesma.|
+|É um **Indireta CSP revendedor**, e irá funcionar a pilha do Azure|Peça ao seu fornecedor CSP Indireta para criar um inquilino do Azure AD para a sua organização com uma subscrição do Azure CSP associada ao mesmo utilizando o Centro de parceiros.|
 
 ### <a name="capacity-based-billing"></a>Capacidade de faturação baseada em
 Se optar por utilizar o modelo de faturação de capacidade, tem de comprar um Azure pilha capacidade planear SKU com base na capacidade do seu sistema. Terá de saber o número de núcleos físicos na pilha do Azure para comprar a quantidade correta. 
@@ -70,3 +69,6 @@ Faturação capacidade requer um Enterprise Agreement (EA) subscrição do Azure
 - Para obter informações sobre casos de utilização, aquisição, parceiros e fornecedores de hardware do OEM, consulte o [Azure pilha](https://azure.microsoft.com/overview/azure-stack/) página de produto.
 - Para obter informações sobre o plano e a georreplicação disponibilidade pilha do Azure integrados sistemas, consulte o documento técnico: [pilha do Azure: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Para saber mais sobre o Microsoft Azure pilha empacotamento e preços [transferir. o PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## <a name="next-steps"></a>Passos Seguintes
+[Integração de rede do Centro de dados](azure-stack-network.md)

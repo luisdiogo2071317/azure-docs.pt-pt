@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Fluxo de registo de atividade do Azure para os Event Hubs
 O [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) pode transmissão em fluxo em tempo real para qualquer aplicação utilizando a opção "Exportação" incorporada no portal ou ativar o Id de regra de barramento de serviço num perfil de registo através de Cmdlets do PowerShell do Azure ou a CLI do Azure.
@@ -35,16 +35,17 @@ Pode ativar a transmissão em fluxo de registo de atividade através de programa
 O service bus ou event hub espaço de nomes não tem de estar na mesma subscrição que a subscrição emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
 ### <a name="via-azure-portal"></a>Através do portal do Azure
-1. Navegue para o **registo de atividade** painel utilizando o menu no lado esquerdo do portal.
+1. Navegue para o **registo de atividade** painel através da opção os todos os serviços de pesquisa no lado esquerdo do portal.
    
-    ![Navegue até ao registo de atividade no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Clique em de **exportar** botão na parte superior do painel.
+    ![Navegue até ao registo de atividade no portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Clique em de **exportar** botão na parte superior do painel de registo de atividade.
    
-    ![Botão de exportação no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. No painel que aparece, pode selecionar as regiões para as quais gostaria de eventos de fluxo e o espaço de nomes de barramento de serviço, na qual gostaria de um Hub de eventos seja criado para estes eventos de transmissão em fluxo.
+    ![Botão de exportação no portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. No painel que aparece, pode selecionar as regiões para as quais gostaria de eventos de fluxo e o espaço de nomes de barramento de serviço, na qual gostaria de um Hub de eventos seja criado para estes eventos de transmissão em fluxo. Selecione **todas as regiões**.
    
-    ![Painel de registo de atividade de exportação](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Clique em **guardar** para guardar estas definições. As definições são imediatamente ser aplicadas à sua subscrição.
+    ![Painel de registo de atividade de exportação](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. Clique em **guardar** para guardar estas definições. As definições são imediatamente aplicadas à sua subscrição.
+5. Se tiver várias subscrições, deve repetir esta ação e enviar todos os dados para o mesmo hub de eventos.
 
 ### <a name="via-powershell-cmdlets"></a>Através de Cmdlets do PowerShell
 Se já existir um perfil de registo, terá primeiro de remover esse perfil.
@@ -53,8 +54,10 @@ Se já existir um perfil de registo, terá primeiro de remover esse perfil.
 2. Se Sim, utilizar `Remove-AzureRmLogProfile` removê-lo.
 3. Utilize `Set-AzureRmLogProfile` para criar um perfil:
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 O ID de regra de barramento de serviço é uma cadeia com este formato: {ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}, por exemplo 
@@ -66,7 +69,7 @@ Se já existir um perfil de registo, terá primeiro de remover esse perfil.
 2. Se Sim, utilizar `azure insights logprofile delete` removê-lo.
 3. Utilize `azure insights logprofile add` para criar um perfil:
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
@@ -75,7 +78,7 @@ O ID de regra de barramento de serviço é uma cadeia com este formato: `{servic
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como posso consumir os dados de registo dos Event Hubs?
 [O esquema para o registo de atividades está disponível aqui](monitoring-overview-activity-logs.md). Cada evento está a ser uma matriz de blobs JSON chamado "registos".
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [O registo de atividade para uma conta de armazenamento de arquivo](monitoring-archive-activity-log.md)
 * [Leia a descrição geral do registo de atividade do Azure](monitoring-overview-activity-logs.md)
 * [Configurar um alerta com base em eventos de um registo de atividade](insights-auditlog-to-webhook-email.md)

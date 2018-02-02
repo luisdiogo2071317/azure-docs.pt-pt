@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo responde a questões recorrentes sobre os componentes do Backup do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Para analisar rapidamente as secções neste artigo, utilize as ligações à di
 Sim. A partir de Setembro de 2016, pode criar 25 cofres dos serviços de recuperação por subscrição. Pode criar até 25 cofres de Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre? <br/>
-Sim, pode registar até 50 máquinas por cofre. Em máquinas virtuais de IaaS do Azure, o limite são 200 VMs por cofre. Se precisar de registar mais máquinas, crie outro cofre.
+Pode registar até 200 Azure máquinas por cofre. Se estiver a utilizar o agente de MAB pode registar até 50 agentes MAB por cofre. E pode registar os 50 servidores de servidores/DPM MAB para um cofre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se a minha organização tiver um cofre, como posso isolar os dados de um servidor de outro servidor quando restaurar os dados?<br/>
 Todos os servidores registados no mesmo cofre podem recuperar os dados de cópias de segurança de outros servidores *que utilizam a mesma frase de acesso*. Se tiver servidores cujos dados de cópia de segurança pretende isolar de outros servidores na sua organização, utilize uma frase de acesso designada para esses servidores. Por exemplo, os servidores de recursos humanos podem utilizar uma frase de acesso de encriptação, os servidores de gestão de contas outra e os servidores de armazenamento uma terceira.
@@ -161,6 +161,9 @@ Não existe limite no número de recuperações do Backup do Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Quando restaurar os dados, pago pelo tráfego de saída do Azure? <br/>
 Não. As recuperações são gratuitas e não lhe é cobrado o tráfego de saída.
+
+### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero os meus política de cópia de segurança?
+Quando uma nova política é aplicada, agenda e a retenção da nova política é seguido. Se a retenção é expandida, pontos de recuperação existentes são marcados para mantê-las de acordo com a nova política. Se a retenção é reduzida, estão marcados para eliminação na próxima tarefa de limpeza e são eliminados subsequentemente.
 
 ## <a name="azure-backup-encryption"></a>Encriptação do Azure Backup
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Os dados enviados para o Azure são encriptados? <br/>

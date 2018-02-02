@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 381dacd14afe8a2cb20be8d5e5d8065034db22c8
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
 Saiba como criar, alterar ou eliminar um peering de rede virtual. Peering de rede virtual permite-lhe ligar redes virtuais através da rede principal do Azure. Uma vez executado o peering, as redes virtuais ainda são geridas como recursos separados. Se não estiver familiarizado com o peering de rede virtual, recomendamos a leitura a [descrição geral de peering da rede Virtual](virtual-network-peering-overview.md) e concluir o [criar um tutorial de peering de rede virtual](virtual-network-create-peering.md), antes de concluir o tarefas neste artigo.
 
-O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. O peering de redes virtuais em diferentes regiões encontra-se atualmente em pré-visualização nas regiões E.U.A. Centro-Oeste, Canadá Central e E.U.A. Oeste 2. Pode [registar a sua subscrição na pré-visualização.](virtual-network-create-peering.md)
+O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. Peering redes virtuais em diferentes regiões está atualmente em pré-visualização. Consulte [atualizações da rede Virtual](https://azure.microsoft.com/en-us/updates/?product=virtual-network) de regiões disponíveis. Tem [registar a sua subscrição para a pré-visualização](virtual-network-create-peering.md).
 
 > [!WARNING]
 > Os peerings de redes virtuais criados neste cenário podem não ter o mesmo nível de disponibilidade e fiabilidade do que em cenários de versão de disponibilidade geral. Os peerings de redes virtuais podem ter capacidades restringidas e não estar disponíveis em todas as regiões do Azure. Para obter as notificações mais atualizadas sobre a disponibilidade e o estado desta funcionalidade, veja a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).

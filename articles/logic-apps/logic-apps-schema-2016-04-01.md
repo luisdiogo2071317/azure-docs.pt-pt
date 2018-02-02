@@ -15,24 +15,25 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações do esquema para o Azure Logic Apps - 1 de Junho de 2016
 
-Este novo esquema e a API versão para o Azure Logic Apps inclui melhoramentos essenciais que tornam as logic apps mais fiável e mais fáceis de utilizar:
+O [esquema atualizado](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) e versão de API para o Azure Logic Apps inclui melhoramentos essenciais que tornam as logic apps mais fiável e mais fáceis de utilizar:
 
 * [Âmbitos](#scopes) permitem-lhe agrupar ou aninhar ações como uma coleção de ações.
 * [Condições e ciclos](#conditions-loops) estão agora ações de primeira classe.
 * A ordenação mais precisas para executar ações com o `runAfter` propriedade, substituindo`dependsOn`
 
-Para atualizar as logic apps do esquema de pré-visualização 1 de Agosto de 2015 para o esquema de 1 de Junho de 2016, [consulte a secção atualizar](##upgrade-your-schema).
+Para atualizar as logic apps do esquema de pré-visualização 1 de Agosto de 2015 para o esquema de 1 de Junho de 2016, [consulte a secção atualizar](#upgrade-your-schema).
 
 <a name="scopes"></a>
-## <a name="scopes"></a>âmbitos
+
+## <a name="scopes"></a>Âmbitos
 
 Este esquema inclui âmbitos, que lhe permitem ações de grupo em conjunto, ou ações de aninhamento dentro entre si. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [âmbito sintaxe](../logic-apps/logic-apps-loops-and-scopes.md), ou consulte neste exemplo de âmbito básico:
 
@@ -57,6 +58,7 @@ Este esquema inclui âmbitos, que lhe permitem ações de grupo em conjunto, ou 
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Condições e ciclos de alterações
 
 No esquema anterior versões, condições e ciclos foram parâmetros associados uma única ação. Este esquema lifts esta limitação, pelo que as condições e ciclos são agora apresentadas como tipos de ação. Saiba mais sobre [ciclos e âmbitos](../logic-apps/logic-apps-loops-and-scopes.md), ou consulte neste exemplo básico de uma ação de condição:
@@ -86,6 +88,7 @@ No esquema anterior versões, condições e ciclos foram parâmetros associados 
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>propriedade de 'runAfter'
 
 O `runAfter` propriedade substitui `dependsOn`, fornecer mais precisão quando especificar a ordem de execução de ações com base no estado das ações anteriores.
@@ -104,7 +107,7 @@ O `dependsOn` propriedade foi synonymous com "a ação foi executada e foi concl
 
 ## <a name="upgrade-your-schema"></a>Atualizar o esquema
 
-Apenas atualizar para o novo esquema demora alguns passos. O processo de atualização inclui a executar o script de actualização, guardar como uma nova aplicação lógica e, se quiser, possivelmente substituir a aplicação lógica anterior.
+Para atualizar para o [esquema mais recente](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), só precisa de efetuar alguns passos. O processo de atualização inclui a executar o script de actualização, guardar como uma nova aplicação lógica e, se quiser, possivelmente substituir a aplicação lógica anterior.
 
 1. No portal do Azure, abra a aplicação lógica.
 
@@ -175,7 +178,7 @@ Ações agora podem ter uma propriedade adicional denominada `trackedProperties`
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Criar definições de fluxo de trabalho para aplicações lógicas](../logic-apps/logic-apps-author-definitions.md)
 * [Criar modelos de implementação para aplicações lógicas](../logic-apps/logic-apps-create-deploy-template.md)
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 9cf5b1227e69ada46bc0b1e5ff01cc12e73598f7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Utilizar o Draft com o Azure Container Service e o Azure Container Registry para criar e implementar uma aplicação no Kubernetes
 
@@ -32,7 +32,7 @@ Pode [criar um Azure Container Registry ](../../container-registry/container-reg
       az group create --name draft --location eastus
       ```
 
-2. Criar uma imagem ACR registo utilizando [az acr criar](/cli/azure/acr#create) e certifique-se de que o `--admin-enabled` opção estiver definida como `true`.
+2. Criar uma imagem ACR registo utilizando [az acr criar](/cli/azure/acr#az_acr_create) e certifique-se de que o `--admin-enabled` opção estiver definida como `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -40,7 +40,7 @@ Pode [criar um Azure Container Registry ](../../container-registry/container-reg
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Criar um Azure Container Service com o Kubernetes
 
-Agora, está pronto para utilizar [az acs create](/cli/azure/acs#create) para criar um cluster do ACS tendo o Kubernetes como o valor de `--orchestrator-type`.
+Agora, está pronto para utilizar [az acs create](/cli/azure/acs#az_acs_create) para criar um cluster do ACS tendo o Kubernetes como o valor de `--orchestrator-type`.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -220,7 +220,7 @@ O seu fornecedor de domínio tem a sua própria forma de atribuir servidores DNS
     ```
 
 2. Crie uma zona DNS para o seu domínio.
-Utilize o comando [az network dns zone create](/cli/azure/network/dns/zone#create) para obter os servidores de nomes e delegar o controlo de DNS para o DNS do Azure no seu domínio.
+Utilize o comando [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) para obter os servidores de nomes e delegar o controlo de DNS para o DNS do Azure no seu domínio.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -280,7 +280,7 @@ Hello World, I'm Java!
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que já tem um cluster do Kubernetes no ACS, pode investigar com o [Azure Container Registry](../../container-registry/container-registry-intro.md) para criar mais e diferentes implementações deste cenário. Por exemplo, pode criar um conjunto de registos DNS de domínio draft._basedomain.toplevel_ que controle aspetos de subdomínios mais profundos para implementações do ACS específicas.
 

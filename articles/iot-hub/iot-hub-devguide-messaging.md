@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4a7f545f1af2904f47808fe8b1d7d3aab3afff84
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7fd89bebf9d7497ad5b13c438b362256d3408219
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Dispositivo para nuvem e da nuvem para o dispositivo de mensagens com o IoT Hub
 
@@ -38,7 +38,7 @@ Utilize mensagens do dispositivo para a nuvem para enviar telemetria séries de 
 * Consulte [orientações de comunicação do dispositivo para nuvem] [ lnk-d2c-guidance] se em dúvida entre a utilização de mensagens do dispositivo para nuvem, propriedades comunicadas ou carregamento do ficheiro.
 * Consulte [orientações de comunicação de nuvem para o dispositivo] [ lnk-c2d-guidance] se em dúvida entre a utilização de mensagens da nuvem para o dispositivo, propriedades pretendidas ou métodos diretos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre o IoT Hub [mensagens dispositivo-nuvem][lnk-d2c].
 * Saiba mais sobre o IoT Hub [mensagens da nuvem para dispositivo][lnk-c2d].

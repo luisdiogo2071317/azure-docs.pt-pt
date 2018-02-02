@@ -3,7 +3,7 @@ title: "Integrar a solução de monitorização externa com pilha do Azure | Mic
 description: "Saiba como integrar a pilha do Azure com uma solução de monitorização externa no seu centro de dados."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitorização externa com pilha do Azure
 
@@ -83,8 +84,8 @@ Configure o ficheiro de plug-in "Azurestack_plugin.py" com os seguintes parâmet
 | *Tenant_id* | ID de subscrição de Admin | Obter através do portal de administrador ou o PowerShell |
 | *User_name* | O nome de utilizador do operador subscrição | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Palavra-passe de subscrição de operador | mypassword |
-| *Client_id* | Cliente | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *região* |  Nome de região de pilha do Azure | local |
+| *Client_id* | Cliente | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *region* |  Nome de região de pilha do Azure | local |
 |  |  |
 
 * O GUID do PowerShell que é fornecida é universal. Pode utilizá-la para cada implementação.
@@ -139,7 +140,7 @@ O pedido obtém todos os alertas fechados e Active Directory para a subscrição
 
 |Método  |URI de pedido  |
 |---------|---------|
-|INTRODUÇÃO     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 "      |
+|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Argumentos**
@@ -205,31 +206,31 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |  Argumento  |Descrição  |
 |---------|---------|
-|*ID*     |      ID exclusivo do alerta.   |
-|*nome*     |     Nome interno do alerta.   |
-|*tipo*     |     Definição do recurso.    |
+|*id*     |      ID exclusivo do alerta.   |
+|*name*     |     Nome interno do alerta.   |
+|*type*     |     Definição do recurso.    |
 |*localização*     |       Nome de região.     |
 |*etiquetas*     |   Sinalizadores de recurso.     |
 |*closedtimestamp*    |  Hora UTC quando o alerta foi fechado.    |
 |*createdtimestamp*     |     Hora UTC quando o alerta foi criado.   |
-|*Descrição*     |    Descrição do alerta.     |
+|*description*     |    Descrição do alerta.     |
 |*faultid*     | Componente afetado.        |
 |*alertid*     |  ID exclusivo do alerta.       |
 |*faulttypeid*     |  Único tipo de componente defeituoso.       |
 |*lastupdatedtimestamp*     |   Hora UTC quando o informações de alerta foi atualizadas pela última vez.    |
 |*healthstate*     | Estado de funcionamento geral.        |
-|*nome*     |   Nome do alerta específico.      |
+|*name*     |   Nome do alerta específico.      |
 |*fabricname*     |    Nome de recursos de infraestrutura registados do componente defeituoso.   |
-|*Descrição*     |  Descrição do componente registados infraestrutura.   |
-|*ServiceType*     |   Tipo de serviço a recursos de infraestrutura registado.   |
+|*description*     |  Descrição do componente registados infraestrutura.   |
+|*servicetype*     |   Tipo de serviço a recursos de infraestrutura registado.   |
 |*remediação*     |   Passos de remediação recomendada.    |
-|*tipo*     |   Tipo de alerta.    |
+|*type*     |   Tipo de alerta.    |
 |*resourceRegistrationid*    |     ID do recurso registado afetado.    |
 |*resourceProviderRegistrationID*   |    ID do fornecedor de recursos registado do componente afetado.  |
 |*serviceregistrationid*     |    ID do serviço registado.   |
-|*gravidade*     |     Gravidade do alerta.  |
-|*Estado*     |    Estado de alerta.   |
-|*título*     |    Título do alerta.   |
+|*severity*     |     Gravidade do alerta.  |
+|*state*     |    Estado de alerta.   |
+|*title*     |    Título do alerta.   |
 |*impactedresourceid*     |     ID de recurso afetado.    |
 |*ImpactedresourceDisplayName*     |     Nome do recurso afetado.  |
 |*closedByUserAlias*     |   Utilizador fechou o alerta.      |
@@ -242,7 +243,7 @@ O pedido fecha um alerta pelo seu ID exclusivo.
 
 |Método    |URI de pedido  |
 |---------|---------|
-|COLOCAR     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 "    |
+|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argumentos**
 
@@ -252,7 +253,7 @@ O pedido fecha um alerta pelo seu ID exclusivo.
 |*armendpoint*     |   Ponto final do Gestor de recursos do ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é *azurestack.external* e nome de região é *local*, em seguida, o ponto final do Gestor de recursos é https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID de subscrição do utilizador que está a efetuar a chamada. Pode utilizar esta API para consulta apenas com um utilizador que tenha permissão para a subscrição do fornecedor predefinido.     |
 |*RegionName*     |   O nome de região da implementação da pilha do Azure.      |
-|*versão de API*     |    Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.     |
+|*api-version*     |    Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.     |
 |*alertid*     |    ID exclusivo do alerta.     |
 
 **Corpo**
@@ -348,9 +349,9 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |  Argumento  |Descrição  |
 |---------|---------|
-|*ID*     |      ID exclusivo do alerta.   |
-|*nome*     |     Nome interno do alerta.   |
-|*tipo*     |     Definição do recurso.    |
+|*id*     |      ID exclusivo do alerta.   |
+|*name*     |     Nome interno do alerta.   |
+|*type*     |     Definição do recurso.    |
 |*localização*     |       Nome de região.     |
 |*etiquetas*     |   Sinalizadores de recurso.     |
 |*closedtimestamp*    |  Hora UTC quando o alerta foi fechado.    |
@@ -361,18 +362,18 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*faulttypeid*     |  Único tipo de componente defeituoso.       |
 |*lastupdatedtimestamp*     |   Hora UTC quando o informações de alerta foi atualizadas pela última vez.    |
 |*healthstate*     | Estado de funcionamento geral.        |
-|*nome*     |   Nome do alerta específico.      |
+|*name*     |   Nome do alerta específico.      |
 |*fabricname*     |    Nome de recursos de infraestrutura registados do componente defeituoso.   |
-|*Descrição*     |  Descrição do componente registados infraestrutura.   |
-|*ServiceType*     |   Tipo de serviço a recursos de infraestrutura registado.   |
+|*description*     |  Descrição do componente registados infraestrutura.   |
+|*servicetype*     |   Tipo de serviço a recursos de infraestrutura registado.   |
 |*remediação*     |   Passos de remediação recomendada.    |
-|*tipo*     |   Tipo de alerta.    |
+|*type*     |   Tipo de alerta.    |
 |*resourceRegistrationid*    |     ID do recurso registado afetado.    |
 |*resourceProviderRegistrationID*   |    ID do fornecedor de recursos registado do componente afetado.  |
 |*serviceregistrationid*     |    ID do serviço registado.   |
-|*gravidade*     |     Gravidade do alerta.  |
-|*Estado*     |    Estado de alerta.   |
-|*título*     |    Título do alerta.   |
+|*severity*     |     Gravidade do alerta.  |
+|*state*     |    Estado de alerta.   |
+|*title*     |    Título do alerta.   |
 |*impactedresourceid*     |     ID de recurso afetado.    |
 |*ImpactedresourceDisplayName*     |     Nome do recurso afetado.  |
 |*closedByUserAlias*     |   Utilizador fechou o alerta.      |
@@ -386,7 +387,7 @@ O pedido obtém o estado de funcionamento de todos os fornecedores de recursos r
 
 |Método  |URI de pedido  |
 |---------|---------|
-|INTRODUÇÃO    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 "   |
+|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Argumentos**
@@ -397,7 +398,7 @@ O pedido obtém o estado de funcionamento de todos os fornecedores de recursos r
 |*armendpoint*     |    O ponto final do Gestor de recursos do ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e nome de região é local, o ponto final do Gestor de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID de subscrição do utilizador que está a efetuar a chamada. Pode utilizar esta API para consulta apenas com um utilizador que tenha permissão para a subscrição do fornecedor predefinido.    |
 |*RegionName*     |     O nome de região da implementação da pilha do Azure.    |
-|*versão de API*     |   Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.      |
+|*api-version*     |   Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.      |
 
 
 **Resposta**
@@ -434,14 +435,14 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Argumento  |Descrição  |
 |---------|---------|
-|*ID*     |   ID exclusivo do alerta.      |
-|*nome*     |  Nome interno do alerta.       |
-|*tipo*     |  Definição do recurso.       |
+|*Id*     |   ID exclusivo do alerta.      |
+|*name*     |  Nome interno do alerta.       |
+|*type*     |  Definição do recurso.       |
 |*localização*     |  Nome de região.       |
 |*etiquetas*     |     Sinalizadores de recurso.    |
 |*registrationId*     |   Registo exclusivo para o fornecedor de recursos.      |
 |*displayName*     |Nome de apresentação do fornecedor de recursos.        |
-|*espaço de nomes*     |   Implementa a API espaço de nomes do fornecedor de recursos.       |
+|*namespace*     |   Implementa a API espaço de nomes do fornecedor de recursos.       |
 |*routePrefix*     |    URI de interagir com o fornecedor de recursos.     |
 |*serviceLocation*     |   Região Este fornecedor de recursos está registado.      |
 |*infraURI*     |   URI do fornecedor de recursos indicado como uma função de infraestrutura.      |
@@ -457,7 +458,7 @@ O pedido obtém o estado de funcionamento para um fornecedor de recursos regista
 
 |Método  |URI de pedido  |
 |---------|---------|
-|INTRODUÇÃO     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 "    |
+|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Argumentos**
 
@@ -466,7 +467,7 @@ O pedido obtém o estado de funcionamento para um fornecedor de recursos regista
 |*armendpoint*     |    O ponto final do Gestor de recursos do ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e nome de região é local, o ponto final do Gestor de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID de subscrição do utilizador que está a efetuar a chamada. Pode utilizar esta API para consulta apenas com um utilizador que tenha permissão para a subscrição do fornecedor predefinido.         |
 |*RegionName*     |  O nome de região da implementação da pilha do Azure.       |
-|*versão de API*     |  Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.       |
+|*api-version*     |  Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.       |
 |*RegistrationID* |ID de registo para um fornecedor de recursos específico. |
 
 **Resposta**
@@ -502,9 +503,9 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Argumento  |Descrição  |
 |---------|---------|
-|*ID*     |   ID exclusivo do alerta.      |
-|*nome*     |  Nome interno do alerta.       |
-|*tipo*     |  Definição do recurso.       |
+|*Id*     |   ID exclusivo do alerta.      |
+|*name*     |  Nome interno do alerta.       |
+|*type*     |  Definição do recurso.       |
 |*localização*     |  Nome de região.       |
 |*etiquetas*     |     Sinalizadores de recurso.    |
 |*registrationId*     |   Registo exclusivo para o fornecedor de recursos.      |
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   URI do recurso.   |
 |*alertSummary*     |   Resumo de crítico e alertas de aviso, o estado de funcionamento.     |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="learn-more"></a>Saiba mais
 
-- Para obter informações sobre a monitorização de estado de funcionamento incorporado, consulte [monitorizar o estado de funcionamento e alertas na pilha de Azure](azure-stack-monitor-health.md).
+Para obter informações sobre a monitorização de estado de funcionamento incorporado, consulte [monitorizar o estado de funcionamento e alertas na pilha de Azure](azure-stack-monitor-health.md).
 
 
+## <a name="next-steps"></a>Passos Seguintes
+
+[Integração de segurança](azure-stack-integrate-security.md)

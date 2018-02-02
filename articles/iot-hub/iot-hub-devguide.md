@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia para programadores do IoT Hub do Azure
 
@@ -42,10 +42,10 @@ Este guia para programadores do IoT Hub inclui os seguintes artigos:
   * [Enviar mensagens de nuvem para o dispositivo a partir do IoT Hub][devguide-messages-c2d].
   * [Criar e ler as mensagens de IoT Hub][devguide-format].
 * [Carregar ficheiros a partir de um dispositivo] [ devguide-upload] descreve como pode carregar ficheiros a partir de um dispositivo. O artigo também inclui informações sobre tópicos, tais como as notificações pode enviar o processo de carregamento.
-* [Gerir identidades de dispositivo do IoT Hub] [ devguide-identities] descreve as informações que do cada IoT hub arquivos de registo de identidade e como pode aceder e modificá-lo.
+* [Gerir identidades de dispositivo do IoT Hub] [ devguide-identities] descreve as informações que arquivos de registo de identidade de cada IoT hub. O artigo também descreve como pode aceder e modificá-lo.
 * [Controlar o acesso ao IoT Hub] [ devguide-security] descreve o modelo de segurança utilizado para conceder acesso à funcionalidade do IoT Hub para ambos os dispositivos e componentes de nuvem. O artigo inclui informações sobre a utilização de tokens e certificados x. 509 e detalhes sobre as permissões que pode conceder.
-* [Utilizar dispositivos duplos para sincronizar o estado e as configurações] [ devguide-device-twins] descreve o *dispositivo duplo* conceito e a funcionalidade expõe como sincronizar um dispositivo com o respetivo dispositivo duplo. O artigo inclui informações sobre os dados armazenados num dispositivo duplo.
-* [Invocar um método direto num dispositivo] [ devguide-directmethods] descreve o ciclo de vida de um método direto, informações sobre como invocar métodos num dispositivo da sua aplicação de back-end e processar o método direto no seu dispositivo.
+* [Utilizar dispositivos duplos para sincronizar o estado e as configurações] [ devguide-device-twins] descreve o *dispositivo duplo* conceito. O artigo também expõe descibes os dispositivos duplos funcionalidades, tais como sincronizar um dispositivo com o respetivo dispositivo duplo. O artigo inclui informações sobre os dados armazenados num dispositivo duplo.
+* [Invocar um método direto num dispositivo] [ devguide-directmethods] descreve o ciclo de vida de um método direto. O artigo descreve como invocar métodos num dispositivo da sua aplicação de back-end e processar o método direto no seu dispositivo.
 * [Agendar tarefas em vários dispositivos] [ devguide-jobs] descreve como pode agendar tarefas em vários dispositivos. O artigo descreve como submeter as tarefas que executam tarefas como executar um método direto, a atualização de um dispositivo com um dispositivo duplo. Descreve também como consultar o estado de uma tarefa.
 * [Referenciar - escolher um protocolo de comunicação] [ devguide-protocol] descreve os protocolos de comunicação que o IoT Hub suporta para a comunicação do dispositivo e lista as portas que devem ser apresentadas.
 * [Referência - pontos finais de IoT Hub] [ devguide-endpoints] descreve os vários pontos finais que cada IoT hub expõe para operações de gestão e de tempo de execução. O artigo também descreve como pode criar os pontos finais adicionais no seu IoT hub e como utilizar um gateway de campo para ativar a conetividade para os pontos finais de IoT Hub em cenários não padrão.

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos de grelha de eventos do Azure para os event hubs
 
@@ -44,7 +44,9 @@ Este evento de exemplo mostra o esquema de um evento de hubs de eventos é desen
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -55,28 +57,30 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | Cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. |
-| Requerente | Cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| EventType | Cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | Cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
-| ID | Cadeia | Identificador exclusivo para o evento. |
+| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
+| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
+| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de hub de eventos. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| fileUrl | Cadeia | O caminho para o ficheiro de captura. |
-| FileType | Cadeia | O tipo de ficheiro do ficheiro de captura. |
-| partitionId | Cadeia | O ID de partição horizontal. |
-| sizeInBytes | número inteiro | O tamanho do ficheiro. |
-| eventCount | número inteiro | O número de eventos no ficheiro. |
-| firstSequenceNumber | número inteiro | O menor número de sequência da fila. |
-| lastSequenceNumber | número inteiro | O último número de sequência da fila. |
-| firstEnqueueTime | Cadeia | A primeira da fila. |
-| lastEnqueueTime | Cadeia | A hora da última da fila. |
+| fileUrl | cadeia | O caminho para o ficheiro de captura. |
+| fileType | cadeia | O tipo de ficheiro do ficheiro de captura. |
+| partitionId | cadeia | O ID de partição horizontal. |
+| sizeInBytes | inteiro | O tamanho do ficheiro. |
+| eventCount | inteiro | O número de eventos no ficheiro. |
+| firstSequenceNumber | inteiro | O menor número de sequência da fila. |
+| lastSequenceNumber | inteiro | O último número de sequência da fila. |
+| firstEnqueueTime | cadeia | A primeira da fila. |
+| lastEnqueueTime | cadeia | A hora da última da fila. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma introdução à grelha de eventos do Azure, consulte [Novidades grelha de evento?](overview.md)
 * Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).

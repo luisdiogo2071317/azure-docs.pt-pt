@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Centro de dados para sistemas de pilha do Azure integrada
 Se estiver interessado num sistema pilha do Azure integrado, deve compreender algumas das principais considerações sobre planeamento em torno da implementação e como o sistema se enquadra no seu centro de dados. Este artigo fornece uma descrição geral de alto nível destas considerações para o ajudar a tomar decisões importantes infraestrutura para o seu sistema de vários nós de pilha do Azure. Uma compreensão destas considerações ajuda-o ao trabalhar com o fornecedor do hardware OEM à medida que implementam a pilha do Azure para o seu centro de dados.  
@@ -27,9 +27,7 @@ Se estiver interessado num sistema pilha do Azure integrado, deve compreender al
 > [!NOTE]
 > Pilha do Azure só podem ser adquiridos com vários nós sistemas de fornecedores de hardware autorizado. 
 
-Para implementar o não existe pilha do Azure são um conjunto das decisões que necessita para se integrar corretamente pilha do Azure com o seu ambiente. Terá de fornecer estas informações para o fornecedor de solução durante o processo de planeamento e estar pronto para o fornecedor de hardware antes de começa a implementação ajudar o processo de aceder de forma rápida e facilmente.
-
-As informações necessárias intervalos entre redes, segurança e informações de identidade com muitas decisões importantes que poderá exigir o conhecimento de várias áreas diferentes e os decisores. Por conseguinte, poderá ter de obter pessoas de várias equipas na sua organização para se certificar de que tem informações todos requeridas prontas antes do início da implementação. Pode ajudar a comunicar com o fornecedor de hardware ao recolher estas informações, como podem ter conselhos útil para tomar as decisões.
+Para implementar a pilha do Azure, tem de fornecer informações de planeamento para o fornecedor de solução antes de começa a implementação ajudar o processo de aceder de forma rápida e facilmente. As informações necessárias intervalos entre redes, segurança e informações de identidade com muitas decisões importantes que poderá exigir o conhecimento de várias áreas diferentes e os decisores. Por conseguinte, poderá ter de obter pessoas de várias equipas na sua organização para se certificar de que tem informações todos requeridas prontas antes do início da implementação. Pode ajudar a comunicar com o fornecedor de hardware ao recolher estas informações, como podem ter conselhos útil para tomar as decisões.
 
 Ao pesquisar e recolher as informações necessárias, poderá ter de efetuar algumas alterações de configuração de pré-implementação ao seu ambiente de rede. Isto pode incluir a reservar espaços de endereços IP para a solução de pilha do Azure, configurar os routers, comutadores e as firewalls para se preparar para a conectividade com as nova solução comutadores da pilha do Azure. Certifique-se de que tem a especialista de área do requerente lined até ajudá-lo com o planeamento.
 
@@ -38,7 +36,7 @@ Pilha do Azure é um sistema selado, em que a infraestrutura é bloqueada de um 
 
 Para operações e gestão diária, há sem acesso de administrador sem restrições para a infraestrutura. Os operadores do Azure da pilha tem de gerir o sistema através do portal de administrador ou através do Azure Resource Manager (através do PowerShell ou a API REST). Não há nenhum acesso ao sistema por outras ferramentas de gestão, tais como o Gestor de Hyper-V ou o Gestor de clusters de ativação pós-falha. Para ajudar a proteger o sistema, o software de terceiros (por exemplo, agentes) não pode ser instalado no interior de componentes da infraestrutura de pilha do Azure. Interoperabilidade com o software de gestão e segurança externas ocorre através do PowerShell ou a API REST.
 
-Quando um nível mais elevado de acesso necessária para a resolução de problemas que não estão resolvidos passos mediation alerta, tem de trabalhar com o suporte. Através do suporte, há um método para fornecer acesso de administrador total temporário para o sistema para executar operações mais avançadas. 
+Quando um nível mais elevado de acesso necessária para a resolução de problemas que não estão resolvidos passos mediation alerta, tem de trabalhar com Support da Microsoft. Através do suporte, há um método para fornecer acesso de administrador total temporário para o sistema para executar operações mais avançadas. 
 
 ## <a name="identity-considerations"></a>Considerações de identidade
 
@@ -179,7 +177,10 @@ Para replicar dados para uma localização secundária e orquestrar ativação p
 > [!IMPORTANT]
 > Na versão inicial dos sistemas integrados, estamos vai suportar tecnologias de proteção que funcionam ao nível do convidado da máquina virtual IaaS. Não é possível instalar os agentes em servidores de infraestrutura subjacente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="learn-more"></a>Saiba mais
 
 - Para obter informações sobre casos de utilização, aquisição, parceiros e fornecedores de hardware do OEM, consulte o [Azure pilha](https://azure.microsoft.com/overview/azure-stack/) página de produto.
 - Para obter informações sobre o plano e a georreplicação disponibilidade pilha do Azure integrados sistemas, consulte o documento técnico: [pilha do Azure: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Passos Seguintes
+[Modelos de ligação de implementação de pilha do Azure](azure-stack-connection-models.md)

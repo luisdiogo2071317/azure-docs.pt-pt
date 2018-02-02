@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 43da2bf5b66ff7db03a6fb5c2e1ceaebe322bcbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Utilizando a janela da Shell de nuvem do Azure
 
@@ -29,7 +29,7 @@ Este documento explica como utilizar a janela da Shell de nuvem.
 
 Utilize o Seletor de ambiente na barra de ferramentas Shell da nuvem para trocar entre ambientes Bash e PowerShell.
 
-## <a name="restart-cloud-shell"></a>Reiniciar o Shell de nuvem
+## <a name="restart-cloud-shell"></a>Reiniciar o Cloud Shell
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
 > Reiniciar o Shell de nuvem irá repor o estado da máquina e todos os ficheiros não persistentes pelo seu Azure partilha de ficheiros serão perdida.
@@ -46,7 +46,7 @@ Shell de nuvem permite várias sessões em simultâneo em separadores de browser
 Se sair com uma sessão, lembre-se de que sair da janela cada sessão como cada processo é executado independentemente embora são executadas no mesmo computador.
 
 ## <a name="copy-and-paste"></a>Copiar e colar
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## <a name="resize-cloud-shell-window"></a>Redimensionar a janela da Shell de nuvem
 * Clique e arraste o limite superior da barra de ferramentas de cópia de segurança ou para baixo para redimensionar a janela da Shell de nuvem.
@@ -61,7 +61,7 @@ Se sair com uma sessão, lembre-se de que sair da janela cada sessão como cada 
 ## <a name="exit-command"></a>Comando de saída
 Executar `exit` termina a sessão ativa. Este comportamento ocorre por predefinição, passados 20 minutos, sem interação do.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Bash no guia de introdução do Cloud Shell](quickstart.md)
 [PowerShell no guia de introdução de Shell de nuvem](quickstart-powershell.md)

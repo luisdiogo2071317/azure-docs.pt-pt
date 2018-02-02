@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 Pilha do Azure tem uma rede de infraestrutura público com externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, VMs inquilinas. São necessários certificados PKI com os nomes DNS adequados para estes pontos finais públicos de infraestrutura de pilha do Azure durante a implementação de pilha do Azure. Este artigo fornece informações sobre:
@@ -91,8 +91,9 @@ A tabela seguinte descreve os pontos finais e certificados necessários para os 
 
 <sup>2</sup> t &#42;. serviço de aplicações.  *&lt;região >.&lt; FQDN >* certificado de caráter universal não pode ser utilizado em vez destas três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >*e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicações requer explicitamente a utilização de certificados separados para estes pontos finais. 
 
+## <a name="learn-more"></a>Saiba mais
+Saiba como [gerar os certificados PKI para a implementação da pilha de Azure](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Gerar os certificados PKI para a implementação de pilha do Azure](azure-stack-get-pki-certs.md) 
-
+[Integração de identidade](azure-stack-integrate-identity.md)
 

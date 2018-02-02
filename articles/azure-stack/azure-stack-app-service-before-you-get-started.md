@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d4398d1c292548b08d91d70a8ba35b31234c5d5f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações na pilha do Azure
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 Antes de implementar o serviço de aplicações do Azure na pilha do Azure, tem de concluir os pré-requisitos neste artigo.
 
@@ -30,14 +31,14 @@ Antes de implementar o serviço de aplicações do Azure na pilha do Azure, tem 
 2. Transferir o [do serviço de aplicações no instalador do Azure pilha](https://aka.ms/appsvconmasinstaller).
 3. Extraia os ficheiros a partir do ficheiro. zip de scripts de programa auxiliar. Os seguintes ficheiros e a estrutura da pasta são apresentados:
    - Common.ps1
-   - AADIdentityApp.ps1 criar
-   - ADFSIdentityApp.ps1 criar
-   - AppServiceCerts.ps1 criar
+   - Create-AADIdentityApp.ps1
+   - Create-ADFSIdentityApp.ps1
+   - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
-   - Remover AppService.ps1
+   - Remove-AppService.ps1
    - Módulos
      - GraphAPI.psm1
-    
+
 ## <a name="prepare-for-high-availability"></a>Preparar para elevada disponibilidade
 
 Atualmente não é possível ao App Service do Azure na pilha do Azure oferecem elevada disponibilidade porque a pilha do Azure implementa cargas de trabalho num único domínio de falhas.
@@ -54,9 +55,9 @@ O script primeiro funciona com a autoridade de certificação de pilha do Azure 
 | Nome de ficheiro | Utilizar |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Certificado SSL do serviço de aplicações predefinido |
-| API.appservice.local.azurestack.external.pfx | Certificado de SSL de API do serviço de aplicações |
-| FTP.appservice.local.azurestack.external.pfx | Certificado SSL de publicador do serviço de aplicações |
-| SSO.appservice.local.azurestack.external.pfx | Certificado de aplicação de identidade de serviço de aplicações |
+| Api.appservice.local.azurestack.external.pfx | Certificado de SSL de API do serviço de aplicações |
+| ftp.appservice.local.azurestack.external.pfx | Certificado SSL de publicador do serviço de aplicações |
+| Sso.appservice.local.azurestack.external.pfx | Certificado de aplicação de identidade de serviço de aplicações |
 
 Executar o script no anfitrião do Kit de desenvolvimento de pilha do Azure e certifique-se de que está a executar o PowerShell como azurestack\CloudAdmin:
 
@@ -65,10 +66,10 @@ Executar o script no anfitrião do Kit de desenvolvimento de pilha do Azure e ce
 
 #### <a name="create-appservicecertsps1-parameters"></a>Parâmetros de AppServiceCerts.ps1 criar
 
-| Parâmetro | Necessária ou opcional | Valor predefinido | Descrição |
+| Parâmetro | Obrigatório ou opcional | Valor predefinido | Descrição |
 | --- | --- | --- | --- |
-| PfxPassword | Necessário | Valor nulo | Palavra-passe que o ajuda a proteger a chave privada do certificado |
-| domainName | Necessário | local.azurestack.external | Sufixo do Azure de região e o domínio de pilha |
+| pfxPassword | Necessário | Valor nulo | Palavra-passe que o ajuda a proteger a chave privada do certificado |
+| DomainName | Necessário | local.azurestack.external | Sufixo do Azure de região e o domínio de pilha |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certificados necessários para uma implementação de produção do serviço de aplicações do Azure na pilha do Azure
 
@@ -82,8 +83,8 @@ O certificado tem de estar no formato. pfx e deve ser um certificado de caráter
 
 | Formato | Exemplo |
 | --- | --- |
-| \*.appservice. \<região\>.\< DomainName\>.\< extensão\> | \*. appservice.redmond.azurestack.external |
-| \*. scm.appservice. <region>. <DomainName>.<extension> | \*. appservice.scm.redmond.azurestack.external |
+| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>Certificado da API
 
@@ -91,7 +92,7 @@ O certificado da API é colocado na função de gestão. O fornecedor de recurso
 
 | Formato | Exemplo |
 | --- | --- |
-| API.appservice. \<região\>.\< DomainName\>.\< extensão\> | API.appservice.Redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Certificado de publicação
 
@@ -99,7 +100,7 @@ O certificado para a função de editor protege o tráfego FTPS para os propriet
 
 | Formato | Exemplo |
 | --- | --- |
-| FTP.appservice. \<região\>.\< DomainName\>.\< extensão\> | API.appservice.Redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Certificado de identidade
 
@@ -111,15 +112,15 @@ O certificado para a identidade tem de conter um assunto que corresponde ao form
 
 | Formato | Exemplo |
 | --- | --- |
-| SSO.appservice. \<região\>.\< DomainName\>.\< extensão\> | SSO.appservice.Redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificado de raiz do Gestor de recursos do Azure para a pilha do Azure
 
 Numa sessão do PowerShell em execução como azurestack\CloudAdmin, execute o script Get-AzureStackRootCert.ps1 da pasta onde extraiu os scripts de programa auxiliar. O script cria quatro certificados na mesma pasta que o script que necessita de serviço de aplicações para a criação de certificados.
 
-| Parâmetro de GET-AzureStackRootCert.ps1 | Necessária ou opcional | Valor predefinido | Descrição |
+| Get-AzureStackRootCert.ps1 parameter | Obrigatório ou opcional | Valor predefinido | Descrição |
 | --- | --- | --- | --- |
-| PrivelegedEndpoint | Necessário | AzS ERCS01 | Ponto final com privilégios |
+| PrivelegedEndpoint | Necessário | AzS-ERCS01 | Ponto final com privilégios |
 | CloudAdminCredential | Necessário | AzureStack\CloudAdmin | Credencial da conta de domínio para os administradores de nuvem de pilha do Azure |
 
 
@@ -244,7 +245,7 @@ Para implementações do Kit de desenvolvimento de pilha do Azure, pode utilizar
 
 Para produção e fins de elevada disponibilidade, deve utilizar uma versão completa do SQL Server 2014 SP2 ou posterior, ativar a autenticação de modo misto e implementar uma [configuração altamente disponíveis](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Instância do SQL Server para o Azure App Service na pilha do Azure tem de ser acessível a partir de todas as funções do serviço de aplicações. Pode implementar o SQL Server dentro da subscrição do fornecedor predefinida na pilha do Azure. Pode ainda utilizar a infraestrutura existente na sua organização (desde que está estabelecida conetividade à pilha do Azure). Se estiver a utilizar uma imagem do Azure Marketplace, lembre-se configurar a firewall em conformidade. 
+Instância do SQL Server para o Azure App Service na pilha do Azure tem de ser acessível a partir de todas as funções do serviço de aplicações. Pode implementar o SQL Server dentro da subscrição do fornecedor predefinida na pilha do Azure. Pode ainda utilizar a infraestrutura existente na sua organização (desde que está estabelecida conetividade à pilha do Azure). Se estiver a utilizar uma imagem do Azure Marketplace, lembre-se configurar a firewall em conformidade.
 
 Para qualquer uma das funções do SQL Server, pode utilizar uma instância predefinida ou numa instância nomeada. Se utilizar uma instância nomeada, não se esqueça de iniciar o serviço do SQL Server Browser e abrir a porta 1434 manualmente.
 
@@ -276,7 +277,7 @@ Siga estes passos.
 12. Selecione **aplicação** na lista.
 13. Selecione **as permissões necessárias** > **conceder permissões** > **Sim**.
 
-| Parâmetro AADIdentityApp.ps1 criar | Necessária ou opcional | Valor predefinido | Descrição |
+| Create-AADIdentityApp.ps1  parameter | Obrigatório ou opcional | Valor predefinido | Descrição |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Necessário | Valor nulo | ID de inquilino do Azure AD Forneça o GUID ou uma cadeia. Um exemplo é myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Necessário | Valor nulo | Ponto final de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
@@ -305,7 +306,7 @@ Siga estes passos.
 5.  No **credencial** janela, introduza a sua conta de administrador de nuvem do AD FS e a palavra-passe. Selecione **OK**.
 6.  Forneça o caminho do ficheiro de certificado e a palavra-passe de certificado para o [certificado que criou anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado que criou para este passo por predefinição é **sso.appservice.local.azurestack.external.pfx**.
 
-| Parâmetro ADFSIdentityApp.ps1 criar | Necessária ou opcional | Valor predefinido | Descrição |
+| Create-ADFSIdentityApp.ps1  parameter | Obrigatório ou opcional | Valor predefinido | Descrição |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Necessário | Valor nulo | Ponto final de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Necessário | Valor nulo | Ponto final com privilégios. Um exemplo é AzS ERCS01. |
@@ -314,6 +315,6 @@ Siga estes passos.
 | CertificatePassword | Necessário | Valor nulo | Palavra-passe que o ajuda a proteger a chave privada do certificado. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Instalar o fornecedor de recursos do serviço de aplicações](azure-stack-app-service-deploy.md)

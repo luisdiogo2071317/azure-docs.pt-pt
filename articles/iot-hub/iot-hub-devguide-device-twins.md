@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 
@@ -58,47 +58,49 @@ Um dispositivo duplo é um documento JSON que inclui:
 
 O exemplo seguinte mostra um dispositivo duplo documento JSON:
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
 O objeto de raiz é o dispositivo propriedades de identidade e contentor de objetos para `tags` e ambos `reported` e `desired` propriedades. O `properties` contentor contém alguns elementos de só de leitura (`$metadata`, `$etag`, e `$version`) descrito a [metadados do dispositivo duplo] [ lnk-twin-metadata] e [ Simultaneidade otimista] [ lnk-concurrency] secções.
 
@@ -112,26 +114,32 @@ No exemplo anterior, o dispositivo duplo contém um `batteryLevel` propriedade q
 No exemplo anterior, o `telemetryConfig` dispositivo duplo pretendida e propriedades comunicadas são utilizadas pela solução de back-end e a aplicação de dispositivo para sincronizar a configuração de telemetria para este dispositivo. Por exemplo:
 
 1. O solução de back-end define a propriedade com o valor de configuração pretendida pretendida. Segue-se a parte do documento com a propriedade pretendido definida:
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. A aplicação de dispositivo é notificada da alteração imediatamente se ligado ou, no primeiro o restabelecimento de ligação. A aplicação de dispositivo, em seguida, reporta a configuração atualizada (ou uma condição de erro utilizando o `status` propriedade). Segue-se a parte das propriedades comunicadas:
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. O solução de back-end pode controlar os resultados da operação de configuração em vários dispositivos, por [consultar] [ lnk-query] dispositivos duplos.
 
 > [!NOTE]
@@ -144,36 +152,39 @@ Pode utilizar duplos para sincronizar as operações de longa execução, tais c
 ## <a name="back-end-operations"></a>Operações de back-end
 O solução de back-end funciona no dispositivo duplo utilizando as seguintes operações atómicas, expostas através de HTTPS:
 
-* **Obter o dispositivo duplo por id**. Esta operação devolve o documento de duplo de dispositivo, incluindo etiquetas e propriedades do sistema pretendido e comunicados.
+* **Obter o dispositivo duplo por ID**. Esta operação devolve o documento de duplo de dispositivo, incluindo etiquetas e propriedades do sistema pretendido e comunicados.
 * **Atualizar o dispositivo duplo parcialmente**. Esta operação permite que a solução de back-end parcialmente atualizar as etiquetas ou propriedades pretendidas num dispositivo duplo. A atualização parcial é expresso como um documento JSON que adiciona ou atualiza uma propriedade. As propriedades definidas como `null` são removidos. O exemplo seguinte cria uma nova propriedade pretendida com valor `{"newProperty": "newValue"}`, substitui o valor existente da `existingProperty` com `"otherNewValue"`e remove `otherOldProperty`. Não existem outras alterações são efetuadas às propriedades pretendidas existentes ou tags:
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **Substituir propriedades pretendidas**. Esta operação permite que a solução de back-end para completamente substituir propriedades pretendidas todas as existentes e substituir um novo documento JSON para `properties/desired`.
 * **Substitua as etiquetas**. Esta operação permite que a solução de back-end para completamente substituir a existentes todas as etiquetas e a substituir um novo documento JSON para `tags`.
-* **Receber notificações de duplo**. Esta operação permite que a solução de back-end ser notificado quando o duplo é modificado. Para tal, a solução de IoT tem de criar uma rota e definir a origem de dados igual a *twinChangeEvents*. Por predefinição, não existem notificações duplo são enviadas, ou seja, sem estas rotas existem previamente. Se a taxa de alteração é demasiado elevada, ou por outros motivos como falhas internos, o IoT Hub poderá enviar apenas uma notificação que contém todas as alterações. Por isso, se a sua aplicação tiver fiável de auditoria e registo de todos os Estados intermédios, em seguida, é ainda recomendado que utilize D2C mensagens. A mensagem de notificação de duplo inclui as propriedades e corpo.
+* **Receber notificações de duplo**. Esta operação permite que a solução de back-end ser notificado quando o duplo é modificado. Para tal, a solução de IoT tem de criar uma rota e definir a origem de dados igual a *twinChangeEvents*. Por predefinição, não existem notificações duplo são enviadas, ou seja, sem estas rotas existem previamente. Se a taxa de alteração é demasiado elevada, ou por outros motivos como falhas internos, o IoT Hub poderá enviar apenas uma notificação que contém todas as alterações. Por conseguinte, se a sua aplicação tiver fiável de auditoria e registo de todos os Estados intermédios, deve utilizar mensagens do dispositivo para nuvem. A mensagem de notificação de duplo inclui as propriedades e corpo.
 
     - Propriedades
 
     | Nome | Valor |
     | --- | --- |
-    $content-tipo | application/json |
+    $content-type | application/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
-    $iothub-mensagem-origem | twinChangeEvents |
-    $content-codificação | UTF-8 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
     deviceId | ID do dispositivo |
     hubName | Nome do IoT Hub |
     operationTimestamp | [ISO8601] timestamp da operação |
-    esquema de mensagem iothub | deviceLifecycleNotification |
+    iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" ou "updateTwin" |
 
     Propriedades do sistema de mensagens têm o prefixo de `'$'` símbolo.
@@ -181,7 +192,8 @@ O solução de back-end funciona no dispositivo duplo utilizando as seguintes op
     - Corpo
         
     Esta secção inclui todas as alterações de duplo num formato JSON. Utiliza o mesmo formato como uma correção, com a diferença que pode conter todas as secções de duplo: etiquetas, properties.reported, properties.desired e que contém os elementos de "$metadata". Por exemplo,
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ O solução de back-end funciona no dispositivo duplo utilizando as seguintes op
             }
         }
     }
-    ``` 
+    ```
 
 Todas as operações anteriores suportam [simultaneidade otimista] [ lnk-concurrency] e requerem o **ServiceConnect** permissão, tal como definido no [segurança] [ lnk-security] artigo.
- 
+
 Além destas operações, o solução de back-end pode:
 
 * Consultar os dispositivos duplos com o tipo SQL, [idioma de consulta do IoT Hub][lnk-query].
@@ -225,23 +237,25 @@ As etiquetas, propriedades pretendidas e propriedades comunicadas são objetos J
 * Todos os valores em objetos JSON podem ser dos seguintes tipos de JSON: boolean, número, cadeia, objecto. Não são permitidas matrizes. O valor máximo de números inteiros é 4503599627370495 e o valor mínimo de números inteiros é-4503599627370496.
 * Todos os objetos JSON etiquetas, propriedades pretendidas e reportadas podem ter uma profundidade máxima de 5. Por exemplo, do seguinte objeto é válido:
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * Todos os valores de cadeia podem ser, no máximo 4 KB de comprimento.
 
@@ -254,48 +268,50 @@ IoT Hub com um erro rejeita todas as operações que podem aumentar o tamanho de
 IoT Hub mantém o carimbo da última atualização para cada objeto JSON no dispositivo duplo pretendida e reportado propriedades. Os carimbos está em UTC e codificadas no [ISO8601] formato `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Por exemplo:
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 Esta informação é mantida em cada nível (não apenas os leaves da estrutura de JSON) para manter as atualizações que remover chaves de objeto.
 
@@ -336,7 +352,7 @@ Agora que tem aprendeu sobre dispositivos duplos, poderá estar interessado nos 
 * [Invocar um método direto num dispositivo][lnk-methods]
 * [Agenda de tarefas em vários dispositivos][lnk-jobs]
 
-Se pretender experimentar alguns dos conceitos descritos neste artigo, poderá estar interessado nos seguintes tutoriais do IoT Hub:
+Para experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais do IoT Hub:
 
 * [Como utilizar o dispositivo duplo][lnk-twin-tutorial]
 * [Como utilizar as propriedades do dispositivo duplo][lnk-twin-properties]

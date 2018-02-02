@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Erro ao Processar em Runbooks Gráficos da Automatização do Azure
 
@@ -40,7 +40,7 @@ Os runbooks gráficos da Automatização do Azure foram melhorados com a capacid
 
 Sempre que existir uma atividade crítica que produza um erro ou exceção, é importante impedir que a atividade seguinte no seu runbook seja processada de forma a processar o erro corretamente. Isto é fundamental sobretudo se os seus runbooks estiverem a suportar um processo de operações empresariais ou de serviços.
 
-Para cada atividade que possa produzir um erro, o autor do runbook pode adicionar uma ligação de erro que aponte para outra atividade qualquer.  A atividade de destino pode ser de qualquer tipo, incluindo atividades de código, invocações de cmdlets, invocações de outros runbooks e assim sucessivamente.
+Para cada atividade que possa produzir um erro, o autor do runbook pode adicionar uma ligação de erro que aponte para outra atividade qualquer. A atividade de destino pode ser de qualquer tipo, incluindo atividades de código, invocações de cmdlets, invocações de outros runbooks e assim sucessivamente.
 
 Além disso, a atividade de destino também pode ter ligações de saída. Estas ligações podem ser ligações normais ou de erro. Isto significa que o autor do runbook pode implementar uma lógica complexa de processamento de erros sem recorrer a uma atividade de código. A prática recomendada é criar um runbook dedicado de processamento de erros com funcionalidades comuns, embora tal não seja obrigatório. A lógica de processamento de erros numa atividade de código do PowerShell não é a única opção.  
 
@@ -63,7 +63,7 @@ Depois de configurar esta definição, crie uma atividade que processe o erro. S
 
 No exemplo seguinte, o runbook obtém uma variável que contém o nome do computador de uma máquina virtual. Em seguida, tenta iniciar a máquina virtual com a atividade seguinte.<br><br> ![Exemplo de processamento de erros de um runbook de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-As atividades **Get-AutomationVariable** e **Start-AzureRmVm** estão configuradas para converter exceções em erros.  Se ocorrerem problemas ao obter a variável ou ao iniciar a VM, serão gerados erros.<br><br> ![Definições de atividade de processamento de erros de um runbook de automatização](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+As atividades **Get-AutomationVariable** e **Start-AzureRmVm** estão configuradas para converter exceções em erros. Se ocorrerem problemas ao obter a variável ou ao iniciar a VM, serão gerados erros.<br><br> ![Definições de atividade de processamento de erros de um runbook de automatização](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 As ligações de erro são enviadas destas atividades para uma única atividade de **gestão de erros** (uma atividade de código). Esta atividade é configurada com uma expressão simples do PowerShell que utiliza a palavra-chave *Throw* para parar o processamento, juntamente com *$Error.Exception.Message* para obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de processamento de erros de um runbook de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

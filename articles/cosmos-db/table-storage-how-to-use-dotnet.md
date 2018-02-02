@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao Table Storage do Azure através do .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -29,14 +29,18 @@ O Armazenamento de tabelas do Azure é um serviço que armazena dados NoSQL estr
 Pode utilizar o Armazenamento de Tabelas para armazenar conjuntos de dados flexíveis, como os dados do utilizador para aplicações Web, livros de endereços, informações do dispositivo, ou outros tipo de metadados necessários para o seu serviço. Pode armazenar quantas entidades pretender numa tabela e uma conta do Storage pode conter quantas tabelas pretender, até ao limite de capacidade da conta do Storage.
 
 ### <a name="about-this-tutorial"></a>Acerca deste tutorial
-Este tutorial mostra-lhe como utilizar a [Biblioteca de Cliente de Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) em alguns cenários comuns de Armazenamento de tabelas do Azure. Estes cenários são apresentados com exemplos C#, para criar e eliminar uma tabela e inserir, atualizar, eliminar e consultar dados de tabelas.
+Este tutorial mostra como utilizar o [biblioteca de tabela do Microsoft Azure CosmosDB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) em cenários comuns do armazenamento de tabelas do Azure. Indica o nome do pacote é para utilização com o Azure Cosmos DB, mas o pacote funciona com o Azure Cosmos BD e o armazenamento de tabelas do Azure, cada serviço tem apenas um único ponto de final. Estes cenários são explorou utilizar c# exemplos que ilustram como:
+* Criar e eliminar tabelas
+* Inserir, atualizar e eliminar linhas
+* Tabelas de consulta
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial com êxito, precisa do seguinte:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Biblioteca de Clientes do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Biblioteca comum do armazenamento do Azure para .NET (pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Este é um pacote de pré-visualização necessária é suportado em ambientes de produção. 
+* [Biblioteca de tabela CosmosDB do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
 * [Gestor de Configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -47,17 +51,120 @@ Para obter exemplos adicionais que utilizam o Armazenamento de Tabelas, veja [In
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
 
-[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+Pode trabalhar com tabelas utilizando o Table storage do Azure ou a base de dados do Azure Cosmos. Pode saber mais sobre as diferenças entre os serviços ao ler [tabela ofertas](table-introduction.md#table-offerings). Terá de criar uma conta para o serviço que vai utilizar. 
+
+### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+A forma mais fácil de criar a primeira conta de armazenamento do Azure é com o [portal do Azure](https://portal.azure.com). Para saber mais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
+Também pode criar uma conta de armazenamento do Azure com o [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), o [CLI do Azure](../storage/common/storage-azure-cli.md) ou a [Biblioteca de Clientes do Fornecedor de Recursos de Armazenamento para .NET](/dotnet/api/microsoft.azure.management.storage).
+
+Se preferir não criar uma conta de armazenamento neste momento, pode também utilizar o emulador de armazenamento do Azure para executar e testar o seu código num ambiente local. Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](../storage/common/storage-use-emulator.md).
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de tabela de base de dados do Azure Cosmos
+
+Para obter instruções sobre como criar uma conta de API de tabela do Azure Cosmos DB, consulte [criar uma conta de API de tabela](create-table-dotnet.md#create-a-database-account).
+
+## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
+Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar pronto para experimentar os exemplos de código deste guia.
+
+### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicação de consola do Windows
+No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seguintes mostram como criar uma aplicação de consola no Visual Studio 2017. Os passos são semelhantes aos de outras versões do Visual Studio.
+
+1. Selecione **Ficheiro** > **Novo** > **Projeto**.
+2. Selecione **instalado** > **Visual c#** > **ambiente de trabalho clássico do Windows**.
+3. Selecione **Aplicação da Consola (.NET Framework)**.
+4. No campo **Nome**, introduza um nome para a sua aplicação.
+5. Selecione **OK**.
+
+Todos os exemplos de código deste tutorial podem ser adicionados ao método `Main()` do ficheiro `Program.cs` da aplicação da consola.
+
+Pode utilizar a biblioteca de tabela do Azure CosmosDB qualquer tipo de aplicações .NET, incluindo uma aplicação de web ou serviço de nuvem do Azure e aplicações de ambiente de trabalho e dispositivos móveis. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
+
+### <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
+Existem três pacotes que tem de referenciar no seu projeto para concluir este tutorial:
+
+* [Biblioteca comum do armazenamento do Azure para .NET (pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Biblioteca de tabela CosmosDB do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento de tabelas do Azure ou a conta de API de tabela de base de dados do Azure Cosmos.
+* [Biblioteca do Gestor de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação estiver a ser executada.
+
+Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
+
+1. Clique com o botão direito do rato no projeto no **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**.
+2. Procure online por "Microsoft.Azure.Storage.Common" e selecione **instalar** para instalar a biblioteca comum de armazenamento do Azure para .NET (pré-visualização) e as respetivas dependências. Certifique-se a **incluir pré-lançamento** caixa está marcada como este é um pacote de pré-visualização.
+3. Procure online por "Microsoft.Azure.CosmosDB.Table" e selecione **instalar** para instalar a biblioteca de tabela CosmosDB do Microsoft Azure.
+4. Procure online por "WindowsAzure.ConfigurationManager" e selecione **instalar** para instalar a biblioteca de Configuration Manager do Microsoft Azure.
+
+> [!NOTE]
+> As dependências ODataLib na biblioteca comum de armazenamento para .NET são resolvidas através de pacotes ODataLib disponíveis no NuGet, não a partir do WCF Data Services. As bibliotecas ODataLib podem ser transferidas diretamente ou referenciadas pelo seu projeto de código através do NuGet. Os pacotes ODataLib específicos utilizados da Biblioteca de Clientes de Armazenamento são [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) e [Spatial](http://nuget.org/packages/System.Spatial/). Embora estas bibliotecas sejam utilizadas pelas classes de armazenamento de tabelas do Azure, são dependências necessárias para a programação com a biblioteca comum de armazenamento.
+> 
+> 
+
+### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
+Tem duas opções de ambiente para executar os exemplos neste guia:
+
+* Pode executar o código numa conta de armazenamento do Azure na nuvem. 
+* Pode executar o código uma conta de base de dados do Azure Cosmos na nuvem.
+* Pode executar o código no emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar o seu código enquanto a aplicação está em desenvolvimento. O emulador utiliza uma conta e chave bem conhecidas. Para obter mais informações, veja [Utilizar o emulador de armazenamento do Azure para programação e teste](../storage/common/storage-use-emulator.md).
+
+Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, veja [Ver e copiar chaves de acesso do armazenamento](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+
+> [!NOTE]
+> Pode filtrar o emulador de armazenamento para evitar incorrer em custos associados ao Storage do Azure. No entanto, se optar por filtrar uma conta de armazenamento do Azure na nuvem, os custos para efetuar este tutorial serão negligenciável.
+> 
+> 
+
+Se estiver a filtrar uma conta de base de dados do Azure Cosmos, copie a chave de acesso primária para a sua conta de API de tabela do portal do Azure. Para obter mais informações, consulte [atualizar a cadeia de ligação](create-table-dotnet.md#update-your-connection-string).
+
+### <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
+A biblioteca do Azure armazenamento comuns para .NET suporta a utilização de uma cadeia de ligação de armazenamento para configurar pontos finais e credenciais para aceder aos serviços de armazenamento. A melhor forma para manter a cadeia de ligação de armazenamento é num ficheiro de configuração. 
+
+Para obter mais informações sobre as cadeias de ligação, veja [Configurar uma cadeia de ligação para o Armazenamento do Azure](../storage/common/storage-configure-connection-string.md).
+
+> [!NOTE]
+> A chave de conta é semelhante para a palavra-passe de raiz para a sua conta de armazenamento. Tenha sempre o cuidado de proteger a chave da conta de armazenamento. Evite distribui-la a outros utilizadores, pré-programá-la ou guardá-la num ficheiro de texto simples que seja acessível a outras pessoas. Regenere a sua chave através do portal do Azure se considerar que poderá ter sido comprometida.
+> 
+> 
+
+Para configurar a cadeia de ligação, abra o ficheiro `app.config` a partir do Explorador de Soluções no Visual Studio. Adicione o conteúdo do elemento `<appSettings>` mostrado abaixo. Substitua `account-name` com o nome da sua conta e `account-key` com a chave de acesso da conta:
+
+```xml
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+    </appSettings>
+</configuration>
+```
+
+Por exemplo, se estiver a utilizar uma conta de armazenamento do Azure, as definições de configuração ser semelhantes a:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+```
+
+Se estiver a utilizar uma conta de base de dados do Azure Cosmos, as definições de configuração ser semelhantes a:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+```
+
+Para filtrar o emulador de armazenamento, pode utilizar um atalho que mapeia para o nome de conta e chave bem conhecidas. Nesse caso, a definição da cadeia de ligação é:
+
+```xml
+<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+```
 
 ### <a name="add-using-directives"></a>Adicionar com diretivas
 Adicione as seguintes diretivas de **utilização** à parte superior do ficheiro `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
+using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 
 ### <a name="parse-the-connection-string"></a>Analisar a cadeia de ligação

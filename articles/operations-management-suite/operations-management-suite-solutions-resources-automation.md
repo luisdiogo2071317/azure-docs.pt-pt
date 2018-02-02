@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>A adição de recursos de automatização do Azure para uma solução de gestão do OMS (pré-visualização)
 > [!NOTE]
@@ -40,7 +40,7 @@ Este artigo pressupõe que já estiver familiarizado com as seguintes informaç�
 - Como [criar modelos do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Conta de automatização
-Todos os recursos na automatização do Azure estão contidos num [conta de automatização](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [OMS área de trabalho e a conta de automatização](operations-management-suite-solutions.md#oms-workspace-and-automation-account) a conta de automatização não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, a solução de instalação irá falhar.
+Todos os recursos na automatização do Azure estão contidos num [conta de automatização](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [OMS área de trabalho e a conta de automatização](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) a conta de automatização não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, a solução de instalação irá falhar.
 
 O nome de cada recurso de automatização inclui o nome da sua conta de automatização.  Isto é feito na solução com o **accountName** parâmetro como no seguinte exemplo de um recurso de runbook.
 
@@ -77,7 +77,7 @@ As propriedades para os runbooks são descritas na seguinte tabela.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| runbooktype necessária |Especifica os tipos de runbook. <br><br> Script - o script do PowerShell <br>PowerShell – fluxo de trabalho do PowerShell <br> GraphPowerShell - runbook do script do PowerShell gráfica <br> GraphPowerShellWorkflow - runbook de fluxo de trabalho do PowerShell gráfica |
+| runbookType |Especifica os tipos de runbook. <br><br> Script - o script do PowerShell <br>PowerShell – fluxo de trabalho do PowerShell <br> GraphPowerShell - runbook do script do PowerShell gráfica <br> GraphPowerShellWorkflow - runbook de fluxo de trabalho do PowerShell gráfica |
 | logProgress |Especifica se [registos de progresso](../automation/automation-runbook-output-and-messages.md) deve ser gerado para o runbook. |
 | logVerbose |Especifica se [registos verbosos](../automation/automation-runbook-output-and-messages.md) deve ser gerado para o runbook. |
 | descrição |Descrição opcional para o runbook. |
@@ -171,7 +171,7 @@ As propriedades de recursos de credencial descritas na seguinte tabela.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome de utilizador |Nome de utilizador para a credencial. |
+| userName |Nome de utilizador para a credencial. |
 | palavra-passe |Palavra-passe para a credencial. |
 
 
@@ -201,7 +201,7 @@ As propriedades de recursos de agenda são descritas na seguinte tabela.
 |:--- |:--- |
 | descrição |Descrição opcional para a agenda. |
 | startTime |Especifica a hora de início de uma agenda como um objeto de DateTime. Uma cadeia pode ser fornecida se pode ser convertido para um valor DateTime válido. |
-| IsEnabled |Especifica se a agenda é ativada. |
+| isEnabled |Especifica se a agenda é ativada. |
 | intervalo |O tipo de intervalo para a agenda.<br><br>dia<br>hora |
 | frequência |Frequência da agenda deve acionados em número de dias ou horas. |
 
@@ -281,10 +281,10 @@ Se definir o valor inicial para a variável, tem de ser configurado como o tipo 
 
 | Tipo de dados | Descrição | Exemplo | Resolve para |
 |:--|:--|:--|:--|
-| Cadeia   | Coloque o valor entre aspas duplas.  | "\"Olá mundo\"" | "Olá mundo" |
+| cadeia   | Coloque o valor entre aspas duplas.  | "\"Olá mundo\"" | "Olá mundo" |
 | um valor numérico  | Valor numérico com plicas.| "64" | 64 |
-| Valor booleano  | **Verdadeiro** ou **falso** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | VERDADEIRO |
-| DateTime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-data "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| boolean  | **Verdadeiro** ou **falso** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
+| datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-data "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 A solução de gestão não é necessário definir [módulos globais](../automation/automation-integration-modules.md) utilizado pelos seus runbooks porque estes estarão sempre disponíveis na sua conta de automatização.  Tem de incluir um recurso para qualquer outro módulo utilizado pelos seus runbooks.
@@ -322,7 +322,7 @@ Se atualizar uma solução de gestão que inclua um runbook que utiliza uma agen
 
 
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 Segue-se um exemplo de uma solução que incluem que inclui os seguintes recursos:
 
 - Runbook.  Este é um runbook de exemplo armazenado num repositório GitHub público.
@@ -649,5 +649,5 @@ Este exemplo utiliza [parâmetros de solução padrão](operations-management-su
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar uma vista à sua solução](operations-management-suite-solutions-resources-views.md) para visualizar os dados recolhidos.

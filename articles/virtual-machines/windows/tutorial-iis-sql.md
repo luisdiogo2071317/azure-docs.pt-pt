@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Instale um SQL Server &#92; IIS &#92;. Pilha de rede no Azure
 
@@ -32,7 +32,9 @@ Neste tutorial, vamos instalar SQL &#92; IIS &#92;. Pilha de rede com o Azure Po
 > * Criar uma VM com o SQL Server
 > * Instale a extensão do SQL Server
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.1.1 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-iis-vm"></a>Criar uma VM de IIS 
 
@@ -41,9 +43,10 @@ Neste exemplo, utilizamos o [New-AzVM](https://www.powershellgallery.com/package
 Clique em de **tente-** botão para o canto superior direito do bloco de código para iniciar a Shell de nuvem nesta janela. Será pedido para fornecer credenciais para a máquina virtual na linha de comandos.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Instale o IIS e o .NET framework com a extensão de script personalizado.
@@ -52,7 +55,7 @@ Instale o IIS e o .NET framework com a extensão de script personalizado.
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
@@ -109,7 +112,7 @@ Utilize [conjunto AzureRmVMSqlServerExtension](/powershell/module/azurerm.comput
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, é instalado um SQL Server &#92; IIS &#92;. Pilha de rede com o Azure PowerShell. Aprendeu a:
 

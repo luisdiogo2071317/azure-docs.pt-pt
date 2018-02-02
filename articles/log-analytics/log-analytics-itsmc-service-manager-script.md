@@ -1,6 +1,6 @@
 ---
-title: "Automatizada script para criar aplicação Web do Service Manager para estabelecer ligação com o conector de gestão de serviços de TI no OMS | Microsoft Docs"
-description: "Crie uma aplicação Web do Service Manager utilizando um script automático para estabelecer ligação com o conector de gestão de serviços de TI na OMS e monitorizar e gerir centralmente os itens de trabalho ITSM."
+title: "A atribuição de script para criar aplicação Web do Service Manager para estabelecer ligação com o conector de gestão de serviços de TI no Azure | Microsoft Docs"
+description: "Crie uma aplicação Web do Service Manager utilizando um script automático para estabelecer ligação com o conector de gestão de serviços de TI no Azure e monitorizar e gerir centralmente os itens de trabalho ITSM."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Criar aplicação Web do Service Manager, utilizando o script automático (pré-visualização)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicação Web do Service Manager, utilizando o script automatizado
 
 Utilize o seguinte script para criar a aplicação Web na sua instância do Service Manager. Mais informações sobre a ligação do Service Manager estão aqui: [aplicação Web do Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -318,5 +318,5 @@ if(!$err)
 }
 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Configurar a ligação híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

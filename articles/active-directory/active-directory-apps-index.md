@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista completa de todos os documentos escritas sobre as várias funcionalidades relacionadas com a aplicação no Azure Active Directory (Azure AD).
@@ -137,7 +137,7 @@ Automatizar a criação, a manutenção e a remoção de identidades de utilizad
 | Saiba mais sobre como funciona e localizar as respostas a perguntas comuns |[Automatizar utilizador aprovisionamento e desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md) |
 | Configurar a forma como as informações estão mapeadas entre o Azure AD e a aplicação SaaS |[Personalizar os mapeamentos de atributos](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escrever expressões para mapeamentos de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Como ativar o aprovisionamento automatizado para qualquer aplicação que suporte o protocolo SCIM |[Configurar o aprovisionamento automatizado do utilizador para qualquer aplicação SCIM-Enabled](active-directory-scim-provisioning.md) |
-| Como comunicar e resolver problemas de aprovisionamento de utilizadores |[Relatórios sobre o aprovisionamento de utilizador automáticas](active-directory-saas-provisioning-reporting.md)<br><br>[Notificações de aprovisionamento](active-directory-saas-account-provisioning-notifications.md)<br><br>[Resolução de problemas de aprovisionamento de utilizadores](active-directory-application-provisioning-content-map.md) |
+| Como comunicar e resolver problemas de aprovisionamento de utilizadores |[Relatórios sobre o aprovisionamento de utilizador automáticas](active-directory-saas-provisioning-reporting.md)<br><br>[Resolução de problemas de aprovisionamento de utilizadores](active-directory-application-provisioning-content-map.md) |
 | Limite quem obtém aprovisionado para uma aplicação com base nos respetivos valores de atributo |[Filtros de âmbito](active-directory-saas-scoping-filters.md) |
 
 Aprovisionamento de utilizadores automatizada está disponível para todas as edições do Azure AD para aplicações de até dez por utilizador. [O Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) suporta aplicações ilimitadas. Se a organização tiver [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) ou [do Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), em seguida, pode [utilizar grupos para gerir os utilizadores que obterem aprovisionados](#managing-access-to-applications).

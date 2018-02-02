@@ -3,9 +3,8 @@ title: "Aplicações com suporte para afirmações - Proxy de aplicações do Az
 description: "Como publicar as aplicações de ASP.NET que aceitam afirmações do ADFS para proteger o acesso remoto, os utilizadores no local."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
-editor: harshja
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: daveba
-ms.openlocfilehash: 9cf6c5aedbf1062922e755c962449253e49f8013
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a732687e47cffff6b6aae687f8e780bba630243e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações com suporte para afirmações no Proxy de aplicações
 [Aplicações com suporte para afirmações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) efetuar um redirecionamento para serviço de Token segurança (STS). O STS os pedidos de credenciais do utilizador in exchange for um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de ativar o Proxy da aplicação trabalhar com estes redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações com suporte para afirmações. 

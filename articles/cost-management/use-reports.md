@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 92bb4f2a6458057613bdbcb749026781111a778d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cost-management-reports"></a>Utilizar relatórios de gestão de custos
+# <a name="use-cost-management-reports"></a>Utilizar relatórios do Cost Management
 
 Este artigo descreve como utilizar vários relatórios de gestão de custos no portal do Cloudyn. A maioria dos relatórios de Cloudyn são intuitivas e tem um aspeto e funcionalidade uniforme. Para obter uma descrição geral sobre Cloudyn relatórios, consulte [compreender custo relatórios](understading-cost-reports.md). O artigo também descreve várias opções e os campos utilizados na maioria dos relatórios.
 
@@ -135,7 +135,7 @@ Eis o exemplo dessas mesmas informações numa vista de tabela.
 
 
 
-### <a name="cost-over-time-report"></a>Relatório custo ao longo do tempo
+### <a name="cost-over-time-report"></a>Relatório de Custos ao Longo do Tempo
 
 O relatório de custo ao longo do tempo apresenta gastos ao longo do tempo para que possa observar as tendências e detetar irregularities na sua implementação. Essencialmente mostra os custos distribuídos por um período de tempo definido. O relatório inclui os contribuintes do custo principal, incluindo os custos em curso e as taxas de uma única instância reservado despendidos que está a ser durante um período de tempo selecionado. As políticas definidas no Gestor de custo de 360° podem ser utilizadas neste relatório.
 
@@ -160,6 +160,6 @@ Eis um exemplo do relatório.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se ainda não tiver concluído o primeiro tutorial para a gestão de custo, leia-lo no [rever os custos de utilização e](tutorial-review-usage.md).

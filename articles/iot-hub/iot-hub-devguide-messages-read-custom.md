@@ -11,26 +11,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilizar rotas de mensagem e os pontos finais personalizados para mensagens do dispositivo-nuvem
 
-IoT Hub permite-lhe encaminhar [mensagens do dispositivo para nuvem] [ lnk-device-to-cloud] para pontos finais de orientado para o serviço de IoT Hub com base nas propriedades da mensagem. As regras de encaminhamento dão-lhe a flexibilidade para enviar mensagens onde ir sem a necessidade de serviços adicionais para processar mensagens ou escrever código adicional que precisam. Cada regra de encaminhamento que configura tem as seguintes propriedades:
+IoT Hub permite-lhe encaminhar [mensagens do dispositivo para nuvem] [ lnk-device-to-cloud] para pontos finais de orientado para o serviço de IoT Hub com base nas propriedades da mensagem. As regras de encaminhamento dão-lhe a flexibilidade para enviar mensagens onde que precisam de aceder sem a necessidade de serviços adicionais ou código personalizado. Cada regra de encaminhamento que configura tem as seguintes propriedades:
 
 | Propriedade      | Descrição |
 | ------------- | ----------- |
 | **Nome**      | O nome exclusivo que identifica a regra. |
 | **Origem**    | A origem do fluxo de dados para exigirão a tomada. Por exemplo, a telemetria do dispositivo. |
-| **Condição** | A expressão de consulta para a regra de encaminhamento que está a executar os cabeçalhos e corpo da mensagem e utilizada para determinar se é uma correspondência para o ponto final. Para obter mais informações sobre a construção de uma condição de rota, consulte o [referência - linguagem de consulta para dispositivos duplos e tarefas][lnk-devguide-query-language]. |
-| **Ponto final**  | O nome do ponto final onde o IoT Hub envia mensagens que correspondem à condição. Pontos finais devem estar na mesma região que o IoT hub, caso contrário, poderá cobrada por várias regiões escritas. |
+| **Condição** | A expressão de consulta para a regra de encaminhamento que é executada no cabeçalhos e corpo da mensagem e determina se é uma correspondência para o ponto final. Para obter mais informações sobre a construção de uma condição de rota, consulte o [referência - linguagem de consulta para dispositivos duplos e tarefas][lnk-devguide-query-language]. |
+| **Endpoint**  | O nome do ponto final onde o IoT Hub envia mensagens que correspondem à condição. Pontos finais devem estar na mesma região que o IoT hub, caso contrário, poderá cobrada por várias regiões escritas. |
 
-Uma única mensagem pode correspondem à condição em várias regras de encaminhamento, na qual caso IoT Hub disponibiliza a mensagem para o ponto final associado a cada regra de correspondência. IoT Hub deduplicates também automaticamente a entrega de mensagens, pelo que o se corresponder a uma mensagem de várias regras que têm o mesmo destino, que é apenas escrito para esse destino uma vez.
+Uma única mensagem pode correspondem à condição em várias regras de encaminhamento, na qual caso IoT Hub disponibiliza a mensagem para o ponto final associado a cada regra de correspondência. IoT Hub deduplicates também automaticamente a entrega de mensagens, pelo que o se corresponder a uma mensagem de várias regras que têm o mesmo destino, só são escrita uma vez para este destino.
 
 Um IoT hub tem uma predefinição [ponto final incorporado][lnk-built-in]. Pode criar os pontos finais personalizados para encaminhar mensagens ao ligar a outros serviços na sua subscrição ao hub. IoT Hub suporta atualmente os contentores de armazenamento do Azure, Event Hubs, as filas do Service Bus e tópicos do Service Bus como pontos finais personalizados.
 
@@ -51,7 +51,7 @@ Para obter mais informações sobre a leitura do pontos finais personalizados, c
 * Ler a partir de [filas do Service Bus][lnk-getstarted-queue].
 * Ler a partir de [tópicos do Service Bus][lnk-getstarted-topic].
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre pontos finais de IoT Hub, consulte [pontos finais de IoT Hub][lnk-devguide-endpoints].
 

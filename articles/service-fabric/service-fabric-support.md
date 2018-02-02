@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2017
+ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 0e4a2aa0ed7327a8ed19e9a716b0bd97abc71d5c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
 
@@ -76,14 +76,15 @@ Seguem-se a lista das versões do Service Fabric que são suportadas e as respet
 | 5.5.* | 5.4.164.* |Menor ou igual a versão 2.5 |Agosto 10,2017    |
 | 5.6.* | 5.4.164.* |Menor ou igual a versão 2.6 |Outubro 13,2017   |
 | 5.7.* | 5.4.164.* |Menor ou igual a versão 2.7 |Dezembro 15,2017  |
-| 6.0.* | 5.6.205.* |Menor ou igual a versão 2.8 |Versão atual e, por isso, sem data de fim |
+| 6.0.* | 5.6.205.* |Menor ou igual a versão 2.8 |Março 30,2018     | 
+| 6.1.* | 5.7.221.* |Menor ou igual a versão 3.0 |Versão atual e, por isso, sem data de fim |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões de pré-visualização de recursos de infraestrutura do serviço - não suportadas para utilização em produção.
 Ocasionalmente, Lançamos versões com funcionalidades significativas queremos comentários, que são lançadas como pré-visualizações. Estas versões de pré-visualização só devem ser utilizadas para fins de teste. O cluster de produção deve sempre ser em execução uma versão de Service Fabric suportada e estável. Uma versão de pré-visualização sempre começa com um número de versão principal e secundária de 255. Por exemplo, se vir uma versão 255.255.5703.949 do Service Fabric, essa versão de lançamento só deve ser utilizado em clusters de teste e está em pré-visualização. Estas versões de pré-visualização também sejam anunciadas no [blogue da equipa do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e irá ter detalhes sobre as funcionalidades incluídas.
 
 Não há nenhuma opção de suporte pago para estas versões de pré-visualização. Utilize uma das opções listadas em [relatório Azure Service Fabric emite](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para colocar questões ou comentários.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Versão de recursos de infraestrutura de serviço de atualização num cluster do Azure](service-fabric-cluster-upgrade.md)
 - [Atualizar a versão de Service Fabric num cluster de servidores windows autónomo](service-fabric-cluster-upgrade-windows-server.md)

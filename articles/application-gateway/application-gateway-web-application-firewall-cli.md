@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 961642796525223eba4b19d77568d4149ee9d3c6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Criar um gateway de aplicação com uma firewall de aplicação web utilizando a CLI do Azure
 
@@ -49,19 +49,19 @@ az group create --name myResourceGroupAG --location eastus
 A rede virtual e sub-redes são utilizadas para fornecer conectividade de rede para o gateway de aplicação e os respetivos recursos associados. Criar a rede virtual denominada *myVNet* e sub-rede designada *myAGSubnet* com [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create) e [sub-rede da vnet az rede criar](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Criar um endereço IP público com o nome *myAGPublicIPAddress* com [az público-ip da rede criar](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
-az network vnet create 
+az network vnet create \
   --name myVNet \
   --resource-group myResourceGroupAG \
   --location eastus \
   --address-prefix 10.0.0.0/16 \
   --subnet-name myBackendSubnet \
   --subnet-prefix 10.0.1.0/24
-az network vnet subnet create 
+az network vnet subnet create \
   --name myAGSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet \
-  --address-prefix 10.0.2.0/24 
-az network public-ip create 
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress
 ```
@@ -84,10 +84,12 @@ az network application-gateway create \
   --http-settings-port 80 \
   --http-settings-protocol Http \
   --public-ip-address myAGPublicIPAddress
-az network application-gateway waf-config set --enabled true \
+az network application-gateway waf-config set \
+  --enabled true \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
-  --firewall-mode Detection
+  --firewall-mode Detection \
+  --rule-set-version 3.0
 ```
 
 Pode demorar alguns minutos até o gateway de aplicação a ser criado. Depois de criado o gateway de aplicação, pode ver estas novas funcionalidades do mesmo:
@@ -120,15 +122,6 @@ az vmss create \
 
 ### <a name="install-nginx"></a>Instalar o NGINX
 
-Pode utilizar qualquer editor de que pretende criar o ficheiro na Shell de nuvem. Introduza `sensible-editor cloudConfig.json` para ver uma lista de editores disponíveis para criar o ficheiro. Na sua shell atual, crie um ficheiro denominado customConfig.json e cole a seguinte configuração:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -136,7 +129,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Criar uma conta de armazenamento e configurar o diagnóstico
@@ -161,9 +154,11 @@ az storage account create \
 Configure diagnósticos para registar dados para os registos ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Substitute `<subscriptionId>` com o identificador de subscrição e, em seguida, configure o diagnóstico com [criar definições de diagnóstico do monitor az](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --resource-id '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Network/applicationGateways/myAppGateway' \
+appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
+storeid=$(az storage account show --name myagstore1 --resource-group myResourceGroupAG --query id -o tsv)
+az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
   --logs '[ { "category": "ApplicationGatewayAccessLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayPerformanceLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayFirewallLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
-  --storage-account '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Storage/storageAccounts/myagstore1'
+  --storage-account $storeid
 ```
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para insulating aplicações contra falhas de Service Bus e desastres inesperados
 
@@ -31,12 +31,7 @@ Um desastre é definido como a perda permanente de uma unidade de escala do Serv
 ## <a name="current-architecture"></a>Arquitetura atual
 O Service Bus utiliza vários arquivos de mensagens para armazenar as mensagens que são enviadas para as filas ou tópicos. Uma fila não particionadas ou um tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nessa fila ou um tópico irão falhar.
 
-Todas as entidades de mensagens Service Bus (filas, tópicos, reencaminhamentos) residirem no espaço de nomes de serviço, o que está afiliado a um centro de dados. Barramento de serviço não ativar a georreplicação automática de dados nem permite um espaço de nomes abranger vários centros de dados.
-
-## <a name="protecting-against-acs-outages"></a>Proteger contra falhas de ACS
-Se estiver a utilizar credenciais de ACS e dos ACS ficar indisponível, os clientes já não podem obter tokens. Clientes que tenham um token no momento que ACs ficar inativo podem continuar a utilizar o Service Bus até que os tokens de expirarem. A duração do token predefinido é 3 horas.
-
-Para proteger contra falhas de ACS, utilize tokens de assinatura de acesso partilhado (SAS). Neste caso, o cliente efetua a autenticação diretamente com o Service Bus ao iniciar um token de Self-minted com uma chave secreta. Chamadas para ACS já não são necessárias. Para mais informações sobre os tokens SAS, consulte [autenticação do Service Bus][Service Bus authentication].
+Todas as entidades de mensagens Service Bus (filas, tópicos, reencaminhamentos) residirem no espaço de nomes de serviço, o que está afiliado a um centro de dados. Barramento de serviço agora suporta [ *recuperação de desastres Georreplicação* e *georreplicação* ](service-bus-geo-dr.md) ao nível do espaço de nomes.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Proteger a filas e tópicos contra falhas do arquivo de mensagens
 Uma fila não particionadas ou um tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nessa fila ou um tópico irão falhar. Uma fila particionada, é composta por outro lado, fragmentos vários. Cada fragmento é armazenado num arquivo de mensagens diferentes. Quando é enviada uma mensagem para uma fila particionada ou um tópico, o Service Bus atribui a mensagem para um dos fragmentos. Se o arquivo de mensagens correspondente estiver disponível, Service Bus escreve a mensagem para um fragmento diferentes, se possível. Para obter mais informações sobre entidades particionadas, consulte [entidades de mensagens Particionadas][Partitioned messaging entities].
@@ -82,9 +77,14 @@ Quando utilizar replicação passiva, nos seguintes cenários de mensagens podem
 
 O [georreplicação com o Service Bus as mensagens mediadas] [ Geo-replication with Service Bus Brokered Messages] exemplo demonstra replicação passiva de entidades de mensagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="geo-replication"></a>Georreplicação
+
+Service Bus suporta a recuperação de desastres Georreplicação e a georreplicação, ao nível do espaço de nomes. Para obter mais informações, consulte [recuperação Georreplicação-desastre do Service Bus do Azure](service-bus-geo-dr.md). A funcionalidade de recuperação após desastre, disponível para o [Premium SKU](service-bus-premium-messaging.md) apenas, implementa a recuperação após desastre de metadados e baseia-se no espaço de nomes de recuperação de desastre primária e secundária.
+
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a recuperação após desastre, consulte estes artigos:
 
+* [Recuperação de Georreplicação-desastre do Service Bus do Azure](service-bus-geo-dr.md)
 * [Continuidade de negócios de base de dados SQL do Azure][Azure SQL Database Business Continuity]
 * [Ao conceber aplicações resilientes para o Azure][Azure resiliency technical guidance]
 
