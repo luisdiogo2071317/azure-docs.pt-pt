@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
-  ms.openlocfilehash: 63363a652402a20ed8972cf51bf475412f11bd4e
-  ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/02/2017
+  ms.lasthandoff: 02/01/2018
 abstract:
   description: "O Azure Event Grid é um serviço inteligente de encaminhamento de eventos integralmente gerido que permite um consumo de eventos uniforme através de um modelo de publicação-subscrição. Utilize o Azure Event Grid para reagir a eventos relevantes dos serviços do Azure e não só, quase em tempo real. Saiba como utilizar o Azure Event Grid com os nossos inícios rápidos, tutoriais e amostras."
 sections:
@@ -40,6 +40,19 @@ sections:
         src: /azure/event-grid/media/index/portal.svg
       text: Portal do Azure
       href: /azure/event-grid/custom-event-quickstart-portal
+  - type: paragraph
+    text: Saiba como encaminhar os eventos de armazenamento de Blobs.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: CLI do Azure
+      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph

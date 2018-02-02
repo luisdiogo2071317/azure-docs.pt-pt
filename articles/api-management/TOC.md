@@ -42,7 +42,7 @@
 ## Cache
 ### [Adicionar colocação em cache para melhorar o desempenho](api-management-howto-cache.md)
 ## Proteger o back-end
-### [Proteger o back-end da API Web com AAD](api-management-howto-protect-backend-with-aad.md)
+### [Proteger o back-end da API Web com o Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Ligar a uma rede virtual](api-management-using-with-vnet.md)
 ### [Ligar a uma rede virtual interna](api-management-using-with-internal-vnet.md)
 ### [Integrar o Gateway de Aplicação numa VNET interna](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## Personalizar a experiência do programador
 ### [Modificar o conteúdo da página e o esquema](api-management-modify-content-layout.md)
 ### [Personalizar páginas do sistema através de modelos](api-management-developer-portal-templates.md)
-### [Autenticação com o AAD](api-management-howto-aad.md)
-### [Autenticação com o AAD B2C](api-management-howto-aad-b2c.md)
+### [Autenticação com o Azure AD](api-management-howto-aad.md)
+### [Autenticação com o Azure AD B2C](api-management-howto-aad-b2c.md)
 ### [Autenticação delegada](api-management-howto-setup-delegation.md)
 ### [Notificações e modelos de e-mail](api-management-howto-configure-notifications.md)
 ### [Ativar suporte OAuth da consola](api-management-howto-oauth2.md)
