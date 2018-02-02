@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Interface de Utilizador (IU)
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 - Copiar dados no local para a cloud
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Interface de Utilizador (IU)
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Amostras
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Invocar pacotes SSIS com a atividade de procedimento armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Agendar o runtime de integração de SSIS do Azure
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Criar acionadores
       items:
         - name: Criar um acionador de agenda

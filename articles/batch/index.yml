@@ -1,0 +1,76 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Documentação do Batch"
+metadata:
+  title: "Documentação do Batch - Tutoriais, Referência da API | Microsoft Docs"
+  description: "Utilize o Batch para executar aplicações de computação de alto desempenho (HPC) e paralelas em larga escala, de forma eficaz na cloud. Defina os recursos de computação do Azure ao executar aplicações em paralelo ou ao dimensionar sem configurar de forma manual ou gerir a infraestrutura. Agende tarefas de computação intensiva e adicione ou remova dinamicamente os recursos de computação com base nos seus requisitos. Saiba como utilizar o Azure Batch com os nossos inícios rápidos, tutoriais e amostras."
+  services: batch
+  author: czeumault
+  manager: carolz
+  ms.service: batch
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/30/2017
+  ms.author: carolz
+  ms.openlocfilehash: 9e9a160762ae31087a2be36734ca528f65723818
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 02/01/2018
+abstract:
+  description: "Utilize o Batch para executar aplicações de computação de alto desempenho (HPC) e paralelas em larga escala, de forma eficaz na cloud. Defina os recursos de computação do Azure ao executar aplicações em paralelo ou ao dimensionar sem configurar de forma manual ou gerir a infraestrutura. Agende tarefas de computação intensiva e adicione ou remova dinamicamente os recursos de computação com base nos seus requisitos. Saiba como utilizar o Azure Batch com os nossos inícios rápidos, tutoriais e amostras."
+sections:
+- title: "Inícios rápidos de cinco minutos"
+  items:
+  - type: paragraph
+    text: Saiba como executar a sua primeira tarefa do Batch no Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/i_cligeneric.svg
+      text: CLI do Azure
+      href: quick-create-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+      text: Portal do Azure
+      href: quick-create-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_NET.svg
+      text: .NET
+      href: quick-run-dotnet
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_python.svg
+      text: Python
+      href: quick-run-python
+- title: Tutoriais Passo-a-Passo
+  items:
+  - type: paragraph
+    text: "Saiba como executar cargas de trabalho intensivas de computação do Batch."
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-parallel-dotnet">Processamento de ficheiros em paralelo com o SDK .NET</a>
+    - html: <a href="tutorial-parallel-python">Processamento de ficheiros em paralelo com o SDK Python</a>
+    - html: "<a href=\"tutorial-rendering-cli\">Composição de cenas com o Arnold</a>"
+    - html: "<a href=\"tutorial-r-doazureparallel\">Simulação de R em paralelo</a>"
+- title: Amostras
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="cli-samples">CLI do Azure</a>
+- title: "Referência"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Linha de Comandos
+      html: <p><a href="/cli/azure/batch">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.batch">Azure PowerShell</a></p>
+    - title: Linguagens
+      html: <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p><p><a href="/java/api/com.microsoft.azure.batch">Java</a></p><p><a href="/nodejs/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/batchservice\">API REST do Serviço do Batch</a></p><p><a href=\"/rest/api/batchmanagement/\">API REST de Gestão de Lotes</a></p>"

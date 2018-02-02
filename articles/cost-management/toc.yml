@@ -29,6 +29,10 @@
       href: understading-cost-reports.md
 - name: Guias de procedimentos
   items:
+    - name: Ativar as subscrições e contas do Azure
+      href: activate-subs-accounts.md
+    - name: Adicionar métricas expandidas para as VMs
+      href: azure-vm-extended-metrics.md
     - name: Utilizar relatórios do Cost Management
       href: use-reports.md
 - name: Recursos
