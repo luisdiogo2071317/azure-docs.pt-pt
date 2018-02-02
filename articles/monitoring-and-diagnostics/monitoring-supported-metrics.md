@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com a monitorização do Azure
 Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure.
@@ -433,10 +433,10 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |TotalStorage|Armazenamento total|Bytes|Máximo|Quantidade total de dados armazenados na conta.|Não foram dimensões|
-|DataWritten|Dados escritos|Bytes|Total|Quantidade total de dados escritos para a conta.|Não foram dimensões|
+|DataWritten|Dados Escritos|Bytes|Total|Quantidade total de dados escritos para a conta.|Não foram dimensões|
 |DataRead|Leitura de dados|Bytes|Total|Quantidade total de dados de leitura da conta.|Não foram dimensões|
-|WriteRequests|Pedidos de Escrita|Contagem|Total|Contagem de dados de pedidos de escrita para a conta.|Não foram dimensões|
-|ReadRequests|Pedidos de Leitura|Contagem|Total|Contagem de dados de pedidos para a conta de leitura.|Não foram dimensões|
+|WriteRequests|Pedidos de escrita|Contagem|Total|Contagem de dados de pedidos de escrita para a conta.|Não foram dimensões|
+|ReadRequests|Pedidos de leitura|Contagem|Total|Contagem de dados de pedidos para a conta de leitura.|Não foram dimensões|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -529,6 +529,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Jobs.Failed|Tarefas falhadas|Contagem|Total|A contagem de todas as tarefas falhadas.|Não foram dimensões|
 |d2c.telemetry.Ingress.sendThrottle|Número de erros de limitação|Contagem|Total|Acelera o número de erros limitação devido ao débito do dispositivo|Não foram dimensões|
 |dailyMessageQuotaUsed|Número total de mensagens utilizado|Contagem|Média|Número total de mensagens utilizada hoje em dia. Este é um valor de cumulativo é reposto para zero no 00:00 UTC todos os dias.|Não foram dimensões|
+|deviceDataUsage|Utilização de total devicedata|Contagem|Total|Bytes transferidos para e de quaisquer dispositivos ligados ao IotHub|Não foram dimensões|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -707,15 +708,6 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |BillableTriggerExecutions|Execuções de Acionador a Cobrar|Contagem|Total|Número de execuções do acionador de fluxo de trabalho a serem faturadas.|Não foram dimensões|
 |TotalBillableExecutions|Total de Execuções a Cobrar|Contagem|Total|Número de execuções de fluxo de trabalho a serem faturadas.|Não foram dimensões|
 
-## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
-
-|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
-|---|---|---|---|---|---|
-|BytesSentRate|Bytes enviados|Contagem|Total|Número de bytes enviados a Interface de rede|Não foram dimensões|
-|BytesReceivedRate|Bytes recebidos|Contagem|Total|Número de bytes a Interface de rede recebido|Não foram dimensões|
-|PacketsSentRate|Pacotes enviados|Contagem|Total|Número de pacotes enviados a Interface de rede|Não foram dimensões|
-|PacketsReceivedRate|Pacotes recebidos|Contagem|Total|Número de pacotes da Interface de rede recebido|Não foram dimensões|
-
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
@@ -757,13 +749,6 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |ByteCount|Contagem de bytes|Contagem|Total|Número total de Bytes transmitidos num período de tempo|Porta de direção|
 |PacketCount|Contagem de pacotes|Contagem|Total|Número total de pacotes transmitidos num período de tempo|Porta de direção|
 |SynCount|Contagem de SIN|Contagem|Total|Número total de pacotes de SIN transmitidos num período de tempo|Porta de direção|
-
-## <a name="microsoftnetworkvirtualnetworks"></a>Network/virtualnetworks
-
-|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|Pacotes de entrada ignorados para proteção de VM|CountPerSecond|Média|Pacotes de entrada ignorados para proteção de VM|Não foram dimensões|
-|PacketsOutDroppedVMProtection|Pacotes de saída ignorados para proteção de VM|CountPerSecond|Média|Pacotes de saída ignorados para proteção de VM|Não foram dimensões|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
@@ -861,8 +846,15 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Outgoing.mpns.pnserror|Erros do MPNS|Contagem|Total|Contagem de pushes falhados devido a erros de comunicação com o MPNS.|Não foram dimensões|
 |Outgoing.mpns.authenticationerror|Erros de Autenticação do MPNS|Contagem|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Não foram dimensões|
 |notificationhub.pushes|Todas as Notificações Enviadas|Contagem|Total|Todas as notificações enviadas do hub de notificações|Não foram dimensões|
-|incoming.all.Requests|Todos os Pedidos Recebidos|Contagem|Total|Total de pedidos recebidos de um hub de notificações|Não foram dimensões|
+|incoming.all.requests|Todos os Pedidos Recebidos|Contagem|Total|Total de pedidos recebidos de um hub de notificações|Não foram dimensões|
 |incoming.all.failedrequests|Todos os Pedidos Falhados Recebidos|Contagem|Total|Total de pedidos falhados recebidos de um hub de notificações|Não foram dimensões|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|QueryDuration||Contagem|Média||Não foram dimensões|
+|QueryPoolJobQueueLength|Threads: Comprimento de fila de tarefa de conjunto de consulta|Contagem|Média|Número de tarefas na fila do conjunto de threads de consulta.|Não foram dimensões|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -937,23 +929,16 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Não foram dimensões|
-|database_cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|DatabaseResourceId|
 |physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Não foram dimensões|
-|database_physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|DatabaseResourceId|
 |log_write_percent|Percentagem de es do registo|Percentagem|Média|Percentagem de es do registo|Não foram dimensões|
-|database_log_write_percent|Percentagem de es do registo|Percentagem|Média|Percentagem de es do registo|DatabaseResourceId|
 |dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Não foram dimensões|
-|database_dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|DatabaseResourceId|
 |storage_percent|Percentagem de armazenamento|Percentagem|Média|Percentagem de armazenamento|Não foram dimensões|
 |workers_percent|Percentagem de trabalhadores|Percentagem|Média|Percentagem de trabalhadores|Não foram dimensões|
-|database_workers_percent|Percentagem de trabalhadores|Percentagem|Média|Percentagem de trabalhadores|DatabaseResourceId|
 |sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões|Não foram dimensões|
-|database_sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões|DatabaseResourceId|
 |eDTU_limit|limite de eDTU|Contagem|Média|limite de eDTU|Não foram dimensões|
 |storage_limit|Limite de armazenamento|Bytes|Média|Limite de armazenamento|Não foram dimensões|
 |eDTU_used|eDTU utilizado|Contagem|Média|eDTU utilizado|Não foram dimensões|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Não foram dimensões|
-|database_storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|DatabaseResourceId|
 |xtp_storage_percent|Percentagem de armazenamento do OLTP dentro da memória|Percentagem|Média|Percentagem de armazenamento do OLTP dentro da memória|Não foram dimensões|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
@@ -961,16 +946,14 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|DatabaseResourceId, ElasticPoolResourceId|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|ElasticPoolResourceId|
-|database_storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|DatabaseResourceId, ElasticPoolResourceId|
 
-## <a name="microsoftstoragestorageaccounts"></a>Storage/storageaccounts
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |UsedCapacity|Capacidade utilizada|Bytes|Média|Capacidade da conta utilizada|Não foram dimensões|
-|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ApiName ResponseType, GeoType,|
+|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo em armazenamento do Azure, bem como entrada no Azure.|GeoType, ApiName|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo em armazenamento do Azure, bem como saída no Azure. Consequentemente, este número não reflete saída sujeito a faturação.|GeoType, ApiName|
 |SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|GeoType, ApiName|
@@ -984,7 +967,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |BlobCapacity|Capacidade do Blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob a conta de armazenamento, em bytes.|BlobType|
 |BlobCount|Contagem de Blobs|Contagem|Média|O número de blobs no serviço Blob da conta de armazenamento.|BlobType|
 |ContainerCount|Contagem do Contentor de Blobs|Contagem|Média|O número de contentores no serviço Blob da conta de armazenamento.|Não foram dimensões|
-|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ApiName ResponseType, GeoType,|
+|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo em armazenamento do Azure, bem como entrada no Azure.|GeoType, ApiName|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo em armazenamento do Azure, bem como saída no Azure. Consequentemente, este número não reflete saída sujeito a faturação.|GeoType, ApiName|
 |SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|GeoType, ApiName|
@@ -998,7 +981,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |TableCapacity|Capacidade de Tabelas|Bytes|Média|A quantidade de armazenamento utilizado pelo serviço Tabela da conta de armazenamento, em bytes.|Não foram dimensões|
 |TableCount|Contagem de Tabelas|Contagem|Média|O número de tabelas no serviço Tabela da conta de armazenamento.|Não foram dimensões|
 |TableEntityCount|Contagem de Entidade de Tabelas|Contagem|Média|O número de entidades de tabelas no serviço Tabela da conta de armazenamento.|Não foram dimensões|
-|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ApiName ResponseType, GeoType,|
+|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo em armazenamento do Azure, bem como entrada no Azure.|GeoType, ApiName|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo em armazenamento do Azure, bem como saída no Azure. Consequentemente, este número não reflete saída sujeito a faturação.|GeoType, ApiName|
 |SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|GeoType, ApiName|
@@ -1012,7 +995,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |QueueCapacity|Capacidade de Fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Fila a conta de armazenamento, em bytes.|Não foram dimensões|
 |QueueCount|Contagem de Filas|Contagem|Média|O número de filas no serviço Fila da conta de armazenamento.|Não foram dimensões|
 |QueueMessageCount|Contagem de Mensagens em Fila|Contagem|Média|O número aproximado de mensagens em fila no serviço Fila da conta de armazenamento.|Não foram dimensões|
-|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ApiName ResponseType, GeoType,|
+|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo em armazenamento do Azure, bem como entrada no Azure.|GeoType, ApiName|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo em armazenamento do Azure, bem como saída no Azure. Consequentemente, este número não reflete saída sujeito a faturação.|GeoType, ApiName|
 |SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|GeoType, ApiName|
@@ -1026,7 +1009,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |FileCapacity|Capacidade de Ficheiros|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Ficheiro a conta de armazenamento, em bytes.|Não foram dimensões|
 |FileCount|Contagem de ficheiros|Contagem|Média|O número de ficheiros no serviço Ficheiro da conta de armazenamento.|Não foram dimensões|
 |FileShareCount|Contagem de Partilha de Ficheiros|Contagem|Média|O número de partilhas de ficheiros no serviço Ficheiro da conta de armazenamento.|Não foram dimensões|
-|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ApiName ResponseType, GeoType,|
+|Transações|Transações|Contagem|Total|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. Utilize ResponseType dimensão para o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo em armazenamento do Azure, bem como entrada no Azure.|GeoType, ApiName|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo em armazenamento do Azure, bem como saída no Azure. Consequentemente, este número não reflete saída sujeito a faturação.|GeoType, ApiName|
 |SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|GeoType, ApiName|
@@ -1080,6 +1063,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Média|Tempo de Resposta Médio|Instância|
+|AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
 
@@ -1113,8 +1097,9 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Média|Tempo de Resposta Médio|Instância|
-|FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Média|Unidades de Execução de Funções|Instância|
-|FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Média|Contagem de Execuções de Função|Instância|
+|FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Total|Unidades de Execução de Funções|Instância|
+|FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Total|Contagem de Execuções de Função|Instância|
+|AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1138,18 +1123,18 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |DiskQueueLength|Comprimento da Fila de Discos|Contagem|Média|Comprimento da Fila de Discos|Instância|
 |HttpQueueLength|Comprimento da Fila de http|Contagem|Média|Comprimento da Fila de http|Instância|
 |ActiveRequests|Pedidos Ativos|Contagem|Total|Pedidos Ativos|Instância|
-|TotalFrontEnds|Total de Front Ends|Contagem|Média|Total de Front Ends|Instância|
-|SmallAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Pequena Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Pequena Dimensão|Instância|
-|MediumAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Média Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Média Dimensão|Instância|
-|LargeAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Grande Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Grande Dimensão|Instância|
+|TotalFrontEnds|Total de Front Ends|Contagem|Média|Total de Front Ends|Não foram dimensões|
+|SmallAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Pequena Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Pequena Dimensão|Não foram dimensões|
+|MediumAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Média Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Média Dimensão|Não foram dimensões|
+|LargeAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Grande Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Grande Dimensão|Não foram dimensões|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|WorkersTotal|Trabalhadores Totais|Contagem|Média|Trabalhadores Totais|Instância|
-|WorkersAvailable|Trabalhadores Disponíveis|Contagem|Média|Trabalhadores Disponíveis|Instância|
-|WorkersUsed|Trabalhadores Utilizados|Contagem|Média|Trabalhadores Utilizados|Instância|
+|WorkersTotal|Trabalhadores Totais|Contagem|Média|Trabalhadores Totais|Não foram dimensões|
+|WorkersAvailable|Trabalhadores Disponíveis|Contagem|Média|Trabalhadores Disponíveis|Não foram dimensões|
+|WorkersUsed|Trabalhadores Utilizados|Contagem|Média|Trabalhadores Utilizados|Não foram dimensões|
 |CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
 |MemoryPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
 

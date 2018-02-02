@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com Confluence SAML SSO pela Microsoft
 
@@ -133,7 +133,6 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. A porta é opcional se for um URL com nome. Estes valores são recebidos durante a configuração de Confluence Plug-in do, que é explicada mais tarde no tutorial.
- 
 
 4. Para gerar o **metadados** url, execute os seguintes passos:
 
@@ -165,7 +164,7 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
     
     ![Configurar o início de sessão único](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido através do Microsoft **carregar o suplemento** menu
+8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido através do Microsoft **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/en-us/servicesagreement/). 
     
     ![Configurar o início de sessão único](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

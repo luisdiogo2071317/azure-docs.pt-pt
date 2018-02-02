@@ -1,22 +1,22 @@
 ---
 title: "Implementar o Java solução - Azure de monitorização remota | Microsoft Docs"
-description: "Este tutorial mostra como aprovisionar a solução pré-configurada monitorização remota microsoervices Java utilizando a CLI."
+description: "Este tutorial mostra como aprovisionar a solução pré-configurada monitorização remota utilizando a CLI."
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Implementar a solução pré-configurada monitorização remota utilizando a CLI
 
@@ -26,7 +26,7 @@ Este tutorial mostra-lhe como aprovisionar a solução pré-configurada de monit
 
 Para implementar a solução pré-configurada de monitorização remota, terá de uma subscrição do Azure Active Directory.
 
-Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 Para executar o CLI, terá de [Node.js](https://nodejs.org/) instalado no seu computador local.
 
@@ -54,8 +54,10 @@ Quando implementar a solução pré-configurada, existem várias opções que co
 
 | Opção | Valores | Descrição |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard` | A _básico_ implementação destina-se de teste e demonstrações, implementa todos os micro-serviços uma única máquina virtual. A _padrão_ implementação destina-se para produção, implementa os micro-serviços várias máquinas virtuais. |
-| Tempo de execução | `dotnet`, `java` | Seleciona a implementação de idioma dos micro-serviços. |
+| SKU    | `basic`, `standard`, `local` | A _básico_ implementação destina-se de teste e demonstrações, implementa todos os micro-serviços uma única máquina virtual. A _padrão_ implementação destina-se para produção, implementa os micro-serviços várias máquinas virtuais. A _local_ implementação configura um contentor de Docker para executar os micro-serviços no seu computador local e utiliza os serviços do Azure, tais como a BD do Cosmos e de armazenamento na nuvem. |
+| Runtime | `dotnet`, `java` | Seleciona a implementação de idioma dos micro-serviços. |
+
+Para saber mais sobre como utilizar a implementação local, consulte [executar localmente a solução de monitorização remota](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="deploy-the-preconfigured-solution"></a>Implementar a solução pré-configurada
 
@@ -94,7 +96,7 @@ pcs -h
 
 Para obter mais informações sobre a CLI, consulte [como utilizar a CLI](https://github.com/Azure/pcs-cli/blob/master/README.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Macrodados fluxo para um armazém de dados
 
@@ -74,7 +74,7 @@ Para concluir este tutorial, tem de ter:
 
 ## <a name="deploy-the-infrastructure"></a>Implementar a infraestrutura
 
-Para simplificar este artigo, implementar a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que são implementados, ver o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Suporta a grelha de evento para a versão de pré-visualização, **westus2** e **westcentralus** regiões. Utilize um destas regiões para a localização do grupo de recursos.
+Para simplificar este artigo, implementar a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que são implementados, ver o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Utilize um do [regiões suportadas](overview.md) para a localização do grupo de recursos.
 
 Para a CLI do Azure, utilize:
 

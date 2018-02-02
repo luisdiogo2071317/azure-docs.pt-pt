@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicar uma aplicação do SharePoint de várias camadas para a recuperação de desastre utilizando o Azure Site Recovery
 
@@ -71,6 +71,7 @@ Para criar este artigo, máquinas virtuais VMware com o Windows Server 2012 R2 E
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
+**Azure** | ND | Sim
 
 ### <a name="sharepoint-versions"></a>Versões do SharePoint
 São suportadas as seguintes versões de servidor do SharePoint.
@@ -90,7 +91,7 @@ Siga [esta orientação](site-recovery-vmware-to-azure.md) iniciar a replicaçã
 
 * Assim que a replicação estiver concluída, certifique-se de que vá para cada máquina virtual de cada camada e selecione o mesma conjunto de disponibilidade no ' item replicados > Definições > propriedades > computação e rede '. Por exemplo, se a camada web tiver 3 VMs, certifique-se a todos os 3 VMs estão configuradas para fazer parte do mesma conjunto de disponibilidade no Azure.
 
-    ![Conjunto de disponibilidade de conjunto](./media/site-recovery-sharepoint/select-av-set.png)
+    ![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png)
 
 * Para obter orientações sobre a proteger o Active Directory e DNS, consulte [proteger o Active Directory e DNS](site-recovery-active-directory.md) documento.
 
@@ -114,9 +115,9 @@ Siga [esta orientação](site-recovery-vmware-to-azure.md) iniciar a replicaçã
 Para a internet com sites, [criar um perfil do Traffic Manager do tipo 'Priority'](../traffic-manager/traffic-manager-create-profile.md) na subscrição do Azure. E, em seguida, configure o seu perfil do Traffic Manager e o DNS da seguinte forma.
 
 
-| **Onde** | **Origem** | **Destino**|
+| **Where** | **Origem** | **Target**|
 | --- | --- | --- |
-| DNS público | DNS público para sites do SharePoint <br/><br/> Ex: sharepoint.contoso.com | Gestor de Tráfego <br/><br/> contososharepoint.trafficmanager.NET |
+| DNS público | DNS público para sites do SharePoint <br/><br/> Ex: sharepoint.contoso.com | Gestor de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS no local | sharepointonprem.contoso.com | IP público no farm de no local |
 
 
@@ -152,15 +153,15 @@ Pode implementar os scripts de Azure Site Recovery frequentemente utilizados na 
 
 1. Adicione um script de pré-ação para 'Grupo 1' ao grupo de disponibilidade de SQL de ativação pós-falha. Utilize o script de 'ASR-SQL-FailoverAG' publicado nos scripts de exemplo. Certifique-se de que siga as orientações no script e efetue as alterações necessárias no script adequadamente.
 
-    ![Adicionar-AG-Script-passo-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Adicionar-AG-Script-passo-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Adicionar um script de ação de post para anexar um balanceador de carga a falha na ativação pós-falha de máquinas virtuais da camada Web (grupo 2). Utilize o script de 'ASR AddSingleLoadBalancer' publicado nos scripts de exemplo. Certifique-se de que siga as orientações no script e efetue as alterações necessárias no script adequadamente.
 
-    ![Adicionar-LB-Script-passo-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Adicionar-LB-Script-passo-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Adicione um passo manual para atualizar os registos DNS para apontar para o novo farm no Azure.
 
@@ -211,5 +212,5 @@ Siga [esta orientação](site-recovery-failover.md) para efetuar uma ativação 
 3.  Clique em 'Failover'.
 4.  Selecione o ponto de recuperação para iniciar o processo de ativação pós-falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre [replicar outras aplicações](site-recovery-workload.md) utilizando a recuperação de sites.

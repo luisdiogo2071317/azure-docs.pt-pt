@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: c1a5496f3ab9a625d7d97c3096ae89100b7c5592
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 93dd609df90adac2c84ba8c62cf0d18f55a317bb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="border-connectivity"></a>Conectividade de limite 
 Planeamento de integração de rede é um pré-requisito importante para implementação de sistemas de pilha do Azure integrado com êxito, operação e gestão. Planeamento de conectividade de limite começa por escolher se deve ou não utilizar encaminhamento dinâmico com protocolo border gateway protocol (BGP). É necessário atribuir um número de sistema autónomo 16 bits BGP (público ou privado) ou utilizar o encaminhamento estático, onde uma rota predefinida estático é atribuída aos dispositivos de limite.

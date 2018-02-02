@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: v-craic
-ms.openlocfilehash: 5d9fb235eae381003d96895eae9eff86c711e372
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c9395966c83626d09a556442e9f0b33c4995af76
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma VM para um laboratório no Azure DevTest Labs
 Se já tiver [criado a sua primeira VM](devtest-lab-create-first-vm.md), provavelmente fez, pelo que, de um previamente carregado [imagem do marketplace](devtest-lab-configure-marketplace-images.md). Agora, se pretender adicionar VMs subsequentes para o laboratório, pode também escolher um *base* que está a um [imagem personalizada](devtest-lab-create-template.md) ou um [fórmula](devtest-lab-manage-formulas.md). Este tutorial explica como utilizar o portal do Azure para adicionar uma VM para um laboratório no DevTest Labs.
@@ -27,7 +27,7 @@ Este artigo mostra também como gerir os artefactos para uma VM no laboratório.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Passos para adicionar uma VM a um laboratório no Azure DevTest Labs
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório no qual pretende criar a VM.  
 1. No laboratório de **descrição geral** painel, selecione **+ adicionar**.  
 
@@ -49,7 +49,7 @@ Este artigo mostra também como gerir os artefactos para uma VM no laboratório.
    Para definir uma opção de expiração, escolha o ícone de calendário para especificar uma data em que a VM será automaticamente eliminada.  Por predefinição, a VM nunca irá expirar. 
 1. Se pretender ver ou copiar o modelo Azure Resource Manager, consulte o [modelo Azure Resource Manager guardar](#save-azure-resource-manager-template) secção e devolver aqui quando foi concluída.
 1. Selecione **criar** para adicionar a VM especificada para o laboratório.
-1. O painel de laboratório indicará o estado da criação da VM - primeiro **criar**, em seguida, como **executar** depois da VM foi iniciada.
+1. O painel de laboratório apresenta o estado da criação da VM - primeiro como **criar**, em seguida, como **executar** depois da VM foi iniciada.
 
 > [!NOTE]
 > [Adicionar uma VM claimable](devtest-lab-add-claimable-vm.md) mostra-lhe como tornar a VM claimable para que fique disponível para utilização por qualquer utilizador no laboratório.
@@ -65,11 +65,11 @@ Ao criar uma VM, pode adicionar artefactos existentes. Cada laboratório inclui 
 Para saber como criar artefactos, consulte o artigo [aprender a criar os seus artefactos para utilização com DevTest Labs](devtest-lab-artifact-author.md).
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório que contém a VM com o qual pretende trabalhar.  
 1. Selecione **meu máquinas de virtuais**.
 1. Selecione a VM pretendida.
-1. Selecione **artefactos**. 
+1. Selecione **gerir artefactos**. 
 1. Selecione **se aplicam a artefactos**.
 1. No **se aplicam a artefactos** painel, selecione o artefacto que pretende adicionar à VM.
 1. No **adicionar artefactos** painel, introduza os valores de parâmetros necessários e os parâmetros opcionais que precisa.  
@@ -111,7 +111,7 @@ Depois de guardar, pode utilizar o modelo Azure Resource Manager para [implement
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Quando tiver sido criada a VM, pode ligar à VM selecionando **Connect** no painel da VM.
 * Saiba como [criar artefactos personalizados para a VM do DevTest Labs](devtest-lab-artifact-author.md).
 * Explorar o [Galeria de modelo de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

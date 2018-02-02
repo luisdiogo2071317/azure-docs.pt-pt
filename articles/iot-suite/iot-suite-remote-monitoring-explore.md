@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar as funcionalidades da solução pré-configurada de monitorização remota
 
@@ -31,6 +31,10 @@ Neste tutorial, ficará a saber como:
 > * Responder a um alarme
 > * Atualizar o firmware nos seus dispositivos
 > * Organizar os elementos
+
+O vídeo seguinte mostra as obter instruções sobre a solução de monitorização remota:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,10 +79,10 @@ Operadores contoso sabe os limiares que determinam se um dispositivo está a fun
 
 | Nome da Regra | Descrição | Limiar | Gravidade | Dispositivos afetados |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Pressão chiller demasiado elevada | Alerta se chillers alcançar superior do que os níveis de pressão normal   |P > 250 psi       | Crítico | Chillers            |
-| Temp de dispositivo de fazer o protótipo demasiado elevada  | Alerta se os dispositivos de fazer o protótipo alcancem superior do que os níveis de temperatura normal  |T > 80&deg; F |Crítico | Dispositivos de fazer o protótipo |
+| Pressão chiller demasiado elevada | Alerta se chillers alcançar superior do que os níveis de pressão normal   |P>250 psi       | Crítico | Chillers            |
+| Temp de dispositivo de fazer o protótipo demasiado elevada  | Alerta se os dispositivos de fazer o protótipo alcancem superior do que os níveis de temperatura normal  |T>80&deg; F |Crítico | Dispositivos de fazer o protótipo |
 | Tank motor vazio  | Alertas se o motor fuel tank ficar vazio                     | F < 5 gallons | Informações     | Motores             |
-| Superior a temperatura de carga normal | Alerta se a temperatura de carga do camião é superior à normal                 | T < 45&deg; F |Aviso  | Trucks              |
+| Superior a temperatura de carga normal | Alerta se a temperatura de carga do camião é superior à normal                 | T<45&deg; F |Aviso  | Trucks              |
 | Vibration abordagem parado      | Alertas se abordagem parar completamente (com base no nível de vibration)                     | V < 0.1 mm |Aviso  | Elevators           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Operar a implementação de exemplo do Contoso
@@ -226,7 +230,7 @@ Pode utilizar os valores de etiqueta para criar filtros.
 
 Agora, o operador de Contoso pode consultar dispositivos com base na equipa de sistema operativo sem a necessidade de alterar nada nos dispositivos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a:
 

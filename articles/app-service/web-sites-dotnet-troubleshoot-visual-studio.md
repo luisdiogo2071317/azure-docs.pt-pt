@@ -3,8 +3,8 @@ title: "Resolver problemas de uma aplicação web no serviço de aplicações do
 description: "Saiba como resolver problemas de uma aplicação web do Azure através da utilização de depuração remota, o rastreio e ferramentas de registo que são incorporadas no Visual Studio 2013."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -117,9 +117,9 @@ Se a mensagem de erro detalhadas não fornece informações suficientes e não �
 
 Depuração remota não funcionam nas edições Express do Visual Studio.
 
-Esta secção mostra como depurar remotamente utilizando o projeto que criar no [criar uma aplicação web ASP.NET no Azure][app-service-web-get-started-dotnet.md].
+Esta secção mostra como depurar remotamente utilizando o projeto que criar no [criar uma aplicação web ASP.NET no Azure](app-service-web-get-started-dotnet.md).
 
-1. Abra o projeto web que criou no [criar uma aplicação web ASP.NET no Azure][app-service-web-get-started-dotnet.md].
+1. Abra o projeto web que criou no [criar uma aplicação web ASP.NET no Azure](app-service-web-get-started-dotnet.md).
 
 2. Abra *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ Esta secção mostra como depurar remotamente utilizando o projeto que criar no 
 
 5. No **Explorador de soluções**, clique com o botão direito no projeto e, em **publicar**.
 
-6. No **perfil** na lista pendente, selecione o mesmo perfil que é utilizado em [criar uma aplicação web ASP.NET no Azure][app-service-web-get-started-dotnet.md]. Em seguida, clique em definições.
+6. No **perfil** na lista pendente, selecione o mesmo perfil que é utilizado em [criar uma aplicação web ASP.NET no Azure](app-service-web-get-started-dotnet.md). Em seguida, clique em definições.
 
 7. No **publicar** caixa de diálogo, clique em de **definições** separador e, em seguida, altere **configuração** para **depurar**e, em seguida, clique em  **Guardar**.
 
@@ -336,11 +336,11 @@ Para obter informações sobre como criar aplicações que inicia sessão no Web
 5. Na barra de endereço da janela do browser, adicione *trace.axd* para o URL e, em seguida, prima Enter (o URL é semelhante à http://localhost:53370/trace.axd).
 6. No **aplicação rastreio** página, clique em **ver detalhes** na primeira linha (não a linha BrowserLink).
 
-    ![TRACE.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
     O **detalhes do pedido** página for apresentada e no **informações de rastreio** secção vê o resultado das declarações de rastreio que adicionou ao `Index` método.
 
-    ![TRACE.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
     Por predefinição, `trace.axd` só está disponível localmente. Se quisesse disponibilizá-lo a partir de uma aplicação web remoto, pode adicionar `localOnly="false"` para o `trace` elemento o *Web. config* ficheiro, conforme mostrado no exemplo seguinte:
 

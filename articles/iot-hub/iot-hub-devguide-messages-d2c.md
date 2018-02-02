@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Enviar mensagens do dispositivo para nuvem ao IoT Hub
 
 Para enviar telemetria séries de tempo e os alertas dos seus dispositivos para a sua solução de back-end, envie mensagens do dispositivo para nuvem do seu dispositivo ao seu IoT hub. Para ver um debate de outras opções de dispositivo para nuvem suportada pelo IoT Hub, consulte [documentação de orientação do dispositivo para nuvem comunicações][lnk-d2c-guidance].
 
-Enviar mensagens do dispositivo para a nuvem através de um ponto final orientado para o dispositivo (**/devices/ {"deviceId"} / mensagens/eventos**). Regras de encaminhamento e encaminhar as mensagens para um dos pontos finais orientado para o serviço no seu IoT hub. As regras de encaminhamento utilizam os cabeçalhos e corpo das mensagens dispositivo-nuvem fluir através do seu hub para determinar onde encaminhá-las. Por predefinição, as mensagens são encaminhadas para o ponto final orientado para o serviço incorporado (**mensagens/eventos**), que é compatível com [Event Hubs][lnk-event-hubs]. Por conseguinte, pode utilizar o padrão [integração com os Event Hubs e SDKs] [ lnk-compatible-endpoint] para receber mensagens dispositivo-nuvem na sua solução de back-end.
+Enviar mensagens do dispositivo para a nuvem através de um ponto final orientado para o dispositivo (**/devices/ {"deviceId"} / mensagens/eventos**). Regras de encaminhamento e encaminhar as mensagens para um dos pontos finais orientado para o serviço no seu IoT hub. As regras de encaminhamento utilizam os cabeçalhos e um corpo de mensagens dos dispositivo para a nuvem para determinar onde encaminhá-las. Por predefinição, as mensagens são encaminhadas para o ponto final orientado para o serviço incorporado (**mensagens/eventos**), que é compatível com [Event Hubs][lnk-event-hubs]. Por conseguinte, pode utilizar o padrão [integração com os Event Hubs e SDKs] [ lnk-compatible-endpoint] para receber mensagens dispositivo-nuvem na sua solução de back-end.
 
 IoT Hub implementa utilizando um padrão de mensagens de transmissão em fluxo de mensagens do dispositivo para a nuvem. Mensagens de dispositivo para a nuvem do IoT Hub são mais como [Event Hubs] [ lnk-event-hubs] *eventos* que [Service Bus] [ lnk-servicebus] *mensagens* em que há um grande volume de eventos a transmitir através do serviço que pode ser lida por leitores múltiplos.
 
@@ -36,11 +36,11 @@ Mensagens com o IoT Hub dispositivo-nuvem tem as seguintes características:
 * IoT Hub permite milhões de dispositivos ligados em simultâneo (consulte [Quotas e limitação][lnk-quotas]).
 * IoT Hub não permite a criação de partições arbitrários. Mensagens do dispositivo para nuvem-se partições com base no respetivo origem **deviceId**.
 
-Para obter mais informações sobre as diferenças entre o IoT Hub e a serviços de Event Hubs, consulte [comparação do IoT Hub do Azure e Event Hubs do Azure][lnk-comparison].
+Para obter mais informações sobre as diferenças entre o IoT Hub e do Event Hubs, consulte [comparação do IoT Hub do Azure e Event Hubs do Azure][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Enviar o tráfego de telemetria não
 
-Muitas vezes, para além de pontos de dados de telemetria, dispositivos as enviam mensagens e os pedidos que necessitam de execução separada e processamento na solução de back-end. Por exemplo, os alertas críticos que devem acionar uma ação específica no back-end. Pode escrever facilmente um [regra encaminhamento] [ lnk-devguide-custom] enviar estes tipos de mensagens para um ponto final dedicado ao respetivo processamento baseado em qualquer um cabeçalho na mensagem ou um valor no corpo da mensagem.
+Muitas vezes, para além de telemetria, dispositivos as enviam mensagens e os pedidos que necessitam de execução separada e processamento na solução de back-end. Por exemplo, os alertas críticos que devem acionar uma ação específica no back-end. Pode escrever um [regra encaminhamento] [ lnk-devguide-custom] enviar estes tipos de mensagens para um ponto final dedicado ao respetivo processamento baseado em qualquer um cabeçalho na mensagem ou um valor no corpo da mensagem.
 
 Para mais informações sobre a melhor forma de processar este tipo de mensagem, consulte o [Tutorial: como processar mensagens do dispositivo para a nuvem do IoT Hub] [ lnk-d2c-tutorial] tutorial.
 
@@ -71,7 +71,7 @@ O **ConnectionAuthMethod** propriedade contém um objeto JSON serializado, com a
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para informações sobre os SDKs que pode utilizar para enviar mensagens do dispositivo para a nuvem, consulte [SDKs IoT do Azure][lnk-sdks].
 

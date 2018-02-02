@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução às tarefas de base de dados elástica
-As tarefas de base de dados elásticas (pré-visualização) para a SQL Database do Azure permite-lhe fiabilidade executar scripts T-SQL que abrangem várias bases de dados ao repetir e fornecer garantias de conclusão de uma eventual automaticamente. Para obter mais informações sobre a funcionalidade de tarefa de bases de dados elásticas, consulte [as tarefas elásticas](sql-database-elastic-jobs-overview.md).
+As tarefas de base de dados elásticas (pré-visualização) para a SQL Database do Azure permite-lhe fiável executar scripts T-SQL que abrangem várias bases de dados ao repetir e fornecer garantias de conclusão de uma eventual automaticamente. Para obter mais informações sobre a funcionalidade de tarefa de bases de dados elásticas, consulte [as tarefas elásticas](sql-database-elastic-jobs-overview.md).
 
 Este artigo expande o exemplo encontrado no [introdução com ferramentas de base de dados elástica](sql-database-elastic-scale-get-started.md). Quando concluído, irá aprender a criar e gerir tarefas Gerir um grupo de bases de dados relacionados. Não é necessário utilizar as ferramentas do dimensionamento elástico para tirar partido dos benefícios das tarefas elásticas.
 
@@ -461,7 +461,7 @@ Remover um acionador da tarefa para parar uma tarefa de que está a ser executad
 
 Todas as linhas da **clientes** tabela, armazenada em diferentes shards preencher a folha do Excel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora, pode utilizar as funções do dados do Excel. Utilize a cadeia de ligação com o nome do servidor, nome de base de dados e as credenciais para ligar as ferramentas de integração do BI e os dados na base de dados elásticas consulta. Certifique-se de que o SQL Server é suportada como uma origem de dados para a ferramenta. Consulte a base de dados elásticas consultas e tabelas externas, tal como qualquer outra base de dados do SQL Server e tabelas de SQL Server que seria se ligam a com a ferramenta.
 
 ### <a name="cost"></a>Custo

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: c0f9d0e13cb159188bdaf2b915c1bf6de73be855
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Orientações de comunicações da nuvem para o dispositivo
 IoT Hub fornece três opções para aplicações de dispositivos para expor a funcionalidade para uma aplicação de back-end:
@@ -36,7 +36,7 @@ Eis uma comparação detalhada das várias opções de comunicação de nuvem pa
 | Durabilidade | Não são contactados dispositivos desligados. O solução de back-end é notificado de que o dispositivo não está ligado. | Os valores de propriedade são mantidos no dispositivo duplo. Dispositivo irão lê-lo no seguinte restabelecimento de ligação. Valores de propriedade são recuperável com o [idioma de consulta do IoT Hub][lnk-query]. | As mensagens podem ser mantidas pelo IoT Hub para até 48 horas. |
 | Destinos | Utilização de único dispositivo **deviceId**, ou em vários dispositivos com [tarefas][lnk-jobs]. | Utilização de único dispositivo **deviceId**, ou em vários dispositivos com [tarefas][lnk-jobs]. | Único dispositivo por **deviceId**. |
 | Tamanho | Até 8 KB pedidos e respostas de 8 KB. | Máximo pretendido tamanho de propriedades é de 8 KB. | Até 64 KB mensagens. |
-| Frequência | Elevada. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Média. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Baixa. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. |
+| Frequência | Elevada. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Média. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Baixo. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. |
 | Protocolo | Disponível através de MQTT ou AMQP. | Disponível através de MQTT ou AMQP. | Disponível em todos os protocolos. Dispositivo tem de inquirir quando através de HTTPS. |
 
 Saiba como utilizar métodos diretos, propriedades pretendidas e mensagens da nuvem para dispositivo nos seguintes tutoriais:

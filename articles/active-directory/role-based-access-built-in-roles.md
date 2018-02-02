@@ -3,24 +3,23 @@ title: "Ações e NotActions - controlo de acesso do Azure baseada em funções 
 description: "Este tópico descreve a incorporado em funções para o controlo de acesso baseado em funções (RBAC). As funções continuamente são adicionadas, por isso a atualização de documentação."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -68,7 +67,9 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 | [Contribuinte de Cache de redis](#redis-cache-contributor) |Pode gerir caches de Redis |
 | [Contribuinte de coleções de tarefa do agendador](#scheduler-job-collections-contributor) |Pode gerir coleções de tarefas do Programador |
 | [Contribuinte de serviço de pesquisa](#search-service-contributor) |Pode gerir os serviços de pesquisa |
-| [Gestor de segurança](#security-manager) |Pode gerir os componentes de segurança, as políticas de segurança e as máquinas virtuais |
+| [Administrador de segurança](#security-administrator) | No Centro de segurança apenas: pode ver as políticas de segurança, ver Estados de segurança, editar as políticas de segurança, ver alertas e as recomendações, dispensar alertas e recomendações |
+| [Gestor de segurança](#security-manager) | Pode gerir os componentes de segurança, as políticas de segurança e as máquinas virtuais |
+| [Leitor de segurança](#security-reader) | No Centro de segurança apenas: pode ver as recomendações e alertas, vista de políticas de segurança, ver Estados de segurança, mas não é possível efetuar alterações |
 | [Contribuinte de recuperação de site](#site-recovery-contributor) | Pode gerir a recuperação de sites no Cofre de serviços de recuperação |
 | [Operador de recuperação de site](#site-recovery-operator) | Pode gerir a ativação pós-falha e a reativação pós-falha as operações do Site Recovery no Cofre de serviços de recuperação |
 | [Leitor de recuperação de site](#site-recovery-reader) | Pode ver todas as operações de gestão de recuperação de sites  |
@@ -506,21 +507,50 @@ Pode gerir os serviços de pesquisa
 | Microsoft.Search/searchServices/* |Criar e gerir serviços de pesquisa |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
+### <a name="security-administrator"></a>Administrador de Segurança
+No Centro de segurança apenas: pode ver as políticas de segurança, ver Estados de segurança, editar as políticas de segurança, ver alertas e as recomendações, dispensar alertas e recomendações
+
+| **Ações** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Funções de leitura e atribuições de função |
+| Microsoft.Authorization/policyAssignments/* | Criar e gerir atribuições de políticas |
+| Microsoft.Authorization/policySetDefinitions/* | Criar e gerir conjuntos de política |
+| Microsoft.Authorization/policyDefinitions/* | Criar e gerir definições de política |
+| Microsoft.Insights/alertRules/* | Criar e gerir regras de alertas |
+| Microsoft.operationalInsights/workspaces/*/read | Ver os dados de análise de registos |
+| Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
+| Microsoft.Security/*/read | Componentes de segurança de leitura e políticas |
+| Microsoft.Support/* |Criar e gerir pedidos de suporte |
+
 ### <a name="security-manager"></a>Gestor de Segurança
 Pode gerir os componentes de segurança, as políticas de segurança e as máquinas virtuais
 
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Funções de leitura e atribuições de função |
-| Microsoft.ClassicCompute/*/read |Máquinas virtuais de computação de informações de configuração de leitura clássico |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Escrita de configuração para máquinas virtuais |
+| Microsoft.ClassicCompute/*/read |Ler as informações de configuração as máquinas virtuais clássicas |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Escrita de configuração para as máquinas virtuais clássicas |
 | Microsoft.ClassicNetwork/*/read |Ler as informações de configuração sobre a rede clássico |
-| Microsoft.Insights/alertRules/* |Criar e gerir regras de alertas |
+| Microsoft.Insights/alertRules/* | Criar e gerir regras de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler o estado de funcionamento dos recursos |
 | Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Security/* |Criar e gerir os componentes de segurança e políticas |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
+
+### <a name="security-reader"></a>Leitor de segurança
+No Centro de segurança apenas: pode ver as recomendações e alertas, vista de políticas de segurança, ver Estados de segurança, mas não é possível efetuar alterações
+
+| **Ações** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Funções de leitura e atribuições de função |
+| Microsoft.Insights/alertRules/* | Criar e gerir regras de alertas |
+| Microsoft.operationalInsights/workspaces/*/read | Ver os dados de análise de registos |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
+| Microsoft.Security/*/read | Componentes de segurança de leitura e políticas |
+| Microsoft.Support/* |Criar e gerir pedidos de suporte |
+| Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
 
 ### <a name="site-recovery-contributor"></a>Contribuidor do Site Recovery
 Pode gerir todas as ações de gestão de recuperação de sites, exceto criar Cofre de serviços de recuperação e atribuição de direitos de acesso a outros utilizadores
@@ -872,3 +902,4 @@ Pode gerir sites, mas não os planos de web ao qual estão ligados
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): Saiba como criar funções personalizadas para se ajustarem às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): manter um registo dos alteração atribuições de funções no RBAC.
 * [Resolução de problemas de controlo de acesso baseado em funções](role-based-access-control-troubleshooting.md): Obtenha sugestões sobre como corrigir problemas comuns.
+* [Permissões no Centro de segurança do Azure](../security-center/security-center-permissions.md)

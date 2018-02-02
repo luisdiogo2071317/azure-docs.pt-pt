@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre os serviços do Azure que a entrega de mensagens
 
@@ -84,7 +84,7 @@ Noutros casos, a ligá-las em conjunto para formar um pipeline de eventos e os d
 
 ![Descrição geral de dados de fluxo](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre os serviços de mensagens do Azure, consulte a mensagem de blogue [eventos, pontos de dados e mensagens - escolher o serviço de mensagens à direita do Azure para os seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 * Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).

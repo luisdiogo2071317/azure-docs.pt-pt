@@ -22,7 +22,7 @@ sql-database-single-database-resources.md
 | Máx. DTUs * * | 10 | 20 | 50 | 100 |
 | Incluído armazenamento (GB) | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |
+| Armazenamento em OLTP na memória máx. (GB) | N/A | N/D | N/D | N/A |
 | Funcionários em simultâneo de máx. (pedidos)| 60 | 90 | 120 | 200 |
 | Inícios de sessão simultâneos máx. | 60 | 90 | 120 | 200 |
 | Sessões simultâneas máx. |600 | 900 | 1200 | 2400 |
@@ -34,7 +34,7 @@ sql-database-single-database-resources.md
 | Máx. DTUs * * | 200 | 400 | 800 | 1600 | 3000 |
 | Incluído armazenamento (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |N/A |
+| Armazenamento em OLTP na memória máx. (GB) | N/A | N/D | N/D | N/D |N/A |
 | Funcionários em simultâneo de máx. (pedidos)| 400 | 800 | 1600 | 3200 |6000 |
 | Inícios de sessão simultâneos máx. | 400 | 800 | 1600 | 3200 |6000 |
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
@@ -67,7 +67,7 @@ sql-database-single-database-resources.md
 > [!IMPORTANT]
 > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\*No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Canadá Central, Canadá leste, França Central, Central na Alemanha, este do Japão, Coreia Central, Sul centro dos EUA, East2 Sul Oriental,-nos , EUA oeste, E.U.A. us Virginia e na Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\*No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, EUA Central, França Central, Datacenters Central, leste do Japão, oeste do Japão, Coreia Central, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, sul do RU, RU oeste, E.U.A. East2, EUA oeste, E.U.A. us Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 >\*\*Número máximo de DTUs por base de dados a partir de 200 DTUs e superior padrão estão na pré-visualização.
 >

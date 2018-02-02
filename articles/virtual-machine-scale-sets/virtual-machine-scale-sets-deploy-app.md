@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual
 Para executar as aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, terá primeiro de instalar os componentes da aplicação e os ficheiros necessários. Este artigo apresenta formas para criar uma imagem VM personalizada para instâncias na escala definido ou executam automaticamente os scripts de instalação em instâncias de VM existentes. Também irá aprender a gerir aplicações ou atualizações do SO através de um conjunto de dimensionamento.
@@ -43,11 +43,11 @@ Para reduzir a gestão de configuração e a hora para Aprovisionar uma VM, pode
 
 
 ## <a name="already-provisioned"></a>Instalar uma aplicação com a extensão de Script personalizado
-A extensão de Script personalizado transfere e executa os scripts em VMs do Azure. Esta extensão é útil para configuração de implementação de post, instalação de software ou qualquer outra configuração / tarefas de gestão. Scripts podem ser transferidos a partir do armazenamento do Azure ou o GitHub ou fornecidos para o portal do Azure em tempo de execução de extensão.
+A extensão de Script personalizado transfere e executa os scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão.
 
 A extensão de Script personalizado se integra com modelos Azure Resource Manager e também pode ser executada utilizando a CLI do Azure, o PowerShell, o portal do Azure ou a API de REST de Máquina Virtual do Azure. 
 
-Para obter mais informações, consulte o [descrição geral de extensão de Script personalizado](../virtual-machines/windows/extensions-customscript.md).
+Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/windows/extensions-customscript.md).
 
 
 ### <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
@@ -94,7 +94,7 @@ Se a política de atualização no seu conjunto de dimensionamento é *manual*, 
 ### <a name="use-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
 Para utilizar a extensão de Script personalizado com a CLI do Azure, crie um ficheiro JSON que define quais os ficheiros para obter e comandos para executar. Estas definições JSON podem ser reutilizadas em implementações de conjunto de dimensionamento para aplicar a instalação de aplicação consistente.
 
-Na sua shell atual, crie um ficheiro denominado *customConfig.json* e cole a seguinte configuração. Por exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloudConfig.json` para criar o ficheiro e ver uma lista de editores disponíveis.
+Na sua shell atual, crie um ficheiro denominado *customConfig.json* e cole a seguinte configuração. Por exemplo, crie o ficheiro no Cloud Shell, não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloudConfig.json` para criar o ficheiro e ver uma lista dos editores disponíveis.
 
 ```json
 {
@@ -103,7 +103,7 @@ Na sua shell atual, crie um ficheiro denominado *customConfig.json* e cole a seg
 }
 ```
 
-Aplicar a configuração de extensão de Script personalizado para as instâncias de VM no seu dimensionamento definida com [az vmss extensão conjunto](/cli/azure/vmss/extension#set). O exemplo seguinte aplica-se a *customConfig.json* configuração para o *myScaleSet* instâncias de VM no grupo de recursos com o nome *myResourceGroup*. Introduza os seus próprios nomes da seguinte forma:
+Aplicar a configuração de extensão de Script personalizado para as instâncias de VM no seu dimensionamento definida com [az vmss extensão conjunto](/cli/azure/vmss/extension#az_vmss_extension_set). O exemplo seguinte aplica-se a *customConfig.json* configuração para o *myScaleSet* instâncias de VM no grupo de recursos com o nome *myResourceGroup*. Introduza os seus próprios nomes da seguinte forma:
 
 ```azurecli
 az vmss extension set \
@@ -166,13 +166,13 @@ Se a política de atualização no seu conjunto de dimensionamento é *manual*, 
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Instalar uma aplicação para uma VM com Linux com init de nuvem
-[Nuvem init](https://cloudinit.readthedocs.io/latest/) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Como é executado na nuvem init durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.
+[Cloud-init](https://cloudinit.readthedocs.io/latest/) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Como o cloud-init é executado durante o processo de arranque inicial, não existem passos adicionais ou agentes necessários a aplicar à configuração.
 
 Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
 
 Para obter mais informações, incluindo um exemplo *nuvem init.txt* de ficheiros, consulte [utilizar nuvem init para personalizar as VMs do Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Para criar um conjunto de dimensionamento e utilizar um ficheiro de nuvem init, adicione o `--custom-data` parâmetro para o [az vmss criar](/cli/azure/vmss#create) comando e especifique o nome de um ficheiro de nuvem init. O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* e configura as instâncias VM com um ficheiro denominado *nuvem init.txt*. Introduza os seus próprios nomes da seguinte forma:
+Para criar um conjunto de dimensionamento e utilizar um ficheiro de nuvem init, adicione o `--custom-data` parâmetro para o [az vmss criar](/cli/azure/vmss#az_vmss_create) comando e especifique o nome de um ficheiro de nuvem init. O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* e configura as instâncias VM com um ficheiro denominado *nuvem init.txt*. Introduza os seus próprios nomes da seguinte forma:
 
 ```azurecli
 az vmss create \
@@ -222,5 +222,5 @@ Quando estiverem disponíveis novas versões de SO, pode utilizar ou criar uma n
 Se utilizar uma imagem VM personalizada com a aplicação previamente instalada, pode integrar as atualizações de aplicação com um pipeline de implementação para as novas imagens de criar e implementar atualizações do SO entre o conjunto de dimensionamento. Esta abordagem permite que o pipeline recolher as compilações de aplicação mais recentes, criar e validar uma imagem de VM, em seguida, atualizar as instâncias de VM no conjunto de dimensionamento. Para executar um pipeline de implementação que cria e implementa atualizações de aplicações nas imagens VM personalizadas, pode utilizar [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/), ou [Jenkins](https://jenkins.io/) .
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Como criar e implementar aplicações para os conjuntos de dimensionamento, pode rever o [descrição geral do Design definir dimensionamento](virtual-machine-scale-sets-design-overview.md). Para obter mais informações sobre como gerir o seu conjunto de dimensionamento, consulte [utilize o PowerShell para gerir o seu conjunto de dimensionamento](virtual-machine-scale-sets-windows-manage.md).

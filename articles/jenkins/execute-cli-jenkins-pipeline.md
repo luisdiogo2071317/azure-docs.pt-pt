@@ -15,18 +15,18 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementar no App Service do Azure com Jenkins e a CLI do Azure
-Para implementar uma aplicação web Java no Azure, pode utilizar o CLI do Azure no [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure incluindo como:
+Para implementar uma aplicação web Java no Azure, pode utilizar o CLI do Azure no [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
 
 > [!div class="checklist"]
-> * Criar uma VM Jenkins
-> * Configurar Jenkins
+> * Criar uma VM do Jenkins
+> * Configurar o Jenkins
 > * Criar uma aplicação web no Azure
 > * Preparar um repositório do GitHub
 > * Criar Jenkins pipeline
@@ -62,7 +62,7 @@ sudo apt-get install -y maven
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Criar um serviço de aplicações do Azure para implementar a aplicação web de Java
 
-Criar um plano do App Service do Azure com o **livres** utilizando o escalão de preço de [criar plano de serviço aplicacional az](/cli/azure/appservice/plan#create) comando da CLI. O plano de serviço aplicacional define os recursos físicos utilizados para alojar as suas aplicações. Todas as aplicações atribuídas a um plano de serviço aplicacional partilham destes recursos, permitindo-lhe guardar custo quando várias aplicações de alojamento. 
+Criar um plano do App Service do Azure com o **livres** utilizando o escalão de preço de [criar plano de serviço aplicacional az](/cli/azure/appservice/plan#az_appservice_plan_create) comando da CLI. O plano de serviço aplicacional define os recursos físicos utilizados para alojar as suas aplicações. Todas as aplicações atribuídas a um plano de serviço aplicacional partilham destes recursos, permitindo-lhe guardar custo quando várias aplicações de alojamento. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ Quando a definição da aplicação web estiver pronta, a CLI do Azure mostra as
 
 ### <a name="configure-java"></a>Configurar o Java 
 
-Definir a configuração de tempo de execução do Java que precisa da aplicação com o [atualização az da configuração de web de serviço aplicacional](/cli/azure/appservice/web/config#update) comando.
+Definir a configuração de tempo de execução do Java que precisa da aplicação com o [atualização az da configuração de web de serviço aplicacional](/cli/azure/appservice/web/config#az_appservice_web_config_update) comando.
 
 O seguinte comando configura a aplicação web com um 8 JDK recentes do Java e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -221,12 +221,12 @@ Web App no Linux suporta de forma diferente para efetuar a implementação, que 
 
     Aceda a http://&lt;APP_NAME>.azurewebsites.NET >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (substituir &lt;x > e &lt;y > com os números) para obter a soma de x e y
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, configurou um pipeline de Jenkins que verifica o código de origem no repositório do GitHub. Executa o Maven para criar um ficheiro war e, em seguida, utiliza a CLI do Azure para implementar no App Service do Azure. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar uma VM Jenkins
-> * Configurar Jenkins
+> * Criar uma VM do Jenkins
+> * Configurar o Jenkins
 > * Criar uma aplicação web no Azure
 > * Preparar um repositório do GitHub
 > * Criar Jenkins pipeline

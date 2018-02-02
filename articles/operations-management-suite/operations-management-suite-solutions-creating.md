@@ -1,6 +1,6 @@
 ---
-title: "Criar uma solução de gestão no OMS | Microsoft Docs"
-description: "Soluções de gestão de expandam a funcionalidade do Operations Management Suite (OMS), fornecendo os cenários de gestão em pacote que os clientes podem adicionar a sua área de trabalho do OMS.  Este artigo fornece detalhes sobre como pode criar soluções de gestão a ser utilizado no seu próprio ambiente ou disponibilizada aos seus clientes."
+title: "Criar uma solução de gestão no Azure | Microsoft Docs"
+description: "As soluções de gestão incluem cenários de gestão em pacote no Azure que os clientes podem adicionar a sua área de trabalho de análise de registos.  Este artigo fornece detalhes sobre como pode criar soluções de gestão a ser utilizado no seu próprio ambiente ou disponibilizada aos seus clientes."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Conceber e criar uma solução de gestão no Operations Management Suite (OMS) (pré-visualização)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
 > [!NOTE]
-> Esta documentação é de preliminar para criar soluções de gestão no OMS que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.
+> Esta documentação é de preliminar para criar soluções de gestão no Azure que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.
 
-[As soluções de gestão](operations-management-suite-solutions.md) expandir a funcionalidade do Operations Management Suite (OMS), fornecendo os cenários de gestão em pacote que os clientes podem adicionar a sua área de trabalho do OMS.  Este artigo apresenta um processo básico para conceber e criar uma solução de gestão que é adequada para os requisitos mais comuns.  Se estiver a criar soluções de gestão, em seguida, pode utilizar este processo como um ponto de partida e, em seguida, tirar partido os conceitos para soluções mais complexas, como os requisitos de evoluem.
+[As soluções de gestão](operations-management-suite-solutions.md) fornecer cenários de gestão em pacote que os clientes podem adicionar a sua área de trabalho de análise de registos.  Este artigo apresenta um processo básico para conceber e criar uma solução de gestão que é adequada para os requisitos mais comuns.  Se estiver a criar soluções de gestão, em seguida, pode utilizar este processo como um ponto de partida e, em seguida, tirar partido os conceitos para soluções mais complexas, como os requisitos de evoluem.
 
 ## <a name="what-is-a-management-solution"></a>O que é uma solução de gestão?
 
-As soluções de gestão contém OMS e de recursos do Azure que funcionam em conjunto para atingir um determinado cenário de monitorização.  Estão implementados como [modelos de gestão de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contém detalhes sobre como instalar e configurar os recursos contidos quando a solução é instalada.
+As soluções de gestão contém os recursos do Azure que funcionam em conjunto para alcançar um cenário de gestão específico.  Estão implementados como [modelos de gestão de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contém detalhes sobre como instalar e configurar os recursos contidos quando a solução é instalada.
 
 A estratégia básica é para iniciar a sua solução de gestão ao criar os componentes individuais no seu ambiente do Azure.  Depois de ter a funcionalidade a funcionar corretamente, em seguida, pode iniciar empacotamento-los para um [ficheiro de solução de gestão](operations-management-suite-solutions-solution-file.md). 
 
@@ -37,7 +37,7 @@ A estratégia básica é para iniciar a sua solução de gestão ao criar os com
 ## <a name="design-your-solution"></a>Conceba a sua solução
 O padrão mais comuns para uma solução de gestão é mostrado no diagrama seguinte.  Neste padrão, os diferentes componentes são abordados no abaixo.
 
-![Descrição geral da solução do OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
+![Descrição geral da solução de gestão](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Origens de dados

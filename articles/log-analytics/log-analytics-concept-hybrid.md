@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com a análise de registos
 
@@ -32,7 +32,7 @@ Computadores alojados no seu ambiente podem ser diretamente ligados à análise 
 
 ## <a name="overview"></a>Descrição geral
 
-![log-Analytics-Agent-Direct-Connect-Diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Antes de analisar e a funcionar nos dados recolhidos, terá primeiro de instalar e ligar agentes para todos os computadores que pretende enviar dados para o serviço de análise de registos. Pode instalar agentes nos computadores no local utilizando a configuração, a linha de comandos, ou com pretendido Estado Configuration (DSC) na automatização do Azure. 
 
@@ -41,6 +41,10 @@ O agente para Linux e Windows comunica saído com o serviço de análise de regi
 O agente para Linux e Windows não é apenas para estabelecer a ligação para análise de registos, também suporta a ligação com a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à Internet, o agente pode ser configurado para ligar ao Gateway para receber as informações de configuração e enviar os dados recolhidos consoante a solução que tiver ativado o OMS. Para obter mais informações e os passos sobre como configurar o agente Linux ou do Windows para comunicar através de um Gateway do OMS para o serviço de análise de registos, consulte [ligar computadores ao OMS utilizando o Gateway do OMS](log-analytics-oms-gateway.md). 
+
+> [!NOTE]
+> O agente para o Windows só suporta Transport Layer Security (TLS) 1.0 e 1.1.  
+> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, reveja os detalhes seguintes para verificar que cumpre os requisitos mínimos do sistema.
@@ -64,7 +68,7 @@ As informações abaixo lista as informações de configuração de proxy e de f
 ### <a name="linux-operating-systems"></a>Sistemas operativos Linux
 As distribuições de Linux seguintes são suportadas oficialmente.  No entanto, o agente Linux pode também executar nos outras distribuições não listadas.
 
-* Linux Amazon 2012.09 para 2015.09 (x86/x64)
+* Amazon Linux 2012.09 to 2015.09 (x86/x64)
 * CentOS Linux 5, 6 e 7 (x86/x64)
 * Oracle Linux 5, 6 e 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
@@ -113,7 +117,7 @@ Ligar os computadores no local diretamente com a análise de registos pode ser c
 |Computador com Linux| [Instalação manual](log-analytics-quick-collect-linux-computer.md)|Instale o agente para Linux ao chamar um script de wrapper alojado no GitHub. | 
 | System Center Operations Manager|[Integrar o Operations Manager com a análise de registos](log-analytics-om-agents.md) | Configurar a integração entre o Operations Manager e análise de registos para reencaminhar recolhidos dados de computadores Linux e Windows relatam a um grupo de gestão.|  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Reveja [origens de dados](log-analytics-data-sources.md) para compreender as origens de dados disponíveis para recolher dados do sistema Windows ou Linux. 
 

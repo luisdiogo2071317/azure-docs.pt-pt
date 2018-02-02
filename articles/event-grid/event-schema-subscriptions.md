@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7dc10d0cc73960fac4759a0cebec8d294cf1b463
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos de grelha de eventos do Azure para subscrições
 
@@ -39,7 +39,7 @@ O exemplo seguinte mostra o esquema de um recurso criado eventos:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -57,7 +57,9 @@ O exemplo seguinte mostra o esquema de um recurso criado eventos:
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ O esquema para um evento de recurso eliminado é semelhante:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,29 +95,31 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | Cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. |
-| Requerente | Cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| EventType | Cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | Cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
-| ID | Cadeia | Identificador exclusivo para o evento. |
+| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
+| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
+| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados do evento de subscrição. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Autorização | Cadeia | A autorização pedida para a operação. |
-| afirmações | Cadeia | As propriedades de afirmações. |
-| correlationId | Cadeia | Um ID de operação de resolução de problemas. |
-| httpRequest | Cadeia | Os detalhes da operação. |
-| resourceProvider | Cadeia | O fornecedor de recursos, efetuar a operação. |
-| resourceUri | Cadeia | O URI do recurso na operação. |
-| operationName | Cadeia | A operação foi efetuada. |
-| status | Cadeia | O estado da operação. |
-| subscriptionId | Cadeia | O ID de subscrição do recurso. |
-| TenantId | Cadeia | O ID de inquilino do recurso. |
+| Autorização | cadeia | A autorização pedida para a operação. |
+| afirmações | cadeia | As propriedades de afirmações. |
+| correlationId | cadeia | Um ID de operação de resolução de problemas. |
+| httpRequest | cadeia | Os detalhes da operação. |
+| resourceProvider | cadeia | O fornecedor de recursos, efetuar a operação. |
+| resourceUri | cadeia | O URI do recurso na operação. |
+| operationName | cadeia | A operação foi efetuada. |
+| status | cadeia | O estado da operação. |
+| subscriptionId | cadeia | O ID de subscrição do recurso. |
+| tenantId | cadeia | O ID de inquilino do recurso. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma introdução à grelha de eventos do Azure, consulte [Novidades grelha de evento?](overview.md).
 * Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).

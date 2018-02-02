@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
-ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Compreender o acesso a recursos no Azure
 
-Controlo de acesso no Azure inicia-se de uma perspetiva de faturação. O proprietário de uma conta do Azure, acedido, visitando o [Centro de contas do Azure](https://account.windowsazure.com/subscriptions), é o administrador de conta (AA). As subscrições são um contentor para faturação, mas também agir como um limite de segurança: cada subscrição tem um serviço de administrador (SA) que pode adicionar, remover e modificar recursos do Azure nessa subscrição utilizando o [portal do Azure](https://portal.azure.com/). A predefinição SA de uma nova subscrição é AA, mas o AA pode alterar a SA no Centro de contas do Azure.
+Controlo de acesso no Azure inicia-se de uma perspetiva de faturação. O proprietário de uma conta do Azure, acedido, visitando o [Centro de contas do Azure](https://account.azure.com), é o administrador de conta (AA). As subscrições são um contentor para faturação, mas também agir como um limite de segurança: cada subscrição tem um serviço de administrador (SA) que pode adicionar, remover e modificar recursos do Azure nessa subscrição utilizando o [portal do Azure](https://portal.azure.com/). A predefinição SA de uma nova subscrição é AA, mas o AA pode alterar a SA no Centro de contas do Azure.
 
 <br><br>![Contas do Azure][1]
 
@@ -45,7 +45,7 @@ Os utilizadores com subscrições em vários diretórios têm a capacidade de mu
 
 As operações, tal como mover recursos entre subscrições podem ser mais difícil devido a esta vista de diretório única de subscrições. Para efetuar a transferência de recursos, poderá ser necessário utilizar primeiro a **Editar diretório** comando na página de subscrições de **definições** para associar as subscrições para o mesmo diretório.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Para saber mais sobre como alterar os administradores para uma subscrição do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para obter mais informações sobre como o Azure Active Directory relacionada com a sua subscrição do Azure, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * Para obter mais informações sobre como atribuir funções no Azure AD, consulte [Atribuir funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)

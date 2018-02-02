@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solução de conector das informações da aplicação (pré-visualização) no Operations Management Suite (OMS)
 
@@ -37,7 +37,7 @@ Quando utilizar a solução, pode:
 
 Ao contrário da maioria dos outros soluções de análise de registos, não se encontra recolhidos dados para o conector do Application Insights por agentes. Todos os dados utilizados pela solução inclui diretamente a partir do Azure.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não recolhe informações de agentes Linux. |
@@ -84,7 +84,7 @@ Clique em de **Application Insights** mosaico para abrir o **Application Insight
 
 O dashboard inclui os painéis mostrados na tabela. Cada painel lista até 10 itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos quando clicar em **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Coluna** | **Descrição** |
 | --- | --- |
@@ -164,7 +164,7 @@ A solução recebe os seguintes tipos de telemetria dos dados das suas aplicaç�
 
 Dados são recebidos pelo OMS do Application Insights como ficar disponível.
 
-## <a name="output-data"></a>dados de saída
+## <a name="output-data"></a>Dados de saída
 
 Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de dados de entrada. Registos de ApplicationInsights têm propriedades mostradas nas seguintes secções:
 
@@ -182,7 +182,7 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 | ScreenResolution |   |
 | Continente | Continente onde o pedido teve origem |
 | País | País em que o pedido teve origem |
-| Distrito | Distrito, estado ou região onde o pedido teve origem |
+| Província | Distrito, estado ou região onde o pedido teve origem |
 | Cidade | Cidade ou town onde o pedido teve origem |
 | isSynthetic | Indica se o pedido foi criado por um utilizador ou pelo método automatizado. = TRUE gerados pelo utilizador ou = false método automatizado |
 | SamplingRate | Percentagem de telemetria gerada pelo SDK que é enviado para o portal. Intervalo entre 0,0 e 100,0. |
@@ -191,7 +191,7 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 | OperationID | Itens que tenham a mesma operação ID são apresentadas como itens relacionados no portal. Normalmente, o ID do pedido |
 | ParentOperationID | ID da operação principal |
 | OperationName |   |
-| ID de sessão | GUID para identificar exclusivamente a sessão em que o pedido foi criado |
+| SessionId | GUID para identificar exclusivamente a sessão em que o pedido foi criado |
 | SourceSystem | ApplicationInsights |
 
 ### <a name="availability-specific-fields"></a>Campos específicos de disponibilidade
@@ -261,6 +261,6 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 
 Esta solução não tem um conjunto de pesquisas de registo de exemplo apresentadas no dashboard. No entanto, as consultas de pesquisa de registo de exemplo com descrições são mostradas no [informações de vista Application Insights conector](#view-application-insights-connector-information) secção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Utilize [pesquisa registo](log-analytics-log-searches.md) para ver informações detalhadas sobre as aplicações do Application Insights.

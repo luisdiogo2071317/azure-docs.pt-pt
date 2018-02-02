@@ -2,17 +2,18 @@
 title: "Integração do Centro de dados do Azure pilha - segurança"
 description: "Saiba como integrar a segurança de pilha do Azure com a segurança do Centro de dados"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Integração do Centro de dados do Azure pilha - segurança
 
@@ -74,7 +75,7 @@ O procedimento seguinte é um exemplo que pode utilizar para configurar o Explor
 
 Pode utilizar várias linguagens de programação para aceder a uma conta de armazenamento. Utilize a seguinte documentação para escolher um exemplo que corresponda ao seu idioma:
 
-[https://Azure.microsoft.com/resources/Samples/?term=Storage+Account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
 ## <a name="device-access-auditing"></a>Auditoria de acesso do dispositivo
 
@@ -91,6 +92,6 @@ Todos os dispositivos físicos na pilha do Azure podem enviar mensagens Syslog. 
 
 O endereço de destino do Syslog é um parâmetro opcional recolhido para a implementação, mas pode também ser adicionada implementação post.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Azure pilha integração do Centro de dados - publicar pontos finais](azure-stack-integrate-endpoints.md)
+[Política de manutenção](azure-stack-servicing-policy.md)

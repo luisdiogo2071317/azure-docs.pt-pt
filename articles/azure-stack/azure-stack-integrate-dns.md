@@ -2,22 +2,20 @@
 title: "Integração de centro de dados de pilha do Azure - DNS"
 description: Saiba como integrar o DNS de pilha do Azure com o seu centro de dados DNS
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integração de centro de dados de pilha do Azure - DNS
-
-*Aplica-se a: Azure pilha integrado sistemas*
-
 Para poder aceder aos pontos finais de pilha do Azure (`portal`, `adminportal`, `management`, `adminmanagement`, etc.)  da pilha fora do Azure, tem de integrar os serviços de DNS de pilha do Azure com os servidores DNS que alojam as zonas DNS que pretende utilizar na pilha do Azure.
 
 ## <a name="azure-stack-dns-namespace"></a>Espaço de nomes de DNS de pilha do Azure
@@ -138,6 +136,6 @@ Cada entidade de registo tem as suas próprias ferramentas de gestão de DNS par
 
 A maioria das registrars DNS necessitam que forneça um mínimo de dois servidores DNS para concluir a delegação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Integração do Centro de dados do Azure pilha - identidade](azure-stack-integrate-identity.md)
+[Integração da firewall](azure-stack-firewall.md)

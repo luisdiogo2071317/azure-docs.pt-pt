@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub elevada disponibilidade e recuperação após desastre
 Como um serviço do Azure, o IoT Hub fornece elevada disponibilidade (HA) utilizando redundancies ao nível da região do Azure, sem qualquer trabalho adicional necessário para a solução. A plataforma Microsoft Azure também inclui as funcionalidades para o ajudar a criar soluções com as capacidades do após desastre (DR) de recuperação ou a disponibilidade de por várias regiões. Se pretender fornecer global, por várias regiões elevada disponibilidade para os dispositivos ou utilizadores, tirar partido destas funcionalidades de DR do Azure. O artigo [Azure continuidade de negócio orientações técnica](../resiliency/resiliency-technical-guidance.md) descreve as funcionalidades integradas no Azure para a continuidade do negócio e DR. O [recuperação após desastre e elevada disponibilidade para aplicações do Azure] [ Disaster recovery and high availability for Azure applications] documento fornece orientações de arquitetura no estratégias para aplicações do Azure alcançar HA e DR.
@@ -34,6 +34,8 @@ Para além do HA intra região, o IoT Hub implementa mecanismos de ativação p�
 | Operações de monitorização de mensagens |Todas as mensagens unread são perdidas |
 | Mensagens da nuvem para dispositivo |0 a 5 minutos perda de dados |
 | Fila de comentários da nuvem para o dispositivo |Todas as mensagens unread são perdidas |
+| Dados do dispositivo duplo |0 a 5 minutos perda de dados |
+| Tarefas principais e de dispositivo |0 a 5 minutos perda de dados |
 
 ## <a name="regional-failover-with-iot-hub"></a>Ativação pós-falha com o IoT Hub
 Um tratamento completado de topologias de implementação em soluções de IoT está fora do âmbito deste artigo. O artigo aborda o *ativação pós-falha regional* modelo de implementação para fins de elevada disponibilidade e recuperação após desastre.
@@ -46,7 +48,7 @@ Um nível elevado, para implementar um modelo de ativação pós-falha com o IoT
 * **Replicação de registo de identidade**: seja utilizável, o IoT hub secundário tem de conter todas as identidades de dispositivo que possam ligar à solução. A solução deve manter georreplicação cópias de segurança das identidades de dispositivo e carregá-los para o IoT hub secundário antes de mudar o ponto final do Active Directory para os dispositivos. A funcionalidade de exportação de identidade de dispositivo do IoT Hub é útil neste contexto. Para obter mais informações, consulte [guia para programadores do IoT Hub - registo de identidade][IoT Hub developer guide - identity registry].
 * **A intercalação lógica**: quando a região primária fica novamente disponível, todos o estado e os dados que foram criados no site secundário tem de ser migrados de volta para a região primária. Este estado e os dados principalmente relacionadas com as identidades de dispositivo e metadados de aplicações, que têm de ser intercalados com o IoT hub primário e outros arquivos de específicas da aplicação na região primária. Para simplificar este passo, deverá utilizar idempotent operações. Operações Idempotent minimizar os efeitos de lado de uma eventual de distribuição consistente de eventos e de duplicados ou fora de ordem entrega de eventos. Além disso, a lógica de aplicação deve ser concebida para tolerar possíveis inconsistências ou o estado "ligeiramente" desatualizado. Esta situação pode ocorrer devido à mais tempo demora para o sistema a "heal" com base nos objetivos de ponto de recuperação (RPO).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Siga estas ligações para saber mais sobre o IoT Hub do Azure:
 
 * [Introdução aos Hubs IoT (Tutorial)][lnk-get-started]

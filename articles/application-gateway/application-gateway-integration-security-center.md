@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Descrição geral da integração entre o Gateway de aplicação e o Centro de segurança do Azure
 
@@ -69,7 +69,7 @@ Centro de segurança monitoriza aplicações adicionadas a um gateway de aplica�
 
 ![painel Adicionar de firewall de aplicações Web][5]
 
-## <a name="security-alerts"></a>Alertas de segurança
+## <a name="security-alerts"></a>Alertas de Segurança
 
 No Centro de segurança, navegue para **DETEÇÃO** > **alertas de segurança**.  Aqui poderá encontrar alertas de WAF para gateways de aplicação. Alertas são divididos por regra WAF.
 
@@ -79,9 +79,9 @@ Clicar uma regra irá fornecer uma lista de alertas para essa regra WAF específ
  
 ![Detalhes do alerta][9]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como ativar a firewall de aplicação web num gateway de aplicação existente, visite [criar ou atualizar um Gateway de aplicação do Azure com firewall de aplicações web](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+Para saber como ativar a firewall de aplicação web num gateway de aplicação existente, visite [criar ou atualizar um Gateway de aplicação do Azure com firewall de aplicações web](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

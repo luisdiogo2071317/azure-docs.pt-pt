@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core nos serviços de fiável de recursos de infraestrutura de serviço
 
@@ -26,7 +26,7 @@ ASP.NET Core é uma arquitetura de open source e plataforma novo para a criaçã
 
 Este artigo é um guia aprofundado para alojar o ASP.NET Core dos serviços no Service Fabric Reliable Services utilizando o **Microsoft.ServiceFabric.AspNetCore.** * conjunto de pacotes NuGet.
 
-Para um tutorial introdutórias em ASP.NET Core no Service Fabric e instruções sobre como começar a configurar o ambiente de desenvolvimento, consulte [construir uma web front-end para a sua aplicação com o ASP.NET Core](service-fabric-add-a-web-frontend.md).
+Para um tutorial introdutórias em ASP.NET Core no Service Fabric e instruções sobre como começar a configurar o ambiente de desenvolvimento, consulte [criar uma aplicação .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 O resto deste artigo assume que já estiver familiarizado com o ASP.NET Core. Se não, recomenda-se ler de [Noções básicas sobre o ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -310,8 +310,8 @@ Quando exposto à Internet, um serviço sem monitorização de estado deve utili
 | --- | --- | --- |
 | Servidor Web | kestrel | Kestrel é o servidor web preferencial, dado que é suportada em Windows e Linux. |
 | Configuração da porta | estático | Deve ser configurada uma porta estática bem conhecida no `Endpoints` configuração de ServiceManifest.xml, por exemplo 80 para HTTP ou 443 para HTTPS. |
-| ServiceFabricIntegrationOptions | Nenhuma | O `ServiceFabricIntegrationOptions.None` opção deve ser utilizada quando configurar o middleware de integração do Service Fabric para que o serviço não tenta validar pedidos recebidos para um identificador exclusivo. Os utilizadores externos da sua aplicação não saberá que as informações de identificação exclusivas utilizadas pelo middleware. |
-| Contagem de instâncias | -1 | Em casos de utilização típica, a contagem de instâncias definição deve ser definida como "-1" para que uma instância está disponível em todos os nós que recebem o tráfego do Balanceador de carga. |
+| ServiceFabricIntegrationOptions | Nenhum | O `ServiceFabricIntegrationOptions.None` opção deve ser utilizada quando configurar o middleware de integração do Service Fabric para que o serviço não tenta validar pedidos recebidos para um identificador exclusivo. Os utilizadores externos da sua aplicação não saberá que as informações de identificação exclusivas utilizadas pelo middleware. |
+| Contagem de Instâncias | -1 | Em casos de utilização típica, a contagem de instâncias definição deve ser definida como "-1" para que uma instância está disponível em todos os nós que recebem o tráfego do Balanceador de carga. |
 
 Se vários serviços externamente expostos partilham o mesmo conjunto de nós, HttpSys pode ser utilizado com um caminho de URL único, porém está estável. Isto pode ser efetuado ao modificar o URL fornecido ao configurar IWebHost. Tenha em conta de que isto se aplica a HttpSys apenas.
 
@@ -347,7 +347,7 @@ Serviços com monitorização de estado que só são chamados de dentro do clust
 | Configuração da porta | dinamicamente atribuído | Várias réplicas de um serviço com monitorização de estado podem partilhar um processo de anfitrião ou o sistema operativo anfitrião e, por conseguinte, terá de portas exclusivas. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição de porta dinâmica, esta definição impede que o problema de identidade mistaken descrito anteriormente. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Depurar a aplicação de Service Fabric através do Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

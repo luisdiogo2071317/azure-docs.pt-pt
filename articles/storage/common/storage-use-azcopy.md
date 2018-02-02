@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferência de dados com o AzCopy no Windows
 O AzCopy é um utilitário da linha de comandos concebido para copiar dados do armazenamento de Blobs do Microsoft Azure, ficheiros e tabela, utilizando os comandos simples concebidos para um desempenho ideal. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento, ou entre contas de armazenamento.  
@@ -624,13 +624,13 @@ Especifica os dados de origem a partir dos quais pretende copiar. A origem pode 
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
-### <a name="destdestination"></a>/ Dest: "destino"
+### <a name="destdestination"></a>/Dest:"destination"
 
 Especifica o destino para copiar para. O destino pode ser um diretório do sistema de ficheiros, um contentor de blob, um diretório virtual de blob, uma partilha de ficheiros de armazenamento, um diretório do ficheiro de armazenamento ou uma tabela do Azure.
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
-### <a name="patternfile-pattern"></a>/ Padrão: "-padrão de ficheiros"
+### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
 
 Especifica um padrão de ficheiro que indica que os ficheiros para copiar. O comportamento do parâmetro /Pattern é determinado pela localização dos dados de origem e a presença da opção de modo recursivo. Modo recursivo é especificado através da opção /S.
 
@@ -646,13 +646,13 @@ O padrão de ficheiro predefinido utilizado quando não é especificada nenhuma 
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="destkeystorage-key"></a>/ DestKey: "chave de armazenamento"
+### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
 
 Especifica a chave de conta de armazenamento para o recurso de destino.
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
-### <a name="destsassas-token"></a>/ DestSAS: "sas token"
+### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
 Especifica uma assinatura de acesso partilhado (SAS) com permissões de leitura e escrita para o destino (se aplicável). Coloque o SAS com aspas, como pode contém carateres especiais de linha de comandos.
 
@@ -662,13 +662,13 @@ Se a origem e destino forem ambos os blobs, em seguida, o blob de destino têm d
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
-### <a name="sourcekeystorage-key"></a>/ SourceKey: "chave de armazenamento"
+### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
 
 Especifica a chave de conta de armazenamento para o recurso de origem.
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
-### <a name="sourcesassas-token"></a>/ SourceSAS: "sas token"
+### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 
 Especifica uma assinatura de acesso partilhado com permissões de leitura e de lista para a origem (se aplicável). Coloque o SAS com aspas, como pode contém carateres especiais de linha de comandos.
 
@@ -684,13 +684,13 @@ Especifica o modo recursivo para operações de cópia. No modo de recursiva, o 
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="blobtypeblock--page--append"></a>/ BlobType: "bloquear" | "página" | "acrescentar"
+### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 
 Especifica se o blob de destino é um blob de blocos, um blob de página ou um blob de acréscimo. Esta opção é aplicável apenas quando estiver a carregar um blob. Caso contrário, é gerado um erro. Se o destino for um blob e esta opção não for especificada, por predefinição, o AzCopy cria um blob de blocos.
 
 **Aplica-se a:** Blobs
 
-### <a name="checkmd5"></a>/ CheckMD5
+### <a name="checkmd5"></a>/CheckMD5
 
 Calcula um hash MD5 para dados transferidos e verifica se o hash MD5 armazenados no blob ou propriedade de conteúdo-MD5 do ficheiro corresponda ao hash calculado. A verificação de MD5 está desativada por predefinição, pelo que tem de especificar esta opção para efetuar a verificação de MD5 quando a transferência de dados.
 
@@ -700,7 +700,7 @@ AzCopy sempre define a propriedade Content-MD5 para um blob do Azure ou o fichei
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="snapshot"></a>/ Instantâneo de
+### <a name="snapshot"></a>/Snapshot
 
 Indica se a transferência de instantâneos. Esta opção só é válida quando a origem é um blob.
 
@@ -710,7 +710,7 @@ Por predefinição, os instantâneos não são copiados.
 
 **Aplica-se a:** Blobs
 
-### <a name="vverbose-log-file"></a>/ V: [verboso--ficheiro de registo]
+### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
 Saídas verboso as mensagens de estado para um ficheiro de registo.
 
@@ -718,7 +718,7 @@ Por predefinição, o ficheiro de registo verboso é denominado AzCopyVerbose.lo
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
-### <a name="zjournal-file-folder"></a>/ Z [pasta de ficheiros de diário]
+### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
 Especifica uma pasta de ficheiros do diário de alterações para retomar uma operação.
 
@@ -750,7 +750,7 @@ Pode especificar vários ficheiros de resposta. No entanto, tenha em atenção q
 
 ### <a name="y"></a>/Y
 
-Suprime todos os pedidos de confirmação do AzCopy.
+Suprime todos os pedidos de confirmação do AzCopy. Esta opção permite também a utilização de tokens SAS só de escrita para cenários de carregamento de dados, quando /XO e /XN não são especificadas.
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
@@ -789,7 +789,7 @@ Carrega apenas os ficheiros que tenham o atributo de arquivo definida.
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
+### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Carrega apenas os ficheiros que tem um conjunto de atributos especificado.
 
@@ -808,7 +808,7 @@ Os atributos disponíveis incluem:
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
+### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
 Exclui ficheiros que tem um conjunto de atributos especificado.
 
@@ -827,7 +827,7 @@ Os atributos disponíveis incluem:
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="delimiterdelimiter"></a>/ Delimitador: "delimiter"
+### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
 Indica o carácter de delimitador utilizado para delimitar os diretórios virtuais num nome de blob.
 
@@ -837,7 +837,7 @@ Esta opção só é aplicável para transferir blobs.
 
 **Aplica-se a:** Blobs
 
-### <a name="ncnumber-of-concurrent-operations"></a>/ NC: "número-de-em simultâneo-operações de"
+### <a name="ncnumber-of-concurrent-operations"></a>/NC:"number-of-concurrent-operations"
 
 Especifica o número de operações simultâneas.
 
@@ -847,19 +847,19 @@ O limite superior para operações simultâneas é 512.
 
 **Aplica-se a:** Blobs, ficheiros, tabelas
 
-### <a name="sourcetypeblob--table"></a>/ SourceType: "Blob" | "Tabela"
+### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
 
 Especifica que o `source` recursos é um blob disponível no ambiente de desenvolvimento local, em execução no emulador do storage.
 
 **Aplica-se a:** Blobs, tabelas
 
-### <a name="desttypeblob--table"></a>/ DestType: "Blob" | "Tabela"
+### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 
 Especifica que o `destination` recursos é um blob disponível no ambiente de desenvolvimento local, em execução no emulador do storage.
 
 **Aplica-se a:** Blobs, tabelas
 
-### <a name="pkrskey1key2key3"></a>/ PKRS: "key&#1;key&#2;key&#3;..."
+### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 
 Divide o intervalo de chave de partição para ativar a exportação de dados de tabela em paralelo, o que aumenta a velocidade da operação de exportação.
 
@@ -875,7 +875,7 @@ Cada operação exporta um dos três intervalos de chaves de partição, conform
 
 **Aplica-se a:** tabelas
 
-### <a name="splitsizefile-size"></a>/ SplitSize: "tamanho de ficheiro"
+### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
 Especifica o ficheiro exportado dividir tamanho em MB, o valor mínimo permitido é de 32.
 
@@ -885,7 +885,7 @@ Se os dados de tabela são exportados para um blob e o tamanho do ficheiro expor
 
 **Aplica-se a:** tabelas
 
-### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: "InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
+### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
 Especifica o comportamento de importação de dados de tabela.
 
@@ -895,7 +895,7 @@ Especifica o comportamento de importação de dados de tabela.
 
 **Aplica-se a:** tabelas
 
-### <a name="manifestmanifest-file"></a>/ Manifesto: "ficheiro de manifesto"
+### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 
 Especifica o ficheiro de manifesto para a tabela Exportar e importar a operação.
 
@@ -905,7 +905,7 @@ Esta opção é necessária durante a operação de importação para localizar 
 
 **Aplica-se a:** tabelas
 
-### <a name="synccopy"></a>/ SyncCopy
+### <a name="synccopy"></a>/SyncCopy
 
 Indica se deve copiar em sincronia blobs ou ficheiros entre dois pontos finais de armazenamento do Azure.
 
@@ -915,7 +915,7 @@ Pode utilizar esta opção quando copiar os ficheiros dentro do armazenamento de
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="setcontenttypecontent-type"></a>/ SetContentType: "content-type"
+### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
 
 Especifica o tipo de conteúdo de MIME para blobs de destino ou ficheiros.
 
@@ -925,7 +925,7 @@ Se especificar esta opção sem um valor, em seguida, AzCopy define cada blob ou
 
 **Aplica-se a:** Blobs, ficheiros
 
-### <a name="payloadformatjson--csv"></a>/ PayloadFormat: "JSON" | "CSV"
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
 Especifica o formato do ficheiro de dados exportados de tabela.
 

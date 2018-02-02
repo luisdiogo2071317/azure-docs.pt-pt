@@ -3,7 +3,7 @@ title: "Suporte de feed de trabalhar com a alteração do BD Azure Cosmos | Micr
 description: "Utilize o suporte de feed de alteração de base de dados do Azure Cosmos para controlar as alterações em documentos e executar processamento baseadas em eventos como acionadores e manter os sistemas de caches e análise atualizado."
 keywords: "Alteração do feed"
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhar com a alteração de feed de suporte do BD Azure Cosmos
 
@@ -60,6 +60,7 @@ Detalhes adicionais:
 * As alterações podem ser sincronizadas a partir de qualquer ponto no tempo, ou seja, não existe nenhum período de retenção de dados fixa para o qual as alterações estão disponíveis.
 * As alterações estão disponíveis em segmentos de intervalos de chaves de partição. Esta capacidade permite alterações de coleções de grandes dimensões para ser processados em paralelo pelos vários consumidores/servidores.
 * As aplicações podem pedir vários feeds de alteração em simultâneo na mesma coleção.
+* ChangeFeedOptions.StartTime podem ser utilizados para fornecer um ponto de partida inicial, por exemplo, para localizar o token de continuação correspondente fornecido tempo relógio. ContinuationToken, se for especificado, wins sobre os valores StartTime e StartFromBeginning. A precisão da ChangeFeedOptions.StartTime é ~ 5 seg. 
 
 ## <a name="use-cases-and-scenarios"></a>Cenários e casos de utilização
 
@@ -270,7 +271,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 Já está. Após estes passos alguns documentos iniciará entra o **DocumentFeedObserver ProcessChangesAsync** método.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre como utilizar a base de dados do Azure Cosmos com as funções do Azure, consulte [BD do Cosmos do Azure: através das funções do Azure de computação de base de dados sem servidor](serverless-computing-database.md).
 

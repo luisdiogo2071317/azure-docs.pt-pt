@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos na grelha de eventos do Azure
 
@@ -52,7 +52,7 @@ Grelha de evento fornece segurança de subscrição de tópicos e tópicos de pu
 
 Quando a grelha de eventos não é possível confirmar que foi recebido um evento por ponto final do subscritor, redelivers o evento. Para obter mais informações, consulte [entrega de mensagens de evento grelha e volte a tentar](delivery-and-retry.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
 * Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).

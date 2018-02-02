@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -44,7 +44,7 @@ Agora, vamos ver alguns dos serviços específicos que recomendamos para as suas
 
 O Azure oferece que vários baseado na nuvem ofertas para executar a sua aplicação para que não têm de se preocupar com os detalhes de infraestrutura de computação. Pode facilmente aumentar verticalmente ou ampliar os recursos, à medida que aumenta a utilização da aplicação.
 
-O Azure disponibiliza serviços que suportam o desenvolvimento de aplicações e necessidades de alojamento. O Azure oferece infraestrutura-como-um-serviço (IaaS) para lhe dar controlo total sobre o alojamento de aplicações. Ofertas do Azure plataforma-como-um-serviço (PaaS) fornecerem os serviços completamente geridos necessários para ligar as suas aplicações. Não há mesmo verdadeiro sem servidor de alojamento no Azure em que é tudo o que precisa para fazer a escrever o seu código.
+O Azure disponibiliza serviços que suportam o desenvolvimento de aplicações e necessidades de alojamento. Azure fornece uma infraestrutura como serviço (IaaS) para lhe dar controlo total sobre o alojamento de aplicações. Plataforma do Azure como um ofertas de serviço (PaaS) fornecer os serviços completamente geridos necessários para ligar as suas aplicações. Não há mesmo verdadeiro sem servidor de alojamento no Azure em que é tudo o que precisa para fazer a escrever o seu código.
 
 ![Opções de alojamento de aplicação do Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -69,7 +69,7 @@ Pode migrar as suas aplicações existentes para o App Service utilizando a [fer
 
 #### <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 
-Como a fornecedor uma infraestrutura-como-um-serviço (IaaS), o Azure permite-lhe implementar ou migrar a sua aplicação para Windows ou Linux VMs. Em conjunto com a Azure Virtual Network, Virtual Machines do Azure suporta a implementação do Windows ou Linux VMs no Azure. Com as VMs, tem controlo total sobre a configuração da máquina. Ao utilizar VMs, está responsável por todos os servidor software instalação, configuração, manutenção e sistema operativo patches.
+Uma infraestrutura como um fornecedor de serviço (IaaS), o Azure permite-lhe implementar ou migrar a sua aplicação para Windows ou Linux VMs. Em conjunto com a Azure Virtual Network, Virtual Machines do Azure suporta a implementação do Windows ou Linux VMs no Azure. Com as VMs, tem controlo total sobre a configuração da máquina. Ao utilizar VMs, está responsável por todos os servidor software instalação, configuração, manutenção e sistema operativo patches.
 
 Devido ao nível do controlo que tem com as VMs, pode executar uma grande variedade de cargas de trabalho do servidor no Azure que não se ajustem para um modelo PaaS. Estas cargas de trabalho incluem os servidores de base de dados, o Windows Server Active Directory e o Microsoft SharePoint. Para obter mais informações, consulte a documentação de máquinas virtuais para um [Linux](/azure/virtual-machines/linux/) ou [Windows](/azure/virtual-machines/windows/).
 
@@ -236,7 +236,7 @@ Para além das REST APIs, vários serviços do Azure também permitem-lhe gerir 
 -   [Node.js](http://azure.github.io/azure-sdk-for-node/)
 -   [Java](https://docs.microsoft.com/java/api/)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+-   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 
 Serviços, tais como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [Media Services do Azure](../../media-services/media-services-dotnet-how-to-use.md) fornecer SDKs do lado do cliente para que os possa aceder aos serviços da web e aplicações de cliente para dispositivos móveis.

@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT Hub introdução tutoriais
 
 Pode utilizar o IoT Hub do Azure e os SDKs do dispositivo IoT do Azure para criar soluções de Internet das coisas (IoT):
 
 * IoT Hub do Azure é um serviço completamente gerido na nuvem que estabelece ligação com segurança, monitoriza e gere os dispositivos de IoT. Utilize os SDKs de dispositivos de IoT do Azure para implementar os seus dispositivos de IoT.
-* Utilize um gateway de IoT cenários mais complexos de IoT. Por exemplo, onde tem de considerar os fatores, tais como dispositivos legados, os custos de largura de banda, políticas de segurança e privacidade ou processamento de dados de limite. Nestes cenários, utilizar o limite de IoT do Azure para implementar um gateway que liga dispositivos ao seu IoT hub.
+* Utilize um gateway de IoT cenários mais complexos de IoT. Por exemplo, onde tem de considerar os fatores, tais como dispositivos legados, os custos de largura de banda, políticas de segurança e privacidade ou processamento de dados de limite. Nestes cenários, utilize [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) para implementar um gateway que liga dispositivos ao seu IoT hub.
 
 ## <a name="what-the-tutorials-cover"></a>O que abrangem os tutoriais
 
@@ -40,9 +40,9 @@ Ligar um dispositivo IoT ou gateway ao IoT Hub do Azure. Pode escolher um dispos
 |----------------------------------|----------------------|
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | IoT DevKit                       | [Arduino no VSCode][DevKit]     |
-| Intel Edison                     | [NODE.js][Ed_Nd], [C][Ed_C]    |
+| Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
 | Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 coisa Dev       | [Arduino][Th_Ard]              |
+| Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
 | Adafruit Feather M0              | [Arduino][M0_Ard]              |
 | Dispositivo simulado no PC           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Simulador de dispositivo online         | [Raspberry Pi (Node.js)][Ol_Sim] |

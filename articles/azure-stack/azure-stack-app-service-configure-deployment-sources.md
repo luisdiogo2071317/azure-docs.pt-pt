@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurar origens de implementação
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+
 
 Serviço de aplicações na pilha do Azure suporta a pedido implementação de vários fornecedores de controlo de origem. Esta funcionalidade permite aos programadores de aplicações implementar direta a partir do respetivos repositórios de controlo de origem. Se quiser configurar o serviço de aplicações para ligar ao respetivos repositórios de utilizadores, um operador da nuvem tem primeiro de configurar a integração entre o serviço de aplicações na pilha do Azure e o fornecedor do controlo de origem.  
 
@@ -150,6 +152,6 @@ Tem de ter uma Account Microsoft ligado a uma conta do OneDrive para concluir es
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os utilizadores podem agora utilizar as origens de implementação para coisas como [a implementação contínua](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [implementação de Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), e [pasta sincronização de nuvem](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

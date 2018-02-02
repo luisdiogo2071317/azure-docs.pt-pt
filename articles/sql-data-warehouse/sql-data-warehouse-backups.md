@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Cópia de segurança e restauro no SQL Data Warehouse
 Este artigo explica as especificações de cópias de segurança no SQL Data Warehouse. Utilize cópias de segurança de armazém de dados para restaurar uma base de dados de instantâneos para a região primária ou restaurar um georreplicação-cópia de segurança para a região georreplicação-emparelhado. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>Cópias de segurança a Georreplicação
 O SQL Data Warehouse efetua uma georreplicação-cópia de segurança uma vez por dia para um [Centro de dados emparelhado](../best-practices-availability-paired-regions.md). O RPO para um georrestauro é de 24 horas. Pode restaurar a georreplicação-cópia de segurança para o servidor na região georreplicação-emparelhado. cópia de segurança georreplicação garante que pode restaurar o armazém de dados no caso de não é possível aceder os instantâneos na sua região primária.
 
-As cópias de segurança a Georreplicação estão por predefinição. Se o seu armazém de dados está otimizado para elasticidade, pode [ativamente](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) se desejar. Não é possível ativamente georreplicação-cópias de segurança com o otimizado para a camada de desempenho de computação.
+As cópias de segurança a Georreplicação estão por predefinição. Se o seu armazém de dados está otimizado para elasticidade, pode [ativamente](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não é possível ativamente georreplicação-cópias de segurança com o otimizado para a camada de desempenho de computação.
 
 ## <a name="backup-costs"></a>Custos de cópia de segurança
 Vai notar que a fatura do Azure tem um item de linha para o Premium Storage do Azure e um item de linha para o armazenamento georredundante. A taxa de Premium Storage é o custo total para armazenar os dados na região primária, que inclui os instantâneos.  A taxa georredundante abrange o custo de armazenar cópias de segurança georreplicação.  
@@ -72,7 +72,7 @@ Quando remover um armazém de dados, o SQL Data Warehouse cria um instantâneo f
 > Se eliminar uma instância do SQL server lógica, todas as bases de dados que pertencem à instância também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor eliminado.
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para restaurar um SQL data warehouse, consulte [restaurar um SQL data warehouse](sql-data-warehouse-restore-database-overview.md).
 
 Para obter uma descrição de continuidade do negócio, consulte [descrição geral da continuidade de negócio](../sql-database/sql-database-business-continuity.md)

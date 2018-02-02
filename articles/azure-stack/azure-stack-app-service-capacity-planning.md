@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamento da capacidade para funções de servidor do App Service do Azure na pilha do Azure
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 Para Aprovisionar uma implementação de pronto de produção do serviço de aplicações do Azure na pilha do Azure, terá de planear a capacidade de que espera que o sistema para suportar.  Eis as orientações sobre o número mínimo de instâncias e computação SKUs deve utilizar para qualquer implementação de produção.
 
@@ -29,7 +30,7 @@ Planear a estratégia de capacidade do serviço de aplicações, utilizando esta
 | Função de servidor do serviço de aplicações | Mínimo recomendado número de instâncias | SKU de computação recomendada|
 | --- | --- | --- |
 | Controlador | 2 | A1 |
-| Front-End | 2 | A1 |
+| Front-end | 2 | A1 |
 | Gestão | 2 | A3 |
 | Publicador | 2 | A1 |
 | Funcionários de Web - partilhados | 2 | A1 |
@@ -97,6 +98,6 @@ Em ambientes de produção, a função de servidor de ficheiros ocorre com e/s d
 - cluster de servidor de ficheiros
 - Dispositivo NAS (armazenamento de ligação de rede) para obter mais informações, consulte [aprovisionar um servidor de ficheiros](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Antes de começar com o serviço de aplicações na pilha do Azure](azure-stack-app-service-before-you-get-started.md)

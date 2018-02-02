@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerir um conjunto com o 2.0 CLI do Azure de dimensionamento de máquina virtual
 Ao longo do ciclo de vida de um conjunto de dimensionamento de máquina virtual, poderá ter de executar um ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizem várias tarefas de ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos do Azure CLI 2.0 comuns que permitem-lhe efetuar estas tarefas.
@@ -28,7 +28,7 @@ Para concluir estas tarefas de gestão, terá de compilação mais recente do Az
 
 
 ## <a name="view-information-about-a-scale-set"></a>Ver informações sobre um conjunto de dimensionamento
-Para ver a informação geral sobre um conjunto de dimensionamento, utilize [mostrar de vmss az](/cli/azure/vmss#show). O exemplo seguinte obtém informações sobre o conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
+Para ver a informação geral sobre um conjunto de dimensionamento, utilize [mostrar de vmss az](/cli/azure/vmss#az_vmss_show). O exemplo seguinte obtém informações sobre o conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
 Os comandos anteriores mostrou informações sobre o conjunto de dimensionamento e as instâncias de VM. Para aumentar ou reduzir o número de instâncias no conjunto de dimensionamento, pode alterar a capacidade. O conjunto de dimensionamento cria ou remove o número necessário de VMs, em seguida, configura as VMs para receber tráfego de aplicações.
 
-Para ver o número de instâncias tem atualmente num conjunto de dimensionamento, utilize [mostrar de vmss az](/cli/azure/vmss#show) e consultar no *sku.capacity*:
+Para ver o número de instâncias tem atualmente num conjunto de dimensionamento, utilize [mostrar de vmss az](/cli/azure/vmss#az_vmss_show) e consultar no *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-Pode, em seguida, manualmente aumentar ou reduzir o número de máquinas virtuais da escala com [escala de vmss az](/cli/azure/vmss#scale). O exemplo a seguir define o número de VMs no seu dimensionamento definido como *5*:
+Pode, em seguida, manualmente aumentar ou reduzir o número de máquinas virtuais da escala com [escala de vmss az](/cli/azure/vmss#az_vmss_scale). O exemplo a seguir define o número de VMs no seu dimensionamento definido como *5*:
 
 ```azurecli
 az vmss scale \
@@ -99,7 +99,7 @@ O exemplo seguinte deixa de instância *0* no conjunto nomeado de dimensionament
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-VMs paradas permanecem alocadas e continuam a implicar custos de computação. Se desejar em vez disso, as VMs para ser desalocada e apenas pagar de armazenamento, utilize [az vmss desalocar](/cli/azure/vmss#deallocate). Ao anular atribuição de várias VMs, separe cada ID de instância com um espaço. O exemplo seguinte interrompe e deallocates instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e *myResourceGroup* grupo de recursos. Forneça os valores da seguinte forma:
+VMs paradas permanecem alocadas e continuam a implicar custos de computação. Se desejar em vez disso, as VMs para ser desalocada e apenas pagar de armazenamento, utilize [az vmss desalocar](/cli/azure/vmss#az_vmss_deallocate). Ao anular atribuição de várias VMs, separe cada ID de instância com um espaço. O exemplo seguinte interrompe e deallocates instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e *myResourceGroup* grupo de recursos. Forneça os valores da seguinte forma:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -107,7 +107,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Iniciar VMs num conjunto de dimensionamento
-Para iniciar uma ou mais VMs num conjunto de dimensionamento, utilize [az vmss iniciar](/cli/azure/vmss#start). O `--instance-ids` parâmetro permite-lhe especificar uma ou mais VMs para iniciar. Se não especificar que um ID de instância, todas as VMs no conjunto de dimensionamento são iniciados. Para começar a várias VMs, separe cada ID de instância com um espaço.
+Para iniciar uma ou mais VMs num conjunto de dimensionamento, utilize [az vmss iniciar](/cli/azure/vmss#az_vmss_start). O `--instance-ids` parâmetro permite-lhe especificar uma ou mais VMs para iniciar. Se não especificar que um ID de instância, todas as VMs no conjunto de dimensionamento são iniciados. Para começar a várias VMs, separe cada ID de instância com um espaço.
 
 O exemplo seguinte inicia a instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e *myResourceGroup* grupo de recursos. Forneça os valores da seguinte forma:
 
@@ -117,7 +117,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Reinicie as VMs num conjunto de dimensionamento
-Para reiniciar uma ou mais VMs num conjunto de dimensionamento, utilize [az vmss reiniciar](/cli/azure/vmss#restart). O `--instance-ids` parâmetro permite-lhe especificar uma ou mais VMs para reiniciar. Se não especificar um ID de instância, são reiniciadas todas as VMs no conjunto de dimensionamento. Para reiniciar várias VMs, separe cada ID de instância com um espaço.
+Para reiniciar uma ou mais VMs num conjunto de dimensionamento, utilize [az vmss reiniciar](/cli/azure/vmss#az_vmss_restart). O `--instance-ids` parâmetro permite-lhe especificar uma ou mais VMs para reiniciar. Se não especificar um ID de instância, são reiniciadas todas as VMs no conjunto de dimensionamento. Para reiniciar várias VMs, separe cada ID de instância com um espaço.
 
 O exemplo seguinte reinicia instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e *myResourceGroup* grupo de recursos. Forneça os valores da seguinte forma:
 

@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análise de dados de sentimento com profunda Learning com o Azure Machine Learning
 
-Análise de dados de sentimento é uma tarefa bem conhecida no realm de processamento de linguagem natural. Num determinado conjunto de textos, o objetivo consiste em determinar o sentimento do que texto. O objetivo desta solução é utilizar CNTK como o back-end para Keras (uma modelo nível biblioteca, fornecendo alto nível blocos modulares para desenvolver modelos learning profunda) e implementar a análise de dados de sentimento do filme revisões.
+Análise de dados de sentimento é uma tarefa bem conhecida no realm de processamento de linguagem natural. Num determinado conjunto de textos, o objetivo consiste em determinar o sentimento do que texto. O objetivo desta solução consiste em utilizar Learning avançada para prever sentimento de filmes revisões.
 
 A solução está localizada em https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 

@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
-ms.openlocfilehash: da5d1a8277d87a771b080ef9cefb3b40448d1563
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo e a versão de Ansible
 
@@ -33,6 +33,7 @@ Este artigo apresenta os módulos Ansible do Azure que pode aprovisionar os recu
 | azure_rm_virtualmachine                     | Sim          | Sim                         | Sim                                 | 
 | azure_rm_virtualmachine_extension           | Sim          | Sim                         | Sim                                 | 
 | azure_rm_virtualmachine_scaleset            | Sim          | Sim                         | Sim                                 | 
+| azure_rm_image                              |              | Sim                         | Sim                                 | 
 | **Redes**                    |           |                          |                                  | 
 | azure_rm_virtualnetwork                     | Sim          | Sim                         | Sim                                 | 
 | azure_rm_virtualnetwork_facts               | Sim          | Sim                         | Sim                                 | 
@@ -45,13 +46,16 @@ Este artigo apresenta os módulos Ansible do Azure que pode aprovisionar os recu
 | azure_rm_dnsrecordset_facts                 | Sim          | Sim                         | Sim                                 | 
 | azure_rm_dnszone                            | Sim          | Sim                         | Sim                                 | 
 | azure_rm_dnszone_facts                      | Sim          | Sim                         | Sim                                 | 
-| **Armazenamento**                    |           |                          |                                  | 
 | azure_rm_loadbalancer                       | Sim          | Sim                         | Sim                                 | 
 | azure_rm_loadbalancer_facts                 | Sim          | Sim                         | Sim                                 | 
-| azure_rm_applicationgateway                 | -            | Sim                         |                                     | 
-| azure_rm_applicationgateway_facts           | -            | -                           | Sim                                 | 
-| azure_rm_securitygroup                      | -            | -                           | Sim                                 | 
-| azure_rm_securitygroup_facts                | -            | -                           | Sim                                 | 
+| azure_rm_appgw                              | -            | -                           | Sim                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Sim                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Sim                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | Sim                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | Sim                                 |
+| azure_rm_securitygroup                      | Sim          | Sim                         | Sim                                 | 
+| azure_rm_appgwroutetable_facts              | Sim          | Sim                         | Sim                                 | 
+| **Armazenamento**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Sim          | Sim                         | Sim                                 | 
 | azure_rm_storageaccount_facts               | Sim          | Sim                         | Sim                                 | 
 | azure_rm_storageblob                        | Sim          | Sim                         | Sim                                 | 
@@ -59,7 +63,7 @@ Este artigo apresenta os módulos Ansible do Azure que pode aprovisionar os recu
 | azure_rm_managed_disk_facts                 | Sim          | Sim                         | Sim                                 | 
 | **Contentores**                    |           |                          |                                  | 
 | azure_rm_acs                                | Sim          | Sim                         | Sim                                 | 
-| azure_rm_containerinstance                  | -            | Sim                        |                                     | 
+| azure_rm_containerinstance                  | -            | Sim                         | Sim                                 | 
 | azure_rm_containerinstance_facts            | -            | -                           | Sim                                 | 
 | azure_rm_containerregistry                  | -            | Sim                         | Sim                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | Sim                                 | 
@@ -73,7 +77,7 @@ Este artigo apresenta os módulos Ansible do Azure que pode aprovisionar os recu
 | **Bases de dados**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Sim                         | Sim                                 | 
 | azure_rm_sqlserver_facts                    | -            | -                           | Sim                                 | 
-| azure_rm_sqldatabase                        | -            | -                           | Sim                                 | 
+| azure_rm_sqldatabase                        | -            | Sim                         | Sim                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Sim                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Sim                                 | 
 | azure_rm_sqlelasticpool_facts               | -            | -                           | Sim                                 | 
@@ -81,7 +85,7 @@ Este artigo apresenta os módulos Ansible do Azure que pode aprovisionar os recu
 | azure_rm_sqlfirewallrule_facts              | -            | -                           | Sim                                 | 
 | azure_rm_mysqlserver                        | -            | Sim                         | Sim                                 | 
 | azure_rm_mysqlserver_facts                  | -            | -                           | Sim                                 | 
-| azure_rm_mysqldatabase                      | -            | -                           | Sim                                 | 
+| azure_rm_mysqldatabase                      | -            | Sim                         | Sim                                 | 
 | azure_rm_mysqldatabase_facts                | -            | -                           | Sim                                 | 
 | azure_rm_mysqlfirewallrule                  | -            | -                           | Sim                                 | 
 | azure_rm_mysqlfirewallrule_facts            | -            | -                           | Sim                                 | 
@@ -89,12 +93,17 @@ Este artigo apresenta os módulos Ansible do Azure que pode aprovisionar os recu
 | azure_rm_mysqlconfiguration_facts           | -            | -                           | Sim                                 | 
 | azure_rm_postgresqlserver                   | -            | Sim                         | Sim                                 | 
 | azure_rm_postgresqlserver_facts             | -            | -                           | Sim                                 | 
-| azure_rm_postgresqldatabase                 | -            | -                           | Sim                                 | 
+| azure_rm_postgresqldatabase                 | -            | Sim                         | Sim                                 | 
 | azure_rm_postgresqldatabase_facts           | -            | -                           | Sim                                 | 
 | azure_rm_postgresqlfirewallrule             | -            | -                           | Sim                                 | 
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | Sim                                 | 
 | azure_rm_postgresqlconfiguration            | -            | -                           | Sim                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Sim                                 | 
+| **Cofre de Chaves**                    |           |                          |                                  | 
+| azure_rm_keyvault                           | -            | -                           | Sim                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | Sim                                 |
+| azure_rm_keyvaultkey                        | -            | -                           | Sim                                 |
+| azure_rm_keyvaultsecret                     | -            | -                           | Sim                                 |
 
 ## <a name="introduction-to-azuremodule"></a>Introdução ao azure_module
 O [função do manual de comunicação social azure_module](https://galaxy.ansible.com/Azure/azure_modules/) inclui as alterações e correções de erros de módulos do Azure da mais recente do [devel ramo do repositório Ansible](https://github.com/ansible/ansible/tree/devel). Se não puder aguardar versão seguinte do Ansible, instalar a função de azure_module é uma boa opção.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: c97a9d96dbe6d9bc9eaa189384acad7579365e82
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria também:
@@ -175,10 +175,8 @@ Na produção, que é provável que atualize periodicamente as chaves de armazen
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remover AzureRMSqlDatabaseAuditing][103]
-   * [Remover AzureRMSqlServerAuditing][104]
-   * [Conjunto AzureRMSqlDatabaseAuditing][105]
-   * [Conjunto AzureRMSqlServerAuditing][106]
+   * [Set-AzureRMSqlDatabaseAuditing][105]
+   * [Set-AzureRMSqlServerAuditing][106]
 
    Para obter um exemplo de script, consulte [configurar a auditoria e deteção de ameaças através do PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

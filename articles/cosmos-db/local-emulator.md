@@ -4,7 +4,7 @@ description: "Utilizar o emulador de BD do Cosmos do Azure, pode desenvolver e t
 services: cosmos-db
 documentationcenter: 
 keywords: Emulador do Cosmos BD do Azure
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
-ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danoble
+ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilizar o emulador de BD do Cosmos do Azure para desenvolvimento local e o teste
 
@@ -39,6 +39,9 @@ ms.lasthandoff: 12/14/2017
 </table>
   
 O emulador de BD do Cosmos do Azure fornece um ambiente local que emula o serviço de base de dados do Azure Cosmos para fins de desenvolvimento. Utilizar o emulador de BD do Cosmos do Azure, pode desenvolver e testar a aplicação localmente, sem criar uma subscrição do Azure ou incorrer em custos. Quando estiver satisfeito com a forma como a aplicação está a funcionar no emulador de BD do Cosmos do Azure, pode mudar para utilizar uma conta de base de dados do Azure Cosmos na nuvem.
+
+> [!NOTE]
+> Neste momento, o Explorador de dados no emulador suporta apenas totalmente coleções de API do SQL Server e coleções do MongoDB. Os contentores de tabela, gráfico e Cassandra não são totalmente suportados. 
 
 Este artigo abrange as seguintes tarefas: 
 
@@ -63,9 +66,6 @@ O emulador de BD do Cosmos do Azure fornece uma emulação de alta-fidelidade do
 
 Enquanto é criado uma emulação local de alta-fidelidade do serviço de base de dados do Azure Cosmos real, a implementação de emulador de BD do Cosmos do Azure é diferente do serviço. Por exemplo, o emulador de BD do Cosmos do Azure utiliza padrão SO componentes, tais como o sistema de ficheiros local para a persistência e pilha de protocolo HTTPS para conectividade. Isto significa que algumas funcionalidades que baseia-se na infraestrutura do Azure, tal como replicação global, latência de dígito milissegundo para leituras/escritas e níveis de consistência ajustáveis pelo não estão disponíveis através do emulador de BD do Cosmos do Azure.
 
-> [!NOTE]
-> Neste momento, o Explorador de dados no emulador só suporta a criação de coleções de API do SQL Server e coleções do MongoDB. O Explorador de dados no emulador não suporta a criação de tabelas e gráficos. 
-
 ## <a name="differences-between-the-emulator-and-the-service"></a>Diferenças entre o emulador e o serviço 
 Porque o emulador de BD do Cosmos do Azure fornece um ambiente emulado em execução numa estação de trabalho de programador local, existem algumas diferenças de funcionalidade entre o emulador e uma conta de base de dados do Azure Cosmos na nuvem:
 
@@ -82,7 +82,7 @@ O emulador de BD do Azure Cosmos tem os seguintes requisitos de hardware e softw
 * Requisitos de software
   * Windows Server 2012 R2, Windows Server 2016 ou o Windows 10
 *   Requisitos mínimos de Hardware
-  * 2 GB DE RAM
+  * 2 GB RAM
   * 10 GB de espaço em disco de rígido disponível
 
 ## <a name="installation"></a>Instalação
@@ -203,19 +203,19 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 <tr>
   <td>DataPath</td>
   <td>Especifica o caminho onde pretende armazenar os ficheiros de dados. Predefinição é de % LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath =&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
   <td>&lt;DataPath&gt;: um caminho acessível</td>
 </tr>
 <tr>
   <td>Porta</td>
   <td>Especifica o número de porta a utilizar para o emulador.  Predefinição é 8081.</td>
-  <td>CosmosDB.Emulator.exe /Port =&lt;porta&gt;</td>
+  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
   <td>&lt;porta&gt;: número de porta individual</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>Especifica o número de porta a utilizar para API de compatibilidade do MongoDB. Predefinição é 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort =&lt;mongoport&gt;</td>
+  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: número de porta individual</td>
 </tr>
 <tr>
@@ -227,7 +227,7 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 <tr>
   <td>Chave</td>
   <td>Chave de autorização para o emulador. Chave tem de ser a codificação base 64 de um vetor de 64 bytes.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;chave&gt;</td>
+  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
   <td>&lt;chave&gt;: chave tem de ser a codificação de um vetor de 64 bytes base-64</td>
 </tr>
 <tr>
@@ -257,19 +257,19 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 <tr>
   <td>PartitionCount</td>
   <td>Especifica o número máximo de coleções particionadas. Consulte [alterar o número de coleções](#set-partitioncount) para obter mais informações.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount =&lt;partitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: permissão de número máximo de coleções de partições únicas. Predefinição é 25. Máximo permitido é 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
   <td>Especifica o número predefinido de partições para uma coleção particionada.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; predefinição é 25.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
   <td>Permite o acesso para o emulador através de uma rede. Tem de passar também /Key =&lt;key_string&gt; ou /KeyFile =&lt;file_name&gt; para ativar o acesso de rede.</td>
-  <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>ou<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile =&lt;file_name&gt;</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>ou<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
   <td></td>
 </tr>
 <tr>
@@ -287,7 +287,7 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 <tr>
   <td>Consistência</td>
   <td>Defina o nível de consistência predefinida para a conta.</td>
-  <td>CosmosDB.Emulator.exe /Consistency =&lt;consistência&gt;</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
   <td>&lt;consistência&gt;: valor tem de ser um dos seguintes [níveis de consistência](consistency-levels.md): BoundedStaleness, Eventual, forte ou Session.  O valor predefinido é de sessão.</td>
 </tr>
 <tr>
@@ -405,7 +405,15 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 3. Na lista de aplicações, desloque para **emulador de BD do Azure Cosmos**, selecioná-lo, clique em **desinstalação**, em seguida, confirme e clique em **desinstalação** novamente.
 4. Quando a aplicação é desinstalada, navegue para C:\Users\<utilizador > \AppData\Local\CosmosDBEmulator e elimine a pasta. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="change-list"></a>Lista de alteração
+
+Pode verificar o número de versão com o botão direito clicando no ícone do emulador local na barra de tarefas e clicar no sobre item de menu.
+
+### <a name="120-released-on-january-26-2018"></a>1.20 lançadas 26 de Janeiro de 2018
+
+* Ativar o pipeline de agregação do MongoDB por predefinição.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez o seguinte:
 

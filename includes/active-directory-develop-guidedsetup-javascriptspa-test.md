@@ -47,4 +47,4 @@ Se uma API de back-end não necessita de um âmbito (não recomendado), pode uti
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

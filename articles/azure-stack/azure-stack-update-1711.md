@@ -3,7 +3,7 @@ title: "Atualização de pilha do Azure 1711 | Microsoft Docs"
 description: "Saiba mais sobre as novidades na atualização 1711 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -62,7 +62,7 @@ Esta atualização inclui as seguintes melhorias e correções para pilha do Azu
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 novas funcionalidades e correções
 
 - [14 de Novembro de 2017 — KB4048953 (compilação do SO 14393.1884)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos relacionados com o processo de atualização
 
 Esta secção contém as questões importantes que poderá encontrar durante a instalação da atualização de 1711.
@@ -97,7 +97,7 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 
    - Poderá ver uma linha em branco no topo da lista. Deve ainda poderá selecionar um item conforme esperado.
    - Se a lista de itens na lista pendente é pequeno, poderá não conseguir ver algum dos nomes de item.
-   - Se tiver várias subscrições do utilizador, a lista de lista pendente do grupo de recursos pode estar vazia. 
+   - Se tiver várias subscrições do utilizador, a lista de lista pendente do grupo de recursos pode estar vazia.
 
         > [!NOTE]
         > Para contornar os dois últimos problemas, pode escrever o nome da subscrição ou grupo de recursos (se sabe que este) ou pode utilizar em vez disso, o PowerShell.
@@ -118,18 +118,18 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 - Pode configurar uma conjunto apenas com um domínio de falhas de um e um domínio de atualização de um de disponibilidade de máquina virtual.
 - Não há nenhum experiência marketplace para criar conjuntos de dimensionamento de máquina virtual. Pode criar um conjunto, utilizando um modelo de dimensionamento.
 - Definições de dimensionamento para conjuntos de dimensionamento de máquina virtual não estão disponíveis no portal. Como solução, pode utilizar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro em vez de `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Redes
 - Não é possível criar um balanceador de carga com um endereço IP público utilizando o portal. Como solução, pode utilizar o PowerShell para criar o Balanceador de carga.
 - Tem de criar uma regra de tradução (NAT) de endereço de rede quando cria um balanceador de carga de rede. Caso contrário, receberá um erro ao tentar adicionar uma regra NAT após a criação do Balanceador de carga.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM) depois da VM foi criada e associada a esse endereço IP. Desassociação irá aparecer funcionar, mas o endereço IP público anteriormente atribuído permanece associado a VM original. Este comportamento ocorre mesmo reatribuir o endereço IP para uma nova VM (normalmente denominado como um *alternância de VIP*). Todas as futuras tenta estabelecer ligação através deste resultado de endereço IP numa ligação para a VM originalmente associada e não para a nova. Atualmente, tem de utilizar os novos endereços IP públicos apenas para a criação de nova VM.
 - Os operadores do Azure da pilha poderão não ser possível implementar, eliminar, modificar VNETs ou grupos de segurança de rede. Este problema é principalmente utilizado em tentativas de atualização subsequentes do mesmo pacote. Isto é causado por um problema de empacotamento com uma atualização que está atualmente a ser investigação.
 - Balanceamento de carga interno (ILB) processa incorretamente endereços MAC para VMs do back-end que quebra instâncias do Linux.
- 
-#### <a name="sqlmysql"></a>SQL Server/MySQL
-- Pode demorar até uma hora até os inquilinos podem criar bases de dados num novo SQL Server ou MySQL SKU. 
+
+#### <a name="sqlmysql"></a>SQL/MySQL
+- Pode demorar até uma hora até os inquilinos podem criar bases de dados num novo SQL Server ou MySQL SKU.
 - Criação de itens diretamente no SQL Server e o MySQL servidores que não são executadas pelo fornecedor de recursos de alojamento não é suportada e pode resultar num Estado não correspondentes.
- 
+
 #### <a name="app-service"></a>Serviço de Aplicações
 - Um utilizador tem de registar o fornecedor de recursos de armazenamento antes de poderem criarem a sua primeira função do Azure na subscrição.
 
@@ -149,7 +149,7 @@ No Azure Active Directory serviços de Federação (ADFS) implementar ambientes,
 - **Ativar infraestrutura cópia de segurança em ASDK destina-se apenas a fins de teste.**  
   Cópias de segurança de infraestrutura podem ser utilizadas para restaurar as soluções de vários nós. Pode ativar a cópia de segurança de infraestrutura no ASDK mas não existe nenhuma forma de testar a recuperação.
 
-Para obter mais informações consulte [dados de cópia de segurança e recuperação para a pilha do Azure com o serviço de cópia de segurança da infraestrutura](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+Para obter mais informações, consulte [dados de cópia de segurança e recuperação para a pilha do Azure com o serviço de cópia de segurança da infraestrutura](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Transferir a atualização
 

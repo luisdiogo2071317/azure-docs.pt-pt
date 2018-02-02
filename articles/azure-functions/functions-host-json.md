@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>referência de Host.JSON para as funções do Azure
 
@@ -49,6 +49,13 @@ O exemplo seguinte *host.json* ficheiro tem todas as possíveis opções especif
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -132,16 +139,16 @@ Controlos a [funcionalidade de amostragem do Application Insights](functions-mon
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|IsEnabled|False|Ativa ou desativa a amostragem.| 
+|isEnabled|falso|Ativa ou desativa a amostragem.| 
 |maxTelemetryItemsPerSecond|5|O limiar em que a amostragem começa.| 
 
-## <a name="eventhub"></a>EventHub
+## <a name="eventhub"></a>eventHub
 
 Definições de configuração para [Hub de eventos de acionadores e enlaces](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>funções
+## <a name="functions"></a>functions
 
 Uma lista de funções que o anfitrião de tarefa será executada.  Uma matriz vazia significa executar todas as funções.  Concebidos para utilização apenas quando [executar localmente](functions-run-local.md). Nas aplicações de função, utilize o *function.json* `disabled` propriedade em vez desta propriedade no *host.json*.
 
@@ -160,6 +167,30 @@ Indica a duração de tempo limite para todas as funções. Planos de consumo, o
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>healthMonitor
+
+Definições de configuração para [monitor de estado de funcionamento do anfitrião](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|enabled|true|Indica se a funcionalidade está ativada. | 
+|healthCheckInterval|10 segundos|Verifica o intervalo de tempo entre o estado de funcionamento periódica em segundo plano. | 
+|healthCheckWindow|2 minutos|Uma janela deslizante de hora utilizada em conjunto com o `healthCheckThreshold` definição.| 
+|healthCheckThreshold|6|Número máximo de vezes que a verificação de estado de funcionamento pode falhar antes de uma reciclagem de anfitrião é iniciada.| 
+|counterThreshold|0.80|O limiar em que um contador de desempenho será considerado mau estado de funcionamento.| 
 
 ## <a name="http"></a>http
 
@@ -298,7 +329,7 @@ Um conjunto de [partilhado diretórios do código](functions-reference-csharp.md
 Os nomes de hub de tarefas tem de começar com uma letra e incluir apenas letras e números. Se não for especificado, o nome de hub de tarefa de predefinido para uma aplicação de função é **DurableFunctionsHub**. Para obter mais informações, consulte [tarefas hubs](durable-functions-task-hubs.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o ficheiro host.json](functions-reference.md#fileupdate)

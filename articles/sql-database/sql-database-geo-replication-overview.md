@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Descrição geral: Grupos de ativação pós-falha e a georreplicação ativa
 Replicação geográfica activa permite-lhe configurar até quatro legíveis secundários bases de dados em localizações de centro de dados idêntica ou diferente (regiões). Bases de dados secundárias estão disponíveis para consulta e de ativação pós-falha se existir uma falha do Centro de dados ou a impossibilidade de estabelecer ligação à base de dados primária. A ativação pós-falha tem de ser iniciada manualmente a aplicação do utilizador. Após a ativação pós-falha, a nova principal tem um ponto final de ligação diferente. 
@@ -71,7 +71,7 @@ A funcionalidade replicação geográfica activa fornece as seguintes capacidade
 * **Várias bases de dados secundárias legíveis**: dois ou mais bases de dados secundárias aumentam a redundância e nível de proteção para a base de dados primária e a aplicação. Se existirem várias bases de dados secundárias, a aplicação permanece protegida mesmo se uma das bases de dados secundárias falhar. Se existir apenas uma base de dados secundária, e este falhar, a aplicação está exposta ao risco mais elevado, até que seja criada uma nova base de dados secundária.
 
    > [!NOTE]
-   > Se estiver a utilizar para criar uma aplicação distribuída global e tem de fornecer acesso só de leitura aos dados em mais de quatro segions georreplicação ativa, pode criar secundária de uma secundária (um processo conhecido como encadeamento). Desta forma pode alcançar praticamente ilimitada escala de replicação de base de dados. Além disso, o encadeamento reduz a sobrecarga da replicação de base de dados primária. O compromisso é o desfasamento de aumento nas bases de dados mais folha secundários. 
+   > Se estiver a utilizar replicação geográfica activa para criar uma aplicação distribuída global e tem de fornecer acesso só de leitura aos dados em mais de quatro regiões, pode criar secundária de uma secundária (um processo conhecido como encadeamento). Desta forma pode alcançar praticamente ilimitada escala de replicação de base de dados. Além disso, o encadeamento reduz a sobrecarga da replicação de base de dados primária. O compromisso é o desfasamento de aumento nas bases de dados mais folha secundários. 
    >
 
 * **Suporte de bases de dados do conjunto elástico**: georreplicação ativa pode ser configurada para uma base de dados em qualquer conjunto elástico. A base de dados secundária pode ser noutro conjunto elástico. Para bases de dados normais, secundário pode ser uma se elástico de agrupamento e vice-versa desde que os escalões de serviço são os mesmos. 
@@ -145,10 +145,10 @@ Tal como abordado anteriormente, grupos de auto-ativação pós-falha (em pré-v
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilize o argumento de servidor para adicionar SECUNDÁRIO ON para criar uma base de dados secundária para uma base de dados existente e inicia a replicação de dados |
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilize a ativação pós-falha ou FORCE_FAILOVER_ALLOW_DATA_LOSS para alternar uma base de dados secundária para ser primário para iniciar a ativação pós-falha |
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilize remover no servidor SECUNDÁRIO para terminar uma replicação de dados entre uma base de dados do SQL Server e base de dados secundária especificada. |
-| [sys.geo_replication_links (SQL Database do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devolve informações sobre todas as ligações de replicação existente para cada base de dados do servidor lógico da SQL Database do Azure. |
-| [sys.dm_geo_replication_link_status (SQL Database do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém a última replicação, desfasamento de último e outras informações sobre a ligação de replicação para uma determinada base de dados do SQL. |
-| [operation_status (SQL Database do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado para todas as operações de base de dados, incluindo o estado das ligações de replicação. |
-| [sp_wait_for_database_copy_sync (SQL Database do Azure)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |faz com que a aplicação a aguardar até que todas as transações consolidadas são replicadas e confirmadas pela base de dados secundária Active Directory. |
+| [sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devolve informações sobre todas as ligações de replicação existente para cada base de dados do servidor lógico da SQL Database do Azure. |
+| [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém a última replicação, desfasamento de último e outras informações sobre a ligação de replicação para uma determinada base de dados do SQL. |
+| [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado para todas as operações de base de dados, incluindo o estado das ligações de replicação. |
+| [sp_wait_for_database_copy_sync (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |faz com que a aplicação a aguardar até que todas as transações consolidadas são replicadas e confirmadas pela base de dados secundária Active Directory. |
 |  | |
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gerir a ativação pós-falha de base de dados do SQL Server com o PowerShell
@@ -156,15 +156,15 @@ Tal como abordado anteriormente, grupos de auto-ativação pós-falha (em pré-v
 | Cmdlet | Descrição |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bases de dados. |
-| [Novo AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Cria uma base de dados secundária para uma base de dados existente e começa a replicação de dados. |
-| [Conjunto AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Muda uma base de dados secundária para ser primário para iniciar a ativação pós-falha. |
-| [Remover AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Termina a replicação de dados entre uma base de dados do SQL Server e base de dados secundária especificada. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Cria uma base de dados secundária para uma base de dados existente e começa a replicação de dados. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Muda uma base de dados secundária para ser primário para iniciar a ativação pós-falha. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Termina a replicação de dados entre uma base de dados do SQL Server e base de dados secundária especificada. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Obtém as ligações de georreplicação entre uma base de dados do SQL do Azure e um grupo de recursos ou do SQL Server. |
-| [Novo AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primários e secundários|
-| [Remover AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Elimina o grupo de ativação pós-falha do servidor e todas as bases de dados secundárias incluído o grupo |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primários e secundários|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Elimina o grupo de ativação pós-falha do servidor e todas as bases de dados secundárias incluído o grupo |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Obtém a configuração do grupo de ativação pós-falha |
-| [Conjunto AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Modifica a configuração do grupo de ativação pós-falha |
-| [Comutador AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Ativação pós-falha de acionadores do grupo de ativação pós-falha para o servidor secundário |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Modifica a configuração do grupo de ativação pós-falha |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Ativação pós-falha de acionadores do grupo de ativação pós-falha para o servidor secundário |
 |  | |
 
 > [!IMPORTANT]
@@ -190,7 +190,7 @@ Tal como abordado anteriormente, grupos de auto-ativação pós-falha (em pré-v
 | [Grupo de atualização de ativação pós-falha](/rest/api/sql/failovergroups/update) | Atualiza um grupo de ativação pós-falha. |
 |  | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para scripts de exemplo, consulte:
    - [Configurar e utilizar a georreplicação ativa única da base de dados de ativação pós-falha](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Configurar e utilizar a georreplicação ativa agrupado da base de dados de ativação pós-falha](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

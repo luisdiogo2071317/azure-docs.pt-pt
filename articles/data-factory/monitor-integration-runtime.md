@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.openlocfilehash: e1bfb7199ddf9f02297db9de529729ba3833cf8c
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um tempo de execução de integração no Azure Data Factory  
 **Tempo de execução de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer as diversas capacidades de integração de dados entre ambientes de rede diferentes. Existem três tipos de tempos de execução de integração oferecidos pelo Data Factory:
@@ -49,7 +49,7 @@ A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet p
 | Estado | Estado do tempo de execução de integração do Azure. | 
 | Localização | Localização do tempo de execução de integração do Azure. Para obter detalhes sobre a localização de um tempo de execução de integração do Azure, consulte [introdução à integração runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Nome da fábrica de dados que pertence o tempo de execução de integração do Azure. | 
-| resourceGroupName | Nome do grupo de recursos que pertence a fábrica de dados.  |
+| ResourceGroupName | Nome do grupo de recursos que pertence a fábrica de dados.  |
 | Descrição | Descrição do tempo de execução de integração.  |
 
 ### <a name="status"></a>Estado
@@ -92,7 +92,7 @@ A tabela seguinte fornece os possíveis Estados de um nó de tempo de execução
 | Offline | Nó está offline. |
 | A atualizar | O nó está a ser atualizados automaticamente. |
 | Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de 8050 da porta HTTP, problema de conectividade do barramento de serviço ou um problema de sincronização de credenciais. |
-| Inativos | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria. |
+| Inativa | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria. |
 
 Um nó pode ficar inativo quando não é possível ligar a outros nós.
 
@@ -170,7 +170,7 @@ Tempo de execução de integração de SSIS do Azure é um cluster completamente
 | Subrede | O nome de sub-rede para o tempo de execução de integração do Azure-SSIS associar. |
 | ID | O ID de recurso do seu tempo de execução de integração de SSIS do Azure. |
 | Tipo | O tipo (gerida/Self-Hosted) do seu tempo de execução de integração de SSIS do Azure. |
-| resourceGroupName | O nome do grupo de recursos do Azure, na qual a fábrica de dados e o tempo de execução de integração de SSIS do Azure foram criados. |
+| ResourceGroupName | O nome do grupo de recursos do Azure, na qual a fábrica de dados e o tempo de execução de integração de SSIS do Azure foram criados. |
 | DataFactoryName | O nome da fábrica de dados do Azure. |
 | Nome | O nome do seu tempo de execução de integração de SSIS do Azure. |
 | Descrição | A descrição do seu tempo de execução de integração de SSIS do Azure. |
@@ -183,7 +183,7 @@ Tempo de execução de integração de SSIS do Azure é um cluster completamente
 | A Iniciar | Este nó está a ser preparado. |
 | Disponível | Este nó está pronto para implementar/executar pacotes SSIS. |
 | Reciclagem | Este nó está a ser reparado/reiniciar. |
-| Não disponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que lhe foi possível resolver. |
+| Indisponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que lhe foi possível resolver. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (global do Azure-SSIS integração tempo de execução)
 
@@ -191,19 +191,19 @@ Tempo de execução de integração de SSIS do Azure é um cluster completamente
 | -------------- | ----------- | 
 | Inicial | Os nós do seu tempo de execução de integração do Azure SSIS não foram atribuídos/preparado. | 
 | A Iniciar | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser atribuída/preparado e faturação foi iniciado. |
-| Foi iniciada | Os nós do seu tempo de execução de integração do Azure SSIS foram alocados/preparado e estas estão prontas para que possa implementar/executar pacotes SSIS. |
+| Iniciado | Os nós do seu tempo de execução de integração do Azure SSIS foram alocados/preparado e estas estão prontas para que possa implementar/executar pacotes SSIS. |
 | A Parar  | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser libertados. |
 | Parada | Os nós do seu tempo de execução de integração do Azure SSIS foram lançados e faturação foi parado. |
 
 Consulte os artigos seguintes para saber mais sobre o tempo de execução do Azure-SSIS integração:
 
 - [Tempo de execução do Azure-SSIS integração](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações concetuais sobre tempos de execução de integração em geral, incluindo o IR. SSIS do Azure 
-- [Tutorial: implementar pacotes do SSIS no Azure](tutorial-deploy-ssis-packages-azure.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
+- [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
 - [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo é uma continuação do tutorial e mostra instruções sobre como utilizar a Instância Gerida do SQL do Azure (pré-visualização privada) e associar o IR a uma VNet. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentá-lo horizontalmente mediante a adição de mais nós ao mesmo. 
 - [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md) (Associar um IR Azure-SSIS a uma VNet). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure (VNet). Também descreve os passos para utilizar o portal do Azure para configurar a VNet, de modo a que o IR Azure-SSIS se possa associar à mesma. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes para monitorizar os pipelines de formas diferentes: 
 
 - [Início rápido: criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md).

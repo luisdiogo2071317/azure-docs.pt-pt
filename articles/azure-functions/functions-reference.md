@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Guia para programadores as funções do Azure
 Nas funções do Azure, funções específicas partilham alguns conceitos técnicos núcleos e componentes, independentemente do idioma ou enlace que utiliza. Antes de ir para detalhes específicos de um determinado idioma ou enlace de aprendizagem, lembre-se de que leia esta descrição geral que se aplica a todos eles.
@@ -53,9 +53,9 @@ O `bindings` propriedade é onde configurou os acionadores e enlaces. Cada enlac
 
 | Propriedade | Tipos de valores / | Comentários |
 | --- | --- | --- |
-| `type` |Cadeia |Tipo de enlace. Por exemplo, `queueTrigger`. |
+| `type` |cadeia |Tipo de enlace. Por exemplo, `queueTrigger`. |
 | `direction` |'no', 'out' |Indica se o enlace é para receber dados para a função ou o envio de dados da função. |
-| `name` |Cadeia |O nome que é utilizado para os dados vinculados na função. Para c#, este é um nome de argumento; para JavaScript, é a chave de uma lista de chave/valor. |
+| `name` |cadeia |O nome que é utilizado para os dados vinculados na função. Para c#, este é um nome de argumento; para JavaScript, é a chave de uma lista de chave/valor. |
 
 ## <a name="function-app"></a>Function App
 Uma aplicação de função é composta por uma ou mais funções individuais que são geridas em conjunto pelo App Service do Azure. Todas as funções de uma aplicação de função partilham o mesmo plano de preços, a implementação contínua e a versão de tempo de execução. As funções de escritas em várias linguagens podem partilhar a mesma aplicação de função. Considere uma aplicação de função como uma forma de organizar e coletivamente gerir as suas funções. 
@@ -102,7 +102,7 @@ Quando vários eventos acionadora ocorrem mais rapidamente do que um tempo de ex
 
 ## <a name="functions-runtime-versioning"></a>Controlo de versões de tempo de execução de funções
 
-Pode configurar a versão do tempo de execução de funções utilizando o `FUNCTIONS_EXTENSION_VERSION` definição de aplicação. Por exemplo, o valor "~ 1" indica que a sua aplicação de função utilizará 1 como a versão principal. Aplicações de função são atualizadas para cada versão secundária nova à medida que são lançadas. Para obter mais informações, incluindo como ver a versão exata da sua aplicação de função, consulte [como destino a versões de tempo de execução das funções do Azure](functions-versions.md).
+Pode configurar a versão do tempo de execução de funções utilizando o `FUNCTIONS_EXTENSION_VERSION` definição de aplicação. Por exemplo, o valor "~ 1" indica que a sua aplicação de função utilizará 1 como a versão principal. Aplicações de função são atualizadas para cada versão secundária nova à medida que são lançadas. Para obter mais informações, incluindo como ver a versão exata da sua aplicação de função, consulte [como destino a versões de tempo de execução das funções do Azure](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repositórios
 O código para as funções do Azure é open source e armazenados no repositórios do GitHub:
@@ -121,7 +121,7 @@ Eis uma tabela de todos os enlaces suportados.
 ## <a name="reporting-issues"></a>Relatórios de problemas
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)

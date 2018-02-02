@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de grelha de eventos do Azure para o Blob storage
 
@@ -51,7 +51,9 @@ O exemplo seguinte mostra o esquema de um blob criado eventos:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ O esquema para um evento de blob eliminado é semelhante:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -84,29 +88,31 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | Cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. |
-| Requerente | Cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| EventType | Cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | Cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
-| ID | Cadeia | Identificador exclusivo para o evento. |
+| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
+| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
+| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de armazenamento de Blobs. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| api | Cadeia | A operação que acionou o evento. |
-| clientRequestId | Cadeia | Um valor opaco gerados pelo cliente, com um limite de caracteres de 1 KB. Quando tiver ativado o registo de análise de armazenamento, é registada nos registos de análise. |
-| requestId | Cadeia | O identificador exclusivo para o pedido. Utilizá-lo para o pedido de resolução de problemas. |
-| ETag | Cadeia | O valor que pode utilizar para executar operações condicionalmente. |
-| ContentType | Cadeia | O tipo de conteúdo especificado para o blob. |
-| contentLength | número inteiro | O tamanho do blob em bytes. |
-| BlobType | Cadeia | O tipo de blob. |
-| URL | Cadeia | O caminho para o blob. |
-| sequencer | Cadeia | Um valor controlados pelo utilizador que pode utilizar para monitorizar os pedidos. |
+| api | cadeia | A operação que acionou o evento. |
+| clientRequestId | cadeia | Um valor opaco gerados pelo cliente, com um limite de caracteres de 1 KB. Quando tiver ativado o registo de análise de armazenamento, é registada nos registos de análise. |
+| requestId | cadeia | O identificador exclusivo para o pedido. Utilizá-lo para o pedido de resolução de problemas. |
+| eTag | cadeia | O valor que pode utilizar para executar operações condicionalmente. |
+| contentType | cadeia | O tipo de conteúdo especificado para o blob. |
+| contentLength | inteiro | O tamanho do blob em bytes. |
+| blobType | cadeia | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
+| url | cadeia | O caminho para o blob. |
+| sequencer | cadeia | Um valor controlados pelo utilizador que pode utilizar para monitorizar os pedidos. |
 | storageDiagnostics | objeto | Informações sobre o diagnóstico de armazenamento. |
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma introdução à grelha de eventos do Azure, consulte [Novidades grelha de evento?](overview.md)
 * Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).

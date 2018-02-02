@@ -2,17 +2,17 @@
 title: Aprovisionar o conjunto do Azure Batch numa rede virtual | Microsoft Docs
 description: "Pode criar um conjunto do Batch numa rede virtual para que nós de computação podem comunicar de forma segura com outras VMs na rede, tais como um servidor de ficheiros."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: v-dotren
-ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: danlep
+ms.openlocfilehash: 647a123e403b0ed6458bc26e7b26a73f3c1f8e91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um conjunto do Azure Batch numa rede virtual
 
@@ -67,7 +67,7 @@ Quando adiciona uma rota definida pelo utilizador, definir a rota de cada prefix
 
 ![Rota definida pelo utilizador](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma descrição geral aprofundada do Batch, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md).
 - Para obter mais informações sobre como criar uma rota definida pelo utilizador, consulte [criar uma rota definida pelo utilizador - portal do Azure](../virtual-network/create-user-defined-route-portal.md).

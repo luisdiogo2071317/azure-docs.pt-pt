@@ -3,8 +3,8 @@ title: Transferir itens do marketplace a partir do Azure | Microsoft Docs
 description: "Posso pode transferir itens do marketplace a partir do Azure para a minha implementação da pilha do Azure."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir os itens do marketplace a partir do Azure com a pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
+
 Como decidir o conteúdo que pretende incluir na sua marketplace de pilha do Azure, deve considerar o conteúdo disponível no Azure Marketplace. Pode transferir a partir de uma lista organizada de itens do marketplace do Azure que tenham sido previamente testada para executar na pilha do Azure. Novos itens frequentemente são adicionados a esta lista, por isso, certifique-se para o novo conteúdo.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Transferir itens do marketplace num cenário ligado (com acesso à internet)
 
-1. Para transferir os itens do marketplace, deve primeiro [registar pilha do Azure com o Azure](azure-stack-register.md). 
+1. Para transferir os itens do marketplace, deve primeiro [registar pilha do Azure com o Azure](azure-stack-register.md).
 2. Inicie sessão no portal de administrador do Azure pilha (https://portal.local.azurestack.external).
 3. Alguns itens do marketplace podem ser elevados. Certifique-se de que tem espaço suficiente no seu sistema clicando **fornecedores de recursos** > **armazenamento**.
 
@@ -51,7 +52,7 @@ Como decidir o conteúdo que pretende incluir na sua marketplace de pilha do Azu
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Transferir itens do marketplace num desligado ou um cenário parcialmente ligado (com acesso à internet limitada)
 
-Quando implementa a pilha do Azure num modo desligado (sem qualquer acesso à internet), não é possível transferir os itens do marketplace utilizando o portal de pilha do Azure. No entanto, pode utilizar a ferramenta de sindicação do marketplace para transferir os itens do marketplace para uma máquina que tenha acesso à internet e, em seguida, transfere-os para o seu ambiente de pilha do Azure. 
+Quando implementa a pilha do Azure num modo desligado (sem qualquer acesso à internet), não é possível transferir os itens do marketplace utilizando o portal de pilha do Azure. No entanto, pode utilizar a ferramenta de sindicação do marketplace para transferir os itens do marketplace para uma máquina que tenha acesso à internet e, em seguida, transfere-os para o seu ambiente de pilha do Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de poder utilizar a ferramenta de sindicação do marketplace, certifique-se de que tem [registado pilha do Azure com a sua subscrição do Azure](azure-stack-register.md).  
@@ -132,12 +133,12 @@ Partir do computador que tenha acesso à internet, utilize os seguintes passos p
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. Portal de utilização para carregar o item do Marketplace (. Azpkg) para pilha Blob storage do Azure. Pode carregar para o armazenamento de Azure pilha local ou carregar para o Storage do Azure. (Esta é uma localização temporária para o pacote.) Certifique-se de que o blob acessível publicamente e tenha em atenção o URI.  
 
-5. Publicar o item do marketplace com pilha do Azure utilizando o **adicionar AzureRMGalleryItem**. Por exemplo:
+5. Publicar o item do marketplace com pilha do Azure utilizando o **adicionar AzsGalleryItem**. Por exemplo:
 
    ```powershell
    Add-AzsGalleryItem `
@@ -149,6 +150,6 @@ Partir do computador que tenha acesso à internet, utilize os seguintes passos p
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)

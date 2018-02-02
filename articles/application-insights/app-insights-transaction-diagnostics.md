@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de unificada de entre componentes de transação
 
@@ -26,7 +26,7 @@ A pré-visualização introduz uma nova experiência de diagnóstico unificada a
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>O que significa componente no contexto do Application Insights?
 
-Componentes são independentemente implementáveis partes da aplicação distribuída/micro-serviços. As equipas de operações e os programadores têm visibilidade de nível de código ou o acesso a telemetria gerada por estes componentes da aplicação. 
+Componentes são independentemente implementáveis partes da aplicação distribuída/micro-serviços. As equipas de operações e os programadores têm visibilidade de nível de código ou o acesso a telemetria gerada por estes componentes da aplicação.
 
 * Componentes são diferentes das "observadas" dependências externas, como SQL, etc. EventHub que a sua organização/equipa pode não ter acesso ao (código ou telemetria).
 * Componentes de executam em qualquer número de instâncias do servidor/função/contentor.
@@ -40,11 +40,11 @@ Ativar "Unified detalhes: diagnósticos de transação de E2E" do [lista pré-vi
 
 ![Ativar a pré-visualização](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Esta pré-visualização está atualmente disponível para pedidos do lado do servidor, dependências e exceções. Pode aceder a nova experiência de **resultados da pesquisa**, **desempenho**, ou **falha** triagem experiências. A pré-visualização substitui os painéis detalhes clássico correspondente. 
+Esta pré-visualização está atualmente disponível para pedidos do lado do servidor, dependências e exceções. Pode aceder a nova experiência de **resultados da pesquisa**, **desempenho**, ou **falha** triagem experiências. A pré-visualização substitui os painéis detalhes clássico correspondente.
 
 ![Amostras de desempenho](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>Experiência de diagnóstico de transação 
+## <a name="transaction-diagnostics-experience"></a>Experiência de diagnóstico de transação
 Esta vista tem três partes de chaves: um gráfico de transação entre componentes, uma lista de sequência de tempo de toda a telemetria de uma operação do componente específico e o painel de detalhes de qualquer item de telemetria selecionado no lado esquerdo.
 
 ![Partes de chaves](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ Este painel mostra os detalhes dos itens selecionados de qualquer uma das duas s
 ## <a name="profiler-and-snapshot-debugger"></a>Depurador do gerador de perfis e instantâneos
 
 [O gerador de perfis do Application Insights](app-insights-profiler.md) ou [depurador de instantâneo](app-insights-snapshot-debugger.md) ajudar com o nível de código de diagnóstico de problemas de desempenho e falha. Com esta experiência, pode ver os rastreios de gerador de perfis ou instantâneos de qualquer componente com um único clique.
+
+Se não foi possível obter o gerador de perfis a funcionar, contacte**serviceprofilerhelp@microsoft.com**
+
+Se não foi possível obter o depurador de instantâneo a funcionar, contacte**snapshothelp@microsoft.com**
 
 ![Integração do depurador](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

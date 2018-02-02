@@ -12,12 +12,12 @@
     Subscrição|*A sua subscrição*|Selecione a subscrição do Azure que pretende utilizar para esta conta de base de dados do Azure Cosmos. 
     Grupo de Recursos|Criar novo<br><br>*Em seguida, introduza o mesmo nome exclusivo, conforme indicado acima ID*|Selecione **criar novo**, em seguida, introduza um novo nome de grupo de recursos para a sua conta. Para simplicidade, pode utilizar o mesmo nome do ID. 
     Localização|*Selecione a região mais próxima aos seus utilizadores*|Selecione uma localização geográfica na qual vai alojar a sua conta de base de dados do Azure Cosmos. Utilize a localização que esteja mais próxima para os seus utilizadores para conceder-lhes o acesso mais rápido aos dados.
-    Ativar a redundância geográfica| Deixar em branco | Esta ação cria uma versão replicada da base de dados numa região segundo (emparelhada). Deixe em branco.  
+    Ativar redundância geográfica| Deixar em branco | Esta ação cria uma versão replicada da base de dados numa região segundo (emparelhada). Deixe em branco.  
     Afixar ao dashboard | Selecione | Selecione esta caixa para que a sua nova conta de base de dados é adicionada ao seu dashboard do portal para facilitar o acesso.
 
     Em seguida, clique em **Criar**.
 
-    ![O painel da nova conta do Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![A nova página de conta de base de dados do Azure Cosmos](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 4. A criação de conta demora alguns minutos. Durante a conta criação o portal apresenta o **implementar BD do Azure Cosmos** mosaico no lado direito, poderá ter de se deslocar para a direita no seu dashboard para ver o mosaico. Também é uma barra de progresso apresentada perto da parte superior do ecrã. Pode ver a área de progresso. 
 

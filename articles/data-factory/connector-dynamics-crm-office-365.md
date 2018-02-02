@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: jingwang
-ms.openlocfilehash: 2847be0fec83e923126ba436f09f24d83d69bd9d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de origem e de Dynamics 365 ou do Dynamics CRM através da utilização do Azure Data Factory
 
@@ -45,8 +45,7 @@ Especificamente, para o Dynamics 365 são suportados os seguintes tipos de aplic
 - Dynamics 365 para a automatização de serviço do projeto
 - Dynamics 365 por razões de Marketing
 
-> [!NOTE]
-> Para utilizar o conector de Dynamics, armazene a palavra-passe no Cofre de chaves do Azure e permitem a extração de atividade de cópia a partir daí, quando efetuar cópia de dados. Para obter mais informações sobre a configuração, consulte o [ligado propriedades do serviço](#linked-service-properties) secção.
+Tipos de outra aplicação, por exemplo, operações e financeiros, Talent, etc. não são suportadas.
 
 ## <a name="get-started"></a>Introdução
 
@@ -67,7 +66,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics.
 | organizationName | O nome da organização da instância do Dynamics. | Não, deve especificar quando existem várias instâncias de Dynamics associadas ao utilizador |
 | authenticationType | O tipo de autenticação para ligar a um servidor de Dynamics. Especifique **"Office 365"** para Dynamics online. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar ao Dynamics. | Sim |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para nome de utilizador. Tem de colocar a palavra-passe no Cofre de chaves e configurar a palavra-passe como **"AzureKeyVaultSecret"**. Para obter mais informações, consulte [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
+| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para nome de utilizador. Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que a atividade de cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não origem Sim para sink se ligado a origem de serviço não tem um tempo de execução de integração |
 
 >[!IMPORTANT]
@@ -87,12 +86,8 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics.
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -116,7 +111,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics.
 | organizationName | O nome da organização da instância do Dynamics. | Sim |
 | authenticationType | O tipo de autenticação para ligar ao servidor de Dynamics. Especifique **"Ifd"** para Dynamics no local com IFD. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar ao Dynamics. | Sim |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para nome de utilizador. Tem de colocar a palavra-passe no Cofre de chaves e configurar a palavra-passe como **"AzureKeyVaultSecret"**. Para obter mais informações, consulte [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
+| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para nome de utilizador. Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que a atividade de cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não para a origem, Sim para sink |
 
 >[!IMPORTANT]
@@ -138,12 +133,8 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics.
             "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

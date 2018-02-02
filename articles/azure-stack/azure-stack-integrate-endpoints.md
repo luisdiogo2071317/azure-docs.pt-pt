@@ -5,15 +5,15 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha integração do Centro de dados - publicar pontos finais
 
@@ -46,11 +46,13 @@ A infra-estrutura interna VIPs não estão listadas porque não forem necessári
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista de revogação de certificados|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP E UDP|53|
-|Cofre de chaves (utilizador)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|Cofre de chaves (administrador)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Cofre de chaves (utilizador)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Cofre de chaves (administrador)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Fila de Armazenamento|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Tabela de armazenamento|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Blob de armazenamento|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Fornecedor de recursos SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Fornecedor de recursos de MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>Portas e URLs (saídos)
 
@@ -67,4 +69,4 @@ Pilha do Azure suporta apenas servidores de proxy transparente. Numa implementa�
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Integração do Centro de dados do Azure pilha - segurança](azure-stack-integrate-security.md)
+[Requisitos de PKI de pilha do Azure](azure-stack-pki-certs.md)

@@ -3,7 +3,7 @@ title: Transformar dados utilizando o script U-SQL - Azure | Microsoft Docs
 description: "Saiba como processar ou dados de transformação através da execução de scripts U-SQL no serviço de computação do Azure Data Lake Analytics."
 services: data-factory
 documentationcenter: 
-author: shengcmsft
+author: nabhishek
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 01/29/2018
+ms.author: abnarain
+ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,17 +66,17 @@ Utilize a autenticação principal de serviço, especificando as seguintes propr
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
+            "accountName": "<account name>",
+            "dataLakeAnalyticsUri": "<azure data lake analytics URI>",
+            "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
-                "value": "service principal key",
+                "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "tenant ID",
+            "tenant": "<tenant ID>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -96,12 +96,12 @@ O fragmento JSON seguinte define um pipeline com uma atividade de U-SQL de anál
     "description": "description",
     "type": "DataLakeAnalyticsU-SQL",
     "linkedServiceName": {
-        "referenceName": "AzureDataLakeAnalyticsLinkedService",
+        "referenceName": "<linked service name of Azure Data Lake Analytics>",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
         "scriptLinkedService": {
-            "referenceName": "LinkedServiceofAzureBlobStorageforscriptPath",
+            "referenceName": "<linked service name of Azure Data Lake Store or Azure Storage which contains the U-SQL script>",
             "type": "LinkedServiceReference"
         },
         "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
@@ -124,11 +124,11 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | tipo                | Atividade U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU SQL**. | Sim      |
 | linkedServiceName   | Serviço ligado ao Azure Data Lake Analytics. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo.  |Sim       |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. | Sim      |
-| scriptLinkedService | Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados | Sim      |
+| scriptLinkedService | Serviço liga ligado a **Azure Data Lake Store** ou **Storage do Azure** que contém o script para a fábrica de dados | Sim      |
 | degreeOfParallelism | O número máximo de nós em simultâneo utilizada para executar a tarefa. | Não       |
 | prioridade            | Determina quais os que são colocados em fila trabalhos devem ser selecionados para ser executado primeiro. Menor número, maior prioridade. | Não       |
-| parâmetros          | Parâmetros para o script U-SQL          | Não       |
-| runtimeVersion      | Versão de tempo de execução do motor U-SQL a utilizar | Não       |
+| parâmetros          | Parâmetros a transmitir para o script U-SQL.    | Não       |
+| runtimeVersion      | Versão de tempo de execução do motor U-SQL a utilizar. | Não       |
 | compilationMode     | <p>Modo de compilação do U-SQL. Tem de ser um dos seguintes valores: **Semantic:** só executar verificações semânticos e verificações sanity necessários, **completa:** efetuar a compilação completa, incluindo a verificação da sintaxe, otimização, a geração de código, etc., **SingleBox:** efetuar a compilação completa, com a definição de TargetType para SingleBox. Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. | Não |
 
 Fábrica de dados envia o consulte [definição de Script SearchLogProcessing.txt](#sample-u-sql-script) para a definição de script. 
@@ -180,12 +180,12 @@ Na definição do pipeline de exemplo, e terminar parâmetros recebem com valore
 
 ```json
 "parameters": {
-    "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
-    "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    "in": "/datalake/input/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/data.tsv",
+    "out": "/datalake/output/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/result.tsv"
 }
 ```
 
-Neste caso, os ficheiros de entrada são ainda captados na pasta /datalake/input e ficheiros de saída são gerados na pasta /datalake/output. Os nomes de ficheiro são dinâmicos, com base na hora de início do setor.  
+Neste caso, os ficheiros de entrada são ainda captados na pasta /datalake/input e ficheiros de saída são gerados na pasta /datalake/output. Os nomes de ficheiro são dinâmicos, com base na hora de início de janela que está a ser transmitida quando pipeline obtém activado.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes que explicam como transformar dados de outras formas: 

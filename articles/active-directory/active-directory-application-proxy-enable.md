@@ -3,7 +3,7 @@ title: "Começar a utilizar o Proxy de aplicações do Azure AD - instalar o con
 description: "Ativar o Proxy da aplicação no portal do Azure e instalar os conectores para o proxy reverso."
 services: active-directory
 documentationcenter: 
-author: billmath
+author: MarkusVi
 manager: mtillman
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
-ms.author: billmath
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 09497144ef4047c1191f3c02afccb881d48aaf3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Introdução ao Proxy de aplicações e instalar o conector
 Este artigo explica como ativar a Proxy da Aplicação do Microsoft Azure AD para o diretório em nuvem no Azure AD.
@@ -57,8 +57,8 @@ Para preparar o ambiente para o Proxy de aplicações do Azure AD, terá primeir
 
 3. A Microsoft utiliza quatro endereços para verificar os certificados. Permitir o acesso aos URLs seguintes se ainda não o fez, para outros produtos:
    * mscrl.microsoft.com:80
-   * CRL.microsoft.com:80
-   * OCSP.msocsp.com:80
+   * crl.microsoft.com:80
+   * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
 4. O conector precisa de acesso à login.windows.net e login.microsoftonline.com para o processo de registo.
@@ -74,7 +74,7 @@ Para preparar o ambiente para o Proxy de aplicações do Azure AD, terá primeir
 
 4. Selecione **transferir conector**.
 
-   ![Transferir o conector](./media/active-directory-application-proxy-enable/download_connector.png)
+   ![Transferir Conector](./media/active-directory-application-proxy-enable/download_connector.png)
 
 5. Execute **AADApplicationProxyConnectorInstaller.exe** no servidor que preparou de acordo com os pré-requisitos.
 6. Siga as instruções do assistente de instalação. Durante a instalação, é solicitado que registe o conector com o Proxy da aplicação do inquilino do Azure AD.
@@ -102,7 +102,7 @@ No seu servidor, verifique a lista de serviços do Active Directory para o conec
 Para obter informações sobre conectores e como continuar atualizados, consulte [conetores da Proxy da aplicação Azure compreender AD](application-proxy-understand-connectors.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Está agora pronto para [Publicar aplicações com o Proxy da Aplicação](application-proxy-publish-azure-portal.md).
 
 Se tiver aplicações que estão em redes separadas ou em diferentes localizações, utilize grupos de conetor para organizar os diferentes conetores em unidades lógicas. Saiba mais sobre [Trabalhar com conetores da Proxy da Aplicação](active-directory-application-proxy-connectors-azure-portal.md).

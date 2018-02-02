@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado de pilha do Azure protegido pelo AD FS
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 Ao seguir as instruções neste artigo, pode instalar o [fornecedor de recursos do serviço de aplicações](azure-stack-app-service-overview.md) num ambiente de pilha do Azure é:
 - não ligado à internet
@@ -98,7 +99,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
     | Box | Exemplo de nome de ficheiro de certificado |
     | --- | --- |
-    | **Ficheiro de certificado SSL do serviço de aplicações predefinido** | \_. appservice.local.AzureStack.external.pfx |
+    | **Ficheiro de certificado SSL do serviço de aplicações predefinido** | \_.appservice.local.AzureStack.external.pfx |
     | **Ficheiro de certificado SSL de API do serviço de aplicações** | api.appservice.local.AzureStack.external.pfx |
     | **Ficheiro de certificado de SSL de publicador do serviço de aplicações** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -114,7 +115,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
      > [!NOTE]
      > Para implementações de produção, seguir as orientações no [planeamento de capacidade de funções de servidor do App Service do Azure na pilha de Azure](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
     | Função | Instâncias mínimas | SKU mínima | Notas |
@@ -197,7 +198,7 @@ A partir do technical preview terceiro criar web, a API e o Azure funciona aplic
 
 3. Se implementou também um fornecedor de recursos do SQL Server, pode implementar um site DNN do Marketplace. Quando lhe for pedida para parâmetros de base de dados, escolha uma base de dados no computador que executa o SQL Server que está ligada ao seu fornecedor de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Também pode experimentar o outro [plataforma como dos serviços de serviço (PaaS)](azure-stack-tools-paas-services.md).
 

@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Descrição geral do Serviço de Aplicações no Azure Stack
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 App Service do Azure na pilha do Azure é uma oferta de plataforma-como-um-serviço (PaaS) do Microsoft Azure disponíveis para a pilha do Azure. O serviço permite que os seus clientes - internos ou externos - criar web, API e as funções do Azure aplicações para qualquer plataforma ou dispositivo. Podem integrar as suas aplicações com as aplicações no local e automatizar os processos empresariais. Os operadores da nuvem de pilha do Azure podem executar aplicações de cliente em máquinas de virtuais (VMs) completamente geridas com à escolha de recursos VM partilhados ou VMs dedicadas.
 
@@ -59,7 +60,7 @@ No Azure, existem trabalhadores partilhados e dedicados. Uma função de trabalh
 
 Serviço de aplicações na pilha do Azure utiliza a mesma IU que utiliza do App Service do Azure, tal como acontece com o back-end. Algumas funcionalidades estão desativadas e não estão funcionais na pilha do Azure. As expectativas específicos do Azure ou serviços que exigem essas funcionalidades não são ainda disponíveis na pilha do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 
 - [Antes de começar com o serviço de aplicações na pilha do Azure](azure-stack-app-service-before-you-get-started.md)

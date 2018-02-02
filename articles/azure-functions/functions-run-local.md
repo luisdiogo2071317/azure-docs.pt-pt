@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3fd392a3f5b48d6b8d19af530c949d91cd461099
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Código e teste das funções do Azure localmente
 
@@ -289,7 +289,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 #### <a name="using-the-func-run-command-in-version-1x"></a>Utilizar o `func run` comando versão 1. x
 
 >[!IMPORTANT]  
-> O `func run` comando não é suportado na versão 2. x das ferramentas. Para obter mais informações, consulte o tópico [como destino a versões de tempo de execução das funções do Azure](functions-versions.md).
+> O `func run` comando não é suportado na versão 2. x das ferramentas. Para obter mais informações, consulte o tópico [como destino a versões de tempo de execução das funções do Azure](set-runtime-version.md).
 
 Pode também invocar uma função utilizando diretamente `func run <FunctionName>` e fornecer dados de entrada para a função. Este comando é semelhante à execução de uma função utilizando o **teste** separador no portal do Azure. 
 

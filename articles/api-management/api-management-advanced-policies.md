@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>API de gestão avançada de políticas
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -93,7 +93,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -132,7 +132,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Atributo|Descrição|Necessário|  
 |---------------|-----------------|--------------|  
-|condição = "expressão booleana &#124; Booleano constante"|A expressão booleana ou constante para avaliada quando o que contém `when` declaração de política é avaliada.|Sim|  
+|condition="Boolean expression &#124; Boolean constant"|A expressão booleana ou constante para avaliada quando o que contém `when` declaração de política é avaliada.|Sim|  
   
 ###  <a name="ChooseUsage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -242,8 +242,8 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|tempo limite = "número inteiro"|O intervalo de tempo limite em segundos antes da chamada para o serviço de back-end irá falhar.|Não|300 segundos|  
-|seguir redirecionamentos = "true &#124; FALSE"|Especifica se redirecionamentos a partir do serviço de back-end são seguidos pelo gateway ou devolvidos ao autor da chamada.|Não|falso|  
+|timeout="integer"|O intervalo de tempo limite em segundos antes da chamada para o serviço de back-end irá falhar.|Não|300 segundos|  
+|follow-redirects="true &#124; false"|Especifica se redirecionamentos a partir do serviço de back-end são seguidos pelo gateway ou devolvidos ao autor da chamada.|Não|falso|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -283,7 +283,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|    
-|simultaneidade de limite|Elemento raiz.|Sim|  
+|limit-concurrency|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -333,14 +333,14 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
-|registo para eventhub|Elemento raiz. O valor deste elemento é a cadeia para iniciar sessão para o hub de eventos.|Sim|  
+|log-to-eventhub|Elemento raiz. O valor deste elemento é a cadeia para iniciar sessão para o hub de eventos.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|Descrição|Necessário|  
 |---------------|-----------------|--------------|  
-|id de registo|O id de registo registado com o serviço de API Management.|Sim|  
-|id de partição|Especifica o índice da partição onde são enviadas as mensagens.|Opcional. Este atributo não pode ser utilizado se `partition-key` é utilizado.|  
+|logger-id|O id de registo registado com o serviço de API Management.|Sim|  
+|partition-id|Especifica o índice da partição onde são enviadas as mensagens.|Opcional. Este atributo não pode ser utilizado se `partition-key` é utilizado.|  
 |chave de partição|Especifica o valor utilizado para a atribuição de partição, quando são enviadas as mensagens.|Opcional. Este atributo não pode ser utilizado se `partition-id` é utilizado.|  
   
 ### <a name="usage"></a>Utilização  
@@ -376,14 +376,14 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
-|resposta de mock|Elemento raiz.|Sim|  
+|mock-response|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|--------------|  
 |código de estado|Especifica o código de estado de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|200|  
-|tipo de conteúdo|Especifica `Content-Type` valor de cabeçalho de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|Nenhum|  
+|content-type|Especifica `Content-Type` valor de cabeçalho de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|Nenhum|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -441,9 +441,9 @@ status code and media type. If no example or schema found, the content is empty.
 |condição|Um booleano literal ou [expressão](api-management-policy-expressions.md) especificar se as tentativas devem ser paradas (`false`) ou continuou (`true`).|Sim|N/A|  
 |contagem|Um número positivo que especifica o número máximo de tentativas a tentar.|Sim|N/A|  
 |intervalo|Um número positivo em segundos, especificando o intervalo de espera entre a repetição tenta.|Sim|N/A|  
-|intervalo máximo|Um número positivo no especificando o número máximo de segundos de espera intervalo entre tentativas de repetição. É utilizado para implementar um algoritmo de repetição exponencial.|Não|N/A|  
+|max-interval|Um número positivo no especificando o número máximo de segundos de espera intervalo entre tentativas de repetição. É utilizado para implementar um algoritmo de repetição exponencial.|Não|N/A|  
 |delta|Um número positivo em segundos, especificando o incremento de intervalo de espera. É utilizado para implementar os algoritmos de repetição linear e exponencial.|Não|N/A|  
-|primeiro-fast-repetir|Se definido como `true` , a primeira tentativa de repetição é executada imediatamente.|Não|`false`|  
+|first-fast-retry|Se definido como `true` , a primeira tentativa de repetição é executada imediatamente.|Não|`false`|  
   
 > [!NOTE]
 >  Quando apenas o `interval` for especificado, **fixo** são efetuadas tentativas de intervalo.  
@@ -488,15 +488,15 @@ status code and media type. If no example or schema found, the content is empty.
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |resposta de retorno|Elemento raiz.|Sim|  
-|cabeçalho de conjunto|A [conjunto cabeçalho](api-management-transformation-policies.md#SetHTTPheader) declaração de política.|Não|  
+|set-header|A [conjunto cabeçalho](api-management-transformation-policies.md#SetHTTPheader) declaração de política.|Não|  
 |corpo de conjunto|A [conjunto corpo](api-management-transformation-policies.md#SetBody) declaração de política.|Não|  
-|Definir estado|A [definir estado](api-management-advanced-policies.md#SetStatus) declaração de política.|Não|  
+|set-status|A [definir estado](api-management-advanced-policies.md#SetStatus) declaração de política.|Não|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|Descrição|Necessário|  
 |---------------|-----------------|--------------|  
-|nome da variável de resposta|O nome da variável de contexto referenciado a partir de, por exemplo, um montante [pedido de envio](api-management-advanced-policies.md#SendRequest) política e contém um `Response` objeto|Opcional.|  
+|response-variable-name|O nome da variável de contexto referenciado a partir de, por exemplo, um montante [pedido de envio](api-management-advanced-policies.md#SendRequest) política e contém um `Response` objeto|Opcional.|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -553,9 +553,9 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
-|enviar-uma forma de pedido|Elemento raiz.|Sim|  
+|send-one-way-request|Elemento raiz.|Sim|  
 |url|O URL do pedido.|Não se modo = cópia; Sim, caso contrário.|  
-|Método|O método HTTP para o pedido.|Não se modo = cópia; Sim, caso contrário.|  
+|método|O método HTTP para o pedido.|Não se modo = cópia; Sim, caso contrário.|  
 |cabeçalho|Cabeçalho do pedido. Utilize vários elementos de cabeçalho para vários cabeçalhos de pedido.|Não|  
 |corpo|Corpo da solicitação.|Não|  
   
@@ -563,7 +563,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|modo = "cadeia"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
+|mode="string"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
 |nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/A|  
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-Ignorar - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` inscrever várias entradas com o mesmo nome resulta no cabeçalho de que está a ser definido de acordo com todas as entradas (que serão apresentadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|substituir|  
   
@@ -634,7 +634,7 @@ status code and media type. If no example or schema found, the content is empty.
 |-------------|-----------------|--------------|  
 |pedido de envio|Elemento raiz.|Sim|  
 |url|O URL do pedido.|Não se modo = cópia; Sim, caso contrário.|  
-|Método|O método HTTP para o pedido.|Não se modo = cópia; Sim, caso contrário.|  
+|método|O método HTTP para o pedido.|Não se modo = cópia; Sim, caso contrário.|  
 |cabeçalho|Cabeçalho do pedido. Utilize vários elementos de cabeçalho para vários cabeçalhos de pedido.|Não|  
 |corpo|Corpo da solicitação.|Não|  
   
@@ -642,10 +642,10 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|modo = "cadeia"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
-|nome da variável de resposta = "cadeia"|Se não estiver presente, `context.Response` é utilizado.|Não|N/A|  
-|tempo limite = "número inteiro"|O intervalo de tempo limite em segundos antes da chamada para o URL de falha.|Não|60|  
-|Ignorar-erro|Se VERDADEIRO e os resultados de pedido num erro:<br /><br /> -Se foi especificado o nome de variável de resposta irá conter um valor nulo.<br />-Se não foi especificado o nome da variável de resposta, contexto. Não será possível atualizar o pedido.|Não|falso|  
+|mode="string"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
+|response-variable-name="string"|Se não estiver presente, `context.Response` é utilizado.|Não|N/A|  
+|timeout="integer"|O intervalo de tempo limite em segundos antes da chamada para o URL de falha.|Não|60|  
+|ignore-error|Se VERDADEIRO e os resultados de pedido num erro:<br /><br /> -Se foi especificado o nome de variável de resposta irá conter um valor nulo.<br />-Se não foi especificado o nome da variável de resposta, contexto. Não será possível atualizar o pedido.|Não|falso|  
 |nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/A|  
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-Ignorar - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` inscrever várias entradas com o mesmo nome resulta no cabeçalho de que está a ser definido de acordo com todas as entradas (que serão apresentadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|substituir|  
   
@@ -684,9 +684,9 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|URL = "cadeia"|URL de proxy no formato http://host:port.|Sim|N/A|  
-|nome de utilizador = "cadeia"|Nome de utilizador a ser utilizado para a autenticação com o proxy.|Não|N/A|  
-|palavra-passe = "cadeia"|Palavra-passe a ser utilizado para a autenticação com o proxy.|Não|N/A|  
+|url="string"|URL de proxy no formato http://host:port.|Sim|N/A|  
+|username="string"|Nome de utilizador a ser utilizado para a autenticação com o proxy.|Não|N/A|  
+|password="string"|Palavra-passe a ser utilizado para a autenticação com o proxy.|Não|N/A|  
 
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -778,14 +778,14 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
-|Definir estado|Elemento raiz.|Sim|  
+|set-status|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|código = "número inteiro"|O código de estado HTTP a devolver.|Sim|N/A|  
-|razão = "cadeia"|Uma descrição do motivo para devolver o código de estado.|Sim|N/A|  
+|code="integer"|O código de estado HTTP a devolver.|Sim|N/A|  
+|reason="string"|Uma descrição do motivo para devolver o código de estado.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -813,7 +813,7 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
-|Definir variável|Elemento raiz.|Sim|  
+|set-variable|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -831,37 +831,37 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
 ###  <a name="set-variableAllowedTypes"></a>Tipos permitidos  
  As expressões utilizadas no `set-variable` política tem de devolver um dos seguintes tipos de básicos.  
   
--   Boolean  
+-   System.Boolean  
 -   System.SByte  
 -   System.Byte  
 -   System.UInt16  
 -   System.UInt32  
--   UInt64  
+-   System.UInt64  
 -   System.Int16  
--   System. Int32  
--   System. Int64  
--   System  
+-   System.Int32  
+-   System.Int64  
+-   System.Decimal  
 -   System.Single  
 -   System.Double  
--   GUID  
--   String  
--   Char  
--   DateTime  
+-   System.Guid  
+-   System.String  
+-   System.Char  
+-   System.DateTime  
 -   System.TimeSpan  
 -   System.Byte?  
 -   System.UInt16?  
 -   System.UInt32?  
--   UInt64?  
+-   System.UInt64?  
 -   System.Int16?  
--   System. Int32?  
--   System. Int64?  
--   System?  
+-   System.Int32?  
+-   System.Int64?  
+-   System.Decimal?  
 -   System.Single?  
 -   System.Double?  
--   GUID?  
--   String?  
--   Char?  
--   DateTime?  
+-   System.Guid?  
+-   System.String?  
+-   System.Char?  
+-   System.DateTime?  
 
 ##  <a name="Trace"></a>Rastreio  
  O `trace` política adiciona uma cadeia para o [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) saída. A política será executado apenas quando o rastreio é acionado, ou seja, `Ocp-Apim-Trace` cabeçalho do pedido está presente e definido para `true` e `Ocp-Apim-Subscription-Key` cabeçalho do pedido está presente e contém uma chave válida associada à conta de administrador.  

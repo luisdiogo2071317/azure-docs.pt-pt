@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreender o registo de identidade no seu IoT hub
 
@@ -74,11 +74,11 @@ Pode desativar dispositivos atualizando o **estado** propriedade de uma identida
 
 ## <a name="import-and-export-device-identities"></a>Importar e exportar as identidades de dispositivo
 
-Pode exportar as identidades de dispositivo em massa a partir do registo de identidade de um hub IoT através da utilização de operações assíncronas no [ponto final de fornecedor de recursos do IoT Hub][lnk-endpoints]. Exportações são tarefas de longa execução que utilizam um contentor do blob fornecido pelo cliente para guardar dados de identidade de dispositivo ler a partir do registo de identidade.
+Utilizar operações assíncronas no [ponto final de fornecedor de recursos do IoT Hub] [ lnk-endpoints] para exportar as identidades de dispositivo em massa a partir do registo de identidade de um hub IoT. Exportações são tarefas de longa execução que utilizam um contentor do blob fornecido pelo cliente para guardar dados de identidade de dispositivo ler a partir do registo de identidade.
 
-Pode importar as identidades de dispositivo em massa ao registo de identidade de um IoT hub, utilizando operações assíncronas o [ponto final de fornecedor de recursos do IoT Hub][lnk-endpoints]. Importa é tarefas de longa execução que utilizam dados num contentor de blob fornecido pelo cliente para escrever dados de identidade de dispositivo no registo de identidade.
+Utilizar operações assíncronas no [ponto final de fornecedor de recursos do IoT Hub] [ lnk-endpoints] para importar as identidades de dispositivo em massa para o registo de identidade de um hub IoT. Importa é tarefas de longa execução que utilizam dados num contentor de blob fornecido pelo cliente para escrever dados de identidade de dispositivo no registo de identidade.
 
-Para obter informações detalhadas sobre a importação e exportação APIs, consulte [fornecedor de recursos do IoT Hub REST APIs][lnk-resource-provider-apis]. Para obter mais informações sobre a execução de importar e exportar tarefas, consulte [em massa a gestão de identidades de dispositivo do IoT Hub][lnk-bulk-identity].
+Para obter mais informações sobre a importação e exportação APIs, consulte [fornecedor de recursos do IoT Hub REST APIs][lnk-resource-provider-apis]. Para obter mais informações sobre a execução de importar e exportar tarefas, consulte [em massa a gestão de identidades de dispositivo do IoT Hub][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Aprovisionamento de dispositivos
 
@@ -107,15 +107,15 @@ Propriedades: As propriedades do sistema de mensagens têm o prefixo de `'$'` s�
 
 | Nome | Valor |
 | --- | --- |
-$content-tipo | application/json |
+$content-type | application/json |
 $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
-$iothub-mensagem-origem | deviceLifecycleEvents |
-$content-codificação | UTF-8 |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
 opType | **createDeviceIdentity** ou **deleteDeviceIdentity** |
 hubName | Nome do IoT Hub |
 deviceId | ID do dispositivo |
 operationTimestamp | ISO8601 timestamp da operação |
-esquema de mensagem iothub | deviceLifecycleNotification |
+iothub-message-schema | deviceLifecycleNotification |
 
 Corpo: Esta secção está no formato JSON e representa o duplo da identidade de dispositivo criada. Por exemplo,
 
@@ -180,7 +180,7 @@ Agora que aprendeu como utilizar o registo de identidade do IoT Hub, poderá est
 * [Invocar um método direto num dispositivo][lnk-devguide-directmethods]
 * [Agenda de tarefas em vários dispositivos][lnk-devguide-jobs]
 
-Se pretender experimentar alguns dos conceitos descritos neste artigo, poderá estar interessado no tutorial seguinte do IoT Hub:
+Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do IoT Hub seguinte:
 
 * [Introdução ao IoT Hub do Azure][lnk-getstarted-tutorial]
 

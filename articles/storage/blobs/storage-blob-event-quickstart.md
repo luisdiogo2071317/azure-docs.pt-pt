@@ -1,27 +1,27 @@
 ---
-title: "Encaminhar eventos de armazenamento de Blobs do Azure para um ponto final da Web personalizado (pré-visualização) | Microsoft Docs"
+title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto final web personalizado | Microsoft Docs
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
 services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4f10d9b26cb75bee8103d986b7fa1197168c692f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Encaminhar eventos de armazenamento de Blobs para um ponto final da Web personalizado (pré-visualização)
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Eventos de armazenamento de BLOBs de rota para um ponto de final web personalizado com a CLI do Azure
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, a CLI do Azure é utilizada para subscrever a eventos de armazenamento de Blobs e acionar o evento para ver o resultado. 
 
-Normalmente, os eventos são enviados para um ponto final que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo apresentado neste artigo, enviamos eventos para um URL que apenas recolhe as mensagens. Criar este URL utilizando uma ferramenta open source, terceiros chamada [RequestBin](https://requestb.in/).
+Normalmente, os eventos são enviados para um ponto final que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo apresentado neste artigo, enviamos eventos para um URL que apenas recolhe as mensagens. Criar este URL, utilizando ferramentas de terceiros partir [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** é uma ferramenta de open source que não se destina a utilização de débito elevado. A utilização da ferramenta aqui é puramente demonstrativa. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
+> **RequestBin** e **Hookbin** não se destina a utilização de débito elevado. A utilização destas ferramentas está puramente demonstrative. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
 
 Quando concluir os passos descritos neste artigo, pode ver que os dados do evento foram enviados para um ponto final.
 
@@ -31,7 +31,7 @@ Quando concluir os passos descritos neste artigo, pode ver que os dados do event
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer que está a executar a versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o `az login`.
 
@@ -39,7 +39,7 @@ Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o 
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
 
 O exemplo seguinte cria um grupo de recursos com o nome `<resource_group_name>` na localização *westcentralus*.  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
 
@@ -47,14 +47,12 @@ O exemplo seguinte cria um grupo de recursos com o nome `<resource_group_name>` 
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## <a name="create-a-blob-storage-account"></a>Criar uma conta de armazenamento de Blobs
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
-Para utilizar o Armazenamento do Azure, é necessária uma conta de armazenamento.  Os eventos de armazenamento de Blobs estão atualmente disponíveis apenas em contas de armazenamento de Blobs.
-
-Uma conta de armazenamento de Blobs é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Storage do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais existentes e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs.
+Para utilizar eventos de armazenamento de BLOBs, precisa de um uma [conta de armazenamento de BLOBs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou um [conta de armazenamento de v2 de objetivo geral](../common/storage-account-options.md#general-purpose-v2). **V2 de objetivo geral (GPv2)** são contas de armazenamento que suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo tabelas, filas, ficheiros e Blobs. A **conta de armazenamento de BLOBs** é uma conta do storage especializadas para armazenar os dados não estruturados como blobs (objetos) no Storage do Azure. Contas do blob storage são como as contas do storage para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho funcionalidades que utiliza atualmente, incluindo 100% de consistência de API para blobs de blocos e blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs. 
 
 > [!NOTE]
-> Grelha de eventos está atualmente em pré-visualização e disponível apenas para contas de armazenamento na **westcentralus** e **westus2** regiões.
+> Disponibilidade de eventos de armazenamento está associada à grelha de evento [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como sucede grelha de eventos.
 
 Substitua `<storage_account_name>` por um nome exclusivo para a conta de armazenamento, e `<resource_group_name>` com o grupo de recursos que criou anteriormente.
 
@@ -70,11 +68,11 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
-Antes de subscrever aos eventos da conta de armazenamento de Blobs, vamos criar o ponto final para a mensagem de evento. Em vez de escrever código para responder ao evento, iremos criar um ponto final que recolhe as mensagens, para que possa vê-las. RequestBin é uma ferramenta open source, de terceiros que lhe permite criar um ponto final e ver pedidos que são enviados para o mesmo. Aceda a [RequestBin](https://requestb.in/)e clique em **Criar um RequestBin**.  Copie o URL do bin, porque irá precisar dele quando subscrever o tópico.
+Antes de subscrever o tópico, vamos criar o ponto final para a mensagem de evento. Em vez de escrever código para responder ao evento, vamos criar um ponto final que recolhe as mensagens, para que possa vê-las. RequestBin e Hookbin apresentamos as ferramentas de terceiros que permitem-lhe criar um ponto final e ver pedidos que são enviados para o mesmo. Aceda a [RequestBin](https://requestb.in/)e clique em **criar um RequestBin**, ou vá para [Hookbin](https://hookbin.com/) e clique em **criar novo ponto de final**.  Copie o URL do bin, porque irá precisar dele quando subscrever o tópico.
 
-## <a name="subscribe-to-your-blob-storage-account"></a>Subscrever à sua conta de armazenamento de Blobs
+## <a name="subscribe-to-your-storage-account"></a>Subscrever à sua conta de armazenamento
 
-Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento de Blobs que criou e transmite o URL do RequestBin como o ponto final para notificação de eventos. Substitua `<event_subscription_name>` por um nome exclusivo para a sua subscrição de eventos e `<URL_from_RequestBin>` pelo o valor da secção anterior. Ao especificar um ponto final quando subscrever, o Event Grid processa o encaminhamento de eventos para esse ponto final. Para `<resource_group_name>` e `<storage_account_name>`, utilize o valor que criou anteriormente. 
+Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento que criou e transmite o URL de RequestBin ou Hookbin como o ponto final da notificação de evento. Substitua `<event_subscription_name>` por um nome exclusivo para a sua subscrição de eventos e `<endpoint_URL>` pelo o valor da secção anterior. Ao especificar um ponto final quando subscrever, o Event Grid processa o encaminhamento de eventos para esse ponto final. Para `<resource_group_name>` e `<storage_account_name>`, utilize o valor que criou anteriormente.  
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -82,7 +80,7 @@ storageid=$(az storage account show --name <storage_account_name> --resource-gro
 az eventgrid event-subscription create \
   --resource-id $storageid \
   --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin>
+  --endpoint <endpoint_URL>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Acionar um evento a partir do armazenamento de Blobs
@@ -99,7 +97,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Navegue para o URL do RequestBin que criou anteriormente. Em alternativa, clique em Atualizar no seu browser RequestBin aberto. Vê o evento que acabou de enviar. 
+Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Navegar para o URL de ponto final que criou anteriormente. Em alternativa, clique em Atualizar no seu browser abrir. Vê o evento que acabou de enviar. 
 
 ```json
 [{

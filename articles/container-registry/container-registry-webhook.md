@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilizar o registo de contentor do Azure webhooks
 
@@ -48,7 +48,7 @@ Formulário de webhook de exemplo:
 
 ## <a name="create-webhook-azure-cli"></a>Criar o webhook CLI do Azure
 
-Para criar um webhook utilizando a CLI do Azure, utilize o [az acr webhook criar](/cli/azure/acr/webhook#create) comando.
+Para criar um webhook utilizando a CLI do Azure, utilize o [az acr webhook criar](/cli/azure/acr/webhook#az_acr_webhook_create) comando.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -68,7 +68,7 @@ Antes de utilizar o webhook no contentor de push de imagem e eliminar ações, p
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para testar um webhook ACR com a CLI do Azure, utilize o [ping de webhook az acr](/cli/azure/acr/webhook#ping) comando.
+Para testar um webhook ACR com a CLI do Azure, utilize o [ping de webhook az acr](/cli/azure/acr/webhook#az_acr_webhook_ping) comando.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -92,6 +92,6 @@ Cada webhook pode ser eliminado, selecionando o webhook e, em seguida, o **elimi
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Referência do esquema de webhook de registo de contentor do Azure](container-registry-webhook-reference.md)

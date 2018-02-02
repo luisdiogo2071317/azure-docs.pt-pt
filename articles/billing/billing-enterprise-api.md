@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
 As APIs do Reporting Services permitem que os clientes empresariais Azure programaticamente extraia consumo e dados de faturação para ferramentas de análise de dados preferencial. 
@@ -43,6 +43,9 @@ Um ponto final de Swagger está disponível [aqui](https://consumption.azure.com
 
 * **Folha de preços** - [API de folha de preços](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a taxa de aplicável para cada medidor para a inscrição e a faturação período indicado. 
 
+## <a name="data-freshness"></a>Atualização de Dados
+Os etags são serão devolvidos na resposta da API acima. Uma alteração na Etag indica que os dados tem sido atualizados.  Em subsequentes chamadas à API do mesma utilizando os mesmos parâmetros, passe o Etag capturada com a chave "If-None-Match" no cabeçalho de pedido de http. O código de estado de resposta seria "NotModified" se os dados não tem sido atualizados mais e não serão possível devolvidos dados. API irá devolver o conjunto de dados completo para o período de necessário sempre que exista uma alteração de etag.
+
 ## <a name="helper-apis"></a>APIs de programa auxiliar
  **Lista de períodos de faturação** - [API de períodos de faturação](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devolve uma lista de períodos que tenham dados de consumo para a inscrição especificada por ordem cronológica inversa de faturação. Cada período contém uma propriedade de apontar para a rota de API para os quatro conjuntos de dados - BalanceSummary, UsageDetails, os encargos de Marketplace e folha de preços.
 
@@ -52,9 +55,9 @@ Um ponto final de Swagger está disponível [aqui](https://consumption.azure.com
 |-|-|-|
 |200| OK|Nenhum erro|
 |401| Não autorizado| Chave de API não foi encontrada, inválido, etc expirou.|
-|404| Não disponível| Ponto final de relatório não foi encontrado|
-|400| Pedido incorreto| Parâmetros inválidos – intervalos de datas, números EA etc.|
-|500| Erro de servidor| Pedido de processamento de erros de Unexoected| 
+|404| Indisponível| Ponto final de relatório não foi encontrado|
+|400| Pedido Incorreto| Parâmetros inválidos – intervalos de datas, números EA etc.|
+|500| Erro do Servidor| Pedido de processamento de erros de Unexoected| 
 
 
 

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8194e6bab35fe7a486fcc3bf0cdf5b00fcd9000c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
 
@@ -61,9 +61,12 @@ Em que:
 ### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Existem funções do RBAC para o utilizador atribuído identidades?
 Sim:
 1. Contribuinte MSI: 
+
 - Pode: CRUD atribuída ao utilizador as identidades. 
 - Não é possível: Atribua um utilizador atribuído a identidade a um recurso. (ou seja, atribua a identidade para uma VM)
+
 2. Operador MSI: 
+
 - Pode: Atribua uma identidade de utilizador atribuída a um recurso. (ou seja, atribua a identidade para uma VM)
 - Não é possível: CRUD atribuída ao utilizador as identidades.
 
@@ -118,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - A única forma de remover todos os utilizadores atribuídos MSIs ao ativar o sistema atribuída MSI. 
 - O aprovisionamento da extensão VM a uma VM pode falhar devido a falhas de pesquisa DNS. Reiniciar a VM e tente novamente. 
-- CLI do Azure: `Az resource show` e `Az resource list` irá falhar numa VM com um utilizador atribuído MSI. Como solução, utilize`az vm/vmss show`
+- Adicionar um MSI 'inexistente' fará com que a VM falhar. *Nota: A correção falhar atribuir-identity se MSI não existir, está a ser revertidas Escalamento*
 - Tutorial de armazenamento do Azure só está disponível no Central nos EUAP neste momento. 
-- Quando um MSI atribuído do utilizador é concedido acesso a um recurso, o painel IAM para o recurso de mostra "Não é possível aceder a dados." Como solução, utilize o CLI para ver/editar atribuições de funções para esse recurso.
-- Criar um utilizador atribuído MSI com um caráter de sublinhado no nome, não é suportada.
+- Criar um utilizador atribuído MSI com carateres especiais (ou seja, um caráter de sublinhado) no nome, não é suportada.
 - Quando adicionar um segundo utilizador atribuído a identidade, o clientID poderão não estar disponível para tokens de pedidos para o mesmo. Como uma mitigação, reinicie a extensão de VM de MSI com os seguintes comandos de dois bash:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

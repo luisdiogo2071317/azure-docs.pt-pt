@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: e52e53255a1462522f297d8918eb1c347a460f77
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 O ExpressRoute, que expande uma rede no local para a nuvem da Microsoft através de uma ligação privada que é facilitada por um fornecedor de conectividade, envolve as zonas de rede distintos três seguintes:
 
 -   Rede de cliente
 -   Rede de fornecedor
--   Centro de dados do Microsoft
+-   Microsoft Datacenter
 
 O objetivo deste documento é ajudar o utilizador identifique onde (ou mesmo) existe um problema de conectividade e, em que zona, deste modo, para procurar o ressarcimento de ajuda da equipa adequada para resolver o problema. Se necessitar de suporte da Microsoft para resolver um problema, abra um pedido de suporte com [Microsoft Support][Support].
 
@@ -216,12 +216,12 @@ Uma resposta de exemplo, para um configurados com êxito peering privado, é:
 Para obter os detalhes de configuração de peering de público do Azure, utilize os seguintes comandos:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 Para obter os detalhes de configuração de peering do Microsoft, utilize os seguintes comandos:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
+     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Se não estiver configurado um peering, poderia ser uma mensagem de erro. Uma resposta de exemplo, quando o declarados peering (Azure público peering neste exemplo) não está configurado no circuito:
 
@@ -384,10 +384,10 @@ Um resultado de exemplo do comando para um peering inexistente é:
         + CategoryInfo          : CloseError: (:) [Get-AzureDedicatedCircuitStats], CloudException
         + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter mais informações ou ajuda, consulte as ligações seguintes:
 
-- [Suporte da Microsoft][Support]
+- [Microsoft Support][Support]
 - [Criar e modificar um circuito do ExpressRoute][CreateCircuit]
 - [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering]
 

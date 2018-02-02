@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 08/20/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são os escalões de serviço do SQL Database do Azure
 
@@ -34,10 +34,10 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 |Carga de trabalho de destino|Desenvolvimento e de produção|Desenvolvimento e de produção|Desenvolvimento e de produção|Carga de trabalho que pode tolerar a perda de dados até 5 minutos devido a falhas de serviço|
 |SLA de Tempo de Atividade|99,99%|99,99%|99,99%|N/d enquanto em pré-visualização|
 |Retenção da cópia de segurança|7 dias|35 dias|35 dias|35 dias|
-|CPU|Baixo|Baixa, média, alta|Média, alta|Médio|
-|Débito de e/s|Baixo  | Médio | Ordem de grandeza superior ao padrão|Mesmo que Premium|
+|CPU|Baixa|Baixa, média, alta|Média, alta|Médio|
+|Débito de e/s|Baixa  | Médio | Ordem de grandeza superior ao padrão|Mesmo que Premium|
 |Latência de e/s|Superior ao Premium|Superior ao Premium|Inferior ao básico e Standard|Mesmo que Premium|
-|A indexação Columnstore e OLTP na memória|N/D|N/D|Suportado|Suportado|
+|A indexação Columnstore e OLTP na memória|N/A|N/A|Suportadas|Suportadas|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Limites de tamanho de armazenamento e de nível de desempenho
@@ -66,13 +66,13 @@ Níveis de desempenho são expressas em termos de unidades de transação de bas
 > [!IMPORTANT]
 > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> \* No escalão Premium, mais de 1 TB de armazenamento estão atualmente disponível nas seguintes regiões: E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Ver [Limitações Atuais P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \*No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, EUA Central, França Central, Datacenters Central, leste do Japão, oeste do Japão, Coreia Central, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, sul do RU, RU oeste, E.U.A. East2, EUA oeste, E.U.A. us Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 Para obter detalhes sobre as opções de tamanho de armazenamento disponíveis e níveis de desempenho específicos, consulte [dos limites de recursos de base de dados SQL](sql-database-resource-limits.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [único recursos de base de dados](sql-database-single-database-resources.md).
 - Saiba mais sobre conjuntos elásticos, consulte [conjuntos elásticos](sql-database-elastic-pool.md).

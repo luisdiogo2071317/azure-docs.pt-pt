@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/27/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure itens do Marketplace disponíveis para a pilha do Azure
 
@@ -38,8 +38,6 @@ ms.lasthandoff: 01/22/2018
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [Acesso VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Transferir esta atualização para a versão de na caixa do VMAccess para a extensão do Linux. Isto é importante se planeia utilizar Debian VMs com Linux.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Extensão de cópia de segurança Acronis para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | A extensão de cópia de segurança Acronis do Microsoft Azure faz parte da família Acronis cópia de segurança dos produtos de proteção de dados. | GmbH internacional de Acronis. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Extensão de cópia de segurança Acronis para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | A extensão de cópia de segurança Acronis do Microsoft Azure faz parte da família Acronis cópia de segurança dos produtos de proteção de dados. | GmbH internacional de Acronis. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agente de segurança avançada para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Extensão de segurança avançada Micro de tendência para Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agente de segurança avançada para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Extensão de segurança avançada Micro de tendência para Windows. | Trend Micro | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Imagens de Máquina Virtual da Microsoft e modelos de solução
 
@@ -47,7 +45,7 @@ Pilha do Microsoft Azure suporta as seguintes máquinas virtuais do Azure Market
 
 |  | Nome do item | Descrição | Publicador |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Soluções de classe empresarial que são simples de implementar, económicos, centrados na aplicação e centrada no utilizador. Estas imagens são atualizadas regularmente com as correções mais recentes. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Soluções de classe empresarial que são simples de implementar, económicos, centrados na aplicação e centrada no utilizador. Estas imagens são atualizadas regularmente com as correções mais recentes. <b>Informação importante: imagens transferidas antes de 18 de Janeiro de 2018 tem de ser eliminado e substituir as versões mais recentes.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Implementação dos serviços de ambiente de trabalho remoto (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Crie uma implementação básica de serviços de ambiente de trabalho remoto (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 versão de avaliação numa edição de Comunidade do Datacenter do Windows Server 2012 e o Visual Studio 2017. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Versão de avaliação do SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint 2016 versão de avaliação no Datacenter do Windows Server 2016. | Microsoft |

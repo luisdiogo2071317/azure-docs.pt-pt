@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ff56ced9f1d43780097cd65e58b492daaba9b61d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0151b64b39699e2a7a804cdc57e368fd786119a7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modelos de ligação de sistemas de pilha integrada do Azure
 Se estiver interessado num sistema de pilha do Azure integrado, terá de compreender [várias considerações de integração do Centro de dados](azure-stack-datacenter-integration.md) para a implementação de pilha do Azure determinar a forma como o sistema adequarão seu centro de dados. Além disso, terá de decidir exatamente como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida. Este artigo fornece uma descrição geral destas decisões principais, incluindo a ligação do Azure, o arquivo de identidade e decisões de modelo de faturação.
@@ -46,5 +46,7 @@ Pode optar por implementar pilha do Azure ligado à internet (e para o Azure) ou
 Depois de decidido no modelo de ligação do Azure a utilizar para a implementação da pilha do Azure, decisões adicionais, dependentes da ligação têm de ser efetuadas para o arquivo de identidade e o método de faturação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [Azure ligado decisões de implementação de pilha do Azure](azure-stack-connected-deployment.md)
-- Saiba mais sobre [Azure desligado decisões de implementação de pilha do Azure](azure-stack-disconnected-deployment.md)
+
+[Decisões de implementação de pilha do Azure ligadas do Azure](azure-stack-connected-deployment.md)
+
+[Azure desligado decisões de implementação de pilha do Azure](azure-stack-disconnected-deployment.md)

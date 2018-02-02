@@ -3,7 +3,7 @@ title: "Como fornecer acesso remoto seguro a aplicações no local"
 description: "Aborda como utilizar o Proxy de aplicações do Azure AD para fornecer acesso remoto seguro às suas aplicações no local."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 24def898f282c4e122ae53932ae86047e815595c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 819226d0ecace0be617e9a3ebc22942782510ec4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicações no local
 
@@ -39,13 +39,13 @@ Proxy de aplicações do Azure AD fornece uma solução de acesso remoto simples
 
 Proxy de aplicações do Azure AD é:
 
-* **Simples**
+* **Simple**
    * Não precisa de alterar ou atualizar as suas aplicações para trabalhar com o Proxy de aplicações. 
    * Os utilizadores obtêm uma experiência de autenticação consistente. Podem utilizar o portal de MyApps para obter início de sessão único para ambas as aplicações de SaaS na nuvem e de aplicações no local. 
 * **Proteger**
    * Quando publica as suas aplicações com o Proxy de aplicações do Azure AD, pode tirar partido dos controlos de autorização avançado e análises de segurança no Azure. Obter a segurança de escala da nuvem e funcionalidades de segurança do Azure como a verificação de dois passos e de acesso condicional.
    * Não tem de abrir as ligações de entrada através da sua firewall para conceder aos seus utilizadores acesso remoto. 
-* **Rentável**
+* **Cost-effective**
    * Proxy de aplicações funciona na nuvem, pelo que pode poupar tempo e dinheiro. Soluções no local, normalmente, tem de configurar e manter o DMZ, servidores edge ou outras infraestruturas complexas.  
 
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Que tipo de trabalho de aplicações com o Proxy de aplicações?

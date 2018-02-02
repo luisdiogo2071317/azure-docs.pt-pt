@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerir os recursos de cluster do Apache Spark no Azure HDInsight 
 
@@ -76,7 +76,7 @@ Os três parâmetros de chaves que podem ser utilizados para a configuração de
 Os parâmetros de três configuração podem ser configurados ao nível do cluster (para todas as aplicações executadas no cluster) ou podem ser especificados para cada aplicação individuais bem.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Altere os parâmetros através da IU do Ambari
-1. De clique a IU do Ambari **Spark**, clique em **Contigs**e, em seguida, expanda **personalizada spark-predefinições**.
+1. De clique a IU do Ambari **Spark**, clique em **folhas**e, em seguida, expanda **personalizada spark-predefinições**.
 
     ![Parâmetros de conjunto com o Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. Os valores predefinidos são boas ter quatro Spark as aplicações são executadas em simultâneo no cluster. Pode alterar estes valores de interface de utilizador, conforme mostrado na captura de ecrã seguinte:

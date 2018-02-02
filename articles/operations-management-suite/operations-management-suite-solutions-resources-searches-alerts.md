@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>A adição de análise de registos guardar pesquisas e os alertas à solução de gestão do OMS (pré-visualização)
 
@@ -36,7 +36,7 @@ Este artigo pressupõe que já está familiarizado com a [criar uma solução de
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabalho de análise de registo
-Todos os recursos na análise de registos estão contidos num [área de trabalho](../log-analytics/log-analytics-manage-access.md).  Conforme descrito em [OMS área de trabalho e a conta de automatização](operations-management-suite-solutions.md#oms-workspace-and-automation-account), a área de trabalho não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, em seguida, a solução de instalação irá falhar.
+Todos os recursos na análise de registos estão contidos num [área de trabalho](../log-analytics/log-analytics-manage-access.md).  Conforme descrito em [OMS área de trabalho e a conta de automatização](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), a área de trabalho não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, em seguida, a solução de instalação irá falhar.
 
 O nome da área de trabalho é nome cada recurso de análise de registos.  Isto é feito na solução com o **área de trabalho** parâmetro como no seguinte exemplo de um recurso de savedsearch.
 

@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 01/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: fb4802a6a3bed163f0d2bba04cf9d80a917ba7ba
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copiar dados de origem e de HDFS utilizando o Azure Data Factory
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados de HDFS utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 - GA](v1/data-factory-hdfs-connector.md)
 > * [Versão 2 - Pré-visualização](connector-hdfs.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de HDFS. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do HDFS. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector HDFS no V1](v1/data-factory-hdfs-connector.md).
@@ -42,7 +42,7 @@ Especificamente, este conector HDFS suporta:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para copiar dados de/para um HDFS que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](concepts-integration-runtime.md) artigo para obter detalhes.
+Para copiar dados de um HDFS que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](concepts-integration-runtime.md) artigo para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -151,7 +151,7 @@ Para copiar dados de HDFS, defina a propriedade de tipo do conjunto de dados par
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por HDFS origem e dependente.
+Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem HDFS.
 
 ### <a name="hdfs-as-source"></a>HDFS como origem
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Utilizar o serviço de importação/exportação do Azure para cópia offline dos dados ao Data Lake Store
 Neste artigo, irá aprender como copiar conjuntos enormes de dados (> 200 GB) para um Azure Data Lake Store utilizando métodos de cópia offline, como o [serviço importar/exportar do Azure](../storage/common/storage-import-export-service.md). Especificamente, o ficheiro utilizado como um exemplo neste artigo é 339,420,860,416 bytes ou cerca de 319 GB no disco. Vamos chamar 319GB.tsv este ficheiro.
@@ -33,6 +33,7 @@ Antes de começar, tem de ter o seguinte:
 * **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Preparar os dados
+
 Antes de utilizar o serviço de importação/exportação, interromper o ficheiro de dados a serem transferidos **em cópias são menos 200 GB** de tamanho. A ferramenta de importação não funciona com ficheiros maiores do que 200 GB. Neste tutorial, iremos dividir o ficheiro em segmentos de 100 GB. Pode fazê-lo utilizando [Cygwin](https://cygwin.com/install.html). Cygwin suporta comandos de Linux. Neste caso, utilize o seguinte comando:
 
     split -b 100m 319GB.tsv
@@ -207,7 +208,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv”
 ````
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store (Utilizar o Azure HDInsight com o Data Lake Store)](data-lake-store-hdinsight-hadoop-use-portal.md)

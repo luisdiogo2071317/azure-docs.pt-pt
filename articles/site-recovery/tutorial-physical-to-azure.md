@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configure a recuperação de desastre para o Azure para servidores físicos no local
 
@@ -64,7 +64,7 @@ Certifique-se a que sua conta do Azure tem permissões para a replicação de VM
 
 ### <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
 
-Configurar um [rede Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Configurar um [rede Azure](../virtual-network/quick-create-portal.md).
 
 - As VMs do Azure são colocadas nesta rede quando são criados após a ativação pós-falha.
 - A rede deve estar na mesma região que o Cofre dos serviços de recuperação
@@ -142,7 +142,7 @@ Selecione e certifique-se de recursos de destino.
 2. Especifique o modelo de implementação de destino.
 3. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
-   ![destino](./media/tutorial-physical-to-azure/network-storage.png)
+   ![Alvo](./media/tutorial-physical-to-azure/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -181,6 +181,6 @@ Ative a replicação para cada servidor.
 
 Para monitorizar os servidores que adiciona, pode verificar a última vez detetada na **servidores de configuração** > **último contacto em**. Ao adicionar computadores sem aguardar por um período de tempo de deteção agendada, realce o servidor de configuração (não clique nele) e clique em **atualizar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Executar um teste de recuperação após desastre](tutorial-dr-drill-azure.md)

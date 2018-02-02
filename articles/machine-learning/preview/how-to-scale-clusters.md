@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Dimensionar o cluster para gerir o débito de serviço web
 
@@ -85,11 +85,11 @@ Por exemplo, definir `autoscale-min-replicas` 5 criará cinco réplicas. Para ch
 
 | Nome do parâmetro | Tipo | Descrição |
 |--------------------|--------------------|--------------------|
-| `autoscale-enabled` | Valor booleano | Especifica se o dimensionamento automático está ativado. Predefinição: VERDADEIRO |
-| `autoscale-min-replicas` | número inteiro | Especifica o número mínimo de pods. Tem de ser maior ou igual a 0. Predefinição: 1 |
-| `autoscale-max-replicas` | número inteiro | Especifica o número máximo de pods. Tem de ser 1 ou superior. Se réplicas de máx. de dimensionamento automático é inferior ao mínimo-réplicas de dimensionamento automático, serão ignoradas réplicas de máx. de dimensionamento automático. Predefinição: 10 |
-| `autoscale-refresh-period-seconds` | número inteiro | Especifica a duração em segundos, entre as atualizações de dimensionamento automático. Predefinição: 1 |
-| `autoscale-target-utilization` | número inteiro | Especifica a percentagem de utilização que destinos de dimensionamento automático, entre 1 e 100. Predefinição: 70 |
+| `autoscale-enabled` | boolean | Especifica se o dimensionamento automático está ativado. Predefinição: VERDADEIRO |
+| `autoscale-min-replicas` | inteiro | Especifica o número mínimo de pods. Tem de ser maior ou igual a 0. Predefinição: 1 |
+| `autoscale-max-replicas` | inteiro | Especifica o número máximo de pods. Tem de ser 1 ou superior. Se réplicas de máx. de dimensionamento automático é inferior ao mínimo-réplicas de dimensionamento automático, serão ignoradas réplicas de máx. de dimensionamento automático. Predefinição: 10 |
+| `autoscale-refresh-period-seconds` | inteiro | Especifica a duração em segundos, entre as atualizações de dimensionamento automático. Predefinição: 1 |
+| `autoscale-target-utilization` | inteiro | Especifica a percentagem de utilização que destinos de dimensionamento automático, entre 1 e 100. Predefinição: 70 |
 
 Dimensionamento automático funciona para garantir que as duas condições seguintes:
 
@@ -159,6 +159,6 @@ Depois de iniciar o servidor de dashboard, abra um browser e introduza o seguint
 
 No ecrã principal do dashboard, clique em **implementações** na barra de navegação esquerdo. Se não for apresentado o painel de navegação, selecione este ícone ![Menu consiste em três linhas horizontais curtas](media/how-to-scale-clusters/icon-hamburger.png) no canto superior esquerdo.
 
-Localize a implementação para modificar e clique neste ícone ![ícone de Menu consiste em três pontos verticais](media/how-to-scale-clusters/icon-kebab.png) à direita e, em seguida, clique em **vista/edi YAML**.
+Localize a implementação para modificar e clique neste ícone ![ícone de Menu consiste em três pontos verticais](media/how-to-scale-clusters/icon-kebab.png) à direita e, em seguida, clique em **visualizar/Editar YAML**.
 
 No ecrã de implementação de edição, localize o *spec* nó, modifique o *réplicas* valor e clique em **atualização**.

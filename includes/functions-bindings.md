@@ -4,6 +4,7 @@ A tabela seguinte mostra os enlaces que são suportados nas duas versões princi
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|  
 | [BD do Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Grelha de eventos](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |  
 | [Hubs de Eventos](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
 | [Ficheiro externo](../articles/azure-functions/functions-bindings-external-file.md)<sup>2</sup>    |✔|| |✔|✔|  
 | [Tabela externa](../articles/azure-functions/functions-bindings-external-table.md)<sup>2</sup>  |✔|| |✔|✔|  

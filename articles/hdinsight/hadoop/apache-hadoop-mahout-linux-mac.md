@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 65d6dc7bf96666f004038c6dae00d2f4e9ea5d7f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4674008523704b9b1fb86de8606641f6140e2910
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Gerar recomendações de filmes utilizando Mahout do Apache com Hadoop baseado em Linux no HDInsight (SSH)
 
@@ -45,13 +45,13 @@ Para obter mais informações sobre a versão do Mahout no HDInsight, consulte [
 
 ## <a name="recommendations"></a>Recomendações de compreender
 
-Uma das funções que é fornecida pela Mahout é um motor de recomendação. Este motor aceita dados no formato de `userID`, `itemId`, e `prefValue` (a preferência para o item). Mahout, em seguida, pode executar uma análise do occurance conjunta para determinar: *utilizadores que têm uma preferência de um item tem também uma preferência destas outros itens*. Mahout determina, em seguida, os utilizadores com as preferências de item semelhante, que podem ser utilizados para efetuar recomendações.
+Uma das funções que é fornecida pela Mahout é um motor de recomendação. Este motor aceita dados no formato de `userID`, `itemId`, e `prefValue` (a preferência para o item). Mahout, em seguida, pode executar uma análise de ocorrência conjunta para determinar: *utilizadores que têm uma preferência de um item tem também uma preferência destas outros itens*. Mahout determina, em seguida, os utilizadores com as preferências de item semelhante, que podem ser utilizados para efetuar recomendações.
 
 O seguinte fluxo de trabalho é um exemplo simplificado que utiliza dados de filmes:
 
-* **Occurance conjunta**: Joe, Alice e Bernardo todos os gostou *estrela Wars*, *o Empire Strikes novamente*, e *retorno do Jedi*. Mahout determina que os utilizadores que como qualquer uma destes filmes também como as outras duas.
+* **Ocorrência conjunta**: Joe, Alice e Bernardo todos os gostou *estrela Wars*, *o Empire Strikes novamente*, e *retorno do Jedi*. Mahout determina que os utilizadores que como qualquer uma destes filmes também como as outras duas.
 
-* **Occurance conjunta**: João e Alice também gostou *o Phantom Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostou também os três filmes anteriores, como estes três filmes.
+* **Ocorrência conjunta**: João e Alice também gostou *o Phantom Menace*, *ataque dos Clones*, e *Revenge do Sith*. Mahout determina que os utilizadores que gostou também os três filmes anteriores, como estes três filmes.
 
 * **Recomendação de semelhança**: Joe porque gostou os três primeiros filmes, Mahout observa filmes que outras pessoas com as preferências semelhantes que gostou, mas Joe não foi observada (gostou/classificados). Neste caso, recomenda Mahout *o Phantom Menace*, *ataque dos Clones*, e *Revenge do Sith*.
 
@@ -200,7 +200,7 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como utilizar o Mahout, detete outras formas de trabalhar com dados no HDInsight:
 

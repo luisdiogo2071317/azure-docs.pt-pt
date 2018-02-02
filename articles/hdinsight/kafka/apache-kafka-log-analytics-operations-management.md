@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 440133da32f4565aa247b273984b3affe18379ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analisar os registos para Apache Kafka no HDInsight
 
@@ -65,12 +65,12 @@ Os passos para ativar a análise de registos para o HDInsight são os mesmos par
     | Tipo de registo | Descrição |
     | ---- | ---- |
     | registo\_kafkaserver\_CL | Kafka mediador server.log |
-    | registo\_kafkacontroller\_CL | Kafka mediador controller.log |
+    | log\_kafkacontroller\_CL | Kafka mediador controller.log |
     | métricas\_kafka\_CL | Métricas de Kafka JMX |
 
     ![Imagem da pesquisa de utilização da CPU](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## <a name="next-steps"></a>Passos seguintes
+ ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a análise de registos, consulte o [começar com uma área de trabalho de análise de registos](../../log-analytics/log-analytics-get-started.md) documento.
 

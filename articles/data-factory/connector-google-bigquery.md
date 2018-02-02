@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de Google BigQuery utilizando o Azure Data Factory (Beta) | Microsoft Docs
-description: "Saiba como copiar dados de Google BigQuery aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory."
+title: "Copiar dados de Google BigQuery através da utilização do Azure Data Factory (beta) | Microsoft Docs"
+description: "Saiba como copiar dados de Google BigQuery aos arquivos de dados suportados sink utilizando uma atividade de cópia num pipeline de fábrica de dados."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,50 +13,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 2d3327bd3f27e9743524590faaec98d36bf6c549
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Copiar dados de Google BigQuery utilizando o Azure Data Factory (Beta)
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Copiar dados de Google BigQuery através da utilização do Azure Data Factory (beta)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Google BigQuery. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Google BigQuery. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se utilizar a versão 1 do serviço do Data Factory, o que estiver geralmente disponível, consulte [atividade de cópia na versão 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Este conector está atualmente na versão Beta. Pode experimentar e envie-nos comentários. Não utilizá-lo em ambientes de produção.
+> Este conector está atualmente na versão beta. Pode experimentar e envie-nos comentários. Não utilizá-lo em ambientes de produção.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de Google BigQuery para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de Google BigQuery para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-O Azure Data Factory fornece um controlador incorporado para ativar a conetividade, pelo que não precisa de instalar manualmente o controlador de utilizar este conector.
+ Fábrica de dados fornece um controlador incorporado para ativar a conetividade. Por conseguinte, não precisa de instalar manualmente um controlador para utilizar este conector.
 
-## <a name="getting-started"></a>Introdução
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o Google BigQuery conector.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector Google BigQuery.
 
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligado
 
-As seguintes propriedades são suportadas para o serviço ligado do Google BigQuery:
+As seguintes propriedades são suportadas para o Google BigQuery serviço ligado.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **GoogleBigQuery** | Sim |
+| tipo | A propriedade de tipo tem de ser definida **GoogleBigQuery**. | Sim |
 | projeto | O ID de projeto do projeto de BigQuery predefinido para consulta contra.  | Sim |
 | additionalProjects | Uma lista separada por vírgulas de IDs de projeto do público BigQuery projetos para o acesso.  | Não |
-| requestGoogleDriveScope | Indica se deve pedir acesso ao Google Drive. Permitir o acesso de Google Drive permite suporte para tabelas federadas que combinam dados BigQuery com dados a partir do Google Drive. O valor predefinido é falso.  | Não |
-| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication só pode ser utilizado no IR. personalizada alojada <br/>Valores permitidos são: **ServiceAuthentication**, **UserAuthentication** | Sim |
-| refreshToken | O token de atualização obtido a partir do Google para autorizar o acesso aos BigQuery para UserAuthentication. Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que a atividade de cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Não |
-| e-mail | O ID de correio eletrónico de conta de serviço que é utilizado para ServiceAuthentication e só pode ser utilizado em IR. personalizada alojada  | Não |
-| keyFilePath | O caminho completo para o ficheiro de chave. p12 que é utilizado para autenticar o endereço de e-mail da conta de serviço e só pode ser utilizado em autoalojado IR.  | Não |
-| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar através de SSL. Esta propriedade só pode ser definida quando a utilizar SSL no IR. personalizada alojada O valor predefinido é o ficheiro de cacerts.pem instalado com o IR.  | Não |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de AC a partir do arquivo de confiança de sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é falso.  | Não |
+| requestGoogleDriveScope | Indica se deve pedir acesso ao Google Drive. Permitir o acesso de Google Drive permite suporte para tabelas federadas que combinam dados BigQuery com dados a partir do Google Drive. O valor predefinido é **falso**.  | Não |
+| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication pode ser utilizado apenas no tempo de execução do Self-hosted integração. <br/>Valores permitidos são **ServiceAuthentication** e **UserAuthentication**. | Sim |
+| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso ao BigQuery para UserAuthentication. Pode marcar este campo como SecureString armazena de forma segura na fábrica de dados. Também pode armazenar a palavra-passe no Cofre de chaves do Azure e permitem a extração de atividade de cópia a partir daí, quando efetuar cópia de dados. Para obter mais informações, consulte [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Não |
+| e-mail | O ID de correio eletrónico de conta do serviço é utilizado para ServiceAuthentication. Pode ser utilizado apenas no tempo de execução do Self-hosted integração.  | Não |
+| keyFilePath | O caminho completo para o ficheiro de chave. p12 que é utilizado para autenticar o endereço de e-mail da conta de serviço. Pode ser utilizado apenas no tempo de execução do Self-hosted integração.  | Não |
+| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna utilizados para verificar o servidor ao estabelecer ligação através de SSL. Esta propriedade pode ser definida apenas quando utilizar o protocolo SSL no tempo de execução do Self-hosted integração. O valor predefinido é o ficheiro de cacerts.pem instalado com o tempo de execução de integração.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de AC da loja de confiança de sistema ou de um ficheiro. pem especificado. O valor predefinido é **falso**.  | Não |
 
 **Exemplo:**
 
@@ -81,7 +81,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Google BigQu
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista de propriedades suportadas por Google BigQuery conjunto de dados.
+Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista de propriedades suportado pelo conjunto de dados Google BigQuery.
 
 Para copiar dados a partir do Google BigQuery, defina a propriedade de tipo do conjunto de dados para **GoogleBigQueryObject**. Não há nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
 
@@ -100,18 +100,18 @@ Para copiar dados a partir do Google BigQuery, defina a propriedade de tipo do c
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem Google BigQuery.
+Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por tipo de origem Google BigQuery.
 
-### <a name="googlebigquerysource-as-source"></a>GoogleBigQuerySource como origem
+### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource como um tipo de origem
 
-Para copiar dados a partir do Google BigQuery, defina o tipo de origem na atividade de cópia para **GoogleBigQuerySource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados a partir do Google BigQuery, defina o tipo de origem na atividade de cópia para **GoogleBigQuerySource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **GoogleBigQuerySource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
+| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida **GoogleBigQuerySource**. | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Sim |
 
 **Exemplo:**
 
@@ -146,4 +146,4 @@ Para copiar dados a partir do Google BigQuery, defina o tipo de origem na ativid
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia numa fábrica de dados, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
