@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 385d3aa356e6f4ec313790321b5b926810a06394
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Azure Active Directory com EBSCO
 
@@ -80,13 +80,11 @@ Nesta secção, configure e teste do Azure AD-início de sessão único com EBSC
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no EBSCO é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no EBSCO tem de ser estabelecida.
 
-No EBSCO, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
-
 Para configurar e testar o Azure AD-início de sessão único com EBSCO, tem de concluir os blocos modulares seguintes:
 
 1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
 2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste EBSCO](#create-a-ebsco-test-user)**  - para ter um homólogo de Britta Simon EBSCO que está ligada a representação do Azure AD do utilizador.
+3. **[Criar um utilizador de teste EBSCO](#create-an-ebsco-test-user)**  -pode automatizar EBSCOhost aprovisionamento/personalização de utilizador. EBSCO suporta Just-In-Time o aprovisionamento de utilizador.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
 5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
@@ -128,6 +126,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 5. Aplicação de EBSCO espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
     
     ![Configurar o início de sessão único](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
+
+    > [!Note]
+    > O **nome** atributo é obrigatório e está mapeada com **identificador de utilizador** na aplicação EBSCO. Isto é adicionado por predefinição por isso não terá de adicionar este manualmente.
     
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem acima e execute os seguintes passos:
     
@@ -196,22 +197,14 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
 ### <a name="create-an-ebsco-test-user"></a>Criar um utilizador de teste EBSCO
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon EBSCO.
-
-No caso de EBSCO, aprovisionamento de utilizadores é automático, mas tem de seguir o procedimento abaixo quando iniciar a sessão para a aplicação pela primeira vez.
+No caso de EBSCO, aprovisionamento de utilizadores é automático.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Depois de iniciar a sessão na aplicação, clique em de **'Iniciar sessão'** botão no canto superior direito.
+Azure AD transmite os dados necessários para aplicação EBSCO. Aprovisionamento de utilizadores do EBSCO pode ser automática ou necessitam de um formulário de uso individual. Depende se o cliente tem inúmeras pré-existente EBSCOhost contas com as definições pessoais guardadas. O mesmo pode ser explicado com o [EBSCO suporta equipa](mailto:sso@ebsco.com) durante a implementação. Qualquer forma, o cliente não é necessário criar as contas de EBSCOhost antes de testar.
 
-    ![O início de sessão EBSCO na lista de aplicações](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
- 
-2. Receberá uma única linha de emparelhar o início de sessão institutional/SAML com um **associar a sua conta de MyEBSCOhost existente à sua conta instituição agora** ou **criar uma nova conta de MyEBSCOhost e ligá-lo para o conta de instituição**. A conta é utilizada para personalização na aplicação EBSCOhost. Selecione a opção **criar uma nova conta** e verá que o formato para personalização é previamente concluído com os valores da resposta saml, conforme mostrado na captura de ecrã abaixo. Clique em **'Continuar'** para guardar esta seleção.
-    
-     ![O utilizador EBSCO na lista de aplicações](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
-
-3. Depois de concluir o programa de configuração acima, limpe início de sessão e a cache de cookies/novamente. Não terá manualmente início de sessão novamente e as definições de personalização são memorizadas 
-
+   >[!Note]
+   >Pode automatizar EBSCOhost aprovisionamento/personalização de utilizador. Contacte [EBSCO suporta equipa](mailto:sso@ebsco.com) sobre Just-In-Time o aprovisionamento de utilizador. 
  
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -247,8 +240,18 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
-Quando clica no mosaico EBSCO no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de EBSCO.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
+1. Quando clica no mosaico EBSCO no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de EBSCO.
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
+
+2. Depois de iniciar a sessão na aplicação, clique em de **sessão** botão no canto superior direito.
+
+    ![O início de sessão EBSCO na lista de aplicações](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
+ 
+3. Receberá uma única linha de emparelhar o início de sessão institutional/SAML com um **associar a sua conta de MyEBSCOhost existente à sua conta instituição agora** ou **criar uma nova conta de MyEBSCOhost e ligá-lo para o conta de instituição**. A conta é utilizada para personalização na aplicação EBSCOhost. Selecione a opção **criar uma nova conta** e verá que o formato para personalização é previamente concluído com os valores da resposta saml, conforme mostrado na captura de ecrã abaixo. Clique em **'Continuar'** para guardar esta seleção.
+    
+     ![O utilizador EBSCO na lista de aplicações](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
+
+4. Depois de concluir o programa de configuração acima, limpe início de sessão e a cache de cookies/novamente. Não terá manualmente início de sessão novamente e as definições de personalização são memorizadas
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
