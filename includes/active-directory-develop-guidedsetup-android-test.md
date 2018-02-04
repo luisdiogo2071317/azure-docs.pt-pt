@@ -29,4 +29,4 @@ Para aceder aos calendários do utilizador no contexto de uma aplicação, adici
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](active-directory-develop-help-support-include.md)]

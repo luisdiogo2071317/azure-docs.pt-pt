@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>A ligar a origens de dados no local com o Gateway de dados do Azure no local
 O gateway de dados no local atua como uma ponte, fornecer transferência de proteger os dados entre origens de dados no local e os servidores de serviços de análise do Azure na nuvem. Para além de trabalhar com múltiplos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway é também funciona com Azure Logic Apps, Power BI, aplicações de energia e Flow Microsoft. Pode associar vários serviços na mesma região com um único gateway. 
@@ -28,11 +28,11 @@ Obter a configuração com o gateway pela primeira vez é um processo de quatro 
 
 - **Transfira e execute a configuração** -este passo instala um serviço de gateway num computador na sua organização. Pode também iniciar sessão no Azure através de uma conta no seu [do inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) do Azure AD. B2B do Azure não são suportadas contas (convidado).
 
-- **Registar o gateway** - neste passo, especifique um nome e a chave do seu gateway de recuperação e selecione uma região, registar o gateway com o serviço de nuvem do Gateway. O recurso do gateway **têm de estar registados na mesma região** como os servidores do Analysis Services. 
+- **Registar o gateway** - neste passo, especifique um nome e a chave do seu gateway de recuperação e selecione uma região, registar o gateway com o serviço de nuvem do Gateway. O recurso do gateway pode ser registado em qualquer região, mas recomendamos que sejam na mesma região que os servidores do Analysis Services. 
 
 - **Crie um recurso de gateway no Azure** -neste passo, cria um recurso de gateway na sua subscrição do Azure.
 
-- **Ligar os servidores para o recurso do gateway** -depois de ter um recurso de gateway na sua subscrição, pode começar a ligar os servidores ao mesmo. Pode ligar vários servidores e outros recursos, fornecidos estão contidos na região.
+- **Ligar os servidores para o recurso do gateway** -depois de ter um recurso de gateway na sua subscrição, pode começar a ligar os servidores ao mesmo. Pode ligar vários servidores e outros recursos para o mesmo.
 
 Para obter os primeiros, consulte o artigo [instalar e configurar o gateway de dados no local](analysis-services-gateway-install.md).
 
@@ -69,17 +69,17 @@ Seguem-se os nomes de domínio completamente qualificado utilizados pelo gateway
 
 | Nomes de domínio | Portas de saída | Descrição |
 | --- | --- | --- |
-| *. powerbi.com |80 |Protocolo HTTP utilizada para transferir o instalador. |
-| *. powerbi.com |443 |HTTPS |
-| *. analysis.windows.net |443 |HTTPS |
-| *. login.windows.net |443 |HTTPS |
-| *. servicebus.windows.net |5671-5672 |(AMQP) do protocolo de colocação de mensagens de avançadas |
-| *. servicebus.windows.net |443, 9350-9354 |Serviços de escuta barramento de serviço de reencaminhamento através de TCP (443 é necessária para a aquisição de token de controlo de acesso) |
-| *. frontend.clouddatahub.net |443 |HTTPS |
-| *. core.windows.net |443 |HTTPS |
+| *.powerbi.com |80 |Protocolo HTTP utilizada para transferir o instalador. |
+| *.powerbi.com |443 |HTTPS |
+| *.analysis.windows.net |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |5671-5672 |(AMQP) do protocolo de colocação de mensagens de avançadas |
+| *.servicebus.windows.net |443, 9350-9354 |Serviços de escuta barramento de serviço de reencaminhamento através de TCP (443 é necessária para a aquisição de token de controlo de acesso) |
+| *.frontend.clouddatahub.net |443 |HTTPS |
+| *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Utilizado para testar a conectividade à internet, se o gateway não está acessível pelo serviço Power BI. |
-| *.microsoftonline p.com |443 |Utilizado para autenticação, dependendo da configuração. |
+| *.msftncsi.com |443 |Utilizado para testar a conectividade à internet, se o gateway não está acessível pelo serviço Power BI. |
+| *.microsoftonline-p.com |443 |Utilizado para autenticação, dependendo da configuração. |
 
 ### <a name="force-https"></a>Forçar a comunicação HTTPS com o Service Bus do Azure
 Pode forçar o gateway para comunicar com o Service Bus do Azure através de HTTPS em vez do TCP direto; No entanto, fazê-lo, por isso, pode reduzir significativamente desempenho. Pode modificar o *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* ficheiro alterando o valor de `AutoDetect` para `Https`. Este ficheiro está normalmente localizado em *gateway de dados do local com o c:\Programas\Microsoft Files\On*.
@@ -131,7 +131,7 @@ Pode utilizar a aplicação de teste de velocidade do Azure da ferramenta de ter
 **A**: não. O serviço do Windows tem de ter uma conta do Windows válida. Por predefinição, o serviço seja executado com o SID de serviço, NT SERVICE\PBIEgwService.
 
 **Q**: como posso alimentar um gateway? <br/>
-**A**: na ordem para aquisições um gateway (executando o programa de configuração/alterar no painel de controlo > programas) tem de ser um proprietário para o recurso de gateway no Azure e ter a chave de recuperação. Os proprietários de recursos de gateway são configuráveis no controlo de acesso.
+**A**: para um gateway de aquisições (executando o programa de configuração/alterar no painel de controlo > programas), tem de ser um proprietário para o recurso de gateway no Azure e ter a chave de recuperação. Os proprietários de recursos de gateway são configuráveis no controlo de acesso.
 
 ### <a name="high-availability"></a>Elevada disponibilidade e recuperação após desastre
 
@@ -144,7 +144,7 @@ Pode utilizar a aplicação de teste de velocidade do Azure da ferramenta de ter
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 **Q**: por que motivo não vejo o meu gateway na lista de instâncias de gateway ao tentar criar o recurso de gateway no Azure? <br/>
-**A**: Existem duas razões possíveis. Primeiro, é que um recurso já está a ser criado para o gateway atual ou alguma outra subscrição. Para eliminar essa possibilidade, enumeração de recursos do tipo **Gateways de dados no local** do portal. Certifique-se de que seleciona todas as subscrições, ao enumerar todos os recursos. Tenha em atenção que quando o recurso for criado, o gateway não irão aparecer na lista de instâncias de gateway a experiência de portal criar recursos de Gateway. A possibilidade de segundo é que a identidade do Azure AD do utilizador que instalou o gateway é diferente do que o utilizador tiver sessão iniciado no Portal do Azure. Para resolver este problema, inicie sessão no portal com a mesma conta que o utilizador que instalou o gateway.
+**A**: Existem duas razões possíveis. Primeiro, é que um recurso já está a ser criado para o gateway atual ou alguma outra subscrição. Para eliminar essa possibilidade, enumeração de recursos do tipo **Gateways de dados no local** do portal. Certifique-se de que seleciona todas as subscrições, ao enumerar todos os recursos. Assim que o recurso é criado, o gateway não aparece na lista de instâncias de gateway a experiência de portal criar recursos de Gateway. A possibilidade de segundo é que a identidade do Azure AD do utilizador que instalou o gateway é diferente do que o utilizador tiver sessão iniciado no portal do Azure. Para resolver, inicie sessão no portal com a mesma conta que o utilizador que instalou o gateway.
 
 **Q**: como posso ver quais os consultas que estão a ser enviados para a origem de dados no local? <br/>
 **A**: pode ativar o rastreio de consulta, que inclui as consultas que são enviadas. Lembre-se alterar a consulta novamente rastreio para o valor original quando terminar de resolução de problemas. Abandonar o fileparser o rastreio de consulta ativado cria registos de maior.
@@ -162,7 +162,7 @@ Muitos problemas podem superfície quando a versão do gateway fica desatualizad
 
 Pode obter este erro se tentar instalar o gateway num controlador de domínio, que não é suportado. Certifique-se de que implementar o gateway num computador que não é um controlador de domínio.
 
-## <a name="logs"></a>Registos
+## <a name="logs"></a>Logs
 
 Ficheiros de registo são um recurso importante quando a resolução de problemas.
 
@@ -201,7 +201,7 @@ Telemetria pode ser utilizada para monitorização e resolução de problemas. P
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Instalar e configurar o gateway de dados no local](analysis-services-gateway-install.md).   
 * [Gerir do Analysis Services](analysis-services-manage.md)
 * [Obter dados a partir do Azure Analysis Services](analysis-services-connect.md)

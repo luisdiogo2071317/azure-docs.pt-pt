@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Base de dados sem servidor informática utilizando as funções do Azure
 
@@ -35,7 +35,7 @@ BD do Azure do Cosmos e as funções do Azure permitem-lhe integrar as suas base
 * Vincular a uma função para uma coleção de base de dados do Azure Cosmos utilizando um **vínculo de saída**. Enlaces de saída escrever dados para um contentor ao concluir a uma função.
 
 > [!NOTE]
-> Neste momento, a base de dados do Azure Cosmos acionador, enlaces de entrada e enlaces de saída funcionam com apenas a contas de API do SQL Server e do Graph API.
+> Neste momento, o acionador do Azure Cosmos DB, os enlaces de entrada e os enlaces de saída funcionam apenas com contas de API do SQL e do Graph API.
 
 O diagrama seguinte ilustra cada uma destas três integrações: 
 
@@ -101,7 +101,7 @@ Implementações de revenda, quando um utilizador adicione um item para as respe
 
 **Implementação:** escuta de uma coleção de acionadores de múltiplas base de dados do Azure Cosmos
 
-1. Pode criar várias funções do Azure ao adicionar a base de dados do Azure Cosmos acionadores cada - todos os que escutam a mesma alterar feed de dados de carrinho de compras. Tenha em atenção que, quando várias funções de escutam o mesmo alterar feed, uma nova coleção de concessão é necessária para cada função.
+1. Pode criar várias funções do Azure ao adicionar a base de dados do Azure Cosmos acionadores cada - todos os que escutam a mesma alterar feed de dados de carrinho de compras. Tenha em atenção que, quando várias funções de escutam o mesmo alterar feed, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre coleções de concessão, consulte [Noções sobre a biblioteca de processador de Feed de alteração](change-feed.md#understand-cf).
 2. Sempre que um novo item é adicionado a um carrinho de compras de utilizadores, cada função de forma independente é invocada pela partir do contentor de carrinho de compras de feed de alteração.
     * Uma função pode utilizar o conteúdo o cesto atual para alterar a apresentação de outros itens que o utilizador poderão estar interessado.
     * Outra função, poderá atualizar totais de inventário.

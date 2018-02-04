@@ -3,7 +3,7 @@ title: "Como utilizar uma identidade de serviço gerida do Azure VM com os SDKs 
 description: "Exemplos de código para utilizar os SDKs do Azure com um MSI de VM do Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 6c9bd57080c95e4aad45515a0814471194261286
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: daveba
+ms.openlocfilehash: bd2f03f47cebec52aecb84ef2e97a745ede670ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Como utilizar um Azure VM geridos serviço de identidade (MSI) com os SDKs do Azure 
 

@@ -1,6 +1,6 @@
 ---
 title: "Adicione as soluções de gestão do Log Analytics do Azure | Microsoft Docs"
-description: "Operations Management Suite (OMS) soluções de gestão de análise de registos são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem métricas pivoted em torno de uma área de problema específico."
+description: "Soluções de gestão no Azure são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem métricas pivoted em torno de uma área de problema específico."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6c7d8d6946d89e4c6541636287e3022c444e0eb8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adicione as soluções de gestão do Log Analytics do Azure à sua área de trabalho
 
-Soluções de gestão de análise do registo são uma coleção de **lógica**, **visualização**, e **regras de aquisição de dados** que fornece métricas pivoted em torno de um determinado área de problema. Este artigo apresenta uma lista de soluções de gestão suportadas pela análise de registos e mostra como adicionar e remover para uma área de trabalho utilizando o portal do Azure. Também pode adicionar soluções no portal do OMS utilizando a Galeria de soluções.
+Soluções de gestão de análise do registo são uma coleção de **lógica**, **visualização**, e **regras de aquisição de dados** que fornece métricas pivoted em torno de um determinado área de problema. Este artigo apresenta uma lista de soluções de gestão suportadas pela análise de registos e mostra como adicionar e remover para uma área de trabalho utilizando o portal do Azure.
 
 Soluções de gestão permitem a informações mais aprofundadas para:
 
@@ -34,9 +34,9 @@ Soluções de gestão permitem a informações mais aprofundadas para:
 > [!NOTE]
 > Análise de registos inclui funcionalidades de pesquisa de registo, por isso não terá de instalar uma solução de gestão para ativá-la. No entanto, obter visualizações de dados, pesquisa sugerida e insights, adicionando as soluções de gestão para a sua área de trabalho.
 
-Utilizar este artigo, adicione as soluções de gestão para uma área de trabalho no portal do Azure Marketplace. Depois de adicionar uma solução, os dados são recolhidos a partir de servidores na sua infraestrutura e enviados para o serviço do OMS. Processamento pelo OMS serviço normalmente demora alguns minutos para uma hora. Depois do serviço processa os dados, que o possa visualizar na OMS.
+Utilizar este artigo, adicione as soluções de gestão para uma área de trabalho no portal do Azure Marketplace. Depois de adicionar uma solução, os dados são recolhidos a partir de servidores na sua infraestrutura e enviados para análise de registos. Processamento normalmente demora alguns minutos a uma hora. Depois do serviço processa os dados, que o possa visualizar na análise de registos.
 
-Pode remover facilmente uma solução de gestão quando este já não é necessário. Quando remover uma solução de gestão, os respetivos dados não são enviados à OMS. Se tiver o escalão de preço gratuito, a remoção de uma solução pode reduzir a quantidade de dados utilizados, ajudando-o a se manter no quota diária de dados.
+Pode remover facilmente uma solução de gestão quando este já não é necessário. Quando remover uma solução de gestão, os respetivos dados não são enviados à análise de registos. Se tiver o escalão de preço gratuito, a remoção de uma solução pode reduzir a quantidade de dados utilizados, ajudando-o a se manter no quota diária de dados.
 
 ## <a name="view-available-management-solutions"></a>Soluções de gestão disponíveis de vista
 
@@ -126,14 +126,14 @@ Soluções de Comunidade fornecida estão disponíveis a partir de [Galeria de m
 ## <a name="data-collection-details"></a>Detalhes de recolha de dados
 As tabelas seguintes mostram os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para soluções de gestão de análise de registos e as origens de dados. As tabelas são categorizadas por ofertas de solução, o que equacionar para [subscrição escalões de preço](https://go.microsoft.com/fwlink/?linkid=827926). A solução de análise de registos de atividade está disponível para todos os escalões de preços gratuitamente.
 
-O agente de Windows de análise do registo e o agente do System Center Operations Manager são essencialmente iguais. O agente do Windows inclui funcionalidades adicionais para permitir que estabeleça ligação à área de trabalho OMS e encaminhar através de um proxy. Se utilizar um agente do Operations Manager, tem de ser visada como um agente do OMS para comunicar com o OMS. Agentes do Operations Manager nesta tabela são agentes do OMS que estão ligados ao Operations Manager. Consulte [estabelecer a ligação do Operations Manager ao Log Analytics](log-analytics-om-agents.md) para obter informações sobre como ligar o seu ambiente existente do Operations Manager a OMS.
+O agente de Windows de análise do registo e o agente do System Center Operations Manager são essencialmente iguais. O agente do Windows inclui funcionalidades adicionais para permitir que estabeleça ligação à área de trabalho de análise de registos e encaminhar através de um proxy. Se utilizar um agente do Operations Manager, tem de ser visada como um agente do OMS para comunicar com a análise de registos. Agentes do Operations Manager nesta tabela são agentes do OMS que estão ligados ao Operations Manager. Consulte [estabelecer a ligação do Operations Manager ao Log Analytics](log-analytics-om-agents.md) para obter informações sobre como ligar o seu ambiente existente do Operations Manager a análise de registos.
 
 > [!NOTE]
-> O tipo de agente que utilizar determina a forma como os dados são enviados para o OMS, com as seguintes condições:
+> O tipo de agente que utilizar determina a forma como são enviados dados para análise de registos, com as seguintes condições:
 > - Pode utiliza o agente do Windows ou um agente do OMS anexado no Operations Manager.
-> - Quando o Operations Manager é necessário, dados de agente do Operations Manager para a solução sempre são enviados à OMS a utilizar o grupo de gestão do Operations Manager. Além disso, quando o Operations Manager for necessário, apenas o agente do Operations Manager é utilizado pela solução.
-> - Quando o Operations Manager não é necessário e a tabela mostra esses dados de agente do Operations Manager são enviadas à OMS a utilizar o grupo de gestão e, em seguida, dados de agente do Operations Manager sempre são enviados à OMS através de grupos de gestão. Agentes Windows ignorar o grupo de gestão e enviam os dados diretamente para OMS.
-> - Quando os dados de agente do Operations Manager não são enviados através de um grupo de gestão, os dados com a em seguida, são enviados diretamente para o OMS, ignorando o grupo de gestão.
+> - Quando o Operations Manager é necessário, dados de agente do Operations Manager para a solução sempre são enviados para análise de registos a utilizar o grupo de gestão do Operations Manager. Além disso, quando o Operations Manager for necessário, apenas o agente do Operations Manager é utilizado pela solução.
+> - Quando o Operations Manager não é necessário e a tabela que mostra os dados do agente são enviados para análise de registos do Operations Manager com o grupo de gestão e do Operations Manager agente é sempre enviados dados para análise de registos através de grupos de gestão. Agentes Windows ignorar o grupo de gestão e enviam os seus dados diretamente para a análise de registos.
+> - Quando os dados de agente do Operations Manager não são enviados através de um grupo de gestão, os dados com a em seguida, são enviados diretamente ao Log Analytics — ignorando o grupo de gestão.
 
 ### <a name="insight--analytics--log-analytics"></a>Conhecimentos aprofundados & análise / análise de registo
 
@@ -242,7 +242,7 @@ As seguintes informações aplicam-se para a pré-visualizações públicas e pr
 * Coisas sempre podem não a funcionar corretamente.
   * Problemas de intervalo de ser um annoyance secundária através para algo não está a funcionar de todo.
 * Não há potencial para a pré-visualização ter um impacto negativo no seus sistemas / ambiente.
-  * Vamos tentar evitar coisas negativos acontecer para os sistemas que estiver a utilizar com o OMS, mas por vezes, inesperadas coisas ocorrerem.
+  * Vamos tentar evitar coisas negativos acontecer para os sistemas que está a utilizar, mas por vezes, inesperadas coisas ocorrerem.
 * Perda de dados / poderão ocorrer danos.
 * Iremos poderá pedir-lhe recolher registos de diagnóstico ou outros dados para ajudar a resolver problemas.
 * A funcionalidade ou solução, poderá ser removida (temporariamente ou permanentemente).

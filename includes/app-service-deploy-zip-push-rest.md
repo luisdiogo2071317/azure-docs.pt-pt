@@ -7,7 +7,7 @@ O exemplo seguinte utiliza a ferramenta de cURL para enviar um pedido que conté
 Substitua o `<deployment_user>` marcador de posição com o nome de utilizador das suas credenciais de implementação. Quando lhe for pedido pelo cURL, escreva a palavra-passe. Para saber como definir as credenciais de implementação para a sua aplicação, consulte [definido e repor as credenciais de utilizador ao nível](../articles/app-service/app-service-deployment-credentials.md#userscope).   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 Este pedido aciona uma implementação de push a partir de ficheiro. zip carregado. Pode rever as implementações atuais e anteriores, utilizando o ponto final https://<app_name>.scm.azurewebsites.net/api/deployments, conforme mostrado no exemplo seguinte cURL. Novamente, substitua `<app_name>` com o nome da sua aplicação e `<deployment_user>` com o nome de utilizador das suas credenciais de implementação.

@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Resolver problemas de um cluster do HDInsight lento ou falhar
+# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Resolver problemas de um cluster do HDInsight lento ou a falhar
 
 Se um cluster do HDInsight está a ser executadas lentamente ou falhar com um código de erro, tem várias opções de resolução de problemas. Se as tarefas estão a demorar mais tempo para executar a que o esperado ou vir tempos de resposta lento em geral, pode haver falhas upstream do seu cluster, como os serviços no qual o cluster é executada. No entanto, a causa mais comum destas abrandamentos é dimensionamento insuficientes. Quando cria um novo cluster do HDInsight, selecione as adequadas [tamanhos de máquinas virtuais](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
@@ -87,7 +87,7 @@ Cada cluster do HDInsight baseia-se em vários serviços do Azure e, no software
 
 Apache Ambari fornece gestão e monitorização de um cluster do HDInsight com uma IU da web e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Cluster Dashboard** painel na página de HDInsight portal do Azure.  Selecione o **dashboard de cluster do HDInsight** painel para abrir a IU do Ambari e introduza as credenciais de início de sessão do cluster.  
 
-![IU do Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
 
 Para abrir uma lista de vistas de serviço, selecione **vistas do Ambari** na página do portal do Azure.  Esta lista depende de quais bibliotecas estão instaladas. Por exemplo, poderá ver o Gestor de filas YARN, a vista do Hive e a vista de Tez.  Selecione uma ligação de serviço para ver informações do serviço de configuração e.
 
@@ -112,7 +112,7 @@ Se ocorrerem abrandamentos no seu cluster, considere reiniciar os serviços atra
 
 Clusters do HDInsight são compostas por diferentes tipos de nós em execução em instâncias de máquina virtual. Cada nó pode ser monitorizado carência de recursos, problemas de conectividade de rede e outros problemas que podem abrandar o cluster. Cada cluster contém dois nós principais e a maioria dos tipos de cluster contêm uma combinação de trabalho e nós de limite. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+Para obter uma descrição de vários nós utiliza de cada tipo de cluster, consulte [configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
 
 As secções seguintes descrevem como verificar o estado de funcionamento de cada nó e do cluster geral.
 
@@ -255,7 +255,7 @@ Um cluster do HDInsight gera registos que são escritos para armazenamento de Bl
 
 Clusters do HDInsight são previamente configurados com as predefinições para os serviços relacionados, tais como Hadoop, Hive, HBase e assim sucessivamente. Dependendo do tipo de cluster, a configuração do hardware, o número de nós, os tipos de tarefas estiver a executar e os dados que está a trabalhar com (e como os dados está a ser processados), poderá ter de otimizar a configuração.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+Para obter instruções detalhadas sobre a otimização de configurações de desempenho para a maioria dos cenários, consulte [otimizar configurações de cluster com o Ambari](hdinsight-changing-configs-via-ambari.md). Ao utilizar o Spark, consulte [tarefas Spark otimizar desempenho](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Passo 7: Reproduzir a falha de um cluster diferente
 

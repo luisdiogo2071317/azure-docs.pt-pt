@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Análise de registos do Azure atualizar para a nova pesquisa de registo
 
@@ -31,7 +31,7 @@ Compreendemos que existe tensão em qualquer transição, e não são alterar ap
 - **Extrações de campo de hora de pesquisa.**  O novo idioma suporta campos de tempo de execução calculado mais avançados que o idioma de legado.  Pode utilizar cálculos complexos para campos expandidos e, em seguida, utilize os campos calculados para os comandos adicionais, incluindo associações e agregações.
 - **Associações avançadas.**  O novo idioma fornece associações mais avançadas que o idioma legado, incluindo a capacidade de associar tabelas em vários campos, utilize associações internas e externas e associar nos campos expandidos.
 - **As funções de data/hora.**  O novo idioma tem mais avançadas funções de data/hora que o idioma de legado.
-- **Análise de inteligente.**  O novo idioma tem avançadas algoritmos para avaliar padrões nos conjuntos de dados e compare a diferentes conjuntos de dados.
+- **Smart Analytics.**  O novo idioma tem avançadas algoritmos para avaliar padrões nos conjuntos de dados e compare a diferentes conjuntos de dados.
 - **Portal de análise avançada.**  O portal de análise avançadas oferece funcionalidades de Analysis Services não está disponíveis no portal do Log Analytics incluindo múltiplas edição de consultas, visualizações adicionais e diagnóstico avançado.
 - **Consistência com outras aplicações.**  O novo idioma e o Portal de análise avançadas já são utilizados para análise no Application Insights.  Implementar para análise de registos fornece a consistência entre os serviços do Azure.
 - **Melhor integração com o Power BI.** As consultas no novo idioma podem ser exportadas para o Power BI Desktop, pelo que pode utilizar as respetivas capacidades de transformação de dados avançados.
@@ -52,7 +52,7 @@ Se a sua área de trabalho é atualizada automaticamente, em seguida, verá uma 
 As seguintes alterações são efetuadas para a sua área de trabalho quando é convertido:
 
 - Qualquer pesquisas guardadas, regras de alertas e vistas que criou com o estruturador de vistas são automaticamente convertidas para o novo idioma.  Incluído em soluções de procura não é convertida automaticamente, mas está em vez disso, convertidos no momento quando abri-los.  
-- [Dashboard](log-analytics-dashboards.md) está a ser preterido na favor de [estruturador de vistas](log-analytics-view-designer.md) e [Azure Dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Os mosaicos que adicionou à minha Dashboard ainda estão disponíveis, mas está a só de leitura.
+- [Dashboard](log-analytics-dashboards.md) está a ser preterido na favor de [estruturador de vistas](log-analytics-view-designer.md) e [Azure Dashboards](../azure-portal/azure-portal-dashboards.md).  Os mosaicos que adicionou à minha Dashboard ainda estão disponíveis, mas está a só de leitura.
 - [Integração de BI de energia](log-analytics-powerbi.md) é substituída por um processo de novo.  As agendas existentes do Power BI que criou serão desativadas e tem de substituí-los com o processo de novo.
 - As respostas de [ações de alerta](log-analytics-alerts-actions.md) utilizar webhooks e runbooks tem um formato de novo e poderá ter de atualizar as regras de alerta em conformidade.
 - Veja o [FAQ de pesquisa de registo](log-analytics-log-search-faq.md) para perguntas comuns sobre a atualização.
@@ -95,7 +95,7 @@ Se já estiver familiarizado com o idioma de consulta de análise de registos le
 ![Conversor de idioma](media/log-analytics-log-search-upgrade/language-converter.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Veja uma [tutorial num novo idioma](https://go.microsoft.com/fwlink/?linkid=856078).
 - Percorrer um [tutorial sobre como utilizar o portal de registo de pesquisa](log-analytics-log-search-log-search-portal.md) com o novo idioma de consulta.
 - Obtenha uma introdução para o novo [portal da análise avançadas](https://go.microsoft.com/fwlink/?linkid=856587).

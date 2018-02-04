@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Início rápido: Colocar em pausa e retomar a computação para um Azure SQL Data Warehouse no PowerShell
 Utilize o PowerShell para colocar em pausa computação para um Azure SQL Data Warehouse reduzir os custos. Retomar a computação quando estiver pronto para utilizar o armazém de dados.
@@ -59,15 +59,16 @@ Siga estes passos para encontrar informações de localização para o seu armaz
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **bases de dados SQL** na página da esquerda do portal do Azure.
-3. Selecione **mySampleDataWarehouse** do **bases de dados SQL** página. Esta ação abre o armazém de dados. 
+3. Selecione **mySampleDataWarehouse** do **bases de dados SQL** página. É aberto o armazém de dados.
 
     ![Grupo de recursos e nome de servidor](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote o nome do armazém de dados que será utilizado como o nome de base de dados. Também anote o nome do servidor e o grupo de recursos. Irá utilizá-las na colocar em pausa e retomar comandos.
-5. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como o nome do servidor nos cmdlets do PowerShell. Na imagem anterior, o nome de servidor completo é newserver 20171113.database.windows.net. Utilizaremos **newserver 20171113** como o nome do servidor no cmdlet do PowerShell.
+4. Anote o nome do armazém de dados, que é o nome de base de dados. Também anote o nome do servidor e o grupo de recursos. Que 
+5.  Estas nos comandos colocar em pausa e retomar.
+6. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como o nome do servidor nos cmdlets do PowerShell. Na imagem anterior, o nome de servidor completo é newserver 20171113.database.windows.net. Remova o sufixo e utilizar **newserver 20171113** como o nome do servidor no cmdlet do PowerShell.
 
 ## <a name="pause-compute"></a>Computação pausa
-Para reduzir os custos, pode colocar em pausa e retomar a computação recursos a pedido. Por exemplo, se não utilizar a base de dados durante a noite e no fim de semana, pode colocar em pausa-lo durante essas horas e retomá-lo durante o dia. Não lhe será cobrado recursos de computação enquanto a base de dados está em pausa. No entanto, continuará a ser-lhe cobrados de armazenamento. 
+Para reduzir os custos, pode colocar em pausa e retomar a computação recursos a pedido. Por exemplo, se não estiver a utilizar a base de dados durante a noite e no fim de semana, pode colocar em pausa-lo durante essas horas e retomá-lo durante o dia. Não há sem qualquer encargo recursos de computação enquanto a base de dados está em pausa. No entanto, continua a ser-lhe cobrados de armazenamento. 
 
 Para colocar em pausa uma base de dados, utilize o [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. O exemplo seguinte interrompe um armazém de dados com o nome **mySampleDataWarehouse** alojada num servidor com o nome **newserver 20171113**. O servidor está num grupo de recursos do Azure com o nome **myResourceGroup**.
 

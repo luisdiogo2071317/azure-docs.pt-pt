@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
 ---
@@ -43,7 +43,8 @@ Pode:
 
 Pode monitorizar os circuitos do ExpressRoute em qualquer parte do mundo através de uma área de trabalho que está alojada das regiões do seguintes:
 
-* Europa Ocidental 
+* Europa Ocidental
+* EUA Centro-Oeste
 * EUA Leste 
 * Sudeste Asiático 
 * Austrália Leste-Sul
@@ -57,14 +58,13 @@ Se encontram instalados agentes de monitorização em vários servidores, no loc
     * Instale agentes de monitorização de servidores no local e as VMs do Azure.
     * Configure as definições nos servidores do agente de monitorização para permitir que os agentes de monitorização comunicar. (As portas de firewall aberta, etc.)
 3. Configurar regras para permitir que o agente de monitorização instalado em VMs do Azure para comunicar com no local (NSG) do grupo de segurança de rede os agentes de monitorização.
-4. O pedido para a lista branca sua área de trabalho do NPM.
-5. Configurar a monitorização: detetar automaticamente e gerir quais as redes são visíveis no NPM.
+4. Configurar a monitorização: detetar automaticamente e gerir quais as redes são visíveis no NPM.
 
 Se já estiver a utilizar o Monitor de desempenho de rede para monitorizar os outros objetos ou os serviços e já tiver área de trabalho de uma das regiões suportadas, pode ignorar o passo 1 e o passo 2 e iniciar a configuração com o passo 3.
 
-## <a name="configure"></a>Passo 1: Criar uma área de trabalho
+## <a name="configure"></a>Passo 1: Criar uma área de trabalho (a subscrição que tenha as VNETs ligadas Circuit(s)) o ExpressRoute
 
-1. No [portal do Azure](https://portal.azure.com), pesquise a lista de serviços no **Marketplace** 'Monitor de desempenho de rede'. No retorno, clique para abrir o **Monitor de desempenho de rede** página.
+1. No [portal do Azure](https://portal.azure.com), selecione a subscrição que tenha as VNETs em modo de peering para o circuito do ExpressRoute. Em seguida, pesquise a lista de serviços no **Marketplace** 'Monitor de desempenho de rede'. No retorno, clique para abrir o **Monitor de desempenho de rede** página.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Na parte inferior do principal **Monitor de desempenho de rede** página, clique em **criar** para abrir **Monitor de desempenho de rede - criar nova solução** página. Clique em **área de trabalho do OMS - Selecione uma área de trabalho** para abrir a página de áreas de trabalho. Clique em **+ criar nova área de trabalho** para abrir a página da área de trabalho.
@@ -105,7 +105,7 @@ Se já estiver a utilizar o Monitor de desempenho de rede para monitorizar os ou
 
   ![Script do PowerShell](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: instalar um agente de monitorização em cada servidor de monitorização
+### <a name="installagent"></a>2.2: instalar um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
 
 Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação ExpressRoute (ou seja, no local, as VNETs do Azure) para redundância. Utilize os seguintes passos para instalar agentes:
 
@@ -127,6 +127,8 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação Exp
 6. No **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
 7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
 8. Quando terminar, o Microsoft Monitoring Agent é apresentado no painel de controlo. Pode rever a configuração não existe e certifique-se de que o agente está ligado ao Operational Insights (OMS). Quando estiver ligado à OMS, o agente apresenta uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
+
+9. Repita esta para cada VNET que precisa de ser monitorizados.
 
 ### <a name="proxy"></a>2.3: Configurar definições de proxy (opcionais)
 
@@ -165,7 +167,7 @@ Porta 8084 está aberta por predefinição. Pode utilizar uma porta personalizad
 >
 >
 
-Nos servidores de agente, abra uma janela do PowerShell com privilégios administrativos. Execute o [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) script do PowerShell (que transferiu anteriormente). Não utilize parâmetros.
+Nos servidores de agente, abra uma janela do PowerShell com privilégios administrativos. Execute o [EnableRules](https://aka.ms/npmpowershellscript) script do PowerShell (que transferiu anteriormente). Não utilize parâmetros.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Para mais informações sobre o NSG, consulte [grupos de segurança de rede](../
 
 ## <a name="setupmonitor"></a>Passo 4: Configurar NPM para monitorização do ExpressRoute
 
->[!WARNING]
->Não continue até que a sua área de trabalho foi na lista de permissões e receber um e-mail de confirmação.
->
->
-
-Depois de concluir as secções anteriores e certifique-se de que foram na lista de permissões, pode configurar monitorização.
+Depois de concluir as secções anteriores, pode configurar monitorização.
 
 1. Navegue para o mosaico de descrição geral do Monitor de desempenho de rede, acedendo ao **todos os recursos** página e clicar na na lista de permissões NPM área de trabalho.
 

@@ -6,21 +6,22 @@ documentationcenter:
 author: MarkusVi
 manager: mtillman
 editor: 
-featureFlags: clicktale
+featureFlags:
+- clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que é novo no Azure Active Directory?
 
@@ -74,7 +75,7 @@ As informações que obtém para um evento de risco detetados está associada à
 
 Com a edição do Azure AD Premium P1, deteções que não são abrangidas por sua licença são apresentados como o evento de risco início de sessão com o risco adicional detetado.
 
-Para obter mais informações, consulte [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+Para obter mais informações, consulte [Eventos de risco do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 
 ---
@@ -89,7 +90,7 @@ Para obter mais informações, consulte [Eventos de risco do Azure Active Direct
 Pode agora melhor gerir como aplicações do Office 365 mostram no painel de acesso do utilizador através de uma nova definição de utilizador. Esta opção é útil para reduzir a quantidade de aplicações no painel de acesso de um utilizador, se preferir Mostrar apenas as aplicações do Office no portal do Office. A definição está localizada no **as definições de utilizador** e assinalada como **os utilizadores apenas podem ver as aplicações do Office 365 no portal do Office 365**.
  
 
-Para obter mais informações, consulte [ocultar uma aplicação da experiência do utilizador no Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+Para obter mais informações, consulte [ocultar uma aplicação da experiência do utilizador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
@@ -109,7 +110,7 @@ A extensão de browser de aplicações My está agora disponível através de um
 - Atalhos para aplicações recentemente utilizados da extensão do
 - A extensão está disponível para o limite, o Chrome e o Firefox.
  
-Para obter mais informações, consulte [segura de aplicações My início de sessão extensão](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+Para obter mais informações, consulte [segura de aplicações My início de sessão extensão](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
 ---
 
@@ -154,9 +155,9 @@ Como parte da transição para a nova consola de administração, efetuamos 2 no
 
 Para obter mais informações, consulte:
 
-- [Introdução ao Azure Active Directory API do relatório](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Introdução ao Azure Active Directory API do relatório](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Introdução ao Azure Active Directory Identity Protection e o Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+- [Introdução ao Azure Active Directory Identity Protection e o Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -226,7 +227,7 @@ Uma opção para os administradores requer que os utilizadores expandir os termo
 
 Selecione **no** ou **desativar** pedir aos utilizadores expandir os termos de utilização. O **no** definição exige que os utilizadores ver os termos de utilização antes de a aceitá-los.
 
-Para obter mais informações, consulte o [termos do Azure AD da funcionalidade de utilização (pré-visualização)](active-directory-tou.md).
+Para obter mais informações, consulte o [termos do Azure AD da funcionalidade de utilização (pré-visualização)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -239,7 +240,7 @@ Para obter mais informações, consulte o [termos do Azure AD da funcionalidade 
  
 Pode utilizar ativação âmbito para ativar as atribuições de função de recursos do Azure elegível com menos autonomia em que as predefinições de atribuição original. Um exemplo é se estiver atribuído como o proprietário de uma subscrição no seu inquilino. Com a ativação de âmbito, pode ativar a função de proprietário de até cinco recursos contidos dentro da subscrição (tais como grupos de recursos e máquinas virtuais). A ativação de controlo de âmbito, poderá reduzir a possibilidade de executar indesejáveis alterações a recursos do Azure críticos.
 
-Para obter mais informações, consulte [que é o Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+Para obter mais informações, consulte [que é o Azure AD Privileged Identity Management?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure).
  
 ---
  
@@ -342,7 +343,7 @@ Hoje, o acesso é bloqueado quando utilizar esta condição. Quando a pré-visua
 
 Procure esta capacidade e obter mais informações nas notas de lançamento e blogues futuras. 
 
-Para obter mais informações, consulte [de acesso condicional no Azure AD](active-directory-conditional-access-azure-portal.md).
+Para obter mais informações, consulte [de acesso condicional no Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
  
 ---
@@ -357,7 +358,7 @@ Para obter mais informações, consulte [de acesso condicional no Azure AD](acti
 
 
 
-As seguintes aplicações estão a ser planeadas a adicionar à lista de [aprovados aplicações de cliente](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+As seguintes aplicações estão a ser planeadas a adicionar à lista de [aprovados aplicações de cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -365,8 +366,8 @@ As seguintes aplicações estão a ser planeadas a adicionar à lista de [aprova
 
 Para obter mais informações, consulte:
 
-- [Requisito da aplicação de cliente aprovada](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD com base na aplicação acesso condicional](active-directory-conditional-access-mam.md)
+- [Requisito da aplicação de cliente aprovada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -408,7 +409,7 @@ Se existirem problemas com a ligação para o seu cliente de repetição de escr
 - Uma ligação para a documentação que ajuda a resolver o problema. 
 
 
-Para obter mais informações, consulte [integração no local](active-directory-passwords-how-it-works.md#on-premises-integration).
+Para obter mais informações, consulte [integração no local](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
  
 ---
@@ -427,9 +428,9 @@ Para obter mais informações, consulte [integração no local](active-directory
 
 
 
-Agora pode restringir o acesso ao Office 365 e outras aplicações de nuvem do Azure AD ligados para [aprovados aplicações de cliente](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) que suportam as políticas de proteção de aplicação do Intune através da utilização de [acesso condicional de baseado em aplicações do Azure AD](active-directory-conditional-access-mam.md). Políticas de proteção de aplicações do Intune são utilizadas para configurar e proteger dados da empresa nestas aplicações de cliente.
+Agora pode restringir o acesso ao Office 365 e outras aplicações de nuvem do Azure AD ligados para [aprovados aplicações de cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) que suportam as políticas de proteção de aplicação do Intune através da utilização de [acesso condicional de baseado em aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Políticas de proteção de aplicações do Intune são utilizadas para configurar e proteger dados da empresa nestas aplicações de cliente.
 
-Ao combinar [baseado na aplicação](active-directory-conditional-access-mam.md) com [baseado nos dispositivos](active-directory-conditional-access-policy-connected-applications.md) políticas de acesso condicional, tem a flexibilidade para proteger os dados pessoais e de dispositivos da empresa.
+Ao combinar [baseado na aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) com [baseado nos dispositivos](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) políticas de acesso condicional, tem a flexibilidade para proteger os dados pessoais e de dispositivos da empresa.
 
 As seguintes condições e os controlos estão agora disponíveis para utilização com acesso condicional baseado na aplicação:
 
@@ -447,7 +448,7 @@ As seguintes condições e os controlos estão agora disponíveis para utilizaç
 - Requer aplicação aprovada do cliente
 
 
-Para obter mais informações, consulte [acesso condicional de baseado em aplicações do Azure AD](active-directory-conditional-access-mam.md).
+Para obter mais informações, consulte [acesso condicional de baseado em aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -471,7 +472,7 @@ Agora pode encontrar todos os dispositivos ligados ao Azure AD e as atividades r
 - Localizar as chaves do BitLocker para os seus dispositivos associados a um AD do Azure, gerir o seu dispositivo com o Intune e muito mais.
 - Gerir definições relacionadas com o dispositivo do Azure AD.
 
-Para obter mais informações, consulte [gerir dispositivos através do portal do Azure](device-management-azure-portal.md).
+Para obter mais informações, consulte [gerir dispositivos através do portal do Azure](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
 
 
@@ -496,7 +497,7 @@ Agora pode incluir (ou excluir) macOS como uma condição de plataforma do dispo
 Para obter mais informações, consulte:
 
 - [Criar uma política de conformidade de dispositivos para dispositivos macOS com o Intune](https://aka.ms/macoscompliancepolicy)
-- [Acesso condicional no Azure AD](active-directory-conditional-access-azure-portal.md)
+- [Acesso condicional no Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -517,7 +518,7 @@ A extensão do servidor de políticas de rede de Azure multi-factor Authenticati
 Esta extensão foi criada para as organizações que pretendem proteger as ligações de rede privada virtual sem a implementar o servidor do Azure multi-factor Authentication. O servidor de políticas de rede extensão age como um adaptador entre o RADIUS e baseado na nuvem do Azure multi-factor Authentication para fornecer um segundo fator de autenticação para federada ou utilizadores sincronizados.
 
 
-Para obter mais informações, consulte [integrar a sua infraestrutura de servidor de políticas de rede existente com o Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md).
+Para obter mais informações, consulte [integrar a sua infraestrutura de servidor de políticas de rede existente com o Azure multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension).
 
  
 ---
@@ -556,7 +557,7 @@ No Centro de administração do Azure AD, pode agora:
 **Capacidade de produto:** identidade de segurança e proteção
 
 
-As aplicações seguintes foram adicionadas à lista de [aprovados aplicações de cliente](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+As aplicações seguintes foram adicionadas à lista de [aprovados aplicações de cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -564,8 +565,8 @@ As aplicações seguintes foram adicionadas à lista de [aprovados aplicações 
 
 Para obter mais informações, consulte:
 
-- [Requisito da aplicação de cliente aprovada](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD com base na aplicação acesso condicional](active-directory-conditional-access-mam.md)
+- [Requisito da aplicação de cliente aprovada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD com base na aplicação acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -580,7 +581,7 @@ Para obter mais informações, consulte:
  
 Agora pode utilizar "ou" (exigir um dos controlos selecionados) para controlos de acesso condicional. Pode utilizar esta funcionalidade para criar políticas com "ou" entre controlos de acesso. Por exemplo, pode utilizar esta funcionalidade para criar uma política que requer que um utilizador iniciar sessão utilizando a autenticação multifator "OR" num dispositivo com conformidade.
 
-Para obter mais informações, consulte [controlos de acesso condicional do Azure AD](active-directory-conditional-access-controls.md).
+Para obter mais informações, consulte [controlos de acesso condicional do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
 
  
 ---
@@ -634,7 +635,7 @@ Devido a estas novas funcionalidades, o relatório APIs sob o ponto final /repor
 
 
 
-Azure AD suporta deteção de campo de início de sessão automático para as aplicações que compor um campo de nome e palavra-passe de utilizador do HTML. Estes passos documentados em [como capturar automaticamente os campos de início de sessão para uma aplicação](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). Pode encontrar esta capacidade adicionando um *não galeria* aplicação no **aplicações empresariais** página no [portal do Azure](http://aad.portal.azure.com). Além disso, pode configurar o **Single Sign-on** modo nesta aplicação nova para **baseada em palavra-passe Single Sign-on**, introduza um URL de web e, em seguida, guarde a página.
+Azure AD suporta deteção de campo de início de sessão automático para as aplicações que compor um campo de nome e palavra-passe de utilizador do HTML. Estes passos documentados em [como capturar automaticamente os campos de início de sessão para uma aplicação](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Pode encontrar esta capacidade adicionando um *não galeria* aplicação no **aplicações empresariais** página no [portal do Azure](http://aad.portal.azure.com). Além disso, pode configurar o **Single Sign-on** modo nesta aplicação nova para **baseada em palavra-passe Single Sign-on**, introduza um URL de web e, em seguida, guarde a página.
  
 Devido a um problema do serviço, esta funcionalidade foi temporariamente desativada. O problema foi resolvido e a deteção de campo de início de sessão automático está novamente disponível.
 
@@ -656,7 +657,7 @@ Autenticação multifator (MFA) é uma parte essencial dos proteger a sua organi
 
 Com esta pré-visualização pública, gestão de MFA e relatórios são uma parte integrada da experiência de configuração do principal do Azure AD. Agora pode gerir a funcionalidade de portal de gestão MFA dentro da experiência do Azure AD.
 
-Para obter mais informações, consulte [referência para MFA relatórios no portal do Azure](active-directory-reporting-activity-sign-ins-mfa.md). 
+Para obter mais informações, consulte [referência para MFA relatórios no portal do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa). 
 
 
 ---
@@ -679,7 +680,7 @@ Pode utilizar os termos do Azure AD de utilização nos seguintes cenários:
 - Termos específicos de utilização com base nos atributos de um utilizador (por exemplo, doctors vs nurses) ou locais vs empregados internacionais, efetuada pelo grupos dinâmicos
 - Termos específicos de utilização para aceder a aplicações de elevado impacto comercial, como o Salesforce
 
-Para obter mais informações, consulte [termos do Azure AD de utilização](active-directory-tou.md).
+Para obter mais informações, consulte [termos do Azure AD de utilização](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
 
 ---
@@ -700,7 +701,7 @@ Com o Azure AD Privileged Identity Management, pode gerir, controlar e monitoriz
 
 Todos os recursos no portal do Azure que utilizam a funcionalidade de RBAC do Azure podem tirar partido de todas as capacidades de gestão de ciclo de vida que o Azure AD Privileged Identity Management tem para oferecer e segurança.
 
-Para obter mais informações, consulte [Privileged Identity Management para recursos do Azure](privileged-identity-management/azure-pim-resource-rbac.md).
+Para obter mais informações, consulte [Privileged Identity Management para recursos do Azure](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 
 ---
@@ -721,7 +722,7 @@ As organizações podem utilizar revisões de acesso (pré-visualização) para 
 
 Pode recolher os controlos de revisão de acesso relativos a programas relevantes para a sua organização de modo a controlar as revisões de conformidade ou de aplicações sensíveis a riscos.
 
-Para obter mais informações, consulte [acesso do Azure AD revê](active-directory-azure-ad-controls-access-reviews-overview.md).
+Para obter mais informações, consulte [acesso do Azure AD revê](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview).
 
 
 ---
@@ -738,7 +739,7 @@ Para obter mais informações, consulte [acesso do Azure AD revê](active-direct
 
 Agora pode melhor gerir aplicações apresentados nos portais dos seus utilizadores através de um novo **ocultar aplicação** propriedade. Pode ocultar as aplicações para ajudar nos casos em que mosaicos da aplicação apareçam para serviços de back-end ou mosaicos duplicados e launchers de aplicação dos utilizadores clutter. O botão de alternar está no **propriedades** secção da aplicação de terceiros e assinalada como **Visible ao utilizador?** Também pode ocultar uma aplicação através de programação através do PowerShell. 
 
-Para obter mais informações, consulte [ocultar uma aplicação de terceiros da experiência do utilizador no Azure AD](active-directory-coreapps-hide-third-party-app.md). 
+Para obter mais informações, consulte [ocultar uma aplicação de terceiros da experiência do utilizador no Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 
 
 **O que está disponível?**

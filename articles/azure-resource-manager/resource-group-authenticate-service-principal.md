@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos
 
@@ -36,7 +36,7 @@ A forma mais fácil de verificar se a sua conta tem permissões adequadas é uti
 
 Agora, avance para uma secção para autenticar com:
 
-* [palavra-passe](#create-service-principal-with-password)
+* [password](#create-service-principal-with-password)
 * [certificado autoassinado](#create-service-principal-with-self-signed-certificate)
 * [certificado de autoridade de certificação](#create-service-principal-with-certificate-from-certificate-authority)
 
@@ -46,7 +46,7 @@ Para configurar um principal de serviço, utilize:
 
 | Comando | Descrição |
 | ------- | ----------- | 
-| [Novo AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Cria um Azure Active Directory principal de serviço |
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Cria um Azure Active Directory principal de serviço |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Atribui a função especificada do RBAC para o principal especificado, no âmbito especificado. |
 
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-O exemplo permanecerá suspenso durante 20 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "PrincipalNotFound: Principal {ID} não existe no diretório."
+O exemplo permanecerá suspenso durante 20 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "{ID} de Principal não existe no diretório de {DIR-ID}."
 
 O script seguinte permite-lhe especificar um âmbito que não seja a subscrição predefinida e repete a atribuição de função se ocorrer um erro:
 
@@ -128,7 +128,7 @@ Alguns itens a ter em atenção sobre o script:
 * Para conceder o acesso de identidade para a subscrição predefinida, não terá de fornecer os parâmetros do ResourceGroup ou SubscriptionId.
 * Especifique o parâmetro de ResourceGroup apenas quando pretende limitar o âmbito de atribuição de função a um grupo de recursos.
 *  Neste exemplo, adicione o principal de serviço para a função de contribuinte. Para outras funções, consulte [RBAC: funções incorporadas](../active-directory/role-based-access-built-in-roles.md).
-* O script permanecerá suspenso durante 15 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "PrincipalNotFound: Principal {ID} não existe no diretório."
+* O script permanecerá suspenso durante 15 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "{ID} de Principal não existe no diretório de {DIR-ID}."
 * Se precisar de conceder o acesso de principal de serviço para obter mais subscrições ou grupos de recursos, execute o `New-AzureRMRoleAssignment` cmdlet novamente com âmbitos diferentes.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-O exemplo permanecerá suspenso durante 20 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "PrincipalNotFound: Principal {ID} não existe no diretório."
+O exemplo permanecerá suspenso durante 20 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "{ID} de Principal não existe no diretório de {DIR-ID}."
 
 O script seguinte permite-lhe especificar um âmbito que não seja a subscrição predefinida e repete a atribuição de função se ocorrer um erro. Tem de ter o Azure PowerShell 2.0 no Windows 10 ou Windows Server 2016.
 
@@ -223,7 +223,7 @@ Alguns itens a ter em atenção sobre o script:
 * Para conceder o acesso de identidade para a subscrição predefinida, não terá de fornecer os parâmetros do ResourceGroup ou SubscriptionId.
 * Especifique o parâmetro de ResourceGroup apenas quando pretende limitar o âmbito de atribuição de função a um grupo de recursos.
 * Neste exemplo, adicione o principal de serviço para a função de contribuinte. Para outras funções, consulte [RBAC: funções incorporadas](../active-directory/role-based-access-built-in-roles.md).
-* O script permanecerá suspenso durante 15 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "PrincipalNotFound: Principal {ID} não existe no diretório."
+* O script permanecerá suspenso durante 15 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "{ID} de Principal não existe no diretório de {DIR-ID}."
 * Se precisar de conceder o acesso de principal de serviço para obter mais subscrições ou grupos de recursos, execute o `New-AzureRMRoleAssignment` cmdlet novamente com âmbitos diferentes.
 
 Se lhe **não tem o Windows 10 ou Windows Server 2016 Technical Preview**, tem de transferir o [gerador do certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) do Microsoft Script Center. Extrair o respetivo conteúdo e importe-o cmdlet que tem.
@@ -321,7 +321,7 @@ Alguns itens a ter em atenção sobre o script:
 
 * Acesso é confinado à subscrição.
 * Neste exemplo, adicione o principal de serviço para a função de contribuinte. Para outras funções, consulte [RBAC: funções incorporadas](../active-directory/role-based-access-built-in-roles.md).
-* O script permanecerá suspenso durante 15 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "PrincipalNotFound: Principal {ID} não existe no diretório."
+* O script permanecerá suspenso durante 15 segundos permitir a algum tempo para o novo serviço principal para propagar ao longo do Azure Active Directory. Se o script não aguarda suficientemente longa, verá um erro a indicar: "{ID} de Principal não existe no diretório de {DIR-ID}."
 * Se precisar de conceder o acesso de principal de serviço para obter mais subscrições ou grupos de recursos, execute o `New-AzureRMRoleAssignment` cmdlet novamente com âmbitos diferentes.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Forneça o certificado através do script do PowerShell automatizada

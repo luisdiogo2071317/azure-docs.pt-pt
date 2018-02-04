@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Encaminhamento de mensagens com o IoT Hub (Python)
 
@@ -117,6 +117,9 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [introduçã
 Nesta secção, criar uma fila de barramento de serviço e uma conta de armazenamento, ligue-os ao seu IoT hub e configurar o seu IoT hub para enviar mensagens para a fila com base na presença de uma propriedade de mensagem e todas as mensagens para a conta de armazenamento. Para obter mais informações sobre como processar mensagens de filas do Service Bus, consulte [introdução às filas] [ lnk-sb-queues-node] e como gerir o armazenamento, consulte [introdução ao Storage do Azure] [Storage do azure].
 
 1. Criar uma fila do Service Bus, conforme descrito em [introdução às filas][lnk-sb-queues-node]. Tome nota do nome do espaço de nomes e a fila.
+
+    > [!NOTE]
+    > Utilizado como pontos finais de IoT Hub não pode ter de tópicos e filas de Service Bus **sessões** ou **duplicado deteção** ativada. Se qualquer um dessas opções estiverem ativado, o ponto final é apresentado como **Unreachable** no portal do Azure.
 
 1. No portal do Azure, abra o seu IoT hub e clique em **pontos finais**.
 

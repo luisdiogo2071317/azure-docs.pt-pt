@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
 ---
@@ -146,7 +146,7 @@ Identidades de dispositivo são representadas como documentos JSON com as seguin
 
 | Propriedade | Opções | Descrição |
 | --- | --- | --- |
-| deviceId |atualizações necessárias, só de leitura no |Uma cadeia de maiúsculas e minúsculas (até 128 carateres de comprimento) de carateres alfanuméricos ASCII 7 bits plus determinados caracteres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId |atualizações necessárias, só de leitura no |Uma cadeia de maiúsculas e minúsculas (até 128 carateres de comprimento) de carateres alfanuméricos ASCII 7 bits plus determinados caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |obrigatório só de leitura |Uma IoT hub-gerados, maiúsculas e minúsculas cadeia até 128 carateres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **deviceId**, quando tiver sido eliminadas e recriadas. |
 | ETag |obrigatório só de leitura |Uma cadeia representando o num ETag fraco para a identidade de dispositivo, como por [RFC7232][lnk-rfc7232]. |
 | autenticação |opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |

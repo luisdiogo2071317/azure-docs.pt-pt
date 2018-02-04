@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Mover dados de Sybase utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ O serviço de fábrica de dados suporta a ligar a origens de Sybase no local uti
 > Consulte [resolver problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para dicas sobre/gateway de ligação de resolução de problemas relacionados com problemas.
 
 ## <a name="supported-versions-and-installation"></a>Versões suportadas e instalação
-Para o Data Management Gateway para ligar à base de dados Sybase, tem de instalar o [fornecedor de dados para Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 ou superior no mesmo sistema que o Data Management Gateway. Sybase versão 16 e posterior é suportado.
+Para o Data Management Gateway para ligar à base de dados Sybase, tem de instalar o [fornecedor de dados para Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 ou superior no mesmo sistema que o Data Management Gateway. 
+
+SAP Sybase SQL em qualquer local (ASA) versão 16 e acima é suportada; IQ e ASE não são suportados.
 
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia move os dados de um arquivo de dados no local Cassandra utilizando ferramentas diferentes/APIs. 

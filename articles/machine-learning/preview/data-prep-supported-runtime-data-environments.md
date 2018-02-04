@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 9025982d2a350941ef82733292ebbf15ab48d7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz suportada para esta versão 
 Quando o código carrega dados através da utilização de origens de dados do Azure Machine Learning ou do Azure Machine Learning dados preparativos, obter ou um Pandas ou localizações de dados e ambientes de computação do Spark dataframe, seguintes combinações de experimentação são suportados:
@@ -28,7 +28,7 @@ Quando o código carrega dados através da utilização de origens de dados do A
 |PySpark docker (VM com Linux)     |Suportado apenas os ficheiros de projeto *     |Suportadas         | Suportado (2)        |         |
 |Python de Máquina Virtual de ciência de dados do Azure     |Suportado apenas os ficheiros de projeto *         |Não suportado         |Não suportado         |         |
 |PySPark de Máquina Virtual de ciência de dados do Azure     | Suportado apenas os ficheiros de projeto *        |Não suportado         |Não suportado         |         |
-|PySpark do Azure HDInsight     | Não suportado        |Suportadas         |Suportado (2)         |         |
+|Azure HDInsight PySpark     | Não suportado        |Suportadas         |Suportado (2)         |         |
 |Python do Azure HDInsight     | Não suportado        | Não suportado        | Não suportado        |         |
 
 O Azure Data Lake Store não é atualmente suportado para qualquer destino de computação.

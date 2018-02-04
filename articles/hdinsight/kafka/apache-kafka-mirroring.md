@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Utilizar MirrorMaker para replicar tópicos Kafka do Apache com Kafka no HDInsight
 
@@ -120,7 +120,7 @@ Pode criar uma Azure virtual network e Kafka clusters manualmente, é mais fáce
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Substitua `$CLUSTERNAME` com o nome do cluster de origem. Quando lhe for pedido, introduza a palavra-passe para a conta de início de sessão (administrador) do cluster.
+    Substitua `$CLUSTERNAME` com o nome do cluster de origem. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
 3. Para criar um tópico com o nome `testtopic`, utilize o seguinte comando:
 
@@ -187,7 +187,7 @@ Pode criar uma Azure virtual network e Kafka clusters manualmente, é mais fáce
     echo $DEST_BROKERHOSTS
     ```
 
-    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para a conta de início de sessão (administrador) do cluster.
+    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
     O `echo` comando devolve as informações semelhante para o seguinte texto:
 
@@ -209,6 +209,41 @@ Pode criar uma Azure virtual network e Kafka clusters manualmente, é mais fáce
     Substitua **DEST_BROKERS** com as informações de Mediador do passo anterior.
 
     Para obter mais informações produtor configuração, consulte [produtor folhas](https://kafka.apache.org/documentation#producerconfigs) em kafka.apache.org.
+
+5. Utilize os seguintes comandos para localizar os anfitriões de Zookeeper para o cluster de destino:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
+
+7. A configuração predefinida para Kafka no HDInsight não permite a criação automática de tópicos. Tem de utilizar uma das seguintes opções antes de iniciar o processo de espelhamento de:
+
+    * **Criar os tópicos no cluster de destino**: esta opção também lhe permite definir o número de partições e o fator de replicação.
+
+        Pode criar tópicos antecedência usando o seguinte comando:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Substitua `testtopic` com o nome do tópico para criar.
+
+    * **Configurar o cluster para a criação automática de tópico**: esta opção permite MirrorMaker criar automaticamente tópicos, no entanto, pode criá-los com um número diferente de partições ou fator de replicação que o tópico de origem.
+
+        Para configurar o cluster de destino para criar automaticamente tópicos, execute estes passos:
+
+        1. Do [portal do Azure](https://portal.azure.com), selecione o Kafka cluster de destino.
+        2. Na descrição geral do cluster, selecione __Cluster dashboard__. Em seguida, selecione __dashboard de cluster do HDInsight__. Quando lhe for pedido, autenticar com as credenciais de início de sessão (administrador) para o cluster.
+        3. Selecione o __Kafka__ serviço a partir da lista no lado esquerdo da página.
+        4. Selecione __folhas__ no meio da página.
+        5. No __filtro__ campo, introduza um valor de `auto.create`. Este procedimento filtra a lista de propriedades e apresenta o `auto.create.topics.enable` definição.
+        6. Altere o valor de `auto.create.topics.enable` true e, em seguida, selecione __guardar__. Adicionar uma nota e, em seguida, selecione __guardar__ novamente.
+        7. Selecione o __Kafka__ serviço, selecione __reiniciar__e, em seguida, selecione __reiniciar todos os afetados__. Quando lhe for pedido, selecione __confirmar reinicie todos os__.
 
 ## <a name="start-mirrormaker"></a>Iniciar MirrorMaker
 
@@ -243,19 +278,17 @@ Pode criar uma Azure virtual network e Kafka clusters manualmente, é mais fáce
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Substitua `$CLUSTERNAME` com o nome do cluster de origem. Quando lhe for pedido, introduza a palavra-passe para a conta de início de sessão (administrador) do cluster.
+    Substitua `$CLUSTERNAME` com o nome do cluster de origem. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
      Quando chegam a uma linha em branco com um cursor, escreva algumas mensagens de texto. As mensagens são enviadas para o tópico a **origem** cluster. Quando tiver terminado, utilize **Ctrl + C** terminar o processo de produtor.
 
-3. A ligação SSH para a **destino** do cluster, utilize **Ctrl + C** terminar o processo de MirrorMaker. Para verificar que as mensagens e um tópico foram replicadas para o destino, utilize os seguintes comandos:
+3. A ligação SSH para a **destino** do cluster, utilize **Ctrl + C** terminar o processo de MirrorMaker. Poderá demorar vários segundos a terminar o processo. Para verificar que as mensagens foram replicadas para o destino, utilize o seguinte comando:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para a conta de início de sessão (administrador) do cluster.
+    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
     A lista de tópicos inclui agora `testtopic`, que é criado quando MirrorMaster reflete o tópico do cluster de origem para o destino. As mensagens obtidas do tópico são os mesmos tal como foi introduzido no cluster de origem.
 
@@ -265,7 +298,7 @@ Pode criar uma Azure virtual network e Kafka clusters manualmente, é mais fáce
 
 Uma vez que os passos neste documento criar ambos os clusters no mesmo grupo de recursos do Azure, pode eliminar o grupo de recursos no portal do Azure. A eliminar o grupo de recursos remove todos os recursos que criou ao seguir este documento, a rede Virtual do Azure e conta de armazenamento utilizada pelos clusters.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Neste documento, aprendeu a utilizar MirrorMaker para criar uma réplica de um cluster de Kafka. Utilize as seguintes ligações para detetar outras formas de trabalhar com Kafka:
 

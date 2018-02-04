@@ -3,7 +3,7 @@ title: "Mudar a instrução de ações diferentes Azure Logic Apps | Microsoft D
 description: "Escolha as diferentes ações para executar aplicações lógicas com base nos valores da expressão utilizando uma instrução de comutador"
 services: logic-apps
 keywords: "Falha da instrução"
-author: derek1ee
+author: ecfan
 manager: anneta
 editor: 
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: LADocs; deli
-ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: LADocs; estfan
+ms.openlocfilehash: 8f11d18009d60ea5c74781ccef2ff7d811516750
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Efetuar ações diferentes aplicações lógicas com uma instrução de comutador
 
@@ -74,7 +74,7 @@ Para mostrar como funciona uma instrução de comutador, este exemplo cria uma a
 
 4. Depois da instrução switch, elimine o ficheiro original carregado para a Dropbox ao adicionar esta ação: **Dropbox - eliminar ficheiro**
 
-5. Guarde a sua aplicação lógica. Teste a aplicação através do carregamento de um ficheiro para a Dropbox. Deverá receber um e-mail de aprovação em breve. Selecione uma opção e observar o comportamento.
+5. Guarde a aplicação lógica. Teste a aplicação através do carregamento de um ficheiro para a Dropbox. Deverá receber um e-mail de aprovação em breve. Selecione uma opção e observar o comportamento.
 
    > [!TIP]
    > Verificar como [monitorizar as logic apps](logic-apps-monitor-your-logic-apps.md).

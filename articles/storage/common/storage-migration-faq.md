@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
 
@@ -280,7 +280,7 @@ Para conceder acesso a outras pessoas para os recursos de armazenamento:
       
     - **AzCopy**: acrescentar **-secundário** ao nome da conta de armazenamento no URL para aceder ao ponto final secundário. Por exemplo:  
      
-      https://storageaccountname-Secondary.blob.Core.Windows.NET/VHDs/BlobName.vhd
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS token**: utilizar um token SAS para aceder a dados do ponto final. Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -294,6 +294,10 @@ Mas pode utilizar domínios personalizados não-HTTPS. Para obter mais informaç
 Não é possível aceder a uma conta de armazenamento diretamente através da utilização de FTP. No entanto, pode configurar uma máquina virtual do Azure e, em seguida, instalar um servidor FTP na máquina virtual. Pode fazer com o servidor FTP armazenar os ficheiros numa partilha de ficheiros do Azure ou num disco de dados que está disponível para a máquina virtual.
 
 Se pretender apenas transferir dados sem ter de utilizar o Explorador de armazenamento ou uma aplicação semelhante, poderá utilizar um token SAS. Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado](storage-dotnet-shared-access-signature-part-1.md).
+
+**Como migrar as Blobs de uma conta de armazenamento para outro?**
+
+ Isto pode ser feito utilizando a nossa [script de migração do Blob](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

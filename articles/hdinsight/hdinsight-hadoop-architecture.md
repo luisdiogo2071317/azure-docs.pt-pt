@@ -16,20 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 85383cc32e67db1f7e6964dc0b55bf3977311d40
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>Arquitetura de Hadoop no HDInsight
 
 Hadoop inclui dois componentes nucleares, o sistema de ficheiros de densidade elevada (HDFS), que fornece armazenamento e ainda outro recurso Negotiator (YARN) que fornece processamento. Com as capacidades de armazenamento e processamento de um cluster torna-se com capacidade para executar programas de MapReduce para efetuar o processamento de dados pretendido.
 
 > [!NOTE]
-> Normalmente, não está implementada uma HDFS dentro do cluster do HDInsight para fornecer armazenamento. Em vez disso, uma camada de interface compatível com HDFS é utilizada pelos componentes do Hadoop. A capacidade de armazenamento real é fornecida pelo armazenamento do Azure ou do Azure Data Lake Store. Para o Hadoop, as tarefas do MapReduce em execução no cluster do HDInsight executam como se um HDFS estavam presentes e, por isso, requerem sem alterações para suportar as suas necessidades de armazenamento. Hadoop no HDInsight, externo do armazenamento, mas o processamento de YARN permanece um componente fundamental. 
-
-<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
+> Normalmente, não está implementada uma HDFS dentro do cluster do HDInsight para fornecer armazenamento. Em vez disso, uma camada de interface compatível com HDFS é utilizada pelos componentes do Hadoop. A capacidade de armazenamento real é fornecida pelo armazenamento do Azure ou do Azure Data Lake Store. Para o Hadoop, as tarefas do MapReduce em execução no cluster do HDInsight executam como se um HDFS estavam presentes e, por isso, requerem sem alterações para suportar as suas necessidades de armazenamento. Hadoop no HDInsight, externo do armazenamento, mas o processamento de YARN permanece um componente fundamental. Para obter mais informações, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Este artigo apresenta YARN e como coordena a execução de aplicações do HDInsight.
 
@@ -56,8 +54,7 @@ Todos os tipos de cluster do HDInsight implementar YARN. O ResourceManager é im
 
 ![YARN no HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar o MapReduce no Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
+* [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

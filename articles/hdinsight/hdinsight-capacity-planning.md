@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -67,9 +67,7 @@ Para um cluster de nó de 48 recomendamos as contas de armazenamento de 4 a 8. A
 
 ## <a name="choose-a-cluster-type"></a>Escolher um tipo de cluster
 
-O tipo de cluster determina a carga de trabalho que do cluster do HDInsight está configurado para executar, tais como Hadoop, Storm, Kafka ou Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Cada tipo de cluster tem uma topologia de implementação específica que inclui os requisitos para o tamanho e número de nós.
+O tipo de cluster determina a carga de trabalho que do cluster do HDInsight está configurado para executar, tais como Hadoop, Storm, Kafka ou Spark. Para obter uma descrição detalhada dos tipos de cluster disponíveis, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster tem uma topologia de implementação específica que inclui os requisitos para o tamanho e número de nós.
 
 ## <a name="choose-the-vm-size-and-type"></a>Escolha o tamanho da VM e o tipo
 
@@ -96,9 +94,7 @@ Pode ampliar o cluster para satisfazer pico de carga pedidos, em seguida, dimens
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida do cluster
 
-São-lhe cobrados para duração de um cluster. Se existirem apenas horas específicas que precisa do cluster de cópia de segurança e em execução, pode criar clusters a pedido utilizando o Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-Pode também criar scripts do PowerShell que aprovisionar e elimina o cluster e, em seguida, agendar essas scripts com [da automatização do Azure](https://azure.microsoft.com/services/automation/).
+São-lhe cobrados para duração de um cluster. Se estiver apenas horas específicas que terá do cluster de cópia de segurança e em execução, pode [criar clusters a pedido utilizando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Pode também criar scripts do PowerShell que aprovisionar e elimina o cluster e, em seguida, agendar essas scripts com [da automatização do Azure](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Quando é eliminado um cluster, o respetivo metastore do Hive predefinida também é eliminado. Para manter o metastore para a criação de nova cluster seguinte, utilize um armazenamento de metadados externo, como a base de dados do Azure ou Oozie.
@@ -118,7 +114,7 @@ Após determinar o tamanho de VM de cluster de destino, a escala e o tipo, verif
 
 No entanto, existem alguns limites de quota fixos, por exemplo uma única subscrição do Azure pode ter no máximo 10 000 núcleos. Para obter detalhes sobre estes limites, consulte [subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como configurar clusters no HDInsight com o Hadoop, Spark, Kafka, interativa de ramo de registo, HBase, servidor R ou Storm.
 * [Monitorizar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): saber mais sobre os cenários principais para monitorizar o cluster do HDInsight que pode afetar a capacidade do seu cluster.

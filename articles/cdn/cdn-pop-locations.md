@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 242be346f975e013004c520a41bf14b95a3f27a4
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Localizações POP do CDN do Azure
 Este artigo apresenta uma lista de localizações de ponto de presença (POP) atual para **CDN do Azure da Verizon** e **CDN do Azure da Akamai**.
@@ -32,15 +32,16 @@ Este artigo apresenta uma lista de localizações de ponto de presença (POP) at
 
 | Região | Verizon | Akamai |
 | --- | --- | --- |
-| América do Norte | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />AC, Los Angeles<br />Miami, FL<br />Nova Iorque, NY<br />Philadelphia, PA<br />Blogue de SAN, AC<br />Seattle, WA<br />Válida, Washington D.C. | Canadá<br />México<br />Estados Unidos |
-| América do Sul | Buenos Aires, Argentina<br />Brasil, rio Alemanha Janeiro<br />Dobra Paulo, Brasil<br />Valparaíso, subordinado<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brasil<br />Peru |
-| Europa do Norte e leste | Copenhagen, Dinamarca<br />Helsinki, Finlândia<br />Warsaw, Polónia<br />Stockholm, Suécia | Dinamarca<br />Polónia<br />Suécia<br /> |
-| Europa Ocidental | Viena, Áustria<br />França, Paris<br />Frankfurt, Alemanha<br />Amesterdão, Países Baixos<br />Londres, RU | Áustria<br />França<br />Alemanha<br />Irlanda<br />Países Baixos<br />Suíça<br />Reino Unido |
+| América do Norte | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />Nova Iorque, NY<br />Philadelphia, PA<br />Blogue de SAN, AC<br />Seattle, WA<br />Washington, DC | Canadá<br />México<br />Estados Unidos |
+| América do Sul | Buenos Aires, Argentina<br />Rio de Janeiro, Brazil<br />Dobra Paulo, Brasil<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brasil<br />Peru |
+| Europa do Norte e leste | Copenhaga, Dinamarca<br />Helsínquia, Finlândia<br />Varsóvia, Polónia<br />Estocolmo, Suécia | Dinamarca<br />Polónia<br />Suécia<br /> |
+| Europa ocidental | Viena, Áustria<br />Paris, França<br />Frankfurt, Alemanha<br />Amesterdão, Países Baixos<br />Londres, RU | Áustria<br />França<br />Alemanha<br />Irlanda<br />Países Baixos<br />Suíça<br />Reino Unido |
 | Europa Austrais | Milão, Itália<br />Madrid, Espanha | Itália<br />Espanha |
-| Ásia | RAE de Hong Kong<br />Bangalore, Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japão<br />Japão, Tóquio<br />Singapura<br />Seoul, Sul da Coreia<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Índia<br />Indonésia<br />Japão<br />Malásia<br />Filipinas<br />Singapura<br />Taiwan<br />Tailândia<br />Vietname |
-| Médio Oriente | Muscat, Oman<br />Fujirah, Dirham | Catar |
+| África | Joanesburgo, África do Sul | |
+| Médio Oriente | Mascate, Omã<br />Fujirah, Dirham | Catar |
+| Ásia | RAE de Hong Kong<br />Bangalore, Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tóquio, Japão<br />Singapura<br />Seoul, Sul da Coreia<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Índia<br />Indonésia<br />Japão<br />Malásia<br />Filipinas<br />Singapura<br />Taiwan<br />Tailândia<br />Vietname |
 | Austrália e Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Austrália<br />Nova Zelândia |
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 * [API de nós do CDN limite do Azure para obter mais recentes endereços IP para adicionar à lista branca](https://docs.microsoft.com/rest/api/cdn/edgenodes)
 

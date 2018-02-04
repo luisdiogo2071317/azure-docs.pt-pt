@@ -3,7 +3,7 @@ title: Como configurar preparados MSI VM do Azure utilizando um SDK do Azure
 description: "Passo por instruções passo para configurar e utilizar uma identidade de serviço geridas (MSI) na VM do Azure, utilizando um SDK do Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
-ms.author: bryanla
-ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: dee89e4cd6501bb56015a2e4cfc045cc6308400e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configurar uma VM geridos serviço de identidade (MSI) utilizando um SDK do Azure
 
@@ -43,7 +43,7 @@ Azure suporta várias plataformas de programação através de uma série de [Az
 | Python | [Criar uma VM com MSI ativada](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Criar a VM do Azure com um MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte os artigos relacionados em "Configurar MSI para uma VM do Azure", para saber como também pode utilizar os modelos de recurso, CLI, PowerShell e portal do Azure.
 

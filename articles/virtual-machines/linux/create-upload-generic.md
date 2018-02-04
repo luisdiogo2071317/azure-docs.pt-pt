@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para Distribuições Não Apoiadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -75,7 +75,7 @@ Imagens VHD no Azure tem de ter um tamanho virtual alinhado com 1MB.  Normalment
 Para resolver isto pode redimensionar a VM utilizando a consola de Gestor de Hyper-V ou o [redimensionamento VHD](http://technet.microsoft.com/library/hh848535.aspx) cmdlet do Powershell.  Se não estiver a executar num ambiente Windows, em seguida, é recomendado utilizar qemu img converter (se necessário) e redimensionar o VHD.
 
 > [!NOTE]
-> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 > 
 > 
 
@@ -143,6 +143,7 @@ O [agente Linux do Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-
 * O agente Linux do Azure requer Python v2.6 +.
 * O agente necessita também o módulo de python pyasn1. A maioria das distribuições fornecem esta como um pacote separado que pode ser instalado.
 * Em alguns casos, o agente Linux do Azure não podem ser compatível com NetworkManager. Muitos dos pacotes RPM/Deb fornecidos pelo distribuições configurar NetworkManager como um conflito ao pacote de waagent e, por conseguinte, irão desinstalar NetworkManager quando instala o pacote de agente do Linux.
+* O agente Linux do Azure tem de ser superior a versão mínima suportada, consulte este artigo para [detalhes](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Requisitos de sistema de Linux geral
 

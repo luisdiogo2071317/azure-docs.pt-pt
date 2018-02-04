@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
@@ -34,7 +34,7 @@ As instruções neste artigo utilizam uma base de dados SQL do Azure que aloja o
 Criar um tempo de execução de integração do Azure-SSIS se não tiver uma, seguindo as instruções passo a passo no [Tutorial: pacotes SSIS implementar](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>IU de fábrica de dados (portal do Azure)
-Esta secção utiliza IU da fábrica de dados para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS.
+Nesta secção, utilize IU da fábrica de dados para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS.
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Primeiro passo é criar uma fábrica de dados utilizando o portal do Azure. 
@@ -75,7 +75,7 @@ Neste passo, utilize a IU da fábrica de dados para criar um pipeline. Adicionar
 1. Na página de introdução de get, clique em **criar pipeline**: 
 
     ![Página Introdução](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. No **atividades** caixa de ferramentas, expanda **base de dados SQL**e arrastar largar **procedimento armazenado** atividade para a superfície de desginer do pipeline. 
+2. No **atividades** caixa de ferramentas, expanda **base de dados SQL**e arrastar largar **procedimento armazenado** atividade para a superfície do designer de pipeline. 
 
     ![Atividade de procedimento armazenado de arrastar e largar](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. Na janela Propriedades para a atividade de procedimento armazenado, mude para o **conta SQL** separador e clique em **+ novo**. Criar uma ligação à base de dados SQL do Azure que aloja o catálogo de SSIS (SSIDB da base de dados). 
@@ -94,11 +94,11 @@ Neste passo, utilize a IU da fábrica de dados para criar um pipeline. Adicionar
         ![Serviço ligado da Base de Dados SQL do Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Na janela de propriedades, mude para o **procedimento armazenado** separador do **conta SQL** separador e efetuar os passos seguintes: 
 
-    1. Para o **nome de procedimento armazenado** campo Enter `sp_executesql` . 
+    1. Para o **nome de procedimento armazenado** campo Enter `sp_executesql`. 
     2. Clique em **+ novo** no **armazenados parâmetros de procedimento** secção. 
     3. Para **nome** do parâmetro, introduza **instrução INSERT**. 
-    4. Para **tipo** do parâmetro, introduza **cadeia** . 
-    5. Para **valor** do parâmetro, introduza a seguinte consulta SQL.
+    4. Para **tipo** do parâmetro, introduza **cadeia**. 
+    5. Para **valor** do parâmetro, introduza a seguinte consulta SQL:
 
         Na consulta SQL, especifique os valores corretos para o **nome_da_pasta**, **project_name**, e **package_name** parâmetros. 
 
@@ -133,10 +133,12 @@ Nesta secção, acionar uma execução de pipeline e, em seguida, monitorizá-lo
 
     ![Certifique-se de execuções de pacote](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-Também pode criar um acionador agendado para o pipeline, para que o pipeline é executado numa agenda (houly, diária, etc.). Por exemplo, consulte [criar uma fábrica de dados - a IU de fábrica de dados](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> Também pode criar um acionador agendado para o pipeline, para que o pipeline é executado numa agenda (hora a hora, diária, etc..). Por exemplo, consulte [criar uma fábrica de dados - a IU de fábrica de dados](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Nesta secção, utiliza o Azure PowerShell para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS. 
+Nesta secção, pode utiliza o Azure PowerShell para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS. 
 
 Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps). 
 
@@ -321,7 +323,7 @@ No passo anterior, invocar a pipeline a pedido. Também pode criar um acionador 
     }    
     ```
 2. No **Azure PowerShell**, mude para o **C:\ADF\RunSSISPackage** pasta.
-3. Execute o **conjunto AzureRmDataFactoryV2Trigger** cmdlet para criar o acionador. 
+3. Execute o **conjunto AzureRmDataFactoryV2Trigger** cmdlet, que cria o acionador. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
 ---
@@ -190,43 +190,29 @@ Não é possível mover uma rede virtual para uma subscrição diferente se a re
 
 ## <a name="app-service-limitations"></a>Limitações do serviço de aplicações
 
-Ao trabalhar com aplicações do App Service, não é possível mover um plano de serviço aplicacional. Para mover as aplicações do App Service, as opções são:
+As limitações para mover os recursos do serviço de aplicações diferem com base em se estiver a mover os recursos numa subscrição ou para uma nova subscrição.
 
-* Mova o plano de serviço de aplicações e todos os outros recursos do serviço de aplicações nesse grupo de recursos para um novo grupo de recursos que ainda não tenham recursos do serviço de aplicações. Este requisito significa que tem de mover o mesmo os recursos do serviço de aplicações que não estão associados com o plano de serviço de aplicações.
-* Mover as aplicações para um grupo de recursos diferente, mas manter todos os planos de serviço de aplicações no grupo de recursos original.
+### <a name="moving-within-the-same-subscription"></a>Mover dentro da mesma subscrição
 
-O plano de serviço aplicacional não tem de residir no mesmo grupo de recursos que a aplicação para a aplicação funcione corretamente.
+Quando move uma aplicação Web _dentro da mesma subscrição_, não é possível mover os certificados SSL carregados. No entanto, pode mover uma aplicação Web para o novo grupo de recursos sem mover o respetivo certificado SSL carregado e funcionalidade SSL da sua aplicação ainda funciona. 
 
-Por exemplo, se o grupo de recursos contém:
+Se pretender mover o certificado SSL com a aplicação Web, siga estes passos:
 
-* **Web-a** que se encontra associado **plano-a**
-* **Web-b** que se encontra associado **plano-b**
+1.  Elimine o certificado carregado a partir da aplicação Web.
+2.  Mova a aplicação Web.
+3.  Carregue o certificado para a aplicação Web movido.
 
-As opções são:
+### <a name="moving-across-subscriptions"></a>Mover entre subscrições
 
-* Mover **web-a**, **um plano**, **web-b**, e **plano-b**
-* Mover **web-a** e **web-b**
-* Mover **web-a**
-* Mover **web-b**
+Quando move uma aplicação Web _entre subscrições_, aplicam as seguintes limitações:
 
-Todas as outras combinações de envolvem deixando de um tipo de recurso que não pode ser deixado atrás, ao mover um plano de serviço de aplicações (qualquer tipo de recurso de serviço de aplicações).
-
-Se a aplicação web reside num grupo de recursos diferente que o plano de serviço de aplicações, mas que pretende mover a um novo grupo de recursos, tem de efetuar a movimentação em dois passos. Por exemplo:
-
-* **Web-a** reside no **web-grupo**
-* **um plano** reside no **plano-grupo**
-* Pretende **web-a** e **um plano** residir no **grupo combinados**
-
-Para realizar esta mudança, execute duas operações de movimentação separado na seguinte sequência:
-
-1. Mover o **web-a** para **plano-grupo**
-2. Mover **web-a** e **um plano** para **grupo combinado**.
-
-Pode mover um certificado de serviço de aplicações para um novo grupo de recursos ou subscrição sem quaisquer problemas. No entanto, se a sua aplicação web inclui um certificado SSL que comprou externamente e carregado para a aplicação, tem de eliminar o certificado antes de mover a aplicação web. Por exemplo, pode efetuar os seguintes passos:
-
-1. Eliminar o certificado carregado a partir da aplicação web
-2. Mova a aplicação web
-3. Carregue o certificado para a aplicação web
+- O grupo de recursos de destino não pode ter quaisquer recursos do serviço de aplicações existentes. Recursos do serviço de aplicações incluem:
+    - Aplicações Web
+    - Planos do Serviço de Aplicações
+    - Certificados SSL carregados ou importados
+    - Ambientes do App Service
+- Todos os recursos do serviço de aplicações no grupo de recursos têm de ser movidos em conjunto.
+- Recursos do serviço de aplicações só podem ser afastados do grupo de recursos no qual foram originalmente criados. Se um recurso de serviço de aplicações já não consta no respetivo grupo de recursos original, têm de ser movido volta a esse grupo de recursos original pela primeira vez e, em seguida, pode ser movida entre subscrições. 
 
 ## <a name="classic-deployment-limitations"></a>Limitações de implementação clássica
 

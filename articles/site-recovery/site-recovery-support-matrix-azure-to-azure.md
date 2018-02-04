@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6157ec92433830998c275b3b01b32f25c8d9f758
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure
 
@@ -81,14 +81,14 @@ O abaixo suporte é aplicável a qualquer carga de trabalho em execução no sis
 #### <a name="linux"></a>Linux
 
 - Red Hat Enterprise Linux 6.7, 6.8 6.9, 7.0, 7.1, 7.2, 7.3,7.4
-- CentOS 6.5 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS Server [ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
 - Debian 8
 - Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3)
-- SP3 do SUSE Linux Enterprise Server 11
-- SP4 do SUSE Linux Enterprise Server 11
+- SUSE Linux Enterprise Server 11 SP3
+- SUSE Linux Enterprise Server 11 SP4
 
 (Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger o computador novamente post a atualização.)
 
@@ -127,7 +127,7 @@ Europa | RU oeste, RU Sul, Europa Norte, Europa Ocidental
 Austrália   | Leste da Austrália, Sudeste da Austrália
 Azure Government    | E.u. a US Virginia, E.U.A. us Iowa, E.U.A. us Arizona, E.U.A. us Texas, DOD de e.u. a leste, DOD de e.u. a Central
 Alemanha | Alemanha Central, Alemanha Nordeste
-China | Leste da China, Norte da China
+China | China East, China North
 
 >[!NOTE]
 >
@@ -154,8 +154,8 @@ VMs migrada utilizando a recuperação de sites | Suportadas | Se estiver a que 
 Tamanho máximo de disco do SO | 2048 GB | Consulte [discos utilizados por VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Tamanho do disco de dados | 4095 GB | Consulte [discos utilizados por VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Número de discos de dados | Até 64 como suportados por um tamanho de VM do Azure específico | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
-Disco temporário | Sempre excluídos da replicação | Disco temporário foi excluído da replicação sempre. Não deve colocar todos os dados persistentes em disco temporário de acordo com a documentação de orientação do Azure. Consulte [disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
-Taxa de alteração de dados no disco | Máximo de 6 MBps por disco | Se os dados de média, taxa alterar no disco para além dos 6 MBps continuamente, a replicação não irá detetar cópias de segurança. No entanto, se for uma rajada ocasionais dados e a taxa de alteração de dados for superior a 6 MBps durante algum tempo e ficar, a replicação será acompanhar. Neste caso, poderá ver pontos de recuperação ligeiramente atrasado.
+Disco temporário | Sempre excluídos da replicação | Disco temporário foi excluído da replicação sempre. Não deve colocar todos os dados persistentes em disco temporário de acordo com nce guida do Azure. Consulte [disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
+Taxa de alteração de dados no disco | Máximo de 10 por disco para o Premium storage e 2 MBps por disco de armazenamento Standard | Se a taxa de alteração de média de dados no disco para além dos 10 (para Premium) e 2 MBps (para Standard) continuamente, a replicação não irá detetar cópias de segurança. No entanto, se for uma rajada ocasionais dados e a taxa de alteração de dados é maior que 10 (para Premium) e 2 MBps (para Standard) durante algum tempo e ficar, a replicação será acompanhar. Neste caso, poderá ver pontos de recuperação ligeiramente atrasado.
 Discos em contas de armazenamento standard | Suportadas |
 Discos em contas de armazenamento premium | Suportadas | Se uma VM tem discos distribuídos por contas do standard storage e premium, pode selecionar uma conta de armazenamento de destino diferente para cada disco garantir que têm a mesma configuração de armazenamento na região de destino
 Discos gerida padrão | Não suportado |  
@@ -170,7 +170,7 @@ GRS | Suportadas |
 RA-GRS | Suportadas |
 ZRS | Não suportado |  
 Armazenamento de acesso frequente e esporádico | Não suportado | Discos da máquina virtual não são suportados no armazenamento de acesso frequente e esporádico
-Virtual rede pontos finais de serviço (firewalls de armazenamento do Azure e redes virtuais)  | Não | Permitir o acesso específicos redes virtuais do Azure em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada. 
+Virtual rede pontos finais de serviço (firewalls de armazenamento do Azure e redes virtuais)  | Não | Permitir o acesso específicos redes virtuais do Azure em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada.
 Contas de armazenamento de V2 para fins gerais (camada ambos frequente e esporádico) | Não | Aumentar os custos de transação substancialmente em comparação com para fins gerais V1 contas de armazenamento
 
 >[!IMPORTANT]

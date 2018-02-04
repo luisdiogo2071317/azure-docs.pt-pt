@@ -1,4 +1,4 @@
-  Navegue agora até ao painel da conta do Cosmos DB e clique em **Chaves**, uma vez que utilizamos estes valores na aplicação Web que vamos criar a seguir.
+  Agora, navegue para a página de conta de base de dados do Azure Cosmos e clique em **chaves**, uma vez que estes valores são utilizados na aplicação web cria seguinte.
 
-![Captura de ecrã do portal do Azure, que mostra uma conta do Cosmos DB, com o botão Chaves realçado no painel da conta do Cosmos DB e os valores URI, PRIMARY KEY e SECONDARY KEY realçados no painel Chaves](./media/cosmos-db-keys/keys.png)
+![Captura de ecrã do portal do Azure com o botão chaves realçado na página de conta de base de dados do Azure Cosmos](./media/cosmos-db-keys/keys.png)
 
