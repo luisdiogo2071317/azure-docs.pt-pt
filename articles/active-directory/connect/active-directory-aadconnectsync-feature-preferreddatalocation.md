@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure AD Connect: configurar a localização de dados preferencial para os recursos do Office 365
-É o objetivo deste tópico explica como configurar PreferredDataLocation no Azure AD Connect Sync. Quando um cliente utiliza as capacidades de várias Georreplicação no Office 365, este atributo é utilizado para designar a geolocalização os dados do utilizador do Office 365.
+É o objetivo deste tópico explica como configurar PreferredDataLocation no Azure AD Connect Sync. Quando um cliente utiliza as capacidades de várias Georreplicação no Office 365, este atributo é utilizado para designar a geolocalização os dados do utilizador do Office 365. Os termos de licenciamento **região** e **Georreplicação** são utilizados permutáveis.
 
 > [!IMPORTANT]
 > Várias Georreplicação está atualmente em pré-visualização. Se pretende aderir ao programa de pré-visualização, contacte o seu representante da Microsoft.
@@ -29,36 +29,41 @@ ms.lasthandoff: 02/01/2018
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Ativar a sincronização de PreferredDataLocation
-Por predefinição, os recursos do Office 365 para os seus utilizadores estão localizados na mesma região que o inquilino do Azure AD. Por exemplo, se o seu inquilino está localizado na América do Norte, em seguida, as caixas de correio do Exchange de utilizadores são também localizadas na América do Norte. Para uma organização com vários national Isto poderá não ser o ideal. Ao definir o atributo preferredDataLocation pode ser definida a região do utilizador.
+Por predefinição, os recursos do Office 365 para os seus utilizadores estão localizados na mesma geografia como inquilino do Azure AD. Por exemplo, se o seu inquilino está localizado na América do Norte, em seguida, as caixas de correio do Exchange de utilizadores são também localizadas na América do Norte. Para uma organização com vários national Isto poderá não ser o ideal. Ao definir o atributo preferredDataLocation georreplicação do utilizador pode ser definida.
 
-Pelas definições este atributo, pode ter recursos do Office 365 do utilizador, tais como a caixa de correio e o OneDrive, na mesma região que o utilizador e continuará a ter um inquilino para toda a organização.
+Pelas definições este atributo, pode ter do Office 365 recursos o utilizador, tais como a caixa de correio e o OneDrive, na mesma geografia que o utilizador e continuará a ter um inquilino para toda a organização.
 
 > [!IMPORTANT]
 > Para ser elegível para várias Georreplicação, tem de ter menos de 5000 utilizadores individuais na sua subscrição do Office 365
 >
 >
 
-As regiões no Office 365 disponíveis para várias Georreplicação são:
+É possível encontrar uma lista de todos os Geos para o Office 365 no [é onde os dados localizados](https://aka.ms/datamaps).
 
-| Região | Descrição |
+Geos no Office 365 disponíveis para várias Georreplicação são:
+
+| Geo | valor de preferredDataLocation |
 | --- | --- |
-| NAM | América do Norte |
-| EUR | Europa |
-| APC | Ásia-Pacífico |
-| JPN | Japão |
-| AUS | Austrália |
-| CAN | Canadá |
-| GBR | Grã-Bretanha |
-| LAM | América Latina |
+| Ásia-Pacífico | APC |
+| Austrália | AUS |
+| Canadá | CAN |
+| União Europeia | EUR |
+| Índia | IND |
+| Japão | JPN |
+| Coreia do Sul | KOR |
+| Reino Unido | GBR |
+| Estados Unidos | NAM |
 
-Nem todas as cargas de trabalho do Office 365 suporta a utilização de definição de região de um utilizador.
+* Se um georreplicação não está listada nesta tabela, por exemplo América do Sul, em seguida,-não pode ser utilizado para várias Georreplicação.
+* Índia e Sul Coreia geos só estão disponíveis para os clientes com endereços de faturação e de licenças adquiridas nesses geos.
+* Nem todas as cargas de trabalho do Office 365 suporta a utilização de definição georreplicação de um utilizador.
 
 Azure AD Connect suporta a sincronização do **PreferredDataLocation** atributo para **utilizador** objetos na versão 1.1.524.0 e depois. Mais especificamente, as seguintes alterações foram introduzidas:
 
 * O esquema do tipo de objeto **utilizador** no conector Azure AD é expandido para incluir o atributo PreferredDataLocation, que é do tipo cadeia de valor único.
 * O esquema do tipo de objeto **pessoa** no Metaverso é expandido para incluir o atributo de PreferredDataLocation, o que é do tipo cadeia e é o valor único.
 
-Por predefinição, o atributo PreferredDataLocation não está ativado para sincronização. Esta funcionalidade foi concebida para organizações de maior e não todos seriam beneficiar do mesmo. Tem também de identificar um atributo para conter a região do Office 365 para os seus utilizadores, uma vez que não existe nenhum atributo PreferredDataLocation no Active Directory no local. Isto vai ser diferentes para cada organização.
+Por predefinição, o atributo PreferredDataLocation não está ativado para sincronização. Esta funcionalidade foi concebida para organizações de maior e não todos seriam beneficiar do mesmo. Tem também de identificar um atributo para conter a georreplicação do Office 365 para os seus utilizadores, uma vez que não existe nenhum atributo PreferredDataLocation no Active Directory no local. Isto vai ser diferentes para cada organização.
 
 > [!IMPORTANT]
 > Atualmente, Azure AD permite que o atributo PreferredDataLocation no sincronizados objetos de utilizador e nuvem utilizador objetos diretamente a ser configurado com o Azure AD PowerShell. Assim que tiver ativado a sincronização do atributo PreferredDataLocation, tem de parar a utilizar o Azure AD PowerShell para configurar o atributo em **sincronizados objetos de utilizador** como o Azure AD Connect irá substitui-los com base nos valores de atributo de origem no Active Directory no local.
@@ -245,13 +250,13 @@ Volte a ativar o agendador de sincronização incorporada:
 ## <a name="step-8-verify-the-result"></a>Passo 8: Verificar o resultado
 Agora está na altura de verificar a configuração e ativá-la para os seus utilizadores.
 
-1. Adicione a região para o atributo selecionado num utilizador. A lista de regiões disponíveis pode ser encontrada no [esta tabela](#enable-synchronization-of-preferreddatalocation).  
+1. Adicione a georreplicação para o atributo selecionado num utilizador. A lista de georreplicação disponível pode ser encontrada na [esta tabela](#enable-synchronization-of-preferreddatalocation).  
 ![Atributo de AD adicionado a um utilizador](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Aguarde que o atributo sejam sincronizados com o Azure AD.
 3. Através do Exchange Online PowerShell, certifique-se de que a região de caixa de correio foi definida corretamente.  
 ![A região de caixa de correio definir um utilizador no Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Pressupondo que o inquilino foi marcado para poder utilizar esta funcionalidade, a caixa de correio é movida para a região correta. Isto pode ser verificado ao observar o nome do servidor onde está localizada a caixa de correio.
-4. Para verificar que esta definição foi eficaz através de várias caixas de correio, utilize o script no [Galeria de Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Este script também tem uma lista de todos os prefixos de servidor de centros de dados do Office 365 e que região, este ficará localizado no. Pode ser utilizado como referência no passo anterior para verificar a localização da caixa de correio.
+Pressupondo que o inquilino foi marcado para poder utilizar esta funcionalidade, a caixa de correio é movida para a georreplicação correta. Isto pode ser verificado ao observar o nome do servidor onde está localizada a caixa de correio.
+4. Para verificar que esta definição foi eficaz através de várias caixas de correio, utilize o script no [Galeria de Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Este script também tem uma lista de todos os prefixos de servidor de centros de dados do Office 365 e que georreplicação está localizado no. Pode ser utilizado como referência no passo anterior para verificar a localização da caixa de correio.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

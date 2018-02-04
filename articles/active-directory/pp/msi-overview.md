@@ -3,8 +3,8 @@ title: "Gerido identidade de serviço (MSI) para o Azure Active Directory"
 description: "Uma descrição geral da identidade de serviço geridas para recursos do Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: 
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 53577c8da5f82235284d1cb9e48f2d47254aa6bd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Gerido identidade de serviço (MSI) para recursos do Azure
 
@@ -84,7 +84,7 @@ Os seguintes serviços do Azure suportam uma identidade de serviço geridas.
 
 | Serviço | Estado | Data | Configurar | Obter um token |
 | ------- | ------ | ---- | --------- | ----------- |
-| Máquinas Virtuais do Azure | Pré-visualização | Setembro de 2017 | [CLI do Azure](msi-qs-configure-cli-windows-vm.md)<br>[Modelos Azure Resource Manager](msi-qs-configure-template-windows-vm.md) | [Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[/ REST DE HTTP](msi-how-to-use-vm-msi-token.md#get-a-token-using-http) |
+| Máquinas Virtuais do Azure | Pré-visualização | Setembro de 2017 | [CLI do Azure](msi-qs-configure-cli-windows-vm.md)<br>[Modelos Azure Resource Manager](msi-qs-configure-template-windows-vm.md) | [Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[HTTP/REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Suporte do Azure AD que a autenticação de serviços do Azure
 
@@ -92,10 +92,10 @@ Os seguintes serviços de suportam a autenticação do Azure AD e foi testados c
 
 | Serviço | ID do Recurso | Estado | Data | Atribuir acesso |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Disponível | Setembro de 2017 | [CLI do Azure](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://Vault.Azure.NET/ | Disponível | Setembro de 2017 | |
-| Azure Data Lake | https://datalake.Azure.NET/ | Disponível | Setembro de 2017 | |
-| SQL do Azure | https://Database.Windows.NET/ | Disponível | Outubro de 2017 | |
+| Azure Resource Manager | https://management.azure.com/ | Disponível | Setembro de 2017 | [CLI do Azure](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Disponível | Setembro de 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Disponível | Setembro de 2017 | |
+| SQL do Azure | https://database.windows.net/ | Disponível | Outubro de 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quantidade de identidade de serviço geridas custos?
 

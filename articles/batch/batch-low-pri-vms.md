@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>VMs de prioridade baixa utilização com o Batch
 
-O Azure Batch proporciona baixa máquinas de virtuais (VMs) para reduzir o custo de cargas de trabalho do Batch. VMs de prioridade baixa tornar novos tipos de cargas de trabalho do Batch possíveis, fornecendo uma grande quantidade de capacidade de computação que também é económica.
-
-Prioridade baixa VMs tirar partido da capacidade surplus no Azure. Quando especificar VMs de prioridade baixa nos seus conjuntos, o Azure Batch podem utilizar automaticamente esta surplus quando disponível.
-
-O compromisso de utilização de VMs de prioridade baixa é que essas VMs podem ser impedidas quando não existem surplus capacidade está disponível no Azure. Por este motivo, as VMs de prioridade baixa são mais adequadas para determinados tipos de cargas de trabalho. Utilize as VMs de prioridade baixa para batch e cargas de trabalho de processamento assíncrono em que a hora de conclusão da tarefa é flexível e o trabalho é distribuído por várias VMs.
-
+O Azure Batch proporciona baixa máquinas de virtuais (VMs) para reduzir o custo de cargas de trabalho do Batch. Prioridade baixa VMs tornar novos tipos de Batch de computação de cargas de trabalho possíveis, permitindo uma grande quantidade de energia a ser utilizado para um custo muito baixo.
+ 
+Prioridade baixa VMs tirar partido da capacidade surplus no Azure. Quando especificar VMs de prioridade baixa nos seus conjuntos, do Azure Batch pode utilizar este surplus, quando disponível.
+ 
+O compromisso de utilização de VMs de prioridade baixa é que essas VMs poderão não estar disponíveis para ser alocado ou podem ser impedidas em qualquer altura, dependendo da capacidade disponível. Por este motivo, as VMs de prioridade baixa são mais adequadas para determinados tipos de cargas de trabalho. Utilize as VMs de prioridade baixa para batch e cargas de trabalho de processamento assíncrono em que a hora de conclusão da tarefa é flexível e o trabalho é distribuído por várias VMs.
+ 
 VMs de prioridade baixa são disponibilizadas um preço significativamente reduzida comparados com VMs dedicadas. Para detalhes de preços, consulte [preços do Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Encaminhamento de mensagens com o IoT Hub (nó)
 
@@ -104,6 +104,9 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [introduçã
 Nesta secção, criar uma fila do Service Bus, ligue-o ao seu IoT hub e configurar o seu IoT hub para enviar mensagens para a fila com base na presença de uma propriedade na mensagem. Para obter mais informações sobre como processar mensagens de filas do Service Bus, consulte [introdução às filas][lnk-sb-queues-node].
 
 1. Criar uma fila do Service Bus, conforme descrito em [introdução às filas][lnk-sb-queues-node]. Tome nota do nome do espaço de nomes e a fila.
+
+    > [!NOTE]
+    > Utilizado como pontos finais de IoT Hub não pode ter de tópicos e filas de Service Bus **sessões** ou **duplicado deteção** ativada. Se qualquer um dessas opções estiverem ativado, o ponto final é apresentado como **Unreachable** no portal do Azure.
 
 2. No portal do Azure, abra o seu IoT hub e clique em **pontos finais**.
 

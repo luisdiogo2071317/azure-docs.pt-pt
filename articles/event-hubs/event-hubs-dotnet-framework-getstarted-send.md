@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Enviar eventos para Hubs de Eventos do Azure com o Framework .NET
 
@@ -31,7 +31,7 @@ Este tutorial mostra como utilizar o [Portal do Azure](https://portal.azure.com)
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 * [Microsoft Visual Studio 2015 ou superior](http://visualstudio.com). As capturas de ecrã neste tutorial utilizam o Visual Studio 2017.
-* Uma conta ativa do Azure. Se não tiver uma, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta ativa do Azure. Se não tiver uma, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
 
@@ -39,7 +39,7 @@ O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.c
 
 ## <a name="create-a-sender-console-application"></a>Criar uma aplicação de consola do remetente
 
-Nesta secção, irá escrever uma aplicação de consola do Windows para enviar eventos para o seu hub de eventos.
+Nesta secção, escreve uma aplicação de consola do Windows envia eventos para o hub de eventos.
 
 1. No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do Visual C# com o modelo de projeto **Aplicação de Consola**. Dê ao projeto o nome **Remetente**.
    
@@ -101,7 +101,7 @@ Nesta secção, irá escrever uma aplicação de consola do Windows para enviar 
   
 Parabéns! Enviou agora mensagens para um hub de eventos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que compilou uma aplicação de trabalho que cria um hub de eventos e envia dados, pode passar para os cenários seguintes:
 
 * [Receber eventos com o Anfitrião de Processador de Eventos](event-hubs-dotnet-framework-getstarted-receive-eph.md)

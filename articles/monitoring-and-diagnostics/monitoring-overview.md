@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorização de aplicações do Azure e de recursos
 
 A monitorização é o ato de recolha e análise de dados para determinar o desempenho, o estado de funcionamento e a disponibilidade da sua aplicação de negócio e os recursos depende. Uma estratégia de monitorização efetiva irão ajudá-lo a compreender a operação de detalhado de diferentes componentes da aplicação e para aumentar o tempo de atividade por proativamente notificam dos problemas críticos, de modo a que o possa resolvê-los antes que comprometam.
 
-Azure inclui vários serviços individualmente efetuar uma tarefa ou função específica no espaço de monitorização e em conjunto fornecem uma solução abrangente para recolher, analisar e a funcionar telemetria da sua aplicação e os recursos do Azure subjacentes suporte.  Pode também funcionar para monitorizar as críticos recursos no local para fornecer uma híbrida com o ambiente de monitorização.   Compreender as ferramentas e os dados que estão disponíveis é o primeiro passo na desenvolver uma estratégia completa de monitorização para a sua aplicação. 
+Azure inclui vários serviços individualmente efetuar uma tarefa ou função específica no espaço de monitorização e em conjunto fornecem uma solução abrangente para recolher, analisar e a funcionar telemetria da sua aplicação e os recursos do Azure subjacentes suporte.  Pode também funcionar para monitorizar recursos críticos no local para fornecer uma híbrida com o ambiente de monitorização.   Compreender as ferramentas e os dados que estão disponíveis é o primeiro passo na desenvolver uma estratégia completa de monitorização para a sua aplicação. 
 
 O diagrama seguinte mostra uma vista conceptual de diferentes componentes que funcionam em conjunto para fornecer monitorização de recursos do Azure.  Cada um destes é descrita nas secções seguintes com ligações para informações técnicas detalhadas.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Suportado inspetores para a pré-visualização de preparação de dados do Azure Machine Learning
 Este documento descreve o conjunto de inspetores que estão disponíveis nesta pré-visualização.
@@ -39,7 +39,7 @@ Para colunas numéricas, este inspector proporciona uma variedade de diferentes 
 
 
 ### <a name="options"></a>Opções 
-- Nenhum
+- Nenhuma
 
 ## <a name="histogram"></a>Histograma 
 Calcula e apresenta um histograma de uma coluna numérica. O número predefinido de registos é calculado utilizando a regra de blogue. No entanto, a regra pode ser substituída através de opções.
@@ -52,6 +52,7 @@ Este Inspector suporta o efeito de halo.
 - Número predefinido de registos (regra de blogue) 
 - Mostrar halo
 - Sobreposição de desenho de densidade de kernel (Gaussian kernel) 
+- Utilizar escala logarítmica
 
 
 ### <a name="actions"></a>Ações
@@ -65,6 +66,7 @@ Este inspector apresenta uma tabela de frequência de valores para a coluna atua
 - Descendente
 - Incluir valores de erros/nulo
 - Mostrar halo
+- Utilizar escala logarítmica
 
 
 ### <a name="actions"></a>Ações 

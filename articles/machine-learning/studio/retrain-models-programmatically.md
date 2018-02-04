@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
-ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: raymondl;garye
+ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Voltar a preparar modelos do Machine Learning programaticamente
 Nestas instruções, irá aprender a reparametrização programática de um serviço Web do Azure Machine Learning utilizar c# e o serviço de execução de lote do Machine Learning.
@@ -167,7 +167,7 @@ Examine os resultados para determinar se o modelo treinado recentemente efetua b
 
 Copiar o *BaseLocation*, *RelativeLocation*, e *SasBlobToken* nos resultados de saída, irá utilizá-los durante o processo de reparametrização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se implementou o serviço web preditiva clicando **implementar o serviço Web [clássico]**, consulte [reparametrização de um serviço de web clássico](retrain-a-classic-web-service.md).
 
 Se implementou o serviço web preditiva clicando **implementar o serviço Web do [New]**, consulte [reparametrização de um novo serviço web utilizando os cmdlets de gestão do Machine Learning](retrain-new-web-service-using-powershell.md).

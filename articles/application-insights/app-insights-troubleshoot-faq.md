@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas mais frequentes
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/03/2018
 * [Serviços em nuvem no Azure](app-insights-cloudservices.md)
 * [Servidores de aplicações em execução no Docker](app-insights-docker.md)
 * [Aplicações web de página única](app-insights-javascript.md)
-* [SharePoint](app-insights-sharepoint.md)
+* [Sharepoint](app-insights-sharepoint.md)
 * [Aplicação de ambiente de trabalho do Windows](app-insights-windows-desktop.md)
 * [Outras plataformas](app-insights-platforms.md)
 
@@ -68,7 +68,7 @@ Os detalhes dependem do tipo de projeto. Para uma aplicação web:
 
 * Adiciona estes ficheiros ao seu projeto:
 
-  * Applicationinsights.
+  * ApplicationInsights.config.
   * ai.js
 * Instala estes pacotes de NuGet:
 
@@ -82,7 +82,7 @@ Os detalhes dependem do tipo de projeto. Para uma aplicação web:
 * Insere itens para:
 
   * Web.config
-  * Packages
+  * packages.config
 * (Novos projetos só - se que [adicionar o Application Insights para um projeto existente][start], terá de fazê-lo manualmente.) Insere fragmentos no código de cliente e servidor ao inicializá-los com o ID de recurso do Application Insights. Por exemplo, numa aplicação MVC, é inserido código à página principal Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Como atualizar a partir de versões anteriores do SDK?
@@ -152,7 +152,7 @@ Observe [retenção de dados e privacidade][data].
 
 Isto é possível se o seu código envia esses dados. Também pode acontecer se as variáveis de rastreios de pilha incluem PII. A equipa de desenvolvimento deve realizar avaliações de risco para se certificar de que é corretamente processada PII. [Saiba mais sobre retenção de dados e privacidade](app-insights-data-retention-privacy.md).
 
-O octeto última do endereço de web de cliente está sempre definido como 0 após ingestão pelo portal.
+**Todos os** octetos do endereço de web de cliente são sempre definidos como 0 depois dos atributos de localização georreplicação estão a ser procurados.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>A minha iKey é visível na minha origem da página web. 
 

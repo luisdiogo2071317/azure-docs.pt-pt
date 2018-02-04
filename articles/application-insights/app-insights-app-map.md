@@ -1,6 +1,6 @@
 ---
 title: "O mapeamento de aplicações no Azure Application Insights | Microsoft Docs"
-description: "Uma apresentação visual de dependências entre os componentes de aplicação, etiquetadas com alertas e KPIs."
+description: "Monitorizar topologias complexas aplicações com o mapa de aplicação"
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>Mapa de aplicação no Application Insights
-No [Azure Application Insights](app-insights-overview.md), o mapeamento de aplicações é um esquema visual das relações de dependência dos componentes da aplicação. Cada componente mostra KPIs, tais como a carga, desempenho, falhas e os alertas, para o ajudar a detetar qualquer componente causar um problema de desempenho ou a falha. Pode clicar sucessivamente de qualquer componente para obter um diagnóstico mais detalhado, tais como eventos do Application Insights. Se a sua aplicação utiliza serviços do Azure, também pode clicar sucessivamente para obter um diagnóstico do Azure, tais como recomendações do Assistente de base de dados do SQL Server.
+# <a name="application-map-triage-distributed-applications"></a>Mapa de aplicação: As aplicações distribuídas de triagem
+O mapeamento de aplicações ajuda-o a congestionamentos de desempenho spot ou hotspots falha em todos os componentes da aplicação distribuída. Cada nó no mapa representa um componente da aplicação ou as respetivas dependências; tem o estado de funcionamento KPI e alertas de estado. Pode clicar sucessivamente de qualquer componente para obter um diagnóstico mais detalhado, tais como eventos do Application Insights. Se a sua aplicação utiliza serviços do Azure, também pode clicar sucessivamente para obter um diagnóstico do Azure, tais como recomendações do Assistente de base de dados do SQL Server.
 
-Como outros gráficos, pode afixar um mapa de aplicação para o dashboard do Azure, onde este fica totalmente funcional. 
+## <a name="what-is-a-component"></a>O que é um componente?
 
-## <a name="open-the-application-map"></a>Abra o mapa de aplicação
-Abra o mapa do painel de descrição geral para a sua aplicação:
+Componentes são independentemente implementáveis partes da aplicação distribuída/micro-serviços. As equipas de operações e os programadores têm visibilidade de nível de código ou o acesso a telemetria gerada por estes componentes da aplicação. 
 
-![Abra o mapa de aplicação](./media/app-insights-app-map/01.png)
+* Componentes são diferentes das "observadas" dependências externas, como SQL, etc. EventHub que a sua organização/equipa pode não ter acesso ao (código ou telemetria).
+* Componentes de executam em qualquer número de instâncias do servidor/função/contentor.
+* Componentes podem ser separadas chaves de instrumentação do Application Insights (mesmo se subscrições diferentes) ou diferentes funções de relatório para uma única chave de instrumentação do Application Insights. A experiência de mapa de pré-visualização mostra os componentes, independentemente de como estas estão configuradas.
 
-![mapa de aplicação](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>Mapeamento de aplicações composto (pré-visualização)
+*Esta é uma versão de pré-visualização antecipado e iremos adicionar mais funcionalidades para este mapa. Gostaríamos de obter os seus comentários sobre a nova experiência. Pode alternar entre a pré-visualização e o clássicas experiências facilmente.*
+
+Ativar o "Composto o mapeamento de aplicações" a partir de [lista pré-visualizações](app-insights-previews.md), ou clique em "Mapa de pré-visualização" no botão de alternar no canto superior direito. Pode utilizar este botão de alternar para mudar para a experiência de clássica.
+![Ativar o mapa de pré-visualização](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+Esta pré-visualização substitui a pré-visualização de "mapa de aplicação de função Mult" anterior. Neste momento, utilize esta opção para ver a topologia completa através de vários níveis de componente de dependências de aplicações. Dê-nos seus comentários, iremos adicionar capacidades mais semelhantes ao que suporta o mapa de clássico.
+
+Pode ver a topologia de aplicação completa através de vários níveis dos componentes de aplicação relacionada. Componentes podem ser diferentes recursos do Application Insights, ou para outras funções num único recurso. O mapa de aplicação localiza componentes ao seguintes chamadas de dependência HTTP efetuadas entre servidores com o Application Insights SDK instalado. 
+
+Esta experiência começa com a deteção de transferência progressiva dos componentes. Quando o primeiro a carregar a pré-visualização, um conjunto de consultas são acionadas para detetar os componentes relacionados com este componente. Um botão no canto superior esquerdo será atualizado com o número de componentes na sua aplicação, como os mesmos forem detetados. 
+![Mapa de pré-visualização](media/app-insights-app-map/preview.png)
+
+Ao clicar em "Componentes de mapa de atualização", o mapa está atualizado com todos os componentes detetados até que ponto.
+![Mapa de carregar de pré-visualização](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+Se todos os componentes são funções dentro de um único recurso do Application Insights, em seguida, este passo de deteção não é necessário. A carga inicial para uma aplicação deste tipo tem de todos os respetivos componentes.
+
+Um dos principais objetivos com a nova experiência é conseguir visualizar topologias complexas com centenas de componentes. A nova experiência suporta zoom e adiciona detalhes como a zoom-in. -Pode zoom escalamento para ver mais componentes rapidamente e os componentes ainda spot com superiores taxas de falha. 
+
+![Níveis de zoom](media/app-insights-app-map/zoom-levels.png)
+
+Clique em qualquer componente insights relacionados e vá para o desempenho e a experiência de triagem de falha desse componente.
+
+![Flyout](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>Mapeamento de aplicações clássico
 
 O mapa mostra:
 
@@ -38,9 +67,11 @@ O mapa mostra:
 * Componente do lado do servidor
 * Dependências dos componentes de cliente e servidor
 
+![mapa de aplicação](./media/app-insights-app-map/02.png)
+
 Pode expandir e fechar a grupos de ligação de dependência:
 
-![Fechar](./media/app-insights-app-map/03.png)
+![fechar](./media/app-insights-app-map/03.png)
 
 Se tiver uma grande quantidade de dependências de um tipo (SQL Server, etc. HTTP), que possam aparecer agrupados. 
 
@@ -99,22 +130,6 @@ Alguns tipos de recurso, o estado de funcionamento do recurso é apresentado na 
 
 Pode clicar no nome de recurso para ver as métricas de descrição geral de padrão para esse recurso.
 
-## <a name="end-to-end-system-app-maps"></a>Mapas de aplicação de sistema de ponto a ponto
-
-*Requer SDK versão 2.3 ou superior*
-
-Se a aplicação tem de vários componentes - por exemplo, um serviço de back-end além da aplicação web –, em seguida, pode apresentar todos os num mapa de uma aplicação integrada.
-
-![Conjunto de filtros](./media/app-insights-app-map/multi-component-app-map.png)
-
-O mapa de aplicação localiza nós do servidor seguindo quaisquer chamadas de dependência HTTP feitas entre servidores com o Application Insights SDK instalado. Cada recurso do Application Insights é assumido que contém um servidor.
-
-### <a name="multi-role-app-map-preview"></a>Mapa de aplicação de função multi (pré-visualização)
-
-A funcionalidade de mapa de aplicação de função multi pré-visualização permite-lhe utilizar o mapa de aplicação com vários servidores de envio de dados ao mesmo recurso do Application Insights / chave de instrumentação. Servidores no mapa são segmentadas pela propriedade cloud_RoleName em itens de telemetria. Definir *mapa de aplicação de função Multi* para *no* partir do painel de pré-visualizações para ativar esta configuração.
-
-Esta abordagem poderá ser pretendida numa aplicação microserviços ou noutros cenários em que pretenda correlacionar eventos por vários servidores dentro de um único recurso do Application Insights.
-
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
@@ -125,6 +140,6 @@ Forneça comentários através da opção de comentários do portal.
 ![Imagem de MapLink-1](./media/app-insights-app-map/13.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Portal do Azure](https://portal.azure.com)

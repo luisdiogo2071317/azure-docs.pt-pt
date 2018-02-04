@@ -57,14 +57,14 @@ Execute personalizadas ou comerciais aplicações HPC no Azure. São vários os 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB distribuídas Server informática](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
 ### <a name="graphics-and-rendering"></a>Gráficos e composição
 
-* [Autodesk Maya, 3ds máx. e Arnold](../articles/batch/batch-rendering-service.md) no Azure Batch (pré-visualização)
+* [Autodesk Maya, 3ds máx. e Arnold](../articles/batch/batch-rendering-service.md) do Azure batch 
 
 ### <a name="ai-and-deep-learning"></a>AI e aprendizagem profunda
 
@@ -103,11 +103,12 @@ Fornecedores de SaaS ou os programadores podem utilizar os SDKs do Batch e ferra
 
 Aprenda a:
 
-* [Começar a desenvolver com Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Começar a desenvolver com Batch](../articles/batch/quick-run-dotnet.md)
 * [Utilizar os exemplos de código do Azure Batch](https://github.com/Azure/azure-batch-samples)
 * [VMs de prioridade baixa utilização com o Batch](../articles/batch/batch-low-pri-vms.md)
 * [Executar de cargas de trabalho HPC com Shipyard do Batch](https://github.com/Azure/batch-shipyard)
 * [Utilizar a linguagem de R com o Batch](https://github.com/Azure/doAzureParallel)
+* [Execute o Toolkit de engenharia do Azure dados distribuídos do batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Gestores de carga de trabalho
 
@@ -127,6 +128,7 @@ Cargas de trabalho em grande escala Batch e HPC têm exigências de armazenament
 Saiba mais:
 
 * [Sistemas de ficheiros paralelas para armazenamento HPC no Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Soluções de armazenamento de nuvem de elevado desempenho de [Avere](http://www.averesystems.com/about-us/about-avere) (agora [associado ao Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Serviços relacionados do Azure
@@ -139,11 +141,14 @@ Máquinas virtuais do Azure, conjuntos de dimensionamento de máquina virtual, B
 * [Armazenamento de ficheiros](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dados e análise
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) para clusters do Hadoop no Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [Base de Dados SQL](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>Serviços cognitivos e de AI
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Redes
 * [Rede Virtual](../articles/virtual-network/virtual-networks-overview.md)
@@ -160,7 +165,7 @@ Máquinas virtuais do Azure, conjuntos de dimensionamento de máquina virtual, B
 Seguem-se exemplos de clientes que tiverem resolvido problemas empresariais com soluções HPC do Azure:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
-* [AXA Global P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
+* [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
@@ -172,7 +177,7 @@ Seguem-se exemplos de clientes que tiverem resolvido problemas empresariais com 
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre soluções de Macrocomputação para [simulação de engenharia](https://simulation.azure.com/), [composição](https://simulation.azure.com/), [mercados banking e capital](https://finance.azure.com/), e [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Para os anúncios mais recentes, veja o [blogue da equipa do Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e o [blogue do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testar a sua solução com dispositivos simulados
 
@@ -131,24 +131,24 @@ Os seguintes comandos a utilizar o `az` comando de [Azure CLI 2.0](https://docs.
 1. Para ativar o acesso SSH a máquina virtual, execute o seguinte comando com o nome do seu grupo de segurança de rede do passo anterior:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Para ver a lista de regras de entrada para a sua rede, execute o seguinte comando:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Para alterar a palavra-passe da máquina virtual para uma palavra-passe souber, execute o seguinte comando. Utilize o nome da máquina virtual que apontou anteriormente e uma palavra-passe da sua preferência:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Para localizar o endereço IP da sua máquina virtual, utilize o comando seguinte e anote o endereço IP público:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Agora, pode utilizar o SSH para ligar à máquina virtual. O `ssh` comando é pré-instaladas na Shell de nuvem. Utilize o endereço IP público do passo anterior e, quando lhe for pedido, a palavra-passe que configurou para a máquina virtual:

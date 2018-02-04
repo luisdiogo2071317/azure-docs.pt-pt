@@ -1,7 +1,5 @@
 # Descrição geral
 ## [Guia para programadores](azure-developer-guide.md) 
-## [Descrição Geral dos serviços do Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Descrição geral do portal](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDKs e ferramentas](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Início Rápido
@@ -99,7 +97,7 @@
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
-### [python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Interfaces da linha de comandos
 ### [CLI do Azure](https://docs.microsoft.com/cli/azure/)

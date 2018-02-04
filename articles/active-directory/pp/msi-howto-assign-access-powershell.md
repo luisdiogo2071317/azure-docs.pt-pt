@@ -3,8 +3,8 @@ title: Como atribuir acesso MSI para um recurso do Azure, utilizando o PowerShel
 description: "Passo a passo instruções para atribuir um MSI um recurso, aceder a outro recurso, utilizando o PowerShell."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8b3b000b4dc708e50c7e96fe04646837c96a555a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c9f146e829e463fbdaf1bcff8747ffc5dd055ecb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Atribuir acesso uma identidade de serviço geridas (MSI) a um recurso com o PowerShell
 

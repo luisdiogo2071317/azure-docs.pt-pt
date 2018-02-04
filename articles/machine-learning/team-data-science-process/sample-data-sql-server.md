@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: garye;bradsev
+ms.openlocfilehash: a82e4703f68271d6d10719e6be8465efa9b71a79
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>Dados de exemplo no SQL Server no Azure
 Este artigo mostra como os dados armazenados no SQL Server no Azure de exemplo através do SQL Server ou a linguagem de programação do Python. Também mostra como mover amostras de dados no Azure Machine Learning ao guardá-lo para um ficheiro, carregá-lo para um blob do Azure e, em seguida, ao ler para o Azure Machine Learning Studio.

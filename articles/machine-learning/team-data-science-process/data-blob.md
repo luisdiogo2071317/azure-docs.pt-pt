@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: a31b77ca2d315b506c925a83a5050c0e70c54842
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: garye;bradsev
+ms.openlocfilehash: f3388728b2c2ea699a2caf764dc0fd3e9ff19505
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>Processar os dados de Blobs do Azure com a análise avançada
 Este documento abrange a explorar os dados e funcionalidades de geração de dados armazenados no Blob storage do Azure. 
@@ -77,11 +77,11 @@ Seguem-se alguns exemplos de formas para explorar dados Pandas a utilizar:
         print miss_num
 7. Se tiver os valores em falta para uma coluna específico nos dados, pode removê-los da seguinte forma:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    Outra forma de substituir os valores em falta é com a função de modo:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna ({< nome_coluna >: .mode()[0]}) dataframe_blobdata ['< nome_coluna >']        
+     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. Criar um desenho de histograma utilizando variável número de intervalos binários para desenhar a distribuição de uma variável    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')

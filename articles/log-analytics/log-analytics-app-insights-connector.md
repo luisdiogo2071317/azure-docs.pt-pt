@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solução de conector das informações da aplicação (pré-visualização) no Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão do Application Insights conector (pré-visualização) 
 
 ![Símbolo do Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-A solução de conector das informações de aplicações ajuda-o a diagnosticar problemas de desempenho e compreenda que os utilizadores fazem com a aplicação quando está a ser monitorizado com [Application Insights](../application-insights/app-insights-overview.md). Vistas da mesma telemetria de aplicações que os programadores ver no Application Insights estão disponíveis no OMS. No entanto, quando integrar as suas aplicações do Application Insights com o OMS, visibilidade das suas aplicações é aumentada, fazendo com que a operação e dados de aplicações num único local. Ter as mesmas vistas ajuda-o a colaborar com os programadores de aplicações. As vistas comuns podem ajudá-lo a reduzir o tempo para detetar e resolver a aplicação e problemas de plataforma.
+A solução de conector das informações de aplicações ajuda-o a diagnosticar problemas de desempenho e compreenda que os utilizadores fazem com a aplicação quando está a ser monitorizado com [Application Insights](../application-insights/app-insights-overview.md). Vistas da mesma telemetria de aplicações que os programadores ver no Application Insights estão disponíveis na análise de registos. No entanto, quando integrar as suas aplicações do Application Insights a análise de registos, visibilidade das suas aplicações é aumentada, fazendo com que a operação e dados de aplicações num único local. Ter as mesmas vistas ajuda-o a colaborar com os programadores de aplicações. As vistas comuns podem ajudá-lo a reduzir o tempo para detetar e resolver a aplicação e problemas de plataforma.
 
 Quando utilizar a solução, pode:
 
 - Ver todas as suas aplicações do Application Insights num único local, mesmo quando estão em diferentes subscrições do Azure
 - Correlacionar dados de infraestrutura com dados de aplicação
 - Visualizar dados de aplicação com perspetivas na pesquisa de registo
-- Passar a partir dos dados de análise de registos para a aplicação Application Insights no OMS e portais do Azure
+- Passar a partir dos dados de análise de registos para a aplicação Application Insights no portal do Azure
 
 ## <a name="connected-sources"></a>Origens ligadas
 
@@ -63,8 +63,8 @@ Em aproximadamente 30 minutos, dados ficam disponíveis e o mosaico do Applicati
 
 Outros pontos a ter em mente:
 
-- Só pode associar aplicações do Application Insights para uma área de trabalho do OMS.
-- Só pode associar [recursos Standard ou Premium Application Insights](https://azure.microsoft.com/pricing/details/application-insights) à análise de registos do OMS. No entanto, pode utilizar o escalão gratuito de análise de registos.
+- Só pode associar aplicações do Application Insights para uma área de trabalho de análise de registos.
+- Só pode associar [recursos Standard ou Premium Application Insights](https://azure.microsoft.com/pricing/details/application-insights) à análise de registos. No entanto, pode utilizar o escalão gratuito de análise de registos.
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
@@ -129,7 +129,7 @@ Componentes de perspetiva são atualizados dependendo da consulta de pesquisa. I
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Passar para uma aplicação no portal do Azure
 
-Painéis do conector das informações de aplicação foram concebidos para permitir a passar para a aplicação Application Insights selecionada *ao utilizar o portal do OMS*. Pode utilizar a solução como uma plataforma de monitorização de alto nível que o ajuda a resolver problemas de uma aplicação. Quando vir um potencial problema em qualquer uma das suas aplicações ligadas, pode a desagregação para a mesma na OMS pesquisa ou pode ser dinâmico diretamente para a aplicação Application Insights.
+Painéis do conector das informações de aplicação foram concebidos para permitir a passar para a aplicação Application Insights selecionada *ao utilizar o portal do OMS*. Pode utilizar a solução como uma plataforma de monitorização de alto nível que o ajuda a resolver problemas de uma aplicação. Quando vir um potencial problema em qualquer uma das suas aplicações ligadas, pode a desagregação para a mesma na análise de registos de pesquisa ou pode ser dinâmico diretamente para a aplicação Application Insights.
 
 Para dinâmico, clique nas reticências (**...** ) que é apresentada no final de cada linha e selecione **aberta no Application Insights**.
 
@@ -140,7 +140,7 @@ Para dinâmico, clique nas reticências (**...** ) que é apresentada no final d
 
 ### <a name="sample-corrected-data"></a>Dados de exemplo-corrigidos
 
-Application Insights fornece  *[amostragem correção](../application-insights/app-insights-sampling.md)*  para ajudar a reduzir o tráfego de telemetria. Quando ativa a amostragem na sua aplicação Application Insights, obter um número reduzido de entradas armazenados no Application Insights e no OMS. Enquanto a consistência dos dados é preservada no **Application Insights conector** página e perspetivas, manualmente deve corrigir amostras de dados para as suas consultas personalizadas.
+Application Insights fornece  *[amostragem correção](../application-insights/app-insights-sampling.md)*  para ajudar a reduzir o tráfego de telemetria. Quando ativa a amostragem na sua aplicação Application Insights, obter um número reduzido de entradas armazenados no Application Insights e na análise de registos. Enquanto a consistência dos dados é preservada no **Application Insights conector** página e perspetivas, manualmente deve corrigir amostras de dados para as suas consultas personalizadas.
 
 Eis um exemplo de correção de amostra de uma consulta de pesquisa de registo:
 
@@ -162,7 +162,7 @@ A solução recebe os seguintes tipos de telemetria dos dados das suas aplicaç�
 - Vistas de página – para a sua área de trabalho receber as vistas de página, tem de configurar as suas aplicações para recolher informações. Fore obter mais informações, consulte [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Eventos personalizados – para a sua área de trabalho receber eventos personalizados, tem de configurar as suas aplicações para recolher informações. Fore obter mais informações, consulte [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Dados são recebidos pelo OMS do Application Insights como ficar disponível.
+Análise de registos do Application Insights é recebidos dados como ficar disponível.
 
 ## <a name="output-data"></a>Dados de saída
 

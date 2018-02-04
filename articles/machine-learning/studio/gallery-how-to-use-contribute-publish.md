@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: garye
+ms.openlocfilehash: 5ccb595e24d8ee169cc6ee589a3ddc2f9fef5dcd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e detetar recursos na Galeria de AI do Azure
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -83,8 +83,8 @@ Pode iniciar sessão com uma ferramenta de debate como Disqus e receber notifica
 Pode contribuir os seguintes itens para a Galeria - siga estas ligações para obter mais informações:
 
 * **[Coleções](gallery-collections.md#contribute)**
-* **[Experimentações](gallery-experiments.md#contribute)**
-* **[Tutoriais](gallery-tutorials.md#contribute)**
+* **[Experiments](gallery-experiments.md#contribute)**
+* **[Tutorials](gallery-tutorials.md#contribute)**
 
 ## <a name="we-want-to-hear-from-you"></a>Queremos ouvi da!
 Queremos Galeria para conduzido pelos nossos utilizadores e para os nossos utilizadores. Utilize o smiley à direita para nos dizer o que lhe adoram ou hate sobre a galeria.  

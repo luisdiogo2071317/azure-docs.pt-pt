@@ -14,9 +14,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
 ---
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> O Centro de dados do Windows Server 2016 não suporta o mapeamento SMB monta para contentores ([que só é suportada no Windows Server versão 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Isto impede o mapeamento do volume de rede e controladores de volume de ficheiros do Azure nas versões mais antigas do que 1709. 
+> O Centro de dados do Windows Server 2016 não suporta o mapeamento SMB monta para contentores ([que só é suportada no Windows Server versão 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Esta restrição impede o mapeamento do volume de rede e controladores de volume de ficheiros do Azure nas versões mais antigas do que 1709. 
 >   
 
 
@@ -53,8 +53,9 @@ Os plug-ins são especificados no manifesto da aplicação da seguinte forma:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ Os plug-ins são especificados no manifesto da aplicação da seguinte forma:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ Os plug-ins são especificados no manifesto da aplicação da seguinte forma:
 
 O **origem** etiqueta para o **Volume** elemento refere-se para a pasta de origem. A pasta de origem pode ser uma pasta na VM que aloja os contentores ou um arquivo persistente remoto. O **destino** etiquetas é a localização que o **origem** está mapeado para no contentor em execução. Assim, o seu destino não pode ser uma localização que já existe no contentor de.
 
+São suportados parâmetros de aplicação para volumes, conforme ilustrado no fragmento de manifesto anterior (procure `MyStoreVar` para obter um exemplo utilizar).
+
 Quando especificar um plug-in de volume, o Service Fabric cria automaticamente o volume utilizando os parâmetros especificados. O **origem** etiqueta é o nome do volume e o **controlador** tag Especifica o plug-in de controlador de volume. Podem ser especificadas opções utilizando o **DriverOption** tag da seguinte forma:
 
 ```xml
@@ -93,4 +96,4 @@ Quando especificar um plug-in de volume, o Service Fabric cria automaticamente o
 Se não for especificado um controlador de registo do Docker, tem de implementar agentes (ou contentores) para processar os registos no cluster. O **DriverOption** etiqueta pode ser utilizada para especificar as opções do controlador de registo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para implementar um cluster do Service Fabric contentores, consulte [implementar um contentor no Service Fabric](service-fabric-deploy-container.md).
+Para implementar um cluster do Service Fabric contentores, consulte o artigo [implementar um contentor no Service Fabric](service-fabric-deploy-container.md).

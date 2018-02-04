@@ -3,8 +3,8 @@ title: "Como utilizar um utilizador atribuído geridos serviço identidade da SD
 description: "Exemplos de código para utilizar os SDKs do Azure com um MSI utilizador atribuído numa VM."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,24 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f9a31a0500a6f5f1c49fc45d5811e28788e6f2b1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Utilize SDKs do Azure com um utilizador atribuído geridos serviço de identidade (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Este artigo fornece uma lista de amostras SDK, que demonstram a utilização de suporte dos seus respetivos Azure do SDK para o utilizador atribuído MSI.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Este artigo fornece uma lista de amostras SDK, que demonstram a utilização de suporte dos seus respetivos Azure do SDK para o utilizador atribuído MSI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 > [!IMPORTANT]
-> - Todos os código/script de exemplo neste artigo assume que o cliente está em execução numa máquina Virtual ativada de MSI. Utilize a funcionalidade VM "Ligar" no portal do Azure, para ligar remotamente à VM. Para obter mais informações sobre como ativar MSI numa VM, consulte [configurar uma VM geridos serviço de identidade (MSI) utilizando a CLI do Azure](msi-qs-configure-cli-windows-vm.md), ou um dos artigos variantes (utilizando o PowerShell, Portal do Azure, um modelo ou um SDK do Azure). 
+> - Todos os código/script de exemplo neste artigo assume que o cliente está em execução numa máquina Virtual ativada de MSI. Utilize a funcionalidade VM "Ligar" no portal do Azure, para ligar remotamente à VM. Para obter mais informações sobre como ativar MSI numa VM, consulte [configurar uma VM geridos serviço de identidade (MSI) utilizando a CLI do Azure](msi-qs-configure-cli-windows-vm.md), ou um dos artigos variantes (utilizando o PowerShell, portal do Azure, um modelo ou um SDK do Azure). 
 
 ## <a name="sdk-code-samples"></a>Exemplos de código do SDK
 

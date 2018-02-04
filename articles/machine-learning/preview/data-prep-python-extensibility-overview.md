@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensões de Python preparativos de dados
 Como uma forma de preencher os intervalos de funcionalidade entre funções incorporadas, o Azure Machine Learning dados preparativos inclui extensibilidade em vários níveis. Neste documento, vamos descrevem a extensibilidade através do script do Python. 
@@ -125,7 +125,7 @@ ou
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Utilize módulos personalizados
-No transformar fluxo de dados (scripts), escreva python código como esta:
+Na transformação fluxo de dados (scripts), escreva o seguinte código Python
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-Na coluna Adicionar (Script), defina o tipo de bloco de código = módulo e escrever python código seguinte:
+Na coluna Adicionar (Script), defina o tipo de bloco de código = módulo e escreva o seguinte código de Python
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Para contextos de execução diferente (local, spark de docker), aponte caminho absoluto para o local certo. Poderá querer utilizar "os.getcwd() + relativePath" a localizá-la.
+Para contextos de execução diferente (local, Docker, Spark), aponte caminho absoluto para o local certo. Poderá querer utilizar "os.getcwd() + relativePath" a localizá-la.
 
 
 ## <a name="column-data"></a>Dados da coluna 

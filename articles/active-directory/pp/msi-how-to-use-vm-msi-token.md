@@ -3,7 +3,7 @@ title: "Como utilizar uma identidade de serviço geridas para utilizador atribu�
 description: "Passo a passo instruções e exemplos de utilização de um MSI utilizador atribuído a partir de uma VM do Azure para adquirir um OAuth token de acesso ao."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,17 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5c9bf052ecb2e9c79e0eb627a0fd709d587125cd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Adquirir um token de acesso para uma VM atribuída utilizador da identidade de serviço geridas (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Este artigo fornece vários exemplos de código e o script para a aquisição do token, bem como orientações tópicos importantes, como o tratamento de expiração do token e erros de HTTP.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Este artigo fornece vários exemplos de código e o script para a aquisição do token, bem como orientações tópicos importantes, como o tratamento de expiração do token e erros de HTTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -144,7 +145,7 @@ Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é um
 | 401 não autorizado | unknown_source | Origem  *\<URI\>* | Certifique-se de que o URI do pedido HTTP GET está formatado corretamente. O `scheme:host/resource-path` parte tem de ser especificada como `http://localhost:50342/oauth2/token`. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo.|
 |           | invalid_request | O pedido tem um parâmetro necessário em falta, inclui um valor de parâmetro inválido, inclui um parâmetro de mais do que uma vez ou caso contrário, tem um formato incorreto. |  |
 |           | unauthorized_client | O cliente não está autorizado para pedir um token de acesso através deste método. | Causado por um pedido que não utiliza local loopback para chamar a extensão ou numa VM que não tem um MSI configurado corretamente. Consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](msi-qs-configure-portal-windows-vm.md) se necessitar de assistência com a configuração de VM. |
-|           | ACCESS_DENIED | O proprietário do recurso ou autorização servidor negou o pedido. |  |
+|           | access_denied | O proprietário do recurso ou autorização servidor negou o pedido. |  |
 |           | unsupported_response_type | O servidor de autorização não suporta a obtenção de um token de acesso através deste método. |  |
 |           | invalid_scope | Âmbito do pedido é inválido, desconhecido ou com formato incorreto. |  |
 | Erro interno do servidor 500 | desconhecido | Falha ao obter o token do Active directory. Para mais informações, consulte os registos no  *\<caminho do ficheiro\>* | Certifique-se de que foi ativado MSI da VM. Consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](msi-qs-configure-portal-windows-vm.md) se necessitar de assistência com a configuração de VM.<br><br>Certifique-se também de que o URI do pedido HTTP GET está formatado corretamente, particularmente o URI especificado na cadeia de consulta do recurso. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo ou [que suporte do Azure AD a autenticação de serviços do Azure](msi-overview.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de serviços e os respetivos IDs de recurso.

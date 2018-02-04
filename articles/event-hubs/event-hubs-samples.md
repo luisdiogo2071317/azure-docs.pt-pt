@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Exemplos de Hubs de eventos 
 
@@ -45,7 +45,7 @@ O [começar a enviar](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 O [começar a receber com o anfitrião do processador de eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) exemplo é uma aplicação de consola .NET Core que recebe mensagens do hub de eventos utilizando o anfitrião do processador de eventos.
 
-## <a name="net-framework"></a>.NET framework   
+## <a name="net-framework"></a>.NET Framework   
 
 Estes exemplos demonstram várias outras funcionalidades do Event Hubs do Azure, como objetivo o [biblioteca .NET Framework](/dotnet/framework/index).
  
@@ -60,10 +60,6 @@ O [Event Hubs introdução](https://code.msdn.microsoft.com/Service-Bus-Event-Hu
 ### <a name="scale-out-event-processing"></a>Aumentar horizontalmente o processamento de eventos 
 
 O [aumentar horizontalmente o processamento de eventos](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) exemplo demonstra como utilizar o [anfitrião do processador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) para distribuir a carga de trabalho de consumo de fluxo de Event Hubs. Mostra como implementar o **EventProcessor** e **EventProcessorFactory** objetos a gerir o fluxo de eventos. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Extrair dados do SQL Server para um hub de eventos
-
-O [dados do SQL extrair](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) exemplo mostra como solicitar dados de uma tabela SQL e enviá-lo para um hub de eventos, para utilizar como uma entrada em aplicações analíticas a jusante.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Extrair dados da web para um hub de eventos 
 

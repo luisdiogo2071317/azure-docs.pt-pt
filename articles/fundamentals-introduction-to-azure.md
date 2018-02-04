@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="introducing-microsoft-azure"></a>Introdução ao Microsoft Azure
 Microsoft Azure é plataforma de aplicações da Microsoft para a nuvem pública.  O objetivo deste artigo é para lhe fornecer uma Fundação para compreender as noções básicas do Azure, mesmo se não souber nada sobre nuvem informática.
@@ -68,7 +68,7 @@ Esta abordagem bastante geral para a informática em nuvem pode ser utilizada pa
 3. **Expandir o seu centro de dados** -utilize as VMs do Azure como uma extensão do seu centro de dados no local, com o SharePoint ou outras aplicações. Para suportar isto, é possível criar os domínios do Windows na nuvem através da execução do Active Directory em VMs do Azure. Pode utilizar a rede Virtual do Azure (mencionado mais tarde) associar a rede local e a sua rede no Azure em conjunto.
 
 ### <a name="web-apps"></a>Aplicações Web
-![ROBBCSIART_TEST de aplicações Web do Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png)   
+![Azure Web Apps ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png)   
  *Figura: As aplicações Web do Azure é executada uma aplicação de Web site na nuvem sem ter de gerir o servidor web subjacente.*
 
 Um dos aspetos mais comuns que pessoas fazer na nuvem é executado sites e aplicações web. Máquinas virtuais do Azure permite isto, mas ainda sai, com a responsabilidade de administrar uma ou mais VMs e os sistemas de operativos subjacentes. Funções de web de serviços na nuvem podem fazer isto, mas implementar e mantê-los ainda demora trabalho administrativo.  E se pretender apenas um Web site em que outra pessoa encarrega-se do trabalho administrativo para si?

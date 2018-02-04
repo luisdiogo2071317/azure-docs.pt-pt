@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 Pilha do Azure tem uma rede de infraestrutura público com externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, VMs inquilinas. São necessários certificados PKI com os nomes DNS adequados para estes pontos finais públicos de infraestrutura de pilha do Azure durante a implementação de pilha do Azure. Este artigo fornece informações sobre:
@@ -27,6 +27,8 @@ Pilha do Azure tem uma rede de infraestrutura público com externamente acessív
 - Os certificados são necessários para implementar a pilha do Azure
 - O processo de obtenção de certificados correspondentes essas especificações
 - Como preparar, validar e utilizar os certificados em questão durante a implementação
+> [!NOTE]
+> Durante a implementação tem de copiar certificados para a pasta de implementação que corresponda ao fornecedor de identidade que está a implementar contra (Azure AD ou AD FS). Se utilizar um certificado único para todos os pontos finais, tem de copiar esse ficheiro de certificado para cada pasta de implementação, conforme descrito nas tabelas abaixo. A estrutura da pasta é criada previamente na máquina virtual implementação e podem ser encontrada em: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 A lista seguinte descreve os requisitos de certificados que são necessários para implementar a pilha do Azure: 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurar origens de implementação
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
@@ -49,8 +49,7 @@ Tem de ter uma conta GitHub para concluir esta tarefa. Pode querer utilizar uma 
 2. Introduza um **nome da aplicação** por exemplo - o serviço de aplicações na pilha do Azure.
 3. Introduza o **home page URL**. O URL de home page tem de ser o endereço de Portal de pilha do Azure. Por exemplo, https://portal.local.azurestack.external.
 4. Introduza um **descrição da aplicação**.
-5. Introduza o **URL de chamada de retorno de autorização**.  Numa implementação do Azure pilha predefinida, o Url está a ser https://portal.local.azurestack.external/tokenauthorize formulário, se estiver a executar em substitui a um domínio diferente do domínio para azurestack.local.
-    ![GitHub - registar uma nova aplicação com valores preenchida][4]
+5. Introduza o **URL de chamada de retorno de autorização**.  Numa implementação do Azure pilha predefinida, o Url está a ser https://portal.local.azurestack.external/tokenauthorize formulário, se estiver a executar em substitui a um domínio diferente do domínio para local.azurestack.external ![GitHub - registar um novo aplicações com valores preenchida][4]
 6. Clique em **registar a aplicação**.  Agora será apresentada com uma listagem da página o **ID de cliente** e **segredo do cliente** para a aplicação.
     ![GitHub - registo de aplicação concluída][5]
 7.  Num novo separador do browser ou janela inicie sessão no Portal do Azure pilha Admin (https://adminportal.local.azurestack.external) como o administrador de serviço.
