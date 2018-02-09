@@ -1,6 +1,6 @@
 ---
-title: Conceber a sua primeira base de dados SQL do Azure | Microsoft Docs
-description: Saiba como conceber a sua primeira SQL database do Azure no portal do Azure e com o SQL Server Management Studio.
+title: Criar a sua primeira base de dados SQL do Azure | Microsoft Docs
+description: Saiba como criar a sua primeira base de dados SQL do Azure no portal do Azure e com o SQL Server Management Studio.
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 08/25/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.openlocfilehash: d7c0ba8a8ac477e7e3175d590a6de13fb3f460cb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>Conceber a sua primeira base de dados SQL do Azure
+# <a name="design-your-first-azure-sql-database"></a>Criar a sua primeira base de dados SQL do Azure
 
-Base de dados SQL do Azure é um relacional da base de dados como um serviço (DBaaS) no Microsoft Cloud (Azure). Neste tutorial, irá aprender a utilizar o portal do Azure e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para: 
+A Base de Dados SQL do Azure é uma base de dados relacional como serviço (DBaaS) no Microsoft Cloud (Azure). Neste tutorial, irá aprender a utilizar o portal do Azure e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para: 
 
 > [!div class="checklist"]
 > * Criar uma base de dados no portal do Azure
 > * Configurar uma regra de firewall ao nível do servidor no portal do Azure
 > * Ligar à base de dados com o SSMS
 > * Criar tabelas com o SSMS
-> * Carregamento em massa com o BCP
+> * Carregar dados em massa com o BCP
 > * Consultar os dados com o SSMS
-> * Restaurar a base de dados para um anterior [ponto no restauro de tempo](sql-database-recovery-using-backups.md#point-in-time-restore) no portal do Azure
+> * Restaurar a base de dados para um [ponto anterior no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) no portal do Azure
 
-Se não tiver uma subscrição do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, certifique-se de que instalou o:
+Para concluir este tutorial, confirme que tem instalada:
 - A versão mais recente do [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
 - A versão mais recente do [BCP e SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
@@ -47,17 +47,17 @@ Para concluir este tutorial, certifique-se de que instalou o:
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Criar uma base de dados do SQL Server em branco
+## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 
 É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](sql-database-service-tiers.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico da Base de Dados SQL do Azure](sql-database-features.md). 
 
-Siga estes passos para criar uma base de dados do SQL Server em branco. 
+Siga estes passos para criar uma base de dados SQL vazia. 
 
 1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Bases de Dados** na página **Novo** e selecione **Criar na Base de Dados SQL** em **Base de Dados SQL** na página **Novo**.
 
-   ![Criar base de dados vazio](./media/sql-database-design-first-database/create-empty-database.png)
+   ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Preencha o formulário da Base de Dados SQL com as informações seguintes, conforme mostrado na imagem anterior:   
 
@@ -66,24 +66,24 @@ Siga estes passos para criar uma base de dados do SQL Server em branco.
    | **Nome da base de dados** | mySampleDatabase | Para nomes de bases de dados válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). | 
    | **Subscrição** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
-   | **Selecione a origem** | Base de dados em branco | Especifica que deve ser criada uma base de dados em branco. |
+   | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
-4. Clique em **Servidor** para criar e configurar um novo servidor para a nova base de dados. Preencha o **novo formulário de servidor** com as seguintes informações: 
+4. Clique em **Servidor** para criar e configurar um novo servidor para a nova base de dados. Preencha o **Novo formulário de servidor** com as seguintes informações: 
 
    | Definição       | Valor sugerido | Descrição | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). | 
    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados).|
-   | **Palavra-passe** | Qualquer palavra-passe válida | A palavra-passe tem de ter, pelo menos, oito carateres e tem de conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
+   | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
    | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 
    ![criar servidor de base de dados](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Clique em **Selecionar**.
 
-6. Clique em **Escalão de preço** para especificar a camada de serviço, o número de DTUs e a quantidade de armazenamento. Explore as opções para o número de DTUs e de armazenamento que está disponível para si para cada camada de serviço. 
+6. Clique em **Escalão de preço** para especificar a camada de serviço, o número de DTUs e a quantidade de armazenamento. Explore as opções para o número de DTUs e de armazenamento que tem disponível para cada camada de serviço. 
 
-7. Para este tutorial, selecione o **padrão** camada de serviço e, em seguida, utilize o controlo de deslize para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
+7. Para este tutorial, selecione a camada de serviço **Standard** e, em seguida, utilize o controlo de deslize para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
 
    ![criar base de dados-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -92,12 +92,12 @@ Siga estes passos para criar uma base de dados do SQL Server em branco.
    > [!IMPORTANT]
    > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* No escalão Premium, mais de 1 TB de armazenamento estão atualmente disponível nas seguintes regiões: E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Ver [Limitações Atuais P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar o escalão de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 
-10. Selecione um **agrupamento** para a base de dados em branco (para este tutorial, utilize o valor predefinido). Para obter mais informações sobre agrupamentos, consulte [agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Selecione um **agrupamento** para a base de dados vazia (para este tutorial, utilize o valor predefinido). Para obter mais informações sobre agrupamentos, veja [Agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
 11. Agora que concluiu o formulário da Base de Dados SQL do Servidor, clique em **Criar** para aprovisionar a base de dados. O aprovisionamento demora alguns minutos. 
 
@@ -119,7 +119,7 @@ O serviço da Base de Dados SQL cria uma firewall ao nível do servidor, impedin
 
    ![nome do servidor](./media/sql-database-get-started-portal/server-name.png) 
 
-3. Clique em **definir a firewall do servidor** na barra de ferramentas. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL. 
+3. Clique em **Definir firewall do servidor** na barra de ferramentas. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL. 
 
    ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
@@ -146,7 +146,7 @@ Obtenha o nome de servidor totalmente qualificado para o servidor da Base de Dad
 
 ## <a name="connect-to-the-database-with-ssms"></a>Ligar à base de dados com o SSMS
 
-Utilize [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) estabelecer uma ligação ao servidor da SQL Database do Azure.
+Utilize o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma ligação ao servidor da Base de Dados SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 
@@ -154,8 +154,8 @@ Utilize [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
    | Definição       | Valor sugerido | Descrição | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Tipo de servidor | Motor de base de dados | Este valor é necessário |
-   | Nome do servidor | O nome de servidor completamente qualificado | O nome deve ser algo semelhante ao seguinte: **mynewserver20170824.database.windows.net**. |
+   | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
+   | Nome do servidor | O nome de servidor completamente qualificado | O nome deve ser semelhante a: **mynewserver20170824.database.windows.net**. |
    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
    | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
    | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
@@ -170,23 +170,23 @@ Utilize [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
 5. No Object Explorer, expanda as **Bases de Dados** e, em seguida, expanda **mySampleDatabase**, para ver os objetos na base de dados de exemplo.
 
-   ![Objetos de base de dados](./media/sql-database-connect-query-ssms/connected.png)  
+   ![objetos da base de dados](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="create-tables-in-the-database"></a>Criar tabelas na base de dados 
 
-Criar um esquema de base de dados com quatro tabelas que um sistema de gestão do estudante para universities utilizando o modelo [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
+Crie um esquema de base de dados com quatro tabelas para um sistema de gestão de estudantes para universidades que utilizam o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
 - Pessoa
 - Curso
 - Estudante
-- Esse modelo um sistema de gestão do estudante para universities de crédito
+- Crédito para um sistema de gestão de estudantes para universidades
 
-O diagrama seguinte mostra como estas tabelas estão relacionadas uns aos outros. Alguns destas tabelas referenciam colunas nas outras tabelas. Por exemplo, a tabela de estudante referencia o **PersonId** coluna o **pessoa** tabela. Estude o diagrama para compreender a forma como as tabelas neste tutorial estão relacionados com um do outro. Para uma visão detalhada das como criar tabelas de base de dados em vigor, consulte [criar tabelas de base de dados Efetivo](https://msdn.microsoft.com/library/cc505842.aspx). Para obter informações sobre como escolher tipos de dados, consulte [tipos de dados](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
+O diagrama seguinte mostra como estas tabelas estão relacionadas entre si. Algumas destas tabelas referenciam colunas noutras tabelas. Por exemplo, a tabela Estudante referencia a coluna **PersonId** da tabela **Pessoa**. Estude o diagrama para compreender a forma como as tabelas neste tutorial estão relacionadas entre si. Para uma visão detalhada de como criar tabelas de base de dados efetivas, veja [Criar tabelas de base de dados efetivas](https://msdn.microsoft.com/library/cc505842.aspx). Para obter informações sobre como selecionar tipos de dados, veja [Tipos de dados](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> Também pode utilizar o [designer de tabela no SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) para criar e estruturar as tabelas. 
+> Também pode utilizar o [estruturador de tabelas no SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) para criar e estruturar as suas tabelas. 
 
-![Relações de tabela](./media/sql-database-design-first-database/tutorial-database-tables.png)
+![Relações de tabelas](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
 1. No Object Explorer, clique com o botão direito do rato em **mySampleDatabase** e, em seguida, clique em **Nova Consulta**. É aberta uma janela de consulta em branco que está ligada à sua base de dados.
 
@@ -239,24 +239,24 @@ O diagrama seguinte mostra como estas tabelas estão relacionadas uns aos outros
 
    ![Criar tabelas](./media/sql-database-design-first-database/create-tables.png)
 
-3. Expanda o nó 'tabelas' no Explorador de objeto do SQL Server Management Studio para ver as tabelas que criou.
+3. Expanda o nó "tabelas" no Explorador do SQL Server Management Studio Object para ver as tabelas que criou.
 
-   ![Criar em tabelas do ssms](./media/sql-database-design-first-database/ssms-tables-created.png)
+   ![ssms tables-created](./media/sql-database-design-first-database/ssms-tables-created.png)
 
 ## <a name="load-data-into-the-tables"></a>Carregar dados para as tabelas
 
-1. Crie uma pasta denominada **SampleTableData** na pasta transferências para armazenar dados de exemplo para a base de dados. 
+1. Crie uma pasta denominada **SampleTableData** na pasta Transferências para armazenar dados de exemplo para a base de dados. 
 
-2. As seguintes ligações com o botão direito e guardá-los para o **SampleTableData** pasta. 
+2. Clique com o botão direito do rato nas ligações seguintes e guarde-as na pasta **SampleTableData**. 
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Abra uma janela de linha de comandos e navegue para a pasta de SampleTableData.
+3. Abra uma janela de linha de comandos e navegue para a pasta SampleTableData.
 
-4. Execute os seguintes comandos para inserir dados de exemplo as tabelas, substituindo os valores para **ServerName**, **DatabaseName**, **UserName**, e  **Palavra-passe** com os valores para o seu ambiente.
+4. Execute os seguintes comandos para inserir dados de exemplo nas tabelas ao substituir os valores de **ServerName**, **DatabaseName**, **UserName** e **Password** pelos valores para o seu ambiente.
   
    ```bcp
    bcp Course in SampleCourseData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
@@ -265,11 +265,11 @@ O diagrama seguinte mostra como estas tabelas estão relacionadas uns aos outros
    bcp Credit in SampleCreditData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
    ```
 
-Agora tem carregados dados de exemplo para as tabelas que criou anteriormente.
+Carregou dados de exemplo para as tabelas que criou anteriormente.
 
 ## <a name="query-data"></a>Consultar dados
 
-Execute as seguintes consultas para obter informações a partir de tabelas de base de dados. Consulte [escrever consultas de SQL](https://technet.microsoft.com/library/bb264565.aspx) para obter mais informações sobre como escrever consultas SQL. A primeira consulta associa as quatro tabelas para localizar todos os os estudantes taught por ' Dominick Pope' que tem um nível superior a % de 75 na sua classe. A segunda consulta associa as quatro tabelas e localiza todos os courses na qual tenha alguma vez inscrito 'Noe Coleman'.
+Execute as seguintes consultas para obter informações das tabelas de base de dados. Veja [Escrever Consultas SQL](https://technet.microsoft.com/library/bb264565.aspx) para obter mais informações sobre como escrever consultas SQL. A primeira consulta associa as quatro tabelas para localizar todos os estudantes ensinados por "Dominick Pope", que tem uma classificação superior a 75% na sua aula. A segunda consulta associa as quatro tabelas e localiza todos os cursos em que "Noe Coleman" se inscreveu.
 
 1. Numa janela de consulta do SQL Server Management Studio, execute a seguinte consulta:
 
@@ -288,7 +288,7 @@ Execute as seguintes consultas para obter informações a partir de tabelas de b
    AND Grade > 75
    ```
 
-2. Numa janela de consulta do SQL Server Management Studio, execute os seguintes consultas:
+2. Numa janela de consulta do SQL Server Management Studio, execute a seguinte consulta:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
@@ -306,36 +306,36 @@ Execute as seguintes consultas para obter informações a partir de tabelas de b
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurar uma base de dados para um ponto anterior no tempo
 
-Imagine que tenha eliminado acidentalmente uma tabela. Este é algo que facilmente não consegue recuperar. Base de dados SQL do Azure permite-lhe voltar atrás para qualquer ponto no tempo no último até 35 dias e restaurar este ponto no tempo para uma nova base de dados. Pode esta base de dados para recuperar os dados eliminados. Os seguintes passos restaurar a base de dados de exemplo para um ponto antes das tabelas foram adicionadas.
+Imagine que eliminou acidentalmente uma tabela. É algo de que não é fácil recuperar. A Base de Dados SQL do Azure permite-lhe voltar atrás para qualquer ponto anterior no tempo até aos últimos 35 dias e restaurar este ponto anterior no tempo para uma nova base de dados. Pode fazer com que esta base de dados recupere os dados eliminados. Os passos seguintes restauram a base de dados de exemplo para um ponto antes das tabelas terem sido adicionadas.
 
-1. Na página de base de dados SQL para a base de dados, clique em **restaurar** na barra de ferramentas. O **restaurar** é aberta a página.
+1. Na página Base de Dados SQL da sua base de dados, clique em **Restaurar** na barra de ferramentas. É aberta a página **Restaurar**.
 
-   ![Restauro](./media/sql-database-design-first-database/restore.png)
+   ![restore](./media/sql-database-design-first-database/restore.png)
 
-2. Preencha o **restaurar** formulário com as informações necessárias:
+2. Preencha o formulário **Restaurar** com as informações necessárias:
     * Nome da base de dados: forneça um nome de base de dados 
-    * Ponto no tempo: Selecione o **no momento** separador no formulário de restauro 
-    * Ponto de restauro: selecione uma hora que ocorre antes da base de dados foi alterada
-    * Servidor de destino: não é possível alterar este valor ao restaurar uma base de dados 
-    * Agrupamento elástico de bases de dados: selecione **None**  
+    * Ponto anterior no tempo: selecione o separador **Ponto anterior no tempo** no formulário Restaurar 
+    * Ponto de restauro: selecione uma hora antes da base de dados ter sido alterada
+    * Servidor de destino: não pode alterar este valor quando restaurar uma base de dados 
+    * Agrupamento de bases de dados elásticas: selecione **Nenhum**  
     * Escalão de preço: selecione **20 DTUs** e **40 GB** de armazenamento.
 
-   ![ponto de restauro](./media/sql-database-design-first-database/restore-point.png)
+   ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 
-3. Clique em **OK** para restaurar a base de dados [restaurar para um ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) antes das tabelas foram adicionadas. Restaurar uma base de dados para um outro ponto no tempo cria uma base de dados duplicado no mesmo servidor que a base de dados original a partir do ponto no tempo que especificar, desde esteja dentro do período de retenção para sua [camada de serviço](sql-database-service-tiers.md).
+3. Clique em **OK** para restaurar a base de dados [para um ponto anterior no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) antes das tabelas terem sido adicionadas. Restaurar uma base de dados para outro ponto anterior no tempo cria uma base de dados duplicada no mesmo servidor da base de dados original a partir do ponto anterior no tempo que especificar, desde que esteja dentro do período de retenção da sua [camada de serviço](sql-database-service-tiers.md).
 
 ## <a name="next-steps"></a>Passos seguintes 
-Neste tutorial, aprendeu a tarefas de base de dados básicas, tais como criar uma base de dados e tabelas, carregar e consultar dados e restaurar a base de dados para um ponto anterior no tempo. Aprendeu a:
+Neste tutorial, aprendeu tarefas de base de dados básicas, como criar uma base de dados e tabelas, carregar e consultar dados e restaurar a base de dados para um ponto anterior no tempo. Aprendeu a:
 > [!div class="checklist"]
 > * Criar uma base de dados
 > * Configurar uma regra de firewall
-> * Ligar à base de dados com [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * Ligar à base de dados com o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
 > * Criar tabelas
-> * Carregamento em massa
+> * Carregar dados em massa
 > * Consultar os dados
-> * Restaurar a base de dados para um ponto anterior no tempo com a base de dados SQL [ponto no restauro de tempo](sql-database-recovery-using-backups.md#point-in-time-restore) capacidades
+> * Restaurar a base de dados para um ponto anterior no tempo através das capacidades de [restauro para um ponto anterior no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) da Base de Dados SQL
 
-Avançar para o próximo tutorial para saber mais sobre como criar uma base de dados utilizando o Visual Studio e c#.
+Avance para o tutorial seguinte para aprender a criar uma base de dados com o Visual Studio e C#.
 
 > [!div class="nextstepaction"]
->[Estruturar uma base de dados SQL do Azure e estabelecer ligação com c# e ADO.NET](sql-database-design-first-database-csharp.md)
+>[Criar uma base de dados SQL do Azure e estabelecer ligação com C# e ADO.NET](sql-database-design-first-database-csharp.md)

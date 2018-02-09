@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Implementar uma aplicação de contentor do Windows do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
@@ -79,24 +79,44 @@ Configure o mapeamento de portas porta-a-anfitrião do contentor ao especificar 
 Um ficheiro de exemplo completo do ApplicationManifest.xml está disponível no final deste artigo.
 
 ## <a name="create-a-cluster"></a>Criar um cluster
-Para implementar a aplicação num cluster no Azure, pode optar por criar o seu próprio cluster ou utilizar um party cluster.
+Para implementar a aplicação num cluster no Azure, pode optar por aderir a um cluster de terceiros ou [criar o seu próprio cluster no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um party cluster, [siga as instruções](http://aka.ms/tryservicefabric).  
+Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. O cluster utiliza um certificado autoassinado para o nó "nó para nó", bem como a segurança de "cliente para nó". 
 
-Para obter informações sobre como criar o seu próprio cluster, veja [Crie um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Inicie sessão e [adira a um cluster do Windows](http://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. O certificado e o valor do **Ponto final da ligação** são utilizados nos passos seguintes.
 
-Anote o ponto final da ligação, que vai utilizar no próximo passo.  
+![PFX e ponto final de ligação](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Num computador Windows, instale o PFX no arquivo de certificados *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Não se esqueça do thumbprint no passo seguinte.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Implementar a aplicação no Azure com o Visual Studio
 Agora que a aplicação está pronta, pode implementá-la num cluster diretamente a partir do Visual Studio.
 
 Clique com o botão direito do rato em **MyFirstContainer**, no Explorador de Soluções, e escolha **Publicar**. É apresentada a caixa de diálogo Publicar.
 
-![Caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Copie o **Ponto Final da Ligação** na página Cluster de terceiros para o campo **Ponto Final da Ligação**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros de Ligação Avançada** e preencha as informações seguintes.  Os valores *FindValue* e *ServerCertThumbprint* têm de coincidir com o thumbprint do certificado instalado no passo anterior. 
 
-Introduza o ponto final da Ligação do cluster no campo **Ponto Final da Ligação**. Quando se registar no party cluster, o ponto final da ligação é fornecido no browser - por exemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Clique em **Publicar** e a aplicação é implementada.
+![Caixa de diálogo Publicar](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Abra um browser e navegue para http://winh1x87d1d.westus.cloudapp.azure.com:80. Deverá ver a página Web predefinida do IIS: ![Página Web predefinida do IIS][iis-default]
+Clique em **Publicar**.
+
+Cada aplicação no cluster tem de ter um nome exclusivo.  Contudo, os clusters de party são ambientes públicos e partilhados, pelo que poderá haver um conflito com aplicações já existentes.  Se houver um conflito de nomes, mude o nome do projeto do Visual Studion e reimplemente-o.
+
+Abra um browser e navegue para http://zwin7fh14scd.westus.cloudapp.azure.com:80. Deverá ver a página Web predefinida do IIS: ![Página Web predefinida do IIS][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemplo completo da aplicação do Service Fabric e dos manifestos do serviço
 Seguem-se os manifestos completos do serviço e da aplicação utilizados neste início rápido.
@@ -167,6 +187,7 @@ Seguem-se os manifestos completos do serviço e da aplicação utilizados neste 
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

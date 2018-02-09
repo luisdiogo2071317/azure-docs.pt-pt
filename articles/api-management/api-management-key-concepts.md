@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>O que é a API Management?
 
@@ -30,7 +30,7 @@ Veja o seguinte vídeo para obter uma descrição geral da API Management do Azu
 > 
 > 
 
-Este tópico fornece uma descrição geral dos cenários comuns que envolvem a APIM.  Também fornece uma breve descrição geral dos componentes principais do sistema de APIM. O tópico, em seguida, fornece uma descrição geral mais detalhada de cada componente.
+Este artigo apresenta uma descrição geral dos cenários comuns que envolvem a APIM.  Também fornece uma breve descrição geral dos componentes principais do sistema de APIM. O artigo, em seguida, apresenta uma descrição geral mais detalhada de cada componente.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -50,14 +50,14 @@ O sistema é constituído pelos seguintes componentes:
   * Transforma imediatamente a sua API sem modificações do código.
   * Coloca em cache as respostas de back-end, quando estão configuradas.
   * Regista metadados de chamadas para fins de análise.
-* O **portal do publicador** é a interface administrativa onde configura o seu programa de API. Utilize-o para:
+* O **portal do Azure** é a interface administrativa onde configura o seu programa de API. Utilize-o para:
   
   * Definir ou importar o esquema de API.
   * Integrar APIs em produtos.
   * Configurar políticas como quotas ou transformações nas APIs.
   * Obter conhecimentos aprofundados a partir da análise.
   * Gerir utilizadores.
-* O **portal do programador** serve como a principal presença na Web para os programadores, onde podem:
+* O **Portal do programador** serve como a principal presença na Web para os programadores, onde podem:
   
   * Ler a documentação da API.
   * Experimentar uma API através da consola interativa.
@@ -104,7 +104,7 @@ Quando os programadores subscrevem um produto, é-lhes concedida a chave primár
 Para obter mais informações, consulte [Como criar ou convidar programadores][How to create or invite developers] e [Como associar grupos a programadores][How to associate groups with developers].
 
 ## <a name="policies"> </a> Políticas
-As políticas são uma funcionalidade poderosa da API Management que permite ao publicador alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e a limitação de taxa de chamadas para restringir o número de chamadas recebidas de um programador, bem como várias outras políticas disponíveis.
+As políticas são uma funcionalidade poderosa da Gestão de API que permite ao portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e a limitação de taxa de chamadas para restringir o número de chamadas recebidas de um programador, bem como várias outras políticas disponíveis.
 
 As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) e [Definir variável](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) e [Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

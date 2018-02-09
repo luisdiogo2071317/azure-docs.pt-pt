@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introdução ao Storage do Microsoft Azure
 
@@ -131,21 +131,21 @@ O Serviço Blob permite-lhe fornecer acesso público a um contentor e respetivos
 
 ## <a name="encryption"></a>Encriptação
 
-Estão disponíveis alguns tipos básicos de encriptação para os serviços de Armazenamento.
+Estão disponíveis dois tipos básicos de encriptação para os serviços de Armazenamento. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 
-Pode ativar a Storage Service Encryption (SSE) no serviço de Ficheiros (pré-visualização) ou no serviço Blob de uma conta de armazenamento do Azure. Se estiver ativada, todos os dados escritos no serviço específico são encriptados antes de serem escritos. Quando ler os dados, estes são desencriptados antes de serem devolvidos.
+A Encriptação do Serviço de Armazenamento do Azure (SEE) ajuda a proteger e salvaguardar os seus dados para cumprir as obrigações de conformidade e segurança da sua organização. Com esta funcionalidade, o Armazenamento do Azure encripta automaticamente os dados antes de continuar a armazenar e desencriptar antes da obtenção. A encriptação, a desencriptação e a gestão de chaves são completamente transparentes para os utilizadores.
+
+Pode ativar a Encriptação de Serviço de Armazenamento (SSE) para o Armazenamento de blobs ou para os Ficheiros do Azure (pré-visualização). Se estiver ativada, todos os dados escritos no serviço específico são encriptados antes de serem escritos. Quando ler os dados, estes são desencriptados antes de serem devolvidos.
+
+Para obter mais informações sobre a encriptação de SSE inativa, veja [Encriptação do Serviço de Armazenamento do Azure para Dados Inativos](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Encriptação do lado do cliente
 
 As bibliotecas de cliente de armazenamento têm métodos que pode chamar para encriptar os dados programaticamente antes de os enviar de forma automática do cliente para o Azure. São armazenados encriptados, o que significa que também estão encriptados quando estão inativos. Ao ler os dados novamente, desencripte as informações depois de as receber.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Encriptação em trânsito com partilhas de Ficheiros do Azure
-
-Veja [Utilizar Assinaturas de Acesso Partilhado (SAS)](../storage-dotnet-shared-access-signature-part-1.md) para obter mais informações sobre assinaturas de acesso partilhado. Consulte o artigo [Gerir o acesso de leitura anónimo a contentores e blobs](../blobs/storage-manage-access-to-resources.md) e [Autenticação para os Serviços do Storage do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx) para mais informações sobre o acesso seguro à sua conta do Storage.
-
-Para obter mais informações sobre como proteger a sua conta de armazenamento e a encriptação, veja o [Guia de segurança do Armazenamento do Azure](storage-security-guide.md).
+Para obter mais informações sobre a encriptação do lado do cliente, veja [Encriptação do Lado do Cliente com .NET para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md).
 
 ## <a name="replication"></a>Replicação
 

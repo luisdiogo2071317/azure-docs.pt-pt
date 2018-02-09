@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Diagnóstico
       href: app-service-diagnostics.md
+    - name: SO e aplicação de patches do tempo de execução
+      href: app-service-patch-os-runtime.md
 - name: Guias de Procedimentos
   items:
     - name: Configurar aplicação

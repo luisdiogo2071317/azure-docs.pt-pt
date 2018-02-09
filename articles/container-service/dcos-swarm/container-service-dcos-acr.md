@@ -1,6 +1,6 @@
 ---
-title: Utilizar o ACR com um cluster do Azure DC/OS
-description: "Utilizar um registo de contentor do Azure com um cluster DC/SO no serviço de contentor do Azure"
+title: Utilizar o ACR com um cluster DC/OS do Azure
+description: Utilizar o Azure Container Registry com um cluster DC/OS no Azure Container Service
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Utilize o ACR com um cluster DC/OS para implementar a sua aplicação
+# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Utilizar o ACR com um cluster DC/OS para implementar a sua aplicação
 
-Neste artigo, vamos explorar como utilizar o registo de contentor do Azure com um cluster DC/OS. Utilizar ACR permite-lhe em privado armazenar e gerir imagens de contentor. Este tutorial abrange as seguintes tarefas:
+Neste artigo, vamos explorar como utilizar o Azure Container Registry com um cluster DC/OS. A utilização do ACR permite-lhe armazenar e gerir imagens de contentor em privado. Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Implementar o registo de contentor do Azure (se necessário)
-> * Configurar a autenticação de ACR num cluster DC/OS
-> * Carregar uma imagem para o registo de contentor do Azure
-> * Executar uma imagem de contentor do registo de contentor do Azure
+> * Implementar o Azure Container Registry (se for necessário)
+> * Configurar a autenticação do ACR num cluster DC/OS
+> * Carregar uma imagem para o Azure Container Registry
+> * Executar uma imagem de contentor para o Azure Container Registry
 
-Precisa de um cluster de ACS DC/OS para concluir os passos neste tutorial. Se for necessário, [este script de exemplo](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) pode criar uma por si.
+Precisa de um cluster DC/OS do ACS para concluir os passos neste tutorial. Se for necessário, [este script de exemplo](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) pode criar um para si.
 
 Este tutorial requer a versão do módulo 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-azure-container-registry"></a>Implementar o registo de contentor do Azure
+## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
 
-Se necessário, crie um registo de contentor do Azure com o [az acr criar](/cli/azure/acr#create) comando. 
+Se for necessário, crie um Azure Container Registry com o comando [az acr create](/cli/azure/acr#az_acr_create). 
 
-O exemplo seguinte cria um registo com um nome de gerar aleatoriamente. O registo também é configurado com uma conta de administrador utilizando a `--admin-enabled` argumento.
+O exemplo seguinte cria um registo com um nome gerado aleatoriamente. O registo também é configurado com uma conta de administrador com o argumento `--admin-enabled`.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
-Quando o registo tiver sido criado, a CLI do Azure produz dados semelhantes ao seguinte. Tome nota do `name` e `loginServer`, estes são utilizados em passos posteriores.
+Após a criação do registo, a CLI do Azure produz dados semelhantes aos seguintes. Tome nota do `name` e do `loginServer`, uma vez que serão utilizados em passos posteriores.
 
 ```azurecli
 {
@@ -64,51 +64,51 @@ Quando o registo tiver sido criado, a CLI do Azure produz dados semelhantes ao s
 }
 ```
 
-Obter o contentor de credenciais de registo utilizando o [mostrar de credencial de acr az](/cli/azure/acr/credential) comando. Substitui o `--name` pelo indicado no último passo. Tome nota de uma palavra-passe, é necessário num passo posterior.
+Obtenha as credenciais de registo de contentor com o comando [az acr credential show](/cli/azure/acr/credential). Substitua `--name` pelo nome indicado no último passo. Tome nota de uma palavra-passe, uma vez que será necessária num passo posterior.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry23489
 ```
 
-Para obter mais informações sobre o registo de contentor do Azure, consulte [introdução aos registos de contentor do Docker privadas](../../container-registry/container-registry-intro.md). 
+Para obter mais informações sobre o Azure Container Registry, veja [Introdução aos registos privados de contentores Docker](../../container-registry/container-registry-intro.md). 
 
-## <a name="manage-acr-authentication"></a>Gerir a autenticação de ACR
+## <a name="manage-acr-authentication"></a>Gerir a autenticação do ACR
 
-A forma convencional push e pull imagem de um registo privada é primeiro autenticar com o registo. Para tal, utilizaria o `docker login` comando em qualquer cliente que precisa de aceder ao registo privado. Uma vez que um cluster DC/OS pode conter vários nós, todos os de que tem de ser autenticada com o ACR, é útil automatizar este processo em cada nó. 
+A forma convencional de enviar e receber uma imagem de um registo privado é autenticar primeiro no registo. Para tal, utilize o comando `docker login` em qualquer cliente que tenha de aceder ao registo privado. Uma vez que um cluster DC/OS pode conter vários nós, os quais têm de ser autenticados com o ACR, é útil automatizar este processo em cada nó. 
 
 ### <a name="create-shared-storage"></a>Criar armazenamento partilhado
 
-Este processo utiliza uma partilha de ficheiros do Azure que foi montada em cada nó no cluster. Se já não configurar o armazenamento partilhado, consulte o artigo [configurar uma partilha de ficheiros no interior de um cluster DC/SO](container-service-dcos-fileshare.md).
+Este processo utiliza uma partilha de ficheiros do Azure montada em cada nó no cluster. Se ainda não tiver configurado o armazenamento partilhado, veja [Configurar uma partilha de ficheiros num cluster DC/SO](container-service-dcos-fileshare.md).
 
-### <a name="configure-acr-authentication"></a>Configurar a autenticação de ACR
+### <a name="configure-acr-authentication"></a>Configurar a autenticação do ACR
 
-Em primeiro lugar, obter o FQDN do mestre de DC/OS e armazene-o numa variável.
+Primeiro, obtenha o FQDN do DC/OS mestre e armazene-o numa variável.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Crie uma ligação SSH com o mestre (ou o mestre de primeiro) do cluster baseado no DC/SO. Se um valor predefinido não foi utilizado ao criar o cluster, atualize o nome de utilizador.
+Crie uma ligação SSH com o mestre (ou o primeiro mestre) do cluster baseado em DC/SO. Atualize o nome de utilizador se tiver sido utilizado um valor não predefinido ao criar o cluster.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Execute o seguinte comando para iniciar sessão no registo de contentor do Azure. Substitua o `--username` com o nome do registo do contentor e o `--password` com um das palavras-passe fornecidas. Substitua o último argumento *mycontainerregistry.azurecr.io* no exemplo com o nome de loginServer do registo de contentor. 
+Execute o comando seguinte para iniciar sessão no Azure Container Registry. Substitua `--username` pelo nome do registo de contentor e `--password` por uma das palavras-passe fornecidas. Substitua o último argumento *mycontainerregistry.azurecr.io* no exemplo pelo nome loginServer do registo de contentor. 
 
-Este comando armazena os valores de autenticação em localmente o `~/.docker` caminho.
+Este comando armazena os valores de autenticação localmente no caminho `~/.docker`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
 ```
 
-Crie um ficheiro comprimido que contém os valores de autenticação de registo do contentor.
+Crie um ficheiro comprimido com os valores de autenticação de registo de contentor.
 
 ```azurecli-interactive
 tar czf docker.tar.gz .docker
 ```
 
-Copie este ficheiro para o armazenamento partilhado de cluster. Este passo faz com que o ficheiro disponível em todos os nós do cluster DC/OS.
+Copie este ficheiro para o armazenamento partilhado do cluster. Este passo disponibiliza o ficheiro em todos os nós do cluster DC/OS.
 
 ```azurecli-interactive
 cp docker.tar.gz /mnt/share/dcosshare
@@ -116,35 +116,35 @@ cp docker.tar.gz /mnt/share/dcosshare
 
 ## <a name="upload-image-to-acr"></a>Carregar imagem para o ACR
 
-Agora a partir de uma máquina de desenvolvimento ou qualquer outro sistema com o Docker instalado, criar uma imagem e carregá-la para o registo de contentor do Azure.
+Agora, a partir de uma máquina de desenvolvimento ou de qualquer outro sistema com o Docker instalado, pode criar uma imagem e carregá-la para o Azure Container Registry.
 
-Crie um contentor a partir da imagem Ubuntu.
+Crie um contentor a partir da imagem do Ubuntu.
 
 ```azurecli-interactive
 docker run ubuntu --name base-image
 ```
 
-Capture agora o contentor para uma nova imagem. O nome da imagem tem de incluir o `loginServer` nome de registrywith o contentor um formato de `loginServer/imageName`.
+Capture agora o contentor para uma nova imagem. O nome da imagem tem de incluir o nome `loginServer` do contentor no formato `loginServer/imageName`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ````
 
-Inicie sessão no registo de contentor do Azure. Substitua o nome com o nome de loginServer, nome de utilizador – com o nome do registo do contentor e o – palavra-passe com um das palavras-passe fornecidas.
+Inicie sessão no Azure Container Registry. Substitua o nome pelo nome loginServer, --username pelo nome do registo de contentor e --password por uma das palavras-passe fornecidas.
 
 ```azurecli-interactive
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
-Por fim, carregue a imagem para o registo ACR. Neste exemplo carrega uma imagem com o nome dcos demonstração.
+Por fim, carregue a imagem para o registo do ACR. Este exemplo carrega uma imagem com o nome dcos-demo.
 
 ```azurecli-interactive
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
-## <a name="run-an-image-from-acr"></a>Executar uma imagem de ACR
+## <a name="run-an-image-from-acr"></a>Executar uma imagem a partir do ACR
 
-Para utilizar uma imagem do registo ACR, crie um ficheiro nomes *acrDemo.json* e copie o seguinte texto para a mesma. Substitua o nome da imagem com o nome do contentor registo loginServer e o nome de imagem, por exemplo `loginServer/imageName`. Tome nota do `uris` propriedade. Esta propriedade contém a localização do ficheiro de autenticação de registo do contentor, que neste caso, é a partilha de ficheiros do Azure que está montada em cada nó no cluster DC/OS.
+Para utilizar uma imagem a partir do registo do ACR, crie um ficheiro com o nome *acrDemo.json* e copie o seguinte texto para o mesmo. Substitua o nome da imagem pelo nome loginServer do registo de contentor e o nome da imagem, por exemplo `loginServer/imageName`. Tome nota da propriedade `uris`. Esta propriedade contém a localização do ficheiro de autenticação de registo de contentor que,neste caso, é a partilha de ficheiros do Azure montada em cada nó no cluster DC/OS.
 
 ```json
 {
@@ -184,7 +184,7 @@ Para utilizar uma imagem do registo ACR, crie um ficheiro nomes *acrDemo.json* e
 }
 ```
 
-Implemente a aplicação com a CLI de DC/OC.
+Implemente a aplicação com a CLI do DC/OC.
 
 ```azurecli-interactive
 dcos marathon app add acrDemo.json
@@ -192,10 +192,10 @@ dcos marathon app add acrDemo.json
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial tem de configurar o DC/OS para utilizar o registo de contentor do Azure, incluindo as seguintes tarefas:
+Neste tutorial, configurou o DC/OS para utilizar o Azure Container Registry, incluindo as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Implementar o registo de contentor do Azure (se necessário)
-> * Configurar a autenticação de ACR num cluster DC/OS
-> * Carregar uma imagem para o registo de contentor do Azure
-> * Executar uma imagem de contentor do registo de contentor do Azure
+> * Implementar o Azure Container Registry (se for necessário)
+> * Configurar a autenticação do ACR num cluster DC/OS
+> * Carregar uma imagem para o Azure Container Registry
+> * Executar uma imagem de contentor para o Azure Container Registry

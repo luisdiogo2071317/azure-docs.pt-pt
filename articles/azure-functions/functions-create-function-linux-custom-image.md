@@ -1,6 +1,6 @@
 ---
-title: "Criar uma função no Linux utilizando uma imagem personalizada (pré-visualização) | Microsoft Docs"
-description: "Saiba como criar funções do Azure em execução numa imagem personalizada do Linux."
+title: "Criar uma função no Linux com uma imagem personalizada (pré-visualização) | Microsoft Docs"
+description: "Saiba como criar Funções do Azure em execução numa imagem personalizada do Linux."
 services: functions
 keywords: 
 author: ggailey777
@@ -11,29 +11,29 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 9ba5f45034561f8d897676e8cc4b1a59945403b8
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux utilizando uma imagem personalizada (pré-visualização)
+# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux com uma imagem personalizada (pré-visualização)
 
-As funções do Azure permite-lhe alojar as suas funções no Linux no seu próprio contentor personalizado. Esta funcionalidade está atualmente em pré-visualização. Também pode [anfitrião num contentor predefinido App Service do Azure](functions-create-first-azure-function-azure-cli-linux.md).  
+As Funções do Azure permitem-lhe alojar as suas funções no Linux no seu próprio contentor personalizado. Também pode [alojar num contentor predefinido do Serviço de Aplicações do Azure](functions-create-first-azure-function-azure-cli-linux.md). Esta funcionalidade está atualmente em pré-visualização e precisa [do runtime do Functions 2.0](functions-versions.md), que também está em pré-visualização.
 
-Neste tutorial, irá aprender a implementar uma aplicação de função como uma imagem personalizada do Docker. Este padrão é útil se precisar de personalizar a imagem de contentor do serviço de aplicações incorporada. Poderá utilizar uma imagem personalizada quando as suas funções tem uma versão de idioma específico ou exigem uma dependência específica ou a configuração não foi fornecida na imagem incorporada.
+Neste tutorial, irá aprender a implementar uma aplicação de funções como uma imagem personalizada do Docker. Este padrão é útil se precisar de personalizar a imagem de contentor do Serviço de Aplicações incorporada. Pode querer utilizar uma imagem personalizada quando as suas funções precisarem de uma versão de idioma ou dependência específicas, ou de uma configuração não fornecida na imagem incorporada.
 
-Este tutorial explica como utilizar as funções do Azure para criar e emitir uma imagem personalizada para o Hub de Docker. Em seguida, utilizar esta imagem como a origem de implementação para uma aplicação de função que é executado no Linux. Pode utilizar o Docker para criar e emitir a imagem. Pode utilizar a CLI do Azure para criar uma aplicação de função e implementar a imagem do Hub de Docker. 
+Este tutorial explica como utilizar as Funções do Azure para criar e enviar uma imagem personalizada para o Docker Hub. Em seguida, pode utilizar esta imagem como origem de implementação para uma aplicação de funções executada no Linux. Pode utilizar o Docker para criar e enviar a imagem. Pode utilizar a CLI do Azure para criar uma aplicação de funções e implementar a imagem a partir do Docker Hub. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Crie uma imagem personalizada utilizando o Docker.
-> * Publica uma imagem personalizada para um registo de contentor. 
-> * Crie uma conta de armazenamento do Azure. 
-> * Crie um plano de serviço de aplicações do Linux. 
-> * Implemente uma aplicação de função do Hub de Docker.
-> * Adicione as definições da aplicação para a aplicação de função. 
+> * Criar uma imagem personalizada com o Docker.
+> * Publicar uma imagem personalizada num registo de contentor. 
+> * Criar uma conta de Armazenamento do Azure. 
+> * Criar um plano do Serviço de Aplicações do Linux. 
+> * Implementar uma aplicação de funções a partir do Docker Hub.
+> * Adicionar as definições de aplicação à aplicação de funções. 
 
 São suportados os seguintes passos num computador Mac, Windows ou Linux.  
 
@@ -42,24 +42,24 @@ São suportados os seguintes passos num computador Mac, Windows ou Linux.
 Para concluir este tutorial, precisa de:
 
 * [Git](https://git-scm.com/downloads)
-* Um Active Directory [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* Uma [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ativa
 * [Docker](https://docs.docker.com/get-started/#setup)
-* A [conta Docker Hub](https://docs.docker.com/docker-id/)
+* Uma [conta do Docker Hub](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Numa janela de terminal, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o computador local, em seguida, mude para o diretório que contém o código de exemplo.
+Numa janela de terminal, execute o comando seguinte para clonar o repositório de aplicação de exemplo no seu computador local e altere o diretório que contém o código de exemplo.
 
 ```bash
 git clone https://github.com/Azure-Samples/functions-linux-custom-image.git --config core.autocrlf=input
 cd functions-linux-custom-image
 ```
 
-## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem do ficheiro Docker
+## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem a partir do Dockerfile
 
-Neste repositório de Git, observe o _Dockerfile_. Este ficheiro descreve o ambiente que é necessário para executar a aplicação de função no Linux. 
+Neste repositório Git, veja _Dockerfile_. Este ficheiro descreve o ambiente que é necessário para executar a aplicação de funções no Linux. 
 
 ```docker
 # Base the image on the built-in Azure Functions Linux image.
@@ -70,16 +70,16 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 COPY . /home/site/wwwroot 
 ```
 >[!NOTE]
-> Quando uma imagem de um registo de contentor privada de alojamento, deve adicionar as definições de ligação para a aplicação de função utilizando **ENV** variáveis no Dockerfile. Uma vez que este tutorial não é possível garantir a utilização de um registo privado, as definições de ligação são [adicionado após a implementação através da CLI do Azure](#configure-the-function-app) como melhor prática de segurança.   
+> Quando estiver a alojar uma imagem num registo de contentor privado, deve adicionar as definições de ligação à aplicação de funções com as variáveis **ENV** no Dockerfile. Uma vez que este tutorial não pode garantir a utilização de um registo privado, as definições de ligação são [adicionadas após a implementação através da CLI do Azure](#configure-the-function-app) como melhor prática de segurança.   
 
-### <a name="run-the-build-command"></a>Execute o comando de compilação
-Para compilar a imagem do Docker, execute o `docker build` de comandos e forneça um nome, `mydockerimage`e etiqueta, `v1.0.0`. Substitua `<docker-id>` com o seu Hub de Docker conta ID.
+### <a name="run-the-build-command"></a>Executar o comando Compilar
+Para compilar a imagem do Docker, execute o comando `docker build` e indique um nome, `mydockerimage`, e uma etiqueta, `v1.0.0`. Substitua `<docker-id>` pelo ID da sua conta do Docker Hub.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-O comando produz o resultado semelhante ao seguinte:
+O comando produz um resultado semelhante ao seguinte:
 
 ```bash
 Sending build context to Docker daemon  169.5kB
@@ -102,35 +102,35 @@ Successfully tagged ggailey777/mydockerimage:v1.0.0
 ```
 
 ### <a name="test-the-image-locally"></a>Testar a imagem localmente
-Certifique-se de que a imagem incorporada funciona ao executar a imagem de Docker num contentor de local. Problema de [docker run](https://docs.docker.com/engine/reference/commandline/run/) de comandos e passar o nome e a etiqueta da imagem ao mesmo. É necessário especificar a porta a utilizar o `-p` argumento.
+Verifique se a imagem incorporada funciona ao executar a imagem do Docker num contentor local. Emita o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e transmita o nome e a etiqueta da imagem ao mesmo. Certifique-se de que utiliza o argumento `-p` para especificar a porta.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Com a imagem personalizada em execução num contentor de Docker local, certifique-se a aplicação de função e um contentor estão a funcionar corretamente, navegando até <http://localhost:8080>.
+Com a imagem personalizada em execução num contentor local do Docker, certifique-se de que a aplicação de funções e o contentor estão a funcionar corretamente ao navegar para <http://localhost:8080>.
 
-![Teste a aplicação de função localmente.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
+![Teste a aplicação de funções localmente.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Depois de hav verificada a aplicação de função no contentor, pare a execução. Agora, pode emitir a imagem personalizada para a sua conta do Hub de Docker.
+Depois de ter verificado a aplicação de funções no contentor, pare a execução. Agora, pode enviar a imagem personalizada para a sua conta do Docker Hub.
 
-## <a name="push-the-custom-image-to-docker-hub"></a>Enviar a imagem personalizada para o Hub de Docker
+## <a name="push-the-custom-image-to-docker-hub"></a>Enviar a imagem personalizada para o Docker Hub
 
-Um registo é uma aplicação que aloja as imagens e fornece serviços de imagem e contentor de serviços. Para partilhar a imagem, tem de enviá-lo para um registo. Hub de docker é um registo para imagens de Docker que permite-lhe alojar o seus repositórios, públicos ou privados. 
+Um registo de contentor é uma aplicação que aloja imagens e disponibiliza serviços de imagens e contentores. Para partilhar a sua imagem, tem de enviá-la para um registo. O Docker Hub é um registo de contentores para imagens do Docker que lhe permite alojar os seus próprios repositórios, sejam públicos ou privados. 
 
-Antes de pode emitir uma imagem, tem de iniciar sessão Hub de Docker utilizando o [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) comando. Substitua `<docker-id>` com o nome de conta e escreva a palavra-passe para a consola de linha. Para outras opções de palavra-passe do Docker Hub, consulte o [documentação de comando de início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/).
+Antes de poder enviar uma imagem, tem de iniciar sessão no Docker Hub com o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Substitua `<docker-id>` pelo nome da sua conta e introduza a palavra-passe na consola, quando lhe for pedido. Para outras opções de palavra-passe do Docker Hub, veja a [documentação do comando docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ```bash
 docker login --username <docker-id> 
 ```
 
-Uma mensagem "início de sessão foi efetuado com êxito" confirma que tiver iniciado a sessão. Depois de ter sessão iniciada, enviar a imagem para o Docker Hub utilizando o [docker push](https://docs.docker.com/engine/reference/commandline/push/) comando.
+A mensagem "início de sessão bem-sucedido" confirma que tem sessão iniciada. Depois de iniciar sessão, envie a imagem para o Docker Hub com o comando [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-Certifique-se de que o push com sucesso, examinando o comando de saída do.
+Veja o resultado do comando para confirmar se o envio foi bem-sucedido.
 
 ```bash
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
@@ -141,28 +141,28 @@ ae9a05b85848: Mounted from microsoft/azure-functions-runtime
 45c86e20670d: Mounted from microsoft/azure-functions-runtime
 v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
 ```
-Agora, pode utilizar esta imagem como a origem de implementação para uma nova aplicação de função no Azure. 
+Agora, pode utilizar esta imagem como origem de implementação para uma nova aplicação de funções no Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tópico requer a CLI do Azure versão 2.0.21 ou posterior. Executar `az --version` para localizar a versão do. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Criar um plano de serviço de aplicações do Linux
+## <a name="create-a-linux-app-service-plan"></a>Criar um plano do Serviço de Aplicações do Linux
 
-Linux que alojam funções de não é atualmente suportado em planos de consumo. Tem de executar um plano de serviço de aplicações do Linux. Para saber mais acerca de alojamento, consulte o artigo [que alojam as funções do Azure planos de comparação](functions-scale.md). 
+O alojamento do Linux para Funções não é atualmente suportado em planos de consumo. Tem de executar um plano do Serviço de Aplicações do Linux. Para saber mais sobre o alojamento, veja [Azure Functions hosting plans comparison (Comparação dos planos de alojamento das Funções do Azure)](functions-scale.md). 
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 
 ## <a name="create-and-deploy-the-custom-image"></a>Criar e implementar a imagem personalizada
 
-A aplicação de função aloja a execução das suas funções. Criar uma aplicação de função a partir de uma imagem de Docker Hub utilizando o [az functionapp criar](/cli/azure/functionapp#create) comando. 
+Uma aplicação de funções aloja a execução das suas funções. Utilize o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) para criar uma aplicação de funções a partir de uma imagem do Docker Hub. 
 
-O seguinte comando, substitua um nome de aplicação de função exclusivo onde vir o `<app_name>` marcador de posição e a conta de armazenamento de nome para `<storage_name>`. O `<app_name>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. Como anteriormente, `<docker-id>` é o nome da sua conta de Docker.
+No comando seguinte, substitua o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. Como anteriormente, `<docker-id>` é o nome da sua conta do Docker.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -188,14 +188,14 @@ Depois de a aplicação Function App ter sido criada, a CLI do Azure mostra info
 }
 ```
 
-O _implementação--imagem-nome do contentor_ parâmetro indica a imagem alojada num Hub de Docker a utilizar para criar a aplicação de função. 
+O parâmetro _deployment-container-image-name_ indica a imagem alojada no Docker Hub a utilizar para criar a aplicação de funções. 
 
 
-## <a name="configure-the-function-app"></a>Configurar a aplicação de função
+## <a name="configure-the-function-app"></a>Configurar a aplicação de funções
 
-A função tem da cadeia de ligação para ligar à conta do storage predefinida. Quando publicar a sua imagem personalizada para uma conta privada contentor, em vez disso, deverá definir estas definições de aplicação como variáveis de ambiente em Dockerfile, utilizando o [instrução ENV](https://docs.docker.com/engine/reference/builder/#env), ou equivalente. 
+A função precisa da cadeia de ligação para ligar à conta de armazenamento predefinida. Quando estiver publicar a sua imagem personalizada numa conta de contentor privada, deve definir estas definições de aplicação como variáveis de ambiente no Dockerfile com a [instrução ENV](https://docs.docker.com/engine/reference/builder/#env) ou equivalente. 
 
-Neste caso, `<storage_account>` é o nome da conta de armazenamento que criou. Obter a cadeia de ligação com o [cadeia de ligação de mostrar de conta de armazenamento az](/cli/azure/storage/account#show-connection-string) comando. Adicionar estas definições de aplicação na aplicação de função com o [az functionapp configuração appsettings conjunto](/cli/azure/functionapp/config/appsettings#set) comando.
+Neste caso, `<storage_account>` é o nome da conta de armazenamento que criou. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione estas definições de aplicação na aplicação de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -208,7 +208,7 @@ az functionapp config appsettings set --name <function_app> \
 AzureWebJobsStorage=$storageConnectionString
 ```
 
-Agora pode testar as suas funções em execução no Linux no Azure.
+Agora, pode testar as suas funções em execução no Linux no Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
@@ -219,14 +219,14 @@ Agora pode testar as suas funções em execução no Linux no Azure.
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Crie uma imagem personalizada utilizando o Docker.
-> * Publica uma imagem personalizada para um registo de contentor. 
-> * Crie uma conta de armazenamento do Azure. 
-> * Crie um plano de serviço de aplicações do Linux. 
-> * Implemente uma aplicação de função do Hub de Docker.
-> * Adicione as definições da aplicação para a aplicação de função.
+> * Criar uma imagem personalizada com o Docker.
+> * Publicar uma imagem personalizada num registo de contentor. 
+> * Criar uma conta de Armazenamento do Azure. 
+> * Criar um plano do Serviço de Aplicações do Linux. 
+> * Implementar uma aplicação de funções a partir do Docker Hub.
+> * Adicionar as definições de aplicação à aplicação de funções.
 
-Saiba mais sobre como desenvolver as funções do Azure localmente, utilizando as ferramentas de núcleos de funções do Azure.
+Saiba mais sobre o desenvolvimento das Funções do Azure localmente com as Ferramentas de Núcleo das Funções do Azure.
 
 > [!div class="nextstepaction"] 
-> [Código e teste das funções do Azure localmente](functions-run-local.md)
+> [Criar código e testar as Funções do Azure localmente](functions-run-local.md)

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de serviço de contentor do Azure – implementar aplicações"
-description: "Tutorial de serviço de contentor do Azure – implementar aplicações"
+title: "Tutorial do Azure Container Service – Implementar Aplicação"
+description: "Tutorial do Azure Container Service – Implementar Aplicação"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,64 +9,64 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c763d6867deb76f5b9d197c7062ee07d7ed6d865
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: ee8a5e5537fdc20fdb8fecaa24b18418705d2f2b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="run-applications-in-kubernetes"></a>Executar aplicações na Kubernetes
+# <a name="run-applications-in-kubernetes"></a>Executar aplicações no Kubernetes
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Neste tutorial, parte quatro de sete, um exemplo de aplicação é implementado num Kubernetes cluster. Passos concluídos incluem:
+Neste tutorial, parte quatro de sete, a aplicação de exemplo é implementada num cluster do Kubernetes. Os passos concluídos incluem:
 
 > [!div class="checklist"]
-> * Atualizar os ficheiros de manifesto Kubernetes
+> * Atualizar ficheiros de manifesto Kubernetes
 > * Executar uma aplicação no Kubernetes
 > * Testar a aplicação
 
-Nos tutoriais subsequentes, esta aplicação é ampliada, atualizar, e Operations Management Suite configurado para monitorizar o cluster Kubernetes.
+Nos tutoriais subsequentes, esta aplicação está aumentada horizontalmente, atualizada e o Operations Management Suite está configurado para monitorizar o cluster de Kubernetes.
 
-Este tutorial assume uma compreensão básica sobre conceitos Kubernetes, para obter informações detalhadas, consulte Kubernetes o [Kubernetes documentação](https://kubernetes.io/docs/home/).
+Este tutorial pressupõe um conhecimento básico dos conceitos do Kubernetes. Para obter informações detalhadas sobre o Kubernetes, veja a [documentação do Kubernetes](https://kubernetes.io/docs/home/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, uma aplicação foi compactada uma imagem de contentor, esta imagem foi carregada para o registo de contentor do Azure e um cluster de Kubernetes foi criado. 
+Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contentor, a imagem foi carregada para o Azure Container Registry e foi criado um cluster de Kubernetes. 
 
-Para concluir este tutorial, terá de previamente criadas `azure-vote-all-in-one-redis.yml` Kubernetes manifesto do ficheiro. Um tutorial anterior, este ficheiro foi transferido com o código fonte da aplicação. Certifique-se de que tem clonou o repositório e que foram alteradas diretórios para o repositório clonado.
+Para concluir este tutorial, precisa do ficheiro de manifesto previamente criado do Kubernetes `azure-vote-all-in-one-redis.yml`. Este ficheiro foi transferido com o código de origem da aplicação num tutorial anterior. Certifique-se de que tem um clone do repositório e que foram alterados diretórios no repositório clonado.
 
-Se não o fez estes passos e gostaria de acompanhar, regresse ao [Tutorial 1 – criar imagens de contentor](./container-service-tutorial-kubernetes-prepare-app.md). 
+Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial 1 – Criar imagens de contentor](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-## <a name="update-manifest-file"></a>Ficheiro de manifesto de atualização
+## <a name="update-manifest-file"></a>Atualizar ficheiro de manifesto
 
-Neste tutorial, registo de contentor do Azure (ACR) foi utilizado para armazenar uma imagem de contentor. Antes de executar a aplicação, o nome de servidor de início de sessão ACR tem de ser atualizada no ficheiro de manifesto Kubernetes.
+Neste tutorial, o Azure Container Registry (ACR) serviu para armazenar uma imagem de contentor. Antes de executar a aplicação, o nome de servidor de início de sessão ACR tem de ser atualizado no ficheiro de manifesto Kubernetes.
 
-Obter o nome do servidor de início de sessão ACR com o [lista de acr az](/cli/azure/acr#list) comando.
+Obtenha o nome do servidor de início de sessão ACR com o comando [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-O ficheiro de manifesto tiver sido previamente criado com um nome de servidor de início de sessão de `microsoft`. Abra o ficheiro com qualquer editor de texto. Neste exemplo, abrir o ficheiro com `vi`.
+O ficheiro de manifesto foi previamente criado com um nome de servidor de início de sessão de `microsoft`. Abra o ficheiro com qualquer editor de texto. Neste exemplo, o ficheiro está aberto com `vi`.
 
 ```bash
 vi azure-vote-all-in-one-redis.yml
 ```
 
-Substitua `microsoft` com o nome de servidor de início de sessão ACR. Este valor for encontrado na linha **47** do ficheiro de manifesto.
+Substitua `microsoft` pelo nome do servidor de início de sessão do ACR. Este valor foi encontrado na linha **47** do ficheiro de manifesto.
 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 Guarde e feche o ficheiro.
 
-## <a name="deploy-application"></a>Implementar a aplicação
+## <a name="deploy-application"></a>Implementar aplicação
 
-Utilize o comando [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) para executar a aplicação. Este comando analisa o ficheiro de manifesto e criar os objetos de Kubernetes definidos.
+Utilize o comando [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) para executar a aplicação. Este comando analisa o ficheiro de manifesto e cria os objetos de Kubernetes definidos.
 
 ```azurecli-interactive
 kubectl create -f azure-vote-all-in-one-redis.yml
@@ -81,9 +81,9 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-application"></a>Aplicação de teste
+## <a name="test-application"></a>Testar aplicação
 
-A [Kubernetes serviço](https://kubernetes.io/docs/concepts/services-networking/service/) é criado que expõe a aplicação à internet. Este processo pode demorar alguns minutos. 
+O [serviço do Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) é criado, o que expõe a aplicação na Internet. Este processo pode demorar alguns minutos. 
 
 Para monitorizar o progresso, utilize o comando [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) com o argumento `--watch`.
 
@@ -91,7 +91,7 @@ Para monitorizar o progresso, utilize o comando [kubectl get service](https://re
 kubectl get service azure-vote-front --watch
 ```
 
-Inicialmente, o **IP externo** para o `azure-vote-front` serviço aparece como `pending`. Depois do endereço IP externo mudou de `pending` para um `IP address`, utilize `CTRL-C` parar o processo de veja kubectl.
+Inicialmente, o **EXTERNAL-IP** do serviço `azure-vote-front` aparece como `pending`. Quando o endereço EXTERNAL-IP mudar de `pending` para `IP address`, utilize `CTRL-C` para parar o processo de observação do kubectl.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
@@ -105,14 +105,14 @@ Para ver a aplicação, navegue para o endereço IP externo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, a aplicação de voto do Azure foi implementada para um cluster de Kubernetes de serviço de contentor do Azure. Tarefas foram completadas incluem:  
+Neste tutorial, a aplicação do Azure vote foi implementada num cluster de Kubernetes do Azure Container Service. As tarefas concluídas incluem:  
 
 > [!div class="checklist"]
 > * Transferir ficheiros de manifesto Kubernetes
 > * Executar a aplicação no Kubernetes
-> * Testar a aplicação
+> * Testou a aplicação
 
-Avançar para o próximo tutorial para saber mais sobre uma aplicação Kubernetes e a infraestrutura de Kubernetes subjacente. 
+Avance para o próximo tutorial para saber mais sobre o dimensionamento de uma aplicação Kubernetes e a infraestrutura de Kubernetes subjacente. 
 
 > [!div class="nextstepaction"]
-> [Dimensionar Kubernetes aplicação e a infraestrutura](./container-service-tutorial-kubernetes-scale.md)
+> [Dimensionar a aplicação e infraestrutura do Kubernetes](./container-service-tutorial-kubernetes-scale.md)

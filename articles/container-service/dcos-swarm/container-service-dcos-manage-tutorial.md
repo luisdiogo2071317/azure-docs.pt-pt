@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de serviço de contentor do Azure – gerir DC/OS"
-description: "Tutorial de serviço de contentor do Azure – gerir DC/OS"
+title: "Tutorial do Azure Container Service – Gerir DC/OS"
+description: "Tutorial do Azure Container Service – Gerir DC/OS"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial de serviço de contentor do Azure – gerir DC/OS
+# <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial do Azure Container Service – Gerir DC/OS
 
-DC/OS fornece uma plataforma distribuída para as aplicações modernas e de execução. Com o serviço de contentor do Azure, o aprovisionamento de um cluster DC/SO pronto produção é simples e rápida. Este detalhes de início rápido passos básicos necessários para implementam um cluster DC/OS e execute carga de trabalho básica.
+O DC/OS oferece uma plataforma distribuída para executar aplicações modernas em contentores. Com o Azure Container Service, o aprovisionamento de um cluster DC/OS pronto para produção é simples e rápido. Este início rápido detalha os passos básicos necessários para implementar um DC/OS do cluster e executar carga de trabalho básica.
 
 > [!div class="checklist"]
 > * Criar um cluster de ACS DC/OS
 > * Ligar ao cluster
-> * Instalar a CLI de DC/SO
-> * Implementar uma aplicação para o cluster
+> * Instalar o DC/OS CLI
+> * Implementar uma aplicação no cluster
 > * Dimensionar uma aplicação no cluster
-> * Dimensionar os nós de cluster do DC/OS
-> * Gestão de DC/SO básicas
+> * Dimensionar nós de cluster DC/OS
+> * Gestão de DC/OS básica
 > * Eliminar o cluster DC/OS
 
 Este tutorial requer a versão do módulo 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="create-dcos-cluster"></a>Criar o cluster DC/OS
+## <a name="create-dcos-cluster"></a>Criar cluster DC/OS
 
-Em primeiro lugar, crie um grupo de recursos com o [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westeurope*.
 
@@ -41,9 +41,9 @@ O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na loc
 az group create --name myResourceGroup --location westeurope
 ```
 
-Em seguida, crie um cluster DC/OS, com o [az acs criar](/cli/azure/acs#create) comando.
+Em seguida, crie um cluster DC/OS, com o comando [az acs create](/cli/azure/acs#az_acs_create).
 
-O exemplo seguinte cria um cluster DC/OS, com o nome *myDCOSCluster* e cria as chaves SSH, caso ainda não existam. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  
+O exemplo seguinte cria uma cluster DC/OS com o nome *myDCOSCluster* e cria chaves SSH caso estas ainda não existam. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  
 
 ```azurecli
 az acs create \
@@ -53,31 +53,31 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Após vários minutos, o comando estiver concluída e devolve informações sobre a implementação.
+Após alguns minutos, o comando é concluído e devolve informações sobre a implementação.
 
 ## <a name="connect-to-dcos-cluster"></a>Ligar ao cluster DC/OS
 
-Depois de criar um cluster DC/OS, pode ser acede através de um túnel SSH. Execute o seguinte comando para devolver o endereço IP público do mestre de DC/OS. Este endereço IP é armazenado numa variável e utilizado no próximo passo.
+Depois de criar um cluster DC/OS, pode aceder ao mesmo através de um túnel SSH. Execute os seguintes comandos para devolver o endereço IP público do DC/OS. Este endereço IP é armazenado numa variável e utilizado no próximo passo.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-Para criar o túnel SSH, execute o seguinte comando e siga o ecrã instruções. Se a porta 80 já está a ser utilizado, o comando falha. Atualizar a porta em túnel para uma utilização não, tais como `85:localhost:80`. 
+Para criar o túnel SSH, execute o seguinte comando e siga as instruções no ecrã. Se a porta 80 já está a ser utilizada, o comando falha. Atualize a porta em túnel para uma que não esteja a ser utilizada, como `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-## <a name="install-dcos-cli"></a>Instalar o DC/SO CLI
+## <a name="install-dcos-cli"></a>Instalar DC/SO CLI
 
-Instalar a cli de DC/SO utilizando o [az acs dcos install-cli](/azure/acs/dcos#install-cli) comando. Se estiver a utilizar o Azure CloudShell, a CLI de DC/SO já está instalada. Se estiver a executar a CLI do Azure no macOS ou Linux, poderá ter de executar o comando com sudo.
+Instalar a DC/OS cli com o comando [az acs dcos install-cli](/azure/acs/dcos#install-cli). Se estiver a utilizar o Azure CloudShell, a DC/OS CLI já está instalada. Se estiver a executar a CLI do Azure no macOS ou Linux, é necessário executar o comando com sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Antes do CLI pode ser utilizada com o cluster, tem de ser configurado para utilizar o túnel SSH. Para tal, execute o seguinte comando, ajustar a porta, se necessário.
+Antes da CLI poder ser utilizada com o cluster, tem de ser configurada para utilizar o túnel SSH. Para tal, execute o seguinte comando, ajustando a porta, se necessário.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -85,7 +85,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Executar uma aplicação
 
-A predefinição mecanismo para um cluster do DC/SO de ACS de agendamento é Marathon. Marathon é utilizada para iniciar uma aplicação e gerir o estado da aplicação no cluster DC/OS. Para agendar uma aplicação através do Marathon, crie um ficheiro denominado **marathon adequada**e copie o seguinte conteúdo para a mesma. 
+O mecanismo de agendamento predefinido para um cluster ACS DC/OS é o Marathon. O Marathon serve para iniciar uma aplicação e gerir o estado da aplicação no cluster DC/OS. Para agendar uma aplicação através do Marathon, crie um ficheiro denominado **marathon-app.json** e copie o seguinte conteúdo para o mesmo. 
 
 ```json
 {
@@ -125,16 +125,16 @@ Para ver o estado de implementação da aplicação, execute o seguinte comando.
 dcos marathon app list
 ```
 
-Quando o **tarefas** muda de valor de coluna de *0/1* para *1/1*, implementação de aplicação foi concluída.
+Quando o valor da coluna **TAREFAS** muda de *0/1* a *1/1*, a implementação de aplicação é concluída.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
 
-## <a name="scale-marathon-application"></a>Dimensionar a aplicação do Marathon
+## <a name="scale-marathon-application"></a>Dimensionar a aplicação Marathon
 
-No exemplo anterior, foi criada uma aplicação de instância única. Para atualizar esta implementação, de modo a que três instâncias da aplicação estão disponíveis, abrir o **marathon adequada** de ficheiros e atualize a propriedade de instância para 3.
+No exemplo anterior, foi criada uma aplicação de instância única. Para atualizar esta implementação, de modo a que três instâncias da aplicação estejam disponíveis, abra o ficheiro **marathon-app.json** e atualize a propriedade de instância para 3.
 
 ```json
 {
@@ -162,7 +162,7 @@ No exemplo anterior, foi criada uma aplicação de instância única. Para atual
 }
 ```
 
-Atualizar a aplicação a utilizar o `dcos marathon app update` comando.
+Atualize a aplicação com o comando `dcos marathon app update`.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
@@ -174,20 +174,20 @@ Para ver o estado de implementação da aplicação, execute o seguinte comando.
 dcos marathon app list
 ```
 
-Quando o **tarefas** muda de valor de coluna de *1/3* para *3/1*, implementação de aplicação foi concluída.
+Quando o valor da coluna **TAREFAS** muda de *1/3* a *3/1*, a implementação de aplicação é concluída.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
 
-## <a name="run-internet-accessible-app"></a>Executar a aplicação acessíveis à internet
+## <a name="run-internet-accessible-app"></a>Executar aplicação acessível na Internet
 
-O cluster de ACS DC/OS é constituído por dois conjuntos de nó, uma pública que é acessível na internet e um privada que não está acessível na internet. O conjunto predefinido é privados nós, que foi utilizada no último exemplo.
+O cluster de ACS DC/OS é constituído por dois conjuntos de nó, um público que é acessível na Internet e um privado que não está acessível na Internet. O conjunto predefinido são nós privados, que foram utilizados no último exemplo.
 
-Para tornar uma aplicação acessível na internet, tem de implementá-las para o conjunto de nó público. Para tal, atribua o `acceptedResourceRoles` objeto um valor de `slave_public`.
+Para tornar uma aplicação acessível na Internet, implemente-as no conjunto de nós públicos. Para tal, atribua ao objeto `acceptedResourceRoles` um valor de `slave_public`.
 
-Crie um ficheiro denominado **nginx public.json** e copie o seguinte conteúdo para a mesma.
+Crie um ficheiro com o nome **nginx-public.json** e copie os seguintes conteúdos para o mesmo.
 
 ```json
 {
@@ -225,7 +225,7 @@ Execute o seguinte comando para agendar a aplicação para ser executada no clus
 dcos marathon app add nginx-public.json
 ```
 
-Obter o endereço IP público dos agentes DC/SO cluster pública.
+Obtenha o endereço IP público dos agentes de cluster público DC/OS.
 
 ```azurecli 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
@@ -235,25 +235,25 @@ Navegar para este endereço devolve o site NGINX predefinido.
 
 ![NGINX](./media/container-service-dcos-manage-tutorial/nginx.png)
 
-## <a name="scale-dcos-cluster"></a>Cluster do DC/SO de escala
+## <a name="scale-dcos-cluster"></a>Dimensionar cluster DC/OS
 
-Nos exemplos anteriores, uma aplicação foi escalada para múltiplas instâncias. Também pode ser escalada para a infraestrutura de DC/OS para fornecer mais ou menos capacidade de cálculo. Isto é feito com o [az acs Dimensionar]() comando. 
+Nos exemplos anteriores, foi escalada uma aplicação para múltiplas instâncias. A infraestrutura de DC/OS também pode ser escalada para dispor de mais ou menos capacidade de computação. Isto é feito com o comando [az acs scale](). 
 
-Para ver a contagem atual de agentes DC/OS, utilize o [az acs mostrar](/cli/azure/acs#show) comando.
+Para ver a contagem atual de agentes DC/OS, utilize o comando [az acs show](/cli/azure/acs#az_acs_show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Para aumentar a contagem de 5, utilize o [az acs Dimensionar](/cli/azure/acs#scale) comando. 
+Para aumentar a contagem para 5, utilize o comando [az acs scale](/cli/azure/acs#az_acs_scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
 ```
 
-## <a name="delete-dcos-cluster"></a>Eliminar o cluster DC/OS
+## <a name="delete-dcos-cluster"></a>Eliminar cluster DC/OS
 
-Quando já não é necessário, pode utilizar o [eliminação do grupo de az](/cli/azure/group#delete) comando para remover o grupo de recursos, o cluster DC/OS e todos os recursos relacionados.
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o Grupo de Recursos, o cluster DC/OS e todos os recursos relacionados.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -266,13 +266,13 @@ Neste tutorial, aprendeu sobre a tarefa de gestão básica do DC/OS, incluindo o
 > [!div class="checklist"]
 > * Criar um cluster de ACS DC/OS
 > * Ligar ao cluster
-> * Instalar a CLI de DC/SO
-> * Implementar uma aplicação para o cluster
+> * Instalar o DC/OS CLI
+> * Implementar uma aplicação no cluster
 > * Dimensionar uma aplicação no cluster
-> * Dimensionar os nós de cluster do DC/OS
+> * Dimensionar nós de cluster DC/OS
 > * Eliminar o cluster DC/OS
 
-Avançar para o próximo tutorial para saber mais sobre a aplicação no DC/SO no Azure de balanceamento de carga. 
+Avance para o próximo tutorial para saber mais sobre a aplicação de balanceamento de carga no DC/OS no Azure. 
 
 > [!div class="nextstepaction"]
 > [Fazer o balanceamento de carga de aplicações](container-service-load-balancing.md)

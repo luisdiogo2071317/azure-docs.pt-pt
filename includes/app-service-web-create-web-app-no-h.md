@@ -1,4 +1,4 @@
-No Cloud Shell, crie uma [aplicação Web](../articles/app-service/app-service-web-overview.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
+No Cloud Shell, crie uma [aplicação Web](../articles/app-service/app-service-web-overview.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
 No exemplo a seguir, substitua *\<app_name>* com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). 
 

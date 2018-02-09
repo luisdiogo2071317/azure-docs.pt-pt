@@ -1,5 +1,5 @@
 ---
-title: "Criar um armazém de dados SQL do Azure – Portal do Azure | Microsoft Docs"
+title: "Início Rápido: Criar um armazém de dados SQL do Azure – Portal do Azure | Microsoft Docs"
 description: "Para o Azure SQL Data Warehouse, crie um servidor SQL, uma regra de firewall ao nível do servidor e um armazém de dados no portal do Azure. Em seguida, consulte-o."
 keywords: "tutorial de armazém de dados sql, criar um armazém de dados SQL"
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Criar e consultar um armazém de dados SQL do Azure no portal do Azure
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Criar e consultar um armazém de dados SQL do Azure no portal do Azure
 
 Crie e consulte rapidamente um armazém de dados SQL do Azure através do portal do Azure.
 
@@ -33,7 +33,7 @@ Transfira e instale a versão mais recente do [SQL Server Management Studio](/sq
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
 
@@ -126,7 +126,7 @@ Agora, pode ligar ao servidor SQL e aos respetivos armazéns de dados com este e
 
 Obtenha o nome de servidor completamente qualificado para o servidor SQL no portal do Azure. Utilizará mais tarde o nome completamente qualificado quando ligar ao servidor.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Bases de Dados SQL** a partir do menu do lado esquerdo e clique na sua base de dados na página **Bases de Dados SQL**. 
 3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome completamente qualificado é mynewserver-20171113.database.windows.net. 
 

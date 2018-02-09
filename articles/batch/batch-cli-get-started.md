@@ -3,8 +3,8 @@ title: "Introdução à CLI do Azure para Batch | Microsoft Docs"
 description: "Obtenha uma introdução rápida aos comandos do Batch na CLI do Azure para gerir recursos do serviço Azure Batch"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
@@ -69,7 +69,7 @@ Existem algumas formas diferentes de iniciar sessão no Azure, que estão descri
 1. [Iniciar sessão interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Inicie sessão interativamente se estiver a executar comandos da CLI do Azure manualmente a partir da linha de comandos.
 2. [Iniciar sessão com um principal de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Inicie sessão com um principal de serviço se estiver a executar comandos da CLI do Azure a partir de um script ou de uma aplicação.
 
-Para os objetivos deste artigo, vamos mostrar como iniciar sessão no Azure interativamente. Escreva [az login](https://docs.microsoft.com/cli/azure/#login) na linha de comandos:
+Para os objetivos deste artigo, vamos mostrar como iniciar sessão no Azure interativamente. Escreva [az login](https://docs.microsoft.com/cli/azure/#az_login) na linha de comandos:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,16 +120,9 @@ Os exemplos listados na secção [Scripts de shell de exemplo](#sample-shell-scr
 
 Pode utilizar a CLI do Azure para executar tarefas do Batch ponto a ponto sem escrever código. Os ficheiros de modelos do Batch suportam a criação de conjuntos, trabalhos e tarefas com a CLI do Azure. Também pode utilizar a CLI do Azure para carregar ficheiros de entrada de trabalhos para a conta do Armazenamento do Azure associada à conta do Batch, bem como transferir ficheiros de saída de trabalhos a partir da mesma. Para obter mais informações, veja [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md) [Utilizar Modelos da CLI do Azure Batch e a Transferência de Ficheiros (Pré-visualização)].
 
-## <a name="sample-shell-scripts"></a>Scripts de shell de exemplo
+## <a name="script-examples"></a>Exemplos de script
 
-Os scripts de exemplo listados na tabela seguinte mostram como utilizar os comandos da CLI do Azure com o serviço do Batch e o serviço de gestão do Batch para realizar tarefas comuns. Estes scripts de exemplo abrangem muitos dos comandos disponíveis na CLI do Azure para o Batch. 
-
-| Script | Notas |
-|---|---|
-| [Criar uma conta do Batch](./scripts/batch-cli-sample-create-account.md) | Cria uma conta do Batch e associa-a a uma conta de armazenamento. |
-| [Adicionar uma aplicação](./scripts/batch-cli-sample-add-application.md) | Adiciona uma aplicação e carrega os pacotes de binários.|
-| [Gerir conjuntos do Batch](./scripts/batch-cli-sample-manage-pool.md) | Demonstra como criar, redimensionar e gerir conjuntos. |
-| [Executar um trabalho e tarefas com o Batch](./scripts/batch-cli-sample-run-job.md) | Demonstra como executar um trabalho e adicionar tarefas. |
+Veja [exemplos de script da CLI](cli-samples.md) para o Batch realizar tarefas comuns. Estes exemplos abrangem muitos dos comandos disponíveis na CLI do Azure para o Batch criar e gerir contas, conjuntos, trabalhos e tarefas. 
 
 ## <a name="json-files-for-resource-creation"></a>Ficheiros JSON para a criação de recursos
 

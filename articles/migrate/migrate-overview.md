@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -42,7 +42,7 @@ O Azure Migrate ajuda-o a:
 
 ## <a name="what-do-i-need-to-pay-for"></a>O que vou pagar?
 
-O Azure Migrate está disponível sem custos adicionais. No entanto, durante a pré-visualização pública, podem ser aplicados custos adicionais de utilização de capacidades de visualização de dependências. Para suportar a [visualização de dependências](concepts-dependency-visualization.md), o Azure Migrate cria uma área de trabalho do Log Analytics por predefinição. Se utilizar a visualização de dependências ou utilizar a área de trabalho fora do Azure Migrate, a utilização da área de trabalho é cobrada. [Saiba mais](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) sobre os custos. Quando o serviço estiver disponível de modo geral, não haverá custos para a utilização das capacidades de visualização de dependências.
+Saiba mais sobre os preços do Azure Migrate [aqui](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>Novidades nas avaliações

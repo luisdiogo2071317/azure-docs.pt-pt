@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -63,14 +63,16 @@ Os valores aceites correspondem ao menu **hora rápida** do explorador do Time S
 
 O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os termos de uma vista do Time Series Insights, em que:
 
-- `name=<string>`
+- "name":"<string>"
   - É o nome do *termo*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - É o nome da coluna pela qual *dividir*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - É o nome da coluna da *medida*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - É a cláusula *where* para a filtragem do lado do servidor.
+-  "useSum":"true"
+  - Este é um parâmetro opcional que especifica através da soma para a sua medida.  Tenha em atenção que se a medida selecionada for "Eventos", a contagem é selecionada por predefinição.  Se "Eventos" não estiver selecionado, a média é selecionada por predefinição.  
 
 O parâmetro "multiChartStack=<true/false>" permite o empilhamento no gráfico e o parâmetro "multiChartSameScale=<true/false>" permite a mesma escala de eixo Y entre termos dentro de um parâmetro opcional.  
 
