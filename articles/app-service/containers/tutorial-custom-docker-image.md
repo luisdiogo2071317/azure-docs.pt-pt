@@ -1,6 +1,6 @@
 ---
-title: "Utilizar uma imagem personalizada do Docker da aplicação Web para contentores - Azure | Microsoft Docs"
-description: "Como utilizar uma imagem personalizada do Docker da aplicação Web para contentores."
+title: "Utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores - Azure | Microsoft Docs"
+description: "Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores."
 keywords: "serviço de aplicações do azure, aplicação web, linux, docker, contentor"
 services: app-service
 documentationcenter: 
@@ -16,39 +16,48 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 5f60dde981465709c16a9813ca24335c67252585
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utilizar uma imagem personalizada do Docker da aplicação Web para contentores
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores
 
-[Aplicação de contentores Web](app-service-linux-intro.md) fornece imagens incorporadas do Docker no Linux com suporte para versões específicas, tais como PHP 7.0 e 4.5 do Node.js. Web App para contentores utiliza a tecnologia de contentor do Docker para alojar imagens incorporadas e imagens personalizadas como uma plataforma como um serviço. Neste tutorial, irá aprender a criar uma imagem personalizada do Docker e implemente-a aplicação Web para contentores. Este padrão é útil quando as imagens incorporadas não incluem o seu idioma à escolha ou quando a aplicação requer uma configuração específica que não foi fornecida nas imagens incorporadas.
+As [Aplicações Web para Contentores](app-service-linux-intro.md) disponibilizam imagens do Docker incorporadas no Linux com suporte para versões específicas, como PHP 7.0 e Node.js 4.5. As Aplicações Web para Contentores utilizam a tecnologia de contentores do Docker para alojar imagens incorporadas e personalizadas como plataforma como serviço. Neste tutorial, vai aprender a criar uma imagem personalizada do Docker e implementá-la nas Aplicações Web para Contentores. Este padrão é útil se as imagens incorporadas não incluírem a linguagem que quer ou se a aplicação exigir uma configuração específica que não é fornecida nas mesmas.
+
+Neste tutorial, ficará a saber como:
+
+> [!div class="checklist"]
+> * Implementar uma imagem personalizada do Docker no Azure
+> * Configurar variáveis de ambiente para executar o contentor
+> * Atualizar a imagem do Docker e reimplementá-la
+> * Ligar ao contentor com SSH
+> * Implementar uma imagem privada do Docker no Azure
+
+[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
 * [Git](https://git-scm.com/downloads)
-* Um Active Directory [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* Uma [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ativa.
 * [Docker](https://docs.docker.com/get-started/#setup)
-* A [conta Docker Hub](https://docs.docker.com/docker-id/)
-
-[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+* Uma [conta do Docker Hub](https://docs.docker.com/docker-id/)
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Numa janela de terminal, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o computador local, em seguida, mude para o diretório que contém o código de exemplo.
+Numa janela do terminal, execute o comando seguinte para clonar o repositório de aplicação de exemplo no seu computador local e altere o diretório que contém o código de exemplo.
 
 ```bash
 git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
 cd docker-django-webapp-linux
 ```
 
-## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem do ficheiro Docker
+## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem a partir do ficheiro Docker
 
-No repositório de Git, observe _Dockerfile_. Este ficheiro descreve o ambiente Python que é necessário para executar a sua aplicação. Além disso, configura a imagem de um [SSH](https://www.ssh.com/ssh/protocol/) servidor para comunicação segura entre o anfitrião e do contentor.
+No repositório Git, veja _Dockerfile_. Este ficheiro descreve o ambiente do Python que é necessário para executar a sua aplicação. Além disso, a imagem configura um servidor [SSH](https://www.ssh.com/ssh/protocol/) para comunicação segura entre o contentor e o anfitrião.
 
 ```docker
 FROM python:3.4
@@ -76,13 +85,13 @@ EXPOSE 8000 2222
 ENTRYPOINT ["init.sh"]
 ```
 
-Para compilar a imagem do Docker, execute o `docker build` de comandos e forneça um nome, `mydockerimage`e etiqueta, `v1.0.0`. Substitua `<docker-id>` com o seu Hub de Docker conta ID.
+Para compilar a imagem do Docker, execute o comando `docker build` e indique um nome, _mydockerimage_ e uma etiqueta, _v1.0.0_. Substitua _\<docker-id>_ pelo ID da sua conta do Docker Hub.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-O comando produz o resultado semelhante ao seguinte:
+O comando produz um resultado semelhante ao seguinte:
 
 ```
 # The output from the commands in this article has been shortened for brevity.
@@ -107,46 +116,46 @@ Successfully built e7cf08275692
 Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Teste a compilação funciona executando o contentor de Docker. Problema de [docker run](https://docs.docker.com/engine/reference/commandline/run/) de comandos e passar o nome e a etiqueta da imagem ao mesmo. É necessário especificar a porta a utilizar o `-p` argumento.
+Execute o contentor do Docker para verificar se a compilação funciona. Emita o comando [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) e transmita o nome e a etiqueta da imagem para o mesmo. Certifique-se de que utiliza o argumento `-p` para especificar a porta.
 
 ```bash
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Certifique-se de que a aplicação web e o contentor estão a funcionar corretamente, navegando até `http://localhost:2222`.
+Navegue para `http://localhost:2222` para confirmar que a aplicação Web e o contentor estão a funcionar corretamente.
 
-![Aplicação do teste web localmente](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
+![Testar a aplicação Web localmente](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
-## <a name="push-the-docker-image-to-docker-hub"></a>Enviar a imagem de Docker para Docker Hub
+## <a name="push-the-docker-image-to-docker-hub"></a>Enviar a imagem do Docker para o Docker Hub
 
-Um registo é uma aplicação que aloja as imagens e fornece serviços de imagem e contentor de serviços. Para partilhar a imagem, tem de enviá-lo para um registo. 
+Um registo de contentor é uma aplicação que aloja imagens e disponibiliza serviços de imagens e contentores. Para partilhar a sua imagem, tem de enviá-la para um registo. 
 
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
 > [!NOTE]
-> Enviar um registo de Docker privada? Consulte as instruções opcionais para [Push uma imagem de Docker registo privada](#push-a-docker-image-to-private-registry-optional).
+> Quer enviar para um Registo Privado do Docker? Veja as instruções opcionais para [Utilizar uma imagem do Docker a partir de qualquer registo privado](#use-a-docker-image-from-any-private-registry-optional).
 
 <!--## [Docker Hub](#tab/docker-hub)-->
 
-Hub de docker é um registo para imagens de Docker que permite-lhe alojar o seus repositórios, públicos ou privados. Para enviar uma imagem personalizada do Docker ao Hub Docker público, utilize o [docker push](https://docs.docker.com/engine/reference/commandline/push/) de comandos e forneça um nome de imagem completa e a etiqueta. Um nome de imagem completa e etiqueta aspeto o exemplo seguinte:
+O Docker Hub é um registo de contentores para imagens do Docker que lhe permite alojar os seus próprios repositórios, sejam públicos ou privados. Para enviar uma imagem personalizada do Docker para o Docker Hub público, utilize o comando [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) e indique um nome e uma etiqueta completos da imagem. O nome e a etiqueta completos da imagem são semelhantes ao exemplo seguinte:
 
 ```
 <docker-id>/image-name:tag
 ```
 
-Se ainda não registado no Hub de Docker, fazê-lo ao utilizar o [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) comando antes de tentar enviar uma imagem.
+Antes de pode enviar uma imagem, tem de iniciar sessão no Docker Hub com o comando [`docker login`](https://docs.docker.com/engine/reference/commandline/login/). Substitua _\<docker-id>_ pelo nome da sua conta e introduza a palavra-passe na consola, quando lhe for pedido.
 
 ```bash
-docker login --username <docker-id> --password <docker-hub-password>
+docker login --username <docker-id>
 ```
 
-Uma mensagem "início de sessão foi efetuado com êxito" confirma que tiver iniciado a sessão. Depois de a sessão, pode emitir a imagem a utilizar o Hub de Docker o [docker push](https://docs.docker.com/engine/reference/commandline/push/) comando.
+A mensagem "início de sessão bem-sucedido" confirma que tem sessão iniciada. Quando tiver sessão iniciada, pode enviar a imagem para o Docker Hub com o comando [`docker push`](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
-Certifique-se de que o push com sucesso, examinando o comando de saída do.
+Veja o resultado do comando para confirmar se o envio foi bem-sucedido.
 
 ```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
@@ -180,7 +189,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Implementar a aplicação no Azure
 
-Pode alojar aplicações nativas do Linux na nuvem através da utilização de Web Apps do Azure. Para criar uma aplicação Web para contentores, tem de executar os comandos da CLI do Azure que criar um grupo, em seguida, um plano de serviço e, finalmente, a aplicação web. 
+Pode utilizar as Aplicações Web do Azure para alojar aplicações nativas do Linux na cloud. Para criar uma Aplicação Web para Contentores, tem de executar comandos da CLI do Azure que criem um grupo, depois um plano de serviço e, finalmente, a aplicação Web propriamente dita. 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -192,7 +201,7 @@ Pode alojar aplicações nativas do Linux na nuvem através da utilização de W
 
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir `<app_name>` com um nome de aplicação único e < docker-ID > com o ID de Docker.
+No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _<appname>_ por um nome de aplicação exclusivo e  _\<docker-ID >_ pelo seu ID do Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -215,11 +224,11 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 }
 ```
 
-### <a name="configure-environment-variables"></a>Configurar variáveis de ambiente
+### <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
-A maioria das imagens de Docker tem variáveis de ambiente que têm de ser configurados. Se estiver a utilizar uma imagem do Docker existente criada por outra pessoa, a imagem poderá utilizar uma porta diferente 80. Indicar ao Auzre sobre a porta que utiliza a imagem utilizando o `WEBSITES_PORT` definição de aplicação. Página do GitHub para o [exemplo Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` para _8000_.
+A maioria das imagens do Docker tem variáveis de ambiente que têm de ser configuradas. Se estiver a utilizar uma imagem do Docker existente criada por outra pessoa, essa poderá utilizar uma porta que não a 80. Utilize a definição da aplicação `WEBSITES_PORT` para dizer ao Azure qual é a porta que a sua imagem utiliza. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_.
 
-Para configurar definições de aplicação, utilize o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando na Shell de nuvem. As definições de aplicação são sensíveis a maiúsculas e espaço por vírgulas.
+Para configurar as definições da aplicação, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell. As definições da aplicação são sensíveis a maiúsculas e minúsculas e são separadas por espaços.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -228,7 +237,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
 > [!NOTE]
-> Implementação a partir de um registo de Docker privada? Consulte as instruções opcionais para [configurar aplicação Web para utilizar o contentor de Docker um registo privada](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
+> Está a implementar um Registo Privado do Docker? Veja as instruções opcionais para [Configurar a Aplicação Web para utilizar o contentor do Docker a partir de um Registo Privado](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 
@@ -239,15 +248,15 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 ---
 -->
 
-### <a name="test-the-web-app"></a>Testar a aplicação web
+### <a name="test-the-web-app"></a>Testar a aplicação Web
 
-Certifique-se de que a aplicação web funciona ao navegar para o mesmo (`http://<app_name>azurewebsites.net`). 
+Navegue para a aplicação Web (`http://<app_name>azurewebsites.net`) para confirmar que está a funcionar. 
 
-![Configuração da porta do teste web app](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
+![Testar a configuração da porta da aplicação Web](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
-## <a name="change-web-app-and-redeploy"></a>Aplicação web de alteração e volte a implementar
+## <a name="change-web-app-and-redeploy"></a>Alterar e reimplementar a aplicação Web
 
-No seu repositório de Git local, abra app/templates/app/index.html. Localize o primeiro elemento HTML e altere-o para.
+No seu repositório Git local, abra app/templates/app/index.html. Localize o primeiro elemento HTML e altere-o para
 
 ```python
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -259,13 +268,13 @@ No seu repositório de Git local, abra app/templates/app/index.html. Localize o 
   </nav> 
 ```
 
-Depois de modificar o ficheiro de Python e o guardou, tem de reconstruir e push a nova imagem de Docker. Em seguida, reinicie a aplicação web para que as alterações entrem em vigor. Utilize os mesmos comandos que tiver utilizado anteriormente neste tutorial. Pode fazer referência a [compilar a imagem do ficheiro Docker](#build-the-image-from-the-docker-file) e [Push a imagem de Docker Docker Hub](#push-the-docker-image-to-docker-hub). Testar a aplicação web, seguindo as instruções em [testar a aplicação web](#test-the-web-app).
+Depois de modificar o ficheiro do Python e de o guardar, tem de recriar e enviar a imagem do Docker nova. Em seguida, reinicie a aplicação Web, para que as alterações entrem em vigor. Utilize os mesmos comandos que utilizou anteriormente neste tutorial. Pode ver [Criar a imagem a partir do ficheiro do Docker](#build-the-image-from-the-docker-file) e [Enviar a imagem do Docker para Docker Hub](#push-the-docker-image-to-docker-hub). Siga as instruções em [Testar a aplicação Web](#test-the-web-app) para testar a aplicação Web.
 
-## <a name="connect-to-web-app-for-containers-using-ssh"></a>Ligar a aplicação Web para contentores utilizando o SSH
+## <a name="connect-to-web-app-for-containers-using-ssh"></a>Ligar à Aplicação Web para Contentores com SSH
 
-SSH permite a comunicação segura entre um contentor e um cliente. Ordem de uma imagem personalizada do Docker suportar o SSH, tem de a criar para um Dockerfile. Ativar SSH no próprio ficheiro do Docker. As instruções de SSH já foram adicionadas ao dockerfile exemplo, pelo que pode seguir estas instruções com a sua imagem personalizada:
+O SSH permite a comunicação segura entre um contentor e um cliente. Para que as imagens personalizadas do Docker suportem SSH, tem de criá-las num Dockerfile. O SSH é ativado no próprio ficheiro do Docker. As instruções do SSH já foram adicionadas ao dockerfile de exemplo, pelo que pode seguir estas instruções com a sua imagem personalizada:
 
-* A [executar](https://docs.docker.com/engine/reference/builder/#run) instrução que chame `apt-get`, em seguida, define a palavra-passe da conta de raiz para `"Docker!"`.
+* Uma instrução [RUN](https://docs.docker.com/engine/reference/builder/#run) que chama `apt-get` e, em seguida, define a palavra-passe da conta de raiz como `"Docker!"`.
 
     ```docker
     ENV SSH_PASSWD "root:Docker!"
@@ -277,47 +286,47 @@ SSH permite a comunicação segura entre um contentor e um cliente. Ordem de uma
     ```
 
     > [!NOTE]
-    > Esta configuração não permite ligações externas ao contentor. SSH está disponível apenas através do Site do Kudu/SCM. O site do Kudu/SCM é autenticado com as credenciais de publicação.
+    > Esta configuração não permite ligações externas ao contentor. O SSH só está disponível através do Site Kudu/SCM. O site Kudu/SCM é autenticado com as credenciais de publicação.
 
-* A [cópia](https://docs.docker.com/engine/reference/builder/#copy) instrução que dá instruções ao motor de Docker para copiar o [sshd_config](http://man.openbsd.org/sshd_config) do ficheiro para o */etc/ssh/* diretório. O ficheiro de configuração deve ser baseado no [este ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
+* Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que diz ao motor do Docker para copiar o ficheiro [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O seu ficheiro de configuração deve basear-se [neste ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
     > [!NOTE]
-    > O *sshd_config* ficheiro tem de incluir os seguintes itens: 
-    > * `Ciphers`tem de incluir, pelo menos, um item nesta lista: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`tem de incluir, pelo menos, um item nesta lista: `hmac-sha1,hmac-sha1-96`.
+    > O ficheiro *sshd_config* tem de incluir os itens seguintes: 
+    > * `Ciphers` tem de incluir, pelo menos, um item na lista `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` tem de incluir, pelo menos, um item na lista `hmac-sha1,hmac-sha1-96`.
 
-* Um [expor](https://docs.docker.com/engine/reference/builder/#expose) instrução que expõe porta 2222 no contentor. Apesar da palavra-passe de raiz é conhecida, porta 2222 não pode ser acedida através da internet. É uma porta interna acessível apenas por contentores dentro da rede de bridge de uma rede privada virtual. Depois disso, os comandos Copiar detalhes de configuração de SSH e iniciar o `ssh` serviço.
+* Uma instrução [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) que expõe a porta 2222 no contentor. Embora a palavra-passe de raiz seja conhecida, não é possível aceder à porta 2222 a partir da Internet. Esta é uma porta interna a que só podem aceder os contentores dentro da rede de bridge de uma rede virtual privada. Depois disso, os comandos copiam os detalhes de configuração do SSH e iniciam o serviço `ssh`.
 
     ```docker
     EXPOSE 8000 2222
     ```
 
-* Certifique-se de que [iniciar o ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) utilizando um script de shell no diretório /bin.
+* Certifique-se de que [inicia o serviço ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) com um script de shell no diretório /bin.
  
     ```bash
     #!/bin/bash
     service ssh start
     ```
      
-### <a name="open-ssh-connection-to-container"></a>Abrir ligação SSH ao contentor
+### <a name="open-ssh-connection-to-container"></a>Abrir a ligação SSH ao contentor
 
-Web App para contentores não permite ligações externas ao contentor. SSH está disponível apenas através do site Kudu, que é acessível na `https://<app_name>.scm.azurewebsites.net`.
+A Aplicação Web para Contentores não permite ligações externas ao contentor. O SSH só está disponível através do site Kudu, que é acessível em `https://<app_name>.scm.azurewebsites.net`.
 
-Para ligar, navegue até à `https://<app_name>.scm.azurewebsites.net/webssh/host` e inicie sessão com a sua conta do Azure.
+Para ligar, navegue para `https://<app_name>.scm.azurewebsites.net/webssh/host` e inicie sessão com a sua conta do Azure.
 
-Em seguida, são redirecionados para uma página que apresenta uma consola interativa. 
+Em seguida, é redirecionado para uma página que apresenta uma consola interativa. 
 
-Pode ser útil verificar que determinadas aplicações estão em execução no contentor. Para inspecionar o contentor e certifique-se a processos em execução, emita o `top` comando na linha de.
+Pode ser útil verificar se determinadas aplicações estão em execução no contentor. Para inspecionar o contentor e verificar os processos em execução, emita o comando `top` na linha de comandos.
 
 ```bash
 top
 ```
 
-O `top` comando expõe todos os processos em execução num contentor.
+O comando `top` expõe todos os processos em execução num contentor.
 
 ```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
@@ -334,19 +343,19 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Parabéns! Configurou uma imagem personalizada do Docker para uma aplicação Web para contentores.
+Parabéns! Configurou uma imagem personalizada do Docker para uma Aplicação Web para Contentores.
 
-## <a name="use-a-private-image-from-docker-hub-optional"></a>Utilizar uma imagem privada do Hub de Docker (opcional)
+## <a name="use-a-private-image-from-docker-hub-optional"></a>Utilizar uma imagem privada do Docker Hub (opcional)
 
-No [criar uma aplicação web](#create-a-web-app), que especificou uma imagem no Docker Hub o `az webapp create` comando. Este é boa para uma imagem de pública. Para utilizar uma imagem privada, terá de configurar o seu ID de conta do Docker e a palavra-passe na sua aplicação web do Azure.
+Em [Criar uma aplicação Web](#create-a-web-app), especificou uma imagem no Docker Hub no comando `az webapp create`. Isto é suficiente para imagens públicas. Para utilizar uma imagem privada, tem de configurar o ID e a palavra-passe da sua conta do Docker na aplicação Web do Azure.
 
-Na Shell de nuvem, siga o `az webapp create` comando com [az webapp configuração contentor conjunto](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua  *\<APP_NAME>.azurewebsites.NET >*e também _< id do docker >_ e  _<password>_  com o ID de Docker e a palavra-passe.
+No Cloud Shell, siga o comando `az webapp create` com [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua *\<app_name>*, bem como _\<docker-id>_ e _\<password>_ pelo ID e a palavra-passe do Docker.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
 ```
 
-O comando de revela resultado semelhante a seguinte cadeia JSON, que mostra que a alteração de configuração foi concluída com êxito:
+O comando revela um resultado semelhante à cadeia JSON seguinte, que mostra que a alteração à configuração foi bem-sucedida:
 
 ```json
 [
@@ -372,21 +381,21 @@ O comando de revela resultado semelhante a seguinte cadeia JSON, que mostra que 
 ]
 ```
 
-## <a name="use-a-docker-image-from-any-private-registry-optional"></a>Utilizar uma imagem de Docker qualquer registo privada (opcional)
+## <a name="use-a-docker-image-from-any-private-registry-optional"></a>Utilizar uma imagem do Docker de qualquer registo privado (opcional)
 
-Nesta secção, irá aprender a utilizar uma imagem de Docker a partir de um registo privado na aplicação Web para contentores e utiliza o registo de contentor do Azure como um exemplo. Os passos para utilizar outros registos privados são semelhantes. 
+Nesta secção, vai aprender a utilizar uma imagem do Docker a partir de um registo privado na Aplicação Web para Contentores, sendo que o Azure Container Registry vai ser utilizado como exemplo. Os passos para utilizar outros registos privados são semelhantes. 
 
-Registo de contentor do Azure é um serviço de Docker gerido a partir do Azure para alojar imagens privadas. As implementações podem ser qualquer tipo, incluindo [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/)e a aplicação Web para contentores. 
+O Azure Container Registry é um serviço gerido do Docker que o Azure oferece para alojar imagens privadas. As implementações podem ser de qualquer tipo, incluindo [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/) e Aplicações Web para Contentores. 
 
 ### <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
 
-Na Shell de nuvem, utilize o [az acr criar](/cli/azure/acr?view=azure-cli-latest#az_acr_create) comando para criar um registo de contentor do Azure. Transmita o nome, o grupo de recursos, e `Basic` para o SKU. SKUs disponíveis são `Classic`, `Basic`, `Standard`, e `Premium`.
+No Cloud Shell, utilize o comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az_acr_create) para criar um Azure Container Registry. Transmita o nome, o grupo de recursos e `Basic` para o SKU. Os SKUs disponíveis são `Classic`, `Basic`, `Standard` e `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
 ```
 
-Criar um contentor produz a seguinte saída:
+Criar um contentor produz o resultado seguinte:
 
 ```
  - Finished ..
@@ -416,15 +425,15 @@ Use an existing service principal and assign access:
 }
 ```
 
-### <a name="log-in-to-azure-container-registry"></a>Inicie sessão no registo de contentor do Azure
+### <a name="log-in-to-azure-container-registry"></a>Iniciar sessão no Azure Container Registry
 
-Para enviar uma imagem no registo, terá de fornecer credenciais para que o registo aceita push. Pode obter estas credenciais utilizando o [mostrar de acr az](/cli/azure/acr?view=azure-cli-latest#az_acr_show) comando na Shell de nuvem. 
+Para enviar uma imagem para o registo, tem de indicar credenciais para que o registo aceita o envio. Pode utilizar o comando [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az_acr_show) no Cloud Shell para obter essas credenciais. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
 ```
 
-O comando de revela duas palavras-passe que podem ser utilizadas com o nome de utilizador.
+O comando revela duas palavras-passe que podem ser utilizadas com o nome de utilizador.
 
 ```json
 <
@@ -442,29 +451,29 @@ O comando de revela duas palavras-passe que podem ser utilizadas com o nome de u
 }
 ```
 
-A janela de terminal local, início de sessão para o registo de contentor Azure utilizando o `docker login` comando. O nome do servidor é necessária para iniciar sessão. Utilize o formato `{azure-container-registry-name>.azurecr.io`.
+Na janela do terminal local, inicie sessão no Azure Container Registry com o comando `docker login`. É necessário o nome do servidor para iniciar sessão. Utilize o formato `{azure-container-registry-name>.azurecr.io`. Escreva a palavra-passe na consola da linha de comandos.
 
 ```bash
-docker login <azure-container-registry-name>.azurecr.io --username <registry-username> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
 ```
 
-Certifique-se de que o início de sessão foi efetuado com êxito. 
+Confirme que o início de sessão foi bem-sucedido. 
 
-### <a name="push-an-image-to-azure-container-registry"></a>Emitir uma imagem para o registo de contentor do Azure
+### <a name="push-an-image-to-azure-container-registry"></a>Enviar imagens para o Azure Container Registry
 
 > [!NOTE]
-> Se estiver a utilizar a sua própria imagem, tag de imagem da seguinte forma:
+> Se estiver a utilizar a sua própria imagem, identifique-a da seguinte forma:
 > ```bash
 > docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
 > ```
 
-Push a imagem utilizando o `docker push` comando. Tag de imagem com o nome do registo, seguido pelo seu nome de imagem e a etiqueta.
+Utilize o comando `docker push` para enviar a imagem. Identifique a imagem com o nome do registo, seguido do nome e da etiqueta da mesma.
 
 ```bash
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
-Certifique-se de que o push adicionada com êxito um contentor para o registo enumerando repositórios do ACR. 
+Liste os repositórios do ACR para confirmar que o envio adicionou um contentor ao registo de contentores. 
 
 ```azurecli-interactive
 az acr repository list -n <azure-container-registry-name>
@@ -478,11 +487,11 @@ Listar as imagens no registo confirma que `mydockerimage` está no registo.
 ]
 ```
 
-### <a name="configure-web-app-to-use-the-image-from-azure-container-registry-or-any-private-registry"></a>Configurar aplicação Web para utilizar a imagem a partir do registo de contentor do Azure (ou qualquer registo privado)
+### <a name="configure-web-app-to-use-the-image-from-azure-container-registry-or-any-private-registry"></a>Configurar a Aplicação Web para utilizar a imagem do Azure Container Registry (ou de qualquer registo privado)
 
-Pode configurar a aplicação Web para contentores para que seja executado um contentor armazenado no registo de contentor do Azure. Com o registo de contentor do Azure é semelhante à utilização de qualquer registo privado, pelo que o se precisar de utilizar os seus próprios registo privado, os passos para concluir esta tarefa são semelhantes.
+Pode configurar a Aplicação Web para Contentores de modo a que execute um contentor armazenado no Azure Container Registry. Utilizar o Azure Container Registry é igual a utilizar qualquer registo privado. Assim, se tiver de utilizar o seu próprio registo privado, os passos para concluir esta tarefa são semelhantes.
 
-Na Shell na nuvem, execute [mostrar de credencial de acr az](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) para apresentar o nome de utilizador e palavra-passe para o registo de contentor do Azure. Copie o nome de utilizador e um das palavras-passe de forma a poder utilizá-lo para configurar a aplicação web no próximo passo.
+No Cloud Shell, execute [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) para apresentar o nome de utilizador e a palavra-passe do Azure Container Registry. Copie o nome de utilizador e uma das palavras-passe de forma a poder utilizá-los para configurar a aplicação Web no próximo passo.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -504,17 +513,17 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Na Shell na nuvem, execute o [az webapp configuração contentor conjunto](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) comando para atribuir a imagem de Docker personalizada para a aplicação web. Substitua  *\<APP_NAME>.azurewebsites.NET >*,  *\<docker-registo--url do servidor >*,  _\<registo-username >_e  _\<palavra-passe >_. Para o registo de contentor do Azure,  *\<docker-registo--url do servidor >* está no formato `https://<azure-container-registry-name>.azurecr.io`. 
+No Cloud Shell, execute o comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) para atribuir a imagem personalizada do Docker à aplicação Web. Substitua *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ e _\<password>_. No Azure Container Registry, *\<docker-registry-server-url>* está no formato `https://<azure-container-registry-name>.azurecr.io`. Se estiver a utilizar um registo que não o Docker Hub, o nome da imagem tem de começar com o nome de domínio completamente qualificado (FQDN) do seu registo. No Azure Container Registry, será parecido com `<azure-container-registry>.azurecr.io/mydockerimage`. 
 
 ```azurecli-interactive
-az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
+az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> `https://`é necessário no  *\<docker-registo--url do servidor >*.
+> `https://` é necessário em *\<docker-registry-server-url>*.
 >
 
-O comando de revela resultado semelhante a seguinte cadeia JSON, que mostra que a alteração de configuração foi concluída com êxito:
+O comando revela um resultado semelhante à cadeia JSON seguinte, que mostra que a alteração à configuração foi bem-sucedida:
 
 ```json
 [
@@ -546,4 +555,4 @@ O comando de revela resultado semelhante a seguinte cadeia JSON, que mostra que 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web Docker Python e PostgreSQL no Azure](tutorial-docker-python-postgresql-app.md)
+> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-docker-python-postgresql-app.md) (Criar uma aplicação Web Docker Python com PostgreSQL no Azure)

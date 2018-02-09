@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-bus"></a>Service Bus do Azure
 
@@ -26,9 +26,9 @@ Se uma aplicação ou serviço é executado na nuvem ou de modo local, muitas ve
 
 ## <a name="service-bus-fundamentals"></a>Noções básicas do Service Bus
 
-Situações diferentes exigem estilos diferentes de comunicação. Por vezes, permitir às aplicações enviar e receber mensagens através de uma fila simples é a melhor solução. Noutras situações, uma fila comum não é suficiente e é melhor uma fila com um mecanismo de publicação e subscrição. Em alguns casos, o necessário é uma ligação entre as aplicações e não são precisas filas. O Service Bus fornece as três opções pelo que as suas aplicações podem interagir de várias maneiras diferentes.
+Situações diferentes exigem estilos diferentes de comunicação. Por vezes, permitir às aplicações enviar e receber mensagens através de uma fila simples é a melhor solução. Noutras situações, uma fila comum não é suficiente e é melhor uma fila com um mecanismo de publicação e subscrição. Em alguns casos, o necessário é uma ligação entre as aplicações e não são precisas filas. O Azure Service Bus oferece as três opções pelo que as suas aplicações podem interagir de várias maneiras diferentes.
 
-O Service Bus é um serviço de nuvem multi-inquilino, o que significa que vários utilizadores partilham o serviço. Cada utilizador, como um programador de aplicações, cria um *espaço de nomes*, em seguida, define os mecanismos de comunicação que precisa dentro desse espaço de nomes. A Figura 1 mostra esta arquitetura.
+O Service Bus é um serviço de nuvem multi-inquilino, o que significa que vários utilizadores partilham o serviço. Cada utilizador, como um programador de aplicações, cria um *espaço de nomes*, em seguida, define os mecanismos de comunicação que precisa dentro desse espaço de nomes. A Figura 1 mostra esta arquitetura:
 
 ![][1]
 
@@ -40,7 +40,7 @@ Dentro de um espaço de nomes, pode utilizar uma ou mais instâncias dos três d
 * *Tópicos*, que proporcionam uma comunicação unidirecional através de *subscrições* – um só tópico pode ter várias subscrições. Tal como as filas, o tópico funciona como um mediador, mas cada subscrição pode utilizar opcionalmente um filtro para receber apenas as mensagens que correspondem a critérios específicos.
 * *Reencaminhamentos*, que proporcionam comunicação bidirecional. Ao contrário das filas e tópicos, o reencaminhamento não armazena as mensagens em trânsito - não é um mediador. Simplesmente, transmite-as à aplicação de destino.
 
-Quando cria uma fila, tópico ou reencaminhamento, dá-lhe um nome. Quando combinado com o espaço de nomes, cria-se um identificador exclusivo para o objeto. As aplicações podem fornecer este nome ao Service Bus e, em seguida, utilizar essa fila, tópico ou reencaminhamento para comunicar entre si. 
+Quando cria uma fila, tópico ou reencaminhamento, dá-lhe um nome. Quando combinado com o espaço de nomes, cria-se um identificador exclusivo para o objeto. As aplicações podem indicar este nome ao Service Bus e, em seguida, utilizar essa fila, tópico ou reencaminhamento para comunicar entre si. 
 
 Para utilizar qualquer um destes objetos no cenário de reencaminhamento, as aplicações do Windows podem utilizar o Windows Communication Foundation (WCF). Este serviço é conhecido como [Reencaminhamento do WCF](../service-bus-relay/relay-what-is-it.md). Para as filas e tópicos, as aplicações do Windows podem utilizar as APIs de mensagens definidas pelo Service Bus. Para facilitar a utilização destes objetos a partir de aplicações que não sejam de Windows, a Microsoft disponibiliza SDKs para Java, Node.js e outras linguagens. Também pode aceder às filas e tópicos com as [REST APIs](/rest/api/servicebus/) através de HTTP(s). 
 
@@ -48,13 +48,13 @@ Para utilizar qualquer um destes objetos no cenário de reencaminhamento, as apl
 
 ## <a name="queues"></a>Filas
 
-Suponha que decide ligar duas aplicações com uma fila do Service Bus. A figura 2 ilustra esta situação.
+Suponha que decide ligar duas aplicações com uma fila do Service Bus. A figura 2 ilustra esta situação:
 
 ![][2]
 
 **Figura 2: As filas do Service Bus proporcionam filas unidirecionais assíncronas.**
 
-O processo é simples: um remetente envia uma mensagem para uma fila do Service Bus e um recetor apanha essa mensagem mais tarde. Uma fila pode ter apenas um recetor único, como mostra a Figura 2. Ou várias aplicações podem ler a partir da mesma fila. Na última situação, cada mensagem é lida por apenas um recetor. Num serviço multicast, deve utilizar um tópico.
+Um remetente envia uma mensagem para uma fila do Service Bus e um recetor apanha essa mensagem mais tarde. Uma fila pode ter apenas um recetor único, como mostra a Figura 2. Ou várias aplicações podem ler a partir da mesma fila. Na última situação, cada mensagem é lida por apenas um recetor. Num serviço multicast, deve utilizar um tópico.
 
 Cada mensagem tem duas partes: um conjunto de propriedades, cada uma delas um par chave/valor e um payload de mensagem. O payload pode ser binário, texto ou até mesmo XML. O modo como são utilizados depende do que a aplicação está a tentar fazer. Por exemplo, uma aplicação que envia uma mensagem sobre uma venda recente pode incluir as propriedades **Vendedor="Ava"** e **Valor= 10000**. O corpo da mensagem poderá conter uma imagem digitalizada do contrato de venda assinado ou, se não existir, permanece vazio.
 
@@ -72,13 +72,13 @@ As filas são úteis em determinadas situações. Permitem às aplicações comu
 
 ## <a name="topics"></a>Tópicos
 
-Ainda que sejam úteis, as filas não sempre são a solução certa. Por vezes, os tópicos do Service Bus são melhores. A figura 3 ilustra a ideia.
+Ainda que sejam úteis, as filas não sempre são a solução certa. Por vezes, os tópicos são melhores. A figura 3 ilustra esta ideia:
 
 ![][3]
 
 **Figura 3: Com base no filtro especificado por uma aplicação de subscrição, pode receber algumas ou todas as mensagens enviadas para um tópico do Service Bus.**
 
-Um *tópico* é semelhante em muitos aspetos a uma fila. Os remetentes submetem mensagens a um tópico da mesma forma que submetem mensagens a uma fila e essas mensagens têm o mesmo aspeto que nas filas. A diferença é que os tópicos permitem a cada aplicação de receção criar a sua própria *subscrição* através da definição de um *filtro*. Consequentemente, o subscritor vê apenas as mensagens que correspondem a esse filtro. Por exemplo, a figura 3 mostra um remetente e um tópico com três subscritores, cada um com o seu próprio filtro:
+Um *tópico* é semelhante em muitos aspetos a uma fila. Os remetentes submetem mensagens a um tópico da mesma forma que submetem mensagens a uma fila e essas mensagens têm o mesmo aspeto que nas filas. A diferença é que os tópicos permitem a cada aplicação de receção criar a sua própria *subscrição* e definir opcionalmente um *filtro*. Consequentemente, o subscritor vê apenas as mensagens que correspondem a esse filtro. Por exemplo, a figura 3 mostra um remetente e um tópico com três subscritores, cada um com o seu próprio filtro:
 
 * O subscritor 1 recebe apenas as mensagens que contêm a propriedade *Vendedor="Ava"*.
 * O subscritor 2 recebe mensagens que contêm a propriedade *Vendedor="Ruby"* e/ou contem a propriedade *Valor* cujo valor é superior a 100.000. Talvez Ruby seja a gestora de vendas, pelo que pretende ver as suas próprias vendas e todas as vendas grandes, independentemente de quem as faz.
@@ -88,7 +88,7 @@ Como acontece com as filas, os subscritores de um tópico podem ler mensagens at
 
 ## <a name="relays"></a>Reencaminhamentos
 
-Tanto as filas como os tópicos proporcionam comunicação assíncrona unidirecional através de um mediador. O tráfego flui numa única direção e não existe uma ligação direta entre os remetentes e os recetores. Mas e se não quiser esta ligação? Suponha que as suas aplicações precisam de enviar e receber mensagens ou talvez pretenda uma ligação direta entre elas e não precisa de um mediador para armazenar as mensagens. Para solucionar soluções como esta, o Service Bus proporciona *reencaminhamentos*, como mostra a Figura 4.
+Tanto as filas como os tópicos proporcionam comunicação assíncrona unidirecional através de um mediador. O tráfego flui numa única direção e não existe uma ligação direta entre os remetentes e os recetores. Mas e se não quiser esta ligação? Suponha que as suas aplicações precisam de enviar e receber mensagens ou talvez pretenda uma ligação direta entre elas e não precisa de um mediador para armazenar as mensagens. Para solucionar soluções como esta, o Service Bus proporciona *reencaminhamentos*, como mostra a Figura 4:
 
 ![][4]
 
@@ -96,7 +96,7 @@ Tanto as filas como os tópicos proporcionam comunicação assíncrona unidireci
 
 A questão óbvia sobre os reencaminhamentos que se coloca é esta: por que tenho de utilizar um? Mesmo que não precise de filas, por que motivo fazer com que as aplicações comuniquem através de um serviço em nuvem em vez de apenas interagir diretamente? A resposta é que comunicar diretamente pode ser mais difícil de que se pensa.
 
-Suponha que pretende ligar duas aplicações no local, ambas em execução dentro dos datacenters empresariais. Cada uma dessas aplicações encontra-se protegida por uma firewall e cada datacenter utiliza provavelmente tradução de endereços de rede (NAT). A firewall bloqueia os dados recebidos em quase todas as portas e NAT significa que a máquina em que se executa cada aplicação não tem um endereço IP fixo ao qual pode aceder diretamente a partir de fora do datacenter. Se não houver ajuda extra, é complicado ligar estas aplicações através da Internet pública.
+Suponha que pretende ligar duas aplicações no local, ambas em execução dentro dos datacenters empresariais. Cada uma dessas aplicações encontra-se protegida por uma firewall e cada datacenter utiliza provavelmente tradução de endereços de rede (NAT). A firewall bloqueia os dados recebidos em quase todas as portas e NAT significa que o computador em que se executa cada aplicação não tem um endereço IP fixo ao qual pode aceder diretamente a partir de fora do datacenter. Se não houver ajuda extra, é complicado ligar estas aplicações através da Internet pública.
 
 Um reencaminhamento do Service Bus pode ajudar. Para comunicar de forma bidirecional através de um reencaminhamento, cada aplicação estabelece uma ligação TCP de saída com o Service Bus e mantém-na aberta. Toda a comunicação entre as duas aplicações percorre essas ligações. Uma vez que cada ligação se estabeleceu de dentro do datacenter, a firewall permite o tráfego de entrada para cada aplicação sem abrir novas portas. Esta abordagem também contorna o problema de NAT porque cada aplicação dispõe de um ponto final consistente na nuvem durante toda a duração da comunicação. Ao trocar dados através do reencaminhamento, as aplicações podem evitar os problemas que dificultariam a comunicação. 
 

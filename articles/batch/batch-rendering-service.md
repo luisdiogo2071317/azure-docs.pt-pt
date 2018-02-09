@@ -2,17 +2,17 @@
 title: "Serviço de Composição do Azure Batch - composição à escala da cloud | Microsoft Docs"
 description: "Componha tarefas em máquinas virtuais do Azure diretamente no Maya com o modelo de faturação de pagamento por utilização."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Introdução ao serviço Batch Rendering
 
@@ -25,12 +25,8 @@ Com Maya e 3ds Max, pode executar tarefas com a aplicação de computador [Batch
 
 Atualmente, o serviço Batch Rendering suporta as aplicações seguintes:
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold for Maya
-- Autodesk Arnold for 3ds Max
-- Chaos Group V-Ray for Maya
-- Chaos Group V-Ray for 3ds Max
+• Autodesk Maya E/S 2017 Atualização 4 (versão 17.4.5459) • Autodesk 3ds Max E/S 2018 Atualização 1 (versão 20.1.0.238) • Autodesk Arnold para Maya (versão 5.0.1.1) • Autodesk Arnold para 3ds Max (versão 1.0.836) • Chaos Group V-Ray para Maya (versão 3.52.03) • Chaos Group V-Ray para 3ds Max (versão 3.60.02)
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -55,6 +55,7 @@
 ### [Sincronização de palavras-passe](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Conta de serviço do AD FS](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Assistente de instalação](active-directory-aadconnectsync-installation-wizard.md)
+### [Como é preenchido o UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
 ### [Alterar a configuração predefinida](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configurar a Filtragem](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)

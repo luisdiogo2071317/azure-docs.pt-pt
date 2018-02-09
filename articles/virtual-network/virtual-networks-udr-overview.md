@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -40,7 +40,7 @@ Cada rota contém um prefixo de endereço e o tipo de salto seguinte. Quando o t
 |Predefinição|0.0.0.0/0                                               |Internet       |
 |Predefinição|10.0.0.0/8                                              |Nenhuma           |
 |Predefinição|172.16.0.0/12                                           |Nenhum           |
-|Predefinição|192.168.0.0/16                                          |Nenhum           |
+|Predefinição|192.168.0.0/16                                          |Nenhuma           |
 |Predefinição|100.64.0.0/10                                           |Nenhuma           |
 
 Os tipos de salto seguintes listados na tabela anterior representam a forma como o Azure encaminha o tráfego destinado ao prefixo de endereço listado. As explicações para os tipos de salto seguintes são as seguintes:
@@ -110,7 +110,7 @@ O nome apresentado e referenciado para os tipos de próximo salto são diferente
 |Rede virtual                 |VNetLocal                                       |VNETLocal (não disponível na CLI 1.0 no modo asm)|
 |Internet                        |Internet                                        |Internet (não disponível na CLI 1.0 no modo asm)|
 |Aplicação virtual               |VirtualAppliance                                |VirtualAppliance|
-|Nenhum                            |Nenhum                                            |Null (não disponível na CLI 1.0 no modo asm)|
+|Nenhum                            |Nenhuma                                            |Null (não disponível na CLI 1.0 no modo asm)|
 |Peering de rede virtual         |VNet peering                                    |Não aplicável|
 |Ponto final do serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
 
@@ -151,7 +151,7 @@ Um rota que tenha o prefixo de endereço 0.0.0.0/0 diz ao Azure como encaminhar 
 
 Quando substitui o prefixo de endereço 0.0.0.0/0, para além do tráfego de saída da sub-rede fluir através do gateway de rede virtual ou da aplicação virtual, ocorrem as seguintes alterações ao encaminhamento predefinido do Azure: 
 
-- O Azure envia o tráfego ao tipo de próximo salto especificado na rota, de modo a inclui o tráfego destinado aos endereços IP públicos dos serviços do Azure.  Se o tipo de próximo salto da rota com o prefixo de endereço 0.0.0.0/0 for **Internet**, o tráfego da sub-rede destinado aos endereços IP públicos dos serviços do Azure nunca sai da rede principal do Azure, independentemente da região do Azure em que a rede virtual ou o recurso do serviço do Azure reside. Contudo, se criar uma rota definida pelo utilizador ou do BGP com o tipo de próximo salto **gateway de rede virtual** ou **aplicação virtual**, todo o tráfego, de modo a incluir o tráfego enviado para os endereços IP públicos dos serviços do Azure para os quais não ativou os [pontos finais de serviço](virtual-network-service-endpoints-overview.md), é enviado para o tipo de próximo salto especificado na rota. Se tiver ativado um ponto final de serviço para um serviço, o tráfego para o mesmo não é encaminhado para o tipo de próximo salto numa rota com o prefixo de endereço 0.0.0.0/0, porque os prefixos de endereço do serviço são especificados na rota que o Azure cria quando é ativado o ponto final do serviço e porque são mais longos do que 0.0.0.0/0.
+- O Azure envia o tráfego ao tipo de próximo salto especificado na rota, incluindo o tráfego destinado aos endereços IP públicos dos serviços do Azure. Se o tipo de próximo salto da rota com o prefixo de endereço 0.0.0.0/0 for **Internet**, o tráfego da sub-rede destinado aos endereços IP públicos dos serviços do Azure nunca sai da rede principal do Azure, independentemente da região do Azure em que a rede virtual ou o recurso do serviço do Azure reside. Contudo, se criar uma rota definida pelo utilizador ou do BGP com o tipo de próximo salto **gateway de rede virtual** ou **aplicação virtual**, todo o tráfego, incluindo o tráfego enviado para os endereços IP públicos dos serviços do Azure para os quais não ativou os [pontos finais de serviço](virtual-network-service-endpoints-overview.md), é enviado para o tipo de próximo salto especificado na rota. Se tiver ativado um ponto final de serviço para um serviço, o tráfego para o mesmo não é encaminhado para o tipo de próximo salto numa rota com o prefixo de endereço 0.0.0.0/0, porque os prefixos de endereço do serviço são especificados na rota que o Azure cria quando é ativado o ponto final do serviço e porque são mais longos do que 0.0.0.0/0.
 - Deixa de poder aceder diretamente a recursos na sub-rede a partir da Internet. Pode aceder indiretamente aos recursos na sub-rede a partir da Internet se o tráfego de entrada for transmitido para o dispositivo especificado pelo tipo de próximo salto de uma rota com o prefixo de endereço 0.0.0.0/0 antes de chegar ao recurso da rede virtual. Se a rota contiver os valores seguintes para o tipo de próximo salto:
     - **Aplicação virtual**: a aplicação tem de:
         - Ser acessível a partir da Internet
@@ -161,7 +161,7 @@ Quando substitui o prefixo de endereço 0.0.0.0/0, para além do tráfego de sa�
         - Ser capaz de utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego no recurso de destino na sub-rede, bem como de devolvê-lo à Internet. 
     - **Gateway de rede virtual**: se o gateway for um gateway de rede virtual do ExpressRoute, os dispositivos ligados à Internet no local podem utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego para o recurso de destino na sub-rede, através do[peering privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) do ExpressRoute.  
 
-  Veja [DMZ between Azure and your on-premises datacenter](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e o seu datacenter no local) e [DMZ between Azure and the Internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e a Internet) para obter detalhes da implementação ao utilizar gateways de rede virtual e aplicações virtuais entre a Internet e o Azure.
+  Veja [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e o seu datacenter no local) e [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e a Internet) para obter detalhes da implementação ao utilizar gateways de rede virtual e aplicações virtuais entre a Internet e o Azure.
 
 ## <a name="routing-example"></a>Exemplo de encaminhamento
 
@@ -207,8 +207,8 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 |3   |Utilizador   |Ativa |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Predefinição|Inválido|10.1.0.0/16         |VNet peering           |                   |              |
 |5   |Predefinição|Inválido|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
-|7   |Utilizador   |Ativa |10.2.0.0/16         |Nenhuma                   |                   |ToVNet2-2-Drop|
+|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhuma                   |                   |ToVNet2-1-Drop|
+|7   |Utilizador   |Ativa |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
 |8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
 |9   |Utilizador   |Ativa |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
 |10  |Predefinição|Ativa |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
@@ -242,9 +242,9 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 |Predefinição |Ativa |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
 |Predefinição |Ativa |0.0.0.0/0           |Internet                  |                   |
 |Predefinição |Ativa |10.0.0.0/8          |Nenhum                      |                   |
-|Predefinição |Ativa |100.64.0.0/10       |Nenhuma                      |                   |
-|Predefinição |Ativa |172.16.0.0/12       |Nenhuma                      |                   |
-|Predefinição |Ativa |192.168.0.0/16      |Nenhum                      |                   |
+|Predefinição |Ativa |100.64.0.0/10       |Nenhum                      |                   |
+|Predefinição |Ativa |172.16.0.0/12       |Nenhum                      |                   |
+|Predefinição |Ativa |192.168.0.0/16      |Nenhuma                      |                   |
 
 A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de endereços 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 da tabela de rotas *Subnet1* quando a rota definida pelo utilizador para o prefixo 0.0.0.0/0 foi adicionada a *Subnet1*.  
 

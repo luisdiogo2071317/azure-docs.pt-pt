@@ -9,6 +9,10 @@
 ## Colocar em pausa e retomar a computação
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## Dimensionar computação
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Tutoriais
@@ -113,8 +117,6 @@
 ### [Analisar a sua carga de trabalho](analyze-your-workload.md)
 
 ## Aumentar horizontalmente
-### [Gerir a computação - portal](sql-data-warehouse-manage-compute-portal.md)
-### [Gerir a computação - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Gerir a computação - API REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automatizar níveis de computação](manage-compute-with-azure-functions.md)
 

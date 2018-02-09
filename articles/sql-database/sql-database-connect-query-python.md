@@ -15,15 +15,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/09/2017
 ms.author: carlrab
-ms.openlocfilehash: f7496c7b78449d5ceae861dc0daac607acdb1f84
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bb3396c95d884f0ad90e2d1c07209fecd87ece15
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Utilizar o Python para consultar uma base de dados SQL do Azure
 
- Este guia de introdução demonstra como utilizar o [Python](https://python.org) para ligar a uma base de dados SQL do Azure e utilizar as instruções Transact-SQL para consultar dados.
+ Este guia de introdução demonstra como utilizar o [Python](https://python.org) para ligar a uma base de dados SQL do Azure e utilizar as instruções Transact-SQL para consultar dados. Para obter mais detalhes de sdk, veja a nossa documentação de [referência](https://docs.microsoft.com/python/api/overview/azure/sql), um [exemplo](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) do pyodbc e o repositório do GitHub do [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

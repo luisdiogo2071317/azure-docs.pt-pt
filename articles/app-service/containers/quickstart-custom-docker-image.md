@@ -16,17 +16,19 @@ ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: a95a8435e4ecef201ad0f6d9ecda68e94f06ea80
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 7f6ed6d52bea1faec9dbed96a8d7aef020aea5d9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Executar uma imagem personalizada do Docker Hub na Aplicação Web do Azure para Contentores
 
 O Serviço de Aplicações dispõe de pilhas de aplicação previamente definidas no Linux com suporte para versões específicas, como PHP 7.0 e Node.js 4.5. Também pode utilizar uma imagem personalizada do Docker para executar a aplicação Web numa pilha de aplicação que ainda não esteja definida no Azure. Este guia de introdução mostra como criar uma aplicação Web e implementar a [imagem oficial do Nginx Docker](https://hub.docker.com/r/_/nginx/) no mesmo. Irá criar a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +40,7 @@ O Serviço de Aplicações dispõe de pilhas de aplicação previamente definida
 
 ## <a name="create-a-web-app-for-container"></a>Criar uma Aplicação Web para Contentor
 
-Crie uma [aplicação Web](../app-service-web-overview.md) no plano do `myAppServicePlan`Serviço de Aplicações com o comando[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir `<app name>` por um nome de aplicação único.
+Crie uma [aplicação Web](../app-service-web-overview.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir `<app name>` por um nome de aplicação único.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx

@@ -1,6 +1,6 @@
 ---
-title: "Implementar uma aplicação .NET num contentor do Azure Service Fabric | Microsoft Docs"
-description: "Informa-como uma aplicação .NET no Visual Studio num contentor Docker do pacote. Esta nova aplicação de \"container\", em seguida, é implementada para um cluster do Service Fabric."
+title: "Implementar uma aplicação .NET num contentor para o Azure Service Fabric | Microsoft Docs"
+description: "Ensina como empacotar uma aplicação .NET no Visual Studio num Contentor do Docker. Esta nova aplicação \"contentor\" é então implementada num cluster do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -9,67 +9,67 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: MT
+ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Implementar uma aplicação .NET num contentor do Windows Azure Service Fabric
+# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Implementar uma aplicação .NET num contentor do Windows para o Azure Service Fabric
 
 Este tutorial mostra como implementar uma aplicação ASP.NET existente num contentor do Windows no Azure.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um projeto de Docker no Visual Studio
-> * Containerize uma aplicação existente
-> * Configurar a integração contínua com o Visual Studio e VSTS
+> * Criar um projeto do Docker no Visual Studio
+> * Colocar uma aplicação existente num contentor
+> * Configurar integração contínua com o Visual Studio e VSTS
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instalar [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) para que possam executar contentores no Windows 10.
-2. Familiarize-se com o [início rápido do Windows 10 contentores][link-container-quickstart].
-3. Transferir o [Fabrikam fibra CallCenter] [ link-fabrikam-github] aplicação de exemplo.
-4. Instalar [o Azure PowerShell][link-azure-powershell-install]
-5. Instalar o [extensão de ferramentas de entrega contínua para Visual Studio 2017][link-visualstudio-cd-extension]
-6. Criar um [subscrição do Azure] [ link-azure-subscription] e um [conta Visual Studio Team Services][link-vsts-account]. 
+1. Instale o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), para que possam executar contentores no Windows 10.
+2. Familiarize-se com o [Início rápido dos Contentores do Windows 10][link-container-quickstart].
+3. Transfira a aplicação de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].
+4. Instale o [Azure PowerShell][link-azure-powershell-install]
+5. Instale a [Extensão de Ferramentas de Entrega Contínua para o Visual Studio 2017][link-visualstudio-cd-extension]
+6. Crie uma [subscrição do Azure][link-azure-subscription] e uma [conta do Visual Studio Team Services][link-vsts-account]. 
 7. [Criar um cluster no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 ## <a name="create-a-cluster-on-azure"></a>Criar um cluster no Azure
-Aplicações de Service Fabric ser executadas num cluster, de um conjunto de ligados à rede de máquinas virtuais ou físicas. [Configurar um cluster do Service Fabric em execução no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) antes de criar e implementar a sua aplicação. Ao criar o cluster, escolha um SKU que suporta contentores em execução (por exemplo, o Windows Server 2016 Datacenter com contentores).
+As aplicações do Service Fabric são executadas num cluster, um conjunto de máquinas virtuais ou físicas ligadas à rede. [Configure um cluster do Service Fabric em execução no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) antes de criar e implementar a sua aplicação. Ao criar o cluster, escolha uma SKU que suporte contentores em execução (como o Windows Server 2016 Datacenter com Contentores).
 
-## <a name="containerize-the-application"></a>Containerize a aplicação
+## <a name="containerize-the-application"></a>Colocar a aplicação num contentor
 
-Agora que tem um cluster do Service Fabric em execução no Azure está pronto para criar e implementar uma aplicação de. Para iniciar a nossa aplicação a ser executado num contentor, precisamos de adicionar **Docker suporte** para o projeto no Visual Studio. Quando adiciona **suporte Docker** à aplicação, ocorrem duas coisas. Primeiro, um _Dockerfile_ é adicionada ao projeto. Este novo ficheiro descreve como a imagem do contentor tem de ser criada. Em seguida, segundo, um novo _compor o docker_ projeto é adicionado à solução. O novo projeto contém alguns ficheiros de compose docker. Componha de docker ficheiros podem ser utilizados para descrever como o contentor é executado.
+Agora que tem um cluster do Service Fabric em execução no Azure, está pronto para criar e implementar uma aplicação que se encontre num contentor. Para começar a executar a nossa aplicação num contentor, precisamos de adicionar **Suporte do Docker** ao projeto no Visual Studio. Quando adiciona **suporte Docker** à aplicação, acontecem duas coisas. Primeiro, é adicionado _Dockerfile_ ao projeto. Este novo ficheiro descreve como a imagem de contentor tem de ser criada. Segundo, é adicionado um novo projeto _docker-compose_ à solução. O novo projeto contém alguns ficheiros docker-compose. Os ficheiros docker-compose podem servir para descrever como o contentor é executado.
 
-Obter mais informações sobre como trabalhar com [ferramentas de contentor do Visual Studio][link-visualstudio-container-tools].
+Obtenha mais informações sobre como trabalhar com [Ferramentas de Contentor do Visual Studio][link-visualstudio-container-tools].
 
 >[!NOTE]
->Se for a primeira vez que as imagens de contentor do Windows estiver a executar no seu computador, Docker CE tem obtenha as imagens de base para os contentores. As imagens que utilizou neste tutorial são 14 GB. Avançar e execute o seguinte comando terminal para solicitar as imagens de base:
+>Se é a primeira vez que executa imagens de contentor do Windows no seu computador, o Docker CE tem obter as imagens de base para os contentores. As imagens utilizadas neste tutorial têm 14 GB. Avance e execute o seguinte comando do terminal para pedir as imagens de base:
 >```cmd
 >docker pull microsoft/mssql-server-windows-developer
 >docker pull microsoft/aspnet:4.6.2
 >```
 
-### <a name="add-docker-support"></a>Adicionar suporte de Docker
+### <a name="add-docker-support"></a>Adicionar suporte do Docker
 
-Abra o [FabrikamFiber.CallCenter.sln] [ link-fabrikam-github] ficheiro no Visual Studio.
+Abra o ficheiro [FabrikamFiber.CallCenter.sln][link-fabrikam-github] no Visual Studio.
 
-Clique com botão direito do **FabrikamFiber.Web** projeto > **adicionar** > **Docker suporte**.
+Clique com o botão direito do rato em **FabrikamFiber.Web** projeto > **Adicionar** > **Suporte do Docker**.
 
-### <a name="add-support-for-sql"></a>Adicionar suporte para o SQL Server
+### <a name="add-support-for-sql"></a>Adicionar suporte para SQL
 
-Esta aplicação utiliza o SQL Server como o fornecedor de dados para que um servidor SQL é necessário para executar a aplicação. Referência a uma imagem de contentor do SQL Server no nosso ficheiro docker compose.override.yml.
+Esta aplicação utiliza o SQL como o fornecedor de dados, para que seja preciso um servidor SQL para executar a aplicação. Referencie a uma imagem de contentor do SQL Server no nosso ficheiro docker-compose.override.yml.
 
-No Visual Studio, abra **Explorador de soluções**, localizar **compor o docker**e abra o ficheiro **docker compose.override.yml**.
+No Visual Studio, abra **Explorador de Soluções**, encontre **docker-compose** e abra o ficheiro **docker-compose.override.yml**.
 
-Navegue para o `services:` nó, adicionar um nó com o nome `db:` que define a entrada do SQL Server para o contentor.
+Navegue para o nó `services:`, adicione um nó denominado `db:`, que define a entrada do SQL Server para o contentor.
 
 ```yml
   db:
@@ -86,12 +86,12 @@ Navegue para o `services:` nó, adicionar um nó com o nome `db:` que define a e
 ```
 
 >[!NOTE]
->Pode utilizar qualquer servidor de SQL que preferir para depuração local, desde que seja acessível a partir do seu anfitrião. No entanto, **localdb** não suporta `container -> host` comunicação.
+>Pode utilizar qualquer SQL Server que preferir para depuração local, desde que seja acessível a partir do seu anfitrião. No entanto, o **localdb** não suporta comunicação `container -> host`.
 
 >[!WARNING]
->Executar o SQL Server num contentor não suporta dados persistentes. Quando deixa de contentor, é apagar os dados. Utilize esta configuração para produção.
+>Executar o SQL Server num contentor não suporta dados persistentes. Quando o contentor para, os dados são apagados. Não utilize esta configuração para produção.
 
-Navegue para o `fabrikamfiber.web:` nós e adicionar um nó subordinado com o nome `depends_on:`. Isto garante que o `db` serviço (o contentor do SQL Server) é iniciado antes da nossa aplicação web (fabrikamfiber.web).
+Navegue para o nó `fabrikamfiber.web:` e adicione um nó subordinado denominado `depends_on:`. Isto garante que o serviço `db` (o contentor do SQL Server) é iniciado antes da nossa aplicação Web (fabrikamfiber.web).
 
 ```yml
   fabrikamfiber.web:
@@ -99,9 +99,9 @@ Navegue para o `fabrikamfiber.web:` nós e adicionar um nó subordinado com o no
       - db
 ```
 
-### <a name="update-the-web-config"></a>Atualizar a configuração da web
+### <a name="update-the-web-config"></a>Atualizar a configuração da Web
 
-Volta a **FabrikamFiber.Web** do projeto, atualize a cadeia de ligação no **Web. config** ficheiro, para que apontem para o SQL Server no contentor.
+Volte para o projeto **FabrikamFiber.Web**, atualize a cadeia de ligação no ficheiro **web.config**, para que encaminhe para o SQL Server no contentor.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
@@ -110,33 +110,33 @@ Volta a **FabrikamFiber.Web** do projeto, atualize a cadeia de ligação no **We
 ```
 
 >[!NOTE]
->Se pretender utilizar um diferente do SQL Server ao criar uma versão de compilação da aplicação web, adicione outra cadeia de ligação ao seu ficheiro web.release.config.
+>Se pretender utilizar um SQL Server diferente ao criar uma versão de compilação da aplicação Web, adicione outra cadeia de ligação ao seu ficheiro web.release.config.
 
-### <a name="test-your-container"></a>O contentor de teste
+### <a name="test-your-container"></a>Testar o seu contentor
 
-Prima **F5** para executar a aplicação e Depure no seu contentor.
+Prima **F5** para executar e depurar a aplicação no seu contentor.
 
-Limite abre uma página de início definido da sua aplicação utilizando o endereço IP do contentor na rede interna de NAT (normalmente 172.x.x.x). Para saber mais sobre a depuração de aplicações nos contentores utilizando o Visual Studio 2017, consulte o artigo [neste artigo][link-debug-container].
+O Edge abre a página definida de início da sua aplicação com o endereço IP do contentor na rede de NAT interna (normalmente 172.x.x.x). Para saber mais sobre a depuração de aplicações nos contentores com o Visual Studio 2017, veja [este artigo][link-debug-container].
 
-![exemplo de fabrikam num contentor][image-web-preview]
+![exemplo do fabrikam num contentor][image-web-preview]
 
-O contentor está agora pronto para ser criada e empacotada numa aplicação de Service Fabric. Assim que tiver a imagem de contentor incorporada no seu computador, pode enviá-lo para qualquer registo de contentor e solicitar a para baixo para qualquer anfitrião para executar.
+O contentor está agora pronto para ser criado e empacotado numa aplicação do Service Fabric. Assim que tiver a imagem de contentor incorporada no seu computador, pode enviá-la para qualquer registo de contentor e pedir a qualquer anfitrião para executar.
 
-## <a name="get-the-application-ready-for-the-cloud"></a>Preparar a aplicação para a nuvem
+## <a name="get-the-application-ready-for-the-cloud"></a>Preparar a aplicação para a cloud
 
-Para preparar a aplicação para em execução no Service Fabric no Azure, é necessário concluir os dois passos:
+Para preparar a aplicação para ser executada no Service Fabric no Azure, temos de concluir dois passos:
 
-1. Expor a porta em que queremos conseguir alcançar a nossa aplicação web no cluster de Service Fabric.
-2. Forneça um produção pronto base de dados SQL para a nossa aplicação.
+1. Expor a porta onde queremos alcançar a nossa aplicação Web no cluster do Service Fabric.
+2. Providencie um base de dados SQL pronta para produção para a nossa aplicação.
 
-### <a name="expose-the-port-for-the-app"></a>Expor as portas para a aplicação
-O cluster de Service Fabric que tiver configurado, tem de porta *80* aberta por predefinição no balanceador de carga do Azure, que equilibra e o tráfego de entrada para o cluster. Pode expomos nosso contentor esta porta através do nosso ficheiro docker-Compose.yml.
+### <a name="expose-the-port-for-the-app"></a>Expor a porta para a aplicação
+O cluster do Service Fabric configurado, tem a porta *80* aberta por predefinição no Balanceador de Carga do Azure, que equilibra o tráfego de entrada para o cluster. Podemos expor o nosso contentor nesta porta através do nosso ficheiro docker-compose.yml.
 
-No Visual Studio, abra **Explorador de soluções**, localizar **compor o docker**e abra o ficheiro **docker-Compose.yml**.
+No Visual Studio, abra **Explorador de Soluções**, encontre **docker-compose** e abra o ficheiro **docker-compose.yml**.
 
-Modificar o `fabrikamfiber.web:` nó, adicionar um nó subordinado com o nome `ports:`.
+Modifique o nó `fabrikamfiber.web:`, adicione um nó subordinado denominado `ports:`.
 
-Adicionar uma entrada de cadeia `- "80:80"`. Este é o que o ficheiro docker-Compose.yml deve ter o seguinte aspeto:
+Adicione uma entrada de cadeia `- "80:80"`. O ficheiro docker-compose.yml deve ter o seguinte aspeto:
 
 ```yml
   version: '3'
@@ -151,74 +151,74 @@ Adicionar uma entrada de cadeia `- "80:80"`. Este é o que o ficheiro docker-Com
         - "80:80"
 ```
 
-### <a name="use-a-production-sql-database"></a>Utilizar uma base de dados do SQL Server de produção
-Quando em execução na produção, precisamos que os nossos dados persistentes na nossa base de dados. Não está actualmente nenhuma forma de garantir dados persistentes num contentor, por isso não é possível armazenar dados de produção no SQL Server num contentor.
+### <a name="use-a-production-sql-database"></a>Utilizar uma base de dados SQL de produção
+Ao executar na produção, precisamos que os nossos dados fiquem na nossa base de dados. Não existe atualmente nenhuma forma de garantir que os dados fiquem num contentor, por isso não pode armazenar dados de produção no SQL Server num contentor.
 
-É recomendável que utilizar uma base de dados do SQL do Azure. Para configurar e executar um servidor gerido do SQL Server no Azure, visite o [inícios rápidos de base de dados do SQL do Azure] [ link-azure-sql] artigo.
+Recomendamos que utilize uma Base de Dados SQL do Azure. Para configurar e executar um SQL Server gerido no Azure, leia o artigo [Inícios Rápidos de Base de Dados SQL do Azure][link-azure-sql].
 
 >[!NOTE]
->Lembre-se alterar as cadeias de ligação para o SQL server no **web.release.config** ficheiros o **FabrikamFiber.Web** projeto.
+>Não se esqueça de alterar as cadeias de ligação no SQL server no ficheiro **web.release.config** no projeto **FabrikamFiber.Web**.
 >
->Esta aplicação não consegue transições se nenhuma base de dados do SQL Server está acessível. Pode optar por prosseguir e implementar a aplicação não SQL Server.
+>Esta aplicação falha se nenhuma base de dados SQL estiver acessível. Pode optar por prosseguir e implementar a aplicação sem o SQL server.
 
 ## <a name="deploy-with-visual-studio-team-services"></a>Implementar com o Visual Studio Team Services
 
-Para configurar a implementação utilizando o Visual Studio Team Services, tem de instalar o [extensão de ferramentas de entrega contínua para Visual Studio 2017][link-visualstudio-cd-extension]. Esta extensão torna mais fácil de implementar no Azure ao configurar o Visual Studio Team Services e obter a sua aplicação implementada ao cluster do Service Fabric.
+Para configurar a implementação com o Visual Studio Team Services, tem de instalar a [Extensão de Ferramentas de Entrega Contínua para o Visual Studio 2017][link-visualstudio-cd-extension]. Esta extensão facilita a implementação no Azure ao configurar o Visual Studio Team Services e implementar a sua aplicação no cluster do Service Fabric.
 
-Para começar, o seu código tem de estar alojado no controlo de origem. Assume os restantes desta secção **git** está a ser utilizado.
+Para começar, o código tem de estar alojado no controlo de origem. O resto desta secção assume que o **git** está a ser utilizado.
 
 ### <a name="set-up-a-vsts-repo"></a>Configurar um repositório VSTS
-No canto inferior direito do Visual Studio, clique em **adicionar ao controlo de origem** > **Git** (ou qualquer opção que preferir).
+No canto inferior direito do Visual Studio, clique em **Adicionar ao Controlo de Origem** > **Git** (ou qualquer opção que preferir).
 
-![Prima o botão do controlo de origem][image-source-control]
+![prima o botão do controlo de origem][image-source-control]
 
-No _equipa Explorer_ painel, prima **publicar repositório de Git**.
+No painel _Team Explorer_, prima **Publicar Repositório do Git**.
 
-Selecione o nome do repositório VSTS e prima **repositório**.
+Selecione o nome do repositório VSTS e prima **Repositório**.
 
-![publicar o repositório no VSTS][image-publish-repo]
+![publicar repositório no VSTS][image-publish-repo]
 
-Agora que o seu código está sincronizado com um repositório de origem VSTS, pode configurar a integração contínua e entrega contínua.
+Agora que o seu código está sincronizado com um repositório de origem VSTS, pode configurar a integração e a entrega contínuas.
 
-### <a name="setup-continuous-delivery"></a>Configurar a entrega contínua
+### <a name="setup-continuous-delivery"></a>Configurar entrega contínua
 
-No _Explorador de soluções_, clique com botão direito do **solução** > **configurar contínua entrega**.
+No _Explorador de Soluções_, clique com o botão direito do rato em **solução** > **Configurar Entrega Contínua**.
 
 Selecione a subscrição do Azure.
 
-Definir **alojar tipo** para **Service Fabric Cluster**.
+Defina o **Tipo de Anfitrião** para **Cluster do Service Fabric**.
 
-Definir **anfitrião de destino** para o cluster de recursos de infraestrutura de serviço que criou na secção anterior.
+Defina o **Anfitrião de Destino** para o cluster dos recursos de infraestrutura que criou na secção anterior.
 
-Escolha um **contentor registo** para publicar o seu contentor para.
+Escolha um **Registo de Contentor** para publicar o seu contentor.
 
 >[!TIP]
->Utilize o **editar** botão para criar um registo de contentor.
+>Utilize o botão **Editar** para criar um registo de contentor.
 
 Prima **OK**.
 
-![integração contínua de recursos de infraestrutura do serviço de configuração][image-setup-ci]
+![configurar integração contínua dos recursos de infraestrutura][image-setup-ci]
    
-   Depois da configuração está concluída, o contentor é implementado no Service Fabric. Sempre push das atualizações para o repositório uma nova compilação e versão é executada.
+   Assim que a configuração estiver concluída, o contentor é implementado no Service Fabric. Sempre que emitir atualizações para o repositório, é executada uma nova compilação e versão.
    
    >[!NOTE]
-   >Criar a tomar de imagens do contentor, aproximadamente, 15 minutos.
-   >Primeira implementação para o cluster do Service Fabric faz com que as imagens de contentor do Windows Server Core base para ser transferido. A transferência demora adicionais 5-10 minutos a concluir.
+   >Demora aproximadamente 15 minutos a compilar imagens de contentor.
+   >A primeira implementação para o cluster do Service Fabric faz com que as imagens de contentor do Windows Server Core base sejam transferidas. A transferência demora mais 5-10 minutos a concluir.
 
-Navegue para a aplicação do Centro de atendimento telefónico de Fabrikam utilizando o url do cluster: por exemplo, *http://mycluster.westeurope.cloudapp.azure.com*
+Navegue para a aplicação Fabrikam Call Center com o URL do seu cluster: por exemplo, *http://mycluster.westeurope.cloudapp.azure.com*
 
-Agora que tem de e implementar a solução de centro de atendimento telefónico de Fabrikam, é possível abrir o [portal do Azure] [ link-azure-portal] e ver a aplicação em execução no Service Fabric. Para experimentar a aplicação, abra um browser e avance para o URL do seu cluster do Service Fabric.
+Agora que implementou a solução do Fabrikam Call Center e colocou num contentor, pode abrir o [portal do Azure][link-azure-portal] e ver a aplicação em execução no Service Fabric. Para experimentar a aplicação, abra um browser e avance para o URL do seu cluster do Service Fabric.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar um projeto de Docker no Visual Studio
-> * Containerize uma aplicação existente
-> * Configurar a integração contínua com o Visual Studio e VSTS
+> * Criar um projeto do Docker no Visual Studio
+> * Colocar uma aplicação existente num contentor
+> * Configurar integração contínua com o Visual Studio e VSTS
 
-A parte seguinte do tutorial, saiba como configurar [monitorização para o contentor](service-fabric-tutorial-monitoring-wincontainers.md).
+Na parte seguinte do tutorial, aprenda a configurar a [monitorização para o contentor](service-fabric-tutorial-monitoring-wincontainers.md).
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 

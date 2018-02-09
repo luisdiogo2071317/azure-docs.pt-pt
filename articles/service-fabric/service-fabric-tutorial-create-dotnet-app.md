@@ -1,6 +1,6 @@
 ---
 title: "Criar uma aplicação .NET para o Service Fabric | Microsoft Docs"
-description: "Saiba como criar uma aplicação com um front-end do ASP.NET Core e um serviço fiável com monitorização de estado back-end da e implementar a aplicação para um cluster."
+description: "Saiba como criar uma aplicação com um front-end do ASP.NET Core e um back-end com monitorização de estado de Reliable Service e como implementar a aplicação num cluster."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,69 +12,69 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2018
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f4b3c766ee46233cd4ec2d195e39d0b68516952f
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Criar e implementar uma aplicação com um serviço de front-end de API Web do ASP.NET Core e o serviço de back-end com monitorização de estado
-Este tutorial faz parte de um de uma série.  Ficará a saber como criar uma aplicação de Service Fabric do Azure com um front-end de API Web do ASP.NET Core e o serviço de back-end com monitorização de estado para armazenar os dados. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster. Se não pretender criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) para a aplicação concluída e avançar diretamente para [guiá-a aplicação de exemplo voto](#walkthrough_anchor).
+# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Criar e implementar uma aplicação com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado
+Este tutorial é a primeira parte de uma série.  Ficará a saber como criar uma aplicação do Azure Service Fabric com um front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado para armazenar dados. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](#walkthrough_anchor).
 
 ![Diagrama da aplicação](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Na parte de uma série, saiba como:
+Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar um serviço de API Web do ASP.NET Core como um serviço fiável com monitorização de estado
-> * Criar um serviço de aplicação Web do ASP.NET Core como um serviço web sem monitorização de estado
+> * Criar um serviço de API Web do ASP.NET Core como um Reliable Service com monitorização de estado
+> * Criar um serviço de Aplicação Web do ASP.NET Core como um serviço Web sem monitorização de estado
 > * Utilizar o proxy inverso para comunicar com o serviço com estado
 
-Este tutorial série, a saber como:
+Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
-> * Criar uma aplicação .NET Service Fabric
-> * [Implementar a aplicação para um cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [Configurar CI/CD utilizando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Configurar a monitorização e diagnóstico para a aplicação](service-fabric-tutorial-monitoring-aspnet.md)
+> * Criar uma aplicação .NET do Service Fabric
+> * [Implementar a aplicação num cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Configurar o CI/CD com o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurar a monitorização e os diagnósticos da aplicação](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial:
-- Se não tiver uma subscrição do Azure, crie um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Instalar Visual Studio 2017](https://www.visualstudio.com/) versão 15.3 ou posterior com o **programação do Azure** e **desenvolvimento ASP.NET e web** cargas de trabalho.
-- [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Instale o Visual Studio 2017](https://www.visualstudio.com/), versão 15.3 ou superior, com as cargas de trabalho de **desenvolvimento no Azure** e de **desenvolvimento Web e em ASP.NET**.
+- [Instale o SDK do Service Fabric](service-fabric-get-started.md)
 
-## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web do ASP.NET como um serviço fiável
-Em primeiro lugar, crie web front-end da aplicação de voto com o ASP.NET Core. ASP.NET Core é uma estrutura de desenvolvimento simples, de plataforma web que pode utilizar para criar a IU da web do moderna e web APIs. Para obter uma compreensão concluída de forma ASP.NET Core é se integra com o Service Fabric, recomendamos vivamente que ler de [ASP.NET Core no Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) artigo. Por agora, pode seguir este tutorial para começar a trabalhar rapidamente. Para saber mais sobre o ASP.NET Core, consulte o [ASP.NET Core documentação](https://docs.microsoft.com/aspnet/core/).
+## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web do ASP.NET como um Reliable Service
+Em primeiro lugar, crie o front-end Web da aplicação de voto com o ASP.NET Core. O ASP.NET Core é uma arquitetura de desenvolvimento Web simples para várias plataforma que pode utilizar para criar uma IU Web e APIs Web modernas. Para obter uma compreensão abrangente de como o ASP.NET Core se integra com o Service Fabric, recomendamos vivamente que leia o artigo [ASP.NET Core no Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Por agora, pode seguir este tutorial para começar a trabalhar rapidamente. Para saber mais sobre o ASP.NET Core, veja a [Documentação do ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
 1. Inicie o Visual Studio como **administrador**.
 
-2. Criar um projeto com **ficheiro**->**novo**->**projeto**
+2. Crie um projeto em **Ficheiro**->**Novo**->**Projeto**
 
 3. Na caixa de diálogo **Novo Projeto**, escolha **Cloud > Aplicação do Service Fabric**.
 
-4. Atribua um nome de aplicação **voto** e prima **OK**.
+4. Dê o nome **Voto** à aplicação e prima **OK**.
 
    ![Caixa de diálogo de novo projeto no Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. No **novo serviço de recursos de infraestrutura de serviço** página, escolha **sem monitorização de estado ASP.NET Core**e o nome do seu serviço **VotingWeb**.
+5. Na página **Novo Serviço do Service Fabric**, escolha **ASP.NET Core Sem Monitorização de Estado** e dê o nome **VotingWeb** ao seu serviço.
    
-   ![Escolher o serviço web ASP.NET na caixa de diálogo novo serviço](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
+   ![Escolher o serviço Web do ASP.NET na caixa de diálogo do novo serviço](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. A página seguinte fornece um conjunto de ASP.NET Core modelos de projeto. Para este tutorial, escolha **aplicação Web (Model-View-Controller)**. 
+6. A página seguinte fornece um conjunto de modelos de projeto do ASP.NET Core. Para este tutorial, escolha **Aplicação Web (Model-View-Controller)**. 
    
-   ![Escolha o tipo de projeto ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
+   ![Escolher o tipo de projeto ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
-   Visual Studio cria uma aplicação e um projeto de serviço e apresenta-os no Explorador de soluções.
+   O Visual Studio cria uma aplicação e um projeto de serviço e apresenta-os no Explorador de Soluções.
 
-   ![Explorador de soluções a seguir a criação da aplicação com o serviço de Web API do ASP.NET core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+   ![Explorador de Soluções após a criação da aplicação com o serviço de API Web do ASP.NET Core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="add-angularjs-to-the-votingweb-service"></a>Adicionar AngularJS ao serviço VotingWeb
-Adicionar [AngularJS](http://angularjs.org/) ao seu serviço utilizando [Bower suporte](/aspnet/core/client-side/bower). Primeiro, adicione um ficheiro de configuração do Bower ao projeto.  No Explorador de soluções, clique com botão direito no **VotingWeb** e selecione **adicionar -> Novo Item**. Selecione **Web** e, em seguida, **Bower ficheiro de configuração**.  O *bower.json* ficheiro é criado.
+### <a name="add-angularjs-to-the-votingweb-service"></a>Adicionar o AngularJS ao serviço VotingWeb
+Adicione o [AngularJS](http://angularjs.org/) ao seu serviço com o [suporte do Bower](/aspnet/core/client-side/bower). Primeiro, adicione um ficheiro de configuração do Bower ao projeto.  No Explorador de Soluções, clique com o botão direito do rato em **VotingWeb** e selecione **Adicionar->Novo Item**. Selecione **Web** e, em seguida, **Ficheiro de Configuração do Bower**.  O ficheiro *bower.json* é criado.
 
-Abra *bower.json* e adicionar entradas para angular para e de arranque de angular para, em seguida, guarde as alterações.
+Abra o *bower.json* e adicione entradas para o Angular e para o programa de arranque do sistema angular e, em seguida, guarde as alterações.
 
 ```json
 {
@@ -90,10 +90,10 @@ Abra *bower.json* e adicionar entradas para angular para e de arranque de angula
   }
 }
 ```
-Após guardar o *bower.json* ficheiro, Angular está instalado no seu projeto *wwwroot/lib* pasta. Além disso, este está listado no *dependências/Bower* pasta.
+Depois de guardar o ficheiro *bower.json*, o Angular está instalado na pasta *wwwroot/lib* do seu projeto. Além disso, está listado na pasta *Dependências/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Atualizar o ficheiro site.js
-Abra o *wwwroot/js/site.js* ficheiro.  Substitua o respetivo conteúdo com o JavaScript utilizado pelas vistas de Home:
+Abra o ficheiro *wwwroot/js/site.js*.  Substitua o respetivo conteúdo pelo JavaScript utilizado pelas vistas Home:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -132,8 +132,8 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 }]);
 ```
 
-### <a name="update-the-indexcshtml-file"></a>Atualizar o ficheiro cshtml
-Abra o *Views/Home/Index.cshtml* ficheiro, a vista específica para o controlador de casa.  Substitua o conteúdo com o seguinte, em seguida, guarde as alterações.
+### <a name="update-the-indexcshtml-file"></a>Atualizar o ficheiro Index.cshtml
+Abra o ficheiro *Views/Home/Index.cshtml*, a vista específica do controlador Home.  Substitua o respetivo conteúdo pelo seguinte e, em seguida, guarde as alterações.
 
 ```html
 @{
@@ -195,8 +195,8 @@ Abra o *Views/Home/Index.cshtml* ficheiro, a vista específica para o controlado
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Atualizar o ficheiro Layout
-Abra o *Views/Shared/_Layout.cshtml* ficheiro, o esquema predefinido para a aplicação ASP.NET.  Substitua o conteúdo com o seguinte, em seguida, guarde as alterações.
+### <a name="update-the-layoutcshtml-file"></a>Atualizar o ficheiro _Layout.cshtml
+Abra o ficheiro *Views/Shared/_Layout.cshtml*, o esquema predefinido da aplicação ASP.NET.  Substitua o respetivo conteúdo pelo seguinte e, em seguida, guarde as alterações.
 
 ```html
 <!DOCTYPE html>
@@ -227,11 +227,11 @@ Abra o *Views/Shared/_Layout.cshtml* ficheiro, o esquema predefinido para a apli
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>Atualizar o ficheiro VotingWeb.cs
-Abra o *VotingWeb.cs* ficheiro, que cria o WebHost de núcleo de ASP.NET dentro do serviço sem monitorização de estado com o servidor de web WebListener.  
+Abra o ficheiro *VotingWeb.cs*, o qual cria o WebHost do ASP.NET Core dentro do serviço sem estado através do servidor Web WebListener.  
 
-Adicionar o `using System.Net.Http;` directiva na parte superior do ficheiro.  
+Adicione a diretiva `using System.Net.Http;` à parte superior do ficheiro.  
 
-Substitua o `CreateServiceInstanceListeners()` funcionar com o seguinte, em seguida, guarde as alterações.
+Substitua a função `CreateServiceInstanceListeners()` pelo seguinte e, em seguida, guarde as alterações.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -264,7 +264,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Também adicionar o `GetVotingDataServiceName` método, que devolve o nome do serviço quando consultados:
+Adicione, também, o método `GetVotingDataServiceName`, o qual devolve o nome do serviço quando consultado:
 
 ```csharp
 internal static Uri GetVotingDataServiceName(ServiceContext context)
@@ -273,10 +273,10 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 }
 ```
 
-### <a name="add-the-votescontrollercs-file"></a>Adicione o ficheiro VotesController.cs
-Adicione um controlador, que define as ações de votos. Clique com o botão direito no **controladores** pasta, em seguida, selecione **adicionar -> novo item -> classe**.  Atribua o nome "VotesController.cs" e clique em **adicionar**.  
+### <a name="add-the-votescontrollercs-file"></a>Adicionar o ficheiro VotesController.cs
+Adicione um controlador, o que define as ações de voto. Clique com o botão direito do rato na pasta **Controladores** e, em seguida, selecione **Adicionar->Novo item->Classe**.  Dê ao ficheiro o nome "VotesController.cs" e clique em **Adicionar**.  
 
-Substitua o conteúdo do ficheiro com o seguinte, em seguida, guarde as alterações.  Mais adiante, [atualizar o ficheiro VotesController.cs](#updatevotecontroller_anchor), este ficheiro é modificado para ler e escrever dados de votos do serviço de back-end.  Por agora, o controlador devolve os dados de cadeia estática para a vista.
+Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.  Mais adiante, em [Atualizar o ficheiro VotesController.cs](#updatevotecontroller_anchor), este ficheiro é modificado para ler e escrever dados de voto do serviço de back-end.  Por agora, o controlador devolve dados de cadeia estática à vista.
 
 ```csharp
 namespace VotingWeb.Controllers
@@ -319,7 +319,7 @@ namespace VotingWeb.Controllers
 ```
 
 ### <a name="configure-the-listening-port"></a>Configurar a porta de escuta
-Quando o serviço de front-end VotingWeb é criado, o Visual Studio seleciona aleatoriamente uma porta para o serviço de escuta no.  O serviço de VotingWeb atua como o front-end para esta aplicação e aceita o tráfego externo, por isso, vamos vincular que o serviço para fixa e conhecer bem porta.  O [manifesto serviço](service-fabric-application-and-service-manifests.md) declara os pontos finais de serviço. No Explorador de soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*.  Localizar o **Endpoint** recurso no **recursos** secção e altere o **porta** valor para 80, ou para outra porta. Para implementar e executar a aplicação localmente, a porta de escuta de aplicação tem de ser aberta e disponível no seu computador.
+Quando o serviço de front-end VotingWeb é criado, o Visual Studio seleciona aleatoriamente uma porta na qual o serviço escuta.  O serviço VotingWeb atua como front-end desta aplicação e aceita tráfego externo, pelo que vamos vincular este serviço a uma porta fixa e bem conhecida.  O [manifesto do serviço](service-fabric-application-and-service-manifests.md) declara os pontos finais de serviço. No Explorador de Soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*.  Localize o recurso do **Ponto Final** na secção **Recursos** e altere o valor da **Porta** para 80, ou para outra porta. Para implementar e executar a aplicação localmente, a porta de escuta da aplicação tem de estar aberta e disponível no seu computador.
 
 ```xml
 <Resources>
@@ -332,55 +332,50 @@ Quando o serviço de front-end VotingWeb é criado, o Visual Studio seleciona al
   </Resources>
 ```
 
-Também de atualizar o valor da propriedade URL da aplicação no projeto de voto, para que um web browser abre-se para a porta correta quando depurar a utilizar 'F5'.  No Explorador de soluções, selecione o **voto** projeto e atualize o **URL da aplicação** propriedade.
+Também tem de atualizar o valor da propriedade de URL da Aplicação no projeto Voto para que um browser se abra para a porta correta quando depura com “F5”.  No Explorador de Soluções, selecione o projeto **Voto** e atualize a propriedade **URL da Aplicação**.
 
-![URL da aplicação](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
+![URL da Aplicação](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Implementar e executar a aplicação localmente
-Agora, pode avançar e executar a aplicação. No Visual Studio, prima `F5` para implementar a aplicação, com o fim de depurá-la. `F5`falha se anteriormente não abra o Visual Studio como **administrador**.
+Agora, já pode executar a aplicação. No Visual Studio, prima `F5` para implementar a aplicação, com o fim de depurá-la. `F5` falha se, anteriormente, não tiver aberto o Visual Studio como **administrador**.
 
 > [!NOTE]
-> Da primeira vez que executar e implementar a aplicação localmente, o Visual Studio cria um cluster local para depuração.  Criação do cluster pode demorar algum tempo. O estado da criação do cluster aparece na janela de saída do Visual Studio.
+> Da primeira vez que executar e implementar a aplicação localmente, o Visual Studio cria um cluster local para depuração.  A criação do cluster pode demorar algum tempo. O estado da criação do cluster aparece na janela de saída do Visual Studio.
 
-Neste momento, a aplicação web deve ter o seguinte aspeto:
+Neste momento, a sua aplicação Web deve ter o seguinte aspeto:
 
-![ASP.NET Core front-end](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
+![Front-end do ASP.NET Core](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
-Para parar a depuração da aplicação, volte atrás para Visual Studio e prima **Shift + F5**.
+Para parar a depuração da aplicação, volte ao Visual Studio e prima **Shift+F5**.
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Adicionar um serviço de back-end com monitorização de estado à sua aplicação
-Agora que um serviço de API Web do ASP.NET está em execução na aplicação, avançar e adicionar um serviço fiável com monitorização de estado para armazenar alguns dados na aplicação.
+Agora que tem um serviço de API Web do ASP.NET em execução na aplicação, adicione um Reliable Service com monitorização de estado para armazenar alguns dados na aplicação.
 
-Recursos de infraestrutura de serviço permite-lhe consistentemente e fiável armazenar os seus diretamente dados dentro do seu serviço através de coleções fiáveis. Coleções fiáveis são um conjunto de classes de elevada disponibilidade e fiável coleção que estão familiarizados qualquer pessoa que tenha utilizado c# coleções.
+O Service Fabric permite-lhe armazenar de forma consistente e fiável os seus dados diretamente dentro do seu serviço através das Reliable Collections. As Reliable Collections são um conjunto de classes de Reliable Collections de elevada disponibilidade que qualquer pessoa que tenha utilizado coleções C# conhecerá.
 
-Neste tutorial, vai criar um serviço que armazena um valor de contador numa coleção fiável.
+Neste tutorial, irá criar um serviço que armazena um valor de contador numa Reliable Collection.
 
-1. No Explorador de soluções, faça duplo clique **serviços** na aplicação do projeto e escolha **adicionar > novo serviço de recursos de infraestrutura de serviço**.
+1. No Explorador de Soluções, clique com o botão direito do rato em **Serviços** no projeto da aplicação e escolha **Adicionar > Novo Serviço do Service Fabric**.
     
-2. No **novo serviço de recursos de infraestrutura de serviço** caixa de diálogo, escolha **com monitorização de estado ASP.NET Core**e o serviço de nomes **VotingData** e prima **OK**.
+2. Na caixa de diálogo **Novo Serviço do Service Fabric**, escolha **ASP.NET Core com monitorização de estado** e dê ao serviço o nome **VotingData** e prima **OK**.
 
     ![Caixa de diálogo novo serviço no Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
-    Depois do projeto de serviço é criado, tem dois serviços na sua aplicação. À medida que continue a criar a sua aplicação, pode adicionar mais serviços da mesma forma. Cada pode ser independente com versão e atualizado.
+    Uma vez criado o projeto de serviço, terá dois serviços na sua aplicação. À medida que continua a criar a sua aplicação, pode adicionar mais serviços com o mesmo método. Pode dar uma versão e atualizar cada serviço de forma independente.
 
-3. A página seguinte fornece um conjunto de ASP.NET Core modelos de projeto. Para este tutorial, escolha **Web API**.
+3. A página seguinte fornece um conjunto de modelos de projeto do ASP.NET Core. Para este tutorial, escolha **API Web**.
 
-    ![Escolha o tipo de projeto ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
+    ![Escolher o tipo de projeto ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
-    Visual Studio cria um projeto de serviço e apresenta-os no Explorador de soluções.
+    O Visual Studio cria um projeto de serviço e apresenta-o no Explorador de Soluções.
 
     ![Explorador de Soluções](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
-### <a name="add-the-votedatacontrollercs-file"></a>Adicione o ficheiro VoteDataController.cs
+### <a name="add-the-votedatacontrollercs-file"></a>Adicionar o ficheiro VoteDataController.cs
 
-No **VotingData** contexto do projeto no **controladores** pasta, em seguida, selecione **adicionar -> novo item -> classe**. Atribua o nome "VoteDataController.cs" e clique em **adicionar**. Substitua o conteúdo do ficheiro com o seguinte, em seguida, guarde as alterações.
+No projeto **VotingData**, clique com o botão direito do rato na pasta **Controladores** e, em seguida, selecione **Adicionar->Novo item->Classe**. Dê ao ficheiro o nome "VoteDataController.cs" e clique em **Adicionar**. Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.
 
 ```csharp
-// ------------------------------------------------------------
-//  Copyright (c) Microsoft Corporation.  All rights reserved.
-//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
-// ------------------------------------------------------------
-
 namespace VotingData.Controllers
 {
     using System.Collections.Generic;
@@ -410,9 +405,9 @@ namespace VotingData.Controllers
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
+                Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
                 List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
@@ -466,16 +461,16 @@ namespace VotingData.Controllers
 
 
 ## <a name="connect-the-services"></a>Ligar os serviços
-Neste passo seguinte, ligar os dois serviços e torne a Web front-end de aplicação get e set votar informações do serviço de back-end.
+Neste passo, irá ligar os dois serviços e preparar a aplicação Web do front-end para receber e definir informações de voto do serviço de back-end.
 
-O Service Fabric fornece flexibilidade concluída na como comunicar com serviços fiáveis. Dentro de uma única aplicação, poderá ter serviços que estão acessíveis através de TCP. Outros serviços que podem estar acessíveis através de uma API de REST de HTTP e ainda outros serviços poderia ficar acessíveis através de web sockets. Para fundo sobre as opções disponíveis e fala envolvidas, consulte [comunicar com serviços](service-fabric-connect-and-communicate-with-services.md).
+O Service Fabric garante flexibilidade total na como comunica com o Reliable Services. Dentro de uma única aplicação, poderá ter serviços acessíveis através de TCP. Outros serviços poderão ser acessíveis através de uma API REST HTTP e outros serviços ainda poderão ser acessíveis através de sockets Web. Para obter informações gerais sobre as opções disponíveis e sobre as desvantagens existentes, veja [Comunicar com os serviços](service-fabric-connect-and-communicate-with-services.md).
 
-Neste tutorial, utilize [Web API do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
+Neste tutorial, utilize a [API Web do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
 ### <a name="update-the-votescontrollercs-file"></a>Atualizar o ficheiro VotesController.cs
-No **VotingWeb** projeto, abra o *Controllers/VotesController.cs* ficheiro.  Substitua o `VotesController` classe conteúdo de definição com o seguinte, em seguida, guarde as alterações.
+No projeto **VotingWeb**, abra o ficheiro *Controllers/VotesController.cs*.  Substitua o conteúdo da definição de classe `VotesController` pelo seguinte e, em seguida, guarde as alterações.
 
 ```csharp
 public class VotesController : Controller
@@ -607,9 +602,9 @@ Quando vota na aplicação, ocorrem os seguintes eventos:
 Ao depurar a aplicação no Visual Studio, vai utilizar um cluster de desenvolvimento local do Service Fabric. Tem a opção de ajustar a sua experiência de depuração para o seu cenário. Nesta aplicação, armazene dados no serviço de back-end através de um dicionário fiável. O Visual Studio remove a aplicação por predefinição, quando para o depurador. Remover a aplicação faz com que os dados no serviço de back-end sejam também removidos. Para persistir os dados entre as sessões de depuração, pode alterar o **Modo de Depuração da Aplicação** como propriedade no projeto **Voting** no Visual Studio.
 
 Para ver o que acontece no código, conclua os passos seguintes:
-1. Abra o **VotesController.cs** de ficheiros e defina um ponto de interrupção na web da API **colocar** método (linha 63) - pode procurar o ficheiro no Explorador de soluções no Visual Studio.
+1. Abra o ficheiro **VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 63). Pode procurar o ficheiro no Explorador de Soluções no Visual Studio.
 
-2. Abra o **VoteDataController.cs** de ficheiros e defina um ponto de interrupção da API web **colocar** método (linha 53).
+2. Abra o ficheiro **VoteDataController.cs** e defina um ponto de interrupção no método **Put** desta API Web (linha 53).
 
 3. Regresse ao browser e clique numa opção de votação ou adicione uma opção nova. Atingiu o primeiro ponto de interrupção no controlador de API do front-end da Web.
     
@@ -617,31 +612,31 @@ Para ver o que acontece no código, conclua os passos seguintes:
     
     ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Primeiro construir o URL para o ReverseProxy para o serviço de back-end **(1)**.
-    3. Em seguida, envie o colocar pedido de HTTP para o ReverseProxy **(2)**.
-    4. Por fim, o devolver a resposta do serviço de back-end para o cliente **(3)**.
+    2. Primeiro, construa o URL para o ReverseProxy para o serviço de back-end **(1)**.
+    3. Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)**.
+    4. Por último, devolva a resposta do serviço de back-end ao cliente **(3)**.
 
 4. Prima **F5** para continuar
     1. Está agora no ponto de interrupção do serviço de back-end.
     
     ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Na primeira linha no método **(1)** utilizar o `StateManager` obter ou adicionar um dicionário fiável chamado `counts`.
+    2. Na primeira linha no método **(1)**, utilize o `StateManager` para obter ou adicionar um dicionário fiável chamado `counts`.
     3. Todas as interações com os valores num dicionário fiável requer uma transação; a utilização da declaração **(2)** cria essa transação.
-    4. Na transação, atualize o valor da chave relevante para a opção de voto e consolida a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
+    4. Na transação, atualize o valor da chave relevante para a opção de voto e consolide a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
 5. Prima **F5** para continuar
 
 Para parar a sessão de depuração, prima **Shift + F5**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Nesta parte do tutorial, aprendeu como:
+Nesta parte do tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar um serviço de API Web do ASP.NET Core como um serviço fiável com monitorização de estado
-> * Criar um serviço de aplicação Web do ASP.NET Core como um serviço web sem monitorização de estado
+> * Criar um serviço de API Web do ASP.NET Core como um Reliable Service com monitorização de estado
+> * Criar um serviço de Aplicação Web do ASP.NET Core como um serviço Web sem monitorização de estado
 > * Utilizar o proxy inverso para comunicar com o serviço com estado
 
-Avançar para o próximo tutorial:
+Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]
 > [Implementar a aplicação no Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)

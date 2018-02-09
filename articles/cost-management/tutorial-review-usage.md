@@ -1,91 +1,91 @@
 ---
-title: "Reveja os custos na gestão de custo do Azure e de utilização | Microsoft Docs"
-description: "Reveja os custos para controlar as tendências, detetar inefficiencies e criar alertas e de utilização."
+title: "Rever a utilização e os custos no Azure Cost Management | Microsoft Docs"
+description: "Reveja a utilização e os custos para ver tendências, detetar ineficiências e criar alertas."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="review-usage-and-costs"></a>Os custos e utilização de revisão
+# <a name="review-usage-and-costs"></a>Rever a utilização e os custos
 
-Gestão de custo do Azure por Cloudyn mostra-lhe utilização e custos de modo a que pode monitorizar tendências, detetar inefficiencies e criam alertas. Todos os dados de utilização e o custo, é apresentado nos relatórios e Cloudyn dashboards. Os exemplos neste tutorial guiá-lo embora rever os custos com dashboards e relatórios e de utilização. Neste tutorial, ficará a saber como:
+O Azure Cost Management da Cloudyn mostra-lhe a utilização e os custos, de modo a que possa ver tendências, detetar ineficiências e criar alertas. Todos os dados de utilização e de custos são apresentados nos relatórios e nos dashboards da Cloudyn. Os exemplos neste tutorial orientam-no ao longo da revisão da utilização e dos custos através dos dashboards e dos relatórios. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Controlar a utilização e as tendências de custo
-> * Detetar inefficiencies de utilização
-> * Crie alertas para as despesas ou overspending invulgar
+> * Ver as tendências de utilização e de custos
+> * Detetar ineficiências na utilização
+> * Criar alertas para despesas ou gastos excessivos invulgares
 
 
 
-## <a name="open-the-cloudyn-portal"></a>Abra o portal de Cloudyn
+## <a name="open-the-cloudyn-portal"></a>Abrir o portal da Cloudyn
 
-Reveja os custos no portal do Cloudyn e utilização de todas as. Abra o portal de Cloudyn do portal do Azure ou navegue para https://azure.cloudyn.com e inicie sessão.
+A utilização e os custos são revistos no portal da Cloudyn. Abra o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com e inicie sessão.
 
-## <a name="track-usage-and-cost-trends"></a>Controlar a utilização e as tendências de custo
+## <a name="track-usage-and-cost-trends"></a>Ver as tendências de utilização e de custos
 
-Controlar dinheiro real despendido para utilização e os custos com relatórios ao longo do tempo para identificar tendências. Para começar a procurar tendências, utilize o relatório de custo real ao longo do tempo. No menu de relatórios na parte superior do portal, clique em **custo** > **análise de custos** > **custo real ao longo do tempo**. Quando abre pela primeira vez o relatório, nenhum grupo ou filtros são aplicados ao mesmo.
+O dinheiro efetivamente gasto para utilização e custos é controlado com os relatórios Ao Longo do Tempo, de modo a identificar tendências. Para começar a procurar tendências, utilize o relatório Custo Efetivo ao Longo do Tempo. No menu de relatórios na parte superior do portal, clique em **Custos** > **Análise de Custos** > **Custo Efetivo ao Longo do Tempo**. Da primeira vez que abrir o relatório, não estão aplicados grupos ou filtros ao mesmo.
 
-Segue-se um relatório de exemplo:
+Segue-se um exemplo de relatório:
 
 ![relatório de exemplo](./media/tutorial-review-usage/actual-cost01.png)
 
-O relatório mostra todos os gastos nos últimos 30 dias. Para ver os gastos apenas para serviços do Azure, aplicam-se o grupo de serviço e, em seguida, filtre para todos os serviços do Azure. A imagem seguinte mostra os serviços filtrados.
+O relatório mostra todos os gastos ao longo dos últimos 30 dias. Para ver os gastos apenas para serviços do Azure, aplique o grupo Serviços e filtre por todos os serviços do Azure. A imagem seguinte mostra os serviços filtrados.
 
 ![serviços filtrados](./media/tutorial-review-usage/actual-cost02.png)
 
-No exemplo anterior, menos dinheiro era despendido a iniciar no 2017-08-31 que antes. Tendência do custo continua para os serviços sobre nove dias. Em seguida, gastos adicionais continua como anteriormente. No entanto, existem demasiadas colunas podem ocultar uma tendência óbvias. Pode alterar a vista de relatório para uma linha ou a área de gráfico para ver os dados apresentados no outras vistas. A imagem seguinte mostra a tendência mais claramente.
+No exemplo anterior, foi gasto menos dinheiro a partir de 31-08-2017 do que antes. Essa tendência de custos continua para os vários serviços durante nove dias. Depois, as despesas adicionais prosseguem como antes. No entanto, haver demasiadas colunas pode ocultar uma tendência óbvia. Pode alterar a vista do relatório para uma linha ou área do gráfico para ver os dados apresentados noutras vistas. A imagem seguinte mostra a tendência com mais clareza.
 
-![tendência de relatório](./media/tutorial-review-usage/actual-cost03.png)
+![tendência no relatório](./media/tutorial-review-usage/actual-cost03.png)
 
-No exemplo, verá claramente que o armazenamento do Azure custo ignorados ao iniciar no 2017-08-31 enquanto gastos com outros serviços do Azure permanecer nível. Por isso, as causas que redução no gastos? Neste exemplo, alguns empregados são foram de férias longe do trabalho e não foi possível utilizar o serviço de armazenamento.
+No exemplo, pode ver facilmente que os custos com o Armazenamento do Azure desceram a partir de 31-08-2017, ao passo que as despesas com outros serviços do Azure permaneceram equilibradas. Então, o que é que originou a redução nas despesas? Neste exemplo, alguns colaboradores estavam de férias e não utilizaram o serviço de Armazenamento.
 
-Para ver um vídeo tutorial sobre tendências de utilização e o custo de controlo, consulte o artigo [análise da sua nuvem faturação dados vs. o período de tempo com o Azure custo Management Cloudyn](https://youtu.be/7LsVPHglM0g).
+Para assistir a um vídeo tutorial sobre como ver as tendências de utilização e de custos, veja [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analisar os dados de faturação na cloud vs. tempo com o Azure Cost Management da Cloudyn).
 
-## <a name="detect-usage-inefficiencies"></a>Detetar inefficiencies de utilização
+## <a name="detect-usage-inefficiencies"></a>Detetar ineficiências na utilização
 
-Relatórios de otimizador melhorar a eficiência, otimizar a utilização e identificam formas de poupar dinheiro despendido nos seus recursos de nuvem. São especialmente útil com recomendações de dimensionamento económicos que se destina a ajudar a reduzir as VMs inativas ou dispendiosas.
+Os relatórios de otimizador melhoram a eficiência, otimizam a utilização e identificam formas de poupar dinheiro nos seus recursos da cloud. São especialmente úteis para recomendações de dimensionamento económico, com o objetivo de ajudar a reduzir o número de VMs inativas ou dispendiosas.
 
-Um problema comum, que afeta as organizações quando estes inicialmente mover recursos para a nuvem é a sua estratégia de virtualização. Geralmente utilizam uma abordagem semelhante à que utilizou para criar máquinas virtuais para o ambiente de virtualização no local. E, em partem do princípio de que os custos são reduzidos, movendo as respetivas VMs no local para a nuvem, como-é. No entanto, essa abordagem não é provável que reduzir os custos.
+Um problema comum que afeta as organizações quando movem inicialmente os recursos para a cloud é a estratégia de virtualização. Muitas vezes, utilizam uma abordagem semelhante à que utilizaram para criar as máquinas virtuais para o ambiente de virtualização no local. E partem do princípio de que basta mover as VMs no local para a cloud tal como estão para que os custos baixem. No entanto, é pouco provável que esta abordagem tenha esse efeito.
 
-O problema é que a respetiva infraestrutura existente já foi paga para. Os utilizadores foi possível criar e manter grande VMs em execução se de que gostou — inativo ou não e com pouca consequence. Mover VMs de grandes dimensões ou inativas para a nuvem, é provável que *aumentar* os custos. Custo de alocação de recursos é importante quando introduzir para contratos com fornecedores de serviços em nuvem. Tem de pagar para confirmar se utilizar o recurso totalmente ou não.
+O problema é que as respetivas infraestruturas já estavam pagas. Os utilizadores podiam criar e manter em execução VMs grandes se quisessem, inativas ou não, e as consequências eram poucas. Mover VMs grandes ou inativas para a cloud leva a um provável *aumento* dos custos. É importante ter em conta a alocação de custos para recursos quando celebra contratos com fornecedores de serviços cloud. Tem de pagar aquilo com que se comprometeu, quer utilize os recursos na totalidade ou não.
 
-O relatório de recomendações de dimensionamento de custo eficaz identifica potenciais reduções anuais comparando a capacidade de tipo de instância VM para os respetivos histórica da CPU e dados de utilização de memória.  
+O relatório Recomendações de Dimensionamento Económico identifica potenciais poupanças anuais, ao comparar a capacidade do tipo de instância de VM com os dados históricos de utilização de CPU e memória.  
 
-No menu de relatórios na parte superior do portal, clique em **otimizador** > **preços otimização** > **recomendações de dimensionamento de custo eficaz**. Filtre o fornecedor do Azure para ver apenas as VMs do Azure. Eis uma imagem de exemplo.
+No menu de relatórios na parte superior do portal, clique em **Otimizador** > **Otimização de Preços** > **Recomendações de Dimensionamento Económico**. Filtre o fornecedor para o Azure para ver apenas as VMs do Azure. Segue-se uma imagem de exemplo.
 
 ![VMs do Azure](./media/tutorial-review-usage/sizing01.png)
 
-Neste exemplo, $3,114 foi possível guardar ao seguir as recomendações para alterar os tipos de instância VM. Clique no símbolo de adição (+) em **detalhes** para a primeira recomendação. Seguem-se detalhes sobre a recomendação primeiro.
+Neste exemplo, seguir as recomendações para alterar os tipos de instância de VM levaria a uma poupança de 3114 $. Clique no sinal de adição (+) em **Detalhes** na primeira recomendação. Seguem-se os detalhes da primeira recomendação.
 
-![detalhes de recomendação](./media/tutorial-review-usage/sizing02.png)
+![detalhes da recomendação](./media/tutorial-review-usage/sizing02.png)
 
-Ver os IDs de instância VM ao clicar junto ao símbolo de adição **lista de candidatos**.
+Clique no sinal de mais junto a **Lista de Candidatos** para ver os IDs das instâncias de VMs.
 
-![Lista de candidatos](./media/tutorial-review-usage/sizing03.png)
+![Lista de Candidatos](./media/tutorial-review-usage/sizing03.png)
 
-Para ver um vídeo tutorial sobre como detetar inefficiencies de utilização, consulte o artigo [otimizar o tamanho da VM no Azure custo Management Cloudyn](https://youtu.be/1xaZBNmV704).
+Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização, veja [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Otimizar o Tamanho das VMs no Azure Cost Management).
 
-## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para a dedicar muito invulgar
+## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para despesas invulgares
 
-Podem alertá intervenientes automaticamente para anomalias de gastos e overspending riscos. Pode criar alertas de utilização de relatórios que suporte alertas com base na atribuição e o custo de limiares de forma rápida e fácil.
+Pode alertar os outros intervenientes automaticamente sobre despesas anómalas e riscos de incorrer em gastos excessivos. Pode criar rápida e facilmente os alertas através de relatórios que os suportem com base em limiares de orçamentos e de custos.
 
-Criar um alerta para qualquer gastos utilizando o relatório qualquer custo. Neste exemplo, utilize o relatório de custo real ao longo do tempo para ser notificado quando gastos de VM do Azure está prestes a sua atribuição total. No menu de relatórios na parte superior do portal, clique em **custo** > **análise de custos** > **custo real ao longo do tempo**. Definir **grupos** para **serviço** e defina **filtro no serviço** para **VM do Azure**. Na parte superior direita do relatório, clique em **ações** e, em seguida, selecione **agendar relatórios**.
+Pode utilizar qualquer relatório Custos para criar um alerta para qualquer despesa. Neste exemplo, utilize o relatório Custo Efetivo ao Longo do Tempo para ser notificado quando os gastos com VMs do Azure estiverem prestes a atingir o seu orçamento total. No menu de relatórios na parte superior do portal, clique em **Custos** > **Análise de Custos** > **Custo Efetivo ao Longo do Tempo**. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**. No canto superior direito do relatório, clique em **Ações** e selecione **Agendar relatório**.
 
-Utilize o **agendamento** separador para si próprio enviar uma mensagem de e-mail do relatório utilizando a frequência com que pretende. As etiquetas, agrupamentos e filtragens é utilizado estão incluídas no relatório enviado por e-mail. Clique em de **limiar** separador e selecione escolha **vs custo real. Limiar**. Se tiver uma atribuição total de $ 500 000 e notificação que desejava quando os custos perto sobre metade, crie um **alerta vermelho** em $250,000 e um **alerta amarela** em $240,000. Em seguida, escolha o número de alertas consecutivos. Quando receber o número total de alertas que especificou, não existem alertas adicionais são enviadas. Guarde o relatório agendado.
+Utilize o separador **Agendamento** para enviar um e-mail para si próprio com o relatório de acordo com a frequência que pretenda. Todos os grupos, etiquetas e filtragem que utilizou são incluídos no e-mail com o relatório. Clique no separador **Limiar** e selecione **Custo Efetivo vs. Limiar**. Se tiver um orçamento total de 500 000 $ e quiser ser notificado quando os custos estiverem quase a atingir metade do orçamento, pode criar um **Alerta vermelho** nos 250 000 $ e um **Alerta amarelo** nos 240 000 $. Depois, escolha o número de alertas consecutivos. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais. Guarde o relatório agendado.
 
 ![relatório de exemplo](./media/tutorial-review-usage/schedule-alert01.png)
 
-Também pode escolher os vs de percentagem de custo. Métrica de limiar de orçamento criar alertas. Ao utilizar esse métrica, pode utilizar percentagens de orçamento em vez de valores de moeda.
+Também pode escolher a métrica Percentagem de Custos vs. Limiar de orçamento para criar os alertas. Com esta métrica, pode utilizar percentagens do orçamento em vez de valores de moeda.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -93,12 +93,12 @@ Também pode escolher os vs de percentagem de custo. Métrica de limiar de orça
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Controlar a utilização e as tendências de custo
-> * Detetar inefficiencies de utilização
-> * Crie alertas para as despesas ou overspending invulgar
+> * Ver as tendências de utilização e de custos
+> * Detetar ineficiências na utilização
+> * Criar alertas para despesas ou gastos excessivos invulgares
 
 
-Avançar para o próximo tutorial para saber mais sobre como controlar o acesso a dados.
+Avance para o próximo tutorial para saber mais sobre como controlar o acesso a dados.
 
 > [!div class="nextstepaction"]
-> [Controlar o acesso a dados](tutorial-user-access.md)
+> [Control access to data](tutorial-user-access.md) (Controlar o acesso a dados)

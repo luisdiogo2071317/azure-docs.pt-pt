@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configurar o redirecionamento
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configurar redirecionamento externo
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [CLI do Azure](tutorial-external-site-redirect-powershell.md)
 ## Configurar aplicações web como membros de conjunto de back-end
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configurar sondas do estado de funcionamento

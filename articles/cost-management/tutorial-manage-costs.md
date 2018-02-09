@@ -1,115 +1,115 @@
 ---
-title: "Gerir os custos, utilizando a gestão de custo do Azure | Microsoft Docs"
-description: "Gerir os custos ao utilizar relatórios de alocação e análise de custos e encargos de custo."
+title: "Gerir os custos através do Azure Cost Management | Microsoft Docs"
+description: "Efetue a gestão dos custos com relatórios de alocação, análise de custos e estorno."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Gerir os custos, utilizando a gestão de custo do Azure
+# <a name="manage-costs-by-using-azure-cost-management"></a>Gerir os custos através do Azure Cost Management
 
-Gerir os custos e elaborar relatórios de análise de custos no Azure custo Management Cloudyn atribuindo os custos com base nas etiquetas. O processo de atribuição de custo atribui os custos aos recursos da nuvem foram consumidos. Os custos totalmente são alocados quando todos os recursos são categorizados com etiquetas. Depois dos custos são alocados, pode fornecer análise de custos ou encargos aos seus utilizadores com dashboards e relatórios. No entanto, muitos recursos poderão ser requeira ou untaggable quando começar a utilizar o custo de gestão.
+Pode gerir os custos e produzir relatórios de análise de custos no Azure Cost Management by Cloudyn ao alocar os custos com base em etiquetas. O processo de alocação de custos atribui os custos aos recursos de cloud consumidos. Os custos estão totalmente alocados quando todos os recursos estiverem categorizados com etiquetas. Após a alocação dos custos, pode fornecer análise de custos ou estorno aos seus utilizadores através de dashboards e relatórios. No entanto, muitos recursos podem não estar marcados quando começar a utilizar o Cost Management.
 
-Por exemplo, poderá obter reimbursed para os custos de engenharia. Terá de conseguir mostrar a sua equipa de engenharia que precisa de uma quantidade específica, com base em custos de recursos. Pode apresentar um relatório para todos os recursos foram consumidos marcados *engenharia*.
+Por exemplo, pode querer ser reembolsado relativamente aos custos de engenharia. Tem de conseguir mostrar à sua equipa de engenharia que precisa de um montante específico, com base nos custos de recursos. Pode mostrar-lhes um relatório para todos os recursos consumidos marcados como *engenharia*.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Utilize etiquetas personalizadas para alocar os custos.
-> * Crie relatórios de análise de custos e o estorno.
+> * Utilizar etiquetas personalizadas para alocar custos.
+> * Criar relatórios de análise de custos e estorno.
 
-## <a name="use-custom-tags-to-allocate-costs"></a>Utilize etiquetas personalizadas para alocar os custos
+## <a name="use-custom-tags-to-allocate-costs"></a>Utilizar etiquetas personalizadas para alocar custos
 
-Quando inicia a alocação de custo, é a primeira coisa que fizer a definir o âmbito utilizando um modelo de custo. O modelo de custo não altera os custos, distribui-lo-los. Quando cria um modelo de custo, segmentar os dados através da entidade de custo, a conta ou a subscrição e, por várias etiquetas. Etiquetas de exemplo comum podem incluir um código de faturação, o Centro de custos ou o nome do grupo. Etiquetas também ajudam a efetuar análise de custos ou estorno para outras partes da sua organização.
+Quando inicia a alocação de custos, a primeira coisa a fizer é definir o âmbito através de um modelo de custos. O modelo de custos não altera os custos, distribui-os. Quando criar um modelo de custos, segmenta os dados por entidade de custo, conta ou subscrição e por múltiplas etiquetas. Etiquetas de exemplo comuns podem incluir um código de faturação, centro de custos ou nome do grupo. As etiquetas também ajudam a efetuar a análise de custos ou o estorno para outras partes da sua organização.
 
-Para criar um modelo de alocação de custo personalizadas, selecione **custo** &gt; **custo gestão** &gt; **alocação de custo de 360°** no menu do relatório.
+Para criar um modelo de alocação de custos personalizado, selecione **Custo** &gt; **Cost Management** &gt; **Cost Allocation 360** no menu do relatório.
 
-![Custo de 360 de alocação de seleção](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Seleção do Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
-No **custo alocação 360** página, selecione **adicionar** e, em seguida, introduza um nome e descrição para o modelo de custo. Selecione todas as contas ou contas individuais. Se pretender utilizar contas individuais, pode selecionar múltiplas contas de vários fornecedores de serviço na nuvem. Em seguida, clique em **categorização** para escolher as etiquetas de detetados categorizam os seus dados de custo. Escolha as etiquetas (categorias) que pretende incluir no seu modelo. No exemplo seguinte, o **unidade** etiquetas está selecionada.
+Na página **Cost Allocation 360**, selecione **Adicionar** e, em seguida, introduza um nome e uma descrição para o modelo de custos. Selecione todas as contas ou contas individuais. Se quiser utilizar contas individuais, pode selecionar múltiplas contas de vários fornecedores de serviços cloud. Em seguida, clique em **Categorização** para escolher as etiquetas detetadas que categorizam os dados de custo. Escolha as etiquetas (categorias) que quer incluir no modelo. No exemplo seguinte, a etiqueta **Unidade** está selecionada.
 
-![Categorização de modelo de exemplo de custos](./media/tutorial-manage-costs/cost-model01.png)
-
-
-
-O exemplo mostra que 14,444 $ é não categorizados (sem etiquetas).
-
-Em seguida, selecione **recursos não categorizados** e selecione os serviços que não alocado os custos. Em seguida, defina regras para alocar os custos.
-
-Por exemplo, poderá demorar os custos de armazenamento do Azure e distribuir os custos igualmente para máquinas de virtuais (VMs) do Azure. Para tal, selecione o **armazenamento do Azure** serviço, selecione **proporcional ao Categorized**e, em seguida, selecione **VM do Azure**. Em seguida, selecione **criar**.
-
-![Regra de atribuição do exemplo custo modelo para distribuição igual](./media/tutorial-manage-costs/cost-model02.png)
+![Categorização do modelo de custos de exemplo](./media/tutorial-manage-costs/cost-model01.png)
 
 
 
-Um exemplo de diferentes, poderá atribuir todos os seus custos de rede do Azure para uma unidade de negócio específicas da sua organização. Para tal, selecione o **Azure/rede** serviço e, em seguida, selecione **distribuição explícita**. Em seguida, definir a percentagem de distribuição para 100 e selecionar a unidade de negócio —**G&amp;A** na imagem seguinte:
+O exemplo mostra que o valor 14 444 $ não está categorizado (sem etiquetas).
 
-![Regra de atribuição do exemplo custo modelo para uma unidade de negócio específicas](./media/tutorial-manage-costs/cost-model03.png)
+Em seguida, selecione **Recursos Não Categorizados** e selecione os serviços com custos não alocados. Em seguida, defina regras de alocação de custos.
+
+Por exemplo, pode querer distribuir os custos de armazenamento do Azure igualmente para as máquinas virtuais (VMs) do Azure. Para tal, selecione o serviço **Azure/Armazenamento**, selecione **Proporcional ao Categorizado** e, em seguida, selecione **Azure/VM**. Em seguida, selecione **Criar**.
+
+![Regra de alocação do modelo de custos de exemplo para distribuição igual](./media/tutorial-manage-costs/cost-model02.png)
 
 
 
-Para todos os recursos não categorizados restantes, crie regras de atribuição adicionais.
+Num exemplo diferente, pode querer alocar todos os custos de rede do Azure a uma unidade de negócio específica na sua organização. Para tal, selecione o serviço **Azure/Rede** e, em seguida, selecione **Distribuição Explícita**. Em seguida, defina a percentagem de distribuição para 100 e selecione a unidade de negócio **G&amp;A** na imagem seguinte:
 
-Se tiver quaisquer instâncias Amazon Web Services (AWS) reservados não atribuído, pode atribuir-lhes a categorias marcadas com **instâncias reservado**.
+![Regra de alocação do modelo de custos de exemplo para uma unidade de negócio específica](./media/tutorial-manage-costs/cost-model03.png)
 
-Para ver informações sobre as escolhas que efetuou para alocar os custos, selecione **resumo**. Para guardar as suas informações e continuar a trabalhar nas regras adicionais mais tarde, selecione **guardar como rascunho**. Ou, para guardar as suas informações e ter Cloudyn começar a processar o seu modelo de alocação de custo, selecione **guardar e ativar**.
 
-A lista de modelos de custo mostra o novo modelo de custo com **processar estado**. Pode demorar algum tempo antes da base de dados Cloudyn é atualizado com o seu modelo de custo. Quando o processamento terminar, o estado é atualizado para **concluído**. Em seguida, pode ver dados do seu modelo de custo no relatório de análise de custo em **expandido filtros** &gt; **custo modelo**.
 
-### <a name="category-manager"></a>Gestor de categoria
+Para todos os recursos não categorizados restantes, crie regras de alocação adicionais.
 
-Gestor de categoria é uma ferramenta de limpeza de dados de mensagens em fila que o ajuda a intercalar os valores de várias categorias (etiquetas) para criar campanhas novas. É uma simple baseadas em regras ferramenta onde seleccione uma categoria e criar regras para intercalar os valores existentes. Por exemplo, poderá ter categorias existentes para **R&amp;D** e **dev** em que ambos representam o grupo de desenvolvimento.
+Se tiver instâncias reservadas do Amazon Web Services (AWS) não alocadas, pode atribui-las a categorias marcadas como **Instâncias Reservadas**.
 
-No portal do Cloudyn, clique o símbolo de equipamento no canto superior direito e selecione **categoria Manager**. Para criar uma nova categoria, selecione o símbolo de adição (**+**). Introduza um nome para a categoria e, em seguida, em **chaves**, introduza as chaves de categoria que pretende incluir na nova categoria.
+Para ver informações sobre as escolhas que efetuou para alocar os custos, selecione **Resumo**. Para guardar as informações e continuar a trabalhar nas regras adicionais mais tarde, selecione **Guardar Como Rascunho**. Ou, para guardar as informações e o Cloudyn iniciar o processamento do modelo de alocação de custos, selecione **Guardar e Ativar**.
 
-Quando definir uma regra, pode adicionar vários valores, com uma condição OR. Também pode efetuar algumas operações básicas de cadeia. Para ambos os casos, clique o símbolo de botão de reticências (**...** ) para a direita da **regra**.
+A lista de modelos de custos mostra o novo modelo de custos com **Estado de processamento**. Pode demorar algum tempo até a base de dados do Cloudyn estar atualizada com o modelo de custos. Quando o processamento estiver concluído, o estado é atualizado para **Concluído**. Em seguida, pode ver os dados do modelo de custos no relatório Análise de Custos em **Filtros Expandidos** &gt; **Modelo de Custos**.
 
-Para definir uma nova regra, o **regras** área, crie uma nova regra. Por exemplo, introduza **dev** em **regras** e, em seguida, introduza **R&amp;D** em **ações**. Quando tiver terminado, guarde a nova categoria.
+### <a name="category-manager"></a>Category Manager
 
-A imagem seguinte mostra um exemplo de regras criadas para uma nova categoria designada **carga de trabalho**:
+O Category Manager é uma ferramenta de limpeza de dados que o ajuda a unir os valores de múltiplas categorias (etiquetas) para criar categorias novas. É uma ferramenta simples baseada em regras onde pode selecionar uma categoria e criar regras para unir os valores existentes. Por exemplo, pode ter categorias existentes para **R&amp;D** e **dev** em que ambos representam o grupo de desenvolvimento.
+
+No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Category Manager**. Para criar uma nova categoria, selecione o símbolo de adição (**+**). Introduza um nome para a categoria e, em seguida, em **Chaves**, introduza as chaves de categoria que quer incluir na nova categoria.
+
+Quando definir uma regra, pode adicionar múltiplos valores com uma condição OU. Também pode efetuar algumas operações básicas de cadeia. Para ambos os casos, clique no símbolo de reticências (**...**) à direita da **Regra**.
+
+Para definir uma nova regra, na área **Regras**, crie uma nova regra. Por exemplo, introduza **dev** em **Regras** e, em seguida, introduza **R&amp;D** em **Ações**. Quando tiver terminado, guarde a nova categoria.
+
+A imagem seguinte mostra um exemplo de regras criadas para uma nova categoria designada **Carga de Trabalho**:
 
 ![Categoria de exemplo](./media/tutorial-manage-costs/category01.png)
 
-### <a name="tag-sources-and-reports"></a>Origens de tag e relatórios
+### <a name="tag-sources-and-reports"></a>Relatórios e origens de etiquetas
 
-Dados de etiquetas que visualiza relatórios Cloudyn origem em três locais:
+Os dados de etiquetas que vê nos relatórios do Cloudyn têm origem em três locais:
 
-- Recursos do fornecedor de nuvem APIs
-- Fornecedor de nuvem APIs de faturação
-- Criar manualmente as etiquetas das seguintes origens:
-    - Tags de entidade Cloudyn - definido pelo utilizador dados de metadados aplicados a Cloudyn entidades
-    - Gestor de categoria - uma ferramenta que cria novas etiquetas com base nas regras que são aplicadas para as etiquetas existentes de limpeza de dados
+- APIs de recursos do fornecedor de cloud
+- APIs de faturação do fornecedor de cloud
+- Etiquetas criadas manualmente a partir das seguintes origens:
+    - Etiquetas de entidades do Cloudyn – metadados definidos pelo utilizador aplicados às entidades do Cloudyn
+    - Category Manager – ferramenta de limpeza de dados que cria novas etiquetas com base em regras aplicadas às etiquetas existentes
 
-Para ver as etiquetas de fornecedor de nuvem em relatórios de custo de Cloudyn tem de criar um modelo de alocação de custo personalizado utilizando 360 de alocação de custo. Para fazê-lo, aceda a **custo** > **custo gestão** > **custo alocação 360**, selecione as etiquetas pretendidas e, em seguida, definir regras para processar requeira custos. Em seguida, crie um novo modelo de custo. Posteriormente, pode visualizar relatórios no custo de análise de alocação para a vista, filtrar e ordenar sobre as suas etiquetas de recursos do Azure.
+Para ver as etiquetas do fornecedor de cloud em relatórios de custos do Cloudyn, tem de criar um modelo de alocação de custos personalizado através do Cost Allocation 360. Para tal, aceda a **Custo** > **Cost Management** > **Cost Allocation 360**, selecione as etiquetas pretendidas e, em seguida, defina as regras para processar custos não marcados. Em seguida, crie um novo modelo de custos. Posteriormente, pode ver os relatórios na Análise de Alocação de Custos para ver, filtrar e ordenar com base nas etiquetas de recursos do Azure.
 
-Os sinalizadores de recursos do Azure só aparecem na **custo alocação Analysis** relatórios.
+As etiquetas de recursos do Azure só aparecem nos relatórios **Análise de Alocação de Custos**.
 
-Etiquetas de faturação de fornecedor de nuvem são apresentados em todos os relatórios de custo.
+As etiquetas de faturação do fornecedor de cloud aparecem em todos os relatórios de custos.
 
-Etiquetas de entidade de Cloudyn etiquetas que cria manualmente e apresentados em todos os relatórios de custo.
+As etiquetas de entidades do Cloudyn e as etiquetas criadas manualmente aparecem em todos os relatórios de custos.
 
 
-## <a name="create-showback-and-chargeback-reports"></a>Criar relatórios de análise de custos e encargos
+## <a name="create-showback-and-chargeback-reports"></a>Criar relatórios de análise de custos e estorno
 
-O método que organizações utiliza para efetuar análise de custos e encargos varia bastante. No entanto, pode utilizar qualquer um dos dashboards e relatórios no portal do Cloudyn como base para qualquer finalidade. Pode fornecer acesso de utilizador a qualquer pessoa na sua organização para que possa visualizar os dashboards e relatórios a pedido. Análise de todos os custo relatórios suportam análise de custos, porque mostrarem os utilizadores os recursos que são consumidos. E permitem aos utilizadores explorar dados de custos ou utilização que são específicos do respetivo grupo na sua organização.
+O método que as organizações utilizam para efetuar uma análise de custos e estorno varia bastante. No entanto, pode utilizar qualquer um dos dashboards e relatórios no portal do Cloudyn como base para qualquer finalidade. Pode fornecer acesso de utilizador a qualquer pessoa na sua organização para que seja possível ver dashboards e relatórios a pedido. Todos os relatórios de Análise de Custos suportam a análise de custos, porque mostram aos utilizadores os recursos que consumiram. Além disso, permitem aos utilizadores explorar os dados de custos ou utilização específicos do respetivo grupo na sua organização.
 
-Para ver os resultados da alocação de custo, abra o relatório de análise de custos e selecione o modelo de custo que criou. Em seguida, adicione um agrupamento por uma ou mais das etiquetas selecionadas no modelo de custo.
+Para ver os resultados da alocação de custos, abra o relatório Análise de Custos e selecione o modelo de custos que criou. Em seguida, adicione um agrupamento de uma ou mais das etiquetas selecionadas no modelo de custos.
 
-![Relatório de análise de custos](./media/tutorial-manage-costs/cost-analysis.png)
+![Relatório Análise de Custos](./media/tutorial-manage-costs/cost-analysis.png)
 
-Pode facilmente criar e guardar relatórios que foco em serviços específicos consumidos pelos grupos específicos. Por exemplo, pode ter um departamento que utiliza extensivamente VMs do Azure. Pode criar um relatório que é filtrado em VMs do Azure para mostrar os custos e consumo.
+Pode facilmente criar e guardar relatórios que se concentrem em serviços específicos consumidos por grupos específicos. Por exemplo, pode ter um departamento que utiliza extensivamente VMs do Azure. Pode criar um relatório que seja filtrado nas VMs do Azure para mostrar o consumo e os custos.
 
-Se tiver de fornecer dados de instantâneos para outras equipas, pode exportar nenhum relatório no formato PDF ou CSV.
+Se precisar de fornecer dados de instantâneos a outras equipas, pode exportar qualquer relatório no formato PDF ou CSV.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -117,12 +117,12 @@ Se tiver de fornecer dados de instantâneos para outras equipas, pode exportar n
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Utilize etiquetas personalizadas para alocar os custos.
-> * Crie relatórios de análise de custos e o estorno.
+> * Utilizar etiquetas personalizadas para alocar custos.
+> * Criar relatórios de análise de custos e estorno.
 
 
 
-Para saber mais sobre como começar Cloudyn e utilizar as suas funcionalidades, avançar para a documentação de Cloudyn.
+Para saber mais sobre como começar a utilizar o Cloudyn e as suas funcionalidades, avance para a documentação do Cloudyn.
 
 > [!div class="nextstepaction"]
-> [Documentação de Cloudyn](https://support.cloudyn.com/hc/)
+> [Documentação do Cloudyn](https://support.cloudyn.com/hc/)

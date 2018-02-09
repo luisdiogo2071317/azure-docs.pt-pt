@@ -7,12 +7,10 @@
 ## [Criar um hub de eventos](event-hubs-create.md)
 ## Enviar eventos
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Receber eventos
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Capturar eventos
@@ -30,6 +28,8 @@
 ### [Disponibilidade e consistência](event-hubs-availability-and-consistency.md)
 ### [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md)
 ## Programar
+### [Enviar eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Receber eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [APIs disponíveis](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

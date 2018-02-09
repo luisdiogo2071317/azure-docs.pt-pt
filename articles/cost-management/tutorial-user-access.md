@@ -1,28 +1,28 @@
 ---
-title: "Atribuir acesso na gestão de custo do Azure | Microsoft Docs"
-description: "Atribua acesso a dados de gestão com contas de utilizador que definem os níveis de acesso para entidades de custos."
+title: Atribuir acesso no Azure Cost Management | Microsoft Docs
+description: "Atribua acesso a dados de gestão de custos com contas de utilizador que definem os níveis de acesso para as entidades."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
 
-Acesso aos dados de gestão de custos é fornecido pelo utilizador ou a gestão de entidade. Contas de utilizador Cloudyn determinam o acesso ao *entidades* e funções administrativas. Tipos de existem dois de acesso: administrador e utilizador. A menos que modificadas por utilizador, o acesso de administrador permite uma utilização de utilizador sem restrições de todas as funções no portal do Cloudyn, incluindo: gestão de utilizadores, a gestão de apresenta uma lista de destinatários e a entidade de raiz de acesso a todos os dados de entidade. Acesso de utilizadores destina-se de que os utilizadores finais ver relatórios e criar relatórios utilizando o acesso têm de dados de entidade.
+O acesso a dados de gestão de custos é fornecido pela gestão de utilizadores ou de entidades. As contas de utilizador do Cloudyn determinam o acesso às *entidades* e às funções administrativas. Existem dois tipos de acesso: administrador e utilizador. A menos que seja modificado pelo utilizador, o acesso de administrador permite a um utilizador utilizar sem restrições todas as funções no portal do Cloudyn, incluindo: gestão de utilizadores, gestão de listas de destinatários e acesso da entidade de raiz a todos os dados de entidade. O acesso de utilizador destina-se aos utilizadores finais para verem e criarem relatórios através do acesso que têm aos dados de entidade.
 
-Entidades são utilizadas para refletir a estrutura hierárquica da sua organização de negócio. Estes identificam departamentos, divisões e equipas na sua organização em Cloudyn. A hierarquia de entidades ajuda a monitorizar eficazmente os gastos pelas entidades.
+As entidades são utilizadas para refletir a estrutura hierárquica da sua organização empresarial. Identificam departamentos, divisões e equipas na sua organização no Cloudyn. A hierarquia de entidades ajuda a monitorizar eficazmente os gastos feitos pelas entidades.
 
-Quando se registou-se ao seu contrato do Azure ou a conta, uma conta com permissões de administrador foi criada num Cloudyn, pelo que pode executar todos os passos neste tutorial. Este tutorial abrange o acesso aos dados de gestão de custo, incluindo gestão de utilizador e de entidade. Saiba como:
+Quando registou o seu contrato ou conta do Azure, foi criada uma conta com permissões de administrador no Cloudyn, pelo que pode executar todos os passos neste tutorial. Este tutorial abrange o acesso a dados de gestão de custos, incluindo gestão de utilizadores e de entidades. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um utilizador com acesso de administrador
@@ -33,46 +33,46 @@ Quando se registou-se ao seu contrato do Azure ou a conta, uma conta com permiss
 
 ## <a name="create-a-user-with-admin-access"></a>Criar um utilizador com acesso de administrador
 
-Apesar de já ter acesso de administrador, seus colegas na sua organização poderão também tem de ter acesso de administrador. No portal do Cloudyn, clique o símbolo de equipamento no canto superior direito e selecione **gestão de utilizadores**. Clique em **adicionar novo utilizador** para adicionar um novo utilizador.
+Embora já tenha acesso de administrador, os seus colegas na organização podem também precisar de ter acesso de administrador. No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Gestão de Utilizadores**. Clique em **Adicionar Novo Utilizador** para adicionar um novo utilizador.
 
-Introduza as informações necessárias sobre o utilizador. Pode deixar o campo de palavra-passe vazia para que o utilizador pode definir uma nova palavra-passe no primeiro início de sessão. Uma ligação com informações de início de sessão é enviada para o utilizador por correio electrónico do Cloudyn Quando seleciona **notificar por utilizador por correio eletrónico**. Escolha as permissões para permitir a gestão de utilizadores para que o utilizador pode criar e modificar a outros utilizadores. Apresenta uma lista de gestão de destinatários para permitir ao utilizador editar apresenta uma lista de destinatário.
+Introduza as informações necessárias sobre o utilizador. Pode deixar o campo da palavra-passe em branco para que o utilizador possa definir uma nova palavra-passe no primeiro início de sessão. É enviada uma ligação do Cloudyn com informações de início de sessão ao utilizador por e-mail quando seleciona **Notificar utilizador por e-mail**. Escolha as permissões para Permitir Gestão de Utilizadores, para que o utilizador possa criar e modificar outros utilizadores. Gestão de Listas de Destinatários para permitir ao utilizador editar listas de destinatários.
 
-Em **utilizador tem acesso de administrador**, a entidade de raiz da sua organização estiver selecionada. Deixe selecionada raiz e, em seguida, guarde as informações de utilizador. Selecionar a entidade de raiz permite que o utilizador tem permissão de administrador não só para a entidade de raiz na árvore, mas também para todas as entidades que residem abaixo do mesmo.  
+Em **O utilizador tem acesso de administrador**, está selecionada a entidade de raiz da sua organização. Mantenha a raiz selecionada e, em seguida, guarde as informações de utilizador. A seleção da entidade de raiz permite ao utilizador ter permissão de administrador não só para a entidade de raiz na árvore, mas também para todas as entidades que residem abaixo da mesma.  
   ![Adicionar novo utilizador com acesso de administrador](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Criar um utilizador com acesso de utilizador
-Utilizadores típicos que precisam de acesso a dados de gestão de custos, como os dashboards e relatórios devem ter acesso de utilizador a visualizá-las. Crie um novo utilizador com acesso de utilizador semelhantes às que criou com acesso de administrador, com as seguintes diferenças:
+Os utilizadores típicos que precisem de acesso a dados de gestão de custos, como os dashboards e relatórios, devem ter acesso de utilizador para visualizá-los. Crie um novo utilizador com acesso de utilizador semelhante ao que criou com acesso de administrador, com as seguintes diferenças:
 
-- Limpar **permitir a gestão de utilizadores**, **permitir destinatário apresenta uma lista de gestão**e desmarque tudo no **utilizador tem acesso de administrador** lista.
-- Selecione as entidades que o utilizador precisa de acesso no **utilizador tem acesso de utilizador** lista.
-- Pode também autorizar administrador de acesso a entidades específicas, conforme necessário.
+- Desmarque **Permitir Gestão de Utilizadores**, **Permitir Gestão de Listas de Destinatários** e desmarque tudo na lista **O utilizador tem acesso de administrador**.
+- Selecione as entidades que o utilizador precisa de aceder na lista **O utilizador tem acesso de utilizador**.
+- Também pode permitir o acesso do administrador a entidades específicas, conforme necessário.
 
-![Adicionar novo utilizador com acesso de utilizador](.\media\tutorial-user-access\new-user-access.png)
+![adicionar novo utilizador com acesso de utilizador](.\media\tutorial-user-access\new-user-access.png)
 
-Para ver um vídeo tutorial sobre como adicionar utilizadores, consulte o artigo [adicionar utilizadores para o Azure custo Management Cloudyn](https://youtu.be/Nzn7GLahx30).
+Para ver um vídeo do tutorial sobre como adicionar utilizadores, veja [Adicionar Utilizadores ao Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="create-entities"></a>Criar entidades
 
-Quando definir a hierarquia de entidades de custo, é uma melhor prática identificar a estrutura da sua organização.
+Quando definir a hierarquia de entidades de custo, é recomendado identificar a estrutura da sua organização.
 
-À medida que cria a árvore, considere como pretende ou precisa ver os seus custos segregados pela custo centros, ambientes e departamentos de vendas, unidades de negócio. A árvore de entidade no Cloudyn é flexível devido a herança de entidade. Subscrições individuais para as contas de nuvem estão ligadas para entidades específicas. Por isso, as entidades são multi-inquilinos. Pode atribuir utilizadores específicos acesso a apenas os respetivos segmento da sua empresa através de entidades. Se o fizer, mantém os dados isolados, mesmo em grandes partes de uma empresa como subsidiárias. Além disso, ajuda-o isolamento de dados com governação.  
+À medida que cria a árvore, considere a forma como quer ou precisa de ver os seus custos segregados por unidades de negócio, centros de custos, ambientes e departamentos de vendas. A árvore de entidades no Cloudyn é flexível devido à herança de entidades. As subscrições individuais para as suas contas da cloud estão associadas a entidades específicas. Assim, as entidades são multi-inquilino. Pode atribuir o acesso de utilizadores específicos apenas ao respetivo segmento da sua empresa através de entidades. Se o fizer, mantém os dados isolados, mesmo em grandes partes de uma empresa, como subsidiárias. Além disso, o isolamento de dados ajuda na governação.  
 
-Quando registar o seu contrato do Azure ou a conta com Cloudyn, os dados de recursos do Azure, incluindo a utilização, desempenho, faturação e dados da etiqueta do seu subscrições foi copiados para a sua conta Cloudyn. No entanto, tem de criar manualmente a árvore de entidade. Caso tenha ignorado o registo do Azure Resource Manager, em seguida, apenas dados de faturação e alguns relatórios do asset estão disponíveis no portal do Cloudyn.
+Quando registou o seu contrato ou conta do Azure no Cloudyn, os dados dos recursos do Azure, incluindo utilização, desempenho, faturação e dados de etiqueta das suas subscrições, foram copiados para a sua conta do Cloudyn. No entanto, tem de criar manualmente a árvore de entidades. Caso tenha ignorado o registo do Azure Resource Manager, apenas os dados de faturação e alguns relatórios de imobilizado estão disponíveis no portal do Cloudyn.
 
-No portal do Cloudyn, clique em **definições** no canto superior direito e selecione **contas na nuvem**. Começar com uma única entidade (root) e criar a árvore de entidade em raiz. Eis um exemplo de uma hierarquia de entidades que poderá assemelhar-se as organizações de TI muitos após a conclusão da árvore:
+No portal do Cloudyn, clique em **Definições** na parte superior direita e selecione **Contas da Cloud**. Começa por uma única entidade (raiz) e cria a árvore de entidades na raiz. Segue-se um exemplo de uma hierarquia de entidades que poderá assemelhar-se a muitas organizações de TI após a conclusão da árvore:
 
-![árvore de entidade](.\media\tutorial-user-access\entity-tree.png)
+![árvore de entidades](.\media\tutorial-user-access\entity-tree.png)
 
-Junto a **entidades**, clique em **adicionar entidade**. Introduza as informações relativas a pessoa ou o departamento de que pretende adicionar. O **nome completo** e **E-Mail** campos para tem de corresponder ao utilizadores existentes. Se pretender ver uma lista dos níveis de acesso, procure em Ajuda para *adicionar uma entidade*.
+Junto a **Entidades**, clique em **Adicionar Entidade**. Introduza as informações sobre a pessoa ou o departamento que quer adicionar. Os campos **Nome Completo** e **E-mail** não têm de corresponder ao utilizadores existentes. Se quiser ver uma lista de níveis de acesso, procure *Adicionar uma entidade* na ajuda.
 
-![Adicionar entidade](.\media\tutorial-user-access\add-entity.png)
+![adicionar entidade](.\media\tutorial-user-access\add-entity.png)
 
-Quando tiver terminado, **guardar** a entidade.
+Quando tiver terminado, **guarde** a entidade.
 
 
-Para ver um vídeo tutorial sobre a criação de uma hierarquia de entidades de custo, consulte o artigo [criação de uma hierarquia de entidades de custo no Azure custo Management Cloudyn](https://youtu.be/dAd9G7u0FmU).
+Para ver um vídeo do tutorial sobre a criação de uma hierarquia de entidades de custo, veja [Criar uma Hierarquia de Entidades de Custo no Azure Cost Management by Cloudyn](https://youtu.be/dAd9G7u0FmU).
 
-Se for um utilizador do Azure Enterprise Agreement, ver um vídeo tutorial sobre a associação de contas e as subscrições para entidades em [ligar para o Azure Resource Manager com o Azure custo Management Cloudyn](https://youtu.be/oCIwvfBB6kk).
+Se for um utilizador do Azure Enterprise Agreement, veja um vídeo do tutorial sobre a associação de contas e subscrições para entidades em [Ligar ao Azure Resource Manager com o Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -83,7 +83,7 @@ Neste tutorial, ficou a saber como:
 > * Criar um utilizador com acesso de utilizador
 > * Criar entidades
 
-Avançar para o próximo tutorial para aprender a prever despesas com os dados históricos.
+Avance para o tutorial seguinte para aprender a prever despesas através de dados históricos.
 
 > [!div class="nextstepaction"]
 > [Prever despesas futuras](tutorial-forecast-spending.md)
