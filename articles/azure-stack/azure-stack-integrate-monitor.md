@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitorização externa com pilha do Azure
 
-*Aplica-se a: Azure pilha integrado sistemas*
+Para externo monitorização da infraestrutura de pilha do Azure, terá de monitorizar o software de pilha do Azure, os computadores físicos e os comutadores de rede física. Cada uma destas áreas oferece um método para obter informações de estado de funcionamento e o alerta:
 
-Para externo monitorização da infraestrutura de pilha do Azure, terá de monitorizar o software de pilha do Azure, os computadores físicos e os comutadores de rede física. Cada uma destas áreas oferece um método para obter informações de estado de funcionamento e o alerta.
-
-- Software de pilha do Azure oferece uma API baseada em REST para obter o estado de funcionamento e alertas. (Com a utilização de tecnologias definidas por software como espaços de armazenamento direto, alertas e o estado de funcionamento de armazenamento fazem parte do software de monitorização.)
+- Software de pilha do Azure oferece uma API baseada em REST para obter o estado de funcionamento e alertas. (Com a utilização de tecnologias definidas por software como espaços de armazenamento direto, alertas e o estado de funcionamento de armazenamento fazem parte do software de monitorização.).
 - Computadores físicos podem disponibilizar estado de funcionamento e alertas informações através de controladores de gestão de placas base (BMCs).
 - Dispositivos de rede físicos podem disponibilizar informações de alerta e de estado de funcionamento através do protocolo SNMP.
 
@@ -48,16 +46,16 @@ Pode utilizar o Gestor de operações para monitorização externo da pilha do A
 
 O pacote de gestão para a pilha do Azure fornece as seguintes capacidades:
 
-- Pode gerir várias implementações de pilha do Azure.
-- Não há suporte para o Azure Active Directory (Azure AD) e serviços de Federação do Active Directory (AD FS).
-- Pode obter e fechar alertas.
-- Não há um Estado de funcionamento e um dashboard de capacidade.
-- Inclui a deteção de modo de manutenção automática para quando o patch e atualização (P & U) está em curso.
-- Inclui tarefas de atualização de imposição para implementação e a região.
-- Pode adicionar informações personalizadas para uma região.
-- Suporta notificações e relatórios.
+- Pode gerir várias implementações de pilha do Azure
+- Não há suporte para o Azure Active Directory (Azure AD) e serviços de Federação do Active Directory (AD FS)
+- Pode obter e fechar alertas
+- Há um Estado de funcionamento e um dashboard de capacidade
+- Inclui a deteção de modo de manutenção automática para quando o patch e atualização (P & U) está em curso
+- Inclui tarefas de atualização de imposição para implementação e região
+- Pode adicionar informações personalizadas para uma região
+- Suporta notificações e relatórios
 
-Pode transferir o pacote de gestão do System Center para a pilha do Microsoft Azure e o Guia do utilizador associada [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ou diretamente a partir do Operations Manager.
+Pode transferir o pacote de gestão do System Center para a pilha do Microsoft Azure e associada [Guia do utilizador](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ou diretamente a partir do Operations Manager.
 
 Para uma solução de emissão de permissões, pode integrar o Operations Manager com o System Center Service Manager. O conector de produto integrada permite a comunicação bidirecional, que permite-lhe fechar um alerta na pilha do Azure e o Operations Manager depois de resolver um pedido de serviço no Service Manager.
 
@@ -140,7 +138,7 @@ O pedido obtém todos os alertas fechados e Active Directory para a subscrição
 
 |Método  |URI de pedido  |
 |---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
+|INTRODUÇÃO     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Argumentos**
@@ -243,7 +241,7 @@ O pedido fecha um alerta pelo seu ID exclusivo.
 
 |Método    |URI de pedido  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
+|COLOCAR     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argumentos**
 
@@ -387,7 +385,7 @@ O pedido obtém o estado de funcionamento de todos os fornecedores de recursos r
 
 |Método  |URI de pedido  |
 |---------|---------|
-|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
+|INTRODUÇÃO    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Argumentos**
@@ -458,7 +456,7 @@ O pedido obtém o estado de funcionamento para um fornecedor de recursos regista
 
 |Método  |URI de pedido  |
 |---------|---------|
-|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
+|INTRODUÇÃO     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Argumentos**
 

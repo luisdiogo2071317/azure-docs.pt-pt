@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizar o ponto final com privilégios na pilha do Azure
 
@@ -78,8 +78,6 @@ Recomendamos que ligue ao PEP apenas a partir do anfitrião de ciclo de vida de 
       - **Palavra-passe**: introduza a mesma palavra-passe que foi fornecido durante a instalação para a conta de administrador de domínio AzureStackAdmin.
     
 3.  Depois de ligar, a linha de comandos será alterado para **[*nome do endereço IP ou ERCS VM*]: PS >** ou **[azs ercs01]: PS >**, consoante o ambiente. Aqui, execute `Get-Command` para ver a lista dos cmdlets disponíveis.
-
-    ![Lista de apresentação do cmdlet Get-Command saída de comandos disponíveis](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Muitos destes cmdlets destinam-se apenas para ambientes de sistema integrada (por exemplo, os cmdlets relacionados com a integração do Centro de dados). No ASDK, ter foi validados os seguintes cmdlets:
 
