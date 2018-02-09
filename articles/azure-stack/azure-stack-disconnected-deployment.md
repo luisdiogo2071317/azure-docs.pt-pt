@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisões sobre a pilha do Azure de planeamento de implementação desligada do Azure integrado sistemas
-Depois de tiver decidido [como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida](azure-stack-deployment-decisions.md), em seguida, pode finalizar as suas decisões de implementação de pilha do Azure.
+Depois de tiver decidido [como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, pode finalizar as suas decisões de implementação de pilha do Azure.
 
 Com o desligado da opção de implementação do Azure, pode implementar e utilizar o Azure pilha sem uma ligação à Internet. No entanto, uma implementação de desligado, está limitado a um arquivo de identidade do AD FS e o modelo de faturação baseada na capacidade. 
 
@@ -34,7 +34,7 @@ Escolha esta opção se a:
 > [!TIP]
 > Por vezes, este tipo de ambiente também é referido como "cenário submarine".
 
-Uma implementação desligada não estritamente significa que não é possível ligar mais tarde a sua instância de pilha do Azure para o Azure para cenários VM do inquilino híbridos. Significa que não tem conectividade para o Azure durante a implementação ou não pretender utilizar o Azure Active Directory como o arquivo de identidade. No entanto, se pretender ter conectividade para o Azure após a implementação, independentemente de o que pretende utilizar como o arquivo de identidade, deve escolher o ligar a opção de implementação do Azure. 
+Uma implementação desligada não estritamente significa que não é possível ligar mais tarde a sua instância de pilha do Azure para o Azure para cenários VM do inquilino híbridos. Significa que não tem conectividade para o Azure durante a implementação ou não pretender utilizar o Azure Active Directory como o arquivo de identidade.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funcionalidades que são debilitadas ou não está disponíveis em implementações desligadas 
 Pilha do Azure foi concebida para funcionar melhor quando ligado ao Azure, pelo que é importante ter em atenção que existem algumas funcionalidades de que estão completamente indisponível no modo desligado ou afetada. 

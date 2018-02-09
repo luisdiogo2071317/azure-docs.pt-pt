@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração de firewall de pilha do Azure
 É recomendado que utilize um dispositivo de firewall para o ajudar a proteger pilha do Azure. Embora as firewalls podem ajudar com coisas como distribuídas denial of service (DDoS distribuídos), deteção de intrusão e e ataques inspeção de conteúdo, pode também ficarem um estrangulamento do débito para serviços de armazenamento do Azure como blobs, tabelas e filas.
@@ -41,7 +41,7 @@ Algumas das downsides da utilização de NAT para o VIP público são:
 - Para cenários de nuvem híbrida com o Azure, considere que o Azure não suporta a configuração de um túnel VPN para um ponto final com NAT.
 
 ### <a name="ssl-decryption"></a>Desencriptação de SSL
-Atualmente, é a nossa recomendação durante a desencriptação de SSL para desativá-lo em todo o tráfego de pilha do Azure, no futuro, fornecem orientações sobre como ativar a desencriptação de SSL para a pilha do Azure.
+Recomenda-se atualmente para desativar a desencriptação de SSL em todo o tráfego de pilha do Azure. Caso seja suportado nas atualizações futuras, será fornecida orientação sobre como ativar a desencriptação de SSL para a pilha do Azure.
 
 ## <a name="edge-firewall-scenario"></a>Cenário de firewall de limite
 Uma implementação de limite, pilha do Azure é implementada diretamente atrás da firewall ou o router de limite. Nestes cenários, é suportada para a firewall para estar acima do limite ou a agir como o dispositivo de limite se suporta igual custo várias caminho (ECMP) com o BGP ou encaminhamento estático.

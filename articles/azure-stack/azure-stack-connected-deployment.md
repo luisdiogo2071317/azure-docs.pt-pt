@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisões sobre a pilha do Azure de planeamento de implementação ligada do Azure integrado sistemas
-Depois de tiver decidido [como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida](azure-stack-deployment-decisions.md), em seguida, pode finalizar as suas decisões de implementação de pilha do Azure.
+Depois de tiver decidido [como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, pode finalizar as suas decisões de implementação de pilha do Azure.
 
 Implementar pilha do Azure ligado ao Azure significa que pode ter o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) para o arquivo de identidade. Também pode escolher entre o modelo de faturação: pay-como-utiliza ou com base na capacidade. Uma implementação ligada é a opção predefinida, porque permite aos clientes obter o maior valor fora do Azure pilha, especialmente para cenários de nuvem híbridos que envolvam Azure e Azure pilha. 
 
@@ -45,7 +45,7 @@ Quando utilizar o Azure AD para o arquivo de identidade requer duas contas do Az
 Escolha esta opção se pretender utilizar o seu próprio arquivo de identidade, tais como o Active Directory empresarial, para as contas de administrador de serviço.  
 
 ## <a name="choose-a-billing-model"></a>Escolha um modelo de faturação
-Pode escolher uma **Pay-como-utiliza** ou **capacidade** modelo de faturação. Implementações de modelo de faturação pay-como-utiliza tem de ser capazes de utilização de relatórios através de uma ligação para o Azure, pelo menos, uma vez a cada 30 dias, por conseguinte, se a conectividade será não está disponível, o modelo de faturação capacidade é a única opção. 
+Pode escolher uma **Pay-como-utiliza** ou **capacidade** modelo de faturação. Implementações de modelo de faturação pay-como-utiliza tem de ser capazes de utilização de relatórios através de uma ligação para o Azure, pelo menos, uma vez a cada 30 dias. Por conseguinte, o modelo de faturação Pay-como-utiliza apenas está disponível para implementações ligadas.  
 
 ### <a name="pay-as-you-use"></a>Pay-como-utiliza
 Com o modelo de faturação Pay-como-utiliza, a utilização é cobrada a uma subscrição do Azure. Paga apenas quando utiliza os serviços de pilha do Azure. Se este é o modelo que opte por utilizar, precisará de uma subscrição do Azure e o ID de conta associados a essa subscrição (por exemplo, serviceadmin@contoso.onmicrosoft.com). EA, CSP e CSL subscrições são suportadas. Relatórios de utilização é configurado durante [registo Azure pilha](azure-stack-registration.md).
