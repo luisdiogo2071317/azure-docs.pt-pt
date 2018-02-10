@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorização de aplicações do Azure e de recursos
 
@@ -57,8 +57,11 @@ Os seguintes serviços do Azure fornecem capacidades avançadas para recolher e 
 [Mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) fornece informações sobre o ambiente de IaaS ao analisar as máquinas virtuais com as respetivas dependências nos outros computadores e processos externos e processos diferentes.  É integrado eventos, dados de desempenho e soluções de gestão na análise de registos para que possa visualizar estes dados no contexto de cada computador e a respetiva relação para o resto do seu ambiente.  Mapa de serviço é semelhante a [mapa de aplicação no Application Insights](../application-insights/app-insights-app-map.md) mas centra-se nos componentes de infraestrutura que suporta as suas aplicações.
 
 ### <a name="network-watcher"></a>Observador de Rede
-[Observador de rede](../network-watcher/network-watcher-monitoring-overview.md) fornece baseada em cenários de monitorização e diagnóstico para cenários de rede diferente no Azure.  Armazena os dados no Azure métricas e diagnóstico para análise adicional e funciona com [soluções de gestão na análise de registos](../log-analytics/log-analytics-azure-networking-analytics.md) para monitorização completa dos seus recursos de rede.
-
+[Observador de rede](../network-watcher/network-watcher-monitoring-overview.md) fornece baseada em cenários de monitorização e diagnóstico para cenários de rede diferente no Azure.  Armazena os dados no Azure métricas e diagnóstico para mais análises e funciona com a seguinte soluções para monitorização diferentes aspetos da sua rede de monitorização de rede:
+* [Monitor de desempenho (NPM) de rede](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - uma solução que monitoriza a conectividade entre nuvens públicas, centros de dados e ambientes no local de monitorização de rede de baseada na nuvem
+* [Monitor de ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) -capacidade de NPM um que monitoriza a conetividade ponto a ponto e o desempenho através de circuitos do ExpressRoute.
+* Análise de tráfego - uma solução baseada na nuvem, que fornece visibilidade para a atividade de utilizador e a aplicação na sua rede de nuvem.
+* [Análise de DNS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) -fornece informações relacionadas com operações, desempenho e segurança, com base nos seus servidores DNS.
 
 ### <a name="management-solutions"></a>Soluções de gestão
 [As soluções de gestão](../log-analytics/log-analytics-add-solutions.md) instaladores conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço.  Análise de registos para armazenar e analisar os dados de monitorização que recolher que dependem.  Soluções de gestão são disponibilizadas pela Microsoft e os parceiros que fornecem monitorização para vários serviços do Azure e de terceiros. Exemplo de soluções de monitorização incluem [monitorização do contentor](../log-analytics/log-analytics-containers.md) que poderá ver e gerir os anfitriões de contentor e [análise do Azure SQL](../log-analytics/log-analytics-azure-sql.md) que recolhe e visualiza métricas de desempenho para o SQL Server Bases de dados do Azure.

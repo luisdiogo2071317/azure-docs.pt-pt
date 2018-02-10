@@ -3,7 +3,7 @@ title: Administrador de inquilinos elevar o acesso - do Azure AD | Microsoft Doc
 description: "Este tópico descreve a incorporado em funções para o controlo de acesso baseado em funções (RBAC)."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador inquilino com controlo de acesso baseado em funções
 
@@ -28,7 +28,7 @@ Esta funcionalidade é importante porque permite que o administrador de inquilin
 
 ## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Utilizar elevateAccess para acesso de inquilino com o Centro de administração do Azure AD
 
-1. Vá para o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) e inicie sessão com que as credenciais.
+1. Vá para o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) e inicie sessão com as suas credenciais.
 
 2. Escolha **propriedades** do Azure AD deixado menu.
 
@@ -53,13 +53,13 @@ Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Admin
 
 **Exemplo de saída**:
 
-RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
 Âmbito: /    
 DisplayName: nome de utilizador    
-SignInName:username@somedomain.com    
+SignInName         : username@somedomain.com    
 RoleDefinitionName: Administrador de acesso de utilizador    
-Em RoleDefinitionId: 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
-ObjectId: d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
 ObjectType: utilizador    
 
 ## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Eliminar a atribuição de função em "/" definir o âmbito com o Powershell:
@@ -101,8 +101,8 @@ O processo básico funciona com os seguintes passos:
 
 Quando chamar *elevateAccess* cria uma atribuição de função para si, por isso revogar esses privilégios terá de eliminar a atribuição.
 
-1.  OBTER definições de funções de chamada onde roleName = administrador de acesso de utilizador para determinar o nome do GUID da função de administrador de acesso de utilizador.
-    1.  OBTER *filtro de $ https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01& = roleName + eq + "utilizador + + ao administrador de acesso*
+1.  Chamada GET roleDefinitions onde roleName = administrador de acesso de utilizador para determinar o nome do GUID da função de administrador de acesso de utilizador.
+    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
         {"value":[{"properties":{
@@ -124,12 +124,12 @@ Quando chamar *elevateAccess* cria uma atribuição de função para si, por iss
         Guarde o GUID do *nome* parâmetro, neste caso, **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
 2. Também precisa de listar a atribuição de função de administrador inquilino no âmbito de inquilino. Liste todas as atribuições de âmbito de inquilino para o PrincipalId de TenantAdmin que efetuou o acesso de elevate chamada. Isto irá listar todas as atribuições de inquilino para o ObjectID. 
-    1. OBTER *filtro de $ https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01& = principalId + eq + {objectid}*
+    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >Um administrador inquilino não deve ter muitos atribuições, se a consulta acima devolve demasiadas atribuições, também pode consultar para todas as atribuições de apenas ao nível do âmbito de inquilino e filtrar os resultados: obter *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
+        >Um administrador inquilino não deve ter muitos atribuições, se a consulta anterior devolve demasiadas atribuições, também pode consultar para todas as atribuições de apenas ao nível do âmbito de inquilino e filtrar os resultados: obter *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
         
-    2. As chamadas acima devolvem uma lista de atribuições de funções. Localizar a atribuição de função em que o âmbito é "/" e o em RoleDefinitionId termina com o nome da função GUID que encontrar no passo 1 e PrincipalId corresponde o ObjectId de administrador inquilino. A atribuição de função tem o seguinte aspeto:
+    2. As chamadas anteriores devolvem uma lista de atribuições de funções. Localizar a atribuição de função em que o âmbito é "/" e o em RoleDefinitionId termina com o nome da função GUID que encontrar no passo 1 e PrincipalId corresponde o ObjectId de administrador inquilino. A atribuição de função tem o seguinte aspeto:
 
         ```
         {"value":[{"properties":{
@@ -150,9 +150,9 @@ Quando chamar *elevateAccess* cria uma atribuição de função para si, por iss
 
     3. Por fim, utilize o realçado **RoleAssignment ID** para eliminar a atribuição adicionada por elevar o acesso:
 
-        Eliminar https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [gestão do controlo de acesso baseado em funções com REST](role-based-access-control-manage-access-rest.md)
 

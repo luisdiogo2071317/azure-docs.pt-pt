@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou o VHD
 
@@ -37,7 +37,7 @@ Certifique-se de que cumpre os seguintes pré-requisitos:
 
 * Precisa de uma VM do Azure criado no modelo de implementação Resource Manager com discos geridos. Se ainda não criou uma VM com Linux, pode utilizar o [portal](quick-create-portal.md), a [CLI do Azure](quick-create-cli.md), ou [modelos do Resource Manager](create-ssh-secured-vm-from-template.md). Configure a VM conforme necessário. Por exemplo, [adicionar discos de dados](add-disk.md), aplicar atualizações e instalar aplicações. 
 
-* Terá também de ter a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e de ter sessão iniciada para uma conta do Azure utilizando [início de sessão az](/cli/azure/#login).
+* Terá também de ter a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e de ter sessão iniciada para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -79,7 +79,7 @@ Utilize o 2.0 CLI do Azure para marcar a VM como generalizado e capturar a image
       --name myVM
     ```
 
-3. Agora criar uma imagem do recurso VM com [criar imagem az](/cli//azure/image#create). O exemplo seguinte cria uma imagem com o nome *myImage* no grupo de recursos denominado *myResourceGroup* utilizando o recurso VM com o nome *myVM*:
+3. Agora criar uma imagem do recurso VM com [criar imagem az](/cli/azure/image#az_image_create). O exemplo seguinte cria uma imagem com o nome *myImage* no grupo de recursos denominado *myResourceGroup* utilizando o recurso VM com o nome *myVM*:
    
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ Utilize o 2.0 CLI do Azure para marcar a VM como generalizado e capturar a image
    > A imagem é criada no mesmo grupo de recursos VM de origem. Pode criar VMs em qualquer grupo de recursos na sua subscrição a partir desta imagem. Numa perspetiva de gestão, pode pretender criar um grupo de recursos específicos para os recursos da VM e imagens.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Passo 3: Criar uma VM a partir da imagem capturada
-Criar uma VM utilizando a imagem que criou com [az vm criar](/cli/azure/vm#create). O exemplo seguinte cria uma VM chamada *myVMDeployed* na imagem com o nome do *myImage*:
+Criar uma VM utilizando a imagem que criou com [az vm criar](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM chamada *myVMDeployed* na imagem com o nome do *myImage*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Criar a VM no outro grupo de recursos 
 
-Pode criar VMs a partir de uma imagem em qualquer grupo de recursos na sua subscrição. Para criar uma VM no grupo de recursos diferente que a imagem, especifique o ID de recurso completo para a imagem. Utilize [lista de imagens az](/cli/azure/image#list) para ver uma lista de imagens. O resultado é semelhante ao seguinte exemplo:
+Pode criar VMs a partir de uma imagem em qualquer grupo de recursos na sua subscrição. Para criar uma VM no grupo de recursos diferente que a imagem, especifique o ID de recurso completo para a imagem. Utilize [lista de imagens az](/cli/azure/image#az_image_list) para ver uma lista de imagens. O resultado é semelhante ao seguinte exemplo:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ Pode criar VMs a partir de uma imagem em qualquer grupo de recursos na sua subsc
    "name": "myImage",
 ```
 
-O exemplo seguinte utiliza [az vm criar](/cli/azure/vm#create) para criar uma VM de um grupo de recursos diferente que a imagem de origem especificando o ID de recurso de imagem:
+O exemplo seguinte utiliza [az vm criar](/cli/azure/vm#az_vm_create) para criar uma VM de um grupo de recursos diferente que a imagem de origem especificando o ID de recurso de imagem:
 
 ```azurecli
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Passo 4: Verificar a implementação
 
-Agora SSH para a máquina virtual que criou para verificar a implementação e começar a utilizar a nova VM. Para ligar através de SSH, localizar o endereço IP ou FQDN do seu VM com [mostrar de vm az](/cli/azure/vm#show):
+Agora SSH para a máquina virtual que criou para verificar a implementação e começar a utilizar a nova VM. Para ligar através de SSH, localizar o endereço IP ou FQDN do seu VM com [mostrar de vm az](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -135,7 +135,7 @@ az vm show \
    --show-details
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode criar várias VMs a partir da imagem de VM de origem. Se precisar de efetuar alterações à sua imagem: 
 
 - Crie uma VM a partir da imagem.

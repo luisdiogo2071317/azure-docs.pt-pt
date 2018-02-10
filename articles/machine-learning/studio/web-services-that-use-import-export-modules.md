@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 54b0434cb753484bdb8300f4b9c4f7f7ca75c7c8
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 626b730bf7f012ee64f51e3aee0970a1a1ac5f66
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços Web do Azure ML que utilizam módulos Importar Dados e Exportar Dados
 
@@ -59,7 +59,7 @@ Para ler os dados da tabela SQL do Azure:
         [hours-per-week],
         [native-country],
         [income]
-     de dbo.censusdata;
+     from dbo.censusdata;
 8. Na parte inferior da tela de experimentação, clique em **executar**.
 
 ## <a name="create-the-predictive-experiment"></a>Criar a experimentação preditiva

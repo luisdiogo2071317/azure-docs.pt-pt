@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6b18f79b0ef50c30335218ef45ba6ed932cb586
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador do Azure funções c# script (.csx)
 
@@ -124,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Utilizar um partilhado *.csx* ficheiro é um padrão comum quando pretender vivamente escreva dados thet transmitidos entre as funções por utilizar um objeto POCO. No exemplo seguinte simplificado, um acionador HTTP e o acionador de fila partilham um objeto POCO com o nome `Order` vivamente escreve os dados de ordem:
+Utilizar um partilhado *.csx* ficheiro é um padrão comum quando pretender vivamente escrever os dados transmitidos entre as funções por utilizar um objeto POCO. No exemplo seguinte simplificado, um acionador HTTP e o acionador de fila partilham um objeto POCO com o nome `Order` vivamente escreve os dados de ordem:
 
 Exemplo *run.csx* para o acionador HTTP:
 

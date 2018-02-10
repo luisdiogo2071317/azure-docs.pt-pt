@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o agente Linux do Azure numa VM
 
@@ -29,6 +29,9 @@ Ao atualizar a sua [agente Linux do Azure](https://github.com/Azure/WALinuxAgent
 - Uma ligação para essa VM com Linux através do SSH.
 
 Deve sempre procurar um pacote no Linux distro repositório pela primeira vez. É possível que o pacote disponível não pode ser a versão mais recente, no entanto, ativar autoupdate irá garantir que o agente Linux sempre irá obter a atualização mais recente. Deve ter problemas de instalação de gestores de pacote, deve procurar o ressarcimento de suporte do fornecedor distro.
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Suporte de agente mínimo da máquina virtual no Azure
+Certifique-se a [suporte para a versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) antes de continuar.
 
 ## <a name="updating-the-azure-linux-agent"></a>Atualizar o agente Linux do Azure
 
@@ -158,7 +161,7 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>VM de Redhat / CentOS
+## <a name="redhat--centos"></a>Redhat / CentOS
 
 ### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory e se ferramenta de acesso condicional - preview
 
@@ -78,14 +78,14 @@ A predefinição para esta definição é **todas as aplicações em nuvem**. A 
 
 ### <a name="ip-address"></a>Endereço IP
 
-O endereço IP é um único endereço IPv4 para imitar o [condição localização](active-directory-conditional-access-azure-portal.md#locations). O endereço representa a Internet com o endereço do dispositivo utilizado pelo seu utilizador para iniciar sessão. Pode verificar se o endereço IP de um dispositivo ao, por exemplo, ao navegar para [que é o meu endereço IP](https://whatismyipaddress.com).    
+O endereço IP é um único endereço IPv4 para imitar o [condição localização](active-directory-conditional-access-locations.md). O endereço representa a Internet com o endereço do dispositivo utilizado pelo seu utilizador para iniciar sessão. Pode verificar se o endereço IP de um dispositivo ao, por exemplo, ao navegar para [que é o meu endereço IP](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Plataformas de dispositivos
 
-Esta definição mimics o [condição de plataformas de dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) e representa o equivalente do **todas as plataformas (não suportado, incluindo)**. 
+Esta definição mimics o [condição de plataformas de dispositivo](active-directory-conditional-access-conditions.md#device-platforms) e representa o equivalente do **todas as plataformas (não suportado, incluindo)**. 
 ### <a name="client-apps"></a>Aplicações do cliente
 
-Esta definição mimics o [condição de aplicações de cliente](active-directory-conditional-access-azure-portal.md#client-apps).
+Esta definição mimics o [condição de aplicações de cliente](active-directory-conditional-access-conditions.md#client-apps).
 Por predefinição, esta definição faz com que uma edição de avaliação de todas as políticas ter **Browser** ou **clientes de ambiente de trabalho e aplicações móveis** o individualmente ou ambos selecionado. Também Deteta as políticas que impõem **Exchange ActiveSync (EAS)**. Pode reduzir esta definição ao selecionar:
 
 - **Browser** para avaliar todas as políticas de ter, pelo menos, **Browser** selecionado. 
@@ -95,7 +95,7 @@ Por predefinição, esta definição faz com que uma edição de avaliação de 
 
 ### <a name="sign-in-risk"></a>Risco de início de sessão
 
-Esta definição mimics o [condição de início de sessão risco](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Esta definição mimics o [condição de início de sessão risco](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Avaliação 

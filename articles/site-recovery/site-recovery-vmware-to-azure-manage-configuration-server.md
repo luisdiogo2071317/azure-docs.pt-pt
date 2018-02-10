@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Gerir o servidor de configuração
 
@@ -72,6 +72,22 @@ Pode registar o servidor de configuração no cofre do mesmo se for necessário.
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
+
+Executar update rollups para atualizar o servidor de configuração. As atualizações podem ser aplicadas para até versões N-4. Por exemplo:
+
+- Se estiver a executar o 9.7, 9.8, 9.9 ou 9.10 - pode atualizar diretamente para 9.11.
+- Se estiver a executar o 9.6 ou anterior e pretende atualizar para 9.11, primeiro tem de atualizar para versão 9.7. antes de 9.11.
+
+Ligações para os update rollups para atualizar para todas as versões do servidor de configuração estão disponíveis no [wiki atualizações página](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Atualize o servidor da seguinte forma:
+
+1. Transfira o ficheiro de instalador de atualização para o servidor de configuração.
+2. Faça duplo clique para executar o instalador.
+3. O instalador Deteta a versão atual em execução na máquina.
+4. Clique em **OK** para confirmar e executar a atualização. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Elimine ou anular o registo de um servidor de configuração
 

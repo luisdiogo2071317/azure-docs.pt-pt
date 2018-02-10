@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Operações de implementação de vista com o Azure Resource Manager
 
 
 Pode ver as operações de uma implementação através do portal do Azure. Pode ser mais interessado em visualizar as operações quando tiver recebido um erro durante a implementação para que este artigo foca-se sobre a visualização de operações que falharam. O portal fornece uma interface que permite-lhe facilmente encontrar os erros e determinar o potenciais de correções.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+Pode resolver problemas com a implementação observando os registos de auditoria ou as operações de implementação. Este tópico mostra ambos os métodos. Para obter ajuda com resolver erros de implementação específicos, consulte [resolver erros comuns ao implementar recursos para o Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Para ver as operações de implementação, utilize os seguintes passos:
@@ -42,7 +42,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
     ![Ver falhas de implementação](./media/resource-manager-deployment-operations/view-error.png)
    
     Esta mensagem de erro deve ser suficiente para que possa começar a resolução de problemas. No entanto, se precisar de mais detalhes sobre as tarefas que foram concluídas, pode ver as operações, conforme mostrado nos passos seguintes.
-4. Pode ver todas as operações de implementação no **implementação** painel. Selecione todas as operações para ver mais detalhes.
+4. Pode ver todas as operações de implementação. Selecione todas as operações para ver mais detalhes.
    
     ![operações de vista](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
 5. Pode ver eventos para a implementação, selecionando **eventos**.
    
     ![Ver eventos](./media/resource-manager-deployment-operations/view-events.png)
-6. Ver todos os eventos para a implementação e selecionar qualquer uma para obter mais detalhes. Tenha em atenção demasiado a correlação de IDs. Este valor pode ser útil ao trabalhar com o suporte técnico a resolver problemas de uma implementação.
+6. Ver todos os eventos para a implementação e selecionar qualquer uma para obter mais detalhes. Tenha em atenção a correlação de IDs. Este valor pode ser útil ao trabalhar com o suporte técnico a resolver problemas de uma implementação.
    
     ![Ver eventos](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -121,7 +121,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Cada operação de implementação no Azure inclui conteúdo do pedido e resposta. O conteúdo do pedido é o que lhe enviados para o Azure, durante a implementação (por exemplo, criar uma VM, o disco do SO e outros recursos). O conteúdo da resposta é o Azure enviado novamente a partir do seu pedido de implementação. Durante a implementação, pode utilizar **DeploymentDebugLogLevel** paramenter para especificar que o pedido de e/ou resposta é mantida no registo. 
+4. Cada operação de implementação no Azure inclui conteúdo do pedido e resposta. O conteúdo do pedido é o que lhe enviados para o Azure, durante a implementação (por exemplo, criar uma VM, o disco do SO e outros recursos). O conteúdo da resposta é o Azure enviado novamente a partir do seu pedido de implementação. Durante a implementação, pode utilizar **DeploymentDebugLogLevel** parâmetro para especificar que o pedido de e/ou resposta é mantida no registo. 
 
   Obter informações do registo e guardá-lo localmente ao utilizar os seguintes comandos do PowerShell:
 
@@ -178,7 +178,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
   }
   ```
 
-2. Obter informações sobre as operações de implementação com o [lista todas as operações de implementação do modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) operação. 
+2. Obter informações sobre implementações com [lista todas as operações de implementação do modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -212,7 +212,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
   ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter ajuda com resolver erros de implementação específicos, consulte [resolver erros comuns ao implementar recursos para o Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre como utilizar os registos de atividade para monitorizar os outros tipos de ações, consulte [ver registos de atividade para gerir recursos do Azure](resource-group-audit.md).
 * Para validar a sua implementação antes de executá-lo, consulte [implementar um grupo de recursos com o modelo Azure Resource Manager](resource-group-template-deploy.md).

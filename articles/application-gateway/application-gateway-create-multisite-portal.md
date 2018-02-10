@@ -1,142 +1,189 @@
 ---
-title: "Alojar vários sites com o Gateway de aplicação do Azure | Microsoft Docs"
-description: "Esta página fornece instruções para configurar um gateway de aplicação do Azure existente para alojar várias aplicações web no mesmo gateway com o portal do Azure."
-documentationcenter: na
+title: "Criar um gateway de aplicação com vários sites que aloja - portal do Azure | Microsoft Docs"
+description: "Saiba como criar um gateway de aplicação que aloja vários sites no portal do Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Configurar um gateway de aplicação existente para alojar várias aplicações web
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Criar um gateway de aplicação com vários sites que aloja a utilizar o portal do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-multisite-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
+Pode utilizar o portal do Azure para configurar [alojar vários web sites](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end utilizando conjuntos de dimensionamento de máquinas virtuais. Em seguida, configure os serviços de escuta e as regras com base em domínios que possui para se certificar de que o tráfego web chega os servidores adequados nos agrupamentos de. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos *www.contoso.com* e *www.fabrikam.com*.
 
-Alojar vários do site permite-lhe implementar mais do que uma aplicação web no mesmo gateway de aplicação. Baseia-se na presença de cabeçalho de anfitrião no pedido HTTP recebido, para determinar qual escuta seria receber tráfego. O serviço de escuta, em seguida, direciona o tráfego para o conjunto back-end apropriado, conforme configurado na definição de regras do gateway. Nas aplicações da web SSL ativado, o gateway de aplicação baseia-se a extensão de indicação de nome de servidor (SNI) para escolher o serviço de escuta correto para o tráfego web. É uma utilização comum para vários sites de alojamento para a carga de pedidos de saldo para domínios web diferente para conjuntos de diferentes servidores de back-end. Da mesma forma vários subdomínios do mesmo domínio de raiz também podem ser alojados num mesmo gateway de aplicação.
+Neste artigo, saiba como:
 
-## <a name="scenario"></a>Cenário
+> [!div class="checklist"]
+> * Criar um gateway de aplicação
+> * Criar máquinas virtuais para servidores back-end
+> * Criar conjuntos de back-end com os servidores de back-end
+> * Criar serviços de escuta e regras de encaminhamento
+> * Crie um registo CNAME no seu domínio
 
-No exemplo seguinte, gateway de aplicação está a servir o tráfego para contoso.com e fabrikam.com com dois conjuntos de servidores de back-end: contoso agrupamento de servidores e agrupamento de servidores da fabrikam. Configuração semelhante poderia ser utilizado para subdomínios de anfitrião, como app.contoso.com e blog.contoso.com.
+![Exemplo de encaminhamento de vários site](./media/application-gateway-create-multisite-portal/scenario.png)
 
-![cenário de múltiplos sites][multisite]
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Este cenário adiciona suporte de vários site para um gateway de aplicação existente. Para concluir este cenário, um gateway de aplicação existente tem de estar disponível para configurar. Visite [criar um gateway de aplicação utilizando o portal](application-gateway-create-gateway-portal.md) para saber como criar um gateway de aplicação básico no portal.
+Inicie sessão no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
-Seguem-se os passos necessários para atualizar o gateway de aplicação:
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-1. Crie conjuntos de back-end a utilizar para cada site.
-2. Criar um serviço de escuta para cada site suporta o gateway de aplicação.
-3. Crie regras para mapear cada serviço de escuta com o back-end adequado.
+É necessária uma rede virtual para a comunicação entre os recursos que criar. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicação e outra para servidores de back-end. Pode criar uma rede virtual ao mesmo tempo que criar o gateway de aplicação.
 
-## <a name="requirements"></a>Requisitos
+1. Clique em **novo** encontrado no canto superior esquerdo do portal do Azure.
+2. Selecione **redes** e, em seguida, selecione **Gateway de aplicação** na lista em destaque.
+3. Introduza estes valores para o gateway de aplicação:
 
-* **Conjunto de servidores de back-end:** a lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou ter um IP/VIP público. Também pode ser utilizado o FQDN.
-* **Definições do conjunto de servidores de back-end:** cada conjunto tem definições como a porta, o protocolo e a afinidade com base em cookies. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
-* **Porta de front-end:** esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
-* **Serviço de escuta:** o serviço de escuta tem uma porta de front-end, um protocolo (Http ou Https; estes valores são sensíveis às maiúsculas e minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL). Para gateways de aplicação ativada multilocal, nome de anfitrião e os indicadores SNI também são adicionados.
-* **Regra:** a regra vincula o serviço de escuta, o agrupamento de servidores de back-end e define para que conjunto de servidores de back-end o tráfego deve ser direcionado ao chegar a um determinado serviço de escuta. As regras são processadas pela ordem que estão listados e será direcionado tráfego através da primeira regra que corresponde ao independentemente especificidade. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários site ambas na mesma porta, a regra com o serviço de escuta de vários site têm de estar listada antes da regra com o serviço de escuta básico por ordem para a regra de vários site a funcionar conforme esperado. 
-* **Certificados:** cada serviço de escuta requer um certificado exclusivo, neste exemplo 2 escuta é criada para vários sites. Dois certificados. pfx e as palavras-passe para os mesmos têm de ser criado.
+    - *myAppGateway* - para que o nome do gateway de aplicação.
+    - *myResourceGroupAG* – para o novo grupo de recursos.
 
-## <a name="create-back-end-pools-for-each-site"></a>Criar conjuntos de back-end para cada site
+    ![Criar o novo gateway de aplicação](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
-Um back-end do agrupamento de cada site que é necessário o suporte de gateway de aplicação, neste caso 2 são ser criado, um para contoso11.com e outro para fabrikam11.com.
+4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
+5. Clique em **escolha uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
 
-### <a name="step-1"></a>Passo 1
+    - *myVNet* - para que o nome da rede virtual.
+    - *10.0.0.0/16* - para que o espaço de endereços de rede virtual.
+    - *myAGSubnet* - para que o nome de sub-rede.
+    - *10.0.0.0/24* - para que o espaço de endereços de sub-rede.
 
-Navegue para um gateway de aplicação existente no portal do Azure (https://portal.azure.com). Selecione **conjuntos back-end** e clique em **adicionar**
+    ![Criar a rede virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
-![Adicionar conjuntos de back-end][7]
+6. Clique em **OK** para criar a rede virtual e a sub-rede.
+7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
+8. Aceite os valores predefinidos para a configuração do serviço de escuta, deixe a firewall de aplicações Web desativada e, em seguida, clique em **OK**.
+9. Reveja as definições na página de resumo e, em seguida, clique em **OK** para criar os recursos de rede e o gateway de aplicação. Pode demorar alguns minutos até o gateway de aplicação ser criado, aguarde a conclusão da implementação com êxito antes de continuar para a secção seguinte.
 
-### <a name="step-2"></a>Passo 2
+### <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-Preencha as informações para o conjunto de back-end **pool1**, adicionar os endereços ip ou FQDN para servidores de back-end e clique em **OK**
+1. Clique em **todos os recursos** no menu da esquerda e, em seguida, clique em **myVNet** na lista de recursos.
+2. Clique em **sub-redes**e, em seguida, clique em **sub-rede**.
 
-![definições de pool1 do conjunto de back-end][8]
+    ![Criar sub-rede](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
 
-### <a name="step-3"></a>Passo 3
+3. Introduza *myBackendSubnet* para o nome da sub-rede e, em seguida, clique em **OK**.
 
-No painel de conjuntos de back-end clique **adicionar** para adicionar um conjunto de back-end adicional **pool2**, adicionar os endereços ip ou FQDN para servidores de back-end e clique em **OK**
+## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-![definições de pool2 do conjunto de back-end][9]
+Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de back-end para o gateway de aplicação. Também pode instala o IIS nas máquinas virtuais para verificar que é o encaminhamento de tráfego corretamente.
 
-## <a name="create-listeners-for-each-back-end"></a>Criar serviços de escuta para cada back-end
+1. Clique em **Novo**.
+2. Clique em **computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em destaque.
+3. Introduza estes valores para a máquina virtual:
 
-O Gateway de Aplicação conta com os cabeçalhos de anfitrião HTTP 1.1 para alojar mais do que um site no mesmo endereço IP público e porta. O serviço de escuta básico criado no portal de não contém esta propriedade.
+    - *contosoVM* - para que o nome da máquina virtual.
+    - *azureuser* - para que o nome de utilizador administrador.
+    - *Azure123456!* a palavra-passe.
+    - Selecione **utilizar existente**e, em seguida, selecione *myResourceGroupAG*.
 
-### <a name="step-1"></a>Passo 1
+4. Clique em **OK**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **selecione**.
+6. Certifique-se de que **myVNet** está selecionado para a rede virtual e a sub-rede é **myBackendSubnet**. 
+7. Clique em **desativado** para desativar o diagnóstico de arranque.
+8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **criar**.
 
-Clique em **os serviços de escuta** no gateway de aplicação existente e clique em **multilocal** para adicionar o serviço de escuta primeiro.
+### <a name="install-iis"></a>Instalar o IIS
 
-![Painel de descrição geral de serviços de escuta][1]
+1. Abra a shell interativa e certifique-se de que está definido como **PowerShell**.
 
-### <a name="step-2"></a>Passo 2
+    ![Instalar a extensão personalizado](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
 
-Preencha as informações para o serviço de escuta. Neste exemplo SSL terminação está configurada, crie uma nova porta de front-end. Carregue o certificado. pfx a ser utilizada para a terminação de SSL. A única diferença neste painel em comparação comparada o painel do serviço de escuta básica padrão é o nome do anfitrião.
+2. Execute o seguinte comando para instalar o IIS na máquina virtual: 
 
-![Painel de propriedades do serviço de escuta][2]
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName contosoVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
 
-### <a name="step-3"></a>Passo 3
+3. Criar segunda máquina virtual e instale o IIS utilizando os passos que acabou de concluir. Introduza os nomes dos *fabrikamVM* para o nome e o valor de VMName no conjunto AzureRmVMExtension.
 
-Clique em **multilocal** e crie outro serviço de escuta conforme descrito no passo anterior para o site segundo. Certifique-se utilizar um certificado diferente para o serviço de escuta segundo. A única diferença neste painel em comparação comparada o painel do serviço de escuta básica padrão é o nome do anfitrião. Preencha as informações para o serviço de escuta e clique em **OK**.
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar conjuntos de back-end com as máquinas virtuais
 
-![Painel de propriedades do serviço de escuta][3]
+1. Clique em **todos os recursos** e, em seguida, clique em **myAppGateway**.
+2. Clique em **conjuntos back-end**e, em seguida, clique em **adicionar**.
+3. Introduza um nome de *contosoPool* e adicione *contosoVM* utilizando **adicionar destino**.
 
-> [!NOTE]
-> A criação de serviços de escuta no portal do Azure para o gateway de aplicação é uma tarefa de execução longa, poderá demorar algum tempo a criar os dois serviços de escuta neste cenário. Quando concluir a mostrar os serviços de escuta no portal, como mostrado na imagem seguinte:
+    ![Adicionar servidores de back-end](./media/application-gateway-create-multisite-portal/application-gateway-multisite-backendpool.png)
 
-![Descrição geral do serviço de escuta][4]
+4. Clique em **OK**.
+5. Clique em **conjuntos back-end** e, em seguida, clique em **adicionar**.
+6. Criar o *fabrikamPool* com o *fabrikamVM* utilizando os passos que acabou de concluir.
 
-## <a name="create-rules-to-map-listeners-to-backend-pools"></a>Criar regras para mapear os serviços de escuta para conjuntos back-end
+## <a name="create-listeners-and-routing-rules"></a>Criar serviços de escuta e regras de encaminhamento
 
-### <a name="step-1"></a>Passo 1
+1. Clique em **os serviços de escuta** e, em seguida, clique em **multilocal**.
+2. Introduza estes valores para o serviço de escuta:
+    
+    - *contosoListener* - para que o nome do serviço de escuta.
+    - *www.contoso.com* -substitua este exemplo de nome de anfitrião com o nome de domínio.
 
-Navegue para um gateway de aplicação existente no portal do Azure (https://portal.azure.com). Selecione **regras** e escolha a regra predefinida existente **rule1** e clique em **editar**.
+3. Clique em **OK**.
+4. Criar um serviço de escuta segundo utilizando o nome do *fabrikamListener* e utilizar o seu nome de domínio de segundo. Neste exemplo, *www.fabrikam.com* é utilizado.
 
-### <a name="step-2"></a>Passo 2
+As regras são processadas pela ordem listadas e o tráfego é direcionado através da primeira regra que corresponde ao independentemente especificidade. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários site ambas na mesma porta, a regra com o serviço de escuta de vários site têm de estar listada antes da regra com o serviço de escuta básico por ordem para a regra de vários site a funcionar conforme esperado. 
 
-Preencha o painel de regras, como mostrado na imagem seguinte. Escolher o primeiro serviço de escuta e o primeiro conjunto e clicando em **guardar** quando concluir.
+Neste exemplo, pode criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. 
 
-![Editar a regra existente][6]
+1. Clique em **regras** e, em seguida, clique em **básico**.
+2. Introduza *contosoRule* para o nome.
+3. Selecione *contosoListener* para o serviço de escuta.
+4. Selecione *contosoPool* para o conjunto de back-end.
 
-### <a name="step-3"></a>Passo 3
+    ![Criar uma regra de caminho](./media/application-gateway-create-multisite-portal/application-gateway-multisite-rule.png)
 
-Clique em **regra básica** para criar a segunda regra. Preencha o formulário com o segundo conjunto de back-end do serviço de escuta e o segundo e clique em **OK** para guardar.
+5. Clique em **OK**.
+6. Crie uma segunda regra com os nomes dos *fabrikamRule*, *fabrikamListener*, e *fabrikamPool*.
+7. Eliminar a regra predefinida, denominada *rule1* , clicar no mesmo e, em seguida, clicando **eliminar**.
 
-![regra básica painel Adicionar][10]
+## <a name="create-a-cname-record-in-your-domain"></a>Crie um registo CNAME no seu domínio
 
-Este cenário conclui a configurar um gateway de aplicação existente com o suporte de vários site através do portal do Azure.
+Depois de criado o gateway de aplicação com o respetivo endereço IP público, pode obter o endereço DNS e utilizá-la para criar um registo CNAME no seu domínio. A utilização de registos não é recomendada porque o VIP podem ser alterados quando o gateway de aplicação é reiniciado.
+
+1. Clique em **todos os recursos**e, em seguida, clique em **myAGPublicIPAddress**.
+
+    ![Gateway de aplicação de registo endereço DNS](./media/application-gateway-create-multisite-portal/application-gateway-multisite-dns.png)
+
+2. Copie o endereço DNS e utilizá-lo como o valor para um novo registo CNAME no seu domínio.
+
+## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
+
+1. Introduza o nome de domínio na barra de endereço do seu browser. Por exemplo, http://www.contoso.com.
+
+    ![Testar o site da contoso no gateway de aplicação](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
+
+2. Altere o endereço para o outro domínio e deverá ver algo semelhante ao seguinte exemplo:
+
+    ![Testar o site da fabrikam no gateway de aplicação](./media/application-gateway-create-multisite-portal/application-gateway-iistest2.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como proteger os seus Web sites com [Gateway de aplicação - Firewall de aplicações Web](application-gateway-webapplicationfirewall-overview.md)
+Neste artigo, aprendeu como:
 
-<!--Image references-->
-[1]: ./media/application-gateway-create-multisite-portal/figure1.png
-[2]: ./media/application-gateway-create-multisite-portal/figure2.png
-[3]: ./media/application-gateway-create-multisite-portal/figure3.png
-[4]: ./media/application-gateway-create-multisite-portal/figure4.png
-[5]: ./media/application-gateway-create-multisite-portal/figure5.png
-[6]: ./media/application-gateway-create-multisite-portal/figure6.png
-[7]: ./media/application-gateway-create-multisite-portal/figure7.png
-[8]: ./media/application-gateway-create-multisite-portal/figure8.png
-[9]: ./media/application-gateway-create-multisite-portal/figure9.png
-[10]: ./media/application-gateway-create-multisite-portal/figure10.png
-[multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
+> [!div class="checklist"]
+> * Criar um gateway de aplicação
+> * Criar máquinas virtuais para servidores back-end
+> * Criar conjuntos de back-end com os servidores de back-end
+> * Criar serviços de escuta e regras de encaminhamento
+> * Crie um registo CNAME no seu domínio
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o que pode fazer com o gateway de aplicação](application-gateway-introduction.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados de DB2 através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ As seguintes propriedades são suportadas para o serviço de DB2 ligada:
 | schema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2.<br/>Permitido é de valor: **básico**. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados DB2. |Sim |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como SecureString. |Sim |
+| palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -188,7 +188,7 @@ Quando copiar dados de DB2, os seguintes mapeamentos são utilizados DB2 tipos d
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Duplo |Duplo |
-| Flutuante |Duplo |
+| Número de vírgula flutuante |Duplo |
 | Gráfico |Cadeia |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |

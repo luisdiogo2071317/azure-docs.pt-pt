@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual Linux uma zona de disponibilidade com a CLI do Azure
 
@@ -28,19 +28,19 @@ Passos neste artigo, através de utilizar a CLI do Azure para criar uma VM com L
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/#login).
+Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>Verifique a disponibilidade de SKU de VM
-A disponibilidade de tamanhos de VM ou SKUs, poderá variam consoante a região e zona. Para ajudar a planear a utilização das zonas de disponibilidade, pode listar os SKUs disponíveis de VM por região do Azure e zona. Esta capacidade certifica-se de que escolha um tamanho VM adequado e obter a resiliência desejado através de zonas. Para obter mais informações sobre os diferentes tipos de VM e tamanhos, consulte [descrição geral de tamanhos de VM](sizes.md).
+## <a name="check-vm-sku-availability"></a>Verificar a disponibilidade de SKU de VM
+A disponibilidade de tamanhos de VM ou SKUs poderá variar consoante a região e zona. Para ajudar a planear a utilização das Zonas de Disponibilidade, pode listar os SKUs de VM disponíveis por região e zona do Azure. Esta capacidade garante que escolhe um tamanho de VM adequado e obtém a resiliência pretendida nas zonas. Para obter mais informações sobre os diferentes tipos e tamanhos de VM, veja [Descrição geral de Tamanhos de VM](sizes.md).
 
-Pode ver os SKUs disponíveis da VM com o [az vm lista-skus](/cli/azure/vm#az_vm_list_skus) comando. O exemplo seguinte lista os SKUs de VM disponíveis no *eastus2* região:
+Pode ver os SKUs disponíveis da VM com o [az vm lista-skus](/cli/azure/vm#az_vm_list_skus) comando. O exemplo seguinte lista os SKUs de VM disponíveis na região *eualeste2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-O resultado será semelhante ao seguinte exemplo condensed, que mostra as zonas de disponibilidade em que cada tamanho da VM está disponível:
+O resultado será semelhante ao seguinte exemplo condensado, que mostra as Zonas de Disponibilidade em que cada tamanho de VM está disponível:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

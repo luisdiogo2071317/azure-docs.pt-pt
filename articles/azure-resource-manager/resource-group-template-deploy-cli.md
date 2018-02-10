@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
-Este tópico explica como utilizar o Azure CLI 2.0 com modelos do Resource Manager para implementar os recursos no Azure. Se não estiver familiarizado com conceitos de implementar e gerir as suas soluções do Azure, consulte [descrição geral do Azure Resource Manager](resource-group-overview.md).  
+Este artigo explica como utilizar o Azure CLI 2.0 com modelos do Resource Manager para implementar os recursos no Azure. Se não estiver familiarizado com conceitos de implementar e gerir as suas soluções do Azure, consulte [descrição geral do Azure Resource Manager](resource-group-overview.md).  
 
 O modelo do Resource Manager que implementar possível ser um ficheiro local no seu computador, ou um ficheiro externo que está localizado num repositório como GitHub. O modelo que implementa neste artigo está disponível no [modelo de exemplo](#sample-template) secção, ou como um [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -86,6 +86,10 @@ Na Shell de nuvem, utilize os seguintes comandos:
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
+
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementar a mais do que um grupo de recursos ou subscrição
+
+Normalmente, implementa todos os recursos no seu modelo para um grupo de recursos única. No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em grupos de recursos diferente ou subscrições. Pode implementar em grupos de recursos apenas cinco numa única implementação. Para obter mais informações, consulte [recursos do Azure de implementar a mais do que uma subscrição ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="parameter-files"></a>Ficheiros de parâmetro
 
@@ -183,7 +187,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>Modelo de exemplo
 
-O modelo seguinte é utilizado para os exemplos neste tópico. Copie e guarde-o como um ficheiro denominado storage.json. Para compreender como criar este modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).  
+O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o como um ficheiro denominado storage.json. Para compreender como criar este modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).  
 
 ```json
 {

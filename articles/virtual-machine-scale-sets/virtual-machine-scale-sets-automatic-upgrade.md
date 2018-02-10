@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>As atualizações automáticas de SO de conjunto de dimensionamento de máquina virtual do Azure
 
@@ -40,9 +40,7 @@ A atualização automática do SO tem as seguintes características:
 Enquanto na pré-visualização, as seguintes limitações e restrições aplicam-se:
 
 - SO automático atualiza suporte apenas [quatro SKUs de SO](#supported-os-images). Não há nenhum SLA ou garantias. Recomendamos que utilize as atualizações automáticas em cargas de trabalho críticas produção durante a pré-visualização.
-- Suporte para conjuntos de dimensionamento de clusters de Service Fabric está disponível em breve.
 - A encriptação de disco do Azure (atualmente em pré-visualização) é **não** atualmente suportado com a máquina virtual escala conjunto SO a atualização automática.
-- Uma experiência de portal estará disponível brevemente.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registar para utilizar a atualização automática de SO
@@ -58,17 +56,23 @@ Demora cerca de 10 minutos para que o estado de registo para o relatório como *
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Recomendamos que as aplicações utilizem sondas de estado de funcionamento. Para registar a funcionalidade de fornecedor de sondas de estado de funcionamento, utilize [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) da seguinte forma:
+> [!NOTE]
+> Os clusters de Service Fabric têm as seus próprios noção do Estado de funcionamento da aplicação, mas conjuntos de dimensionamento sem o Service Fabric utilizam a sonda de estado de funcionamento do Balanceador de carga para monitorizar o estado de funcionamento da aplicação. Para registar a funcionalidade de fornecedor de sondas de estado de funcionamento, utilize [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) da seguinte forma:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Novamente, demora cerca de 10 minutos para que o estado de registo para o relatório como *registada*. Pode verificar o estado do registo atual com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Uma vez registado Certifique-se de que o *Network* fornecedor está registado com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) da seguinte forma:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Experiência do portal
+Depois de seguir os passos de registo acima, pode aceder à [portal do Azure](https://aka.ms/managed-compute) para ativar as atualizações automáticas do SO nos seus conjuntos de dimensionamento e para ver o progresso das atualizações:
 
-Novamente, demora cerca de 10 minutos para que o estado de registo para o relatório como *registada*. Pode verificar o estado do registo atual com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Uma vez registado Certifique-se de que o *Network* fornecedor está registado com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) da seguinte forma:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Imagens de SO suportadas
@@ -78,14 +82,17 @@ Os SKUs seguintes são atualmente suportados (mais serão adicionado):
     
 | Publicador               | Oferta         |  Sku               | Versão  |
 |-------------------------|---------------|--------------------|----------|
-| Canónico               | UbuntuServer  | 16.04 LTS          | mais recente   |
+| Canónico               | UbuntuServer  | 16.04-LTS          | mais recente   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | mais recente   |
-| MicrosoftWindowsServer  | WindowsServer | Centro de dados de 2016    | mais recente   |
-| MicrosoftWindowsServer  | WindowsServer | Smalldisk de centro de dados de 2016 | mais recente   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | mais recente   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | mais recente   |
 
 
 
-## <a name="application-health"></a>Estado de funcionamento da aplicação
+## <a name="application-health-without-service-fabric"></a>Estado de funcionamento da aplicação sem o Service Fabric
+> [!NOTE]
+> Esta secção aplica-se apenas para conjuntos de dimensionamento sem o Service Fabric. Recursos de infraestrutura de serviço tem a suas próprias noção do Estado de funcionamento da aplicação. Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem do SO é implementada o domínio de atualização por domínio de atualização para manter a elevada disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade dos clusters de Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Durante uma atualização do SO, instâncias de VM num conjunto de dimensionamento sejam atualizadas um batch de cada vez. A atualização deve continuar apenas se a aplicação de cliente está em bom estada de instâncias de VM atualizado. Recomendamos que a aplicação fornece sinais de estado de funcionamento para o motor de atualização de SO de conjunto de dimensionamento. Por predefinição, durante as atualizações do SO a plataforma considera o estado de energia VM e a extensão de estado para determinar se uma instância VM está em bom estada após uma atualização de aprovisionamento. Durante a atualização de SO de uma instância VM, o disco de SO numa instância de VM é substituído por um novo disco com base na versão mais recente de imagem. Uma vez concluída a atualização do SO, as extensões configuradas são executadas nestas VMS. Apenas quando todas as extensões numa VM são aprovisionadas com êxito, é a aplicação considerada em bom estado. 
 
 Opcionalmente, pode ser configurado um conjunto de dimensionamento com sondas de estado de funcionamento da aplicação para fornecer a plataforma de informações exatas relacionadas no estado da aplicação. Sondas de estado de funcionamento de aplicação são personalizada carga Balanceador de sondas que são utilizadas como um sinal de estado de funcionamento. A aplicação em execução numa instância VM de conjunto de dimensionamento pode responder a pedidos HTTP ou TCP externos que indica se é bom estado de funcionamento. Para obter mais informações sobre como funcionam os pesquisas do Balanceador de carga personalizada, consulte o artigo [sondas de Balanceador de carga de compreender](../load-balancer/load-balancer-custom-probe-overview.md). Uma pesquisa de estado de funcionamento de aplicação não é necessária para as atualizações automáticas do SO, mas é vivamente recomendável.

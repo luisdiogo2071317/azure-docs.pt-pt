@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análise de multimédia na plataforma de Media Services
 ## <a name="overview"></a>Descrição geral
@@ -50,6 +50,8 @@ Resumo do vídeo pode ajudar a criar resumos dos vídeos longos selecionando aut
 Com OCR de suporte de dados do Azure (reconhecimento de caráter optical), pode converter os conteúdos de texto nos ficheiros de vídeos num editável, pesquisável texto digital. Em seguida, pode automatizar a extração dos metadados significativo do sinal de vídeo do suporte de dados.
 ### <a name="scalable-face-redaction"></a>Redaction enfrentam dimensionável
 Redactor de suporte de dados do Azure é um processador de multimédia de análise de multimédia que oferece redaction enfrentam dimensionável na nuvem. Ao utilizar enfrentam redaction, pode modificar o vídeo para blur faces de indivíduos selecionados. Poderá utilizar o serviço de redaction enfrentam no suporte de notícias, ou quando está envolvida segurança pública. Alguns minutos de imagens que contém vários faces podem demorar horas a redact manualmente, mas com este serviço, enfrentam redaction demora apenas alguns passos simples. Para obter mais informações, consulte o [Redact faces análise de multimédia do Azure](media-services-face-redaction.md) artigo.
+### <a name="content-moderation"></a>Moderação de Conteúdos
+Moderator conteúdo do Azure permite-lhe utilizar a moderação de interrupção assistida por máquina para os seus vídeos. Por exemplo, pode querer detetar possíveis conteúdo para adultos e racy no vídeos e consultar o conteúdo sinalizado, suas equipas de moderação de interrupção humanos. Manualmente moderating vídeos para o conteúdo indesejável é uma tarefa demorada e dispendiosa. Com este serviço e ferramentas de revisão associados, combinar moderação de interrupção auxiliada a uma máquina com capacidades de humanos no ciclo para obter os melhores resultados de forma eficiente e de forma rentável. Para obter mais informações, consulte o [processar os seus vídeos com Moderator conteúdo Azure](media-services-content-moderation.md) artigo.
 
 ## <a name="common-scenarios"></a>Cenários comuns
 Análise de multimédia pode ajudar as organizações e empresas glean conhecimentos aprofundados sobre novo vídeo e mais grandes volumes de conteúdo de vídeo gerir de forma eficaz. Seguem-se vários cenários:
@@ -69,6 +71,7 @@ Esta secção lista os processadores de suporte de dados de análise de multimé
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 A seguinte função aceita um dos nomes de pacote de gestão especificados e devolve um objeto de pacote de gestão.
@@ -123,11 +126,6 @@ Resposta:
 ## <a name="demos"></a>Demonstrações
 Consulte [demonstrações de análise de multimédia do Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
-Rever os percursos de aprendizagem dos Serviços de Multimédia
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Consulte [anúncio de análise de serviços de multimédia](https://azure.micros
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>Passos Seguintes
+Rever os percursos de aprendizagem dos Serviços de Multimédia
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

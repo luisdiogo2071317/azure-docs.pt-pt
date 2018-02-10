@@ -1,9 +1,9 @@
 ---
-title: Saiba como utilizar o conector do Service Bus do Azure nas suas logic apps | Microsoft Docs
-description: "Crie aplicações lógicas com o App service do Azure. Ligar ao Service Bus do Azure para enviar e receber mensagens. Pode efetuar ações como envie a fila, enviar para o tópico, receber da fila e receber de subscrição."
+title: Configurar mensagens com o Service Bus do Azure para o Azure Logic Apps | Microsoft Docs
+description: Enviar e receber mensagens com as logic apps utilizando o Service Bus do Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+documentationcenter: 
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -12,43 +12,109 @@ ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/02/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 89bf0ffec759fca4af5f99af1b6a2dd8d641ff6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.workload: logic-apps
+ms.date: 02/06/2018
+ms.author: ladocs
+ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="get-started-with-the-azure-service-bus-connector"></a>Começar a utilizar o conector do Service Bus do Azure
-Ligar ao Service Bus do Azure para enviar e receber mensagens. Pode efetuar ações como envie a fila, enviar para o tópico, receber da fila e receber de subscrição.
+# <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Enviar e receber mensagens com o conector do Service Bus do Azure
 
-Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para enviar e receber mensagens com a sua aplicação lógica, ligue ao [Service Bus do Azure](https://azure.microsoft.com/services/service-bus/). Pode realizar ações tais como a enviar para uma fila, enviar para um tópico, a receber de uma fila e a receber de uma subscrição. Saiba mais sobre [Service Bus do Azure](../service-bus-messaging/service-bus-messaging-overview.md) e [como preços funciona para as Logic Apps aciona](../logic-apps/logic-apps-pricing.md).
 
-## <a name="connect-to-service-bus"></a>Ligar ao Service Bus
-Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de criar uma ligação ao serviço. A [ligação](connectors-overview.md) fornece conectividade entre uma aplicação lógica e outro serviço.  
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
-> 
-> 
+Antes de poder utilizar o conector do Service Bus, tem de ter estes itens, que tem de existir na mesma subscrição do Azure para que forem visíveis entre si:
 
-## <a name="use-a-service-bus-trigger"></a>Utilizar um acionador de Service Bus
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+* A [espaço de nomes do Service Bus e a entidade de mensagens, tais como uma fila](../service-bus-messaging/service-bus-create-namespace-portal.md)
+* A [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-> [!INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]
-> 
-> 
+<a name="permissions-connection-string"></a>
 
-## <a name="use-a-service-bus-action"></a>Utilizar uma ação de barramento de serviço
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="connect-to-azure-service-bus"></a>Ligar ao Service Bus do Azure
 
-[!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
+Antes da aplicação lógica pode aceder a qualquer serviço, tem de criar um [ *ligação* ](./connectors-overview.md) entre a sua aplicação lógica e o serviço, se ainda não o fez. Esta ligação autoriza a sua aplicação lógica para aceder a dados. Para a sua aplicação lógica aceder à sua conta do Service Bus, verifique as suas permissões.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure"). 
+
+2. Vá para o Service Bus *espaço de nomes*, não uma específica "entidade de mensagens". Na página de espaço de nomes, em **definições**, escolha **políticas de acesso partilhado**. Em **afirmações**, verifique se tem **gerir** permissões para esse espaço de nomes.
+
+   ![Gerir permissões do seu espaço de nomes do Service Bus](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
+
+3. Se pretender mais tarde manualmente introduza as suas informações de ligação, obter a cadeia de ligação para o seu espaço de nomes do Service Bus. Escolha **RootManageSharedAccessKey**. Junto a cadeia de ligação de chave primária, escolha o botão Copiar. Guarde a cadeia de ligação para utilização posterior.
+
+   ![Copie a cadeia de ligação de espaço de nomes de barramento de serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+
+   > [!TIP]
+   > Para confirmar se a cadeia de ligação é associada o espaço de nomes de barramento de serviço ou com uma entidade específica, verifique a cadeia de ligação para o `EntityPath` parâmetro. Se encontrar este parâmetro, a cadeia de ligação para uma entidade específica, não sendo a cadeia correta a utilizar com a sua aplicação lógica.
+
+## <a name="trigger-workflow-when-your-service-bus-gets-new-messages"></a>Acionar o fluxo de trabalho quando o Service Bus obtém novas mensagens
+
+A [ *acionador* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um evento que inicia a um fluxo de trabalho na sua aplicação lógica. Para iniciar um fluxo de trabalho quando novas mensagens são enviadas para o Service Bus, siga estes passos para adicionar o acionador que Deteta estas mensagens.
+
+1. No [portal do Azure](https://portal.azure.com "portal do Azure"), aceda à sua aplicação lógica existente ou criar uma aplicação lógica em branco.
+
+2. No Designer de aplicações de lógica, introduza "service bus" na caixa de pesquisa, como o filtro. Selecione o **Service Bus** conector. 
+
+   ![Seleccione o conector do Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-connector.png) 
+
+3. Selecione o acionador que pretende utilizar. Por exemplo, para executar uma aplicação lógica, quando um novo item é enviado para uma fila do Service Bus, selecione este acionador: **Service Bus - quando é recebida uma mensagem numa fila (a conclusão automática)**
+
+   ![Selecione o acionador do Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
+
+   1. Se ainda não tiver uma ligação para o espaço de nomes do Service Bus, é-lhe pedido que criar agora esta ligação. Dê um nome da ligação e selecione o espaço de nomes de barramento de serviço que pretende utilizar.
+
+      ![Criar a ligação do Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+
+      Ou, para inserirem manualmente a cadeia de ligação, escolha **introduzir manualmente as informações de ligação**. 
+      Saiba [como encontrar a cadeia de ligação](#permissions-connection-string).
+
+   2. Agora, selecione a política de barramento de serviço para utilizar e escolha **criar**.
+
+      ![Criar a ligação do Service Bus, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-2.png)
+
+4. Seleccione a fila de barramento de serviço a utilizar e configurar o intervalo de frequência e para quando a fila de verificação.
+
+   ![Selecione a fila do Service Bus, configurar o intervalo de consulta](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+5. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+
+Agora, quando a sua aplicação lógica verifica a fila seleccionada e localiza uma nova mensagem, o acionador executa as ações na sua aplicação lógica para a mensagem foi encontrada.
+
+## <a name="send-messages-from-your-logic-app-to-your-service-bus"></a>Enviar mensagens da sua aplicação lógica para o Service Bus
+
+Uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma tarefa realizada pelo fluxo de trabalho da sua aplicação lógica. Depois de adicionar um acionador à aplicação lógica, pode adicionar uma ação para realizar operações com dados gerados por esse acionador. Para enviar uma mensagem para a entidade a partir da sua aplicação lógica de mensagens do Service Bus, siga estes passos.
+
+1. No Designer de aplicações lógicas, sob o acionador, escolha **+ novo passo** > **adicionar uma ação**.
+
+2. Na caixa de pesquisa, introduza "service bus" como o filtro. Selecione este conector: **Service Bus**
+
+   ![Seleccione o conector do Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-connector-for-action.png) 
+
+3. Selecione esta ação: **Service Bus - enviar mensagem**
+
+   ![Selecione "Service Bus - enviar mensagem"](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
+
+4. Selecione a entidade de mensagens, que é o nome de fila ou um tópico, para onde enviar a mensagem. Em seguida, introduza o conteúdo da mensagem e quaisquer outros detalhes.
+
+   ![Selecione a entidade de mensagens e forneça detalhes da mensagem](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)    
+
+5. Guarde a aplicação lógica. 
+
+Configurou uma ação que envia mensagens a partir da sua aplicação lógica. 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/servicebus/). 
+Para saber mais sobre acionadores e ações definidas por quaisquer limites e o ficheiro Swagger, reveja o [detalhes do conector](/connectors/servicebus/).
+
+## <a name="get-support"></a>Obter suporte
+
+* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+* Saiba mais sobre [outros conectores para aplicações lógicas do Azure](../connectors/apis-list.md)

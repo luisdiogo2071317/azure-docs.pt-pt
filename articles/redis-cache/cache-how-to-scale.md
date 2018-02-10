@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Como dimensionar a Cache de Redis do Azure
-Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades e o tamanho da cache. Depois de criar uma cache, pode dimensionar o tamanho e o escalão de preço da cache se alteram os requisitos da sua aplicação. Este artigo mostra como dimensionar a sua cache no portal do Azure e utilizando ferramentas como o Azure PowerShell e da CLI do Azure.
+Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades e o tamanho da cache. Depois de criar uma cache, pode dimensionar o tamanho e o escalão de preço da cache se alteram os requisitos da sua aplicação. Este artigo mostra como dimensionar a sua cache com o portal do Azure e ferramentas como o Azure PowerShell e a CLI do Azure.
 
 ## <a name="when-to-scale"></a>Quando dimensionar
 Pode utilizar o [monitorização](cache-how-to-monitor.md) funcionalidades de Cache de Redis do Azure para monitorizar o estado de funcionamento e desempenho da cache e ajudar a determinar quando a cache de dimensionar. 
@@ -51,7 +51,7 @@ Pode dimensionar para um escalão de preço diferente com as seguintes restriç�
   * Não é possível dimensionar desde um **Premium** colocar em cache até um **padrão** ou um **básico** cache.
   * Não é possível dimensionar desde um **padrão** colocar em cache até um **básico** cache.
 * Pode dimensionar desde um **básico** colocar em cache para um **padrão** cache, mas não é possível alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, pode efetuar uma operação de dimensionamento subsequente para o tamanho pretendido.
-* Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Tem de dimensionar de **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** numa operação de dimensionamento subsequente.
+* Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Em primeiro lugar, dimensionar desde **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** um subsequentes Dimensionar operação.
 * Não é possível aumentar a partir de um tamanho maior baixo até o **C0 (250 MB)** tamanho.
  
 Enquanto a cache está a dimensionar o escalão de preço nova, uma **dimensionamento** estado é apresentado no **a Cache de Redis** painel.
@@ -118,7 +118,7 @@ A lista seguinte contém as respostas a perguntas mais comuns sobre o dimensiona
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Posso Dimensionar para ou dentro de uma cache Premium?
 * Não é possível dimensionar desde um **Premium** colocar em cache até um **básico** ou **padrão** escalão de preço.
 * Pode dimensionar a partir de um **Premium** cache escalão para outro de preço.
-* Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Primeiro tem de dimensionar de **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** um subsequentes no operação de dimensionamento.
+* Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Em primeiro lugar, dimensionar desde **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** um subsequentes Dimensionar operação.
 * Se tiver ativado o clustering quando criou o **Premium** cache, pode [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Se a sua cache foi criada sem clustering ativado, não é possível configurar o clustering numa altura posterior.
   
   Para obter mais informações, veja [Como configurar o clustering de uma Cache de Redis do Azure Premium](cache-how-to-premium-clustering.md).
@@ -129,7 +129,7 @@ Não, o nome da cache e as chaves são iguais durante uma operação de dimensio
 ### <a name="how-does-scaling-work"></a>Como funciona o dimensionamento?
 * Quando um **básico** cache é dimensionada para um tamanho diferente, é encerrado e uma nova cache é aprovisionada com o tamanho de novo. Durante este período, a cache não está disponível e todos os dados na cache é perdido.
 * Quando um **básico** cache é dimensionada para um **padrão** cache, uma cache de réplica é aprovisionada e os dados são copiados da cache principal para a cache de réplica. A cache permanece disponível durante o processo de dimensionamento.
-* Quando um **padrão** cache é dimensionada para um tamanho diferente ou para um **Premium** cache, uma das réplicas é encerrado e novamente aprovisionado para o novo tamanho e os dados transferidos e, em seguida, de outra réplica efetua uma ativação pós-falha antes de ser aprovisionada novamente, semelhante ao processo que ocorre durante uma falha de um de nós de cache.
+* Quando um **padrão** cache é dimensionada para um tamanho diferente ou para um **Premium** cache, uma das réplicas é encerrado e reaprovisionados para o novo tamanho e os dados transferidos e, em seguida, de outra réplica efetua uma ativação pós-falha antes de ser reaprovisionados, semelhante ao processo que ocorre durante uma falha de um de nós de cache.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Irá perder dados da minha cache durante dimensionamento?
 * Quando um **básico** cache é dimensionada para um tamanho de nova, todos os dados são perdidas e a cache não está disponível durante a operação de dimensionamento.
@@ -137,35 +137,35 @@ Não, o nome da cache e as chaves são iguais durante uma operação de dimensio
 * Quando um **padrão** cache é dimensionada para uma maior tamanho ou camada, ou um **Premium** cache é dimensionada para um tamanho maior, todos os dados normalmente é preservada. Quando o dimensionamento um **padrão** ou **Premium** cache para um tamanho mais pequeno, os dados poderão perder-se consoante a quantidade de dados estiver na cache relacionados com o novo tamanho quando é escalado. Se os dados se tenha perdidos quando o dimensionamento para baixo, as chaves são expulso utilizando o [allkeys lru](http://redis.io/topics/lru-cache) política de expulsão. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Os meus bases de dados personalizadas é definir afetados durante o dimensionamento?
-Alguns escalões de preços têm diferentes [limites de bases de dados](cache-configure.md#databases), por isso, existem algumas considerações quando o dimensionamento inativo se tiver configurado um valor personalizado para o `databases` definição durante a criação da cache.
+Se tiver configurado um valor personalizado para o `databases` definição durante a criação da cache, tenha em atenção que alguns preços camadasm têm diferentes [limites de bases de dados](cache-configure.md#databases). Seguem-se algumas considerações quando o dimensionamento neste cenário:
 
 * Quando o dimensionamento para um escalão de preço um inferior `databases` limite que a camada atual:
-  * Se estiver a utilizar o número predefinido de `databases` que é 16 para todos os escalões de preços, nenhum dado é perdido.
+  * Se estiver a utilizar o número predefinido de `databases`, que é 16 para todos os escalões de preços, não se tenha perdido nenhum dado.
   * Se estiver a utilizar um número personalizado de `databases` que fica dentro dos limites para a camada à qual a são escalar, isto `databases` definição é mantida e não se tenha perdido nenhum dado.
   * Se estiver a utilizar um número personalizado de `databases` que excede os limites da camada de novo, o `databases` definição é lowered os limites de nova camada e todos os dados nas bases de dados removidas é perdido.
-* Quando o dimensionamento para um escalão de preço com o mesmo nível ou superior `databases` limite que a camada atual sua `databases` definição é mantida e não se tenha perdido nenhum dado.
+* Quando o dimensionamento para um escalão de preço com o mesmo nível ou superior `databases` limite ao escalão atual, o `databases` definição é mantida e não se tenha perdido nenhum dado.
 
-Tenha em atenção que enquanto caches Standard e Premium têm um SLA de 99,9% de disponibilidade, não há nenhum SLA para a perda de dados.
+Enquanto caches Standard e Premium têm um SLA de 99,9% de disponibilidade, não há nenhum SLA para a perda de dados.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>A minha cache estará disponível durante dimensionamento?
-* **Standard** e **Premium** caches permanecem disponíveis durante a operação de dimensionamento.
-* **Básico** caches estão offline durante um tamanho diferente das operações de dimensionamento, mas permanecem disponíveis quando o dimensionamento do **básico** para **padrão**.
+* **Standard** e **Premium** caches permanecem disponíveis durante a operação de dimensionamento. No entanto, blips de ligação podem ocorrer ao efetuar o dimensionamento padrão e Premium bem como ao dimensionamento do básico para caches padrão. Estes blips ligação devem ser pequeno e clientes de redis devem ser capazes de restabelecer ligação instantaneamente.
+* **Básico** caches estão offline durante um tamanho diferente das operações de dimensionamento. Caches básicos permanecem disponíveis quando o dimensionamento do **básico** para **padrão** but, podem ter um blip ligação pequeno. Se ocorrer um blip de ligação, os clientes de redis devem ser capazes de restabelecer ligação instantaneamente.
 
 ### <a name="operations-that-are-not-supported"></a>Operações que não são suportadas
 * Não é possível aumentar a partir de um escalão de preço superior para um escalão de preço inferior.
   * Não é possível dimensionar desde um **Premium** colocar em cache até um **padrão** ou um **básico** cache.
   * Não é possível dimensionar desde um **padrão** colocar em cache até um **básico** cache.
 * Pode dimensionar desde um **básico** colocar em cache para um **padrão** cache, mas não é possível alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, pode efetuar uma operação de dimensionamento subsequente para o tamanho pretendido.
-* Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Primeiro tem de dimensionar de **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** um subsequentes no operação de dimensionamento.
+* Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Primeiro Dimensionar desde **básico** para **padrão** uma operação de dimensionamento e, em seguida, a escala de **padrão** para **Premium** um subsequentes no operação.
 * Não é possível aumentar a partir de um tamanho maior baixo até o **C0 (250 MB)** tamanho.
 
-Se uma operação de dimensionamento falhar, o serviço irá tentar efetuar a reverter a operação e a cache irá reverter para o tamanho original.
+Se uma operação de dimensionamento falhar, o serviço tenta reverter a operação e a cache irá reverter para o tamanho original.
 
 ### <a name="how-long-does-scaling-take"></a>Quanto dimensionamento necessário?
 Dimensionamento demora cerca de 20 minutos, dependendo da quantidade de dados estiver na cache.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Como saber quando o dimensionamento é concluída?
-No portal do Azure pode ver que a operação de dimensionamento em curso. Quando o dimensionamento é concluída, o estado da cache é alterado para **executar**.
+No portal do Azure, pode ver que a operação de dimensionamento em curso. Quando o dimensionamento é concluída, o estado da cache é alterado para **executar**.
 
 <!-- IMAGES -->
 

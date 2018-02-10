@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utilizar as ferramentas do Azure Data Lake para Visual Studio com a Hortonworks Sandbox
 
@@ -53,13 +53,13 @@ Certifique-se de que a Hortonworks Sandbox está em execução. Em seguida, siga
 
     ![Captura de ecrã da caixa de diálogo, com a caixa de texto de palavra-passe realçada](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    Selecione **seguinte** para continuar.
+    Selecione **Seguinte** para continuar.
 
 4. Utilize o **palavra-passe** campo para introduzir a palavra-passe que configurou para o `root` conta. Deixe os outros campos no valor predefinido.
 
     ![Captura de ecrã da caixa de diálogo, com a caixa de texto de palavra-passe realçada](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    Selecione **seguinte** para continuar.
+    Selecione **Seguinte** para continuar.
 
 5. Aguarde que a validação de serviços para concluir. Em alguns casos, validação pode falhar e que lhe pede para atualizar a configuração. Se a validação falhar, selecione **atualização**e aguarde que a configuração e verificação para o serviço concluir.
 
@@ -203,7 +203,7 @@ Em seguida, pode criar a tabela utilizando um formulário. Na parte inferior da 
 
 ![Captura de ecrã com o formato utilizado para criar uma tabela](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Learning ropes de Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Tutorial do Hadoop - introdução HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

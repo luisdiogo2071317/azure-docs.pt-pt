@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 427660be92d3caf4c381cec65f49adce9808e50a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação com a API Management do Azure de pedidos avançada
 A capacidade para limitar os pedidos recebidos é uma função de chave de API Management do Azure. Ou ao controlar a taxa de pedidos ou os dados/pedidos totais transferidos, gestão de API permite que os fornecedores de API proteger as respetivas APIs de abuso e criar o valor para diferentes camadas de produto de API.
 
 ## <a name="product-based-throttling"></a>Limitação com base do produto
-Até à data, a limitação de velocidade capacidades foram limitadas a que está a ser confinadas a uma subscrição de produto específica (essencialmente uma chave), definida no portal do publicador da API Management. Isto é útil para o fornecedor de API aplicar limites no programadores que tenham efetuado a inscrição para utilizar a sua API, no entanto, é que não ajuda, por exemplo, no limitação individuais dos utilizadores finais da API. É possível que para o único utilizador da aplicação do programador para consumir a quota completa e, em seguida, impedem a outros clientes do programador capazes de utilizar a aplicação. Além disso, vários clientes que podem gerar um grande volume de pedidos poderão limitar o acesso a utilizadores ocasionais.
+Até à data, a limitação de velocidade capacidades foram limitadas a que está a ser confinadas a uma subscrição de produto específica (essencialmente uma chave), definida no portal do Azure. Isto é útil para o fornecedor de API aplicar limites no programadores que tenham efetuado a inscrição para utilizar a sua API, no entanto, é que não ajuda, por exemplo, no limitação individuais dos utilizadores finais da API. É possível que para o único utilizador da aplicação do programador para consumir a quota completa e, em seguida, impedem a outros clientes do programador capazes de utilizar a aplicação. Além disso, vários clientes que podem gerar um grande volume de pedidos poderão limitar o acesso a utilizadores ocasionais.
 
 ## <a name="custom-key-based-throttling"></a>Chave personalizada baseada em limitação
 A nova [taxa limite por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) políticas fornecem uma solução significativamente mais flexível para controlo de tráfego. Estas novas políticas permitem-lhe definir as expressões para identificar as chaves que serão utilizadas para controlar a utilização de tráfego. A forma como isto funciona easiest é ilustrado com um exemplo. 
@@ -73,7 +73,7 @@ Isto permite que a aplicação de cliente o programador escolher como pretende c
 ## <a name="summary"></a>Resumo
 Gestão de API do Azure fornece taxa e quota limitação para proteger e adicionar valor ao seu serviço de API. As novas políticas de limitação com regras de âmbito personalizadas permitem-lhe finer detalhado controlo sobre as políticas para ativar os seus clientes criar aplicações ainda mais. Os exemplos neste artigo demonstram a utilização destas políticas novas pela limitação de chaves com endereços IP do cliente, a identidade do utilizador e os valores de cliente gerado de taxa de fabrico. No entanto, existem muitas outras partes da mensagem que podem ser utilizados como agente de utilizador, fragmentos do caminho de URL, o tamanho da mensagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Dê-nos seus comentários no Disqus thread para este tópico. Seria excelente ouvi sobre outros potenciais os valores da chave tem sido uma escolha lógica no seus cenários.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Veja uma descrição geral do vídeo destas políticas

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/05/2017
+ms.date: 2/5/2018
 ms.author: chackdan
-ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 720bb83c9d8540549852ce78ee1709f8c8717348
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de tipos de nó de Service Fabric do Azure e a máquina virtual
 Conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure. Pode utilizar conjuntos de dimensionamento para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Configure uma escala separada definido para cada tipo de nó que definem a um cluster do Service Fabric do Azure. Independentemente pode dimensionar cada tipo de nó ou reduzir verticalmente, têm conjuntos diferentes de portas abertas e utilizar as métricas de capacidade diferentes.
@@ -137,7 +137,7 @@ Para alterar a palavra-passe para todos os nós de um tipo de nó específico, e
     Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte o [descrição geral da funcionalidade "Implementar em qualquer local" e uma comparação com clusters geridos pelo Azure](service-fabric-deploy-anywhere.md).
 * Saiba mais sobre [cluster segurança](service-fabric-cluster-security.md).
 * Saiba mais sobre o [SDK de Service Fabric e da introdução](service-fabric-get-started.md).

@@ -1,22 +1,22 @@
 ---
-title: Executar Ansible na Shell em nuvem do Azure
-description: "Saiba como efetuar várias tarefas de Ansible na Shell de nuvem do Azure"
+title: Execute Ansible com Bash na Shell de nuvem do Azure
+description: "Saiba como efetuar várias tarefas de Ansible com Bash na Shell de nuvem do Azure"
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Executar Ansible na Shell em nuvem do Azure
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Execute Ansible com Bash na Shell de nuvem do Azure
 
-Neste tutorial, irá aprender a efetuar várias tarefas de Ansible na Shell de nuvem do Azure. Estas tarefas incluem a ligar a uma máquina virtual e criar Ansible playbooks para criar e eliminar um grupo de recursos do Azure.
+Neste tutorial, irá aprender a efetuar várias tarefas de Ansible de Bash na Shell de nuvem. Estas tarefas incluem a ligar a uma máquina virtual e criar Ansible playbooks para criar e eliminar um grupo de recursos do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -24,12 +24,14 @@ Neste tutorial, irá aprender a efetuar várias tarefas de Ansible na Shell de n
 
 - **Credenciais do Azure** - [Azure criar credenciais e configurar Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Configurar a Shell de nuvem do Azure** - se estiver familiarizado com a Shell de nuvem do Azure, o artigo [início rápido para Bash na Shell de nuvem do Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ilustra como iniciar e configurar a Shell de nuvem.
+- **Configurar a Shell de nuvem do Azure** - se estiver familiarizado com a Shell de nuvem do Azure, o artigo [início rápido para Bash na Shell de nuvem do Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ilustra como iniciar e configurar a Shell de nuvem. Inicie o Web site dedicado de nuvem Shell aqui:
+
+[![Inicie o Shell de nuvem](https://shell.azure.com/images/launchcloudshell.png "inicie o Shell de nuvem")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Utilizar Ansible para ligar a uma VM
 Ansible criou um script de Python chamado [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) que gera um inventário dinâmicas dos seus recursos do Azure ao efetuar pedidos de API para o Azure Resource Manager. Os seguintes passos guiá-lo utilizando o `azure_rm.py` script para ligar a uma máquina virtual do Azure:
 
-1. Abra a Shell de nuvem do Azure.
+1. Abra Bash na Shell de nuvem. Tipo de shell é a designação no lado esquerdo da janela da Shell de nuvem.
 
 1. Se não tiver uma máquina virtual para utilizar, introduza os seguintes comandos para a Shell de nuvem para criar uma máquina virtual com o qual pretende testar:
 
@@ -78,7 +80,7 @@ Ansible criou um script de Python chamado [azure_rm.py](https://github.com/ansib
   az group delete -n <resourceGroup>
   ```
 
-## <a name="run-a-playbook-in-cloud-shell"></a>Executar um manual de comunicação social na Shell de nuvem
+## <a name="run-a-playbook-in-cloud-shell"></a>Executar um manual de comunicação no Cloud Shell
 O [manual de comunicação social ansible](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) comando executa playbooks Ansible, as tarefas em execução em anfitriões de destino. Esta secção explica como utilizar a Shell de nuvem para criar e executar dois playbooks - uma para criar um grupo de recursos e um segundo para eliminar o grupo de recursos. 
 
 1. Crie um ficheiro denominado `rg.yml` da seguinte forma:

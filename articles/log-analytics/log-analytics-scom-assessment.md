@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar o seu ambiente com a solução de System Center Operations Manager estado de funcionamento da verificação do sistema (pré-visualização)
 
@@ -217,7 +217,7 @@ Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em se
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
 1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
-2. No portal do Azure, clique em **mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Iniciar análise**.
+2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **Portal do OMS** mosaico.  
 4. No **descrição geral** página, clique em de **Center Operations Manager estado de funcionamento da verificação do sistema** mosaico.
 5. No **Center Operations Manager estado de funcionamento da verificação do sistema** página, reveja as informações de resumo de uma das seguintes painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
@@ -228,7 +228,7 @@ Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em se
 
 Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto que utiliza a análise de registos para impedir que as recomendações a apresentação nos resultados da avaliação.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que pretende ignorar
 1. No portal do Azure na página da área de trabalho de análise de registos para a sua área de trabalho selecionada, clique em de **pesquisa registo** mosaico.
@@ -303,6 +303,6 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 *Existe alguma forma para ignorar uma recomendação?* Sim, consulte o [ignorar recomendações](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Pesquisar registos](log-analytics-log-searches.md) para saber como analisar dados detalhados Center Operations Manager estado de funcionamento da verificação do sistema e as recomendações.

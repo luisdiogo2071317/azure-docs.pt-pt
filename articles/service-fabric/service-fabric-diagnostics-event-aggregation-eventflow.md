@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação de eventos e coleção utilizando EventFlow
 
@@ -43,6 +43,9 @@ Depois de instalar todos os pacotes, o passo seguinte consiste em configurar e a
 
 ## <a name="configure-and-enable-log-collection"></a>Configurar e ativar a recolha de registos
 O pipeline de EventFlow responsável pelo envio de registos é criado a partir de uma especificação armazenada num ficheiro de configuração. O `Microsoft.Diagnostics.EventFlow.ServiceFabric` pacote instala um ficheiro de configuração inicial do EventFlow em `PackageRoot\Config` pasta de solução, denominada `eventFlowConfig.json`. Este ficheiro de configuração tem de ser modificados para capturar os dados do serviço predefinido `EventSource` classe e quaisquer outras entradas que pretende configurar e enviar dados para o local adequado.
+
+>[!NOTE]
+>Se o ficheiro de projeto tem um formato de 2017 VisualStudio o `eventFlowConfig.json` ficheiro não será automaticamente adicionado. Para corrigir isto criar o ficheiro no `Config` pasta e definir a ação de compilação para `Copy if newer`. 
 
 Eis um exemplo *eventFlowConfig.json* com base nos pacotes de NuGet mencionados acima:
 ```json
@@ -150,7 +153,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Iniciar o serviço e observe a depuração janela de saída no Visual Studio. Depois do serviço é iniciado, deve começar a ver provas de que o serviço está a enviar registos de saída que tiver configurado. Navegue para a sua plataforma de análise e visualização de eventos e confirme que os registos de iniciar a Mostrar cópia de segurança (operação pode demorar alguns minutos).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Análise de eventos e visualização com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análise de eventos e visualização com o OMS](service-fabric-diagnostics-event-analysis-oms.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Criar um alerta de registo de atividade com um modelo do Resource Manager
 Este artigo mostra como utilizar um [modelo Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar alertas de registo de atividade. Utilizando os modelos, pode facilmente definir muitos alertas que ativar com base nas condições de eventos de registo de atividade específica como parte do processo de implementação automática.
@@ -82,10 +82,10 @@ Para criar um alerta de registo de atividade, utilizando um modelo do Resource M
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -100,7 +100,11 @@ Para criar um alerta de registo de atividade, utilizando um modelo do Resource M
 
 Visite a nossa [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) para alguns exemplos de modelos de alerta de registo de atividade.
 
-## <a name="next-steps"></a>Passos seguintes
+> [!NOTE]
+
+> Também pode criar atividade regras de alerta de registo utilizando a experiência de utilizador no Monitor > [alertas (pré-visualização)](monitoring-overview-unified-alerts.md). Para obter mais informações sobre como criar estas, consulte [neste artigo](monitoring-activity-log-alerts-new-experience.md).
+
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [alertas](monitoring-overview-alerts.md).
 - Saiba como adicionar [grupos ação utilizando um modelo do Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
 - Saiba como [criar um alerta de registo de atividade para monitorizar todas as operações de motor de dimensionamento automático na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).

@@ -3,7 +3,7 @@ title: "Controlo de acesso baseado em funções com REST - do Azure AD | Microso
 description: "Gerir o controlo de acesso baseado em funções com a API REST"
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerir o controlo de acesso baseado em funções com a API REST
 > [!div class="op_single_selector"]
@@ -43,8 +43,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de funções. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* com 2015-07-01.
 3. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de atribuição de função:
 
@@ -93,8 +93,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de funções. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{id de atribuição de função}* com o identificador GUID de atribuição de função.
 3. Substitua *{api-version}* com 2015-07-01.
 
@@ -134,8 +134,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com âmbito no qual pretende criar as atribuições de funções. Quando cria uma atribuição de função num âmbito principal, todos os âmbitos subordinados herdam a mesma atribuição de função. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1   
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{id de atribuição de função}* com um novo GUID, que torna-se o identificador GUID da nova atribuição de função.
 3. Substitua *{api-version}* com 2015-07-01.
 
@@ -153,7 +153,7 @@ Para o corpo do pedido, forneça os valores no seguinte formato:
 
 | Nome do elemento | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| em roleDefinitionId |Sim |Cadeia |O identificador da função. O formato do identificador é:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| roleDefinitionId |Sim |Cadeia |O identificador da função. O formato do identificador é:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Sim |Cadeia |objectId do Azure AD principal (utilizador, grupo ou principal de serviço) para os quais a função é atribuída. |
 
 ### <a name="response"></a>Resposta
@@ -192,8 +192,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com âmbito no qual pretende criar as atribuições de funções. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{id de atribuição de função}* com o id de atribuição de função GUID.
 3. Substitua *{api-version}* com 2015-07-01.
 
@@ -233,8 +233,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com o âmbito para o qual pretende listar as funções. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* com 2015-07-01.
 3. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de funções:
 
@@ -316,8 +316,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de funções. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{id de definição de função}* com o identificador GUID da definição de função.
 3. Substitua *{api-version}* com 2015-07-01.
 
@@ -396,8 +396,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com o primeiro *AssignableScope* da função personalizada. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis.
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{id de definição de função}* com um novo GUID, que torna-se o identificador GUID da nova função personalizada.
 3. Substitua *{api-version}* com 2015-07-01.
 
@@ -438,11 +438,11 @@ Para o corpo do pedido, forneça os valores no seguinte formato:
 | --- | --- | --- | --- |
 | nome |Sim |Cadeia |Identificador GUID da função personalizada. |
 | properties.roleName |Sim |Cadeia |Nome a apresentar da função personalizada. Caracteres de tamanho máximo de 128. |
-| Properties.Description |Não |Cadeia |Descrição da função personalizada. Caracteres de tamanho máximo 1024. |
-| Properties.Type |Sim |Cadeia |Definido como "CustomRole." |
-| Properties.Permissions.Actions |Sim |String] |Uma matriz de cadeias de ação especificando as operações concedidas pela função personalizada. |
-| properties.permissions.notActions |Não |String] |Uma matriz de cadeias de ação especificando as operações para excluir das operações concedidas pela função personalizada. |
-| properties.assignableScopes |Sim |String] |Uma matriz de âmbitos nos quais a função personalizada pode ser utilizada. |
+| properties.description |Não |Cadeia |Descrição da função personalizada. Caracteres de tamanho máximo 1024. |
+| properties.type |Sim |Cadeia |Definido como "CustomRole." |
+| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de ação especificando as operações concedidas pela função personalizada. |
+| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de ação especificando as operações para excluir das operações concedidas pela função personalizada. |
+| properties.assignableScopes |Sim |String[] |Uma matriz de âmbitos nos quais a função personalizada pode ser utilizada. |
 
 ### <a name="response"></a>Resposta
 Código de estado: 201
@@ -499,8 +499,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com o primeiro *AssignableScope* da função personalizada. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{id de definição de função}* com o identificador GUID da função personalizada.
 3. Substitua *{api-version}* com 2015-07-01.
 
@@ -541,11 +541,11 @@ Para o corpo do pedido, forneça os valores no seguinte formato:
 | --- | --- | --- | --- |
 | nome |Sim |Cadeia |Identificador GUID da função personalizada. |
 | properties.roleName |Sim |Cadeia |Nome a apresentar da função personalizada atualizada. |
-| Properties.Description |Não |Cadeia |Descrição da função personalizada atualizada. |
-| Properties.Type |Sim |Cadeia |Definido como "CustomRole." |
-| Properties.Permissions.Actions |Sim |String] |Uma matriz de cadeias de ação especificando as operações para os quais a função personalizada atualizada conceda acesso. |
-| properties.permissions.notActions |Não |String] |Uma matriz de cadeias de ação especificando as operações para excluir das operações que atribui a função personalizada atualizada. |
-| properties.assignableScopes |Sim |String] |Uma matriz de âmbitos nos quais a função personalizada atualizada pode ser utilizada. |
+| properties.description |Não |Cadeia |Descrição da função personalizada atualizada. |
+| properties.type |Sim |Cadeia |Definido como "CustomRole." |
+| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de ação especificando as operações para os quais a função personalizada atualizada conceda acesso. |
+| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de ação especificando as operações para excluir das operações que atribui a função personalizada atualizada. |
+| properties.assignableScopes |Sim |String[] |Uma matriz de âmbitos nos quais a função personalizada atualizada pode ser utilizada. |
 
 ### <a name="response"></a>Resposta
 Código de estado: 201
@@ -602,8 +602,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 1. Substitua *{âmbito}* com o âmbito em que pretende eliminar a definição de função. Os exemplos seguintes mostram como especificar o âmbito de diferentes níveis:
 
    * Subscrição: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição}  
-   * Grupo de recursos: /subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} {id de subscrição} / resourceGroups/myresourcegroup1  
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{id de definição de função}* com o id de definição de função GUID da função personalizada.
 3. Substitua *{api-version}* com 2015-07-01.
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>O que é o diagnóstico do Azure
 Diagnóstico do Azure é a capacidade no Azure que permite a recolha de dados de diagnóstico sobre uma aplicação implementada. Pode utilizar a extensão de diagnóstico de um número de diferentes origens. São atualmente suportados Web de serviço de nuvem do Azure e funções de trabalho, máquinas virtuais do Azure com o Microsoft Windows e o Service Fabric. Outros serviços do Azure têm os seus próprios diagnóstico separado.
@@ -26,7 +26,7 @@ Diagnóstico do Azure é a capacidade no Azure que permite a recolha de dados de
 ## <a name="data-you-can-collect"></a>É possível recolher de dados
 Diagnóstico do Azure pode recolher os seguintes tipos de dados:
 
-| Origem de dados | Descrição |
+| Origem de Dados | Descrição |
 | --- | --- |
 | Contadores de desempenho |Sistema operativo e os contadores de desempenho personalizado |
 | Registos de aplicações |Mensagens de rastreio escritas pela sua aplicação |
@@ -43,7 +43,7 @@ A extensão de diagnóstico do Azure pode transferir estes dados para uma conta 
 ## <a name="versioning"></a>Controlo de versões
 Consulte [histórico de controlo de versões de diagnóstico do Azure](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Escolha o serviço está a tentar recolher diagnósticos no e utilize os artigos seguintes para começar a utilizar. Utilize as ligações de geral de diagnóstico do Azure para referência para tarefas específicas.
 
 ## <a name="web-apps"></a>Aplicações Web
@@ -75,6 +75,6 @@ Começar a utilizar em [monitorizar uma aplicação de Service Fabric](../servic
 ## <a name="general-azure-diagnostics-articles"></a>Artigos geral do diagnóstico do Azure
 * [Configuração de esquema de diagnóstico do Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx) -aprender a alterar o ficheiro de esquema para recolher e encaminhar os dados de diagnóstico. Tenha em atenção que também pode utilizar o Visual Studio para alterar o ficheiro de esquema.
 * [Como os dados de diagnóstico do Azure são armazenados no Storage do Azure](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -conhecer os nomes das tabelas e blobs onde os dados de diagnóstico são escritos.
-* Saiba como [utilizar os contadores de desempenho no Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Saiba como [utilizar os contadores de desempenho no Azure Diagnostics](../cloud-services/diagnostics-performance-counters.md).
 * Saiba como [informações de diagnóstico de rota Azure ao Application Insights](azure-diagnostics-configure-application-insights.md)
 * Se tiver problemas com a iniciar o diagnóstico ou localizar os dados nas tabelas de armazenamento do Azure, consulte [resolução de problemas do diagnóstico do Azure](azure-diagnostics-troubleshooting.md)

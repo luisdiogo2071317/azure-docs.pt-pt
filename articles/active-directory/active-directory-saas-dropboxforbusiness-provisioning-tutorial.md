@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dropbox para empresas para aprovisionamento de utilizadores automática
 
@@ -88,13 +88,9 @@ Esta secção orienta-o de ligar o seu Azure AD ao Dropbox para API de aprovisio
 
 14. Clique em **guardar.**
 
-Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos ao Dropbox para empresas na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os relatórios de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento no seu Dropbox para a aplicação de negócio de aprovisionamento.
+Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos ao Dropbox para empresas na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para aprovisionamento de registos de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento no seu Dropbox para a aplicação de negócio.
 
-Agora, pode criar uma conta de teste. Aguarde até 20 minutos para verificar que a conta foi sincronizada Dropbox para empresas.
-
-Um ciclo de aprovisionamento de utilizadores concluída com êxito é indicada pelo Estado relacionado.
-
-![Atribuir utilizadores](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "atribuir utilizadores")
+Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

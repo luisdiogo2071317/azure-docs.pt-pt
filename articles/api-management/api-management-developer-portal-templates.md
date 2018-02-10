@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal do Programador de API Management do Azure através de modelos
 
@@ -31,13 +31,7 @@ Existem três formas fundamentais de personalizar o portal do programador na Ges
 Os modelos são utilizados para personalizar os conteúdos de páginas de portal de programador gerado pelo sistema (por exemplo, documentos de API, produtos, a autenticação de utilizador, etc.). Utilizar [DotLiquid](http://dotliquidmarkup.org/) sintaxe e um conjunto de recursos de cadeia localizada, ícones e controlos de página, fornecido tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar.
 
 ## <a name="developer-portal-templates-overview"></a>Descrição geral de modelos de portal de programador
-Editar modelos é feita do **portal do programador** durante a sessão iniciada como administrador. Para aceder à mesma primeiro abrir o Portal do Azure e clique em **portal do publicador** da barra de ferramentas de serviço da sua instância da API Management.
-
-![Portal do publicador][api-management-management-console]
-
-Em seguida, clique em **Portal do programador** no canto superior direito. 
-
-![Menu do portal de programador][api-management-developer-portal-menu]
+Editar modelos é feita do **portal do programador** durante a sessão iniciada como administrador. Para aceder à mesma primeiro abrir o Portal do Azure e clique em **portal do programador** da barra de ferramentas de serviço da sua instância da API Management.
 
 Para aceder os modelos de portal de programador, clique no ícone de personalizar à esquerda para apresentar o menu de personalização e clique em **modelos**.
 
@@ -47,7 +41,7 @@ A lista de modelos apresenta várias categorias de modelos que abrangem as pági
 
 ![Modelos de portais de programador][api-management-templates-menu]
 
-Ao clicar num modelo leva-o para a página de portal de programador é personalizável, pelo que o modelo. Neste exemplo de **lista produto** modelo é apresentado. O **lista produto** modelo controla a área do ecrã indicado pelo retângulo vermelho. 
+Ao clicar num modelo leva-o para a página de portal de programador é personalizável, pelo que o modelo. Neste exemplo, o **lista produto** modelo é apresentado. O **lista produto** modelo controla a área do ecrã indicado pelo retângulo vermelho. 
 
 ![Modelo da lista de produtos][api-management-developer-portal-templates-overview]
 
@@ -65,7 +59,7 @@ O **dados modelo** painel fornece um guia para o modelo de dados para as entidad
 
 ![Modelo de dados do modelo][api-management-template-data]
 
-No exemplo anterior, existem dois produtos apresentados no portal do programador que foram obtidos os dados apresentados no **dados modelo** painel, conforme mostrado no exemplo seguinte.
+No exemplo anterior, existem dois produtos apresentados no portal do programador que foram obtidos os dados apresentados no **dados modelo** painel, conforme mostrado no exemplo seguinte:
 
 ```json
 {
@@ -185,7 +179,7 @@ Para restaurar todos os modelos para as respetivas versões de predefinido, cliq
 
 Os modelos restaurados, em seguida, devem ser publicados individualmente ou ao mesmo tempo seguindo os passos no [para publicar um modelo](#to-publish-a-template).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para informações de referência para modelos de portal de programador, recursos de cadeias, ícones e controlos de página, consulte [referência de modelos de portal para programadores de API Management](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

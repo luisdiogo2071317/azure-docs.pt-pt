@@ -1,6 +1,6 @@
 ---
 title: "Custos de software do Windows de instâncias de VM de reserva do Azure | Microsoft Docs"
-description: "Saiba que medidores são utilizados para software do Windows para a VM do Windows que o se qualificar para a instância reservado."
+description: "Saiba quais medidores de software do Windows não estiverem incluídos nos custos de instância de Máquina Virtual reservada."
 services: billing
 documentationcenter: 
 author: manish-shukla01
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: b985e6e9575ffeedcac5bcb3f94a43d23fdbb85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Custos de software do Windows não incluídos com instâncias reservado
 
-Se não tiver o benefício de utilização do Azure híbrida na VM a instância reservado, em seguida, são-lhe cobrados para medidores de software do Windows listadas na seguinte tabela:
+Se não tiver uma vantagem de utilização de híbrida do Azure em máquinas virtuais instância reservado, em seguida, são-lhe cobrados para medidores de software do Windows listadas na secção seguinte.
 
-| meterId | MeterName no ficheiro de utilização | Utilizado por VM |
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Medidores de software do Windows não incluídos no custo de instância reservado
+
+| Id do Medidor | MeterName no ficheiro de utilização | Utilizado por VM |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reserva Windows Svr Impulsar (1 núcleo) | Série B |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reserva Windows Svr Impulsar (2 núcleos) | Série B |
@@ -42,9 +44,19 @@ Se não tiver o benefício de utilização do Azure híbrida na VM a instância 
 | 0d5bdf46-b719-4b1f-a780-b9bdfffd0591 | Reserva Windows Svr (32 núcleos) | Tudo, exceto série B |
 | f1214b5c-cc16-445f-be6c-a3bb75f8395a | Reserva Windows Svr (40 núcleos) | Tudo, exceto série B |
 | 637b7c77-65ad-4486-9cc7-dc7b3e9a8731 | Reserva Windows Svr (64 núcleos) | Tudo, exceto série B |
-| da612742-e7cc-4CA3-9334-0fb7234059cd | Reserva Windows Svr (72 núcleos) | Tudo, exceto série B |
+| da612742-e7cc-4ca3-9334-0fb7234059cd | Reserva Windows Svr (72 núcleos) | Tudo, exceto série B |
 | a485cb8c-069b-4cf3-9a8e-ddd84b323da2 | Reserva Windows Svr (128 núcleos) | Tudo, exceto série B |
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Reserva Windows Svr (256 núcleos) | Tudo, exceto série B |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reserva Windows Svr (96 núcleos) | Tudo, exceto série B |
 
 Pode obter o custo de cada uma destes medidores através do Azure RateCard API. Para obter informações sobre como obter as taxas de uma medição do azure, consulte [obter informações de preços e metadados para os recursos utilizados numa subscrição do Azure](https://msdn.microsoft.com/library/azure/mt219004).
+
+## <a name="next-steps"></a>Passos Seguintes
+Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+
+- [Prepay para máquinas virtuais com instâncias de VM reservado](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir instâncias de Máquina Virtual reservada](billing-manage-reserved-vm-instance.md)
+- [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](billing-save-compute-costs-reservations.md)
+- [Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado](billing-understand-vm-reservation-charges.md)
+- [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
+- [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

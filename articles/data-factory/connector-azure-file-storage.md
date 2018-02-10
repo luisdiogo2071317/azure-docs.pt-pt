@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 772af3bce6947a92fa62a93a84ee84ee34093d82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar os dados de ou para o File Storage do Azure utilizando o Azure Data Factory
 
@@ -47,7 +47,7 @@ As seguintes propriedades são suportadas para o serviço ligado de File Storage
 | tipo | A propriedade de tipo tem de ser definida: **servidor de ficheiros**. | Sim |
 | anfitrião | Especifica o ponto final do File Storage do Azure como `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sim |
 | ID de utilizador | Especifique o utilizador aceder ao armazenamento de ficheiros do Azure como `"userid": "AZURE\\<storage name>"`. | Sim |
-| palavra-passe | Especifique a chave de acesso de armazenamento. Marcar este campo como SecureString.<br/> | Sim |
+| palavra-passe | Especifique a chave de acesso de armazenamento. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não para a origem, Sim para sink |
 
 >[!IMPORTANT]
@@ -120,7 +120,7 @@ Para copiar dados de/para o File Storage do Azure, defina a propriedade de tipo 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem de File Storage do Azure e o sink.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Como configurar o suporte da Virtual Network para uma Cache de Redis do Azure Premium
 Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades, incluindo funcionalidades do escalão Premium, tais como clustering, persistência e suporte da virtual network e tamanho da cache. Uma VNet é uma rede privada na nuvem. Quando uma instância da Cache de Redis do Azure está configurada com uma VNet, não é acessível publicamente e só pode ser acedido a partir de máquinas virtuais e aplicações dentro da VNet. Este artigo descreve como configurar o suporte de rede virtual para uma instância de Cache de Redis do Azure premium.
@@ -117,6 +117,7 @@ Existem sete requisitos de porta de saída.
 | 20226 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
 | 13000-13999 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
 | 15000-15999 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
+| 6379-6380 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
 
 
 ### <a name="inbound-port-requirements"></a>Requisitos de porta de entrada
@@ -125,7 +126,7 @@ Existem oito requisitos de intervalo de portas de entrada. Pedidos de entrada de
 
 | Portas | Direção | Protocolo de transporte | Objetivo | Local IP | IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Entrada |TCP |Comunicação do cliente com Redis, balanceamento de carga do Azure | (Redis sub-rede) |Rede virtual, o Balanceador de carga do Azure |
+| 6379, 6380 |Entrada |TCP |Comunicação do cliente com Redis, balanceamento de carga do Azure | (Redis sub-rede) | (Redis sub-rede), rede Virtual, o Balanceador de carga do Azure |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
 | 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Redis sub-rede) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede), o Balanceador de carga do Azure |
@@ -146,7 +147,7 @@ Existem requisitos de conectividade de rede do Azure Redis Cache que não pode s
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como verificar se a minha cache está a funcionar numa VNET?
 
 >[!IMPORTANT]
->Ao ligar a uma instância da Cache de Redis do Azure que está alojada numa VNET, os clientes de cache tem de ser na mesma VNET, incluindo aplicações de teste ou ferramentas de diagnóstico efetuando o ping.
+>Ao ligar a uma instância da Cache de Redis do Azure que está alojada numa VNET, os clientes de cache tem de ser na mesma VNET ou numa VNET com o VNET peering ativada. Isto inclui quaisquer aplicações de teste ou ferramentas de diagnóstico efetuando o ping. Independentemente do local onde está alojada a aplicação de cliente, os grupos de segurança de rede devem ser configurados de forma a que o tráfego de rede do cliente tem permissão para aceder a instância de Redis.
 >
 >
 

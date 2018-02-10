@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2cc40388c77dec68966a8914197d072db38f6eb0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de pré-visualização de análise de DNS
 
@@ -145,7 +145,7 @@ As informações de ajudam-o a identificar o:
 
 **Exemplo de consultas de análises DDI**. Contém uma lista de consultas de pesquisa mais comuns que obtenha dados de análise em bruto diretamente.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de exemplo](./media/log-analytics-dns/queries.png)
 
@@ -187,6 +187,6 @@ Existem duas formas que pode enviar comentários:
 - **UserVoice**. Após a ideias para funcionalidades de análise de DNS trabalhar. Visite o [Operations Management Suite UserVoice página](https://aka.ms/dnsanalyticsuservoice).
 - **Associar o nosso coorte**. Iremos interessa sempre com novos clientes aderir ao nosso cohorts para obter acesso atempado a novas funcionalidades e ajudar-na melhorar a análise de DNS. Se estiver interessado na associação a nossa cohorts, preencha [este inquérito Rápido](https://aka.ms/dnsanalyticssurvey).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Pesquisar registos](log-analytics-log-searches.md) para ver registos detalhados de DNS.

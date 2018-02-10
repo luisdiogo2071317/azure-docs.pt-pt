@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de uma VM com Linux do Azure que falhe, erros de saída, ou é recusada ligações SSH
 Existem várias razões se encontrar erros de Secure Shell (SSH), falhas de ligação de SSH, ou SSH é recusou-se ao tentar ligar a uma máquina virtual (VM) do Linux. Este artigo ajuda-o a localizar e corrigir os problemas. Pode utilizar o portal do Azure, CLI do Azure ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -70,20 +70,20 @@ Para repor as credenciais de um utilizador existente, selecione `Reset SSH publi
 Também pode criar um utilizador com privilégios sudo na VM este menu. Introduza um novo nome de utilizador e palavra-passe associada ou chave SSH e, em seguida, clique em de **repor** botão.
 
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
-Se ainda não o fez, instale a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#login).
+Se ainda não o fez, instale a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login).
 
 Se criar e carregar uma imagem de disco do Linux personalizada, certifique-se a [agente Linux do Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versão 2.0.5 ou posterior está instalado. Para VMs criadas com imagens Gallery, esta extensão de acesso já está instalado e configurado por si.
 
 ### <a name="reset-ssh-configuration"></a>Repor configuração SSH
 Pode inicialmente tente repor a configuração SSH para os valores predefinidos e reinício do servidor SSH na VM. Tenha em atenção que isto não alterar o nome de conta de utilizador, palavra-passe ou chaves SSH.
-O exemplo seguinte utiliza [az vm utilizador reposição-ssh](/cli/azure/vm/user#reset-ssh) para repor a configuração de SSH no VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+O exemplo seguinte utiliza [az vm utilizador reposição-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) para repor a configuração de SSH no VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Repor as credenciais de SSH para um utilizador
-O exemplo seguinte utiliza [atualização de utilizador de vm az](/cli/azure/vm/user#update) para repor as credenciais para `myUsername` para o valor especificado no `myPassword`, na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+O exemplo seguinte utiliza [atualização de utilizador de vm az](/cli/azure/vm/user#az_vm_user_update) para repor as credenciais para `myUsername` para o valor especificado no `myPassword`, na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -109,7 +109,7 @@ Crie um ficheiro denominado `settings.json` com o seguinte conteúdo:
 }
 ```
 
-Utilizar a CLI do Azure, em seguida, chama o `VMAccessForLinux` extensão para repor a sua ligação de SSHD especificando o ficheiro json. O exemplo seguinte utiliza [conjunto de extensão de vm az](/cli/azure/vm/extension#set) repor SSHD na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+Utilizar a CLI do Azure, em seguida, chama o `VMAccessForLinux` extensão para repor a sua ligação de SSHD especificando o ficheiro json. O exemplo seguinte utiliza [conjunto de extensão de vm az](/cli/azure/vm/extension#az_vm_extension_set) repor SSHD na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-O exemplo seguinte utiliza [reinício de vm az](/cli/azure/vm#restart) para reiniciar a VM com o nome `myVM` no grupo de recursos denominado `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+O exemplo seguinte utiliza [reinício de vm az](/cli/azure/vm#az_vm_restart) para reiniciar a VM com o nome `myVM` no grupo de recursos denominado `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -219,7 +219,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-A utilização de exemplo seguintes [volte a implementar az vm](/cli/azure/vm#redeploy) ao Reimplementar a VM com o nome `myVM` no grupo de recursos denominado `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+A utilização de exemplo seguintes [volte a implementar az vm](/cli/azure/vm#az_vm_redeploy) ao Reimplementar a VM com o nome `myVM` no grupo de recursos denominado `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

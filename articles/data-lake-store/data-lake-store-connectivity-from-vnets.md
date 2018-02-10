@@ -3,7 +3,7 @@ title: Ligar ao Azure Data Lake Store, a partir de VNETs | Microsoft Docs
 description: Ligar ao Azure Data Lake Store, a partir de VNETs do Azure
 services: data-lake-store,data-catalog
 documentationcenter: 
-author: nitinme
+author: esung22
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 029939eabc7283d7591576fa1b14731a9e626a88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/31/2018
+ms.author: elsung
+ms.openlocfilehash: c1bb9d8f5759ece8fe6384441c692adea190aba8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Acesso do Azure Data Lake Store das VMs dentro de uma VNET do Azure
 O Azure Data Lake Store é um serviço de PaaS, que é executada em endereços IP de Internet públicos. Qualquer servidor que possam ligar à Internet pública, normalmente, pode ligar para os pontos finais do Azure Data Lake Store também. Por predefinição, todas as VMs que estão em VNETs do Azure podem aceder à Internet e, por conseguinte, podem aceder ao Azure Data Lake Store. No entanto, é possível configurar as VMs numa VNET por não ter acesso à Internet. Para essas VMs, acesso ao Azure Data Lake Store é restrito bem. Bloquear o acesso de Internet público para VMs nas VNETs do Azure pode ser feito utilizando qualquer um da seguinte abordagem.
@@ -51,7 +51,7 @@ Quando as rotas, UDRs ou rotas BGP-trocados, são utilizadas para bloquear o ace
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Ativar a conectividade de VMs restringida ao utilizar o ExpressRoute
 Quando um circuito do ExpressRoute estiver configurado, os servidores no local podem aceder ao Data Lake Store através do peering público. Obter mais detalhes sobre como configurar o ExpressRoute para o peering público está disponível em [FAQs do ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
 * [Proteger os dados armazenados no Azure Data Lake Store](data-lake-store-security-overview.md)
 

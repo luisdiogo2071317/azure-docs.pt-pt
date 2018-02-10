@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aderir a um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede virtual do Azure (VNet) nos seguintes cenários: 
@@ -31,7 +31,13 @@ Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede 
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
 
 ## <a name="access-on-premises-data-stores"></a>Acesso local arquivos de dados
-Se acedem a pacotes SSIS arquivos de dados de nuvem pública apenas, não precisa de associar Azure SSIS IR para uma VNet. Se acedem a pacotes SSIS arquivos de dados no local, tem de associar Azure SSIS IR para uma VNet que está ligada à rede no local. Se o catálogo de SSIS está alojado na base de dados do SQL do Azure que não esteja na VNet, terá de abrir as portas adequadas. Se o catálogo de SSIS estiver alojado no Azure geridos instância do SQL que está a ser uma VNet do Azure Resource Manager ou uma VNet clássica, pode associar Azure SSIS IR para a mesma VNet (ou) uma VNet diferente que tenha uma ligação VNet a VNet com um que tenha a instância de gerida do Azure SQL. As secções seguintes fornecem mais detalhes.
+Se acedem a pacotes SSIS arquivos de dados de nuvem pública apenas, não precisa de associar Azure SSIS IR para uma VNet. Se acedem a pacotes SSIS arquivos de dados no local, tem de associar Azure SSIS IR para uma VNet que está ligada à rede no local. 
+
+Se o catálogo de SSIS está alojado na base de dados do SQL do Azure que não esteja na VNet, terá de abrir as portas adequadas. 
+
+Se o catálogo de SSIS estiver alojado no Azure SQL geridos instância (MI) que está a ser uma VNet, pode associar Azure SSIS IR para a mesma VNet (ou) uma VNet diferente que tenha uma ligação VNet a VNet com um que tenha a instância de gerida do Azure SQL. A VNet pode ser uma VNet clássica ou uma VNet de gestão de recursos do Azure. Se estiver a planear associar a resposta a incidentes SSIS do Azure **mesma VNet** que tenha o MI do SQL Server, certifique-se de que a resposta a incidentes SSIS do Azure está a ser um **outra sub-rede** daquele que tenha o MI do SQL Server.   
+
+As secções seguintes fornecem mais detalhes.
 
 Eis alguns pontos importantes a ter em atenção: 
 
@@ -58,10 +64,11 @@ Esta secção mostra como associar um tempo de execução de SSIS do Azure exist
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Utilize o portal para configurar uma VNet clássica
 Terá primeiro de configurar antes de pode associar uma resposta a incidentes SSIS do Azure para a VNet a VNet.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique em **mais serviços**. Filtrar e selecione **redes virtuais (clássicas)**.
-3. Filtrar e selecione o **rede virtual** na lista. 
-4. Na página de rede (clássica) Virtual, selecione **propriedades**. 
+1. Iniciar **Microsoft Edge** ou **Google Chrome** web browser. Atualmente, a IU da fábrica de dados é suportada apenas em browsers de web do Microsoft Edge e o Google Chrome.
+2. Inicie sessão no [portal do Azure](https://portal.azure.com).
+3. Clique em **mais serviços**. Filtrar e selecione **redes virtuais (clássicas)**.
+4. Filtrar e selecione o **rede virtual** na lista. 
+5. Na página de rede (clássica) Virtual, selecione **propriedades**. 
 
     ![ID de recurso de VNet clássico](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Clique no botão Copiar para o **ID de recurso** para copiar o ID de recurso para a rede clássico para a área de transferência. Guarde o ID da área de transferência no OneNote ou um ficheiro.
@@ -93,13 +100,14 @@ Terá primeiro de configurar antes de pode associar uma resposta a incidentes SS
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Utilize o portal para configurar uma VNet do Azure Resource Manager
 Terá primeiro de configurar antes de pode associar uma resposta a incidentes SSIS do Azure para a VNet a VNet.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique em **mais serviços**. Filtrar e selecione **redes virtuais**.
-3. Filtrar e selecione o **rede virtual** na lista. 
-4. Na página de rede Virtual, selecione **propriedades**. 
-5. Clique no botão Copiar para o **ID de recurso** para copiar o ID de recurso para a rede virtual para a área de transferência. Guarde o ID da área de transferência no OneNote ou um ficheiro.
-6. Clique em **sub-redes** no menu da esquerda e certifique-se de que o número de **endereços disponíveis** é maior do que os nós no seu tempo de execução de integração de SSIS do Azure.
-5. Certifique-se de que esse fornecedor do Azure Batch está registado na subscrição do Azure com a VNet ou registar o fornecedor do Azure Batch. Se já tiver uma conta do Azure Batch na sua subscrição, em seguida, a sua subscrição está registada para o Azure Batch.
+1. Iniciar **Microsoft Edge** ou **Google Chrome** web browser. Atualmente, a IU da fábrica de dados é suportada apenas em browsers de web do Microsoft Edge e o Google Chrome.
+2. Inicie sessão no [portal do Azure](https://portal.azure.com).
+3. Clique em **mais serviços**. Filtrar e selecione **redes virtuais**.
+4. Filtrar e selecione o **rede virtual** na lista. 
+5. Na página de rede Virtual, selecione **propriedades**. 
+6. Clique no botão Copiar para o **ID de recurso** para copiar o ID de recurso para a rede virtual para a área de transferência. Guarde o ID da área de transferência no OneNote ou um ficheiro.
+7. Clique em **sub-redes** no menu da esquerda e certifique-se de que o número de **endereços disponíveis** é maior do que os nós no seu tempo de execução de integração de SSIS do Azure.
+8. Certifique-se de que esse fornecedor do Azure Batch está registado na subscrição do Azure com a VNet ou registar o fornecedor do Azure Batch. Se já tiver uma conta do Azure Batch na sua subscrição, em seguida, a sua subscrição está registada para o Azure Batch.
     1. No portal do Azure, clique em **subscrições** no menu da esquerda. 
     2. Selecione o **subscrição**. 
     3. Clique em **fornecedores de recursos** à esquerda e confirme que `Microsoft.Batch` é um fornecedor registado. 
@@ -111,7 +119,8 @@ Terá primeiro de configurar antes de pode associar uma resposta a incidentes SS
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Associar a resposta a incidentes SSIS do Azure para uma VNet
 
 
-1. No [portal do Azure](https://portal.azure.com), selecione **fábricas de dados** no menu da esquerda. Se não vir **fábricas de dados** no menu, selecione **mais serviços**, selecione **fábricas de dados** no **INTELLIGENCE + análise** secção. 
+1. Iniciar **Microsoft Edge** ou **Google Chrome** web browser. Atualmente, a IU da fábrica de dados é suportada apenas em browsers de web do Microsoft Edge e o Google Chrome.
+2. No [portal do Azure](https://portal.azure.com), selecione **fábricas de dados** no menu da esquerda. Se não vir **fábricas de dados** no menu, selecione **mais serviços**, selecione **fábricas de dados** no **INTELLIGENCE + análise** secção. 
     
     ![Lista de fábricas de dados](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Selecione a fábrica de dados com o tempo de execução do Azure SSIS integração na lista. Verá a home page da fábrica de dados. Selecione **autor & implementar** mosaico. Consulte a interface de utilizador (IU) do Data Factory num separador separado. 

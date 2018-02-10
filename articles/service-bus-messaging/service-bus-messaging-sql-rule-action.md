@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 83b4f76a171cd8a860e7ab43462c976bf4df941a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlruleaction-syntax"></a>Sintaxe de SQLRuleAction
 
@@ -196,7 +196,7 @@ As constantes booleanos são representadas por palavras-chave `TRUE` ou `FALSE`.
   
 As constantes String estão incluídas entre plicas e incluam quaisquer carateres Unicode válidos. Uma plica incorporada numa constante de cadeia é representada como dois único entre aspas.  
   
-## <a name="function"></a>Função  
+## <a name="function"></a>função  
   
 ```  
 <function> :=  
@@ -219,7 +219,7 @@ O `property(name)` função devolve o valor da propriedade referenciado pelo `na
 - Ação não falhar se as propriedades do utilizador inexistente foram referenciadas.
 - Uma propriedade inexistente utilizador é avaliada como "Desconhecido" internamente, seguindo a mesma semântica como [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar operadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Classe de SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe de SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

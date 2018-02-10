@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/15/2017
+ms.date: 2/05/2018
 ms.author: ahgyger
-ms.openlocfilehash: e3cbcb8118aa05e554b2493506280d0e24706059
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6189cd2dce2be8c87255dedecd4493767e857031
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implementar uma Área de Trabalho do Machine Learning com o Azure Resource Manager
 ## <a name="introduction"></a>Introdução
@@ -138,7 +138,7 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 ```
 Depois da área de trabalho é aprovisionada, também pode automatizar muitas tarefas do Azure Machine Learning Studio utilizando o [módulo do PowerShell do Azure Machine Learning](http://aka.ms/amlps).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Saiba mais sobre [criação de modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * Veja o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Veja este vídeo sobre [do Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 

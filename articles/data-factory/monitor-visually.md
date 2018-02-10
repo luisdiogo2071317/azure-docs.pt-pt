@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
 O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Com o Azure Data Factory, poderá criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que são capazes de ingerir dados provenientes de diferentes arquivos de dados, processar/transformar os dados através de serviços de computação, tais como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para serem consumidos por aplicações de business intelligence (BI).
@@ -29,15 +29,16 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Monitorizar os pipelines de v2 de fábrica de dados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Navegue para o painel de fábrica de dados criada no portal do Azure e clique no mosaico 'Monitor & Gerir'. Este procedimento inicia a experiência de monitorização visual do ADF v2.
+1. Iniciar **Microsoft Edge** ou **Google Chrome** web browser. Atualmente, a IU da fábrica de dados é suportada apenas em browsers de web do Microsoft Edge e o Google Chrome.
+2. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+3. Navegue para o painel de fábrica de dados criada no portal do Azure e clique no mosaico 'Monitor & Gerir'. Este procedimento inicia a experiência de monitorização visual do ADF v2.
 
 ## <a name="list-view-monitoring"></a>Monitorização de vista de lista
 
-Monitorizar o pipeline e a atividade é executada com uma interface de vista de lista simples. Todas as execuções são apresentadas no fuso horário local do browser. Pode alterar o fuso horário e todos os campos de hora de data serão ajustado para o fuso horário selecionado.  
+Monitorizar o pipeline e a atividade é executada com uma interface de vista de lista simples. Todas as execuções são apresentadas no fuso horário local do browser. Pode alterar o fuso horário e todos os campos de data e hora mudarão para esse fuso horário.  
 
 #### <a name="monitoring-pipeline-runs"></a>Monitorizar a execução de Pipeline
-Vista de lista que mostram a cada pipeline executar para os seus pipelines de v2 de fábrica de dados. Colunas incluídas:
+Vista de lista que mostra cada execução de pipeline dos seus pipelines da fábrica de dados v2. Colunas incluídas:
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
@@ -54,7 +55,7 @@ Vista de lista que mostram a cada pipeline executar para os seus pipelines de v2
 ![Monitorizar execuções de pipeline](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Execuções de atividade de monitorização
-Vista de lista que mostram a execuções de atividade correspondente a cada execução de pipeline. Clique em **'Atividade é executada'** ícone sob o **'Ações'** coluna para ver a atividade é executada para cada execução de pipeline. Colunas incluídas:
+Vista de lista que mostra as execuções de atividades que correspondem a cada execução de pipeline. Clique em **'Atividade é executada'** ícone sob o **'Ações'** coluna para ver a atividade é executada para cada execução de pipeline. Colunas incluídas:
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
@@ -70,14 +71,14 @@ Vista de lista que mostram a execuções de atividade correspondente a cada exec
 ![Monitorização de execuções de atividade](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
-> Tem de clicar em **'Atualizar'** ícone na parte superior para atualizar a lista de execuções de atividade e o pipeline. Atualização automática não é atualmente suportada.
+> Tem de clicar em **'Atualizar'** ícone na parte superior para atualizar a lista de execuções de atividade e o pipeline. A atualização automática não é suportada atualmente.
 >
 
 ![Atualizar](media/monitor-visually/refresh.png)
 
 ## <a name="features"></a>Funcionalidades
 
-#### <a name="rich-ordering-and-filtering"></a>A ordenação avançada e filtragem
+#### <a name="rich-ordering-and-filtering"></a>Ordenação e filtragem avançadas
 
 Pipeline de ordem é executada desc/asc ao iniciar a execução e o pipeline de filtro é executada pelas seguintes colunas:
 
@@ -89,7 +90,7 @@ Pipeline de ordem é executada desc/asc ao iniciar a execução e o pipeline de 
 
 ![Filtro](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>Adicionar/remover colunas para a vista de lista
+#### <a name="addremove-columns-to-list-view"></a>Adicionar/remover colunas da vista de lista
 Clique com o botão direito do rato no cabeçalho de vista de lista e escolha as colunas que pretende que sejam apresentados na vista de lista
 
 ![Colunas](media/monitor-visually/columns.png)

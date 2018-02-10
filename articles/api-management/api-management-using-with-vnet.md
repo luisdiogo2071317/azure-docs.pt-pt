@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começar a utilizar as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -61,7 +61,7 @@ Para efetuar os passos descritos neste artigo, tem de ter:
     Agora, irá ver uma lista de todas as regiões onde o serviço de API Management está aprovisionado. Selecione uma VNET e sub-rede para cada região. A lista ser preenchida com clássica e Resource Manager redes virtuais disponíveis nas suas subscrições do Azure que estão a configuração na região que está a configurar.
     
     > [!NOTE]
-    > **Ponto final de serviço** no diagrama acima inclui Gateway/Proxy, Portal do publicador, Portal do programador, GIT e o ponto final de gestão direta.
+    > **Ponto final de serviço** no diagrama acima inclui Gateway/Proxy, o portal do Azure, o portal do programador, GIT e o ponto final de gestão direta.
     > **Ponto final de gestão** no diagrama acima é o ponto final alojado no serviço para gerir a configuração através do portal do Azure e do Powershell.
     > Além disso, tenha em atenção que, apesar de, o diagrama mostra os endereços IP para os pontos finais várias, serviço de API Management **apenas** responde no respetivo Hostnames configurado.
     

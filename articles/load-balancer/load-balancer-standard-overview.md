@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Descrição geral do padrão de Balanceador de carga do Azure (pré-visualização)
 
 O SKU Standard do Balanceador de carga do Azure e o SKU de padrão de IP público em conjunto permitem-lhe criar arquiteturas altamente escaláveis e fiáveis. As aplicações que utilizam o padrão de Balanceador de carga podem tirar partido das novas capacidades. Baixa latência, débito alto e escala estão disponíveis para milhões de fluxos de todas as aplicações de TCP e UDP.
 
 >[!NOTE]
-> O SKU de padrão de Balanceador de carga está atualmente em pré-visualização. Durante a pré-visualização, a funcionalidade não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Utilizar geralmente disponível [SKU básico de Balanceador de carga](load-balancer-overview.md) para os serviços de produção. As funcionalidades que estão associadas esta pré-visualização, [disponibilidade zonas](https://aka.ms/availabilityzones), e [HA portas](https://aka.ms/haports), requerem separado inscrição neste momento. Siga as instruções para a respetivas inscrição para essas funcionalidades, para além de inscrever-se para o Balanceador de carga [pré-visualização padrão](#preview-sign-up).
+> O SKU de padrão de Balanceador de carga está atualmente em pré-visualização. Durante a pré-visualização, a funcionalidade não pode ter o mesmo nível de disponibilidade e fiabilidade como versão de funcionalidades que estão em geral disponibilidade. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Utilizar geralmente disponível [SKU básico de Balanceador de carga](load-balancer-overview.md) para os serviços de produção. Para utilizar [pré-visualização de zonas de disponibilidade](https://aka.ms/availabilityzones) com esta pré-visualização requer um [separado inscrição](https://aka.ms/availabilityzones), além de inscrever-se para o Balanceador de carga [pré-visualização padrão](#preview-sign-up).
 
 ## <a name="why-use-load-balancer-standard"></a>Porquê utilizar o padrão de Balanceador de carga?
 
@@ -325,13 +325,11 @@ SKUs não são mutável. Siga os passos nesta secção para mover de um recurso 
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Padrão de Balanceador de carga está atualmente disponível nestas regiões:
-- EUA Leste 2
-- EUA Central
-- Europa do Norte
-- EUA Centro-Oeste
-- Europa Ocidental
-- Sudeste Asiático
+Padrão de Balanceador de carga está atualmente disponível em todas as regiões de nuvem pública.
+
+>[!IMPORTANT]
+> Para um curto período de tempo, aceda para regiões fora do lançamento inicial regiões (EUA Leste 2, EUA Central, Europa do Norte, Central EUA oeste, Europa Ocidental, Sudeste asiático) requer o registo das funcionalidades adicionais de subscrição (AllowLBPreviewWave2 e AllowLBPreviewWave3).  [Siga estes passos](#additionalpreviewregions). . Execute todos eles, mesmo se tiver cópias de segurança para AllowLBPreview já.
+> Este requisito será removido nas próximas semanas.
 
 ## <a name="sku-service-limits-and-abilities"></a>Limites de serviço SKU e capacidades
 
@@ -369,7 +367,12 @@ A tabela seguinte compara os limites e capacidades do IP público básico e padr
 Participar na pré-visualização para SKU Standard de Balanceador de carga e o complemento SKU Standard de IP público, registe a sua subscrição.  Registar o fornecem de subscrição, que aceder a partir do PowerShell ou do Azure CLI 2.0. Para registar, execute os seguintes passos:
 
 >[!NOTE]
->Registo da funcionalidade do padrão de Balanceador de carga pode demorar até uma hora entram em vigor global. Se pretender utilizar carga balanceador Standard com [disponibilidade zonas](https://aka.ms/availabilityzones) e [HA portas](https://aka.ms/haports), um separado inscrição é necessário para que estas pré-visualizações são. Siga as instruções para a respetivas inscrição para essas funcionalidades.
+>Registo da funcionalidade do padrão de Balanceador de carga pode demorar até uma hora entram em vigor global. Se pretender utilizar carga balanceador Standard com [disponibilidade zonas](https://aka.ms/availabilityzones), um [separado inscrição](https://aka.ms/availabilityzones) é necessário para a pré-visualização de AZ.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> Durante um curto período de tempo, o acesso a regiões fora do lançamento inicial regiões (EUA Leste 2, EUA Central, Europa do Norte, Central EUA oeste, Europa Ocidental, Sudeste asiático) requerem o registo das funcionalidades adicionais de subscrição (AllowLBPreviewWave2 e AllowLBPreviewWave3).  Foram modificados os passos abaixo para ativar funcionalidades adicionais de subscrição. . Execute todos eles, mesmo se tiver cópias de segurança para AllowLBPreview já. Este requisito será removido nas próximas semanas.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Inscrever-se utilizando o Azure CLI 2.0
 
@@ -377,15 +380,19 @@ Participar na pré-visualização para SKU Standard de Balanceador de carga e o 
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. A operação pode demorar até 10 minutos a concluir. Pode verificar o estado da operação com o seguinte comando:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Quando o estado de registo de funcionalidade devolve 'Registada', avance para o passo seguinte:
+    Quando o estado de registo de funcionalidade devolve 'Registada' para cada uma das funcionalidades de subscrição acima, avance para o passo seguinte. Exemplo:
    
     ```json
     {
@@ -398,28 +405,33 @@ Participar na pré-visualização para SKU Standard de Balanceador de carga e o 
     }
     ```
     
-3. Conclua a inscrição de pré-visualização ao registar novamente a sua subscrição com o fornecedor de recursos:
+4. Conclua a inscrição de pré-visualização ao registar novamente a sua subscrição com o fornecedor de recursos:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>Inscrever-se utilizando o PowerShell
 
 1. A funcionalidade com o fornecedor do registo:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. A operação pode demorar até 10 minutos a concluir. Pode verificar o estado da operação com o seguinte comando:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Quando o estado de registo de funcionalidade devolve 'Registada', avance para o passo seguinte:
-   
+  Quando o estado de registo de funcionalidade devolve 'Registada' para cada uma das funcionalidades de subscrição acima, avance para o passo seguinte. Exemplo:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ As seguintes limitações aplicam-se no momento da pré-visualização e estão 
 - IPv6 não é suportado.
 - No contexto das zonas de disponibilidade, um front-end não está mutável de zonal com redundância de zona, ou vice-versa. Depois de um front-end é criado como com redundância de zona, permanece com redundância de zona. Depois de um front-end é criado como zonal, continua a ser zonal.
 - No contexto das zonas de disponibilidade, não é possível mover um endereço IP público zonal de uma zona para outro.
+- [Alertas de monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são suportados neste momento.
+- Portal ainda não suporta as regiões de pré-visualização expandido.  Utilize ferramentas de cliente como modelos, 2.0 do Azure CLI ou PowerShell como uma solução.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [básico de Balanceador de carga](load-balancer-overview.md).
 - Saiba mais sobre [disponibilidade zonas](../availability-zones/az-overview.md).
+- Saiba mais sobre [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 - Saiba mais sobre algumas da outra chave [capacidades de rede](../networking/networking-overview.md) no Azure.
-
+- Saiba mais sobre [métricas expostas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).

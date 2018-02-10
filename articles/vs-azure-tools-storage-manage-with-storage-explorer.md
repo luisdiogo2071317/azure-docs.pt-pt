@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Explorador de Armazenamento (Pré-visualização)
 ## <a name="overview"></a>Descrição geral
@@ -239,6 +239,20 @@ Besides gerir contas de base de dados do Azure Cosmos através de subscrição d
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Ligar ao Azure Data Lake Store pelo URI
+Se pretender obter acesso a recursos, o que não existem na sua subscrição. Mas outros conceder-lhe obter o Uri para os recursos. Neste caso, pode ligar ao Data Lake Store utilizando o Uri depois de ter sessão iniciada. Consulte os seguintes passos.
+1. Abrir o Explorador de Armazenamento (Pré-visualização).
+2. No painel esquerdo, expanda **locais e anexadas**.
+3. Clique com botão direito **Data Lake Store**e, no menu de contexto - selecione **ligar ao Data Lake Store...** .
+
+    ![ligar ao menu de contexto do Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Introduza o Uri, em seguida, a ferramenta navega para a localização do URL introduzido apenas.
+
+    ![ligar ao diálogo de contexto do Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![ligar ao resultado de Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Procurar contas do Storage
 Se precisar de localizar um recurso de armazenamento e não souber qual é, pode utilizar a caixa de pesquisa na parte superior do painel esquerdo para procurar o recurso.
 
@@ -254,6 +268,7 @@ Se precisar de localizar um recurso de armazenamento e não souber qual é, pode
 ## <a name="next-steps"></a>Passos Seguintes
 * [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md) [Gerir recursos do Armazenamento de Blobs do Azure com o Explorador de Armazenamento (Pré-visualização)]
 * [Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)](./cosmos-db/storage-explorer.md)
+* [Gerir recursos do Azure Data Lake Store com o Explorador de armazenamento (pré-visualização)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

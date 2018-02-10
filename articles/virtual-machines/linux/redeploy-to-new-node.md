@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Volte a implementar máquina virtual do Linux para o novo nó do Azure
 Se enfrentam dificuldades a resolução de problemas de SSH ou acesso à aplicação a uma máquina virtual (VM) do Linux no Azure, voltar a implementar a VM pode ajudar. Quando voltar a implementar uma VM, muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, for ligado-lo novamente. Todas as suas opções de configuração e os recursos associados são mantidos. Este artigo mostra como voltar a implementar uma VM utilizando a CLI do Azure ou o portal do Azure.
@@ -33,9 +33,9 @@ Pode voltar a implementar uma VM com uma das seguintes opções. Só tem de esco
 - [Portal do Azure](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
-Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e inicie sessão na sua Azure conta através de [início de sessão az](/cli/azure/#login).
+Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e inicie sessão na sua Azure conta através de [início de sessão az](/cli/azure/#az_login).
 
-Volte a implementar a VM com [volte a implementar az vm](/cli/azure/vm#redeploy). O exemplo seguinte redeploys VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
+Volte a implementar a VM com [volte a implementar az vm](/cli/azure/vm#az_vm_redeploy). O exemplo seguinte redeploys VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +47,12 @@ A tabela seguinte fornece descrições para as propriedades genéricas utilizada
 
 ### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
 O serviço ligado do Azure Data Lake Analytics necessita de uma autenticação principal de serviço para ligar ao serviço Azure Data Lake Analytics. Para utilizar a autenticação principal de serviço, registe uma entidade de aplicação no Azure Active Directory (Azure AD) e conceder o acesso ao Data Lake Analytics e Data Lake Store utiliza. Para obter passos detalhados, consulte [autenticação de serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores que utilizar para definir o serviço ligado:
+
 * ID da aplicação
 * Chave da aplicação 
 * ID do inquilino
+
+Conceder a permissão principal do serviço para utilizar o Azure Data Lake Anatlyics o [Assistente para adicionar utilizador](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Utilize a autenticação principal de serviço, especificando as seguintes propriedades:
 

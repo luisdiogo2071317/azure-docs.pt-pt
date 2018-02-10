@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: 54655c33336ff3fef261024984947108d6f1df9c
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 614517c5b9a54fc11cf0b8f8b6e298b9aec5cf76
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-machine-learning-model"></a>Reparametrização de um modelo de Machine Learning
 Como parte do processo de operationalization de modelos de machine learning no Azure Machine Learning, o seu modelo está preparado e guardou. Pode, em seguida, utilizado para criar um serviço Web predicative. O serviço Web, em seguida, pode ser utilizado em web sites, dashboards e as aplicações móveis. 

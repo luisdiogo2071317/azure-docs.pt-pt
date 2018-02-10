@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5b6a2cde9bea3d3aba9262bb9446d54773cf0297
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bc57e54b051ff8831ba38e91ed682b8f5d868d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados de Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ As seguintes propriedades são suportadas para o serviço de Cassandra ligada:
 | porta |A porta TCP que o servidor de Cassandra utiliza para escutar ligações de cliente. |Não (a predefinição é 9042) |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados Cassandra.<br/>Valores permitidos são: **básico**, e **anónimo**. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador da conta de utilizador. |Sim, se authenticationType está definido para básico. |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador. Marcar este campo como SecureString. |Sim, se authenticationType está definido para básico. |
+| palavra-passe |Especifique a palavra-passe da conta de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim, se authenticationType está definido para básico. |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**

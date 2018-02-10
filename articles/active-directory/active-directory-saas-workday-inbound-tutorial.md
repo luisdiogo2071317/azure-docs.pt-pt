@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -297,7 +297,7 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 
          * **Expressão** – permite-lhe escrever um valor personalizado para o atributo de AD, com base num ou mais atributos do Workday. [Para obter mais informações, consulte este artigo em expressões](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Atributo de origem** -o atributo de utilizador do Workday.
+      * **Atributo de origem** -o atributo de utilizador do Workday. Se o atributo que procura não estiver presente, consulte [personalizar a lista de atributos de utilizador do Workday](#customizing-the-list-of-workday-user-attributes).
 
       * **Valor predefinido** – opcional. Se o atributo de origem tem um valor vazio, o mapeamento irá escrever este valor.
             A configuração mais comuns é a deixar isto em branco.
@@ -549,7 +549,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem do Workday par
 
       * **Expressão** – permite-lhe escrever um valor personalizado para o atributo de AD, com base num ou mais atributos do Workday. [Para obter mais informações, consulte este artigo em expressões](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Atributo de origem** -o atributo de utilizador do Workday.
+   * **Atributo de origem** -o atributo de utilizador do Workday. Se o atributo que procura não estiver presente, consulte [personalizar a lista de atributos de utilizador do Workday](#customizing-the-list-of-workday-user-attributes).
 
    * **Valor predefinido** – opcional. Se o atributo de origem tem um valor vazio, o mapeamento irá escrever este valor.
             A configuração mais comuns é a deixar isto em branco.
@@ -646,7 +646,7 @@ Depois de partes 1-2 tem sido concluídas, pode iniciar o serviço de aprovision
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Personalizar a lista de atributos de utilizador do Workday
 Aprovisionamento de aplicações para o Active Directory e o Azure AD incluem uma lista predefinida de atributos de utilizador do Workday evidenciam pode selecionar. No entanto, estas listas não são abrangentes. Workday suporta várias centenas de atributos de utilizador possível, o que podem ser exclusivo no seu inquilino do Workday ou padrão. 
 
-O Azure AD que o serviço de fornecimento suporta a capacidade para personalizar a lista ou um atributo do Workday para incluir quaisquer atributos expostos no [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) operação da API de recursos humanos.
+O Azure AD que o serviço de fornecimento suporta a capacidade para personalizar a lista ou um atributo do Workday para incluir quaisquer atributos expostos no [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operação da API de recursos humanos.
 
 Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-download) para extrair as expressões XPath que representam os atributos que pretende utilizar e, em seguida, adicioná-los à sua configuração de aprovisionamento utilizando o editor de atributos avançadas no portal do Azure.
 
@@ -654,7 +654,7 @@ Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-
 
 1. Transfira e instale [Workday Studio](https://community.workday.com/studio-download). Precisa de uma conta de Comunidade do Workday para o instalador de acesso.
 
-2. Transferir o ficheiro do Workday Human_Resources WDSL a partir deste URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. Transferir o ficheiro do Workday Human_Resources WDSL a partir deste URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Inicie o Studio do Workday.
 
@@ -680,12 +680,23 @@ Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>

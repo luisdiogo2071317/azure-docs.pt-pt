@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Como pretende proteger um back-end de Web API com o Azure Active Directory e a API Management
 O vídeo seguinte mostra como criar um back-end de Web API e protegê-lo através do protocolo de OAuth 2.0 com o Azure Active Directory e a API Management.  Este artigo fornece uma descrição geral e informações adicionais para obter os passos as vídeo. Este vídeo de minuto 24 mostra-lhe como para:
@@ -33,7 +33,7 @@ O vídeo seguinte mostra como criar um back-end de Web API e protegê-lo atravé
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Criar um diretório do Azure AD
-Para proteger a API Web de segurança utilizando o Azure Active Directory, primeiro tem de ter um um inquilino do AAD. Neste vídeo um inquilino com o nome **APIMDemo** é utilizado. Para criar um inquilino do AAD, início de sessão para o [Portal clássico do Azure](https://manage.windowsazure.com) e clique em **novo**->**serviços aplicacionais**->**do Active Directory**  -> **Diretório**->**criação personalizada**. 
+Para proteger o seu back-end de Web API utilizando o Azure Active Directory, primeiro tem de ter um um inquilino do AAD. Neste vídeo um inquilino com o nome **APIMDemo** é utilizado. Para criar um inquilino do AAD, início de sessão para o [Portal clássico do Azure](https://manage.windowsazure.com) e clique em **novo**->**serviços aplicacionais**->**do Active Directory**  -> **Diretório**->**criação personalizada**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -192,7 +192,7 @@ As APIs são configuradas a partir do portal de publicador da API, que é acedid
 
 As operações podem ser [adicionados manualmente a APIs](api-management-howto-add-operations.md), ou podem ser importados. Neste vídeo, as operações são importadas no formato Swagger começando 6:40.
 
-Crie um ficheiro denominado `calcapi.json` com o seguinte conteúdo e guarde-o para o seu computador. Certifique-se de que o `host` atributo pontos para o back-end de Web API. Neste exemplo `"host": "apimaaddemo.azurewebsites.net"` é utilizado.
+Crie um ficheiro denominado `calcapi.json` com o seguinte conteúdo e guarde-o para o seu computador. Certifique-se de que o `host` atributo pontos para o back-end de Web API. Neste exemplo é utilizado `"host": "apimaaddemo.azurewebsites.net"`.
 
 ```json
 {
@@ -387,7 +387,7 @@ Escolha **Web de aplicação e/ou Web API**, introduza um nome e clique na seta 
 
 ![Nova aplicação][api-management-aad-new-application-devportal-1]
 
-Para **URL de início de sessão** introduza o URL do seu serviço de API Management e de acréscimo `/signin`. Neste exemplo `https://contoso5.portal.azure-api.net/signin` é utilizado.
+Para **URL de início de sessão** introduza o URL do seu serviço de API Management e de acréscimo `/signin`. Neste exemplo é utilizado `https://contoso5.portal.azure-api.net/signin`.
 
 Para **URL de Id de aplicação** introduza o URL do seu serviço de API Management e de acréscimo alguns carateres exclusivos. Estes podem ser quaisquer carateres pretendidos e, neste exemplo `https://contoso5.portal.azure-api.net/dp` é utilizado. Quando o pretendido **as propriedades da aplicação** são configurados, clique na marca de verificação para criar a aplicação.
 

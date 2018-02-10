@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Configuração e os limites de aplicações lógicas
 
-Este tópico descreve os limites atuais e detalhes de configuração para o Azure Logic Apps.
+Este artigo descreve os limites atuais e detalhes de configuração para o Azure Logic Apps.
 
 ## <a name="limits"></a>Limites
 
@@ -66,7 +66,7 @@ Estes limites aplicam-se para uma aplicação lógica única de executar.
 | Intervalo de periodicidade máximo | dias de 500 | 
 ||| 
 
-Exceder os limites para a duração de execução ou de retenção de armazenamento no seu fluxo de processamento normal, [contacte-nos](mailto://logicappsemail@microsoft.com) , de modo a que o possamos ajudar com as suas necessidades.
+Exceder os limites para a duração de execução ou de retenção de armazenamento no seu fluxo de processamento normal, [contacte a equipa de produto](mailto://logicappsemail@microsoft.com) para obter assistência com os seus requisitos.
 
 ### <a name="looping-and-debatching-limits"></a>Criar ciclos e debatching limites
 
@@ -82,18 +82,18 @@ Estes limites aplicam-se para uma aplicação lógica única de executar.
 
 ### <a name="throughput-limits"></a>Limites de débito
 
-Estes limites aplicam-se a uma instância de aplicação lógica única.
+Estes limites aplicam-se a um recurso de aplicação lógica única.
 
 | Nome | Limite | Notas | 
 | ----- | ----- | ----- | 
-| Execuções de ações por 5 minutos | 100,000 |<p>O limite pode ser aumentado até 300,000 ao executar uma aplicação lógica na `High Througput` modo e isto podem ser efetuadas definindo a `operationOptions` propriedade`runtimeConfiguration` do recurso de fluxo de trabalho para `OptimizedForHighThroughput`. <p>Tenha em atenção de que modo débito elevado está em pré-visualização. Também uma carga de trabalho pode ser distribuída por várias aplicações conforme necessário. | 
+| Execuções de ações por 5 minutos | 100,000 |<p>O limite pode ser aumentado para 300,000 ao executar uma aplicação lógica na `High Througput` modo. Modo débito elevado pode ser configurado através da definição de `operationOptions` propriedade`runtimeConfiguration` do recurso de fluxo de trabalho para `OptimizedForHighThroughput`. <p>Tenha em atenção de que modo débito elevado está em pré-visualização. Também uma carga de trabalho pode ser distribuída por várias aplicações conforme necessário. | 
 | Chamadas de saída em simultâneo de ações | ~2,500 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
 | Ponto final de Runtime: entradas de chamadas em simultâneo |~1,000 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
 | Ponto final de Runtime: ler chamadas por 5 minutos  | 60,000 | Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
 | Ponto final de Runtime: invocar chamadas por 5 minutos| 45,000 |Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
 |||| 
 
-Exceda estes limites de processamento normal ou teste de carga de execução que poderão exceder estes limites [contacte-nos](mailto://logicappsemail@microsoft.com) , de modo a que o possamos ajudar com as suas necessidades.
+Exceda estes limites de processamento normal ou teste de carga de execução que poderão exceder estes limites [contacte a equipa de produto](mailto://logicappsemail@microsoft.com) para obter assistência com os seus requisitos.
 
 ### <a name="logic-app-definition-limits"></a>Limites de definição de aplicação lógica
 

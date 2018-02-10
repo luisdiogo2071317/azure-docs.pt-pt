@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externas #
 
-Ambiente de serviço de aplicações do Azure é uma implementação do App Service do Azure a uma sub-rede numa rede virtual do Azure (VNet). Existem duas formas de implementar um ambiente de serviço de aplicações (ASE):
+O Ambiente de Serviço de Aplicações do Azure é uma implementação do Serviço de Aplicações do Azure numa sub-rede de uma rede virtual do Azure (VNet). Existem duas formas de implementar um ambiente de Serviço de Aplicações (ASE):
 
-- Com um VIP num endereço IP externo, frequentemente, designado ASE externo.
+- Com um VIP num endereço IP externo, muitas vezes chamado ASE Externo.
 - Com o VIP num endereço IP, denominado frequentemente ILB ASE porque o ponto final interno é um balanceador de carga interno (ILB).
 
 Este artigo mostra como criar ASE externo. Para uma descrição geral de ASE, consulte [uma introdução ao ambiente de serviço de aplicações][Intro]. Para obter informações sobre como criar ILB ASE, consulte [criar e utilizar ILB ASE][MakeILBASE].
@@ -69,7 +69,7 @@ Para criar ASE enquanto cria um plano de serviço de aplicações:
 
 4. Selecione o plano de serviço de aplicações e, em seguida, selecione **criar novo**.
 
-    ![Novo plano de serviço de aplicações][2]
+    ![Novo plano do Serviço de Aplicações][2]
 
 5. No **localização** na lista pendente, selecione a região onde pretende criar o ASE. Se selecionar ASE existente, não é criado um novo ASE. O plano de serviço de aplicações é criado na ASE que selecionou. 
 
@@ -87,7 +87,7 @@ Para criar ASE enquanto cria um plano de serviço de aplicações:
 
     b. Introduza um novo nome de sub-rede.
 
-    c. Selecione o tamanho da sub-rede. *Lembre-se de selecionar um tamanho grande o suficiente para permitir um crescimento futuro da sua ASE.* Recomendamos `/25`, que tem 128 endereços e pode processar um ASE tamanho máximo. Não recomendamos `/28`, por exemplo, porque apenas 16 endereços estão disponíveis. A infraestrutura utiliza, pelo menos, cinco endereços. Num `/28` sub-rede, está a deixado com um dimensionamento máximo de 11 instâncias.
+    c. Selecione o tamanho da sub-rede. *Lembre-se de selecionar um tamanho grande o suficiente para permitir um crescimento futuro da sua ASE.* Recomendamos `/25`, que tem 128 endereços e pode processar um ASE tamanho máximo. Não recomendamos `/28`, por exemplo, porque apenas 16 endereços estão disponíveis. Utiliza a infraestrutura de endereços, pelo menos, sete e redes do Azure utiliza outra 5. Num `/28` sub-rede, está a ser deixado com um máximo de dimensionamento de 4 instâncias do plano de serviço de aplicações para ASE externo e só 3 plano do App Service instâncias ILB ASE.
 
     d. Selecione o intervalo IP da sub-rede.
 

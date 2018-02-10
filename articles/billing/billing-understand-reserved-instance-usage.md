@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Compreender a utilização de instância reservado para a sua subscrição pay as you go
 
@@ -56,6 +56,16 @@ Filtrar as informações adicionais e escreva o ID de reserva. A seguinte captur
 3. Linha de Base de reserva VM medição subcategoria representa a linha de custo de $0 na secção de instrução. Custo de execução da VM já é paga pela reserva.
 4. Este é o Id de medição de reserva. Custo deste medidor é $0. Qualquer VM que qualificam para a instância reservado tem este MeterId no csv para a conta para o custo. 
 5. Standard_DS1_v2 é uma vCPU VM e a VM está implementado sem benefício híbrida do Azure. Por conseguinte, este medidor inclui o custo adicional de software do Windows. Consulte [os custos de software do Windows de instâncias de VM de reserva do Azure.](billing-reserved-instance-windows-software-costs.md) Para localizar o medidor correspondente a série de D 1 núcleo VM. Se for utilizado o benefício de híbrida do Azure, este custo extra não está aplicado. 
+
+## <a name="next-steps"></a>Passos Seguintes
+Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+
+- [Prepay para máquinas virtuais com instâncias de VM reservado](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir instâncias de Máquina Virtual reservada](billing-manage-reserved-vm-instance.md)
+- [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](billing-save-compute-costs-reservations.md)
+- [Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado](billing-understand-vm-reservation-charges.md)
+- [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Custos de software do Windows não incluídos com instâncias reservado](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

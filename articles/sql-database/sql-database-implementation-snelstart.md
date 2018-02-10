@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 4fa21cf9cbd1680ddd855189f50af50e1068ccd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a5100941675b6bdd1934bfcabe10172b4949fff9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Com o Azure, SnelStart expandiu rapidamente os serviços empresariais uma taxa de 1.000 novo Azure bases de dados SQL por mês
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -104,7 +104,6 @@ O objetivo de imediato para SnelStart é continuam a crescer respetivo cliente s
 
 ## <a name="more-information"></a>Mais informações
 * Para obter mais informações sobre conjuntos elásticos do Azure, consulte o artigo [conjuntos elásticos](sql-database-elastic-pool.md).
-* Para obter mais informações sobre funções da Web e funções de trabalho, consulte o artigo [as funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre o Azure SQL Data Warehouse, consulte o artigo [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Para saber mais sobre SnelStart, consulte o artigo [SnelStart](http://www.snelstart.nl).
 

@@ -52,7 +52,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Regras por recurso, Basic | 150 | 250 |
 | Regras por recurso, Standard | 1250 | 1500 |
 | Regras por configuração de IP | 299 |299 |
-| Configurações de IP de front-end, Basic | 10 | contactar o suporte |
+| Configurações de IP de front-end, Basic | 10 | 200 |
 | Configurações de IP de front-end, Standard | 10 | 600 |
 | Conjunto de back-end, Basic | 100, único conjunto de disponibilidade | - |
 | Conjunto de back-end, Standard | 1000, único VNet | - |

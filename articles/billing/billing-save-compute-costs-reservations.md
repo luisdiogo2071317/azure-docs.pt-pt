@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado 
 Instâncias de Máquina Virtual reservada permitem-lhe pagar previamente para um ano ou três anos de capacidade de cálculo para obter um desconto nas máquinas virtuais que utiliza. Esta reduz significativamente os custos de máquina virtual — até 72 por cento num preços pay as you go – com o compromisso de compromisso de um ano ou três anos. Instâncias de Máquina Virtual reservada um desconto de faturação e não afeta o estado do tempo de execução de máquinas virtuais.
@@ -58,7 +58,16 @@ As reservas estão disponíveis para a maioria dos tamanhos de VM com algumas ex
 - Quota suficiente – A reservado instância de VM que está confinada para uma única subscrição tem de ter vCPU quota disponível na subscrição para o novo RI. Por exemplo, se a subscrição de destino tem um limite de quota de 10 vCPUs para a família de série D, não é possível de comprar uma instância de VM reservado para 11 Standard_D1 instâncias. A verificação de quota de reservas inclui as VMs já implementadas na subscrição. Por exemplo, se a subscrição tem uma quota de 10 vCPUs para a família de série D. Se esta subscrição tem duas instâncias de standard_D1 implementadas, pode comprar uma instância de VM reservado para 10 standard_D1 instâncias nesta subscrição. 
 - Restrições de capacidade – circunstâncias raros, compra de limites do Azure de reservas de novo para subconjunto de tamanhos de VM, devido a baixa capacidade numa região.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Início guardar nas suas máquinas virtuais por comprar uma [instância de Máquina Virtual reservada](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+
+- [Prepay para máquinas virtuais com instâncias de VM reservado](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir instâncias de Máquina Virtual reservada](billing-manage-reserved-vm-instance.md)
+- [Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado](billing-understand-vm-reservation-charges.md)
+- [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
+- [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Custos de software do Windows não incluídos com instâncias reservado](billing-reserved-instance-windows-software-costs.md)
 
 Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.

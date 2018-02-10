@@ -7,6 +7,7 @@ As seguintes limitações aplicam-se às etiquetas:
 * Cada recurso ou grupo de recursos pode ter um máximo de 15 pares de nomes/valores de etiquetas. Esta limitação aplica-se apenas a etiquetas diretamente aplicadas ao recurso ou grupo de recursos. Um grupo de recursos pode conter muitos recursos que tenham, cada um, 15 pares de nomes/valores de etiqueta. Se tiver mais de 15 valores que têm de ser associados a um recurso, utilize uma cadeia JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Este artigo mostra um exemplo de atribuição de uma cadeia JSON à etiqueta.
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
 * As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
+* Não não possível aplicar etiquetas recursos clássicos, tais como "Serviço de nuvem (clássico)".
 * Não são suportados os seguintes carateres:
   * `<`
   * `>`

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análise de eventos e visualização com o Application Insights
 
@@ -100,7 +100,7 @@ Certifique-se efetuar as alterações necessárias nos filtros, bem como incluir
 
 Geralmente, é recomendado utilizar EventFlow e WAD como soluções de agregação, porque permitem uma abordagem mais modulares de diagnóstico e monitorização, ou seja, não se pretender alterar as saídas de EventFlow, necessita de nenhuma alteração ao seu instrumento real, apenas uma simple a modificação ao ficheiro de configuração. Se, no entanto, optar por investir em utilizar o Application Insights e não é provável que alterar para uma plataforma diferentes, deve ter o aspeto na utilizando novo SDK do AI para agregar eventos e enviando-as para AI. Isto significa que já não será necessário configurar EventFlow para enviar os dados para AI, mas em vez disso, instalará o pacote NuGet do Service Fabric do ApplicationInsight. Podem ser encontrados detalhes no pacote [aqui](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Suportem de Application Insights para micro-serviços e contentores](https://azure.microsoft.com/app-insights-microservices/) mostra algumas das novas funcionalidades que estão a ser trabalhadas (beta ainda atualmente no), que permitem-lhe ter mais rica opções de monitorização de out of box com AI. Estes incluem o controlo de dependência (utilizado na criação de um AppMap de todos os seus serviços e aplicações em cluster e a comunicação entre elas) e melhor correlação de rastreios provenientes da sua serviços (ajuda-o no melhor pinpointing um problema no fluxo de trabalho do uma aplicação ou serviço).
+[Suportem de Application Insights para micro-serviços e contentores](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) mostra algumas das novas funcionalidades que estão a ser trabalhadas (beta ainda atualmente no), que permitem-lhe ter mais rica opções de monitorização de out of box com AI. Estes incluem o controlo de dependência (utilizado na criação de um AppMap de todos os seus serviços e aplicações em cluster e a comunicação entre elas) e melhor correlação de rastreios provenientes da sua serviços (ajuda-o no melhor pinpointing um problema no fluxo de trabalho do uma aplicação ou serviço).
 
 Se estiver a desenvolver no .NET e irá, provavelmente, utilizar algumas das Service Fabric programação modelos e estão pretendo utilizar o AI como a plataforma para visualizar e analisar dados de eventos e de registo, em seguida, recomendamos que leia através da rota de AI SDK como as de monitorização e diagnos fluxo de trabalho tics. Leitura [isto](../application-insights/app-insights-asp-net-more.md) e [isto](../application-insights/app-insights-asp-net-trace-logs.md) para começar a utilizar com a utilização de AI para recolher e apresentar os seus registos.
 
@@ -112,7 +112,7 @@ Assim que tiver configurado o AI como uma saída para os eventos e registos, dev
 
 Ao clicar em **análise** leva-o ao portal do Application Insights Analytics, onde pode consultar eventos e rastreios com o maior âmbito e optionality. Saiba mais sobre no [análise no Application Insights](../application-insights/app-insights-analytics.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Configurar alertas no AI](../application-insights/app-insights-alerts.md) para ser notificado sobre as alterações no desempenho ou utilização
 * [Smart deteção no Application Insights](../application-insights/app-insights-proactive-diagnostics.md) efetua uma análise proativa de telemetria a ser enviada para AI para o avisar de potenciais problemas de desempenho

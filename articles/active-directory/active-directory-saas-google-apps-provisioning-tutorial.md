@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Tutorial: Configurar o Google Apps para o aprovisionamento de utilizador automáticas
 
@@ -157,9 +157,9 @@ Nesta secção descreve o processo de ligar o seu Azure AD para a API do Google 
 
 20. Selecione **Guardar**.
 
-Este processo inicia a sincronização inicial de quaisquer utilizadores ou grupos que estão atribuídos ao Google Apps na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos enquanto o serviço está em execução. 
+Este processo inicia a sincronização inicial de quaisquer utilizadores ou grupos que estão atribuídos ao Google Apps na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos enquanto o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os registos de atividade de aprovisionamento. Estes registos descrevem todas as ações que são efetuadas pelo serviço de aprovisionamento na sua aplicação do Google Apps.
 
-Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para relatórios de atividade de aprovisionamento. Estes relatórios descrevem todas as ações que o é efetuada pelo serviço de aprovisionamento na sua aplicação do Google Apps.
+Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Criar uma rede virtual com a CLI do Azure
 
@@ -45,9 +45,9 @@ Também pode criar uma rede virtual através do Resource Manager utilizando outr
 
 Para criar uma rede virtual com a CLI do Azure, execute os seguintes passos:
 
-1. Instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#login).
+1. Instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login).
 
-2. Criar um grupo de recursos para a sua VNet utilizando o [criar grupo az](/cli/azure/group#create) comando com o `--name` e `--location` argumentos:
+2. Criar um grupo de recursos para a sua VNet utilizando o [criar grupo az](/cli/azure/group#az_group_create) comando com o `--name` e `--location` argumentos:
 
     ```azurecli
     az group create --name TestRG --location centralus

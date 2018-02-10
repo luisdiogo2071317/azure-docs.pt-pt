@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Componentes do Service Fabric do Azure fornecem relatórios de estado de funcionamento do sistema em todas as entidades do cluster à direita da box. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) cria e elimina as entidades com base nos relatórios de sistema. É também organiza-los numa hierarquia que capture as interações de entidade.
@@ -404,7 +404,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaChangeRoleStatus ReplicaOpenStatus, ReplicaCloseStatus,
+### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
 Esta propriedade é utilizada para indicar os avisos ou falhas ao tentar abrir uma réplica, feche uma réplica ou efetuar a transição de uma réplica de uma função para outro. Para obter mais informações, consulte [ciclo de vida de réplica](service-fabric-concepts-replica-lifecycle.md). As falhas poderão ser exceções acionadas a partir de chamadas à API ou falhas do processo de anfitrião de serviço durante este período. Para falhas devido a chamadas de API a partir do código c#, o Service Fabric adiciona a exceção e rastreio de pilha para o relatório de estado de funcionamento.
 
 Estes avisos de estado de funcionamento são desencadeados depois de repetir a ação localmente algumas número de vezes (dependendo da política). Service Fabric repete a ação até um limite máximo. Após ter sido atingido o limiar máximo, poderá tentar atuar para corrigir a situação. Esta tentativa pode fazer com que estes avisos obter limpo como desistir na ação neste nó. Por exemplo, se uma réplica está a conseguir abrir num nó, o Service Fabric gera um aviso de estado de funcionamento. Se a réplica continua a não conseguir abrir, Service Fabric funciona para reparar personalizada. Esta ação poderão envolver a tentar a mesma operação noutro nó. Isto faz com que o aviso gerado para esta réplica ser limpo. 
@@ -638,6 +638,21 @@ Outras chamadas de API que podem ficar bloqueadas estão no **IReplicator** inte
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: este aviso indica um problema no processo de compilação. Para obter mais informações, consulte [ciclo de vida de réplica](service-fabric-concepts-replica-lifecycle.md). Tal poderá dever-se uma configuração incorreta do endereço replicador. Para obter mais informações, consulte [configurar Reliable Services com monitorização de estado](service-fabric-reliable-services-configuration.md) e [especificar recursos no manifesto serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
 
+### <a name="replicator-system-health-reports"></a>Relatórios de estado de funcionamento do sistema replicador
+**Total de fila de replicação:**
+**System.Replicator** produz um aviso quando a fila de replicação está cheia. Principal, a fila de replicação normalmente fica completa porque um ou mais réplicas secundárias são lentas reconhecer operações. No secundário, normalmente, isto acontece quando o serviço está lento aplicar as operações. O aviso será eliminado quando a fila já não está completa.
+
+* **SourceId**: System.Replicator
+* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, consoante a função de réplica.
+* **Próximos passos**: se o relatório principal, verifique a ligação entre os nós do cluster. Se todas as ligações estão em bom estadas, pode dever-se a pelo menos um secundário lento com uma latência de disco elevada para aplicar as operações. Se o relatório no secundário, verifique a utilização do disco e o desempenho no nó primeiro e, em seguida, a ligação de saída do nó lento ao principal.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** na réplica primária produz um aviso quando a ligação para uma secundária replicador (remoto) não está em bom estada. Endereço remoto replicador é mostrado na mensagem o relatório, tornando mais prático detetar se uma configuração errada foi transmitida na ou existem problemas de rede entre os replicadores.
+
+* **SourceId**: System.Replicator
+* **Propriedade**: **RemoteReplicatorConnectionStatus**
+* **Próximos passos**: Verifique a mensagem de erro e certifique-se de que o endereço do replicador remoto está configurado corretamente (por exemplo, se abrir replicador remoto com o endereço de escuta de "localhost", não é acessível a partir do exterior). Se o endereço de procura correto, verifique a ligação entre o nó principal e o endereço remoto encontrar quaisquer potenciais problemas de rede.
+
 ### <a name="replication-queue-full"></a>Total de fila de replicação
 **System.Replicator** produz um aviso quando a fila de replicação está cheia. Principal, a fila de replicação normalmente fica completa porque um ou mais réplicas secundárias são lentas reconhecer operações. No secundário, normalmente, isto acontece quando o serviço está lento aplicar as operações. O aviso será eliminado quando a fila já não está completa.
 
@@ -747,7 +762,7 @@ HealthEvents                       :
 System.Hosting reportou um erro se falhar a transferência do pacote de aplicação.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: **transferir:***RolloutVersion*.
+* **Propriedade**: **transferir: *** RolloutVersion*.
 * **Próximos passos**: investigue o motivo pelo qual a transferência falhou no nó.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>Relatórios de estado de funcionamento do sistema DeployedServicePackage
@@ -764,7 +779,7 @@ System.Hosting relatórios como OK se a ativação do pacote de serviço no nó 
 System.Hosting relatórios como OK para cada pacote do código se a ativação é efetuada com êxito. Se a ativação falhar, produz um aviso conforme configuradas. Se **CodePackage** falhar a ativação ou termina com um erro maior configurada **CodePackageHealthErrorThreshold**, alojar relatórios de erro. Se um pacote de serviço contém vários pacotes de código, é gerado um relatório de ativação para cada um deles.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: utiliza o prefixo **CodePackageActivation** e contém o nome do pacote do código e o ponto de entrada como **CodePackageActivation:***CodePackageName* :*SetupEntryPoint/EntryPoint*. Por exemplo, **CodePackageActivation:Code:SetupEntryPoint**.
+* **Propriedade**: utiliza o prefixo **CodePackageActivation** e contém o nome do pacote do código e o ponto de entrada como **CodePackageActivation: *** CodePackageName*: *SetupEntryPoint/EntryPoint*. Por exemplo, **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Registo do tipo de serviço
 System.Hosting relatórios como OK se o tipo de serviço foi registado com êxito. Esta comunica um erro se o registo não foi concluído no tempo, como configurado através da utilização de **ServiceTypeRegistrationTimeout**. Se o tempo de execução é fechado, o tipo de serviço não está registado a partir do nó e de alojamento produz um aviso.
@@ -825,7 +840,7 @@ HealthEvents               :
 System.Hosting reportou um erro se falhar a transferência do pacote de serviço.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: **transferir:***RolloutVersion*.
+* **Propriedade**: **transferir: *** RolloutVersion*.
 * **Próximos passos**: investigue o motivo pelo qual a transferência falhou no nó.
 
 ### <a name="upgrade-validation"></a>Validação da atualização

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
 O **registo de atividade do Azure** é um registo de subscrição que fornece informações sobre os eventos de nível de subscrição ocorridos no Azure. Isto inclui uma série de dados, a partir dos dados operacionais do Azure Resource Manager para atualizações de eventos de estado de funcionamento do serviço. O registo de atividade era anteriormente conhecido como "Registos de auditoria" ou "Registos operacionais," dado que os eventos de controlo plane de relatórios de categoria administrativa para as suas subscrições. Utilizar o registo de atividade, poderá determinar o ' que, quem e quando ' para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também pode compreender o estado da operação e outras propriedades relevantes. O registo de atividade não incluir operações de leitura (GET) ou as operações para recursos que utilizam clássica / modelo "RDFE".
@@ -29,18 +29,21 @@ Figura 1: Registos de atividade vs outros tipos de registos
 
 O registo de atividade é diferente do [os registos de diagnóstico](monitoring-overview-of-diagnostic-logs.md). Registos de atividade fornecem dados sobre as operações num recurso do exterior (o "plane de controlo"). Registos de diagnóstico são emitidos por um recurso e fornecem informações sobre o funcionamento do recurso de (o "plane de dados").
 
-Pode obter eventos a partir do seu registo de atividade no portal do Azure, CLI, cmdlets do PowerShell e a API de REST de Monitor do Azure.
-
-
 > [!WARNING]
 > O registo de atividade do Azure é principalmente para atividades que ocorrem no Gestor de recursos do Azure. Controlar recursos utilizando o modelo clássico/RDFE. Alguns tipos de recurso clássico tem um fornecedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft. classiccompute). Se o utilizador interage com um tipo de recurso clássica através do Azure Resource Manager utilizando estes fornecedores de recursos de proxy, as operações de aparecem no registo de atividade. Se interagir com um tipo de recurso clássico fora proxies de Gestor de recursos do Azure, as suas ações só são registadas no registo de operação. O registo de operações pode ser navegado numa secção separada do portal.
 >
 >
 
+Pode obter eventos a partir do seu registo de atividade no portal do Azure, CLI, cmdlets do PowerShell e a API de REST de Monitor do Azure.
+
+> [!NOTE]
+
+>  [Alertas (pré-visualização)](monitoring-overview-unified-alerts.md) atualmente oferece uma experiência melhorada na criação e gestão de regras de alerta de registo de atividade.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
+
+
 Veja o vídeo seguinte introduzindo o registo de atividade.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Categorias de registo de atividade
 O registo de atividade contém várias categorias de dados. Para obter detalhes completos na esquemas destas categorias, [consulte este artigo](monitoring-activity-log-schema.md). Estas incluem:
@@ -179,6 +182,6 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 azure insights logprofile delete --name my_log_profile
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Saiba mais sobre o registo de atividade (anteriormente os registos de auditoria)](../azure-resource-manager/resource-group-audit.md)
 * [Fluxo de registo de atividade do Azure para os Event Hubs](monitoring-stream-activity-logs-event-hubs.md)

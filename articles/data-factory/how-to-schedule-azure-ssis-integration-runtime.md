@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS 
 Com um tempo de execução de integração do Azure SSIS (SQL Server Integration Services) (IR) tem um custo associado ao mesmo. Por conseguinte, que pretende executar a resposta a incidentes apenas quando precisar de executar os pacotes SSIS no Azure e pare-o quando não precisar dele. Pode utilizar a IU da fábrica de dados ou o Azure PowerShell para [manualmente iniciar ou parar uma resposta a incidentes SSIS Azure](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS (IR) através da utilização da automatização do Azure e do Azure Data Factory. Eis os passos de alto nível descritos neste artigo:
@@ -44,8 +44,9 @@ Nesta secção, execute os seguintes passos:
 ### <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 Se não tiver uma conta de automatização do Azure, siga as instruções neste passo. Para obter passos detalhados, consulte [criar uma conta de automatização do Azure](../automation/automation-quickstart-create-account.md). Como parte deste passo, cria um **Run As do Azure** conta (um principal de serviço no Azure Active Directory) e adicione-o ao **contribuinte** função da sua subscrição do Azure. Certifique-se de que seja a mesma que a subscrição que contém a fábrica de dados que tenha o IR. de SSIS do Azure A automatização do Azure utiliza esta conta para autenticar para o Azure Resource Manager e a funcionar nos seus recursos. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).    
-2. Selecione **novo** no menu da esquerda, selecione **monitorização + gestão**e selecione **automatização**. 
+1. Iniciar **Microsoft Edge** ou **Google Chrome** web browser. Atualmente, a IU da fábrica de dados é suportada apenas em browsers de web do Microsoft Edge e o Google Chrome.
+2. Inicie sessão no [Portal do Azure](https://portal.azure.com/).    
+3. Selecione **novo** no menu da esquerda, selecione **monitorização + gestão**e selecione **automatização**. 
 
     ![Novo -> monitorização + gestão -> automatização](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. No **adicionar conta de automatização** janela, siga os passos seguintes: 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco utiliza SQL Database do Azure para os serviços rapidamente aprovisionar e escala para milhares de inquilinos na nuvem
-![Logótipo de Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
+![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco é um populares open source gestão de conteúdo (CMS) que pode executar nada de sites de campanha ou brochure pequenos para aplicações complexas para as empresas de Fortune 500 e Web sites do suporte de dados globais. 
 
@@ -124,7 +124,6 @@ Dado que escolher Azure como o parceiro de nuvem, Umbraco foi capaz de fornecer 
 ## <a name="more-information"></a>Mais informações
 * Para obter mais informações sobre conjuntos elásticos do Azure, consulte o artigo [conjuntos elásticos](sql-database-elastic-pool.md).
 * Para saber mais sobre o Service Bus do Azure, consulte o artigo [Service Bus do Azure](https://azure.microsoft.com/services/service-bus/).
-* Para obter mais informações sobre funções da Web e funções de trabalho, consulte o artigo [as funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para obter mais informações sobre redes virtuais, consulte o artigo [redes virtuais](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Para saber mais sobre a cópia de segurança e recuperação, consulte o artigo [continuidade do negócio](sql-database-business-continuity.md).    
 * Para saber mais sobre a monitorização ppols, consulte [monitorização agrupamentos](sql-database-elastic-pool-manage-portal.md).    

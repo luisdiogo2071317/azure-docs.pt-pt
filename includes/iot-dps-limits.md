@@ -9,7 +9,7 @@ A tabela seguinte lista os limites que se aplicam aos recursos do serviço de ap
 | Número máximo de ACs | 10 |
 
 > [!NOTE]
-> Estes limites são para pré-visualização pública. Assim que o serviço estiver geralmente disponível, pode contactar [Microsoft Support](https://azure.microsoft.com/support/options/) para aumentar o número de instâncias na sua subscrição.
+> Pode contactar [Microsoft Support](https://azure.microsoft.com/support/options/) para aumentar o número de instâncias na sua subscrição.
 
 O serviço de aprovisionamento de dispositivos acelera pedidos quando as quotas seguintes são excedidas:
 

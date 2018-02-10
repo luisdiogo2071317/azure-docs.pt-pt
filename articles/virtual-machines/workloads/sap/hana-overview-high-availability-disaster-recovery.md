@@ -11,26 +11,30 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09aa98a35fa8286828a99c49a33a80d5938afe3a
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b61b7c3778ce3ada7e2130d2e0695c0a7a4b466d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA grande instâncias elevada disponibilidade e recuperação após desastre no Azure 
+
+>[!IMPORTANT]
+>Esta documentação não é nenhuma substituição da documentação de administração de SAP HANA ou SAP notas. É esperado que o leitor tem uma compreensão sólida e conhecimentos de operações e de administração de SAP HANA. Especialmente à volta de tópicos de cópia de segurança, restaurar e elevada disponibilidade e recuperação após desastre. Nesta documentação, capturas de ecrã de SAP HANA Studio são apresentadas. Conteúdo, a estrutura e a natureza dos ecrãs de ferramentas de administração de SAP e as ferramentas em si podem ser alterados de SAP HANA versão para versão. Por conseguinte, é importante que exerce passos e processos de tomada no seu ambiente e com as suas versões HANA e versões. Alguns processos descritos nesta documentação são simplificados para uma melhor compreensão geral e não se destinam a ser utilizado como obter os passos detalhados para handbooks eventual operação. Se pretender criar handbooks operação para as configurações específicas, terá de testar e exercer os seus processos e documentar desses processos relacionados com as suas configurações específicas. 
+
 
 Elevada disponibilidade e recuperação após desastre (DR) são aspetos importantes do SAP HANA fundamentais em execução no servidor do Azure (instâncias de grande). É importante trabalhar com o SAP, sua integrador de sistema ou Microsoft corretamente architect e implementar a estratégia de recuperação após desastre e elevada disponibilidade à direita. Também é importante considerar o objetivo de ponto de recuperação (RPO) e o objetivo de tempo de recuperação, que são específicas para o seu ambiente.
 
 Microsoft suporta algumas capacidades de elevada disponibilidade de SAP HANA com instâncias de grande HANA. Estas funcionalidades incluem:
 
-- **Replicação de armazenamento**: capacidade do sistema de armazenamento de replicar todos os dados para outro instância grande HANA carimbo na outra região do Azure. SAP HANA funciona independentemente este método.
-- **Replicação do sistema HANA**: A replicação de todos os dados no SAP HANA para um sistema de SAP HANA separado. O objetivo de tempo de recuperação é minimizado através da replicação de dados em intervalos regulares. SAP HANA suporta assíncronos, síncronos modos de memória e síncronos. Modo síncrono é recomendado apenas para os sistemas de SAP HANA que estão dentro do mesmo centro de dados ou inferior a 100 km, à excepção. Na estrutura de carimbos de grande instância HANA atual, a replicação do sistema HANA pode ser utilizada para elevada disponibilidade apenas. Atualmente, a replicação do sistema HANA requer um componente de proxy inverso de terceiros para configurações de recuperação de desastres para outra região do Azure. 
+- **Replicação de armazenamento**: capacidade do sistema de armazenamento de replicar todos os dados para outro instância grande HANA carimbo na outra região do Azure. SAP HANA funciona independentemente este método. Esta funcionalidade é o mecanismo de recuperação após desastre predefinido é fornecido para instâncias de grande HANA.
+- **Replicação do sistema HANA**: O [replicação de todos os dados no SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) para um sistema de SAP HANA separado. O objetivo de tempo de recuperação é minimizado através da replicação de dados em intervalos regulares. SAP HANA suporta assíncronos, síncronos modos de memória e síncronos. Modo síncrono é recomendado apenas para os sistemas de SAP HANA que estão dentro do mesmo centro de dados ou inferior a 100 km, à excepção. Na estrutura de carimbos de grande instância HANA atual, a replicação do sistema HANA pode ser utilizada para elevada disponibilidade no apenas uma região. Atualmente, a replicação de sistema HANA requer um proxy inverso de terceiros ou um componente de encaminhamento para configurações de recuperação de desastres para outra região do Azure. 
 - **Auto-ativação pós-falha do anfitrião**: uma solução de recuperação-falha do local para SAP HANA utilizar como alternativa a replicação do sistema HANA. Se o nó principal ficar indisponível, configure um ou mais nós de SAP HANA espera no modo de escalamento horizontal e SAP HANA automaticamente falhar um nó em modo de espera.
 
-SAP HANA no Azure (instâncias de grande) é fornecido em duas regiões do Azure que abrangem diferentes três de regiões geopolíticas (dos EUA, da Austrália e na Europa). Duas regiões diferentes que carimbos de data / instância grande HANA anfitrião está ligadas a circuitos de rede dedicado separadas que são utilizados para replicar os instantâneos de armazenamento para fornecer os métodos de recuperação após desastre. A replicação não for estabelecida por predefinição. É configurado para clientes que ordenadas a funcionalidade de recuperação após desastre. Replicação de armazenamento está dependente da utilização de instantâneos de armazenamento de instâncias de grande HANA. Não é possível escolher uma região do Azure como uma região DR numa área geopolítica diferentes. 
+SAP HANA no Azure (instâncias de grande) é fornecido em duas regiões do Azure em três áreas de geopolíticas diferentes (dos EUA, da Austrália e na Europa). Com a área de geopolítica Japão brevemente online. Duas regiões diferentes, dentro de uma área geopolítica, se carimbos de data / instância grande HANA anfitrião está ligados aos circuitos de rede dedicado separadas que são utilizados para replicar os instantâneos de armazenamento para fornecer os métodos de recuperação após desastre. A replicação não for estabelecida por predefinição. É configurado para clientes que ordenadas a funcionalidade de recuperação após desastre. Replicação de armazenamento está dependente da utilização de instantâneos de armazenamento de instâncias de grande HANA. Não é possível escolher uma região do Azure como uma região DR numa área geopolítica diferentes. 
 
 A tabela seguinte mostra os métodos atualmente suportados de elevada disponibilidade e recuperação após desastre e combinações de:
 
@@ -40,7 +44,10 @@ A tabela seguinte mostra os métodos atualmente suportados de elevada disponibil
 | Auto-ativação pós-falha do anfitrião: N + m<br /> incluindo 1 + 1 | Possível com o modo de espera colocar a função do Active Directory.<br /> HANA controla o comutador de função. | Configuração de DR dedicada.<br /> Configuração de Multipurpose DR.<br /> Sincronização de DR utilizando a replicação de armazenamento. | Conjuntos de volume HANA estão ligados a todos os nós (n + m).<br /> Site de DR tem de ter o mesmo número de nós. |
 | Replicação do sistema HANA | Possível com a configuração primária ou secundária.<br /> Move secundário para a função primária em caso de ativação pós-falha.<br /> Ativação pós-falha do controlo de replicação do sistema HANA e SO. | Configuração de DR dedicada.<br /> Configuração de Multipurpose DR.<br /> Sincronização de DR utilizando a replicação de armazenamento.<br /> DR utilizando a replicação do sistema HANA ainda não é possível sem componentes de terceiros. | Conjunto separado dos volumes de discos anexados a cada nó.<br /> Apenas os volumes de disco de réplica secundária no site de produção são replicadas para a localização de DR.<br /> É necessário um conjunto de volumes no site de DR. | 
 
-Uma configuração de DR dedicada é onde a unidade de instância grande HANA no site de DR não é utilizada para executar qualquer carga de trabalho ou sistema de não produção. A unidade é passiva e é implementada apenas se for executada uma ativação pós-falha após desastre. No entanto, isto não é uma opção preferencial para muitos clientes.
+Uma configuração de DR dedicada é onde a unidade de instância grande HANA no site de DR não é utilizada para executar qualquer carga de trabalho ou sistema de não produção. A unidade é passiva e é implementada apenas se for executada uma ativação pós-falha após desastre. No entanto, esta configuração não é uma opção preferencial para muitos clientes.
+
+> [!NOTE]
+> [Implementações de SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) (várias instâncias de HANA numa unidade) como sobrepor cenários trabalho com o HA e DR métodos listados na tabela. Exceção é a utilização da replicação do sistema HANA com um cluster de ativação pós-falha automática com base no Pacemaker. Nesse caso só suporta uma instância HANA por unidade. Enquanto que para [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) implementações, apenas não-armazenamento baseado em HA e métodos de DR funcionem se mais do que um inquilino é implementado. Com um inquilino implementado, todos os métodos listado, são válidos.  
 
 Uma configuração de DR multipurpose é onde a unidade de instância grande HANA no site de DR executa uma carga de trabalho de não produção. Em caso de desastre, encerrar o sistema de não produção, montar os conjuntos de armazenamento replicado volume (adicionais) e, em seguida, iniciar a instância HANA de produção. Maioria dos clientes que utilizam a funcionalidade de recuperação após desastre de instância grande HANA, utilize esta configuração. 
 
@@ -60,7 +67,7 @@ Para tirar partido da funcionalidade de recuperação após desastre de instânc
 
 Como uma segunda medida, pode ligar todas as redes virtuais do Azure que se ligam ao SAP HANA no Azure (instâncias de grande) de uma das regiões para um circuito de ExpressRoute liga HANA instâncias grande na outra região. Com esta *cruzada ligar*, os serviços executados numa Azure virtual network na região n. º 1, pode ligar às unidades de instância grande HANA na região n. º 2 e o inverso. Esta medida endereços um caso onde apenas uma das localizações MSEE que liga à sua localização no local com o Azure fica offline.
 
-O gráfico seguinte ilustra uma configuração resiliente para recuperação após desastre:
+O gráfico seguinte ilustra uma configuração resiliente para cenários de recuperação após desastre:
 
 ![Configuração ideal para recuperação após desastre](./media/hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
 
@@ -70,8 +77,9 @@ O gráfico seguinte ilustra uma configuração resiliente para recuperação ap�
 
 Requisitos adicionais para uma configuração de recuperação após desastre com instâncias de grande HANA são:
 
-- Tem de ordem de SAP HANA no Azure (instâncias de grande) SKUs o mesmo tamanho como a produção SKUs e implementá-las na região de recuperação após desastre. Nas implementações de cliente atual, estas instâncias são utilizadas para executar instâncias HANA de não produção. Iremos consultá-las como *multipurpose DR setups*.   
+- Tem de ordem de SAP HANA no Azure (instâncias de grande) SKUs o mesmo tamanho como a produção SKUs e implementá-las na região de recuperação após desastre. Nas implementações de cliente atual, estas instâncias são utilizadas para executar instâncias HANA de não produção. Estas configurações são referidas como *multipurpose DR setups*.   
 - Deve ordenar armazenamento adicional no site de DR para cada um dos seus SAP HANA no SKUs (instâncias de grande) do Azure que pretende recuperar o site de recuperação após desastre. Comprar armazenamento adicional permite-lhe alocar os volumes de armazenamento. Pode alocar os volumes que são o destino de replicação de armazenamento da sua região do Azure de produção para a recuperação de desastres região do Azure.
+
  
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
@@ -112,9 +120,9 @@ A infraestrutura de armazenamento subjacente SAP HANA no Azure (instâncias de g
 
 Pode efetuar três diferentes classes de volumes de filtragem de instantâneos de armazenamento:
 
-- Um instantâneo combinado através de dados/hana/e /hana/shared (inclui/usr/sap). Este instantâneo requer a criação de um instantâneo de SAP HANA como preparação para o instantâneo de armazenamento. O instantâneo de SAP HANA será Certifique-se de que a base de dados está num estado consistente a partir de um ponto de vista do armazenamento.
+- Um instantâneo combinado através de dados/hana/e /hana/shared (inclui/usr/sap). Este instantâneo requer a criação de um instantâneo de SAP HANA como preparação para o instantâneo de armazenamento. O instantâneo de SAP HANA certifica-se de que a base de dados está num estado consistente a partir de um ponto de vista do armazenamento. E que para o restauro de processo que é um ponto para definir a segurança no.
 - Um instantâneo separado através de hana/logbackups.
-- Uma partição de SO (apenas para o tipo I de instâncias de grande HANA).
+- Uma partição de SO.
 
 
 ### <a name="storage-snapshot-considerations"></a>Considerações de instantâneos de armazenamento
@@ -134,7 +142,7 @@ SAP HANA no Azure (instâncias de grande) inclui os tamanhos de volume fixo para
 
 As secções seguintes fornecem informações para efetuar estes instantâneos, incluindo recomendações gerais:
 
-- Apesar do hardware pode suportar 255 instantâneos por volume, recomendamos vivamente que permaneça este número também abaixo.
+- Apesar do hardware pode suportar 255 instantâneos por volume, é altamente recomendado para se manter este número também abaixo.
 - Antes de efetuar os instantâneos de armazenamento, monitorizar e manter o registo do espaço livre.
 - Reduzi o número de instantâneos de armazenamento com base no espaço livre. Pode reduzir o número de instantâneos que mantenha ou, pode expandir os volumes. Pode ordenar o armazenamento adicional em unidades de 1 terabyte.
 - Durante a atividades como mover dados para SAP HANA com ferramentas de migração de plataforma do SAP (R3load) ou o restauro de bases de dados SAP HANA de cópias de segurança, desative os instantâneos de armazenamento no /hana/data volume. 
@@ -152,9 +160,17 @@ Os passos para configurar os instantâneos de armazenamento com instâncias de g
 6. Copiar os scripts e um ficheiro de configuração da [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) para a localização do **hdbsql** na instalação do SAP HANA.
 7. Modificar o ficheiro de HANABackupDetails.txt conforme necessário para as especificações de cliente adequado.
 
+### <a name="consideration-for-mcod-scenarios"></a>Considerações para cenários MCOD
+Se estiver a executar um [cenário MCOD](https://launchpad.support.sap.com/#/notes/1681092) com várias instâncias de SAP HANA numa unidade de instância grande HANA, obteve volumes de armazenamento separada aprovisionados para cada uma das várias instâncias de SAP HANA. Na versão atual da automatização de instantâneo self-service, não é possível iniciar instantâneos separados em cada SID. A funcionalidade entregar verifica a existência de instâncias de SAP HANA registadas do servidor no ficheiro de configuração (consulte mais tarde) e executa um instantâneo simultâneo dos volumes de todas as instâncias registados na unidade.
+ 
+
 ### <a name="step-1-install-the-sap-hana-hdb-client"></a>Passo 1: Instalar o cliente de SAP HANA HDB
 
-O sistema de operativo Linux instalado SAP HANA no Azure (instâncias de grande) inclui as pastas e os scripts necessários para executar os instantâneos de armazenamento de SAP HANA para fins de cópia de segurança e recuperação após desastre. Verifique a existência de versões mais recentes no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). A versão mais recente dos scripts é 2.1.
+O sistema de operativo Linux instalado SAP HANA no Azure (instâncias de grande) inclui as pastas e os scripts necessários para executar os instantâneos de armazenamento de SAP HANA para fins de cópia de segurança e recuperação após desastre. Verifique a existência de versões mais recentes no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). A versão mais recente dos scripts é 3.0.
+
+>[!IMPORTANT]
+>Mover da versão 2.1 dos scripts 3.0 dos scripts, a estrutura de algumas sintaxe e o ficheiro de configuração para os scripts foi alterados. Consulte as chamada-outs nas secções específicas. 
+
 No entanto, é da responsabilidade do cliente para instalar o cliente de SAP HANA HDB das unidades de instância grande HANA enquanto estiver a instalar o SAP HANA. (Microsoft não instalar o cliente HDB ou SAP HANA.)
 
 ### <a name="step-2-change-the-etcsshsshconfig"></a>Passo 2: Altere o etc/ssh/ssh\_configuração
@@ -211,6 +227,8 @@ Para iniciar a criação de instantâneos de SAP HANA, terá de criar uma conta 
 
 ![Criar um utilizador no HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
+Em caso de MCOD as implementações com várias instâncias de SAP HANA numa unidade, este passo tem de ser repetido para cada instância de SAP HANA.
+
 ### <a name="step-5-authorize-the-sap-hana-user-account"></a>Passo 5: Autorizar a conta de utilizador de SAP HANA
 
 Neste passo, está a autorizar a conta de utilizador de SAP HANA que criou, para que os scripts não precisam de envio de palavras-passe no tempo de execução. O comando de SAP HANA `hdbuserstore` permite a criação de uma chave de utilizador de SAP HANA, que é armazenada num ou mais nós de SAP HANA. A chave de utilizador permite ao utilizador acesso SAP HANA sem ter de gerir palavras-passe no processo do script. O processo de script é abordado mais tarde.
@@ -234,7 +252,9 @@ No exemplo seguinte, o utilizador é **SCADMIN01**, o nome do anfitrião é **lh
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 <backup username> <password>
 ```
-Se tiver uma configuração de escalamento horizontal de SAP HANA, deve gerir todos os scripts de um único servidor. Neste exemplo, a chave de SAP HANA **SCADMIN01** tem de ser alterado para cada anfitrião de uma forma que reflete o anfitrião está relacionado com a chave. Corrigir a conta de cópia de segurança de SAP HANA com o número de instância de BD HANA. A chave tem de ter privilégios administrativos no anfitrião que está atribuído à e o utilizador de cópia de segurança para configurações de escalamento horizontal tem de ter direitos de acesso a todas as instâncias de SAP HANA. Partindo do princípio de três nós de escalamento horizontal tem os nomes **lhanad01**, **lhanad02**, e **lhanad03**, a sequência de comandos tem o seguinte aspeto:
+Se utilizar uma implementação de HANA MCOD com várias instâncias de SAP HANA numa unidade, o passo tem de ser repetido para cada instância de SAP HANA e o utilizador de cópia de segurança associado na unidade.
+
+Se tiver uma configuração de escalamento horizontal de SAP HANA, deve gerir todos os scripts de um único servidor. Neste exemplo, a chave de SAP HANA **SCADMIN01** tem de ser alterado para cada anfitrião de uma forma que reflete o anfitrião está relacionado com a chave. Corrigir a conta de cópia de segurança de SAP HANA com o número de instância de BD HANA. A chave tem de ter privilégios administrativos no anfitrião que está atribuído à e o utilizador de cópia de segurança para configurações de escalamento horizontal tem de ter direitos de acesso a todas as instâncias de SAP HANA. Partindo do princípio de três nós de escalamento horizontal tem os nomes **lhanad01**, **lhanad02**, e **lhanad03**, semelhante a sequência de comandos:
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
@@ -252,51 +272,58 @@ azure_hana_snapshot_details.pl
 azure_hana_snapshot_delete.pl 
 testHANAConnection.pl 
 testStorageSnapshotConnection.pl 
-removeTestStorageSnapshot.pl 
+removeTestStorageSnapshot.pl
+azure_hana_dr_failover.pl
+azure_hana_dr_failover.pl 
 HANABackupCustomerDetails.txt 
 ``` 
 
 
-Eis o objetivo das diferentes scripts e ficheiros protegidos:
+O objetivo das diferentes scripts e ficheiros é:
 
-- **Azure\_hana\_backup.pl**: agendar este script de cron para executar os instantâneos de armazenamento em volumes de dados/registo/partilhados HANA, o volume de logbackups/hana/ou o SO (no tipo I SKUs de HANA grande instâncias).
+- **Azure\_hana\_backup.pl**: agendar este script de cron para executar os instantâneos de armazenamento em volumes de dados/registo/partilhados HANA, o volume de logbackups/hana/ou o SO.
 - **Azure\_hana\_replicação\_status.pl**: este script fornece os detalhes básicos em todo o estado de replicação do site de produção para o site de recuperação após desastre. Os monitores de script para se certificar de que a replicação está a decorrer e mostra o tamanho dos itens que estão a ser replicados. Também fornece orientações se uma replicação estiver a demorar demasiado tempo ou se a ligação está inativo.
 - **Azure\_hana\_instantâneo\_details.pl**: este script fornece uma lista de detalhes básicos sobre todos os instantâneos, por volume, o que existe no seu ambiente. Este script pode ser executado no servidor primário ou numa unidade do servidor de localização de recuperação após desastre. O script fornece as seguintes informações reduzidas por cada volume que contém os instantâneos:
    * Tamanho de instantâneos totais um volume
    * Cada instantâneo nesse volume inclui os seguintes detalhes: 
       - Nome de instantâneo 
-      - Tempo de criação 
+      - Hora de criação 
       - Tamanho do instantâneo
       - Frequência de instantâneo
       - ID de cópia de segurança de HANA associado nesse instantâneo, se forem relevantes
 - **Azure\_hana\_instantâneo\_delete.pl**: este script elimina um instantâneo de armazenamento ou um conjunto de instantâneos. Pode utilizar o ID de cópia de segurança de SAP HANA como encontrada no HANA Studio ou o nome de instantâneos de armazenamento. Atualmente, o ID de cópia de segurança só está associado aos instantâneos criados para os volumes de dados/registo/partilhados HANA. Caso contrário, se o ID de instantâneo é introduzido,-procura todos os instantâneos que correspondem o ID de instantâneo introduzido.  
 - **testHANAConnection.pl**: este script testa a ligação à instância do SAP HANA e é necessário para configurar os instantâneos de armazenamento.
 - **testStorageSnapshotConnection.pl**: este script tem duas finalidades. Em primeiro lugar, assegura que a unidade de instância grande HANA que executa os scripts tem acesso para a máquina virtual de armazenamento atribuído e a interface de instantâneos de armazenamento de instâncias de grande sua HANA. O segundo objetivo consiste em criar um instantâneo temporário para a instância HANA que estiver a testar. Este script deve ser executado para todas as instâncias HANA num servidor para garantir que os scripts de cópia de segurança função conforme esperado.
-- **removeTestStorageSnapshot.pl**: este script elimina o teste de instantâneos, criado com o script **testStorageSnapshotConnection.pl**. 
-- **HANABackupCustomerDetails.txt**: este ficheiro é um ficheiro de configuração modificável que terá de modificar para adaptar à sua configuração de SAP HANA.
+- **removeTestStorageSnapshot.pl**: este script elimina o teste de instantâneos, criado com o script **testStorageSnapshotConnection.pl**.
+- **Azure\_hana\_dr\_failover.pl**: Script para iniciar uma ativação pós-falha de DR para noutra região. O script tem de ser executado na unidade instância grande HANA na região DR. Ou a unidade que pretende efetuar a ativação pós-falha. Este script deixa de replicação de armazenamento do lado primário para o lado secundária, restaura o instantâneo mais recente nos volumes de DR e fornece o mountpoints para a DR volumes  
+- **Azure\_hana\_testar\_dr\_failover.pl**: Script para executar uma ativação pós-falha de teste para o site de DR. Contrária ao disposto azure_hana_dr_failover.pl script, a execução não interromper a replicação de armazenamento do primário para o secundário. Em vez disso clones dos volumes de armazenamento replicado ser criados no lado DR e mountpoints dos volumes clonados são fornecidos. 
+- **HANABackupCustomerDetails.txt**: este ficheiro é um ficheiro de configuração modificável que terá de modificar para adaptar à sua configuração de SAP HANA. O ficheiro de HANABackupCustomerDetails.txt é o ficheiro de controlo e a configuração para o script que executa os instantâneos de armazenamento. Ajuste o ficheiro para os fins e a configuração. Deve ter recebido o **nome de cópia de segurança de armazenamento** e **endereço de IP de armazenamento** de SAP HANA na gestão de serviço do Azure quando as instâncias que foram implementadas. Não é possível modificar a sequência de ordenação ou espaçamento de qualquer uma das variáveis existentes neste ficheiro. Caso contrário, os scripts não vai ser executado corretamente. Além disso, recebido o endereço IP do nó de vertical ou o nó mestre (se escalável) de SAP HANA na gestão de serviço do Azure. Também souber o número de instância HANA que recebeu durante a instalação de SAP HANA. Agora tem de adicionar um nome de cópia de segurança para o ficheiro de configuração.
 
- 
-O ficheiro de HANABackupCustomerDetails.txt é o ficheiro de controlo e a configuração para o script que executa os instantâneos de armazenamento. Ajuste o ficheiro para os fins e a configuração. Deve ter recebido o **nome de cópia de segurança de armazenamento** e **endereço de IP de armazenamento** de SAP HANA na gestão de serviço do Azure quando as instâncias que foram implementadas. Não é possível modificar a sequência de ordenação ou espaçamento de qualquer uma das variáveis existentes neste ficheiro. Caso contrário, os scripts não vai ser executado corretamente. Além disso, recebido o endereço IP do nó de vertical ou o nó mestre (se escalável) de SAP HANA na gestão de serviço do Azure. Também souber o número de instância HANA que recebeu durante a instalação de SAP HANA. Agora tem de adicionar um nome de cópia de segurança para o ficheiro de configuração.
+Para uma implementação de vertical ou Escalamento horizontal, o ficheiro de configuração seria ter um aspeto semelhante ao seguinte exemplo depois preenchida no nome do servidor da unidade de instância grande HANA e o endereço IP do servidor. Em caso de replicação do sistema de SAP HANA utilize o endereço IP virtual da configuração da replicação do sistema HANA. Preencha todos os campos necessários para cada SID de HANA SAP que pretende efetuar cópia de segurança ou recuperação. Também pode comente linhas de instâncias que não pretende de cópia de segurança para um período de tempo, adicionando um "#" à frente de um campo obrigatório. Também não tem de introduzir todos os SAP HANA as instâncias que estão contidas num servidor, se não é necessário para a cópia de segurança ou recuperar essa instância específica. O formato têm de ser mantido para todos os campos; caso contrário, todos os scripts apresenta uma mensagem de erro e termina o script. No entanto pode eliminar linhas necessárias adicionais de quaisquer detalhes de informações de SID não estiver a utilizar após a última instância de SAP HANA em utilização.  Todas as linhas devem ser preenchidas, comentadas ou eliminadas.
 
-Para uma implementação de vertical ou Escalamento horizontal, o ficheiro de configuração seria ter um aspeto semelhante ao seguinte exemplo depois preenchidos o nome de cópia de segurança de armazenamento e o endereço IP de armazenamento. Também terá de preencher os seguintes dados no ficheiro de configuração:
-- Nó único ou endereço IP do nó principal
-- Número de instância HANA
-- Nome da cópia de segurança 
+>[!IMPORTANT]
+>Foi possível alterar a estrutura do ficheiro com a mudança da versão 2.1 para versão 3.0. Se pretender utilizar os scripts de 3.0 versão, tem de se adaptar a estrutura do ficheiro de configuração. 
+
+
+```
+HANA Server Name: testing01
+HANA Server IP Address: 172.18.18.50
+```
+
+Para cada instância que configurar na unidade instância grande HANA ou para a configuração de escalamento horizontal, terá de definir os dados da seguinte forma
+
     
 ```
-#Provided by Microsoft Service Management
-Storage Backup Name: client1hm3backup
-Storage IP Address: 10.240.20.31
-#Node IP addresses, instance numbers, and HANA backup name
-#provided by customer.  HANA backup name created using
-#hdbuserstore utility.
-Node 1 IP Address: 
-Node 1 HANA instance number:
-Node 1 HANA userstore Name:
+######***SID #1 Information***#####
+SID1: h01
+###Provided by Microsoft Operations###
+SID1 Storage Backup Name: cl22h01backup
+SID1 Storage IP Address: 172.18.18.11
+######     Customer Provided    ######
+SID1 HANA instance number: 00
+SID1 HANA HDBuserstore Name: SCADMINH01
 ```
-
->[!NOTE]
->Atualmente, apenas os detalhes de 1 de nó são utilizados no script de instantâneos de armazenamento HANA real. Recomendamos que teste o acesso de ou para todos os nós HANA para que, se alguma vez altera o nó mestre de cópia de segurança, já certificar-se de que qualquer outro nó pode ocorrer respetivo modificando os detalhes no nó 1.
+Para configurações de replicação do sistema HANA e escalável, recomenda-se repetir esta configuração em cada um de nós. Isto certifica-se de que em cenários de falha, as cópias de segurança e armazenamento eventual replicação ainda pode continuar a trabalhar.   
 
 Depois de colocar todos os dados de configuração no ficheiro HANABackupCustomerDetails.txt, terá de verificar se as configurações estão corretas sobre os dados da instância HANA. Utilize o script `testHANAConnection.pl`. Este script é independente de uma configuração de vertical ou Escalamento horizontal de SAP HANA.
 
@@ -331,7 +358,7 @@ Em seguida, o script tenta iniciar sessão para o armazenamento utilizando a cha
 Storage Access successful!!!!!!!!!!!!!!
 ```
 
-Se ocorrer ao ligar à consola do armazenamento problemas, a saída este aspeto:
+Se ocorrer ao ligar à consola do armazenamento problemas, o resultado é aspeto:
 
 ```
 **********************Checking access to Storage**********************
@@ -380,35 +407,41 @@ Se o instantâneo de teste foi executado com êxito com o script, pode avançar 
 
 ### <a name="step-7-perform-snapshots"></a>Passo 7: Efetuar instantâneos
 
-Como todos os passos de preparação estiverem concluídos, pode começar a configurar a configuração de instantâneos de armazenamento real. O script a ser agendada funciona com configurações de vertical e horizontal de SAP HANA. Deve agendar a execução de scripts através de cron. 
+Como todos os passos de preparação estiverem concluídos, pode começar a configurar a configuração de instantâneos de armazenamento real. O script a ser agendada funciona com configurações de vertical e horizontal de SAP HANA. Para a execução da agenda de cópia de segurança script o script através de cron periódica e regular. 
 
 Podem ser criados três tipos de cópias de segurança do instantâneo:
 - **HANA**: combinado de cópia de segurança de instantâneos em que os volumes que contêm dados/hana/e hana/partilhados (que contém /usr/sap bem) estão abrangidas pelo instantâneo coordenado. Um restauro de ficheiro único é possível este instantâneo.
-- **Os registos**: cópia de segurança do instantâneo do volume de logbackups/hana /. Nenhum instantâneo HANA é acionado para executar este instantâneo de armazenamento. Este volume de armazenamento é o volume que deveria conter as cópias de segurança do registo de transações de SAP HANA. São efetuadas cópias de segurança de registo de transações de SAP HANA com mais frequência para restringir o crescimento do registo e de impedir a potencial perda de dados. Um restauro de ficheiro único é possível este instantâneo. Não deve reduzir a frequência em cinco minutos.
-- **Arranque**: instantâneo do volume que contém o número de unidade lógica de arranque (LUN) da instância de grande HANA. Esta cópia de segurança do instantâneo é possível apenas com o tipo I SKUs de HANA grande instâncias. Ficheiro único não é possível efetuar restauros do instantâneo do volume que contém o LUN de arranque. Para o tipo II SKUs de HANA grande instâncias, pode tirar o nível de SO cópia de segurança e restaurar os ficheiros de individuais. Consulte o documento "[como executar SO cópia de segurança para o tipo II SKUs](os-backup-type-ii-skus.md)" para obter mais detalhes.
+- **Os registos**: cópia de segurança do instantâneo do volume de logbackups/hana /. Nenhum instantâneo HANA é acionado para executar este instantâneo de armazenamento. Este volume de armazenamento é o volume que deveria conter as cópias de segurança do registo de transações de SAP HANA. São efetuadas cópias de segurança de registo de transações de SAP HANA com mais frequência para restringir o crescimento do registo e de impedir a potencial perda de dados. Um restauro de ficheiro único é possível este instantâneo. Não reduzi a frequência em três minutos.
+- **Arranque**: instantâneo do volume que contém o número de unidade lógica de arranque (LUN) da instância de grande HANA. Esta cópia de segurança do instantâneo é possível apenas com o tipo I SKUs de HANA grande instâncias. Ficheiro único não é possível efetuar restauros do instantâneo do volume que contém o LUN de arranque.
 
 
-A sintaxe de chamada para estes três tipos diferentes de instantâneos tem o seguinte aspeto:
+>[!NOTE]
+> A sintaxe de chamada para estes três tipos diferentes de instantâneos alterados com a mudança para a versão 3.0 scripts, que suporta implementações de MCOD. Não é necessário especificar o SID de HANA de uma instância já. Tem de certificar-se de que as instâncias de SAP HANA de uma unidade são configuradas no ficheiro de configuração **HANABackupCustomerDetails.txt**.
+
+
+A nova sintaxe de chamada de instantâneos de armazenamento com o script a executar **azure_hana_backup.pl** parece ser:
+
 ```
 HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
-./azure_hana_backup.pl hana <HANA SID> manual 30
+./azure_hana_backup.pl hana <snapshot_prefix> <snapshot_frequency> <number of snapshots retained>
 
 For /hana/logbackups snapshot
-./azure_hana_backup.pl logs <HANA SID> manual 30
+./azure_hana_backup.pl logs <snapshot_prefix> <snapshot_frequency> <number of snapshots retained>
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot none manual 30
+./azure_hana_backup.pl boot <HANA Large Instance Type> <snapshot_prefix> <snapshot_frequency> <number of snapshots retained>
 
 ```
 
-É necessário especificar os parâmetros seguintes:
+Tem de especificar os parâmetros seguintes: 
 
 - O primeiro parâmetro caracteriza o tipo de cópia de segurança do instantâneo. Os valores permitidos são **hana**, **registos**, e **arranque**. 
-- O segundo parâmetro é **HANA SID** (como HM3) ou **nenhum**. Se o primeiro valor de parâmetros fornecidos é **hana** ou **registos**, em seguida, o valor deste parâmetro é **HANA SID** (como HM3), ou para cópia de segurança do arranque volume, o valor é **nenhum**. 
-- O terceiro parâmetro é um instantâneo ou uma etiqueta de cópia de segurança para o tipo de instantâneo. Tem duas finalidades. O uma objetivo por si é atribuir-lhe um nome, para que saiba quais estes instantâneos são sobre. O objetivo da segundo destina-se do azure de script\_hana\_backup.pl para determinar o número de instantâneos de armazenamento que são mantidos nessa etiqueta específica. Se agendar duas cópias de instantâneos de armazenamento do mesmo tipo (como **hana**), com duas etiquetas diferentes e definir que devem ser mantidos 30 instantâneos para cada um, vai ficar com 60 instantâneos de armazenamento dos volumes afetados. 
-- O parâmetro quarto define a retenção instantâneos indiretamente, ao definir o número de instantâneos de com o mesmo prefixo de instantâneo (etiqueta) que serão guardadas. Este parâmetro é importante para uma execução agendada através de cron. 
+- O parâmetro  **<HANA Large Instance Type>**  é necessário para arranque volume apenas cópias de segurança. Existem dois valores válidos com "TypeI" ou "TypeII" dependentes na unidade de instância grande HANA. Para saber qual é o "tipo" a unidade for, leia este [documentação](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- O parâmetro **< snapshot_prefix >** é um instantâneo ou uma etiqueta de cópia de segurança para o tipo de instantâneo. Tem duas finalidades. O uma objetivo por si é atribuir-lhe um nome, para que saiba quais estes instantâneos são sobre. O objetivo da segundo destina-se do azure de script\_hana\_backup.pl para determinar o número de instantâneos de armazenamento que são mantidos nessa etiqueta específica. Se agendar duas cópias de instantâneos de armazenamento do mesmo tipo (como **hana**), com duas etiquetas diferentes e definir que devem ser mantidos 30 instantâneos para cada um, vai ficar com 60 instantâneos de armazenamento dos volumes afetados. 
+- O parâmetro **< snapshot_frequency >** está reservado para futuros desenvolvimentos e não tem qualquer impacto. Recomenda-se defini-la agora como "3min" ao executar cópias de segurança do registo de tipo e "15 min.", ao executar outros tipos de cópia de segurança
+- O parâmetro  **<number of snapshots retained>**  define a retenção instantâneos indiretamente, ao definir o número de instantâneos de com o mesmo prefixo de instantâneo (etiqueta) que serão guardadas. Este parâmetro é importante para uma execução agendada através de cron. Se o número de instantâneos com o mesmo snapshot_prefix iria exceder o número especificado por este parâmetro, o instantâneo mais antigo será eliminado antes de executar um novo instantâneo de armazenamento.
 
-No caso de escalamento horizontal, o script efetua algumas adicionais de verificação para se certificar de que pode aceder a todos os servidores do HANA. O script também verifica que todas as instâncias HANA o adequado Estado devolvem de instâncias, antes de cria um instantâneo de SAP HANA. O instantâneo de SAP HANA é seguido de um instantâneo de armazenamento.
+No caso de escalamento horizontal, o script efetua algumas adicionais de verificação para se certificar de que pode aceder a todos os servidores do HANA. O script também verifica todas as instâncias HANA devolvem o estado adequado das instâncias do, antes de que cria um instantâneo de SAP HANA. O instantâneo de SAP HANA é seguido de um instantâneo de armazenamento.
 
 A execução do script `azure_hana_backup.pl` cria o armazenamento de instantâneos no seguinte três fases distintas:
 
@@ -418,44 +451,44 @@ A execução do script `azure_hana_backup.pl` cria o armazenamento de instantân
 
 Ao executar o script, efetua a chamada da pasta executável HDB que foi copiado para. 
 
-O período de retenção é administrado com o número de instantâneos são submetidos como um parâmetro ao executar o script (tais como **30**, apresentado anteriormente). Por isso, a quantidade de tempo que é abrangido pelos instantâneos de armazenamento é uma função de duas coisas: o período de execução e o número de instantâneos submetida como um parâmetro ao executar o script. Se o número de instantâneos são mantidos excede o número que são designados como um parâmetro na chamada do script, o instantâneo mais antigo do armazenamento da etiqueta do mesmo (no nosso caso anterior, **manual**) são eliminados antes de um novo instantâneo é executado. O número está a conceder como o último parâmetro da chamada é o número pode utilizar para controlar o número de instantâneos são mantidos. Com este número, pode também controlar, indiretamente, o espaço em disco utilizado para instantâneos. 
+O período de retenção é administrado com o número de instantâneos são submetidos como um parâmetro ao executar o script. A quantidade de tempo que é abrangido pelos instantâneos de armazenamento é uma função de duas coisas: o período de execução e o número de instantâneos submetida como um parâmetro ao executar o script. Se o número de instantâneos são mantidos excede o número que são designados como um parâmetro na chamada do script, o instantâneo mais antigo do armazenamento da etiqueta do mesmo é eliminado antes de um novo instantâneo é executado. O número está a conceder como o último parâmetro da chamada é o número pode utilizar para controlar o número de instantâneos são mantidos. Com este número, pode também controlar, indiretamente, o espaço em disco utilizado para instantâneos. 
 
 > [!NOTE]
->Alterar a etiqueta, assim que a contagem começa novamente. Isto significa que tem de ser strict no etiquetagem para que o seu instantâneos não são eliminados acidentalmente.
+>Alterar a etiqueta, assim que a contagem começa novamente. Isto significa que tem de ser strict no etiquetagem, pelo que os instantâneos não são eliminados acidentalmente.
 
 ### <a name="snapshot-strategies"></a>Estratégias de instantâneo
 A frequência de instantâneos para os diferentes tipos depende se utilizar a funcionalidade de recuperação após desastre de instância grande HANA ou não. A funcionalidade de recuperação após desastre de instâncias de grande HANA depende de instantâneos de armazenamento. Depender de instantâneos de armazenamento pode necessitar de algumas recomendações especiais em termos dos períodos de frequência e a execução de instantâneos de armazenamento. 
 
-Considerações e recomendações que se seguem, partimos do princípio que proceda *não* utilizar a funcionalidade de recuperação após desastre instâncias grande HANA oferece. Em alternativa, utilize os instantâneos de armazenamento como uma forma de ter cópias de segurança e ser capaz de fornecer a recuperação do ponto no tempo nos últimos 30 dias. Tendo em conta as limitações do número de instantâneos e o espaço, os clientes têm considera os seguintes requisitos:
+As considerações e recomendações que se seguem, pressuposto é, que proceda *não* utilizar a funcionalidade de recuperação após desastre instâncias grande HANA oferece. Em vez disso, pode utilizar os instantâneos de armazenamento para ter cópias de segurança e ser capaz de fornecer a recuperação do ponto no tempo nos últimos 30 dias. Tendo em conta as limitações do número de instantâneos e o espaço, os clientes têm considera os seguintes requisitos:
 
 - O tempo de recuperação para a recuperação do ponto no tempo.
 - O espaço utilizado.
-- O ponto de recuperação objetivo e o objetivo de tempo de recuperação para potenciais recuperação após desastre.
+- O ponto de recuperação objetivo e o objetivo de tempo de recuperação para potencial recuperação de desastres.
 - A execução de uma eventual de cópias de segurança de base de dados completo HANA contra discos. Sempre que uma cópia de segurança da base de dados completo contra discos ou **backint** interface é executada, a execução de instantâneos de armazenamento falha. Se planear executar cópias de segurança de base de dados completo por cima de instantâneos de armazenamento, certifique-se de que a execução de instantâneos de armazenamento está desativada durante este período.
 - O número de instantâneos por volume está limitado a 255.
 
 
-Para os clientes que não utilizem a funcionalidade de recuperação após desastre de instâncias de grande HANA, o período de instantâneo é menos frequente. Nestes casos, os clientes a executar os instantâneos combinados /hana/data e /hana/shared (inclui /usr/sap) em períodos de hora 12 ou 24 horas, vemos e mantenha os instantâneos abranger um mês completo. O mesmo acontece com os instantâneos de volume de cópia de segurança de registo. No entanto, a execução de cópias de segurança de registo de transações de SAP HANA contra o volume de cópia de segurança do registo ocorre em 5 minutos para períodos de 15 minutos.
+Para os clientes que não utilizem a funcionalidade de recuperação após desastre de instâncias de grande HANA, o período de instantâneo é menos frequente. Nestes casos, os clientes estão a funcionar de instantâneos combinados /hana/data e /hana/shared (inclui /usr/sap) em períodos de hora 12 ou 24 horas e manter estes instantâneos abranger um mês completo. O mesmo acontece com os instantâneos de volume de cópia de segurança de registo. No entanto, a execução de cópias de segurança de registo de transações de SAP HANA contra o volume de cópia de segurança do registo ocorre em 5 minutos para períodos de 15 minutos.
 
-Aconselhamo-lo para efetuar instantâneos de armazenamento agendadas utilizando cron. Também recomendamos que utilize o mesmo script para todas as cópias de segurança e recuperação após desastre, precisa. Tem de modificar o script entradas para corresponder a vários tempos de cópia de segurança de pedido. Estes instantâneos são todos agendados forma diferente no cron, dependendo do seu tempo de execução: horária, 12 horas, diária ou semanal. 
+É encouraged efetuar instantâneos de armazenamento agendadas utilizando cron. Também é recomendável utilizar o mesmo script para todas as cópias de segurança e recuperação após desastre tem. Modificar o script entradas para corresponder a vários tempos de cópia de segurança de pedido. Estes instantâneos são todos agendados forma diferente no cron, dependendo do seu tempo de execução: horária, 12 horas, diária ou semanal. 
 
 Um exemplo de uma agenda de cron no /etc/crontab poderá ter o seguinte aspeto:
 ```
-00 1-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 46
-10 00 * * *  ./azure_hana_backup.pl hana HM3 dailyhana 28
+00 1-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 46
+10 00 * * *  ./azure_hana_backup.pl hana dailyhana 15min 28
 00,05,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
-30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
+22 12 * * *  ./azure_hana_backup.pl log dailylogback 3min 28
+30 00 * * *  ./azure_hana_backup.pl boot TypeI dailyboot 15min 28
 ```
 No exemplo anterior, é um instantâneo combinado de hora a hora que abrange os volumes que contêm dados/hana/e /hana/shared (inclui/usr/sap) localizações. Este tipo de instantâneo iria ser utilizado para uma recuperação de ponto no tempo mais rápida nos últimos dois dias. Além disso, não há um instantâneo diário nesses volumes. Por isso, tem dois dias de cobertura por instantâneos horárias, mais de quatro semanas de cobertura por instantâneos diários. Além disso, o volume de cópia de segurança do registo de transações de cópias de segurança uma vez para cada dia. Estas cópias de segurança são mantidas durante quatro semanas bem. Como ver na terceira linha de crontab, a cópia de segurança do registo de transação de HANA é agendada para execução a cada cinco minutos. Os minutos de início das tarefas de cron diferente que execute instantâneos de armazenamento são escalonados, para que os instantâneos não são executados ao mesmo tempo num determinado ponto no tempo. 
 
 No exemplo seguinte, efetuar um instantâneo combinado que abrange os volumes que contêm as/hana/dados hana/partilhados (incluindo/usr/sap) localizações e numa base horária. Manter estes instantâneos para dois dias. Os instantâneos dos volumes de cópia de segurança de registo de transações são executados numa base de cinco minutos e são mantidos durante quatro horas. Como anteriormente, a cópia de segurança do ficheiro de registo de transações HANA é agendada para execução a cada cinco minutos. O instantâneo do volume de cópia de segurança de registo de transações é executado com um atraso de dois minutos após a cópia de segurança do registo de transações foi iniciado. Dentro desses dois minutos, a cópia de segurança do registo de transações de SAP HANA deve ser concluída em circunstâncias normais. Como anteriormente, o volume que contém o arranque LUN é feito uma vez por dia por um instantâneo de armazenamento e é mantido por quatro semanas.
 
 ```
-10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
+10 0-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 48
 0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log HM3 logback 48
-30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
+2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log logback 3min 48
+30 00 * * *  ./azure_hana_backup.pl boot TypeII dailyboot 15min 28
 ```
 
 O gráfico seguinte ilustra as sequências de tarefas do exemplo anterior, excluindo o LUN de arranque:
@@ -463,6 +496,9 @@ O gráfico seguinte ilustra as sequências de tarefas do exemplo anterior, exclu
 ![Relação entre as cópias de segurança e instantâneos](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
 SAP HANA efetua escritas regulares contra o volume de /hana/log documentar as alterações consolidadas na base de dados. Regularmente, SAP HANA escreve um ponto de reposição de volume /hana/data. Conforme especificado no crontab, uma cópia de segurança do registo de transações de SAP HANA é executada a cada cinco minutos. Também pode ver que um instantâneo de SAP HANA é executado devido a acionar um instantâneo de armazenamento combinado sobre os volumes /hana/data e /hana/shared a cada hora. Depois do instantâneo HANA for bem sucedida, o instantâneo de armazenamento combinado é executado. As instruções na crontab, o instantâneo de armazenamento no /hana/logbackup volume é executado de cada cinco minutos, cerca de dois minutos após a cópia de segurança do registo de transações de HANA.
+
+> [!NOTE]
+>Se agendar cópias de segurança de instantâneos de armazenamento em dois nós de um programa de configuração de replicação do sistema HANA, tem de certificar-se de que a execução das cópias de segurança do instantâneo não se podem sobrepor. SAP HANA tem uma restrição para lidar com um instantâneo HANA em apenas uma vez. Uma vez que um instantâneo HANA um componente básicas de uma cópia de segurança de instantâneos de armazenamento com êxito, tem de certificar-se de que o instantâneo de armazenamento no nó principal e secundário e um nó de terceiro eventual atempada, à excepção de si.
 
 
 >[!IMPORTANT]
@@ -473,11 +509,11 @@ Se tiver configurado um compromisso aos utilizadores de uma recuperação do pon
 - Em casos extremos, terá da capacidade de aceder um armazenamento combinado over/hana/dados de instantâneos e /hana/shared que é de 30 dias.
 - As cópias de segurança de registo de transações contíguo que abrangem o tempo entre a quaisquer instantâneos de armazenamento combinado de ter. Por isso, o instantâneo mais antigo do volume de cópia de segurança de registo de transações tem 30 dias. Não é o caso se copiar as cópias de segurança do registo de transações para outra partilha NFS que está localizada no armazenamento do Azure. Nesse caso, poderá solicitar cópias de segurança de registo de transações antigas do que a partilha NFS.
 
-Para beneficiar de instantâneos de armazenamento e a replicação de armazenamento eventual de cópias de segurança do registo de transações, terá de alterar a localização que o SAP HANA escreve as registo de transações cópias de segurança. Pode efetuar esta alteração no HANA Studio. Apesar de SAP HANA efetua cópias de segurança segmentos de registo completo automaticamente, deve especificar um intervalo de cópia de segurança do registo ser determinística. Isto é especialmente verdadeiro quando utilizar a opção de recuperação após desastre, porque, normalmente, pretende executar cópias de segurança de registos com um período de determinista. No caso de seguinte, vamos demorou 15 minutos como o intervalo de cópia de segurança do registo.
+Para beneficiar de instantâneos de armazenamento e a replicação de armazenamento eventual de cópias de segurança do registo de transações, terá de alterar a localização que o SAP HANA escreve as registo de transações cópias de segurança. Pode efetuar esta alteração no HANA Studio. Apesar de SAP HANA efetua cópias de segurança segmentos de registo completo automaticamente, deve especificar um intervalo de cópia de segurança do registo ser determinística. Isto é especialmente verdadeiro quando utilizar a opção de recuperação após desastre, porque, normalmente, pretende executar cópias de segurança de registos com um período de determinista. No caso de seguinte, 15 minutos estão definidos como o intervalo de cópia de segurança do registo.
 
 ![Agendar cópia de segurança de SAP HANA regista no SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
-Pode escolher as cópias de segurança que são mais frequentes do que 15 em 15 minutos. Isto é frequentemente Feito em conjunto com a recuperação de desastre. Alguns clientes efetuar cópias de segurança do registo de transações a cada cinco minutos.  
+Pode escolher as cópias de segurança que são mais frequentes do que 15 em 15 minutos. Cenário inferior é frequentemente utilizado em conjunto com a funcionalidade de recuperação após desastre de instâncias de grande HANA. Alguns clientes efetuar cópias de segurança do registo de transações a cada cinco minutos.  
 
 Se a base de dados nunca foi efetuada cópia de, é o último passo efetuar uma cópia de segurança da base de dados baseada em ficheiros para criar uma única entrada de cópia de segurança que tem de existir no catálogo de cópias de segurança. Caso contrário, SAP HANA não é possível iniciar as cópias de segurança de registo especificado.
 
@@ -507,12 +543,12 @@ Para obter mais detalhes em instantâneos, também pode utilizar o script `azure
    * Tamanho de instantâneos totais um volume
    * Cada instantâneo nesse volume inclui os seguintes detalhes: 
       - Nome de instantâneo 
-      - Tempo de criação 
+      - Hora de criação 
       - Tamanho do instantâneo
       - Frequência de instantâneo
       - ID de cópia de segurança de HANA associado nesse instantâneo, se forem relevantes
 
-A sintaxe de execução do script tem o seguinte aspeto:
+A sintaxe de execução do script tem o seguinte:
 
 ```
 ./azure_hana_snapshot_details.pl 
@@ -544,7 +580,7 @@ HANA Backup ID:
 Para o instantâneo tipos hana e os registos, é capazes de aceder aos instantâneos diretamente nos volumes no **.snapshot** diretório. Não há um subdiretório para cada um dos instantâneos. Deve ser capaz de copiar cada ficheiro que é abrangido pelo instantâneo no Estado tinha at the point of o instantâneo do que subdiretório para a estrutura de diretórios real.
 
 >[!NOTE]
->Ficheiro único restauro não funciona para instantâneos do LUN de arranque. O **.snapshot** diretórios não está exposto no LUN de arranque. 
+>Ficheiro único restauro não funciona para instantâneos do arranque LUN independentemente do tipo de unidades de instância grande HANA. O **.snapshot** diretórios não está exposto no LUN de arranque. 
 
 
 ### <a name="reducing-the-number-of-snapshots-on-a-server"></a>Reduzir o número de instantâneos, num servidor
@@ -552,13 +588,13 @@ Para o instantâneo tipos hana e os registos, é capazes de aceder aos instantâ
 Tal como explicado anteriormente, pode reduzir o número de determinados etiquetas de instantâneos que armazena. Os últimos dois parâmetros do comando para iniciar um instantâneo são a etiqueta e o número de instantâneos que pretenda manter.
 
 ```
-./azure_hana_backup.pl hana HM3 hanadaily 30
+./azure_hana_backup.pl hana dailyhana 15min 28
 ```
 
-No exemplo anterior, a etiqueta de instantâneo é **cliente** e é o número de instantâneos com esta etiqueta deve ser retida **30**. Como responder para consumo de espaço em disco, pode querer reduzir o número de instantâneos armazenados. É a forma mais fácil de reduzir o número de instantâneos para 15, por exemplo, para executar o script com o último parâmetro definido como **15**:
+No exemplo anterior, a etiqueta de instantâneo é **dailyhana** e é o número de instantâneos com esta etiqueta deve ser retida **28**. Como responder para consumo de espaço em disco, pode querer reduzir o número de instantâneos armazenados. É a forma mais fácil de reduzir o número de instantâneos para 15, por exemplo, para executar o script com o último parâmetro definido como **15**:
 
 ```
-./azure_hana_backup.pl hana HM3 hanadaily 15
+./azure_hana_backup.pl hana dailyhana 15min 15
 ```
 
 Se executar o script com esta definição, o número de instantâneos, incluindo o instantâneo de armazenamento novo, é 15. 15 mais recentes instantâneos são mantidos, enquanto que os 15 instantâneos mais antigos são eliminados.
@@ -566,7 +602,7 @@ Se executar o script com esta definição, o número de instantâneos, incluindo
  >[!NOTE]
  > Este script reduz o número de instantâneos só se existirem instantâneos que são mais de um horas depois. O script não eliminar instantâneos são inferior a um horas depois. Estas restrições relacionadas com a funcionalidade de recuperação de desastres opcional fornecida.
 
-Se já não pretender manter um conjunto de instantâneos com uma etiqueta de cópia de segurança específica **hanadaily** nos exemplos de sintaxe, pode executar o script com **0** como o número de retenção. Esta ação remove todos os instantâneos correspondente essa etiqueta. No entanto, a remoção de todos os instantâneos pode afetar as capacidades de recuperação após desastre.
+Se já não pretender manter um conjunto de instantâneos com uma etiqueta de cópia de segurança específica **hanadaily** nos exemplos de sintaxe, pode executar o script com **0** como o número de retenção. Esta ação remove todos os instantâneos correspondente essa etiqueta. No entanto, a remoção de todos os instantâneos pode afetar as capacidades das funcionalidades de recuperação após desastre de instâncias de grande HANA.
 
 Uma segundo possibilidade para eliminar instantâneos específicos consiste em utilizar o script `azure_hana_snapshot_delete.pl`. Este script foi concebido para eliminar um instantâneo ou um conjunto de instantâneos ou ao utilizar o ID de cópia de segurança HANA como encontrada no HANA Studio ou através de instantâneos nome próprio. Atualmente, o ID de cópia de segurança só está associado aos instantâneos criados para o **hana** tipo de instantâneos. As cópias de segurança do tipo de instantâneos **registos** e **arranque** não efetuar um instantâneo de SAP HANA. Por conseguinte, não há nenhum ID de cópia de segurança para localizar os instantâneos. Se o nome de instantâneo é introduzido, procura todos os instantâneos em volumes diferentes que corresponde ao nome do instantâneo introduzido. A sintaxe de chamada do script é:
 
@@ -577,7 +613,7 @@ Uma segundo possibilidade para eliminar instantâneos específicos consiste em u
 
 Execute o script como utilizador **raiz**.
 
-Se selecionar um instantâneo, ter a capacidade de eliminar cada instantâneo individualmente. Primeiro a fornecer o volume que contém o instantâneo e, em seguida, forneça o nome do instantâneo. Se o instantâneo existe esse volume e é mais de uma hora antigo, é eliminado. Pode encontrar os nomes de volume e nomes de instantâneo executando o `azure_hana_snapshot_details` script. 
+Se selecionar um instantâneo, pode eliminar cada instantâneo individualmente. Primeiro a fornecer o volume que contém o instantâneo e, em seguida, forneça o nome do instantâneo. Se o instantâneo existe esse volume e é mais de uma hora antigo, é eliminado. Pode encontrar os nomes de volume e nomes de instantâneo executando o `azure_hana_snapshot_details` script. 
 
 >[!IMPORTANT]
 >Se houver dados que só existe no instantâneo que está a eliminar, em seguida, se executar a eliminação, os dados são perdidos indefinidamente.
@@ -668,7 +704,7 @@ O seguinte processo restaura o instantâneo HANA que está incluído no instant�
  ![Clique em "Concluir" no ecrã de resumo](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### <a name="recovering-to-another-point-in-time"></a>Recuperar para um outro ponto no tempo
-Recuperar para um ponto no tempo entre o instantâneo HANA (incluído no instantâneo armazenamento) e outro que é posterior à recuperação de ponto no tempo de instantâneo HANA, efetue o seguinte:
+Recuperar para um ponto no tempo entre o instantâneo HANA (incluído no instantâneo armazenamento) e outro que é posterior à recuperação de ponto no tempo de instantâneo HANA, execute os seguintes passos:
 
 1. Certifique-se de que todos os registo de transações cópias de segurança do instantâneo HANA ao momento em que pretende recuperar.
 2. Iniciar o procedimento em [recuperar para o estado mais recente](#recovering-to-the-most-recent-state).
@@ -710,9 +746,9 @@ Pode ver deste exemplo como o script regista a criação do instantâneo HANA. N
 
 
 ## <a name="disaster-recovery-principles"></a>Princípios de recuperação de desastre
-Com instâncias de grande HANA, que oferecemos uma funcionalidade de recuperação após desastre entre carimbos de data / instância grande HANA em diferentes regiões do Azure. Por exemplo, se implementar unidades de instância grande HANA na região dos EUA oeste do Azure, pode utilizar as unidades de instância grande HANA na região dos EUA Leste como unidades de recuperação após desastre. Conforme mencionado anteriormente, recuperação após desastre não está configurada automaticamente, porque é necessária a pagar para outra unidade de instância grande HANA na região DR. A configuração de recuperação após desastre funciona para setups vertical, bem como de escalamento horizontal. 
+Instâncias de grande HANA oferecem uma funcionalidade de recuperação após desastre entre carimbos de data / instância grande HANA em diferentes regiões do Azure. Por exemplo, se implementar unidades de instância grande HANA na região dos EUA oeste do Azure, pode utilizar as unidades de instância grande HANA na região dos EUA Leste como unidades de recuperação após desastre. Conforme mencionado anteriormente, recuperação após desastre não está configurada automaticamente, porque é necessária a pagar para outra unidade de instância grande HANA na região DR. A configuração de recuperação após desastre funciona para setups vertical, bem como de escalamento horizontal. 
 
-Nos cenários de implementação até ao momento, os nossos clientes utilizam a unidade na região DR para executar os sistemas de não produção que utilizam uma instância HANA instalada. A unidade de instância grande HANA tem de ser do mesmo SKU como o SKU utilizado para fins de produção. A configuração de disco entre a unidade do servidor na região do Azure de produção e a região de recuperação após desastre tem o seguinte aspeto:
+Nos cenários de implementação até ao momento, os clientes utilizam a unidade na região DR para executar os sistemas de não produção que utilizam uma instância HANA instalada. A unidade de instância grande HANA tem de ser do mesmo SKU como o SKU utilizado para fins de produção. A configuração de disco entre a unidade do servidor na região do Azure de produção e a região de recuperação após desastre tem o seguinte:
 
 ![Configuração do programa de configuração de DR do disco ponto de vista](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_setup.PNG)
 
@@ -728,10 +764,13 @@ A base da funcionalidade de recuperação após desastre oferecidos é a funcion
 
 A transferência dos dados do volume completos primeiro deve ter antes da quantidade de dados fica mais pequena do que as diferenças entre instantâneos. Como resultado, os volumes no site de DR contenham todos os instantâneos de volume efetuada no site de produção. Este facto permite-lhe acaba por utilizar esse sistema DR para obter um estado anterior para recuperar dados perdidos, sem reverter o sistema de produção.
 
+Em caso de MCOD as implementações com várias instâncias de SAP HANA independentes numa unidade de instância grande HANA, espera-se que todas as instâncias de SAP HANA são obter armazenamento replicado para o lado de DR.
+
 Em casos onde utilizar replicação do sistema HANA como a funcionalidade de elevada disponibilidade do site de produção, são replicados apenas os volumes da instância de camada 2 (ou réplica). Esta configuração poderá dar origem a um atraso na replicação de armazenamento para o site de DR se mantenha ou tirá a unidade do servidor de réplica secundária (camada 2) ou a instância de SAP HANA nessa unidade. 
 
+
 >[!IMPORTANT]
->Tal como acontece com a replicação do sistema HANA com várias camadas, um encerramento da unidade de camada 2 HANA instância ou servidor bloqueia a replicação para o site de recuperação após desastre ao utilizar a funcionalidade de recuperação após desastre de instância grande HANA.
+>Tal como acontece com a replicação do sistema de várias camadas HANA, um encerramento da unidade de camada 2 HANA instância ou servidor bloqueia a replicação para o site de recuperação após desastre ao utilizar a funcionalidade de recuperação após desastre de instância grande HANA.
 
 
 >[!NOTE]
@@ -740,24 +779,28 @@ Em casos onde utilizar replicação do sistema HANA como a funcionalidade de ele
 
 
 ## <a name="preparation-of-the-disaster-recovery-scenario"></a>Preparação do cenário de recuperação após desastre
-Iremos partem do princípio de que tem um sistema de produção em execução no instâncias grande HANA numa região do Azure de produção. Para o seguinte documentação, vamos assumir que o SID do sistema que HANA é "PRD." Podemos também partem do princípio de que tem um sistema de não produção em execução em instâncias de grande HANA executar a recuperação de desastre região do Azure. Para a documentação, vamos partem do princípio de que o respetivo SID é "TST." Para que a configuração tem o seguinte aspeto:
+É a pressuposto de que tem um sistema de produção em execução no instâncias grande HANA numa região do Azure de produção. Para o seguinte documentação, vamos assumir que o SID do sistema que HANA é "PRD." Podemos também partem do princípio de que tem um sistema de não produção em execução em instâncias de grande HANA em execução na região do Azure de DR. Para a documentação, pressuposto é que o respetivo SID é "TST." Por isso, a configuração do aspeto:
 
 ![Início do programa de configuração de DR](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
 
-Se a instância de servidor não tem sido ordenada já com o conjunto de volume de armazenamento adicional, SAP HANA na gestão de serviço do Azure irá anexar o conjunto de volumes adicionais como um destino para a réplica de produção para a unidade de instância grande HANA que está a executar o TST Instância HANA no. Para essa finalidade, tem de fornecer o SID da sua instância HANA de produção. Depois de SAP HANA na gestão de serviço do Azure confirma o anexo desses volumes, terá de montar os volumes para a unidade de instância grande HANA.
+Se a instância de servidor não tiver sido ordenadas já com o conjunto de volume de armazenamento adicional, SAP HANA na gestão de serviço do Azure irá expor o conjunto de volumes adicionais como um destino para a réplica de produção para a unidade de instância grande HANA que está a executar a instância de TST HANA no. Para essa finalidade, tem de fornecer o SID da sua instância HANA de produção. Depois de SAP HANA na gestão de serviço do Azure confirma o anexo desses volumes, terá de montar os volumes para a unidade de instância grande HANA.
 
 ![Passo seguinte do programa de configuração DR](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 
-O passo seguinte para si é instalar a segunda instância de SAP HANA na unidade instância grande HANA na recuperação de desastres região do Azure, onde executa a instância de TST HANA. A instância de SAP HANA recentemente instalada tem de ter o mesmo SID. Os utilizadores criou tem de ter o mesmo UID e ID de grupo que tenha da instância de produção. Se a instalação foi concluída com êxito, tem de:
-- Pare a instância de SAP HANA recentemente instalada na unidade HANA de instância grande na recuperação de desastres região do Azure.
+O passo seguinte para si é instalar a segunda instância de SAP HANA na unidade instância grande HANA na região do Azure de DR, em que executa a instância de TST HANA. A instância de SAP HANA recentemente instalada tem de ter o mesmo SID. Os utilizadores criou tem de ter o mesmo UID e ID de grupo que tenha da instância de produção. Se a instalação foi concluída com êxito, tem de:
+
+- Executar a preparação de instantâneos de armazenamento, o passo #2 anteriormente no documento
+- Crie uma chave pública para a unidade de DR da unidade de instância grande HANA se não tiver sido executada esse passo antes. O procedimento é mostrado como passo 3 de # a preparação de instantâneos de armazenamento anteriormente no documento
+- Manter o **HANABackupCustomerDetails.txt** com a nova instância HANA e teste se conectividade para o armazenamento funciona corretamente.  
+- Pare a instância de SAP HANA recentemente instalada na unidade HANA de instância grande na região do Azure de DR.
 - Desmonte estes volumes PRD e contacte o SAP HANA na gestão de serviço do Azure. Os volumes de mensagens em fila não é possível permanecem montados para a unidade porque não pode estar acessíveis à funcionar como destino de replicação de armazenamento.  
 
 ![Passo de configuração de DR antes de estabelecer a replicação](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
-A equipa de operações vai para estabelecer a relação de replicação entre os volumes PRD na região do Azure de produção e os volumes PRD na recuperação de desastres região do Azure.
+A equipa de operações vai para estabelecer a relação de replicação entre os volumes PRD na região do Azure de produção e os volumes PRD na região do Azure de DR.
 
 >[!IMPORTANT]
->O volume de /hana/log não será replicado porque não é necessário restaurar a base de dados SAP HANA replicada num estado consistente no site de recuperação após desastre.
+>O volume de /hana/log não vai ser replicada devido a não ser necessário restaurar a base de dados SAP HANA replicada num estado consistente no site de recuperação após desastre.
 
 O passo seguinte para está a configurar ou ajustar a agenda de cópia de segurança de instantâneos de armazenamento para aceder ao seu RTO e RPO no caso de desastre. Para minimizar o objetivo de ponto de recuperação, defina os seguintes intervalos de replicação no serviço de instância grande HANA:
 - Os volumes que estão abrangidos pelo instantâneo combinado (tipo de instantâneos = **hana**) replicar a cada 15 minutos para os destinos de volume de armazenamento equivalente no site de recuperação após desastre.
@@ -784,25 +827,54 @@ Como as operações de instância grande HANA confirmar que o programa de config
 
 ![Passo de configuração de DR antes de estabelecer a replicação](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start4.PNG)
 
-Como avança ser a replicação, os instantâneos nos volumes PRD na recuperação de desastres do Azure não estão restauradas regiões. Apenas são armazenados. Se os volumes são instalados nesse Estado, estes representam o estado em que a desmontar os volumes depois da instância de PRD SAP HANA foi instalada na unidade de servidor na recuperação de desastres região do Azure. Eles também representam as cópias de segurança de armazenamento que ainda não foram restauradas.
+Avança ser a replicação, os instantâneos nos volumes PRD em regiões do Azure de DR não está a ser restaurado. Apenas são armazenados. Se os volumes são instalados nesse Estado, estes representam o estado em que a desmontar os volumes depois da instância de PRD SAP HANA foi instalada na unidade do servidor na região do Azure de DR. Eles também representam as cópias de segurança de armazenamento que ainda não foram restauradas.
 
 Em caso de uma ativação pós-falha, também pode escolher restaurar um instantâneo mais antigo do armazenamento em vez do instantâneo de armazenamento mais recente.
 
 ## <a name="disaster-recovery-failover-procedure"></a>Procedimento de recuperação após desastre de ativação pós-falha
-Se pretende ou precisa a ativação pós-falha para o site de DR, tem de interagir com o SAP HANA na equipa de operações do Azure. Nos passos aproximados, o processo até ao momento este aspeto:
+Existem dois cenários diferentes a considerar quando efetuar a ativação pós-falha para o site de DR:
 
-1. Como está a executar uma instância de não produção do HANA na unidade de recuperação após desastre de instâncias de grande HANA, tem de encerrar esta instância. Partimos do princípio que é uma instância de produção HANA dormant pré-instaladas.
+- Terá da base de dados SAP HANA novamente para o estado mais recente dos dados. Neste caso, é um script de self-service que permite efetuar a ativação pós-falha sem a necessidade de contactar a Microsoft. Apesar da reativação pós-falha terá de trabalhar com a Microsoft.
+- Pretende restaurar para um instantâneo de armazenamento que não seja o mais recente instantâneo replicado, terá de trabalhar com a Microsoft. 
+
+>[!NOTE]
+>Os passos do processo abaixo tem de ser executado na unidade instância HANA grandes, que representa a unidade de DR. 
+ 
+Em caso de restauro para os instantâneos de armazenamento replicado mais recentes, os passos aproximados aspeto: 
+
+1. Como está a executar uma instância de não produção do HANA na unidade de recuperação após desastre de instâncias de grande HANA, tem de encerrar esta instância. É a pressuposto de que é uma instância de produção HANA dormant pré-instaladas.
+2. Certifique-se de que não existem processos de SAP HANA estão em execução. Utilize o seguinte comando para esta verificação: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. O resultado deve mostrar o **hdbdaemon** processos num estado parado e outros processos HANA num Estado em execução ou foi iniciado.
+3. Na DR site HANA grande instância unidade, execute o script **azure_hana_dr_failover.pl**. O script é solicitando um SID de HANA SAP para serem restaurados. No pedido do script, escreva um ou o único SAP HANA SID que foram replicada e que é mantido no ficheiro HANABackupCustomerDetails.txt na unidade instância grande HANA no site de DR. Se pretender ter múltiplas instâncias de SAP HANA a ativação pós-falha, terá de executar o script várias vezes e no tipo de pedido de SAP HANA SID que pretende efetuar a ativação pós-falha e restaurar. Após a conclusão, o script mostra uma lista de pontos de montagem dos volumes que são adicionados à unidade de instância HANA grandes. Esta lista inclui os volumes de DR restaurados
+4. Monte os volumes de recuperação de desastres restaurados através de comandos de sistema operativo Linux para a unidade de instância grande HANA no site de recuperação após desastre. 
+6. Inicie a instância de produção de SAP HANA dormant até ao momento.
+7. Se optar por copiar registos de cópia de segurança de registo de transações, além disso, para reduzir o tempo RPO, tem de unir as cópias de segurança do registo de transações para o diretório de logbackups recentemente montado DR hana /. Não substitua cópias de segurança existentes. Apenas cópia mais recentes cópias de segurança que não foram replicadas com a replicação mais recente de um instantâneo de armazenamento.
+8. Também pode restaurar ficheiros único os instantâneos de tem sido replicados para o volume de /hana/shared/PRD na região do Azure de DR. 
+
+Pode testar a ativação pós-falha de DR, bem como sem afetar a relação de replicação real. Para efetuar uma ativação pós-falha de teste, siga os passos 1 e 2 dos passos listados acima. Passo 3 vai alterar apesar.
+
+>[!IMPORTANT]
+>NÃO poderá executar quaisquer transações de produção na instância que criou no site de DR durante o processo de **testar uma ativação pós-falha** com o script seguinte introduzido. O comando introduzido seguinte cria um conjunto de volumes que não tenham nenhuma relação para o site primário. Como resultado, uma sincronização para o site principal não é possível. 
+
+Passo #3 para o **ativação pós-falha de teste** tem de ter o seguinte aspeto:
+
+Na DR site HANA grande instância unidade, execute o script **azure_hana_test_dr_failover.pl**. Este script não está a parar a relação de replicação entre o site primário e site de DR. Em vez disso, este script é clonagem de volumes de armazenamento de DR. Depois do processo de clonagem é concluída com êxito, os volumes clonados são restaurados para o estado do instantâneo mais recente e, em seguida, montados para a unidade de DR. O script é solicitando um SID de HANA SAP para serem restaurados. Escreva um ou o único SAP HANA SID que foram replicada e que é mantido no ficheiro HANABackupCustomerDetails.txt na unidade instância grande HANA no site de DR. Se pretender ter múltiplas instâncias de SAP HANA que pretende testar, tem de executar o script várias vezes e no tipo de pedido de SAP HANA SID que pretende testar a ativação pós-falha. Após a conclusão, o script mostra uma lista de pontos de montagem dos volumes que são adicionados à unidade de instância HANA grandes. Esta lista inclui os volumes de DR clonados.
+
+Em seguida, continue com os passos 4 a 8 do procedimento acima.
+
+Se precisar de efetuar a ativação pós-falha para o site de DR para rescue alguns dados que foi eliminados há horas e, por conseguinte, tem dos volumes de DR será definido para um anterior ao instantâneo mais recente, este procedimento aplica-se. 
+
+1. Como está a executar uma instância de não produção do HANA na unidade de recuperação após desastre de instâncias de grande HANA, tem de encerrar esta instância. É a pressuposto de que é uma instância de produção HANA dormant pré-instaladas.
 2. Certifique-se de que não existem processos de SAP HANA estão em execução. Utilize o seguinte comando para esta verificação: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. O resultado deve mostrar o **hdbdaemon** processos num estado parado e outros processos HANA num Estado em execução ou foi iniciado.
 3. Determine o nome de instantâneo ou o ID de cópia de segurança de SAP HANA pretende que o site de recuperação após desastre restaurado. Em casos de recuperação de desastres real, este instantâneo é, normalmente, o instantâneo mais recente. Se precisar de recuperar dados perdidos, escolha um instantâneo anterior.
-4. Azure contacto suportam através de um pedido de suporte de alta prioridade e peça para o restauro desse instantâneo (nome e a data do instantâneo) ou um ID de cópia de segurança HANA no site de DR. A predefinição é que as operações restaurar apenas o volume de /hana/data. Se pretender ter/hana/logbackups volumes bem, tem de estado de especificamente. *Não recomendamos que restaure o volume de /hana/shared.* Em vez disso, deve escolher ficheiros específicos, como global.ini fora do **.snapshot** diretório e nos seus subdiretórios depois remontar o hana/volume partilhado de PRD. No lado de operações, os passos seguintes vão continuar a ocorrer: um. A replicação de instantâneos de volume de produção para os volumes de recuperação após desastre está parada. Isto poderá ter já aconteceu se uma falha no site de produção é o motivo que é necessário um DR.
+4. Azure contacto suportam através de um pedido de suporte de alta prioridade e peça para o restauro desse instantâneo (nome e a data do instantâneo) ou um ID de cópia de segurança HANA no site de DR. A predefinição é que as operações restaurar apenas o volume de /hana/data. Se pretender ter/hana/logbackups volumes bem, tem de estado de especificamente. *Não é recomendado o volume de /hana/shared a restaurar.* Em vez disso, deve escolher ficheiros específicos, como global.ini fora do **.snapshot** diretório e nos seus subdiretórios depois remontar o hana/volume partilhado de PRD. No lado de operações, os passos seguintes vão continuar a ocorrer: um. A replicação de instantâneos de volume de produção para os volumes de recuperação após desastre está parada. Este interrupção poderá ter sucedido já se uma falha no site de produção é o motivo que é necessário executar o procedimento de recuperação após desastre.
     b. O armazenamento nome de instantâneo ou instantâneo com a cópia de segurança ID que escolheu é restaurado nos volumes de recuperação após desastre.
     c. Após o restauro, os volumes de recuperação após desastre estão disponíveis para ser montado para as unidades de instância grande HANA na região de recuperação após desastre.
 5. Monte os volumes de recuperação de desastres para a unidade de instância grande HANA no site de recuperação após desastre. 
 6. Inicie a instância de produção de SAP HANA dormant até ao momento.
 7. Se optar por copiar registos de cópia de segurança de registo de transações, além disso, para reduzir o tempo RPO, tem de unir as cópias de segurança do registo de transações para o diretório de logbackups recentemente montado DR hana /. Não substitua cópias de segurança existentes. Apenas cópia mais recentes cópias de segurança que não foram replicadas com a replicação mais recente de um instantâneo de armazenamento.
-8. Também pode restaurar ficheiros único os instantâneos de tem sido replicados para o volume de /hana/shared/PRD a recuperação de desastre região do Azure.
+8. Também pode restaurar ficheiros único os instantâneos de tem sido replicados para o volume de /hana/shared/PRD na região do Azure de DR.
 
-A seguinte sequência de passos envolve a recuperar a instância de produção de SAP HANA com base no instantâneo de armazenamento restaurada e as cópias de segurança do registo de transações que estão disponíveis. Os passos tem o seguinte aspeto:
+A seguinte sequência de passos envolve a recuperar a instância de produção de SAP HANA com base no instantâneo de armazenamento restaurada e as cópias de segurança do registo de transações que estão disponíveis. Os passos de ter o seguinte aspeto:
 
 1. Altere a localização de cópia de segurança para **/hana/logbackups** através da utilização de SAP HANA Studio.
    ![Alterar a localização de cópia de segurança para recuperação do DR](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
@@ -828,9 +900,9 @@ Se o restauro parecer fique suspensa no **concluir** ecrã e não apresentar o e
 
 
 ### <a name="failback-from-dr-to-a-production-site"></a>Reativação pós-falha a partir de DR para um site de produção
-Pode efetuar a reativação a partir de um DR para um site de produção. Vamos observar o caso em que a ativação pós-falha para o site de recuperação após desastre foi causada por problemas na região do Azure de produção e não satisfaça as suas necessidades para recuperar dados perdidos. Isto significa que tenha sido executados a carga de trabalho de produção do SAP durante tempo no site de recuperação após desastre. Como são resolvidos os problemas no site de produção, pretende haja reativação para o site de produção. Porque não é possível perder dados, o passo anterior para o site de produção envolve vários passos e fechar cooperação com o SAP HANA na equipa de operações do Azure. Trata-se até a acionar a equipa de operações a iniciá-la para o site de produção após os problemas são resolvidos.
+Pode efetuar a reativação a partir de um DR para um site de produção. Vamos observar o caso em que a ativação pós-falha para o site de recuperação após desastre foi causada por problemas na região do Azure de produção e não satisfaça as suas necessidades para recuperar dados perdidos. Tenham sido executados a carga de trabalho de produção do SAP durante o tempo no site de recuperação após desastre. Como são resolvidos os problemas no site de produção, pretende haja reativação para o site de produção. Porque não é possível perder dados, o passo anterior para o site de produção envolve vários passos e fechar cooperação com o SAP HANA na equipa de operações do Azure. Trata-se até a acionar a equipa de operações a iniciá-la para o site de produção após os problemas são resolvidos.
 
-A sequência de passos tem o seguinte aspeto:
+A sequência de passos tem o seguinte:
 
 1. O SAP HANA na equipa de operações do Azure obtém o acionador para sincronizar os volumes de armazenamento de produção dos volumes de armazenamento de recuperação de desastres, que agora representam o estado de produção. Neste estado, a unidade de instância grande HANA no site de produção é encerrada.
 2. O SAP HANA na equipa de operações do Azure monitoriza a replicação e certifica-se de que um catch-up é alcançado antes informando-o como um cliente.

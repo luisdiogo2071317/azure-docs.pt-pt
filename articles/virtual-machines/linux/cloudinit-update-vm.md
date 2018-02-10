@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 4209bc270a6d255c8512dd6ccd5551b556da5a6b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e45bec2a71f94c66ce3044fb81bd2d7cefdf53a5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Utilizar a cloud init para atualizar e instalar pacotes de uma VM com Linux no Azure
 Este artigo mostra como utilizar [nuvem init](https://cloudinit.readthedocs.io) para atualizar pacotes um Linux da máquina virtual (VM) ou dimensionamento da máquina virtual define (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure. Para obter mais informações sobre como nuvem init nativamente funciona no Azure e os distros suportados do Linux, consulte [nuvem init descrição-geral](using-cloud-init.md)
@@ -26,7 +26,7 @@ Este artigo mostra como utilizar [nuvem init](https://cloudinit.readthedocs.io) 
 ## <a name="update-a-vm-with-cloud-init"></a>Atualizar uma VM com init de nuvem
 Por motivos de segurança, poderá querer configurar uma VM para aplicar as atualizações mais recentes no primeiro arranque. Como nuvem init funciona em diferentes distros do Linux, é necessário especificar `apt` ou `yum` para o Gestor de pacotes. Em vez disso, é possível definir `package_upgrade` e permitir que o processo de nuvem init determinar o mecanismo de adequado para distro em utilização. Este fluxo de trabalho permite-lhe utilizar os scripts de nuvem init mesmo em distros.
 
-Para ver o processo de atualização em ação, crie um ficheiro na sua shell atual com o nome *cloud_init_upgrade.txt* e cole a seguinte configuração. Neste exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_upgrade.txt` para criar o ficheiro e ver uma lista de editores disponíveis. Escolha #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha.  
+Para ver o processo de atualização em ação, crie um ficheiro na sua shell atual com o nome *cloud_init_upgrade.txt* e cole a seguinte configuração. Neste exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_upgrade.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha.  
 
 ```yaml
 #cloud-config
@@ -35,13 +35,13 @@ packages:
 - httpd
 ```
 
-Antes de implementar esta imagem, tem de criar um grupo de recursos com o [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de implementar esta imagem, tem de criar um grupo de recursos com o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie uma VM com [az vm criar](/cli/azure/vm#create) e especifique o ficheiro de nuvem init com `--custom-data cloud_init_upgrade.txt` da seguinte forma:
+Agora, crie uma VM com [az vm criar](/cli/azure/vm#az_vm_create) e especifique o ficheiro de nuvem init com `--custom-data cloud_init_upgrade.txt` da seguinte forma:
 
 ```azurecli-interactive 
 az vm create \
@@ -76,7 +76,7 @@ Calculating upgrade... Done
 
 Também pode ver que `httpd` foi instalado através da execução `yum history` e reveja o tipo de referência de saída `httpd`. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter exemplos adicionais nuvem-init das alterações de configuração, consulte o seguinte:
  
 - [Adicionar um utilizador de Linux adicional para uma VM](cloudinit-add-user.md)

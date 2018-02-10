@@ -14,18 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que é novo no Azure Active Directory?
-
-
 
 
 > Continuar atualizado com o que há de novo no Azure Active Directory (Azure AD) ao subscrever o [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -125,7 +123,7 @@ A partir de 8 de Janeiro de 2018, a administração do Azure AD foi retirada exp
  
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>A administração do Azure AD foi retirada experiência de utilização no portal clássico do Azure
+### <a name="the-phonefactor-web-portal-has-been-retired"></a>O portal web do PhoneFactor foi extinguido.
 
 **Tipo:** preterido  
 **Categoria de serviço:** do Azure AD  
@@ -249,7 +247,7 @@ Para obter mais informações, consulte [que é o Azure AD Privileged Identity M
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** aplicações da empresa  
-**Capacidade de produto:** integração de terceiros
+**Capacidade de produto:** 3rd integração de terceiros
  
 Dezembro de 2017, as seguintes novas aplicações com suporte de Federação foram adicionadas na Galeria de aplicações:
 

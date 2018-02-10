@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: b0afbd54ddad4cc4be2b35c85d81abe90c717692
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 88a61467a79a424670d49e662315cab59ab52d13
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning: implementação e consumo
 Pode utilizar o Azure Machine Learning para implementar modelos como serviços web e fluxos de trabalho de machine learning. Estes serviços web, em seguida, podem ser utilizados para chamar os modelos de machine learning a partir de aplicações através da Internet para fazer predições em tempo real ou no modo de batch. Dado que os serviços web RESTful, pode chamá-los de vários idiomas e plataformas, tal como .NET e Java, programação e de aplicações, como o Excel.
@@ -66,7 +66,7 @@ Executar a aplicação cria um modelo de JSON do serviço web. Para utilizar o m
 
 Adicioná-los para o modelo JSON como subordinados a *propriedades* nó no mesmo nível, como o *MachineLearningWorkspace* nó.
 
-Eis um exemplo:
+Segue-se um exemplo:
 
     "StorageAccount": {
             "name": "YourStorageAccountName",

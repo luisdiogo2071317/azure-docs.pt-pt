@@ -3,7 +3,7 @@ title: "Criar funções de controlo de acesso baseado em funções personalizado
 description: "Atribuir funções RBAC personalizadas criadas com o PowerShell e da CLI para utilizadores internos e externos"
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Introdução no controlo de acesso baseado em funções
 
 Controlo de acesso baseado em funções é uma funcionalidade de apenas portal do Azure, permitindo os proprietários de uma subscrição atribuir funções granulares a outros utilizadores que podem gerir âmbitos de recurso específico no respetivo ambiente.
 
-RBAC permite um melhor gestão de segurança para organizações grandes e para PMEs trabalhar com colaboradores externos, fornecedores ou freelancers que necessitam de aceder a recursos específicos no seu ambiente, mas não necessariamente para toda a infraestrutura ou de qualquer âmbitos relacionadas com a faturação. RBAC permite a flexibilidade de proprietário de uma subscrição do Azure gerida pela conta de administrador (função de administrador de serviço a um nível de subscrição) e têm vários utilizadores convidados funcione na mesma subscrição, mas sem quaisquer direitos administrativos para o mesmo. Da perspetiva de faturação e de gestão, a funcionalidade RBAC comprova ser uma opção eficiente hora e a gestão para utilizar o Azure em vários cenários.
+RBAC permite um melhor gestão de segurança para organizações grandes e para PMEs trabalhar com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos no seu ambiente, mas não necessariamente para toda a infraestrutura ou de qualquer âmbitos relacionadas com a faturação. RBAC permite a flexibilidade de proprietário de uma subscrição do Azure gerida pela conta de administrador (função de administrador de serviço a um nível de subscrição) e têm vários utilizadores convidados funcione na mesma subscrição, mas sem quaisquer direitos administrativos para o mesmo. Da perspetiva de faturação e de gestão, a funcionalidade RBAC comprova ser uma opção eficiente hora e a gestão para utilizar o Azure em vários cenários.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Utilizar o RBAC no ambiente do Azure requer:
@@ -59,7 +59,7 @@ No portal do Azure, depois de a iniciar sessão como administrador, selecione "S
 ![Painel de subscrição no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador irá aparecer como **administrador da conta**, isto ser a função de subscrição. Para obter mais detalhes sobre as funções da subscrição do Azure, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou serviços](/billing/billing-add-change-azure-subscription-administrator.md).
 
 Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** de "Avaliação gratuita" subscrição do AAD inquilino "Predefinido inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a Account Microsoft inicial "Outlook" (Microsoft Account = Outlook, etc. Live) o nome de domínio predefinido para todos os outros utilizadores adicionado neste inquilino será **"@alflaniganuoutlook.onmicrosoft.com"**. Por predefinição, a sintaxe do novo domínio está formada por colocando, em conjunto, o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". c o m"**.
-Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais detalhes sobre a forma de verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
+Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais informações sobre a forma de verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
 
 Neste exemplo, o diretório de "Predefinição inquilino do Azure" contém apenas os utilizadores com o nome de domínio "@alflanigan.onmicrosoft.com".
 
@@ -77,7 +77,7 @@ Depois de selecionar a subscrição, o utilizador de administrador tem de clicar
 
 ![Adicionar novo utilizador na funcionalidade IAM de controlo de acesso no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-O passo seguinte consiste em selecionar qual será atribuída a função RBAC para a função a ser atribuída e o utilizador. No **função** menu pendente do utilizador de admin vê apenas as RBAC funções incorporadas que estão disponíveis no Azure. Para obter uma explicação de cada função e os respetivos âmbitos atribuíveis mais detalhadas, consulte [funções incorporadas para controlo de acesso em funções do Azure](role-based-access-built-in-roles.md).
+O passo seguinte consiste em selecionar qual será atribuída a função RBAC para a função a ser atribuída e o utilizador. No **função** menu pendente, o utilizador de administrador verá apenas as RBAC funções incorporadas que estão disponíveis no Azure. Para obter uma explicação de cada função e os respetivos âmbitos atribuíveis mais detalhadas, consulte [funções incorporadas para controlo de acesso em funções do Azure](role-based-access-built-in-roles.md).
 
 O utilizador de administrador, em seguida, tem de adicionar o endereço de e-mail do utilizador externo. É o comportamento esperado para o utilizador externo não apareçam no inquilino existente. Depois do utilizador externo tem foi convidado, ele vai estar visível em **subscrições > controlo de acesso (IAM)** com todos os utilizadores atuais que estão atualmente atribuídos uma função RBAC no âmbito de subscrição.
 
@@ -96,7 +96,7 @@ O utilizador de administrador, em seguida, tem de adicionar o endereço de e-mai
 O utilizador "chessercarlton@gmail.com" tem foi convidado para ser um **proprietário** para a subscrição de "Avaliação gratuita". Depois de enviar o convite, o utilizador externo irá receber uma confirmação de e-mail com uma ligação de ativação.
 ![e-mail de convite para a função RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Ser externas à organização, o novo utilizador não tem quaisquer atributos existentes no diretório "Predefinição inquilino do Azure". Estes serão criados depois do utilizador externo forneceu consentimento para serem gravados no diretório que está associado à subscrição que ele foi atribuído uma função para.
+Ser externas à organização, o novo utilizador não tem quaisquer atributos existentes no diretório "Predefinição inquilino do Azure". Estes serão criados depois do utilizador externo forneceu consentimento para serem gravados no diretório que está associado à subscrição foi atribuído uma função para ele.
 
 
 
@@ -116,10 +116,10 @@ Mostra o utilizador externo no inquilino do Azure Active Directory a partir agor
 
 No **utilizadores** vista, os utilizadores externos podem ser reconhecidos pelo tipo de ícone diferente no portal do Azure.
 
-No entanto, conceder **proprietário** ou **contribuinte** acesso a um utilizador externo no **subscrição** âmbito, não permite o acesso ao diretório do utilizador administrador, a menos que o **Administrador Global** permite. No proprieties utilizador, o **tipo de utilizador** que tem dois parâmetros comuns, **membro** e **convidado** podem ser identificados. Um membro é um utilizador que está registado no diretório, enquanto um convidado é um utilizador convidado para o diretório a partir de uma origem externa. Para obter mais informações, consulte [como os administradores do Azure Active Directory adicionar utilizadores de colaboração do B2B](active-directory-b2b-admin-add-users.md).
+No entanto, conceder **proprietário** ou **contribuinte** acesso a um utilizador externo no **subscrição** âmbito, não permite o acesso ao diretório do utilizador administrador, a menos que o **Administrador Global** permite. No proprieties utilizador, o **tipo de utilizador**, que tem dois parâmetros comuns, **membro** e **convidado** podem ser identificados. Um membro é um utilizador que está registado no diretório, enquanto um convidado é um utilizador convidado para o diretório a partir de uma origem externa. Para obter mais informações, consulte [como os administradores do Azure Active Directory adicionar utilizadores de colaboração do B2B](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
-> Certifique-se de que, depois de introduzir as credenciais no portal, o utilizador externo seleciona o diretório correto para início de sessão para. O mesmo utilizador pode ter acesso a vários diretórios e selecione um dos mesmos, clicando em nome de utilizador no lado superior direito no portal do Azure e, em seguida, selecione o diretório adequado na lista pendente.
+> Certifique-se de que, depois de introduzir as credenciais no portal, o utilizador externo seleciona o diretório correto para iniciar sessão no. O mesmo utilizador pode ter acesso a vários diretórios e selecione um dos mesmos, clicando em nome de utilizador no lado superior direito no portal do Azure e, em seguida, selecione o diretório adequado na lista pendente.
 
 Ao ser convidado no diretório, o utilizador externo pode gerir todos os recursos da subscrição do Azure, mas não é possível aceder ao diretório.
 
@@ -129,7 +129,7 @@ Ao ser convidado no diretório, o utilizador externo pode gerir todos os recurso
 
 ![acesso restringido ao portal do Azure do azure do Active Directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory e uma subscrição do Azure não tem uma relação principal-subordinado como outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, as aplicações web de armazenamento, etc.) com uma subscrição do Azure. Todos os última opção é criada, geridos e faturada numa subscrição do Azure, enquanto uma subscrição do Azure é utilizada para gerir o acesso a um diretório do Azure. Para obter mais detalhes, consulte [subscrição como um Azure está relacionada com o Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory e uma subscrição do Azure não tem uma relação principal-subordinado como outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, as aplicações web de armazenamento, etc.) com uma subscrição do Azure. Todos os última opção é criada, geridos e faturada numa subscrição do Azure, enquanto uma subscrição do Azure é utilizada para gerir o acesso a um diretório do Azure. Para obter mais informações, consulte [subscrição como um Azure está relacionada com o Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
 De todos os as RBAC funções incorporadas, **proprietário** e **contribuinte** oferecem acesso de gestão completo a todos os recursos no ambiente, a diferença é que um contribuinte não é possível criar e eliminar funções RBAC novo. As outras funções incorporadas, como **contribuinte de Máquina Virtual** oferecem acesso completa de gestão apenas para os recursos indicados pelo nome, independentemente do **grupo de recursos** estão a ser criadas numa.
 
@@ -163,7 +163,7 @@ Atribuir uma função do RBAC um **grupo de recursos** âmbito tem um processo i
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>Atribuir funções RBAC no âmbito do recurso
 Atribuir uma função RBAC num âmbito de recursos no Azure tem um processo idêntico para atribuir a função ao nível da subscrição ou ao nível do grupo de recursos, seguindo o mesmo fluxo de trabalho para ambos os cenários. Novamente, os utilizadores que estão atribuídos a função RBAC podem ver apenas os itens que tenham sido atribuídos acesso a, tem de **todos os recursos** separador ou diretamente no seu dashboard.
 
-Um aspeto importante para RBAC tanto no âmbito do grupo de recursos ou âmbito de recursos é para os utilizadores para se certificar de início de sessão para o diretório correto.
+Um aspeto importante para RBAC tanto no âmbito do grupo de recursos ou âmbito de recursos é para os utilizadores para se certificar-se de que inicie sessão no diretório correto.
 
 
 
@@ -172,7 +172,7 @@ Um aspeto importante para RBAC tanto no âmbito do grupo de recursos ou âmbito 
 ![início de sessão de diretório no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Atribuir funções RBAC para um grupo do Azure Active Directory
-Todos os cenários utilizando o RBAC nos três âmbitos diferentes no Azure oferecem o privilégio de gerir, implementar e administrar vários recursos como um utilizador atribuído sem a necessidade de gerir uma subscrição pessoal. Independentemente de já está atribuída a função RBAC para uma subscrição, o grupo de recursos ou o âmbito de recursos, todos os recursos criados no adicionais pelos utilizadores atribuídos são faturados sob a uma subscrição do Azure onde os utilizadores têm acesso a. Desta forma, os utilizadores que têm permissões de administrador para essa subscrição do Azure completa de faturação não tem uma descrição geral completa no consumo, independentemente que está a gerir os recursos.
+Todos os cenários utilizando o RBAC nos três âmbitos diferentes no Azure oferecem o privilégio de gerir, implementar e administrar vários recursos como um utilizador atribuído sem a necessidade de gerir uma subscrição pessoal. Independentemente de já está atribuída a função RBAC para uma subscrição, o grupo de recursos ou o âmbito de recursos, todos os recursos criados adicionais pelos utilizadores atribuídos são faturados sob a uma subscrição do Azure onde os utilizadores têm acesso a. Desta forma, os utilizadores que têm permissões de administrador para essa subscrição do Azure completa de faturação não tem uma descrição geral completa no consumo, independentemente que está a gerir os recursos.
 
 Para organizações de maior, as funções do RBAC podem ser aplicadas da mesma forma para grupos do Azure Active Directory considerar que o utilizador de administrador pretende conceder o acesso granular para equipas ou departamentos de todos, não individualmente para cada utilizador, considerar, assim como extremamente hora e a gestão eficiente opção perspetiva. Para ilustrar neste exemplo, o **contribuinte** função foi adicionada a um dos grupos no inquilino ao nível da subscrição.
 
@@ -182,7 +182,7 @@ Para organizações de maior, as funções do RBAC podem ser aplicadas da mesma 
 
 ![adicionar a função RBAC para grupos do AAD](./media/role-based-access-control-create-custom-roles-for-internal-external-users/14.png)
 
-Estes grupos são grupos de segurança que são aprovisionados e geridos apenas dentro do Azure Active Directory.
+Estes grupos são grupos de segurança, que são aprovisionados e geridos apenas dentro do Azure Active Directory.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Criar uma função RBAC personalizada para abrir os pedidos de suporte utilizando o PowerShell
 As funções incorporadas do RBAC que estão disponíveis no Azure Certifique-se determinados níveis de permissão com base nos recursos disponíveis no ambiente. No entanto, se nenhuma destas funções conforme as necessidades do utilizador de admin, há a opção para limitar o acesso ainda mais através da criação de funções RBAC personalizadas.
@@ -191,7 +191,7 @@ A criação de funções do RBAC personalizadas requer para colocar uma função
 
 É importante compreender os pré-requisitos de criação de uma função personalizada que podem conceder acesso granular ao nível da subscrição e também permitir que o utilizador convidado a flexibilidade de abertura de pedidos de suporte.
 
-Para este exemplo, a função incorporada **leitor** que permite aos utilizadores acesso para ver todos os âmbitos de recursos, mas não para editá-los ou criar novos tiver sido personalizado para permitir ao utilizador a opção de abrir os pedidos de suporte.
+Neste exemplo, a função incorporada **leitor**, que permite aos utilizadores acesso para ver todos os âmbitos de recursos, mas não para editá-los ou criar novos, tiver sido personalizado para permitir ao utilizador a opção de abrir os pedidos de suporte.
 
 A primeira ação de exportar o **leitor** função tem de ser concluídas por PowerShell foi executada com permissões elevadas como administrador.
 
@@ -293,7 +293,7 @@ Em execução num Mac e sem ter acesso para o PowerShell, a CLI do Azure é a fo
 
 Os passos para criar uma função personalizada são os mesmos, com a exceção única que utilizar a CLI a função não pode ser transferido num modelo JSON, mas podem ser visualizado na CLI.
 
-Para este exemplo posso escolheu a função incorporada de **leitor de cópia de segurança**.
+Neste exemplo, posso escolheu a função incorporada de **leitor de cópia de segurança**.
 
 ```
 

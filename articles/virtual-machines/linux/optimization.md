@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: e63b50e06ae280819aea88f61bf9f25b6e44eac7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual (VM) do Linux é fácil fazer a partir da linha de comandos ou do portal. Este tutorial mostra como Certifique-se de que o configurou para otimizar o desempenho na plataforma Microsoft Azure. Este tópico utiliza uma VM do Ubuntu Server, mas também pode criar a máquina virtual do Linux utilizando [as suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tópico pressupõe que já tem uma subscrição do Azure ([inscrição na avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e ter sido já aprovisionada uma VM na sua subscrição do Azure. Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e tiver sessão iniciada na sua subscrição do Azure com [início de sessão az](/cli/azure/#login) antes de [criar uma VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Este tópico pressupõe que já tem uma subscrição do Azure ([inscrição na avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e ter sido já aprovisionada uma VM na sua subscrição do Azure. Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e tiver sessão iniciada na sua subscrição do Azure com [início de sessão az](/cli/azure/#az_login) antes de [criar uma VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco do SO do Azure
 Depois de criar uma VM com Linux no Azure, tem dois discos associados à mesma. **dev/sda** é o disco do SO, **/dev/sdb** é o seu disco temporário.  Não utilize o disco de SO principal (**/dev/sda**) para tudo, exceto o sistema operativo que está otimizada para o tempo de arranque rápido VM e não fornece um bom desempenho para cargas de trabalho. Pretende anexar um ou mais discos para a VM para obter persistente e com otimização de armazenamento para os seus dados. 
@@ -126,7 +126,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Utilizando o RAID de Software para alcançar superior posso / Ops
 Se as cargas de trabalho exigirem mais de IOps que pode fornecer um único disco, terá de utilizar uma configuração de RAID de software de vários discos. Porque o Azure executa já resiliência do disco na camada de recursos de infraestrutura local, o que poderá alcançar o nível mais elevado de desempenho de uma configuração de striping RAID 0.  Aprovisionar e criar discos no ambiente do Azure e anexe-os para a VM com Linux antes de criação de partições, formatação e montar as unidades.  Obter mais detalhes sobre como configurar um programa de configuração do RAID de software na sua VM com Linux no azure podem ser encontrados no  **[configuração RAID de Software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**  documento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Lembre-se, tal como com todos os debates de otimização, terá de realizar testes antes e após cada alteração para medir o impacto que tem da alteração.  A otimização é um processo de passo a passo que tem resultados diferentes em vários computadores no seu ambiente.  O que funciona para uma configuração pode não funcionar para outras pessoas.
 
 Algumas ligações útil para recursos adicionais: 

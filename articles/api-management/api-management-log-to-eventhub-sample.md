@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorizar as suas APIs com API Management do Azure, os Event Hubs e Runscope
-O [serviço de API Management](api-management-key-concepts.md) oferece muitas funcionalidades para melhorar o processamento de pedidos HTTP enviados para a API de HTTP. No entanto, a existência de pedidos e respostas é transitória. O pedido é efetuado e fluem através do serviço de API Management para a API de back-end. A API processa o pedido e uma resposta flui através de volta para o consumidor da API. O serviço de API Management mantém algumas estatísticas importantes sobre as APIs para apresentação no dashboard do portal do publicador, mas beyond, os detalhes são removidos.
+O [serviço de API Management](api-management-key-concepts.md) oferece muitas funcionalidades para melhorar o processamento de pedidos HTTP enviados para a API de HTTP. No entanto, a existência de pedidos e respostas é transitória. O pedido é efetuado e fluem através do serviço de API Management para a API de back-end. A API processa o pedido e uma resposta flui através de volta para o consumidor da API. O serviço de API Management mantém algumas estatísticas importantes sobre as APIs para apresentação no dashboard do portal do Azure, mas beyond, os detalhes são removidos.
 
 Ao utilizar a política de registo para eventhub no serviço de API Management, pode enviar quaisquer detalhes do pedido e resposta a um [Hub de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Existem diversos motivos por que razão poderá pretender gerar eventos de mensagens HTTP que está a ser enviadas para as suas APIs. Alguns exemplos incluem registo de auditoria de atualizações, análise de utilização, alertas de exceção e integrações de terceiros.   
 

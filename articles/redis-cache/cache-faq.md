@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>FAQ da Cache de Redis do Azure
 Saiba as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure.
@@ -119,36 +119,36 @@ As seguintes são considerações para escolher uma oferta de Cache.
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Desempenho de Cache de Redis do Azure
-A tabela seguinte mostra os valores de largura de banda máxima observados ao testar vários tamanhos de Standard e Premium coloca em cache utilizando `redis-benchmark.exe` de uma VM do Iaas relativamente ao ponto final a Cache de Redis do Azure. 
+A tabela seguinte mostra os valores de largura de banda máxima observados ao testar vários tamanhos de Standard e Premium coloca em cache utilizando `redis-benchmark.exe` de uma VM do Iaas relativamente ao ponto final a Cache de Redis do Azure. Para um débito SSL, redis benchmark é utilizado com stunnel para ligar ao ponto final de Cache de Redis do Azure.
 
 >[!NOTE] 
 >Não são garantidos que estes valores e não existe nenhum SLA para estes números, mas deve ser típica. Deve carregar testar a sua própria aplicação para determinar o tamanho da cache de direita para a sua aplicação.
->
+>Estes números poderão alterar como periodicamente publicarmos resultados mais recentes.
 >
 
 Esta tabela, iremos pode desenhar os conclusões seguintes:
 
-* Débito para as caches que são o mesmo tamanho for superior no escalão Premium em comparação com o escalão Standard. Por exemplo, com uma Cache de 6 GB, o débito de P1 é 180,000 RPS em comparação com 49,000 para C3.
+* Débito para as caches que são o mesmo tamanho for superior no escalão Premium em comparação com o escalão Standard. Por exemplo, com uma Cache de 6 GB, o débito de P1 é 180,000 RPS em comparação com a 100 000 para C3.
 * Com Redis clustering, débito de forma linear aumenta como aumentar o número de partições horizontais (nós) no cluster. Por exemplo, se criar um cluster de P4 de 10 shards, em seguida, o débito disponível é 400,000 * 10 = milhões de 4 RPS.
 * Débito para tamanhos de chaves superior é superior no escalão Premium em comparação com o escalão Standard.
 
-| Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB |
-| --- | --- | --- | --- | --- |
-| **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS)** |
-| C0 |250 MB |Partilhado |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Tamanhos de cache Premium** | |**Núcleos de CPU por ID de partição horizontal** | **Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS), por ID de partição horizontal** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |
+| Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB | Tamanho do valor de 1 KB |
+| --- | --- | --- | --- | --- | --- |
+| **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS) não SSL** |**Pedidos por segundo (RPS) SSL** |
+| C0 |250 MB |Partilhado |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Tamanhos de cache Premium** | |**Núcleos de CPU por ID de partição horizontal** | **Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS) não SSL, por ID de partição horizontal** |**Pedidos por segundo (RPS) SSL, por ID de partição horizontal** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
 
-Para obter instruções sobre como a transferir as ferramentas de Redis `redis-benchmark.exe`, consulte o [como executar comandos de Redis?](#cache-commands) secção.
+Para obter instruções sobre como configurar stunnel ou transferir as ferramentas de Redis, tais como `redis-benchmark.exe`, consulte o [como executar comandos de Redis?](#cache-commands) secção.
 
 <a name="cache-region"></a>
 

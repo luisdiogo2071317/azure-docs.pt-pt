@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -68,8 +68,8 @@ O portal não fornece a opção de atribuir um endereço IP público para a inte
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[Criar AZ nic da rede](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Novo AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
 ## <a name="view-network-interface-settings"></a>Ver definições de interface de rede
 
@@ -94,7 +94,7 @@ Se um endereço IPv6 for atribuído a uma interface de rede, a saída do PowerSh
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[lista de nic de redes AZ](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) para ver as interfaces de rede na subscrição; [mostrar de nic de rede az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) para ver as definições para uma interface de rede|
+|CLI|[lista de nic de redes AZ](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_list) para ver as interfaces de rede na subscrição; [mostrar de nic de rede az](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_show) para ver as definições para uma interface de rede|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) para ver as interfaces de rede nas definições de subscrição ou vista para uma interface de rede|
 
 ## <a name="change-dns-servers"></a>Alterar os servidores DNS
@@ -114,8 +114,8 @@ O servidor DNS é atribuído pelo servidor DHCP do Azure para a interface de red
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[atualização de nic de rede AZ](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Conjunto AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[atualização de nic de rede AZ](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Ativar ou desativar o reencaminhamento IP
 
@@ -136,8 +136,8 @@ A definição deve estar ativada para cada interface de rede que está ligado à
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[atualização de nic de rede AZ](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Conjunto AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[atualização de nic de rede AZ](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet-assignment"></a>Alterar a atribuição de sub-rede
 
@@ -157,8 +157,8 @@ Pode alterar a sub-rede, mas não a rede virtual, que está atribuída uma inter
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[atualização de configuração de ip da nic de rede de AZ](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Conjunto AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
+|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="delete-a-network-interface"></a>Eliminar uma interface de rede
@@ -176,8 +176,8 @@ Quando elimina uma interface de rede, são lançados a qualquer endereços MAC o
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[AZ rede nic elimine](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remover AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
+|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para criar uma máquina virtual com a rede de várias interfaces ou IP endereços, leia os artigos seguintes:

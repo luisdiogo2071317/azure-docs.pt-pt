@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden porta numa VM com Linux do Azure 
 
@@ -41,16 +41,16 @@ Segue-se um resumo da configuração do ambiente:
 > | --- | --- | --- |
 > | **Versão de Oracle** |Oracle 12c versão 2 – (12.1.0.2) |Oracle 12c versão 2 – (12.1.0.2)|
 > | **Nome do computador** |myVM1 |myVM2 |
-> | **Sistema operativo** |Oracle Linux 6. x |Oracle Linux 6. x |
+> | **Sistema operativo** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
 > | **Esquema de replicação** |TESTE|TESTE |
-> | **Porta Golden proprietário/replicar** |C ##GGADMIN |REPUSER |
+> | **Porta Golden proprietário/replicar** |C##GGADMIN |REPUSER |
 > | **Processo de porta de Golden** |EXTORA |REPORA|
 
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
-Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/#login) comando. Em seguida, siga o ecrã as direções.
+Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/#az_login) comando. Em seguida, siga o ecrã as direções.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contentor lógico para os recursos do Azure são implementados e para que possam ser geridos. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico para os recursos do Azure são implementados e para que possam ser geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westus`.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com o comando [z vm create](/cli/azure/vm#create). 
+Crie uma VM com o comando [z vm create](/cli/azure/vm#az_vm_create). 
 
 O exemplo seguinte cria duas VMs com o nome `myVM1` e `myVM2`. Crie chaves SSH se estes ainda não existir numa localização chave predefinido. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
 
@@ -436,7 +436,7 @@ Para instalar a porta de Golden Oracle, execute os seguintes passos:
 
   ![Captura de ecrã da página de instalação selecionar instalador](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Altere a localização do software. Em seguida, selecione o **iniciar o Gestor de** caixa e introduza a localização da base de dados. Selecione **seguinte** para continuar.
+3. Altere a localização do software. Em seguida, selecione o **iniciar o Gestor de** caixa e introduza a localização da base de dados. Selecione **Seguinte** para continuar.
 
   ![Captura de ecrã da página selecionar instalação](./media/oracle-golden-gate/golden_gate_install_02.png)
 
@@ -803,7 +803,7 @@ Quando este já não é necessário, pode ser utilizado o seguinte comando para 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Tutorial sobre a criação de máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 

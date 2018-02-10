@@ -2,25 +2,20 @@
 title: "Remova os servidores e desative a proteção | Microsoft Docs"
 description: "Este artigo descreve como anular o registo de servidores a partir de um cofre de recuperação de Site e para desativar a proteção para máquinas virtuais e servidores físicos."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/3/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 471d68742668e2b1b1c72579cee9dd493f1bd042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
+
 Este artigo descreve como anular o registo de servidores a partir de um cofre dos serviços de recuperação e como desativar a proteção para as máquinas protegidas pela recuperação de sites.
 
 
@@ -165,7 +160,7 @@ Anfitriões Hyper-V que não são geridas pelo VMM foram recolhidas para um site
 
 
     
-    $vmName = "SQLVM1" $vm = Get-WmiObject - espaço de nomes "root\virtualization\v2"-consulta "selecionar * de Msvm_ComputerSystem onde ElementName = '$vmName'" $replicationService = Get-WmiObject - espaço de nomes "root\virtualization\v2"-"selecionar * de Msvm_ de consulta $ReplicationService.RemoveReplicationRelationship($vm.__PATH) ReplicationService"
+    $vmName = "SQLVM1"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  $replicationService.RemoveReplicationRelationship($vm.__PATH)
     
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Desative a proteção para uma máquina virtual de Hyper-V replicar para o Azure utilizando o System Center VMM para o cenário do Azure
@@ -185,7 +180,7 @@ Anfitriões Hyper-V que não são geridas pelo VMM foram recolhidas para um site
 4. Os passos acima limpar as definições de replicação no servidor do VMM. Para parar a replicação da máquina virtual em execução no servidor de anfitrião do Hyper-V, execute este script. Substitua SQLVM1 com o nome da sua máquina virtual e host01.contoso.com com o nome do servidor de anfitrião Hyper-V.
 
     
-    $vmName = "SQLVM1" $hostName = "host01.contoso.com" $vm = Get-WmiObject - espaço de nomes "root\virtualization\v2"-consulta "selecionar * de Msvm_ComputerSystem onde ElementName = '$vmName'" - computername $hostName $replicationService = Get-WmiObject - Espaço de nomes "root\virtualization\v2"-"Selecionar * de Msvm_ReplicationService" - computername $hostName $replicationService.RemoveReplicationRelationship($vm.__PATH) de consulta
+    $vmName = "SQLVM1"  $hostName  = "host01.contoso.com"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName  $replicationService.RemoveReplicationRelationship($vm.__PATH)
     
        
  

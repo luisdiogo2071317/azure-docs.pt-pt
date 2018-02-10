@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 2bf65b7c5b0518da59e767db18fe6f4193e0ab6e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registos de diagnóstico do Service Bus
 
@@ -91,9 +91,9 @@ Eis um exemplo de um registo operacional cadeia JSON:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Visite as seguintes ligações para saber mais acerca do Service Bus:
+Consulte as ligações seguintes para obter mais informações sobre o Service Bus:
 
 * [Introdução ao Service Bus](service-bus-messaging-overview.md)
 * [Introdução ao Service Bus](service-bus-dotnet-get-started-with-queues.md)

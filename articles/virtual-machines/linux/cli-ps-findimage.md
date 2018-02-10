@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Como localizar as imagens de VM com Linux no Azure Marketplace com a CLI do Azure
 Este tópico descreve como utilizar o 2.0 CLI do Azure para localizar as imagens VM no Azure Marketplace. Utilize estas informações para especificar uma imagem do Marketplace, quando criar uma VM com Linux.
@@ -41,7 +41,7 @@ Para especificar uma imagem do Marketplace, normalmente, utiliza a imagem *URN*.
 
 ## <a name="list-popular-images"></a>Lista de imagens populares
 
-Execute o [lista de imagens de vm az](/cli/azure/vm/image#list) comando, sem o `--all` opção, para ver uma lista de imagens VM mais populares no Azure Marketplace. Por exemplo, execute o seguinte comando para apresentar uma lista de imagens populares em cache no formato de tabela:
+Execute o [lista de imagens de vm az](/cli/azure/vm/image#az_vm_image_list) comando, sem o `--all` opção, para ver uma lista de imagens VM mais populares no Azure Marketplace. Por exemplo, execute o seguinte comando para apresentar uma lista de imagens populares em cache no formato de tabela:
 
 ```azurecli
 az vm image list --output table
@@ -134,7 +134,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Navegue de imagens 
-Outra forma de encontrar uma imagem numa localização está a ser executado o [imagem de vm az lista-publicadores](/cli/azure/vm/image#list-publishers), [imagem de vm az lista-ofertas](/cli/azure/vm/image#list-offers), e [imagem de vm az lista-skus](/cli/azure/vm/image#list-skus) comandos em sequência. Com estes comandos, determinar estes valores:
+Outra forma de encontrar uma imagem numa localização está a ser executado o [imagem de vm az lista-publicadores](/cli/azure/vm/image#az_vm_image_list_publishers), [imagem de vm az lista-ofertas](/cli/azure/vm/image#az_vm_image_list_offers), e [imagem de vm az lista-skus](/cli/azure/vm/image#az_vm_image_list_skus) comandos em sequência. Com estes comandos, determinar estes valores:
 
 1. Listar os publicadores de imagem.
 2. Para um determinado publicador, liste as respetivas ofertas.
@@ -256,5 +256,5 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
-## <a name="next-steps"></a>Passos seguintes
-Pode escolher agora precisamente a imagem que pretende utilizar, efetuando nota do valor URN. Passar este valor com o `--image` parâmetro ao criar uma VM com o [az vm criar](/cli/azure/vm#create) comando. Lembre-se de que, opcionalmente, pode substituir o número de versão a URN por "mais recente". Esta versão é sempre a versão mais recente da distribuição. Para criar rapidamente uma máquina virtual, utilizando as informações de URN, consulte [criar e gerir VMs com Linux com a CLI do Azure](tutorial-manage-vm.md).
+## <a name="next-steps"></a>Passos Seguintes
+Pode escolher agora precisamente a imagem que pretende utilizar, efetuando nota do valor URN. Passar este valor com o `--image` parâmetro ao criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. Lembre-se de que, opcionalmente, pode substituir o número de versão a URN por "mais recente". Esta versão é sempre a versão mais recente da distribuição. Para criar rapidamente uma máquina virtual, utilizando as informações de URN, consulte [criar e gerir VMs com Linux com a CLI do Azure](tutorial-manage-vm.md).

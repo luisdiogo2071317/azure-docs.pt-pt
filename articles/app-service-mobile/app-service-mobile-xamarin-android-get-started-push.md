@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: c7d2b68d2b523a04c38881d53747adfbb8b295cc
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a6cdff68d63859c6a6612b606664d3e1fbaae375
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Adicionar notificações push à aplicação Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -26,10 +26,10 @@ ms.lasthandoff: 01/04/2018
 ## <a name="overview"></a>Descrição geral
 Neste tutorial, adicionar notificações push para o [início rápido do xamarin. Android](app-service-mobile-windows-store-dotnet-get-started.md) projeto para que uma notificação push é enviada para o dispositivo sempre que é inserido um registo.
 
-Se utilizar o projeto de servidor de início rápido transferido, terá do pacote de extensão de notificação push. Consulte [trabalhar com o servidor de back-end .NET SDK de Mobile Apps do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
+Se utilizar o projeto de servidor de início rápido transferido, terá do pacote de extensão de notificação push. Para obter mais informações, consulte o [trabalhar com o servidor de back-end .NET SDK de Mobile Apps do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guia.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para este tutorial, necessita do seguinte:
+Este tutorial requer o programa de configuração:
 
 * Uma conta Google ativa. Pode inscrever-se para uma conta do Google na [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging o componente de cliente](http://components.xamarin.com/view/GCMClient/).
@@ -55,7 +55,7 @@ Para este tutorial, necessita do seguinte:
 ## <a name="test"></a>Notificações de push de teste na sua aplicação
 Pode testar a aplicação através da utilização de um dispositivo virtual no emulador. Existem passos de configuração adicionais necessários quando em execução num emulador.
 
-1. Certifique-se de que estão a implementar ou depuração num dispositivo virtual que tenha as APIs da Google definida como destino, conforme mostrado abaixo no Gestor de dispositivo Virtual Android (AVD).
+1. O dispositivo virtual tem de ter as APIs da Google definida como destino no Gestor de dispositivo Virtual Android (AVD).
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 2. Adicionar uma conta do Google no dispositivo Android, clicando em **aplicações** > **definições** > **adicionar conta**, em seguida, siga as instruções.

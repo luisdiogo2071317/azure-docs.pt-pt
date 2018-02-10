@@ -2,23 +2,17 @@
 title: "Resultados do teste para replicação de Hyper-V entre sites com o Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece informações sobre testes de desempenho para no local para a replicação de VMs de Hyper-V no local utilizando o Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: tysonn
-ms.assetid: 96ff404f-0d88-43fa-a00b-2dffde93d192
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: c221fe94c5301b0a36882d5ae1c57e523002ecc4
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f25bbca86fdbb480a4db7623d4ee8d296415a4be
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Resultados do teste para no local para a replicação de Hyper-V no local com a recuperação de Site
 
@@ -111,7 +105,7 @@ Os resultados mostram claramente a que o Azure Site Recovery, conjugada com a r�
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores de Hyper-V num cluster: <br />ESTLAB HOST11<br />ESTLAB HOST12<br />ESTLAB HOST13<br />ESTLAB HOST14<br />ESTLAB HOST25 |128ESTLAB HOST25 tem 256 |R820 Dell™ PowerEdge™ |Intel CPUs CPU E5-4620 0 @ 2.20GHz |4 |Posso Gbps x 4 |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
+| Servidores de Hyper-V num cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 has 256 |Dell ™ PowerEdge ™ R820 |Intel CPUs CPU E5-4620 0 @ 2.20GHz |4 |I Gbps x 4 |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
 | Servidor do VMM |2 | | |2 |1 Gbps |Windows Server da base de dados 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-recovery-site"></a>Site secundário (recuperação)
@@ -123,9 +117,9 @@ Os resultados mostram claramente a que o Azure Site Recovery, conjugada com a r�
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores de Hyper-V num cluster: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10 |96 |R720 Dell™ PowerEdge™ |Intel CPUs CPU E5-2630 0 @ 2.30GHz |2 |Posso Gbps x 4 |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
-| ESTLAB HOST17 |128 |R820 Dell™ PowerEdge™ |Intel CPUs CPU E5-4620 0 @ 2.20GHz |4 | |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
-| ESTLAB HOST24 |256 |R820 Dell™ PowerEdge™ |Intel CPUs CPU E5-4620 0 @ 2.20GHz |2 | |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
+| Servidores de Hyper-V num cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel CPUs CPU E5-2630 0 @ 2.30GHz |2 |I Gbps x 4 |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel CPUs CPU E5-4620 0 @ 2.20GHz |4 | |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel CPUs CPU E5-4620 0 @ 2.20GHz |2 | |Windows Server R2 de 2012 Datacenter (x64) + a função Hyper-V |
 | Servidor do VMM |2 | | |2 |1 Gbps |Windows Server da base de dados 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Cargas de trabalho do servidor
@@ -136,7 +130,7 @@ Os resultados mostram claramente a que o Azure Site Recovery, conjugada com a r�
 
 | Carga de trabalho | Tamanho de e/s (KB) | % Acesso | % De leitura | E/s pendentes | Padrão de e/s |
 | --- | --- | --- | --- | --- | --- |
-| Servidor de ficheiros |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Todos os 100% aleatório |
+| Servidor de Ficheiros |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Todos os 100% aleatório |
 | SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |% de 100% random100 sequencial |
 | Troca |32 |100% |67% |8 |100% aleatório |
 | Estação de trabalho/VDI |464 |66%34% |70%95% |11 |Ambos os aleatório 100% |
@@ -152,7 +146,7 @@ Os resultados mostram claramente a que o Azure Site Recovery, conjugada com a r�
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Servidor do Exchange |71 |1 |4 |552 |10 |
-| Servidor de ficheiros |50 |1 |2 |552 |22 |
+| Servidor de Ficheiros |50 |1 |2 |552 |22 |
 | VDI |149 |.5 |1 |80 |6 |
 | Servidor Web |149 |.5 |1 |80 |6 |
 | TOTAL |470 | | |96.83 TB |4108 |
@@ -167,7 +161,7 @@ Os resultados mostram claramente a que o Azure Site Recovery, conjugada com a r�
 | PrimaryCloudRpo15m |142 |15 min |Nenhuma |
 | PrimaryCloudRpo30s |47 |seg 30 |Nenhuma |
 | PrimaryCloudRpo30sArp1 |47 |seg 30 |1 |
-| PrimaryCloudRpo5m |235 |5 minutos |Nenhuma |
+| PrimaryCloudRpo5m |235 |5 minutos |Nenhum |
 
 ### <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -177,12 +171,12 @@ A tabela resume as métricas de desempenho e os contadores que foram avaliados n
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
 | Memória disponível |MBytes de \Memory\Available |
-| IOPS |\PhysicalDisk ( total) \Disk transferências/seg |
+| IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
 | Segundo (IOPS) de operações de leitura de VM |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Read operações por segundo |
 | Operações de escrita (IOPS) de VM/seg |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Write operações/S |
 | Débito de leitura de VM |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Read Bytes/seg |
 | Débito de escrita VM |Dispositivo de armazenamento virtual \Hyper-V (<VHD>) \Write Bytes/seg |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Configurar a replicação entre dois sites VMM no local](site-recovery-vmm-to-vmm.md)

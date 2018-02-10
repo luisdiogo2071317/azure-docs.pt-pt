@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credenciais no Cofre de chaves do Azure
 
 Pode armazenar as credenciais de arquivos de dados de um [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md). O Azure Data Factory obtém as credenciais quando executar uma atividade que utiliza o arquivo de dados.
 
-Atualmente, [conector Dynamics](connector-dynamics-crm-office-365.md), [conector do Salesforce](connector-salesforce.md) e algumas ativar recentemente conectores suporte esta funcionalidade. Espere mais estará disponível mais tarde. Pode verificar cada tópico conector em detalhes. Para os campos segredos que suportam esta funcionalidade, verá uma nota em indicar a descrição "*pode escolher marcar este campo como um SecureString armazena de forma segura na ADF, ou armazenar a palavra-passe no Cofre de chaves do Azure e permitem a solicitação de concentre cópia a partir daí Quando efetuar a cópia de dados - obter mais informações de credenciais do arquivo no Cofre de chaves.* "
+Atualmente, a atividade de cópia com todos os tipos de conectores suportam esta funcionalidade - consulte a secção "Propriedades do serviço ligado" [cada tópico conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter mais detalhes. Suporte para outros tipos de atividade e computação serviço ligado ficará mais tarde.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory version1](v1/data-factory-introduction.md).
@@ -35,10 +35,10 @@ Esta funcionalidade baseia-se na identidade de serviço de fábrica de dados. Sa
 
 Para fazer referência a uma credencial armazenada no Cofre de chaves do Azure, tem de:
 
-1. [Obter a identidade de serviço do data factory](data-factory-service-identity.md#retrieve-service-identity) ao copiar o valor de "Serviço de identidade ID da aplicação" gerado juntamente com a fábrica.
-2. Conceda o acesso ao serviço de identidade para o seu Cofre de chaves do Azure. No seu Cofre de chaves -> acesso de controlo -> Adicionar -> Esta aplicação de identidade de serviço para adicionar, pelo menos, o ID de pesquisa **leitor** permissão. Permite que esta fábrica designada aceder ao segredo no Cofre de chaves.
-3. Crie um serviço ligado aponta para o seu Cofre de chaves do Azure. Consulte [serviço ligado do Cofre de chaves do Azure](#azure-key-vault-linked-service).
-4. Crie o serviço ligado do arquivo de dados, no interior de referência de que a chave armazenada no secreta correspondente do cofre. Consulte [referenciar credenciais armazenadas no Cofre de chaves](#reference-credential-stored-in-key-vault).
+1. **[Obter a identidade de serviço do data factory](data-factory-service-identity.md#retrieve-service-identity)**  ao copiar o valor de "Serviço de identidade ID da aplicação" gerado juntamente com a fábrica.
+2. **Conceda o acesso ao serviço de identidade para o seu Cofre de chaves do Azure.** No seu Cofre de chaves -> acesso políticas -> Adicionar novo -> Esta aplicação de identidade de serviço para conceder o ID de pesquisa **obter** permissão na lista pendente de permissões secreta. Permite que esta fábrica designada aceder ao segredo no Cofre de chaves.
+3. **Crie um serviço ligado aponta para o seu Cofre de chaves do Azure.** Consulte [serviço ligado do Cofre de chaves do Azure](#azure-key-vault-linked-service).
+4. **Crie o serviço ligado do arquivo de dados, no interior de referência de que a chave armazenada no secreta correspondente do cofre.** Consulte [segredo de referência armazenado no Cofre de chaves](#reference-secret-stored-in-key-vault).
 
 ## <a name="azure-key-vault-linked-service"></a>Serviço ligado de Cofre de chaves do Azure
 
@@ -47,7 +47,7 @@ As seguintes propriedades são suportadas para o serviço Cofre de chaves do Azu
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **AzureKeyVault**. | Sim |
-| BaseUrl | Especifique o URL do Cofre de chaves do Azure. | Sim |
+| baseUrl | Especifique o URL do Cofre de chaves do Azure. | Sim |
 
 **Exemplo:**
 
@@ -63,7 +63,7 @@ As seguintes propriedades são suportadas para o serviço Cofre de chaves do Azu
 }
 ```
 
-## <a name="reference-credential-stored-in-key-vault"></a>Credencial de referência armazenado no Cofre de chaves
+## <a name="reference-secret-stored-in-key-vault"></a>Segredo de referência armazenado no Cofre de chaves
 
 As seguintes propriedades são suportadas quando configura um campo no serviço ligado que referencia um segredo do Cofre de chaves:
 
@@ -99,5 +99,5 @@ As seguintes propriedades são suportadas quando configura um campo no serviço 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

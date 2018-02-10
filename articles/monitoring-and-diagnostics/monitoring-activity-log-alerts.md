@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Criar alertas de registo de atividade
 
 ## <a name="overview"></a>Descrição geral
 Alertas de registo de atividade são alertas que ativar quando ocorre a um novo registo de eventos de atividade que satisfaça as condições especificadas no alerta. São recursos do Azure, pelo que pode ser criadas utilizando um modelo Azure Resource Manager. Também podem ser criados, atualizar ou eliminados no portal do Azure. Este artigo apresenta os conceitos atrás de alertas de registo de atividade. Em seguida, mostra como utilizar o portal do Azure para configurar um alerta sobre eventos de registo de atividade.
+
+> [!NOTE]
+
+>  [Alertas (pré-visualização)](monitoring-overview-unified-alerts.md) atualmente oferece uma experiência melhorada no criar e gerir registos de atividade.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
 Normalmente, criar atividade alertas de registo para receber notificações quando:
 
@@ -43,15 +47,13 @@ Pode configurar um alerta de registo de atividade com base em qualquer proprieda
 - **Estado**: O estado do evento, normalmente iniciada, falhou ou foi concluída com êxito.
 - **Evento iniciadas pelo**: também conhecido como "autor da chamada." O endereço de e-mail ou o identificador do Azure Active Directory do utilizador que executou a operação.
 
->[!NOTE]
->Tem de especificar, pelo menos, dois dos critérios anteriores no seu alerta, com um que está a ser a categoria. Não pode criar um alerta que activa sempre que é criado um evento nos registos de atividade.
->
->
+> [!NOTE]
+> Quando a categoria "administrativa", tem de especificar, pelo menos, um dos critérios de anteriores o alerta. Não pode criar um alerta que activa sempre que é criado um evento nos registos de atividade.
 
 Quando um alerta de registo de atividade é ativado, utiliza um grupo de ação para gerar as ações ou notificações. Um grupo de ação é um conjunto reutilizável de recetores de notificação, tais como endereços de correio eletrónico, números de telefone de URLs de webhook ou SMS. Os recetores podem ser referenciados a partir de vários alertas para centralizar e os canais de notificação de grupo. Quando definir o alerta de registo de atividade, tem duas opções. Pode:
 
-* Utilize um grupo de ação existente no seu alerta de registo de atividade. 
-* Crie um novo grupo de ação. 
+* Utilize um grupo de ação existente no seu alerta de registo de atividade.
+* Crie um novo grupo de ação.
 
 Para mais informações sobre grupos de ação, consulte o artigo [criar e gerir grupos de ação no portal do Azure](monitoring-action-groups.md).
 
@@ -121,7 +123,7 @@ Depois de criar um alerta, é visível na secção alertas do painel do Monitor.
 * Elimine-o.
 * Desactivar ou activar, se pretender temporariamente interromper ou retomar a receção de notificações para o alerta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Obter um [descrição geral dos alertas](monitoring-overview-alerts.md).
 - Saiba mais sobre [limitação de taxa de notificação](monitoring-alerts-rate-limiting.md).
 - Reveja o [esquema de webhook alerta de registo de atividade](monitoring-activity-log-alerts-webhook.md).
