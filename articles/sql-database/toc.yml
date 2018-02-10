@@ -359,6 +359,8 @@
           items:
             - name: Implementar aplicação de exemplo
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Aprovisionar inquilinos
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Base de dados por inquilino
           href: saas-dbpertenant-wingtip-app-overview.md
           items:
