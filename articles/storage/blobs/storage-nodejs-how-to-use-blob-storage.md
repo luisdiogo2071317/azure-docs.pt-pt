@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Como utilizar o Blob Storage do Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Este artigo mostra como efetuar cenários comuns utilizando o Blob storage. Os e
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Para obter instruções sobre como criar uma aplicação Node.js, consulte [criar uma aplicação de web de Node.js no App Service do Azure], [criar e implementar uma aplicação Node.js num serviço em nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) – com o Windows PowerShell, ou [criar e implementar uma aplicação web Node.js no Azure utilizando a Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Para obter instruções sobre como criar uma aplicação Node.js, consulte [criar uma aplicação web Node.js no App Service do Azure](../../app-service/app-service-web-get-started-nodejs.md), [criar e implementar uma aplicação Node.js num serviço em nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) – com o Windows PowerShell, ou [criar e implementar uma aplicação web Node.js no Azure utilizando a Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configurar a sua aplicação para aceder ao armazenamento
 Para utilizar o armazenamento do Azure, terá do SDK de armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços REST do storage.
@@ -90,7 +90,7 @@ blobSvc.createContainerIfNotExists('mycontainer', function(error, result, respon
 
 Se o contentor é criado recentemente, `result.created` é verdadeiro. Se o contentor já existir, `result.created` é falso. `response`contém informações sobre a operação, incluindo as informações de ETag do contentor.
 
-### <a name="container-security"></a>Segurança de contentor
+### <a name="container-security"></a>Segurança do contentor
 Por predefinição, os novos contentores são privados e não podem ser acedidos anonimamente. Para tornar o contentor público, para que possam aceder anonimamente, pode definir acesso do contentor para **blob** ou **contentor**.
 
 * **blob** -permite o acesso de leitura anónimo ao conteúdo de blob e metadados dentro neste contentor, mas não os metadados do contentor como listar todos os blobs num contentor
@@ -409,13 +409,13 @@ Depois de configurada a ACL, em seguida, pode criar com base no ID de uma polít
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos.
 
 * [Storage do azure SDK para o nó a referência da API] [Storage do azure SDK para o nó a referência da API]  
 * [Blogue da equipa de armazenamento do azure] [Blogue da equipa de armazenamento do azure]  
 * [SDK de armazenamento do Azure para o nó] [ Azure Storage SDK for Node] repositório no GitHub  
-* [Centro para Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)  
+* [Centro de Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)  
 * [Transferir dados com o utilitário de linha de comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
@@ -423,6 +423,6 @@ Para obter mais informações, consulte os seguintes recursos.
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
-[Criar e implementar uma aplicação Node.js num serviço em nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Compilar e implementar uma aplicação Node.js num Serviço Cloud do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blogue da equipa de armazenamento do azure]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Storage do azure SDK para o nó a referência da API]: http://dl.windowsazure.com/nodestoragedocs/index.html  
