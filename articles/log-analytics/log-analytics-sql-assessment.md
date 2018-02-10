@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 71caf0e1d58107376888ae454713703d845101eb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar o seu ambiente do SQL Server com a solução de verificação de estado de funcionamento do SQL Server na análise de registos
 
@@ -174,7 +174,7 @@ Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em se
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto que irá utilizar análise de registos para impedir que as recomendações a apresentação nos resultados da avaliação.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que irão ignorar
 1. No portal do Azure na página da área de trabalho de análise de registos para a sua área de trabalho selecionada, clique em de **pesquisa registo** mosaico.

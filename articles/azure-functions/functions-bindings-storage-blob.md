@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -148,7 +148,7 @@ No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
-  O construtor do atributo demora uma cadeia de caminho que indica o contentor para ver e, opcionalmente, um [padrão de nome de blob](#trigger---blob-name-patterns). Eis um exemplo:
+  O construtor do atributo demora uma cadeia de caminho que indica o contentor para ver e, opcionalmente, um [padrão de nome de blob](#trigger---blob-name-patterns). Segue-se um exemplo:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -204,11 +204,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | tem de ser definido como `blobTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. Exceções são apresentadas na [utilização](#trigger---usage) secção. |
-|**nome** | n/d | O nome da variável que representa o blob no código da função. | 
-|**caminho** | **BlobPath** |O contentor para monitorizar.  Pode ser um [padrão de nome de blob](#trigger-blob-name-patterns). | 
-|**ligação** | **Ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta do storage para fins gerais, não um [conta de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**type** | n/d | tem de ser definido como `blobTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direction** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. Exceções são apresentadas na [utilização](#trigger---usage) secção. |
+|**name** | n/d | O nome da variável que representa o blob no código da função. | 
+|**path** | **BlobPath** |O contentor para monitorizar.  Pode ser um [padrão de nome de blob](#trigger-blob-name-patterns). | 
+|**connection** | **Ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta do storage para fins gerais, não um [conta de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -479,11 +479,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | tem de ser definido como `blob`. |
-|**direção** | n/d | tem de ser definido como `in`. Exceções são apresentadas na [utilização](#input---usage) secção. |
-|**nome** | n/d | O nome da variável que representa o blob no código da função.|
-|**caminho** |**BlobPath** | O caminho para o blob. | 
-|**ligação** |**Ligação**| O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta do storage para fins gerais, não um [conta de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**type** | n/d | tem de ser definido como `blob`. |
+|**direction** | n/d | tem de ser definido como `in`. Exceções são apresentadas na [utilização](#input---usage) secção. |
+|**name** | n/d | O nome da variável que representa o blob no código da função.|
+|**path** |**BlobPath** | O caminho para o blob. | 
+|**connection** |**Ligação**| O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta do storage para fins gerais, não um [conta de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |n/d | **Acesso** | Indica se irá ser ler ou escrever. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -690,11 +690,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | tem de ser definido como `blob`. |
-|**direção** | n/d | Tem de ser definido como `out` para um enlace de saída. Exceções são apresentadas na [utilização](#output---usage) secção. |
-|**nome** | n/d | O nome da variável que representa o blob no código da função.  Definido como `$return` para referenciar o valor de retorno da função.|
-|**caminho** |**BlobPath** | O caminho para o blob. | 
-|**ligação** |**Ligação**| O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta do storage para fins gerais, não um [conta de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**type** | n/d | tem de ser definido como `blob`. |
+|**direction** | n/d | Tem de ser definido como `out` para um enlace de saída. Exceções são apresentadas na [utilização](#output---usage) secção. |
+|**name** | n/d | O nome da variável que representa o blob no código da função.  Definido como `$return` para referenciar o valor de retorno da função.|
+|**path** |**BlobPath** | O caminho para o blob. | 
+|**connection** |**Ligação**| O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta do storage para fins gerais, não um [conta de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |n/d | **Acesso** | Indica se irá ser ler ou escrever. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -720,6 +720,14 @@ Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *
 Se a leitura de blobs de texto, é possível vincular a um `string` tipo. Este tipo só é recomendado se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo.
 
 Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
+
+| Vínculo |  Referência |
+|---|---|
+| Blobs | [Códigos de erro de blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| BLOB, tabela, fila |  [Códigos de erro do armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| BLOB, tabela, fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

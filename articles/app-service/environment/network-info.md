@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -55,6 +55,13 @@ As portas de acesso de aplicações normal são:
 
 Isto é verdadeiro se estiver num ASE externo ou num ILB ASE. Se estiver num ASE externo, atingiu essas portas no VIP público. Se estiver num ILB ASE, atingiu essas portas no ILB. Se bloquear a porta 443, pode haver um efeito em algumas funcionalidades expostas no portal. Para obter mais informações, consulte [dependências de Portal](#portaldep).
 
+## <a name="ase-subnet-size"></a>Tamanho da sub-rede ASE ##
+
+O tamanho da sub-rede utilizada para alojar ASE não pode ser alterado depois do ASE é implementado.  O ASE utiliza um endereço para cada função de infraestrutura, bem como para cada instância de plano de serviço de aplicação isolado.  Além disso, existem 5 endereços utilizados pelas redes do Azure para cada sub-rede que é criado.  ASE com não planos de serviço de aplicações em todas as utilizará 12 endereços antes de criar uma aplicação.  Se for ILB ASE, em seguida, irá utilizar o 13 endereços antes de criar uma aplicação nesse ASE. À medida que os seus planos de serviço de aplicação exigirá endereços adicionais para cada Front-End que é adicionado.  Por predefinição, os servidores front-End são adicionadas para todos os 15 instâncias do plano de serviço de aplicações totais. 
+
+   > [!NOTE]
+   > Mais nada pode estar na sub-rede, mas o ASE. Lembre-se de que escolha um espaço de endereços que permite o crescimento futuro. Não é possível alterar esta definição mais tarde. Recomendamos um tamanho de `/25` com endereços de 128.
+
 ## <a name="ase-dependencies"></a>Dependências de ASE ##
 
 ASE dependência de acesso de entrada é:
@@ -80,8 +87,8 @@ Para acesso de saída, ASE depende da existência de vários sistemas externos. 
 |-----|------|----|
 | Storage do Azure | Sub-rede de ASE | w, w, q, w: 80, 443, 445 (445 só é necessário para ASEv1.) |
 | Base de Dados SQL do Azure | Sub-rede de ASE | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (para obter mais informações, consulte [utilização de porta de SQL Database V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Gestão do Azure | Sub-rede de ASE | Management.Core.Windows.NET, management.azure.com: 443 
-| Verificação de certificado SSL |  Sub-rede de ASE            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Gestão do Azure | Sub-rede de ASE | management.core.windows.net, management.azure.com: 443 
+| Verificação de certificado SSL |  Sub-rede de ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | Sub-rede de ASE            |  Internet: 443
 | Gestão de serviço de aplicações        | Sub-rede de ASE            |  Internet: 443
 | DNS do Azure                     | Sub-rede de ASE            |  Internet: 53
@@ -150,7 +157,7 @@ Está num ASE, não tem acesso às VMs utilizados para alojar o ASE próprio. Se
 
 Os NSGs podem ser configurados através do portal do Azure ou através do PowerShell. As informações aqui mostram o portal do Azure. Criar e gerir os NSGs no portal como um recurso de nível superior em **redes**.
 
-Quando os requisitos de entrada e saídos estão levados em consideração, os NSGs devem ter um aspeto semelhantes os NSGs mostrados neste exemplo. O intervalo de endereços VNet é _192.168.250.0/16_, e a sub-rede que o ASE consta é _192.168.251.128/25_.
+Quando os requisitos de entrada e saídos estão levados em consideração, os NSGs devem ter um aspeto semelhantes os NSGs mostrados neste exemplo. O intervalo de endereços VNet é _192.168.250.0/23_, e a sub-rede que o ASE consta é _192.168.251.128/25_.
 
 Os primeiro dois requisitos de entrada para ASE para a função são apresentados na parte superior da lista neste exemplo. Se ativar a gestão de ASE e permitem ASE comuniquem com ele próprio. As entradas de outras são todos os inquilinos configuráveis e podem controlam o acesso de rede para as aplicações alojadas ASE. 
 
@@ -168,13 +175,13 @@ Depois de definidos os NSGs, atribua-lhes para a sub-rede no seu ASE. Não se le
 
 ## <a name="routes"></a>Rotas ##
 
-Rotas tornar-se problemático normalmente quando configura a VNet com o Azure ExpressRoute. Existem três tipos de rotas numa VNet:
+As rotas são um aspeto fundamental do conceito de túnel forçado e de como lidar com o mesmo. Numa rede virtual do Azure, o encaminhamento é feito com base no LPM (Longest Prefix Match). Se houver mais de uma rota com a mesma correspondência LPM, uma rota é selecionada com base na respetiva origem pela seguinte ordem:
 
--   Rotas de sistema
--   Rotas BGP
--   Rotas definidas pelo utilizador (UDRs)
+- Rota definida pelo utilizador (UDR)
+- Rota BGP (quando é utilizado o ExpressRoute)
+- Rota de sistema
 
-Rotas BGP substituam as rotas de sistema. UDRs substituam as rotas BGP. Para obter mais informações sobre as rotas de redes virtuais do Azure, consulte [descrição geral de rotas definidas pelo utilizador][UDRs].
+Para saber mais sobre o encaminhamento numa rede virtual, veja [Rotas definidas pelo utilizador e reencaminhamento IP][UDRs].
 
 A base de dados SQL do Azure que o ASE utiliza para gerir o sistema tem uma firewall. Necessita de comunicação de VIP ASE público. Ligações à base de dados SQL a partir de ASE serão rejeitadas se são enviadas para baixo a ligação do ExpressRoute e out outro endereço IP.
 
@@ -182,15 +189,15 @@ Se as respostas para pedidos recebidos de gestão são enviadas para baixo o Exp
 
 Para sua ASE funcionar enquanto a VNet está configurada com o ExpressRoute, a mais fácil coisa a fazer é:
 
--   Configurar o ExpressRoute para anunciar _0.0.0.0/0_. Por predefinição, este forçar túneis toda a saída de tráfego no local.
--   Crie um UDR. Aplicá-la para a sub-rede que contém o ASE com um prefixo de endereço de _0.0.0.0/0_ e tipo de um próximo salto _Internet_.
+-   Configurar o ExpressRoute para anunciar _0.0.0.0/0_. Por predefinição, aplica um túnel forçado a todo o tráfego de saída no local.
+-   Criar um UDR. Aplicá-la para a sub-rede que contém o ASE com um prefixo de endereço de _0.0.0.0/0_ e tipo de um próximo salto _Internet_.
 
 Se efetuar estas duas alterações, o tráfego destinado de internet que origina da sub-rede ASE não é forçado para baixo o ExpressRoute e a ASE funciona. 
 
 > [!IMPORTANT]
-> As rotas definidas num UDR tem de ser específicas o suficiente para têm precedência sobre qualquer rotas anunciadas na configuração do ExpressRoute. O exemplo anterior utiliza o intervalo de endereços abrangente 0.0.0.0/0. Que pode potencialmente seja acidentalmente substituído por anúncios de rota que utilizam os intervalos de endereços mais específicos.
+> As rotas definidas num UDR têm de ser suficientemente específicas para terem precedência sobre quaisquer rotas anunciadas pela configuração do ExpressRoute. O exemplo anterior utiliza o intervalo de endereços abrangente 0.0.0.0/0. Podem ser potencialmente substituídas por acidente por anúncios de rota que utilizam intervalos de endereço mais específicos.
 >
-> ASEs não são suportadas com configurações de ExpressRoute que cross-anunciam rotas do caminho de peering de público para o caminho de peering de privada. Configurações de ExpressRoute com o peering público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se os intervalos de endereços entre anunciados no caminho de peering de privada, todos os pacotes de rede de saída da sub-rede a ASE são force em túnel à infraestrutura de rede no local do cliente. Este fluxo de rede não é suportado com ASEs. Uma solução para este problema está a parar as rotas entre publicidade do caminho de peering de público para o caminho de peering de privada.
+> ASEs não são suportadas com configurações de ExpressRoute que cross-anunciam rotas do caminho de peering de público para o caminho de peering de privada. As configurações do ExpressRoute com o peering público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um vasto conjunto de intervalos de endereços IP do Microsoft Azure. Se os intervalos de endereços entre anunciados no caminho de peering de privada, todos os pacotes de rede de saída da sub-rede a ASE são force em túnel à infraestrutura de rede no local do cliente. Este fluxo de rede não é suportado com ASEs. Uma solução para este problema é deixar de anunciar transversalmente as rotas do caminho de peering público para o caminho de peering privado.
 
 Para criar um UDR, siga estes passos:
 

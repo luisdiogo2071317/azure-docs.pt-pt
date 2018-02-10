@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Fluxos do Apache Kafka API
 
@@ -100,6 +100,12 @@ Utilize os seguintes passos para criar e implementar o projeto no seu Kafka num 
     * Iniciar um produtor que escreve o `test` tópico.
     * Iniciar um consumidor para que possa ver o resultado escrito o `wordcounts` tópico
 
+    > [!NOTE]
+    > Tem de confirmar que o `auto.create.topics.enable` propriedade está definida como `true` no ficheiro de configuração de Kafka mediador. Esta propriedade pode ser visualizada e modificada no ficheiro de configuração do Mediador de Kafka avançadas utilizando a IU da Web do Ambari. Caso contrário, terá de criar o tópico intermédio `RekeyedIntermediateTopic` manualmente antes de executar este exemplo, utilizando o seguinte comando:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Pode realizar estas operações abrindo a três sessões SSH. Mas, em seguida, tem de definir `$KAFKABROKERS` e `$KAFKAZKHOSTS` para cada ao executar o passo 4 desta secção em cada sessão SSH. Uma solução mais fácil consiste em utilizar o `tmux` utilitário, que pode dividir a apresentação SSH atual em várias secções. Para iniciar o fluxo, o produtor e o consumidor utilizando `tmux`, utilize o seguinte comando:
 
     ```bash
@@ -143,9 +149,9 @@ Neste documento, aprendeu a utilizar a API de fluxos de Kafka com Kafka no HDIns
 
 * [Analisar os registos do Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Replicar dados entre clusters do Kafka](apache-kafka-mirroring.md)
-* [API Kafka produtor e de consumidor com o HDInsight](apache-kafka-producer-consumer-api.md)
+* [Produtor Kafka e API de Consumidor com o HDInsight](apache-kafka-producer-consumer-api.md)
 * [Utilizar a transmissão em fluxo de Apache Spark (DStream) com o Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Utilizar a Transmissão em Fluxo Estruturada de Apache Spark com o Kafka no HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Utilizar o Apache Spark estruturados de transmissão em fluxo para mover dados de Kafka no HDInsight para Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Utilizar a Transmissão em Fluxo Estruturada do Apache Spark para mover dados do Kafka no HDInsight para o Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Utilizar o Apache Storm com Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Ligar ao Kafka através de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/13/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 70bb69c78a23c9ffe012c0b775c98355da7cbce6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portas utilizadas pelos serviços do Hadoop no HDInsight
 
@@ -75,7 +75,7 @@ Todos os serviços publicamente expostos na internet têm de ser autenticados:
 > Alguns serviços só estão disponíveis em tipos de cluster específicos. Por exemplo, o HBase só está disponível em tipos de cluster de HBase.
 
 > [!IMPORTANT]
-> Alguns serviços executam apenas no um headnode de cada vez. Se tentar ligar ao serviço no headnode primário e receber um erro 404, tente novamente utilizando o headnode secundário.
+> Alguns serviços executam apenas no um headnode de cada vez. Se tentar ligar ao serviço no headnode primário e receber um erro, tente novamente utilizando o headnode secundário.
 
 ### <a name="ambari"></a>Ambari
 
@@ -170,6 +170,7 @@ Exemplos:
 | --- | --- | --- | --- | --- | --- |
 | Servidores de Thrift de Spark |Nós de cabeçalho |10002 |Thrift | &nbsp; | Serviço para estabelecer a ligação para o Spark SQL (Thrift/JDBC) |
 | Servidor Livy | Nós de cabeçalho | 8998 | HTTP | &nbsp; | Serviço para executar instruções, tarefas e aplicações |
+| Bloco de notas do Jupyter | Nós de cabeçalho | 8001 | HTTP | &nbsp; | Web site de bloco de notas do Jupyter |
 
 Exemplos:
 

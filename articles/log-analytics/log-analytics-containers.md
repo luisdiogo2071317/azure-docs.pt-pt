@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -548,11 +548,11 @@ A tabela seguinte mostra exemplos de registos recolhidos pela solução de monit
 | Inventário de contentor | `Type=ContainerInventory` | TimeGenerated, computador, nome do contentor, ContainerHostname, imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, comando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ID do contentor, ImageID |
 | Inventário de imagem do contentor | `Type=ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parar, falha, SourceSystem, ImageID, TotalContainer |
 | Registo de contentor | `Type=ContainerLog` | TimeGenerated, o computador, o ID de imagem, o nome do contentor, LogEntrySource, LogEntry, SourceSystem, ID do contentor |
-| Registo do serviço de contentor | `Type=ContainerServiceLog`  | TimeGenerated, computador, TimeOfCommand, imagem, comando, SourceSystem, ID do contentor |
-| Inventário de nó do contentor | `Type=ContainerNodeInventory_CL`| TimeGenerated, computador, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes inventário | `Type=KubePodInventory_CL` | TimeGenerated, computador, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Processo de contentor | `Type=ContainerProcess_CL` | TimeGenerated, computador, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Eventos de Kubernetes | `Type=KubeEvents_CL` | TimeGenerated, computador, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s SourceComponent_s, SourceSystem, mensagem |
+| Registo do serviço de contentor | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Inventário de nó do contentor | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes inventário | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Processo de contentor | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Eventos de Kubernetes | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
 As etiquetas acrescentado ao *PodLabel* tipos de dados são as suas próprias etiquetas personalizadas. As etiquetas PodLabel anexadas mostradas na tabela são exemplos. Por isso, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` irá diferem no conjunto de dados do seu ambiente e genericamente assemelhar-se `PodLabel_yourlabel_s`.
 
@@ -653,7 +653,7 @@ Que mostra a lista de métricas de desempenho que são recolhidas para um conten
 ## <a name="example-log-search-queries"></a>Consultas de pesquisa de registo de exemplo
 Muitas vezes, é útil criar consultas começando com um exemplo ou dois e, em seguida, modificá-los para que se adeque ao seu ambiente. Como um ponto de partida, pode experimentar o **consultas de exemplo** área para o ajudar a criar consultas mais avançadas.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de contentores](./media/log-analytics-containers/containers-queries.png)
 
@@ -663,5 +663,5 @@ Guardar consultas é uma funcionalidade padrão na análise de registos. Ao guar
 
 Depois de criar uma consulta que úteis, guarde-o ao clicar em **Favoritos** na parte superior da página pesquisa de registo. Em seguida, pode aceder facilmente mais tarde a partir de **Dashboard os meus** página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Pesquisar registos](log-analytics-log-searches.md) para ver registos de dados do contentor de detalhado.

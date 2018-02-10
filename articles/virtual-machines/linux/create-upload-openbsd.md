@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 9b4163471f3dc8483993b9ac762694af4e926aa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD para o Azure
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema de operativo OpenBSD. Depois de carregá-lo, pode utilizá-lo como a sua própria imagem para criar uma máquina virtual (VM) no Azure através da CLI do Azure.
@@ -29,7 +29,7 @@ Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que cont
 Este artigo pressupõe que tem os seguintes itens:
 
 * **Uma subscrição do Azure** -se não tiver uma conta, pode criar um em apenas alguns minutos. Se tiver uma subscrição do MSDN, consulte [crédito do Azure mensal para subscritores do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, saiba como [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** -Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-azure-cli) instalado e registado sua conta do Azure com [início de sessão az](/cli/azure/#login).
+* **Azure CLI 2.0** -Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-azure-cli) instalado e registado sua conta do Azure com [início de sessão az](/cli/azure/#az_login).
 * **Sistema de operativo OpenBSD instalado num ficheiro. vhd** -tem de ser instalado um sistema de operativo OpenBSD suportado (6.1 versão) para um disco rígido virtual. Existem várias ferramentas para criar ficheiros. vhd. Por exemplo, pode utilizar uma solução de virtualização, tais como o Hyper-V para criar o ficheiro. vhd e instalar o sistema operativo. Para obter instruções sobre como instalar e utilizar o Hyper-V, consulte [instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,13 +102,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Criar recursos de armazenamento e carregar
-Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *eastus* localização:
+Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Para carregar o VHD, crie uma conta de armazenamento com [criar conta de armazenamento az](/cli/azure/storage/account#create). Os nomes das contas de armazenamento tem de ser exclusivos, por isso, forneça o seu próprio nome. O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount*:
+Para carregar o VHD, crie uma conta de armazenamento com [criar conta de armazenamento az](/cli/azure/storage/account#az_storage_account_create). Os nomes das contas de armazenamento tem de ser exclusivos, por isso, forneça o seu próprio nome. O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -117,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Para controlar o acesso à conta do storage, obter a chave de armazenamento com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#list) da seguinte forma:
+Para controlar o acesso à conta do storage, obter a chave de armazenamento com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az_storage_account_keys_list) da seguinte forma:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -126,7 +126,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Para separar logicamente os VHDs que carrega, criar um contentor dentro da conta de armazenamento com [criar contentor de armazenamento az](/cli/azure/storage/container#create):
+Para separar logicamente os VHDs que carrega, criar um contentor dentro da conta de armazenamento com [criar contentor de armazenamento az](/cli/azure/storage/container#az_storage_container_create):
 
 ```azurecli
 az storage container create \
@@ -135,7 +135,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Por fim, carregar o VHD com [carregamento de blob de armazenamento az](/cli/azure/storage/blob#upload) da seguinte forma:
+Por fim, carregar o VHD com [carregamento de blob de armazenamento az](/cli/azure/storage/blob#az_storage_blob_upload) da seguinte forma:
 
 ```azurecli
 az storage blob upload \
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Criar VM a partir do VHD
-Pode criar uma VM com um [script de exemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou diretamente com [az vm criar](/cli/azure/vm#create). Para especificar o VHD OpenBSD que carregou, utilize o `--image` parâmetro da seguinte forma:
+Pode criar uma VM com um [script de exemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou diretamente com [az vm criar](/cli/azure/vm#az_vm_create). Para especificar o VHD OpenBSD que carregou, utilize o `--image` parâmetro da seguinte forma:
 
 ```azurecli
 az vm create \
@@ -173,7 +173,7 @@ ssh azureuser@<ip address>
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se pretender saber mais sobre o suporte de Hyper-V no OpenBSD6.1, leia [OpenBSD 6.1](https://www.openbsd.org/61.html) e [hyperv.4](http://man.openbsd.org/hyperv.4).
 
 Se pretender criar uma VM a partir de disco gerido, leia [disco az](/cli/azure/disk). 

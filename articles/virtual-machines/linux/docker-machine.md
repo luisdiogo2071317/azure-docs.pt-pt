@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: a7c346b259f6635589f80a9c52c748fc0c05eef1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 26e54efc32aa316e1da93598cc861003aefff182
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como utilizar o Docker máquina para criar anfitriões no Azure
 Este artigo fornece detalhes sobre como utilizar [Docker máquina](https://docs.docker.com/machine/) criar anfitriões no Azure. O `docker-machine` comando cria uma máquina virtual (VM) do Linux no Azure, em seguida, instala Docker. Em seguida, pode gerir os anfitriões de Docker no Azure com o mesmas ferramentas locais e fluxos de trabalho. Para utilizar o docker máquina no Windows 10, tem de utilizar Linux bash.
 
 ## <a name="create-vms-with-docker-machine"></a>Criar as VMs com a máquina do Docker
-Em primeiro lugar, obter o ID de subscrição do Azure com [mostrar de conta az](/cli/azure/account#show) da seguinte forma:
+Em primeiro lugar, obter o ID de subscrição do Azure com [mostrar de conta az](/cli/azure/account#az_account_show) da seguinte forma:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -135,5 +135,5 @@ Para ver o contentor em ação, abra um browser e introduza o endereço IP públ
 
 ![Contentor de ngnix em execução](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Também pode criar anfitriões com o [extensão da VM Docker](dockerextension.md). Para obter exemplos sobre como utilizar o Docker Compose, consulte [começar com o Docker e Compose no Azure](docker-compose-quickstart.md).

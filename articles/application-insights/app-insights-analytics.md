@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 A análise é a ferramenta de pesquisa e a consulta poderosa de [Application Insights](app-insights-overview.md). Análise é uma ferramenta web, pelo que não é necessária nenhuma configuração. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação, abrindo a análise da sua aplicação [painel Descrição geral](app-insights-dashboards.md).
@@ -47,15 +47,15 @@ Iremos contagem, em seguida, o número de registos por país (que dados são enc
 
 O idioma tem muitas funcionalidades apelativo:
 
-* [Filtro](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) a telemetria de aplicações não processados por quaisquer campos, incluindo as métricas e propriedades personalizadas.
-* [Associar](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) várias tabelas – correlacione pedidos com vistas de página, chamadas de dependência, exceções e rastreios de registo.
-* Poderosas análises [agregações](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
+* [Filtro](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) a telemetria de aplicações não processados por quaisquer campos, incluindo as métricas e propriedades personalizadas.
+* [Associar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) várias tabelas – correlacione pedidos com vistas de página, chamadas de dependência, exceções e rastreios de registo.
+* Poderosas análises [agregações](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 * Visualizações imediatas e poderosas.
 * [REST API](https://dev.applicationinsights.io/) que pode utilizar para executar consultas através de programação, por exemplo a partir do PowerShell.
 
 O [completa referência de linguagem](https://go.microsoft.com/fwlink/?linkid=856079) fornece detalhes sobre cada comando suportado e atualiza regularmente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Começar a utilizar o [portal da análise](https://go.microsoft.com/fwlink/?linkid=856587)
 * Introdução ao [escrever consultas](https://go.microsoft.com/fwlink/?linkid=856078)
 * Reveja o [dos SQL Server-utilizadores cheat folha](https://aka.ms/sql-analytics) para traduções dos idioms mais comuns.

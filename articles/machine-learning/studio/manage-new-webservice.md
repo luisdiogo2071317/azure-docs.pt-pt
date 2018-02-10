@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: raymondl
+ms.openlocfilehash: 88eba56424d9289a35b7de4dcf5f50191411a09a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gerir um serviço Web utilizando o portal de serviços Web do Azure Machine Learning
 Pode gerir o Machine Learning novo e serviços Web clássicos através do portal de serviços Web do Microsoft Azure Machine Learning. Uma vez que os serviços Web clássicos e serviços Web novo são baseados em diferentes tecnologias subjacentes, tem capacidades de gestão ligeiramente diferente para cada um deles.

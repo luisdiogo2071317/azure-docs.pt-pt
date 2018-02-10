@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2d110705a86fa8bc05859bd8bfde34b0b5b11575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de nuvem init para máquinas virtuais no Azure
 Este artigo explica o suporte se existe para [nuvem init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) conjuntos de dimensionamento (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure.  
 
 ## <a name="cloud-init-overview"></a>Descrição geral da inicialização de cloud
-[Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados em base64.
+[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados em base64.
 
 Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
 
@@ -33,11 +33,13 @@ Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt 
 
 | Publicador | Oferta | SKU | Versão | nuvem init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canónico |UbuntuServer |16.04 LTS |mais recente |sim | 
+|Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic |CentOS |7 CI |mais recente |pré-visualizar |
-|RedHat |RHEL |7 CI NÃO PROCESSADOS |mais recente |pré-visualizar |
+|OpenLogic |CentOS |7-CI |mais recente |pré-visualização |
+|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualização |
+
+Durante a pré-visualização do Azure pilha não suporta o aprovisionamento do RHEL 7.4 e 7.4 CentOS utilizando init de nuvem.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>O que é a diferença entre init de nuvem e o agente Linux (WALA)?
 WALA é um agente específico da plataforma do Azure utilizado para aprovisionar, configurar VMs e processar extensões do Azure. Iremos são melhorando a tarefa de configurar VMs para utilizar init nuvem em vez do agente Linux para permitir que os clientes de nuvem init existentes utilizar os scripts de nuvem init atual.  Se tiver investimentos em scripts de nuvem init para configurar os sistemas Linux, existem **sem definições adicionais necessárias** para ativá-los. 
@@ -49,14 +51,14 @@ Configurações de WALA de VMs são restrita tempo a funcionar dentro da tempo d
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implementação de uma nuvem-init ativada a Máquina Virtual
 Implementar uma máquina virtual de nuvem-init ativada é tão simple como referenciar uma distribuição de nuvem-init ativada durante a implementação.  Maintainers de distribuição de Linux têm de optar por ativar e integrar nuvem init nas suas imagens de publicados base do Azure. Assim que tiver confirmado a imagem que pretende implementar é nuvem-init ativado, pode utilizar a CLI do Azure para implementar a imagem. 
 
-O primeiro passo para implementar esta imagem é criar um grupo de recursos com o [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+O primeiro passo para implementar esta imagem é criar um grupo de recursos com o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-O próximo passo é criar um ficheiro na sua shell atual, com o nome *nuvem init.txt* e cole a seguinte configuração. Neste exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista de editores disponíveis. Escolha #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha:
+O próximo passo é criar um ficheiro na sua shell atual, com o nome *nuvem init.txt* e cole a seguinte configuração. Neste exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -68,7 +70,7 @@ Prima `ctrl-X` para sair do ficheiro, escreva `y` para guardar o ficheiro e prim
 
 O último passo consiste em criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
 
-O exemplo seguinte cria uma VM chamada *centos74* e cria as chaves SSH se estes ainda não existir numa localização chave predefinido. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  Utilize o `--custom-data` parâmetro para passar o ficheiro de configuração de nuvem init. Forneça o caminho completo para o *nuvem init.txt* configuração se guardou o ficheiro fora do diretório de trabalho presente. O exemplo seguinte cria uma VM chamada *centos74*:
+O exemplo seguinte cria uma VM chamada *centos74* e cria as chaves SSH se estes ainda não existir numa localização chave predefinido. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para o *nuvem init.txt* configuração se guardou o ficheiro fora do diretório de trabalho presente. O exemplo seguinte cria uma VM chamada *centos74*:
 
 ```azurecli-interactive 
 az vm create \

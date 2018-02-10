@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/05/2017
 ms.author: sujayt
-ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8f9ff8332f33972489721e0d16717d1d6fe15fcd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VM do Azure para o Azure
 
@@ -61,34 +61,93 @@ Uma vez SuSE Linux utiliza symlinks para manter uma lista de certificados, siga 
 
 1.  Inicie sessão como utilizador raiz.
 
-2.  Execute este comando:
+2.  Execute este comando para alterar o diretório.
 
       ``# cd /etc/ssl/certs``
 
-3.  Para ver se o certificado de AC de raiz da Symantec está presente ou não, execute este comando:
+3. Verifique se o certificado de AC de raiz da Symantec está presente.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4.  Se o ficheiro não for encontrado, execute estes comandos:
+4. Se não for encontrado o certificado de AC de raiz da Symantec, execute o seguinte comando para transferir o ficheiro. Procure quaisquer erros e siga as ações recomendadas para falhas de rede.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-      ``# c_rehash``
+5. Verifique se o certificado de AC de raiz Baltimore se encontra presente.
 
-5.  Para criar um symlink com b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem, execute este comando:
+      ``# ls Baltimore_CyberTrust_Root.pem``
 
-      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+6. Se o certificado de AC de raiz Baltimore não for encontrado, transfira o certificado.  
 
-6.  Verifique se este comando tem o seguinte resultado. Caso contrário, terá de criar um symlink:
+    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-      ``# ls -l | grep Baltimore
-      -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
+7. Verifique se o certificado de DigiCert_Global_Root_CA se encontra presente.
 
-7. Se symlink 653b494a.0 não estiver presente, utilize este comando para criar um symlink:
+    ``# ls DigiCert_Global_Root_CA.pem``
 
-      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
+8. Se não for encontrado o DigiCert_Global_Root_CA, execute os seguintes comandos para transferir o certificado.
+
+    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
+
+    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+
+9. Execute script de rehash para atualizar o certificado de hashes de assunto para os certificados recentemente transferidos.
+
+    ``# c_rehash``
+
+10. Verifique se o requerente codifica como symlinks são criados para os certificados.
+
+    - Comando
+
+      ``# ls -l | grep Baltimore``
+
+    - Saída
+
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+
+    - Comando
+
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Saída
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+    - Comando
+
+      ``# ls -l | grep DigiCert_Global_Root``
+
+    - Saída
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+
+11. Criar uma cópia do ficheiro VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com filename b204d74a.0
+
+    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+12. Criar uma cópia do ficheiro Baltimore_CyberTrust_Root.pem com filename 653b494a.0
+
+    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+
+13. Criar uma cópia do ficheiro DigiCert_Global_Root_CA.pem com filename 3513523f.0
+
+    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+
+
+14. Verifique se os ficheiros estão presentes.  
+
+    - Comando
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Saída
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de URLs de recuperação de Site ou IP (código de erro 151037 ou 151072)
@@ -131,6 +190,20 @@ Não poderá ver a VM do Azure para seleção nos [ativar a replicação: passo 
 
 Pode utilizar [remover o script de configuração de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração da recuperação de Site obsoleta na VM do Azure. Deverá ver a VM no [ativar a replicação: passo 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) depois de remover a configuração obsoleta.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Estado de aprovisionamento da VM não é válido (código de erro 150019)
+
+Para ativar a replicação da VM, o estado de aprovisionamento deve ser **com êxito**. Pode verificar o estado VM, seguindo os passos abaixo.
+
+1.  Selecione o **Explorador de recursos** de **todos os serviços** no portal do Azure.
+2.  Expanda o **subscrições** lista e selecione a sua subscrição.
+3.  Expanda o **ResourceGroups** lista e selecione o grupo de recursos da VM.
+4.  Expanda o **recursos** lista e selecione a máquina virtual
+5.  Verifique o **provisioningState** campo na vista de instância no lado direito.
+
+### <a name="fix-the-problem"></a>Corrija o problema
+
+- Se **provisioningState** é **falha**, contacte o suporte com os detalhes para a resolução de problemas.
+- Se **provisioningState** é **atualização**, outra extensão foi possível obter implementar. Verifique se existem quaisquer operações em curso na VM, aguarde que estas concluídas e repita a recuperação de Site falha **ativar a replicação** tarefa.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Replicar máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

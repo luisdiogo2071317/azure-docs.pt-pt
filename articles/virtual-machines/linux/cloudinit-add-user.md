@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 728ffed27747cb298d5da312014a3c9e98b44f1e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce4421fc8276f215564cb7a171a215cc166c8517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Utilize nuvem init para adicionar um utilizador para uma VM com Linux no Azure
 Este artigo mostra como utilizar [nuvem init](https://cloudinit.readthedocs.io) para adicionar um utilizador de uma máquina virtual ou máquina virtual (VM) conjuntos de dimensionamento (VMSS) no aprovisionamento de tempo no Azure. Este script de nuvem init é executado no primeiro arranque depois dos recursos foram aprovisionados através do Azure. Para obter mais informações sobre como nuvem init nativamente funciona no Azure e os distros suportados do Linux, consulte [descrição geral da nuvem init](using-cloud-init.md).
@@ -26,7 +26,7 @@ Este artigo mostra como utilizar [nuvem init](https://cloudinit.readthedocs.io) 
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Adicionar um utilizador para uma VM com init de nuvem
 Uma das tarefas primeiro qualquer nova VM do Linux é adicionar um utilizador adicional para si próprio evitar a utilização de *raiz*. As chaves SSH são a melhor prática de segurança e facilidade de utilização. As chaves são adicionadas para o *~/.ssh/authorized_keys* ficheiro com este script de nuvem init.
 
-Para adicionar um utilizador para uma VM com Linux, crie um ficheiro na sua shell atual com o nome *cloud_init_add_user.txt* e cole a seguinte configuração. Neste exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_add_user.txt` para criar o ficheiro e ver uma lista de editores disponíveis. Escolha #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha.  Tem de fornecer a sua própria chave pública (tais como o conteúdo do *~/.ssh/id_rsa.pub*) para o valor da `ssh-authorized-keys:` -tenha sido shortened aqui para simplificar o exemplo.
+Para adicionar um utilizador para uma VM com Linux, crie um ficheiro na sua shell atual com o nome *cloud_init_add_user.txt* e cole a seguinte configuração. Neste exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_add_user.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para utilizar o **nano** editor. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha.  Tem de fornecer a sua própria chave pública (tais como o conteúdo do *~/.ssh/id_rsa.pub*) para o valor da `ssh-authorized-keys:` -tenha sido shortened aqui para simplificar o exemplo.
 
 ```yaml
 #cloud-config
@@ -42,13 +42,13 @@ users:
 > [!NOTE] 
 > O ficheiro de #cloud-config inclui o `- default` parâmetro incluído. Isto irá acrescentar o utilizador, para o utilizador de admin existente criado durante o aprovisionamento. Se criar um utilizador sem o `- default` parâmetro - o utilizador de admin gerado automaticamente criado pela plataforma do Azure será substituído. 
 
-Antes de implementar esta imagem, tem de criar um grupo de recursos com o [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de implementar esta imagem, tem de criar um grupo de recursos com o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie uma VM com [az vm criar](/cli/azure/vm#create) e especifique o ficheiro de nuvem init com `--custom-data cloud_init_add_user.txt` da seguinte forma:
+Agora, crie uma VM com [az vm criar](/cli/azure/vm#az_vm_create) e especifique o ficheiro de nuvem init com `--custom-data cloud_init_add_user.txt` da seguinte forma:
 
 ```azurecli-interactive 
 az vm create \
@@ -81,7 +81,7 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter exemplos adicionais nuvem-init das alterações de configuração, consulte o seguinte:
  
 - [Adicionar um utilizador de Linux adicional para uma VM](cloudinit-add-user.md)

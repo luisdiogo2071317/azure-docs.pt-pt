@@ -1,26 +1,20 @@
 ---
-title: "Configurar a recuperação após desastre para as VMs de Hyper-V entre os sites no local com o Azure Site Recovery | Microsoft Docs"
+title: "Configurar a recuperação após desastre para as VMs de Hyper-V entre sites no local com o Azure Site Recovery | Microsoft Docs"
 description: "Saiba como configurar a recuperação após desastre para as VMs de Hyper-V entre os sites no local com o Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 65eda71c-3ca3-41bc-b02d-00fecc1557d7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 90c0d8c4f03fab3c3932723eeed0a37cd5112615
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configurar a recuperação após desastre para as VMs de Hyper-V para o site secundário no local
+# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para as VMs de Hyper-V para um site secundário no local
 
 O [do Azure Site Recovery](site-recovery-overview.md) serviço contribui para a sua estratégia de recuperação após desastre, gerir e da orquestração de replicação, ativação pós-falha e a reativação pós-falha de máquinas no local e máquinas de virtuais (VMs) do Azure.
 
@@ -121,7 +115,7 @@ Selecione o servidor VMM de destino e a nuvem:
 1. Clique em **preparar a infraestrutura** > **destino**e selecione o servidor do VMM de destino.
 2. As nuvens do VMM que são sincronizadas com a recuperação de Site são apresentadas. Selecione a nuvem de destino.
 
-   ![destino](./media/tutorial-vmm-to-vmm/target-vmm.png)
+   ![Alvo](./media/tutorial-vmm-to-vmm/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
@@ -159,6 +153,6 @@ Antes de começar, certifique-se de que todos os anfitriões através da políti
 
 Pode controlar o progresso do **ativar proteção** ação no **tarefas** > **as tarefas de recuperação de Site**. Depois do **finalizar proteção** tarefa é concluída, a replicação inicial está concluída e a VM está preparada para ativação pós-falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Executar um teste de recuperação após desastre](tutorial-dr-drill-secondary.md)

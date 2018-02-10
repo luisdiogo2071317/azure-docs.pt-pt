@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual utilizando a CLI do Azure
 
@@ -41,9 +41,9 @@ Este artigo abrange o modelo de implementação do Resource Manager. Também pod
 
 Para criar uma VM chamada *DNS01* no *front-end* sub-rede de uma VNet com o nome *TestVNet* com um IP privado estático de *192.168.1.101*, completa os seguintes passos:
 
-1. Se ainda não ainda, instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#login). 
+1. Se ainda não ainda, instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login). 
 
-2. Criar um IP público para a VM com o [az público-ip da rede criar](/cli/azure/network/public-ip#create) comando. A lista apresentada depois do resultado explica os parâmetros utilizados.
+2. Criar um IP público para a VM com o [az público-ip da rede criar](/cli/azure/network/public-ip#az_network_public_ip_create) comando. A lista apresentada depois do resultado explica os parâmetros utilizados.
 
     > [!NOTE]
     > Poderá pretender ou tem de utilizar valores diferentes para os argumentos deste e os passos subsequentes, consoante o seu ambiente.
@@ -74,7 +74,7 @@ Para criar uma VM chamada *DNS01* no *front-end* sub-rede de uma VNet com o nome
    * `--name`: Nome do IP público.
    * `--location`: Azure região na qual pretende criar o IP público.
 
-3. Execute o [nic da rede az criar](/cli/azure/network/nic#create) comando para criar uma NIC com um IP privado estático. A lista apresentada depois do resultado explica os parâmetros utilizados. 
+3. Execute o [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create) comando para criar uma NIC com um IP privado estático. A lista apresentada depois do resultado explica os parâmetros utilizados. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Para criar uma VM chamada *DNS01* no *front-end* sub-rede de uma VNet com o nome
     * `--vnet-name`: O nome da VNet onde criar a NIC.
     * `--subnet`: O nome da sub-rede na qual pretende criar o NIC.
 
-4. Execute o [vm do azure crie](/cli/azure/vm/nic#create) comando para criar a VM com o IP público e o NIC criada anteriormente. A lista apresentada depois do resultado explica os parâmetros utilizados.
+4. Execute o [vm do azure crie](/cli/azure/vm/nic#az_vm_nic_create) comando para criar a VM com o IP público e o NIC criada anteriormente. A lista apresentada depois do resultado explica os parâmetros utilizados.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Para criar uma VM chamada *DNS01* no *front-end* sub-rede de uma VNet com o nome
     }
     ```
    
-   Os parâmetros que não seja o basic [az vm criar](/cli/azure/vm#create) parâmetros.
+   Os parâmetros que não seja o basic [az vm criar](/cli/azure/vm#az_vm_create) parâmetros.
 
    * `--nics`: Nome de NIC para o qual a VM está ligada.
    
@@ -268,7 +268,7 @@ Para alterar o NIC para a VM utilizada nos comandos anteriores, conclua os segui
     > [!NOTE]
     > Se a VM é suficientemente grande para ter mais do que um NIC, execute o **nic da rede do azure eliminar** comando para eliminar o NIC antigo.
    
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [reservado de IP público](virtual-networks-reserved-public-ip.md) endereços.
 * Saiba mais sobre [instância ao nível do IP público (ILPIP)](virtual-networks-instance-level-public-ip.md) endereços.
 * Consulte o [reservado APIs REST do IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).

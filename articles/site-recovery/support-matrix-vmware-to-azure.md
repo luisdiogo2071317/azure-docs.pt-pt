@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -130,10 +130,14 @@ Convidados/servidor RDM | Sim<br/><br/> N/d para servidores físicos
 Convidados/servidor disco > 1 TB | Sim<br/><br/>4095 GB 
 Disco de convidado/servidor com o tamanho de sector físico lógicos e 4 k de 4K | Sim
 Disco de convidado/servidor com lógico de 4K e tamanho de setor físico de 512 bytes | Sim 
-Volume de convidado/servidor com o disco repartidos > 1 TB<br/><br/> Convidados/servidor de gestão de Volume LVM lógica - os espaços de armazenamento | Nenhum disco de acesso frequente adição/remoção de convidado/servidor | Nenhum convidado/servidor - excluir o disco | Sim multi-path convidado/servidor (MPIO) | N/D
+Volume de convidado/servidor com o disco repartidos > 4 TB <br><br/>Gestão de volumes LVM lógica | Sim
+Convidados/servidor - os espaços de armazenamento | Não 
+Disco de acesso frequente adição/remoção de convidado/servidor | Não 
+Convidados/servidor - disco de exclusão | Sim 
+Caminho de convidado/servidor multi (o MPIO) | N/A
 
 > [!NOTE]
-> * * UEFI arrancar em máquinas virtuais VMware ou servidores físicos com o Windows Server 2012 ou posterior, que podem ser migrados para o Azure. As seguintes restrições aplicam-se.
+> * * UEFI * * arrancar em máquinas virtuais VMware ou servidores físicos com o Windows Server 2012 ou posterior, que podem ser migrados para o Azure. As seguintes restrições aplicam-se.
 > - Apenas uma migração para o Azure é suportada. Reativação pós-falha para o site de VMware no local não suportada.
 > - O servidor não deve ter mais de 4 partições no disco do SO.
 > - Requer a versão do serviço de mobilidade de recuperação de Site do Azure 9.13 ou posterior.

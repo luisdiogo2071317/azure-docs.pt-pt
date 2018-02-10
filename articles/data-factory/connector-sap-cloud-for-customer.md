@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados de nuvem de SAP para o cliente (C4C) utilizando o Azure Data Factory
 
@@ -47,7 +47,7 @@ As seguintes propriedades são suportadas para a nuvem de SAP para o serviço li
 | tipo | A propriedade de tipo tem de ser definida: **SapCloudForCustomer**. | Sim |
 | url | O URL do serviço OData do SAP C4C. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar ao C4C SAP. | Sim |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString. | Sim |
+| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não para a origem, Sim para sink |
 
 >[!IMPORTANT]
@@ -105,7 +105,7 @@ Para copiar dados de nuvem do SAP para o cliente, defina a propriedade de tipo d
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela nuvem SAP para a origem de cliente.
 
@@ -160,7 +160,7 @@ Para copiar dados para a nuvem de cliente, defina o tipo de sink na atividade de
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **SapCloudForCustomerSink**  | Sim |
 | WriteBehavior | O comportamento da operação de escrita. Pode ser "Insert", "Update". | Não. Predefinição "Insert". |
-| WriteBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para a tabela diferente ou servidor. | Não. Predefinição 10. |
+| writeBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para a tabela diferente ou servidor. | Não. Predefinição 10. |
 
 **Exemplo:**
 
@@ -207,12 +207,12 @@ Ao copiar dados de nuvem do SAP para o cliente, são utilizados os seguintes map
 
 | Tipo de dados de OData do SAP C4C | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
-| Edm.Binary | Byte] |
-| Edm.Boolean | bool |
-| Edm.Byte | Byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Booleano |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | duplo |
+| Edm.Double | Duplo |
 | Edm.Single | Solteiro |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

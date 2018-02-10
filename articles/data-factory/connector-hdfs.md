@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fb4802a6a3bed163f0d2bba04cf9d80a917ba7ba
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 400c58abf04d28dd0e5f1d7aac204f09c43b942e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados de HDFS utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ As seguintes propriedades são suportadas para o serviço ligado do HDFS:
 | url |URL para o HDFS |Sim |
 | authenticationType | Valores permitidos são: **anónimo**, ou **Windows**. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
 | userName |Autenticação de nome de utilizador do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
-| palavra-passe |Palavra-passe para autenticação do Windows. Marcar este campo como SecureString. |Sim (para autenticação do Windows) |
+| palavra-passe |Palavra-passe para autenticação do Windows. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim (para autenticação do Windows) |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo: utilizar a autenticação anónima**

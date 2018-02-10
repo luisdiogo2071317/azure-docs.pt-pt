@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar ASE utilizando um modelo Azure Resource Manager
 
@@ -40,7 +40,7 @@ Para automatizar a criação da ASE:
 
 2. Depois de criar o ILB ASE, um certificado SSL que corresponda ao seu domínio ILB ASE é carregado.
 
-3. O certificado SSL carregado é atribuído a ASE o ILB, como o certificado SSL "predefinida".  Este certificado é utilizado para o tráfego SSL para as aplicações em ASE o ILB quando utilizarem o domínio de raiz comuns que está atribuído a ASE (por exemplo, https://someapp.mycustomrootcomain.com).
+3. O certificado SSL carregado é atribuído a ASE o ILB, como o certificado SSL "predefinida".  Este certificado é utilizado para o tráfego SSL para as aplicações em ASE o ILB quando utilizarem o domínio de raiz comuns que está atribuído a ASE (por exemplo, https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>Criar o ASE
@@ -69,7 +69,7 @@ Obter um certificado SSL válido ao utilizar autoridades de certificação inter
 * **Requerente**: este atributo deve ser definido como **.your-raiz-domínio-here.com*.
 * **Nome alternativo do requerente**: este atributo tem de incluir os **.your-raiz-domínio-here.com* e **.scm.your-raiz-domínio-here.com*. Ligações de SSL para o site SCM/Kudu associados a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
 
-Com um certificado SSL válido mão, são necessários dois passos preparatórios adicionais. Converter/guardar o certificado SSL como um ficheiro. pfx. Lembre-se de que o ficheiro. pfx tem de incluir todos os intermédio e certificados de raiz. Proteja-a com uma palavra-passe.
+Com um certificado SSL válido mão, são necessários dois passos preparatórios adicionais. Converta/guarde o certificado SSL como um ficheiro .pfx. Lembre-se de que o ficheiro. pfx tem de incluir todos os intermédio e certificados de raiz. Proteja-o com uma palavra-passe.
 
 O ficheiro. pfx tem de ser convertido numa cadeia base64 porque o certificado SSL é carregado utilizando um modelo do Resource Manager. Porque os modelos do Resource Manager são ficheiros de texto, o ficheiro. pfx tem de ser convertido numa cadeia base64. Desta forma pode ser incluído como um parâmetro do modelo.
 
@@ -146,11 +146,11 @@ Quando o modelo estiver concluído, as aplicações em ASE o ILB podem ser acedi
 No entanto, tal como as aplicações que são executados no serviço multi-inquilino público, os programadores podem configurar os nomes de anfitrião personalizado para aplicações individuais. Também pode configurar enlaces de certificado de SNI SSL exclusivos para aplicações individuais.
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1 ##
-Ambiente de serviço de aplicações tem duas versões: ASEv1 e ASEv2. As informações foi com base no ASEv2. Esta secção mostra as diferenças entre ASEv1 e ASEv2.
+O Ambiente de Serviço de Aplicações tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2.
 
-No ASEv1, pode gere todos os recursos manualmente. Que inclui o front-ends, funcionários e endereços IP utilizados para SSL baseado em IP. Antes de pode ampliar o plano de serviço de aplicações, tem de ampliar o conjunto de trabalho que pretende alojá-la.
+No ASEv1, pode gere todos os recursos manualmente. Tal inclui os front-ends, os trabalhos e os endereços IP utilizados para SSL baseado em IP. Antes de pode ampliar o plano de serviço de aplicações, tem de ampliar o conjunto de trabalho que pretende alojá-la.
 
-ASEv1 utiliza um modelo de preços diferentes de ASEv2. ASEv1, paga para cada vCPU atribuído. Que inclui vCPUs que são utilizados para front-ends ou trabalhadores que não alojam quaisquer cargas de trabalho. ASEv1, o tamanho de dimensionamento máximo predefinido de ASE é 55 total de anfitriões. Que inclui os trabalhadores e front-ends. Uma vantagem em ASEv1 é que pode ser implementada numa rede virtual clássica e uma rede virtual do Gestor de recursos. Para saber mais sobre ASEv1, consulte o artigo [introdução do ambiente de serviço de aplicações v1][ASEv1Intro].
+O ASEv1 utiliza um modelo de preços diferente do ASEv2. No ASEv1, paga por cada vCPU alocada. Que inclui vCPUs que são utilizados para front-ends ou trabalhadores que não alojam quaisquer cargas de trabalho. No ASEv1, o tamanho de dimensionamento máximo predefinido de um ASE é 55 anfitriões no total. Tal inclui os trabalhos e os front-ends. Uma vantagem do ASEv1 é que pode ser implementado numa rede virtual clássica e numa rede virtual do Resource Manager. Para saber mais sobre o ASEv1, veja o artigo [Introdução ao Ambiente de Serviço de Aplicações v1][ASEv1Intro].
 
 Para criar um ASEv1 utilizando um modelo do Resource Manager, consulte [criar v1 um ILB ASE com um modelo do Resource Manager][ILBASEv1Template].
 

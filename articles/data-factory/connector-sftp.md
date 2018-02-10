@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d90bafebcd942454b31d0f62b0daf3f01ad6926
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copiar dados a partir do servidor SFTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Para utilizar autenticação básica, defina a propriedade de "authenticationTyp
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | userName | Utilizador que tenha acesso ao servidor SFTP. |Sim |
-| palavra-passe | Palavra-passe para o utilizador (nome de utilizador). Marcar este campo como um SecureString. | Sim |
+| palavra-passe | Palavra-passe para o utilizador (nome de utilizador). Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo:**
 
@@ -104,8 +104,8 @@ Para utilizar a autenticação de chave pública SSH, definir a propriedade de "
 |:--- |:--- |:--- |
 | userName | Utilizador com acesso ao servidor de SFTP |Sim |
 | privateKeyPath | Especifique um caminho absoluto para o ficheiro de chave privado que podem aceder a integração do tempo de execução. Aplica-se apenas quando personalizada alojada de tempo de execução de integração for especificado em "connectVia". | Especifique o `privateKeyPath` ou `privateKeyContent`.  |
-| privateKeyContent | Conteúdo da chave privado SSH de codificados Base64. A chave privada SSH deve ter o formato de OpenSSH. Marcar este campo como um SecureString. | Especifique o `privateKeyPath` ou `privateKeyContent`. |
-| passPhrase | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. Marcar este campo como um SecureString. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
+| privateKeyContent | Conteúdo da chave privado SSH de codificados Base64. A chave privada SSH deve ter o formato de OpenSSH. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Especifique o `privateKeyPath` ou `privateKeyContent`. |
+| passPhrase | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
 
 > [!NOTE]
 > Conector SFTP suporta apenas OpenSSH chave. Certifique-se de que o ficheiro de chave está no formato correto. Pode utilizar o Putty ferramenta para converter de *.ppk OpenSSH formato.

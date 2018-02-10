@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de uma aplicação de Service Fabric do Azure. Os parâmetros de incluir o nome e versão da aplicação. São botões que controlam os tempos limite e verificações de estado de funcionamento que são aplicadas durante a atualização, e especificarem as políticas que tem de ser aplicadas quando uma atualização falha.
@@ -52,14 +52,14 @@ Os critérios de avaliação do Estado de funcionamento são opcionais. Se não 
 | MaxPercentUnhealthyServices |Valor predefinido e recomendado é 0. Especifique o número máximo de serviços na instância da aplicação que pode ser mau estado de funcionamento antes da aplicação é considerada em mau estado de funcionamento e falha da atualização. |
 | MaxPercentUnhealthyPartitionsPerService |Valor predefinido e recomendado é 0. Especifique o número máximo de partições num serviço que pode ser mau estado de funcionamento antes do serviço é considerado em mau estado de funcionamento. |
 | MaxPercentUnhealthyReplicasPerPartition |Valor predefinido e recomendado é 0. Especifique o número máximo de réplicas de partição que pode ser mau estado de funcionamento antes da partição é considerada em mau estado de funcionamento. |
-| UpgradeReplicaSetCheckTimeout |**Sem estado**– dentro de um único domínio de atualização, tenta Certifique-se de que estão disponíveis instâncias adicionais do serviço do Service Fabric. Se a contagem de instâncias de destino é mais do que um, o Service Fabric aguarda mais do que uma instância disponível, até um valor de tempo limite máximo. Este limite de tempo é especificado através da propriedade UpgradeReplicaSetCheckTimeout. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino, o Service Fabric não aguarda e imediatamente continua com a atualização. **Serviço com estado**– dentro de um único domínio de atualização, tenta Certifique-se de que o conjunto de réplicas tem um quórum de Service Fabric. Service Fabric aguarda para um quórum de estar disponível, até um valor de limite de tempo máximo (especificado pela propriedade UpgradeReplicaSetCheckTimeout). Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente de quórum. Esta definição é definido como nunca (infinito) ao implementar uma reencaminhar e segundos, 900 quando a reversão. |
+| UpgradeReplicaSetCheckTimeout |<p>**Sem estado**– dentro de um único domínio de atualização, tenta Certifique-se de que estão disponíveis instâncias adicionais do serviço do Service Fabric. Se a contagem de instâncias de destino é mais do que um, o Service Fabric aguarda mais do que uma instância disponível, até um valor de tempo limite máximo. Este limite de tempo é especificado através da propriedade UpgradeReplicaSetCheckTimeout. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino, o Service Fabric não aguarda e imediatamente continua com a atualização.</p><p>**Serviço com estado**– dentro de um único domínio de atualização, tenta Certifique-se de que o conjunto de réplicas tem um quórum de Service Fabric. Service Fabric aguarda para um quórum de estar disponível, até um valor de limite de tempo máximo (especificado pela propriedade UpgradeReplicaSetCheckTimeout). Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente de quórum. Esta definição é definido como nunca (infinito) ao implementar uma reencaminhar e segundos, 1200 quando a reversão.</p> |
 | ForceRestart |Se atualizar uma configuração ou o pacote de dados sem atualizar o código do serviço, o serviço for reiniciado apenas se a propriedade ForceRestart está definida como true. Quando a atualização estiver concluída, o Service Fabric notifica o serviço que está disponível um novo pacote de configuração ou o pacote de dados. O serviço é responsável por aplicar as alterações. Se necessário, pode reiniciar o serviço próprio. |
 
 <br>
 <br>
 Os critérios de MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService e MaxPercentUnhealthyReplicasPerPartition podem ser especificados por tipo de serviço para uma instância de aplicação. Definir estes parâmetros por-serviço permite a uma aplicação que contém tipos diferentes de serviços com as políticas de avaliação diferentes. Por exemplo, um tipo de serviço de gateway sem monitorização de estado pode ter um MaxPercentUnhealthyPartitionsPerService que é diferente de um tipo de serviço do motor com monitorização de estado para uma instância de aplicação em particular.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Atualizar a aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta-o através de uma atualização da aplicação com o Visual Studio.
 
 [Atualizar a sua aplicação através do Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta-o através de uma atualização da aplicação através do PowerShell.

@@ -1,27 +1,20 @@
 ---
-title: "Planear o mapeamento da rede para a replicação de VM de Hyper-V com a recuperação de Site | Microsoft Docs"
+title: "Sobre o mapeamento da rede para a replicação de VM de Hyper-V com a recuperação de Site | Microsoft Docs"
 description: "Configure o mapeamento de rede de Hyper-V replicação da máquina virtual de um datacenter no local para o Azure ou para um site secundário."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: tysonn
-ms.assetid: fcaa2f52-489d-4c1c-865f-9e78e000b351
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 91d6d0466789daa662162c60bc3c97ba6115e7eb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d56f8f5bfb40c1c43090f43e119bf9b98918d6e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Planear o mapeamento da rede para a replicação de VM de Hyper-V com a recuperação de Site
-
+# <a name="about-network-mapping-for-hyper-v-vm-replication"></a>Sobre o mapeamento da rede para a replicação de VM de Hyper-V
 
 
 Este artigo ajuda-o a compreender e planear a rede mapeamento durante a replicação de VMs de Hyper-V para o Azure ou para um site secundário, utilizando o [serviço Azure Site Recovery](site-recovery-overview.md).
@@ -68,10 +61,10 @@ Eis um exemplo para ilustrar este mecanismo. Vamos organização com duas locali
 
 **Localização** | **Servidor VMM** | **Redes VM** | **Mapeado para**
 ---|---|---|---
-Nova Iorque | O VMM NewYork| VMNetwork1 NewYork | Mapeado para VMNetwork1 Chicago
- |  | VMNetwork2 NewYork | Não mapeados
-Chicago | O VMM Chicago| VMNetwork1 Chicago | Mapeado para VMNetwork1 NewYork
- | | VMNetwork1 Chicago | Não mapeados
+Nova Iorque | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1 Chicago
+ |  | VMNetwork2-NewYork | Não mapeados
+Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1 NewYork
+ | | VMNetwork1-Chicago | Não mapeados
 
 Neste exemplo:
 
@@ -86,16 +79,16 @@ Eis como nuvens VMM são configuradas na nossa organização de exemplo e as red
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
-SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
+GoldCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 #### <a name="logical-and-vm-network-settings"></a>As definições de rede lógicas e VM
 
 **Localização** | **Rede lógica** | **Rede VM associado**
 ---|---|---
-Nova Iorque | LogicalNetwork1 NewYork | VMNetwork1 NewYork
-Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
- | LogicalNetwork2Chicago | VMNetwork2 Chicago
+Nova Iorque | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
+ | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
 #### <a name="target-network-settings"></a>Definições de rede de destino
 
@@ -103,9 +96,9 @@ Com base nestas definições, quando seleciona a rede VM de destino, a tabela se
 
 **Selecionar** | **Nuvem protegida** | **Proteção de nuvem** | **Rede de destino disponível**
 ---|---|---|---
-VMNetwork1 Chicago | SilverCloud1 | SilverCloud2 | Disponível
+VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Disponível
  | GoldCloud1 | GoldCloud2 | Disponível
-VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Não disponível
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Não disponível
  | GoldCloud1 | GoldCloud2 | Disponível
 
 
@@ -119,12 +112,12 @@ Para ver o que acontece no caso de reativação pós-falha (replicação inversa
 
 **Máquina virtual** | **Ligado à rede VM**
 ---|---
-VM1 | Rede VMNetwork1
-VM2 (réplica do VM1) | VMNetwork1 Chicago
+VM1 | VMNetwork1-Network
+VM2 (réplica do VM1) | VMNetwork1-Chicago
 
 Com estas definições, vamos rever o que acontece em alguns cenários possíveis.
 
-**Cenário** | **Resultado**
+**Cenário** | **Outcome**
 ---|---
 Nenhuma alteração nas propriedades de rede de VM-2 após a ativação pós-falha. | VM 1 continua a ser ligado à rede de origem.
 Propriedades da rede de VM-2 foram alterados após a ativação pós-falha e está desligado. | VM-1 é desligado.
@@ -133,6 +126,6 @@ Mapeamento da rede de VMNetwork1 Chicago é alterado. | VM 1 serão ligadas à r
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [planear a infraestrutura de rede](site-recovery-network-design.md).

@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: 2cc9b4c978e9a4deb0c8443c4b0f9e301a7cf492
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afb8fce7ce7ef432518c58cb6f58951337aebcff
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Como configurar o Cofre de chaves para máquinas virtuais com o 2.0 CLI do Azure
 
 Na pilha do Azure Resource Manager, os segredos/certificados são modelados como recursos que são fornecidos pelo Cofre de chaves. Para saber mais sobre o Cofre de chaves do Azure, consulte o artigo [que é o Cofre de chaves do Azure?](../../key-vault/key-vault-whatis.md) Para que o Cofre de chaves ser utilizado com VMs do Azure Resource Manager, o *EnabledForDeployment* propriedade no Cofre de chaves tem de ser definida como true. Este artigo mostra como configurar o Cofre de chaves para utilização com máquinas virtuais do Azure (VMs) com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para executar estes passos, terá da versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#login).
+Para executar estes passos, terá da versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
 
 ## <a name="create-a-key-vault"></a>Criar um Key Vault
-Criar um cofre de chaves e atribuir a política de implementação com [az keyvault criar](/cli/azure/keyvault#create). O exemplo seguinte cria um cofre de chaves com o nome `myKeyVault` no `myResourceGroup` grupo de recursos:
+Criar um cofre de chaves e atribuir a política de implementação com [az keyvault criar](/cli/azure/keyvault#az_keyvault_create). O exemplo seguinte cria um cofre de chaves com o nome `myKeyVault` no `myResourceGroup` grupo de recursos:
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>Atualizar um cofre de chaves para utilização com VMs
-Conjunto a política de implementação numa chave do cofre com [atualização de keyvault az](/cli/azure/keyvault#update). O seguinte procedimento atualiza o Cofre de chaves com o nome `myKeyVault` no `myResourceGroup` grupo de recursos:
+Conjunto a política de implementação numa chave do cofre com [atualização de keyvault az](/cli/azure/keyvault#az_keyvault_update). O seguinte procedimento atualiza o Cofre de chaves com o nome `myKeyVault` no `myResourceGroup` grupo de recursos:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
@@ -58,5 +58,5 @@ Quando utiliza um modelo, tem de definir o `enabledForDeployment` propriedade `t
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para outras opções que pode configurar quando criar um cofre de chaves utilizando os modelos, consulte [criar um cofre de chaves](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).

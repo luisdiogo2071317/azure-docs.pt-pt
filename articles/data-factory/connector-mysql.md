@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4ecbf2b2e144885159ae6d6e3a82b4d6063a3d23
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados de MySQL utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ As seguintes propriedades são suportadas para o serviço de MySQL ligada:
 | base de dados | Nome da base de dados MySQL. | Sim |
 | schema | Nome do esquema na base de dados. | Não |
 | o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados MySQL. | Sim |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador que especificou. Marcar este campo como SecureString. | Sim |
+| palavra-passe | Especifique a palavra-passe da conta de utilizador que especificou. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**

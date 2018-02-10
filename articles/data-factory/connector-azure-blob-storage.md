@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 199f3f98f71dcc9eb5f7f3338547870f215d3d64
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d492147b8855d8f1ef64d3421c62e11a1951eadd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Pode criar um serviço ligado de armazenamento utilizando a chave de conta. Forn
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida **AzureStorage**. |Sim |
-| connectionString | Especifique as informações necessárias para ligar ao armazenamento para a propriedade connectionString. Marcar este campo como SecureString. |Sim |
+| connectionString | Especifique as informações necessárias para ligar ao armazenamento para a propriedade connectionString. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados estiver numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -95,7 +95,7 @@ Para utilizar a autenticação de assinatura de acesso partilhado do serviço, s
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida **AzureStorage**. |Sim |
-| sasUri | Especifique a URI de assinatura de acesso partilhado para os recursos de armazenamento, como BLOBs, contentor ou tabela. Marcar este campo como SecureString. |Sim |
+| sasUri | Especifique a URI de assinatura de acesso partilhado para os recursos de armazenamento, como BLOBs, contentor ou tabela. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o tempo de execução de integração do Azure ou o tempo de execução de integração Self-hosted (se o arquivo de dados está localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**

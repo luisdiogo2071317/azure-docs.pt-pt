@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Transferir um VHD de Linux a partir do Azure
 
@@ -43,7 +43,7 @@ Para utilizar o VHD como uma imagem para criar outras VMs, conclua estes passos:
     exit 
     ```
 
-2. Inicie sessão na sua conta do Azure com [início de sessão az](https://docs.microsoft.com/cli/azure/#login).
+2. Inicie sessão na sua conta do Azure com [início de sessão az](https://docs.microsoft.com/cli/azure/#az_login).
 3. Pare e Desalocação da VM.
 
     ```azurecli
@@ -58,7 +58,7 @@ Para utilizar o VHD como uma imagem para criar outras VMs, conclua estes passos:
 
 Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou o disco de dados, conclua estes passos:
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2.  No menu Hub, clique em **Virtual Machines**.
 3.  Selecione a VM na lista.
 4.  No painel para a VM, clique em **parar**.
@@ -85,7 +85,7 @@ Para transferir o ficheiro VHD, terá de gerar um [assinatura de acesso partilha
 
     ![Clique em Guardar no browser](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [carregar e criar uma VM com Linux a partir do disco personalizado com o 2.0 CLI do Azure](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Gerir discos do Azure a CLI do Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

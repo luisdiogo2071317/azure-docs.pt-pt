@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7694c28dd41b75438bfa4ffc8d032f439173122b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: af922aaae21ab87c7e8d9354bcbae64fc97c6f02
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn elevar para aprovisionamento de utilizadores automática
 
@@ -116,7 +116,9 @@ O primeiro passo é obter o token de acesso LinkedIn. Se for um administrador de
 
 16) Clique em **Guardar**. 
 
-Isto iniciará a sincronização inicial de todos os utilizadores e/ou grupos atribuídos LinkedIn elevação na secção utilizadores e grupos. Tenha em atenção que a sincronização inicial irá demorar superior para efetuar sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os relatórios de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação LinkedIn elevar o aprovisionamento.
+Isto iniciará a sincronização inicial de todos os utilizadores e/ou grupos atribuídos LinkedIn elevação na secção utilizadores e grupos. Tenha em atenção que a sincronização inicial irá demorar superior para efetuar sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os registos de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação LinkedIn elevar o aprovisionamento.
+
+Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Recursos Adicionais

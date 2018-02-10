@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
@@ -39,8 +39,9 @@ Nesta secção, utilize IU da fábrica de dados para criar um pipeline do Data F
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Primeiro passo é criar uma fábrica de dados utilizando o portal do Azure. 
 
-1. Navegue para o [portal do Azure](https://portal.azure.com). 
-2. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
+1. Iniciar **Microsoft Edge** ou **Google Chrome** web browser. Atualmente, a IU da fábrica de dados é suportada apenas em browsers de web do Microsoft Edge e o Google Chrome.
+2. Navegue para o [portal do Azure](https://portal.azure.com). 
+3. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** no **nome**. 

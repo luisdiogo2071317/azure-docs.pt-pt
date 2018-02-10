@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6662fee875d44f88781be51443d48e86c1bf2d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Ver dados analíticos métricas em todos os recursos de aplicação Web do Azure
 
@@ -37,7 +37,7 @@ Utilizar a solução, pode ver o:
 
 Ao contrário da maioria dos outros soluções de análise de registos, os dados não estão recolhidos para Web Apps do Azure por agentes. Todos os dados utilizados pela solução inclui diretamente a partir do Azure.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não recolhe informações de agentes Linux. |
@@ -68,8 +68,8 @@ A solução de análise de aplicações Web do Azure recolhe dois conjuntos de m
 - Métricas de plano de serviço de aplicações
   - Bytes recebidos/enviados
   - Percentagem de CPU
-  - Comprimento da fila de disco
-  - Comprimento da fila de HTTP
+  - Comprimento da Fila de Discos
+  - Comprimento da Fila de http
   - Percentagem de Memória
 
 Métricas de plano do App Service apenas são recolhidas se estiver a utilizar um plano de serviço dedicada. Isto não se aplica a planos de serviço de aplicações gratuitos ou partilhados.
@@ -90,7 +90,7 @@ Quando adiciona a solução de análise de aplicações Web do Azure a sua área
 
 Clique em de **análise de aplicações Web do Azure** mosaico para abrir o **análise de aplicações Web do Azure** dashboard. O dashboard inclui os painéis na seguinte tabela. Cada painel lista até dez itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos clicando **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Coluna | Descrição |
 | --- | --- |
@@ -138,7 +138,7 @@ O **consultas de lista de populares pesquisa de aplicações de Web do Azure** m
 
 Utilizar qualquer uma das consultas de pesquisa de registo como um ponto de partida, pode criar facilmente um alerta. Por exemplo, pode querer criar um alerta quando o tempo de resposta médio de uma métrica é superior a cada 1 segundo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Criar um [alerta](log-analytics-alerts-creating.md) para métrica específica.
 - Utilize [pesquisa registo](log-analytics-log-searches.md) para ver informações detalhadas dos registos de atividade.

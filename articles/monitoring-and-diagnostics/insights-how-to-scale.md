@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Dimensionar a contagem de instâncias manual ou automaticamente
 No [Portal do Azure](https://portal.azure.com/), pode configurar manualmente a contagem de instâncias do seu serviço, ou, pode definir parâmetros para o automaticamente com base no pedido de dimensionamento. Isto é normalmente denominado *aumentar horizontalmente* ou *dimensionar de*.
@@ -30,7 +30,7 @@ Pode aumentar no portal, e também pode utilizar o [REST API](https://msdn.micro
 ## <a name="scaling-manually"></a>Dimensionar Manualmente
 1. No [Portal do Azure](https://portal.azure.com/), clique em **procurar**, em seguida, navegue para o recurso que pretende dimensionar, tal como um **plano do App Service**.
 2. Clique em **definições > aumentar horizontalmente (plano do App Service).**
-3. Na parte superior do **escala** painel pode ver um histórico das ações de dimensionamento automático do serviço.
+3. Na parte superior a **escala** painel, no **histórico de execução** separador, pode ver um histórico das ações de dimensionamento automático do serviço.
    
     ![Painel de escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Pode aumentar no portal, e também pode utilizar o [REST API](https://msdn.micro
    > Apenas as ações efetuadas pelo dimensionamento automático irão mostrar neste gráfico. Se ajustar a contagem de instâncias manualmente, a alteração não será refletida neste gráfico.
    > 
    > 
-4. Manualmente, pode ajustar o número **instâncias** com controlo de deslize.
+4. Manualmente, pode ajustar o número **instâncias** no **configurar** separador.
 5. Clique em de **guardar** comandos e irá ser ampliada para esse número de instâncias de quase imediatamente.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Dimensionamento com base numa métrica de pré-configurada
@@ -115,7 +115,7 @@ No entanto, poderá ter mais agressiva dimensionamento durante o dia ou a semana
 11. Certifique-se criar ambas as uma regra de escalamento horizontal e escala no or else durante o perfil a contagem de instâncias só irá aumentar (ou diminuir).
 12. Por fim, clique em **guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Monitorizar as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e reativa.
 * [Ativar a monitorização e diagnóstico](insights-how-to-use-diagnostics.md) para recolher métricas de alta frequência detalhadas do seu serviço.
 * [Receber notificações de alertas](insights-receive-alert-notifications.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.

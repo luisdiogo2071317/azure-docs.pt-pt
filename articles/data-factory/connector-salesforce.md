@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar os dados de origem e de Salesforce através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce.
 | tipo |A propriedade de tipo tem de ser definida **Salesforce**. |Sim |
 | environmentUrl | Especifique o URL da instância do Salesforce. <br> -Predefinição é `"https://login.salesforce.com"`. <br> -Para copiar dados a partir de sandbox, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de domínio personalizado, especificar, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
 | o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
-| palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Pode marcar este campo como SecureString armazena de forma segura na fábrica de dados. Também pode armazenar a palavra-passe no Cofre de chaves do Azure e permitem a extração de atividade de cópia a partir daí, quando efetuar cópia de dados. Para obter mais informações, consulte [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
-| securityToken |Especifique um token de segurança para a conta de utilizador. Para obter instruções sobre como repor e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Pode marcar este campo como SecureString armazena de forma segura na fábrica de dados. Também pode armazenar o token de segurança no Cofre de chaves e permitem a extração de atividade de cópia a partir daí, quando efetuar cópia de dados. Para obter mais informações, consulte [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
+| palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
+| securityToken |Especifique um token de segurança para a conta de utilizador. Para obter instruções sobre como repor e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não origem Sim para sink se ligado a origem de serviço não tem tempo de execução de integração |
 
 >[!IMPORTANT]
@@ -319,7 +319,7 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados Sales
 | Área de texto (longa) |Cadeia |
 | Área de texto (avançada) |Cadeia |
 | Texto (encriptado) |Cadeia |
-| URL |Cadeia |
+| do IdP |Cadeia |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia numa fábrica de dados, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

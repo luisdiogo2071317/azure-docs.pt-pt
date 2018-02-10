@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9b94d9c66f69fac7c73a70618f782b811d4c9e62
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à monitorização do serviço de nuvem
 
@@ -39,9 +39,9 @@ A monitorização básica não necessita de uma conta de armazenamento.
 
 ## <a name="advanced-monitoring"></a>Monitorização avançada
 
-Monitorização avançada envolve a utilização de **diagnósticos do Azure** extensão (e opcionalmente o Application Insights SDK) na função de que pretende monitorizar. A extensão de diagnóstico utiliza um ficheiro de configuração (por função) com o nome **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitorizadas. Os dados de diagnóstico do Azure recolhe de extensão é armazenado numa conta de armazenamento do Azure, que está configurada no **.wadcfgx** e no [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) ficheiros. Isto significa que existe um extra custo associado avançadas de monitorização.
+Monitorização avançada envolve a utilização de **diagnósticos do Azure** extensão (e opcionalmente o Application Insights SDK) na função de que pretende monitorizar. A extensão de diagnóstico utiliza um ficheiro de configuração (por função) com o nome **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitorizadas. A extensão de diagnóstico do Azure recolhe e armazena dados numa conta do Storage do Azure. Estas definições são configuradas no **.wadcfgx**, [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef), e [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) ficheiros. Isto significa que existe um extra custo associado avançadas de monitorização.
 
-Como é criada a cada função, o Visual Studio adiciona a extensão de diagnóstico do Azure ao mesmo. Esta extensão pode recolher os seguintes tipos de informações:
+Como é criada a cada função, o Visual Studio adiciona a extensão de diagnóstico do Azure ao mesmo. Esta extensão de diagnóstico pode recolher os seguintes tipos de informações:
 
 * Contadores de desempenho personalizado
 * Registos de aplicações
@@ -55,19 +55,13 @@ Como é criada a cada função, o Visual Studio adiciona a extensão de diagnós
 > [!IMPORTANT]
 > Enquanto são agregados todos os dados para a conta de armazenamento, o portal **não** proporcionam uma forma nativa os dados de gráfico. Recomenda-se vivamente que integrar outro serviço, como o Application Insights, na sua aplicação.
 
-### <a name="use-application-insights"></a>Utilizar o Application Insights
-
-Quando publica o serviço em nuvem do Visual Studio, é-lhe dada a opção para enviar os dados de diagnóstico para o Application Insights. Pode criar o recurso do Application Insights Azure nessa altura ou enviar os dados para um recurso do Azure existente. O serviço em nuvem pode ser monitorizado pelo Application Insights para disponibilidade, desempenho, falhas e utilização. Gráficos personalizados podem ser adicionados ao Application Insights para que possa ver os dados que lhe interessam mais. Podem ser recolhidos dados de instância de função utilizando o Application Insights SDK no projeto de serviço em nuvem. Para obter mais informações sobre como integrar o Application Insights, consulte [Application Insights com serviços em nuvem](../application-insights/app-insights-cloudservices.md).
-
-Tenha em atenção que ao utilizar o Application Insights para apresentar os contadores de desempenho (e outras definições) que especificou através da extensão de diagnóstico do Windows Azure, apenas irá obter uma experiência mais rica, integrando o Application Insights SDK para as funções de trabalho e web.
-
 ## <a name="setup-diagnostics-extension"></a>Extensão de diagnóstico de configuração
 
 Primeiro, se não tiver um **clássico** conta do storage, [criar um](../storage/common/storage-create-storage-account.md#create-a-storage-account). Certifique-se a conta de armazenamento é criada com o **modelo de implementação clássica** especificado.
 
 Em seguida, navegue para o **conta de armazenamento (clássica)** recursos. Selecione **definições** > **chaves de acesso** e copie o **cadeia de ligação principal** valor. Este valor é necessário para o serviço em nuvem. 
 
-Existem dois ficheiros de configuração, tem de alterar para obter um diagnóstico avançado ativar a ser, **servicedefinition. Csdef** e **serviceconfiguration. Cscfg**.
+Existem dois ficheiros de configuração, tem de alterar para obter um diagnóstico avançado ativado, **servicedefinition. Csdef** e **serviceconfiguration. Cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
@@ -96,7 +90,15 @@ Provavelmente se tiver dois **. cscfg** ficheiros, um com o nome **Serviceconfig
       -->
 ```
 
+## <a name="use-application-insights"></a>Utilizar o Application Insights
+
+Quando publica o serviço em nuvem do Visual Studio, é-lhe dada a opção para enviar os dados de diagnóstico para o Application Insights. Pode criar o recurso do Application Insights Azure nessa altura ou enviar os dados para um recurso do Azure existente. O serviço em nuvem pode ser monitorizado pelo Application Insights para disponibilidade, desempenho, falhas e utilização. Gráficos personalizados podem ser adicionados ao Application Insights para que possa ver os dados que é mais importante. Podem ser recolhidos dados de instância de função utilizando o Application Insights SDK no projeto de serviço em nuvem. Para obter mais informações sobre como integrar o Application Insights, consulte [Application Insights com serviços em nuvem](../application-insights/app-insights-cloudservices.md).
+
+Tenha em atenção, apesar de poder utilizar o Application Insights para apresentar os contadores de desempenho (e outras definições) especificada através da extensão de diagnóstico do Windows Azure, que apenas obter uma experiência mais rica, integrando o Application Insights SDK para o funções da web e de trabalho.
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Saiba mais sobre o Application Insights com serviços em nuvem.](../application-insights/app-insights-cloudservices.md)
+- [Saiba mais sobre o Application Insights com serviços em nuvem](../application-insights/app-insights-cloudservices.md)
+- [Configurar os contadores de desempenho](diagnostics-performance-counters.md)
 

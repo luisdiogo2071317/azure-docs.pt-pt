@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementar recursos do Azure em mais do que uma subscrição ou grupo de recursos
 
 Normalmente, implementa todos os recursos no seu modelo para um único [grupo de recursos](resource-group-overview.md). No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em grupos de recursos diferente ou subscrições. Por exemplo, poderá implementar a máquina virtual de cópia de segurança do Azure Site Recovery para um grupo de recursos separada e uma localização. O Resource Manager permite-lhe utilizar modelos aninhados para o destino subscrições e grupos de recursos que a subscrição e o grupo de recursos utilizados para o modelo de principal.
+
+> [!NOTE]
+> Pode implementar em grupos de recursos apenas cinco numa única implementação.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Especifique um grupo de recursos e subscrição
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para tarefas do Azure Stream Analytics
  
@@ -46,18 +46,21 @@ As seguintes alterações principais são introduzidas no nível de compatibilid
 
   * **versões anteriores:** Azure Stream Analytics utilizado DataContractSerializer, por isso o conteúdo da mensagem incluídos etiquetas XML. Por exemplo:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{"SensorId": "1", "temperatura": 64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
 
   * **versão atual:** o conteúdo da mensagem contém a sequência diretamente com nenhuma etiquetas adicionais. Por exemplo:
   
-   {"SensorId": "1", "temperatura": 64} 
+   { “SensorId”:”1”, “Temperature”:64} 
  
 * **Sensibilidade persistentes para nomes de campo**  
 
   * **versões anteriores:** nomes de campo foram alterados para inferior caso quando processadas pelo motor de Azure Stream Analytics. 
 
   * **versão atual:** sensibilidade é persistente para nomes de campo quando são processados pelo motor de Azure Stream Analytics. 
- 
+
+  > [!NOTE] 
+  > Sensibilidade persistentes ainda não está disponível para as tarefas de fluxo analíticas alojadas utilizando o ambiente de limite. Como resultado, todos os nomes de campo são convertidos em minúsculas, se a tarefa estiver alojada num limite. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **versões anteriores:** comando CREATE TABLE não foi possível filtrar eventos com NaN (não numérico. Por exemplo, infinito, - infinito) numa coluna de número de vírgula FLUTUANTE escreva porque estão fora do intervalo documentado para estes números.

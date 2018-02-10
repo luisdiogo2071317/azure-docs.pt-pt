@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 89c971ae0dd0a519a1b0214e33b5a6ad2bb7fc99
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f08f9c1fa141f85077c1e868fb309516ce52342b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar os dados da base de dados do Azure para MySQL utilizando o Azure Data Factory
 
@@ -45,7 +45,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **AzureMySql** | Sim |
-| connectionString | Especifique as informações necessárias para estabelecer ligação à base de dados do Azure para a instância de MySQL. Marcar este campo como um SecureString. | Sim |
+| connectionString | Especifique as informações necessárias para estabelecer ligação à base de dados do Azure para a instância de MySQL. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -98,7 +98,7 @@ Para copiar dados da base de dados do Azure para MySQL, defina a propriedade de 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela base de dados do Azure para a origem de MySQL.
 

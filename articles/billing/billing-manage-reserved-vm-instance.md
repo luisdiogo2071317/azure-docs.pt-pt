@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Gerir instâncias de Máquina Virtual reservada
 
@@ -75,6 +75,16 @@ Delegar a gestão de acesso para uma reserva de:
 5.  Selecione **adicionar** > **função** > **proprietário** (ou uma função diferente se pretende conceder acesso limitado). 
 6. Escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário. 
 7. Selecione o utilizador e, em seguida, selecione **guardar**.
+
+## <a name="next-steps"></a>Passos Seguintes
+Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+
+- [Prepay para máquinas virtuais com instâncias de VM reservado](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](billing-save-compute-costs-reservations.md)
+- [Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado](billing-understand-vm-reservation-charges.md)
+- [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
+- [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Custos de software do Windows não incluídos com instâncias reservado](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

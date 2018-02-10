@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão para Media Services do Azure resumem as alterações de versões anteriores e problemas conhecidos.
@@ -190,7 +190,7 @@ Agora, os Media Services oferece a capacidade de proteger ambas as vídeo a pedi
 
 Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-Pode utilizar o [SDK .NET dos Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (começando com a versão 3.5.1) ou a API REST para configurar AssetDeliveryConfiguration para utilizar Widevine. 
+Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar o AssetDeliveryConfiguration para utilizar o Widevine. 
 * Serviços de suporte de dados foi adicionado suporte para Apple ProRes vídeos. Pode agora carregar os ficheiros de vídeos de origem QuickTime utilizam Apple ProRes ou outros codecs. Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * Agora, pode utilizar codificador de multimédia Standard para extração de arquivo subclipping e em direto. Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Foram efetuadas as seguintes atualizações de filtragem: 
@@ -348,8 +348,8 @@ O SDK de Media Services para .NET é agora versão 3.0.0.7
 * Em direto pré-visualização de transmissão em fluxo. Para obter mais informações, consulte [transmissão em fluxo em direto de trabalho com os Media Services](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Serviço de entrega de chave. Para obter mais informações, consulte [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Encriptação dinâmica AES. Para obter mais informações, consulte [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* Serviço de entrega de licença PlayReady. Para obter mais informações, consulte [encriptação dinâmica PlayReady de utilização e o serviço de entrega de licença](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* Encriptação dinâmica PlayReady. Para obter mais informações, consulte [encriptação dinâmica PlayReady de utilização e o serviço de entrega de licença](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* Serviço de entrega de licença PlayReady. 
+* Encriptação dinâmica PlayReady. 
 * Modelo de licença PlayReady de serviços de suporte de dados. Para obter mais informações, consulte o [descrição geral do modelo de licença PlayReady de serviços de suporte de dados].
 * Recursos de fluxo encriptada de armazenamento. Para obter mais informações, consulte [transmitir conteúdo encriptado armazenamento](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
@@ -457,18 +457,18 @@ As seguintes alterações estão incluídas em Junho de 2013 liberta o SDK de Me
 * A partir da versão 2.3.0.0, suporta o SDK de Media Services ligar o armazenamento várias contas para uma conta de Media Services. As APIs seguintes suportam esta funcionalidade:
   
     * Tipo de IStorageAccount
-    * Propriedade de Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
     * Propriedade de StorageAccount
     * Propriedade de StorageAccountName
   
     Para obter mais informações, consulte [ativos gerir serviços de suporte de dados em várias contas do storage](http://msdn.microsoft.com/library/azure/dn271889.aspx).
 * APIs de relacionadas com a notificação. A partir da versão 2.2.0.0, pode escutar notificações de armazenamento de filas do Azure. Para obter mais informações, consulte [notificações da tarefa processar Media Services](http://msdn.microsoft.com/library/azure/dn261241.aspx).
   
-    * Propriedade de Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions
-    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint
-    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription
-    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection
-    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType
+    * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
+    * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
+    * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type
+    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type
+    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType type
 * Dependência no cliente do armazenamento SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll)
 * Dependência de OData 5.5 (Microsoft.Data.OData.dll)
 

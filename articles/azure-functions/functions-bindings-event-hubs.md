@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Event Hubs do Azure para as funções do Azure
 
@@ -219,12 +219,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | n/d | O nome da variável que representa o item de eventos no código da função. | 
-|**caminho** |**EventHubName** | O nome do hub de eventos. | 
+|**type** | n/d | tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direction** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**name** | n/d | O nome da variável que representa o item de eventos no código da função. | 
+|**path** |**EventHubName** | O nome do hub de eventos. | 
 |**consumerGroup** |**ConsumerGroup** | Uma propriedade opcional que define o [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizado para subscrever o hub de eventos. Se for omitido, o `$Default` é utilizado o grupo de consumidores. | 
-|**ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
+|**connection** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -392,11 +392,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definida para "eventHub". |
-|**direção** | n/d | Tem de ser definida para "out". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
-|**nome** | n/d | O nome da variável utilizado no código de função que representa o evento. | 
-|**caminho** |**EventHubName** | O nome do hub de eventos. | 
-|**ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
+|**type** | n/d | Tem de ser definida para "eventHub". |
+|**direction** | n/d | Tem de ser definida para "out". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
+|**name** | n/d | O nome da variável utilizado no código de função que representa o evento. | 
+|**path** |**EventHubName** | O nome do hub de eventos. | 
+|**connection** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -405,6 +405,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 Em c# e c# script, enviar mensagens com um parâmetro de método como `out string paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou `IAsyncCollector<string>` em vez de `out string`.
 
 Em JavaScript, o evento de saída de acesso utilizando `context.bindings.<name>`. `<name>`o valor especificado no `name` propriedade *function.json*.
+
+## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
+
+| Vínculo | Referência |
+|---|---|
+| Hub de Eventos | [Guia de operações](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

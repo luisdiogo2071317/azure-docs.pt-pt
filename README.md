@@ -38,7 +38,7 @@ Pode criar secções de conteúdos reutilizáveis para serem incluídos num ou m
 Todos os artigos neste repositório utilizam o markdown do GitHub.  Eis uma lista de recursos.
 
 * [Noções básicas de markdown](https://help.github.com/articles/markdown-basics/)
-* [Cábula de markdown imprimível](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+* [Cábula de markdown imprimível](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 
 ## <a name="labels"></a>Etiquetas

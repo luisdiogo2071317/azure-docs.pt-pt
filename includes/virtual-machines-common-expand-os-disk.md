@@ -8,6 +8,9 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos ao implementar 
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: Resource Manager e Clássico. Este artigo abrange a utilização do modelo de implementação do Resource Manager. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 > 
 > 
+> [!WARNING]
+> Redimensionar o disco de SO uma Máquina Virtual do Azure irá fazer com que a reiniciar.
+>
 
 ## <a name="resize-the-os-drive"></a>Redimensionar a unidade do SO
 Neste artigo, irá realizar a tarefa de redimensionamento da unidade de SO com os módulos do gestor de recursos do [Azure Powershell](/powershell/azureps-cmdlets-docs). Vamos mostrar redimensionar a unidade de SO para discos Unamanged e gerida, uma vez que a abordagem para redimensionar discos difere entre os dois tipos de disco.

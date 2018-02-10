@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar num ambiente VMware grande
 
@@ -38,7 +38,7 @@ Planear as deteções e avaliações com base nos limites dos seguintes:
 - Se tiver máquinas 1,001 para 1,500, terá um único projeto com dois deteções no mesmo.
 - Se tiver mais de 1.500 máquinas, terá de criar vários projetos e realizar várias deteções, de acordo com os seus requisitos. Por exemplo:
     - Se tiver 3,000 máquinas, pode configurar dois projetos com deteções de duas ou três projetos com uma deteção único.
-    - Se tiver de 5000 máquinas, pode configurar quatro projetos: duas com uma deteção de 1.500 máquinas e outra com uma deteção de 500 máquinas. Em alternativa, pode configurar cinco projetos com uma única Deteção em cada um deles. 
+    - Se tiver de 5000 máquinas, pode configurar quatro projetos: três com uma deteção de 1.500 máquinas e outra com uma deteção de 500 máquinas. Em alternativa, pode configurar cinco projetos com uma única Deteção em cada um deles. 
 
 ## <a name="plan-multiple-discoveries"></a>Planear múltiplos deteções
 
@@ -88,9 +88,9 @@ Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
 
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     Para a versão OVA 1.0.8.40:
 
@@ -133,14 +133,14 @@ A tabela seguinte lista também os resultados da avaliação que vai ser afetado
 
 |Contador                                  |Nível    |Nível de por dispositivo  |Impacto de avaliação                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
-|Mem.Usage.Average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
+|cpu.usage.average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
+|mem.usage.average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
 |virtualDisk.read.average                 | 2       |2                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.write.average                | 2       |2                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
-|NET.Received.Average                     | 2       |3                 |Custo de tamanho e a rede VM                        |
-|NET.Transmitted.Average                  | 2       |3                 |Custo de tamanho e a rede VM                        |
+|net.received.average                     | 2       |3                 |Custo de tamanho e a rede VM                        |
+|net.transmitted.average                  | 2       |3                 |Custo de tamanho e a rede VM                        |
 
 > [!WARNING]
 > Se tiver apenas um nível mais elevado de estatísticas,-irá demorar um dia para gerar os contadores de desempenho. Por isso, recomendamos que execute a deteção depois de um dia.

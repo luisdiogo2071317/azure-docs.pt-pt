@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar Asana para aprovisionamento de utilizadores automática
 
@@ -93,7 +93,7 @@ Esta secção orienta-o seu Azure AD a ligar à conta de utilizador Asana aprovi
 
 12. Selecione **Guardar**. 
 
-Agora que inicia a sincronização inicial para os utilizadores atribuídos a Asana no **utilizadores** secção. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. Utilize o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para relatórios de atividade de aprovisionamento. Os relatórios descrevem todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação Asana.
+Agora que inicia a sincronização inicial para os utilizadores atribuídos a Asana no **utilizadores** secção. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Utilize o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os registos de atividade de aprovisionamento. Os registos de auditoria descrevem todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação Asana.
 
 Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](active-directory-saas-provisioning-reporting.md).
 

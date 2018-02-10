@@ -3,7 +3,7 @@ title: "Criar funções personalizadas para RBAC do Azure | Microsoft Docs"
 description: "Saiba como definir funções personalizadas com controlo de acesso em funções do Azure mais precisa para gestão de identidades na sua subscrição do Azure."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para controlo de acesso em funções do Azure
 Crie uma função personalizada no controlo de acesso em funções do Azure (RBAC), se nenhuma das funções incorporadas satisfazer as suas necessidades de acesso específicas. Funções personalizadas podem ser criadas utilizando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Interface de linha de comandos do Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) e o [REST API](role-based-access-control-manage-access-rest.md). Tal como funções incorporadas, pode atribuir funções personalizadas para os utilizadores, grupos e aplicações na subscrição, o grupo de recursos e âmbitos de recursos. Funções personalizadas são armazenadas num inquilino do Azure AD e podem ser partilhadas entre subscrições.
@@ -116,7 +116,7 @@ O **AssignableScopes** propriedade da função personalizada também controla qu
 * Quem pode ver funções personalizadas?
     Todas as funções incorporadas no RBAC do Azure permitem a visualização das funções que estão disponíveis para atribuição. Os utilizadores que podem realizar a `Microsoft.Authorization/roleDefinition/read` operação num âmbito pode ver as funções do RBAC que estão disponíveis para atribuição a esse âmbito.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Controlo de acesso baseado em funções](role-based-access-control-configure.md): começar a utilizar o RBAC no portal do Azure.
 * Para obter uma lista de operações disponíveis, consulte [operações de fornecedor de recursos do Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
 * Saiba como gerir o acesso com:

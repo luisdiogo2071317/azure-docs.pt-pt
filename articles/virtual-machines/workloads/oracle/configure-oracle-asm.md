@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar Oracle ASM numa máquina virtual com Linux do Azure  
 
@@ -35,13 +35,13 @@ Máquinas virtuais do Azure fornecem um ambiente informático totalmente configu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um grupo de recursos, utilize o [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contentor lógico na qual os recursos são implementados e geridos. Neste exemplo, um grupo de recursos denominado *myResourceGroup* no *eastus* região.
+Para criar um grupo de recursos, utilize o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico na qual os recursos são implementados e geridos. Neste exemplo, um grupo de recursos denominado *myResourceGroup* no *eastus* região.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Criar uma VM
 
-Para criar uma máquina virtual com base na imagem de base de dados Oracle e configurá-lo para utilizar Oracle ASM, utilize o [az vm criar](/cli/azure/vm#create) comando. 
+Para criar uma máquina virtual com base na imagem de base de dados Oracle e configurá-lo para utilizar Oracle ASM, utilize o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
 
 O exemplo seguinte cria uma VM com o nome myVM que tem um tamanho de Standard_DS2_v2 com quatro discos de dados anexados de 50 GB. Caso ainda não existam na localização predefinida da chave, também cria chaves SSH.  Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  
 
@@ -580,7 +580,7 @@ A configuração Oracle automatizada com gestão de armazenamento com êxito na 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Tutorial: Configurar Oracle DataGuard](configure-oracle-dataguard.md)
 

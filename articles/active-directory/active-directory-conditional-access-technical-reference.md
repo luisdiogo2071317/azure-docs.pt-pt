@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -39,7 +39,7 @@ Se não for as informações que procura, deixe um comentário no final deste ar
 
 ## <a name="cloud-apps-assignments"></a>Atribuições de aplicações em nuvem
 
-Com as políticas de acesso condicional, controlar a forma como os utilizadores aceder aos seus [aplicações em nuvem](active-directory-conditional-access-azure-portal.md#who). Quando configura uma política de acesso condicional, tem de selecionar pelo menos uma aplicação de nuvem. 
+Com as políticas de acesso condicional, controlar a forma como os utilizadores aceder aos seus [aplicações em nuvem](active-directory-conditional-access-conditions.md#cloud-apps). Quando configura uma política de acesso condicional, tem de selecionar pelo menos uma aplicação de nuvem. 
 
 ![Selecione as aplicações em nuvem para a sua política](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -105,7 +105,7 @@ Uma política de acesso condicional, pode configurar a condição de plataforma 
 
 ## <a name="client-apps-condition"></a>Condição de aplicações de cliente 
 
-Na sua política de acesso condicional, pode configurar o [aplicações de cliente](active-directory-conditional-access-azure-portal.md#client-apps) condição associar a política para a aplicação de cliente que iniciou uma tentativa de acesso. Defina a condição de aplicações para conceder ou bloquear o acesso quando é efetuada uma tentativa de acesso a partir os seguintes tipos de aplicações de cliente:
+Na sua política de acesso condicional, pode configurar o [aplicações de cliente](active-directory-conditional-access-conditions.md#client-apps) condição associar a política para a aplicação de cliente que iniciou uma tentativa de acesso. Defina a condição de aplicações para conceder ou bloquear o acesso quando é efetuada uma tentativa de acesso a partir os seguintes tipos de aplicações de cliente:
 
 - Browser
 - Aplicações móveis e aplicações de ambiente de trabalho
@@ -123,7 +123,7 @@ Esta definição funciona com todos os browsers. No entanto, para uma política 
 
 | SO                     | Browsers                            | Suporte     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, limite, Chrome     | ![Marcar][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Marcar][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Marcar][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Marcar][1] |
 | iOS                    | Safari, Browser gerido do Intune      | ![Marcar][1] |
@@ -165,14 +165,13 @@ Esta definição não tem um impacto em tentativas de acesso dos clientes de amb
 |Aplicações do Office 2016, Universal Office aplicações, Office 2013 (com a autenticação moderna), cliente de sincronização do OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), o suporte de grupos do Office é planeado para o futuro, suporte para aplicações do SharePoint é planeada para o futuro|Office 365 SharePoint Online|Windows 10|
 |Office 2016 para macOS (Word, Excel, PowerPoint, OneNote apenas). OneDrive para empresas o suporte para o futuro|Office 365 SharePoint Online|Mac OS X|
 |Aplicações móveis do Office|Office 365 SharePoint Online|Android, iOS|
-|Aplicação do Office Yammer|Yammer do Office 365|Windows 10, iOS, Android|
+|Aplicação do Office Yammer|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, o Outlook 2013 (com a autenticação moderna), o Skype para empresas (com a autenticação moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Aplicação móvel do Outlook|Office 365 Exchange Online|Android, iOS|
-|Aplicação do Power BI. A aplicação Power BI para Android não suporta acesso condicional baseado no dispositivo.|Serviço do Power BI|Windows 10, Windows 8.1, Windows 7 e iOS|
-|Skype para empresas|Office 365 Exchange Online|Android, IOS |
+|Aplicação Power BI|Serviço do Power BI|Windows 10, Windows 8.1, Windows 7 e iOS|
+|Skype para Empresas|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services aplicação|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Requisito da aplicação de cliente aprovada 
@@ -186,6 +185,7 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype para empresas
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word

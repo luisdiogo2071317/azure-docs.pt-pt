@@ -16,7 +16,7 @@ Pode ver a telemetria enviada do seu dispositivo **dispositivos** página na sol
 
 ## <a name="act-on-your-device"></a>Atuar no seu dispositivo
 
-Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página na solução de monitorização remota. Por exemplo, numa solução de monitorização remota **Chiller** dispositivos implementam um **reiniciar** método.
+Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página na solução de monitorização remota. Por exemplo, numa solução de monitorização remota **Chiller** dispositivos implementam um **FirmwareUpdate** método.
 
 1. Escolha **dispositivos** para navegar para o **dispositivos** página na solução.
 
@@ -26,15 +26,19 @@ Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página 
 
 1. Para apresentar uma lista dos métodos pode chamar no seu dispositivo, escolha **agenda**. Para agendar um método para ser executado em vários dispositivos, pode selecionar vários dispositivos na lista. O **agenda** painel mostra os tipos de método comuns a todos os dispositivos selecionados.
 
-1. Escolha **reiniciar**, defina o nome da tarefa **RebootPhysicalChiller**e escolha **aplicar**:
+1. Escolha **FirmwareUpdate**, defina o nome da tarefa **UpdatePhysicalChiller**. Definir **versão de Firmware** para **2.0.0**, defina **URI de Firmware** para **http://contoso.com/updates/firmware.bin**e, em seguida, escolha  **Aplicar**:
 
-    ![Agendar o reinício](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![Agendar a atualização de firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. É apresentada uma mensagem na consola do seu código de dispositivo a executar quando o dispositivo processa o método.
+1. Apresenta uma sequência de mensagens em fila na consola do seu código de dispositivo a executar enquanto o dispositivo simulado processa o método.
+
+1. Quando a atualização estiver concluída, a nova versão de firmware apresenta na **dispositivos** página:
+
+    ![Atualização foi concluída](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
 > Para controlar o estado da tarefa na solução, escolha **vista**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 O artigo [personalizar a solução pré-configurada de monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) descreve algumas formas de personalizar a solução pré-configurada.

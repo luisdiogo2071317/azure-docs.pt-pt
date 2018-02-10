@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ded90be3da52770a88dd1746fae2bd3584ba9280
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Como expandir os discos rígidos virtuais numa VM com Linux com a CLI do Azure
 O tamanho de disco rígido virtual predefinido para o sistema operativo (SO) é, geralmente, 30 GB numa máquina virtual (VM) do Linux no Azure. Pode [adicionar discos de dados](add-disk.md) fornecer espaço de armazenamento adicional, mas também pode pretender expandir um disco de dados existente. Este artigo fornece detalhes sobre como expandir discos geridos para uma VM com Linux com o 2.0 CLI do Azure. Também pode expandir o disco de SO não gerido com o [CLI do Azure 1.0](expand-disks-nodejs.md).
@@ -27,13 +27,13 @@ O tamanho de disco rígido virtual predefinido para o sistema operativo (SO) é,
 > Certificar-se sempre de que a cópia de segurança os dados antes de executar disco redimensiona operações. Para obter mais informações, consulte [cópia de segurança VMs com Linux no Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Expandir disco gerido do Azure
-Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#login).
+Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
 
 Este artigo requer uma VM existente no Azure pelo menos um disco de dados ligada e está preparado. Se ainda não tiver uma VM que pode utilizar, consulte [criar e preparar uma VM com discos de dados](tutorial-manage-disks.md#create-and-attach-disks).
 
 Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup* e *myVM*.
 
-1. Não não possível efetuar operações em discos rígidos virtuais com a VM em execução. Desalocar a VM com [az vm desalocar](/cli/azure/vm#deallocate). O exemplo seguinte deallocates VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
+1. Não não possível efetuar operações em discos rígidos virtuais com a VM em execução. Desalocar a VM com [az vm desalocar](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte deallocates VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -42,7 +42,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seu
     > [!NOTE]
     > A VM tem de ser desalocada para expandir o disco rígido virtual. `az vm stop`não libertar os recursos de computação. Para libertar recursos de computação, utilize `az vm deallocate`.
 
-2. Ver uma lista de discos geridos num grupo de recursos com [lista de discos az](/cli/azure/disk#list). O exemplo seguinte mostra uma lista de discos geridos no grupo de recursos com o nome *myResourceGroup*:
+2. Ver uma lista de discos geridos num grupo de recursos com [lista de discos az](/cli/azure/disk#az_disk_list). O exemplo seguinte mostra uma lista de discos geridos no grupo de recursos com o nome *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -51,7 +51,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seu
         --output table
     ```
 
-    Expanda o disco necessário com [atualização de disco az](/cli/azure/disk#update). O exemplo seguinte expande o disco gerido com o nome *myDataDisk* ser *200*tamanho Gb:
+    Expanda o disco necessário com [atualização de disco az](/cli/azure/disk#az_disk_update). O exemplo seguinte expande o disco gerido com o nome *myDataDisk* ser *200*tamanho Gb:
 
     ```azurecli
     az disk update \
@@ -63,7 +63,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seu
     > [!NOTE]
     > Se expandir um disco gerido, o tamanho atualizado está mapeado para o tamanho de disco gerido mais próximo. Para uma tabela dos escalões e tamanhos de disco gerido disponíveis, consulte [geridos discos descrição geral do Azure - preços e faturação](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. Iniciar a VM com [início de vm az](/cli/azure/vm#start). O exemplo seguinte inicia a VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
+3. Iniciar a VM com [início de vm az](/cli/azure/vm#az_vm_start). O exemplo seguinte inicia a VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -73,7 +73,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seu
 ## <a name="expand-disk-partition-and-filesystem"></a>Expanda a partição de disco e sistema de ficheiros
 Para utilizar o disco expandido, precisa de expandir a partição e o sistema de ficheiros subjacente.
 
-1. SSH para a VM com as credenciais adequadas. Pode obter o endereço IP público da sua VM com [mostrar de vm az](/cli/azure/vm#show):
+1. SSH para a VM com as credenciais adequadas. Pode obter o endereço IP público da sua VM com [mostrar de vm az](/cli/azure/vm#az_vm_show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -145,5 +145,5 @@ Para utilizar o disco expandido, precisa de expandir a partição e o sistema de
     /dev/sdc1        197G   60M   187G   1% /datadrive
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se precisar de armazenamento adicional, também [adicionar discos de dados para uma VM com Linux](add-disk.md). Para obter mais informações sobre a encriptação de disco, consulte [encriptar discos numa VM com Linux utilizando a CLI do Azure](encrypt-disks.md).

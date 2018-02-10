@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a0074bd68dc9714eed9064e42c6e1c6d708d1100
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4d14f396b3a928975b671d10254cfbcc822a0d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar os dados de ou para SQL Database do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ As seguintes propriedades são suportadas para o serviço ligado de SQL Database
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **AzureSqlDatabase** | Sim |
-| connectionString |Especificar as informações necessárias para ligar à instância do SQL Database do Azure para a propriedade connectionString. Apenas autenticação básica é suportada. Marcar este campo como um SecureString. |Sim |
+| connectionString |Especificar as informações necessárias para ligar à instância do SQL Database do Azure para a propriedade connectionString. Apenas autenticação básica é suportada. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 > [!IMPORTANT]
@@ -461,7 +461,7 @@ Quando copiar dados de/para SQL Database do Azure, os seguintes mapeamentos são
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Duplo |
+| Número de vírgula flutuante |Duplo |
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |

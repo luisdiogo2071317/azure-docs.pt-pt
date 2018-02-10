@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0c41388623b82421bd09f31fbc4b3769de758e4c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e377459d205426b34c52336d9104400cf9d8030b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com a rede de várias placas de interface
 Pode criar uma máquina virtual (VM) no Azure com várias interfaces de rede virtual (NICs) ligadas ao mesmo. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM com vários NICs anexados e como adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
@@ -27,17 +27,17 @@ Este artigo fornece detalhes sobre como criar uma VM com vários NICs com o 2.0 
 
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
-Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#login).
+Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login).
 
 Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *mystorageaccount*, e *myVM*.
 
-Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *eastus* localização:
+Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Criar a rede virtual com [az rede vnet criar](/cli/azure/network/vnet#create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e sub-rede designada *mySubnetFrontEnd*:
+Criar a rede virtual com [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e sub-rede designada *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Crie uma sub-rede para o tráfego de back-end com [az rede vnet sub-rede](/cli/azure/network/vnet/subnet#create). O exemplo seguinte cria uma sub-rede designada *mySubnetBackEnd*:
+Crie uma sub-rede para o tráfego de back-end com [az rede vnet sub-rede](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). O exemplo seguinte cria uma sub-rede designada *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -58,7 +58,7 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-Criar um grupo de segurança de rede com [az rede nsg criar](/cli/azure/network/nsg#create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
+Criar um grupo de segurança de rede com [az rede nsg criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Criar e configurar vários NICs
-Criar dois NICs com [nic da rede az criar](/cli/azure/network/nic#create). O exemplo seguinte cria dois NICs, com o nome *myNic1* e *myNic2*, ligados do grupo de segurança de rede com um NIC a ligação a cada sub-rede:
+Criar dois NICs com [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria dois NICs, com o nome *myNic1* e *myNic2*, ligados do grupo de segurança de rede com um NIC a ligação a cada sub-rede:
 
 ```azurecli
 az network nic create \
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Criar uma VM e anexe os NICs
 Quando criar a VM, especifique os NICs que criou com `--nics`. Terá também de tenha cuidado quando selecionar o tamanho da VM. Existem limites para o número total de NICs que pode adicionar a uma VM. Leia mais sobre [tamanhos de VM com Linux](sizes.md). 
 
-Crie uma VM com [az vm create](/cli/azure/vm#create). O exemplo seguinte cria uma VM chamada *myVM*:
+Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM chamada *myVM*:
 
 ```azurecli
 az vm create \
@@ -103,7 +103,7 @@ az vm create \
 ## <a name="add-a-nic-to-a-vm"></a>Adicionar uma NIC para uma VM
 Os passos anteriores, criados uma VM com vários NICs. Também pode adicionar NICs a uma VM existente com o 2.0 CLI do Azure. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade. Se necessário, pode [redimensionar uma VM](change-vm-size.md).
 
-Crie outra NIC com [nic da rede az criar](/cli/azure/network/nic#create). O exemplo seguinte cria um NIC com o nome *myNic3* ligada ao back-end sub-rede e de rede de grupo de segurança criado nos passos anteriores:
+Crie outra NIC com [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria um NIC com o nome *myNic3* ligada ao back-end sub-rede e de rede de grupo de segurança criado nos passos anteriores:
 
 ```azurecli
 az network nic create \
@@ -114,14 +114,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Para adicionar uma NIC para uma VM existente, Desalocação da VM com [az vm desalocar](/cli/azure/vm#deallocate). O exemplo seguinte deallocates VM com o nome *myVM*:
+Para adicionar uma NIC para uma VM existente, Desalocação da VM com [az vm desalocar](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte deallocates VM com o nome *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Adicionar a NIC com [az vm nic adicionar](/cli/azure/vm/nic#add). O exemplo seguinte adiciona *myNic3* para *myVM*:
+Adicionar a NIC com [az vm nic adicionar](/cli/azure/vm/nic#az_vm_nic_add). O exemplo seguinte adiciona *myNic3* para *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -130,20 +130,20 @@ az vm nic add \
     --nics myNic3
 ```
 
-Iniciar a VM com [início de vm az](/cli/azure/vm#start):
+Iniciar a VM com [início de vm az](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="remove-a-nic-from-a-vm"></a>Remover um NIC de uma VM
-Para remover um NIC de VM existente, Desalocação da VM com [az vm desalocar](/cli/azure/vm#deallocate). O exemplo seguinte deallocates VM com o nome *myVM*:
+Para remover um NIC de VM existente, Desalocação da VM com [az vm desalocar](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte deallocates VM com o nome *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Remova a NIC com [az vm nic remover](/cli/azure/vm/nic#remove). O exemplo a seguir remove *myNic3* de *myVM*:
+Remova a NIC com [az vm nic remover](/cli/azure/vm/nic#az_vm_nic_remove). O exemplo a seguir remove *myNic3* de *myVM*:
 
 ```azurecli
 az vm nic remove \
@@ -152,7 +152,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Iniciar a VM com [início de vm az](/cli/azure/vm#start):
+Iniciar a VM com [início de vm az](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -214,28 +214,28 @@ eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 
 Em seguida, teria de criar os seguintes ficheiros e adicionar as regras adequadas e as rotas a cada:
 
-- */etc/sysconfig/Network-scripts/rule-eth0*
+- */etc/sysconfig/network-scripts/rule-eth0*
 
     ```bash
     from 10.0.1.4/32 table eth0-rt
     to 10.0.1.4/32 table eth0-rt
     ```
 
-- */etc/sysconfig/Network-scripts/route-eth0*
+- */etc/sysconfig/network-scripts/route-eth0*
 
     ```bash
     10.0.1.0/24 dev eth0 table eth0-rt
     default via 10.0.1.1 dev eth0 table eth0-rt
     ```
 
-- */etc/sysconfig/Network-scripts/rule-eth1*
+- */etc/sysconfig/network-scripts/rule-eth1*
 
     ```bash
     from 10.0.1.5/32 table eth1-rt
     to 10.0.1.5/32 table eth1-rt
     ```
 
-- */etc/sysconfig/Network-scripts/route-eth1*
+- */etc/sysconfig/network-scripts/route-eth1*
 
     ```bash
     10.0.1.0/24 dev eth1 table eth1-rt
@@ -251,5 +251,5 @@ systemctl restart network
 As regras de encaminhamento corretamente estão agora no local e pode estabelecer ligação com a interface, conforme necessário.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja [tamanhos de VM com Linux](sizes.md) ao tentar criar uma VM com vários NICs. Preste atenção para o número máximo de NICs suporta cada tamanho da VM. 

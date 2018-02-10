@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
 
@@ -483,6 +483,12 @@ Em c# e outras linguagens .NET, pode utilizar um padrão de enlace imperativo, p
 ## <a name="functionjson-file-schema"></a>esquema do ficheiro Function.JSON
 
 O *function.json* esquema do ficheiro está disponível em [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="handling-binding-errors"></a>Processamento de erros de enlace
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+Ligações para todos os tópicos de erro relevantes para os serviços de suportado pelas funções, consulte o [códigos de erro de enlace](functions-bindings-error-pages.md#binding-error-codes) secção o [processamento de erros de funções do Azure](functions-bindings-error-pages.md) tópico de descrição geral.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

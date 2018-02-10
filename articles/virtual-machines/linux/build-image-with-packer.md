@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como utilizar Packer para criar imagens da máquina virtual com Linux no Azure
 Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição de Linux e versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. O Azure Marketplace fornece várias imagens primeira e de terceiros para distribuições mais comuns e ambientes de aplicação, ou pode criar as suas próprias imagens personalizadas e adaptadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -28,7 +28,7 @@ Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define 
 ## <a name="create-azure-resource-group"></a>Criar grupo de recursos do Azure
 Durante o processo de compilação, Packer cria temporários recursos do Azure baseia-se a VM de origem. Para essa VM de origem para utilização como uma imagem de captura, tem de definir um grupo de recursos. A saída do processo de compilação de Packer é armazenada neste grupo de recursos.
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *eastus* localização:
+Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -54,7 +54,7 @@ Segue-se um exemplo de saída a partir dos comandos do anteriores:
 }
 ```
 
-Para autenticar para o Azure, também terá de obter o ID de subscrição do Azure com [mostrar de conta az](/cli/azure/account#show):
+Para autenticar para o Azure, também terá de obter o ID de subscrição do Azure com [mostrar de conta az](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -73,7 +73,7 @@ Crie um ficheiro denominado *ubuntu.json* e cole o seguinte conteúdo. Introduza
 | *client_id*                         | Primeira linha do resultado de `az ad sp` criar comando - *appId* |
 | *client_secret*                     | Segunda linha de saída de `az ad sp` criar comando - *palavra-passe* |
 | *tenant_id*                         | Terceira linha de saída de `az ad sp` criar comando - *inquilino* |
-| *SUBSCRIPTION_ID*                   | O resultado da `az account show` comando |
+| *subscription_id*                   | O resultado da `az account show` comando |
 | *managed_image_resource_group_name* | Nome do grupo de recursos que criou no primeiro passo |
 | *managed_image_name*                | Nome para a imagem de disco gerido que é criada |
 
@@ -200,7 +200,7 @@ Demora alguns minutos para Packer criar a VM, execute os provisioners e limpar a
 
 
 ## <a name="create-vm-from-azure-image"></a>Criar a VM da imagem do Azure
-Agora pode criar uma VM a partir da imagem com [az vm criar](/cli/azure/vm#create). Especifique a imagem que criou com a `--image` parâmetro. O exemplo seguinte cria uma VM chamada *myVM* de *myPackerImage* e gera chaves SSH, caso ainda não existam:
+Agora pode criar uma VM a partir da imagem com [az vm criar](/cli/azure/vm#az_vm_create). Especifique a imagem que criou com a `--image` parâmetro. O exemplo seguinte cria uma VM chamada *myVM* de *myPackerImage* e gera chaves SSH, caso ainda não existam:
 
 ```azurecli
 az vm create \
@@ -223,12 +223,12 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Testar a VM e NGINX
-Agora pode abrir um browser e introduza `http://publicIpAddress` na barra de endereço. Forneça o suas próprias público endereço IP da VM criar o processo. É apresentada a página predefinida de NGINX como no exemplo seguinte:
+Agora pode abrir um browser e introduza `http://publicIpAddress` na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. É apresentada a página predefinida de NGINX como no exemplo seguinte:
 
 ![Site predefinido do NGINX](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste exemplo, Packer que utilizou para criar uma imagem VM com NGINX já instalado. Pode utilizar esta imagem de VM em conjunto com fluxos de trabalho de implementação existentes, tal como para implementar a sua aplicação para VMs criadas a partir da imagem com Ansible, Chef ou Puppet.
 
 Para modelos de Packer de exemplo adicionais para outros distros Linux, consulte [este repositório do GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

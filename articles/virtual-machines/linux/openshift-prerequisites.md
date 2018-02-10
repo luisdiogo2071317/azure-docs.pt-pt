@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implementar OpenShift no Azure
 
@@ -52,14 +52,14 @@ Este guia descreve como criar os artefactos associados com os pré-requisitos.
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
-Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/#login) de comandos e siga no ecrã as direções, ou clique em **experimente** para utilizar a Shell de nuvem.
+Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/#az_login) de comandos e siga no ecrã as direções, ou clique em **experimente** para utilizar a Shell de nuvem.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo está separado do grupo de recursos no qual implementar os recursos de cluster OpenShift. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo está separado do grupo de recursos no qual implementar os recursos de cluster OpenShift. 
 
 O exemplo seguinte cria um grupo de recursos denominado *keyvaultrg* no *eastus* localização:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
-Criar um cofre de chaves para armazenar as chaves SSH para o cluster com o [az keyvault criar](/cli/azure/keyvault#create) comando. O nome do Cofre de chaves deve ser globalmente exclusivo.
+Criar um cofre de chaves para armazenar as chaves SSH para o cluster com o [az keyvault criar](/cli/azure/keyvault#az_keyvault_create) comando. O nome do Cofre de chaves deve ser globalmente exclusivo.
 
 O exemplo seguinte cria um cofre de chaves com o nome *keyvault* no *keyvaultrg* grupo de recursos:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço 
 OpenShift comunica com o Azure, utilizando um nome de utilizador e palavra-passe ou um principal de serviço. Um principal de serviço do Azure é uma identidade de segurança que pode utilizar com aplicações, serviços e ferramentas de automatização como OpenShift. Controlar e definir as permissões para as operações o principal de serviço pode efetuar no Azure. Para melhorar a segurança para além de fornecer apenas um nome de utilizador e palavra-passe, este exemplo cria um serviço básico principal.
 
-Criar um serviço principal com [az ad sp criar-para-rbac](/cli/azure/ad/sp#create-for-rbac) e as credenciais que OpenShift necessita de saída.
+Criar um serviço principal com [az ad sp criar-para-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e as credenciais que OpenShift necessita de saída.
 
 O exemplo seguinte cria um serviço principal e atribui-permissões de contribuinte a um grupo de recursos denominado myResourceGroup. Se estiver a utilizar o Windows, execute ```az group show --name myResourceGroup --query id``` separadamente e utilizar a saída para feed a - opção de âmbitos.
 

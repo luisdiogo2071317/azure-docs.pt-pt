@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se ocorrer uma falha do Armazenamento do Azure
 Na Microsoft, trabalhamos rígido para se certificar de que os nossos serviços estão sempre disponíveis. Por vezes, força se para além dos nosso impacto de controlo-nos de formas que provocar falhas de serviço não planeada num ou mais regiões. Para ajudar a lidar com estas ocorrências raras, podemos fornecer as seguintes orientações de alto nível para serviços de armazenamento do Azure.
@@ -26,10 +26,10 @@ Na Microsoft, trabalhamos rígido para se certificar de que os nossos serviços 
 ## <a name="how-to-prepare"></a>Como preparar
 É fundamental para cada cliente preparar o seu próprio plano de recuperação após desastre. O esforço para recuperar a partir de uma falha de armazenamento, normalmente, envolve pessoal de operações e procedimentos automatizados para reativar as suas aplicações num Estado de funcionamento. Consulte a documentação do Azure abaixo para criar o seu próprio plano de recuperação após desastre:
 
-* [Recuperação após desastre e elevada disponibilidade para aplicações do Azure](/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications.md)
-* [Orientações técnicas sobre resiliência do Azure](/azure/architecture/resiliency.md)
+* [Lista de verificação de disponibilidade](https://docs.microsoft.com/azure/architecture/checklist/availability)
+* [Conceber aplicações resilientes para o Azure](/azure/architecture/resiliency)
 * [Serviço de recuperação de sites do Azure](https://azure.microsoft.com/services/site-recovery/)
-* [Replicação do Armazenamento do Azure](storage-redundancy.md)
+* [Replicação do Armazenamento do Azure](storage-redundancy)
 * [Serviço de cópia de segurança do Azure](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Como detetar

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema operativo convidado versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de um SO convidado está desativado. Se configurar as funções de utilizar *automática* atualizações de SO convidado, conforme descrito em [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -42,6 +42,9 @@ Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema oper
 Se não souber sobre que o SO convidado ou como o SO convidado liberta o trabalho? Leitura [isto](#how-it-works) secção.
 
 ## <a name="news-updates"></a>Atualizações de notícias de última hora
+###### <a name="january-29-2018"></a>**29 de Janeiro de 2018**
+Foi lançado o SO convidado de Janeiro de 2 de famílias de SO (WA-convidado-SO-2.70_201801-01) & 3 (WA-convidado-SO-3.57_201801-01)
+
 ###### <a name="january-4-2018"></a>**4 de Janeiro de 2018**
 Foi lançado o SO convidado de Janeiro de 4 de famílias de SO (WA-convidado-SO-4.50_201801-01) & 5 (WA-convidado-so-5.15_201801-01) e contém patches de segurança importantes.  
 
@@ -80,7 +83,7 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 ## <a name="family-5-releases"></a>Versões de família 5
 **Windows Server 2016**
 
-.NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações.
@@ -90,23 +93,23 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-5.15_201801-01 |4 de Janeiro de 2018 |Post 5.17 |TBD |
-| WA-CONVIDADO-SO-5.14_201712-01 |4 de Janeiro de 2018 |Post 5.16 |TBD |
-| WA-CONVIDADO-SO-5.13_201711-01 |14 de Dezembro de 2017 |Post 5.15 |TBD |
-|~~WA-CONVIDADO-SO-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-CONVIDADO-SO-5.11_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-5.10_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-5.9_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-5.8_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-5.7_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-5.6_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-5.5_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
-|~~WA-CONVIDADO-SO-5.4_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017|TBD |
+| WA-GUEST-OS-5.15_201801-01 |4 de Janeiro de 2018 |Post 5.17 |TBD |
+| WA-GUEST-OS-5.14_201712-01 |4 de Janeiro de 2018 |Post 5.16 |TBD |
+|~~WA-GUEST-OS-5.13_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018|TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-5.11_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-5.10_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-5.9_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
+|~~WA-GUEST-OS-5.8_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
+|~~WA-GUEST-OS-5.7_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-5.6_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-5.5_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
+|~~WA-GUEST-OS-5.4_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017|TBD |
 
 ## <a name="family-4-releases"></a>Versões de família 4
 **Windows Server 2012 R2**
 
-.NET framework instalado: 4.0, 4.5, 4.5.1, o 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações
@@ -115,23 +118,23 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-4.50_201801-01 |4 de Janeiro de 2018 |Post 4.52 |TBD |
-| WA-CONVIDADO-SO-4.49_201712-01 |4 de Janeiro de 2018 |Post 4.51 |TBD |
-| WA-CONVIDADO-SO-4.48_201711-01 |14 de Dezembro de 2017 |Post 4,50 |TBD |
-|~~WA-CONVIDADO-SO-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-CONVIDADO-SO-4.46_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.45_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.44_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.43_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.42_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.41_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.40_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.39_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
+| WA-GUEST-OS-4.50_201801-01 |4 de Janeiro de 2018 |Post 4.52 |TBD |
+| WA-GUEST-OS-4.49_201712-01 |4 de Janeiro de 2018 |Post 4.51 |TBD |
+|~~WA-GUEST-OS-4.48_201711-01~~ |14 de Dezembro de 2017 |4 de Janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-4.46_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-4.45_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-4.44_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
+|~~WA-GUEST-OS-4.43_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
+|~~WA-GUEST-OS-4.42_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-4.41_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-4.40_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
+|~~WA-GUEST-OS-4.39_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
 
 ## <a name="family-3-releases"></a>Versões da família 3
 **Windows Server 2012**
 
-.NET framework instalado: 4.0, 4.5, 4.5.1, o 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações
@@ -140,22 +143,23 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-3.56_201712-01 |4 de Janeiro de 2018 |Post 3.58 |TBD |
-| WA-CONVIDADO-SO-3.55_201711-01 |14 de Dezembro de 2017 |Post 3.57 |TBD |
-|~~WA-CONVIDADO-SO-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-CONVIDADO-SO-3.53_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.52_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.51_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.50_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.49_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.48_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.47_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.46_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
+| WA-GUEST-OS-3.57_2017801-01 |29 de Janeiro de 2018 |Post 3.59 |TBD |
+| WA-GUEST-OS-3.56_201712-01 |4 de Janeiro de 2018 |Post 3.58 |TBD |
+|~~WA-GUEST-OS-3.55_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-3.53_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-3.52_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-3.51_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
+|~~WA-GUEST-OS-3.50_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
+|~~WA-GUEST-OS-3.49_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-3.48_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-3.47_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
+|~~WA-GUEST-OS-3.46_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
 
 ## <a name="family-2-releases"></a>Versões de família 2
 **Windows Server 2008 R2 SP1**
 
-.NET framework instalado: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações
@@ -164,18 +168,19 @@ Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma v
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-2.69_201712-01 |4 de Janeiro de 2018 |Post 2.71 |TBD |
-| WA-CONVIDADO-SO-2.68_201711-01 |14 de Dezembro de 2017 |Post 2.70 |TBD |
-|~~WA-CONVIDADO-SO-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
-|~~WA-CONVIDADO-SO-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.64_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.63_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.62_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.61_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.60_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.59_201701-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
-|~~WA-CONVIDADO-SO-2.58_201612-01~~ |10 de janeiro de 2017 |9 de Maio de 2017|TBD |
+| WA-GUEST-OS-2.70_201801-01 |29 de Janeiro de 2018 |Post 2.72 |TBD |
+| WA-GUEST-OS-2.69_201712-01 |4 de Janeiro de 2018 |Post 2.71 |TBD |
+|~~WA-GUEST-OS-2.68_201711-01~~ |14 de Dezembro de 2017 |29 de Janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
+|~~WA-GUEST-OS-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-GUEST-OS-2.64_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
+|~~WA-GUEST-OS-2.63_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
+|~~WA-GUEST-OS-2.62_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-2.61_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
+|~~WA-GUEST-OS-2.60_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
+|~~WA-GUEST-OS-2.59_201701-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
+|~~WA-GUEST-OS-2.58_201612-01~~ |10 de janeiro de 2017 |9 de Maio de 2017|TBD |
 
 
 ## <a name="msrc-patch-updates"></a>Atualizações de correção MSRC

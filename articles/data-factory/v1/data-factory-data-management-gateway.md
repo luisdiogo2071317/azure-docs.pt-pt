@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [autoalojado integração tempo de execução na versão 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> O Data Management Gateway agora tem sido rebranded como o tempo de execução do Self-hosted integração.  
 
 O Data management gateway é um agente de cliente que tem de instalar no seu ambiente no local para copiar dados entre os arquivos de dados de nuvem e no local. Os dados no local arquivos suportados pela fábrica de dados estão listados no [origens de dados suportadas](data-factory-data-movement-activities.md#supported-data-stores-and-formats) secção.
 
@@ -188,7 +191,7 @@ O serviço de anfitrião do data management gateway reiniciará automaticamente 
 Depois do gateway tiver sido registado com êxito, se pretender ver ou atualizar as definições de proxy, utilize o Gestor de configuração do Data Management Gateway.
 
 1. Iniciar **Gestor de configuração do Data Management Gateway**.
-2. Mudar para o **definições** separador.
+2. Mudar para o separador **Definições**.
 3. Clique em **alteração** ligação na **HTTP Proxy** secção para iniciar o **definir o Proxy de HTTP** caixa de diálogo.  
 4. Depois de clicar no **seguinte** botão, verá uma caixa de diálogo de aviso solicitando a sua permissão Guardar a definição de proxy e reinicie o serviço de anfitrião de Gateway.
 

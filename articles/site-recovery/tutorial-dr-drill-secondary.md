@@ -1,26 +1,20 @@
 ---
-title: "Executar um exercício de recuperação após desastre para o site secundário no local com o Azure Site Recovery | Microsoft Docs"
+title: "Executar um exercício de recuperação após desastre para um site secundário no local com o Azure Site Recovery | Microsoft Docs"
 description: "Saiba mais sobre como executar um exercício de recuperação após desastre para o site secundário no local com o Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 445878e2-6682-49ba-914d-4c6824ab08a6
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e5f8dce1ca2f728d15161622fb9ff2afb4b6c86
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Executar um exercício de recuperação após desastre para as VMs de Hyper-V para o site secundário no local
+# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Executar um exercício de recuperação após desastre para as VMs de Hyper-V para um site secundário no local
 
 O [do Azure Site Recovery](site-recovery-overview.md) serviço contribui para a sua estratégia de recuperação após desastre, gerir e da orquestração de replicação, ativação pós-falha e a reativação pós-falha de máquinas no local e máquinas de virtuais (VMs) do Azure.
 
@@ -52,7 +46,7 @@ Este tutorial mostra como executar um exercício de recuperação após desastre
 6. No **notas**, registar e guardar todas as observações associadas à ativação pós-falha de teste. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Executar uma ativação pós-falha de produção](tutorial-vmm-to-vmm-failover-failback.md)
 

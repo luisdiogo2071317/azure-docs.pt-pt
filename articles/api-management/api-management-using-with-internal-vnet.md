@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de API Management do Azure com uma rede virtual interna
 Com redes virtuais do Azure, a API Management do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para efetuar a ligação. API Management podem ser implementada em dois modos principais dentro de uma rede virtual:
 * Externo
-* Interno
+* Interna
 
 
-Quando a API Management implementa no modo de rede virtual interna, todos os serviço pontos finais (gateway, portal do programador, portal do publicador, gestão direta e Git) apenas estão visíveis no interior de uma rede virtual que controlam o acesso ao. Nenhum dos pontos finais do serviço estão registados no servidor DNS público.
+Quando a API Management implementa no modo de rede virtual interna, todos os serviço pontos finais (gateway, o portal do programador, o portal do Azure, gestão direta e Git) apenas estão visíveis no interior de uma rede virtual que controlam o acesso ao. Nenhum dos pontos finais do serviço estão registados no servidor DNS público.
 
 Utilizando a gestão de API no modo interno, que pode realizar os seguintes cenários:
 * Certifique-APIs alojadas no seu centro de dados privado acessível de forma segura por terceiros fora do através de ligações de VPN do Azure ExpressRoute ou de site para site.
@@ -72,14 +72,14 @@ Também pode ativar a conectividade de rede virtual utilizando cmdlets do PowerS
 Quando a API Management está no modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, tem de gerir os seus próprios encaminhamento.
 
 > [!NOTE]
-> Serviço de API Management escutar para pedidos provenientes de endereços IP. Apenas responde a pedidos para o nome de anfitrião configuradas nos respetivos pontos finais de serviço. Estes pontos finais incluem gateway, o portal do programador, o portal do publicador, o ponto final de gestão direta e o Git.
+> Serviço de API Management escutar para pedidos provenientes de endereços IP. Apenas responde a pedidos para o nome de anfitrião configuradas nos respetivos pontos finais de serviço. Estes pontos finais incluem gateway, o portal do programador, Azurethe portal, ponto final de gestão direta e Git.
 
 ### <a name="access-on-default-host-names"></a>Acesso em nomes de anfitrião predefinido
 Quando cria um serviço de API Management, com o nome "contoso", por exemplo, os seguintes pontos finais de serviço estão configurados por predefinição:
 
    * Gateway ou proxy: contoso.azure api.net
 
-   * Portal do publicador e o portal do programador: contoso.portal.azure api.net
+   * o portal do Azure e o portal do programador: contoso.portal.azure api.net
 
    * Ponto final de gestão direta: contoso.management.azure api.net
 
@@ -87,13 +87,13 @@ Quando cria um serviço de API Management, com o nome "contoso", por exemplo, os
 
 Para aceder a estes pontos finais de serviço de API Management, pode criar uma máquina virtual numa sub-rede ligada à rede virtual em que a API Management está implementada. Pressupondo que o endereço IP virtual interno para o seu serviço é 10.0.0.5, é possível mapear o ficheiro de anfitriões % SystemDrive%\drivers\etc\hosts, da seguinte forma:
 
-   * 10.0.0.5 contoso.azure-api.net
+   * 10.0.0.5     contoso.azure-api.net
 
-   * 10.0.0.5 contoso.portal.azure-api.net
+   * 10.0.0.5     contoso.portal.azure-api.net
 
-   * 10.0.0.5 contoso.management.azure-api.net
+   * 10.0.0.5     contoso.management.azure-api.net
 
-   * 10.0.0.5 contoso.scm.azure-api.net
+   * 10.0.0.5     contoso.scm.azure-api.net
 
 Em seguida, pode aceder a todos os pontos finais do serviço da máquina virtual que criou. Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar registos A DNS e aceder a estes pontos finais a partir de qualquer lugar na sua rede virtual. 
 

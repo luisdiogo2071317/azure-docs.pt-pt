@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Ver registos de atividade para auditar as ações em recursos
 Através de registos de atividade, poderá determinar:
@@ -29,7 +29,11 @@ Através de registos de atividade, poderá determinar:
 * o estado da operação
 * os valores de outras propriedades que possam ajudá-lo pesquisar a operação
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+O registo de atividade contém todas as operações de escrita (PUT, POST, DELETE) efetuadas nos seus recursos. Não inclui as operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [operações de fornecedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). Pode utilizar os registos de auditoria para encontrar um erro quando a resolução de problemas ou para monitorizar a forma como um utilizador na sua organização modificou um recurso.
+
+Registos de atividade são mantidos durante 90 dias. Pode consultar qualquer intervalo de datas, desde que a data de início não é mais de 90 dias no passado.
+
+
 
 Pode obter informações a partir de registos de atividade através do portal, do PowerShell, a CLI do Azure, a API de REST de Insights, ou [Insights .NET biblioteca](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -142,7 +146,7 @@ Pode obter informações a partir de registos de atividade através do portal, d
 ## <a name="rest-api"></a>API REST
 As operações REST para trabalhar com o registo de atividade são parte a [Insights API de REST](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para obter eventos de registo de atividade, consulte [lista os eventos de gestão numa subscrição](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Os registos de atividade do Azure podem ser utilizados com o Power BI para obter mais informações sobre as ações na sua subscrição. Consulte [ver e analisar registos de atividade do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Para saber mais sobre a definição de políticas de segurança, consulte [controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md).
 * Para saber mais sobre os comandos para ver as operações de implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).

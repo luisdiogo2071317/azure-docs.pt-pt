@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Azure SQL Da
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **AzureSqlDW** | Sim |
-| connectionString |Especificar as informações necessárias para ligar à instância do armazém de dados SQL do Azure para a propriedade connectionString. Apenas autenticação básica é suportada. Marcar este campo como um SecureString. |Sim |
+| connectionString |Especificar as informações necessárias para ligar à instância do armazém de dados SQL do Azure para a propriedade connectionString. Apenas autenticação básica é suportada. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 
@@ -110,7 +110,7 @@ Para copiar dados de/para o Azure SQL Data Warehouse, defina a propriedade de ti
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pelo Azure SQL Data Warehouse origem e dependente.
 
@@ -231,9 +231,9 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 | rejectType |Especifica se a opção de rejectValue é especificada como um valor literal ou uma percentagem.<br/><br/>Valores permitidos são: **valor** (predefinição), e **percentagem**. |Não |
 | rejectSampleValue |Determina o número de linhas a obter antes do PolyBase recalcula a percentagem de linhas rejeitadas.<br/><br/>Valores permitidos são: 1, 2,... |Sim, se **rejectType** é **percentagem** |
 | useTypeDefault |Especifica como processar os valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção de argumentos no [criar formato de ficheiro externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Valores permitidos são: **verdadeiro**, **falso** (predefinição). |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. Aplica-se apenas quando não for utilizado o PolyBase.<br/><br/>Valores permitidos são: número inteiro (número de linhas). |Não (a predefinição é 10000) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. Aplica-se apenas quando não for utilizado o PolyBase.<br/><br/>Valores permitidos são: número inteiro (número de linhas). |Não (a predefinição é 10000) |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. Aplica-se apenas quando não for utilizado o PolyBase.<br/><br/>Valores permitidos são: timespan. Exemplo: "00: 30:00" (30 minutos). |Não |
-| preCopyScript |Especifique uma consulta de SQL Server ser executado antes de escrever dados no Azure SQL Data Warehouse em cada execução de atividade de cópia. Pode utilizar esta propriedade para limpar os dados previamente carregados. |Não |(#repeatability durante-cópia). |Uma instrução de consulta. |Não |
+| preCopyScript |Especifique uma consulta de SQL Server ser executado antes de escrever dados no Azure SQL Data Warehouse em cada execução de atividade de cópia. Pode utilizar esta propriedade para limpar os dados previamente carregados. |Não |(#repeatability-during-copy). |Uma instrução de consulta. |Não |
 
 **Exemplo:**
 
@@ -393,12 +393,12 @@ Para obter uma melhor débito possíveis, considere atribuir maior classe de rec
 
 A tabela seguinte fornece exemplos sobre como especificar o **tableName** propriedade no conjunto de dados JSON para várias combinações de nome de esquema e de tabela.
 
-| Esquema da BD | Nome da tabela | propriedade JSON tableName |
+| DB Schema | Nome da tabela | propriedade JSON tableName |
 | --- | --- | --- |
 | dbo |MyTable |MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
 | dbo1 |MyTable |dbo1. MyTable ou [dbo1]. [MyTable] |
 | dbo |My.Table |[My.Table] ou [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Se vir o seguinte erro, isto pode dever um problema com o valor especificado para a propriedade tableName. Consulte a tabela para a forma correta especificar valores para a propriedade JSON tableName.
 
@@ -423,37 +423,37 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 | Tipo de dados do armazém de dados SQL do Azure | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
 | bigint |Int64 |
-| Binário |Byte] |
+| Binário |Byte[] |
 | bits |Booleano |
-| char |Cadeia, Char [] |
+| char |String, Char[] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte] |
-| Número de vírgula flutuante |duplo |
-| Imagem |Byte] |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Número de vírgula flutuante |Duplo |
+| Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |Cadeia, Char [] |
-| ntext |Cadeia, Char [] |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
 | um valor numérico |Decimal |
-| nvarchar |Cadeia, Char [] |
+| nvarchar |String, Char[] |
 | real |Solteiro |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |Cadeia, Char [] |
+| Texto |String, Char[] |
 | hora |TimeSpan |
-| carimbo de data/hora |Byte] |
+| carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Cadeia, Char [] |
-| xml |XML |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

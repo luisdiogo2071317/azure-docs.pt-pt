@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Copiar dados de Impala através da utilização do Azure Data Factory (beta)
 
@@ -52,7 +52,7 @@ As seguintes propriedades são suportadas para Impala serviço ligado.
 | porta | A porta TCP que o servidor de Impala utiliza para escutar ligações de cliente. O valor predefinido é 21050.  | Não |
 | authenticationType | O tipo de autenticação a utilizar. <br/>Valores permitidos são **anónimo**, **SASLUsername**, e **UsernameAndPassword**. | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para aceder ao servidor Impala. Quando utiliza o SASLUsername, o valor predefinido é anónimo.  | Não |
-| palavra-passe | A palavra-passe que corresponde ao nome de utilizador quando utiliza UsernameAndPassword. Pode marcar este campo como SecureString armazena de forma segura na fábrica de dados. Também pode armazenar a palavra-passe no Cofre de chaves do Azure e permitem a extração de atividade de cópia a partir daí, quando efetuar cópia de dados. Para obter mais informações, consulte [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Não |
+| palavra-passe | A palavra-passe que corresponde ao nome de utilizador quando utiliza UsernameAndPassword. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é **falso**.  | Não |
 | trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna utilizados para verificar o servidor ao estabelecer ligação através de SSL. Esta propriedade pode ser definida apenas quando utilizar o protocolo SSL no tempo de execução do Self-hosted integração. O valor predefinido é o ficheiro de cacerts.pem instalado com o tempo de execução de integração.  | Não |
 | useSystemTrustStore | Especifica se deve utilizar um certificado de AC a partir do arquivo de confiança de sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é **falso**.  | Não |

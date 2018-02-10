@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e52dc76608a83d446ccc8503d17445a8d6a61ae4
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar um endereço IP público
 
@@ -52,7 +52,7 @@ Endereços IP públicos têm uma cobrança nominal. Para ver os preços, leia o 
     |Versão do IP|Sim| Selecione IPv4 ou IPv6. Enquanto endereços IPv4 públicos podem ser atribuídos a vários recursos do Azure, um endereço IP público IPv6 só pode ser atribuído a um balanceador de carga para a Internet. O Balanceador de carga pode equilibrar o tráfego de IPv6 para máquinas virtuais do Azure. Saiba mais sobre [tráfego de IPv6 para máquinas virtuais de balanceamento de carga](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se tiver selecionado o **Standard SKU**, não tem a opção para selecionar *IPv6*. Só pode criar um endereço IPv4 ao utilizar o **Standard SKU**.|
     |Atribuição de endereços IP|Sim|**Dynamic:** endereços dinâmicos são atribuídos apenas depois do endereço IP público está associado a uma interface de rede ligada a uma máquina virtual e a máquina virtual é iniciada pela primeira vez. Podem alterar a endereços dinâmicos se a máquina virtual, que a interface de rede está ligada a está parada (desalocada). O endereço permanece o mesmo se a máquina virtual é reiniciada ou parada (mas não desalocada). **Estática:** endereços estáticos são atribuídos quando for criado o endereço IP público. Endereços estáticos não são alterados, mesmo se a máquina virtual é colocada no estado parado (desalocado). O endereço é libertado apenas quando a interface de rede é eliminada. Pode alterar o método de atribuição depois de criar a interface de rede. Se selecionar *IPv6* para o **versão do IP**, o método de atribuição é *dinâmica*. Se selecionar *padrão* para **SKU**, o método de atribuição é *estático*.|
     |Tempo limite de inatividade (minutos)|Não|O número de minutos para manter uma ligação de TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep-alive. Se selecionar IPv6 para **IP versão**, este valor não pode ser alterado. |
-    |Etiqueta de nome DNS|Não|Tem de ser exclusivos numa localização do Azure que crie o nome de no (em todas as subscrições e todos os clientes). Azure regista automaticamente o nome e endereço IP no seu DNS para que possa ligar a um recurso com o nome. Azure acrescenta uma sub-rede predefinida como *location.cloudapp.azure.com* (em que a localização é a localização que selecionar) para o nome de fornecer, para criar o nome DNS completamente qualificado. Se optar por criar ambas as versões de endereço, é atribuído o mesmo nome DNS para endereços IPv4 e IPv6. Predefinição do Azure DNS contém registos de nome de um de IPv4 e IPv6 AAAA e responde com ambos os registos quando o nome DNS está a ser consultado. O cliente escolhe qual o endereço (IPv4 ou IPv6) para comunicar com. Em vez de ou para além, utilizando a etiqueta de nome DNS com o sufixo de predefinido, pode utilizar o serviço DNS do Azure para configurar um nome DNS com um sufixo personalizado que é resolvido para o endereço IP público. Para obter mais informações, consulte [DNS do Azure de utilização com um endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+    |Etiqueta de nome DNS|Não|Tem de ser exclusivos numa localização do Azure que crie o nome de no (em todas as subscrições e todos os clientes). Azure regista automaticamente o nome e endereço IP no seu DNS para que possa ligar a um recurso com o nome. Azure acrescenta uma sub-rede predefinida como *location.cloudapp.azure.com* (em que a localização é a localização que selecionar) para o nome de fornecer, para criar o nome DNS completamente qualificado. Se optar por criar ambas as versões de endereço, é atribuído o mesmo nome DNS para endereços IPv4 e IPv6. Predefinição do Azure DNS contém registos de nome de um de IPv4 e IPv6 AAAA e responde com ambos os registos quando o nome DNS está a ser consultado. O cliente escolhe qual o endereço (IPv4 ou IPv6) para comunicar com. Em vez de, ou além de, utilizar a etiqueta de nome DNS com o sufixo predefinido, pode utilizar o serviço DNS do Azure para configurar um nome DNS com um sufixo personalizado que é resolvido para o endereço IP público. Para obter mais informações, veja [Utilizar o DNS do Azure com um endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
     |Criar um endereço IPv6 (ou IPv4)|Não| Indica se é apresentado o IPv6 ou IPv4 está dependente aquilo que selecionar para **IP versão**. Por exemplo, se selecionar **IPv4** para **IP versão**, **IPv6** é apresentado aqui. Se selecionar *padrão* para **SKU**, não tem a opção para criar um endereço IPv6.
     |Nome (apenas visível se tiver selecionado o **criar um endereço IPv6 (ou IPv4)** caixa de verificação)|Sim, se selecionar a **criar IPv6** (ou IPv4) caixa de verificação.|O nome tem de ser diferente do nome introduzido para o primeiro **nome** nesta lista. Se optar por criar um endereço IPv6 e IPv4, o portal cria dois separados endereço recursos do IP público, uma com cada versão do endereço IP atribuído ao mesmo.|
     |Atribuição de endereços IP (apenas visível se tiver selecionado o **criar um endereço IPv6 (ou IPv4)** caixa de verificação)|Sim, se selecionar a **criar IPv6** (ou IPv4) caixa de verificação.|Se a caixa de verificação indica **criar um endereço IPv4**, pode selecionar um método de atribuição. Se a caixa de verificação indica **criar um endereço IPv6**, não é possível selecionar um método de atribuição, como deve ser **dinâmica**.|
@@ -68,8 +68,8 @@ Embora o portal fornece a opção para criar dois endereços recursos do IP púb
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[Criar AZ público-ip da rede](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Novo AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Ver, alterar as definições ou eliminar um endereço IP público
 
@@ -88,7 +88,7 @@ Embora o portal fornece a opção para criar dois endereços recursos do IP púb
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[lista de ip público de rede AZ](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#list) para lista os endereços IP públicos, [az rede pública-ip-mostrar](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#show) para mostrar as definições; [atualização de ip público de rede az](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) atualizar; [az público-ip da rede eliminar](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) eliminar|
+|CLI|[lista de ip público de rede AZ](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) para lista os endereços IP públicos, [az rede pública-ip-mostrar](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) para mostrar as definições; [atualização de ip público de rede az](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) atualizar; [az público-ip da rede eliminar](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) eliminar|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter um objeto de endereço IP público e ver as respetivas definições, [conjunto AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) ao atualizar as definições; [Remover AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) eliminar|
 
 ## <a name="register-for-the-standard-sku-preview"></a>Registar-se para a pré-visualização SKU standard
@@ -113,7 +113,7 @@ Antes de poder criar um endereço IP público do Standard SKU, primeiro tem de r
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Atribua endereços IP públicos quando criar os seguintes recursos do Azure:
 
 - [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquinas virtuais

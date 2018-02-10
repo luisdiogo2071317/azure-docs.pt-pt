@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ce44a5e4db080822aaec0b50a265b863059bd45a
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2fd7be23c4146051197c4b6d7db6deb06dfa416d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Criar um ambiente de Docker no Azure através da extensão de VM de Docker
 Docker é uma gestão de contentores populares e a plataforma de processamento de imagens que permite-lhe trabalhar rapidamente com contentores no Linux. No Azure, existem várias formas como pode implementar Docker consoante as suas necessidades. Este artigo foca-se utilizando a extensão de VM de Docker e modelos Azure Resource Manager com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](dockerextension-nodejs.md).
@@ -33,15 +33,15 @@ Para obter mais informações sobre os métodos de implementação diferentes, i
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implementar um modelo com a extensão de VM de Docker do Azure
-Vamos utilizar um modelo existente de início rápido para criar uma VM com Ubuntu que utiliza a extensão de VM de Docker do Azure para instalar e configurar o anfitrião de Docker. Pode ver o modelo aqui: [Simple implementação de uma VM com Ubuntu com Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#login).
+Vamos utilizar um modelo existente de início rápido para criar uma VM com Ubuntu que utiliza a extensão de VM de Docker do Azure para instalar e configurar o anfitrião de Docker. Pode ver o modelo aqui: [Simple implementação de uma VM com Ubuntu com Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
 
-Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *eastus* localização:
+Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Em seguida, implementar uma VM com [criar a implementação do grupo az](/cli/azure/group/deployment#create) que inclui a extensão de VM de Docker do Azure a partir do [este modelo Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Quando solicitado, forneça os seus próprios valores exclusivos para *newStorageAccountName*, *adminUsername*, *adminPassword*, e *dnsNameForPublicIP*:
+Em seguida, implementar uma VM com [criar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_create) que inclui a extensão de VM de Docker do Azure a partir do [este modelo Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Quando solicitado, forneça os seus próprios valores exclusivos para *newStorageAccountName*, *adminUsername*, *adminPassword*, e *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -52,7 +52,7 @@ Demora alguns minutos para a implementação para concluir.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Implementar o contentor NGINX primeiro
-Para ver os detalhes da sua VM, incluindo o nome DNS, utilize [mostrar de vm az](/cli/azure/vm#show):
+Para ver os detalhes da sua VM, incluindo o nome DNS, utilize [mostrar de vm az](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

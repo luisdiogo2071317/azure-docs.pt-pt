@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1114fd272bd16d17fbeb382b0f374a69dc74916a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados para ou da base de dados do Cosmos do Azure utilizando o Azure Data Factory
 
@@ -54,7 +54,7 @@ As seguintes propriedades são suportadas para o serviço de base de dados do Co
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **CosmosDb**. | Sim |
-| connectionString |Especifique as informações necessárias para estabelecer ligação à base de dados do Azure Cosmos DB. Tenha em atenção de que tem de especificar as informações da base de dados na cadeia de ligação conforme abaixo de exemplo. Marcar este campo como um SecureString. |Sim |
+| connectionString |Especifique as informações necessárias para estabelecer ligação à base de dados do Azure Cosmos DB. Tenha em atenção de que tem de especificar as informações da base de dados na cadeia de ligação conforme abaixo de exemplo. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**

@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/31/2018
 ms.author: mimig
-ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9083ae631f654789b621a1fc62e0b9d31c24f119
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Cosmos Azure API de .NET de tabela de base de dados: Transferir e notas de versão
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
-> * [python](table-sdk-python.md)
+> * [Python](table-sdk-python.md)
 
 |   |   |
 |---|---|
@@ -41,10 +41,14 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Adicionar TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism e TableQueryContinuationTokenLimitInKb TableRequestOptions
+* Correção de Erros
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Versão de disponibilidade geral
 
-### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-Preview
+### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
 * Versão de pré-visualização inicial
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
@@ -60,7 +64,7 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de Novembro de 2017|--- |
-| [0.9.0-Preview](#0.9.0-preview) |11 de Novembro de 2017 |--- |
+| [0.9.0-preview](#0.9.0-preview) |11 de Novembro de 2017 |--- |
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -84,5 +88,5 @@ durante a tentativa de utilizar o pacote Microsoft.Azure.CosmosDB.Table NuGet, t
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a API de tabela de base de dados do Azure Cosmos, consulte [introdução à API de tabela de base de dados do Azure Cosmos](table-introduction.md). 

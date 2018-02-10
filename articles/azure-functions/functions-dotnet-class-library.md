@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -40,6 +40,9 @@ No Visual Studio, o **das funções do Azure** modelo de projeto cria um classe 
 
 * [Host.JSON](functions-host-json.md) -armazena as definições de configuração que afetam todas as funções no projeto ao executar localmente ou no Azure.
 * [local.Settings.JSON](functions-run-local.md#local-settings-file) -armazena as definições de aplicação e cadeias de ligação que são utilizadas ao executar localmente.
+
+> [!IMPORTANT]
+> O processo de compilação cria um *function.json* ficheiro para cada função. Isto *function.json* ficheiros não se destinar a ser editado diretamente. Não é possível alterar a configuração do enlace ou desativar a função ao editar este ficheiro. Para desativar uma função, utilize o [desativar](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) atributo. Por exemplo, adicionar uma aplicação booleana definição MY_TIMER_DISABLED e aplicar `[Disable("MY_TIMER_DISABLED")]` a sua função. Em seguida, pode ativar e desativá-lo alterando a definição de aplicação.
 
 ### <a name="functionname-and-trigger-attributes"></a>Atributos FunctionName e acionador
 
@@ -83,11 +86,11 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Conversão para function.json
 
-O processo de compilação cria um *function.json* ficheiros numa pasta função na pasta de compilação. Este ficheiro não se destinar a ser editado diretamente. Não é possível alterar a configuração do enlace ou desativar a função ao editar este ficheiro. 
+O processo de compilação cria um *function.json* ficheiros numa pasta função na pasta de compilação. Conforme indicado anteriormente, este ficheiro não se destinar a ser editado diretamente. Não é possível alterar a configuração do enlace ou desativar a função ao editar este ficheiro. 
 
 O objetivo deste ficheiro é fornecer informações para o controlador de escala a utilizar para [dimensionamento decisões no plano de consumo](functions-scale.md#how-the-consumption-plan-works). Por este motivo, o ficheiro tem apenas informações de Acionador, não de entrada ou saída de enlaces.
 
-Gerado *function.json* ficheiro inclui um `configurationSource` propriedade que indica o tempo de execução para utilizar atributos do .NET para enlaces, vez *function.json* configuração. Eis um exemplo:
+Gerado *function.json* ficheiro inclui um `configurationSource` propriedade que indica o tempo de execução para utilizar atributos do .NET para enlaces, vez *function.json* configuração. Segue-se um exemplo:
 
 ```json
 {

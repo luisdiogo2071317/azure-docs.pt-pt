@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado
 Depois de comprar uma instância de VM reservado, o desconto de reserva é aplicado automaticamente a máquinas virtuais, os atributos e a quantidade da reserva de correspondência. Uma reserva abrange os custos de infraestrutura das suas máquinas virtuais. A tabela seguinte ilustra os custos para a máquina virtual depois de comprar uma reserva. Em todos os casos, são-lhe cobrados para armazenamento e redes nas taxas normais.
@@ -31,7 +31,7 @@ Depois de comprar uma instância de VM reservado, o desconto de reserva é aplic
 |VMs do Windows com [benefício híbridos do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reserva abrange os custos de infraestrutura. Os custos de software do Windows estão abrangidos pelo benefício de híbrida do Azure. Qualquer software adicional é cobrada separadamente.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Aplicação de desconto de reserva para não - VMs do Windows
- O desconto de reserva é aplicado a executar instâncias VM numa base horária. As reservas que que comprou são correspondidas para utilização emitida pelas VMs em execução para aplicar o desconto de reserva. O gráfico seguinte ilustra a aplicação de uma reserva para utilização VM sujeito a faturação. A ilustração é com base na compra de reserva de uma e duas instâncias VM correspondentes.
+ O desconto de reserva é aplicado a executar instâncias VM numa base horária. As reservas que adquiriu são correspondidas para utilização emitida pelas VMs em execução para aplicar o desconto de reserva. Para VMs que poderão não ser executadas na hora completa, será preenchida a reserva de outras VMs que não a utilizar uma reserva, incluindo VMs em execução em simultâneo. No fim da hora da aplicação de reserva para VMs na hora está bloqueada. Em caso de uma VM não é executado para uma hora ou VMs em simultâneo dentro da hora não preencher a hora de reserva, a reserva é subutilizada para essa hora. O gráfico seguinte ilustra a aplicação de uma reserva para utilização VM sujeito a faturação. A ilustração é com base na compra de reserva de uma e duas instâncias VM correspondentes.
 
 ![Aplicação de instância de VM reservada](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -44,6 +44,16 @@ Compreender e ver a aplicação do seu reservas relatórios de utilização de f
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicação de desconto de reserva para VMs do Windows
 Quando estiver a executar instâncias de VM do Windows, é aplicada a reserva para cobrir os custos de infraestrutura. A aplicação de reserva para os custos de infraestrutura VM para VMs do Windows é o mesmo para não - VMs do Windows. São-lhe cobrados em separado para software do Windows numa base por vCPU. Consulte [os custos de software do Windows com reservas](https://go.microsoft.com/fwlink/?linkid=862756). Pode abranger os custos de licenciamento do Windows com [Azure híbrida benefício para o Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## <a name="next-steps"></a>Passos Seguintes
+Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+
+- [Prepay para máquinas virtuais com instâncias de VM reservado](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir instâncias de Máquina Virtual reservada](billing-manage-reserved-vm-instance.md)
+- [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](billing-save-compute-costs-reservations.md)
+- [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
+- [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Custos de software do Windows não incluídos com instâncias reservado](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Voltar a proteger a partir do Azure para um site no local
 
@@ -221,13 +221,7 @@ Também pode voltar a proteger no nível de um plano de recuperação. Um grupo 
 
 Depois do que for bem sucedida, a máquina virtual entrará num estado protegido.
 
-## <a name="next-steps"></a>Passos seguintes
-
-Depois da máquina virtual entrou num estado protegido, pode [iniciar uma reativação pós-falha](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-A reativação pós-falha irá encerrar a máquina virtual no Azure e efetuar o arranque de máquina virtual no local. Prevê algum período de indisponibilidade para a aplicação. Escolha uma hora de reativação pós-falha quando a aplicação pode tolerar o período de indisponibilidade.
-
-## <a name="common-problems"></a>Problemas comuns
+## <a name="common-issues"></a>Problemas comuns
 
 * Se utilizou um modelo para criar as máquinas virtuais, certifique-se de que cada máquina virtual tem o seu próprio UUID de discos. Se o UUID no local da máquina de virtual entra em conflito com que o destino principal porque ambos foram criadas a partir do mesmo modelo, irá falhar. Implemente outro destino mestre não tiver sido criado a partir do mesmo modelo.
 
@@ -245,38 +239,9 @@ A reativação pós-falha irá encerrar a máquina virtual no Azure e efetuar o 
 
 * Um servidor do Windows Server 2008 R2 SP1 que está protegido como um servidor físico no local não pode ser falhado novamente a partir do Azure para um site no local.
 
-### <a name="common-error-codes"></a>Códigos de erro comuns
 
-#### <a name="error-code-95226"></a>Código de erro 95226
+## <a name="next-steps"></a>Passos Seguintes
 
-*Reproteção falhou porque a máquina virtual do Azure não conseguiu aceder ao servidor de configuração no local.*
+Depois da máquina virtual entrou num estado protegido, pode [iniciar uma reativação pós-falha](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-Isto acontece quando 
-1. A máquina virtual do Azure não foi possível alcançar o servidor de configuração no local e, por conseguinte, pode não ser detetada e registada no servidor de configuração. 
-2. O serviço de aplicação do InMage Scout na máquina virtual do Azure que tem de estar em execução para comunicar o servidor de configuração no local poderá não estar em execução ativação pós-falha de post.
-
-Para resolver este problema
-1. Tem de garantir que a rede da máquina virtual do Azure está configurada de forma a que a máquina virtual pode comunicar com o servidor de configuração no local. Para tal, configurar uma VPN de Site a Site para o seu centro de dados no local ou configurar uma ligação ExpressRoute com o peering privado na rede virtual da máquina virtual do Azure. 
-2. Se já tiver uma rede configurada de forma a que a máquina virtual do Azure pode comunicar com o servidor de configuração no local, em seguida, iniciar sessão na máquina virtual e consulte o 'InMage Scout Application Service'. Se observar a que o InMage Scout Application Service não está em execução, em seguida, inicie manualmente o serviço e certifique-se de que o tipo de início do serviço está definido como automático.
-
-### <a name="error-code-78052"></a>Código de erro 78052
-Reproteção falha apresentando a mensagem de erro: *não foi possível concluir a proteção da máquina virtual.*
-
-Isto pode acontecer devido a dois razões
-1. A máquina virtual que são trocar é um Windows Server 2016. Está atualmente este sistema operativo não é suportado para reativação pós-falha, mas será suportado muito em breve.
-2. Já existe uma máquina virtual com o mesmo nome no mestre de servidor de destino estão a falhar novamente.
-
-Para resolver este problema pode selecionar um servidor de destino mestre diferente num anfitrião diferente, para que o reproteção irá criar a máquina num anfitrião diferente, onde os nomes estão em conflito. Também pode vMotion o destino principal para outro anfitrião onde não acontece a colisão de nomes. Se a máquina virtual existente é uma máquina stray, pode apenas alterá-la para que a nova máquina virtual podem ser criada no mesmo anfitrião ESXi.
-
-### <a name="error-code-78093"></a>Código de erro 78093
-
-*A VM não está em execução, num estado bloqueado ou não está acessível.*
-
-Para voltar a proteger uma falha na ativação pós-falha da máquina virtual no local, terá de máquina virtual do Azure em execução. Isto é para que o serviço de mobilidade regista com o servidor de configuração no local e pode iniciar a replicação através da comunicação com o servidor de processos. Se o computador estiver numa rede incorreta ou em execução não (estado bloqueado ou encerramento), o servidor de configuração não consegue contactar o serviço de mobilidade na máquina virtual para começar a reproteção. Pode reiniciar a máquina virtual para que possa começar a comunicar back no local. Reinicie a tarefa de reproteção depois de iniciar a máquina virtual do Azure
-
-### <a name="error-code-8061"></a>Código de erro 8061
-
-*O arquivo de dados não está acessível a partir do anfitrião ESXi.*
-
-Consulte o [mestra pré-requisitos de destino](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) e o [suporta datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) para reativação pós-falha
-
+A reativação pós-falha irá encerrar a máquina virtual no Azure e efetuar o arranque de máquina virtual no local. Prevê algum período de indisponibilidade para a aplicação. Escolha uma hora de reativação pós-falha quando a aplicação pode tolerar o período de indisponibilidade.

@@ -16,10 +16,10 @@ ms.date: 08/29/2017
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9acce21d544a43adcd0c0983771c02c6bb39caec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-get-your-security-center-alerts-in-azure-log-integration"></a>Como obter os alertas do Centro de segurança na integração de registos do Azure
 
@@ -49,7 +49,7 @@ Os passos seguintes irão criar o necessário Principal de serviço de diretóri
 
 Caso se depare com problemas durante a instalação e configuração, abra uma [pedido de suporte](/azure-supportability/how-to-create-azure-support-request.md), selecione **integração de registo** como o serviço para o qual está a pedir suporte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a integração de registo do Azure, consulte os seguintes documentos:
 
 * [Integração de registo do Microsoft Azure para os registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324) – Centro de transferências para obter detalhes, requisitos de sistema e instalar as instruções na integração de registos do Azure.

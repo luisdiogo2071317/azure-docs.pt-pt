@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analise a sua multimédia com o portal do Azure
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
 ## <a name="overview"></a>Descrição geral
 Análise de serviços de multimédia do Azure é uma coleção de voz e visão componentes (na escala empresarial, a conformidade, a segurança e alcance global) que torna mais fácil das organizações e empresas conhecimentos acionáveis dos respetivos ficheiros de vídeo. Para obter mais descrição geral da análise de serviços de multimédia do Azure consulte [isto](media-services-analytics-overview.md) tópico. 
 
-Este tópico descreve como processar o seu suporte de dados com processadores de suporte de dados de análise de multimédia (MP) no portal do Azure. Pacotes de gestão de análise de multimédia produzem ficheiros MP4 ou ficheiros JSON. Se um processador de multimédia produzir um ficheiro MP4, pode transferir progressivamente o ficheiro. Se um processador de multimédia produzir um ficheiro JSON, pode transferir o ficheiro a partir do Blob Storage do Azure. 
+Este tópico descreve como processar o seu suporte de dados com processadores de suporte de dados de análise de multimédia (MP) no portal do Azure. Pacotes de gestão de análise de multimédia produzem ficheiros MP4 ou ficheiros JSON. Se um processador de multimédia produzir um ficheiro MP4, transferir progressivamente o ficheiro. Se um processador de multimédia produzir um ficheiro JSON, transfira o ficheiro do blob storage do Azure. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Escolha um recurso que pretende analisar
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
@@ -45,14 +45,14 @@ Este tópico descreve como processar o seu suporte de dados com processadores de
 5. Prima **criar** para iniciar uma tarefa.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-O **indexador de suporte de dados do Azure** processador de multimédia permite-lhe efetuar e o conteúdo de ficheiros de suporte de dados pesquisáveis, bem como gerar controla captioning fechada. Estas secções fornece alguns detalhes sobre as opções que pode especificar para este pacote de gestão.
+O **indexador de suporte de dados do Azure** processador de multimédia permite-lhe efetuar e o conteúdo de ficheiros de suporte de dados pesquisáveis, bem como gerar controla captioning fechada. Esta secção fornece alguns detalhes sobre as opções que especificar para este pacote de gestão.
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
 ### <a name="language"></a>Idioma
 A linguagem natural para ser reconhecido no ficheiro multimedia. Por exemplo, inglês ou espanhol. 
 
-### <a name="captions"></a>Legendas
+### <a name="captions"></a>Legendagem
 Pode escolher um formato de legenda que será gerado a partir do seu conteúdo. Uma tarefa de indexação pode gerar ficheiros de legendas nos seguintes formatos:  
 
 * **SAMI**
@@ -74,7 +74,7 @@ Um nome amigável que lhe permite identificar a tarefa. [Isto](media-services-po
 Um nome amigável que lhe permite identificar o conteúdo de saída. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Hyperlapse de multimédia do Azure é um pacote de gestão que cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara.  Para obter mais informações, veja [este](media-services-hyperlapse-content.md) tópico. Estas secções fornece alguns detalhes sobre as opções que pode especificar para este pacote de gestão.
+Hyperlapse de multimédia do Azure é um pacote de gestão que cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara.  Para obter mais informações, veja [este](media-services-hyperlapse-content.md) tópico. Esta secção fornece alguns detalhes sobre as opções que especificar para este pacote de gestão.
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -135,11 +135,21 @@ Um nome amigável que lhe permite identificar a tarefa. [Isto](media-services-po
 ### <a name="output-file"></a>Ficheiro de saída
 Um nome amigável que lhe permite identificar o conteúdo de saída. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+Este processador ajuda-o a detetar potencial conteúdo para adultos e racy em vídeos. O processador Deteta automaticamente capturas e keyframes as vídeo. Pontuações o keyframes para o conteúdo para adultos ou racy possíveis e sugere revisões com base nos limiares predefinidos. Para obter informações detalhadas e exemplos, consulte [utilização do Azure suporte de dados de conteúdo Moderator para moderada vídeos](media-services-content-moderation.md)
+
+![Vídeos moderados](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Versão 
+Utilize "2.0".
+
+### <a name="mode"></a>Modo
+A versão 2.0 Ignorar o `Mode` definição.
+
+## <a name="next-steps"></a>Passos Seguintes
 Vista dos Media Services percursos de aprendizagem.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Registo de alertas no Monitor do Azure - alertas (pré-visualização)
 Este artigo fornece detalhes de regras de alerta como em projetos de consultas de análise nos alertas do Azure (pré-visualização) e descreve as diferenças entre os diferentes tipos de regras de alerta de registo.
-Atualmente alertas do Azure (pré-visualização), só suporta registar alertas em consultas de [Log Analytics do Azure](../log-analytics/log-analytics-tutorial-viewdata.md) escritos em [idioma de consulta de nova análise de registos](../log-analytics/log-analytics-log-search-upgrade.md)
+
+Atualmente alertas do Azure (pré-visualização), suporta registar alertas em consultas de [Log Analytics do Azure](../log-analytics/log-analytics-tutorial-viewdata.md) e [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Alertas do Azure (pré-visualização) - registo de alertas, atualmente não suporta consultas de área de trabalho em vários locais ou em várias aplicações. 
+
+> Atualmente, os alertas de registo nos alertas do Azure (pré-visualização) não suporta consultas de área de trabalho em vários locais ou em várias aplicações.
 
 ## <a name="log-alert-rules"></a>Regras de alerta de registo
 
@@ -36,7 +38,7 @@ Regras de alerta são definidas pelos seguintes detalhes:
 - **Inicie sessão consulta**.  A consulta que é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta são utilizados para determinar se é criado um alerta.
 - **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta devolve apenas os registos que foram criados dentro deste intervalo da hora atual.  Janela de tempo pode ser qualquer valor entre 5 minutos e 1440 minutos ou 24 horas. Por exemplo, se a janela de tempo é definida como 60 minutos e a consulta é executada em 1:15 PM, é devolvido apenas os registos criados entre 12:15 PM e 1:15 PM.
 - **Frequência**.  Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual ou menor do que a janela de tempo.  Se o valor é maior do que a janela de tempo, em seguida, o risco de registos que está a ser omitidos.<br>Por exemplo, considere uma janela de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta é executada em 1:00, devolve registos entre 12:30 e 1:00 PM.  Da próxima vez que executar a consulta é 2:00 quando devolvam registos entre 1:30 e 2:00.  Nunca deverá ser avaliados de quaisquer registos criados entre 1:00 e 1:30.
-- **Limiar**.  Os resultados da pesquisa de registo são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alertas.
+- **Threshold**.  Os resultados da pesquisa de registo são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alertas.
 
 Cada regra de alerta no Log Analytics é um dos dois tipos.  Cada um destes tipos é descrita detalhadamente nas secções que se seguem.
 
@@ -70,7 +72,16 @@ Em alguns casos, poderá pretender criar um alerta na ausência de um evento.  P
 
 **A função de agregação**: determina o cálculo que é executado e potencialmente uma numérica campo a agregar.  Por exemplo, **existente** devolve o número de registos da consulta, **avg(CounterValue)** devolve a média do campo CounterValue ao longo do intervalo.
 
+> [!NOTE]
+
+> Função de agregação na consulta tem de ser chamado/com o nome: AggregatedValue e forneça um valor numérico.
+
+
 **Campo de grupo**: é criado um registo com um valor de agregados para cada instância deste campo e pode ser gerado um alerta para cada.  Por exemplo, se pretendesse gerar um alerta para cada computador, teria de utilizar **por computador**   
+
+> [!NOTE]
+
+> Para a medida métrica regras de alertas que são baseadas no Application Insights, pode especificar o campo para agrupar os dados. Para tal, utilize o **agregado no** opção na definição da regra.   
 
 **Intervalo**: define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se tiver especificado **cinco minutos**, seria possível criar um registo para cada instância do campo Grupo agregada em intervalos de 5 minutos durante a janela de tempo especificada para o alerta.
 
@@ -93,6 +104,6 @@ Neste exemplo, seriam possível criar alertas separadas para srv02 e srv03, uma 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Obter uma descrição geral dos alertas do Azure (pré-visualização)](monitoring-overview-unified-alerts.md) 
+* [Obter uma descrição geral dos alertas do Azure (pré-visualização)](monitoring-overview-unified-alerts.md)
 * Saiba mais sobre [através de alertas do Azure (pré-visualização)](monitor-alerts-unified-usage.md)
 * Saiba mais sobre [Log Analytics](../log-analytics/log-analytics-overview.md).    

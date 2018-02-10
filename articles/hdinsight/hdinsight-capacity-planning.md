@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -89,8 +89,7 @@ Dimensionamento de um cluster é determinado pela quantidade dos respetivos nós
 
 Consoante o tipo de cluster, o aumento do número de nós de trabalho adiciona a capacidade de cálculo adicional (por exemplo, mais núcleos), mas também pode adicionar para a quantidade total de memória necessária para todo o cluster suportar dentro da memória armazenamento de dados a ser processados. Tal como acontece com a opção de tamanho da VM e o tipo, selecionar o dimensionamento do cluster à direita é normalmente contactado empirically, através de cargas de trabalho simuladas ou canary consultas.
 
-Pode ampliar o cluster para satisfazer pico de carga pedidos, em seguida, dimensionar volta a para baixo, quando esses nós adicionais já não são necessárias.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+Pode ampliar o cluster para satisfazer pico de carga pedidos, em seguida, dimensionar volta a para baixo, quando esses nós adicionais já não são necessárias. Para obter mais informações, consulte [clusters do HDInsight escala](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida do cluster
 

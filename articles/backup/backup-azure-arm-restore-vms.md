@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utilizar o portal do Azure para monitorizar máquinas virtuais
 Proteger os seus dados, efetuando os instantâneos dos seus dados em intervalos definidos. Estes instantâneos são conhecidos como pontos de recuperação e que está a ser armazenadas numa cofres dos serviços de recuperação. Se for necessário reparar ou reconstrua uma máquina virtual (VM), pode restaurar a VM a partir de qualquer um dos pontos de recuperação guardado. Quando restaurar um ponto de recuperação, pode:
@@ -104,7 +104,7 @@ Depois de selecionar o ponto de restauro, escolha uma configuração de restauro
 
    * **Restaurar discos**
 
-O portal fornece um **criação rápida** opção para uma VM restaurada. Para personalizar a configuração de VM ou os nomes de recursos criados como parte da criação de uma nova opção VM, utilize o PowerShell ou o portal para restaurar os discos de cópia de segurança. Utilize comandos do PowerShell para anexá-los à sua escolha de configuração de VM. Ou pode utilizar o modelo que vem com discos restaurados para personalizar a VM restaurada. Para obter informações sobre como restaurar uma VM que tem vários NICs ou é um balanceador de carga, consulte [restaurar uma VM com configurações de rede especiais](#restore-a vm-with-special-network-configurations). Se a VM do Windows utiliza [HUB licenciamento](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaurar os discos e utilizar o PowerShell/modelo conforme especificado neste artigo para criar a VM. Certifique-se de que especifica o **tipo de licença** como "Windows_Server" ao criar a VM para beneficiar vantagens HUB na VM restaurada. 
+O portal fornece um **criação rápida** opção para uma VM restaurada. Para personalizar a configuração de VM ou os nomes de recursos criados como parte da criação de uma nova opção VM, utilize o PowerShell ou o portal para restaurar os discos de cópia de segurança. Utilize comandos do PowerShell para anexá-los à sua escolha de configuração de VM. Ou pode utilizar o modelo que vem com discos restaurados para personalizar a VM restaurada. Para obter informações sobre como restaurar uma VM que tem vários NICs ou é um balanceador de carga, consulte [restaurar uma VM com configurações de rede especiais](#restore-vms-with-special-network-configurations). Se a VM do Windows utiliza [HUB licenciamento](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaurar os discos e utilizar o PowerShell/modelo conforme especificado neste artigo para criar a VM. Certifique-se de que especifica o **tipo de licença** como "Windows_Server" ao criar a VM para beneficiar vantagens HUB na VM restaurada. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Criar uma nova VM a partir de um ponto de restauro
 1. Se não estiver já existe, [selecionar um ponto de restauro](#restore-a vm-with-special-network-configurations) antes de começar a criar uma nova VM a partir de um ponto de restauro. Depois de selecionar um ponto de restauro no **restauro configuração** painel, introduza ou selecione os valores para cada um dos seguintes campos:

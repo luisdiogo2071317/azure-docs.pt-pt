@@ -2,29 +2,23 @@
 title: "Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V replicado para um Datacenter secundário com a recuperação de Site | Microsoft Docs"
 description: "Saiba como efetuar a ativação pós-falha de VMs de Hyper-V para o site secundário no local e que haja reativação para o site primário, com o Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44a662fa-2e7a-4996-86df-fdd6d6f5dedf
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb282a18efe2e3c7435377e02fa8c4d97a85ac63
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V foram replicadas para o site secundário no local
 
 O [do Azure Site Recovery](site-recovery-overview.md) serviço gere e orquestra a replicação, ativação pós-falha e a reativação pós-falha de máquinas no local e máquinas de virtuais (VMs) do Azure.
 
-Este tutorial descreve como efetuar a ativação pós-falha de uma VM de Hyper-V geridas numa nuvem System Center Virtual Machine Manager (VMM), para um site secundário do VMM. Depois de ter a efetuar a ativação pós-falha, falhar ao seu site no local quando está disponível. Neste tutorial, ficará a saber como:
+Este artigo descreve como efetuar a ativação pós-falha de uma VM de Hyper-V geridas numa nuvem System Center Virtual Machine Manager (VMM), para um site secundário do VMM. Depois de ter a efetuar a ativação pós-falha, falhar ao seu site no local quando está disponível. Neste artigo, saiba como:
 
 > [!div class="checklist"]
 > * Ativação pós-falha numa VM de Hyper-V a partir de uma nuvem VMM principal a uma nuvem VMM secundária

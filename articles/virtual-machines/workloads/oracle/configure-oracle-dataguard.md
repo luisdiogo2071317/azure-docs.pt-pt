@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3eff4a396c2fd0b52a50a201ceb1a91bae710dc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard numa máquina virtual com Linux do Azure 
 
@@ -39,7 +39,7 @@ A imagem do Marketplace que utilizar para criar as VMs é Oracle: Oracle-base de
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
-Inicie sessão sua subscrição do Azure utilizando o [início de sessão az](/cli/azure/#login) de comandos e siga no ecrã as direções.
+Inicie sessão sua subscrição do Azure utilizando o [início de sessão az](/cli/azure/#az_login) de comandos e siga no ecrã as direções.
 
 ```azurecli
 az login
@@ -47,7 +47,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um grupo de recursos utilizando o [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contentor lógico na qual os recursos são implementados e geridos. 
+Criar um grupo de recursos utilizando o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico na qual os recursos são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos denominado `myResourceGroup` no `westus` localização:
 
@@ -69,7 +69,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Criar uma VM utilizando o [az vm criar](/cli/azure/vm#create) comando. 
+Criar uma VM utilizando o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
 
 O exemplo seguinte cria duas VMs com o nome `myVM1` e `myVM2`. Também cria chaves SSH, se estes ainda não existir numa localização chave predefinido. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
 
@@ -572,7 +572,7 @@ cdb1_stby=
   )
 ```
 
-Iniciar o SQL * Plus:
+Start SQL*Plus:
 
 ```bash
 $ sqlplus sys/OraPasswd1@cdb1
@@ -616,7 +616,7 @@ DGMGRL>
 
 Agora pode ligar à base de dados em modo de espera.
 
-Iniciar o SQL * Plus:
+Start SQL*Plus:
 
 ```bash
 
@@ -658,7 +658,7 @@ Switchover succeeded, new primary is "cdb1"
 
 Novamente, deverá agora conseguir ligar à base de dados primária.
 
-Iniciar o SQL * Plus:
+Start SQL*Plus:
 
 ```bash
 
@@ -685,7 +685,7 @@ Quando já não precisar de VM, pode utilizar o seguinte comando para remover o 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Tutorial: Criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -217,7 +217,7 @@ Em termos da API REST, existem várias opções de pontos finais/consulta que n�
 | ------------| ------------- | ---------- | ----------- |
 | OBTER, COLOCAR | /?restype=service@comp=properties| [Definir as propriedades do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [obter propriedades de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este ponto final é utilizado para definir as regras CORS, configuração de armazenamento da análise e as definições de registo. CORS não é atualmente suportada e registo e análise são processadas forma diferente na base de dados do Azure Cosmos que tabelas de armazenamento do Azure |
 | OPÇÕES | /<table-resource-name> | [Pré-voo CORS tabela pedido](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isto faz parte de CORS que BD do Cosmos Azure não suporta atualmente. |
-| GET | /?restype=service@comp=stats | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
+| INTRODUÇÃO | /?restype=service@comp=stats | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
 | OBTER, COLOCAR | /MyTable? concluída = acl | [Obter tabela ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir tabela ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Este obtém e define as políticas de acesso armazenada utilizadas para gerir assinaturas de acesso partilhado (SAS). Embora seja suportado SAS, estão definidas e geridos de forma diferente. |
 
 Além disso API de tabela de base de dados do Azure Cosmos só suporta o formato JSON, não ATOM.

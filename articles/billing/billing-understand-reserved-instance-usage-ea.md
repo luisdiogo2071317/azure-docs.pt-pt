@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Compreender a utilização de instância reservado para a inscrição Enterprise
 Compreender a utilização de instância reservado através de ReservationId de [página reserva](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) e o ficheiro de utilização do [EA portal.](https://ea.azure.com) Também pode ver a utilização de reserva na secção de resumo de utilização do [EA portal.](https://ea.azure.com)
@@ -56,6 +56,16 @@ Reservado instância utilização também aparece na secção de resumo de utili
 
 1. Não são cobradas para o componente de hardware da VM, tal como está abrangido por instância reservado. 
 2. São-lhe cobrados de software do Windows que benefício híbrida do Azure não está a ser utilizado. 
+
+## <a name="next-steps"></a>Passos Seguintes
+Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+
+- [Prepay para máquinas virtuais com instâncias de VM reservado](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir instâncias de Máquina Virtual reservada](billing-manage-reserved-vm-instance.md)
+- [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](billing-save-compute-costs-reservations.md)
+- [Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado](billing-understand-vm-reservation-charges.md)
+- [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
+- [Custos de software do Windows não incluídos com instâncias reservado](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

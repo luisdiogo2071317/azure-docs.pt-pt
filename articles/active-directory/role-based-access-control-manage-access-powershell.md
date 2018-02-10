@@ -3,7 +3,7 @@ title: "Gerir o controlo de acesso baseado em funções (RBAC) com o Azure Power
 description: "Como gerir o RBAC com o Azure PowerShell, incluindo listagem funções, atribuir funções e eliminar atribuições de funções."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 631274ec57586a777df8ee07a18b0ad72b905222
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fa364c8f43d38bfa40c2d08cc1fe2d2d46629217
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Manage Role-Based Access Control with Azure PowerShell (Gerir o Controlo de Acesso Baseado em Funções com o Azure PoweShell)
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Para funções RBAC de lista que estão disponíveis para atribuição e inspeci
 Get-AzureRmRoleDefinition | FT Name, Description
 ```
 
-![Captura de ecrã do RBAC PowerShell-Get AzureRmRoleDefinition-](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
+![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
 ### <a name="list-actions-of-a-role"></a>Lista de ações de uma função
 Para listar as ações para uma função específica, utilize `Get-AzureRmRoleDefinition <role name>`.
@@ -101,28 +101,28 @@ Para conceder acesso a uma aplicação no âmbito de subscrição, utilize:
 
     New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
-![Captura de ecrã do RBAC PowerShell - novo AzureRmRoleAssignment-](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
+![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
 ### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Atribuir uma função a um utilizador no âmbito do grupo de recursos
 Para conceder acesso a um utilizador no âmbito do grupo de recursos, utilize:
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
-![Captura de ecrã do RBAC PowerShell - novo AzureRmRoleAssignment-](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
+![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
 ### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Atribuir uma função a um grupo no âmbito do recurso
 Para conceder acesso a um grupo no âmbito de recursos, utilize:
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
-![Captura de ecrã do RBAC PowerShell - novo AzureRmRoleAssignment-](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
+![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## <a name="remove-access"></a>Remover o acesso
 Para remover o acesso dos utilizadores, grupos e aplicações, utilize:
 
     Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
-![Captura de ecrã do RBAC PowerShell-Remove AzureRmRoleAssignment-](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
+![RBAC PowerShell - Remove-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 Para criar uma função personalizada, utilize o ```New-AzureRmRoleDefinition``` comando. Existem dois métodos para structuring a função, utilizar PSRoleDefinitionObject ou um modelo JSON. 
@@ -162,7 +162,7 @@ $role.AssignableScopes.Add("/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
 New-AzureRmRoleDefinition -Role $role
 ```
 
-![Captura de ecrã do RBAC PowerShell-Get AzureRmRoleDefinition-](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
+![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Criar função com o modelo JSON
 Um modelo JSON pode ser utilizado como a definição de origem para a função personalizada. O exemplo seguinte cria uma função personalizada que permite acesso de leitura aos recursos de armazenamento e computação, acesso ao suportar, e adiciona a função para duas subscrições. Criar um novo ficheiro `C:\CustomRoles\customrole1.json` com o exemplo seguinte. O Id deve ser definido como `null` na criação da função inicial como um novo ID for gerado automaticamente. 
@@ -270,11 +270,11 @@ O exemplo seguinte apresenta uma lista de todas as funções que estão disponí
 Get-AzureRmRoleDefinition | FT Name, IsCustom
 ```
 
-![Captura de ecrã do RBAC PowerShell-Get AzureRmRoleDefinition-](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
+![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
 
 No exemplo seguinte, o *operador de Máquina Virtual* função personalizada não está disponível no *Production4* subscrição porque essa subscrição não está no **AssignableScopes** da função.
 
-![Captura de ecrã do RBAC PowerShell-Get AzureRmRoleDefinition-](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
+![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## <a name="see-also"></a>Consulte também
 * [Utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md)

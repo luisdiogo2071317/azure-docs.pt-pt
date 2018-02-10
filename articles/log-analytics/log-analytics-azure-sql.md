@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorizar a base de dados do SQL do Azure através da análise do SQL do Azure (pré-visualização) no Log Analytics
 
@@ -142,7 +142,7 @@ Através da perspetiva de aguarda de consulta e duração de consulta, pode corr
 
 Pode facilmente criar alertas com os dados provenientes de recursos de SQL Database do Azure. Seguem-se alguns útil [pesquisa registo](log-analytics-log-searches.md) consultas que pode utilizar para alertas:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *DTU elevado na base de dados SQL do Azure*

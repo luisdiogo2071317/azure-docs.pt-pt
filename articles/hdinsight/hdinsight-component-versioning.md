@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -37,7 +37,7 @@ As versões de componente associadas as versões de cluster do HDInsight estão 
 > [!NOTE]
 > Poderá alterar a versão predefinida para o serviço de HDInsight sem aviso prévio. Se tiver uma dependência de versão, especifique a versão do HDInsight ao criar os clusters com o SDK .NET da Azure PowerShell e da CLI do Azure.
 
-| Componente | HDInsight 3.6 (predefinição) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | 3.2 do HDInsight | HDInsight 3.1 | HDInsight 3.0 |
+| Componente | HDInsight 3.6 (predefinição) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | O Apache Hadoop e YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -45,14 +45,14 @@ As versões de componente associadas as versões de cluster do HDInsight estão 
 | O Apache Pig |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
 | Apache Hive e HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
 | Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
-| O Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|-|
+| Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|-|
 | Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
 | Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
-| O Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
 | O Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
-| O Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
+| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
-| O Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
+| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | O Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.1.0 (apenas Linux) |1.6.2 + 2.0 (apenas Linux) |1.6.0 (apenas Linux) |1.5.2 (Linux experimental compilação apenas) |1.3.1 (apenas Windows) |-|-|
 | Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
@@ -78,12 +78,12 @@ As tabelas seguintes listam as versões do HDInsight. As versões HDP que corres
 
 ### <a name="available-versions"></a>Versões disponíveis
 
-A tabela seguinte lista as versões do HDInsight que estão disponíveis no Portal do Azure, bem como outros métodos de deployement, como o PowerShell e o .NET SDK.
+A tabela seguinte lista as versões do HDInsight que estão disponíveis no Portal do Azure, bem como outros métodos de implementação, como o PowerShell e o .NET SDK.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | VM OS | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |31 de Maio de 2018 |Sim |Sim |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |31 de Maio de 2018 |Sim |Sim |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2018 |Sim |Não |
 
 > [!NOTE]
@@ -94,11 +94,11 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no Port
 
 A tabela seguinte lista as versões do HDInsight que são **não** disponíveis no Portal do Azure.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | VM OS | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2017 |Sim |Não |
-| 3.2 do HDInsight |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de Fevereiro de 2015 |1 de Março de 2016 |1 de Abril de 2017 |Sim |Não |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de Fevereiro de 2015 |1 de Março de 2016 |1 de Abril de 2017 |Sim |Não |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de Junho de 2014 |18 de Maio de 2015 |30 de Junho de 2016 |Sim |Não |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de Fevereiro de 2014 |17 de Setembro de 2014 |30 de Junho de 2015 |Sim |Não |
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de Outubro de 2013 |12 de Maio de 2014 |31 de Maio de 2015 |Sim |Não |
@@ -249,13 +249,13 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) predefinido de 
   | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: tamanho da VM predefinido |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | HEAD: recomendado tamanhos de VM |D12 D3, D4, |D12 D3, D4,  | D13, D14 |A3, A4, A5 |D14 D12, D13, |D14 D12, D13, |
+  | HEAD: recomendado tamanhos de VM |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
   | Trabalho: tamanho VM de predefinido |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Trabalho: tamanhos de VM de recomendada |D12 D3, D4, |D12 D3, D4,  | D13, D14 |D12 D3, D4, |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
+  | Trabalho: tamanhos de VM de recomendada |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
   | ZooKeeper: tamanho da VM predefinido | |A2 | | A2 | | |
   | ZooKeeper: recomendado tamanhos de VM | |A2, A3, A4 | |A2, A3, A4 | | |
   | Limite: tamanhos de VM de predefinição | | | | | |Windows: D12; Linux: D4 |
-  | Limite: recomendado tamanhos de VM | | | | | |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
+  | Limite: recomendado tamanhos de VM | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
 > [!NOTE]
 > - HEAD é conhecido como *Nimbus* o Storm para o tipo de cluster.

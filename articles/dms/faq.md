@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas mais comuns sobre como utilizar o serviço de migração de base de dados do Azure, juntamente com respostas relacionadas.
@@ -81,6 +81,9 @@ Pode efetuar algumas coisas para acelerar a migração de base de dados utilizan
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Como configurar uma rede Virtual do Azure?
 Ao tutoriais Microsoft vários podem orientá-lo durante o processo de configuração de uma VNET do Azure, a documentação oficial aparece no artigo [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. É por que motivo o meu serviço de migração de base de dados do Azure parado ou indisponível?
+Se o utilizador explicitamente parar o serviço de migração de base de dados do Azure (DMS) ou se o serviço está inativo durante um período de 24 horas, o serviço será num parado ou automaticamente o estado em pausa. Em cada caso, o serviço estará disponível e num estado parado.  Para retomar migrações Active Directory, reinicie o serviço.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>Q. Onde pode deixar os comentários sobre o serviço de migração de base de dados do Azure?
 Queremos ouvi do utilizador. Envie quaisquer comentários e / ideias tem sobre o serviço de migração de base de dados do Azure através de voz do utilizador, [aqui](https://feedback.azure.com/forums/906100-azure-database-migration-service).

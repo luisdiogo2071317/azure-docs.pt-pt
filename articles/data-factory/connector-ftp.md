@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: debfa7b584e4172821801197be94e597066cdb8d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 69b8581399d2bf7e0f2196f7bbad4e6522979239
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar os dados do servidor FTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ As seguintes propriedades são suportadas para o serviço FTP ligada:
 | enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor quando estiver a utilizar FTP através do canal SSL/TLS.<br/>Valores permitidos são: **verdadeiro** (predefinição), **falso**. | Não |
 | authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **básico**, **anónimo** | Sim |
 | userName | Especifique o utilizador que tem acesso ao servidor de FTP. | Não |
-| palavra-passe | Especifique a palavra-passe para o utilizador (nome de utilizador). Marcar este campo como SecureString. | Não |
+| palavra-passe | Especifique a palavra-passe para o utilizador (nome de utilizador). Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo 1: utilizar a autenticação anónima**

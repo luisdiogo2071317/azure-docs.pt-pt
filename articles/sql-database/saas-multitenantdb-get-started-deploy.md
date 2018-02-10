@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma a aplicação multi-inquilino que utiliza a SQL Database do Azure
 
-Neste tutorial, implementar e explorar uma aplicação de base de dados do multi-inquilino de SaaS de exemplo denominada Wingtip pedidos de suporte. A aplicação de Wingtip foi concebida para demonstram as funcionalidades da SQL Database do Azure que simplificam a implementação de cenários de SaaS.
+Neste tutorial, implementar e explorar uma aplicação SaaS multi-inquilino de exemplo denominada Wingtip pedidos de suporte. A aplicação de bilhetes Wingtip foi concebida para demonstram as funcionalidades da SQL Database do Azure que simplificam a implementação de cenários de SaaS.
 
-Esta implementação do Wingtips utiliza um padrão da base de dados do multi-inquilino. É a fragmentação pelo identificador de inquilino. Dados do inquilino são distribuídos para uma determinada base de dados, de acordo com os valores de identificador de inquilino. Independentemente quantos inquilinos qualquer base de dados fornecido contém, todas as bases de dados são o multi-inquilinos na medida em que os esquemas de tabela incluem um identificador de inquilino. 
+Esta implementação da aplicação Wingtip bilhetes utiliza um padrão da base de dados do multi-inquilino. É a fragmentação pelo identificador de inquilino. Dados do inquilino são distribuídos para uma determinada base de dados, de acordo com os valores de identificador de inquilino. 
 
 Neste padrão de base de dados permite-lhe armazenar um ou mais inquilinos em cada partição horizontal ou a base de dados. Pode otimizar o custo mais baixo, fazendo com que cada base de dados ser partilhado por vários inquilinos. Ou pode otimizar para isolamento, fazendo com que cada base de dados armazenar apenas um inquilino. A opção de otimização pode ser efetuada separadamente para cada inquilino específico. Pode ser efetuada à sua escolha, quando o inquilino é armazenado pela primeira vez, ou pode mudar de ideias mais tarde. A aplicação foi concebida para funcionar bem qualquer forma.
 
 #### <a name="app-deploys-quickly"></a>Aplicação implementa rapidamente
 
-A secção de implementação que se segue fornece a azul **implementar no Azure** botão. Quando o botão é premido, a aplicação de Wingtip totalmente é implementada um cinco minutos mais tarde. A aplicação de Wingtip é executado na nuvem do Azure e utiliza a SQL Database do Azure. Wingtip é implementada a sua subscrição do Azure. Tem acesso total ao trabalhar com os componentes de aplicações individuais.
+A aplicação é executada na nuvem do Azure e utiliza a SQL Database do Azure. A secção de implementação que se segue fornece a azul **implementar no Azure** botão. Quando o botão é premido, a aplicação é totalmente implementada a sua subscrição do Azure dentro de cinco minutos. Tem acesso total ao trabalhar com os componentes de aplicações individuais.
 
 A aplicação é implementada com os dados para os três inquilinos de exemplo. Os inquilinos são armazenados em conjunto numa base de dados do multi-inquilino.
 
@@ -40,7 +40,7 @@ Qualquer pessoa pode transferir o código de origem do c# e do PowerShell para b
 #### <a name="learn-in-this-tutorial"></a>Saiba neste tutorial
 
 > [!div class="checklist"]
-> - Como implementar a aplicação Wingtip SaaS.
+> - Como implementar a aplicação de Wingtip bilhetes SaaS.
 > - Onde obter o código fonte da aplicação e os scripts de gestão.
 > - Sobre os servidores e bases de dados que constituem a aplicação.
 > - Como os inquilinos estão mapeados para os seus dados com o *catálogo*.
@@ -139,7 +139,7 @@ Um centro **Hub de eventos** página Web fornece uma lista de ligações para os
 
 Para controlar a distribuição de pedidos recebidos, utiliza a aplicação de Wingtip [Traffic Manager do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino no respetivo URL. Cada URL também inclui o valor de utilizador específico. Cada URL obeys o formato mostrado utilizando os seguintes passos:
 
-- http://events.Wingtip. &lt;Utilizador&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. A aplicação de eventos analisa o nome de inquilino a partir do URL. O nome do inquilino é *fabrikamjazzclub* no URL do exemplo anterior.
 2. A aplicação, em seguida, codifica o nome do inquilino para criar uma chave para aceder a um catálogo utilizando [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md).

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Copiar dados de Google BigQuery através da utilização do Azure Data Factory (beta)
 
@@ -52,7 +52,7 @@ As seguintes propriedades são suportadas para o Google BigQuery serviço ligado
 | additionalProjects | Uma lista separada por vírgulas de IDs de projeto do público BigQuery projetos para o acesso.  | Não |
 | requestGoogleDriveScope | Indica se deve pedir acesso ao Google Drive. Permitir o acesso de Google Drive permite suporte para tabelas federadas que combinam dados BigQuery com dados a partir do Google Drive. O valor predefinido é **falso**.  | Não |
 | authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication pode ser utilizado apenas no tempo de execução do Self-hosted integração. <br/>Valores permitidos são **ServiceAuthentication** e **UserAuthentication**. | Sim |
-| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso ao BigQuery para UserAuthentication. Pode marcar este campo como SecureString armazena de forma segura na fábrica de dados. Também pode armazenar a palavra-passe no Cofre de chaves do Azure e permitem a extração de atividade de cópia a partir daí, quando efetuar cópia de dados. Para obter mais informações, consulte [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Não |
+| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso ao BigQuery para UserAuthentication. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
 | e-mail | O ID de correio eletrónico de conta do serviço é utilizado para ServiceAuthentication. Pode ser utilizado apenas no tempo de execução do Self-hosted integração.  | Não |
 | keyFilePath | O caminho completo para o ficheiro de chave. p12 que é utilizado para autenticar o endereço de e-mail da conta de serviço. Pode ser utilizado apenas no tempo de execução do Self-hosted integração.  | Não |
 | trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna utilizados para verificar o servidor ao estabelecer ligação através de SSL. Esta propriedade pode ser definida apenas quando utilizar o protocolo SSL no tempo de execução do Self-hosted integração. O valor predefinido é o ficheiro de cacerts.pem instalado com o tempo de execução de integração.  | Não |

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Criar um ambiente de máquina virtual completado do Linux no Azure com Ansible
 Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar Ansible para gerir as máquinas virtuais (VMs) no Azure, os mesmos como faria com qualquer outro recurso. Este artigo mostra como criar um ambiente de Linux completado e de recursos com Ansible de suporte. Também pode aprender como [criar uma VM básica com Ansible](ansible-create-vm.md).
@@ -187,7 +187,7 @@ Para reunir todas estas secções, crie um manual de comunicação social Ansibl
         version: latest
 ```
 
-Ansible necessita de um grupo de recursos para implementar todos os recursos em. Crie um grupo de recursos com [az group create](/cli/azure/vm#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *eastus* localização:
+Ansible necessita de um grupo de recursos para implementar todos os recursos em. Crie um grupo de recursos com [az group create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

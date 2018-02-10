@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 67bbf48c0ce67b0fef5cc2b1c61e3612e0201534
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4190b1cbc7e32b1471795e29a211f7a7e5831648
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar Jive para aprovisionamento de utilizadores automática
 
@@ -93,9 +93,9 @@ Como parte deste procedimento, é necessário fornecer um token de segurança do
 
 12. Clique em **guardar.**
 
-Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Jive na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os relatórios de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação Jive de aprovisionamento.
+Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Jive na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os registos de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação Jive de aprovisionamento.
 
-Agora, pode criar uma conta de teste. Aguarde até 20 minutos para verificar que a conta foi sincronizada Jive.
+Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

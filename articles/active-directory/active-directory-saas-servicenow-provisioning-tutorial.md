@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: de6bddeedbff5fded716db31b1a528466df1d396
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 50d5ecd0542d236d4d68656af7808c329728aa39
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar o ServiceNow para aprovisionamento de utilizadores automática no Azure Active Directory
 
@@ -84,7 +84,9 @@ Esta secção orienta-o de ligar o seu Azure AD a conta de utilizador do Service
 
 12. Clique em **guardar.**
 
-Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a ServiceNow na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para aprovisionamento de relatórios de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação do ServiceNow.
+Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a ServiceNow na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para aprovisionamento de registos de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação do ServiceNow.
+
+Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

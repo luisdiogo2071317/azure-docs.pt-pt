@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -213,11 +213,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d| tem de ser definido como `queueTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção**| n/d | No *function.json* apenas de ficheiros. tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | n/d |O nome da variável que representa a fila no código da função.  | 
+|**type** | n/d| tem de ser definido como `queueTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direction**| n/d | No *function.json* apenas de ficheiros. tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**name** | n/d |O nome da variável que representa a fila no código da função.  | 
 |**queueName** | **QueueName**| O nome da fila para consultar. | 
-|**ligação** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
+|**connection** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -248,7 +248,7 @@ O acionador de fila fornece várias propriedades de metadados. Estas propriedade
 
 ## <a name="trigger---poison-messages"></a>Acionador - mensagens nocivas
 
-Quando uma função de Acionador de fila falha, as funções do Azure tentará novamente a função de até cinco vezes para uma mensagem de fila especificado, incluindo a primeira tentativa. Se a todas as tentativas de cinco falharem, o tempo de execução de funções adiciona uma mensagem para uma fila com o nome * &lt;originalqueuename >-nocivas*. Pode escrever uma função para processar mensagens da fila nocivas pelo registá-los ou enviar uma notificação que atenção manual é necessária.
+Quando uma função de Acionador de fila falha, as funções do Azure tentará novamente a função de até cinco vezes para uma mensagem de fila especificado, incluindo a primeira tentativa. Se a todas as tentativas de cinco falharem, o tempo de execução de funções adiciona uma mensagem para uma fila com o nome  *&lt;originalqueuename >-nocivas*. Pode escrever uma função para processar mensagens da fila nocivas pelo registá-los ou enviar uma notificação que atenção manual é necessária.
 
 Para processar mensagens nocivas manualmente, verifique o [dequeueCount](#trigger---message-metadata) da mensagem de fila.
 
@@ -435,11 +435,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | tem de ser definido como `queue`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | n/d | tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | n/d | O nome da variável que representa a fila no código da função. Definido como `$return` para referenciar o valor de retorno da função.| 
+|**type** | n/d | tem de ser definido como `queue`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direction** | n/d | tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**name** | n/d | O nome da variável que representa a fila no código da função. Definido como `$return` para referenciar o valor de retorno da função.| 
 |**queueName** |**QueueName** | O nome da fila. | 
-|**ligação** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
+|**connection** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -458,6 +458,15 @@ Em c# e c# script, escreva vários de fila de mensagens através de um dos segui
 * [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
 Funções de JavaScript, utilizar `context.bindings.<name>` para aceder a mensagem da fila de saída. Pode utilizar uma cadeia ou um objeto JSON serializável para o payload de item de fila.
+
+
+## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
+
+| Vínculo |  Referência |
+|---|---|
+| Filas | [Códigos de erro da fila](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| BLOB, tabela, fila | [Códigos de erro do armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| BLOB, tabela, fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 159bb0500dd98a428d60d6aeb78767a3460b40dc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: ec9d728eb31eb979e82bfb53cf619f823750e65c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe de SQLFilter
 
@@ -192,7 +192,7 @@ As constantes booleanos são representadas por palavras-chave **verdadeiro** ou 
 
 As constantes String estão incluídas entre plicas e incluam quaisquer carateres Unicode válidos. Uma plica incorporada numa constante de cadeia é representada como dois único entre aspas.  
   
-## <a name="function"></a>Função  
+## <a name="function"></a>função  
   
 ```  
 <function> :=  
@@ -278,7 +278,7 @@ Considere o seguinte [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlf
   
 -   Operadores de aritméticas, tais como `+`, `-`, `*`, `/`, e `%` siga a mesma semântica como operador c# no promoções de tipo de dados e conversões implícitas de enlace.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Classe de SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe de SQLFilter (.NET padrão)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Dashboard de Kubernetes com o serviço de contentor do Azure (AKS)
 
@@ -23,14 +23,14 @@ A CLI do Azure pode ser utilizada para iniciar o Kubernetes Dashboard. Este docu
 
 Os passos detalhados neste documento partem do princípio de que já criou um cluster do AKS e estabeleceu uma ligação de kubectl com o cluster. Se precisar destes itens ver, a [início rápido AKS][aks-quickstart].
 
-Precisa também da versão 2.0.21 da CLI do Azure ou posterior instalada e configurada. Execute az --version para localizar a versão. Se precisar de instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Precisa também da versão 2.0.21 da CLI do Azure ou posterior instalada e configurada. Execute az --version para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Iniciar Kubernetes dashboard
 
 Utilize o `az aks browse` comando para iniciar o dashboard Kubernetes. Quando executar este comando, substitua o nome de grupo e o cluster de recursos.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Este comando cria um proxy entre o sistema de desenvolvimento e a API de Kubernetes e abre um browser para o dashboard Kubernetes.
@@ -71,7 +71,7 @@ Selecione **atualização** quando está preparado.
 
 ![Editar Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o dashboard Kubernetes, consulte a documentação de Kubernetes.
 

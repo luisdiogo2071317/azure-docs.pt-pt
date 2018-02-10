@@ -2,19 +2,19 @@
 title: "Como utilizar executar histórico e métricas de modelo no Azure Machine Learning Workbench | Microsoft Docs"
 description: "Guia de funcionalidades de histórico de execuções e métricas de modelo do Azure Machine Learning Workbench de utilização"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 2d1bce6463ac7880fd9091b4f3f2cbb226ea516d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Como histórico de execução de utilização e métricas de modelo no Azure Machine Learning Workbench
 
@@ -230,7 +230,7 @@ $ az ml history list -o table
 ```
 O **Interface de linha de comandos** é um caminho alternativo para aceder a potência do Workbench do Azure Machine Learning.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Estas funcionalidades estão disponíveis para ajudá-lo com o processo de experimentação de ciência de dados.
 Esperamos que encontrá-los para ser útil e significativamente seria Agradecemos os seus comentários.
 Trata-se apenas a nossa implementação inicial e, temos um elevado grau de melhoramentos planeada.

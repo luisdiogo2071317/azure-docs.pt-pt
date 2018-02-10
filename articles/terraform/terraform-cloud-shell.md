@@ -7,11 +7,11 @@ author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Desenvolvimento de Terraform nuvem Shell 
 
@@ -45,7 +45,7 @@ Ficheiros e Estados de shell são mantidas no armazenamento do Azure entre sess�
 O 2.0 CLI do Azure está disponível na Shell de nuvem e é uma ótima ferramenta para testar configurações e a verificar o seu trabalho após um `terraform apply` ou `terraform destroy` for concluída.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Criar um cluster VM pequeno, com o módulo de registo](terraform-create-vm-cluster-module.md)
 [criar um cluster VM pequeno utilizando HCL personalizado](terraform-create-vm-cluster-with-infrastructure.md)

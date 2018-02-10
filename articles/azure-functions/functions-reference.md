@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Guia para programadores as funções do Azure
 Nas funções do Azure, funções específicas partilham alguns conceitos técnicos núcleos e componentes, independentemente do idioma ou enlace que utiliza. Antes de ir para detalhes específicos de um determinado idioma ou enlace de aprendizagem, lembre-se de que leia esta descrição geral que se aplica a todos eles.
@@ -53,9 +53,9 @@ O `bindings` propriedade é onde configurou os acionadores e enlaces. Cada enlac
 
 | Propriedade | Tipos de valores / | Comentários |
 | --- | --- | --- |
-| `type` |cadeia |Tipo de enlace. Por exemplo, `queueTrigger`. |
+| `type` |string |Tipo de enlace. Por exemplo, `queueTrigger`. |
 | `direction` |'no', 'out' |Indica se o enlace é para receber dados para a função ou o envio de dados da função. |
-| `name` |cadeia |O nome que é utilizado para os dados vinculados na função. Para c#, este é um nome de argumento; para JavaScript, é a chave de uma lista de chave/valor. |
+| `name` |string |O nome que é utilizado para os dados vinculados na função. Para c#, este é um nome de argumento; para JavaScript, é a chave de uma lista de chave/valor. |
 
 ## <a name="function-app"></a>Function App
 Uma aplicação de função é composta por uma ou mais funções individuais que são geridas em conjunto pelo App Service do Azure. Todas as funções de uma aplicação de função partilham o mesmo plano de preços, a implementação contínua e a versão de tempo de execução. As funções de escritas em várias linguagens podem partilhar a mesma aplicação de função. Considere uma aplicação de função como uma forma de organizar e coletivamente gerir as suas funções. 
@@ -117,6 +117,8 @@ O código para as funções do Azure é open source e armazenados no repositóri
 Eis uma tabela de todos os enlaces suportados.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Ter problemas com erros feitos os enlaces? Reveja o [códigos de erro de enlace do Azure funções](functions-bindings-error-pages.md) documentação.
 
 ## <a name="reporting-issues"></a>Relatórios de problemas
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

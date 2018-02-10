@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 14f654979f004186e81b2f18578ced3c9aab3815
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab29338b5ce2090166e75f3860744562aa9f6b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de origem e de arquivos de dados ODBC utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,10 +55,10 @@ As seguintes propriedades são suportadas para o serviço ligado de ODBC:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Odbc** | Sim |
-| connectionString | A cadeia de ligação, excluindo a parte da credencial. Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utilize o DSN (nome da origem de dados) configurou na máquina com o tempo de execução de integração do sistema `"DSN=<name of the DSN on IR machine>;"` (necessário ainda especificar a parte da credencial no serviço ligado em conformidade).| Sim |
+| connectionString | A cadeia de ligação, excluindo a parte da credencial. Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utilize o DSN (nome da origem de dados) configurou na máquina com o tempo de execução de integração do sistema `"DSN=<name of the DSN on IR machine>;"` (necessário ainda especificar a parte da credencial no serviço ligado em conformidade).<br>Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md).| Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC.<br/>Valores permitidos são: **básico** e **anónimo**. | Sim |
 | userName | Especifique o nome de utilizador se estiver a utilizar autenticação básica. | Não |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString. | Não |
+| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
 | credencial | A parte de credencial de acesso da cadeia de ligação especificada no formato do valor da propriedade do controlador específico. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marcar este campo como um SecureString. | Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
 

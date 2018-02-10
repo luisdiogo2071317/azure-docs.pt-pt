@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de ficheiros do Azure de montagem em VMs do Linux utilizando o SMB
 
@@ -67,7 +67,7 @@ A mover os ficheiros de uma VM para uma montagem SMB que está alojada no armaze
 
 Nestas instruções detalhadas, iremos criar os pré-requisitos necessários para primeiro criar a partilha de ficheiros de armazenamento e montá-la através de SMB numa VM com Linux.
 
-1. Criar um grupo de recursos com [criar grupo az](/cli/azure/group#create) para conter a partilha de ficheiros.
+1. Criar um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create) para conter a partilha de ficheiros.
 
     Para criar um grupo de recursos denominado `myResourceGroup` na localização "EUA Oeste", utilize o seguinte exemplo:
 
@@ -75,7 +75,7 @@ Nestas instruções detalhadas, iremos criar os pré-requisitos necessários par
     az group create --name myResourceGroup --location westus
     ```
 
-2. Criar uma conta de armazenamento do Azure com [criar conta de armazenamento az](/cli/azure/storage/account#create) para armazenar os ficheiros concretos.
+2. Criar uma conta de armazenamento do Azure com [criar conta de armazenamento az](/cli/azure/storage/account#az_storage_account_create) para armazenar os ficheiros concretos.
 
     Para criar uma conta de armazenamento denominada mystorageaccount utilizando o armazenamento de Standard_LRS SKU, utilize o seguinte exemplo:
 
@@ -90,7 +90,7 @@ Nestas instruções detalhadas, iremos criar os pré-requisitos necessários par
 
     Quando cria uma conta de armazenamento, as chaves de conta são criadas pares para que pode ser rotação sem qualquer interrupção do serviço. Quando mudar para a segunda chave na par, crie um novo par de chaves. Chaves de conta de armazenamento novas sempre são criadas pares, assegurando que tem sempre, pelo menos, uma chave de conta de armazenamento não utilizados pronta para mudar para.
 
-    Ver as chaves de conta de armazenamento com o [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#list). A conta de armazenamento de chaves para o nomeado `mystorageaccount` estão listados no exemplo seguinte:
+    Ver as chaves de conta de armazenamento com o [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az_storage_account_keys_list). A conta de armazenamento de chaves para o nomeado `mystorageaccount` estão listados no exemplo seguinte:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Nestas instruções detalhadas, iremos criar os pré-requisitos necessários par
 
 4. Crie partilha do File storage.
 
-    A partilha do File storage contém a partilha SMB com [criar partilha de armazenamento az](/cli/azure/storage/share#create). A quota é sempre expresso em gigabytes (GB). A passagem de uma das chaves de precedente `az storage account keys list` comando. Crie uma partilha denominada mystorageshare com uma quota de 10 GB ao utilizar o exemplo seguinte:
+    A partilha do File storage contém a partilha SMB com [criar partilha de armazenamento az](/cli/azure/storage/share#az_storage_share_create). A quota é sempre expresso em gigabytes (GB). A passagem de uma das chaves de precedente `az storage account keys list` comando. Crie uma partilha denominada mystorageshare com uma quota de 10 GB ao utilizar o exemplo seguinte:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,10 +137,10 @@ Nestas instruções detalhadas, iremos criar os pré-requisitos necessários par
     Quando reiniciar a VM com Linux, a partilha SMB montada é desmontada durante o encerramento. Para remontar na partilha SMB no arranque, adicione uma linha para o /etc/fstab Linux. Linux utiliza o ficheiro de fstab para listar os sistemas de ficheiros que necessita de montagem durante o processo de arranque. Adicionar a partilha SMB garante que a partilha do File storage é um sistema de ficheiro permanentemente instalado para a VM com Linux. É possível adicionar o armazenamento de ficheiros de partilha do SMB para uma nova VM ao utilizar init de nuvem.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Nuvem init a utilizar para personalizar uma VM com Linux durante a criação](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Adicionar um disco a uma VM do Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

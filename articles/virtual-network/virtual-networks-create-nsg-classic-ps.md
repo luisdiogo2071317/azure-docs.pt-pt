@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e3f84e4757e3854fc63e3069e179446174f0c0bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72f962fdc3b5d1b26dc0a08916a21694ddf7afe7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-nsgs-classic-in-powershell"></a>Como criar NSGs (clássica) no PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -35,7 +35,7 @@ Este artigo abrange o modelo de implementação clássica. Também pode [criar N
 O exemplo do PowerShell comandos abaixo esperam num ambiente simple já criado com base no cenário acima. Se pretender executar os comandos, como são apresentados neste documento, criar primeiro o ambiente de teste por [criar uma VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Como criar o NSG para a sub-rede do front-end
-Para criar um NSG denominado chamado **NSG-front-end** com base no cenário acima, siga os passos abaixo:
+Para criar um NSG denominado **NSG-front-end** com base no cenário acima, siga os passos abaixo:
 
 1. Se nunca tiver utilizado o Azure PowerShell, veja [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) e siga as instruções até ao fim para iniciar sessão no Azure e selecionar a sua subscrição.
 2. Criar um grupo de segurança de rede com o nome **NSG-front-end**.

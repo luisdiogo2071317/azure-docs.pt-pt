@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Início rápido para Bash na Shell de nuvem do Azure
 
@@ -59,7 +59,7 @@ Crie uma VM com Ubuntu no seu novo grupo de recursos. O 2.0 CLI do Azure irá cr
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> As chaves públicas e privadas utilizadas para autenticar a sua VM são colocadas em `/User/.ssh/id_rsa` e `/User/.ssh/id_rsa.pub` pelo Azure CLI 2.0 por predefinição. A pasta. SSH é persistente na imagem de 5 GB a partilha ficheiros do Azure ligado.
+> As chaves públicas e privadas utilizadas para autenticar a sua VM são colocadas em `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub` pelo Azure CLI 2.0 por predefinição. A pasta. SSH é persistente na imagem de 5 GB a partilha ficheiros do Azure ligado.
 
 O nome de utilizador nesta VM será o seu nome de utilizador utilizada na Shell de nuvem ($User@Azure:).
 
@@ -76,7 +76,7 @@ Depois de estabelecer a ligação SSH, deverá ver a linha de comandos de boas-v
 Elimine o grupo de recursos e quaisquer recursos dentro da mesma: <br>
 Execute `az group delete -n MyRG`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre ficheiros persistentes para Bash na Shell de nuvem](persisting-shell-storage.md) <br>
 [Saiba mais sobre a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre armazenamento de ficheiros do Azure](../storage/files/storage-files-introduction.md) <br>

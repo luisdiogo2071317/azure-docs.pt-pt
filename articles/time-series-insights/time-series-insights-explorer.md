@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador do Azure Insights de séries de tempo
 Este artigo explicar as várias funcionalidades e as opções disponíveis na aplicação de web do Explorador de informações de séries de tempo. Utilize o Explorador de informações de séries de tempo no seu browser para criar as visualizações de dados.
@@ -37,7 +37,7 @@ Minutos de ligar a sua origem de evento para o seu ambiente de informações de 
 
 2. Depois de selecionar um ambiente, utilizar o **FROM** e **para** configurações na parte superior, ou clique e arraste ao longo do intervalo de tempo pretendido.  Clique a Lupa na parte superior direita, ou durante o período de tempo selecionado com o botão direito e selecione **pesquisa**.  
 
-3. Também pode atualizar disponibilidade automaticamente cada minuto, selecionando o **automática no** botão.
+3. Também pode atualizar disponibilidade automaticamente cada minuto, selecionando o **automática no** botão.  Tenha em atenção de que o botão 'Auto-On' só se aplica o gráfico de disponibilidade, não o conteúdo de visualização principal.
 
 4. Tenha em atenção de que o ícone de nuvem do Azure leva-o para o seu ambiente no portal do Azure.
 
@@ -106,6 +106,6 @@ Minutos de ligar a sua origem de evento para o seu ambiente de informações de 
 
 Agora constatou as várias funcionalidades e as opções disponíveis na aplicação de web do Explorador de informações de séries de tempo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 >[Diagnosticar e resolver problemas no seu ambiente de informações de séries de tempo](time-series-insights-diagnose-and-solve-problems.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: abd6f05e9b9ce711ce55e88f07aa13287c76ebc2
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 58c0f5b0ac8e96c2457db4b86dcf2483f68289c6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Como implementar um serviço Web em várias regiões
 Novos serviços Web do Azure permitem-lhe facilmente implementar um serviço web para várias regiões sem necessitar de várias subscrições ou áreas de trabalho. 

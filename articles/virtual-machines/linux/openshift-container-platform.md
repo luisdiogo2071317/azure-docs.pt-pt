@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 81d1e2a92a24d43c6324b4fe026680c379e656da
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementar OpenShift contentor plataforma no Azure
 
@@ -179,13 +179,13 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Utilize o [eliminação do grupo de az](/cli/azure/group#delete) comando para remover o grupo de recursos, de cluster de OpenShift e todos os recursos relacionados quando já não forem necessárias.
+Utilize o [eliminação do grupo de az](/cli/azure/group#az_group_delete) comando para remover o grupo de recursos, de cluster de OpenShift e todos os recursos relacionados quando já não forem necessárias.
 
 ```azurecli 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Tarefas de pós-implementação](./openshift-post-deployment.md)
 - [Resolver problemas de implementação de OpenShift no Azure](./openshift-troubleshooting.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: fcc7e1cbacc7889c9525207b238162e6caa6b00b
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 20115897bb5ae2638588e79d80700fa8ece06104
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de Service Bus do Azure no Monitor do Azure (pré-visualização)
 
@@ -28,7 +28,7 @@ Monitor do Azure fornece interfaces de utilizador unificadas monitorização atr
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-Monitor do Azure fornece várias formas de métricas de acesso. Poderá utilizar qualquer uma das métricas de acesso através de [portal do Azure](https://portal.azure.com), ou utilizar as APIs de Monitor do Azure (REST e .NET) e soluções de análise, tais como operação Management Suite e Hubs de eventos. Para obter mais informações, consulte [métricas de Monitor de Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Monitor do Azure fornece várias formas de métricas de acesso. Poderá utilizar qualquer uma das métricas de acesso através de [portal do Azure](https://portal.azure.com), ou utilizar as APIs de Monitor do Azure (REST e .NET) e soluções de análise, tais como o conjunto de gestão da operação (OMS) e do Event Hubs. Para obter mais informações, consulte [métricas de Monitor de Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 As métricas são ativadas por predefinição e pode aceder os mais recentes 30 dias de dados. Se precisar de manter os dados para um período de tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [definições de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) no Monitor do Azure.
 
@@ -46,7 +46,7 @@ Com base nas métricas que suportam dimensões, tem de filtro com o valor de dim
 
 ## <a name="billing"></a>Faturação
 
-A utilização de métricas no Monitor do Azure é atualmente livre em pré-visualização. No entanto, se utilizar soluções adicionais que ingestão de dados de métricas, é poderá ser-cobrada por estas soluções. Por exemplo, é-lhe faturado o armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são faturadas por conjunto de gestão da operação (OMS) se a transmitir dados de métricas para OMS para análise avançada.
+A utilização de métricas no Monitor do Azure é gratuita durante a pré-visualização. No entanto, se utilizar soluções adicionais que ingestão de dados de métricas, é poderá ser-cobrada por estas soluções. Por exemplo, é-lhe faturado o armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são faturadas por conjunto de gestão da operação (OMS) se a transmitir dados de métricas para OMS para análise avançada.
 
 As métricas seguintes dão-lhe uma descrição geral do Estado de funcionamento do seu serviço. 
 
@@ -59,7 +59,7 @@ Todos os valores da métrica são enviados para o Monitor de Azure cada minuto. 
 
 Conta o número de pedidos de operações de gestão e de dados.
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço do Service Bus através de um período de tempo especificado. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Pedidos com êxito (pré-visualização)|O número de pedidos efetuados para o serviço do Service Bus durante um período especificado com êxito.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -69,14 +69,14 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 ## <a name="message-metrics"></a>Métricas de mensagem
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 |Mensagens a receber (pré-visualização)|O número de eventos ou as mensagens enviadas para o Service Bus através de um período de tempo especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Mensagens de saída (pré-visualização)|O número de eventos ou mensagens recebidas a partir do Service Bus num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 |ActiveConnections (pré-visualização)|O número de ligações ativas um espaço de nomes, bem como uma entidade.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Aberto de ligações (pré-visualização)|O número de ligações abertas.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -84,7 +84,7 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 ## <a name="resource-usage-metrics"></a>Métrica de utilização de recursos
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 |Utilização da CPU por espaço de nomes (pré-visualização)|A percentagem de utilização da CPU do espaço de nomes.<br/><br/> Unidade: por cento <br/> Tipo de agregação: máximo <br/> Dimensão: EntityName|
 |Utilização de tamanho de memória por espaço de nomes (pré-visualização)|A utilização de memória de percentagem do espaço de nomes.<br/><br/> Unidade: por cento <br/> Tipo de agregação: máximo <br/> Dimensão: EntityName|
@@ -97,7 +97,7 @@ Service Bus do Azure suporta as seguintes dimensões para as métricas no Monito
 | ------------------- | ----------------- |
 |EntityName| Service Bus suporta entidades de mensagens sob o espaço de nomes.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte o [descrição geral da monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

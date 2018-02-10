@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9ff50ddc2460a94c17b2401f0c8e4ad12c6d23a7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a4dae46c7bd76b3278b5e8fc254cf0a870c8f5b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce Sandbox para o aprovisionamento de utilizador automáticas
 
@@ -103,9 +103,9 @@ O objetivo desta secção consiste em descrevem como ativar o aprovisionamento d
 
 17. Clique em **guardar.**
 
-Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Salesforce Sandbox na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os relatórios de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na aplicação Salesforce Sandbox de aprovisionamento.
+Inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Salesforce Sandbox na secção utilizadores e grupos. A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para os registos de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na aplicação Salesforce Sandbox de aprovisionamento.
 
-Agora, pode criar uma conta de teste. Aguarde até 20 minutos para verificar que a conta do salesforce foi sincronizada.
+Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
