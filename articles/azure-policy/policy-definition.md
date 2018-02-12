@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -66,14 +66,11 @@ Todas as amostras de modelo de política do Azure estão em [modelos de polític
 
 ## <a name="mode"></a>Modo
 
-Recomendamos que defina `mode` para `all` para ter uma política de atribuição de avaliar todos os tipos e grupos de recursos. Pode ver um exemplo de uma definição de política que impõe etiquetas num grupo de recursos em [permitir imagem VM personalizada de um grupo de recursos](scripts/allow-custom-vm-image.md).
+O **modo** determina que tipos de recursos serão avaliados para uma política. Os modos suportados são:
+* `all`: avaliar os grupos de recursos e todos os tipos de recursos 
+* `indexed`: apenas avaliar os tipos de recursos que suportam as etiquetas e a localização
 
-Quando o definido como **todos os**, grupos de recursos e todos os tipos de recursos são avaliados para a política. O portal utiliza **todos os** para todas as políticas. Se utilizar o PowerShell ou a CLI do Azure, tem de especificar o `mode` parâmetro e defina-o como **todos os**.
-
-Todas as definições de política criadas utilizando o portal utilizam uma `all` modo, contudo se pretender utilizar o PowerShell ou a CLI do Azure, tem de especificar o `mode` parâmetro e configurá-lo para `all`.
-
-Se definir o modo como `indexed`, a atribuição de política será avaliada apenas tipos de recursos que suportam as etiquetas e a localização.
-
+Recomendamos que defina **modo** para `all`. Todas as definições de política criadas através da utilização do portal de `all` modo. Se utilizar o PowerShell ou a CLI do Azure, tem de especificar o **modo** parâmetro e defina-o como `all`. 
 
 ## <a name="parameters"></a>Parâmetros
 

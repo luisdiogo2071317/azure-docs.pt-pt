@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 4b8023b8b2c33ce9fc1a6294e21b1518abbc392b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -635,9 +635,9 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de re
 
 **SAÍDA:** 
 
-Coefficients: [0.0082065285375-0.0223675576104,-0.0183812028036, - 3.48124578069e-05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921,-0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
+Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
-Intercept:-0.0111216486893
+Intercept: -0.0111216486893
 
 Tempo decorrido para executar acima célula: 14.43 segundos
 
@@ -691,15 +691,15 @@ Tempo decorrido para executar acima célula: 14.43 segundos
 
 Área em ELI = 0.985297691373
 
-Área em ROC = 0.983714670256
+Area under ROC = 0.983714670256
 
 Estatísticas de resumidas
 
 Precisão = 0.984304060189
 
-Recuperar = 0.984304060189
+Recall = 0.984304060189
 
-F1 Pontuar = 0.984304060189
+F1 Score = 0.984304060189
 
 Tempo decorrido para executar acima célula: 57.61 segundos
 
@@ -792,7 +792,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de fl
 
 **SAÍDA:**
 
-Área em ROC = 0.985297691373
+Area under ROC = 0.985297691373
 
 Tempo decorrido para executar acima célula: 31.09 segundos
 
@@ -838,7 +838,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de á
 
 **SAÍDA:**
 
-Área em ROC = 0.985297691373
+Area under ROC = 0.985297691373
 
 Tempo decorrido para executar acima célula: 19.76 segundos
 
@@ -904,13 +904,13 @@ O código nesta secção mostra como utilizar funcionalidades dimensionadas para
 
 **SAÍDA:**
 
-Coefficients: [0.00457675809917-0.0226314167349,-0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981,-0.000987181489428,-0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995,- 0.00990211159703-0.00637410344522, 0.545083566179,-0.536756072402, 0.0105762393099,-0.0130117577055, 0.0129304737772,-0.00171065945959]
+Coefficients: [0.00457675809917, -0.0226314167349, -0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981, -0.000987181489428, -0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995, -0.00990211159703, -0.00637410344522, 0.545083566179, -0.536756072402, 0.0105762393099, -0.0130117577055, 0.0129304737772, -0.00171065945959]
 
 Intercetar: 0.853872718283
 
 RMSE = 1.24190115863
 
-R sqr = 0.608017146081
+R-sqr = 0.608017146081
 
 Tempo decorrido para executar acima célula: 58.42 segundos
 
@@ -962,14 +962,14 @@ O código nesta secção mostra como preparar, avaliar e guardar um regressão d
 
 RMSE = 0.891209218139
 
-R sqr = 0.759661334921
+R-sqr = 0.759661334921
 
 Tempo decorrido para executar acima célula: 49.21 segundos
 
 ### <a name="gradient-boosting-trees-regression"></a>Regressão de árvores de aumento gradação
 O código nesta secção mostra como preparar, avaliar e guardar um modelo de árvores de aumento gradação que prevê a quantidade de sugestão de dados NYC taxi viagem.
 
-* * Dar formação e avaliar * *
+**Dar formação e avaliar**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1013,11 +1013,11 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de á
 
 RMSE = 0.908473148639
 
-R sqr = 0.753835096681
+R-sqr = 0.753835096681
 
 Tempo decorrido para executar acima célula: 34.52 segundos
 
-**Desenhar**
+**Plot**
 
 *tmp_results* está registado como uma tabela do Hive na célula anterior. Resultados da tabela são de saída para o *sqlResults* moldura de dados para representar. Eis o código
 

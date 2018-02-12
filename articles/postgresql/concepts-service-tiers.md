@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Base de dados do Azure para PostgreSQL opções e desempenho: compreender o que está disponível em cada escalão de preço
 Quando cria uma base de dados do Azure para o servidor de PostgreSQL, decida três escolhas principais para configurar os recursos alocados para esse servidor. Estas opções afetam o desempenho e a escala do servidor.
@@ -46,8 +46,8 @@ Para escolher um escalão de preço, primeiro comece por determinar se a carga d
 | :------------------------ | :-------- | :----------- |
 | Unidades de processamento máximo | 100 | 800 | 
 | Máximo de armazenamento total | 1 TB | 1 TB | 
-| Garantia IOPS de armazenamento | N/D | Sim | 
-| IOPS máximo de armazenamento | N/D | 3000 | 
+| Garantia IOPS de armazenamento | N/A | Sim | 
+| IOPS máximo de armazenamento | N/A | 3000 | 
 | Período de retenção de cópias de segurança de base de dados | 7 dias | 35 dias | 
 
 Durante o período de tempo de pré-visualização, não é possível alterar o escalão de preço assim que o servidor é criado. No futuro, será possível atualizar ou mudar de um servidor de um escalão de preço para outro escalão.
@@ -81,7 +81,7 @@ Computação que unidades são uma medida de débito de processamento de CPU que
 \*Tamanho máximo de armazenamento de servidor refere-se ao tamanho máximo de armazenamento aprovisionada para o servidor.
 
 ## <a name="storage"></a>Armazenamento 
-A configuração de armazenamento define a quantidade de capacidade de armazenamento disponível para uma base de dados do Azure para o servidor de PostgreSQL. O armazenamento utilizado pelo serviço inclui os ficheiros de base de dados, os registos de transações e os registos do servidor PostgreSQL. Considere o tamanho de armazenamento necessário para alojar as bases de dados e os requisitos de desempenho (IOPS), ao selecionar a configuração de armazenamento.
+A configuração de armazenamento define a quantidade de capacidade de armazenamento disponível para uma base de dados do Azure para o servidor de PostgreSQL. O armazenamento utilizado pelo serviço inclui os ficheiros de base de dados, ficheiros temporários, registos de transações e os registos do servidor PostgreSQL. Considere o tamanho de armazenamento necessário para alojar as bases de dados e os requisitos de desempenho (IOPS), ao selecionar a configuração de armazenamento.
 
 Alguns capacidade de armazenamento está incluída no mínimo, com cada escalão de preço, descrito na tabela anterior, como "Tamanho de armazenamento incluídos". Capacidade de armazenamento adicionais pode ser adicionada quando o servidor é criado, em incrementos de 125 GB, até o armazenamento máxima permitida. A capacidade de armazenamento adicionais pode ser configurada independentemente da configuração de unidades de computação. As alterações de preços com base na quantidade de armazenamento selecionada.
 
@@ -101,6 +101,6 @@ Nos bastidores, alterar o nível de desempenho de uma base de dados cria uma có
 
 A duração do processo de escala completa depende do tamanho tanto escalão do servidor de preços antes e após a alteração. Por exemplo, um servidor que está a alterar unidades de computação dentro do escalão de preço padrão, deve ser concluído dentro de alguns minutos. Novas propriedades para o servidor não são aplicadas até que as alterações foram concluídas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para mais informações sobre unidades de computação, consulte [explicar unidades de computação](concepts-compute-unit-and-storage.md)
 - Saiba como [monitorizar e dimensionar um único servidor PostgreSQL utilizando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)

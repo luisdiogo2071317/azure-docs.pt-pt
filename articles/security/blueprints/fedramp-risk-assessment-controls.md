@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint automatização - avaliação de riscos"
-description: "Aplicações Web para FedRAMP - avaliação de riscos"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - avaliação de riscos"
+description: "Automatização de aplicações FedRAMP Web - avaliação de riscos"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Avaliação de riscos (RA)
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="risk-assessment"></a>Avaliação de riscos
 
-**RA 3.e** A organização atualiza a avaliação de risco [atribuição: frequência definida de organização] ou sempre que existem alterações significativas no sistema de informações ou o ambiente da operação (incluindo a identificação das novas ameaças e vulnerabilidades), ou outras condições que possam afetar o estado de segurança do sistema.
+**RA-3.e** A organização atualiza a avaliação de risco [atribuição: frequência definida de organização] ou sempre que existem alterações significativas no sistema de informações ou o ambiente da operação (incluindo a identificação das novas ameaças e vulnerabilidades), ou outras condições que possam afetar o estado de segurança do sistema.
 
 **Responsabilidades:**`Customer Only`
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação da linha de base avalia um conjunto de chaves de registo, as definições de política de auditoria e definições de política de segurança juntamente com os valores de recomendada da Microsoft para estas definições. Avaliação de atualização avalia o estado das atualizações disponíveis em todas as máquinas virtuais implementadas. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação da linha de base avalia um conjunto de chaves de registo, as definições de política de auditoria e definições de política de segurança juntamente com os valores de recomendada da Microsoft para estas definições. Avaliação de atualização avalia o estado das atualizações disponíveis em todas as máquinas virtuais implementadas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Problemas identificados são atribuídos uma classificação de gravidade. Os IDs de enumeração de configuração (CCE) comuns são fornecidos para regras de avaliação de linha de base.  |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Problemas identificados são atribuídos uma classificação de gravidade. Os IDs de enumeração de configuração (CCE) comuns são fornecidos para regras de avaliação de linha de base.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="vulnerability-scanning"></a>Análise de vulnerabilidade
 
-**RA 5.e** A organização partilha as informações obtidas de vulnerabilidade avaliações de controlo de processo e de segurança com a análise [atribuição: técnico definido pela organização ou funções] para o ajudar a eliminar vulnerabilidades semelhantes em outros sistemas de informação (ou seja, fragilidades systemic ou falhas).
+**RA-5.e** A organização partilha as informações obtidas de vulnerabilidade avaliações de controlo de processo e de segurança com a análise [atribuição: técnico definido pela organização ou funções] para o ajudar a eliminar vulnerabilidades semelhantes em outros sistemas de informação (ou seja, fragilidades systemic ou falhas).
 
 **Responsabilidades:**`Customer Only`
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Os critérios relativamente ao qual avaliar estas soluções é atualizada automaticamente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação de atualização efetua a avaliação contra máquinas virtuais Windows e Linux. Avaliação contra máquinas virtuais do Windows utilizando uma linha de base do Microsoft desenvolvida com base nas melhores práticas industriais efetua a avaliação de linha de base. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Na solução, os dois domínios de segurança, avaliação de atualização e avaliação da linha de base, estão disponíveis. Avaliação de atualização efetua a avaliação contra máquinas virtuais Windows e Linux. Avaliação contra máquinas virtuais do Windows utilizando uma linha de base do Microsoft desenvolvida com base nas melhores práticas industriais efetua a avaliação de linha de base. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | O serviço Microsoft Monitoring Agent, que é configurado em máquinas virtuais implementadas por esta Blueprint do Azure, está configurado como um serviço automático com os privilégios necessários para atividades de avaliação. |
+| **Cliente** | O serviço Microsoft Monitoring Agent, que é configurado em máquinas virtuais implementadas por esta blueprint, está configurado como um serviço automático com os privilégios necessários para atividades de avaliação. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |

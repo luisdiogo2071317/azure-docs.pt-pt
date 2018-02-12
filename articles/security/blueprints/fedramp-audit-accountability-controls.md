@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Blueprint da automatização do Azure - auditoria e Accountability"
-description: "Aplicações Web para FedRAMP - auditoria e Accountability"
+title: "Segurança e do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - auditoria Accountability"
+description: "Automatização de aplicações FedRAMP Web - auditoria e Accountability"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Auditoria e Accountability (AU)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Capacidade de auditoria para este Blueprint do Azure é fornecida pelo Monitor do Azure e o serviço de análise de registos no OMS. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados no repositório de OMS. Análise de registos está correlacionada com dados de auditoria em recursos implementados por esta solução e pode ser expandido para a aplicação web implementada de cliente. |
+| **Cliente** | Capacidade de auditoria para este blueprint é fornecida pelo Monitor do Azure e o serviço de análise de registos no OMS. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados no repositório de OMS. Análise de registos está correlacionada com dados de auditoria em recursos implementados por esta solução e pode ser expandido para a aplicação web implementada de cliente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os eventos auditados por esta Blueprint Azure incluem informações suficientes para determinar quando ocorrem eventos, a origem do evento, o resultado de evento e outras informações detalhadas que suporte a investigação de incidentes de segurança. |
+| **Cliente** | Os eventos auditados por esta blueprint incluem informações suficientes para determinar quando ocorrem eventos, a origem do evento, o resultado de evento e outras informações detalhadas que suporte a investigação de incidentes de segurança. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os eventos auditados por esta Blueprint Azure incluem esses auditada por registos de atividade do Azure para recursos implementados, os registos de nível de SO, registos do Active Directory e os registos do servidor de SQL. Os clientes poderão selecionar eventos adicionais a serem auditados para satisfazer as necessidades de missão. |
+| **Cliente** | Os eventos auditados por esta blueprint incluem os auditada por registos de atividade do Azure para recursos implementados, os registos de nível de SO, registos do Active Directory e os registos do servidor de SQL. Os clientes poderão selecionar eventos adicionais a serem auditados para satisfazer as necessidades de missão. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure baseia-se nas capacidades de auditoria incorporadas do Azure, o Windows Server e o SQL Server. Estes registos de auditoria de captura de soluções com detalhes suficientes para satisfazer os requisitos deste controlo de auditoria. |
+| **Cliente** | Este blueprint baseia-se nas capacidades de auditoria incorporadas do Azure, o Windows Server e o SQL Server. Estes registos de auditoria de captura de soluções com detalhes suficientes para satisfazer os requisitos deste controlo de auditoria. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Eventos de registo de atividade do Azure utilizam um esquema de detalhado que contém campos de mais de 20 tipos de informações de auditoria. Para além do registo de atividade, este Blueprint Azure implementa a solução de análise de registos na OMS que suporta um conjunto diverso de origens de dados, incluindo os registos do Windows, Linux registos, registos de diagnóstico do Azure e os registos de cliente.  |
+| **Cliente** | Eventos de registo de atividade do Azure utilizam um esquema de detalhado que contém campos de mais de 20 tipos de informações de auditoria. Para além do registo de atividade, este blueprint implementa a solução de análise de registos na OMS que suporta um conjunto diverso de origens de dados, incluindo os registos do Windows, Linux registos, registos de diagnóstico do Azure e os registos de cliente.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as máquinas virtuais implementadas por esta Blueprint do Azure estão associadas ao domínio do Active Directory implementado. Todas as máquinas virtuais associados a um domínio de implementar uma política de grupo que pode ser configurada para gerir centralmente a configuração ao nível do SO do sistema de auditoria. |
+| **Cliente** | Todas as máquinas virtuais implementadas por esta blueprint estão associadas ao domínio do Active Directory implementado. Todas as máquinas virtuais associados a um domínio de implementar uma política de grupo que pode ser configurada para gerir centralmente a configuração ao nível do SO do sistema de auditoria. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure aloca a capacidade de armazenamento suficiente para reter os registos de auditoria durante um período de um ano. Todos os registos de auditoria são recolhidos através da análise de registos que está configurado para a retenção de um ano. |
+| **Cliente** | Este blueprint aloca a capacidade de armazenamento suficiente para reter os registos de auditoria durante um período de um ano. Todos os registos de auditoria são recolhidos através da análise de registos que está configurado para a retenção de um ano. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todos os registos de auditoria gerados pelos recursos implementados por esta Blueprint do Azure são recolhidos através da análise de registos e mantidos durante um período de um ano. A alocação de armazenamento para este armazenamento de registos de auditoria é dinamicamente atribuída garantir capacidade suficiente está disponível. |
+| **Cliente** | Todos os registos de auditoria gerados pelos recursos implementados por esta blueprint são recolhidos através da análise de registos e mantidos durante um período de um ano. A alocação de armazenamento para este armazenamento de registos de auditoria é dinamicamente atribuída garantir capacidade suficiente está disponível. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todos os registos de auditoria gerados pelos recursos implementados por esta Blueprint do Azure são recolhidos através da análise de registos e mantidos durante um período de um ano. A alocação de armazenamento para este armazenamento de registos de auditoria é dinamicamente atribuída garantir capacidade suficiente está disponível. |
+| **Cliente** | Todos os registos de auditoria gerados pelos recursos implementados por esta blueprint são recolhidos através da análise de registos e mantidos durante um período de um ano. A alocação de armazenamento para este armazenamento de registos de auditoria é dinamicamente atribuída garantir capacidade suficiente está disponível. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de análise de registos na OMS para centralizar os dados de auditoria em recursos implementados, que suporta a deteção situational toda a organização. Os clientes podem optar por obter integrar a análise de registos com outros sistemas. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos OMS para centralizar os dados de auditoria em recursos implementados, que suporta a deteção situational toda a organização. Os clientes podem optar por obter integrar a análise de registos com outros sistemas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de análise de registos OMS para centralizar os dados de auditoria em recursos implementados, suporte revisão centralizada, análises e relatórios. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos OMS para centralizar os dados de auditoria em recursos implementados, suporte revisão centralizada, análises e relatórios. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções do OMS implementadas, a integração de dados de registo e dos dados de vulnerabilidade de avaliação de patch e de linha de base. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente do postura de segurança. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções do OMS implementadas, a integração de dados de registo e dos dados de vulnerabilidade de avaliação de patch e de linha de base. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais do Windows implementadas por esta Blueprint Azure implementar permissões de nível de SO que restringir as ações de que um utilizador pode fazer com as informações de auditoria relativamente. No Azure, os utilizadores ou grupos de utilizadores podem ser atribuídos a funções (por exemplo, proprietário, Contribuidor, leitor ou uma função personalizada) para restringir as ações disponíveis relativamente a quaisquer recursos ou implementados soluções, incluindo a análise de registos.  |
+| **Cliente** | Máquinas virtuais do Windows implementadas por esta blueprint implementar permissões de nível de SO que restringir as ações de que um utilizador pode fazer com as informações de auditoria relativamente. No Azure, os utilizadores ou grupos de utilizadores podem ser atribuídos a funções (por exemplo, proprietário, Contribuidor, leitor ou uma função personalizada) para restringir as ações disponíveis relativamente a quaisquer recursos ou implementados soluções, incluindo a análise de registos.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. O conteúdo e a hora ordenação dos registos de auditoria não são alterados quando recolhidos através da análise de registos. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. O conteúdo e a hora ordenação dos registos de auditoria não são alterados quando recolhidos através da análise de registos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. O Log Analytics inclui uma poderosa linguagem de consultas, para extrair os dados armazenados no repositório. |
+| **Cliente** | Este blueprint implementa a solução de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. O Log Analytics inclui uma poderosa linguagem de consultas, para extrair os dados armazenados no repositório. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Recursos implementados por esta Blueprint do Azure, utilize os relógios de sistema interno para gerar os carimbos de data / hora para registos de auditoria. |
+| **Cliente** | Recursos implementados por este blueprint utilizam os relógios de sistema interno para gerar carimbos de data / hora para registos de auditoria. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Recursos implementados por esta Blueprint do Azure, utilize os relógios de sistema interno para gerar os carimbos de data / hora para registos de auditoria. Carimbos de data / hora é registadas em UTC. |
+| **Cliente** | Recursos implementados por este blueprint utilizam os relógios de sistema interno para gerar carimbos de data / hora para registos de auditoria. Carimbos de data / hora é registadas em UTC. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Recursos implementados por esta Blueprint do Azure, utilize os relógios de sistema interno para gerar os carimbos de data / hora para registos de auditoria. Os relógios de sistema interno estão configurados para sincronização com uma origem de hora autoritativo. |
+| **Cliente** | Recursos implementados por este blueprint utilizam os relógios de sistema interno para gerar carimbos de data / hora para registos de auditoria. Os relógios de sistema interno estão configurados para sincronização com uma origem de hora autoritativo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Recursos implementados por esta Blueprint do Azure, utilize os relógios de sistema interno para gerar os carimbos de data / hora para registos de auditoria. Os relógios de sistema interno estão configurados para sincronização com uma origem de hora autoritativo. |
+| **Cliente** | Recursos implementados por este blueprint utilizam os relógios de sistema interno para gerar carimbos de data / hora para registos de auditoria. Os relógios de sistema interno estão configurados para sincronização com uma origem de hora autoritativo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Controlos de acesso lógica são utilizados para proteger informações de auditoria e ferramentas dentro deste Blueprint Azure contra acesso não autorizado, alteração e eliminação. Azure Active Directory impõe o acesso lógico aprovado utilizando as associações de grupo baseada em funções. A capacidade para ver informações de auditoria e utilizar as ferramentas de auditoria pode ser limitada a utilizadores que exigem essas permissões. |
+| **Cliente** | Controlos de acesso lógica são utilizados para proteger informações de auditoria e ferramentas dentro deste blueprint contra acesso não autorizado, alteração e eliminação. Azure Active Directory impõe o acesso lógico aprovado utilizando as associações de grupo baseada em funções. A capacidade para ver informações de auditoria e utilizar as ferramentas de auditoria pode ser limitada a utilizadores que exigem essas permissões. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o serviço de análise de registos no OMS. Implementado VMs e o Azure contas de armazenamento do diagnostics origens ligada à análise de registos e mantidas em separado da respetiva origem. Dados recolhidos pelo OMS no praticamente em tempo real. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Implementado VMs e o Azure contas de armazenamento do diagnostics origens ligada à análise de registos e mantidas em separado da respetiva origem. Dados recolhidos pelo OMS no praticamente em tempo real. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o serviço de análise de registos no OMS. Análise de registos assegura que recebidos dados de uma origem fidedigna validando certificados e a integridade dos dados com a autenticação do Azure. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Análise de registos assegura que recebidos dados de uma origem fidedigna validando certificados e a integridade dos dados com a autenticação do Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Controlos de acesso lógica são utilizados para proteger informações de auditoria e ferramentas dentro deste Blueprint Azure contra acesso não autorizado, alteração e eliminação. Azure Active Directory impõe o acesso lógico aprovado utilizando as associações de grupo baseada em funções. A capacidade para ver informações de auditoria e utilizar as ferramentas de auditoria pode ser limitada a utilizadores que exigem essas permissões.
+| **Cliente** | Controlos de acesso lógica são utilizados para proteger informações de auditoria e ferramentas dentro deste blueprint contra acesso não autorizado, alteração e eliminação. Azure Active Directory impõe o acesso lógico aprovado utilizando as associações de grupo baseada em funções. A capacidade para ver informações de auditoria e utilizar as ferramentas de auditoria pode ser limitada a utilizadores que exigem essas permissões.
  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Capacidade de auditoria para este Blueprint do Azure é fornecida pelo Monitor do Azure e o serviço de análise de registos no OMS. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados no repositório de OMS. Estes registos continham registos detalhados de eventos do sistema de informações e podem ajudar a proteger contra não rejeição. Além disso, o acesso aos dados de registo é restringido através de controlo de acesso baseado em funções para impedir que unauthored modificação ou eliminação de dados de registo. |
+| **Cliente** | Capacidade de auditoria para este blueprint é fornecida pelo Monitor do Azure e o serviço de análise de registos no OMS. Monitor do Azure fornece registos de auditoria de detalhado sobre a atividade associados a recursos implementados. Estas e registos de nível de SO são recolhidos através da análise de registos e armazenados no repositório de OMS. Estes registos continham registos detalhados de eventos do sistema de informações e podem ajudar a proteger contra não rejeição. Além disso, o acesso aos dados de registo é restringido através de controlo de acesso baseado em funções para impedir que unauthored modificação ou eliminação de dados de registo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o serviço de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados retidos durante um ano por configuração de análise de registos. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Depois de recolhidos, os dados retidos durante um ano por configuração de análise de registos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os eventos auditados por esta Blueprint Azure incluem esses auditada por registos de atividade do Azure para recursos implementados, os registos de nível de SO, registos do Active Directory e os registos do servidor de SQL. Os clientes poderão selecionar eventos adicionais a serem auditados para satisfazer as necessidades de missão. |
+| **Cliente** | Os eventos auditados por esta blueprint incluem os auditada por registos de atividade do Azure para recursos implementados, os registos de nível de SO, registos do Active Directory e os registos do servidor de SQL. Os clientes poderão selecionar eventos adicionais a serem auditados para satisfazer as necessidades de missão. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Acesso às funções de auditoria é restringido através de controlo de acesso baseado em funções no Azure e na máquina virtual ao nível do SO. A configuração de eventos selecionado para ser auditadas ao recursos implementados por este Blueprint Azure pode ser configurada por utilizadores com adequadas de autorização baseada em funções. |
+| **Cliente** | Acesso às funções de auditoria é restringido através de controlo de acesso baseado em funções no Azure e na máquina virtual ao nível do SO. A configuração de eventos selecionado para ser auditadas ao recursos implementados por este blueprint pode ser configurada por utilizadores com adequadas de autorização baseada em funções. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os eventos auditados por esta Blueprint Azure incluem esses auditada por registos de atividade do Azure para recursos implementados, os registos de nível de SO, registos do Active Directory e os registos do servidor de SQL. Os clientes poderão selecionar eventos adicionais a serem auditados para satisfazer as necessidades de missão. |
+| **Cliente** | Os eventos auditados por esta blueprint incluem os auditada por registos de atividade do Azure para recursos implementados, os registos de nível de SO, registos do Active Directory e os registos do servidor de SQL. Os clientes poderão selecionar eventos adicionais a serem auditados para satisfazer as necessidades de missão. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o serviço de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Carimbos de data / hora de registo de auditoria não é alterados, assim, o registo de auditoria é correlacionado de tempo. |
+| **Cliente** | Este blueprint implementa o serviço de análise de registos no OMS. Análise de registos fornece serviços de monitorização para OMS através da recolha de dados a partir dos recursos geridos para um repositório central. Carimbos de data / hora de registo de auditoria não é alterados, assim, o registo de auditoria é correlacionado de tempo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Acesso às funções de auditoria é restringido através de controlo de acesso baseado em funções no Azure e na máquina virtual ao nível do SO. A configuração de eventos selecionado para ser auditadas ao recursos implementados por este Blueprint Azure pode ser configurada por utilizadores com adequadas de autorização baseada em funções. |
+| **Cliente** | Acesso às funções de auditoria é restringido através de controlo de acesso baseado em funções no Azure e na máquina virtual ao nível do SO. A configuração de eventos selecionado para ser auditadas ao recursos implementados por este blueprint pode ser configurada por utilizadores com adequadas de autorização baseada em funções. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |

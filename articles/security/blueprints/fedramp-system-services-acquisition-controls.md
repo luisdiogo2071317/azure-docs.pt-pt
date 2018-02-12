@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Blueprint da automatização do Azure - sistema e aquisição de serviços"
-description: "Aplicações Web para FedRAMP - sistema e aquisição de serviços"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - sistema e aquisição de serviços"
+description: "Automatização de aplicações FedRAMP Web - sistema e aquisição de serviços"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Sistema e aquisição de serviços (SA)
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-system-documentation"></a>Documentação do sistema de informações
 
-**SA 5.e** A organização distribui documentação para [atribuição: técnico definido pela organização ou funções].
+**SA-5.e** A organização distribui documentação para [atribuição: técnico definido pela organização ou funções].
 
 **Responsabilidades:**`Customer Only`
 
@@ -305,7 +305,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ## <a name="nist-800-53-control-sa-9a"></a>Controlo NIST 800-53 SA-9.a
+ ## <a name="nist-800-53-control-sa-9a"></a>NIST 800-53 Control SA-9.a
 
 #### <a name="external-information-system-services"></a>Serviços de sistema externo informações
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-sa-9-1a"></a>(1) .a do NIST 800-53 controlo SA 9
+ ### <a name="nist-800-53-control-sa-9-1a"></a>NIST 800-53 Control SA-9 (1).a
 
 #### <a name="external-information-system-services--risk-assessments--organizational-approvals"></a>Serviços de sistema externo informações | As avaliações de risco / organizacional aprovações
 
@@ -375,7 +375,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-sa-9-2"></a>NIST 800-53 controlo SA-9 (2)
+ ### <a name="nist-800-53-control-sa-9-2"></a>NIST 800-53 Control SA-9 (2)
 
 #### <a name="external-information-system-services--identification-of-functions--ports--protocols--services"></a>Serviços de sistema externo informações | Identificação de funções / portas / protocolos / serviços
 
@@ -477,7 +477,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="developer-configuration-management"></a>Gestão de configuração do Programador
 
-**SA 10.e** A organização requer o programador do sistema de informações, o componente do sistema ou o serviço de sistema de informações controlar a falhas de segurança e resolução de falha no sistema, componente ou findings de serviço e o relatório para [atribuição: definido de organização técnico].
+**SA-10.e** A organização requer o programador do sistema de informações, o componente do sistema ou o serviço de sistema de informações controlar a falhas de segurança e resolução de falha no sistema, componente ou findings de serviço e o relatório para [atribuição: definido de organização técnico].
 
 **Responsabilidades:**`Customer Only`
 
@@ -561,7 +561,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="developer-security-testing-and-evaluation"></a>Avaliação e teste de segurança de programador
 
-**SA 11.e** A organização requer que o programador do sistema de informações, o componente do sistema ou o serviço de sistema de informações corrigir falhas identificadas durante a segurança de teste/avaliação.
+**SA-11.e** A organização requer que o programador do sistema de informações, o componente do sistema ou o serviço de sistema de informações corrigir falhas identificadas durante a segurança de teste/avaliação.
 
 **Responsabilidades:**`Customer Only`
 

@@ -1,6 +1,6 @@
 ---
-title: "Automatização do FedRAMP Azure Blueprint - planeamento"
-description: "As aplicações para FedRAMP - Web planeamento"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - planeamento"
+description: "Automatização de aplicações FedRAMP Web - planeamento"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="planning-pl"></a>Planeamento (LP)
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="system-security-plan"></a>Plano de segurança do sistema
 
-**LP 2.e** A organização protege o plano de segurança de divulgação não autorizada e modificação.
+**PL-2.e** A organização protege o plano de segurança de divulgação não autorizada e modificação.
 
 **Responsabilidades:**`Customer Only`
 

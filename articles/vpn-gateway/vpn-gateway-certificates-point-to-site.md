@@ -1,6 +1,6 @@
 ---
 title: 'Gerar e exportar certificados para ponto a Site: PowerShell: Azure | Microsoft Docs'
-description: "Este artigo contém passos para criar um certificado de raiz autoassinado, exportar a chave pública e gerar os certificados de cliente através do PowerShell no Windows 10."
+description: "Este artigo contém passos para criar um certificado de raiz autoassinado, exportar a chave pública e gerar os certificados de cliente através do PowerShell no Windows 10 ou Windows Server 2016."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Gerar e exportar certificados para ligações ponto a Site através do PowerShell no Windows 10
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Gerar e exportar certificados para ligações ponto a Site através do PowerShell no Windows 10 ou Windows Server 2016
 
-As ligações ponto a Site utilizam certificados para autenticar. Este artigo mostra como criar um certificado de raiz autoassinado e gerar os certificados de cliente através do PowerShell no Windows 10. Se estiver à procura de passos de configuração de ponto a Site, tais como carregar certificados de raiz, selecione um dos artigos ' Configurar ponto a Site' na lista seguinte:
+As ligações ponto a Site utilizam certificados para autenticar. Este artigo mostra como criar um certificado de raiz autoassinado e gerar os certificados de cliente através do PowerShell no Windows 10 ou Windows Server 2016. Se estiver à procura de passos de configuração de ponto a Site, tais como carregar certificados de raiz, selecione um dos artigos ' Configurar ponto a Site' na lista seguinte:
 
 > [!div class="op_single_selector"]
 > * [Criar certificados autoassinados - PowerShell](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ As ligações ponto a Site utilizam certificados para autenticar. Este artigo mo
 > 
 
 
-Tem de efetuar os passos neste artigo num computador com o Windows 10. Os cmdlets do PowerShell que utilizar para gerar certificados fazem parte do sistema operativo Windows 10 e não funcionam nas outras versões do Windows. O computador Windows 10 só é necessário para gerar os certificados. Depois dos certificados são gerados, pode carregá-los ou instalá-los em qualquer sistema operativo de cliente suportada. 
+Tem de efetuar os passos neste artigo num computador com Windows 10 ou Windows Server 2016. Os cmdlets do PowerShell que utilizar para gerar certificados fazem parte do sistema operativo e não funcionam nas outras versões do Windows. O computador Windows 10 ou Windows Server 2016 só é necessário para gerar os certificados. Depois dos certificados são gerados, pode carregá-los ou instalá-los em qualquer sistema operativo de cliente suportada. 
 
-Se não tiver acesso a um computador Windows 10, pode utilizar [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) para gerar certificados. Os certificados que geram o utilizando um dos métodos podem ser instalados em qualquer [suportado](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) sistema operativo do cliente.
+Se não tiver acesso a um computador Windows 10 ou Windows Server 2016, pode utilizar [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) para gerar certificados. Os certificados que geram o utilizando um dos métodos podem ser instalados em qualquer [suportado](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) sistema operativo do cliente.
 
 ## <a name="rootcert"></a>Criar um certificado de raiz autoassinado
 
 Utilize o cmdlet New-SelfSignedCertificate para criar um certificado de raiz autoassinado. Para informações de parâmetros adicionais, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. A partir de um computador com o Windows 10, abra uma consola do Windows PowerShell com privilégios elevados.
+1. A partir de um computador com Windows 10 ou Windows Server 2016, abra uma consola do Windows PowerShell com privilégios elevados.
 2. Utilize o seguinte exemplo para criar o certificado de raiz autoassinado. O exemplo seguinte cria um certificado de raiz autoassinado com o nome 'P2SRootCert', que é instalado automaticamente em 'Certificados atual User\Personal\Certificates'. Pode ver o certificado, abrindo *certmgr.msc*, ou *gerir certificados de utilizador*.
 
   ```powershell

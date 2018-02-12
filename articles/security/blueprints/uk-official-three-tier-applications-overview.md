@@ -1,6 +1,6 @@
 ---
-title: "Automatização do Azure Blueprint - aplicações Web de três camadas para oficial do RU"
-description: "Automatização do Azure Blueprint & - aplicações Web de três camadas para oficial do RU"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU"
+description: "Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Automatização do Azure Blueprint: Aplicações da Web de três camadas para oficial do RU
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU
 
 ## <a name="overview"></a>Descrição geral
 
  Este artigo fornece scripts de automatização e documentação de orientação para fornecer uma arquitetura de baseado na web de três camadas do Microsoft Azure, adequada para muitas cargas de trabalho classificadas como oficial no Reino Unido de processamento.
 
- Utilizando uma infraestrutura como código abordam o conjunto de [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelos (ARM) implementar um ambiente Alinhar para o RU National informático segurança Centre (NCSC) 14 [princípios de segurança de nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)e o Centro de segurança de Internet (IC) [controlos de segurança críticas](https://www.cisecurity.org/critical-controls.cfm).
+ Utilizando uma infraestrutura como código abordam o conjunto de [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelos de implementação de um ambiente alinhar a para o RU National informático segurança Centre (NCSC) 14 [princípios de segurança de nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) o Centro de segurança de Internet (IC) e [controlos de segurança críticas](https://www.cisecurity.org/critical-controls.cfm).
 
  O NCSC Recomendamos os princípios de segurança de nuvem utilizadas pelos clientes para avaliar as propriedades de segurança do serviço e para ajudar a compreender a divisão de responsabilidade entre o cliente e o fornecedor. Fornecemos informações em cada um destes princípios para ajudar a compreender a divisão das responsabilidades.
 
- Esta arquitetura e os modelos ARM correspondentes são suportados pelo documento técnico da Microsoft, [Blueprint do Azure para o Government RU](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Este documento catalogues serviços como do Azure alinhar com RU NCSC 14 princípios da nuvem segurança, ativando assim organisations a fast-controlar a sua capacidade para cumprir as obrigações de conformidade a utilizar serviços baseados na nuvem global e o RU no Microsoft Azure nuvem.
+ Esta arquitetura e correspondente modelos Azure Resource Manager são suportados pelo documento técnico da Microsoft, [14 controlos de segurança de nuvem para RU na nuvem utilizando o Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Este documento catalogues serviços como do Azure alinhar com RU NCSC 14 princípios da nuvem segurança, ativando assim organisations a fast-controlar a sua capacidade para cumprir as obrigações de conformidade a utilizar serviços baseados na nuvem global e o RU no Microsoft Azure nuvem.
 
  Este modelo implementa a infraestrutura para a carga de trabalho. Código da aplicação e o suporte de camada de negócio e o software de camada de dados tem de ser instalados e configurados. Estão disponíveis instruções de implementação detalhados [aqui](https://aka.ms/ukwebappblueprintrepo).
 
@@ -109,7 +109,7 @@ Conjuntos de Disponibilidade
 - (1) definir a camada de biz VM - 2 VMs
 - (1) definir a camada de dados VM - 2 VMs
 
-Balanceador de Carga
+Load balancer
 - (1) Balanceador de carga de camada web
 - (1) Balanceador de carga de camada de biz
 - (1) Balanceador de carga de camada de dados
@@ -150,7 +150,7 @@ Armazenamento
 
 **Gestão VNet**: Isto [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contém recursos que implementam a gestão e monitorização capacidades para as cargas de trabalho em execução na mesma VNet.
 
-**Jumpbox**: também chamado um [anfitrião bastion](https://en.wikipedia.org/wiki/Bastion_host), que é uma VM segura na rede que os administradores utilizam para ligar a VMs na mesma VNet. O jumpbox tem um NSG que permita o tráfego remoto apenas a partir de endereços IP públicos numa lista segura. Para permitir o tráfego de (RDP) de ambiente de trabalho remoto, a origem do tráfego tem de ser definido no NSG. Gestão de recursos de produção é através de RDP com uma VM Jumpbox protegidos.
+**Jumpbox**: também chamado um [anfitrião bastion](https://en.wikipedia.org/wiki/Bastion_host), que é uma VM segura na rede que os administradores utilizam para ligar a VMs na mesma VNet. A jumpbox tem um NSG que permite tráfego remoto apenas a partir de endereços IP públicos numa lista segura. Para permitir o tráfego de (RDP) de ambiente de trabalho remoto, a origem do tráfego tem de ser definido no NSG. Gestão de recursos de produção é através de RDP com uma VM Jumpbox protegidos.
 
 **Rotas definidas pelo utilizador**: [rotas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) são utilizadas para definir o fluxo de tráfego de IP as VNets do Azure.
 
@@ -195,17 +195,17 @@ Nestas VNets ainda são geridas como recursos separados, mas aparece como uma pa
 
 ### <a name="security"></a>Segurança
 
-**Segurança de gestão**: este Blueprint do Azure permite aos administradores estabelecer a ligação para a gestão de VNet e Jumpbox através de RDP de uma origem fidedigna. Tráfego de rede para a gestão de VNet é controlado utilizando NSGs. O acesso à porta 3389 é restringido ao tráfego de um intervalo IP fidedigno que pode aceder a sub-rede que contém o Jumpbox.
+**Segurança de gestão**: este blueprint permite aos administradores estabelecer a ligação para a gestão de VNet e Jumpbox através de RDP de uma origem fidedigna. Tráfego de rede para a gestão de VNet é controlado utilizando NSGs. O acesso à porta 3389 é restringido ao tráfego de um intervalo IP fidedigno que pode aceder a sub-rede que contém o Jumpbox.
 
 Os clientes também podem considerar utilizar um [modelo administrativo de segurança avançada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger o ambiente ao estabelecer ligação com a gestão de VNet e Jumpbox. Sugestões de que para a segurança avançada aos clientes utilizam uma [estação de trabalho de acesso privilegiado](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) e a configuração do gateway de RD. A utilização de aparelhos de rede virtual e públicas/privadas DMZ oferecem ainda mais os melhoramentos de segurança.
 
-**Proteger a rede**: [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) são recomendados para cada sub-rede fornecer um segundo nível de proteção contra o tráfego de entrada ignorando um gateway desativado ou incorretamente configurado. Exemplo - [modelo ARM para implementar um NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Proteger a rede**: [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) são recomendados para cada sub-rede fornecer um segundo nível de proteção contra o tráfego de entrada ignorando um gateway desativado ou incorretamente configurado. Exemplo - [modelo do Resource Manager para implementar um NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Proteger pontos finais públicos**: O gateway de internet expõe os serviços de aplicações para utilizadores através da internet. Tráfego de aceder a estes serviços está protegido por um [Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), que fornece uma gestão de protocolo de Firewall de aplicações Web e o HTTPS.
 
 **Intervalos de IP**: intervalos de IP na arquitetura de são intervalos sugeridos. Os clientes aconselhados considere os seus próprios ambiente e utilizar os intervalos adequados.
 
-**Conectividade híbrida**: as cargas de trabalho baseado na nuvem estão ligadas à datacentre no local através de IPSEC de VPN com o Gateway de VPN do Azure. Os clientes devem certificar-se de que estão a utilizar um Gateway de VPN adequado para ligar ao Azure. Exemplo - [modelo ARM do VPN Gateway](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Os clientes em execução em grande escala, as cargas de trabalho crítico de missão requisitos de macrodados podem pretender considerar a uma utilização de arquitetura de rede do híbrida [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) para conectividade de rede privada para a Microsoft serviços em nuvem.
+**Conectividade híbrida**: as cargas de trabalho baseado na nuvem estão ligadas ao centro de dados no local através de IPSEC de VPN com o Gateway de VPN do Azure. Os clientes devem certificar-se de que estão a utilizar um Gateway de VPN adequado para ligar ao Azure. Exemplo - [modelo do Resource Manager do VPN Gateway](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Os clientes em execução em grande escala, as cargas de trabalho crítico de missão requisitos de macrodados podem pretender considerar a uma utilização de arquitetura de rede do híbrida [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) para conectividade de rede privada para a Microsoft serviços em nuvem.
 
 **Separação das preocupações**: esta arquitetura de referência separa as VNets para operações de gestão e operações de negócio. Separado VNets e sub-redes permitem a gestão de tráfego, incluindo restrições de entrada e de saída de tráfego, utilizando NSGs entre segmentos de rede seguir [segurança de rede e serviços da nuvem Microsoft](https://docs.microsoft.com/azure/best-practices-network-security) melhores práticas.
 
@@ -221,17 +221,17 @@ Os clientes também podem considerar utilizar um [modelo administrativo de segur
 
 O serviço de comerciais Crown (uma agência que funciona para melhorar a atividade comercial e aprovisionamento pelo government) renovar a classificação de no âmbito enterprise cloud services da Microsoft para v6 G a nuvem, que abrangem todas as respetivas ofertas ao nível do oficial. Podem ser encontrados detalhes do Azure e nuvem G no [resumo da avaliação de segurança do Azure RU G-Cloud](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Alinhar a esta solução de Blueprint RU oficial do Azure para os princípios de segurança de 14 nuvem que estão documentados no NCSC [princípios de segurança de nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) para ajudar a garantir um ambiente que suporte cargas de trabalho classificadas como RU oficial.
+Este blueprint alinha para os princípios de segurança de 14 nuvem que estão documentados no NCSC [princípios de segurança de nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) para ajudar a garantir um ambiente que suporte cargas de trabalho classificadas como RU oficial.
 
 O [cliente responsabilidade matriz](https://aka.ms/blueprintuk-gcrm) (livro do Excel) apresenta uma lista de todos os princípios de segurança de nuvem 14 e, para cada princípio (ou subpart princípio), a matriz indica se a implementação de princípio é da responsabilidade do Microsoft, o cliente, ou partilhados entre os dois.
 
-O [princípio implementação matriz](https://aka.ms/ukwebappblueprintpim) listas (livro do Excel) todos os princípios de segurança de nuvem 14 e a matriz indica, para cada princípio (ou subpart princípio) que é designado uma responsabilidade do cliente no cliente Responsabilidades da matriz, 1) se a automatização do Azure Blueprint implementa o princípio e 2) a descrição de como a implementação está alinhada com a requirement(s) princípio. Este conteúdo está também disponível [aqui](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+O [princípio implementação matriz](https://aka.ms/ukwebappblueprintpim) listas (livro do Excel) todos os princípios de segurança de nuvem 14 e a matriz indica, para cada princípio (ou subpart princípio) que é designado uma responsabilidade do cliente no cliente Responsabilidades da matriz, 1) se a automatização de blueprint implementa o princípio e 2) a descrição de como a implementação está alinhada com a requirement(s) princípio. Este conteúdo está também disponível [aqui](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Além disso, o Alliance de segurança de nuvem (CSA) publicado a matriz de controlo da nuvem para suportar clientes na avaliação de fornecedores de nuvem e para identificar as questões que devem ser respondidas antes de mover a serviços em nuvem. Em resposta, o Microsoft Azure respondidas o CSA consenso avaliação iniciativa questionário ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), que descreve como Microsoft endereços estes princípios sugeridos.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
-Existem dois métodos que os utilizadores de implementação podem utilizar para implementar esta solução Blueprint do Azure. O primeiro método utiliza um script do PowerShell, enquanto o segundo método utilises Portal do Azure para implementar a arquitetura de referência. Estão disponíveis instruções de implementação detalhados [aqui](https://aka.ms/ukwebappblueprintrepo).
+Existem dois métodos que os utilizadores de implementação podem utilizar para implementar esta automatização blueprint. O primeiro método utiliza um script do PowerShell, enquanto o segundo método utilises portal do Azure para implementar a arquitetura de referência. Estão disponíveis instruções de implementação detalhados [aqui](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Exclusão de Responsabilidade
 

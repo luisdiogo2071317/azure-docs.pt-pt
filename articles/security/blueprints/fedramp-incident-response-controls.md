@@ -1,6 +1,6 @@
 ---
-title: "Aplicações Web para FedRAMP - resposta a incidentes"
-description: "Aplicações Web para FedRAMP - resposta a incidentes"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - resposta a incidentes"
+description: "Automatização de aplicações FedRAMP Web - resposta a incidentes"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>Resposta a incidentes (IR)
 
@@ -362,7 +362,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ir-7-2a"></a>Controlar o NIST 800-53 .a (2) 7 de resposta a incidentes
+ ### <a name="nist-800-53-control-ir-7-2a"></a>NIST 800-53 Control IR-7 (2).a
 
 #### <a name="incident-response-assistance--coordination-with-external-providers"></a>Resposta a incidentes assistência | Coordenação com fornecedores externos
 
@@ -450,7 +450,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="incident-response-plan"></a>Plano de resposta a incidentes
 
-**8.e de resposta a incidentes** A organização comunica alterações de plano de resposta a incidentes [atribuição: técnico de resposta a incidentes definido por organização (identificado pelo nome e/ou pela função) e os elementos organizacionais].
+**IR-8.e** A organização comunica alterações de plano de resposta a incidentes [atribuição: técnico de resposta a incidentes definido por organização (identificado pelo nome e/ou pela função) e os elementos organizacionais].
 
 **Responsabilidades:**`Customer Only`
 
@@ -534,7 +534,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-spillage-response"></a>Informações Spillage resposta
 
-**9.e de resposta a incidentes** A organização responde às informações spills, identificando outros sistemas de informação ou componentes do sistema que poderão ter sido subsequentemente contaminated.
+**IR-9.e** A organização responde às informações spills, identificando outros sistemas de informação ou componentes do sistema que poderão ter sido subsequentemente contaminated.
 
 **Responsabilidades:**`Customer Only`
 
@@ -572,7 +572,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ir-9-2"></a>NIST 800-53 controlo IR-9 (2)
+ ### <a name="nist-800-53-control-ir-9-2"></a>NIST 800-53 Control IR-9 (2)
 
 #### <a name="information-spillage-response--training"></a>Resposta de Spillage informações | Formação
 

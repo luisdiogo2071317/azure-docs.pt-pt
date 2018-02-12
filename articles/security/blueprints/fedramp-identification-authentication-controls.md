@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Blueprint da automatização do Azure - identificação e autenticação"
-description: "Aplicações Web para FedRAMP - identificação e autenticação"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - identificação e autenticação"
+description: "Automatização de aplicações FedRAMP Web - identificação e autenticação"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificação e autenticação (IA)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As contas criadas por esta Blueprint Azure ter identificadores exclusivos. Contas incorporadas com identificadores exclusivos são desativadas ou removidas. |
+| **Cliente** | As contas criadas por esta blueprint ter identificadores exclusivos. Contas incorporadas com identificadores exclusivos são desativadas ou removidas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem contas de acesso partilhado/grupo estão ativadas nos recursos implementados por este Blueprint do Azure. |
+| **Cliente** | Não existem contas de acesso partilhado/grupo estão ativadas nos recursos implementados por este blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Acesso a recursos implementados por este Blueprint Azure se encontra protegido contra ataques de repetição, as funcionalidades de Kerberos incorporada do Azure Active Directory, do Active Directory e o sistema operativo Windows. A autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, tais como uma lista IP encriptada, carimbos de cliente e duração de permissão. Se um pacote é reproduzido, o timestamp é verificado. Se o timestamp é anterior ao, ou o mesmo que um autenticador anterior, o pacote foi rejeitado. |
+| **Cliente** | Acesso a recursos implementados por este blueprint se encontra protegido contra ataques de repetição, as funcionalidades de Kerberos incorporada do Azure Active Directory, do Active Directory e o sistema operativo Windows. A autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, tais como uma lista IP encriptada, carimbos de cliente e duração de permissão. Se um pacote é reproduzido, o timestamp é verificado. Se o timestamp é anterior ao, ou o mesmo que um autenticador anterior, o pacote foi rejeitado. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Acesso a recursos implementados por este Blueprint Azure se encontra protegido contra ataques de repetição, as funcionalidades de Kerberos incorporada do Azure Active Directory, do Active Directory e o sistema operativo Windows. A autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, tais como uma lista IP encriptada, carimbos de cliente e duração de permissão. Se um pacote é reproduzido, o timestamp é verificado. Se o timestamp é anterior ao, ou o mesmo que um autenticador anterior, o pacote foi rejeitado. |
+| **Cliente** | Acesso a recursos implementados por este blueprint se encontra protegido contra ataques de repetição, as funcionalidades de Kerberos incorporada do Azure Active Directory, do Active Directory e o sistema operativo Windows. A autenticação Kerberos, o autenticador enviado pelo cliente contém dados adicionais, tais como uma lista IP encriptada, carimbos de cliente e duração de permissão. Se um pacote é reproduzido, o timestamp é verificado. Se o timestamp é anterior ao, ou o mesmo que um autenticador anterior, o pacote foi rejeitado. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure pede ao utilizador durante a implementação para os identificadores de cliente especificadas de contas individuais.  |
+| **Cliente** | Este blueprint pede ao utilizador durante a implementação para os identificadores de cliente especificadas de contas individuais.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa uma tarefa agendada para o Active Directory desativar as contas automaticamente depois de 35 dias de inatividade. |
+| **Cliente** | Este blueprint implementa uma tarefa agendada para o Active Directory desativar as contas automaticamente depois de 35 dias de inatividade. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todo o conteúdo de autenticação inicial para as contas criadas por esta Blueprint Azure satisfaz os requisitos indicados em IA-5 (1) verificada quando especificados pelo cliente durante a implementação.  |
+| **Cliente** | Todo o conteúdo de autenticação inicial para as contas criadas por esta blueprint satisfaz os requisitos indicados em IA-5 (1) verificada quando especificados pelo cliente durante a implementação.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Autenticadores utilizados por esta requisitos do Azure Blueprint para força conforme exigido pelo FedRAMP. |
+| **Cliente** | Autenticadores utilizados pelos requisitos de às blueprint para força conforme exigido pelo FedRAMP. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Autenticadores de todos os componentes deste Blueprint Azure tiverem sido alterados as predefinições. Autenticadores são especificadas de cliente durante a implementação desta solução. |
+| **Cliente** | Autenticadores de todos os componentes deste blueprint tiverem sido alterados as predefinições. Autenticadores são especificadas de cliente durante a implementação desta solução. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para implementar restrições de duração de palavra-passe (60 dias). |
+| **Cliente** | Este blueprint implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para implementar restrições de duração de palavra-passe (60 dias). |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o Cofre de chaves para proteger o conteúdo do autenticador de divulgação não autorizada e modificação. As seguintes autenticadores são armazenados no Cofre de chaves: palavra-passe do Azure para a conta de implementar, a palavra-passe de administrador de máquina virtual, a palavra-passe de conta de serviço do SQL Server. |
+| **Cliente** | Este blueprint implementa o Cofre de chaves para proteger o conteúdo do autenticador de divulgação não autorizada e modificação. As seguintes autenticadores são armazenados no Cofre de chaves: palavra-passe do Azure para a conta de implementar, a palavra-passe de administrador de máquina virtual, a palavra-passe de conta de serviço do SQL Server. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o Cofre de chaves para proteger o conteúdo do autenticador de divulgação não autorizada e modificação. As seguintes autenticadores são armazenados no Cofre de chaves: palavra-passe do Azure para a conta de implementar, a palavra-passe de administrador de máquina virtual, a palavra-passe de conta de serviço do SQL Server. O Cofre de chaves encripta as chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados e as palavras-passe) utilizando as teclas que estão protegidas por módulos de segurança de hardware (HSMs). |
+| **Cliente** | Este blueprint implementa o Cofre de chaves para proteger o conteúdo do autenticador de divulgação não autorizada e modificação. As seguintes autenticadores são armazenados no Cofre de chaves: palavra-passe do Azure para a conta de implementar, a palavra-passe de administrador de máquina virtual, a palavra-passe de conta de serviço do SQL Server. O Cofre de chaves encripta as chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados e as palavras-passe) utilizando as teclas que estão protegidas por módulos de segurança de hardware (HSMs). |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem contas de acesso partilhado/grupo estão ativadas nos recursos implementados por este Blueprint do Azure. |
+| **Cliente** | Não existem contas de acesso partilhado/grupo estão ativadas nos recursos implementados por este blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para impor a requisitos de complexidade de palavra-passe para contas locais de máquina virtual e contas de anúncios.  |
+| **Cliente** | Este blueprint implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para impor a requisitos de complexidade de palavra-passe para contas locais de máquina virtual e contas de anúncios.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para impor restrições de palavras-passe que impõem mínimo (1 dia) e a duração máxima (60 dias) restrições para contas locais e contas de anúncios. |
+| **Cliente** | Este blueprint implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para impor restrições de palavras-passe que impõem mínimo (1 dia) e a duração máxima (60 dias) restrições para contas locais e contas de anúncios. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -477,13 +477,13 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="authenticator-management--password-based-authentication"></a>Gestão de autenticador | Autenticação baseada em palavra-passe
 
-**.E IA-5 (1)** O sistema de informações, para autenticação baseada em palavra-passe proíbe a reutilização de palavras-passe para [atribuição: número definido de organização] gerações.
+**IA-5 (1).e** O sistema de informações, para autenticação baseada em palavra-passe proíbe a reutilização de palavras-passe para [atribuição: número definido de organização] gerações.
 
 **Responsabilidades:**`Customer Only`
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para impor restrições em condições de reutilização (24 palavras-passe) para contas locais e contas de anúncios. |
+| **Cliente** | Este blueprint implementa um controlador de domínio ao qual estão associadas a todas as máquinas virtuais implementadas. Uma política de grupo é estabelecida e configurada para impor restrições em condições de reutilização (24 palavras-passe) para contas locais e contas de anúncios. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -501,7 +501,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ia-5-2a"></a>.A do NIST 800-53 controlo IA-5 (2)
+ ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800-53 Control IA-5 (2).a
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Gestão de autenticador | Autenticação baseada em PKI
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Incluem de contas de utilizador implementadas com este Blueprint do Azure AD e contas de utilizador local. Ambos estes fornecem mecanismos que forçar a compatibilidade com requisitos de palavra-passe estabelecida para criar uma palavra-passe inicial e durante a alterações de palavra-passe. Azure Active Directory é a ferramenta automatizada utilizada para determinar se autenticadores de palavra-passe são suficientemente seguras para satisfazer o comprimento de palavra-passe, complexidade, rotação e restrições de duração estabelecidas no IA-5 (1). Azure Active Directory garante que força de autenticação de palavra-passe durante a criação do cumpre os requisitos dessas normas. Cliente-especificado palavras-passe utilizadas para implementar esta solução são verificadas para satisfazer os requisitos de segurança de palavra-passe. |
+| **Cliente** | Contas de utilizador implementadas com este blueprint incluem AD e contas de utilizador local. Ambos estes fornecem mecanismos que forçar a compatibilidade com requisitos de palavra-passe estabelecida para criar uma palavra-passe inicial e durante a alterações de palavra-passe. Azure Active Directory é a ferramenta automatizada utilizada para determinar se autenticadores de palavra-passe são suficientemente seguras para satisfazer o comprimento de palavra-passe, complexidade, rotação e restrições de duração estabelecidas no IA-5 (1). Azure Active Directory garante que força de autenticação de palavra-passe durante a criação do cumpre os requisitos dessas normas. Cliente-especificado palavras-passe utilizadas para implementar esta solução são verificadas para satisfazer os requisitos de segurança de palavra-passe. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não há nenhuma utilização de autenticadores estáticos não encriptadas incorporada em aplicações, aceder aos scripts ou função chaves implementadas por esta Blueprint do Azure. Qualquer aplicação que utiliza um autenticador ou script efetua uma chamada para um contentor do Cofre de chaves do Azure antes de cada utilização. Acesso a contentores do Cofre de chaves do Azure é auditado, que permite a deteção das violações este prohibition se uma conta de serviço é utilizada para aceder a um sistema sem uma chamada correspondente para o contentor do Cofre de chaves do Azure. |
+| **Cliente** | Não há nenhuma utilização de autenticadores estáticos não encriptadas incorporada em aplicações, aceder aos scripts ou chaves implementadas por esta blueprint de função. Qualquer aplicação que utiliza um autenticador ou script efetua uma chamada para um contentor do Cofre de chaves do Azure antes de cada utilização. Acesso a contentores do Cofre de chaves do Azure é auditado, que permite a deteção das violações este prohibition se uma conta de serviço é utilizada para aceder a um sistema sem uma chamada correspondente para o contentor do Cofre de chaves do Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem recursos implementados por este Blueprint do Azure estão configurados para permitir a utilização de autenticadores em cache. A autenticação para as máquinas virtuais implementadas requer que um autenticador é introduzido no momento da autenticação. |
+| **Cliente** | Não existem recursos implementados por este blueprint estão configurados para permitir a utilização de autenticadores em cache. A autenticação para as máquinas virtuais implementadas requer que um autenticador é introduzido no momento da autenticação. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Acesso a recursos implementados por este Blueprint do Azure é efetuada através do ambiente de trabalho remoto e baseia-se na autenticação do Windows. O comportamento predefinido de sessões de autenticação do Windows dissimula palavras-passe quando durante uma sessão de autenticação.  |
+| **Cliente** | Acesso a recursos implementados por este blueprint é efetuada através do ambiente de trabalho remoto e baseia-se na autenticação do Windows. O comportamento predefinido de sessões de autenticação do Windows dissimula palavras-passe quando durante uma sessão de autenticação.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Autenticação do Windows, o ambiente de trabalho remoto e o BitLocker são utilizada por esta Blueprint do Azure. Estes componentes podem ser configurados confiar nos módulos criptográficos FIPS 140 validada. |
+| **Cliente** | Autenticação do Windows, o ambiente de trabalho remoto e o BitLocker são utilizada por esta blueprint. Estes componentes podem ser configurados confiar nos módulos criptográficos FIPS 140 validada. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 

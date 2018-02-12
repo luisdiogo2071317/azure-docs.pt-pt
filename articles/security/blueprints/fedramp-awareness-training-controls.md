@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Blueprint da automatização do Azure - sensibilização e formação"
-description: "Aplicações Web para FedRAMP - sensibilização e formação"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - sensibilização e formação"
+description: "Automatização de aplicações FedRAMP Web - sensibilização e formação"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b8749238bc8b673503fa1b3627de11d923cfe892
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="awareness-and-training-at"></a>Deteção e formação (AT)
 
