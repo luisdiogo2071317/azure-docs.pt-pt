@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint automatização - manutenção"
-description: "Aplicações Web para FedRAMP - manutenção"
+title: "Segurança do Azure e manutenção de Blueprint - automatização de aplicações FedRAMP Web - conformidade"
+description: "Automatização de aplicações FedRAMP Web - manutenção"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0546f6e10b04bbfdb5b02e5c0bbe6d907c76e72
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="maintenance-ma"></a>Manutenção (MA)
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="controlled-maintenance"></a>Manutenção controlada
 
-**MA 2.e** A organização verifica todos os controlos de segurança potencialmente afetados para verificar que os controlos estão continuam a funcionar corretamente seguintes ações de manutenção ou reparação.
+**MA-2.e** A organização verifica todos os controlos de segurança potencialmente afetados para verificar que os controlos estão continuam a funcionar corretamente seguintes ações de manutenção ou reparação.
 
 **Responsabilidades:**`Customer Only`
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ma-2-2a"></a>.A do NIST 800-53 MA de controlo-2 (2)
+ ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800-53 Control MA-2 (2).a
 
 #### <a name="controlled-maintenance--automated-maintenance-activities"></a>Controlado manutenção | Atividades de manutenção automática
 
@@ -267,7 +267,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="nonlocal-maintenance"></a>Manutenção Nonlocal
 
-**MA 4.e** A organização termina as ligações de rede e de sessão quando é feita uma manutenção nonlocal.
+**MA-4.e** A organização termina as ligações de rede e de sessão quando é feita uma manutenção nonlocal.
 
 **Responsabilidades:**`Customer Only`
 

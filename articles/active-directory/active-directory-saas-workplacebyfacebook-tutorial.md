@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d8b3046bc242deb90f435498c79eb94420c3909
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Azure Active Directory a área de trabalho por Facebook
 
@@ -113,10 +113,10 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<instancename>.facebook.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.facebook.com/company/<instancename>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
-    > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [à área de trabalho pela equipa de suporte de cliente do Facebook](https://workplace.fb.com/faq/) para obter estes valores. 
+    > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão e o identificador real. Consulte a página de autenticação do Dashboard à área de trabalho da empresa para os valores corretos para a Comunidade de área de trabalho. 
 
 4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

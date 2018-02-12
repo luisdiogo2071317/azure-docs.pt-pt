@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Blueprint da automatização do Azure - sistema e proteção de comunicações"
-description: "Aplicações Web para FedRAMP - sistema e proteção de comunicações"
+title: "Segurança do Azure e a conformidade Blueprint - automatização de aplicações FedRAMP Web - sistema e a proteção de comunicações"
+description: "Automatização de aplicações FedRAMP Web - sistema e proteção de comunicações"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Proteção de comunicações (SC) e de sistema
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure separa a funcionalidade de utilizador da funcionalidade de gestão do sistema através da imposição de controlos de acesso lógico e arquitetura de sistema. Funcionalidade de utilizador está limitada a interfaces de aplicação web implementada de cliente. Interfaces para a funcionalidade de gestão do sistema são separadas das interfaces de utilizador. Conectividade da gestão de todos os é através de um bastion segura anfitrião (jumpbox) localizado numa sub-rede gestão com regras de grupo de segurança de rede para limitar o acesso a recursos de produção, conforme apropriado. |
+| **Cliente** | Este blueprint separa a funcionalidade de utilizador da funcionalidade de gestão do sistema através da imposição de controlos de acesso lógico e arquitetura de sistema. Funcionalidade de utilizador está limitada a interfaces de aplicação web implementada de cliente. Interfaces para a funcionalidade de gestão do sistema são separadas das interfaces de utilizador. Conectividade da gestão de todos os é através de um bastion segura anfitrião (jumpbox) localizado numa sub-rede gestão com regras de grupo de segurança de rede para limitar o acesso a recursos de produção, conforme apropriado. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. Windows mantém domínios de execução separado para cada processo em execução, atribuindo um espaço de endereço virtual privado a cada processo. Além disso, a implementa solução controlos de acesso e arquitetura concebida para isolar a funcionalidade de segurança sempre que necessário. |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. Windows mantém domínios de execução separado para cada processo em execução, atribuindo um espaço de endereço virtual privado a cada processo. Além disso, a implementa solução controlos de acesso e arquitetura concebida para isolar a funcionalidade de segurança sempre que necessário. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. O sistema operativo gere os recursos (por exemplo, memória, armazenamento) que informações apenas esteja acessíveis aos utilizadores e funções com as permissões adequadas. |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. O sistema operativo gere os recursos (por exemplo, memória, armazenamento) que informações apenas esteja acessíveis aos utilizadores e funções com as permissões adequadas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um Gateway de aplicação que incluem uma firewall de aplicação web e as capacidades de balanceamento de carga. Máquinas virtuais implementadas, que suportam a camada web, a camada de base de dados e o Active Directory são implementadas num conjunto de disponibilidade dimensionáveis. |
+| **Cliente** | Este blueprint implementa um Gateway de aplicação que incluem uma firewall de aplicação web e as capacidades de balanceamento de carga. Máquinas virtuais implementadas, que suportam a camada web, a camada de base de dados e o Active Directory são implementadas num conjunto de disponibilidade dimensionáveis. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. Cada processo do Windows fornece os recursos necessários para executar um programa. Prioridade de recurso é gerida pelo sistema operativo. |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. Cada processo do Windows fornece os recursos necessários para executar um programa. Prioridade de recurso é gerida pelo sistema operativo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um Gateway de aplicação, o Balanceador de carga e configura as regras de grupo de segurança de rede para controlar commutations limites externos e entre sub-redes internas. Gateway de aplicação, o Balanceador de carga e eventos de grupo de segurança de rede e os registos de diagnóstico são recolhidos através da análise de registos do OMS para permitir a monitorização de cliente. |
+| **Cliente** | Este blueprint implementa um Gateway de aplicação, o Balanceador de carga e configura as regras de grupo de segurança de rede para controlar commutations limites externos e entre sub-redes internas. Gateway de aplicação, o Balanceador de carga e eventos de grupo de segurança de rede e os registos de diagnóstico são recolhidos através da análise de registos do OMS para permitir a monitorização de cliente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa recursos uma arquitetura com uma sub-rede separada web, uma sub-rede de base de dados, sub-rede do Active Directory e sub-rede de gestão. Sub-redes logicamente são separados por regras de grupos de segurança de rede aplicadas às sub-redes individuais para restringir o tráfego entre sub-redes de forma a que só é necessário para a funcionalidade de gestão e de sistema (por exemplo, o tráfego externo não consegue aceder à base de dados, gestão, ou sub-redes do Active Directory). |
+| **Cliente** | Este blueprint implementa recursos uma arquitetura com uma sub-rede separada web, uma sub-rede de base de dados, sub-rede do Active Directory e sub-rede de gestão. Sub-redes logicamente são separados por regras de grupos de segurança de rede aplicadas às sub-redes individuais para restringir o tráfego entre sub-redes de forma a que só é necessário para a funcionalidade de gestão e de sistema (por exemplo, o tráfego externo não consegue aceder à base de dados, gestão, ou sub-redes do Active Directory). |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um Gateway de aplicação para gerir as ligações externas para uma aplicação web implementada de cliente. Ligações externas para acesso de gestão estão limitadas a um anfitrião de bastion / jumpbox implementado uma sub-rede de gestão com regras de segurança de rede aplicadas para restringir ligações externas ao autorizado endereços IP. |
+| **Cliente** | Este blueprint implementa um Gateway de aplicação para gerir as ligações externas para uma aplicação web implementada de cliente. Ligações externas para acesso de gestão estão limitadas a um anfitrião de bastion / jumpbox implementado uma sub-rede de gestão com regras de segurança de rede aplicadas para restringir ligações externas ao autorizado endereços IP. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa dois endereços IP públicos: um associadas ao Gateway de aplicação; um associado ao anfitrião de bastion gestão / jumpbox. |
+| **Cliente** | Este blueprint implementa dois endereços IP públicos: um associadas ao Gateway de aplicação; um associado ao anfitrião de bastion gestão / jumpbox. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa dois endereços IP públicos: um associadas ao Gateway de aplicação; um associado ao anfitrião de bastion gestão / jumpbox. A gestão destas interfaces é ativada através de redes definidas por software. |
+| **Cliente** | Este blueprint implementa dois endereços IP públicos: um associadas ao Gateway de aplicação; um associado ao anfitrião de bastion gestão / jumpbox. A gestão destas interfaces é ativada através de redes definidas por software. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa dois endereços IP públicos: um associadas ao Gateway de aplicação; um associado ao anfitrião de bastion gestão / jumpbox. A gestão destas interfaces é ativada através de redes definidas por software. |
+| **Cliente** | Este blueprint implementa dois endereços IP públicos: um associadas ao Gateway de aplicação; um associado ao anfitrião de bastion gestão / jumpbox. A gestão destas interfaces é ativada através de redes definidas por software. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | O gateway de aplicação web implementado por esta Blueprint Azure está configurado com um HTTPS serviço de escuta, confidencialidade ensuing e a integridade das sessões de comunicações. Ligações de ambiente de trabalho remotas para o jumpbox também são encriptadas fornecer confidencialidade e integridade. |
+| **Cliente** | O gateway de aplicação web implementado por esta blueprint está configurado com um HTTPS serviço de escuta, confidencialidade ensuing e a integridade das sessões de comunicações. Ligações de ambiente de trabalho remotas para o jumpbox também são encriptadas fornecer confidencialidade e integridade. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Proteção de limite | Serviços de telecomunicações externo
 
-**.E SC-7 (4)** A organização revê exceções para a política de fluxo de tráfego [atribuição: frequência definida de organização] e remove as exceções que já não são suportadas por uma necessidade de missão/empresarial explícita.
+**SC-7 (4).e** A organização revê exceções para a política de fluxo de tráfego [atribuição: frequência definida de organização] e remove as exceções que já não são suportadas por uma necessidade de missão/empresarial explícita.
 
 **Responsabilidades:**`Customer Only`
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | RuleSets aplicados aos grupos de segurança implementados por esta Blueprint Azure de rede estão configuradas utilizando um esquema de negar por predefinição. |
+| **Cliente** | RuleSets aplicados aos grupos de segurança implementados por esta blueprint de rede estão configuradas utilizando um esquema de negar por predefinição. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -277,7 +277,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-sc-7-10"></a>SC de controlo do NIST 800-53-7 (10)
+ ### <a name="nist-800-53-control-sc-7-10"></a>NIST 800-53 Control SC-7 (10)
 
 #### <a name="boundary-protection--prevent-unauthorized-exfiltration"></a>Proteção de limite | Impedir Exfiltration não autorizado
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais implementadas por esta Blueprint do Azure estão configuradas com uma firewall baseada no anfitrião ativada. |
+| **Cliente** | Máquinas virtuais implementadas por esta blueprint estão configuradas com uma firewall baseada no anfitrião ativada. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa recursos uma arquitetura com uma sub-rede de gestão separados para a implementação de cliente de ferramentas de segurança de informações e suporte componentes. Sub-redes logicamente estão separadas por regras do grupo de segurança de rede. |
+| **Cliente** | Este blueprint implementa recursos uma arquitetura com uma sub-rede de gestão separados para a implementação de cliente de ferramentas de segurança de informações e suporte componentes. Sub-redes logicamente estão separadas por regras do grupo de segurança de rede. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Microsoft Azure implementa geograficamente separada redundante servidores de Gateway e de VPN SSL. Quando um sistema de Gateway falha, falhar de forma segura e o acesso é restrito no ambiente. Para estabelecer uma ligação ao ambiente do Microsoft Azure, um utilizador tem de estabelecer uma ligação separada para um servidor de Gateway ativo gerido pelo Microsoft Azure. <br /> Além disso, se falharem a dispositivos de rede do Microsoft Azure (incluindo routers de limite, routers de acesso, balanceadores de carga, comutadores de agregação e TORS), o circuito afetado fica desligado, assim falhar de forma segura. Não pode levar a uma falha de um dispositivo de rede do Microsoft Azure ou fazer com que as informações externas para o sistema para introduzir o dispositivo, nem pode permitir a uma falha de versão não autorizados de informações. Redundância incorporada permite que os recursos do Microsoft Azure para ativação sem afetar a disponibilidade. |
 
 
- ### <a name="nist-800-53-control-sc-7-20"></a>SC de controlo do NIST 800-53-7 (20)
+ ### <a name="nist-800-53-control-sc-7-20"></a>NIST 800-53 Control SC-7 (20)
 
 #### <a name="boundary-protection--dynamic-isolation--segregation"></a>Proteção de limite | Isolamento dinâmico / segregação
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-sc-7-21"></a>SC de controlo do NIST 800-53-7 (21)
+ ### <a name="nist-800-53-control-sc-7-21"></a>NIST 800-53 Control SC-7 (21)
 
 #### <a name="boundary-protection--isolation-of-information-system-components"></a>Proteção de limite | Isolamento de componentes do sistema de informações
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa recursos uma arquitetura com uma sub-rede separada web, uma sub-rede de base de dados, sub-rede do Active Directory e sub-rede de gestão. Sub-redes logicamente estão separadas por regras de grupos de segurança de rede aplicadas às sub-redes individuais para restringir o tráfego entre sub-redes de forma a que só é necessário para a funcionalidade de gestão e de sistema. |
+| **Cliente** | Este blueprint implementa recursos uma arquitetura com uma sub-rede separada web, uma sub-rede de base de dados, sub-rede do Active Directory e sub-rede de gestão. Sub-redes logicamente estão separadas por regras de grupos de segurança de rede aplicadas às sub-redes individuais para restringir o tráfego entre sub-redes de forma a que só é necessário para a funcionalidade de gestão e de sistema. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure configura recursos para comunicar utilizando apenas seguros protocolos. O componente de WAF do Gateway de aplicação está configurado para aceitar communicators de utiliza externa através de HTTPS/TLS e comunicar com o conjunto de back-end apenas através de HTTPS/TLS. SQL Server está configurado para comunicar apenas através de HTTPS/TLS. Os serviços de ambiente de trabalho remoto estão configurados para utilizar ligações seguras. |
+| **Cliente** | Este blueprint configura recursos para comunicar utilizando apenas seguros protocolos. O componente de WAF do Gateway de aplicação está configurado para aceitar communicators de utiliza externa através de HTTPS/TLS e comunicar com o conjunto de back-end apenas através de HTTPS/TLS. SQL Server está configurado para comunicar apenas através de HTTPS/TLS. Os serviços de ambiente de trabalho remoto estão configurados para utilizar ligações seguras. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um cofre de chaves do Azure. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. O Cofre de chaves do Azure pode gerar chaves utilizando um FIPS 140-2 capacidade de geração de chaves de nível 2 hardware segurança (HSM) do módulo. |
+| **Cliente** | Este blueprint implementa um cofre de chaves do Azure. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. O Cofre de chaves do Azure pode gerar chaves utilizando um FIPS 140-2 capacidade de geração de chaves de nível 2 hardware segurança (HSM) do módulo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | O Cofre de chaves do Azure é utilizado para armazenar as chaves criptográficas e segredos utilizados neste Blueprint do Azure. Chave de cofre simplifica o processo de gestão de chaves para chaves que acede e encripta os dados. As seguintes autenticadores são armazenados no Cofre de chaves: palavra-passe do Azure para a conta de implementar, a palavra-passe de administrador de máquina virtual, a palavra-passe de conta de serviço do SQL Server. |
+| **Cliente** | O Cofre de chaves do Azure é utilizado para armazenar as chaves criptográficas e segredos utilizados neste blueprint. Chave de cofre simplifica o processo de gestão de chaves para chaves que acede e encripta os dados. As seguintes autenticadores são armazenados no Cofre de chaves: palavra-passe do Azure para a conta de implementar, a palavra-passe de administrador de máquina virtual, a palavra-passe de conta de serviço do SQL Server. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Autenticação do Windows, o ambiente de trabalho remoto e o BitLocker são utilizada por esta Blueprint do Azure. Estes componentes podem ser configurados confiar nos módulos criptográficos FIPS 140 validada. |
+| **Cliente** | Autenticação do Windows, o ambiente de trabalho remoto e o BitLocker são utilizada por esta blueprint. Estes componentes podem ser configurados confiar nos módulos criptográficos FIPS 140 validada. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não há nenhum dispositivo de informático colaboração implementado como parte deste Blueprint do Azure. Nota: Existem dispositivos físicos informáticos colaboração dentro do âmbito dos sistemas implementado no Azure. |
+| **Cliente** | Não há nenhum dispositivo de informático colaboração implementado como parte deste blueprint. Nota: Existem dispositivos físicos informáticos colaboração dentro do âmbito dos sistemas implementado no Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não há nenhum dispositivo de informático colaboração implementado como parte deste Blueprint do Azure. Nota: Existem dispositivos físicos informáticos colaboração dentro do âmbito dos sistemas implementado no Azure. |
+| **Cliente** | Não há nenhum dispositivo de informático colaboração implementado como parte deste blueprint. Nota: Existem dispositivos físicos informáticos colaboração dentro do âmbito dos sistemas implementado no Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Existem não existe qualquer voz através de tecnologias de protocolo de internet implementadas como parte deste Blueprint do Azure. |
+| **Cliente** | Existem não existe qualquer voz através de tecnologias de protocolo de internet implementadas como parte deste blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Existem não existe qualquer voz através de tecnologias de protocolo de internet implementadas como parte deste Blueprint do Azure. |
+| **Cliente** | Existem não existe qualquer voz através de tecnologias de protocolo de internet implementadas como parte deste blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Acesso remoto aos recursos implementado por esta Blueprint do Azure, incluindo o portal do Azure, a ligação ao ambiente de trabalho remoto e o gateway de aplicação web, são protegidas através de TLS. TLS fornece autenticidade para comunicações de nível de sessão. |
+| **Cliente** | Acesso remoto aos recursos implementado por esta blueprint, incluindo o portal do Azure, a ligação ao ambiente de trabalho remoto e o gateway de aplicação web, são protegidas através de TLS. TLS fornece autenticidade para comunicações de nível de sessão. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Acesso remoto aos recursos implementado por esta Blueprint do Azure, incluindo o portal do Azure, a ligação ao ambiente de trabalho remoto e o gateway de aplicação web, são protegidas através de TLS. Portal do Azure e sessões de ambiente de trabalho remotas invalidar identificadores de sessão após a fim de sessão. Invalidação de sessão Web é imposta através do Gateway de aplicação do Azure - as regras de Firewall de aplicação Web (WAF). O WAF aplica-se a afinidade de cookie por sessão e efetua o tempo limite da sessão após 30 minutos (implementação post configurável de regras específicas de organização) de inatividade do cliente. |
+| **Cliente** | Acesso remoto aos recursos implementado por esta blueprint, incluindo o portal do Azure, a ligação ao ambiente de trabalho remoto e o gateway de aplicação web, são protegidas através de TLS. Portal do Azure e sessões de ambiente de trabalho remotas invalidar identificadores de sessão após a fim de sessão. Invalidação de sessão Web é imposta através do Gateway de aplicação do Azure - as regras de Firewall de aplicação Web (WAF). O WAF aplica-se a afinidade de cookie por sessão e efetua o tempo limite da sessão após 30 minutos (implementação post configurável de regras específicas de organização) de inatividade do cliente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais implementadas por esta Blueprint Azure implementar a encriptação de disco para proteger a confidencialidade e a integridade das informações inativos. Encriptação de disco do Azure para Windows é implementada utilizando a funcionalidade de BitLocker do Windows. SQL Server está configurado para utilizar transparente dados encriptação (TDE), que efetua a encriptação em tempo real e a desencriptação de dados e ficheiros para proteger informações inativos de registo. TDE fornece assurance que armazenados os dados não foi sujeito acesso não autorizado. Cliente pode optar por implementar controlos de nível de aplicação adicionais para proteger a integridade das informações armazenadas. Confidencialidade e integridade dos todos os blobs de armazenamento implementado por esta Blueprint do Azure estão protegidos através da utilização de encriptação de serviço de armazenamento do Azure (SSE). SSE salvaguarda dados Inativos dentro de contas do storage do Azure através da encriptação AES de 256 bits. |
+| **Cliente** | Máquinas virtuais implementadas por esta blueprint implementar a encriptação de disco para proteger a confidencialidade e a integridade das informações inativos. Encriptação de disco do Azure para Windows é implementada utilizando a funcionalidade de BitLocker do Windows. SQL Server está configurado para utilizar transparente dados encriptação (TDE), que efetua a encriptação em tempo real e a desencriptação de dados e ficheiros para proteger informações inativos de registo. TDE fornece assurance que armazenados os dados não foi sujeito acesso não autorizado. Cliente pode optar por implementar controlos de nível de aplicação adicionais para proteger a integridade das informações armazenadas. Confidencialidade e integridade dos todos os blobs de armazenamento implementado por esta blueprint estão protegidos através da utilização de encriptação de serviço de armazenamento do Azure (SSE). SSE salvaguarda dados Inativos dentro de contas do storage do Azure através da encriptação AES de 256 bits. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. Windows mantém domínios de execução separado para cada processo em execução, atribuindo um espaço de endereço virtual privado a cada processo. |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. Windows mantém domínios de execução separado para cada processo em execução, atribuindo um espaço de endereço virtual privado a cada processo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Criar clusters do HDInsight com o Data Lake Store utilizando o portal do Azure
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Nesta secção, criará um cluster do HDInsight com contas de Data Lake Store, c
 
     ![Adicionar o principal de serviço ao HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "principal de serviço de adicionar ao cluster do HDInsight")
 
-    - **Conta Selecione Data Lake Store**: selecione uma conta existente do Data Lake Store. É necessária uma conta de Data Lake Store existente.  Consulte [pré-requisitos](#prereuisites).
+    - **Conta Selecione Data Lake Store**: selecione uma conta existente do Data Lake Store. É necessária uma conta de Data Lake Store existente.  Consulte [pré-requisitos](#prerequisites).
     - **Caminho da raiz**: introduza um caminho de onde os ficheiros de específicas do cluster estão a ser armazenados. Na captura de ecrã, é __/clusters myhdiadlcluster/__, na qual o __/clusters__ pasta tem de existir e o Portal cria *myhdicluster* pasta.  O *myhdicluster* é o nome do cluster.
     - **Acesso de data Lake Store**: configurar o acesso entre a conta do Data Lake Store e o cluster do HDInsight. Para obter instruções, consulte [acesso de configurar o Data Lake Store](#configure-data-lake-store-access).
     - **Contas de armazenamento adicional**: contas de adicionar contas de armazenamento do Azure como armazenamento adicional para o cluster. Adicionar arquivos do Data Lake, é necessário fornecer as permissões de cluster nos dados de mais contas de Data Lake Store ao configurar uma conta de Data Lake Store, como o tipo de armazenamento primário. Veja [Configurar o acesso ao Data Lake Store](#configure-data-lake-store-access).

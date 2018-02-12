@@ -1,6 +1,6 @@
 ---
-title: "Automatização do FedRAMP Azure Blueprint – Avaliação de segurança e a autorização"
-description: "Aplicações Web para FedRAMP - avaliação de segurança e autorização"
+title: "Segurança do Azure e de conformidade Blueprint - automatização de aplicações FedRAMP Web - avaliação de segurança e de autorização"
+description: "Automatização de aplicações FedRAMP Web - avaliação de segurança e autorização"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Avaliação de segurança e de autorização (AC)
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Grupos de segurança de rede e Gateway de aplicação do Azure são implementados para restringir a conectividade externa a recursos implementados por este Blueprint do Azure. RuleSets aplicados nos grupos de segurança de rede estão configuradas utilizando um esquema de negar por predefinição. |
+| **Cliente** | Grupos de segurança de rede e Gateway de aplicação do Azure são implementados para restringir a conectividade externa a recursos implementados por este blueprint. RuleSets aplicados nos grupos de segurança de rede estão configuradas utilizando um esquema de negar por predefinição. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -337,7 +337,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="continuous-monitoring"></a>Monitorização contínua
 
-**7 de AC** A organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui a correlação e análise de informações relacionadas com segurança geradas pelo avaliações e monitorização.
+**CA-7.e** A organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui a correlação e análise de informações relacionadas com segurança geradas pelo avaliações e monitorização.
 
 **Responsabilidades:**`Customer Only`
 

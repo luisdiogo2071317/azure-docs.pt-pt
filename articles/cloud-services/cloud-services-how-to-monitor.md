@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 9b94d9c66f69fac7c73a70618f782b811d4c9e62
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à monitorização do serviço de nuvem
 
@@ -76,7 +76,7 @@ No **servicedefinition. Csdef** ficheiro, adicione uma nova definição denomina
 
 Isto define uma nova definição tem de ser adicionada a cada **serviceconfiguration. Cscfg** ficheiro. 
 
-Provavelmente se tiver dois **. cscfg** ficheiros, um com o nome **Serviceconfiguration** para a implementação para o Azure e um com o nome **ServiceConfiguration.local.cscfg** que é utilizado para implementações locais no ambiente emulada. Abra e altere cada **. cscfg** ficheiro. Adicionar uma definição denominada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Definir o valor para uma o **cadeia de ligação principal** da conta de armazenamento clássico. Se pretender utilizar o armazenamento local no computador de desenvolvimento, utilize `UseDevelopmentStorage=true`.
+Provavelmente se tiver dois **. cscfg** ficheiros, um com o nome **Serviceconfiguration** para a implementação para o Azure e um com o nome **ServiceConfiguration.local.cscfg** que é utilizado para implementações locais no ambiente emulada. Abra e altere cada **. cscfg** ficheiro. Adicionar uma definição denominada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Defina o valor para o **cadeia de ligação principal** da conta de armazenamento clássico. Se pretender utilizar o armazenamento local no computador de desenvolvimento, utilize `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

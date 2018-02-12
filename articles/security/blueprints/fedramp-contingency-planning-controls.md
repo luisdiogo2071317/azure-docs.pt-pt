@@ -1,6 +1,6 @@
 ---
-title: "Automatização do FedRAMP Azure Blueprint - Contingency planeamento"
-description: "As aplicações para FedRAMP - Web Contingency planeamento"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - Contingency planeamento"
+description: "Automatização de aplicações FedRAMP Web - Contingency planeamento"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Contingency planeamento (CP)
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="contingency-plan"></a>Plano de contingency
 
-**CP 2.e** A organização atualizações do plano de contingency as alterações do endereço para a organização, o sistema de informações ou o ambiente da operação do e problemas encontrados durante a implementação de plano contingency, execução ou de teste.
+**CP-2.e** A organização atualizações do plano de contingency as alterações do endereço para a organização, o sistema de informações ou o ambiente da operação do e problemas encontrados durante a implementação de plano contingency, execução ou de teste.
 
 **Responsabilidades:**`Customer Only`
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-cp-4-2a"></a>Controlar o NIST 800-53 .a (2) CP-4
+ ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800-53 Control CP-4 (2).a
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Teste de plano contingency | Site de processamento alternativo
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas do storage implementadas por esta Blueprint do Azure são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). O GRS garante que os dados são replicados para uma região secundária; seis cópias dos todos os dados são mantidas em nós separados entre dois centros de dados. |
+| **Cliente** | Todas as contas do storage implementadas por esta blueprint são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). O GRS garante que os dados são replicados para uma região secundária; seis cópias dos todos os dados são mantidas em nós separados entre dois centros de dados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas do storage implementadas por esta Blueprint do Azure são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). Controlos de segurança físicos são implementados uniformemente entre os datacenters do Azure. |
+| **Cliente** | Todas as contas do storage implementadas por esta blueprint são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). Controlos de segurança físicos são implementados uniformemente entre os datacenters do Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas do storage implementadas por esta Blueprint do Azure são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). O GRS garante que os dados são replicados para uma região secundária. Regiões primários e secundários são emparelhadas para garantir que o necessária distância entre centros de dados para garantir a disponibilidade em caso de uma falha de toda a área ou um desastre. |
+| **Cliente** | Todas as contas do storage implementadas por esta blueprint são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). O GRS garante que os dados são replicados para uma região secundária. Regiões primários e secundários são emparelhadas para garantir que o necessária distância entre centros de dados para garantir a disponibilidade em caso de uma falha de toda a área ou um desastre. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas do storage implementadas por esta Blueprint do Azure são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). O GRS garante que os dados são replicados para uma região secundária. Os clientes tem de garantir que o modelo de replicação de dados do Azure é compatível com objetivos contingency. |
+| **Cliente** | Todas as contas do storage implementadas por esta blueprint são replicadas para garantir a elevada disponibilidade utilizando o armazenamento georredundante (GRS). O GRS garante que os dados são replicados para uma região secundária. Os clientes tem de garantir que o modelo de replicação de dados do Azure é compatível com objetivos contingency. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. |
+| **Cliente** | Este blueprint contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Quando implementar uma região Azure alternativa, o aprovisionamento de equipamento é gerido transparente pelo Azure. |
+| **Cliente** | Este blueprint contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Quando implementar uma região Azure alternativa, o aprovisionamento de equipamento é gerido transparente pelo Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. As proteções de segurança uniformemente são implementadas em centros de dados do Azure. |
+| **Cliente** | Este blueprint contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. As proteções de segurança uniformemente são implementadas em centros de dados do Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Os datacenters do Azure geograficamente estão separados. |
+| **Cliente** | Este blueprint contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Os datacenters do Azure geograficamente estão separados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Quando implementar uma região Azure alternativa, a disponibilidade de recursos é gerida transparente pelo Azure. |
+| **Cliente** | Este blueprint contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Quando implementar uma região Azure alternativa, a disponibilidade de recursos é gerida transparente pelo Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -525,7 +525,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Quando implementar uma região Azure alternativa, a preparação de recurso físico é gerida transparente pelo Azure. |
+| **Cliente** | Este blueprint contém orientações sobre como esta solução pode ser implementada em simultâneo em várias regiões e configurada para fornecer redundância completa de um site de processamento alternativo. Quando implementar uma região Azure alternativa, a preparação de recurso físico é gerida transparente pelo Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um cofre dos serviços de recuperação. Informações de nível de utilizador na base de dados do SQL Server implementado são implementadas através da extensão de IaaS de VM do SQL Server. |
+| **Cliente** | Este blueprint implementa um cofre dos serviços de recuperação. Informações de nível de utilizador na base de dados do SQL Server implementado são implementadas através da extensão de IaaS de VM do SQL Server. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa um cofre dos serviços de recuperação. Uma política de cópia de segurança do Azure é estabelecida para todas as máquinas virtuais a implementar a retenção de uma imagem de cópia de segurança diárias, semanais, mensais e anuais.  |
+| **Cliente** | Este blueprint implementa um cofre dos serviços de recuperação. Uma política de cópia de segurança do Azure é estabelecida para todas as máquinas virtuais a implementar a retenção de uma imagem de cópia de segurança diárias, semanais, mensais e anuais.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Confidencialidade e integridade dos todos os blobs de armazenamento implementado por esta Blueprint do Azure estão protegidos através da utilização de SSE do Azure, que utiliza a encriptação AES de 256 bits para todos os dados em rest. |
+| **Cliente** | Confidencialidade e integridade dos todos os blobs de armazenamento implementado por esta blueprint estão protegidos através da utilização de SSE do Azure, que utiliza a encriptação AES de 256 bits para todos os dados em rest. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Todas as contas de armazenamento implementado neste Blueprint do Azure, incluindo esses utilizado para cópia de segurança, implemente o armazenamento georredundante, garantindo seis cópias dos todos os dados são mantidas em nós separados em todos os centros de dados de dois. |
+| **Cliente** | Todas as contas de armazenamento implementado neste blueprint, incluindo esses utilizado para cópia de segurança, implemente o armazenamento georredundante, garantindo seis cópias dos todos os dados são mantidas em nós separados em todos os centros de dados de dois. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o SQL Server num sempre no grupo de disponibilidade. O SQL Server mantém um registo de transações que suporta a recuperação de transações em caso de falha de sistema. |
+| **Cliente** | Este blueprint implementa do SQL Server num sempre no grupo de disponibilidade. O SQL Server mantém um registo de transações que suporta a recuperação de transações em caso de falha de sistema. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 

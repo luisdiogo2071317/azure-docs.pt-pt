@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Formatos de fluxo de trabalho do suporte de dados codificador Premium e codecs
 > [!NOTE]
-> Para perguntas de codificador premium, e-mail mepd em Microsoft.com.
+> Para perguntas de codificador premium, e-mail mepd@microsoft.com.
 > 
 > Processador de multimédia de fluxo de trabalho do suporte de dados codificador Premium debatido neste tópico não está disponível na China. 
 > 
@@ -51,8 +51,8 @@ A secção seguinte apresenta uma lista de formatos de codecs e de ficheiros que
 
 ### <a name="input-video-codecs"></a>Codecs vídeo de entrada
 * AVC 8 bits/10-bits, até 4:2:2, incluindo AVCIntra
-* DNxHD avid (em MXF)
-* DVCPro/DVCProHD (em MXF)
+* Avid DNxHD (in MXF)
+* DVCPro/DVCProHD (in MXF)
 * JPEG2000
 * MPEG-2 (até perfil 422 e de elevado nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
@@ -65,7 +65,7 @@ A secção seguinte apresenta uma lista de formatos de codecs e de ficheiros que
 * AAC (AAC LC, AAC Putador e AAC-HEv2; até 5.1)
 * MPEG camada 2
 * MP3 (MPEG-1 a camada áudio 3)
-* Áudio de suporte de dados do Windows
+* Windows Media Audio
 * WAV/PCM
 
 ## <a id="output_format"></a>Formatos de saída de fluxo de trabalho do suporte de dados codificador Premium e Codecs
@@ -84,8 +84,8 @@ A secção seguinte apresenta uma lista de formatos de codecs e de ficheiros que
 
 ### <a name="output-video-codecs"></a>Saída Codecs vídeo
 * AVC (264; 8 bits; até o perfil de alto nível 5.2; 4 HD Ultra estanques aos K; Dentro de AVC)
-* DNxHD avid (em MXF)
-* DVCPro/DVCProHD (em MXF)
+* Avid DNxHD (in MXF)
+* DVCPro/DVCProHD (in MXF)
 * MPEG-2 (até perfil 422 e de elevado nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
 * Suporte de dados de Windows vídeo/VC-1
@@ -98,7 +98,7 @@ A secção seguinte apresenta uma lista de formatos de codecs e de ficheiros que
 * AAC (AAC LC, AAC Putador e AAC-HEv2; até 5.1)
 * MPEG camada 2
 * MP3 (MPEG-1 a camada áudio 3)
-* Áudio de suporte de dados do Windows
+* Windows Media Audio
 
 >[!NOTE]
 >Se codificar para Dolby® digitais (AC3), a saída só pode ser escrita para um ficheiro ISO MP4.

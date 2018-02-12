@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint automatização - gestão de configuração"
-description: "Aplicações Web para FedRAMP - gestão de configuração"
+title: "Gestão de configuração de Blueprint - automatização de aplicações FedRAMP Web - de conformidade e segurança do Azure"
+description: "Automatização de aplicações FedRAMP Web - gestão de configuração"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Gestão de configuração (CM)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os modelos Azure Resource Manager e o associada recursos que compõem este Blueprint Azure representam uma linha de base "configuração como código" para a arquitetura implementada. A solução é fornecida apesar GitHub, que pode ser utilizada para controlo de configuração. A solução inclui uma linha de base de configuração de estado pretendido (DSC) para cada máquina virtual implementada. |
+| **Cliente** | Os modelos Azure Resource Manager e o associada recursos que compõem este blueprint representam uma linha de base "configuração como código" para a arquitetura implementada. A solução é fornecida apesar GitHub, que pode ser utilizada para controlo de configuração. A solução inclui uma linha de base de configuração de estado pretendido (DSC) para cada máquina virtual implementada. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os modelos Azure Resource Manager e o associada recursos que compõem este Blueprint Azure representam uma linha de base "configuração como código" para a arquitetura implementada. A solução é fornecida apesar GitHub, que pode ser utilizada para controlo de configuração. No portal do Azure, um script de automatização está disponível para todos os recursos implementados e fornece uma representação sempre atualizada esses recursos.  |
+| **Cliente** | Os modelos Azure Resource Manager e o associada recursos que compõem este blueprint representam uma linha de base "configuração como código" para a arquitetura implementada. A solução é fornecida apesar GitHub, que pode ser utilizada para controlo de configuração. No portal do Azure, um script de automatização está disponível para todos os recursos implementados e fornece uma representação sempre atualizada esses recursos.  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control"></a>Controlo de alterações de configuração
 
-**3.e de CM** A organização mantém os registos de alterações controlado de configuração para o sistema de informações para [atribuição: organização definidos pelo período de tempo].
+**CM-3.e** A organização mantém os registos de alterações controlado de configuração para o sistema de informações para [atribuição: organização definidos pelo período de tempo].
 
 **Responsabilidades:**`Customer Only`
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Controlo de alterações de configuração | Automatizada documento / notificação / Prohibition das alterações
 
-**.E CM-3 (1)** A organização utiliza mecanismos automatizados para todas as alterações para o sistema de informações de documentos.
+**CM-3 (1).e** A organização utiliza mecanismos automatizados para todas as alterações para o sistema de informações de documentos.
 
 **Responsabilidades:**`Customer Only`
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais implementadas por esta Blueprint Azure implementa o AppLocker do Windows para especificar quais os utilizadores podem instalar e/ou executar aplicações específicas. Adicionais, todas as janelas de atualizações do sistema operativo são singed digitalmente. |
+| **Cliente** | Máquinas virtuais implementadas por esta blueprint implementar o AppLocker do Windows para especificar quais os utilizadores podem instalar e/ou executar aplicações específicas. Adicionais, todas as janelas de atualizações do sistema operativo são singed digitalmente. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint de Azure inclui uma linha de base de configuração de estado pretendido (DSC) para cada máquina virtual implementada. Estes scripts do PowerShell declarativas definem e configurar os recursos aos quais são aplicadas. A linha de base DSC incluído para recursos implementados por esta solução pode ser expandida pelo cliente para satisfazer as necessidades de missão. |
+| **Cliente** | Este blueprint inclui uma linha de base de configuração de estado pretendido (DSC) para cada máquina virtual implementada. Estes scripts do PowerShell declarativas definem e configurar os recursos aos quais são aplicadas. A linha de base DSC incluído para recursos implementados por esta solução pode ser expandida pelo cliente para satisfazer as necessidades de missão. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint de Azure inclui uma linha de base de configuração de estado pretendido (DSC) para cada máquina virtual implementada. As linhas de base é aplicada automaticamente a máquinas virtuais durante a implementação através da extensão da máquina virtual de script personalizado. |
+| **Cliente** | Este blueprint inclui uma linha de base de configuração de estado pretendido (DSC) para cada máquina virtual implementada. As linhas de base é aplicada automaticamente a máquinas virtuais durante a implementação através da extensão da máquina virtual de script personalizado. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o DSC de automatização. Automation DSC Alinha a configurações de máquinas com uma configuração específica definida por organização. |
+| **Cliente** | Este blueprint implementa o DSC de automatização. Automation DSC Alinha a configurações de máquinas com uma configuração específica definida por organização. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o Automation DSC do Azure. Automation DSC Alinha a configurações de máquinas com uma configuração específica definida de organização e monitoriza continuamente as alterações. |
+| **Cliente** | Este blueprint implementa Automation DSC do Azure. Automation DSC Alinha a configurações de máquinas com uma configuração específica definida de organização e monitoriza continuamente as alterações. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa o Automation DSC do Azure. Parte do Azure Operations Management Suite (OMS), o DSC de automatização pode ser configurado para gerar um alerta ou para resolver erros de configuração quando detetado. |
+| **Cliente** | Este blueprint implementa Automation DSC do Azure. Parte do Azure Operations Management Suite (OMS), o DSC de automatização pode ser configurado para gerar um alerta ou para resolver erros de configuração quando detetado. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Os recursos implementados por este Blueprint do Azure estão configurados para fornecer a funcionalidade, pelo menos, para o respetivo objetivo pretendido. Uma linha de base de configuração de estado pretendido (DSC) está incluída para cada máquina virtual implementada. Estes scripts do PowerShell declarativas definem e configurar os recursos aos quais são aplicadas. A linha de base DSC incluído para recursos implementados por esta solução pode ser expandida pelo cliente para limitar ainda mais a funcionalidade para satisfazer as necessidades de missão. |
+| **Cliente** | Os recursos implementados por este blueprint estão configurados para fornecer a funcionalidade, pelo menos, para o respetivo objetivo pretendido. Uma linha de base de configuração de estado pretendido (DSC) está incluída para cada máquina virtual implementada. Estes scripts do PowerShell declarativas definem e configurar os recursos aos quais são aplicadas. A linha de base DSC incluído para recursos implementados por esta solução pode ser expandida pelo cliente para limitar ainda mais a funcionalidade para satisfazer as necessidades de missão. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa grupos de segurança de rede e Gateway de aplicação do Azure para restringir a utilização de portas e protocolos para apenas os que são necessárias. Gateway de aplicação, grupos de segurança de rede e linhas de base de DSC para máquinas virtuais podem ser mais configuradas pelo cliente para restringir a utilização de serviços para fornecer apenas a funcionalidade pretendida, protocolos, portas e funções. |
+| **Cliente** | Este blueprint implementa grupos de segurança de rede e Gateway de aplicação do Azure para restringir a utilização de portas e protocolos para apenas os que são necessárias. Gateway de aplicação, grupos de segurança de rede e linhas de base de DSC para máquinas virtuais podem ser mais configuradas pelo cliente para restringir a utilização de serviços para fornecer apenas a funcionalidade pretendida, protocolos, portas e funções. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista atualizada sempre de recursos implementados e podem ser personalizado para recursos de etiqueta e o grupo de gestão de inventário. Recursos implementados por esta solução recebem uma etiqueta de recurso específico que pode ser associada ao limite de sistema. |
+| **Cliente** | Este blueprint implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista atualizada sempre de recursos implementados e podem ser personalizado para recursos de etiqueta e o grupo de gestão de inventário. Recursos implementados por esta solução recebem uma etiqueta de recurso específico que pode ser associada ao limite de sistema. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista atualizada sempre de recursos implementados disponíveis para revisão no portal do Azure. |
+| **Cliente** | Este blueprint implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista atualizada sempre de recursos implementados disponíveis para revisão no portal do Azure. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O painel de recursos no portal do Azure apresenta uma lista de todos os recursos implementados, fornecendo um inventário sempre atualizado, como recursos são implementados e removidos. |
+| **Cliente** | Este blueprint implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O painel de recursos no portal do Azure apresenta uma lista de todos os recursos implementados, fornecendo um inventário sempre atualizado, como recursos são implementados e removidos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O painel de recursos no portal do Azure apresenta uma lista de todos os recursos implementados, fornecendo um inventário sempre atualizado, como recursos são implementados e removidos. |
+| **Cliente** | Este blueprint implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O painel de recursos no portal do Azure apresenta uma lista de todos os recursos implementados, fornecendo um inventário sempre atualizado, como recursos são implementados e removidos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa todos os recursos para um grupo de recursos do Azure Resource Manager. Os sinalizadores de recursos do Azure são chave / valor pares que podem ser utilizadas para categorizar os recursos para fins de accountability e/ou de gestão. |
+| **Cliente** | Este blueprint implementa todos os recursos para um grupo de recursos do Azure Resource Manager. Os sinalizadores de recursos do Azure são chave / valor pares que podem ser utilizadas para categorizar os recursos para fins de accountability e/ou de gestão. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista atualizada sempre de recursos implementados. Recursos implementados por esta solução recebem uma etiqueta de recurso específico que pode ser associada ao limite de sistema. |
+| **Cliente** | Este blueprint implementa todos os recursos para um grupo de recursos do Azure Resource Manager. O Azure Resource Manager fornece uma lista atualizada sempre de recursos implementados. Recursos implementados por esta solução recebem uma etiqueta de recurso específico que pode ser associada ao limite de sistema. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Licenças do Windows e o SQL Server estão incluídas para os recursos implementados por este Blueprint do Azure. Esta é uma funcionalidade incorporada do Azure. As organizações com contratos de licença de software existente poderão considerar a implementação de modelos de licença alternativo. |
+| **Cliente** | Licenças do Windows e o SQL Server estão incluídas para os recursos implementados por este blueprint. Esta é uma funcionalidade incorporada do Azure. As organizações com contratos de licença de software existente poderão considerar a implementação de modelos de licença alternativo. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Licenças do Windows e o SQL Server estão incluídas para os recursos implementados por este Blueprint do Azure. O utilizador não é necessário para controlar a utilização de licenças em separado. |
+| **Cliente** | Licenças do Windows e o SQL Server estão incluídas para os recursos implementados por este blueprint. O utilizador não é necessário para controlar a utilização de licenças em separado. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não há nenhuma capacidade implementada por esta Blueprint Azure de partilha de ficheiros de ponto a ponto. |
+| **Cliente** | Não há nenhuma capacidade implementada por esta blueprint de partilha de ficheiros de ponto a ponto. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 

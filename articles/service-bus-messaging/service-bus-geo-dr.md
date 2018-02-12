@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de Georreplicação-desastre do Service Bus do Azure
 
@@ -99,13 +99,13 @@ Tenha em atenção as seguintes considerações a lembrar com esta versão:
 
 1. No seu planeamento de ativação pós-falha, também deve considerar o fator de tempo. Por exemplo, se perder conetividade durante um período superior a 15 a 20 minutos, poderá decidir iniciar a ativação pós-falha. 
  
-2. O facto de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, mensagens agendadas e de deteção de duplicados podem não funcionar. Novas sessões, mensagens agendadas e novo duplicados irão funcionar. 
+2. O facto de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, mensagens agendadas e de deteção de duplicados podem não funcionar. Novas sessões, novas mensagens agendadas e novo duplicados irão funcionar. 
 
 3. Falha ao longo de uma infraestrutura distribuída complexa deve ser [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) , pelo menos, uma vez. 
 
 4. Sincronizar entidades pode demorar algum tempo, aproximadamente, 50-100 entidades por minuto. Regras e as subscrições também contam como entidades. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a recuperação de desastre Georreplicação [referência da REST API aqui](/rest/api/servicebus/disasterrecoveryconfigs).
 - Executar a recuperação de desastre Georreplicação [em GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).

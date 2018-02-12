@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 ## <a name="overview"></a>Descrição geral
@@ -65,7 +65,7 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 | Estado do canal | Indicadores IU do portal | É faturação? |
 | --- | --- | --- |
 | A Iniciar |A Iniciar |Não (estado transitório) |
-| A Executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
+| Em Execução |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
 | A Parar |A Parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
@@ -83,7 +83,7 @@ O diagrama seguinte representa um fluxo de trabalho de transmissão em fluxo em 
 Os seguintes são passos gerais referentes à criação de aplicações comuns de transmissão em fluxo em direto.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived através de Microsoft.com se tiver de executar um canal durante períodos de tempo mais longos. Lembre-se de que existe um impacto de faturação para live encoding e deve Lembre-se de que a sair de um canal de codificação em direto no estado "Em execução" resultará em encargos faturação por hora.  Recomenda-se que pare os canais executar imediatamente depois de concluída a evitar custos extra por hora do evento de transmissão em fluxo em direto. 
+> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived@microsoft.com se precisar de executar um canal durante períodos de tempo mais longos. Lembre-se de que existe um impacto de faturação para live encoding e deve Lembre-se de que a sair de um canal de codificação em direto no estado "Em execução" resultará em encargos faturação por hora.  Recomenda-se que pare os canais executar imediatamente depois de concluída a evitar custos extra por hora do evento de transmissão em fluxo em direto. 
 > 
 > 
 
@@ -262,12 +262,12 @@ Podem existir até 8 conjuntos de sequência de áudio especificado se a entrada
 ### <a id="preset"></a>Predefinição de sistema
 Especifica a predefinição para ser utilizado pelo codificador em direto dentro deste canal. Atualmente, é o único valor permitido **Default720p** (predefinição).
 
-Tenha em atenção que, se precisar de predefinições personalizadas, deve contacte amslived através de Microsoft.com.
+Tenha em atenção que se precisar de predefinições personalizadas, deve contactar o amslived@microsoft.com.
 
 **Default720p** será codificar o vídeo para seguintes 7 camadas.
 
 #### <a name="output-video-stream"></a>Fluxo de vídeo de saída
-| Velocidade de transmissão | Largura | Altura | MaxFPS | Perfil | Nome de fluxo de saída |
+| BitRate | Largura | Altura | MaxFPS | Perfil | Nome de fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
 | 2200 |960 |540 |30 |Principal |Video_960x540_2200kbps |
@@ -309,7 +309,7 @@ O codificador em direto pode ser configurado para mudar para uma imagem de ardó
 ### <a name="duration"></a>Duração
 A duração de ardósia em segundos. Isto tem de ser um valor positivo diferente de zero para iniciar a ardósia. Se existir uma ardósia em curso, e uma duração de zero é especificada, será terminada esse ardósia em curso.
 
-### <a name="insert-slate-on-ad-marker"></a>Inserir ardósia em marcador do ad
+### <a name="insert-slate-on-ad-marker"></a>Inserir imagem fixa num marcador de publicidade
 Quando definido como true, esta definição configura o codificador em direto para inserir uma imagem de ardósia durante uma quebra de ad. O valor predefinido é verdadeiro. 
 
 ### <a id="default_slate"></a>Id de recurso de predefinido ardósia
@@ -364,7 +364,7 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 | Estado do canal | Indicadores IU do portal | Foi cobrado? |
 | --- | --- | --- |
 | A Iniciar |A Iniciar |Não (estado transitório) |
-| A Executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |Sim |
+| Em Execução |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |Sim |
 | A Parar |A Parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
@@ -381,13 +381,13 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 * Por predefinição só é possível adicionar 5 canais à sua conta de Media Services. Esta é uma quota não restritiva em todas as contas de novo. Para obter mais informações, consulte [Quotas e limitações](media-services-quotas-and-limitations.md).
 * Não é possível alterar o protocolo de entrada enquanto o Canal ou os seus programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de entrada.
 * É faturado apenas quando o canal está a ser o **executar** estado. Para obter mais informações, consulte [isto](media-services-manage-live-encoder-enabled-channels.md#states) secção.
-* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived através de Microsoft.com, se tiver de executar um Canal durante períodos de tempo mais longos.
+* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived@microsoft.com se precisar de executar um canal durante períodos de tempo mais longos.
 * Certifique-se de que tem o partir do qual pretende transmitir o conteúdo no ponto final de transmissão em fluxo a **executar** estado.
 * Quando inputting vários idiomas controla e fazer live encoding com o Azure, RTP só é suportada para a entrada multilingues. Pode definir até 8 fluxos de áudio utilizando TS MPEG-2 sobre RTP. Ingestão relacionadas vários controla áudio com RTMP ou transmissão em fluxo uniforme não é atualmente suportada. Ao fazer live encoding com [em direto no local codifica](media-services-live-streaming-with-onprem-encoders.md), não há nenhum desse limitação porque que é enviado para AMS passa através de um canal sem qualquer processamento adicional.
 * A predefinição de codificação utiliza a noção de "taxa de intervalo máximo" da 30 fps. Por isso, caso a entrada é 60fps 59.97i, as frames Jumbo entradas são ignoradas/de-interlaced para 30/29.97 fps. Se a entrada é 50fps/50i, as frames Jumbo entradas são ignorados/de-interlaced para 25 fps. Se a entrada é 25 fps, saída permanece no 25 fps.
 * Não se esqueça de parar sua canais quando terminar. Se não o fizer, irá continuar a faturação.
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 * No tempo de arranque de canal foi melhorado para uma média de 2 minutos, mas por vezes de crescente procura foi ainda demorar até 20 + minutos.
 * Suporte RTP é catered para broadcasters profissionais. Reveja as notas sobre RTP no [isto](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blogue.
 * Imagens de ardósia devem estar em conformidade restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se tentar criar um canal com uma ardósia predefinido que é maior do que 1920 x 1080, o pedido será erro.

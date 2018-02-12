@@ -1,6 +1,6 @@
 ---
-title: Controlos de acesso condicional do Azure Active Directory | Microsoft Docs
-description: Saiba como funcionam os controlos de acesso condicional do Azure Active Directory.
+title: Aceder aos controlos de acesso condicional do Azure Active Directory | Microsoft Docs
+description: Saiba como controlos de acesso em projetos de acesso condicional do Azure Active Directory.
 services: active-directory
 keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
 documentationcenter: 
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Controlos de acesso condicional do Azure Active Directory 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controlos de acesso no acesso condicional do Azure Active Directory 
 
 Com [acesso condicional do Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), pode controlar o acesso de utilizadores autorizados como as suas aplicações em nuvem. Na política de acesso condicional, é possível definir a resposta ("fazê-lo") para a razão para acionar a política ("quando isto acontece"). 
 

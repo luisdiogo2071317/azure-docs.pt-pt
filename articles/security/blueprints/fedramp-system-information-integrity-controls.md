@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Blueprint da automatização do Azure - sistema e informações de integridade"
-description: "Aplicações Web para FedRAMP - sistema e informações de integridade"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - sistema e informações de integridade"
+description: "Automatização de aplicações FedRAMP Web - sistema e informações de integridade"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Sistema e informações de integridade (TAMA)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do OMS dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. |
+| **Cliente** | Este blueprint implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do OMS dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Máquinas virtuais do Windows implementadas por esta Blueprint do Azure estão configuradas por predefinição para receber as atualizações automáticas do serviço de atualização do Windows. Esta solução também implementa a solução de automatização do OMS & controlo através do qual as implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
+| **Cliente** | Máquinas virtuais do Windows implementadas por esta blueprint estão configuradas por predefinição para receber as atualizações automáticas do serviço de atualização do Windows. Esta solução também implementa a solução de automatização do OMS & controlo através do qual as implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do OMS dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. Implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
+| **Cliente** | Este blueprint implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. A partir do OMS dashboard, o mosaico de gestão de atualizações apresenta o estado de remediação de falha de todos os servidores de Windows implementados. Implementações de atualização podem ser criadas para implementar patches nos servidores do Windows quando for necessário. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. Em cada computador Windows gerido, é feita uma análise duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o estado foi alterado e, se for esse o caso, é iniciada uma análise de conformidade. |
+| **Cliente** | Este blueprint implementa a solução OMS automatização e controlo para controlar o estado das atualizações para as máquinas de virtuais do Windows implementadas nesta arquitetura. Em cada computador Windows gerido, é feita uma análise duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o estado foi alterado e, se for esse o caso, é iniciada uma análise de conformidade. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. |
+| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para atualizar automaticamente ambas as assinaturas antimalware da proteção e de motor como versão fique disponível. |
+| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para atualizar automaticamente ambas as assinaturas antimalware da proteção e de motor como versão fique disponível. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para efetuar análises em tempo real e periódicos (semanal), automaticamente ambas as assinaturas antimalware da proteção e de motor de atualização e efetuar ações de remediação automática. |
+| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para efetuar análises em tempo real e periódicos (semanal), automaticamente ambas as assinaturas antimalware da proteção e de motor de atualização e efetuar ações de remediação automática. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Azure OMS proporciona uma capacidade centralizada para rever o estado atual da solução antimalware. |
+| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Azure OMS proporciona uma capacidade centralizada para rever o estado atual da solução antimalware. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para atualizar automaticamente ambas as assinaturas antimalware da proteção e de motor como versão fique disponível. |
+| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para atualizar automaticamente ambas as assinaturas antimalware da proteção e de motor como versão fique disponível. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para executar a deteção heurística. |
+| **Cliente** | Este blueprint implementa as proteções de antimalware baseada no anfitrião para todos os Windows as máquinas virtuais implementadas implementadas através da extensão da máquina virtual de Antimalware da Microsoft. Esta extensão está configurada para executar a deteção heurística. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a análise de registos e a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente de postura de segurança, ataques e indicadores de potenciais ataques. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
+| **Cliente** | Este blueprint implementa a análise de registos e a solução de auditoria e segurança do OMS. Esta solução fornece uma vista abrangente de postura de segurança, ataques e indicadores de potenciais ataques. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a solução de auditoria e segurança do OMS. O domínio de identidade e acesso fornece um dashboard com uma descrição geral das informações identidade do Estado do sistema, incluindo o número de tentativas falhadas para iniciar sessão e o número atual de contas que é registado no. As informações disponíveis neste dashboard podem ajudar a identificação de atividade suspeita potencial. |
+| **Cliente** | Este blueprint implementa a solução de auditoria e segurança do OMS. O domínio de identidade e acesso fornece um dashboard com uma descrição geral das informações identidade do Estado do sistema, incluindo o número de tentativas falhadas para iniciar sessão e o número atual de contas que é registado no. As informações disponíveis neste dashboard podem ajudar a identificação de atividade suspeita potencial. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a análise de registos e a solução de auditoria e segurança do OMS. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções do OMS implementadas, incluindo aprofundadas sobre o sistema de operativo VM dados de monitorização. |
+| **Cliente** | Este blueprint implementa a análise de registos e a solução de auditoria e segurança do OMS. O dashboard de auditoria e segurança fornece aprofundadas alto nível sobre o estado de segurança dos recursos implementados utilizando os dados disponíveis em soluções do OMS implementadas, incluindo aprofundadas sobre o sistema de operativo VM dados de monitorização. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Controlos de acesso lógica são utilizados para proteger as informações de monitorização dentro deste Blueprint Azure contra acesso não autorizado, alteração e eliminação. Azure Active Directory impõe o acesso lógico aprovado utilizando as associações de grupo baseada em funções. A capacidade para ver informações de monitorização e utilizar as ferramentas de monitorização pode ser limitada a utilizadores que exigem essas permissões. |
+| **Cliente** | Controlos de acesso lógica são utilizados para proteger as informações de monitorização dentro deste blueprint contra acesso não autorizado, alteração e eliminação. Azure Active Directory impõe o acesso lógico aprovado utilizando as associações de grupo baseada em funções. A capacidade para ver informações de monitorização e utilizar as ferramentas de monitorização pode ser limitada a utilizadores que exigem essas permissões. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-system-monitoring"></a>Informações de monitorização de sistema
 
-**TAMA 4.e** A organização heightens o nível de atividade de monitorização, sempre que exista uma indicação de maior risco para operações organizacionais e recursos, pessoas, outras organizações ou Nation com base nas informações de imposição da lei, de sistema de informações informações de Intelligence ou outras origens credível de informações.
+**SI-4.e** A organização heightens o nível de atividade de monitorização, sempre que exista uma indicação de maior risco para operações organizacionais e recursos, pessoas, outras organizações ou Nation com base nas informações de imposição da lei, de sistema de informações informações de Intelligence ou outras origens credível de informações.
 
 **Responsabilidades:**`Customer Only`
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a análise de registos e várias soluções OMS, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções OMS fornece uma vista abrangente de postura de segurança em vários domínios de solução. OMS fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. OMS pode ser configurado para gerar alertas com base nos critérios definidos. |
+| **Cliente** | Este blueprint implementa a análise de registos e várias soluções OMS, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções OMS fornece uma vista abrangente de postura de segurança em vários domínios de solução. OMS fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. OMS pode ser configurado para gerar alertas com base nos critérios definidos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa várias soluções OMS, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções OMS fornece uma vista abrangente de postura de segurança em vários domínios de solução. OMS pode ser configurado para gerar alertas com base nos critérios definidos. |
+| **Cliente** | Este blueprint implementa várias soluções OMS, incluindo a solução de auditoria e segurança. Análise de registos fornece quase em tempo real análise de eventos em recursos implementados. Soluções OMS fornece uma vista abrangente de postura de segurança em vários domínios de solução. OMS pode ser configurado para gerar alertas com base nos critérios definidos. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure implementa a análise de registos e várias soluções OMS, incluindo a solução de auditoria e segurança. OMS fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
+| **Cliente** | Este blueprint implementa a análise de registos e várias soluções OMS, incluindo a solução de auditoria e segurança. OMS fornece informações sobre o estado de segurança de recursos implementados utilizando os dados disponíveis em soluções de OMS implementadas. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -473,7 +473,7 @@ ms.lasthandoff: 11/23/2017
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-si-4-20"></a>TAMA do controlo NIST 800-53-4 (20)
+ ### <a name="nist-800-53-control-si-4-20"></a>NIST 800-53 Control SI-4 (20)
 
 #### <a name="information-system-monitoring--privileged-users"></a>Monitorização de sistema de informações | Utilizadores com privilégios
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Este Blueprint Azure recolhe dados de monitorização de recursos implementados, incluindo dados de capacidades de monitorização baseada no anfitrião. O Microsoft Monitoring Agent está instalado em todas as máquinas virtuais do Windows para recolher dados de monitorização utilizados pela análise de registos e outras soluções OMS. |
+| **Cliente** | Este blueprint recolhe dados de monitorização de recursos implementados, incluindo dados de capacidades de monitorização baseada no anfitrião. O Microsoft Monitoring Agent está instalado em todas as máquinas virtuais do Windows para recolher dados de monitorização utilizados pela análise de registos e outras soluções OMS. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. Windows oferece a validação de integridade de ficheiro em tempo real, a proteção e recuperação de ficheiros de sistema de núcleos que são instaladas como parte do Windows ou atualizações do sistema Windows autorizadas através da capacidade de proteção de recursos do Windows (WRP). |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. Windows oferece a validação de integridade de ficheiro em tempo real, a proteção e recuperação de ficheiros de sistema de núcleos que são instaladas como parte do Windows ou atualizações do sistema Windows autorizadas através da capacidade de proteção de recursos do Windows (WRP). |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. Windows oferece a validação de integridade de ficheiro em tempo real, a proteção e recuperação de ficheiros de sistema de núcleos que são instaladas como parte do Windows ou atualizações do sistema Windows autorizadas através da capacidade de proteção de recursos do Windows (WRP). WRP permite que a verificação de integridade em tempo real. |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. Windows oferece a validação de integridade de ficheiro em tempo real, a proteção e recuperação de ficheiros de sistema de núcleos que são instaladas como parte do Windows ou atualizações do sistema Windows autorizadas através da capacidade de proteção de recursos do Windows (WRP). WRP permite que a verificação de integridade em tempo real. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. Windows oferece a validação de integridade de ficheiro em tempo real, a proteção e recuperação de ficheiros de sistema de núcleos que são instaladas como parte do Windows ou atualizações do sistema Windows autorizadas através da capacidade de proteção de recursos do Windows (WRP).  |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. Windows oferece a validação de integridade de ficheiro em tempo real, a proteção e recuperação de ficheiros de sistema de núcleos que são instaladas como parte do Windows ou atualizações do sistema Windows autorizadas através da capacidade de proteção de recursos do Windows (WRP).  |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste Blueprint do Azure. |
+| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste Blueprint do Azure. |
+| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste Blueprint do Azure. |
+| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste Blueprint do Azure. |
+| **Cliente** | Não existem não existem servidores de correio implementadas como parte deste blueprint. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -819,7 +819,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Utilizam os recursos implementados por este Blueprint Azure comerciais sistemas operativos e aplicações de software. Este software utiliza melhores práticas industriais para assegurar a informações confidenciais não são reveladas nas mensagens de erro. |
+| **Cliente** | Utilizam os recursos implementados por este blueprint comerciais sistemas operativos e aplicações de software. Este software utiliza melhores práticas industriais para assegurar a informações confidenciais não são reveladas nas mensagens de erro. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -833,7 +833,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Utilizam os recursos implementados por este Blueprint Azure comerciais sistemas operativos e aplicações de software. Este software utiliza melhores práticas industriais para fornecer as mensagens de erro que são adequadas no contexto de utiliza a receber a mensagem. |
+| **Cliente** | Utilizam os recursos implementados por este blueprint comerciais sistemas operativos e aplicações de software. Este software utiliza melhores práticas industriais para fornecer as mensagens de erro que são adequadas no contexto de utiliza a receber a mensagem. |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
@@ -861,5 +861,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | As máquinas virtuais implementadas por esta Blueprint Azure executar sistemas operativos Windows. Windows tem proteções para impedir a execução do código em localizações de memória restrita: sem executar (NX), prazos de esquema de espaço de endereço (ASLR) e a prevenção de execução de dados (DEP). |
+| **Cliente** | As máquinas virtuais implementadas por esta blueprint executar sistemas operativos Windows. Windows tem proteções para impedir a execução do código em localizações de memória restrita: sem executar (NX), prazos de esquema de espaço de endereço (ASLR) e a prevenção de execução de dados (DEP). |
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |

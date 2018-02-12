@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: e6b9b5e497258f37037e0dc3f8efe656d5206af3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Base de dados SQL do Azure deteção e a classificação
 Deteção de dados & classificação (atualmente em pré-visualização) fornece capacidades avançadas de incorporadas no Azure SQL Database para **detetar**, **classificar**, **etiquetas**  &  **proteger** os dados confidenciais nas suas bases de dados.
-Detetar e classificar os dados confidenciais utmost (negócio financeiros, healthcare, PII, etc.) pode desempenham um papel no seu stature de proteção de informações organizacional. Que possa servir como a infraestrutura para:
+Detetar e classificar os dados mais confidenciais (empresas, financeiras, cuidados de saúde, PII, etc.) pode desempenham um papel no seu stature de proteção de informações organizacionais. Que possa servir como a infraestrutura para:
+* Ajudar a satisfazer as normas de privacidade de dados e requisitos de conformidade de regulamentação, tais como GDPR.
 * Vários cenários de segurança, tais como (auditoria) de monitorização e alertas anómalos acesso a dados confidenciais.
 * Controlar o acesso ao e proteger a segurança das bases de dados que contém dados altamente confidenciais.
-* Ajudar a satisfazer as normas de privacidade de dados e requisitos de conformidade de regulamentação, tais como GDPR.
 
 ## <a id="subheading-1"></a>Descrição geral
 Deteção de dados & classificação apresenta um conjunto de serviços avançados e novas funcionalidades do SQL Server, que formam uma nova paradigma de proteção de informações do SQL Server diversificada proteger os dados, não apenas a base de dados:
@@ -93,7 +93,9 @@ A classificação inclui dois atributos de metadados:
 
 ## <a id="subheading-3"></a>Auditoria de acesso a dados confidenciais
 
-Um aspeto importante do paradigma de proteção de informações é a capacidade para monitorizar o acesso a dados confidenciais. [Auditoria de base de dados SQL do Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) foi melhorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista a classificação de sensibilidade (etiquetas) dos dados reais que foi devolvidos por a consulta.
+Um aspeto importante do paradigma de proteção de informações é a capacidade para monitorizar o acesso a dados confidenciais.
+
+[Auditoria de base de dados SQL do Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) foi melhorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista as classificações de sensibilidade (etiquetas) dos dados reais que foi devolvidos por a consulta.
 
 ![Painel de navegação][11]
 

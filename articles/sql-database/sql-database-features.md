@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/25/2017
+ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: a15c23683a3334328720e8ae4369b2495f9613de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-features"></a>Funcionalidades da Base de Dados SQL do Azure
 
@@ -38,7 +38,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | **Funcionalidade de servidor do SQL Server** | **Suportado na base de dados SQL do Azure** | 
 | --- | --- |  
 | [Sempre encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim - consulte [arquivo de certificados](sql-database-always-encrypted.md) e [Cofre de chaves](sql-database-always-encrypted-azure-key-vault.md)|
-| [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Elevada disponibilidade está incluída com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a SQL Database do Azure](sql-database-geo-replication-overview.md) |
+| [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Elevada disponibilidade está incluída com cada base de dados. Consulte [elevada disponibilidade e o Azure SQL Database](sql-database-high-availability.md). Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a SQL Database do Azure](sql-database-geo-replication-overview.md) |
 | [Anexar uma base de dados](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Não |
 | [Funções de aplicação](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Sim |
 |[Auditoria](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sim](sql-database-auditing.md)|
@@ -73,11 +73,11 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Algumas - Consulte DMVs individuais |
 |[Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)|[Sim](sql-database-dynamic-data-masking-get-started.md)|
 | [Notificações de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Não - consulte [alertas](sql-database-insights-alerts-portal.md) |
-| [Expressões](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sim |
+| [Expressions](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sim |
 | [Eventos expandidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Algumas - consulte [expandido eventos na base de dados SQL](sql-database-xevent-db-diff-from-svr.md) |
 | [Procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Não |
 | [Ficheiros e grupos de ficheiros](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Grupo de ficheiros primário apenas |
-| [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não |
+| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não |
 | [Pesquisa em texto completo](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Breakers palavras de terceiros não são suportados |
 | [Funções](https://docs.microsoft.com/sql/t-sql/functions/functions) | Consulte mais - funções individuais |
 | [Processamento de gráfico](/sql/relational-databases/graphs/sql-graph-overview) | Sim |
@@ -110,7 +110,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Consulte [do Analysis Services do Azure](https://azure.microsoft.com/services/analysis-services/) |
 | [Auditoria do SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Não - consulte [auditoria de base de dados SQL](sql-database-auditing.md) |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim - consulte [comparação de precisão shift SQL Server Integration Services cargas de trabalho e para a nuvem](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
-| [SQL Server do PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim |
+| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim |
 | [O gerador de perfis do SQL Server](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - consulte [alargadas de eventos](sql-database-xevent-db-diff-from-svr.md) |
 | [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não |
@@ -127,7 +127,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [Windows Server Clustering de ativação pós-falha](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Elevada disponibilidade está incluída com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a SQL Database do Azure](sql-database-geo-replication-overview.md) |
 | [Índices XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Sim |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre o serviço Base de Dados SQL do Azure, veja [O que é a Base de Dados SQL?](sql-database-technical-overview.md)
 - Para obter informações sobre o suporte e as diferenças do Transact-SQL, veja [Resolving Transact-SQL differences during migration to SQL Database (Resolver as diferenças do Transact-SQL durante a migração para a Base de Dados SQL)](sql-database-transact-sql-information.md).

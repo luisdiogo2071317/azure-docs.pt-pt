@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Descrição geral de pontos finais de transmissão em fluxo 
 
@@ -86,12 +86,12 @@ Empacotamento dinâmico|Sim|Sim
 Escala|Auto escalas até o débito de destino.|Unidades de transmissão em fluxo adicionais
 Anfitrião de filtragem/G20/personalizada IP|Sim|Sim
 Transferência progressiva|Sim|Sim
-Utilização recomendada |Recomenda-se de que a vasta maioria dos cenários de transmissão em fluxo.|Utilização profissionais.<br/>Se considerar que poderá ter necessidades para além de padrão. Contacte-nos (amsstreaming microsoft.com,) se espera que um tamanho de audiência em simultâneo com mais de 50 000 visualizadores autorizados.
+Utilização recomendada |Recomenda-se de que a vasta maioria dos cenários de transmissão em fluxo.|Utilização profissionais.<br/>Se considerar que poderá ter necessidades para além de padrão. Contacte-nos (amsstreaming@microsoft.com) se espera que um tamanho de audiência em simultâneo com mais de 50 000 visualizadores autorizados.
 
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 
-Do | Para | Ação
+De | Para | Ação
 ---|---|---
 Clássica|Standard|Têm de optar ativamente por participar
 Clássica|Premium| Escala (adicional de unidades de transmissão em fluxo)
@@ -104,7 +104,7 @@ Versão 1.0 com SU > = 1 de CDN|Padrão/Premium não CDN|Permitido no **parado**
 Versão 1.0 com SU > = 1 de CDN|Standard com/sem CDN|Permitido no **parado** estado. Não é permitido no **iniciado** estado. Versão 1.0 CDN irá ser eliminado e nova criada e iniciado.
 Versão 1.0 com SU > = 1 de CDN|Premium com/sem CDN|Permitido no **parado** estado. Não é permitido no **iniciado** estado. CDN clássico irá ser eliminado e nova criada e iniciado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

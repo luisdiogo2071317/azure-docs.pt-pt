@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: a21fdfbc4396f2b7aff50fae4ca796d8ea6a733b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -130,7 +130,7 @@ Pode efetuar as seguintes tarefas sem período de indisponibilidade:
 > [!IMPORTANT]
 > Poderá ter de recriar o circuito do ExpressRoute, se existir capacidade inadequada na porta existente. Não é possível atualizar o circuito se não houver nenhuma capacidade adicional nessa localização.
 >
-> Não é possível reduzir a largura de banda de um circuito de ExpressRoute sem interrupção. Desatualização de largura de banda requer a retirar o aprovisionamento do circuito ExpressRoute e, em seguida, reaprovisionar um circuito de ExpressRoute novo.
+> Apesar de forma totalmente integrada pode atualizar a largura de banda, não é possível reduzir a largura de banda de um circuito de ExpressRoute sem interrupção. Desatualização de largura de banda requer a retirar o aprovisionamento do circuito ExpressRoute e, em seguida, reaprovisionar um circuito de ExpressRoute novo.
 > 
 > Desativar a operação de suplemento Premium pode falhar se estiver a utilizar recursos que são maiores que o que é permitido para o circuito standard.
 > 

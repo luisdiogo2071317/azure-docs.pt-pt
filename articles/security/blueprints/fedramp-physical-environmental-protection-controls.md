@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint automatização - proteção física e ambiental"
-description: "Aplicações Web para FedRAMP - proteção física e ambiental"
+title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - física e ambiental proteção"
+description: "Automatização de aplicações FedRAMP Web - proteção física e ambiental"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Proteção física e ambiental (PE)
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="physical-access-control"></a>Controlo de acesso físico
 
-**PE 3.e** A organização protege as chaves, combinações e outros dispositivos de acesso físico.
+**PE-3.e** A organização protege as chaves, combinações e outros dispositivos de acesso físico.
 
 **Responsabilidades:**`Azure Only`
 

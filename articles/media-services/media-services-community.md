@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b32997f9a936b73a08b367ca69341da24f31f3a8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Multimédia do Azure
 Esta página da Comunidade de serviços de suporte de dados do Azure (AMS) descreve formas diferentes pode obter atualizações sobre AMS. Também pode ver o novo vídeos e podcasts, fazer perguntas e comentários.   
@@ -59,4 +59,6 @@ A tabela seguinte apresenta uma lista de e-mail das equipas de subchaves de func
 | Media Player do Azure |ampinfo@microsoft.com |
 | Explorador de Media Services do Azure |amse@microsoft.com |
 | Estruturador de fluxo de trabalho |mepd@microsoft.com |
+| Ficheiros de transmissão em fluxo e empacotamento |amsstreaming@microsoft.com |
+| Em direto de transmissão em fluxo e empacotar |amslived@microsoft.com |
 

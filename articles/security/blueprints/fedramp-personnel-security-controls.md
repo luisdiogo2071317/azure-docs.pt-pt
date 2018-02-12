@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure Blueprint automatização - a segurança do pessoal"
-description: "Aplicações Web para FedRAMP - a segurança do pessoal"
+title: "Segurança do Azure e a segurança do pessoal Blueprint - automatização de aplicações FedRAMP Web - conformidade"
+description: "Automatização de aplicações FedRAMP Web - a segurança do pessoal"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="personnel-security-ps"></a>Segurança do pessoal (PS)
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="personnel-termination"></a>Técnico de terminação
 
-**PS 4.e** A organização, após a terminação da sua admissão individuais mantém o acesso a informações organizacionais e sistemas de informação anteriormente controlados pelo terminado individuais.
+**PS-4.e** A organização, após a terminação da sua admissão individuais mantém o acesso a informações organizacionais e sistemas de informação anteriormente controlados pelo terminado individuais.
 
 **Responsabilidades:**`Customer Only`
 
@@ -393,7 +393,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="third-party-personnel-security"></a>Segurança do pessoal de terceiros
 
-**7 de PS** A organização monitoriza a compatibilidade do fornecedor.
+**PS-7.e** A organização monitoriza a compatibilidade do fornecedor.
 
 **Responsabilidades:**`Customer Only`
 
