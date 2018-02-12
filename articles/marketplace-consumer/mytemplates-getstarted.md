@@ -16,23 +16,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c890339ba7677b23717a6e0437b5e936fdf8ab03
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introdução ao Modelos privados no Portal do Azure
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introdução ao Modelos privados no portal do Azure
 Um modelo do [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) é um modelo declarativo utilizado para definir a implementação. Pode definir os recursos a implementar para uma solução e especificar os parâmetros e as variáveis que permitem introduzir os valores para vários ambientes. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a implementação.
 
-Pode utilizar a nova capacidade **Modelos** no [Portal do Azure](https://portal.azure.com), juntamente com o fornecedor de recursos **Microsoft.Gallery** como uma extensão do [Azure Marketplace](https://azure.microsoft.com/marketplace/), para permitir que os utilizadores criem, giram e implementem modelos privados a partir de uma biblioteca pessoal.
+Pode utilizar a nova capacidade **Modelos** no [portal do Azure](https://portal.azure.com), juntamente com o fornecedor de recursos **Microsoft.Gallery** como uma extensão do [Azure Marketplace](https://azure.microsoft.com/marketplace/), para permitir que os utilizadores criem, giram e implementem modelos privados a partir de uma biblioteca pessoal.
 
-Este documento explica como utilizar o Portal do Azure para adicionar, gerir e partilhar um **Modelo** privado.
+> [!NOTE]
+> Em vez de utilizar modelos privados no portal, a Microsoft recomenda a criação de uma aplicação de um catálogo de serviço através de [Aplicações Geridas](../managed-applications/overview.md). Pode disponibilizar a aplicação do catálogo de serviço aos utilizadores na sua organização.
+
+Este documento explica como utilizar o portal do Azure para adicionar, gerir e partilhar um **Modelo** privado.
 
 ## <a name="guidance"></a>Orientação
-As seguintes sugestões ajudá-lo-ão a tirar o máximo partido dos **Modelos** ao trabalhar com as suas soluções:
+As seguintes sugestões ajudam-no a tirar o máximo partido dos **Modelos** ao trabalhar com as suas soluções:
 
-* Um **Modelo** é um recurso encapsulado que contém um modelo do Resource Manager e metadados adicionais. Este comporta-se de uma forma muito semelhante a um item no Marketplace. A principal diferença é que é um item privado em vez de um item público do Marketplace.
+* Um **Modelo** é um recurso encapsulado que contém um modelo do Resource Manager e metadados adicionais. Este comporta-se de uma forma semelhante a um item no Marketplace. A principal diferença é que é um item privado em vez de um item público do Marketplace.
 * A biblioteca de **Modelos** funciona bem para utilizadores que necessitam de personalizar as respetivas implementações.
 * Os **Modelos** funcionam bem para utilizadores que necessitam de um repositório simples no Azure.
 * Comece com um modelo do Resource Manager existente. Encontre modelos no [github](https://github.com/Azure/azure-quickstart-templates) ou escolha a opção [Exportar modelo](../azure-resource-manager/resource-manager-export-template.md) a partir de um grupo de recursos existente.
@@ -42,65 +45,65 @@ As seguintes sugestões ajudá-lo-ão a tirar o máximo partido dos **Modelos** 
 ## <a name="add-a-template-resource"></a>Adicionar um recurso de Modelo
 Existem duas formas de criar um recurso de **Modelo** no Portal do Azure.
 
-### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>Método 1: Criar um novo recurso de Modelo a partir de um grupo de recursos em execução
-1. Navegue para um grupo de recursos existente no Portal do Azure. Selecione **Exportar modelo** em **Definições**.
+### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Método 1: Criar um novo recurso de Modelo a partir de um grupo de recursos em execução
+1. Navegue para um grupo de recursos existente no portal do Azure. Selecione **Exportar modelo** em **Definições**.
 2. Assim que o modelo do Resource Manager seja exportado, utilize o botão **Guardar Modelo** para guardá-lo no repositório de **Modelos**. Encontre detalhes completos sobre a Exportação do modelo [aqui](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
-   ![Exportar grupo de recursos](media/rg-export-portal1.PNG)  <br />
+   ![Exportação do grupo de recursos](media/rg-export-portal1.PNG)
 3. Selecione o botão de comando **Guardar para modelo**.
    <br /><br />
 4. Introduza as seguintes informações:
    
-   * Nome – O nome do objeto de modelo (NOTA: Este é um nome baseado no Azure Resource Manager. Todas as restrições de nomenclatura aplicam-se e não pode ser alterada depois de criada).
+   * Nome – O nome do objeto de modelo (NOTA: Este campo é um nome baseado no Azure Resource Manager. Todas as restrições de nomenclatura aplicam-se e não pode ser alterada depois de criada).
    * Descrição – Resumo rápido sobre o modelo.
      
-     ![Guardar Modelo](media/save-template-portal1.PNG)  <br />
+     ![Guardar Modelo](media/save-template-portal1.PNG)
 5. Clique em **Guardar**.
    
    > [!NOTE]
-   > O painel Exportar modelo mostra notificações quando o modelo do Resource Manager exportado apresenta erros, mas continuará a poder guardar este modelo do Resource Manager nos Modelos. Certifique-se de que verifica e corrige quaisquer problemas do modelo do Resource Manager antes de voltar a implementar o modelo do Resource Manager exportado.
+   > O portal mostra notificações quando o modelo do Resource Manager exportado apresenta erros, mas continuará a poder guardar este modelo do Resource Manager nos Modelos. Certifique-se de que verifica e corrige quaisquer problemas do modelo do Resource Manager antes de voltar a implementar o modelo do Resource Manager exportado.
    > 
    > 
 
-### <a name="method-2--add-a-new-template-resource-from-browse"></a>Método 2: Adicionar um novo recurso de Modelo por pesquisa
-Também pode adicionar um novo **Modelo** em branco utilizando o botão de comando +Adicionar em **Procurar > Modelos**. Terá de fornecer um Nome, Descrição e o modelo do Resource Manager JSON.
+### <a name="method-2-add-a-new-template-resource-from-browse"></a>Método 2: Adicionar um novo recurso de Modelo por pesquisa
+Também pode adicionar um novo **Modelo** em branco utilizando o botão de comando +Adicionar em **Procurar > Modelos**. Indique um Nome, Descrição e o modelo do Resource Manager JSON.
 
-![Adicionar Modelo](media/add-template-portal1.PNG)  <br />
+![Adicionar Modelo](media/add-template-portal1.PNG)
 
 > [!NOTE]
-> O Microsoft.Gallery é que um Inquilino baseado no fornecedor de recursos Azure. O recurso de Modelo está associado ao utilizador que o criou. Este não está associado a qualquer subscrição específica. Uma subscrição tem de ser escolhida apenas quando implementar um Modelo.
+> O Microsoft.Gallery é um Inquilino baseado no fornecedor de recursos Azure. O recurso de Modelo está associado ao utilizador que o criou. Este não está associado a qualquer subscrição específica. Escolha uma subscrição ao implementar um modelo.
 > 
 > 
 
 ## <a name="view-template-resources"></a>Ver os recursos do Modelo
-Todos os **Modelos** disponíveis podem ser vistos em **Procurar > Modelos**. Isto inclui os **Modelos** que tenha criado, bem como aqueles que tenham sido partilhados consigo com diferentes níveis de permissões. Obter mais detalhes na secção [controlo de acesso](#access-control-for-a-tenant-resource-provider) abaixo.
+Todos os **Modelos** disponíveis podem ser vistos em **Procurar > Modelos**. Os modelos disponíveis incluem os que foram criados, bem como aqueles que foram partilhados consigo com diferentes níveis de permissões. Para obter mais informações, veja [controlo de acesso](#access-control-for-a-tenant-resource-provider).
 
-![Ver Modelo](media/view-template-portal1.PNG)  <br />
+![Ver Modelo](media/view-template-portal1.PNG)
 
 Pode ver os detalhes de um **Modelo** ao clicar num item na lista.
 
-![Ver Modelo](media/view-template-portal2c.png)  <br />
+![Ver Modelo](media/view-template-portal2c.png)
 
 ## <a name="edit-a-template-resource"></a>Editar um recurso de Modelo
-Pode iniciar o fluxo de edição de um **Modelo** clicando com o botão direito no item da lista Procurar ou escolhendo o botão de comando Editar.
+Pode iniciar o fluxo de edição de um **Modelo** ao clicar com o botão direito no item da lista Procurar ou escolhendo o botão de comando Editar.
 
-![Editar Modelo](media/edit-template-portal1a.PNG)  <br />
+![Editar Modelo](media/edit-template-portal1a.PNG)
 
-Pode editar a descrição ou o texto do modelo do Resource Manager. Não é possível editar o nome, uma vez que é um nome de recurso do Resource Manager. Ao editar o modelo do Resource Manager JSON, iremos validar para garantir de que é JSON válido. Escolha **OK** e, em seguida, **Guardar** para guardar o modelo atualizado.
+Pode editar a descrição ou o texto do modelo do Resource Manager. Não pode editar o nome, uma vez que é um nome de recurso do Resource Manager. Ao editar o modelo do Resource Manager JSON, iremos validar para garantir de que é JSON válido. Escolha **OK** e, em seguida, **Guardar** para guardar o modelo atualizado.
 
-![Editar Modelo](media/edit-template-portal2a.PNG)  <br />
+![Editar Modelo](media/edit-template-portal2a.PNG)
 
-Uma vez que o **Modelo** é guardado, verá uma notificação de confirmação.
+Uma vez que o Modelo é guardado, verá uma notificação de confirmação.
 
-![Editar Modelo](media/edit-template-portal3b.png)  <br />
+![Editar Modelo](media/edit-template-portal3b.png)
 
 ## <a name="deploy-a-template-resource"></a>Implementar um recurso de Modelo
-Pode implementar qualquer **Modelo** no qual possua permissão de **Leitura**. O fluxo de implementação inicia o painel de implementação standard do Modelo do Azure. Preencha os valores para os parâmetros do modelo do Resource Manager para continuar com a implementação.
+Pode implementar qualquer **Modelo** no qual possua permissão de **Leitura**. Preencha os valores para os parâmetros do modelo do Resource Manager para continuar com a implementação.
 
-![Implementar Modelo](media/deploy-template-portal1b.png)  <br />
+![Implementar Modelo](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Partilhar um recurso de Modelo
-Um recurso de **Modelo** pode ser partilhado com os seus parceiros. A partilha comporta-se de forma semelhante à [atribuição de funções para qualquer recurso no Azure](../active-directory/role-based-access-control-configure.md). O proprietário do **Modelo** concede permissões a outros utilizadores para que possam interagir com um recurso de Modelo. A pessoa ou grupo de pessoas com quem partilha o **Modelo** serão capazes de ver o modelo do Resource Manager e as propriedades da sua galeria.
+Um recurso de **Modelo** pode ser partilhado com os seus parceiros. A partilha comporta-se de forma semelhante à [atribuição de funções para qualquer recurso no Azure](../active-directory/role-based-access-control-configure.md). O proprietário do **Modelo** concede permissões a outros utilizadores para que possam interagir com um recurso de Modelo. A pessoa ou grupo de pessoas com quem partilha o **Modelo** podem ver o modelo do Resource Manager e as propriedades da sua galeria.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Controlo de acesso para os recursos do Microsoft.Gallery
 | Função | Permissões |
@@ -109,27 +112,26 @@ Um recurso de **Modelo** pode ser partilhado com os seus parceiros. A partilha c
 | Leitor |Permite a Leitura e Execução (Implementação) no recurso do Modelo |
 | Contribuinte |Concede permissão para Editar e Eliminar o recurso de Modelo. O utilizador não pode Partilhar o Modelo com outras pessoas |
 
-Selecione **Partilhar** no item de procura ao clicar com o botão direito em ou no painel de vista de um item específico. Isto inicia uma experiência de Partilha.
+Selecione **Partilhar** no item de procura ao clicar com o botão direito do rato ou ao ver um item específico.
 
-![Partilhar Modelo](media/share-template-portal1a.png)  <br />
+![Partilhar Modelo](media/share-template-portal1a.png)
 
- Agora, pode escolher uma função e um utilizador ou grupo para fornecer acesso a um determinado **Modelo**. As funções disponíveis são Proprietário, Leitor e Contribuinte. Obtenha mais detalhes na secção [controlo de acesso](#access-control-for-a-tenant-resource-provider) acima.
+ Agora, pode escolher uma função e um utilizador ou grupo para fornecer acesso a um determinado **Modelo**. As funções disponíveis são Proprietário, Leitor e Contribuinte.
 
-![Partilhar Modelo](media/share-template-portal2b.png)  <br />
+![Partilhar Modelo](media/share-template-portal2b.png)
 
-![Partilhar Modelo](media/share-template-portal3b.png)  <br />
+![Partilhar Modelo](media/share-template-portal3b.png)
 
 Clique em **Selecionar** e **Ok**. Agora, pode ver os utilizadores ou grupos que adicionou ao recurso.
 
-![Partilhar Modelo](media/share-template-portal4b.png)  <br />
+![Partilhar Modelo](media/share-template-portal4b.png)
 
 > [!NOTE]
-> Um Modelo pode ser partilhado apenas com utilizadores e grupos no mesmo inquilino do Azure Active Directory. Se partilhar um Modelo com um endereço de correio eletrónico que não se encontra no seu inquilino, será enviado um convite a pedir ao utilizador que se junte ao inquilino como convidado.
+> Um Modelo pode ser partilhado apenas com utilizadores e grupos no mesmo inquilino do Azure Active Directory. Se partilhar um Modelo com um endereço de e-mail que não se encontra no seu inquilino, é enviado um convite a pedir ao utilizador que se junte ao inquilino como convidado.
 > 
 > 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Para saber mais sobre como criar modelo do Resource Manager, consulte [Autorizar modelos](../azure-resource-manager/resource-group-authoring-templates.md).
-* Para compreender as funções que pode utilizar num modelo do Resource Manager, consulte [Funções de modelo](../azure-resource-manager/resource-group-template-functions.md)
-* Para obter orientações sobre a conceção dos seus modelos, consulte [Melhores práticas para criar modelos do Azure Resource Manager](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
+* Para compreender as funções que pode utilizar num modelo do Resource Manager, veja [Funções de modelo](../azure-resource-manager/resource-group-template-functions.md)
 

@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Criar uma fábrica de dados com a IU do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -44,7 +44,7 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**. 
       
-   ![Página “Nova fábrica de dados”](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
+   ![Página "Nova fábrica de dados"](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt;oseunome&gt;ADFTutorialDataFactory**) e tente criá-la novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
   
@@ -133,7 +133,7 @@ Nas definições do serviço ligado, vai especificar a conta de Armazenamento do
 
    c. Especifique **OutputDataset** no nome.
 
-   d. Introduza **adftutorial/output** na pasta. A atividade de cópia cria a pasta de saída, se esta não existir.
+   d. Introduza **adftutorial/output** na pasta. Se a pasta **saída** não existir, a atividade de cópia cria a mesma no runtime.
 
    e. Introduza `@CONCAT(pipeline().RunId, '.txt')` para o nome do ficheiro. 
    
@@ -180,7 +180,7 @@ Neste passo, vai testar a execução do pipeline antes de o implementar no Data 
 ## <a name="trigger-the-pipeline-manually"></a>Acionar o pipeline manualmente
 Neste procedimento, vai implementar entidades (serviços ligados, conjuntos de dados, pipelines) no Azure Data Factory. Em seguida, vai acionar manualmente uma execução de pipeline. Também pode publicar entidades para o seu próprio repositório Git do Visual Studio Team Services, que é abordado [noutro tutorial](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Antes de acionar um pipeline, tem de publicar entidades no Data Factory. Para publicar, selecione**Publicar**, no painel esquerdo. 
+1. Antes de acionar um pipeline, tem de publicar entidades no Data Factory. Para publicar, selecione **Publicar Tudo**, no painel esquerdo. 
 
    ![Botão Publicar](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Para acionar o pipeline manualmente, selecione **Acionar**, na barra de ferramentas e, em seguida, selecione **Acionar Agora**. 
@@ -224,9 +224,9 @@ Este procedimento é opcional neste tutorial. Pode criar um *acionador de agenda
 5. Reveja a mensagem de aviso e selecione **Concluir**.
 
    ![Botão de aviso e “Concluir”](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Selecione **Publicar** para publicar as alterações no Data Factory. 
+6. Selecione **Publicar Tudo** para publicar as alterações no Data Factory. 
 
-   ![Botão Publicar](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Botão Publicar](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Mude para o separador **Monitorizar**, no lado esquerdo. Selecione **Atualizar** para atualizar a lista. Pode ver que o pipeline é executado uma vez a cada minuto desde a hora de publicação até à hora de fim. 
 
    Repare nos valores na coluna **Acionado Por**. A execução do acionador manual provém do passo (**Acionar Agora**) que realizou anteriormente. 

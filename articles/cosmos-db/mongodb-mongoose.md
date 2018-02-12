@@ -1,6 +1,6 @@
 ---
-title: Utilizando a estrutura de Mongoose com base de dados do Azure Cosmos | Microsoft Docs
-description: "Saiba como ligar uma aplicação Node.js Mongoose BD do Cosmos do Azure"
+title: Utilizar a arquitetura Mongoose com o Azure Cosmos DB | Microsoft Docs
+description: "Saiba como ligar uma aplicação Mongoose Node.js ao Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: romitgirdhar
@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9878936b5dd76730633dec16b1c3a3eaac78e95a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: fb6db6555171b65767a715c6b4c8ff37f42c94ef
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Utilizando a estrutura de Mongoose com base de dados do Azure Cosmos
+# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: utilizar a arquitetura Mongoose com o Azure Cosmos DB
 
-Este tutorial demonstra como utilizar o [Mongoose Framework](http://mongoosejs.com/) ao armazenar dados na base de dados do Azure Cosmos. Podemos utilizar a API do MongoDB para a base de dados do Azure Cosmos nestas instruções. Os dos familiarizado, o Mongoose é uma arquitetura de modelação de objeto para o MongoDB no Node.js e fornece uma solução simples, com base no esquema para modelar os seus dados de aplicação.
+Este tutorial demonstra como utilizar a [Arquitetura Mongoose](http://mongoosejs.com/) ao armazenar dados no Azure Cosmos DB. Nestas instruções, utilizamos a API MongoDB para o Azure Cosmos DB. Para os que não estão familiarizados com o Mongoose, o Mongoose é uma arquitetura de modelação de objetos para o MongoDB em Node.js e fornece uma solução simples com base no esquema para modelar os dados da aplicação.
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
 
@@ -36,43 +36,43 @@ Versão [Node.js](https://nodejs.org/) v0.10.29 ou superior.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende utilizar, pode avançar diretamente para [configurar a sua aplicação Node.js](#SetupNode). Se estiver a utilizar o emulador de BD do Cosmos do Azure, siga os passos indicados em [emulador de BD do Azure Cosmos](local-emulator.md) para configurar o emulador e avançar diretamente para [configurar a sua aplicação Node.js](#SetupNode).
+Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende utilizar, pode avançar diretamente para [Configurar a aplicação Node.js](#SetupNode). Se estiver a utilizar o Emulador do Azure Cosmos DB, siga os passos em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e avance para [Configurar a aplicação Node.js](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="set-up-your-nodejs-application"></a>Configurar a sua aplicação Node.js
+## <a name="set-up-your-nodejs-application"></a>Configurar a aplicação Node.js
 
 >[!Note]
-> Se gostaria de instruções apenas o código de exemplo em vez do programa de configuração da própria aplicação, clone o [exemplo](https://github.com/Azure-Samples/Mongoose_CosmosDB) utilizado para este tutorial e criar a sua aplicação Node.js Mongoose na base de dados do Azure Cosmos.
+> Se pretende ver apenas as instruções do código de exemplo em vez de configurar a própria aplicação, clone o [exemplo](https://github.com/Azure-Samples/Mongoose_CosmosDB) utilizado para este tutorial e crie a sua aplicação Mongoose Node.js no Azure Cosmos DB.
 
 1. Para criar uma aplicação Node.js na pasta à sua escolha, execute o seguinte comando numa linha de comandos do nó.
 
     ```npm init```
 
-    Responda às questões e o projeto será pronto para começar.
+    Responda às perguntas e o projeto estará pronto para começar.
 
-1. Adicione um novo ficheiro para a pasta e dê-lhe nome ```index.js```.
-1. Instalar os pacotes necessários utilizando um do ```npm install``` opções:
-    * Mongoose:```npm install mongoose --save```
-    * Dotenv (se gostaria de carregar os segredos a partir de um ficheiro de .env):```npm install dotenv --save```
-    
+1. Adicione um novo ficheiro à pasta e dê-lhe o nome ```index.js```.
+1. Instale os pacotes necessários com uma das opções ```npm install```:
+    * Mongoose: ```npm install mongoose --save```
+    * Dotenv (se pretende carregar os segredos a partir de um ficheiro .env):```npm install dotenv --save```
+
     >[!Note]
-    > O ```--save``` sinalizador adiciona a dependência para o ficheiro Package. JSON.
+    > O sinalizador ```--save``` adiciona a dependência ao ficheiro package.json.
 
-1. Importe as dependências no seu ficheiro index.js.
+1. Importe as dependências no ficheiro index.js.
     ```JavaScript
     var mongoose = require('mongoose');
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Adicione a cadeia de ligação de base de dados do Cosmos e nome de base de dados do Cosmos para o ```.env``` ficheiro.
+1. Adicione a cadeia de ligação do Cosmos DB e o Nome do Cosmos DB ao ficheiro ```.env```.
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
     COSMOSDB_DBNAME={Your DB Name Here}
     ```
 
-1. Ligar à base de dados do Cosmos do Azure utilizando a estrutura de Mongoose adicionando o seguinte código ao fim do index.js.
+1. Ligue ao Azure Cosmos DB com a arquitetura Mongoose, adicionando o seguinte código ao fim do ficheiro index.js.
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
 
@@ -83,27 +83,27 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
     });
     ```
     >[!Note]
-    > Aqui, as variáveis de ambiente são carregadas com process.env. {variableName} utilizando o pacote de npm 'dotenv'.
+    > Aqui, as variáveis de ambiente são carregadas com process.env.{variableName} utilizando o pacote npm «dotenv».
 
-    Assim que estiver ligado à base de dados do Azure Cosmos, agora pode começar a configurar modelos de objetos no Mongoose.
-    
-## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>Avisos para utilizar o Mongoose com base de dados do Azure Cosmos
+    Assim que estiver ligado ao Azure Cosmos DB, pode começar a configurar modelos de objetos no Mongoose.
 
-Para cada modelo de que criar o Mongoose cria uma nova coleção de MongoDB por baixo de bastidores. No entanto, tendo em conta o modelo de faturação por coleção do Azure Cosmos DB, poderá não ter a forma mais económica para aceder, se já tem vários modelos de objetos que estão preenchidos sparsely.
+## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>Avisos sobre a utilização do Mongoose com o Azure Cosmos DB
 
-Estas instruções abrangem ambos os modelos. Teremos primeiro de saber as instruções no armazenamento de um tipo de dados por coleção. Este é o comportamento de defacto para o Mongoose.
+Para cada modelo que criar, o Mongoose cria uma nova coleção MongoDB nos bastidores. No entanto, tendo em conta o modelo de faturação por coleção do Azure Cosmos DB, poderá não ser a forma mais económica para aceder se já tiver vários modelos de objetos que estão pouco preenchidos.
 
-O mongoose também tem um conceito chamado [Discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators são um mecanismo de herança de esquema. Dão-lhe ter vários modelos com esquemas de sobreposição por cima da mesma coleção de MongoDB subjacente.
+Estas instruções abrangem ambos os modelos. Primeiro, vamos ver as instruções sobre o armazenamento de um tipo de dados por coleção. Este é o comportamento predefinido do Mongoose.
 
-Pode armazenar vários modelos de dados na mesma coleção e, em seguida, utilizar uma cláusula de filtro no momento da consulta para obter apenas os dados necessários.
+O Mongoose também tem um conceito chamado [Discriminadores](http://mongoosejs.com/docs/discriminators.html). Os discriminadores são um mecanismo de herança de esquemas. Permitem-lhe ter vários modelos com esquemas sobrepostos por cima da mesma coleção MongoDB subjacente.
+
+Pode armazenar os vários modelos de dados na mesma coleção e, em seguida, utilizar uma cláusula de filtro no momento da consulta para obter apenas os dados necessários.
 
 ### <a name="one-collection-per-object-model"></a>Uma coleção por modelo de objeto
 
-É o comportamento de Mongoose predefinido para criar uma coleção de MongoDB sempre que criar um modelo de objeto. Esta secção explicar como fazer com o MongoDB para a base de dados do Azure Cosmos. Este método é recomendado com BD do Cosmos Azure quando tiver de modelos de objeto com grandes quantidades de dados. Esta é a predefinição operativo modelo para o Mongoose, por isso, poderá estar familiarizado com esta opção, se estiver familiarizado com o Mongoose.
+O comportamento predefinido do Mongoose é criar uma coleção MongoDB sempre que criar um modelo de objeto. Esta secção explica como fazê-lo com o MongoDB para Azure Cosmos DB. Este método é recomendado com o Azure Cosmos DB quando tiver modelos de objeto com grandes quantidades de dados. Este é o modelo operativo predefinido para o Mongoose, pelo que já deve estar familiarizado com ele, se estiver familiarizado com o Mongoose.
 
-1. Abra o ```index.js``` novamente.
+1. Abra novamente o ficheiro ```index.js```.
 
-1. Crie a definição de esquema para 'Família'.
+1. Crie a definição de esquema para «Family».
 
     ```JavaScript
     const Family = mongoose.model('Family', new mongoose.Schema({
@@ -130,7 +130,7 @@ Pode armazenar vários modelos de dados na mesma coleção e, em seguida, utiliz
     }));
     ```
 
-1. Crie um objeto para 'Família'.
+1. Crie um objeto para «Family».
 
     ```JavaScript
     const family = new Family({
@@ -150,7 +150,7 @@ Pode armazenar vários modelos de dados na mesma coleção e, em seguida, utiliz
     });
     ```
 
-1. Por fim, vamos guardar o objeto de base de dados do Azure Cosmos. Esta ação cria uma coleção, por baixo bastidores.
+1. Por fim, vamos guardar o objeto no Azure Cosmos DB. Esta ação cria uma coleção nos bastidores.
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -158,8 +158,8 @@ Pode armazenar vários modelos de dados na mesma coleção e, em seguida, utiliz
     });
     ```
 
-1. Agora, vamos criar outro esquema e objeto. Este tempo, vamos criar um 'Férias destinos', que poderão estar interessadas as famílias de.
-    1. Tal como a hora da última, vamos criar o esquema
+1. Agora, vamos criar outro esquema e objeto. Desta vez, vamos criar um para «Vacation Destinations» no qual as famílias poderão estar interessadas.
+    1. Tal como da última vez, vamos criar o esquema.
     ```JavaScript
     const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
         name: String,
@@ -167,7 +167,7 @@ Pode armazenar vários modelos de dados na mesma coleção e, em seguida, utiliz
     }));
     ```
 
-    1. Criar um objeto de exemplo (pode adicionar vários objetos a este esquema) e guarde-o.
+    1. Crie um objeto de exemplo (pode adicionar vários objetos a este esquema) e guarde-o.
     ```JavaScript
     const vacaySpot = new VacationDestinations({
         name: "Honolulu",
@@ -179,11 +179,11 @@ Pode armazenar vários modelos de dados na mesma coleção e, em seguida, utiliz
     });
     ```
 
-1. Agora, vai no portal do Azure, reparar em duas coleções criadas na base de dados do Azure Cosmos.
+1. Agora, acedendo ao portal do Azure, pode reparar nas duas coleções criadas no Azure Cosmos DB.
 
-    ![Tutorial node.js - captura de ecrã do portal do Azure, que mostra uma conta de base de dados do Azure Cosmos, com o nome da coleção realçado - base de dados Node][alldata]
+    ![Tutorial Node.js - Captura de ecrã do portal do Azure, que mostra uma conta do Azure Cosmos DB, com vários nomes de coleções realçados - base de dados Node][mutiple-coll]
 
-1. Por fim, vamos de leitura de dados da base de dados do Azure Cosmos. Uma vez que estamos a utilizar o modelo de sistema operativo Mongoose predefinição, as leituras são os mesmos que quaisquer outras operações de leitura com o Mongoose.
+1. Por fim, vamos ler os dados do Azure Cosmos DB. Uma vez que estamos a utilizar o modelo operativo Mongoose predefinido, as leituras são idênticas a quaisquer outras leituras com o Mongoose.
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -191,13 +191,13 @@ Pode armazenar vários modelos de dados na mesma coleção e, em seguida, utiliz
     });
     ```
 
-### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Utilizar Mongoose discriminators para armazenar dados numa única coleção
+### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Utilizar os discriminadores do Mongoose para armazenar dados numa única coleção
 
-Neste método, utilizamos [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) para ajudar a otimizar os custos de cada coleção de BD do Cosmos do Azure. Discriminators permitem-lhe definir um differentiating 'Key', que lhe permite armazenar, diferenciar e filtre os modelos de objetos diferentes.
+Neste método, utilizamos [Discriminadores do Mongoose](http://mongoosejs.com/docs/discriminators.html) para ajudar a otimizar os custos de cada coleção do Azure Cosmos DB. Os discriminadores permitem-lhe definir uma «Chave» diferenciadora, que lhe permite armazenar, diferenciar e filtrar modelos de objetos diferentes.
 
-Aqui, vamos criar um objeto de base do modelo, definir uma chave differentiating e adicione 'Família' e 'VacationDestinations' como uma extensão para o modelo de base.
+Aqui, vamos criar um modelo de objeto base, definir uma chave diferenciadora e adicionar «Family» e «VacationDestinations» como uma extensão ao modelo base.
 
-1. Vamos configurar a base de configuração e defina a chave de discriminador.
+1. Vamos definir a configuração base e definir a chave de discriminador.
 
     ```JavaScript
     const baseConfig = {
@@ -206,13 +206,13 @@ Aqui, vamos criar um objeto de base do modelo, definir uma chave differentiating
     };
     ```
 
-1. Em seguida, vamos definir o modelo de objeto comuns
+1. Em seguida, vamos definir o modelo de objeto comum
 
     ```JavaScript
     const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
     ```
 
-1. Agora, iremos definir o modelo 'Família'. Repare que estamos a utilizar ```commonModel.discriminator``` em vez de ```mongoose.model```. Além disso, estamos a adicionar também a base de configuração para o esquema de mongoose. Por isso, aqui, o discriminatorKey é ```FamilyType```.
+1. Agora, definimos o modelo «Family». Repare que estamos a utilizar ```commonModel.discriminator``` em vez de ```mongoose.model```. Além disso, estamos a adicionar também a configuração base ao esquema mongoose. Por isso, aqui, a discriminatorKey é ```FamilyType```.
 
     ```JavaScript
     const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
@@ -239,7 +239,7 @@ Aqui, vamos criar um objeto de base do modelo, definir uma chave differentiating
     }, baseConfig));
     ```
 
-1. Da mesma forma, vamos adicionar outra esquema, neste momento para 'VacationDestinations'. Aqui, é o DiscriminatorKey ```VacationDestinationsType```.
+1. Da mesma forma, vamos adicionar outro esquema, desta vez para «VacationDestinations». Aqui, a DiscriminatorKey é ```VacationDestinationsType```.
 
     ```JavaScript
     const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
@@ -249,7 +249,7 @@ Aqui, vamos criar um objeto de base do modelo, definir uma chave differentiating
     ```
 
 1. Por fim, vamos criar objetos para o modelo e guardá-lo.
-    1. Vamos adicionar objetos ao modelo de 'Família'.
+    1. Vamos adicionar objetos ao modelo «Family».
     ```JavaScript
     const family_common = new Family_common({
         lastName: "Volum",
@@ -272,7 +272,7 @@ Aqui, vamos criar um objeto de base do modelo, definir uma chave differentiating
     });
     ```
 
-    1. Em seguida, vamos adicionar objetos ao modelo de 'VacationDestinations' e guardá-lo.
+    1. Em seguida, vamos adicionar objetos ao modelo «VacationDestinations» e guardá-lo.
     ```JavaScript
     const vacay_common = new Vacation_common({
         name: "Honolulu",
@@ -284,13 +284,13 @@ Aqui, vamos criar um objeto de base do modelo, definir uma chave differentiating
     });
     ```
 
-1. Agora, se regressar ao portal do Azure, poderá notar que tem apenas uma coleção chamada ```alldata``` com dados de 'Família' e 'VacationDestinations'.
+1. Agora, se voltar ao portal do Azure, poderá notar que tem apenas uma coleção chamada ```alldata``` com os dados de «Family» e «VacationDestinations».
 
-    ![Tutorial node.js - captura de ecrã do portal do Azure, que mostra uma conta de base de dados do Azure Cosmos, com o nome da coleção realçado - base de dados Node][mutiple-coll]
+    ![Tutorial Node.js - Captura de ecrã do portal do Azure, que mostra uma conta do Azure Cosmos DB, com o nome da coleção realçado - base de dados Node][alldata]
 
-1. Além disso, tenha em atenção que cada objeto tem outro atributo denominado como ```__type```, que ajuda a diferenciar entre os dois modelos de objeto diferentes.
+1. Além disso, repare que cada objeto tem outro atributo denominado ```__type```, que ajuda a diferenciar entre os dois modelos de objeto diferentes.
 
-1. Por fim, vamos ler os dados armazenados na base de dados do Azure Cosmos. O mongoose encarrega-se de filtragem com base no modelo de dados. Por isso, terá de fazer nada diferentes durante a leitura de dados. Especifique apenas o seu modelo (neste caso, ```Family_common```) e os identificadores de Mongoose filtragem 'DiscriminatorKey'.
+1. Por fim, vamos ler os dados armazenados no Azure Cosmos DB. O Mongoose encarrega-se de filtrar os dados com base no modelo. Por isso, não terá de fazer nada diferente durante a leitura dos dados. Basta especificar o seu modelo (neste caso, ```Family_common```) e o Mongoose encarrega-se da filtragem na «DiscriminatorKey».
 
     ```JavaScript
     Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -298,15 +298,15 @@ Aqui, vamos criar um objeto de base do modelo, definir uma chave differentiating
     });
     ```
 
-Como pode ver, é fácil de trabalhar com Mongoose discriminators. Por isso, se tiver uma aplicação que utiliza o framework o Mongoose, este tutorial é uma forma de obter a aplicação de cópia de segurança e em execução na API MongoDB na base de dados do Azure Cosmos sem necessidade de existência de demasiadas alterações.
+Como pode ver, é fácil trabalhar com os discriminadores do Mongoose. Por isso, se tiver uma aplicação que utilize a arquitetura Mongoose, este tutorial é uma forma de colocar a sua aplicação operacional na API MongoDB no Azure Cosmos DB, sem precisar de demasiadas alterações.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o MongoDB operações, operadores, fases, comandos e opções suportadas pela API do Azure Cosmos DB MongoDB no [suporte da API do MongoDB para funcionalidades do MongoDB e sintaxe](mongodb-feature-support.md).
+Saiba mais sobre as operações, operadores, fases, comandos e opções do MongoDB suportados pela API MongoDB do Azure Cosmos DB em [Suporte da API MongoDB para funcionalidades e sintaxe do MongoDB](mongodb-feature-support.md).
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

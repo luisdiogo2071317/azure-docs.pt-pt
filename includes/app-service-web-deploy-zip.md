@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>Implementar o ficheiro ZIP carregado
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>Implementar o ficheiro ZIP
 
-No Cloud Shell, implemente o ficheiro ZIP carregado na sua aplicação Web através do comando [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Não se esqueça de substituir *\<app_name>* pelo nome da sua aplicação Web.
+No browser, navegue até `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+Carregue o ficheiro ZIP que criou em [Criar um ficheiro ZIP do projeto](#create-a-project-zip-file) ao arrastar para a área do explorador de ficheiros na página Web.
 
-Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação. Se estiver configurado qualquer processo de compilação personalizado adicional, este é executado corretamente.
+Quando a implementação está em curso, um ícone no canto superior direito mostra o progresso em percentagem. A página também mostra as mensagens verbosas para a operação abaixo da área do explorador. Quando estiver concluído, a última mensagem de implementação deverá dizer `Deployment successful`.

@@ -157,6 +157,7 @@
 #### [CLI do Azure](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Registos](virtual-network-nsg-manage-log.md)
+### [Tabelas de rotas](manage-route-table.md)
 ### Interfaces de rede (NICs)
 #### [Criar, alterar ou eliminar NICs](virtual-network-network-interface.md)
 #### [Adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md)
@@ -177,6 +178,7 @@
 ### [Teste de débito](virtual-network-bandwidth-testing.md)
 ### [Não é possível eliminar redes virtuais](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problemas de conectividade VM a VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Configurar o PTR para Verificação de Faixa de SMTP](create-ptr-for-smtp-service.md)
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

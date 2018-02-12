@@ -1,6 +1,6 @@
 ---
-title: "Receber eventos de utilizar a biblioteca .NET padrão de Event Hubs do Azure | Microsoft Docs"
-description: "Começar a receber mensagens com o EventProcessorHost em .NET padrão"
+title: Receber eventos de Hubs de Eventos do Azure com a biblioteca .NET Standard | Microsoft Docs
+description: "Começar a receber mensagens com o EventProcessorHost em .NET Standard"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -9,66 +9,66 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: MT
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Começar a receber mensagens com o anfitrião do processador de eventos no .NET padrão
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Começar a receber mensagens com o Anfitrião do Processador de Eventos em .NET Standard
 
 > [!NOTE]
 > Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-Este tutorial mostra como escrever uma aplicação de consola .NET Core que recebe mensagens do hub de eventos utilizando o **anfitrião do processador de eventos** biblioteca. Pode executar o [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solução como-é, substituindo as cadeias com os valores de conta de armazenamento e de hub de eventos. Ou, pode seguir os passos neste tutorial para criar os seus próprios.
+Este tutorial mostra como escrever uma aplicação de consola do .NET Core que recebe mensagens de um hub de eventos com a biblioteca **Anfitrião do Processador de Eventos**. Pode executar a solução do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) conforme está, ao substituir as cadeias pelos valores da conta de armazenamento e do hub de eventos. Ou pode seguir os passos neste tutorial para criar a sua própria.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Os exemplos neste tutorial utilize 2017 do Visual Studio, mas o Visual Studio 2015 também é suportada.
-* [.NET core Visual Studio 2015 ou ferramentas de 2017](http://www.microsoft.com/net/core).
+* [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017, mas o Visual Studio 2015 também é suportado.
+* [ferramentas do .NET Core Visual Studio 2015 ou 2017](http://www.microsoft.com/net/core).
 * Uma subscrição do Azure.
-* Um espaço de nomes de Event Hubs do Azure.
-* Uma conta de armazenamento do Azure.
+* Um espaço de nomes dos Hubs de Eventos do Azure.
+* Uma conta do Armazenamento do Azure.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos  
 
-O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes para o tipo de Event Hubs e obter as credenciais de gestão que a aplicação necessita para comunicar com o hub de eventos. Para criar um hub de espaço de nomes e eventos, siga o procedimento [neste artigo](event-hubs-create.md)e, em seguida, continue com este tutorial.  
+O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes para o tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento descrito [neste artigo](event-hubs-create.md) e, em seguida, continue com este tutorial.  
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure  
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
-2. No painel de navegação esquerdo do portal, clique em **novo**, clique em **armazenamento**e, em seguida, clique em **conta de armazenamento**.  
-3. Preencha os campos na janela de conta de armazenamento e, em seguida, clique em **criar**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
+2. No painel de navegação à esquerda do portal, clique em **Novo**, **Armazenamento** e em **Conta de Armazenamento**.  
+3. Preencha os campos na janela da conta de armazenamento e, em seguida, clique em **Criar**.
 
     ![Criar conta de armazenamento][1]
 
-4. Depois de confirmar a **implementações com êxito** da mensagem, clique no nome da nova conta de armazenamento. No **Essentials** janela, clique em **Blobs**. Quando o **serviço Blob** é aberta a caixa de diálogo, clique em **+ contentor** na parte superior. Dê um nome de contentor e, em seguida, feche **serviço Blob**.  
-5. Clique em **chaves de acesso** na janela da esquerda e copie o nome do contentor de armazenamento, a conta de armazenamento e o valor de **chave1**. Guarde estes valores para o bloco de notas ou alguns outra localização temporária.  
+4. Depois de confirmar a mensagem de **Implementações bem-sucedidas**, clique no nome da nova conta de armazenamento. Na janela **Informações Básicas**, clique em **Blobs**. Quando a caixa de diálogo **serviço Blob** se abre, clique em **+ Contentor** na parte superior. Atribua um nome ao contentor e, em seguida, feche o **serviço Blob**.  
+5. Clique em **Chaves de acesso** na janela da esquerda e copie o nome do contentor de armazenamento, a conta de armazenamento e o valor da **chave1**. Guarde estes valores no Bloco de Notas ou noutra localização temporária.  
 
 ## <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-Inicie o Visual Studio. No menu **Ficheiro**, clique em **Novo** e, em seguida, clique em **Projeto**. Crie uma aplicação de consola .NET Core.
+Inicie o Visual Studio. No menu **Ficheiro**, clique em **Novo** e, em seguida, clique em **Projeto**. Criar uma aplicação de consola .NET Core.
 
 ![Novo projeto][2]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de eventos
+## <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
-Adicionar o [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) e [ **Microsoft.Azure.EventHubs.Processor** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) biblioteca .NET padrão NuGet pacotes para o projeto, seguindo estes passos: 
+Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) e [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) ao projeto, através destes passos: 
 
 1. Clique com o botão direito do rato no projeto recém-criado e selecione **Gerir Pacotes NuGet**.
-2. Clique em de **procurar** separador, procure **Microsoft.Azure.EventHubs**e, em seguida, selecione o **Microsoft.Azure.EventHubs** pacote. Clique em **Instalar** para concluir a instalação e, em seguida, feche esta caixa de diálogo.
-3. Repita os passos 1 e 2 e instalar o **Microsoft.Azure.EventHubs.Processor** pacote.
+2. Clique no separador **Procurar**, procure **Microsoft.Azure.EventHubs** e, em seguida, selecione o pacote **Microsoft.Azure.EventHubs**. Clique em **Instalar** para concluir a instalação e, em seguida, feche esta caixa de diálogo.
+3. Repita os passos 1 e 2 e instale o pacote **Microsoft.Azure.EventHubs.Processor**.
 
-## <a name="implement-the-ieventprocessor-interface"></a>Implementa a interface IEventProcessor
+## <a name="implement-the-ieventprocessor-interface"></a>Implementar a interface IEventProcessor
 
-1. No Explorador de soluções, clique com botão direito no projeto, clique em **adicionar**e, em seguida, clique em **classe**. Nome da nova classe **SimpleEventProcessor**.
+1. No Explorador de Soluções, clique com o botão direito do rato no projeto, clique em **Adicionar** e, em seguida, em **Classe**. Atribua um nome à nova classe **SimpleEventProcessor**.
 
-2. Abra o ficheiro SimpleEventProcessor.cs e adicione o seguinte `using` declarações na parte superior do ficheiro.
+2. Abra o ficheiro SimpleEventProcessor.cs e adicione as seguintes declarações `using` na parte superior do ficheiro.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -76,7 +76,7 @@ Adicionar o [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Mic
     using System.Threading.Tasks;
     ```
 
-3. Implementar o `IEventProcessor` interface. Substitua os conteúdos integrais do `SimpleEventProcessor` classe com o seguinte código:
+3. Implemente a interface `IEventProcessor`. Substitua os conteúdos integrais da classe `SimpleEventProcessor` pelo seguinte código:
 
     ```csharp
     public class SimpleEventProcessor : IEventProcessor
@@ -112,7 +112,7 @@ Adicionar o [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Mic
     }
     ```
 
-## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>Escrever um método principal de consola que utiliza a classe de SimpleEventProcessor para receber mensagens
+## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>Escreva um método principal de consola que utiliza a classe SimpleEventProcessor para receber mensagens
 
 1. Adicione as seguinte declarações `using` à parte superior do ficheiro Program.cs.
 
@@ -122,7 +122,7 @@ Adicionar o [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Mic
     using System.Threading.Tasks;
     ```
 
-2. As constantes de adicionar o `Program` classe para a cadeia de ligação do hub de eventos, nome do hub de eventos, nome de contentor da conta de armazenamento, nome de conta do storage e chave de conta de armazenamento. Adicione o seguinte código, substituindo os marcadores de posição com os valores correspondentes.
+2. Adicione constantes à classe `Program` para a cadeia de ligação do hub de eventos, o nome do hub de eventos, o nome do contentor da conta de armazenamento, o nome de conta de armazenamento e a chave da conta de armazenamento. Adicione o seguinte código, ao substituir os marcadores de posição pelos valores correspondentes.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -134,7 +134,7 @@ Adicionar o [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Mic
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
     ```   
 
-3. Adicionar um novo método denominado `MainAsync` para o `Program` classe, da seguinte forma:
+3. Adicione um método novo denominado `MainAsync` à classe `Program`, da seguinte forma:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -159,7 +159,7 @@ Adicionar o [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Mic
     }
     ```
 
-3. Adicione a seguinte linha de código para o `Main` método:
+3. Adicione a seguinte linha de código ao método `Main`:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -212,7 +212,7 @@ Adicionar o [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Mic
 
 4. Execute o programa e certifique-se de que não existem erros.
 
-Parabéns! Agora recebeu mensagens de um hub de eventos ao utilizar o anfitrião do processador de eventos.
+Parabéns! Recebeu agora mensagens de um hub de eventos com o Anfitrião do Processador de Eventos.
 
 ## <a name="next-steps"></a>Passos seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
