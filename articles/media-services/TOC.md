@@ -171,6 +171,7 @@
 #### [Instruções de Redação de Rostos](media-services-redactor-walkthrough.md)
 ### [Processar com miniaturas de vídeos](media-services-video-summarization.md)
 ### [Processar com o OCR](media-services-video-optical-character-recognition.md)
+### [Processar com o Content Moderator](media-services-content-moderation.md)
 
 ## [Configurar telemetria](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

@@ -83,6 +83,7 @@
 #### [Atribuir licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identificar e resolver problemas de licenças num grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrar utilizadores licenciados individuais para o licenciamento baseado no grupo](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrar os utilizadores entre licenças de produtos](active-directory-licensing-group-product-migration.md)
 #### [Cenários adicionais para licenciamento baseado no grupo](active-directory-licensing-group-advanced.md)
 #### [Exemplos do Azure PowerShell para licenciamento baseado no grupo](active-directory-licensing-ps-examples.md)
 #### [Referência para produtos e planos de serviço em Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [Conectores](application-proxy-understand-connectors.md)
 ##### [Segurança](application-proxy-security-considerations.md)
 ##### [Redes](application-proxy-network-topology-considerations.md)
-
-
 ##### [Atualizar a partir de TMG ou UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Configurações avançadas
@@ -212,6 +211,8 @@
 ##### [Instalação silenciosa](active-directory-application-proxy-silent-installation.md)
 ##### [Página inicial personalizada](application-proxy-office365-app-launcher.md)
 ##### [Converter ligações inline](application-proxy-link-translation.md)
+##### [Aplicações de caráter universal](active-directory-application-proxy-wildcard.md)
+
 #### Instruções de publicação
 ##### [Ambiente de Trabalho Remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -293,8 +294,9 @@
 
 ## Proteger as suas identidades
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)
-#### [Controlos](active-directory-conditional-access-controls.md)
+#### [Condições](active-directory-conditional-access-conditions.md)
 #### [Condição de localização](active-directory-conditional-access-locations.md)
+#### [Controlos](active-directory-conditional-access-controls.md)
 #### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Melhores práticas](active-directory-conditional-access-best-practices.md)
 #### [Compreender as políticas de dispositivo para serviços do Office 365](active-directory-conditional-access-device-policies.md)

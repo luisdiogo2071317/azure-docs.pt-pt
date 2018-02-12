@@ -58,7 +58,9 @@
 ### [Utilize as regras para detetar problemas](iot-suite-remote-monitoring-automate.md)
 ### [Gerir os seus dispositivos](iot-suite-remote-monitoring-manage.md)
 ### [Resolver problemas do dispositivo](iot-suite-remote-monitoring-maintain.md)
-### [Utilizar dispositivos simulados](iot-suite-remote-monitoring-test.md)
+### [Compreender o esquema do modelo de dispositivo](iot-suite-remote-monitoring-device-schema.md)
+### [Compreender o comportamento do modelo de dispositivo](iot-suite-remote-monitoring-device-behavior.md)
+### [Criar um novo dispositivo simulado](iot-suite-remote-monitoring-test.md)
 ### [Personalizar a solução](iot-suite-remote-monitoring-customize.md)
 ### [Implementar com a CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### Ligar um dispositivo físico
