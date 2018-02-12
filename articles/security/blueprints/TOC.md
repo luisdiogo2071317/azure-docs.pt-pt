@@ -17,8 +17,8 @@
 ### [Capacidades técnicas de segurança](../azure-security-technical-capabilities.md)
 ### [Governação no Azure](../governance-in-azure.md)
 ### [Encriptação de dados inativa](../azure-security-encryption-atrest.md)
-### Esquemas de Arquitetura
-#### Conformidade - PCI DSS
+### Segurança do Azure e Esquemas de Conformidade
+#### PCI DSS
 ##### [Processamento de Pagamentos para ambientes em conformidade com PCI DSS](payment-processing-blueprint.md)
 ##### [Descrição geral de requisitos](pci-dss-requirements-overview.md)
 ##### [Requisito 1 - firewalls](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Requisito 10 - monitorização](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11 - testes](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12 - política](pci-dss-requirement-12-policy.md)
-#### Conformidade - FedRAMP
-##### [Aplicações Web para FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automatização de Aplicações Web](fedramp.md)
 ##### [Descrição geral dos controlos de segurança](fedramp-controls-overview.md)
 ##### [Controlo de acesso](fedramp-access-controls.md)
 ##### [Auditoria e responsabilidade](fedramp-audit-accountability-controls.md)
@@ -53,11 +53,11 @@
 ##### [Proteção do sistema e das comunicações](fedramp-system-communications-protection-controls.md)
 ##### [Integridade do sistema e das informações](fedramp-system-information-integrity-controls.md)
 ##### [Aquisição de sistema e serviços](fedramp-system-services-acquisition-controls.md)
-#### Conformidade - UK-OFFICIAL
-##### [Aplicações Web de três camadas para UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automatização de Aplicações Web de Três Camadas](uk-official-three-tier-applications-overview.md)
 ##### [Descrição geral](uk-official-three-tier-applications-overview.md)
 ##### [Descrição geral de princípios](uk-official-three-tier-applications-principles-overview.md)
-#### Conformidade - Serviços Financeiros
+#### Serviços Financeiros
 ##### [Serviços Financeiros para Cargas de Trabalho Reguladas](financial-services-regulated-workloads.md)
 
 # Introdução
@@ -93,7 +93,6 @@
 ### [Introdução à integração de registos do Azure](../security-azure-log-integration-overview.md)
 #### [Começar a utilizar a integração de registos do Azure](../security-azure-log-integration-get-started.md)
 #### [Integrar registos de auditoria do Azure Active Directory](../security-azure-log-integration-ad.md)
-#### [Integrar alertas do Centro de Segurança](../security-azure-log-integration-security-center.md)
 #### [Integrar registos do Key Vault através dos Hubs de Eventos](../security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](../security-azure-log-integration-faq.md)
 

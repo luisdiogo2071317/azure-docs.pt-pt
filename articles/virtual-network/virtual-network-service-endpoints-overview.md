@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Pontos Finais de Serviço de Rede Virtual (Pré-visualização)
+# <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
 Os pontos finais de serviço da Rede Virtual (VNet) expandem o seu espaço de endereços privados de rede virtual e da identidade da sua VNet para os serviços do Azure através de uma ligação direta. Os pontos finais permitem-lhe obter os seus recursos críticos de serviço do Azure apenas para as suas redes virtuais. O tráfego da sua VNet para o serviço do Azure permanece sempre na rede backbone do Microsoft Azure.
 
-Esta funcionalidade está disponível na pré-visualização para os seguintes serviços e regiões do Azure:
+Esta funcionalidade está disponível para os seguintes serviços e regiões do Azure:
 
-- **Armazenamento do Azure**: todas as regiões na cloud pública do Azure.
-- **SQL do Azure**: todas as regiões na cloud pública do Azure.
+- **Armazenamento do Azure**: Disponível em Geral. Todas as regiões na cloud pública do Azure e no Azure Government.
+- **SQL do Azure**: Pré-visualização. Todas as regiões na cloud pública do Azure.
 
 Para obter notificações mais atualizadas da pré-visualização, veja a página [Atualizações da Rede Virtual do Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -66,7 +66,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 ### <a name="configuration"></a>Configuração
 
 - Os pontos finais de serviço são configurados numa sub-rede de uma rede virtual. Os pontos finais funcionam com qualquer tipo de instância de computação em execução nessa sub-rede.
-- Só é possível ativar um ponto final de serviço para um serviço específico da sub-rede. Pode configurar vários pontos finais de serviço para todos os serviços do Azure suportados (por exemplo, Armazenamento ou Base de Dados SQL do Microsoft Azure) numa sub-rede.
+- Pode configurar vários pontos finais de serviço para todos os serviços do Azure suportados (por exemplo, Armazenamento ou Base de Dados SQL do Microsoft Azure) numa sub-rede.
 - As redes virtuais devem existir na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual.
 - A rede virtual onde o ponto final está configurado pode existir na mesma subscrição ou numa subscrição diferente que a do recurso de serviço do Azure. Para obter mais informações sobre as permissões necessárias para configurar pontos finais e para proteger serviços do Azure, veja [Aprovisionamento](#Provisioning).
 - Para os serviços suportados, pode proteger recursos novos ou existentes para redes virtuais através de pontos finais de serviço.
@@ -106,7 +106,7 @@ Os pontos finais de serviço podem ser configurados de forma independente em red
 
 Saiba mais sobre [funções incorporadas](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a atribuição de permissões específicas a [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da rede virtual e do Azure pertencerem a subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD) durante a pré-visualização. 
+As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da rede virtual e do Azure pertencerem a subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD). 
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 

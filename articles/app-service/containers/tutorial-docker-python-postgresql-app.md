@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Criar uma aplicação Web Docker Python com PostgreSQL no Azure
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 > * Atualizar o modelo de dados e voltar a implementar a aplicação
 > * Gerir a aplicação no portal do Azure
 
-Pode seguir os passos abaixo em macOS. As instruções do Linux e Windows são as mesmas na maioria dos casos, mas as diferenças não estão descritas neste tutorial.
+Pode seguir os passos neste artigo no macOS. As instruções do Linux e Windows são as mesmas na maioria dos casos, mas as diferenças não estão descritas neste tutorial.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -203,7 +203,7 @@ Ligue à base de dados (é-lhe pedida a palavra-passe de administrador).
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
 ```
 
-Crie a base de dados e o utilizador a partir da CLI do PostgreSQL.
+Criar a base de dados e o utilizador a partir da CLI do PostgreSQL.
 
 ```bash
 CREATE DATABASE eventregistration;
@@ -343,7 +343,7 @@ Vê duas palavras-passe. Tome nota do nome de utilizador e da primeira palavra-p
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Carregar o contentor de Docker para o Azure Container Registry
 
-Inicie sessão no registo. Quando lhe for pedido, forneça a palavra-passe que acabou de obter.
+Inicie sessão no registo. Quando lhe for pedido, indique a palavra-passe que obteve.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

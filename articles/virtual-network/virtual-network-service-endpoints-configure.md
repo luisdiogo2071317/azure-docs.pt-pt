@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar Pontos Finais do Serviço de Rede Virtual
 
@@ -75,7 +75,7 @@ Grupo de recursos|Deixe a opção Criar novo selecionada e, em seguida, introduz
 Localização|É suportada qualquer região; por exemplo, Leste da Austrália
 Subscrição|Selecione a sua subscrição.
 __ServiceEndpoints__|Ativado
-__Serviços__ | Selecione um ou todos os serviços disponíveis. Durante a pré-visualização, os serviços suportados são: __"Microsoft", "Microsoft.Sql"__.
+__Serviços__ | Selecione um ou todos os serviços disponíveis. Serviços suportados: __"Microsoft", "Microsoft.Sql"__.
 
 Selecione os serviços para os pontos finais: ![Selecionar Serviços dos Pontos Final de Serviço](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -387,7 +387,7 @@ Para obter os recursos de serviço do Azure para uma VNet, o utilizador tem de t
 
 Saiba mais sobre [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se pertencerem a subscrições diferentes, os recursos devem existir abaixo do inquilino do Active Directory (AD) aquando desta pré-visualização.
+As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se pertencerem a subscrições diferentes, os recursos devem existir abaixo do inquilino do Active Directory (AD).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

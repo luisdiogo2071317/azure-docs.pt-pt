@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -144,10 +144,7 @@ Neste tutorial, começa por criar o pipeline e, depois, vai criar serviços liga
 9. No separador **Geral** da janela **Propriedades**, na parte inferior, especifique **SourceBlobDataset** no **nome**.
 
     ![Nome do conjunto de dados](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Mude para o separador **Ligação**, na janela Propriedades.   
-
-    ![Separador Ligação](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Clique em **+ Novo**, junto à caixa de texto **Serviço ligado**. Os serviços ligados ligam um arquivo de dados ou uma computação à fábrica de dados. Neste caso, vai criar um serviço ligado do Armazenamento do Azure para ligar a sua conta de Armazenamento do Azure ao arquivo de dados. O serviço ligado tem as informações de ligação que o serviço Data Factory utiliza para se ligar ao armazenamento de blobs no runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) que contém os dados de origem. 
+10. Mude para o separador **Ligação**, na janela Propriedades. Clique em **+ Novo**, junto à caixa de texto **Serviço ligado**. Os serviços ligados ligam um arquivo de dados ou uma computação à fábrica de dados. Neste caso, vai criar um serviço ligado do Armazenamento do Azure para ligar a sua conta de Armazenamento do Azure ao arquivo de dados. O serviço ligado tem as informações de ligação que o serviço Data Factory utiliza para se ligar ao armazenamento de blobs no runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) que contém os dados de origem. 
 
     ![Botão Novo serviço ligado](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Na janela **Novo Serviço Ligado**, siga os passos abaixo: 
@@ -283,7 +280,7 @@ Pode testar um pipeline antes de publicar artefactos (serviços ligados, conjunt
 2. Confirme que os dados do ficheiro de origem são inseridos na base de dado SQL de destino. 
 
     ![Verificar a saída do SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Clique em **Publicar**, no painel do lado esquerdo. Esta ação publica as entidades (serviços ligados, conjuntos de dados e pipeline) que criou anteriormente no Azure Data Factory.
+3. Clique em **Publicar Tudo**, no painel do lado esquerdo. Esta ação publica as entidades (serviços ligados, conjuntos de dados e pipeline) que criou anteriormente no Azure Data Factory.
 
     ![Botão Publicar](./media/tutorial-copy-data-portal/publish-button.png)
 4. Aguarde até ver a mensagem **Publicação com êxito**. Para ver mensagens de notificação, clique no separador **Mostrar Notificações**, na barra lateral do lado esquerdo. Clique em **X** para fechar a janela de notificações.
@@ -343,7 +340,7 @@ Se não quiser trabalhar com o repositório de código do VSTS, pode ignorar est
 ## <a name="trigger-the-pipeline-manually"></a>Acionar o pipeline manualmente
 Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior. 
 
-1. Clique em **Acionar**, na barra de ferramentas, e clique em **Acionar Agora**. 
+1. Clique em **Acionar**, na barra de ferramentas, e clique em **Acionar Agora**. Na página **Executar Pipeline**, clique em **Concluir**.  
 
     ![Menu Acionar agora](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Mude para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar as ligações na coluna Ações para ver os detalhes das atividades e para voltar a executar o pipeline.
@@ -386,10 +383,10 @@ Nesta agenda, vai criar um acionador de agendador para o pipeline. O acionador e
 6. Na página **Parâmetros da Execução do Acionador**, reveja o aviso e clique em **Concluir**. O pipeline neste exemplo não tem nenhum parâmetro. 
 
     ![Parâmetros do pipeline](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Clique em **Publicar** para publicar as alterações ao repositório. O acionador não é efetivamente ativado enquanto a publicação não for bem-sucedida. 
+7. Clique em **Sincronizar** para sincronizar as alterações no seu ramo com o ramo principal. Por predefinição, a opção **Publicar alterações após a sincronização** está selecionada. Por conseguinte, quando seleciona **Sincronizar**, também publica as entidades atualizadas no serviço do Azure Data Factory do ramo principal. O acionador não é efetivamente ativado enquanto a publicação não for bem-sucedida.
 
-    ![Publicar o acionador](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Mude para o separador **Monitorizar**, do lado esquerdo, para ver as execuções do pipeline acionadas. 
+    ![Publicar o acionador](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Mude para o separador **Monitorizar**, do lado esquerdo, para ver as execuções do pipeline acionadas. 
 
     ![Execuções de pipeline acionadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Para mudar da vista de execuções do pipeline para a vista de execuções do acionador, clique em Execuções do Pipeline e selecione Execuções do Acionador.

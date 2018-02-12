@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Introdução às zonas privadas do DNS do Azure com o PowerShell
 
 Este artigo explica-lhe os passos para criar a sua primeira zona DNS privada e o registo com o Azure PowerShell.
 
-Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  São denominadas ''redes de resolução''.  Também pode especificar um conjunto de redes virtuais para o qual o DNS do Azure vai manter registos de nomes de anfitrião sempre que uma VM for criada, alterar o IP ou for destruída.  São denominadas ''redes de registo''.
-
-Uma vez que esta funcionalidade é atualmente uma pré-visualização gerida, será fornecido um módulo do PowerShell de pré-visualização.
-
 [!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
+Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  São denominadas ''redes de resolução''.  Também pode especificar um conjunto de redes virtuais para o qual o DNS do Azure mantém registos de nomes de anfitrião sempre que uma VM for criada, alterar o IP ou for destruída.  São denominadas ''redes de registo''.
+
+Uma vez que esta funcionalidade é atualmente uma pré-visualização gerida, será dado um módulo do PowerShell de pré-visualização quando enviar um e-mail para [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
+
+## <a name="get-the-preview-powershell-module"></a>Obter o módulo do PowerShell de Pré-visualização
+
+Para criar uma Zona do DNS Privado com o PowerShell, envie um e-mail para [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com), para obter o módulo do PowerShell de Pré-visualização.
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 

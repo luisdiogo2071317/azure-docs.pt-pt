@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8cc387fafb2771577b55f57f79cc8b3a6ee8cfa9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurar uma ligação Ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: Portal do Azure
 
@@ -41,7 +41,7 @@ Os clientes que se ligam podem utilizar os seguintes métodos de autenticação:
 
 Este artigo ajuda-o a configurar uma configuração P2S com autenticação através da autenticação de certificados nativa do Azure. Se quiser utilizar RADIUS para autenticar os utilizadores que se ligam, veja [P2S através da autenticação RADIUS](point-to-site-how-to-radius-ps.md).
 
-![Ligar um computador a uma VNet do Azure - diagrama da ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeps.png)
+![Ligar um computador a uma VNet do Azure - diagrama da ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
 As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2.
 
@@ -113,12 +113,12 @@ Os certificados são utilizados pelo Azure para autenticar clientes que se ligam
 
 ## <a name="addresspool"></a>6. Adicionar o conjunto de endereços de cliente
 
-O conjunto de endereços de cliente é um conjunto de endereços IP privados que especificar. Os clientes que se ligam através da VPN Ponto a Site recebem um endereço IP deste intervalo. Utilize um intervalo de endereços IP privados que não se sobreponha à localização no local a partir da qual se ligou ou à VNet à qual se quer ligar.
+O conjunto de endereços de cliente é um conjunto de endereços IP privados que especificar. Os clientes que se ligam através da VPN Ponto a Site recebem dinamicamente um endereço IP deste intervalo. Utilize um intervalo de endereços IP privados que não se sobreponha à localização no local a partir da qual se ligou ou à VNet à qual se quer ligar.
 
 1. Assim que o gateway da rede virtual for criado, navegue até à secção **Definições** da página do gateway de rede virtual. Na secção **Definições**, clique em **Configuração ponto a site** para abrir a página **Configuração Ponto a Site**.
 
   ![Página Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. Na página **Configuração Ponto a Site**, pode eliminar o intervalo preenchido automaticamente e, em seguida, adicionar o intervalo de endereços IP privados que pretende utilizar. Clique em **Guardar** para validar e guardar a definição.
+2. Na página **Configuração Ponto a Site**, pode eliminar o intervalo preenchido automaticamente e, em seguida, adicionar o intervalo de endereços IP privados que pretende utilizar. Os clientes VPN recebem dinamicamente um endereço IP do intervalo que especificou. Clique em **Guardar** para validar e guardar a definição.
 
   ![Conjunto de endereços de cliente](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 

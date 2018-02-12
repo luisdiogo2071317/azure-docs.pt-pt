@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 02/01/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
-O Log Analytics inclui informações sobre a quantidade de dados recolhidos, que computadores os enviaram e os diferentes tipos de dados enviados.  Utilize o dashboard **Utilização do Log Analytics** para ver a quantidade de dados enviados para o serviço Log Analytics. O dashboard mostra quantos dados são recolhidos por cada solução e a quantidade de dados que os seus computadores estão a enviar.
+O Log Analytics inclui informações sobre a quantidade de dados recolhidos, os sistemas que enviaram dados e os diferentes tipos de dados enviados.  Utilize o dashboard **Utilização do Log Analytics** para ver a quantidade de dados enviados para o serviço Log Analytics. O dashboard mostra quantos dados são recolhidos por cada solução e a quantidade de dados que os seus computadores estão a enviar.
 
 ## <a name="understand-the-usage-dashboard"></a>Compreender o dashboard Utilização
 O dashboard **Utilização do Log Analytics** apresenta as informações seguintes:
@@ -37,24 +37,18 @@ O dashboard **Utilização do Log Analytics** apresenta as informações seguint
     - Nós Insight e Análise de Dados
     - Nós de Automatização e Controlo
     - Nós de segurança
-- Desempenho
-    - Tempo decorrido para recolher e indexar dados
 - Lista de consultas
 
 ![dashboard de utilização](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Trabalhar com dados de utilização
-1. Se ainda não o fez, inicie sessão no [portal do Azure](https://portal.azure.com) através da sua subscrição do Azure.
-2. No menu **Hub**, clique em **Mais serviços** e, na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **Log Analytics**.  
-    ![Hub do Azure](./media/log-analytics-usage/hub.png)
-3. O dashboard do **Log Analytics** mostra uma lista das suas áreas de trabalho. Selecione uma área de trabalho.
-4. No dashboard da *área de trabalho*, clique em **Utilização do Log Analytics**.
-5. No dashboard **Utilização do Log Analytics**, clique em **Hora: últimas 24 horas**, para alterar o intervalo de tempo.  
-    ![intervalo de tempo](./media/log-analytics-usage/time.png)
-6. Veja os painéis da categoria de utilização que mostra áreas em que está interessado. Escolha um painel e clique num item no mesmo para ver mais detalhes na [Pesquisa de Registos](log-analytics-log-searches.md).  
-    ![exemplo de painel de utilização de dados](./media/log-analytics-usage/blade.png)
-7. No dashboard da Pesquisa de Registos, reveja os resultados devolvidos pela pesquisa.  
-    ![exemplo de pesquisa de registos de utilização](./media/log-analytics-usage/usage-log-search.png)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Na lista de áreas de trabalho do Log Analytics, selecione uma área de trabalho.
+4. Selecione **Utilização do Log Analytics** na lista do painel esquerdo.
+5. No dashboard **Utilização do Log Analytics**, clique em **Hora: últimas 24 horas**, para alterar o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/time.png)<br><br>
+6. Veja os painéis da categoria de utilização que mostra áreas em que está interessado. Escolha um painel e clique num item no mesmo para ver mais detalhes na [Pesquisa de Registos](log-analytics-log-searches.md).<br><br> ![exemplo de painel de utilização de dados](./media/log-analytics-usage/blade.png)<br><br>
+7. No dashboard da Pesquisa de Registos, reveja os resultados devolvidos pela pesquisa.<br><br> ![exemplo de pesquisa de registos de utilização](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a recolha de dados for superior ao esperado
 Esta secção descreve como criar um alerta se:
@@ -63,20 +57,20 @@ Esta secção descreve como criar um alerta se:
 
 Os [alertas](log-analytics-alerts-creating.md) do Log Analytics utilizam consultas de pesquisa. A consulta seguinte tem um resultado quando são recolhidos mais de 100 GB de dados nas últimas 24 horas:
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
 A consulta seguinte utiliza uma fórmula simples para prever quando é que vão ser enviados mais de 100 GB de dados num dia: 
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 
 Para alertar relativamente a volumes de dados diferentes, altere o 100 nas consultas para o número de GB para o qual quer receber o alerta.
 
 Utilize os passos descritos em [Create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) (Criar uma regra de alerta) para ser notificado de quando a recolha de dados for superior ao esperado.
 
-Quando criar o alerta para a primeira consulta – quando existem mais de 100 GB de dados em 24 horas –, defina:
-- O **nome** como *Volume de dados maior do que 100 GB em 24 horas*
-- A **gravidade** como *Aviso*
-- A **consulta de pesquisa** como `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+Quando criar o alerta para a primeira consulta – quando existem mais de 100 GB de dados em 24 horas –, defina:  
+- O **nome** como *Volume de dados maior do que 100 GB em 24 horas*  
+- A **gravidade** como *Aviso*  
+- A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
 - A **Janela de tempo** como *24 Horas*.
 - A **frequência do alerta** como uma hora, pois os dados de utilização só são atualizados uma vez por hora.
 - **Gerar alerta com base em** como o *número de resultados*
@@ -87,7 +81,7 @@ Utilize os passos descritos em [Add actions to alert rules](log-analytics-alerts
 Quando criar o alerta para a segunda consulta – quando se previr que vai haver mais de 100 GB de dados em 24 horas –, defina:
 - O **nome** como *Previsto volume de dados maior do que 100 GB em 24 horas*
 - A **gravidade** como *Aviso*
-- A **consulta de pesquisa** como `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+- A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 - A **Janela de tempo** como *3 Horas*.
 - A **frequência do alerta** como uma hora, pois os dados de utilização só são atualizados uma vez por hora.
 - **Gerar alerta com base em** como o *número de resultados*
@@ -115,33 +109,29 @@ Estes dois gráficos apresentam todos os dados. Alguns dados estão sujeitos a f
 
 Observe o gráfico *Volume de dados ao longo do tempo*. Para ver as soluções e os tipos de dados que estão a enviar mais dados relativamente a um determinado computador, clique no nome do computador. Clique no nome do primeiro computador na lista.
 
-Na captura de ecrã seguinte, o tipo de dados *Gestão de Registos / Desempenho* está a enviar mais dados para o computador. 
-
-![volume de dados de um computador](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+Na captura de ecrã seguinte, o tipo de dados *Gestão de Registos / Desempenho* está a enviar mais dados para o computador.<br><br> ![volume de dados de um computador](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
 
 Em seguida, regresse ao dashboard *Utilização* e veja o gráfico *Volume de dados por solução*. Para ver que computadores estão a enviar mais dados relativamente a uma solução, clique no nome da solução na lista. Clique no nome da primeira solução na lista. 
 
-Na captura de ecrã seguinte, confirma-se que é o computador *acmetomcat* que está a enviar mais dados para a solução Gestão de Registos.
-
-![volume de dados de uma solução](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+Na captura de ecrã seguinte, confirma-se que é o computador *acmetomcat* que está a enviar mais dados para a solução Gestão de Registos.<br><br> ![volume de dados de uma solução](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Se for necessário, execute uma análise adicional para identificar volumes de grandes dimensões dentro de uma solução ou tipo de dados. As consultas de exemplo incluem:
 
 + Solução de **Segurança**
-  - `Type=SecurityEvent | measure count() by EventID`
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + Solução de **Gestão de Registos**
-  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
 + Tipo de dados de **Desempenho**
-  - `Type=Perf | measure count() by CounterPath`
-  - `Type=Perf | measure count() by CounterName`
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
 + Tipo de dados de **Evento**
-  - `Type=Event | measure count() by EventID`
-  - `Type=Event | measure count() by EventLog, EventLevelName`
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
 + Tipo de dados de **Syslog**
-  - `Type=Syslog | measure count() by Facility, SeverityLevel`
-  - `Type=Syslog | measure count() by ProcessName`
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
 + Tipo de dados de **AzureDiagnostics**
-  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
 Utilize os seguintes passos para reduzir o volume de registos recolhidos:
 
@@ -155,20 +145,31 @@ Utilize os seguintes passos para reduzir o volume de registos recolhidos:
 | Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verificar se há mais nós do que o esperado
-Se estiver no escalão de preço *por nó (OMS)*, é cobrado com base no número de nós e soluções que utilizar. Pode ver quantos nós de cada oferta estão a ser utilizados na secção *ofertas* do dashboard de utilização.
-
-![dashboard de utilização](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+Se estiver no escalão de preço *por nó (OMS)*, é cobrado com base no número de nós e soluções que utilizar. Pode ver quantos nós de cada oferta estão a ser utilizados na secção *ofertas* do dashboard de utilização.<br><br> ![dashboard de utilização](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Clique em **Ver todos...** para ver a lista completa dos computadores que estão a enviar dados para a oferta selecionada.
 
 Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 
+## <a name="check-if-there-is-ingestion-latency"></a>Verifique se existe latência de ingestão
+Com o Log Analytics há uma latência prevista com a ingestão de dados recolhidos.  O tempo absoluto entre a indexação de dados e quando se encontra disponível para procurar pode ser imprevisível. Anteriormente, incluímos um gráfico de desempenho no dashboard que mostrava o tempo dispensado para recolher e indexar dados e com a introdução da nova linguagem de consulta, removemos temporariamente este gráfico.  Como solução provisória até lançarmos as métricas de latência de ingestão de dados atualizadas, pode utilizar a seguinte consulta para obter uma estimativa da latência para cada tipo de dados.  
+
+    search *
+    | where TimeGenerated > ago(8h)
+    | summarize max(TimeGenerated) by Type
+    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
+    | project Type, LatencyInMinutes
+    | sort by LatencyInMinutes desc
+
+> [!NOTE]
+> A consulta de latência de ingestão não mostra o histórico da latência e está limitada para devolver apenas os resultados da hora atual.  O valor para *TimeGenerated* é preenchido no agente para os Registos de esquema comum e preenchido no ponto final de recolha para os Registos personalizados.  
+>
 
 ## <a name="next-steps"></a>Passos seguintes
 * Veja [Pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 * Utilize os passos descritos em [Create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) (Criar uma regra de alerta) para ser notificado de quando um critério de pesquisa for cumprido.
 * Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários
-* Selecione [eventos de segurança comuns ou mínimos](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)
+* Para configurar uma política de recolha de eventos de segurança eficaz, veja [Política de filtragem do Centro de Segurança do Azure](../security-center/security-center-enable-data-collection.md)
 * Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md)
-* Altere a [configuração do registo de eventos](log-analytics-data-sources-windows-events.md)
-* Altere a [configuração do syslog](log-analytics-data-sources-syslog.md)
+* Para modificar as definições da recolha de eventos, veja [configuração do registo de eventos](log-analytics-data-sources-windows-events.md)
+* Para modificar as definições da recolha do syslog, veja [configuração do syslog](log-analytics-data-sources-syslog.md)
