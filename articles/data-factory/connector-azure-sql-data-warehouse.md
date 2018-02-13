@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,14 +269,14 @@ O PolyBase do armazém de dados SQL diretamente suporta Blob do Azure e o Azure 
 
 Se não são cumpridos os requisitos, o Azure Data Factory verifica as definições e automaticamente retrocede para o mecanismo BULKINSERT para o movimento de dados.
 
-1. **Origem de serviço ligado** é do tipo: **AzureStorage** ou **AzureDataLakeStore**.
+1. **Origem de serviço ligado** é do tipo: **AzureStorage** ou **AzureDataLakeStore** com a autenticação principal de serviço.
 2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStoreFile**e o formato de tipo em `type` propriedades **OrcFormat** , **ParquetFormat**, ou **TextFormat** com as seguintes configurações:
 
-   1. `rowDelimiter`tem de ser  **\n** .
-   2. `nullValue`está definido como **uma cadeia vazia** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
-   3. `encodingName`está definido como **utf-8**, que é **predefinido** valor.
+   1. `rowDelimiter` tem de ser  **\n** .
+   2. `nullValue` está definido como **uma cadeia vazia** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
+   3. `encodingName` está definido como **utf-8**, que é **predefinido** valor.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, e `skipLineCount` não foram especificados.
-   5. `compression`pode ser **sem compressão**, **GZip**, ou **Deflate**.
+   5. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
 
     ```json
     "typeProperties": {

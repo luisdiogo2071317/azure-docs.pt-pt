@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 7bd08a838bef504e41f7aa63516a1b54ba497441
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para o movimento de dados
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,9 +56,6 @@ Neste artigo, vamos rever as considerações de segurança nos seguintes cenári
 - Armazenar credenciais no Azure Key Vault 
 
    Agora, pode escolher armazenar credenciais do arquivo de dados no [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/), em seguida, permitir que o Azure Data Factory para obtê-lo durante a execução de uma atividade. Para obter mais informações, consulte [credencial de arquivo no Cofre de chaves do Azure](store-credentials-in-key-vault.md).
-
-   > [!NOTE]
-   > Atualmente, apenas [conector Dynamics](connector-dynamics-crm-office-365.md) suporte esta funcionalidade. 
 
 ### <a name="data-encryption-in-transit"></a>Encriptação de dados em trânsito
 Se o arquivo de dados na nuvem suporta HTTPS ou TLS, todos os dados transferidos entre os serviços de movimento de dados no Data Factory e um arquivo de dados de nuvem são através de canal seguro, HTTPS ou TLS.

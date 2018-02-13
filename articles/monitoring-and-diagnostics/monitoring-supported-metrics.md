@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com a monitorização do Azure
 Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure.
@@ -395,7 +395,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |DCIProfilesCount|Contagem de instâncias de perfil|Contagem|Último||Não foram dimensões|
 |DCIInteractionsPerMonthCount|Interações por contagem de mês|Contagem|Último||Não foram dimensões|
 |DCIKpisCount|Contagem de KPI|Contagem|Último||Não foram dimensões|
-|DCISegmentsCount|Contagem de Segmentos|Contagem|Último||Não foram dimensões|
+|DCISegmentsCount|Contagem de segmento|Contagem|Último||Não foram dimensões|
 |DCIPredictiveMatchPoliciesCount|Contagem de correspondências preditiva|Contagem|Último||Não foram dimensões|
 |DCIPredictionsCount|Contagem de predição|Contagem|Último||Não foram dimensões|
 
@@ -758,7 +758,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |PacketCount|Contagem de pacotes|Contagem|Total|Número total de pacotes transmitidos num período de tempo|Porta de direção|
 |SynCount|Contagem de SIN|Contagem|Total|Número total de pacotes de SIN transmitidos num período de tempo|Porta de direção|
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Network/applicationgateways
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
@@ -861,7 +861,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|QueryDuration|Duração de consulta|Contagem|Média|Duração de consulta DAX no último intervalo de|Não foram dimensões|
+|QueryDuration|Duração de consulta|Milissegundos|Média|Duração de consulta DAX no último intervalo de|Não foram dimensões|
 |QueryPoolJobQueueLength|Threads: Comprimento de fila de tarefa de conjunto de consulta|Contagem|Média|Número de tarefas na fila do conjunto de threads de consulta.|Não foram dimensões|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

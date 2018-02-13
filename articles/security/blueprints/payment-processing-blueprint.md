@@ -1,6 +1,6 @@
 ---
-title: Blueprint de processamento do pagamento para ambientes em conformidade de PCI DSS
-description: Requisito de PCI DSS
+title: "Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS"
+description: "Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Blueprint a automatização do Azure: Para ambientes em conformidade de PCI DSS de processamento de pagamento
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 
 ## <a name="overview"></a>Descrição geral
 
@@ -43,7 +43,7 @@ A arquitetura dos inclui os seguintes componentes:
 - **Modelos de implementação**. Nesta implementação, [modelos Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são utilizados para implementar automaticamente os componentes da arquitetura no Microsoft Azure, especificando os parâmetros de configuração durante a configuração.
 - **Scripts de implementação de automatizada**. Estes scripts ajudam a implementar a solução ponto-a-ponto. Os scripts consistem em:
     - Uma instalação do módulo e [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) script de configuração é utilizada para instalar e certifique-se de que funções de administrador global e de módulos do PowerShell necessários estão configuradas corretamente.
-    - Uma instalação de script do PowerShell é utilizada para implementar a solução ponto-a-ponto, fornecida através de um ficheiro. zip e um ficheiro de bacpac que contêm uma aplicação web de demonstração pré-criadas com [exemplo de base de dados do SQL Server](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código de origem para esta solução está disponível para revisão [repositório de código Blueprint de processamento do pagamento][code-repo]. 
+    - Uma instalação de script do PowerShell é utilizada para implementar a solução ponto-a-ponto, fornecida através de um ficheiro. zip e um ficheiro de bacpac que contêm uma aplicação web de demonstração pré-criadas com [exemplo de base de dados do SQL Server](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código de origem para esta solução está disponível para revisão [ repositório de código Blueprint][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagrama da arquitetura
 
@@ -66,7 +66,7 @@ O administrador está à procura de uma solução que pode ser rapidamente imple
 
 A arquitetura dos foi concebida com os seguintes elementos fictícios:
 
-Site de domínio`contosowebstore.com`
+Site de domínio `contosowebstore.com`
 
 Funções de utilizador utilizadas para ilustrar o caso de utilização e obter informações sobre a interface de utilizador.
 
@@ -74,7 +74,7 @@ Funções de utilizador utilizadas para ilustrar o caso de utilização e obter 
 
 |Item      |Exemplo|
 |----------|------|
-|Nome de Utilizador: |`adminXX@contosowebstore.com`|
+|NomeDeUtilizador: |`adminXX@contosowebstore.com`|
 | Nome: |`Global Admin Azure PCI Samples`|
 |Tipo de utilizador:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
@@ -86,7 +86,7 @@ Funções de utilizador utilizadas para ilustrar o caso de utilização e obter 
 
 |Item      |Exemplo|
 |----------|------|
-|Nome de Utilizador: |`sqlAdmin@contosowebstore.com`|
+|NomeDeUtilizador: |`sqlAdmin@contosowebstore.com`|
 | Nome: |`SQLADAdministrator PCI Samples`|
 | Nome próprio: |`SQL AD Administrator`|
 |Apelido: |`PCI Samples`|
@@ -99,7 +99,7 @@ Funções de utilizador utilizadas para ilustrar o caso de utilização e obter 
 
 |Item      |Exemplo|
 |----------|------|
-|Nome de Utilizador:| `receptionist_EdnaB@contosowebstore.com`|
+|NomeDeUtilizador:| `receptionist_EdnaB@contosowebstore.com`|
 | Nome: |`Edna Benson`|
 | Nome próprio:| `Edna`|
 |Apelido:| `Benson`|
@@ -110,8 +110,6 @@ Edna Benson é o Gestor de rececionista e empresariais. Ela é responsável por 
 - Edna pode criar e ler informações de cliente
 - Edna pode modificar informações de cliente.
 - Edna pode substituir ou substitua o número de cartão de crédito, a expiração e as informações de CVV.
-
-> Contoso Webstore, o utilizador é automaticamente como o **Edna** utilizador para testar as capacidades do ambiente implementado.
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - estimada de preços
 
@@ -151,7 +149,7 @@ A secção seguinte descreve em detalhe os elementos de desenvolvimento e implem
 
 A arquitetura dos reduz o risco de vulnerabilidades de segurança utilizando um Gateway de aplicação com firewall de aplicações web (WAF) e o ruleset OWASP ativada. Capacidades adicionais incluem:
 
-- [Fim para final SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Ativar [descarga de SSL](/azure/application-gateway/application-gateway-ssl-portal)
 - Desativar [TLS v 1.0 e v 1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Firewall de aplicações Web](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (modo WAF)
@@ -183,7 +181,7 @@ Cada um dos NSGs ter específicas portas e protocolos abertos para o trabalho se
 #### <a name="custom-domain-ssl-certificates"></a>Certificados SSL de domínio personalizado
  Tráfego HTTPS está ativado para utilizar um certificado SSL de domínio personalizado.
 
-### <a name="data-at-rest"></a>Dados Inativos
+### <a name="data-at-rest"></a>Dados inativos
 
 A arquitetura protege os dados Inativos através da utilização de encriptação, a auditoria de base de dados e de outras medidas.
 
@@ -207,8 +205,8 @@ A instância de SQL Database do Azure utiliza as seguintes medidas de segurança
 
 [Operations Management Suite (OMS)](/azure/operations-management-suite/) pode fornecer o Contoso Webstore com o registo de um vasto conjunto de toda a atividade de utilizador e de sistema, incluem registo de dados de cardholder. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. 
 
-- **Registos de atividade:**[registos de atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas as operações que foram executadas no recursos na sua subscrição.
-- **Os registos de diagnóstico:**[registos de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos. Estes registos incluem registos de sistema de eventos do Windows, armazenamento de Blobs do Azure, tabelas e registos de fila.
+- **Registos de atividade:**[registos de atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas as operações que foram executadas no recursos na sua subscrição.  
+- **Os registos de diagnóstico:**[registos de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos.   Estes registos incluem registos de sistema de eventos do Windows, armazenamento de Blobs do Azure, tabelas e registos de fila.
 - **Registos de firewall:** o Gateway de aplicação fornece completa diagnóstico e aceder a registos. Estão disponíveis recursos de Gateway de aplicação que tenham WAF ativada de registos de firewall.
 - **Arquivo de registo:** todos os registos de diagnóstico são configurados para escrever uma conta de armazenamento do Azure centralizada e encriptados para arquivo com um período de retenção definido (2 dias). Os registos, em seguida, estão ligados ao Log Analytics do Azure para o processamento, armazenamento e dashboarding. [Análise de registo](https://azure.microsoft.com/services/log-analytics) é um serviço do OMS que ajuda a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes.
 
@@ -357,7 +355,7 @@ Se ocorrerem problemas durante a implementação, consulte [FAQ e resolução de
     
 ## <a name="threat-model"></a>Modelo de ameaça
 
-Um diagrama de fluxo de dados (DFD) e o modelo de ameaça de exemplo para a Contoso Webstore [modelo de ameaça Blueprint de processamento de pagamento](https://aka.ms/pciblueprintthreatmodel).
+Um diagrama de fluxo de dados (DFD) e o modelo de ameaça de exemplo para a Contoso Webstore [modelo de ameaça Blueprint](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -373,7 +371,7 @@ A solução foi revista pela Coalfire sistemas, Inc. (PCI-DSS qualificado segura
 
 ## <a name="disclaimer-and-acknowledgements"></a>Exclusão de responsabilidade e confirmações
 
-*Setembro de 2017*
+Setembro de 2017
 
 - Este documento destina-se apenas a fins informativos. MICROSOFT E AVYAN NÃO TORNAR NÃO OFERECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU ESTATUTARIAMENTE AS INFORMAÇÕES NESTE DOCUMENTO. Este documento é fornecido "como-está." As informações e opiniões expressados neste documento, incluindo URLs e outras referências de Web site da Internet, podem ser alteradas sem aviso prévio. Os clientes ler este documento da sua responsabilidade utilizá-la.  
 - Este documento não fornece aos clientes com quaisquer direitos legais a nenhuma propriedade intelectual em qualquer produto da Microsoft ou Avyan ou soluções.  
@@ -390,7 +388,7 @@ A solução foi revista pela Coalfire sistemas, Inc. (PCI-DSS qualificado segura
 ### <a name="document-authors"></a>Autores de documentos
 
 - *O Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (consultadoria Avyan)*
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositório de código"

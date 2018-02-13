@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar a sua infraestrutura de VPN com a MFA do Azure utilizando a extensão de servidor de políticas de rede do Azure
 
@@ -106,7 +106,7 @@ Serviços de acesso de política de rede e fornece a funcionalidade de servidor 
 
 Para obter informações sobre como instalar a função Serviços de acesso e política de rede do serviço do Windows Server 2012 ou posterior, consulte [instalar um servidor de políticas de estado de funcionamento de NAP](https://technet.microsoft.com/library/dd296890.aspx). NAP foi preterida no Windows Server 2016. Para obter uma descrição das melhores práticas para NPS, incluindo a recomendação para instalar NPS num controlador de domínio, consulte [melhores práticas para NPS](https://technet.microsoft.com/library/cc771746).
 
-### <a name="azure-mfa-license"></a>Licença do MFA do Azure
+### <a name="azure-mfa-license"></a>Azure MFA License
 
 É necessária uma licença para o multi-factor Authentication do Azure e está disponível através de um Azure AD Premium, o Enterprise Mobility + segurança ou uma licença autónoma do multi-factor Authentication. Com base no consumo de licenças do MFA do Azure, como por utilizador ou por licenças de autenticação não são compatíveis com a extensão NPS. Para obter mais informações, consulte [como obter o Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Para fins de teste, pode utilizar uma subscrição de avaliação.
 
@@ -186,7 +186,7 @@ Pode utilizar um padrão (baseada em Assistente) ou avançadas a opção de conf
 
     ![A janela de especificar grupos de utilizadores](./media/nps-extension-vpn/image7.png)
 
-9. Selecione **seguinte**.
+9. Selecione **Seguinte**.
 
 10. No **especificar filtros de IP** janela, selecione **seguinte**.
 
@@ -376,7 +376,7 @@ Para utilizar o script, forneça a extensão com as credenciais administrativas 
 
 1. Execute o Windows PowerShell como administrador.
 
-2. Na linha de comandos do PowerShell, introduza **cd c:\Programas\Microsoft Files\Microsoft\AzureMfa\Config**e, em seguida, selecione Enter.
+2. Na linha de comandos do PowerShell, introduza **cd "c:\Programas\Microsoft Files\Microsoft\AzureMfa\Config"**e, em seguida, selecione Enter.
 
 3. A seguinte linha de comandos, introduza **.\AzureMfsNpsExtnConfigSetup.ps1**e, em seguida, selecione Enter. O script verifica se o módulo Azure AD PowerShell está instalado. Se não estiver instalado, o script instala o módulo para si.
  
@@ -398,7 +398,7 @@ Para utilizar o script, forneça a extensão com as credenciais administrativas 
 
 6. Reinicie o servidor.
 
-### <a name="verify-the-configuration"></a>Verifique a configuração
+### <a name="verify-the-configuration"></a>Verificar a configuração
 Para verificar a configuração, tem de estabelecer uma nova ligação de VPN com o servidor VPN. Depois de introduzir com êxito as suas credenciais para autenticação primária, a ligação VPN aguarda que a autenticação secundária com êxito antes da ligação for estabelecida, conforme mostrado abaixo. 
 
 ![A janela de VPN de definições do Windows](./media/nps-extension-vpn/image42.png)
@@ -449,7 +449,7 @@ As entradas nestes ficheiros de registo são difíceis de interpretar, a menos q
 
 Para fazer adicionais de resolução de problemas, pode utilizar um analisador de protocolos como Wireshark ou [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). A imagem seguinte do Wireshark mostra as mensagens RADIUS entre o servidor VPN e o NPS.
 
-![Analisador de mensagens da Microsoft](./media/nps-extension-vpn/image50.png)
+![Microsoft Message Analyzer](./media/nps-extension-vpn/image50.png)
 
 Para obter mais informações, consulte [integrar a infraestrutura existente do NPS com o Azure multi-factor Authentication](multi-factor-authentication-nps-extension.md). 
 
@@ -458,5 +458,5 @@ Para obter mais informações, consulte [integrar a infraestrutura existente do 
 
 [Gateway de Ambiente de Trabalho Remoto e Servidor Multi-Factor Authentication do Azure com o RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
-[Integrar os diretórios no local ao Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
+[Integrar os diretórios no local com o Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
 

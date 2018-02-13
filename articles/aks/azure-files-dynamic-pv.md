@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Aprovisionamento de volumes persistentes com ficheiros do Azure - dinâmicos
+# <a name="persistent-volumes-with-azure-files"></a>Volumes persistentes com ficheiros do Azure
 
 Um volume persistente representa um conjunto de armazenamento que tenha sido aprovisionado para utilização num Kubernetes cluster. Um volume persistente pode ser utilizado por um ou vários pods e pode ser dinamicamente ou estaticamente aprovisionado. Este documento fornece detalhes sobre o aprovisionamento dinâmico de uma partilha de ficheiros do Azure como um volume persistente Kubernetes num AKS cluster. 
 
@@ -125,10 +125,10 @@ Valores predefinidos para fileMode e dirMode diferem entre versões Kubernetes c
 
 | versão | valor |
 | ---- | ---- |
-| V1.6.x, v1.7.x | 0777 |
-| V1.8.0 v1.8.5 | 0700 |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 ou superior | 0755 |
-| V1.9.0 | 0700 |
+| v1.9.0 | 0700 |
 | V1.9.1 ou superior | 0755 |
 
 Se utilizar um cluster de versão 1.8.5 ou superior, montagem opções podem ser especificadas num objeto de classe de armazenamento. Os seguintes conjuntos de exemplo `0777`. 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerir e manter o agente de análise de registos para o Windows e Linux
 
-Após a implementação inicial do agente do Windows ou Linux para análise de registos, poderá ter de reconfigurar o agente dependendo da situação ou removê-lo a partir do computador se atingiu a fase de extinção no respetivo ciclo de vida.  Pode gerir facilmente estas tarefas de manutenção de rotina manualmente ou através da automatização, o que reduz o erro operacional e as despesas.
+Após a implementação inicial do agente do Windows ou Linux para análise de registos, poderá ter de reconfigurar o agente ou removê-lo a partir do computador se atingiu a fase de extinção no respetivo ciclo de vida.  Pode gerir facilmente estas tarefas de manutenção de rotina manualmente ou através da automatização, o que reduz o erro operacional e as despesas.
 
 ## <a name="adding-or-removing-a-workspace"></a>Adição ou remoção de uma área de trabalho 
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agente Linux
-Execute os passos seguintes se os computadores Linux têm de comunicar através de um servidor proxy ou Gateway do OMS à análise de registos.  O valor de configuração do proxy tem a seguinte sintaxe `[protocol://][user:password@]proxyhost[:port]`.  O *proxyhost* propriedade aceita um nome de domínio completamente qualificado ou o endereço IP do servidor proxy.
+Execute os passos seguintes se os computadores Linux têm de comunicar através de um servidor proxy ou Gateway do OMS à análise de registos.  O valor de configuração do proxy tem a seguinte sintaxe `[protocol://][user:password@]proxyhost[:port]`.  A propriedade *proxyhost* aceita um nome de domínio completamente qualificado ou o endereço IP do servidor proxy.
 
 1. Edite o ficheiro `/etc/opt/microsoft/omsagent/proxy.conf` ao executar os comandos seguintes e altere os valores para as definições específicas.
 
@@ -148,12 +148,9 @@ O ficheiro transferido para o agente é um pacote de instalação autónomo cria
 3. Na linha de comandos, escreva `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Agente Linux
-Para remover o agente, efetue os passos seguintes.
+Para remover o agente, execute o seguinte comando no computador Linux.  O *– remover* argumento remove completamente a respetiva configuração e o agente.
 
-1. Transfira o agente Linux [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) para o computador.
-2. Execute o ficheiro .sh do pacote com o argumento *--purge* no computador, o que remove completamente o agente e a respetiva configuração.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Configurar o agente para reportar a um grupo de gestão do Operations Manager
 
@@ -174,9 +171,9 @@ Execute os seguintes passos para configurar o agente do OMS para Windows para qu
 ### <a name="linux-agent"></a>Agente Linux
 Execute os seguintes passos para configurar o agente do OMS para Linux para que reportem a um grupo de gestão do System Center Operations Manager. 
 
-1. Edite o ficheiro`/etc/opt/omi/conf/omiserver.conf`
-2. Certifique-se de que o início da linha com `httpsport=` define a porta 1270. Tal como:`httpsport=1270`
-3. Reinicie o servidor OMI:`sudo /opt/omi/bin/service_control restart`
+1. Edite o ficheiro `/etc/opt/omi/conf/omiserver.conf`
+2. Certifique-se de que o início da linha com `httpsport=` define a porta 1270. Tal como: `httpsport=1270`
+3. Reinicie o servidor OMI: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Passos Seguintes
 

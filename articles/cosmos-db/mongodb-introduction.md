@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introdução ao Azure Cosmos DB: API para MongoDB
 
-O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft para aplicações críticas para atividades. O Azure Cosmos DB proporciona [distribuição global chave na mão](distribute-data-globally.md), [dimensionamento elástico de débito e armazenamento](partition-data.md) em todo o mundo, latências de milissegundos de um só dígito no percentil 99, [cinco níveis de consistência bem definidos](consistency-levels.md) e elevada disponibilidade garantida, tudo com o suporte de [SLAs líderes da indústria](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa automaticamente os dados](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem que tenha de lidar com a gestão de esquemas e índices. É multimodal e suporte modelos de dados em documentos, chaves-valores, gráficos e em colunas. 
+O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft para aplicações críticas para atividades. BD do Azure do Cosmos fornece [distribuição global ative chave](distribute-data-globally.md), [dimensionamento elástico de débito e armazenamento](partition-data.md) latências milissegundo em todo o mundo, dígito no percentil 99th e garantida alta disponibilidade, todas as cópia por [líder da indústria SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa automaticamente os dados](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem que tenha de lidar com a gestão de esquemas e índices. É multimodal e suporte modelos de dados em documentos, chaves-valores, gráficos e em colunas. 
 
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -39,7 +39,12 @@ Bases de dados de base de dados do Cosmos do Azure podem ser utilizados como o a
 
 **Nenhuma gestão de servidor**: não tem de gerir e dimensionar as bases de dados de MongoDB. BD do Cosmos do Azure é um serviço completamente gerido, o que significa que não tem de gerir qualquer infraestrutura ou de máquinas virtuais por si. BD do Cosmos do Azure está disponível no 30 + [regiões do Azure](https://azure.microsoft.com/regions/services/).
 
-**Níveis de consistência sincronizáveis:** Selecione um dos cinco níveis de consistência bem definidos para alcançar compromissos ótimos entre a consistência e o desempenho. Para consultas e operações de leitura, o Azure Cosmos DB oferece cinco níveis de consistência distintos: forte, consistência vinculada, sessão, prefixo de consistência e eventual. Estes níveis de consistência granular e bem definidos permitem-lhe efetuar compromissos sonoros entre a consistência, a disponibilidade e a latência. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
+**Níveis de consistência sincronizáveis:** BD do Cosmos Azure implementa atualmente MongoDB versão 3.4, que tem duas definições de consistência, seguras e eventual. Como base de dados do Azure Cosmos é várias api, as definições de consistência são aplicáveis ao nível da conta e a imposição da consistência e é controlada por cada API. Até MongoDB 3.6, não havia nenhum conceito de consistência de sessão, para que o se definir uma conta de API do MongoDB para utilizar a consistência de sessão, a consistência é alterada uma versão anterior a eventual ao utilizar as APIs do MongoDB. Se precisar de uma garantia de leitura-your-proprietário-escrita de uma conta de API do MongoDB, o nível de consistência predefinida para a conta deve ser definido como strong ou tem um vínculo vinculada. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
+
+| Azure Cosmos DB predefinido de nível de consistência |   API do mongo (3.4) |
+|---|---|
+|Sessão| Eventual |
+| Forte | Forte |
 
 **A indexação automática**: por predefinição, base de dados do Azure Cosmos indexa automaticamente os todas as propriedades dentro de documentos no seu MongoDB da base de dados e não espera nem requer nenhum esquema ou criação de índices secundários. Além disso, a capacidade de índice exclusivo permite uma restrição de exclusividade em todos campos de documento que já são indexados automática do BD Azure Cosmos.
 

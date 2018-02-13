@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>Estabelecer ligação com o Power BI
 
@@ -38,7 +38,9 @@ Assim que tiver criado um servidor no Azure e implementar um modelo de tabela, o
 
 3. No **base de dados**, se souber o nome da base de dados em tabela do modelo ou perspetiva que pretende ligar, cole-a aqui. Caso contrário, pode deixar este campo em branco e selecione uma base de dados ou de uma perspetiva mais tarde.
 
-4. Deixe a predefinição **ligar em direto** opção, em seguida, prima **Connect**. Ligações de importação não são atualmente suportadas.
+4. Selecione uma opção de ligação e, em seguida, prima **Connect**. 
+
+    Ambos **ligar em direto** e **importação** opções são suportadas. No entanto, é recomendado que utilizar ligações em direto porque o modo de importação tem algumas limitações; mais especificamente, o desempenho do servidor poderão ser afetado durante a importação. Também, se o modelo está a ser atualizado no serviço Power BI, o **permitir o acesso a partir do Power BI** definição aplica-se apenas ao escolher **ligar em direto**.
 
 5. Se lhe for solicitado, introduza as credenciais de início de sessão. 
 

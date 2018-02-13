@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de .NET do Cosmos BD do Azure para a API do SQL Server: transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Amostras**</td><td>[Exemplos de código do .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Introdução**</td><td>[Introdução ao SDK .NET da Azure Cosmos DB](sql-api-get-started.md)</td></tr>
+<tr><td>Introdução</td><td>[Introdução ao SDK .NET da Azure Cosmos DB](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Tutorial de aplicação Web**</td><td>[Desenvolvimento da aplicação Web com base de dados do Azure Cosmos](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Corrigido regressão onde FeedOptions.MaxItemCount = -1 emitiu um System.ArithmeticException: tamanho da página é negativo.
+* Adicionar uma nova função de ToString () para QueryMetrics.
+* Estatísticas de partição expostas em coleções de leitura.
+* Foram adicionada PartitionKey propriedade ChangeFeedOptions.
+* Pequenas correções de erros.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Adiciona a capacidade de especificar índices exclusivos para os documentos, utilizando o DocumentCollection UniqueKeyPolicy propriedade.
@@ -277,6 +285,7 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |05 de Fevereiro de 2018 |--- |
 | [1.19.1](#1.19.1) |16 de novembro de 2017 |--- |
 | [1.19.0](#1.19.0) |10 de Novembro de 2017 |--- |
 | [1.18.1](#1.18.1) |07 de Novembro de 2017 |--- |
@@ -324,6 +333,6 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

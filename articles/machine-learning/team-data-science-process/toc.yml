@@ -1,4 +1,5 @@
 - name: Documentação do Processo de Ciência de Dados de Equipa
+  href: index.yml
 - name: Descrição geral
   href: overview.md
 - name: Ciclo de vida

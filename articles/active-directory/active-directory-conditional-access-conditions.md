@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
 
@@ -51,7 +51,7 @@ Quando seleciona:
 
 - **Todos os utilizadores**, a sua política é aplicada a todos os utilizadores no diretório. Isto inclui os utilizadores convidados.
 
-- **Selecionar utilizadores e grupos**, poderá ter como alvo específicos conjuntos de utilizadores, por exemplo, todos os membros do departamento de RH, quando iniciam sessão numa aplicação HR. 
+- **Selecionar utilizadores e grupos**, pode visar específicos conjuntos de utilizadores. Por exemplo, pode selecionar um grupo que contém todos os membros do departamento de RH, quando tiver uma aplicação de RH selecionada como uma aplicação na nuvem. 
 
 - Um grupo, pode ser qualquer tipo de grupo no Azure AD, incluindo grupos de segurança e a distribuição dinâmicos ou atribuídos.
 
@@ -89,8 +89,8 @@ Para utilizar esta condição, tem de ter [do Azure Active Directory Identity Pr
  
 Casos de utilização comum para esta condição são políticas que:
 
-- Bloquear os utilizadores com um risco elevado início de sessão para impedir que utilizadores potencialmente não legítimos aceder às aplicações em nuvem. 
-- Exigir a autenticação multifator quando a utilizadores com um risco de início de sessão médio. Por impor autenticação multifator, pode fornecer confiança adicional que o início de sessão é efetuado pelo proprietário de uma conta legítimo.
+- Impedir que os utilizadores com um risco elevado início de sessão para impedir que utilizadores potencialmente não legítimos aceder às aplicações em nuvem. 
+- Exigir autenticação multifator para os utilizadores com um risco de início de sessão médio. Por impor autenticação multifator, pode fornecer confiança adicional que o início de sessão é efetuado pelo proprietário de uma conta legítimo.
 
 Para obter mais informações, veja [Inícios de sessão arriscados](active-directory-identityprotection.md#risky-sign-ins).  
 
@@ -99,7 +99,7 @@ Para obter mais informações, veja [Inícios de sessão arriscados](active-dire
 A plataforma do dispositivo é caracterizada pelo sistema operativo que está a executar no seu dispositivo. Azure AD identifica a plataforma utilizando as informações fornecidas pelo dispositivo, por exemplo, o agente de utilizador. Porque esta informação é não verificada, recomenda-se que todas as plataformas têm uma política aplicada aos mesmos, ou ao bloquear o acesso, que requerem a conformidade com as políticas do Intune ou que requerem que o dispositivo ser associado a um domínio. A predefinição é para aplicar a política a todas as plataformas de dispositivos. 
 
 
-![Condições](./media/active-directory-conditional-access-conditions/02.png)
+![Condições](./media/active-directory-conditional-access-conditions/24.png)
 
 Para uma lista completa das plataformas de dispositivos suportados, consulte [condição de plataforma de dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -111,7 +111,7 @@ Caso de utilização de um comum para esta condição é uma política que restr
 
 Com as localizações, tem a opção para definir condições que se baseiam em que uma tentativa de ligação foi iniciada a partir da. 
      
-![Condições](./media/active-directory-conditional-access-conditions/03.png)
+![Condições](./media/active-directory-conditional-access-conditions/25.png)
 
 Casos de utilização comum para esta condição são políticas que:
 
