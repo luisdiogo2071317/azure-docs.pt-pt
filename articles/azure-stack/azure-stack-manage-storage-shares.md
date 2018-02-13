@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para a pilha do Azure
 
@@ -130,7 +130,7 @@ Migração consolida todas as um blob de contentores na partilha de novo.
 - Se a falta de permissões para um grupo de recursos e não é possível utilizar o PowerShell para consultar os volumes adicionais de dados de capacidade excedida, trabalhar com o proprietário desses grupos de recursos e contentores para compreender o tamanho total dos dados de migração antes de migrar os dados.  
 
 > [!IMPORTANT]
-> Migração de blobs para um contentor é uma operação offline que requer a utilização do PowerShell. Até concluir a migração, todos os blobs para o contentor que está a migrar permanecerem offline e não podem ser utilizados.
+> Migração de blobs para um contentor é uma operação offline que requer a utilização do PowerShell. Até concluir a migração, todos os blobs para o contentor que está a migrar permanecerem offline e não podem ser utilizados. Também deve evitar a atualização de pilha do Azure até concluir todas as migração em curso.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Para migrar os contentores utilizando o PowerShell
 1. Confirme que tem [Azure PowerShell instalada e configurada](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](http://go.microsoft.com/fwlink/?LinkId=394767).
