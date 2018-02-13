@@ -24,8 +24,6 @@
       href: tutorial-deploy-machine-learning.md
     - name: Implementar as Funções do Azure
       href: tutorial-deploy-function.md
-    - name: Criar uma implementação do IoT Edge com a extensão de IoT para Azure CLI 2.0
-      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Guias de procedimentos
   items:
     - name: Criar gateways
@@ -34,6 +32,8 @@
           href: how-to-create-transparent-gateway.md
         - name: Gateway do Modbus
           href: deploy-modbus-gateway.md
+    - name: Utilizar a extensão de IoT para a CLI 2.0 do Azure
+      href: tutorial-create-deployment-with-cli-iot-extension.md
     - name: Implementar e monitorizar à escala
       href: how-to-deploy-monitor.md
     - name: Aprovisionar um dispositivo IoT Core
