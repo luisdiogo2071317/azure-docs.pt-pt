@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Toolkit do Azure para o IntelliJ para criar Spark aplicações para um cluster do HDInsight
 
@@ -69,6 +69,27 @@ Para obter instruções de instalação, consulte [instalar o Toolkit do Azure p
    
     ![Um nó expandido do nome do cluster](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Ligar um cluster
+Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com). 
+1. Clique em **ligar um cluster** de **Explorador do Azure**.
+
+   ![menu de contexto do cluster de ligação](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Introduza **nome do Cluster**, **conta de armazenamento**, **chave de armazenamento**, em seguida, selecione um contentor de **contentor de armazenamento**, pela última vez, introduza o nome de utilizador e a palavra-passe. Tem de verificar o nome de utilizador e palavra-passe se obter a falha de autenticação.
+   
+   ![caixa de diálogo de cluster de ligação](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Utilizamos a chave de armazenamento ligado, o nome de utilizador e a palavra-passe se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster. 
+   
+3. Pode ver um cluster de ligado no **HDInsight** nós se as informações de entrada estão corretas. Agora pode submeter uma aplicação para este cluster ligado.
+
+   ![cluster ligado](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Também pode desassociar um cluster de **Explorador do Azure**.
+   
+   ![Desassociar de cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
+
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Executar uma aplicação do Spark Scala num cluster do Spark do HDInsight
 
 1. Iniciar o IntelliJ IDEA e, em seguida, criar um projeto. No **novo projeto** diálogo caixa, efetue o seguinte: 
@@ -82,11 +103,11 @@ Para obter instruções de instalação, consulte [instalar o Toolkit do Azure p
 
     ![A caixa de diálogo novo projeto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. Selecione **seguinte**.
+2. Selecione **Seguinte**.
 
 3. O Assistente de criação do projeto de Scala Deteta automaticamente se instalou o Scala Plug-in. Selecione **instalar**.
 
-   ![Verificação de plug-in scala](./media/apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
+   ![Scala Plugin Check](./media/apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
 
 4. Para transferir o Scala Plug-in, selecione **OK**. Siga as instruções para reiniciar o IntelliJ. 
 
@@ -164,12 +185,14 @@ Para obter instruções de instalação, consulte [instalar o Toolkit do Azure p
 
    c. O **Spark submissão** separador na parte inferior da janela deve começar que apresenta o progresso. Também pode parar a aplicação, selecionando o botão vermelho no **Spark submissão** janela.
       
-      ![A janela de submissão de Spark](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![A janela de submissão de Spark](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       Para saber como resultado da tarefa de acesso, consulte o "acesso e gerir clusters do HDInsight Spark através do Toolkit do Azure para o IntelliJ" secção neste artigo.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight 
-Recomendamos também outra maneira de submeter a aplicação de Spark para o cluster. Pode fazê-lo também ao definir os parâmetros **configurações de execução/depuração** IDE. Para obter mais informações, consulte [depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight com o Toolkit do Azure para o IntelliJ através de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Recomendamos também outra maneira de submeter a aplicação de Spark para o cluster. Pode fazê-lo ao definir os parâmetros **configurações de execução/depuração** IDE. Para obter mais informações, consulte [depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight com o Toolkit do Azure para o IntelliJ através de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Aceder e gerir clusters do HDInsight Spark através do Toolkit do Azure para o IntelliJ
 Pode desempenhar várias operações, utilizando o Toolkit do Azure para o IntelliJ.
@@ -182,6 +205,8 @@ Pode desempenhar várias operações, utilizando o Toolkit do Azure para o Intel
 2. No painel da direita, a **vista de tarefas do Spark** separador apresenta todas as aplicações que foram executadas no cluster. Selecione o nome da aplicação para o qual pretende ver mais detalhes.
 
     ![Detalhes da aplicação](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Nota
+    >
 
 3. Para apresentar informações básicas de tarefas em execução, coloque o cursor sobre o gráfico da tarefa. Para ver as informações que cada tarefa gera e gráfico de fases, selecione um nó de gráfico da tarefa.
 
@@ -256,7 +281,7 @@ Estes erros acontecer porque o tamanho da área dinâmica para dados não é suf
 ## <a name="faq"></a>FAQ
 Para submeter uma aplicação no Azure Data Lake Store, escolha **interativo** modo durante o processo de início de sessão do Azure. Se selecionar **automatizada** modo, pode obter um erro.
 
-![interative de início de sessão](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Agora, iremos resolve. Pode escolher um Cluster do Azure Data Lake ao submeter a sua aplicação com qualquer método de início de sessão.
 

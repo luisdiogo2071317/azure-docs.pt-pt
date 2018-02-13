@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para melhorias de desempenho através de mensagens do Service Bus
 
@@ -111,7 +111,12 @@ Criação de batches não afeta o número de operações de mensagens sujeito a 
 
 ## <a name="batching-store-access"></a>Acesso à loja de criação de batches
 
-Para aumentar o débito de uma fila, tópico ou uma subscrição, o Service Bus lotes várias mensagens quando escreve no respectivo armazenamento interno. Se estiver ativada numa fila ou um tópico, escrever mensagens para o arquivo irá ser em lotes. Se estiver ativada num fila ou subscrição, eliminar as mensagens a partir da loja será possível criar batch. Se o acesso à loja de batches é ativado para uma entidade, o Service Bus atrasa uma operação de escrita de arquivo sobre essa entidade por até 20ms. Operações de arquivo adicionais que ocorrem durante este intervalo são adicionadas ao batch. Em lotes afeta apenas o arquivo de acesso **enviar** e **concluída** operações; receber operações não são afetadas. Acesso à loja de batches é uma propriedade numa entidade. Criação de batches ocorre em todas as entidades que permitem acesso à loja de batches.
+Para aumentar o débito de uma fila, tópico ou uma subscrição, o Service Bus lotes várias mensagens quando escreve no respectivo armazenamento interno. Se estiver ativada numa fila ou um tópico, escrever mensagens para o arquivo irá ser em lotes. Se estiver ativada num fila ou subscrição, eliminar as mensagens a partir da loja será possível criar batch. Se o acesso à loja de batches é ativado para uma entidade, o Service Bus atrasa uma operação de escrita de arquivo sobre essa entidade por até 20ms. 
+
+> [!NOTE]
+> Não há nenhum risco de perda de mensagens com a criação de batches, mesmo se existir uma falha de Service Bus no final de um intervalo de lotes 20ms. 
+
+Operações de arquivo adicionais que ocorrem durante este intervalo são adicionadas ao batch. Em lotes afeta apenas o arquivo de acesso **enviar** e **concluída** operações; receber operações não são afetadas. Acesso à loja de batches é uma propriedade numa entidade. Criação de batches ocorre em todas as entidades que permitem acesso à loja de batches.
 
 Ao criar uma nova fila, tópico ou uma subscrição, o acesso à loja de batches está ativado por predefinição. Para desativar o acesso à loja de batches, defina o [EnableBatchedOperations] [ EnableBatchedOperations] propriedade **falso** antes de criar a entidade. Por exemplo:
 

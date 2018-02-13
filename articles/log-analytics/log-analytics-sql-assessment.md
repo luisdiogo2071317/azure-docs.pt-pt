@@ -3,7 +3,7 @@ title: Otimizar o seu ambiente do SQL Server com o Log Analytics do Azure | Micr
 description: "Análise de registos do Azure, pode utilizar a solução de verificação de estado de funcionamento do SQL para avaliar o risco e o estado de funcionamento dos ambientes num intervalo regular."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71caf0e1d58107376888ae454713703d845101eb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar o seu ambiente do SQL Server com a solução de verificação de estado de funcionamento do SQL Server na análise de registos
 
@@ -43,7 +43,7 @@ Depois de acrescentar a solução e uma avaliação estiver concluída, resumo i
 
 * A solução de verificação de estado de funcionamento do SQL Server requer uma versão suportada do .NET Framework 4 está instalado em cada computador que tenha a monitorização do agente Microsoft (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2 e o serviço de análise de registos.  
 * A solução suporta SQL Server 2012, 2014 e 2016 de versão.
-* Uma área de trabalho de análise de registos para adicionar a solução de verificação de estado de funcionamento do SQL do Azure marketplace no portal do Azure.  Para instalar a solução, tem de ser um administrador ou Contribuidor na subscrição do Azure. 
+* Uma área de trabalho de análise de registos para adicionar a solução de verificação de estado de funcionamento do SQL do Azure marketplace no portal do Azure.  Para instalar a solução, tem de ser um administrador ou Contribuidor na subscrição do Azure.
 
   > [!NOTE]
   > Depois de adicionar a solução, o ficheiro AdvisorAssessment.exe é adicionado em servidores com os agentes. Dados de configuração é lido e, em seguida, enviados para o serviço de análise de registos na nuvem para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
@@ -61,12 +61,12 @@ O agente no seu servidor de SQL que relatórios para um grupo de gestão do Oper
 Se o SQL Server é monitorizado pelo Operations Manager, terá de configurar uma conta do Operations Manager Run As. Consulte [do Operations Manager executar como contas de análise de registos](#operations-manager-run-as-accounts-for-log-analytics) abaixo para obter mais informações.
 
 ## <a name="sql-health-check-data-collection-details"></a>Detalhes de recolha de dados de verificação de estado de funcionamento do SQL Server
-Verificação de estado de funcionamento do SQL Server recolhe dados das seguintes origens com o agente que tiver ativado: 
+Verificação de estado de funcionamento do SQL Server recolhe dados das seguintes origens com o agente que tiver ativado:
 
-* Windows Management Instrumentation (WMI) 
-* Registo 
+* Windows Management Instrumentation (WMI)
+* Registo
 * Contadores de desempenho
-* Resultados de vista de gestão dinâmica do SQL Server 
+* Resultados de vista de gestão dinâmica do SQL Server
 
 Dados são recolhidos no SQL Server e reencaminhados para a análise de registos a cada sete dias.
 
@@ -144,7 +144,7 @@ O peso para cada recomendação é expresso como uma percentagem da classificaç
 
 **Disponibilidade e continuidade do negócio** -esta área de foco mostra recomendações para a disponibilidade do serviço, a resiliência da sua infraestrutura e a proteção do negócio.
 
-**Desempenho e escalabilidade** -esta área de foco mostra recomendações para o ajudar a sua organização infraestrutura de TI aumentar, certifique-se de que o ambiente de TI cumpre os requisitos de desempenho atuais e é capaz de responder a necessidades de infraestrutura a alteração.
+**Desempenho e escalabilidade** -esta área de foco mostra recomendações para o ajudar a sua organização infraestrutura de TI aumentar, certifique-se de que o ambiente de TI cumpre os requisitos de desempenho atuais e é capaz de responder a infraestrutura de alteração necessidades.
 
 **Atualizar, implementação e migração** -esta área de foco mostra recomendações para o ajudar a atualizar, migrar e implemente o SQL Server para a sua infraestrutura existente.
 
@@ -163,10 +163,10 @@ Antes de poder utilizar uma solução de avaliação na análise de registos, te
 Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em seguida, desagregação em recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
-1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **descrição geral** mosaico.  
-4. No **descrição geral** página, clique em de **verificação de estado de funcionamento do SQL Server** mosaico. 
+4. No **descrição geral** página, clique em de **verificação de estado de funcionamento do SQL Server** mosaico.
 5. No **verificação do Estado de funcionamento** página, reveja as informações de resumo de uma das seguintes painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
 6. Em qualquer uma das páginas da área de foco, pode ver as recomendações prioritários efetuadas para o seu ambiente. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre o motivo pelo qual a recomendação é feita.<br><br> ![imagem de verificação de estado de funcionamento do SQL Server recomendações](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Pode executar ações corretivas sugeridas na **as ações sugeridas**. Quando o item tem sido resolvido, irão registar avaliações posteriores que ações foram executadas e o modelo de pontuação de conformidade aumentam recomendadas. Itens corrigidas aparecem como **transmitido objetos**.

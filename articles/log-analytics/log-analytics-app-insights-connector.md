@@ -3,7 +3,7 @@ title: "Ver dados de aplicações do Azure Application Insights | Microsoft Docs
 description: "Pode utilizar a solução de conector do Application Insights para diagnosticar problemas de desempenho e compreender o que fazem os utilizadores com a sua aplicação quando monitorizadas com o Application Insights."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: banders
-ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: magoedte
+ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão do Application Insights conector (pré-visualização) 
+# <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão do Application Insights conector (pré-visualização)
 
 ![Símbolo do Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
@@ -88,9 +88,9 @@ O dashboard inclui os painéis mostrados na tabela. Cada painel lista até 10 it
 
 | **Coluna** | **Descrição** |
 | --- | --- |
-| Aplicações - número de aplicações | Mostra o número de aplicações em recursos de aplicação. Também apresenta uma lista de nomes de aplicação e para cada um, a contagem de registos de aplicação. Clique no número para executar uma pesquisa de registo para<code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Clique num nome de aplicação para executar uma pesquisa de registo para a aplicação que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
-| Volume de dados – aloja o envio de dados | Mostra o número de anfitriões de computador que está a enviar dados. Também apresenta uma lista de anfitriões de computador e a contagem de registos para cada anfitrião. Clique no número para executar uma pesquisa de registo para<code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Clique no nome do computador para executar uma pesquisa de registo para o anfitrião que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
-| Disponibilidade – resultados do teste Web | Mostra um gráfico de anel para os resultados do teste web, que indica que passou ou falhar. Clique em gráfico para executar uma pesquisa de registo para<code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Resultados mostram o número de falhas de todos os testes e transmite. Mostra todas as aplicações Web com o tráfego para o último minuto. Clique num nome de aplicação para ver uma pesquisa de registo que mostra detalhes de testes web falhou. |
+| Aplicações - número de aplicações | Mostra o número de aplicações em recursos de aplicação. Também apresenta uma lista de nomes de aplicação e para cada um, a contagem de registos de aplicação. Clique no número para executar uma pesquisa de registo para <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Clique num nome de aplicação para executar uma pesquisa de registo para a aplicação que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
+| Volume de dados – aloja o envio de dados | Mostra o número de anfitriões de computador que está a enviar dados. Também apresenta uma lista de anfitriões de computador e a contagem de registos para cada anfitrião. Clique no número para executar uma pesquisa de registo para <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Clique no nome do computador para executar uma pesquisa de registo para o anfitrião que mostra os registos de aplicações por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
+| Disponibilidade – resultados do teste Web | Mostra um gráfico de anel para os resultados do teste web, que indica que passou ou falhar. Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Resultados mostram o número de falhas de todos os testes e transmite. Mostra todas as aplicações Web com o tráfego para o último minuto. Clique num nome de aplicação para ver uma pesquisa de registo que mostra detalhes de testes web falhou. |
 | Pedidos de servidor – pedidos por hora | Mostra um gráfico de linhas de pedidos de servidor por hora para várias aplicações. Coloque o cursor sobre uma linha no gráfico para ver as aplicações de 3 principais receber pedidos para um ponto no tempo. Também mostra uma lista das aplicações receber pedidos e o número de pedidos para o período selecionado. <br><br>Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> que mostra um gráfico de linhas mais detalhado dos pedidos de servidor por hora para várias aplicações. <br><br> Clique em executar uma pesquisa de registo para uma aplicação na lista <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> que mostra uma lista de pedidos, gráficos para pedidos ao longo da duração de tempo e o pedido e uma lista de pedido de códigos de resposta.   |
 | Falhas – pedidos com falhas por hora | Mostra um gráfico de linhas com falhas de pedidos da aplicação por hora. Coloque o cursor sobre o gráfico para ver as aplicações de 3 superiores com pedidos falhados para um ponto no tempo. Também mostra uma lista de aplicações com o número de pedidos falhados para cada. Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> que mostra um gráfico de linhas mais detalhado de pedidos de aplicação que falhou. <br><br>Clique num item na lista para executar uma pesquisa de registo para <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> que mostra falhou pedidos, gráficos para pedidos falhados ao longo da duração de tempo e o pedido e uma lista de códigos de resposta de pedidos falhados. |
 | Exceções – exceções por hora | Mostra um gráfico de linhas de exceções por hora. Coloque o cursor sobre o gráfico para ver as aplicações de 3 superiores com exceções para um ponto no tempo. Também mostra uma lista de aplicações com o número de exceções para cada. Clique em gráfico para executar uma pesquisa de registo para <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> que mostra um gráfico de ligação mais detalhado de exceções. <br><br>Clique num item na lista para executar uma pesquisa de registo para <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> que mostra uma lista de exceções, gráficos exceções através de pedidos falhados e tempo e uma lista de tipos de exceção.  |
@@ -247,7 +247,7 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 | RequestID | ID para identificar exclusivamente o pedido |
 | RequestName | GET/POST + base de URL |
 | RequestDuration | Tempo, em segundos, da duração de pedido |
-| URL | URL do pedido não incluindo anfitrião |
+| do IdP | URL do pedido não incluindo anfitrião |
 | Anfitrião | Anfitrião do servidor Web |
 | URLBase | URL completo do pedido |
 | ApplicationProtocol | Tipo de protocolo utilizado pela aplicação |

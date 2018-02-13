@@ -1,6 +1,6 @@
 ---
 title: "Quase em tempo real alertas métricas no Monitor do Azure | Microsoft Docs"
-description: "Quase em tempo real métrica alertas permitem-lhe monitorizar métricas de recurso do Azure com uma frequência de 1 min."
+description: "Saiba como utilizar quase em tempo real alertas métricas para monitorizar as métricas de recurso do Azure com uma frequência tão pequena como 1 minuto."
 author: snehithm
 manager: kmadnani1
 editor: 
@@ -15,27 +15,28 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6370f4596e6b20962c6de0dbcbd5f86c3b7777cc
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Quase em tempo real alertas métricas (pré-visualização)
-Monitor do Azure suporta agora um novo tipo de alertas métricas chamado quase em tempo real métrica alertas (pré-visualização). Esta funcionalidade está atualmente em pré-visualização pública.
-Estes alertas diferem dos alertas de métricas regulares em algumas formas
+Monitor do Azure suporta um novo tipo de alerta chamado quase em tempo real alertas métricas (pré-visualização). Esta funcionalidade está atualmente em pré-visualização pública.
 
-- **Melhorado latência** -quase em tempo real métrica alertas podem monitorizar as alterações nos valores métricas logo 1 min.
-- **Mais controlo sobre condições métricas** -quase em tempo real métrica alertas, permitir que os utilizadores definir regras de alertas mais rica. Os alertas agora suportam os valores máximo, mínimos, médios e totais das métricas de monitorização.
-- **Combinar a monitorização de várias métricas** -quase em tempo real métrica alertas podem monitorizar várias métricas (atualmente duas) com uma única regra. Alerta obtém acionado se ambas as métricas infringir os respetivos limiares para o período de tempo especificado.
-- **Sistema de notificação modulares** - quase em tempo real alertas de métrica de utilização [grupos ação](monitoring-action-groups.md). Esta funcionalidade permite aos utilizadores criar ações de forma modular e reutilize-as para várias regras de alertas.
+Quase em tempo real métrica alertas diferem dos alertas de métricas regulares de algumas formas:
+
+- **Melhorado latência**: quase em tempo real métrica alertas podem monitorizar as alterações nos valores métricas com uma frequência tão pequena como 1 minuto.
+- **Mais controlo sobre condições métricas**: pode definir regras de alerta rica em quase em tempo real alertas métricas. Os alertas suportam os valores máximo, mínimos, médios e totais de métricas de monitorização.
+- **Combinar a monitorização de várias métricas**: quase em tempo real métrica alertas podem monitorizar as métricas de vários (atualmente, até duas métricas) com uma única regra. Um alerta é acionado se ambas as métricas infringir os respetivos limiares para o período de tempo especificado.
+- **Sistema de notificação modulares**: quase em tempo real métrica utilizam alertas [grupos ação](monitoring-action-groups.md). Pode utilizar grupos de ação para criar modulares ações. Pode reutilizar os grupos de ação para múltiplas regras de alerta.
 
 > [!NOTE]
-> Quase em tempo real alertas métricas funcionalidade está atualmente em pré-visualização pública. A experiência de utilizador e a funcionalidade está sujeita a alterações.
+> A próxima funcionalidade alerta métrica em tempo real está atualmente em pré-visualização pública. A experiência de utilizador e a funcionalidade está sujeita a alterações.
 >
 
-## <a name="what-resources-can-i-create-near-real-time-metric-alerts-for"></a>Os recursos que podem criar quase em tempo real alertas métricas para?
-Obter uma lista completa dos tipos de recursos que são suportadas pelo quase em tempo real alertas métricas:
+## <a name="resources-you-can-use-with-near-real-time-metric-alerts"></a>Pode utilizar com quase em tempo real alertas de métricas de recursos
+Eis a lista completa dos tipos de recursos que são suportados para quase em tempo real alertas métricas:
 
 * Microsoft.ApiManagement/service
 * Microsoft.Automation/automationAccounts
@@ -57,27 +58,26 @@ Obter uma lista completa dos tipos de recursos que são suportadas pelo quase em
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.CognitiveServices/accounts
 
-## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Alertas de métrica em tempo real near nas métricas com dimensões
-Quase em tempo real métrica alertas suporta alertas nas métricas com dimensões. As dimensões são uma forma para filtrar a métrica para o nível adequado. Quase em tempo real métrica alertas nas métricas com dimensões são suportadas para os seguintes tipos de recursos
+## <a name="near-real-time-metric-alerts-for-metrics-that-use-dimensions"></a>Quase em tempo real alertas métricas com base nas métricas que utilizam dimensões
+Quase em tempo real métrica alertas suportam alertas com base nas métricas que utilizam dimensões. Pode utilizar dimensões para a métrica para o nível adequado de filtro. Quase em tempo real métrica alertas com base nas métricas que utilizam dimensões são suportadas para os seguintes tipos de recursos:
 
 * Microsoft.ApiManagement/service
-* Storage/storageaccounts (apenas suportada para contas do storage em regiões E.U.A.)
-* Microsoft.Storage/storageAccounts/services (apenas suportada para contas do storage em regiões E.U.A.)
+* Storage/storageaccounts (suportado apenas para contas do storage em regiões E.U.A.)
+* Microsoft.Storage/storageAccounts/services (suportado apenas para contas do storage em regiões E.U.A.)
 
+## <a name="create-a-near-real-time-metric-alert"></a>Criar um alerta de métrico near em tempo real
+Atualmente, pode criar quase em tempo real alertas métricas apenas no portal do Azure. Suporte para configurar quase em tempo real alertas métricas utilizando o PowerShell, a interface de linha de comandos do Azure (CLI do Azure) e as APIs REST da Azure Monitor estará disponível brevemente.
 
-## <a name="create-a-near-real-time-metric-alert"></a>Criar um alerta de métrico Near em tempo real
-Atualmente, quase em tempo real métrica alertas só podem ser criados através do portal do Azure. Suporte para configurar quase em tempo real alertas métricas através do PowerShell, a interface de linha de comandos (CLI) e API REST da Azure Monitor estará disponível brevemente.
+A experiência para criar um alerta de métrico near em tempo real foi movido para o novo **alertas (pré-visualização)** página. Mesmo que os alertas atuais página apresenta **alerta adicionar quase em tempo real métrica**, são redirecionados para o **alertas (pré-visualização)** página.
 
-A experiência de alerta criar para quase em tempo real métrica alerta ter sido movida para o novo **Alerts(Preview)** experiência. Apesar de, os alertas atuais página mostra **alerta adicionar quase em tempo real métrica**, são redirecionados para a nova experiência.
+Para saber como criar um alerta de métrico em tempo real near, consulte [criar uma regra de alerta no portal do Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
-Pode criar um alerta em tempo real métrico near utilizando os passos descritos [aqui](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="managing-near-real-time-metric-alerts"></a>Gerir quase em tempo real alertas métricas
-Assim que tiver criado uma **alerta quase em tempo real métrica**, podem ser gerido utilizando os passos descritos [aqui](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+## <a name="manage-near-real-time-metric-alerts"></a>Gerir quase em tempo real alertas métricas
+Depois de criar um alerta de métrico near em tempo real, pode gerir o alerta, utilizando os passos descritos no [gerir os alertas no portal do Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>Esquema de payload
 
-A operação POST contém a seguinte payload JSON e o esquema para todos os quase em tempo real alertas métricas.
+A operação POST contém as seguinte payload JSON e o esquema para todos os quase em tempo real alertas métricas:
 
 ```json
 {
@@ -123,6 +123,6 @@ A operação POST contém a seguinte payload JSON e o esquema para todos os quas
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba mais sobre a nova experiência de alertas (pré-visualização)](monitoring-overview-unified-alerts.md)
-* [Saiba mais sobre alertas de registo nos alertas do Azure (pré-visualização)](monitor-alerts-unified-log.md)
-* [Saiba mais sobre alertas no Azure](monitoring-overview-alerts.md)
+* Saiba mais sobre as novas [alertas experiência (pré-visualização)](monitoring-overview-unified-alerts.md).
+* Saiba mais sobre [registar alertas nos alertas do Azure (pré-visualização)](monitor-alerts-unified-log.md).
+* Saiba mais sobre [alertas no Azure](monitoring-overview-alerts.md).

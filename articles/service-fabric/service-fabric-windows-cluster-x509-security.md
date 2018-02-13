@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autónomo no Windows utilizando certificados x. 509
 Este artigo descreve como proteger a comunicação entre os vários nós do cluster autónomo Windows. Descreve também como autenticar clientes que se ligam a este cluster utilizando certificados x. 509. Autenticação garante que apenas utilizadores autorizados podem aceder ao cluster e as aplicações implementadas e executar tarefas de gestão. Segurança do certificado deve ser ativada no cluster quando o cluster for criado.  
@@ -48,6 +48,12 @@ Para começar, [transferir o pacote de recursos de infraestrutura de serviço pa
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -62,6 +68,12 @@ Para começar, [transferir o pacote de recursos de infraestrutura de serviço pa
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -79,6 +91,12 @@ Para começar, [transferir o pacote de recursos de infraestrutura de serviço pa
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -110,10 +128,13 @@ A tabela seguinte lista os certificados que necessita na sua configuração de c
 | --- | --- |
 | ClusterCertificate |Recomendado para um ambiente de teste. Este certificado é necessário para proteger a comunicação entre os nós num cluster. Pode utilizar dois certificados diferentes, um servidor principal e secundária, para a atualização. Defina o thumbprint do certificado principal na secção de Thumbprint e que o elemento secundário nas variáveis de ThumbprintSecondary. |
 | ClusterCertificateCommonNames |Recomendado para um ambiente de produção. Este certificado é necessário para proteger a comunicação entre os nós num cluster. Pode utilizar um ou dois certificados comuns os nomes de clusters. O CertificateIssuerThumbprint corresponde ao thumbprint do emissor deste certificado. Se for utilizado mais do que um certificado com o mesmo nome comum, pode especificar vários thumbprints de emissor.|
+| ClusterCertificateIssuerStores |Recomendado para um ambiente de produção. Este certificado corresponde ao emissor do certificado de cluster. Pode fornecer o emissor, nome comum e o nome de arquivo correspondente nesta secção em vez de especificar o thumbprint do emissor em ClusterCertificateCommonNames.  Isto torna mais fácil para certificados de emissor de cluster de rollover. Vários emissores podem ser especificados se o cluster de mais do que um certificado é utilizado. Um whitelists IssuerCommonName vazio todos os certificados nos arquivos de correspondentes especificado em X509StoreNames.|
 | ServerCertificate |Recomendado para um ambiente de teste. Este certificado é apresentado para o cliente ao tentar ligar a este cluster. Para sua comodidade, pode optar por utilizar o mesmo certificado para ClusterCertificate e ServerCertificate. Pode utilizar dois certificados de servidor diferente, um servidor principal e secundária, para a atualização. Defina o thumbprint do certificado principal na secção de Thumbprint e que o elemento secundário nas variáveis de ThumbprintSecondary. |
 | ServerCertificateCommonNames |Recomendado para um ambiente de produção. Este certificado é apresentado para o cliente ao tentar ligar a este cluster. O CertificateIssuerThumbprint corresponde ao thumbprint do emissor deste certificado. Se for utilizado mais do que um certificado com o mesmo nome comum, pode especificar vários thumbprints de emissor. Para sua comodidade, pode optar por utilizar o mesmo certificado para ClusterCertificateCommonNames e ServerCertificateCommonNames. Pode utilizar nomes do certificado de servidor comuns de um ou dois. |
+| ServerCertificateIssuerStores |Recomendado para um ambiente de produção. Este certificado corresponde ao emissor do certificado de servidor. Pode fornecer o emissor, nome comum e o nome de arquivo correspondente nesta secção em vez de especificar o thumbprint do emissor em ServerCertificateCommonNames.  Isto torna mais fácil para certificados de emissor de servidor de rollover. Vários emissores podem ser especificado se mais do que um certificado de servidor é utilizado. Um whitelists IssuerCommonName vazio todos os certificados nos arquivos de correspondentes especificado em X509StoreNames.|
 | ClientCertificateThumbprints |Instale este conjunto de certificados nos clientes autenticados. Pode ter um número de certificados de cliente diferente instalado nas máquinas que pretende permitir o acesso ao cluster. Defina o thumbprint de cada certificado na variável CertificateThumbprint. Se definir IsAdmin para *verdadeiro*, o cliente com este certificado instalado no mesmo pode fazer administrador atividades de gestão no cluster. Se for IsAdmin *falso*, o cliente com este certificado pode efetuar as ações só são permitidas para direitos de acesso de utilizador, normalmente só de leitura. Para obter mais informações sobre as funções, consulte [controlo de acesso baseado em funções (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |Defina o nome comum do certificado de cliente primeiro para o CertificateCommonName. O CertificateIssuerThumbprint é o thumbprint do emissor deste certificado. Para obter mais informações sobre nomes comuns e o emissor, consulte [trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Recomendado para um ambiente de produção. Este certificado corresponde ao emissor do certificado de cliente (funções de administrador e não-administrador). Pode fornecer o emissor, nome comum e o nome de arquivo correspondente nesta secção em vez de especificar o thumbprint do emissor em ClientCertificateCommonNames.  Isto torna mais fácil para certificados de emissor de cliente de rollover. Vários emissores podem ser especificado se mais do que um certificado de cliente é utilizado. Um whitelists IssuerCommonName vazio todos os certificados nos arquivos de correspondentes especificado em X509StoreNames.|
 | ReverseProxyCertificate |Recomendado para um ambiente de teste. Este certificado opcional pode ser especificado se pretender proteger os seus [proxy inverso](service-fabric-reverseproxy.md). Certifique-se de que reverseProxyEndpointPort está definido no nodeTypes se utilizar este certificado. |
 | ReverseProxyCertificateCommonNames |Recomendado para um ambiente de produção. Este certificado opcional pode ser especificado se pretender proteger os seus [proxy inverso](service-fabric-reverseproxy.md). Certifique-se de que reverseProxyEndpointPort está definido no nodeTypes se utilizar este certificado. |
 
@@ -123,7 +144,7 @@ Eis um exemplo de configuração de cluster onde foram fornecidos o cluster, ser
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -162,12 +183,21 @@ Eis um exemplo de configuração de cluster onde foram fornecidos o cluster, ser
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -221,6 +251,7 @@ Eis um exemplo de configuração de cluster onde foram fornecidos o cluster, ser
 
 ## <a name="certificate-rollover"></a>Rollover de certificado
 Quando utiliza um nome comum do certificado em vez de uma impressão digital, rollover de certificado não necessita de uma atualização da configuração de cluster. Para atualizações de thumbprint do emissor, certifique-se de que a nova lista de thumbprint intersetar com a lista antiga. Primeiro tem de efetuar uma atualização da configuração com os thumbprints de emissor novo e, em seguida, instale os novos certificados (certificado de cluster/servidor e certificados de emissor) no arquivo. Mantenha o antigo certificado de emissor no arquivo de certificados para, pelo menos, duas horas depois de instalar o novo certificado de emissor.
+Se estiver a utilizar arquivos de emissor, nenhuma atualização de configuração tem de ser executada para rollover de certificado de emissor. Instale o novo certificado de emissor com uma data de expiração anterior será ignorada no arquivo de certificados correspondentes e remover o antigo certificado de emissor após a algumas horas.
 
 ## <a name="acquire-the-x509-certificates"></a>Adquirir os certificados x. 509
 Para proteger a comunicação do cluster, terá primeiro de obter certificados x. 509 para os nós do cluster. Além disso, para limitar a ligação a este cluster para máquinas/utilizadores autorizados, terá de obter e instalar certificados para as máquinas de cliente.

@@ -1,6 +1,6 @@
 ---
-title: "Automatização do Azure Blueprint - serviços financeiros para cargas de trabalho regulados"
-description: "Serviços financeiros Blueprint para cargas de trabalho reguladas"
+title: "Segurança do Azure e conformidade Blueprint - FFIEC serviços financeiros reguladas as cargas de trabalho"
+description: "Segurança do Azure e conformidade Blueprint - FFIEC serviços financeiros reguladas as cargas de trabalho"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Automatização do Azure Blueprint: Blueprint de serviços financeiros para cargas de trabalho reguladas
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Segurança do Azure e conformidade Blueprint - FFIEC serviços financeiros reguladas as cargas de trabalho
 
 ## <a name="overview"></a>Descrição geral
 
-Blueprint de serviços financeiros para cargas de trabalho reguladas ajuda a implementar uma plataforma segura e compatível como uma aplicação de web de serviço (PaaS) concebida para processar os dados confidenciais na nuvem. O blueprint consiste em scripts automatizados e orientações que demonstramos uma arquitetura de referência simples e uma estrutura que ajuda a simplificar a adoção de soluções do Microsoft Azure. Este blueprint ilustra uma solução ponto a ponto para satisfazer as necessidades das organizações formas de reduzir o custo de implementação na nuvem e o fardo de pesquisa.
+Segurança do Azure e de conformidade Blueprint - FFIEC financeiros serviços Regulated as cargas de trabalho que ajuda a implementar uma plataforma segura e compatível como uma aplicação de web de serviço (PaaS) concebida para processar os dados confidenciais na nuvem. O blueprint consiste em scripts automatizados e orientações que demonstramos uma arquitetura de referência simples e uma estrutura que ajuda a simplificar a adoção de soluções do Microsoft Azure. Este blueprint ilustra uma solução ponto a ponto para satisfazer as necessidades das organizações formas de reduzir o custo de implementação na nuvem e o fardo de pesquisa.
 
 Este blueprint foi concebido para satisfazer os requisitos de rigorosos normas conformes definidas pelo American Institute de certificado público Accountants como - SOC 1, SOC 2, DSS 3.2 o council de cartão de pagamento da indústria normas de segurança de dados e FFIEC para o recolha, armazenamento e obtenção de dados financeiras confidenciais. -Demonstra o processamento adequado desses dados ao implementar uma solução que gere dados financeiros num ambiente seguro, em conformidade, de várias camado. A solução é implementada como um ponto-a-ponto solução PaaS baseado no Azure. 
 
@@ -52,7 +52,7 @@ A arquitetura é constituída por dos seguintes componentes e utiliza as capacid
 
 O blueprint aborda o seguinte o caso de utilização abaixo.
 
-> Este cenário ilustra como um webstore fictício mover dados confidenciais para uma PaaS na nuvem baseado no Azure solução. A solução de exemplo ilustra o processamento e recolha de informações de utilizador básico e os dados confidenciais selecionados. Este trabalho borrows da automatização do Azure Blueprint: pagamento de processamento para ambientes em conformidade de PCI DSS para processamento de cartão de pagamento. Para obter mais informações sobre este trabalho de expansão ["Rever e orientações para a implementação"](https://aka.ms/pciblueprintprocessingoverview) documento fornece uma revisão de ambientes de conformidade de PCI DSS.
+> Este cenário ilustra como um webstore fictício mover dados confidenciais para uma PaaS na nuvem baseado no Azure solução. A solução de exemplo ilustra o processamento e recolha de informações de utilizador básico e os dados confidenciais selecionados. Este trabalho borrows da segurança do Azure e conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS. Para obter mais informações sobre este trabalho de expansão ["Rever e orientações para a implementação"](https://aka.ms/pciblueprintprocessingoverview) documento fornece uma revisão de ambientes de conformidade de PCI DSS.
 
 ### <a name="use-case"></a>Caso de utilização
 Um pequeno webstore chamado *Contoso Webstore* está pronto para mover dados financeiros que inclua as informações de pagamento de cliente para a nuvem. 
@@ -65,7 +65,7 @@ O administrador da Contoso Webstore está à procura de uma solução que pode s
 
 A arquitetura dos foi concebida com os seguintes elementos fictícios:
 
-Site de domínio`contosowebstore.com`
+Site de domínio `contosowebstore.com`
 
 Funções de utilizador são utilizadas para ilustrar o caso de utilização e obter informações sobre a interface de utilizador.
 
@@ -111,7 +111,7 @@ Edna Benson é o Gestor de rececionista e empresariais. Ela é responsável por 
 - Edna podem substituir as informações financeiras.
 - Conta de Edna não é possível ver as informações financeiras e não filtradas.
 
-> Contoso Webstore, o utilizador é automaticamente o **Edna** utilizador para testar as capacidades do ambiente implementado.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - estimada de preços
 
@@ -151,7 +151,7 @@ A secção seguinte descreve em detalhe os elementos de desenvolvimento e implem
 
 A arquitetura dos reduz o risco de vulnerabilidades de segurança através de um Gateway de aplicação com uma firewall de aplicação web (WAF) e o ruleset OWASP ativada. Capacidades adicionais incluem:
 
-- [Fim para final SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Descarga de SSL](/azure/application-gateway/application-gateway-ssl-portal) ativada
 - [TLS v 1.0 e v 1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) desativada
 - [Firewall de aplicações Web](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (modo WAF)
@@ -172,7 +172,7 @@ Cada uma das camadas de rede tem um grupo de segurança de rede dedicado (NSG):
 - Um NSG para gestão jumpbox (anfitrião de bastion)
 - Um NSG para o ambiente de serviço de aplicações
 
-Cada um dos NSGs ter específicas portas e protocolos abertos para a operação segura e correta da solução. Para obter mais informações, consulte [orientações de PCI - grupos de segurança de rede](#network-security-groups).
+Cada um dos NSGs ter específicas portas e protocolos abertos para a operação segura e correta da solução. 
 
 Além disso, as configurações seguintes estão ativadas para cada NSG:
 
@@ -186,7 +186,7 @@ Além disso, as configurações seguintes estão ativadas para cada NSG:
 #### <a name="custom-domain-ssl-certificates"></a>Certificados SSL de domínio personalizado
  Tráfego HTTPS está ativado para utilizar um certificado SSL de domínio personalizado.
 
-### <a name="data-at-rest"></a>Dados Inativos
+### <a name="data-at-rest"></a>Dados inativos
 
 A arquitetura protege os dados Inativos através da utilização de encriptação, a auditoria de base de dados e de outras medidas.
 
@@ -305,7 +305,7 @@ Destina-se a implementação predefinida para fornecer uma linha de base das rec
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
-Os componentes para implementar esta solução estão disponíveis no [repositório de código Blueprint de processamento do pagamento][code-repo]. A implementação da arquitetura dos requer vários passos executados através do Microsoft PowerShell v5. Para ligar ao Web site, tem de fornecer um nome de domínio personalizado (tal como contoso.com). Isto for especificado utilizando o `-customHostName` comutador no passo 2. Para obter mais informações, consulte [comprar um nome de domínio personalizado para Web Apps do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implementar e executar a solução com êxito, mas não será possível ligar ao Web site para fins de demonstração.
+Os componentes para implementar esta solução estão disponíveis no [repositório de código Blueprint][code-repo]. A implementação da arquitetura dos requer vários passos executados através do Microsoft PowerShell v5. Para ligar ao Web site, tem de fornecer um nome de domínio personalizado (tal como contoso.com). Isto for especificado utilizando o `-customHostName` comutador no passo 2. Para obter mais informações, consulte [comprar um nome de domínio personalizado para Web Apps do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implementar e executar a solução com êxito, mas não será possível ligar ao Web site para fins de demonstração.
 
 Os scripts de adicionar utilizadores de domínio para o inquilino do Azure AD que especificar. A Microsoft recomenda a criação de um novo do Azure AD de inquilino para utilizar como um teste.
 
@@ -361,7 +361,7 @@ A Microsoft recomenda vivamente que uma instalação limpa do PowerShell utiliza
     
 ## <a name="threat-model"></a>Modelo de ameaça
 
-Um diagrama de fluxo de dados (DFD) e o modelo de ameaça de exemplo para a Contoso Webstore [modelo de ameaça Blueprint de processamento de pagamento](https://aka.ms/pciblueprintthreatmodel).
+Um diagrama de fluxo de dados (DFD) e o modelo de ameaça de exemplo para a Contoso Webstore [modelo de ameaça Blueprint](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -375,7 +375,7 @@ Os clientes são responsáveis por manter uma cópia do [matriz de resumo de res
 
 ## <a name="disclaimer-and-acknowledgments"></a>Exclusão de responsabilidade e em que as confirmações
 
-*Setembro de 2017*
+Setembro de 2017
 
 - Este documento destina-se apenas a fins informativos. MICROSOFT E AVYAN NÃO TORNAR NÃO OFERECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU ESTATUTARIAMENTE AS INFORMAÇÕES NESTE DOCUMENTO. Este documento é fornecido "como-está." As informações e opiniões expressados neste documento, incluindo URLs e outras referências de Web site da internet, podem ser alteradas sem aviso prévio. Os clientes ler este documento da sua responsabilidade utilizá-la.  
 - Este documento não fornece aos clientes com quaisquer direitos legais a nenhuma propriedade intelectual em qualquer produto da Microsoft ou Avyan ou soluções.  

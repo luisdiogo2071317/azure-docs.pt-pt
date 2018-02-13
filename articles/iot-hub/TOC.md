@@ -107,6 +107,7 @@
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Back-end de Java/Dispositivo Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Back-end em Python/dispositivo Python](iot-hub-python-python-device-management-get-started.md)
 ### Como utilizar as propriedades duplas
 #### [Back-end de Node.js/Dispositivo Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-how-to-configure.md)

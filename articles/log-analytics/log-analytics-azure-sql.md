@@ -3,7 +3,7 @@ title: "Solução de análise de SQL do Azure no Log Analytics | Microsoft Docs"
 description: "A solução de análise do SQL Azure ajuda-o a gerir as bases de dados SQL do Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorizar a base de dados do SQL do Azure através da análise do SQL do Azure (pré-visualização) no Log Analytics
 
@@ -31,7 +31,7 @@ Atualmente, esta solução de pré-visualização suporta até 150.000 bases de 
 A solução de análise de SQL do Azure, tal como outros disponível para análise de registos, ajuda a monitorizar e receber notificações sobre o estado de funcionamento dos seus recursos do Azure, neste caso, SQL Database do Azure. Base de dados do Microsoft Azure SQL é um serviço de base de dados relacional dimensionável, que fornece capacidades de SQL Server-semelhantes familiares para aplicações em execução na nuvem do Azure. Análise de registos ajuda-o a recolher, correlacionar e visualizar dados estruturados e não estruturados.
 
 Para obter uma descrição prática utilizando a solução de análise de SQL do Azure e para cenários de utilização normal, veja o vídeo incorporado:
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -63,11 +63,11 @@ Execute os seguintes passos para adicionar a solução de análise de SQL do Azu
 2. No portal do Azure, clique em **novo** (o símbolo +), em seguida, na lista de recursos, selecione **monitorização + gestão**.  
     ![Monitorização + Gestão](./media/log-analytics-azure-sql/monitoring-management.png)
 3. No **monitorização + gestão** lista clique **ver todos os**.
-4. No **recomendado** lista, clique em **mais** e, em seguida, na lista nova, localizar **análise de SQL do Azure (pré-visualização)** e, em seguida, selecioná-lo.  
+4. No **recomendado** lista, clique em **mais**e, em seguida, na lista nova, localizar **análise de SQL do Azure (pré-visualização)** e, em seguida, selecioná-lo.  
     ![Solução de análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. No **análise de SQL do Azure (pré-visualização)** painel, clique em **criar**.  
+5. No **análise de SQL do Azure (pré-visualização)** área, clique em **criar**.  
     ![Criar](./media/log-analytics-azure-sql/portal-create.png)
-6. No **criar nova solução** painel, selecione a área de trabalho que pretende adicionar a solução para e, em seguida, clique em **criar**.  
+6. No **criar nova solução** área, selecione a área de trabalho que pretende adicionar a solução para e, em seguida, clique em **criar**.  
     ![Adicione a área de trabalho](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,15 +97,15 @@ Quando adiciona a solução para a sua área de trabalho, o mosaico de análise 
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Visualizar dados de análise de SQL do Azure
 
-Clique em de **análise do Azure SQL** mosaico para abrir o dashboard de análise de SQL do Azure. O dashboard inclui a descrição geral de todas as bases de dados que são monitorizados através de diferentes perspetivas. Para diferentes perspetivas funcione, tem de ativar métricas adequadas ou registos nos seus recursos do SQL Server para transmissão em fluxo a área de trabalho do Log Analytics do Azure. 
+Clique em de **análise do Azure SQL** mosaico para abrir o dashboard de análise de SQL do Azure. O dashboard inclui a descrição geral de todas as bases de dados que são monitorizados através de diferentes perspetivas. Para diferentes perspetivas funcione, tem de ativar métricas adequadas ou registos nos seus recursos do SQL Server para transmissão em fluxo a área de trabalho do Log Analytics do Azure.
 
 ![Descrição geral da análise SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Selecionar qualquer uma dos mosaicos, abre-se de um relatório de desagregação em perspetiva específica. Depois de perspetiva estiver selecionada, é aberta desagregação de relatório.
+Selecionar qualquer uma dos mosaicos, abre-se de um relatório de desagregação em perspetiva específica. Depois de perspetiva estiver selecionada, é aberto o relatório de desagregação.
 
 ![Tempos limite de análise SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Cada perspetiva, fornece resumos na subscrição, o servidor, o conjunto elástico e o nível de base de dados. Além disso, cada perspetiva mostra o relatório de específica de perspetiva à direita. Selecionar a subscrição, o servidor, o conjunto ou base de dados da lista continua a desagregação para baixo.
+Cada perspetiva fornece resumos na subscrição, o servidor, o conjunto elástico e o nível de base de dados. Além disso, cada perspetiva mostra uma perspetiva específico para o relatório no lado direito. Selecionar a subscrição, o servidor, o conjunto ou base de dados da lista continua a desagregação.
 
 | Perspetiva | Descrição |
 | --- | --- |
@@ -134,13 +134,13 @@ Conjuntos elásticos e bases de dados têm os seus próprios relatórios especí
 
 ### <a name="query-reports"></a>Relatórios de consulta
 
-Através da perspetiva de aguarda de consulta e duração de consulta, pode correlacionar o desempenho de qualquer consulta através do relatório de consulta. Este relatório compara o desempenho de consulta em bases de dados diferentes e torna mais fácil identificar bases de dados que executar a consulta selecionada bem versus aqueles que são lenta.
+Através da duração de consulta e a consulta aguarda perspetivas, pode correlacionar o desempenho de qualquer consulta através do relatório de consulta. Este relatório compara o desempenho de consulta em bases de dados diferentes e torna mais fácil identificar bases de dados que executar a consulta selecionada bem versus aqueles que são lenta.
 
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
-Pode facilmente criar alertas com os dados provenientes de recursos de SQL Database do Azure. Seguem-se alguns útil [pesquisa registo](log-analytics-log-searches.md) consultas que pode utilizar para alertas:
+Pode facilmente criar alertas com os dados provenientes de recursos de SQL Database do Azure. Seguem-se algumas útil [pesquisa registo](log-analytics-log-searches.md) consultas que pode utilizar para alertas:
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

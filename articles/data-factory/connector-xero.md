@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c2cd0cc648269c4e07d0f0fcd04a10cf7092432
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 458ad702b510c0fd01ab63541b2026b8a9a06e91
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Copiar dados de Xero utilizando o Azure Data Factory (Beta)
 
@@ -33,7 +33,10 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 Pode copiar dados de Xero para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Todas as tabelas Xero (pontos finais da API) são suportadas exceto "Relatórios". Tabelas com itens complexos serão divididas a várias tabelas. Por exemplo, as transações banco tem uma estrutura de dados complexas "LineItems", para que dados de transação banco estão mapeados para a tabela Bank_Transaction e Bank_Transaction_Line_Items, com Bank_Transaction_ID como chave externa ao ligá-las em conjunto.
+Especificamente, este conector Xero suporta:
+
+- Xero [aplicação privada](https://developer.xero.com/documentation/getting-started/api-application-types) mas a aplicação não é pública.
+- Todos os Xero tabelas (pontos finais da API), exceto "Relatórios". 
 
 O Azure Data Factory fornece um controlador incorporado para ativar a conetividade, pelo que não precisa de instalar manualmente o controlador de utilizar este conector.
 
@@ -52,7 +55,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Xero:
 | tipo | A propriedade de tipo tem de ser definida: **Xero** | Sim |
 | anfitrião | O ponto final do servidor Xero (`api.xero.com`).  | Sim |
 | consumerKey | A chave de consumidor associada à aplicação Xero. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| privateKey | A chave privada a partir do ficheiro. pem que foi gerado para a sua aplicação privada Xero. Inclui todo o texto do ficheiro. pem, incluindo o endings(\n) de linha do Unix. Pode escolher marcar este campo como um SecureString armazena de forma segura na fábrica de dados ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que a atividade de cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
+| privateKey | A chave privada a partir do ficheiro. pem que foi gerado para a sua aplicação privada Xero, consulte [criar um par de chaves públicas/privadas](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Inclui todo o texto do ficheiro. pem incluindo endings(\n) de linha Unix, consulte o exemplo abaixo.<br/>Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome do anfitrião do servidor ao ligar através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar através de SSL. O valor predefinido é verdadeiro.  | Não |
@@ -77,6 +80,14 @@ As seguintes propriedades são suportadas para o serviço ligado do Xero:
         }
     }
 }
+```
+
+**Valor de chave privado de exemplo:**
+
+Inclui todo o texto do ficheiro. pem incluindo endings(\n) de linha Unix.
+
+```
+"-----BEGIN RSA PRIVATE KEY-----\nMII***************************************************P\nbu****************************************************s\nU/****************************************************B\nA*****************************************************W\njH****************************************************e\nsx*****************************************************l\nq******************************************************X\nh*****************************************************i\nd*****************************************************s\nA*****************************************************dsfb\nN*****************************************************M\np*****************************************************Ly\nK*****************************************************Y=\n-----END RSA PRIVATE KEY-----"
 ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -104,7 +115,7 @@ Para copiar dados de Xero, defina a propriedade de tipo do conjunto de dados par
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por Xero origem.
 
-### <a name="xerosource-as-source"></a>XeroSource como origem
+### <a name="xero-as-source"></a>Xero como origem
 
 Para copiar dados de Xero, defina o tipo de origem na atividade de cópia para **XeroSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
@@ -144,6 +155,60 @@ Para copiar dados de Xero, defina o tipo de origem na atividade de cópia para *
     }
 ]
 ```
+
+Quando especificar a consulta do Xero, tenha em atenção o seguinte:
+
+- Tabelas com itens complexos serão divididas a várias tabelas. Por exemplo, transações de Bank tem uma estrutura de dados complexas "LineItems", para dados de transação banco estão mapeados para a tabela `Bank_Transaction` e `Bank_Transaction_Line_Items`, com `Bank_Transaction_ID` como chave externa ao ligá-las em conjunto.
+
+- Dados Xero estão disponíveis através de dois esquemas: `Minimal` (predefinição) e `Complete`. O esquema concluído contém tabelas de chamada de pré-requisitos que necessite de dados adicionais (por exemplo, a coluna de ID) antes de efetuar a consulta pretendida.
+
+As tabelas seguintes tem as mesmas informações no esquema mínimo e concluído. Para reduzir o número de chamadas à API, utilize o esquema mínima (predefinição).
+
+- Bank_Transactions
+- Contact_Groups 
+- Contactos 
+- Contacts_Sales_Tracking_Categories 
+- Contacts_Phones 
+- Contacts_Addresses 
+- Contacts_Purchases_Tracking_Categories 
+- Credit_Notes 
+- Credit_Notes_Allocations 
+- Expense_Claims 
+- Expense_Claim_Validation_Errors
+- Faturas 
+- Invoices_Credit_Notes
+- Invoices_ Prepayments 
+- Invoices_Overpayments 
+- Manual_Journals 
+- Overpayments 
+- Overpayments_Allocations 
+- Prepayments 
+- Prepayments_Allocations 
+- Recibos 
+- Receipt_Validation_Errors 
+- Tracking_Categories
+
+As tabelas seguintes só podem ser consultadas com o esquema concluída:
+
+- Complete.Bank_Transaction_Line_Items 
+- Complete.Bank_Transaction_Line_Item_Tracking 
+- Complete.Contact_Group_Contacts 
+- Complete.Contacts_Contact_ pessoas 
+- Complete.Credit_Note_Line_Items 
+- Complete.Credit_Notes_Line_Items_Tracking 
+- Complete.Expense_Claim_ pagamentos 
+- Complete.Expense_Claim_Receipts 
+- Complete.Invoice_Line_Items 
+- Complete.Invoices_Line_Items_Tracking
+- Complete.Manual_Journal_Lines 
+- Complete.Manual_Journal_Line_Tracking 
+- Complete.Overpayment_Line_Items 
+- Complete.Overpayment_Line_Items_Tracking 
+- Complete.Prepayment_Line_Items 
+- Complete.Prepayment_Line_Item_Tracking 
+- Complete.Receipt_Line_Items 
+- Complete.Receipt_Line_Item_Tracking 
+- Complete.Tracking_Category_Options
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportada pela atividade de cópia, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

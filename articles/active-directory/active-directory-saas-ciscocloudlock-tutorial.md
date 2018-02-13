@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 6baa680a83f381daeb8a31014f276a1d52ffa07a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d6961eb760544ac078fdd6ed0d7c0c4d750a8b9f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloudlock"></a>Tutorial: Integração do Azure Active Directory com Cisco Cloudlock
 
@@ -106,9 +106,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Cisco Cloudlock domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL:`https://platform.cloudlock.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL:
+    | |
+    |--|
+    | `https://platform.cloudlock.com` |
+    | `https://app.cloudlock.com` |
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.cloudlock.com/gate/saml/sso/<subdomain>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: 
+    | |
+    |--|
+    | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
+    | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
     > [!NOTE] 
     > O valor do identificador não é real. Atualize o valor com o identificador real. Contacte [equipa de suporte de cliente de Cloudlock Cisco](mailto:support@cloudlock.com) para obter o valor. 

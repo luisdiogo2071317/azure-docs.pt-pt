@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência sincronizáveis dados na base de dados do Azure Cosmos
 BD do Azure do Cosmos foi concebido partir do zero cópias de segurança com distribuição global em mente para cada modelo de dados. Foi concebido para oferecer vários modelos de simples de consistência bem definidos e de garantias de latência baixa previsível. Atualmente, a base de dados do Azure Cosmos fornece cinco níveis de consistência: forte, consistência vinculada, sessão, prefixo consistente e eventual. Consistência vinculada, sessão, prefixo consistente e eventual são designados "modelos de consistência simples" que fornecem o menor consistência que segura, que é o modelo a maioria das consistente altamente disponível. 
@@ -60,7 +60,7 @@ A granularidade de consistência é confinada para um pedido de utilizador únic
 ## <a name="consistency-levels"></a>Níveis de consistência
 Pode configurar um nível de consistência predefinida na sua conta de base de dados que se aplica a todas as coleções (e as bases de dados) na sua conta de base de dados do Cosmos. Por predefinição, todas as operações de leitura e consultas emitidas relativamente aos recursos definida pelo utilizador utilizam o nível de consistência predefinido, especificado na conta de base de dados. Pode reduzir o nível de consistência de uma utilização de pedido de leitura/consulta específicas em cada uma das APIs suportados. Existem cinco tipos dos níveis de consistência suportados pelo protocolo de replicação de base de dados do Azure Cosmos que fornecem um compromisso claro entre garantias de consistência específico e o desempenho, conforme descrito nesta secção.
 
-**Forte**: 
+**Strong**: 
 
 * A consistência forte oferece um [linearizability](https://aphyr.com/posts/313-strong-consistency-models) garantir com leituras garantidas para devolver a versão mais recente de um item. 
 * A consistência forte garante que uma escrita apenas seja visível depois de ser consolidada de forma durável pelo quórum maioria das réplicas. Uma operação de escrita é colocada forma síncrona consolidada de forma durável pela principal e o quórum de secundárias ou foi abortada. Uma leitura é sempre confirmada pela maioria de quórum de leitura, um cliente nunca pode ver uma escrita não consolidada ou parcial e é sempre garantido para ler mais recente confirmada de escrita. 
@@ -110,30 +110,34 @@ Pode configurar um nível de consistência predefinida na sua conta de base de d
 ## <a name="consistency-levels-for-queries"></a>Níveis de consistência para consultas
 Por predefinição, para obter recursos definida pelo utilizador, o nível de consistência para consultas é o mesmo que o nível de consistência para leituras. Por predefinição, o índice é atualizado em sincronia cada inserir, substituir ou eliminar de um item no contentor de BD do Cosmos. Isto permite que as consultas que respeite o mesmo nível de consistência da leituras de ponto. Enquanto a base de dados do Azure Cosmos é escrita otimizada e suporta volumes constante de escritas, índice síncrona e de manutenção que serve consultas consistentes, pode configurar determinadas coleções para atualizar o respetivo índice lenta. Ainda mais lento de indexação boosts o desempenho de escrita e é ideal para cenários de ingestão em massa, quando uma carga de trabalho é principalmente leitura extremamente encriptados.  
 
-| Modo de indexação | Lê | Consultas |
+| Modo de indexação | Leituras | Consultas |
 | --- | --- | --- |
 | Consistente (predefinição) |Selecione a partir de vinculada forte e vinculada, sessão, prefixo consistente ou eventual |Selecione a partir de vinculada forte e vinculada, sessão, ou eventual |
 | Lento |Selecione a partir de vinculada forte e vinculada, sessão, prefixo consistente ou eventual |Eventual |
-| Nenhuma |Selecione a partir de vinculada forte e vinculada, sessão, prefixo consistente ou eventual |Não aplicável |
+| Nenhum |Selecione a partir de vinculada forte e vinculada, sessão, prefixo consistente ou eventual |Não aplicável |
 
 Como com pedidos de leitura, pode reduzir o nível de consistência de um pedido de consulta específicas em cada API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="consistency-levels-for-the-mongodb-api"></a>Níveis de consistência para a API do MongoDB
+
+BD do Azure do Cosmos atualmente implementa MongoDB versão 3.4, que tem duas definições de consistência, seguras e eventual. Como base de dados do Azure Cosmos é várias api, as definições de consistência são aplicáveis ao nível da conta e a imposição da consistência e é controlada por cada API.  Até MongoDB 3.6, não havia nenhum conceito de consistência de sessão, para que o se definir uma conta de API do MongoDB para utilizar a consistência de sessão, a consistência é alterada uma versão anterior a eventual ao utilizar as APIs do MongoDB. Se precisar de uma garantia de leitura-your-proprietário-escrita de uma conta de API do MongoDB, o nível de consistência predefinida para a conta deve ser definido como strong ou tem um vínculo vinculada.
+
+## <a name="next-steps"></a>Passos Seguintes
 Se gostaria de fazer ler mais sobre os níveis de consistência e fala, recomendamos os seguintes recursos:
 
 * Tiago Doug. Consistência de dados replicadas explicado através de baseball (vídeo).   
-  [https://www.YouTube.com/Watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 * Tiago Doug. Consistência de dados replicadas explicado através de baseball.   
-  [http://Research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * Tiago Doug. Garantias de sessão para os dados replicados consistentes Weakly.   
-  [http://DL.ACM.org/CITATION.cfm?ID=383631](http://dl.acm.org/citation.cfm?id=383631)
+  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 * Daniel Abadi. Consistência fala moderna design de sistemas de base de dados distribuída: CAP é apenas uma parte do bloco ".   
-  [http://Computer.org/CSDL/mags/co/2012/02/mco2012020037-Abs.HTML](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis Shivaram Venkataraman, Miguel J. Franklin, Joseph M. Hellerstein, Stoica período. Probabilistic tem um vínculo vinculada (. PBS) para práticas Quorums parciais.   
-  [http://VLDB.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic tem um vínculo vinculada (. PBS) para práticas Quorums parciais.   
+  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * Werner Vogels. Eventual consistente - Revisitado.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.HTML](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * Moni Naor, Avishai Wool, a carga, capacidade e disponibilidade dos sistemas de quórum, SIAM diário de alterações em informática, v.27 n.2, p.423-447, Abril de 1998.
-  [http://epubs.siam.org/DOI/Abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: um linearizability completa e automática verificador, Proceedings do conferência ACM SIGPLAN 2010 no idioma de conceção e implementação, 05 10 de Junho de 2010, Toronto, Ontario, Canadá de programação [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Miguel J. Franklin, Joseph M. Hellerstein, período Stoica, Probabilistically tem um vínculo vinculada para práticas quorums parciais, Proceedings do Endowment VLDB, v.5 n.8, p.776-787, Abril de 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: um linearizability completa e automática verificador, Proceedings do conferência ACM SIGPLAN 2010 no idioma de conceção e implementação, 05 10 de Junho de 2010, Toronto, Ontario, de programação Canadá [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
+* Peter Bailis, Shivaram Venkataraman, Miguel J. Franklin, Joseph M. Hellerstein, período Stoica, Probabilistically tem um vínculo vinculada para práticas quorums parciais, Proceedings do Endowment VLDB, v.5 n.8, p.776-787, Abril de 2012 [http:// DL.ACM.org/CITATION.cfm?ID=2212359](http://dl.acm.org/citation.cfm?id=2212359)

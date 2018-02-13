@@ -3,7 +3,7 @@ title: Otimizar o seu ambiente do Active Directory com o Log Analytics do Azure 
 description: "Pode utilizar a solução de verificação de estado de funcionamento do Active Directory para avaliar o risco e o estado de funcionamento dos ambientes num intervalo regular."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar o seu ambiente do Active Directory com a solução de verificação de estado de funcionamento do Active Directory na análise de registos
 
@@ -41,7 +41,7 @@ Depois de acrescentar a solução e uma verificação estiver concluída, resumo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de verificação de estado de funcionamento do Active Directory requer uma versão suportada do .NET Framework 4.5.2 ou superior instalado em cada computador que tenha a monitorização do agente Microsoft (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2 e o serviço de análise de registos. 
+* A solução de verificação de estado de funcionamento do Active Directory requer uma versão suportada do .NET Framework 4.5.2 ou superior instalado em cada computador que tenha a monitorização do agente Microsoft (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2 e o serviço de análise de registos.
 * A solução suporta controladores de domínio que executam o Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * Uma área de trabalho de análise de registos para adicionar a solução de verificação de estado de funcionamento do Active Directory do Azure marketplace no portal do Azure.  Não há nenhuma configuração adicional.
 
@@ -62,13 +62,13 @@ O agente no seu controlador de domínio que relatórios para um grupo de gestão
 
 Verificação de estado de funcionamento do Active Directory recolhe dados das seguintes origens com o agente que tiver ativado:
 
-- Registo 
-- LDAP 
+- Registo
+- LDAP
 - .NET Framework
-- Registo de eventos 
+- Registo de eventos
 - Interfaces de serviço do Active Directory (ADSI)
 - Windows PowerShell
-- Dados de ficheiro 
+- Dados de ficheiro
 - Windows Management Instrumentation (WMI)
 - Ferramenta DCDIAG API
 - API de serviço (NTFRS) de replicação de ficheiros
@@ -93,7 +93,7 @@ O peso para cada recomendação é expresso como uma percentagem da classificaç
 
 **Disponibilidade e continuidade do negócio** -esta área de foco mostra recomendações para a disponibilidade do serviço, a resiliência da sua infraestrutura e a proteção do negócio.
 
-**Desempenho e escalabilidade** -esta área de foco mostra recomendações para o ajudar a sua organização infraestrutura de TI aumentar, certifique-se de que o ambiente de TI cumpre os requisitos de desempenho atuais e é capaz de responder a necessidades de infraestrutura a alteração.
+**Desempenho e escalabilidade** -esta área de foco mostra recomendações para o ajudar a sua organização infraestrutura de TI aumentar, certifique-se de que o ambiente de TI cumpre os requisitos de desempenho atuais e é capaz de responder a infraestrutura de alteração necessidades.
 
 **Atualizar, implementação e migração** -esta área de foco mostra recomendações para o ajudar a atualizar, implementar e migrar do Active Directory para a sua infraestrutura existente.
 
@@ -109,7 +109,7 @@ Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em se
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
 3. Clique em de **descrição geral** mosaico para a sua área de trabalho de análise de registos no portal do Azure.
-4. No **descrição geral** página, clique em de **verificação de estado de funcionamento do Active Directory** mosaico. 
+4. No **descrição geral** página, clique em de **verificação de estado de funcionamento do Active Directory** mosaico.
 5. No **verificação do Estado de funcionamento** página, reveja as informações de resumo de uma das seguintes painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
 6. Em qualquer uma das páginas da área de foco, pode ver as recomendações prioritários efetuadas para o seu ambiente. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre o motivo pelo qual a recomendação é feita.<br><br> ![imagem de verificação do Estado de funcionamento recomendações](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Pode executar ações corretivas sugeridas na **as ações sugeridas**. Quando o item tem sido resolvido, registos de avaliações posteriores que as ações recomendadas foram executados e irá aumentar a sua pontuação de conformidade. Itens corrigidas aparecem como **transmitido objetos**.
@@ -133,7 +133,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 2. Colar ou escreva cada RecommendationId para cada recomendação que pretende que a análise de registos para ignorar numa linha separada e, em seguida, guarde e feche o ficheiro.
 3. Coloque o ficheiro na seguinte pasta em cada computador onde pretende que a análise de registos para ignorar recomendações.
    * Em computadores com o Microsoft Monitoring Agent (ligado diretamente ou através do Operations Manager) - *SystemDrive*: \Programas\Microsoft Agent\Agent de monitorização
-   * No servidor de gestão do Operations Manager 2012 R2 - *SystemDrive*: \Programas\Microsoft System Center 2012 R2\Operations \ Operations Manager\Server 
+   * No servidor de gestão do Operations Manager 2012 R2 - *SystemDrive*: \Programas\Microsoft System Center 2012 R2\Operations \ Operations Manager\Server
    * No servidor de gestão do Operations Manager 2016 - *SystemDrive*: \Programas\Microsoft System Center 2016\Operations \ Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar se as recomendações são ignoradas

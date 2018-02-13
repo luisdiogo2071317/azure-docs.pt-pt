@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/01/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Perguntas mais frequentes sobre o serviço de contentor do Azure (AKS)
 
@@ -50,7 +50,15 @@ Dimensionamento automático de nó não é suportado, mas é no plano. Pode quer
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que razão são criados dois grupos de recursos com AKS? 
 
-O segundo grupo de recursos é criado automaticamente para eliminação fácil de todos os recursos associados a uma implementação de AKS.
+Cada cluster do serviço de contentor do Azure (AKS) está contida em dois grupos de recursos. O primeiro é criado por si e contém apenas o recurso AKS. O segundo grupo de recursos é automaticamente criada durante a implementação e contém todos os recursos de infraestrutura de cluster como VMs, redes e recursos de armazenamento. Este grupo de recursos é criado para a limpeza de recursos mais fácil. 
+
+O grupo de recursos criado de automática tem um nome semelhante a:
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+Ao adicionar os recursos do Azure para ser utilizado com o cluster Kubernetes, tais como contas de armazenamento ou endereço IP público reservado, estes recursos têm de ser criados na automática criou o grupo de recursos.   
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>O Cofre de chaves do Azure está integrado com AKS? 
 

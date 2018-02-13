@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar as ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -101,6 +101,26 @@ Para poder submeter scripts para clusters do HDInsight a partir do código de VS
     - Submeter consultas interativas do PySpark
     - Submeter PySpark scripts de batch
     - Configurações de conjunto
+
+**Para ligar um cluster**
+
+Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com).
+1. Abra a paleta de comando selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um cluster**.
+
+   ![comando de cluster de ligação](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Introduza HDInsight URL de cluster-entrada de nome de utilizador -> > palavra-passe de entrada -> selecione o tipo de cluster ->-mostra informações de êxito se passado a verificação.
+   
+   ![caixa de diálogo de cluster de ligação](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Utilizamos o nome de utilizador ligado e a palavra-passe se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster. 
+   
+3. Pode ver um cluster de ligado utilizando o comando **cluster lista**. Agora pode submeter um script para este cluster ligado.
+
+   ![cluster ligado](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. Também pode desassociar um cluster por inputing **HDInsight: desassociar um cluster** de paleta de comando.
 
 ## <a name="list-hdinsight-clusters"></a>Lista de clusters do HDInsight
 
@@ -258,6 +278,9 @@ Ferramentas do HDInsight para o VS Code também permite-lhe submeter consultas i
 Depois de submeter uma tarefa de Python, registos de submissão apresentado o **saída** janela no VS Code. O **Spark IU URL** e **URL de IU do Yarn** são também apresentados. Pode abrir o URL num browser para controlar o estado da tarefa.
 
 
+   
+
+
 ## <a name="additional-features"></a>Funcionalidades adicionais
 
 HDInsight para o VS Code suporta as seguintes funcionalidades:
@@ -288,7 +311,7 @@ HDInsight para o VS Code suporta as seguintes funcionalidades:
 * [Visualizar dados do Hive com o Microsoft Power BI no Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Visualizar dados de ramo de registo de consultas interativas com o Power BI no Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Configurar o ambiente interativa PySpark para Visual Studio Code](set-up-pyspark-interactive-environment.md)
-* [Utilize Zeppelin para executar consultas do Hive no Azure HDInsight](./hdinsight-connect-hive-zeppelin.md)
+* [Utilize Zeppelin para executar consultas do Hive no Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](spark/apache-spark-use-bi-tools.md)

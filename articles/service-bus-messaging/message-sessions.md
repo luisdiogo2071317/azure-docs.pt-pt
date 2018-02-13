@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7e5b42e2244b52b06c55e7a6ca30ba1657b1a532
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagens: primeiro, primeiro out (FIFO) 
 
@@ -72,6 +72,8 @@ A instalações de estado de sessão permite uma anotação definido pela aplica
 Da perspetiva de Service Bus, o estado da sessão mensagem é um objeto de binário opaco que possa englobar os dados do tamanho de uma mensagem é 256 KB para padrão de barramento de serviço e de 1 MB para Premium do Service Bus. O estado de processamento relativo para uma sessão pode ser contido dentro o estado da sessão ou o estado da sessão pode apontar para alguns localização de armazenamento ou o registo de base de dados que contém essas informações.
 
 As APIs para gerir o estado da sessão, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), pode ser encontrado no [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objeto c# tanto nas APIs de Java. Numa sessão que tinha anteriormente sem estado de sessão definido devolve um **nulo** referenciar para **GetState**. Limpar o estado da sessão previamente definido é feito com [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Tenha em atenção que o estado da sessão permanece desde que não está a ser desmarcada cópias de segurança (devolver **nulo**), mesmo se todas as mensagens existentes numa sessão são consumidas.
 
 Todas as sessões existentes numa fila ou a subscrição podem ser enumeradas com o **SessionBrowser** método na Java API e com [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) no [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) e [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) no cliente do .NET.
 

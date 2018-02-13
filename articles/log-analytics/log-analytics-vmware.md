@@ -3,7 +3,7 @@ title: "Solução de monitorização da VMware no Log Analytics | Microsoft Docs
 description: "Saiba mais sobre como a solução de monitorização de VMware pode ajudar a gerir os registos e monitorizar anfitriões ESXi."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
-ms.openlocfilehash: 4af3651ce3d45837166248684d78ab4df95f524c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização do VMware (pré-visualização) na análise de registos
 
@@ -44,8 +44,8 @@ Crie um VM receba todos os dados de syslog dos anfitriões ESXi do sistema de op
 ### <a name="configure-syslog-collection"></a>Configurar a recolha do syslog
 1. Configure o reencaminhamento de syslog para VSphere. Para obter informações detalhadas para o ajudar a configurar o reencaminhamento de syslog, consulte [configurar syslog no ESXi 5. x e 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Aceda a **configuração de anfitrião ESXi** > **Software** > **definições avançadas** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
-2. No *Syslog.global.logHost* campo, adicione o servidor Linux e o número da porta *1514*. Por exemplo, `tcp://hostname:1514` ou`tcp://123.456.789.101:1514`
-3. Abra a firewall do anfitrião ESXi para syslog. **Configuração do anfitrião ESXi** > **Software** > **perfil de segurança** > **Firewall** e abra  **Propriedades**.  
+2. No *Syslog.global.logHost* campo, adicione o servidor Linux e o número da porta *1514*. Por exemplo, `tcp://hostname:1514` ou `tcp://123.456.789.101:1514`
+3. Abra a firewall do anfitrião ESXi para syslog. **Configuração do anfitrião ESXi** > **Software** > **perfil de segurança** > **Firewall** e abra **Propriedades**.  
 
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
@@ -183,20 +183,20 @@ Pode ser por vários motivos:
 
 * O anfitrião ESXi é não corretamente enviar por push dados para a VM em execução omsagent. Para testar, execute os seguintes passos:
 
-  1. Para confirmar, inicie sessão para o anfitrião ESXi utilizando ssh e execute o seguinte comando:`nc -z ipaddressofVM 1514`
+  1. Para confirmar, inicie sessão para o anfitrião ESXi utilizando ssh e execute o seguinte comando: `nc -z ipaddressofVM 1514`
 
       Se não for bem-sucedida, são provável que vSphere definições numa configuração avançada corrigir. Consulte [configurar a recolha de syslog](#configure-syslog-collection) para obter informações sobre como configurar o anfitrião ESXi para reencaminhamento syslog.
-  2. Se a conectividade de porta de syslog é efetuada com êxito, mas ainda não vê os dados, recarregar o syslog no anfitrião ESXi utilizando ssh para executar o seguinte comando:` esxcli system syslog reload`
+  2. Se a conectividade de porta de syslog é efetuada com êxito, mas ainda não vê os dados, recarregar o syslog no anfitrião ESXi utilizando ssh para executar o seguinte comando: ` esxcli system syslog reload`
 * A VM com o agente do OMS não está definida corretamente. Para testar isto, execute os seguintes passos:
 
-  1. Análise de registos escuta a porta 1514. Para verificar que está aberta, execute o seguinte comando:`netstat -a | grep 1514`
+  1. Análise de registos escuta a porta 1514. Para verificar que está aberta, execute o seguinte comando: `netstat -a | grep 1514`
   2. Deverá ver porta `1514/tcp` abrir. Se não o fizer, certifique-se de que o omsagent está corretamente instalado. Se não visualizar as informações de porta, a porta de syslog não está aberta na VM.
 
-    a. Certifique-se de que o agente do OMS está em execução utilizando `ps -ef | grep oms`. Se não está em execução, inicie o processo executando o comando` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Certifique-se de que o agente do OMS está em execução utilizando `ps -ef | grep oms`. Se não está em execução, inicie o processo executando o comando ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
     b. Abra o ficheiro `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-    c. Certifique-se de que o utilizador adequado e a definição de grupo é válido, semelhante a:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    c. Certifique-se de que o utilizador adequado e a definição de grupo é válido, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
     d. Se o ficheiro não existe ou o utilizador e a definição de grupo está errada, tomar uma ação corretiva por [preparar um servidor Linux](#prepare-a-linux-server).
 

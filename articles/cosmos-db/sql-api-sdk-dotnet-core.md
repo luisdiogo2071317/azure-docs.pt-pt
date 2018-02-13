@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Amostras**</td><td>[Exemplos de código do .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Introdução**</td><td>[Introdução ao Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>Introdução</td><td>[Introdução ao Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Tutorial de aplicação Web**</td><td>[Desenvolvimento da aplicação Web com base de dados do Azure Cosmos](sql-api-dotnet-application.md)</td></tr>
 
@@ -58,6 +58,14 @@ Cosmos DB SDK .NET da Azure Core tem paridade de funcionalidades com a versão m
 
 > [!NOTE] 
 > O Azure Cosmos DB .NET Core SDK ainda não é compatível com aplicações da plataforma Universal do Windows (UWP). Se estiver interessado em .NET Core SDK que suportam aplicações UWP, enviar correio eletrónico para [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Corrigido regressão onde FeedOptions.MaxItemCount = -1 emitiu um System.ArithmeticException: tamanho da página é negativo.
+* Adicionar uma nova função de ToString () para QueryMetrics.
+* Estatísticas de partição expostas em coleções de leitura.
+* Foram adicionada PartitionKey propriedade ChangeFeedOptions.
+* Pequenas correções de erros.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -141,7 +149,7 @@ Cosmos DB SDK .NET da Azure Core tem paridade de funcionalidades com a versão m
 
 Cosmos DB SDK .NET da Azure Core permite-lhe criar rapidamente, plataforma [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) aplicações sejam executadas no Windows, Mac e Linux. A versão mais recente do Azure Cosmos DB .NET Core SDK é totalmente [Xamarin](https://www.xamarin.com) compatível e ser utilizado para criar aplicações direcionadas para iOS, Android e Mono (Linux).  
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
 Cosmos DB SDK .NET da Azure Core pré-visualização permite-lhe criar rapidamente, plataforma [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) aplicações sejam executadas no Windows, Mac e Linux.
 
@@ -157,6 +165,7 @@ Se tiver perguntas relacionadas com este SDK, publicar [StackOverflow](http://st
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |05 de Fevereiro de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de novembro de 2017 |--- |
 | [1.7.0](#1.7.0) |10 de Novembro de 2017 |--- |
 | [1.6.0](#1.6.0) |17 de Outubro de 2017 |--- |
@@ -174,8 +183,8 @@ Se tiver perguntas relacionadas com este SDK, publicar [StackOverflow](http://st
 | [1.1.1](#1.1.1) |14 de março de 2017 |--- |
 | [1.1.0](#1.1.0) |16 de Fevereiro de 2017 |--- |
 | [1.0.0](#1.0.0) |21 de Dezembro de 2016 |--- |
-| [0.1.0-Preview](#0.1.0-preview) |15 de Novembro de 2016 |31 de Dezembro de 2016 |
+| [0.1.0-preview](#0.1.0-preview) |15 de Novembro de 2016 |31 de Dezembro de 2016 |
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

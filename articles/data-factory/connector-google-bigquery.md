@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Copiar dados de Google BigQuery através da utilização do Azure Data Factory (beta)
 
@@ -51,12 +51,17 @@ As seguintes propriedades são suportadas para o Google BigQuery serviço ligado
 | projeto | O ID de projeto do projeto de BigQuery predefinido para consulta contra.  | Sim |
 | additionalProjects | Uma lista separada por vírgulas de IDs de projeto do público BigQuery projetos para o acesso.  | Não |
 | requestGoogleDriveScope | Indica se deve pedir acesso ao Google Drive. Permitir o acesso de Google Drive permite suporte para tabelas federadas que combinam dados BigQuery com dados a partir do Google Drive. O valor predefinido é **falso**.  | Não |
-| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication pode ser utilizado apenas no tempo de execução do Self-hosted integração. <br/>Valores permitidos são **ServiceAuthentication** e **UserAuthentication**. | Sim |
-| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso ao BigQuery para UserAuthentication. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
-| e-mail | O ID de correio eletrónico de conta do serviço é utilizado para ServiceAuthentication. Pode ser utilizado apenas no tempo de execução do Self-hosted integração.  | Não |
-| keyFilePath | O caminho completo para o ficheiro de chave. p12 que é utilizado para autenticar o endereço de e-mail da conta de serviço. Pode ser utilizado apenas no tempo de execução do Self-hosted integração.  | Não |
-| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna utilizados para verificar o servidor ao estabelecer ligação através de SSL. Esta propriedade pode ser definida apenas quando utilizar o protocolo SSL no tempo de execução do Self-hosted integração. O valor predefinido é o ficheiro de cacerts.pem instalado com o tempo de execução de integração.  | Não |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de AC da loja de confiança de sistema ou de um ficheiro. pem especificado. O valor predefinido é **falso**.  | Não |
+| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication pode ser utilizado apenas no tempo de execução do Self-hosted integração. <br/>Valores permitidos são **UserAuthentication** e **ServiceAuthentication**. Consulte a secções abaixo desta tabela mais propriedades e exemplos JSON para os tipos de autenticação, respetivamente. | Sim |
+
+### <a name="using-user-authentication"></a>Utilizar a autenticação de utilizador
+
+Definir a propriedade "authenticationType" para **UserAuthentication**e especifique as seguintes propriedades, juntamente com propriedades genéricas descritas na secção anterior:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| clientId | ID da aplicação utilizada para gerar o token de atualização. | Não |
+| clientSecret | Segredo da aplicação utilizada para gerar o token de atualização. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
+| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso ao BigQuery. Saber como obter um [tokens de acesso de OAuth 2.0 obter](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
 
 **Exemplo:**
 
@@ -70,6 +75,11 @@ As seguintes propriedades são suportadas para o Google BigQuery serviço ligado
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -77,6 +87,39 @@ As seguintes propriedades são suportadas para o Google BigQuery serviço ligado
         }
     }
 }
+```
+
+### <a name="using-service-authentication"></a>Utilizar a autenticação de serviço
+
+Definir a propriedade "authenticationType" para **ServiceAuthentication**e especifique as seguintes propriedades, juntamente com propriedades genéricas descritas na secção anterior. Este tipo de autenticação pode ser utilizado apenas no tempo de execução do Self-hosted integração.
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| e-mail | O ID de correio eletrónico de conta do serviço é utilizado para ServiceAuthentication. Pode ser utilizado apenas no tempo de execução do Self-hosted integração.  | Não |
+| keyFilePath | O caminho completo para o ficheiro de chave. p12 que é utilizado para autenticar o endereço de e-mail da conta de serviço. | Não |
+| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna utilizados para verificar o servidor ao estabelecer ligação através de SSL. Esta propriedade pode ser definida apenas quando utilizar o protocolo SSL no tempo de execução do Self-hosted integração. O valor predefinido é o ficheiro de cacerts.pem instalado com o tempo de execução de integração.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de AC da loja de confiança de sistema ou de um ficheiro. pem especificado. O valor predefinido é **falso**.  | Não |
+
+**Exemplo:**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados

@@ -3,7 +3,7 @@ title: Otimizar o seu ambiente do System Center Operations Manager com o Log Ana
 description: "Pode utilizar a solução de System Center Operations Manager estado de funcionamento da verificação do sistema para avaliar o risco e o estado de funcionamento dos ambientes num intervalo regular."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar o seu ambiente com a solução de System Center Operations Manager estado de funcionamento da verificação do sistema (pré-visualização)
 
@@ -60,7 +60,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes de recolha de dados do System Center Operations Manager avaliação
 
-A avaliação do System Center Operations Manager recolhe dados das seguintes origens: 
+A avaliação do System Center Operations Manager recolhe dados das seguintes origens:
 
 * Registo
 * Windows Management Instrumentation (WMI)
@@ -72,7 +72,7 @@ Dados são recolhidos no servidor de gestão e reencaminhados para a análise de
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Executar como contas do Operations Manager para análise de registos
 
-Compilações de análise do registo de pacotes de gestão para cargas de trabalho fornecer valor-adicionar serviços. Cada carga de trabalho necessita de privilégios de específico da carga de trabalho para executar os pacotes de gestão num contexto de segurança diferentes, tais como uma conta de utilizador de domínio. Configure uma conta do Operations Manager Run As com credenciais privilegiadas. Para obter mais informações, consulte [como criar uma conta Run As](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) na documentação do Operations Manager. 
+Compilações de análise do registo de pacotes de gestão para cargas de trabalho fornecer valor-adicionar serviços. Cada carga de trabalho necessita de privilégios de específico da carga de trabalho para executar os pacotes de gestão num contexto de segurança diferentes, tais como uma conta de utilizador de domínio. Configure uma conta do Operations Manager Run As com credenciais privilegiadas. Para obter mais informações, consulte [como criar uma conta Run As](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) na documentação do Operations Manager.
 
 Utilize as seguintes informações para definir a Operations Manager conta Run As para o System Center Operations Manager estado de funcionamento da verificação do sistema.
 
@@ -82,13 +82,13 @@ A conta Run As tem de cumprir os seguintes requisitos antes de continuar:
 
 * Uma conta de utilizador de domínio que seja membro do grupo Administradores local em todos os servidores que suporta qualquer função do Operations Manager - servidor de gestão, SQL Server que aloja o operacional, armazém de dados e base de dados ACS, relatórios, Web consola e o servidor de Gateway.
 * Função de administrador do Gestor de operação do grupo de gestão que está a ser avaliado
-* Se a conta não tem direitos de administrador do sistema do SQL Server, em seguida, execute o [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) para conceder permissões granulares para a conta de cada instância do SQL Server que aloja uma ou todas as bases de dados do Operations Manager. 
+* Se a conta não tem direitos de administrador do sistema do SQL Server, em seguida, execute o [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) para conceder permissões granulares para a conta de cada instância do SQL Server que aloja uma ou todas as bases de dados do Operations Manager.
 
 1. Na consola do Operations Manager, selecione o **administração** botão de navegação.
 2. Em **configuração de Run As**, clique em **contas**.
 3. No **criar conta Run As** assistente, no **introdução** página clique **seguinte**.
 4. No **propriedades gerais** página, selecione **Windows** no **tipo de conta Run As:** lista.
-5. Escreva um nome a apresentar no **nome a apresentar** texto caixa e, opcionalmente, escreva uma descrição no **Descrição** caixa e, em seguida, clique em **seguinte**. 
+5. Escreva um nome a apresentar no **nome a apresentar** texto caixa e, opcionalmente, escreva uma descrição no **Descrição** caixa e, em seguida, clique em **seguinte**.
 6. No **segurança de distribuição** página, selecione **mais segura**.
 7. Clique em **Criar**.  
 
@@ -96,7 +96,7 @@ Agora que a conta Run As é criada, tem de servidores de gestão de destino no g
 
 1. Em **configuração de Run As**, **contas**, no painel de resultados, faça duplo clique em conta que criou anteriormente.
 2. No **distribuição** separador, clique em **adicionar** para o **selecionado computadores** caixa e adicione o servidor de gestão para distribuir a conta.  Clique em **OK** duas vezes para guardar as alterações.
-3. Em **configuração de Run As**, clique em **perfis**. 
+3. Em **configuração de Run As**, clique em **perfis**.
 4. Procure o *SCOM avaliação perfil*.
 5. Deve ser o nome de perfil: *Microsoft System Center Advisor SCOM avaliação perfil Run As*.
 6. Com o botão direito e Atualize as respetivas propriedades e adicionar recentemente criado a conta Run as que criou anteriormente.
@@ -197,7 +197,7 @@ O peso para cada recomendação é expresso como uma percentagem da classificaç
 
 **Disponibilidade e continuidade do negócio** -esta área de foco mostra recomendações para a disponibilidade do serviço, a resiliência da sua infraestrutura e a proteção do negócio.
 
-**Desempenho e escalabilidade** -esta área de foco mostra recomendações para o ajudar a sua organização infraestrutura de TI aumentar, certifique-se de que o ambiente de TI cumpre os requisitos de desempenho atuais e é capaz de responder a necessidades de infraestrutura a alteração.
+**Desempenho e escalabilidade** -esta área de foco mostra recomendações para o ajudar a sua organização infraestrutura de TI aumentar, certifique-se de que o ambiente de TI cumpre os requisitos de desempenho atuais e é capaz de responder a infraestrutura de alteração necessidades.
 
 **A atualização, a migração e a implementação** -esta área de foco mostra recomendações para o ajudar a atualizar, migrar e implemente o SQL Server para a sua infraestrutura existente.
 
@@ -216,7 +216,7 @@ Antes de poder utilizar uma solução de verificação do Estado de funcionament
 Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em seguida, desagregação em recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
-1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **Portal do OMS** mosaico.  
 4. No **descrição geral** página, clique em de **Center Operations Manager estado de funcionamento da verificação do sistema** mosaico.

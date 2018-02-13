@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Como implementar um Runbook Worker híbrido do Windows
 
@@ -50,14 +50,14 @@ Reveja as seguintes informações sobre o [requisitos de hardware e software](au
 
 Execute os seguintes passos para automatizar a instalação e configuração da função de trabalho do Windows híbrida.  
 
-1. Transferir o *New-OnPremiseHybridWorker.ps1* script do [galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) diretamente a partir do computador que executa a função Runbook Worker híbrido ou de outro computador no seu ambiente e Copie-a de trabalho.  
+1. Transferir o *New-OnPremiseHybridWorker.ps1* script do [galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/) diretamente a partir do computador que executa a função Runbook Worker híbrido ou de outro computador no seu ambiente e Copie-a de trabalho.  
 
     O *New-OnPremiseHybridWorker.ps1* script requer os seguintes parâmetros durante a execução:
 
   * *AutomationAccountName* (obrigatório) - o nome da sua conta de automatização.  
   * *ResourceGroupName* (obrigatório) - o nome do grupo de recursos associados a sua conta de automatização.  
   * *HybridGroupName* (obrigatório) - o nome de um grupo de trabalho de Runbook híbrida que especificar como um destino para os runbooks que suportam este cenário. 
-  *  *SubscriptionID* (obrigatório) - o Id de subscrição do Azure que consta a sua conta de automatização.
+  *  *SubscriptionID* (obrigatório) - o ID de subscrição do Azure que consta a sua conta de automatização.
   *  *WorkspaceName* (opcional) - o nome de área de trabalho do OMS.  Se não tiver uma área de trabalho do OMS, o script cria e configura um.  
 
      > [!NOTE]
@@ -76,7 +76,7 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
 
 4. Lhe for pedido para aceitar instalar **NuGet** e lhe for pedido para autenticar com as suas credenciais do Azure.<br><br> ![Execução do script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Depois do script estiver concluído, o painel de grupos de trabalho híbrida irá mostrar o novo grupo e o número de membros ou se um grupo existente, o número de membros é incrementado.  Pode selecionar o grupo da lista no **grupos de trabalho híbrida** painel e selecione o **híbridos** mosaico.  No **híbridos** painel, verá cada membro do grupo listado.  
+5. Depois do script estiver concluído, a página de grupos de trabalho híbrida irá mostrar o novo grupo e o número de membros ou se um grupo existente, o número de membros é incrementado.  Pode selecionar o grupo da lista no **grupos de trabalho híbrida** página e selecione o **híbridos** mosaico.  No **híbridos** página, verá cada membro do grupo listado.  
 
 ### <a name="manual-deployment"></a>Implementação manual 
 
@@ -113,13 +113,13 @@ Em seguida, execute o **Add-HybridRunbookWorker** cmdlet utilizando a seguinte s
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Pode obter as informações necessárias para este cmdlet a partir de **gerir chaves** painel no portal do Azure.  Abrir este painel, selecionando o **chaves** opção do **definições** painel na sua conta de automatização.
+Pode obter as informações necessárias para este cmdlet a partir de **gerir chaves** página no portal do Azure.  Abra esta página selecionando o **chaves** opção do **definições** página na sua conta de automatização.
 
 ![Descrição geral de trabalho de Runbook híbrida](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** é o nome do grupo de trabalho de Runbook híbrida. Se este grupo já existe na conta de automatização, o computador atual é adicionado ao mesmo.  Se ainda não existir, em seguida, é adicionado.
-* **Ponto final** é o **URL** campo no **gerir chaves** painel.
-* **Token** é o **chave de acesso primária** no **gerir chaves** painel.  
+* **Ponto final** é o **URL** campo no **gerir chaves** página.
+* **Token** é o **chave de acesso primária** no **gerir chaves** página.  
 
 Utilize o **-Verbose** mudar com **Add-HybridRunbookWorker** receber informações detalhadas sobre a instalação.
 
@@ -143,12 +143,12 @@ O Runbook Worker híbrido depende do Microsoft Monitoring Agent para comunicar c
 3. O serviço Microsoft Monitoring Agent não está em execução.  
     Se o serviço Windows do Microsoft Monitoring Agent não está em execução, isto impede o Runbook Worker híbrido comunicar com a automatização do Azure.  Certifique-se de que o agente está em execução, introduzindo o seguinte comando do PowerShell: `get-service healthservice`.  Se o serviço for parado, introduza o seguinte comando do PowerShell para iniciar o serviço: `start-service healthservice`.  
 
-4. No **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos, para ver eventos 4502 e EventMessage contendo **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**com a descrição seguinte: *o certificado apresentado pelo serviço <wsid>. oms.opinsights.azure.com não foi emitido por uma autoridade de certificação utilizada para os serviços Microsoft. Contacte o administrador de rede para ver se estiverem a executar um proxy que intercepte a comunicação TLS/SSL. O artigo KB3126513 tem informações adicionais de resolução de problemas para problemas de conectividade.*
-    Isto pode dever-se a comunicação de blockking de firewall de proxy ou de rede ao Microsoft Azure.  Certifique-se de que o computador tem acesso de saída para *.azure automation.net nas portas 443.
+4. No **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos, para ver eventos 4502 e EventMessage contendo **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**com a descrição seguinte: *o certificado apresentado pelo serviço \<wsid\>. oms.opinsights.azure.com não foi emitido por uma autoridade de certificação utilizada para os serviços Microsoft. Contacte o administrador de rede para ver se estiverem a executar um proxy que intercepte a comunicação TLS/SSL. O artigo KB3126513 tem informações adicionais de resolução de problemas para problemas de conectividade.*
+    Isto pode dever-se a firewall, proxy ou de rede, bloquear a comunicação com o Microsoft Azure.  Certifique-se de que o computador tem acesso de saída para *.azure automation.net nas portas 443.
 
 Os registos são armazenados localmente em cada função de trabalho híbrida no C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Pode verificar se existem quaisquer avisos ou eventos de erro escritos para o **aplicações e serviços Logs\Microsoft-SMA\Operations** e **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos deverá indicar uma conectividade ou outro problema que afetam a integração de função da automatização do Azure ou o problema ao efetuar operações normais.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Reveja [executar runbooks num Runbook Worker híbrido](automation-hrw-run-runbooks.md) para saber como configurar os runbooks para automatizar processos no seu centro de dados no local ou outro ambiente de nuvem.
 * Para obter instruções sobre como remover os Runbook Workers híbridos, consulte [remover Azure automatização de Runbook híbridos](automation-remove-hrw.md)

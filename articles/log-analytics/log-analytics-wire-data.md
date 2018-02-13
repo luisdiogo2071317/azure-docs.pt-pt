@@ -3,7 +3,7 @@ title: "Ligar a solução de dados no Log Analytics | Microsoft Docs"
 description: "Durante a transmissão de dados são consolidados dados de rede e o desempenho dos computadores com agentes do OMS, incluindo do Operations Manager e agentes Windows ligados. Dados de rede são combinados com os seus dados de registo para o ajudar a correlacionar dados."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: magoedte;banders
-ms.openlocfilehash: 2ce9491f7c16baa7805bdb35defc57645b73d18f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Durante a transmissão 2.0 de dados (pré-visualização) solução na análise de registos
 
@@ -115,7 +115,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| **Versão do SO** | **Versão de kernel** |
+| Versão do SO | Versão de kernel |
 | --- | --- |
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -124,7 +124,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| **Versão do SO** | **Versão de kernel** |
+| Versão do SO | Versão de kernel |
 | --- | --- |
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -138,7 +138,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 
-| **Versão do SO** | **Versão de kernel** |
+| Versão do SO | Versão de kernel |
 | --- | --- |
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -149,7 +149,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 
-| **Versão do SO** | **Versão de kernel** |
+| Versão do SO | Versão de kernel |
 | --- | --- |
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -159,7 +159,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| **Versão do SO** | **Versão de kernel** |
+| Versão do SO | Versão de kernel |
 | --- | --- |
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -170,7 +170,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 
-| **Versão do SO** | **Versão de kernel** |
+| Versão do SO | Versão de kernel |
 | --- | --- |
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -180,7 +180,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
 
-| **Versão do SO** | **Versão de kernel** |
+| Versão do SO | Versão de kernel |
 | --- | --- |
 | 10 SP4 | 2.6.16.60 |
 
@@ -209,7 +209,7 @@ O agente de dependência é instalado em computadores com o Windows através do 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador com o Windows:
 
 1. Instalar o agente do OMS seguir os passos em [recolher dados de computadores com o Windows alojados no seu ambiente](log-analytics-windows-agent.md).
-2. Transferir o agente de dependência do Windows através da ligação na secção anterior e, em seguida, execute-o utilizando o seguinte comando:`InstallDependencyAgent-Windows.exe`
+2. Transferir o agente de dependência do Windows através da ligação na secção anterior e, em seguida, execute-o utilizando o seguinte comando: `InstallDependencyAgent-Windows.exe`
 3. Siga o Assistente para instalar o agente.
 4. Se o agente de dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Para agentes do Windows, o diretório de registo é %Programfiles%\Microsoft Agent\logs de dependência.
 
@@ -252,7 +252,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Os ficheiros para o agente de dependência são colocados nas seguintes diretórios:
 
-| **Ficheiros** | **Localização** |
+| Ficheiros | **Localização** |
 | --- | --- |
 | Ficheiros de núcleo | /opt/microsoft/dependency-agent |
 | Ficheiros de registo | /var/opt/microsoft/dependency-agent/log |
@@ -364,7 +364,7 @@ O pacote de gestão é denominado Microsoft.IntelligencePacks.ApplicationDepende
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
-**Instalar e configurar a solução**
+Instalar e configurar a solução
 
 Utilize as seguintes informações para instalar e configurar a solução.
 

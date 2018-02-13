@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 67456fa865a7bc1057194d577cd79ce6378a7ac9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>A obtenção de multi-factor Authentication do Azure
 
@@ -38,7 +38,7 @@ A tabela seguinte descreve as diferenças entre três versões da multi-factor a
 | Versão | Descrição |
 | --- | --- |
 | Multi-Factor Authentication para Office 365 |Esta versão funciona exclusivamente com aplicações do Office 365 e é gerida a partir do portal do Office 365. Os administradores podem [proteger recursos do Office 365 com verificação de dois passos](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Esta versão faz parte de uma subscrição do Office 365. |
-| Autenticação Multifator para os administradores do AD do Azure | Utilizadores atribuídos a função de Administrador Global em inquilinos do Azure AD podem ativar a verificação de dois passos para as contas de administrador global do Azure AD sem custos adicionais.|
+| Autenticação Multifator para os administradores do AD do Azure | Utilizadores atribuídos a função de Administrador Global em inquilinos do Azure AD podem ativar a verificação de dois passos para as contas de Administrador Global do AD do Azure sem custos adicionais.|
 | Multi-Factor Authentication do Azure | Muitas vezes, referida como a versão "completa", o multi-factor Authentication do Azure oferece o conjunto de capacidades richest. Fornece opções de configuração adicionais através do [portal do Azure](https://portal.azure.com), avançadas de relatórios e suporte para um intervalo de no local e as aplicações em nuvem. Multi-factor Authentication do Azure está incluído no [planos do Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e [Enterprise Mobility + planos de segurança](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)e pode ser implementado ou na nuvem ou no local. |
 
 ## <a name="feature-comparison-of-versions"></a>Comparação de funcionalidades das versões
@@ -67,6 +67,9 @@ A tabela seguinte fornece uma lista das funcionalidades que estão disponíveis 
 | Memorizar MFA para dispositivos fidedignos |● |● |● |
 | SDK de MFA | | |● (preterido) | 
 | MFA para aplicações no local | | |● |
+
+## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Como ativar o Azure multi-factor Authentication para os administradores do AD do Azure
+Utilizadores atribuídos a função de Administrador Global em inquilinos do Azure AD podem ativar a verificação de dois passos para as contas de Administrador Global do AD do Azure sem custos adicionais. Se estiver a utilizar uma Account Microsoft, pode registar-se para a autenticação multifator [aqui](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Se não estiver a utilizar uma Account Microsoft, ativar o multi-factor authentication para administradores globais [aqui](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>A obtenção de multi-factor Authentication do Azure
 Se gostaria que todas as funcionalidades oferecidas pelo Azure multi-factor Authentication, existem várias opções:
