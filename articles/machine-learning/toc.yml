@@ -1,8 +1,6 @@
-- name: Funcionalidades de pré-visualização do Machine Learning
+- name: Serviços do Azure Machine Learning (pré-visualização)
   href: preview/index.yml
-- name: Machine Learning Studio
-  href: studio/index.md
+- name: Azure Machine Learning Studio
+  href: studio/index.yml
 - name: Máquina Virtual de Ciência de Dados
-  href: data-science-virtual-machine/overview.md
-- name: Processo de Ciência de Dados de Equipa
-  href: team-data-science-process/overview.md
+  href: data-science-virtual-machine/index.yml

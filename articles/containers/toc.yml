@@ -51,12 +51,12 @@
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
         - name: Procedimento
           items:
-            - name: Criar anfitrião do Docker
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension'
-            - name: Utilizar o Docker Machine
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine'
-            - name: Utilizar o Docker Compose
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart'
+            - name: Criar uma aplicação contentora no Windows
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Criar uma aplicação contentora no Linux
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: Colocar uma aplicação .NET existente num contentor
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
     - name: Contentores do Windows
       href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
       items:

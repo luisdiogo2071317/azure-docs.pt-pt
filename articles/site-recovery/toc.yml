@@ -54,35 +54,37 @@
         - name: Migrar instâncias do AWS para o Azure
           href: tutorial-migrate-aws-to-azure.md
         - name: Migrar VMs do Azure para outra região
-          href: tutorial-migrate-azure-to-azure.md
+          href: azure-to-azure-tutorial-migrate.md
 - name: Conceitos
   items:
-    - name: Arquitetura de Azure para o Azure
-      href: concepts-azure-to-azure-architecture.md
-    - name: Arquitetura de VMware para o Azure
-      href: concepts-vmware-to-azure-architecture.md
-    - name: Arquitetura de Hyper-V para o Azure
-      href: concepts-hyper-v-to-azure-architecture.md
-    - name: Arquitetura de replicação física para o Azure
-      href: concepts-physical-to-azure-architecture.md
-    - name: Arquitetura de Hyper-V para site secundário
-      href: concepts-hyper-v-to-secondary-architecture.md
-    - name: Matriz de suporte do Azure para o Azure
-      href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Matriz de suporte do Azure para o VMware
-      href: support-matrix-vmware-to-azure.md
-    - name: Matriz de suporte do Hyper-V para o Azure
-      href: support-matrix-hyper-v-to-azure.md
-    - name: Matriz de suporte do local para o Azure
-      href: site-recovery-support-matrix-to-azure.md
-    - name: Matriz de suporte de local para site secundário
-      href: site-recovery-support-matrix-to-sec-site.md
-    - name: Tipos de reativação pós-falha
-      href: concepts-types-of-failback.md
-    - name: Recuperação após desastre para cargas de trabalho
-      href: site-recovery-workload.md
-    - name: Migração para o Azure
-      href: site-recovery-migrate-to-azure.md
+    - name: Arquitetura
+      items:
+        - name: Arquitetura de Azure para o Azure
+          href: azure-to-azure-architecture.md
+        - name: Arquitetura de VMware para o Azure
+          href: concepts-vmware-to-azure-architecture.md
+        - name: Arquitetura de Hyper-V para o Azure
+          href: concepts-hyper-v-to-azure-architecture.md
+        - name: Arquitetura de replicação física para o Azure
+          href: concepts-physical-to-azure-architecture.md
+        - name: Arquitetura de Hyper-V para site secundário
+          href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Matriz de requisitos de suporte
+      items:
+        - name: Matriz de suporte do Azure para o Azure
+          href: azure-to-azure-support-matrix.md
+        - name: Matriz de suporte do Azure para o VMware
+          href: support-matrix-vmware-to-azure.md
+        - name: Matriz de suporte do Hyper-V para o Azure
+          href: support-matrix-hyper-v-to-azure.md
+        - name: Matriz de suporte do local para o Azure
+          href: site-recovery-support-matrix-to-azure.md
+        - name: Matriz de suporte de local para site secundário
+          href: site-recovery-support-matrix-to-sec-site.md
+        - name: Recuperação após desastre para cargas de trabalho
+          href: site-recovery-workload.md
+        - name: Migração para o Azure
+          href: site-recovery-migrate-to-azure.md
     - name: Permissões do acesso baseado em funções
       href: site-recovery-role-based-linked-access-control.md
     - name: FAQ
@@ -92,9 +94,9 @@
     - name: Redes
       items:
         - name: Configurar o funcionamento em rede para a recuperação de desastres da VM do Azure (pré-visualização)
-          href: site-recovery-azure-to-azure-networking-guidance.md
+          href: azure-to-azure-about-networking.md
         - name: Configurar o mapeamento de rede para a recuperação de desastres da VM do Azure (pré-visualização)
-          href: site-recovery-network-mapping-azure-to-azure.md
+          href: azure-to-azure-network-mapping.md
         - name: Manter o IP para a recuperação após desastre da VM do Azure (pré-visualização)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Preparar o mapeamento de rede para replicação da VM de Hyper-V para o Azure
@@ -108,7 +110,7 @@
     - name: Recuperação após desastre
       items:
         - name: Recuperação após desastre de VMs do Azure após a migração para o Azure
-          href: site-recovery-azure-to-azure-after-migration.md
+          href: azure-to-azure-replicate-after-migration.md
         - name: Recuperação após desastre de servidores físicos para o Azure
           href: tutorial-physical-to-azure.md
         - name: Replicar VMs Hyper-V para um site secundário
@@ -142,7 +144,7 @@
         - name: Voltar a proteger máquinas após a ativação pós-falha
           items:
             - name: Voltar a proteger de uma região secundária do Azure para uma principal
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
+              href: azure-to-azure-how-to-reprotect.md
             - name: Voltar a proteger do Azure para o local
               href: site-recovery-how-to-reprotect.md
         - name: Reativação pós-falha a partir do Azure
@@ -153,6 +155,12 @@
               href: site-recovery-failback-from-azure-to-hyper-v.md
         - name: Configurar um servidor de destino principal do Linux para reativação pós-falha
           href: site-recovery-how-to-install-linux-master-target.md
+    - name: Migrar
+      items:
+        - name: Acerca da migração
+          href: site-recovery-migrate-to-azure.md
+        - name: Replicar VMs do Azure após a migração para outra região
+          href: azure-to-azure-replicate-after-migration.md
     - name: Capacidade e dimensionamento
       items:
         - name: Planeamento de capacidade para replicação de VMware para o Azure
@@ -210,7 +218,7 @@
         - name: Ativar a replicação
           items:
             - name: Ativar a replicação do Azure para o Azure
-              href: site-recovery-replicate-azure-to-azure.md
+              href: azure-to-azure-how-to-enable-replication.md
             - name: Ativar a replicação do VMware para o Azure
               href: site-recovery-replicate-vmware-to-azure.md
         - name: Implementar o serviço de Mobilidade para o VMware
@@ -272,7 +280,7 @@
     - name: Monitorizar e Resolver problemas
       items:
         - name: Problemas da replicação do Azure para o Azure
-          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+          href: azure-to-azure-troubleshoot-errors.md
         - name: Problemas de replicação do local para o Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
         - name: Problemas do Serviço de Mobilidade
