@@ -3,7 +3,7 @@ title: "Solução de monitorização do contentor no Log Analytics do Azure | Mi
 description: "A solução de monitorização do contentor de mensagens em fila na análise de registos ajuda-o a ver e gerir os seus Docker e o Windows anfitriões contentor numa única localização."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -356,7 +356,7 @@ Pode optar por criar omsagent DaemonSets com ou sem segredos.
         KEY:    88 bytes
         ```
 
-    5. Criar a sua omsagent daemon-set executando``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Criar a sua omsagent daemon-set executando ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
 
 2. Certifique-se de que o DaemonSet de agente do OMS está em execução, semelhante ao seguinte:
 
@@ -400,10 +400,10 @@ Para Windows Kubernetes, utilizar um script para gerar o ficheiro de yaml segred
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Criar a sua omsagent daemon-set executando``` kubectl create -f omsagentsecret.yaml ```
+    3. Criar a sua omsagent daemon-set executando ``` kubectl create -f omsagentsecret.yaml ```
     4. Para verificar, execute o seguinte:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,16 +418,16 @@ Para Windows Kubernetes, utilizar um script para gerar o ficheiro de yaml segred
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
-    5. Criar a sua omsagent daemon-set executando```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Criar a sua omsagent daemon-set executando ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Certifique-se de que o DaemonSet de agente do OMS está em execução, semelhante ao seguinte:
 
@@ -437,12 +437,12 @@ Para Windows Kubernetes, utilizar um script para gerar o ficheiro de yaml segred
     omsagent   1         1         <none>          1h
     ```
 
-3. Para instalar o agente no nó de trabalho, que estão a executar o Windows, siga os passos na secção [instalar e configurar os anfitriões de contentor do Windows](#install-and-configure-windows-container-hosts). 
+3. Para instalar o agente no nó de trabalho, que estão a executar o Windows, siga os passos na secção [instalar e configurar os anfitriões de contentor do Windows](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Utilizar Helm para implementar o agente do OMS no Linux Kubernetes 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Utilizar Helm para implementar o agente do OMS no Linux Kubernetes
 Para utilizar helm para implementar o agente do OMS no seu ambiente Linux Kubernetes, execute os seguintes passos.
 
-1. Criar a sua omsagent daemon-set executando```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Criar a sua omsagent daemon-set executando ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. Os resultados terá um aspeto semelhantes ao seguinte:
 
     ```
@@ -607,7 +607,7 @@ Análise de registos marca um contentor como **falha** se saiu com um código de
    ![Estado de contentores](./media/log-analytics-containers/containers-log-search.png)
 3. Em seguida, clique no valor de agregados de contentores com falhas para ver informações adicionais. Expanda **mostrar mais** para ver o ID de imagem.  
    ![Falha de contentores](./media/log-analytics-containers/containers-state-failed.png)  
-4. Em seguida, escreva o seguinte na consulta de pesquisa. `Type=ContainerInventory <ImageID>`Para ver detalhes sobre a imagem, tais como o tamanho da imagem e o número de imagens parados e falha.  
+4. Em seguida, escreva o seguinte na consulta de pesquisa. `Type=ContainerInventory <ImageID>` Para ver detalhes sobre a imagem, tais como o tamanho da imagem e o número de imagens parados e falha.  
    ![Falha de contentores](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Registos de pesquisa para dados de contentor
@@ -625,7 +625,7 @@ Quando estiver a resolver problemas com um erro específico, pode ajudar a ver o
 
 
 ### <a name="to-search-logs-for-container-data"></a>Para procurar os registos de dados de contentor
-* Escolha uma imagem que sabe que falhou recentemente e localize os registos de erros para a mesma. Comece por localizar um nome de contentor que está a executar essa imagem com um **ContainerInventory** pesquisa. Por exemplo, procure`Type=ContainerInventory ubuntu Failed`  
+* Escolha uma imagem que sabe que falhou recentemente e localize os registos de erros para a mesma. Comece por localizar um nome de contentor que está a executar essa imagem com um **ContainerInventory** pesquisa. Por exemplo, procure `Type=ContainerInventory ubuntu Failed`  
     ![Procurar contentores Ubuntu](./media/log-analytics-containers/search-ubuntu.png)
 
   O nome do contentor junto a **nome**e procure esses registos. Neste exemplo, é `Type=ContainerLog cranky_stonebreaker`.

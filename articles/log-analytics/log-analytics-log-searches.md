@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Localizar dados através de pesquisas de registo na análise de registos
 
@@ -39,7 +39,7 @@ Vamos começar com exemplos simples, práticos e, em seguida, criar nos mesmos, 
 Depois de já familiarizado com as técnicas de pesquisa, pode rever o [referência de pesquisa de registo de análise de registos](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Utilizar filtros básicos
-A primeira coisa saber é que a primeira parte de uma procura consultar, antes de qualquer "|" caráter de barra vertical, é sempre um *filtro*. Pode considerá-la como uma cláusula WHERE na TSQL - determina *que* subconjunto de dados para solicitar fora de iniciar a área de trabalho de análise. Procurar no arquivo de dados é amplamente sobre Especifica as características dos dados que pretende extrair, pelo que é natural que uma consulta seria começar a utilizar a cláusula WHERE.
+A primeira coisa saber é que a primeira parte de uma procura consultar, antes de qualquer "|" caráter de barra vertical, é sempre um *filtro*. Pode considerá-la como uma cláusula WHERE na TSQL - determina *que* subconjunto de dados para fora da área de trabalho de análise de registos. Procurar no arquivo de dados é amplamente sobre Especifica as características dos dados que pretende extrair, pelo que é natural que uma consulta seria começar a utilizar a cláusula WHERE.
 
 Os filtros mais básicos, pode utilizar são *palavras-chave*, tais como 'error' ou 'timeout' ou um nome de computador. Estes tipos de consulta simple, geralmente, devolvem diversas formas de dados dentro do mesmo conjunto de resultados. Isto acontece porque a análise de registos tem diferentes *tipos* dos dados no sistema.
 
@@ -49,7 +49,7 @@ Os filtros mais básicos, pode utilizar são *palavras-chave*, tais como 'error'
 2. No campo de consulta, escreva `error` e, em seguida, clique em **pesquisa**.  
     ![Erro de pesquisa](./media/log-analytics-log-searches/oms-search-error.png)  
     Por exemplo, a consulta para `error` na imagem seguinte devolvido 100 000 **eventos** (recolhidos pelo registo Management), os registos 18 **ConfigurationAlert** registos (gerados pela configuração Avaliação) e 12 **ConfigurationChange** registos (capturados pelo controlo de alterações).   
-    ![resultados da pesquisa](./media/log-analytics-log-searches/oms-search-results01.png)  
+    ![Resultados da pesquisa](./media/log-analytics-log-searches/oms-search-results01.png)  
 
 Estes filtros não são realmente tipos/classes de objetos. *Tipo* é apenas uma etiqueta, ou uma propriedade ou uma cadeia/nome/categoria, que está ligada a um conjunto de dados. Alguns documentos no sistema são etiquetados como **tipo: ConfigurationAlert** e alguns são etiquetados como **tipo: desempenho**, ou **tipo: evento**, e assim sucessivamente. Cada resultado da pesquisa, o documento, o registo ou a entrada apresenta todas as propriedades não processadas e os respetivos valores para cada um dessas peças de dados e pode utilizar esses nomes de campo para especificar no filtro quando pretender obter apenas os registos em que o campo tem que deu um valor.
 
@@ -62,13 +62,13 @@ Se Sim, o tipo de = desempenho registos tem um campo chamado 'CounterName', em s
 Isto irá dar-lhe apenas os dados de desempenho em que o nome do contador de desempenho é "% de tempo do processador".
 
 ### <a name="to-search-for-processor-time-performance-data"></a>Para procurar dados de desempenho de tempo do processador
-* No campo de consulta de pesquisa, escreva`Type=Perf CounterName="% Processor Time"`
+* No campo de consulta de pesquisa, escreva `Type=Perf CounterName="% Processor Time"`
 
 Também pode ser mais específicos e utilizar **InstanceName = _ 'Total'** da consulta, que é um contador de desempenho do Windows. Também pode selecionar um aspeto e outra **: valor de campo**. O filtro é adicionado automaticamente ao seu filtro na barra de consulta. Pode ver este na imagem seguinte. Mostra onde pode clicar para adicionar **InstanceName: Total'** para a consulta sem escrever qualquer coisa.
 
 ![aspeto de pesquisa](./media/log-analytics-log-searches/oms-search-facet.png)
 
-A consulta agora fica`Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
+A consulta agora fica `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 Neste exemplo, não terá de especificar **tipo = desempenho** para obter o resultado deste. Porque os campos CounterName e InstanceName só existem para registos do tipo = desempenho, a consulta é específica o suficiente para devolver os mesmos resultados que o tempo, anterior:
 
@@ -82,7 +82,7 @@ Por exemplo, a consulta `Type=Event EventLog="Windows PowerShell"` é idêntico 
 
 Pode facilmente Inverte o operador AND implícito através da utilização de um operador não explicitamente. Por exemplo:
 
-`Type:Event NOT(EventLog:"Windows PowerShell")`ou equivalente `Type=Event EventLog!="Windows PowerShell"` devolver todos os eventos a partir de todos os registos que não sejam o registo do Windows PowerShell.
+`Type:Event NOT(EventLog:"Windows PowerShell")` ou equivalente `Type=Event EventLog!="Windows PowerShell"` devolver todos os eventos a partir de todos os registos que não sejam o registo do Windows PowerShell.
 
 Em alternativa, pode utilizar outro operador booleano como 'Ou'. A seguinte consulta devolve registos para o qual o registo de eventos é um sistema ou da aplicação.
 
@@ -168,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>A procura utilizando um operador booleano
-* No campo de consulta de pesquisa, escreva`EventLog=System TimeGenerated>NOW-24HOURS`  
+* No campo de consulta de pesquisa, escreva `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![Procurar com booleano](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Embora pode controlar o intervalo de tempo graficamente e a maioria das vezes, poderá querer fazê-lo, existem vantagens em incluindo um filtro de tempo diretamente para a consulta. Por exemplo, isto funciona great com dashboards onde pode substituir o tempo para cada mosaico, independentemente do *global* Seletor de tempo na página do dashboard. Para obter mais informações, consulte [é importante de tempo no Dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -254,7 +254,7 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>A procura utilizando superior
-* No campo de consulta de pesquisa, escreva`Type=Event EventID=600 | Top 1`   
+* No campo de consulta de pesquisa, escreva `Type=Event EventID=600 | Top 1`   
     ![parte superior de pesquisa](./media/log-analytics-log-searches/oms-search-top.png)
 
 A imagem acima, existem registos de 358 thousand com EventID = 600. Os campos, facetas e os filtros à esquerda sempre apresentam informações sobre os resultados devolvidos *por parte do filtro* da consulta, que é a parte antes de qualquer caráter de pipe. O **resultados** painel só devolve o 1 resultado mais recente, porque o comando de exemplo em forma e transformados os resultados.
@@ -309,7 +309,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>A procura utilizando a medida de contagem
-* No campo de consulta de pesquisa, escreva`Type=Event | Measure count() by EventID`
+* No campo de consulta de pesquisa, escreva `Type=Event | Measure count() by EventID`
 * Acrescentar `| Select EventID` ao fim da consulta.
 * Por fim, acrescentar `| Sort EventID asc` ao fim da consulta.
 

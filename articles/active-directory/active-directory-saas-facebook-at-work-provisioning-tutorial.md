@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2fc2b07189994206c8465ed24374489eefd45966
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar à área de trabalho ao Facebook para aprovisionamento de utilizadores automática
 
 Este tutorial mostra-lhe os passos necessários para automaticamente as contas de utilizador aprovisionar e aprovisionar desativação do Azure Active Directory (Azure AD) à área de trabalho por Facebook.
+
+>[!NOTE]
+>Este tutorial descreve um conector desenvolvido com o serviço de fornecimento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como funciona e perguntas mais frequentes, consulte [automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

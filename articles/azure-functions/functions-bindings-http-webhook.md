@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -387,7 +387,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 | **direction** | n/d| Necessário - tem de ser definido como `in`. |
 | **name** | n/d| Necessário - o nome da variável utilizado no código de função para o corpo do pedido ou o pedido. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina o chaves, se existirem, precisam de estar presente no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave de API.</li><li><code>function</code>&mdash;É necessária uma chave de API de específicas. Este é o valor predefinido se não for fornecido nenhum.</li><li><code>admin</code>&mdash;Não é necessária a chave mestra.</li></ul> Para obter mais informações, consulte a secção [chaves de autorização](#authorization-keys). |
-| **métodos** |**Métodos** | Uma matriz dos métodos HTTP para os quais a função responde. Se não for especificado, a função de responde a todos os métodos HTTP. Consulte [personalizar o ponto final de http](#trigger---customize-the-http-endpoint). |
+| **Métodos** |**Métodos** | Uma matriz dos métodos HTTP para os quais a função responde. Se não for especificado, a função de responde a todos os métodos HTTP. Consulte [personalizar o ponto final de http](#trigger---customize-the-http-endpoint). |
 | **route** | **Rota** | Define o modelo de rota, controlar ao qual pedido URLs responde a sua função. O valor predefinido se não for fornecido nenhum é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto final de http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configura o acionador HTTP para atuar como um [webhook](https://en.wikipedia.org/wiki/Webhook) recetor para o fornecedor especificado. Não defina a `methods` propriedade se definir esta propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final de webhook para fins gerais sem lógica para um fornecedor específico. Esta definição limita os pedidos para apenas os utilizando o HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [GitHub webhooks](https://developer.github.com/webhooks/). Não utilize o _authLevel_ propriedade com o GitHub webhooks. Para obter mais informações, consulte a secção de webhooks GitHub neste artigo.</li><li><code>slack</code>&mdash;A função responde a [Slack webhooks](https://api.slack.com/outgoing-webhooks). Não utilize o _authLevel_ propriedade com Slack webhooks. Para obter mais informações, consulte a secção de Slack webhooks neste artigo.</li></ul>|
 
@@ -493,6 +493,9 @@ Por predefinição, todas as rotas de função são adicionado o prefixo *api*. 
 ### <a name="authorization-keys"></a>Chaves de autorização
 
 Acionadores HTTP permitem-lhe utilizar as chaves para segurança adicional. Um acionador HTTP padrão pode utilizá-las como uma chave de API, que requerem a chave de estar presente no pedido. Webhooks pode utilizar as chaves para autorizar os pedidos de diversas formas, consoante o fornecedor suporta.
+
+> [!NOTE]
+> Ao executar localmente as funções de, autorização está desativada no matter o `authLevel` definido `function.json`. Assim que a publicar para as funções do Azure, o `authLevel` entra imediatamente em vigor.
 
 As chaves são armazenadas como parte da sua aplicação de função no Azure e são encriptadas em pausa. Para ver as suas chaves, criar novos, ou reverta as chaves para novos valores, navegue para uma das suas funções no portal e selecione "Gerir". 
 

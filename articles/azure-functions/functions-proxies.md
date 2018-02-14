@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -50,13 +50,13 @@ Com os Proxies de funções do Azure, pode modificar pedidos e respostas de back
 
 Por predefinição, o pedido de back-end é inicializado como uma cópia do pedido original. Além de definir o URL de back-end, pode efetuar alterações para o método HTTP, cabeçalhos e os parâmetros de cadeia de consulta. Os valores modificados podem referenciar [definições da aplicação] e [parâmetros do pedido de cliente original].
 
-Atualmente, não há nenhum experiência do portal para modificar pedidos de back-end. Para saber como aplicar esta capacidade de *proxies.json*, consulte [definir um objeto de requestOverrides].
+Pedidos de back-end podem ser modificados no portal por expading o *pedido substituição* secção da página de detalhes do proxy. 
 
 ### <a name="modify-response"></a>Modificar a resposta
 
 Por predefinição, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Pode efetuar alterações ao código de estado de resposta, frase de razão, cabeçalhos e corpo. Os valores modificados podem referenciar [definições da aplicação], [parâmetros do pedido de cliente original], e [parâmetros da resposta de back-end].
 
-Atualmente, não há nenhum experiência do portal para modificar as respostas. Para saber como aplicar esta capacidade de *proxies.json*, consulte [definir um objeto de responseOverrides].
+Pedidos de back-end podem ser modificados no portal por expading o *substituição de resposta* secção da página de detalhes do proxy. 
 
 ## <a name="using-variables"></a>Utilizar variáveis
 
@@ -65,7 +65,11 @@ A configuração para um proxy não precisa de ser estático. Pode condição-a 
 ### <a name="reference-localhost"></a>Funções de locais de referência
 Pode utilizar `localhost` para fazer referência a uma função dentro da mesma aplicação de função diretamente, sem um pedido de proxy de ida e volta.
 
-`"backendurl": "localhost/api/httptriggerC#1"`fará referência uma função HTTP acionada local na rota`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` fará referência uma função HTTP acionada local na rota `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>Se utilizar a sua função *função, o administrador ou sys* níveis de autorização, terá de fornecer o código e o clientId, de acordo com o URL de função original. Neste caso a referência deverá ter o seguinte aspeto: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Parâmetros do pedido de referência
 
@@ -114,7 +118,7 @@ Desativar completamente os rastreios adicionando `"debug":false` para qualquer p
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
-Proxies que configurar estão armazenados num *proxies.json* ficheiro, que está localizado na raiz de um diretório de aplicação de função. Pode editar este ficheiro e implementá-lo como parte da sua aplicação quando utilizar qualquer um dos manualmente o [métodos de implementação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que suporta as funções. A funcionalidade de Proxies de funções do Azure tem de ser [ativada](#enable) para o ficheiro a ser processado. 
+Proxies que configurar estão armazenados num *proxies.json* ficheiro, que está localizado na raiz de um diretório de aplicação de função. Pode editar este ficheiro e implementá-lo como parte da sua aplicação quando utilizar qualquer um dos manualmente o [métodos de implementação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que suporta as funções. 
 
 > [!TIP] 
 > Se não configurou um dos métodos de implementação, pode também funcionar com o *proxies.json* ficheiro no portal. Aceda à sua aplicação de função, selecione **funcionalidades da plataforma**e, em seguida, selecione **Editor do serviço de aplicações**. Ao fazê-lo, pode ver a estrutura de ficheiro completo da sua aplicação de função e, em seguida, efetuar alterações.
@@ -229,16 +233,6 @@ Um exemplo de configuração pode ter o seguinte aspeto:
 ```
 > [!NOTE] 
 > Neste exemplo, o corpo da resposta é definido diretamente, por isso, não `backendUri` propriedade é necessária. O exemplo mostra como pode utilizar os Proxies de funções do Azure para mocking APIs.
-
-## <a name="enable"></a>Ativar as funções do Azure Proxies
-
-Proxies agora estão ativadas por predefinição! Se estava a utilizar uma versão antiga da pré-visualização de proxies e desativada proxies, terá de ativar manualmente proxies uma vez por ordem para proxies executar.
-
-1. Abra o [portal do Azure]e, em seguida, aceda a sua aplicação de função.
-2. Selecione **as definições de aplicação de função**.
-3. Comutador **ativar Proxies de funções do Azure (pré-visualização)** para **no**.
-
-Também pode regressar aqui para atualizar o tempo de execução do proxy à novas funcionalidades ficam disponíveis.
 
 [portal do Azure]: https://portal.azure.com
 [HTTP acionadores]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
