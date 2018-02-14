@@ -1,6 +1,6 @@
 ---
-title: "Descrição Geral das Funcionalidades da Base de Dados SQL do Azure | Microsoft Docs"
-description: "Esta página dispõe de uma descrição geral dos servidores lógicos e bases de dados de Base de Dados SQL do Azure, e inclui uma matriz de suporte da funcionalidade com ligações de cada funcionalidade listada."
+title: "Comparação de funcionalidades de base de dados SQL do Azure | Microsoft Docs"
+description: "Este artigo mostra as diferenças e compara as funcionalidades do SQL Server e SQL Database do Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: dc9a7fa0a7fa0e029f71510cc516496ed12a6274
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-sql-database-features"></a>Funcionalidades da Base de Dados SQL do Azure
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de funcionalidades: base de dados de SQL do Azure versus do SQL Server 
 
 Base de dados SQL do Azure partilha uma base de código comuns com o SQL Server e, ao nível da base de dados, suporta a maioria das mesmas funcionalidades. São as diferenças de funcionalidade principais entre SQL Database do Azure e SQL Server ao nível da instância. 
 
@@ -75,7 +75,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [Notificações de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Não - consulte [alertas](sql-database-insights-alerts-portal.md) |
 | [Expressions](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sim |
 | [Eventos expandidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Algumas - consulte [expandido eventos na base de dados SQL](sql-database-xevent-db-diff-from-svr.md) |
-| [Procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Não |
+| [procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Não |
 | [Ficheiros e grupos de ficheiros](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Grupo de ficheiros primário apenas |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não |
 | [Pesquisa em texto completo](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Breakers palavras de terceiros não são suportados |

@@ -3,7 +3,7 @@ title: "Solução de Monitor de desempenho no Log Analytics do Azure de rede | M
 description: Monitor de desempenho de rede no Log Analytics do Azure ajuda a monitorizar o desempenho das suas redes-in quase real-time-to detetar e localizar congestionamentos de desempenho de rede.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
-ms.author: banders
-ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 5fc2477e566fdea76294b62a738c0e18facbe629
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solução de Monitor de desempenho na análise de registos de rede
 
 ![Símbolo de Monitor de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
-Este documento descreve como configurar e utilizar a solução de Monitor de desempenho de rede na análise de registos, que ajuda a monitorizar o desempenho das suas redes-in quase real-time-to Deteta e localizar rede congestionamentos de desempenho. Com a solução de Monitor de desempenho de rede, pode monitorizar a perda e latência entre duas redes, servidores ou sub-redes. Monitor de desempenho de rede Deteta problemas de rede, como tráfego blackholing, encaminhamento erros e problemas que métodos de monitorização de rede convencional não são possível detetar. Monitor de desempenho de rede gera alertas e notifica como e quando um limiar é quebrado para uma ligação de rede. Estes limiares podem ser adquiridos automaticamente pelo sistema, ou pode configurar para utilizar as regras de alerta personalizadas. Monitor de desempenho de rede assegura uma deteção atempada do problemas de desempenho de rede e localizes a origem do problema para um segmento de rede específico ou o dispositivo.
+Este documento descreve como configurar e utilizar o Monitor de desempenho de rede solução de análise de registos, que ajuda a monitorizar o desempenho do seu redes-in quase real-time-to detetar e localizar congestionamentos de desempenho de rede. Com a solução de Monitor de desempenho de rede, pode monitorizar a perda e latência entre duas redes, servidores ou sub-redes. Monitor de desempenho de rede Deteta problemas de rede, como tráfego blackholing, encaminhamento erros e problemas que métodos de monitorização de rede convencional não são possível detetar. Monitor de desempenho de rede gera alertas e notifica como e quando um limiar é quebrado para uma ligação de rede. Estes limiares podem ser adquiridos automaticamente pelo sistema, ou pode configurar para utilizar as regras de alerta personalizadas. Monitor de desempenho de rede assegura uma deteção atempada do problemas de desempenho de rede e localizes a origem do problema para um segmento de rede específico ou o dispositivo.
 
-Pode detetar problemas de rede com o dashboard de solução que apresenta as informações resumidas sobre a sua rede, incluindo eventos de estado de funcionamento de rede recentes, ligações de rede mau estado de funcionamento e ligações de sub-rede que estão a enfrentar perda de pacotes elevado e a latência. Pode desagregar para uma ligação de rede para ver o estado de funcionamento atual de ligações de sub-rede, bem como ligações de nó de nó. Também pode ver a tendência histórica de perda e latência de rede, a sub-rede e o nível de nó de nó. Pode detetar problemas de rede transitórios visualizando gráficos de tendências históricas para a perda de pacotes e a latência e localizar congestionamentos de rede num mapa de topologia. O gráfico de topologia interativa permite-lhe visualizar as rotas de rede de salto-por-hop e determinar a origem do problema. Como outras soluções, pode utilizar o registo de pesquisa para vários requisitos de análise para criar relatórios personalizados baseados nos dados recolhidos pelo Monitor de desempenho de rede.
+Pode detetar problemas de rede com o dashboard de solução. Apresenta as informações resumidas sobre a sua rede, incluindo eventos de estado de funcionamento de rede recentes, ligações de rede mau estado de funcionamento e ligações de sub-rede que estão a enfrentar perda de pacotes elevado e a latência. Pode desagregar para uma ligação de rede para ver o estado de funcionamento atual de ligações de sub-rede, bem como ligações de nó de nó. Também pode ver a tendência histórica de perda e latência de rede, a sub-rede e o nível de nó de nó. Pode detetar problemas de rede transitórios visualizando gráficos de tendências históricas para a perda de pacotes e a latência e localizar congestionamentos de rede num mapa de topologia. O gráfico de topologia interativa permite-lhe visualizar as rotas de rede de salto-por-hop e determinar a origem do problema. Como outras soluções, pode utilizar o registo de pesquisa para vários requisitos de análise para criar relatórios personalizados baseados nos dados recolhidos pelo Monitor de desempenho de rede.
 
 A solução utiliza transações sintéticas como um mecanismo de principal para detetar falhas de rede. Por isso, pode utilizá-la sem regard de fabricante ou modelo de um dispositivo de rede específico. Funciona em ambientes híbridos, em nuvem (IaaS) e no local. A solução Deteta automaticamente a topologia de rede e várias rotas na sua rede.
 
@@ -36,7 +36,7 @@ Produtos de monitorização de rede típica focar-se sobre como monitorizar o es
 Se pretender monitorizar a qualidade de ligações de rede entre as respetivas cargas de trabalho críticas, redes, centros de dados ou sites do office, em seguida, pode utilizar a solução de Monitor de desempenho de rede por si só para monitorizar o estado de funcionamento da conetividade entre:
 
 * vários sites de centros de dados ou do office que são ligados através de uma rede pública ou privada
-* cargas de trabalho críticas que estejam a executar aplicações empresariais de linha de
+* cargas de trabalho críticas que executam as aplicações de linha de negócio
 * Serviços de nuvem pública como o Microsoft Azure ou Amazon Web Services (AWS) e redes no local, se tiver IaaS (VM) disponível e se tiver gateways configurados para permitir a comunicação entre redes no local e redes em nuvem
 * Redes do Azure e no local ao utilizar o Expressroute
 
@@ -49,7 +49,7 @@ Além disso, se já investir em outra ferramentas de monitorização de rede, em
 Utilize os processos de básico para instalar agentes em [computadores Windows ligar ao Log Analytics](log-analytics-windows-agent.md) e [estabelecer a ligação do Operations Manager ao Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
-> Terá de instalar pelo menos 2 agentes para tem dados suficientes para detetar e monitorizar os recursos de rede. Caso contrário, a solução irá permanecer num Estado de configuração depois de instalar e configurar agentes adicionais.
+> Terá de instalar pelo menos 2 agentes para tem dados suficientes para detetar e monitorizar os recursos de rede. Caso contrário, a solução permanece no estado de configuração depois de instalar e configurar agentes adicionais.
 >
 >
 
@@ -60,7 +60,7 @@ Se não souber sobre a topologia da sua rede, instale os agentes em servidores c
 
 Os agentes monitorizam a conectividade de rede (ligações) entre anfitriões – não os anfitriões próprios. Por isso, para monitorizar uma ligação de rede, tem de instalar os agentes em ambos os pontos finais dessa ligação.
 
-### <a name="configure-agents"></a>Configurar os agentes
+### <a name="configure-agents"></a>Configurar agentes
 
 Se pretender utilizar o protocolo ICMP para transações sintéticas, terá de ativar as seguintes regras de firewall para a utilização de forma fiável ICMP:
 
@@ -74,7 +74,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 ```
 
 
-Se pretender utilizar o protocolo TCP, que é necessário abrir as portas de firewall para os computadores para se certificar de que os agentes podem comunicar. Terá de transferir e, em seguida, execute o [script do EnableRules.ps1 PowerShell](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) sem quaisquer parâmetros numa janela do PowerShell com privilégios administrativos.
+Se pretender utilizar o protocolo TCP, terá de abrir portas de firewall para os computadores para se certificar de que os agentes podem comunicar. Transferir e, em seguida, execute o [script do EnableRules.ps1 PowerShell](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) sem quaisquer parâmetros numa janela do PowerShell com privilégios administrativos.
 
 O script cria as chaves de registo necessárias para o Monitor de desempenho de rede e cria as regras de firewall do Windows para permitir que os agentes para criar ligações TCP entre si. As chaves de registo criadas pelo script também especificar se pretende registar os registos de depuração e o caminho para o ficheiro de registos. Também define a porta TCP de agente utilizada para comunicação. Os valores para estas chaves são configurados automaticamente pelo script de, pelo que não deve alterar manualmente estas chaves.
 
@@ -95,16 +95,16 @@ Utilize as seguintes informações para instalar e configurar a solução.
 2. Adicionar a solução de Monitor de desempenho de rede para a sua área de trabalho de [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).<br><br> ![Símbolo de Monitor de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
 3. No portal do OMS, verá um novo mosaico intitulado **Monitor de desempenho de rede** com a mensagem *solução requer configuração adicional*. Clique no mosaico para navegar para o **implementação** separador e selecione o protocolo a utilizar para efetuar as transações sintéticas para monitorização da rede.  Reveja [escolher o direito de ICMP de protocolo ou TCP](#choose-the-right-protocol-icmp-or-tcp) para ajudar a escolher o protocolo correto adequada para a sua rede.<br><br> ![a solução requer a seleção do protocolo](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-4. Depois de escolher o protocolo será redirecionado para o **descrição geral do OMS** página. Enquanto a solução agrega os dados da sua rede, o mosaico de descrição geral do Monitor de desempenho de rede irá apresentar a mensagem a indicar *agregação de dados em curso*.<br><br> ![solução é agregar dados](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
-5. Depois dos dados são recolhidos e indexados, o mosaico de descrição geral irá alterar e indicar que necessita de efetuar uma configuração adicional.<br><br> ![mosaico de solução requer configuração adicional](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
-6. Clique no mosaico e começar a configurar a solução ao seguir os passos abaixo.
+4. Depois de escolher o protocolo, são redirecionados para o **descrição geral do OMS** página. Enquanto a solução agrega os dados da sua rede, o mosaico de descrição geral do Monitor de desempenho de rede apresenta a mensagem a indicar *agregação de dados em curso*.<br><br> ![solução é agregar dados](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Depois dos dados são recolhidos e indexados, as alterações do mosaico de descrição geral para indicar que necessita de efetuar uma configuração adicional.<br><br> ![mosaico de solução requer configuração adicional](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Clique no mosaico e começar a configurar a solução através dos seguintes passos.
 
 ### <a name="create-new-networks"></a>Criar novas redes
 Uma rede no Monitor de desempenho de rede é um contentor para sub-redes lógico. Pode criar uma rede com um nome amigável e adicionar sub-redes ao mesmo, de acordo com a lógica de negócio. Por exemplo, pode criar uma rede com o nome *Londres* e adicione todas as sub-redes no seu centro de dados de Londres ou numa rede com o nome *ContosoFrontEnd* e adicione todas as sub-redes que serve o front-end da sua aplicação com o nome Contoso para esta rede.
 Na página de configuração, verá uma rede com o nome **predefinido** no separador de redes. Se ainda não criou quaisquer redes, todas as sub-redes automaticamente detetados são colocadas na rede de predefinição.
 Sempre que cria uma rede, adicionar uma sub-rede para a mesma e essa sub-rede é removida da rede predefinida. Se eliminar uma rede, todas as respetivas sub-redes automaticamente reencaminhadas para a rede predefinida.
 Assim, a rede predefinida age como um contentor para todas as sub-redes que não estão contidos em qualquer rede definida pelo utilizador. Não é possível editar ou eliminar a rede predefinida. Permanece sempre no sistema. No entanto, pode criar tantas redes personalizadas conforme necessário.
-Na maioria dos casos, as sub-redes existentes na sua organização irão ser dispostas numa mais de uma rede e deve criar uma ou mais redes para agrupar as sub-redes de acordo com a lógica de negócio
+Na maioria dos casos, as sub-redes existentes na sua organização são dispostas em mais de uma rede e deve criar uma ou mais redes para agrupar as sub-redes de acordo com a lógica de negócio
 
 #### <a name="to-create-a-new-network"></a>Para criar uma nova rede
 1. Clique em **adicionar rede** e, em seguida, escreva o nome de rede e a descrição.
@@ -116,7 +116,7 @@ Após ter de guardar a configuração pela primeira vez, a solução inicia a re
 
 ![agregação de dados em curso](./media/log-analytics-network-performance-monitor/npm-aggregation.png)
 
-Quando os dados terem sido carregados, verá os dados que mostra o mosaico atualizado do Monitor de desempenho de rede.
+Quando os dados terem sido carregados, o mosaico de Monitor de desempenho de rede é atualizado a mostrar os dados.
 
 ![Mosaico de Monitor de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-tile.png)
 
@@ -128,9 +128,9 @@ Clique no mosaico para ver o dashboard de monitorização de desempenho de rede.
 Todas as sub-redes em que, pelo menos, um agente foi instalado são listadas no **sub-redes** separador na página de configuração.
 
 #### <a name="to-enable-or-disable-monitoring-for-particular-subnetworks"></a>Para ativar ou desativar a monitorização para uma determinada sub-redes
-1. Selecione ou desmarque a caixa junto a **ID de sub-rede** e, em seguida, certifique-se de que **utilização para a monitorização** está selecionado ou desmarcada, conforme adequado. Pode selecionar ou desmarcar várias sub-redes. Quando desativado, sub-redes não são monitorizados como os agentes serão atualizados para parar a outros agentes de envio de ping.
+1. Selecione ou desmarque a caixa junto a **ID de sub-rede** e, em seguida, certifique-se de que **utilização para a monitorização** está selecionado ou desmarcada, conforme adequado. Pode selecionar ou desmarcar várias sub-redes. Quando desativado, sub-redes não são monitorizados como os agentes foram atualizados para parar o envio de ping outros agentes.
 2. Escolha os nós que pretende monitorizar para uma determinada sub-rede, selecionando a sub-rede da lista e mover nós necessários entre as listas de nós não monitorizados e monitorizados.
-   Pode adicionar um personalizado **Descrição** para sub-rede, se pretender.
+   Pode adicionar um personalizado **Descrição** para a sub-rede.
 3. Clique em **guardar** para guardar a configuração.<br><br> ![Editar sub-rede](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>Escolher nós para monitorizar
@@ -142,13 +142,14 @@ Todos os nós que tenha um agente instalado nos mesmos são listados no **nós**
 3. Clique em **Guardar**.<br><br> ![Ativar a monitorização de nó](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>Conjunto de regras de monitorização
-Monitor de desempenho de rede gera eventos de estado de funcionamento quando o limiar de desempenho de ligações de rede entre 2 sub-redes ou entre 2 redes é quebrado. Estes limiares podem ser adquiridos automaticamente pelo sistema, ou pode fornecer limiares personalizados.
-O sistema cria automaticamente uma regra predefinida que gera um evento de estado de funcionamento sempre perda ou latência entre qualquer par de rede/sub-rede liga falhas limiar aprendidas de sistema. Isto ajuda a solução de monitorizar a infraestrutura de rede até que ainda não criou quaisquer regras de monitorização explicitamente. Se a regra predefinida está ativada, todos os nós enviam transações sintéticas para todos os outros nós que tiver ativado para monitorização. A regra predefinida é útil em caso de redes pequenos, por exemplo, num cenário em que tem um pequeno número de servidores a executar um microsserviço e deve certificar-se de que o todos os servidores têm conectividade entre si.
+Monitor de desempenho de rede gera eventos de estado de funcionamento quando o limiar de desempenho de ligações de rede entre dois sub-redes ou entre duas redes é quebrado. Estes limiares podem ser adquiridos automaticamente pelo sistema, ou pode fornecer limiares personalizados.
+
+O sistema cria automaticamente uma regra predefinida. A regra gera um evento de estado de funcionamento sempre perda ou latência entre qualquer par de ligações de rede/sub-rede breaches limiar aprendidas de sistema. Isto ajuda a solução de monitorizar a infraestrutura de rede até que ainda não criou quaisquer regras de monitorização explicitamente. Se a regra predefinida está ativada, todos os nós enviam transações sintéticas para todos os outros nós que tiver ativado para monitorização. A regra predefinida é útil para pequenas redes. Por exemplo, num cenário em que tenha um pequeno número de servidores a executar um microsserviço e pretender certificar-se de que todos os servidores têm conectividade entre si.
 
 >[!NOTE]
->Recomenda-se vivamente que depois de desativar a regra predefinida e criar regras personalizadas de monitorização, especialmente em caso de redes de grandes dimensões em que estiver a utilizar um grande número de nós para monitorização. Isto irá reduzir o tráfego gerado pela solução e ajudam a organizar os a monitorização da rede.
+>Recomenda-se vivamente que depois de desativar a regra predefinida e criar regras personalizadas de monitorização, especialmente em caso de redes de grandes dimensões em que estiver a utilizar um grande número de nós para monitorização. Isto reduz o tráfego gerado pela solução e ajudam a organizar os a monitorização da rede.
 
-Crie regras personalizadas de monitorização, de acordo com a lógica de negócio. Por exemplo, se pretender monitorizar o desempenho de conectividade de rede de 2 office sites a headquarter, em seguida, agrupe todas as sub-redes no office site1 na rede O1, todas as sub-redes no office site2 na rede O2 e todas as sub-redes na headquarter na rede criar H. 2 monitorização regras-um entre O1 e H e outros entre O2 e H.
+Crie regras personalizadas de monitorização, de acordo com a lógica de negócio. Por exemplo, se pretender monitorizar o desempenho de conectividade de rede de dois sites do office à sede, em seguida, grupo de todas as sub-redes no office site1 na rede O1, todas as sub-redes no office site2 na rede O2 e todas as sub-redes na headquarter na rede H. Criar dois monitorização regras-um entre O1 e H e outros entre O2 e H.
 
 
 #### <a name="to-create-custom-monitoring-rules"></a>Para criar regras de monitorização personalizadas
@@ -190,8 +191,9 @@ Pode utilizar scripts do PowerShell para configurar regras de firewall nos seus 
 Em contrapartida, o ICMP não funciona através da porta. Na maioria dos cenários de empresa, o tráfego ICMP é permitido através de firewalls para permitir a utilização de ferramentas de diagnóstico de rede, como o utilitário de Ping. Por isso, se pode enviar Ping a uma máquina a partir de outra, em seguida, pode utilizar o protocolo ICMP sem ter de configurar manualmente as firewalls.
 
 > [!NOTE]
-> Alguns firewalls podem bloquear ICMP, que pode levar a retransmissão resultando num grande número de eventos no seu sistema de gestão de informações e o evento de segurança. Certifique-se de que o protocolo que escolheu não está bloqueado por um firewall de rede/NSG, caso contrário NPM não será possível monitorizar o segmento de rede.  Por este motivo, recomendamos que utilize TCP para monitorização. Deve utilizar ICMP em cenários onde não são capazes de utilizar o TCP, tais como:
-> * Estiver a utilizar nós de cliente baseada em Windows, uma vez que sockets em bruto de TCP não são permitidos no cliente Windows
+> Alguns firewalls podem bloquear ICMP, que pode levar a retransmissão resultando num grande número de eventos no seu sistema de gestão de informações e o evento de segurança. Certifique-se de que o protocolo que escolheu não está bloqueado por um firewall de rede/NSG, caso contrário NPM não será possível monitorizar o segmento de rede.  Por este motivo, recomendamos que utilize TCP para monitorização.
+> Deve utilizar ICMP em cenários onde não são capazes de utilizar o TCP, tais como:
+> * Estiver a utilizar nós baseada no cliente do Windows, uma vez que sockets em bruto de TCP não são permitidos no cliente Windows
 > * Os blocos de firewall/NSG de rede TCP
 
 
@@ -208,7 +210,7 @@ Mesmo que a regra predefinida está a utilizar um protocolo específico, pode cr
 
 
 ## <a name="data-collection-details"></a>Detalhes de recolha de dados
-Monitor de desempenho de rede utiliza pacotes de handshake TCP SIN-SYNACK-ACK quando é escolhido TCP e resposta de eco ICMP do ICMP ECHO quando ICMP é escolhido como o protocolo para recolher informações de perda e latência. Traceroute também é utilizado para obter informações de topologia.
+Monitor de desempenho de rede utiliza pacotes de handshake TCP SIN-SYNACK-ACK quando é escolhido TCP e resposta do ICMP ECHO quando ICMP é escolhido como o protocolo para recolher informações de perda e latência. Traceroute também é utilizado para obter informações de topologia.
 
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Monitor de desempenho de rede.
 
@@ -216,7 +218,7 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |Mensagens de eco handshakes/ICMP do TCP a cada cinco segundos, dados enviados a cada 3 minutos |
 
-A solução utiliza transações sintéticas para avaliar o estado de funcionamento da rede. Agentes OMS instalados vários num momento os pacotes TCP do exchange de rede ou eco de ICMP (dependendo do protocolo selecionado para a monitorização) com outro. No processo de agentes saiba a perda de tempo e pacote reportadas round-trip, se aplicável. Periodicamente, cada agente também executa uma rota de rastreio por outros agentes para localizar todas as rotas vários na rede que deve ser testada. Utilizando estes dados, os agentes podem deduzir a latência de rede e números de perda de pacotes. Os testes são repetidos a cada cinco segundos e os dados são agregadas para um período de três minutos pelos agentes antes de o carregar para o serviço de análise de registos.
+A solução utiliza transações sintéticas para avaliar o estado de funcionamento da rede. Agentes do OMS instalados em vários pontos no pacotes TCP do exchange de rede ou de eco ICMP (dependendo do protocolo selecionado para a monitorização) com outro. No processo de agentes saiba a perda de tempo e pacote reportadas round-trip, se aplicável. Periodicamente, cada agente também executa uma rota de rastreio por outros agentes para localizar todas as rotas vários na rede que deve ser testada. Utilizando estes dados, os agentes podem deduzir a latência de rede e números de perda de pacotes. Os testes são repetidos a cada cinco segundos e os dados são agregadas para um período de três minutos pelos agentes antes de o carregar para o serviço de análise de registos.
 
 > [!NOTE]
 > Embora os agentes comunicam entre si com frequência, estas não geram uma grande quantidade de tráfego de rede ao realizar os testes. Agentes baseiam-se apenas nos pacotes de handshake de TCP SIN-SYNACK-ACK para determinar a perda e latência – não existem dados trocados pacotes. Durante este processo, agentes comunicam entre si apenas quando necessário e a topologia de comunicação do agente está otimizada para reduzir o tráfego de rede.
@@ -232,24 +234,24 @@ Depois de ativar a solução de Monitor de desempenho de rede, o mosaico de solu
 ![Mosaico de Monitor de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-tile.png)
 
 ### <a name="network-performance-monitor-solution-dashboard"></a>Dashboard de solução de Monitor de desempenho de rede
-O **resumo de rede** painel mostra um resumo das redes, juntamente com o respetivo tamanho relativo. Isto é seguido de mosaicos que mostra o número total de ligações de rede, ligações de sub-rede e caminhos no sistema (um caminho composto os endereços IP dos dois anfitriões com agentes e todos os saltos entre eles).
+O **resumo de rede** área mostra um resumo das redes, juntamente com o respetivo tamanho relativo. Isto é seguido de mosaicos que mostra o número total de ligações de rede, ligações de sub-rede e caminhos no sistema (um caminho composto os endereços IP dos dois anfitriões com agentes e todos os saltos entre eles).
 
-O **eventos de estado de funcionamento de rede superior** painel fornece uma lista dos eventos mais recentes do Estado de funcionamento e alertas no sistema e a hora, uma vez que o evento foi Active Directory. Um evento de estado de funcionamento ou o alerta é gerado sempre que a latência de uma ligação de rede ou sub-rede ou perda de pacotes excede um limiar.
+O **eventos de estado de funcionamento de rede superior** área fornece uma lista dos eventos mais recentes do Estado de funcionamento e alertas no sistema e a hora, uma vez que o evento foi Active Directory. Um evento de estado de funcionamento ou o alerta é gerado sempre que a latência de uma ligação de rede ou sub-rede ou perda de pacotes excede um limiar.
 
-O **ligações de rede danificado superior** painel mostra uma lista de ligações de rede danificado. Estas são as ligações de rede que tenham um ou mais eventos de estado de funcionamento negativo para os mesmos neste momento.
+O **ligações de rede danificado superior** área mostra uma lista de ligações de rede danificado. Estas são as ligações de rede que tenham um ou mais eventos de estado de funcionamento negativo para os mesmos neste momento.
 
-O **ligações de sub-rede de principais com mais perda** e **ligações de sub-rede com a latência mais** painéis mostrar as ligações de sub-rede superior perda de pacotes e ligações de sub-rede de cima à latência, respetivamente. Latência elevada ou alguma quantidade de perda de pacotes pode ser esperada em determinados ligações de rede. Essas ligações são apresentados nas listas de dez principais, mas não marcado como danificadas.
+O **ligações de sub-rede de principais com mais perda** e **ligações de sub-rede com a latência mais** áreas mostrar as ligações de sub-rede superior perda de pacotes e ligações de sub-rede de cima à latência, respetivamente. Latência elevada ou alguma quantidade de perda de pacotes pode ser esperada em determinados ligações de rede. Essas ligações são apresentados nas listas de dez principais, mas não marcado como danificadas.
 
-O **consultas comuns** painel contém um conjunto de consultas de pesquisa obter diretamente de dados de monitorização de rede não processado. Pode utilizar estas consultas como um ponto de partida para criar as suas próprias consultas para relatórios personalizados.
+O **consultas comuns** área contém um conjunto de consultas de pesquisa obter diretamente de dados de monitorização de rede não processado. Pode utilizar estas consultas como um ponto de partida para criar as suas próprias consultas para relatórios personalizados.
 
 ![Dashboard de monitorização de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-dash01.png)
 
-### <a name="drill-down-for-depth"></a>Desagregar para profundidade
-Pode clicar em várias ligações no dashboard da solução para desagregar mais aprofundada para qualquer área de interesse. Por exemplo, quando vir um alerta ou uma ligação de rede danificado apareça no dashboard, pode clicar para investigação mais aprofundada. Será direcionado para uma página que apresenta uma lista de todas as ligações de sub-rede para a ligação de rede específico. Poderá ver o estado de perda, latência e estado de funcionamento de cada hiperligação de sub-rede e rapidamente descobrir que ligações de sub-rede estão a causar o problema. Em seguida, pode clicar em **ver ligações de nó** para ver todas as ligações de nó para a ligação de sub-rede mau estado de funcionamento. Em seguida, pode ver ligações de nó para nó individuais e localizar as ligações de nó mau estado de funcionamento.
+### <a name="drill-down-for-depth"></a>desagregar profundidade
+Pode clicar em várias ligações no dashboard da solução para desagregar baixo mais aprofundado para qualquer área de interesse. Por exemplo, quando vir um alerta ou uma ligação de rede danificado apareça no dashboard, pode clicar para investigação mais aprofundada. É direcionado para uma página que apresenta uma lista de todas as ligações de sub-rede para a ligação de rede específico. Conseguir ver o estado de perda, latência e estado de funcionamento de cada hiperligação de sub-rede e rapidamente descobrir que ligações de sub-rede estão a causar o problema. Em seguida, pode clicar em **ver ligações de nó** para ver todas as ligações de nó para a ligação de sub-rede mau estado de funcionamento. Em seguida, pode ver ligações de nó para nó individuais e localizar as ligações de nó mau estado de funcionamento.
 
 Pode clicar em **topologia de vista** para visualizar a topologia de salto por salto de rotas entre os nós de origem e de destino. As rotas mau estado de funcionamento ou saltos são mostrados a vermelho, para que as possa identificar rapidamente o problema para uma determinada parte da rede.
 
-![dados de desagregar](./media/log-analytics-network-performance-monitor/npm-drill.png)
+![desagregar dados](./media/log-analytics-network-performance-monitor/npm-drill.png)
 
 ### <a name="network-state-recorder"></a>Gravador de estado de rede
 
@@ -258,7 +260,7 @@ Cada vista apresenta um instantâneo do Estado de funcionamento do rede num dete
 ![Estado de rede](./media/log-analytics-network-performance-monitor/network-state.png)
 
 #### <a name="trend-charts"></a>Gráficos de tendência
-Em cada nível que desagregar, pode ver a tendência de perda e latência para uma ligação de rede. Gráficos de tendência também estão disponíveis para as ligações de sub-rede e o nó. Pode alterar o intervalo de tempo para o gráfico desenhar utilizando o controlo de tempo na parte superior do gráfico.
+Cada nível que lhe desagregar, pode ver a tendência de perda e latência para uma ligação de rede. Gráficos de tendência também estão disponíveis para as ligações de sub-rede e o nó. Pode alterar o intervalo de tempo para o gráfico desenhar utilizando o controlo de tempo na parte superior do gráfico.
 
 Gráficos de tendência mostram-lhe uma perspetiva de histórico do desempenho de uma ligação de rede. Alguns problemas de rede são transitórios natureza e seriam difíceis de detetar apenas ao observar o estado atual da rede. Isto acontece porque problemas podem superfície rapidamente e desaparecer antes que qualquer pessoa avisos, apenas a reaparecer tiver posteriormente no tempo. Tais problemas transitórios também podem ser difícil para os administradores de aplicação porque a superfície, muitas vezes, os problemas à medida que aumenta unexplained no tempo de resposta da aplicação, mesmo quando são apresentados todos os componentes da aplicação executar facilmente.
 
@@ -267,11 +269,11 @@ Pode facilmente detetar esses tipos de problemas ao observar um gráfico de tend
 ![gráfico de tendência](./media/log-analytics-network-performance-monitor/npm-trend.png)
 
 #### <a name="hop-by-hop-topology-map"></a>mapa de topologia de salto por salto
-Monitor de desempenho de rede mostra a topologia de salto por salto de rotas entre dois nós num mapa de topologia interativo. Pode ver o mapa de topologia selecionando uma ligação de nó e, em seguida, clicando em **topologia de vista**. Além disso, pode ver o mapa de topologia clicando **caminhos** mosaico no dashboard. Ao clicar em **caminhos** no dashboard, tem de selecionar os nós de origem e de destino a partir do painel do lado esquerdo e, em seguida, clique em **desenho** para desenhar as rotas entre os dois nós.
+Monitor de desempenho de rede mostra a topologia de salto por salto de rotas entre dois nós num mapa de topologia interativo. Pode ver o mapa de topologia selecionando uma ligação de nó e, em seguida, clicando em **topologia de vista**. Além disso, pode ver o mapa de topologia clicando **caminhos** mosaico no dashboard. Ao clicar em **caminhos** no dashboard, tem de selecionar os nós de origem e de destino a partir do painel esquerdo e, em seguida, clique em **desenho** para desenhar as rotas entre os dois nós.
 
 O mapa de topologia apresenta rotas quantos são entre dois nós e o que caminhos demorar os pacotes de dados. Congestionamentos de desempenho de rede são assinalados a vermelho no mapa de topologia. Pode localizar uma ligação de rede defeituoso ou um dispositivo de rede defeituoso observando elementos coloridos vermelhos no mapa de topologia.
 
-Ao clicar num nó ou paire sobre os mesmos no mapa de topologia, verá as propriedades do nó, como o endereço IP e FQDN. Clique num salto para ver é o endereço IP. Pode optar por filtrar rotas específicas utilizando os filtros no painel de ações expansíveis. Além disso, também pode simplificar as topologias de rede por ocultar os saltos intermédios utilizando o controlo de deslize no painel de ações. Pode zoom-in ou fora do mapa de topologia, utilizando a roda do rato.
+Ao clicar num nó ou paire sobre os mesmos no mapa de topologia, pode ver as propriedades do nó, como o endereço IP e FQDN. Clique num salto para ver o respetivo endereço IP. Pode optar por filtrar rotas específicas utilizando os filtros no painel de ações expansíveis. Além disso, também pode simplificar as topologias de rede por ocultar os saltos intermédios utilizando o controlo de deslize no painel de ações. Pode zoom-in ou fora do mapa de topologia, utilizando a roda do rato.
 
 Tenha em atenção que a topologia apresentada no mapa de topologia de camada 3 e não contém ligações e dispositivos de camada 2.
 
@@ -283,17 +285,17 @@ Monitor de desempenho de rede é capaz de determinar os congestionamentos de red
 Esta abordagem é útil para determinar os congestionamentos de rede quando o acesso ao saltos não está disponível porque não requer quaisquer dados para ser reunidas a partir de dispositivos de rede, tais como comutadores ou routers. Isto também é útil quando os saltos entre dois nós não estão no seu controlo administrativo. Por exemplo, os saltos podem ser routers do ISP.
 
 ### <a name="log-analytics-search"></a>Análise de registos de pesquisa
-Todos os dados que é páginas graficamente expostas através do dashboard de monitorização de desempenho de rede e desagregar também está disponível nativamente no pesquisa de análise de registos. Pode consultar os dados utilizando a linguagem de consulta de pesquisa e criar relatórios personalizados ao exportar os dados para Excel ou do Power BI. O **consultas comuns** painel no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar as suas próprias consultas e relatórios.
+Todos os dados que são expostos graficamente através do dashboard de monitorização de desempenho de rede e a desagregação páginas também está disponível nativamente no pesquisa de análise de registos. Pode consultar os dados utilizando a linguagem de consulta de pesquisa e criar relatórios personalizados ao exportar os dados para Excel ou do Power BI. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar as suas próprias consultas e relatórios.
 
 ![consultas de pesquisa](./media/log-analytics-network-performance-monitor/npm-queries.png)
 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Investigue a causa de raiz de um alerta de estado de funcionamento
 Vamos ver agora que já leu sobre o Monitor de desempenho de rede, uma investigação simple para a causa de raiz de um evento de estado de funcionamento.
 
-1. Na página Descrição geral, obterá um instantâneo rápido do Estado de funcionamento da sua rede ao observar o **Monitor de desempenho de rede** mosaico. Tenha em atenção que fora as ligações de sub-6 redes a ser monitorizadas, 2 estão danificados. Isto warrants investigação. Clique no mosaico para ver o dashboard de solução.<br><br> ![Mosaico de Monitor de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
-2. A imagem de exemplo abaixo, irá notar que há um evento de estado de funcionamento uma ligação de rede que está danificada. Decidir a investigar o problema e clique em de **DMZ2 DMZ1** ligação de rede para determinar a raiz do problema.<br><br> ![exemplo de ligação de rede mau estado de funcionamento](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
-3. A página de desagregação mostra todas as ligações de sub-rede no **DMZ2 DMZ1** ligação de rede. Irá notar que, para ambas as ligações de sub-rede, a latência ultrapassou o limiar de efetuar a ligação de rede em mau estado de funcionamento. Também pode ver as tendências de latência de ambas as ligações de sub-rede. Pode utilizar a seleção do tempo controlo no gráfico focar-se no intervalo de tempo necessário. Pode ver a hora do dia quando latência atingiu o respetivo horário de pico. Pode procurar posteriormente os registos para este período de tempo investigar o problema. Clique em **ver ligações de nó** para desagregar ainda mais.<br><br> ![exemplo de ligações de sub-rede mau estado de funcionamento](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
-4. Semelhante à página anterior, a página de desagregar para a ligação de determinada sub-rede lista pendente a ligações de nó que constituem. Pode efetuar ações semelhantes aqui, tal como fez no passo anterior. Clique em **topologia de vista** para visualizar a topologia entre os nós de 2.<br><br> ![exemplo de ligações de nó mau estado de funcionamento](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+1. Na página Descrição geral, que obtém um instantâneo rápido do Estado de funcionamento da sua rede ao observar o **Monitor de desempenho de rede** mosaico. Tenha em atenção que fora as ligações de sub-6 rede a ser monitorizadas, 2 são mau estado de funcionamento. Isto warrants investigação. Clique no mosaico para ver o dashboard de solução.<br><br> ![Mosaico de Monitor de desempenho de rede](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. Na imagem seguinte, tenha em atenção que não há um evento de estado de funcionamento uma ligação de rede que está danificada. Decidir a investigar o problema e clique em de **DMZ2 DMZ1** ligação de rede para determinar a raiz do problema.<br><br> ![exemplo de ligação de rede mau estado de funcionamento](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. O página de início de desagregação mostra todas as ligações de sub-rede no **DMZ2 DMZ1** ligação de rede. Tenha em atenção que, para ambas as ligações de sub-rede, a latência ultrapassou o limiar de efetuar a ligação de rede em mau estado de funcionamento. Também pode ver as tendências de latência de ambas as ligações de sub-rede. Pode utilizar a seleção do tempo controlo no gráfico focar-se no intervalo de tempo necessário. Pode ver a hora do dia quando latência atingiu o respetivo horário de pico. Pode procurar posteriormente os registos para este período de tempo investigar o problema. Clique em **ver ligações de nó** para desagregar ainda mais.<br><br> ![exemplo de ligações de sub-rede mau estado de funcionamento](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
+4. Semelhante à página anterior, a desagregação página para a ligação de determinada sub-rede apresenta uma lista pendente a ligações de nó constituintes. Pode efetuar ações semelhantes aqui, tal como fez no passo anterior. Clique em **topologia de vista** para visualizar a topologia entre os nós de 2.<br><br> ![exemplo de ligações de nó mau estado de funcionamento](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
 5. Todos os caminhos entre 2 nós selecionados são desenhados no mapa de topologia. Pode visualizar a topologia de salto por salto de rotas entre dois nós no mapa de topologia. Dá-lhe uma fotografia limpar rotas quantos existam entre dois nós e o que os caminhos de pacotes de dados estão a utilizar. Congestionamentos de desempenho de rede são marcados na cor vermelho. Pode localizar uma ligação de rede defeituoso ou um dispositivo de rede defeituoso observando elementos coloridos vermelhos no mapa de topologia.<br><br> ![exemplo de vista de topologia mau estado de funcionamento](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. O número de saltos em cada caminho, a latência e perda podem ser revistas no **ação** painel. Utilize a barra de deslocamento para ver os detalhes de nesses caminhos mau estado de funcionamento.  Utilize os filtros para selecionar os caminhos com o salto mau estado de funcionamento para que a topologia para apenas os caminhos selecionados é representada. Pode utilizar a roda do rato para aplicar zoom dentro ou fora do mapa de topologia.
 
@@ -302,7 +304,7 @@ Vamos ver agora que já leu sobre o Monitor de desempenho de rede, uma investiga
 ## <a name="provide-feedback"></a>Enviar comentários
 
 - **UserVoice** -pode publicar as suas ideias para funcionalidades de Monitor de desempenho de rede que pretende que sejam-nos para funcionar no. Visite a nossa [página do UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
-- **Associar o nosso coorte** -sempre estamos interessados em novos clientes aderir ao nosso coorte a ter. Como parte do mesmo, irá obter acesso atempado a novas funcionalidades e ajude-na melhorar o Monitor de desempenho de rede. Se estiver interessado em associar, preenchimento Escalamento isto [inquérito Rápido](https://aka.ms/npmcohort).
+- **Associar o nosso coorte** -sempre estamos interessados em novos clientes aderir ao nosso coorte a ter. Como parte do mesmo, obter acesso atempado a novas funcionalidades e ajude-na melhorar o Monitor de desempenho de rede. Se estiver interessado em associar, preenchimento Escalamento isto [inquérito Rápido](https://aka.ms/npmcohort).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Pesquisar registos](log-analytics-log-searches.md) para ver registos de dados de desempenho de rede detalhada.
