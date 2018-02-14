@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados MySQL na pilha do Microsoft Azure
 
@@ -88,7 +88,7 @@ A conta do sistema tem de ter os seguintes privilégios:
 
     - Existe apenas um ficheiro de certificado único no DependencyFilesLocalPath.
     
-    - O nome de ficheiro não pode conter os caracteres especiais.
+    - O nome de ficheiro não pode conter quaisquer carateres especiais ou espaços.
 
 
 5. Abra um **novo** elevada consola do PowerShell (administrativa). Em seguida, altere o diretório onde extraiu os ficheiros. Utilize uma nova janela para evitar problemas que possam surgir de incorretos módulos do PowerShell que já estão carregados no sistema.
