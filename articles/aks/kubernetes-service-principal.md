@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Principais de serviço com o Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ Quando implementar um cluster do AKS com o comando `az aks create`, tem a opçã
 No exemplo seguinte, é criado um cluster do AKS e, por não existir um principal de serviço especificado, é criado um principal de serviço para o cluster. Para concluir esta operação, a sua conta tem de ter os direitos adequados para criar um principal de serviço.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Utilizar um SP existente
@@ -67,7 +67,7 @@ O resultado é semelhante ao seguinte. Tome nota do `appId` e da `password`. Est
 Quando utilizar um principal de serviço pré-criado, forneça o `appId` e a `password` como valores de argumento para o comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 Se estiver a implementar um cluster AKS utilizando o portal do Azure, introduza o `appId` valor no campo **ID de cliente do principal de serviço** e o campo `password` valor o **Segredo de cliente do principal de serviço** no formulário de configuração do cluster AKS.

@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 5a5c541f7a912a96547b6b3bec37f0e4066a54e6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c14f4d14584dad27e53504e2413e82764db9dca0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 
@@ -32,7 +32,7 @@ Neste tutorial, irá compor uma cena 3ds Max com o Batch, através do compositor
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A cena 3ds Max de exemplo para este tutorial encontra-se no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), em conjunto com um script Bash de exemplo e ficheiros de configuração JSON. A cena 3ds Max é proveniente dos [ficheiros de exemplo do Autodesk 3ds Max](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os ficheiros de exemplo do Autodesk 3ds Max estão disponíveis com uma licença de Atribuição Semelhante à Partilha Não Comercial da Creative Commons. Copyright © Autodesk, Inc.)
+A cena 3ds Max de exemplo para este tutorial encontra-se no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), em conjunto com um script Bash de exemplo e ficheiros de configuração JSON. A cena 3ds Max é proveniente dos [ficheiros de exemplo do Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os ficheiros de exemplo do Autodesk 3ds Max estão disponíveis com uma licença de Atribuição Semelhante à Partilha Não Comercial da Creative Commons. Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -216,8 +216,8 @@ Modifique os elementos `blobSource` e `containerURL` no ficheiro JSON, para que 
   "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 Robo_Dummy_Lo_Res.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/maxfile/Robo_Dummy_Lo_Res.max",
-        "filePath": "Robo_Dummy_Lo_Res.max"
+        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "filePath": "MotionBlur-DragonFlying.max"
     }
   ],
     "outputFiles": [
@@ -331,7 +331,7 @@ Abra um dos ficheiros no seu computador. O fotograma composto 6 é semelhante ao
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, a conta do Batch, os conjuntos e todos os recursos relacionados. Elimine os recursos da seguinte forma:
+Quando já não for preciso, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, conta do Batch e todos os recursos relacionados. Elimine os recursos da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -1,9 +1,9 @@
 ---
 title: "A Encriptação no Azure Data Lake Store | Microsoft Docs"
-description: "Compreender como funciona a encriptação e a rotação de chaves no Azure Data Lake Store"
+description: "A encriptação no Azure Data Lake Store ajuda-o a proteger os seus dados, implementar políticas de segurança da empresa e cumprir os requisitos de conformidade normativa. Este artigo apresenta uma descrição geral da estrutura e descreve alguns dos aspetos técnicos da implementação."
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Encriptação de dados no Azure Data Lake Store
 
@@ -83,7 +83,7 @@ São utilizados três tipos de chaves no design da encriptação de dados. A tab
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chave de Encriptação Mestra | MEK          | Uma conta do Data Lake Store | Cofre de Chaves                              | Assimétrica | Pode ser gerida pelo Data Lake Store ou por si.                                                              |
 | Chave de Encriptação de Dados   | DEK          | Uma conta do Data Lake Store | Armazenamento persistente, gerido pelo serviço Data Lake Store | Simétrica  | O DEK é encriptado pela MEK. O DEK encriptado é o que é armazenado no suporte de dados persistente. |
-| Chave de Encriptação de Blocos  | BEK          | Um bloco de dados | Nenhuma                                         | Simétrica  | A BEK é obtida a partir da DEK e do bloco de dados.                                                      |
+| Chave de Encriptação de Blocos  | BEK          | Um bloco de dados | Nenhum                                         | Simétrica  | A BEK é obtida a partir da DEK e do bloco de dados.                                                      |
 
 O diagrama seguinte ilustra estes conceitos:
 
@@ -120,7 +120,7 @@ Tenha em atenção que, se utilizar as opções predefinidas para a encriptaçã
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Como rodar a MEK no Data Lake Store
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue para a instância do Key Vault que armazena as chaves associadas à sua conta do Data Lake Store. Selecione **Chaves**.
 
     ![Captura de ecrã do Key Vault](./media/data-lake-store-encryption/keyvault.png)

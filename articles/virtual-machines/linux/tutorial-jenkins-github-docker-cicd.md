@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Como criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
 Para automatizar a fase de criação e teste do desenvolvimento de aplicações, pode utilizar um pipeline de integração e implementação (CI/CD) contínuas. Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
@@ -68,13 +68,13 @@ runcmd:
   - service jenkins restart
 ```
 
-Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupJenkins* na localização *eualeste*:
+Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupJenkins* na localização *eualeste*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para *cloud-init-jenkins.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual.
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para *cloud-init-jenkins.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -87,7 +87,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Demora alguns minutos até que a VM seja criada e configurada.
 
-Para permitir que o tráfego Web alcance a sua VM, utilize [az vm open-port](/cli/azure/vm#open-port) para abrir a porta *8080* para o tráfego do Jenkins e a porta *1337* para a aplicação Node.js que é utilizada para executar uma aplicação de exemplo:
+Para permitir que o tráfego Web alcance a sua VM, utilize [az vm open-port](/cli/azure/vm#az_vm_open_port) para abrir a porta *8080* para o tráfego do Jenkins e a porta *1337* para a aplicação Node.js que é utilizada para executar uma aplicação de exemplo:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001

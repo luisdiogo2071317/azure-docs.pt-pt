@@ -12,18 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: d164c4caf2b2447b2f54059fd451dba61f1bf046
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: e274b60c89b8e03aa8823588546fa1a97c474142
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado através do SDK de dispositivo Python com o Serviço Aprovisionamento de Dispositivos no Hub IoT
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device-x509.md)
-> * [Java](quick-create-simulated-device-x509-java.md)
-> * [C#](quick-create-simulated-device-x509-csharp.md)
-> * [Python](quick-create-simulated-device-x509-python.md)
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estes passos mostram como simular um dispositivo X.509 no seu computador de desenvolvimento que executa o SO Windows e utilizar um código de exemplo Python para ligar esse dispositivo ao Serviço Aprovisionamento de Dispositivos e ao seu hub IoT. 
 
@@ -145,7 +141,7 @@ Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste Início Rápido, criou um dispositivo X.509 simulado no seu computador Windows e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure no portal. Para saber como inscrever o seu dispositivo X.509 programaticamente, continue para o Início Rápido para inscrição programática de dispositivos X.509. 
+e para o hub IoT ligado ao seu serviçNeste Início Rápido, criou um dispositivo X.509 simulado no seu computador Windows e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure no portal. Para saber como inscrever o seu dispositivo X.509 programaticamente, continue para o Manual de Início Rápido para inscrição programática de dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Início rápido do Azure - Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)
+> [Manual de Início Rápido do Azure - Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)
