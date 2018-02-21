@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Otimização de desempenho na SQL Database do Azure
 
@@ -34,7 +34,7 @@ Estes são os métodos manuais porque terá de decidir o que [escalões de servi
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumentar a camada de desempenho da base de dados
 
-Base de dados SQL do Azure oferece quatro [escalões de serviço](sql-database-service-tiers.md) que pode escolher entre: básicas, Standard, Premium e Premium RS (desempenho é medido em unidades de débito de base de dados, ou [DTUs](sql-database-what-is-a-dtu.md). Cada escalão de serviço estritamente isola os recursos que pode utilizar a base de dados do SQL Server e garante o desempenho previsível que nível de serviço. Neste artigo, vamos oferecem orientações que podem ajudar a escolher o escalão de serviço para a sua aplicação. Vamos discutir também formas que pode otimizar a sua aplicação para tirar o máximo da SQL Database do Azure.
+Base de dados SQL do Azure oferece quatro [escalões de serviço](sql-database-service-tiers.md) que pode escolher entre: básicas, Standard e Premium (desempenho é medido em unidades de débito de base de dados, ou [DTUs](sql-database-what-is-a-dtu.md). Cada escalão de serviço estritamente isola os recursos que pode utilizar a base de dados do SQL Server e garante o desempenho previsível que nível de serviço. Neste artigo, vamos oferecem orientações que podem ajudar a escolher o escalão de serviço para a sua aplicação. Vamos discutir também formas que pode otimizar a sua aplicação para tirar o máximo da SQL Database do Azure.
 
 > [!NOTE]
 > Este artigo incida no guia de desempenho das bases de dados na base de dados do Azure SQL. Para orientações de desempenho relacionados com conjuntos elásticos, consulte [considerações sobre preço e desempenho para conjuntos elásticos](sql-database-elastic-pool-guidance.md). Tenha em atenção, no entanto, pode aplicar muitas das recomendações otimização neste artigo para bases de dados num conjunto elástico e obter os benefícios de desempenho semelhante.
@@ -49,7 +49,6 @@ Base de dados SQL do Azure oferece quatro [escalões de serviço](sql-database-s
   * **Elevada pico de carga**. Uma aplicação que requer substanciais CPU, memória ou entrada/saída (e/s) para concluir as suas operações requer um nível dedicado e de elevado desempenho. Por exemplo, uma operação de base de dados conhecida para consumir vários núcleos de CPU para um período de tempo alargado é uma candidata para a camada de serviço Premium.
   * **Demasiados pedidos simultâneos**. Algumas aplicações de base de dados serviço demasiados pedidos simultâneos, por exemplo, quando a servir um Web site que tem um volume de tráfego elevado. Básico e padrão escalões de serviço limitam o número de pedidos em simultâneo por base de dados. Aplicações que necessitam de mais ligações seriam necessário escolher um tamanho de reserva adequado para processar o número máximo de pedidos necessários.
   * **Baixa latência**. Algumas aplicações precisam de garantir uma resposta da base de dados em tempo mínimo. Se um procedimento armazenado específico denomina-se como parte de uma operação de cliente mais vasto, poderá ter um requisito para que a partir desse chamada de retorno em mais do que 20 milissegundos, 99 por cento do tempo. Este tipo de beneficia de aplicação de camada de serviço Premium, para se certificar de que a capacidade de computação necessária está disponível.
-* **Premium RS**: O Premium RS camada foi concebida para cargas de trabalho de e/s intensivas que não necessitam de garante a disponibilidade mais elevada. Os exemplos incluem o teste de cargas de trabalho de elevado desempenho ou uma carga de trabalho analítica em que a base de dados não é o sistema de registo.
 
 O nível de serviço que necessita para a base de dados do SQL Server depende dos requisitos de carregamento de pico para a dimensão de cada recurso. Algumas aplicações utilizam uma quantidade trivial de um único recurso, mas têm requisitos significativos para outros recursos.
 
@@ -276,7 +275,7 @@ Algumas aplicações são escrita intensivas. Por vezes, pode reduzir a carga de
 ### <a name="application-tier-caching"></a>Colocação em cache de camada de aplicação
 Algumas aplicações de base de dados têm cargas de trabalho pesado de leitura. Colocação em cache camadas pode reduzir a carga na base de dados e pode, possivelmente, reduzir o nível de desempenho necessário para suportar uma base de dados ao utilizar a SQL Database do Azure. Com [a Cache de Redis do Azure](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho pesado de leitura, pode ler os dados uma vez (ou, talvez, uma vez por máquina de camada de aplicação, dependendo de como estiver configurado) e, em seguida, armazenar esses dados fora da sua base de dados do SQL Server. Esta é uma forma para reduzir a carga de base de dados (CPU e e/s de leitura), mas não existe um efeito em consistência transacional porque os dados a ser lidos a partir da cache poderão ser sincronizados com os dados na base de dados. Embora muitas aplicações algum nível de inconsistência é aceitável, que não é true para todas as cargas de trabalho. Deve compreender os requisitos da aplicação antes de implementar uma estratégia de colocação em cache de camada de aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações sobre os escalões de serviço, consulte [opções de base de dados SQL e o desempenho](sql-database-service-tiers.md)
 * Para obter mais informações sobre conjuntos elásticos, consulte [o que é um conjunto elástico do Azure?](sql-database-elastic-pool.md)
 * Para obter informações sobre agrupamentos de desempenho e elásticos, consulte [quando considerar um conjunto elástico](sql-database-elastic-pool-guidance.md)

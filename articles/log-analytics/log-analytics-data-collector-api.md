@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para análise de registos com a API de Recoletor de dados de HTTP (pré-visualização pública)
 Este artigo mostra como utilizar a API de Recoletor de dados de HTTP para enviar dados para análise de registos de um cliente de REST API.  Descreve como formatou os dados recolhidos pelo seu script ou aplicação, inclua-o num pedido e tem esse pedido autorizado através da análise de registos.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -49,9 +49,9 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 ### <a name="request-uri-parameters"></a>Parâmetros URI do pedido
 | Parâmetro | Descrição |
 |:--- |:--- |
-| CustomerID |O identificador exclusivo para a área de trabalho do Microsoft Operations Management Suite. |
+| CustomerID |O identificador exclusivo para a área de trabalho de análise de registos. |
 | Recurso |O nome de recurso de API: / api/logs. |
-| Versão da API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
+| Versão de API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 | Cabeçalho | Descrição |
@@ -70,7 +70,7 @@ Eis o formato para o cabeçalho de autorização:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* é o identificador exclusivo para a área de trabalho do Operations Management Suite. *Assinatura* é um [Message Authentication Code (HMAC) com base em Hash](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é criada a partir do pedido e, em seguida, calculada utilizando a [algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, codificá-lo utilizando a codificação Base64.
+*WorkspaceID* é o identificador exclusivo para a área de trabalho de análise de registos. *Assinatura* é um [Message Authentication Code (HMAC) com base em Hash](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é criada a partir do pedido e, em seguida, calculada utilizando a [algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, codificá-lo utilizando a codificação Base64.
 
 Utilize este formato para codificar o **SharedKey** cadeia da assinatura:
 
@@ -187,8 +187,8 @@ Esta tabela lista o conjunto completo de códigos de estado que poderá devolver
 | 400 |Pedido incorreto |UnsupportedContentType |O tipo de conteúdo não foi definido para **application/json**. |
 | 403 |Proibido |InvalidAuthorization |O serviço não conseguiu autenticar o pedido. Certifique-se de que a chave de ID e a ligação de área de trabalho são válidas. |
 | 404 |Não Encontrado | | O URL fornecido está incorreto, ou o pedido é demasiado grande. |
-| 429 |Demasiados Pedidos | | O serviço está com um elevado volume de dados da sua conta. Repita o pedido mais tarde. |
-| 500 |Erro Interno do Servidor |UnspecifiedError |O serviço encontrou um erro interno. Repita o pedido. |
+| 429 |Demasiados pedidos | | O serviço está com um elevado volume de dados da sua conta. Repita o pedido mais tarde. |
+| 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Repita o pedido. |
 | 503 |Serviço Indisponível |ServiceUnavailable |O serviço está atualmente disponível para receber pedidos. Repita o pedido. |
 
 ## <a name="query-data"></a>Consultar dados
@@ -204,7 +204,8 @@ As secções seguintes, irá encontrar exemplos de como a submissão de dados pa
 
 Para cada amostra, execute estes passos para definir as variáveis para o cabeçalho de autorização:
 
-1. No portal do Operations Management Suite, selecione o **definições** mosaico e, em seguida, selecione o **origens ligadas** separador.
+1. No portal do Azure, localize a área de trabalho de análise de registos.
+2. Selecione **definições avançadas** e, em seguida, **ligado origens**.
 2. À direita do **ID da área de trabalho**, selecione o ícone de cópia e colagem, em seguida, o ID como o valor de **ID de cliente** variável.
 3. À direita do **chave primária**, selecione o ícone de cópia e colagem, em seguida, o ID como o valor de **chave partilhada** variável.
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

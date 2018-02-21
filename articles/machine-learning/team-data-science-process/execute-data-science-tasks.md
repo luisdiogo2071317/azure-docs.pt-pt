@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelação e a implementação
 
@@ -25,10 +25,10 @@ As tarefas de ciência de dados típicas incluem exploração de dados, modelaç
 
 - [Azure Machine Learning](../preview/index.yml)
 - [SQL Server com os serviços de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
-- [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a>Exploração 
+## 1. <a name='DataQualityReportUtility-1'></a> Exploração 
 
 Um scientist de dados pode efetuar a exploração e relatórios numa variedade de formas: através da utilização de bibliotecas e pacotes disponíveis para o Python (matplotlib por exemplo) ou com R (ggplot ou lattice por exemplo). Cientistas de dados podem personalizar desse código, para se ajustar às necessidades de exploração de dados para cenários específicos. As necessidades para lidar com dados estruturados são diferentes para dados não estruturados como texto ou de imagens. 
 
@@ -43,7 +43,7 @@ Este R baseado no markdown ou o utilitário baseado no bloco de notas do Python 
 Neste momento, a ferramenta só funciona em pacotes de dados na memória. É necessário um ficheiro YAML para especificar os parâmetros de conjunto de dados para ser explorou. Para obter mais informações, consulte [IDEAR no utilitários de ciência de dados de TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a>Modelação
+## 2. <a name='ModelingUtility-2'></a> Modelação
 
 Existem várias toolkits e pacotes para modelos de formação em várias linguagens. Cientistas de dados devem hesite utilizar aqueles which ever estiver familiarizados com a, desde que o desempenho as considerações relativas à precisão e latência são satisfeitas para as empresas e relevantes utilizam casos e cenários de produção.
 
@@ -78,9 +78,9 @@ Depois de tem incorporados vários modelos, normalmente, tem de ter um sistema p
 1. [O Azure Machine Learning - serviço de gestão de modelo](../preview/index.yml)
 2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL Server-seerver como um sistema de gestão de modelo](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a>Implementação
+## 3. <a name='Deployment-3'></a> Implementação
 
 Implementação de produção permite que um modelo de reproduzir uma função ativa numa empresa. Predições de um modelo implementada podem ser utilizadas para as decisões de negócio.
 
@@ -88,9 +88,9 @@ Implementação de produção permite que um modelo de reproduzir uma função a
 Existem várias abordagens e plataformas para colocar os modelos em produção. Seguem-se algumas opções:
 
 
-- [Modelo de implementação no Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Modelo de implementação no Azure Machine Learning](../preview/model-management-overview.md)
 - [Implementação de um modelo no SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >
 >
@@ -105,7 +105,7 @@ Nota: Para implementação utilizando o Azure Machine Learning Studio, consulte 
 Quando vários modelos na produção, poderá ser útil efetuar [um teste a / B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Controlar o progresso de projetos de ciência de dados](track-progress.md) mostra como um scientist dados acompanhar o progresso de um projeto de ciência de dados.
  

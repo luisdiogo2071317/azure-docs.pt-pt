@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Implementar um modelo do Azure Machine Learning para um dispositivo de limite de IoT do Azure
 
 Todos os modelos do Azure Machine Learning de como serviços web baseados em Docker também podem executar em dispositivos de limite de IoT do Azure. Instruções de scripts adicionais e podem ser encontradas no [Toolkit de AI do Azure IoT Edge](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Operacionalizar o modelo
-Operacionalizar o seu modelo, seguindo as instruções em [implementação de serviço ao Web do gestão de modelo do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy) para criar uma imagem de Docker com o seu modelo.
+Operacionalizar o seu modelo, seguindo as instruções em [implementação de serviço ao Web do gestão de modelo do Azure Machine Learning](model-management-service-deploy.md) para criar uma imagem de Docker com o seu modelo.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Implementar no Azure IoT Edge
 Limite de IoT do Azure move a análise de nuvem e a lógica de negócio personalizadas para dispositivos. Todos os modelos de Machine Learning podem executar em dispositivos de limite de IoT. A documentação para configurar um dispositivo de limite de IoT e criar uma implementação pode ser encontrada em [aka.ms/azure-iot-limite-documento](https://aka.ms/azure-iot-edge-doc).

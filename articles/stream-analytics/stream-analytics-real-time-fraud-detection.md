@@ -1,3 +1,26 @@
+---
+title: "Stream Analytics: Deteção de fraudes em tempo real | Microsoft Docs"
+description: "Saiba como criar uma solução de deteção de fraudes em tempo real com o Stream Analytics. Utilize um hub de eventos para processamento de eventos em tempo real."
+keywords: "Deteção de anomalias, a deteção de fraudes, a deteção de anomalias em tempo real"
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Começar a utilizar o Azure Stream Analytics: deteção de fraudes em tempo real
 
 Este tutorial fornece uma ilustração de ponto a ponto sobre como utilizar o Azure Stream Analytics. Saiba como: 
@@ -126,7 +149,7 @@ Antes de iniciar a aplicação de TelcoGenerator, configurá-lo de modo a que ir
 
 Alguns dos campos chaves que irá utilizar nesta aplicação de deteção de fraudes em tempo real são os seguintes:
 
-|**Registo**|**Definição**|
+|**Record**|Definição|
 |----------|--------------|
 |`CallrecTime`|O carimbo de hora de início de chamada. |
 |`SwitchNum`|O comutador de telefone utilizado para ligar a chamada. Neste exemplo, os comutadores são cadeias que representam o país/região de origem (E.U.A., China, RU, Datacenters ou Austrália). |
@@ -385,7 +408,7 @@ No entanto, se tiver terminado e não precisa de recursos que criou, pode elimin
 
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode continuar a este tutorial com o seguinte artigo:
 

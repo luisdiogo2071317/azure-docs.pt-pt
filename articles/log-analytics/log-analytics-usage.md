@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 O Log Analytics inclui informações sobre a quantidade de dados recolhidos, os sistemas que enviaram dados e os diferentes tipos de dados enviados.  Utilize o dashboard **Utilização do Log Analytics** para ver a quantidade de dados enviados para o serviço Log Analytics. O dashboard mostra quantos dados são recolhidos por cada solução e a quantidade de dados que os seus computadores estão a enviar.
@@ -36,7 +36,9 @@ O dashboard **Utilização do Log Analytics** apresenta as informações seguint
 - Ofertas
     - Nós Insight e Análise de Dados
     - Nós de Automatização e Controlo
-    - Nós de segurança
+    - Nós de segurança  
+- Desempenho
+    - Tempo decorrido para recolher e indexar dados  
 - Lista de consultas
 
 ![dashboard de utilização](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Clique em **Ver todos...** para ver a lista completa dos computadores que estão
 
 Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Verifique se existe latência de ingestão
-Com o Log Analytics há uma latência prevista com a ingestão de dados recolhidos.  O tempo absoluto entre a indexação de dados e quando se encontra disponível para procurar pode ser imprevisível. Anteriormente, incluímos um gráfico de desempenho no dashboard que mostrava o tempo dispensado para recolher e indexar dados e com a introdução da nova linguagem de consulta, removemos temporariamente este gráfico.  Como solução provisória até lançarmos as métricas de latência de ingestão de dados atualizadas, pode utilizar a seguinte consulta para obter uma estimativa da latência para cada tipo de dados.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> A consulta de latência de ingestão não mostra o histórico da latência e está limitada para devolver apenas os resultados da hora atual.  O valor para *TimeGenerated* é preenchido no agente para os Registos de esquema comum e preenchido no ponto final de recolha para os Registos personalizados.  
->
 
 ## <a name="next-steps"></a>Passos seguintes
 * Veja [Pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.

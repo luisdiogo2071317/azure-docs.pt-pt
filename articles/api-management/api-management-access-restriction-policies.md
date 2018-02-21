@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="AccessRestrictionPolicies"></a>Políticas de restrição de acesso  
+##  <a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso  
   
 -   [Cabeçalho HTTP de verificação](api-management-access-restriction-policies.md#CheckHTTPHeader) -impõe a existência de e/ou valor de um cabeçalho de HTTP.  
 -   [Limitar taxa de chamadas por subscrição](api-management-access-restriction-policies.md#LimitCallRate) -picos de utilização da API impede ao limitar taxa de chamadas, numa base por subscrição.  
@@ -33,7 +33,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   [Definir quota de utilização por chave](#SetUsageQuotaByKey) -permite-lhe impor uma renováveis duração da chamada de volume e/ou de largura de banda de quota ou, numa base por chave.  
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) -impõe existência e validade de um JWT extraído de um cabeçalho de HTTP especificado ou um parâmetro de consulta especificada.  
   
-##  <a name="CheckHTTPHeader"></a>Verifique o cabeçalho de HTTP  
+##  <a name="CheckHTTPHeader"></a> Verifique o cabeçalho de HTTP  
  Utilize o `check-header` política para impor que um pedido tem um cabeçalho HTTP especificado. Opcionalmente, pode verificar se o cabeçalho tem um valor específico ou verifique a existência de um intervalo de valores permitidos. Se a verificação falhar, a política termina o processamento de pedidos e devolve o estado e o código de erro mensagem de HTTP especificada pela política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -76,7 +76,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 -   **Âmbitos de política:** global, produto, API, operação  
   
-##  <a name="LimitCallRate"></a>Limitar taxa de chamadas por subscrição  
+##  <a name="LimitCallRate"></a> Limitar taxa de chamadas por subscrição  
  O `rate-limit` política impede picos de utilização de API numa base por subscrição ao limitar taxa de chamadas para um número especificado por um período de tempo especificado. Quando esta política é acionada o autor da chamada recebe um `429 Too Many Requests` código de estado de resposta.  
   
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 -   **Âmbitos de política:** produto  
   
-##  <a name="LimitCallRateByKey"></a>Limitar taxa de chamadas por chave  
+##  <a name="LimitCallRateByKey"></a> Limitar taxa de chamadas por chave  
  O `rate-limit-by-key` política impede picos de utilização de API numa base por chave ao limitar taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia arbitrária e, geralmente, é fornecida através de uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados para o limite. Quando esta política é acionada o autor da chamada recebe um `429 Too Many Requests` código de estado de resposta.  
   
  Para obter mais informações e exemplos desta política, consulte [limitação API Management do Azure de pedidos avançada](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -189,7 +189,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 -   **Âmbitos de política:** global, produto, API, operação  
   
-##  <a name="RestrictCallerIPs"></a>Restringir o chamador IPs  
+##  <a name="RestrictCallerIPs"></a> Restringir o chamador IPs  
  O `ip-filter` (permite/nega) chamadas provenientes de endereços IP específicos e/ou intervalos de endereços de filtros de política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -231,7 +231,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   **As secções de política:** entrada  
 -   **Âmbitos de política:** global, produto, API, operação  
   
-##  <a name="SetUsageQuota"></a>Definir quota de utilização por subscrição  
+##  <a name="SetUsageQuota"></a> Definir quota de utilização por subscrição  
  O `quota` política impõe uma renováveis duração da chamada de volume e/ou de largura de banda de quota ou, numa base por subscrição.  
   
 > [!IMPORTANT]
@@ -286,7 +286,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   **As secções de política:** entrada  
 -   **Âmbitos de política:** produto  
   
-##  <a name="SetUsageQuotaByKey"></a>Definir quota de utilização por chave  
+##  <a name="SetUsageQuotaByKey"></a> Definir quota de utilização por chave  
  O `quota-by-key` política impõe uma renováveis duração da chamada de volume e/ou de largura de banda de quota ou, numa base por chave. A chave pode ter um valor de cadeia arbitrária e, geralmente, é fornecida através de uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados para a quota.  
   
  Para obter mais informações e exemplos desta política, consulte [limitação API Management do Azure de pedidos avançada](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -346,11 +346,11 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   **As secções de política:** entrada  
 -   **Âmbitos de política:** global, produto, API, operação  
   
-##  <a name="ValidateJWT"></a>Validar JWT  
+##  <a name="ValidateJWT"></a> Validar JWT  
  O `validate-jwt` política impõe existência e validade de um JWT extraídos a uma determinada de cabeçalho de HTTP ou um parâmetro de consulta especificada.  
   
 > [!IMPORTANT]
->  O `validate-jwt` política requer que o `exp` afirmação registada é inlcuded no JWT token, a menos que `require-expiration-time` atributo especificado e definido `false`.  
+>  O `validate-jwt` política requer que o `exp` afirmação registada está incluída no JWT token, a menos que `require-expiration-time` atributo especificado e definido `false`.  
 > O `validate-jwt` política suporta HS256 e RS256 algoritmos de assinatura. Para HS256 a chave tem de ser fornecida inline na política no formato codificado em base64. Para RS256 a chave tem de fornecer através de um ponto final de configuração de ID aberta.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -502,7 +502,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |failed-validation-httpcode|Código de estado de HTTP a devolver se a JWT não aprovado na validação.|Não|401|  
 |nome do cabeçalho|O nome do cabeçalho de HTTP que contém o token.|O `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/A|  
 |ID|O `id` atributo no `key` elemento permite-lhe especificar a cadeia que irá ser comparada com `kid` de afirmação no token (caso exista) localizar a chave a utilizar para a validação da assinatura adequada.|Não|N/A|  
-|Correspondência|O `match` atributo no `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para validação com êxito. Os valores possíveis são:<br /><br /> -                          `all`-cada valor de afirmação na política tem de estar presente no token para validação com êxito.<br /><br /> -                          `any`-valor, pelo menos, uma afirmação deve estar presente no token para validação com êxito.|Não|all|  
+|Correspondência|O `match` atributo no `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para validação com êxito. Os valores possíveis são:<br /><br /> -                          `all` -cada valor de afirmação na política tem de estar presente no token para validação com êxito.<br /><br /> -                          `any` -valor, pelo menos, uma afirmação deve estar presente no token para validação com êxito.|Não|all|  
 |query-paremeter-name|O nome do parâmetro de consulta que contém o token.|O `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/A|  
 |require-expiration-time|valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
 |require-scheme|O nome do token de esquema, por exemplo "Portador". Quando este atributo for definido, a política irá garantir que esquema especificada encontra-se no valor de cabeçalho de autorização.|Não|N/A|

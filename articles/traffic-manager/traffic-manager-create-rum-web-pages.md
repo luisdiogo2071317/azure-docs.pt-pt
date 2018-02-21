@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c8b345cd973b8cd939ad111132f1afdadae9f2b7
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar medidas de utilizador reais para Traffic Manager do Azure utilizando as páginas web
 
@@ -65,7 +65,7 @@ Após obter a chave RUM, o passo seguinte é incorporar esta JavaScript copiado 
 
     **Figura 3: HTML Simple com incorporados JavaScript de medidas de utilizador reais**
 
-3.  Guarde o ficheiro HTML
+3.  Guarde o ficheiro HTML e o anfitrião-lo num webserver ligado à internet. 
 4. Próxima vez que esta página é composta no web browser, o JavaScript referenciado é transferido e o script será executado a medição e elaboração de relatórios de operações.
 
 

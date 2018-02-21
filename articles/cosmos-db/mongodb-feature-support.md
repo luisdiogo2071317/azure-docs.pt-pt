@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte de APIS de MongoDB para a sintaxe e funcionalidades do MongoDB
 
-BD do Azure do Cosmos é serviço de base de dados com múltiplos modelo global distribuída da Microsoft. Pode comunicar com MongoDB API a base de dados através de qualquer um cliente open source para MongoDB [controladores](https://docs.mongodb.org/ecosystem/drivers). A API do MongoDB permite a utilização de controladores existentes do cliente para o MongoDB a cumprir os [ligar protocolo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com MongoDB API a base de dados através de qualquer um cliente open source para MongoDB [controladores](https://docs.mongodb.org/ecosystem/drivers). A API do MongoDB permite a utilização de controladores existentes do cliente para o MongoDB a cumprir os [ligar protocolo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Ao utilizar a API do Azure Cosmos DB MongoDB, possam desfrutar as vantagens das APIs do MongoDB está a ser utilizado, com todas as capacidades de enterprise da BD do Azure Cosmos: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), disponibilidade e a latência garantias, automáticas a indexação de cada campo, a encriptação rest, as cópias de segurança e muito mais.
 
@@ -58,8 +58,8 @@ BD do Cosmos do Azure suporta os seguintes comandos de base de dados em todas as
 - createIndexes
 - listIndexes
 - dropIndexes
-- ConnectionStatus
-- Reindexar
+- connectionStatus
+- reIndex
 
 ### <a name="diagnostics-commands"></a>Comandos de diagnóstico
 - buildInfo
@@ -237,6 +237,33 @@ Nas consultas $regex, esquerda-ancorada expressões permitem a pesquisa do índi
 Quando for necessário para incluir '$' ou ' |', é melhor criar consultas de regex dois (ou mais). Por exemplo, dada a seguinte consulta original: ```find({x:{$regex: /^abc$/})```, tem de ser modificados da seguinte forma: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 A primeira parte irá utilizar o índice para restringir a pesquisa a esses documentos a partir ^ abc e a segunda parte irá estabeler correspondência exatas entradas. Barra do operador ' |' funciona como uma função "ou" - a consulta ```find({x:{$regex: /^abc|^def/})``` corresponde a whin documentos o campo 'x' tem um valor que comece com "abc" ou "def". Para utilizar o índice, é recomendado para interromper a consulta duas consultas diferentes associadas pelo operador ou $: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### <a name="update-operators"></a>Operadores de atualização
+
+#### <a name="field-update-operators"></a>Operadores de atualização do campo
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>Operadores de atualização de matriz
+- $addToSet
+- $pop
+- $pullAll
+- $pull (Nota: $pull com a condição não é suportado)
+- $pushAll
+- $push
+- $cada
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>Operador de atualização bit a bit
+- $bit
 
 ### <a name="geospatial-operators"></a>Operadores de Geoespacial
 
@@ -262,7 +289,7 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Não é suportado. Em alternativa, utilize $regex 
+$text |  | Não suportado. Em alternativa, utilize $regex 
 
 ### <a name="methods"></a>Métodos
 
@@ -296,7 +323,7 @@ BD do Cosmos do Azure suporta a replicação automática, nativa as camadas mais
 
 BD do Azure do Cosmos suporta fragmentação automática, lado do servidor. BD do Azure do Cosmos não suporta comandos de fragmentação manual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [utilizar Studio 3T](mongodb-mongochef.md) com uma API para a base de dados de MongoDB.
 - Saiba como [utilizar Robo 3T](mongodb-robomongo.md) com uma API para a base de dados de MongoDB.

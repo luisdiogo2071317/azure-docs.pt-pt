@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Ajudar a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -171,7 +170,7 @@ O serviço Base de Dados SQL avalia o histórico de utilização e recomenda um 
 
 A recomendação de conjunto é composta por:
 
-- Um escalão de preço para o conjunto (básico, Standard, Premium ou Premium RS)
+- Um escalão de preço para o conjunto (Básico, Standard ou Premium)
 - O número adequado de **eDTUs POR CONJUNTO** (também denominado Número máximo de eDTUs por conjunto)
 - O **número máximo de eDTUs** e o **número mínimo de eDTUs** por base de dados
 - A lista de bases de dados recomendadas para o conjunto
@@ -201,7 +200,7 @@ O gráfico seguinte mostra um agrupamento elástico de exemplo. A vista inclui:
 
 Pode aceder a um conjunto específico para ver a utilização de recursos. Por predefinição, o agrupamento está configurado para ver a utilização de armazenamento e de eDTU de última hora. O gráfico pode ser configurado para mostrar as métricas de diferentes ao longo de vários intervalos de tempo. Clique em de **utilização de recursos** gráfico em **monitorização do conjunto elástico** para mostrar uma vista detalhada das métricas especificadas durante a janela de tempo especificado.
 
-![Monitorização do conjunto elástico](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
+![Monitorização do agrupamento elástico](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
 ![Página métrica](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
@@ -223,7 +222,7 @@ No **editar gráfico** formulário, pode selecionar um intervalo de tempo (decor
 
 Bases de dados individuais também podem ser monitorizadas para potenciais problemas. Em **monitorização de base de dados elásticas**, há um gráfico que mostra as métricas das cinco bases de dados. Por predefinição, o gráfico mostra as bases de 5 dados superiores no agrupamento de pela utilização de eDTU médio na última hora. 
 
-![Monitorização do conjunto elástico](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
+![Monitorização do agrupamento elástico](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
 Clique em de **utilização de eDTU para bases de dados para a hora passada** em **monitorização de base de dados elástica**. Esta ação abre **utilização de recursos de base de dados** e fornece uma vista detalhada da utilização de base de dados no conjunto. Utilizar a grelha na parte inferior da página, pode selecionar quaisquer bases de dados no agrupamento para apresentar a utilização do gráfico (até 5 as bases de dados). Também pode personalizar a janela de métricas e a hora apresentada no gráfico clicando **editar gráfico**.
 
@@ -274,7 +273,7 @@ Pode adicionar ou remover bases de dados a partir de um conjunto existente. As b
 
 ![Clique em Adicionar ao agrupamento](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-![Selecione para adicionar bases de dados](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+![Selecionar bases de dados a adicionar](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
 ![Adições de agrupamento pendente](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
@@ -302,7 +301,7 @@ Para criar e gerir conjuntos elásticos da base de dados SQL com o Azure PowerSh
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[Novo-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Cria um conjunto de bases de dados elásticas num servidor lógico SQL.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Cria um conjunto de bases de dados elásticas num servidor lógico SQL.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtém os conjuntos elásticos e os respetivos valores de propriedade num servidor SQL lógico.|
 |[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica as propriedades de um conjunto de bases de dados elásticas num servidor lógico SQL. Por exemplo, utilizar o **StorageMB** propriedade para modificar o armazenamento máximo do conjunto elástico.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elimina um conjunto de bases de dados elásticas num servidor lógico SQL.|
@@ -327,12 +326,12 @@ Para criar e gerir conjuntos elásticos da base de dados SQL com o [CLI do Azure
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[Criar AZ elástico de sql agrupamento](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Cria um conjunto elástico.|
-|[lista de agrupamento elástico de sql AZ](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Devolve uma lista de conjuntos elásticos num servidor.|
-|[lista-bds do agrupamento elástico de sql AZ](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Devolve uma lista de bases de dados num agrupamento elástico.|
-|[agrupamento elástico de sql AZ lista-edições](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Também inclui definições de DTU do agrupamento disponíveis, os limites de armazenamento e por definições de base de dados. Para reduzir verbosidade, limites de armazenamento adicional e por base de dados, as definições estão ocultadas por predefinição.|
-|[atualização de agrupamento elástico de sql AZ](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|As atualizações de um conjunto elástico.|
-|[eliminação de agrupamento elástico de sql AZ](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Elimina o conjunto elástico.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Cria um conjunto elástico.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Devolve uma lista de conjuntos elásticos num servidor.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Devolve uma lista de bases de dados num agrupamento elástico.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Também inclui definições de DTU do agrupamento disponíveis, os limites de armazenamento e por definições de base de dados. Para reduzir verbosidade, limites de armazenamento adicional e por base de dados, as definições estão ocultadas por predefinição.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|As atualizações de um conjunto elástico.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Elimina o conjunto elástico.|
 
 ## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Gerir bases de dados dentro de conjuntos elásticos, utilizando Transact-SQL
 
@@ -346,8 +345,8 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 | --- | --- |
 |[Criar base de dados (SQL Database do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mova uma base de dados para, de ou entre conjuntos elásticos.|
-|[REMOVER a base de dados (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
-|[sys.elastic_pool_resource_stats (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todos os conjuntos de bases de dados elásticas um servidor lógico. Para cada conjunto de bases de dados elásticas, não há uma linha para cada segundo 15 reporting janela (quatro linhas por minuto). Isto inclui a CPU, e/s, registo, o consumo de armazenamento e utilização de pedido/sessão em simultâneo por todas as bases de dados no conjunto.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todos os conjuntos de bases de dados elásticas um servidor lógico. Para cada conjunto de bases de dados elásticas, não há uma linha para cada segundo 15 reporting janela (quatro linhas por minuto). Isto inclui a CPU, e/s, registo, o consumo de armazenamento e utilização de pedido/sessão em simultâneo por todas as bases de dados no conjunto.|
 |[sys.database_service_objectives (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se tem sessão iniciada base de dados mestra num servidor de base de dados do Azure SQL, devolve informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
 
 ## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Gerir conjuntos elásticos e bases de dados utilizando a API REST
@@ -375,7 +374,7 @@ Para criar e gerir elástico da base de dados SQL agrupamentos utilizam estes pe
 |[Bases de dados - lista pelo servidor](/rest/api/sql/databases/listbyserver)|Devolve uma lista de bases de dados num servidor.|
 |[Bases de dados - atualização](/rest/api/sql/databases/update)|Atualiza a base de dados existente.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter um vídeo, consulte [decorrer vídeo do Microsoft Virtual Academy nas capacidades de elásticas de SQL Database do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, consulte o artigo [Padrões de Estrutura de Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).

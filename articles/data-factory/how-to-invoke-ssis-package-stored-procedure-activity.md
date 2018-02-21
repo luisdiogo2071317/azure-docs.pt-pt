@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
@@ -76,7 +76,7 @@ Neste passo, utilize a IU da fábrica de dados para criar um pipeline. Adicionar
 1. Na página de introdução de get, clique em **criar pipeline**: 
 
     ![Página Introdução](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. No **atividades** caixa de ferramentas, expanda **base de dados SQL**e arrastar largar **procedimento armazenado** atividade para a superfície do designer de pipeline. 
+2. No **atividades** caixa de ferramentas, expanda **geral**e arrastar largar **procedimento armazenado** atividade para a superfície do designer de pipeline. 
 
     ![Atividade de procedimento armazenado de arrastar e largar](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. Na janela Propriedades para a atividade de procedimento armazenado, mude para o **conta SQL** separador e clique em **+ novo**. Criar uma ligação à base de dados SQL do Azure que aloja o catálogo de SSIS (SSIDB da base de dados). 
@@ -95,11 +95,12 @@ Neste passo, utilize a IU da fábrica de dados para criar um pipeline. Adicionar
         ![Serviço ligado da Base de Dados SQL do Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Na janela de propriedades, mude para o **procedimento armazenado** separador do **conta SQL** separador e efetuar os passos seguintes: 
 
-    1. Para o **nome de procedimento armazenado** campo Enter `sp_executesql`. 
-    2. Clique em **+ novo** no **armazenados parâmetros de procedimento** secção. 
-    3. Para **nome** do parâmetro, introduza **instrução INSERT**. 
-    4. Para **tipo** do parâmetro, introduza **cadeia**. 
-    5. Para **valor** do parâmetro, introduza a seguinte consulta SQL:
+    1. Selecione **Editar**. 
+    2. Para o **nome de procedimento armazenado** campo Enter `sp_executesql`. 
+    3. Clique em **+ novo** no **armazenados parâmetros de procedimento** secção. 
+    4. Para **nome** do parâmetro, introduza **instrução INSERT**. 
+    5. Para **tipo** do parâmetro, introduza **cadeia**. 
+    6. Para **valor** do parâmetro, introduza a seguinte consulta SQL:
 
         Na consulta SQL, especifique os valores corretos para o **nome_da_pasta**, **project_name**, e **package_name** parâmetros. 
 
@@ -121,7 +122,8 @@ Nesta secção, acionar uma execução de pipeline e, em seguida, monitorizá-lo
 1. Para acionar um pipeline executar, clique em **acionador** na barra de ferramentas e clique em **acionar agora**. 
 
     ![Acionar agora](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Mude para o separador **Monitorizar**, no lado esquerdo. Consulte o pipeline de execução e o respetivo estado, juntamente com outras informações (por exemplo, o tempo de execução iniciar). Para atualizar a vista, clique em **Atualizar**.
+2. No **Pipeline executar** janela, selecione **concluir**. 
+3. Mude para o separador **Monitorizar**, no lado esquerdo. Consulte o pipeline de execução e o respetivo estado, juntamente com outras informações (por exemplo, o tempo de execução iniciar). Para atualizar a vista, clique em **Atualizar**.
 
     ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Ver apenas uma atividade executar como do pipeline tem apenas uma atividade (atividade de procedimento armazenado).

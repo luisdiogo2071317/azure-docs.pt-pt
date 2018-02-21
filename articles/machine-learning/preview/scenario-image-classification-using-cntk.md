@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificação de imagem com o Azure Machine Learning Workbench
 
@@ -54,7 +54,7 @@ As pré-requisitos para executar este exemplo são os seguintes:
 4. Uma GPU dedicada não é necessária para executar a formação SVM na parte 1, no entanto, é necessário para limitar de DNN descrito na parte 2. Se não dispõem de uma GPU forte, pretende preparar em vários GPUs ou não dispõe de um computador Windows, considere, em seguida, a utilização profunda aprendizagem máquina do Azure com o sistema operativo Windows. Consulte [aqui](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) para obter um guia de implementação de 1-clique. Depois de implementada, ligar à VM através de uma ligação de ambiente de trabalho remota, instale o Workbench existe e execute o código localmente a partir da VM.
 5. Vários bibliotecas de Python, tais como OpenCV tem de ser instalado. Clique em *abra a linha de comandos* do *ficheiro* menu no Workbench e execute os seguintes comandos para instalar estas dependências:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`Após transferir a roda OpenCV do http://www.lfd.uci.edu/~gohlke/pythonlibs/ (o nome exato e versão podem alterar)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` Após transferir a roda OpenCV do http://www.lfd.uci.edu/~gohlke/pythonlibs/ (o nome exato e versão podem alterar)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -81,13 +81,13 @@ A executar estes passos cria a estrutura de projeto mostrada abaixo. Diretório 
 
   Pasta| Descrição
   ---|---
-  aml_config /|                           Diretório que contém os ficheiros de configuração do Azure Machine Learning Workbench
+  aml_config/|                           Diretório que contém os ficheiros de configuração do Azure Machine Learning Workbench
   bibliotecas /|                              Diretório que contém todas as funções de programa auxiliar de Python e Jupyter
   blocos de notas /|                              Diretório que contém todos os blocos de notas
   recursos /|                              Diretório que contém todos os recursos (por exemplo o url de imagens de forma)
   scripts /|                              Diretório que contém todos os scripts
   PARAMETERS.py|                       Especificar todos os parâmetros de script de Python
-  Readme.md|                           Este documento Leia-me
+  readme.md|                           Este documento Leia-me
 
 
 ## <a name="data-description"></a>Descrição de dados
@@ -193,7 +193,7 @@ Por fim, o bloco de notas `showResults.py` é fornecida deslocar as imagens de t
 ### <a name="step-6-deployment"></a>Passo 6: implementação
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-O sistema treinado agora pode ser publicado como uma API REST. Implementação é explicada no bloco de notas `deploy.ipynb`e com base na funcionalidade dentro do Workbench do Azure Machine Learning (Lembre-se a definir como kernel o kernel do projeto local com o nome "PROJECTNAME local"). Consulte também a secção Implementação excelente o [IRIS tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) para a implementação mais informações relacionadas.
+O sistema treinado agora pode ser publicado como uma API REST. Implementação é explicada no bloco de notas `deploy.ipynb`e com base na funcionalidade dentro do Workbench do Azure Machine Learning (Lembre-se a definir como kernel o kernel do projeto local com o nome "PROJECTNAME local"). Consulte também a secção Implementação excelente o [IRIS tutorial](tutorial-classifying-iris-part-3.md) para a implementação mais informações relacionadas.
 
 Depois de implementada, o serviço web pode ser chamado utilizando o script `6_callWebservice.py`. Tenha em atenção que o endereço IP (local ou na nuvem) do serviço web tem de ser definida primeiro no script. O bloco de notas `deploy.ipynb` explica como encontrar este endereço IP.
 
@@ -228,7 +228,7 @@ Como podem ser vistos no desenho abaixo, a precisão utilizando refinement DNN n
 
 ### <a name="run-history-tracking"></a>Executar o controlo de histórico
 
-Os arquivos do Azure Machine Learning Workbench o histórico de cada execução no Azure, para permitir a comparação das execuções de dois ou mais são mesmo apart semanas. Isto é explicado detalhadamente no [Iris tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Também está a ser ilustrado nas capturas de ecrã seguintes, onde iremos comparar dois execuções do script `5_evaluate.py`, utilizando qualquer um dos refinement DNN ou seja, `classifier = "dnn"`(número de execução 148) ou SVM de preparação ou seja, `classifier = "svm"` (número de execução 150).
+Os arquivos do Azure Machine Learning Workbench o histórico de cada execução no Azure, para permitir a comparação das execuções de dois ou mais são mesmo apart semanas. Isto é explicado detalhadamente no [Iris tutorial](tutorial-classifying-iris-part-2.md). Também está a ser ilustrado nas capturas de ecrã seguintes, onde iremos comparar dois execuções do script `5_evaluate.py`, utilizando qualquer um dos refinement DNN ou seja, `classifier = "dnn"`(número de execução 148) ou SVM de preparação ou seja, `classifier = "svm"` (número de execução 150).
 
 Captura de ecrã primeiro, o refinement DNN leva a melhor accuracies a formação SVM para todas as classes. A segunda captura de ecrã mostra as métricas que estão a ser controladas, incluindo qual era o classificador. Este registo é feito no script `5_evaluate.py` ao chamar o registo do Azure Machine Learning Workbench. Além disso, o script também guarda a matriz de curva e confusão ROC para o *produz* pasta. Isto *produz* pasta é especial em que o respetivo conteúdo também é controlado pela funcionalidade de histórico do Workbench e, por conseguinte, os ficheiros de saída podem ser acedidos em qualquer altura, independentemente se foram substituídas cópias locais.
 

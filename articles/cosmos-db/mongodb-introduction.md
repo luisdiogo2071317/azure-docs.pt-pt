@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introdução ao Azure Cosmos DB: API para MongoDB
 
@@ -43,7 +43,10 @@ Bases de dados de base de dados do Cosmos do Azure podem ser utilizados como o a
 
 | Azure Cosmos DB predefinido de nível de consistência |   API do mongo (3.4) |
 |---|---|
-|Sessão| Eventual |
+|Eventual| Eventual |
+|Prefixo Consistente| Eventual com uma ordem consistente |
+|Sessão| Eventual com uma ordem consistente |
+|Estagnação Limitada| Forte |
 | Forte | Forte |
 
 **A indexação automática**: por predefinição, base de dados do Azure Cosmos indexa automaticamente os todas as propriedades dentro de documentos no seu MongoDB da base de dados e não espera nem requer nenhum esquema ou criação de índices secundários. Além disso, a capacidade de índice exclusivo permite uma restrição de exclusividade em todos campos de documento que já são indexados automática do BD Azure Cosmos.

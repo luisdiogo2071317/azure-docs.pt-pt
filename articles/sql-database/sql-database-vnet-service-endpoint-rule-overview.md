@@ -4,7 +4,7 @@ description: "Marcar uma sub-rede como um ponto final de serviço de rede Virtua
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/05/2018
+ms.date: 02/13/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 90c9aeac46240466bc28cf4c32bb5ff7ef443455
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -144,6 +144,12 @@ Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual te
     - [Rede privada virtual (VPN) site a Site (S2S)][vpn-gateway-indexmd-608y]
     - No local através de [ExpressRoute][expressroute-indexmd-744v]
 
+#### <a name="considerations-when-using-service-endpoints"></a>Considerações quando utilizar pontos finais de serviço
+Quando utilizar pontos finais de serviço para a SQL Database do Azure, reveja as seguintes considerações:
+
+- **Saída para IPs públicos do Azure SQL da base de dados é necessária**: grupos de segurança de rede (NSGs) devem ser abertos para IPs de base de dados SQL do Azure para permitir a conetividade. Pode fazê-lo utilizando o NSG [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para a SQL Database do Azure.
+- **Base de dados do Azure para PostgreSQL e o MySQL não são suportadas**: pontos finais de serviço não são suportados para a base de dados do Azure para PostgreSQL ou MySQL. Ativar pontos finais do serviço base de dados do SQL Server irá interromper a conectividade a estes serviços. Temos uma mitigação para este; Contacte  *dmalik@microsoft.com* .
+
 #### <a name="expressroute"></a>ExpressRoute
 
 Se a sua rede é ligado à rede do Azure através da utilização de [ExpressRoute][expressroute-indexmd-744v], cada circuito está configurado com dois endereços IP públicos no Microsoft Edge. Dois endereços IP são utilizados para ligar a Services da Microsoft, tal como para o Storage do Azure, utilizando o Peering público do Azure.
@@ -171,6 +177,8 @@ O Editor de consultas de base de dados do Azure SQL Server é implementado em VM
 #### <a name="table-auditing"></a>Tabela de auditoria
 Atualmente, existem duas formas de ativar a auditoria na sua base de dados do SQL Server. Auditoria de tabela falha depois de ter ativado pontos finais de serviço no seu servidor de SQL do Azure. Mitigação aqui é mover para auditoria de Blob.
 
+#### <a name="impact-on-data-sync"></a>Impacto na sincronização de dados
+SQLDB do Azure com a funcionalidade de sincronização de dados que estabelece ligação a bases de dados utilizando o Azure IPs. Quando utilizar pontos finais de serviço, é provável que irá desativar **permitir todos os serviços do Azure** acesso ao seu servidor lógico. Tal irá interromper a funcionalidade de sincronização de dados.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto da utilização de pontos finais do serviço de VNet com o storage do Azure
 
@@ -178,7 +186,7 @@ Armazenamento do Azure tiver implementado a mesma funcionalidade que permite lim
 Se optar por utilizar esta funcionalidade com uma conta de armazenamento que está a ser utilizada por um servidor de SQL do Azure, pode depare com problemas. Em seguida, é uma lista e debate das funcionalidades do Azure SQLDB que são afetados por este.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-O PolyBase costuma é utilizado para carregar dados para o Azure SQLDW das contas do Storage. Se a conta de armazenamento que está a carregar dados a partir de limita o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade do PolyBase à conta.
+O PolyBase costuma é utilizado para carregar dados para o Azure SQLDW das contas do Storage. Se a conta de armazenamento que está a carregar dados a partir de limita o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade do PolyBase à conta. Há uma mitigação para este; Contacte  *dmalik@microsoft.com*  para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Blob do Azure SQLDB auditoria
 Auditoria de blob pushes registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais do serviço de prevenir irá interromper a conectividade do SQLDB do Azure para a conta de armazenamento.

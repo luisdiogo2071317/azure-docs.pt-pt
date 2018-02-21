@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 02/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: da463bcaf91321b65c8ad1067e457b88c8dcd58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 4efa053afd26bde208441c4b841c5d02142a2d18
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sql-database-faq"></a>FAQ da Base de Dados SQL
 
@@ -30,7 +30,7 @@ A versão atual da base de dados do SQL Server é V12. Versão V11 foi extinguid
 Garantimos que os clientes terão conectividade entre a Base de Dados SQL Basic, Standard ou Premium única ou elástica do Microsoft Azure e o nosso gateway de Internet durante, pelo menos, 99,99% do tempo. Para obter mais informações, consulte [SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>Como a reposição de palavra-passe do administrador do servidor?
-No [portal do Azure](https://portal.azure.com) clique **SQL Servers**, selecione o servidor da lista e, em seguida, clique em **Repor palavra-passe**.
+No [portal do Azure](https://portal.azure.com), clique em **SQL Servers**, selecione o servidor da lista e, em seguida, clique em **Repor palavra-passe**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Como gerir bases de dados e inícios de sessão?
 Consulte [gerir bases de dados e inícios de sessão](sql-database-manage-logins.md).
@@ -44,7 +44,7 @@ Faturas de base de dados SQL numa taxa por hora previsível, com base na camada 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>E se uma base de dados está ativo para menos de uma hora ou utiliza uma camada de serviço mais elevada para menos de uma hora?
 É-lhe faturado para cada hora, existe uma base de dados utilizando a camada de serviço mais elevada + o nível de desempenho que aplicadas durante essa hora, independentemente da utilização ou a base de dados estava ativo para menos de uma hora. Por exemplo, se criar uma base de dados e eliminá-lo mais tarde cinco minutos a fatura reflete cobrada uma taxa por hora de uma base de dados. 
 
-Exemplos
+Exemplos:
 
 * Se criar uma base de dados básica e, em seguida, atualizá-lo imediatamente Standard S1, são cobrado à taxa Standard S1 para a primeira hora.
 * Se a atualizar uma base de dados do básica para o Premium às 10:00 e a conclusão da atualização à 1:35:00. no dia seguinte, são-lhe cobrados a taxa de Premium começando em 1:00:00. 
@@ -53,7 +53,7 @@ Exemplos
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>Como utilização do conjunto elástico apareçam na minha fatura e o que acontece quando altero os eDTUs por conjunto?
 Agrupamento elástico cobra Mostrar cópias de segurança na sua factura como DTUs elásticas (eDTUs) em incrementos apresentados em eDTUs por conjunto no [a página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Não há sem qualquer encargo por base de dados para conjuntos elásticos. É-lhe faturado para cada hora, que existe um conjunto, a eDTU máxima, independentemente da utilização ou o conjunto estava ativo para menos de uma hora. 
 
-Exemplos
+Exemplos:
 
 * Se criar um conjunto elástico Standard com 200 eDTUs às 11:18 a.m., bases de dados de cinco a adicionar ao agrupamento, são-lhe cobrados para 200 eDTUs para a hora de toda, começando na 11 a.m. através do resto do dia.
 * No dia 2, em 5:05 a.m., base de dados 1 começa a consumir 50 eDTUs e de que detém gradual através do dia. Bases de dados 2 a 5 variam entre 0 e eDTUs de 80. Durante o dia, adicione cinco outras bases de dados que consomem eDTUs variando ao longo do dia. Dia 2 é um dia completo cobrado às 200 eDTU. 
@@ -76,17 +76,17 @@ Para compreender as camadas de eDTUs e o serviço, consulte [opções de base de
 Ao contrário das bases de dados individuais, utilizando [georreplicação ativa](sql-database-geo-replication-overview.md) com bases de dados elásticas não tem um impacto direto de faturação.  Apenas são cobrados para as eDTUs aprovisionadas para cada um dos agrupamentos (conjunto principal e secundário agrupamento)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>De que forma é que a utilização da funcionalidade de auditoria se reflete na fatura?
-Auditoria baseia-se para o serviço de base de dados SQL em nenhum extra de custos e está disponível para as bases de dados básicas, Standard, Premium e Premium RS. No entanto, para armazenar os registos de auditoria, as utilizações de funcionalidade de auditoria uma conta de armazenamento do Azure e as taxas de tabelas e filas no armazenamento do Azure aplicam-se com base no tamanho do seu registo de auditoria.
+Auditoria baseia-se para o serviço de base de dados SQL em nenhum extra de custos e está disponível para as bases de dados básicas, Standard e Premium. No entanto, para armazenar os registos de auditoria, as utilizações de funcionalidade de auditoria uma conta de armazenamento do Azure e as taxas de tabelas e filas no armazenamento do Azure aplicam-se com base no tamanho do seu registo de auditoria.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>Como se encontrar o nível de desempenho e o escalão de serviço à direita para bases de dados individuais e conjuntos elásticos?
-Existem algumas ferramentas disponíveis para si. 
+Existem algumas ferramentas disponíveis para si: 
 
 * Para bases de dados no local, utilizar o [advisor de dimensionamento de DTU](http://dtucalculator.azurewebsites.net/) recomendamos as bases de dados e das dtus mínimas necessárias e avaliar várias bases de dados para conjuntos elásticos.
 * Se uma base de dados iria beneficiar está a ser um conjunto, o motor inteligente do Azure recomenda um conjunto elástico se vê-lo um padrão de histórico de utilização warrants-lo. Consulte [monitorizar e gerir um conjunto elástico com o portal do Azure](sql-database-elastic-pool-manage-portal.md). Para obter mais informações sobre como realizar os cálculos, consulte [considerações sobre preço e desempenho de um conjunto elástico](sql-database-elastic-pool.md)
 * Para ver se é preciso uma base de dados de aumentar ou reduzir verticalmente, consulte [guia de desempenho das bases de dados](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Com que frequência posso alterar o nível de desempenho ou camada de serviço de uma base de dados?
-Pode alterar a camada de serviço (entre básicas, Standard, Premium e Premium RS) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) as vezes que pretender. Para bases de dados de versão anteriores, pode alterar o nível de desempenho ou camada de serviço um total de quatro vezes num período de 24 horas.
+Pode alterar a camada de serviço (entre básicas, Standard e Premium) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) as vezes que pretender. Para bases de dados de versão anteriores, pode alterar o nível de desempenho ou camada de serviço um total de quatro vezes num período de 24 horas.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Como muitas vezes, pode ajustar os eDTUs por conjunto?
 As vezes que pretender.
@@ -101,7 +101,7 @@ Em geral, os conjuntos elásticos foram concebidos para típica [padrão de apli
 Armazenamento de cópia de segurança é armazenamento associado à sua cópias de segurança automática da base de dados que são utilizadas para [ponto-na-tempo-restauro](sql-database-recovery-using-backups.md#point-in-time-restore) e [georrestauro](sql-database-recovery-using-backups.md#geo-restore). A Base de Dados SQL do Azure proporciona até 200 % do armazenamento máximo de base de dados aprovisionada para armazenamento de cópias de segurança sem custos adicionais. Por exemplo, se tiver uma instância de base de dados Standard com um tamanho de base de dados de aprovisionamento de 250 GB, são fornecidos com 500 GB de armazenamento de cópia de segurança, sem encargos adicionais. Se a base de dados exceder o armazenamento de cópia de segurança fornecido, pode optar por reduzir o período de retenção contactando o suporte do Azure ou paga para o armazenamento de cópia de segurança extra cobrado a taxa de acesso de leitura geograficamente armazenamento redundantes (RA-GRS) padrão. Para obter mais informações sobre faturação RA-GRS, consulte os detalhes de preços de armazenamento.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Posso estou a mover de negócio/Web para os novos escalões de serviço, o que é necessário saber?
-Bases de dados do Azure SQL Server Web e Business foram extinguidas agora. Os escalões básico, Standard, Premium, Premium RS e elástico substituem as retiring bases de dados Web e Business. 
+Bases de dados do Azure SQL Server Web e Business foram extinguidas agora. Os escalões básico, Standard e Premium e elástico substituem as retiring bases de dados Web e Business. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>O que é um atraso de replicação esperado ao replicar de georreplicação uma base de dados entre duas regiões dentro da mesma geografia do Azure?
 Estamos atualmente são suportar um RPO de cinco segundos e o desfasamento foi inferior ao que quando o secundário georreplicação está alojado no Azure recomendado emparelhado região e na mesma camada de serviço.
@@ -119,7 +119,7 @@ Georreplicação-secundário é uma réplica async e estamos a tentar guardá-lo
 Expomos o desfasamento em tempo real entre a base de dados primária e a georreplicação-secundárias através de um DMV. Para obter mais informações, consulte [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Para mover uma base de dados para um servidor diferente na mesma subscrição
-* No [portal do Azure](https://portal.azure.com), clique em **bases de dados SQL**, selecione uma base de dados da lista e, em seguida, clique em **cópia**. Consulte [copiar uma base de dados SQL do Azure](sql-database-copy.md) para obter mais detalhes.
+No [portal do Azure](https://portal.azure.com), clique em **bases de dados SQL**, selecione uma base de dados da lista e, em seguida, clique em **cópia**. Consulte [copiar uma base de dados SQL do Azure](sql-database-copy.md) para obter mais detalhes.
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Para mover uma base de dados entre subscrições
-* No [portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que aloja a base de dados da lista. Clique em **mover**e, em seguida, escolha os recursos para mover e mover para a subscrição.
+No [portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que aloja a base de dados da lista. Clique em **mover**e, em seguida, escolha os recursos para mover e mover para a subscrição.

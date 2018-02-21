@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar PremiumV2 camada para o App Service do Azure
 
-A nova **PremiumV2** escalão de preço fornece [Dv2 série VMs](../virtual-machines/windows/sizes-general.md#dv2-series) com processadores mais rápidos, o armazenamento SSD e o rácio de memória de núcleo duplo em comparação comparada **padrão** camada. Neste artigo, irá aprender a criar uma aplicação no **PremiumV2** escalão ou aumentar verticalmente a uma aplicação para **PremiumV2** camada.
+A nova **PremiumV2** escalão de preço dá-lhe processadores mais rápidos, o armazenamento SSD e o rácio de doubles memória para núcleos dos escalões de preços existentes. Com a vantagem de desempenho, pode poupar dinheiro executando as suas aplicações em menos instâncias. Neste artigo, irá aprender a criar uma aplicação no **PremiumV2** escalão ou aumentar verticalmente a uma aplicação para **PremiumV2** camada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Para uma aplicação web para vertical **PremiumV2**, tem de ter uma aplicação
 
 ## <a name="premiumv2-availability"></a>Disponibilidade de PremiumV2
 
-O escalão de PremiumV2 está atualmente disponível para o serviço de aplicações no _Windows_ apenas. Os contentores de Linux ainda não são suportados.
+O escalão de PremiumV2 está atualmente disponível para o serviço de aplicações no _Windows_ apenas. Os contentores de Linux não são suportados ainda.
 
 PremiumV2 já se encontra disponível no Azure mais regiões e crescente. Para ver se está disponível na sua região, execute o seguinte comando da CLI do Azure no [Shell de nuvem do Azure](../cloud-shell/overview.md):
 
@@ -56,7 +56,7 @@ Escolha uma do **PremiumV2** opções e clique em **selecione**.
 ![](media/app-service-configure-premium-tier/pick-premium-tier.png)
 
 > [!IMPORTANT] 
-> Se não vir **P1V2**, **P2V2**, e **P3V2** como opções, quer **PremiumV2** não está disponível na sua região escolhidas, ou é configurar um plano de serviço de aplicações do Linux, o que não suporta **PremiumV2**.
+> Se não vir **P1V2**, **P2V2**, e **P3V2** como opções, quer **PremiumV2** não está disponível na sua região escolhidas, ou está configurar um plano de serviço de aplicações do Linux, o que não suporta **PremiumV2**.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Aumentar verticalmente a uma aplicação existente para PremiumV2 camada
 
@@ -82,13 +82,13 @@ Se a operação ser concluída com êxito, a página de descrição geral da sua
 
 Alguns planos de serviço de aplicações não é possível aumentar verticalmente para a camada de PremiumV2. Se a operação de dimensionamento dá-lhe um erro, terá um novo plano de serviço de aplicações para a sua aplicação.
 
-Criar um _Windows_ plano do App Service do mesmo grupo de recursos e a região que a sua aplicação de serviço aplicacional existente. Siga os passos indicados em [criar uma aplicação na camada PremiumV2](#create) para o definir como **PremiumV2** camada. Se assim o desejar, utilize a mesma configuração de escalamento horizontal como o seu plano de serviço aplicacional existente (número de instâncias, dimensionamento automático e assim sucessivamente).
+Criar um _Windows_ plano do App Service do mesmo grupo de recursos e a região que a sua aplicação de serviço aplicacional existente. Siga os passos indicados em [criar uma aplicação na camada PremiumV2](#create) para o definir como **PremiumV2** camada. Se quiser, utilize a mesma configuração de escalamento horizontal como o seu plano de serviço aplicacional existente (número de instâncias, dimensionamento automático e assim sucessivamente).
 
 Abra a página da aplicação do serviço de aplicações de novo. No painel de navegação esquerdo do seu serviço de aplicações, selecione **plano de serviço de aplicações de alteração**.
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Selecione o plano de serviço de aplicações que acabou de criar.
+Selecione o plano de serviço de aplicações que criou.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -98,14 +98,14 @@ Uma vez concluída a operação de alteração, a aplicação está em execuçã
 
 ## <a name="scale-up-from-an-unsupported-region"></a>Aumentar verticalmente a partir de uma região não suportada
 
-Se a aplicação for executada numa região onde **PremiumV2** é ainda não está disponível, pode mover a aplicação numa região diferente para tirar partido das **PremiumV2**. Tem duas opções:
+Se a aplicação for executada numa região onde **PremiumV2** não está disponível ainda, pode mover a sua aplicação numa região diferente para tirar partido das **PremiumV2**. Tem duas opções:
 
 - Criar uma aplicação no novo **PremiumV2** planear, em seguida, volte a implementar o código da aplicação. Siga os passos indicados em [criar uma aplicação na camada PremiumV2](#create) para o definir como **PremiumV2** camada. Se assim o desejar, utilize a mesma configuração de escalamento horizontal como o seu plano de serviço aplicacional existente (número de instâncias, dimensionamento automático e assim sucessivamente).
 - Se a aplicação já for executada no existente **Premium** camada, em seguida, pode clonar a sua aplicação com todas as definições de aplicação, cadeias de ligação e configuração de implementação.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    No **Clone aplicação** página, pode criar um novo plano de serviço de aplicações na região que pretende e especifique as definições que pretende clonar.
+    No **Clone aplicação** página, pode criar um plano de serviço de aplicações na região que pretende e especifique as definições que pretende clonar.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
