@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Cenário do mundo real de manutenção preditiva.
 
-O impacto dos períodos de indisponibilidade do equipamento agendada pode ser detrimental para as empresas. É fundamental para, por conseguinte, o equipamento de campo manter em execução para maximizar o desempenho e de utilização e pela minimizar o período de indisponibilidade dispendioso, agendado. Antecipado identificação de problemas pode ajudar a alocar recursos de manutenção limitado de forma económica e melhorar a qualidade e fornecer os processos de cadeia. 
+O impacto dos períodos de indisponibilidade do equipamento agendada pode ser detrimental para as empresas. -Lo é essencial manter em execução para maximizar a utilização e desempenho de equipamento de campo, minimizando dispendiosos, agendados e período de indisponibilidade. Antecipado identificação de problemas pode ajudar a alocar recursos de manutenção limitado de forma económica e melhorar a qualidade e fornecer os processos de cadeia. 
 
 Este cenário explicar um relativamente [conjunto de dados em grande escala simulado](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) a guiá-lo através de um projeto de ciência de dados de manutenção preditiva da ingestão de dados, funcionalidade operationalization de modelo, de criação de modelo e de engenharia e implementação. O código para todo o processo é escrito em blocos de notas do Jupyter com PySpark Workbench do Azure ML. O modelo final é implementado utilizando a gestão de modelo do Azure Machine Learning para fazer predições de falha de equipamento em tempo real.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>Ligação para o repositório do GitHub da Galeria
 
-Segue-se a ligação para o repositório do GitHub pública: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+Segue-se a ligação para o repositório do GitHub público para os relatórios de problema e contribuições: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>Descrição geral de cenário de utilização
@@ -40,9 +40,9 @@ Este cenário demora ideias do [manual de comunicação social de manutenção p
 
 * Um [conta do Azure](https://azure.microsoft.com/en-us/free/) (gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguintes o [guia de instalação de início rápido](./quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
-* Azure Operationalization de aprendizagem máquina requer um ambiente de implementação de local e um [conta de gestão de modelo](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* Azure Operationalization de aprendizagem máquina requer um ambiente de implementação de local e um [conta de gestão de modelo](model-management-overview.md)
 
-Neste exemplo, pode ser executado em qualquer contexto de computação AML Workbench. No entanto, recomenda-se a executá-lo com, pelo menos, de 16 GB de memória. Este cenário foi criado e testado num computador Windows 10 com um padrão de DS4_V2 remoto [Máquina Virtual de ciência de dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Neste exemplo, pode executar em qualquer contexto de computação AML Workbench. No entanto, recomenda-se a executá-lo com, pelo menos, de 16 GB de memória. Este cenário foi criado e testado num computador Windows 10 com um padrão de DS4_V2 remoto [Máquina Virtual de ciência de dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Modelo operationalization foi feito utilizando 0.1.0a22 de versão da CLI do Azure ML.
 
@@ -52,8 +52,8 @@ Crie um novo projeto com este exemplo como um modelo:
 1.  Abra máquina do Azure Learning Workbench
 2.  No **projetos** página, clique em de  **+**  iniciar sessão e selecionar **novo projeto**
 3.  No **criar novo projeto** painel, preencha as informações para o novo projeto
-4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva "Manutenção preditiva" e selecione o modelo
-5.  Clique em **Criar**.
+4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva "Manutenção preditiva" e selecione o **manutenção preditiva** modelo
+5.  Clique em de **criar** botão
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Preparar o destino de cálculo de servidor do bloco de notas
 
@@ -113,9 +113,9 @@ O [Leia-me](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenanc
 
 [`Code\4_operationalization.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): Utilizando o modelo de último guardado para disco (kernel de bloco de notas do Jupyter) local, este bloco de notas baseia-se os componentes para implementar o modelo para um serviço web do Azure. Os ativos completa operacionais são compacted para o `o16n.zip` ficheiros armazenados no outro contentor de blob do Azure. O ficheiro zipped contém:
 
-* `service_schema.json`O ficheiro de definição de esquema para a implementação. 
-* `pdmscore.py`As funções de init() e run() requeridas pelo serviço web do Azure
-* `pdmrfull.model`O diretório de definição do modelo.
+* `service_schema.json` O ficheiro de definição de esquema para a implementação. 
+* `pdmscore.py` As funções de init() e run() requeridas pelo serviço web do Azure
+* `pdmrfull.model` O diretório de definição do modelo.
     
  O bloco de notas testa as funções com a definição de modelo antes de empacotar os ativos de operationalization para implementação. Instruções de implementação são incluídas no fim do bloco de notas.
 
@@ -125,13 +125,15 @@ Este cenário fornece o leitor de uma descrição geral de como construir uma so
 
 ## <a name="references"></a>Referências
 
-Neste caso, utilize foi anteriormente desenvolveu em várias plataformas:
+Outros exemplos de cenários de utilização de manutenção preditiva estão disponíveis numa variedade de plataformas:
 
 * [Modelo de solução da manutenção preditiva](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Guia de modelação de manutenção preditiva](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Preditiva manutenção modelação Guia utilizando os serviços do SQL Server R](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Bloco de notas do Python guia de modelação de manutenção preditiva](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Manutenção preditiva utilizando PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Ligação avançada de aprendizagem para manutenção preventiva](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

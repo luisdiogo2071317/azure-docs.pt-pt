@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Event Hubs do Azure para as funções do Azure
 
@@ -49,7 +49,7 @@ Quando a sua função primeiro está ativada, não há apenas 1 instância da fu
 
 * **Adicionar 1 instância de função mais** -lógica das funções do Azure de dimensionamento determina que Function_0 tem mais de mensagens que pode processá-lo, pelo que é criada uma nova instância, Function_1,. Os Event Hubs Deteta que uma nova instância EPH está a tentar ler as mensagens. Os Event Hubs iniciará o balanceamento de carga as partições entre as instâncias EPH, por exemplo, partições 0-4 estão atribuídas ao Function_0 e partições 5 9 estão atribuídas a Function_1. 
 
-* **Adicionar N mais instâncias de função** -lógica das funções do Azure de dimensionamento determina que Function_0 e Function_1 têm mais mensagens que o podem processar. Será dimensionado novamente para Function_2... N, em que N é maior do que o paritions de Hub de eventos. Os Event Hubs carregará balancear as partições Function_0 … 9 instâncias.
+* **Adicionar N mais instâncias de função** -lógica das funções do Azure de dimensionamento determina que Function_0 e Function_1 têm mais mensagens que o podem processar. Será dimensionado novamente para Function_2... N, em que N é maior do que as partições do Hub de eventos. Os Event Hubs carregará balancear as partições Function_0 … 9 instâncias.
 
 O facto de que N é maior do que o número de partições é dimensionamento lógica exclusivo atual das funções do Azure. Isto é feito para se certificar de que existem sempre instâncias de EPH prontamente disponível para obter rapidamente o bloqueio de partition(s) à medida que ficam disponíveis a partir de outras instâncias. Os utilizadores só são-lhe cobrados os recursos utilizados quando executa a instância de função e desta sobre-aprovisionar não serem cobrados.
 
@@ -404,7 +404,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 Em c# e c# script, enviar mensagens com um parâmetro de método como `out string paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou `IAsyncCollector<string>` em vez de `out string`.
 
-Em JavaScript, o evento de saída de acesso utilizando `context.bindings.<name>`. `<name>`o valor especificado no `name` propriedade *function.json*.
+Em JavaScript, o evento de saída de acesso utilizando `context.bindings.<name>`. `<name>` o valor especificado no `name` propriedade *function.json*.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

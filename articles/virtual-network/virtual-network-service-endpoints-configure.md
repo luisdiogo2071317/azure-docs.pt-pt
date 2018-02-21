@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar Pontos Finais do Serviço de Rede Virtual
 
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>CLI do Azure
 
 Pré-requisitos da configuração:
-- Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/#login) e siga as instruções no ecrã. Para obter mais informações sobre o início de sessão, veja [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/#az_login) e siga as instruções no ecrã. Para obter mais informações sobre o início de sessão, veja [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
  - A conta deve ter as [permissões](#provisioning) necessárias para criar uma rede virtual e o ponto final de serviço.
 
  Para obter uma lista completa dos comandos para as redes virtuais, consulte [Comandos de Rede Virtual do CLI do Azure](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)

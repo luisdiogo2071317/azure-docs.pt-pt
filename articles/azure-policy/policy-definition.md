@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -262,6 +262,7 @@ Pode utilizar os aliases de propriedade para aceder às propriedades específica
 | Microsoft.Compute/virtualMachines/imageVersion | Defina a versão da imagem de plataforma ou imagem do marketplace utilizado para criar a máquina virtual. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Defina o URI do vhd. |
 | Microsoft.Compute/virtualMachines/sku.name | Defina o tamanho da máquina virtual. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Define o conjunto de disponibilidade id para a máquina virtual. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -332,6 +333,7 @@ Pode utilizar os aliases de propriedade para aceder às propriedades específica
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Defina se o serviço encripta os dados porque esta está armazenada no serviço de armazenamento de ficheiros. |
 | Microsoft.Storage/storageAccounts/sku.name | Defina o nome do SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Definido para permitir apenas o tráfego https para o serviço de armazenamento. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Verifique se o ponto final de serviço de rede Virtual está ativada. |
 
 ## <a name="initiatives"></a>Iniciativas
 

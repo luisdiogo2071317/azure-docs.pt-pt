@@ -43,6 +43,7 @@
 ## Criar e gerir agrupamentos
 ### [Nós de computação com dimensionamento automático](batch-automatic-scaling.md)
 ### [VMs de computação intensiva](batch-pool-compute-intensive-sizes.md)
+### [Configurar o acesso aos nós de computação](pool-endpoint-configuration.md)
 ### [Criar um conjunto com uma imagem personalizada](batch-custom-images.md)
 ### [Criar um conjunto numa rede virtual](batch-virtual-network.md)
 ### [Nós de computação do Linux](batch-linux-nodes.md)

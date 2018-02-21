@@ -1,10 +1,10 @@
 ---
 title: "Criar e instalar ficheiros de configuração de cliente VPN para ligações P2S RADIUS: PowerShell: Azure | Microsoft Docs"
-description: "Este artigo ajuda-o a criar o ficheiro de configuração de cliente VPN para ligações ponto a Site que utilizem a autenticação RADIUS."
+description: "Crie o cliente do Windows, Mac OS X e Linux VPN ficheiros de configuração para ligações que utilizam autenticação RADIUS."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fb83bda50535dc002120ee4621cd4c8df71c141c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar ficheiros de configuração de cliente VPN para autenticação P2S RADIUS
 
-Para ligar a uma rede virtual através de ponto a Site, terá de configurar o dispositivo de cliente a partir do qual o que irá ligar. O servidor RADIUS fornece várias opções de autenticação: autenticação de nome de utilizador/palavra-passe, autenticação de certificados, bem como outros tipos de autenticação. A configuração de cliente VPN é diferente para cada tipo de autenticação. Para configurar o cliente VPN, pode utilizar os ficheiros de configuração de cliente que contêm as definições necessárias. Este artigo ajuda-o a criar e instalar a configuração de cliente VPN para o tipo de autenticação RADIUS que pretende utilizar.
+Para ligar a uma rede virtual através de ponto a Site, terá de configurar o dispositivo de cliente a partir do qual o que irá ligar. Pode criar ligações P2S VPN do Windows, Mac OSX e Linux dispositivos de cliente. Quando utilizar a autenticação RADIUS, existem várias opções de autenticação: autenticação de nome de utilizador/palavra-passe, autenticação de certificados, bem como outros tipos de autenticação. A configuração de cliente VPN é diferente para cada tipo de autenticação. Para configurar o cliente VPN, pode utilizar os ficheiros de configuração de cliente que contêm as definições necessárias. Este artigo ajuda-o a criar e instalar a configuração de cliente VPN para o tipo de autenticação RADIUS que pretende utilizar.
 
-### <a name="workflow"></a>Fluxo de trabalho
+O fluxo de trabalho de configuração para autenticação P2S RADIUS é o seguinte:
 
 1. [Configurar o gateway de VPN do Azure para a conetividade P2S](point-to-site-how-to-radius-ps.md).
 2. [Configurar o servidor RADIUS para autenticação](point-to-site-how-to-radius-ps.md#radius). 
@@ -36,6 +36,8 @@ Para ligar a uma rede virtual através de ponto a Site, terá de configurar o di
 >Se existirem quaisquer alterações à configuração de VPN de ponto a Site depois de gerar o perfil de configuração de cliente VPN, tais como o tipo de protocolo VPN ou o tipo de autenticação, tem de gerar e instalar uma nova configuração de cliente VPN nos seus dispositivos de utilizador.
 >
 >
+
+Para utilizar as secções neste artigo, primeiro tem de decidir que tipo de autenticação que pretende utilizar: nome de utilizador/palavra-passe, certificado ou outros tipos de autenticação. Dentro de cada secção, existem passos para o Windows, Mac OS X e Linux (limitados passos disponíveis neste momento).
 
 ## <a name="adeap"></a>Autenticação de nome de utilizador/palavra-passe
 
@@ -121,7 +123,7 @@ Utilize os seguintes passos para configurar o cliente de VPN do Windows nativo p
 
 As instruções seguintes foram criadas utilizando strongSwan 5.5.1 no Ubuntu 17.0.4. Ecrãs reais poderão ser diferentes dependendo da versão do Linux e strongSwan.
 
-1. Abra o **Terminal** instalar **strongSwan** e o Gestor de rede ao executar o comando seguinte. Se receber um erro relacionado com o "libcharon-extra-plug-ins", substitua-o por "strongswan-Plug-in-eap-mschapv2".
+1. Abra o **Terminal** instalar **strongSwan** e o Gestor de rede ao executar o comando no exemplo. Se receber um erro relacionado com o "libcharon-extra-plug-ins", substitua-o por "strongswan-Plug-in-eap-mschapv2".
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -251,3 +253,5 @@ Para utilizar um tipo de autenticação diferentes (por exemplo, o OTP) e não n
 ## <a name="next-steps"></a>Passos Seguintes
 
 Devolver o artigo para [concluir a configuração de P2S](point-to-site-how-to-radius-ps.md).
+
+Para informações de resolução de problemas de P2S, [ligações ponto a site de resolução de problemas do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

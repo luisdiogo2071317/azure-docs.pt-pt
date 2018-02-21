@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos de base de dados SQL do Azure
 
@@ -53,7 +53,7 @@ A duração de todo o processo de aumento vertical depende do tamanho e do escal
 
 * Se estiver a atualizar para um nível de desempenho ou camada de serviço mais elevado, o tamanho máximo da base de dados não aumenta a menos que especifique explicitamente um tamanho maior (maxsize).
 * Para mudar uma base de dados, o espaço de base de dados utilizada tem de ser menor que o tamanho máximo permitido do nível de desempenho e o escalão de serviço do destino. 
-* Quando desatualização de **Premium** ou **Premium RS** para o **padrão** camada, um custo de armazenamento adicional se aplica se ambos os (1) o tamanho máximo da base de dados é suportado no destino nível de desempenho e (2) o tamanho máximo excede a quantidade de armazenamento incluída com o nível de desempenho de destino. Por exemplo, se uma base de dados P1 com um tamanho máximo de 500 GB é downsized para S3, em seguida, um custo de armazenamento adicional aplica-se porque S3 suporta um tamanho máximo de 500 GB e a quantidade de armazenamento incluída é apenas de 250 GB. Por isso, a quantidade de armazenamento adicional é 500 GB – 250 GB = 250 GB. Para obter preços de armazenamento adicional, consulte [preços da SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizado é inferior à quantidade incluída de armazenamento, em seguida, este custo extra pode ser evitada ao reduzir o tamanho máximo da base de dados para a quantidade incluída. 
+* Quando desatualização de **Premium** para o **padrão** camada, um custo de armazenamento adicional aplica-se se tanto (1) o tamanho máximo da base de dados é suportado no nível de desempenho de destino, e (2) o tamanho máximo excede o quantidade de armazenamento incluída com o nível de desempenho de destino. Por exemplo, se uma base de dados P1 com um tamanho máximo de 500 GB é downsized para S3, em seguida, um custo de armazenamento adicional aplica-se porque S3 suporta um tamanho máximo de 500 GB e a quantidade de armazenamento incluída é apenas de 250 GB. Por isso, a quantidade de armazenamento adicional é 500 GB – 250 GB = 250 GB. Para obter preços de armazenamento adicional, consulte [preços da SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizado é inferior à quantidade incluída de armazenamento, em seguida, este custo extra pode ser evitada ao reduzir o tamanho máximo da base de dados para a quantidade incluída. 
 * Ao atualizar a base de dados com [georreplicação](sql-database-geo-replication-portal.md) ativada, atualizar suas bases de dados secundárias para a camada de desempenho pretendido antes de atualizar a base de dados primária (orientações gerais). Quando atualizar para o outro, atualizar a base de dados secundária primeiro é necessário.
 * Quando a desatualização de uma base de dados com [georreplicação](sql-database-geo-replication-portal.md) ativada, mudar o respetivos bases de dados primárias para a camada de desempenho pretendido antes desatualização de base de dados secundária (orientações gerais). Quando a mudança para uma edição diferente, desatualização de base de dados primária primeiro é necessário.
 * As ofertas de serviço de restauro diferem entre os vários escalões de serviço. Se estão a mudança para o **básico** camada, há um período de retenção de cópias de segurança inferior - consulte [cópias de segurança do Azure SQL da base de dados](sql-database-automated-backups.md).
@@ -111,6 +111,10 @@ Pode aumentar ou diminuir os recursos disponíveis para um conjunto elástico co
 - Em geral, a duração para alterar as eDTUs Mín por base de dados ou o número máximo de eDTUs por base de dados é de cinco minutos ou menos.
 - Quando downsizing eDTUs de conjunto, o espaço do agrupamento utilizado tem de ser menor que o tamanho máximo permitido das eDTUs de camada e um conjunto de serviço do destino.
 - Quando rescaling eDTUs de conjunto, um custo de armazenamento adicional se aplica se (1) o tamanho máximo de armazenamento do conjunto é suportado pelo agrupamento de destino e o tamanho máximo (2) o armazenamento excede a quantidade de armazenamento incluídas de agrupamento de destino. Por exemplo, se um conjunto padrão com um tamanho máximo de 100 GB de eDTU 100 é downsized para um conjunto padrão de eDTU 50, em seguida, um custo de armazenamento adicional aplica-se, uma vez que o agrupamento de destino suporta um tamanho máximo de 100 GB e a quantidade de armazenamento incluída é apenas de 50 GB. Por isso, a quantidade de armazenamento adicional é 100 GB – 50 GB = 50 GB. Para obter preços de armazenamento adicional, consulte [preços da SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizado é inferior à quantidade incluída de armazenamento, em seguida, este custo extra pode ser evitada ao reduzir o tamanho máximo da base de dados para a quantidade incluída. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>O que é o número máximo de servidores e bases de dados?
+
+O número máximo de servidores por subscrição por região é 21. O número máximo de bases de dados por servidor é 5000. Estes são os limites parciais estabelecida payload experimentally com base no tamanho análise, análise de coleção de telemetria mestre lógico e alguns outros aspetos. Pode pedir exceda estes limites fornecido permanecer dentro da sua quota DTU. Como o número de servidores e bases de dados fica grande, o problema que irão aceder é coleção de estatísticas de recursos no mestre lógico e de contenção em operações de gestão. Estes problemas não são fatais; estes irão aumentar a latência.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>O que acontece quando são atingidos e limites de recursos de conjunto elástico da base de dados?
 

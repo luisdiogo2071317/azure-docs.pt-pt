@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentar verticalmente a uma aplicação no Azure
 
 > [!NOTE]
-> A nova **PremiumV2** camada dá-lhe CPUs mais rápidas, o armazenamento SSD e faça duplo o rácio de memória para núcleos de escalões de preços existente. Dimensionar até **PremiumV2** camada, consulte [configurar PremiumV2 camada de serviço de aplicações](app-service-configure-premium-tier.md).
+> A nova **PremiumV2** camada dá-lhe CPUs mais rápidas, o armazenamento SSD e duplica o rácio de memória para núcleos dos escalões de preços existentes. Com a vantagem de desempenho, pode poupar dinheiro executando as suas aplicações em menos instâncias. Dimensionar até **PremiumV2** camada, consulte [configurar PremiumV2 camada de serviço de aplicações](app-service-configure-premium-tier.md).
 >
 
 Este artigo mostra como dimensionar a sua aplicação no App Service do Azure. Existem dois fluxos de trabalho de dimensionamento de dimensionamento, segurança e Escalamento horizontal e este artigo explica o fluxo de trabalho de trabalho de dimensionamento.
 
 * [Aumentar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais CPU, memória, espaço em disco e funcionalidades adicionais, como dedicadas máquinas virtuais (VMs), domínios e certificados personalizados, ranhuras, dimensionamento automático e muito mais de teste. Aumentar verticalmente ao alterar o escalão de preço do plano do App Service, que pertence a aplicação.
 * [Aumentar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentar o número de instâncias VM que executam a aplicação.
-  Pode aumentar horizontalmente a 20 máximo de instâncias, consoante o escalão de preço. [Ambientes do App Service](environment/intro.md) no **Isolated** camada adicional aumenta a contagem de escalamento horizontal para 100 instâncias. Para obter mais informações sobre como aumentar horizontalmente, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Não existe a saber como utilizar o dimensionamento automático, que está a dimensionar automaticamente com base em regras predefinidas e agendas de contagem de instâncias.
+  Pode aumentar horizontalmente a 20 máximo de instâncias, consoante o escalão de preço. [Ambientes do App Service](environment/intro.md) no **Isolated** camada adicional aumenta a contagem de escalamento horizontal para 100 instâncias. Para obter mais informações sobre como aumentar horizontalmente, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Aqui, pode descobrir como utilizar o dimensionamento automático, que está a dimensionar automaticamente com base em regras predefinidas e agendas de contagem de instâncias.
 
 As definições de dimensionamento demorar apenas segundos para aplicar e afetar todas as aplicações na sua [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 Não necessitam de alterar o seu código ou voltar a implementar a aplicação.
@@ -82,14 +82,9 @@ Se a aplicação depende de outros serviços, como SQL Database do Azure ou o St
 Para obter informações detalhadas, por exemplo, tamanhos de VM para cada escalão de preço, consulte [detalhes de preços do App Service](https://azure.microsoft.com/pricing/details/web-sites/).
 Para uma tabela de limites de serviço, quotas e restrições e funcionalidades suportadas em cada camada, consulte [limites do App Service](../azure-subscription-service-limits.md#app-service-limits).
 
-> [!NOTE]
-> Se pretender começar com o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [experimentar o App Service](https://azure.microsoft.com/try/app-service/) onde, pode criar imediatamente uma aplicação web de arranque de curta duração no App Service. Sem cartões de crédito são necessários e sem compromissos.
-> 
-> 
-
 <a name="Next Steps"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para informações sobre preços, de suporte e SLA, visite as seguintes ligações:
   
     [Detalhes dos preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)

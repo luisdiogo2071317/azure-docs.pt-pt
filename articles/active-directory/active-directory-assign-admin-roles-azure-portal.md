@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -55,7 +54,7 @@ Estão disponíveis as seguintes funções de administrador:
 
 * **Administrador de serviço do Exchange**: os utilizadores com esta função permissões global dentro do Microsoft Exchange Online, quando o serviço está presente. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Administrador global / administrador da empresa**: os utilizadores com esta função tem acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços que federar ao Azure Active Directory como o Exchange Online, SharePoint Online e Skype para empresas Online. A pessoa que se inscreve para o inquilino do Azure Active Directory torna-se um administrador global. Apenas os administradores globais podem atribuir outras funções de administrador. Só pode existir mais do que um administrador global da sua empresa. Administradores globais podem repor a palavra-passe para qualquer utilizador e de todos os outros administradores.
+* **Administrador global / administrador da empresa**: os utilizadores com esta função tem acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços que federar ao Azure Active Directory como o Exchange Online, SharePoint Online, e Skype para empresas Online. A pessoa que se inscreve para o inquilino do Azure Active Directory torna-se um administrador global. Apenas os administradores globais podem atribuir outras funções de administrador. Só pode existir mais do que um administrador global da sua empresa. Administradores globais podem repor a palavra-passe para qualquer utilizador e de todos os outros administradores.
 
   > [!NOTE]
   > Na Microsoft Graph API, AD Graph API do Azure e Azure AD PowerShell, esta função é identificada como "Administrador da empresa". Faz o "Administrador Global" do [portal do Azure](https://portal.azure.com).
@@ -64,7 +63,7 @@ Estão disponíveis as seguintes funções de administrador:
 
 * **Convidados Inviter**: os utilizadores nesta função podem gerir convites para de utilizador do Azure Active Directory B2B convidado quando a definição de utilizador "Membros podem convidar" está definida como não. Mais informações sobre a colaboração B2B em [pré-visualização de colaboração sobre o Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Não inclui quaisquer outras permissões.
 
-<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
+* **O administrador de proteção de informações (pré-visualização)**: os utilizadores com esta função de direitos de utilizador apenas no serviço do Azure Information Protection. Estes não são concedidos direitos de utilizador no Centro de proteção de identidade, Privileged Identity Management, Monitor Office 365 serviço de estado de funcionamento, ou segurança do Office 365 e o Centro de conformidade. Pode configurar as etiquetas para a política do Azure Information Protection, gerir modelos de proteção e ative a proteção.
 
 * **Administrador de serviço do Intune**: os utilizadores com esta função permissões global no Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos para associar a política, bem como criar e gerir grupos.
 
@@ -87,9 +86,9 @@ Estão disponíveis as seguintes funções de administrador:
 
 * **Relatórios de leitor**: os utilizadores com esta função podem ver a utilização de relatórios de dados e o dashboard de relatórios no Centro de administração do Office 365 e o contexto de adoção do pacote no Power BI. Além disso, a função fornece acesso ao início de sessão relatórios e a atividade no Azure AD e os dados devolvidos pelo Microsoft Graph API do relatório. Um utilizador atribuído à função de leitor de relatórios pode aceder apenas utilização relevante e as métricas de adoção. Se não possui permissões de administrador para configurar as definições ou acesso que administrador específico do produto centra-se como o Exchange. 
 
-* **Administrador de segurança**: os utilizadores com esta função têm todas as permissões só de leitura da função de leitor de segurança com a capacidade de gerir a configuração de serviços relacionados com segurança: Azure Active Directory Identity Protection, do Azure Information Protection, Privileged Identity Management, Office 365 segurança & e Centro de conformidade. Estão disponíveis mais informações sobre as permissões do Office 365 no [permissões Centro de conformidade de segurança do Office 365 &](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Administrador de segurança**: os utilizadores com esta função têm todas as permissões só de leitura da função de leitor de segurança com a capacidade de gerir a configuração de serviços relacionados com segurança: proteção de identidade de diretório do Azure Active Directory, Azure Proteção de informações, Privileged Identity Management, Office 365 segurança & e Centro de conformidade. Estão disponíveis mais informações sobre as permissões do Office 365 no [permissões Centro de conformidade de segurança do Office 365 &](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Leitor de segurança**: os utilizadores com esta função têm acesso só de leitura global, incluindo todas as informações no Azure Active Directory, Identity Protection, Privileged Identity Management, bem como a capacidade para ler relatórios de início de sessão no Azure Active Directory e registos de auditoria. A função também concede a permissão só de leitura no Office 365 segurança & Centro de conformidade. Estão disponíveis mais informações sobre as permissões do Office 365 no [permissões Centro de conformidade de segurança do Office 365 &](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Leitor de segurança**: os utilizadores com esta função têm acesso só de leitura global, incluindo todas as informações no Azure Active Directory, Identity Protection, Privileged Identity Management, bem como a capacidade de leitura relatórios de início de sessão no Azure Active Directory e registos de auditoria. A função também concede a permissão só de leitura no Office 365 segurança & Centro de conformidade. Estão disponíveis mais informações sobre as permissões do Office 365 no [permissões Centro de conformidade de segurança do Office 365 &](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Administrador de suporte do serviço**: os utilizadores com esta função podem abrir os pedidos de suporte com a Microsoft para os serviços do Azure e o Office 365 e vistas de dashboard de serviço e mensagem center no portal do Azure e o portal de administração do Office 365. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -128,11 +127,10 @@ Estão disponíveis as seguintes funções de administrador:
 | --- | --- |
 | <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Alterar as palavras-passe para os utilizadores e de outros administradores de suporte técnico apenas</p>|<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver relatórios</p>|
 
-<!--### Information Protection Administrator 
-In | Can do
+### <a name="information-protection-administrator-preview"></a>Administrador de proteção de informações (pré-visualização)
+No | Pode fazê-lo
 -------- | ---------
-Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
-Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
+Azure Information Protection | <li>Configurar as definições e de etiquetas nas políticas de âmbito e global<li>Configurar e gerir modelos de proteção<li>Ativar ou desativar proteção-
  
 ### <a name="reports-reader"></a>Leitor de relatórios 
 Pode fazê-lo | Não é possível efetuar

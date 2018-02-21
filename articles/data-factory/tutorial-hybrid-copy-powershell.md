@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 221af59c211cc6ce0471718908db1544ca2d75ed
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a2abe0733f52c1e032a718fd8f870c3ec9686a41
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copiar dados de uma base de dados SQL Server no local para o Armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud. 
@@ -31,7 +31,7 @@ Neste tutorial, vai executar os seguintes passos:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
-> * Crie um integration runtime autoalojado.
+> * Criar um integration runtime autoalojado.
 > * Criar serviços ligados do SQL Server e do Armazenamento do Azure. 
 > * Criar conjuntos de dados do SQL Server e dos Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.
@@ -107,7 +107,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
     ![Selecionar o contentor](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
-5. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
+5. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
     ![Janela do contentor](media/tutorial-hybrid-copy-powershell/container-page.png)
 
@@ -194,14 +194,17 @@ Para obter informações detalhadas, veja [Como instalar e configurar o Azure Po
 
 Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O integration runtime autoalojado é o componente que copia os dados da base de dados SQL Server no seu computador para o armazenamento de Blobs do Azure. 
 
-1. Crie uma variável para o nome do runtime de integração. Utilize um nome exclusivo e aponte-o. Vai utilizá-lo mais tarde no tutorial. 
+1. Crie uma variável para o nome do integration runtime. Utilize um nome exclusivo e aponte-o. Vai utilizá-lo mais tarde no tutorial. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
-2. Crie um integration runtime autoalojado. 
+2. Criar um integration runtime autoalojado. 
 
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ``` 
     Segue-se o resultado do exemplo:
 
     ```json
@@ -210,7 +213,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. Para obter o estado do integration runtime criado, execute o comando seguinte:
@@ -283,7 +286,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
     ![Janela Novo Nó do Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
 11. Na janela **Canal de Comunicação da Intranet**, selecione **Ignorar**.  
-    Pode selecionar a certificação TLS/SSL para proteger a comunicação intra-nós num ambiente de runtime de integração de vários nós.
+    Pode selecionar a certificação TLS/SSL para proteger a comunicação intra-nós num ambiente de integration runtime de vários nós.
 
     ![Janela de canal comunicação da Intranet](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
 
@@ -671,7 +674,7 @@ O pipeline neste exemplo copia dados de uma localização para outra localizaç�
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
-> * Crie um integration runtime autoalojado.
+> * Criar um integration runtime autoalojado.
 > * Criar serviços ligados do SQL Server e do Armazenamento do Azure. 
 > * Criar conjuntos de dados do SQL Server e dos Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.

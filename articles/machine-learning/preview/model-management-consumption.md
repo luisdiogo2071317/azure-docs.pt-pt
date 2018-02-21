@@ -10,26 +10,26 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Consumir os serviços web
-Depois de implementar um modelo como um serviço de web em tempo real, pode enviar os dados e obter predições a partir de uma variedade de plataformas e aplicações. O serviço de web em tempo real que expõe uma API REST para obter as predições. Pode enviar dados para o serviço web no formato único ou vários linha obter um ou mais predições no momento.
+Depois de implementar um modelo como um serviço de web em tempo real, pode enviar os dados e obter predições a partir de uma variedade de plataformas e aplicações. O serviço de web em tempo real que expõe uma API REST para obter as predições. Pode enviar dados para o serviço web no formato único ou várias linha para obter um ou mais predições cada vez.
 
-Com o [serviço Web do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), uma aplicação externa comunica em sincronia com um modelo preditivo ao efetuar a chamada de HTTP POST para o URL do serviço. Para efetuar um chamada do serviço web, a aplicação de cliente tem de especificar a chave de API que foi criada quando implementar uma predição e colocar os dados de pedido no corpo do pedido POST.
+Com o [serviço Web do Azure Machine Learning](model-management-service-deploy.md), uma aplicação externa comunica em sincronia com um modelo preditivo ao efetuar a chamada de HTTP POST para o URL do serviço. Para efetuar um chamada do serviço web, a aplicação de cliente tem de especificar a chave de API que foi criada quando implementar uma predição e colocar os dados de pedido no corpo do pedido POST.
 
 Tenha em atenção que as chaves de API só estão disponíveis no modo de implementação de cluster. Serviços local web não tem chaves.
 
 ## <a name="service-deployment-options"></a>Opções de implementação de serviço
-Serviços Web do Machine Learning do Azure podem ser implementados para os clusters baseados na cloud para cenários de produção e teste e estações de trabalho locais utilizando o motor de docker. A funcionalidade de modelo preditivo em ambos os casos permanece igual. Implementação de cluster com base fornece dimensionável e performant solução com base nos serviços de contentor do Azure, durante a implementação local pode ser utilizada para depuração. 
+Serviços Web do Machine Learning do Azure podem ser implementados para os clusters baseados na nuvem para cenários de produção e teste e estações de trabalho locais utilizando o motor de docker. A funcionalidade de modelo preditivo em ambos os casos permanece igual. Implementação baseada em cluster fornece dimensionável e performant solução com base nos serviços de contentor do Azure, durante a implementação local pode ser utilizada para depuração. 
 
 A CLI do Azure Machine Learning e API fornece comandos convenientes para criar e gerir ambientes para implementações de serviço através de computação a ```az ml env``` opção. 
 
 ## <a name="list-deployed-services-and-images"></a>Serviços de lista implementado e imagens
-Pode listar os serviços implementados e imagens utilizando o comando da CLI do Docker ```az ml service list realtime -o table```. Tenha em atenção que este comando sempre funciona no contexto do ambiente de computação atual e não pretende mostrar serviços que são implementados num ambiente que não está configurado para ser atual. Para definir a utilização de ambiente ```az ml env set```. 
+Pode listar os serviços implementados e imagens utilizando o comando da CLI do Docker ```az ml service list realtime -o table```. Tenha em atenção que este comando sempre funciona no contexto do ambiente de computação atual. Seria Mostrar serviços que são implementados num ambiente que não está configurado para ser atual. Para definir a utilização de ambiente ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Obter informações de serviço
 Depois do serviço web tiver sido implementado com êxito, utilize o seguinte comando para obter o URL do serviço e outros detalhes para chamar o ponto final do serviço. 
@@ -38,9 +38,9 @@ Depois do serviço web tiver sido implementado com êxito, utilize o seguinte co
 az ml service usage realtime -i <service name>
 ```
 
-Este comando irá imprimir o URL do serviço, cabeçalhos de pedido necessários, swagger URL e dados de exemplo para chamar o serviço se o esquema de API do serviço foi fornecido o momento da implementação.
+Este comando imprime enviados o URL do serviço, cabeçalhos de pedido necessários, swagger URL e dados de exemplo para chamar o serviço se o esquema de API do serviço foi fornecido o momento da implementação.
 
-Pode testar o serviço diretamente a partir da CLI sem composição requst um HTTP, introduzindo o comando da CLI de exemplo com os dados de entrada:
+Pode testar o serviço diretamente a partir da CLI sem composição um pedido HTTP, introduzindo o comando da CLI de exemplo com os dados de entrada:
 
 ```
 az ml service run realtime -i <service name> -d "Your input data"
@@ -55,13 +55,13 @@ az ml service keys realtime -i <web service id>
 Ao criar o pedido HTTP, utilize a chave no cabeçalho de autorização: "Autorização": "portador <key>"
 
 ## <a name="get-the-service-swagger-description"></a>Obter a descrição de Swagger do serviço
-Se o esquema de API do serviço foi fornecido o ponto final de serviço seria expor um documento Swagger em ```http://<ip>/api/v1/service/<service name>/swagger.json```. O documento Swagger pode ser utilizado para gerar o cliente do serviço e explorar os dados de entrada esperados e outros detalhes sobre o serviço automaticamente.
+Se o esquema de API do serviço foi fornecido, o ponto final do serviço seria expor um documento Swagger em ```http://<ip>/api/v1/service/<service name>/swagger.json```. O documento Swagger pode ser utilizado para gerar o cliente do serviço e explorar os dados de entrada esperados e outros detalhes sobre o serviço automaticamente.
 
 ## <a name="get-service-logs"></a>Obter registos de serviço
 Para compreender o comportamento de serviço e diagnosticar problemas, existem várias formas de obter os registos do serviço:
 - Comando da CLI ```az ml service logs realtime -i <service id>```. Este comando funciona em cluster e modos locais.
 - Se o registo de serviço foi ativado na implementação, os registos do serviço também serão enviados para AppInsight. O comando da CLI ```az ml service usage realtime -i <service id>``` mostra o URL de AppInsight. Tenha em atenção que os registos de AppInsight podem sofrer um atraso por 2 a 5 minutos.
-- Registos de cluster podem ser visualizados através da consola Kubernetes que está ligada ao definir o ambiente de cluster atual com o```az ml env set```
+- Registos de cluster podem ser visualizados através da consola Kubernetes que está ligada ao definir o ambiente de cluster atual com o ```az ml env set```
 - Registos de local docker estão disponíveis através de registos do motor de docker quando o serviço está em execução localmente.
 
 ## <a name="call-the-service-using-c"></a>Chamar o serviço com c#

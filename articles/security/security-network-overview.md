@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral de segurança de rede do Azure
 Microsoft Azure inclui uma infraestrutura robusta de rede para suportar a sua aplicação e os requisitos de conectividade do serviço. Conectividade de rede é possível entre os recursos localizados no Azure, no local e Azure alojadas recursos e de e para a Internet e o Azure.
@@ -37,11 +37,11 @@ Este artigo de descrição geral de segurança de rede de Azure concentra-se nas
 
 
 ## <a name="azure-networking"></a>Redes do Azure
-Máquinas virtuais precisa de conectividade de rede. Para suportar este requisito, o Azure requer que as máquinas virtuais ligadas a uma rede Virtual do Azure. Uma rede Virtual do Azure é uma construção lógica desenvolvida com os recursos de infraestrutura de rede do Azure física. Cada rede Virtual do Azure lógica está isolada da todas as outras redes virtuais do Azure. Isto ajuda a assegurar que o tráfego de rede das implementações não está acessível para outros clientes do Microsoft Azure.
+Máquinas virtuais precisa de conectividade de rede. Para suportar este requisito, o Azure requer que as máquinas virtuais ligadas a uma rede Virtual do Azure. Uma rede Virtual do Azure é uma construção lógica desenvolvida com os recursos de infraestrutura de rede do Azure física. Cada rede Virtual do Azure lógica está isolada da todas as outras redes virtuais do Azure. Isto ajuda a garantir que o tráfego de rede das implementações não é acessível a outros clientes do Microsoft Azure.
 
 Saiba mais:
 
-* [Descrição geral da rede virtual](../virtual-network/virtual-networks-overview.md)
+* [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) (Descrição Geral da Rede Virtual)
 
 
 ## <a name="network-access-control"></a>Controlo de acesso de rede
@@ -217,7 +217,7 @@ Para a resolução do nome interno, tem duas opções:
 
 Saiba mais:
 
-* [Descrição geral da rede virtual](../virtual-network/virtual-networks-overview.md)
+* [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) (Descrição Geral da Rede Virtual)
 * [Gerir servidores de DNS utilizados por uma rede Virtual (VNet)](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 Para a resolução DNS externa, tem duas opções:
@@ -272,7 +272,7 @@ Centro de segurança do Azure ajuda-o a otimizar e monitorizar a segurança de r
 
 Saiba mais:
 
-* [Introdução ao centro de segurança do Azure](../security-center/security-center-intro.md)
+* [Introdução ao Centro de Segurança do Azure](../security-center/security-center-intro.md)
 
 
 ### <a name="logging"></a>Registo

@@ -117,12 +117,11 @@
 ### [Analisar a sua carga de trabalho](analyze-your-workload.md)
 
 ## Aumentar horizontalmente
-### [Gerir a computação - API REST](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automatizar níveis de computação](manage-compute-with-azure-functions.md)
 
 
 # Referência
-
 
 ## T-SQL
 ### [Referência completa](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [Instruções do Armazém de Dados do SQL](sql-data-warehouse-reference-tsql-statements.md)
 ## [Vistas de sistema](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Cmdlets do PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [APIs REST](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Recursos
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/?category=databases)

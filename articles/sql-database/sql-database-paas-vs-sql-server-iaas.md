@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4a0fbb2a1f468493e5b22b12518be42fdd9d5ce6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de Dados SQL (PaaS) do Azure ou SQL Server em VMs (IaaS) do Azure
 O Azure tem duas opções para alojar cargas de trabalho do SQL Server no Microsoft Azure:
@@ -80,7 +80,7 @@ Quer seja uma start-up com problemas de liquidez ou uma equipa numa empresa esta
 #### <a name="billing-and-licensing-basics"></a>Noções básicas de faturação e licenciamento
 A **Base de dados SQL** é vendida aos clientes como um serviço, não com uma licença.  O [SQL Server em VMs do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) é vendido com uma licença incluída pagada por minuto. Se tiver uma licença existente, também pode utilizá-la.  
 
-Atualmente, a **Base de Dados SQL** está disponível em vários escalões de serviço, sendo todas eles faturados à hora a um preço fixo com base no escalão de serviço e no nível de desempenho que escolher. Além disso, é-lhe faturado o tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) regulares. Os escalões de serviço Básico, Standard, Premium e Premium RS foram concebidos para fornecer um desempenho previsível, com vários níveis de desempenho para fazer face aos requisitos de pico da sua aplicação. Pode alternar entre escalões de serviços e níveis de desempenho para fazer face às necessidades variadas de débito da sua aplicação. Se a base de dados tiver um elevado volume transacional e tiver de suportar muitos utilizadores em simultâneo, recomendamos o escalão de serviço Premium. Para obter as informações mais recentes sobre os atuais escalões de serviço suportados, consulte o artigo [Escalões de Serviço da Base de Dados SQL do Azure](sql-database-service-tiers.md). Também pode criar [conjuntos elásticos](sql-database-elastic-pool.md) para partilhar recursos de desempenho entre instâncias da base de dados.
+Atualmente, a **Base de Dados SQL** está disponível em vários escalões de serviço, sendo todas eles faturados à hora a um preço fixo com base no escalão de serviço e no nível de desempenho que escolher. Além disso, é-lhe faturado o tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) regulares. Os escalões de serviço Básico, Standard e Premium foram concebidos para fornecer um desempenho previsível, com vários níveis de desempenho para fazer face aos requisitos de pico da sua aplicação. Pode alternar entre escalões de serviços e níveis de desempenho para fazer face às necessidades variadas de débito da sua aplicação. Se a base de dados tiver um elevado volume transacional e tiver de suportar muitos utilizadores em simultâneo, recomendamos o escalão de serviço Premium. Para obter as informações mais recentes sobre os atuais escalões de serviço suportados, consulte o artigo [Escalões de Serviço da Base de Dados SQL do Azure](sql-database-service-tiers.md). Também pode criar [conjuntos elásticos](sql-database-elastic-pool.md) para partilhar recursos de desempenho entre instâncias da base de dados.
 
 Com a **Base de Dados SQL**, o software de base de dados é automaticamente configurado, corrigido e atualizado pela Microsoft, o que reduz os custos de administração. Além disso, as capacidades de [cópia de segurança incorporada](sql-database-automated-backups.md) permitem-lhe obter uma redução significativa de custos, sobretudo quando tem um número elevado de bases de dados.
 
@@ -118,7 +118,7 @@ Com o **SQL Server em VMs do Azure**, tem controlo total sobre o sistema operati
 ### <a name="service-level-agreement-sla"></a>Contrato de Nível de Serviço (SLA)
 Para muitos departamentos de TI, cumprir as obrigações de tempo de atividade de um Contrato de Nível de Serviço (SLA) é uma prioridade máxima. Nesta secção, vamos ver que SLA se aplica a cada opção de alojamento de base de dados.
 
-Para os escalões de serviço Básico, Standard, Premium e Premium RS da **Base de Dados SQL**, a Microsoft fornece um SLA de 99,99% de disponibilidade. Para obter as informações mais recentes, consulte [Contrato de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/sql-database/). Para obter as informações mais recentes sobre os escalões de serviço da Base de Dados SQL e os planos de continuidade do negócio suportados, consulte [Escalões de serviço](sql-database-service-tiers.md).
+Para os escalões de serviço Básico, Standard e Premium da **Base de Dados SQL**, a Microsoft fornece um SLA de 99,99% de disponibilidade. Para obter as informações mais recentes, consulte [Contrato de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/sql-database/). Para obter as informações mais recentes sobre os escalões de serviço da Base de Dados SQL e os planos de continuidade do negócio suportados, consulte [Escalões de serviço](sql-database-service-tiers.md).
 
 Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA de 99,95% de disponibilidade, que abrange apenas a Máquina Virtual. Este SLA não abrange os processos (como o SQL Server) em execução na VM e requer que aloje, pelo menos, duas instâncias de VM num conjunto de disponibilidade. Para obter as informações mais recentes, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para elevada disponibilidade da base de dados dentro das VMs, deve configurar uma das opções de elevada disponibilidade suportadas no SQL Server, como os [Grupos de Disponibilidade AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Utilizar uma opção de elevada disponibilidade suportadas não fornece um SLA adicional, mas permite-lhe alcançar uma disponibilidade de base de dados > 99,99%.
 
@@ -140,7 +140,7 @@ Opte pelo **SQL Server em VMs do Azure** se:
 * Tiver aplicações no local que pretende migrar ou expandir para a nuvem, ou se pretender criar aplicações da empresa com mais de 4 TB. Esta abordagem oferece o benefício de compatibilidade SQL de 100%, capacidade de base de dados de grandes dimensões, controlo total sobre o SQL Server e sobre o Windows e túnel seguro no local. Esta abordagem minimiza os custos de programação e de modificação de aplicações existentes.
 * tiver os recursos de TI existentes e pode, em última análise, se proprietário da aplicação de patches, de cópias de segurança e de base de dados de elevada disponibilidade. Repare que algumas funcionalidades automatizadas simplificam significativamente estas operações. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte [A sua primeira Base de Dados SQL do Azure](sql-database-get-started-portal.md) para começar a utilizar a Base de Dados SQL.
 * Consulte [Preços de Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Consulte [Aprovisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) para começar a utilizar o SQL Server em VMs do Azure.

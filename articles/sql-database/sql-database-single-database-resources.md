@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 12/14/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2c179c3b0704a6e88d718ba9f102e71c0ee1d6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gerir os recursos de uma base de dados na SQL Database do Azure
 
@@ -65,13 +65,13 @@ Definir ou alterar as bases de dados SQL do Azure escalões de serviço, níveis
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[Criar AZ sql server-regra de firewall](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall do servidor|
-|[lista de regras de firewall de servidor de sql de AZ](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Apresenta as regras de firewall num servidor|
-|[Mostrar de regra de firewall AZ sql server](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
-|[atualização de regra de firewall AZ sql server](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Uma regra de firewall de atualizações|
-|[Eliminar regra de firewall do AZ sql server](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina uma regra de firewall|
-|[lista de op AZ sql db](/cli/azure/sql/db/op?#az_sql_db_op_list)|Obtém uma lista de operações executadas na base de dados.|
-|[Cancelar de op AZ sql db](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Cancela a operação assíncrona na base de dados.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall do servidor|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Apresenta as regras de firewall num servidor|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Uma regra de firewall de atualizações|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina uma regra de firewall|
+|[az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list)|Obtém uma lista de operações executadas na base de dados.|
+|[az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Cancela a operação assíncrona na base de dados.|
 
 > [!TIP]
 > Para obter um script de exemplo do CLI do Azure que dimensiona de uma única base de dados do SQL do Azure para um nível de desempenho diferente depois de consultar as informações de tamanho da base de dados, consulte [CLI de utilização para monitorizar e dimensionar uma base de dados do SQL Server único](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -86,7 +86,7 @@ Para definir ou alterar camadas de serviços de bases de dados SQL do Azure, ní
 |[Criar base de dados (SQL Database do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Falha de ALTER DATABASE (base de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica uma base de dados SQL do Azure. |
 |[sys.database_service_objectives (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se tem sessão iniciada base de dados mestra num servidor de base de dados do Azure SQL, devolve informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
-|[sys.database_usage (SQL Database do Azure)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Apresenta o número, o tipo e a duração das bases de dados num servidor SQL Database do Azure.|
+|[sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Apresenta o número, o tipo e a duração das bases de dados num servidor SQL Database do Azure.|
 
 O exemplo seguinte mostra o tamanho máximo para uma base de dados que está a ser alterado utilizando o comando ALTER DATABASE:
 
@@ -113,7 +113,7 @@ Para definir ou alterar as bases de dados SQL do Azure escalões de serviço, a 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre os escalões de serviço, níveis de desempenho e quantidades de armazenamento, consulte [escalões de serviço](sql-database-service-tiers.md).
 - Saiba mais sobre conjuntos elásticos, consulte [conjuntos elásticos](sql-database-elastic-pool.md).

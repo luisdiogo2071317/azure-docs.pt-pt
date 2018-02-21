@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 7fec71f621ffeff2fc42a5a9464ae9011b2e2fee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 2/12/2018
+ms.openlocfilehash: 253cf9a47f04cf551ce8abee216477dedb54a53b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Base de dados do Azure para as regras de firewall do servidor de PostgreSQL
 Base de dados do Azure para a firewall do servidor de PostgreSQL impede que todos os acessos ao seu servidor de base de dados até especificar quais os computadores que tem permissão. A firewall concede acesso ao servidor com base no endereço IP de origem de cada pedido.
@@ -32,6 +32,15 @@ Regras de firewall ao nível do servidor aplicam-se a todas as bases de dados a 
 Se o endereço IP do pedido não está dentro dos intervalos especificados em qualquer uma das regras de firewall ao nível do servidor, o pedido de ligação falha.
 Por exemplo, se a sua aplicação estabelece ligação com o controlador JDBC PostgreSQL, pode encontrar este erro ao tentar ligar quando a firewall está a bloquear a ligação.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: nenhum grupo de proteção\_hba.conf entrada para o anfitrião "123.45.67.890", o utilizador "adminuser", base de dados "postgresql", SSL
+
+## <a name="connecting-from-azure"></a>Ligar a partir do Azure
+Para permitir que as aplicações do Azure ligar à base de dados do Azure para o servidor de PostgreSQL, ligações das Azure tem de estar ativadas. Por exemplo, para alojar uma aplicação de Web Apps do Azure ou uma aplicação que é executado numa VM do Azure ou para ligar a partir de um gateway de gestão de dados do Azure Data Factory. Os recursos não precisam de estar na mesma rede Virtual (VNet) ou grupo de recursos para a regra de firewall para permitir essas ligações. Quando uma aplicação do Azure tenta ligar ao servidor de base de dados, a firewall verifica se as ligações do Azure são permitidas. Existem dois métodos para ativar estes tipos de ligações. Uma definição de firewall com o endereço de início e de fim igual a 0.0.0.0 indica que estas ligações são permitidas. Em alternativa, pode definir o **permitir o acesso aos serviços do Azure** opção para **ON** no portal do **segurança de ligação** painel e prima **guardar**. Se a tentativa de ligação não for permitida, o pedido não atingir a base de dados do Azure para o servidor de PostgreSQL.
+
+> [!IMPORTANT]
+> Esta opção configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações de subscrições de outros clientes. Quando seleciona esta opção, certifique-se de que as permissões de início de sessão e de utilizador limitam o acesso a utilizadores autorizados apenas.
+> 
+
+![Configurar a permitir o acesso aos serviços do Azure no portal](media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Gerir regras de firewall programaticamente
 Para além de portal do Azure, as regras de firewall podem ser geridas através de programação utilizando a CLI do Azure.
@@ -53,7 +62,7 @@ Por exemplo, utilizando um cliente JDBC, poderá aparecer o erro seguinte.
 
 * Obter estático endereçamento IP em vez disso, para os computadores cliente e, em seguida, adicione o endereço IP estático como uma regra de firewall.
 
-## <a name="next-steps"></a>Passos seguintes
-Para artigos sobre a criação de regras de firewall ao nível do servidor, consulte:
-* [Criar e gerir a base de dados do Azure para as regras de firewall de PostgreSQL no portal do Azure](howto-manage-firewall-using-portal.md).
-* [Criar e gerir a base de dados do Azure PostgreSQL das regras de firewall ao utilizar a CLI do Azure](howto-manage-firewall-using-cli.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para artigos sobre a criação de regras de firewall ao nível do servidor e o nível de base de dados, consulte:
+* [Criar e gerir a base de dados do Azure para as regras de firewall de PostgreSQL no portal do Azure](howto-manage-firewall-using-portal.md)
+* [Criar e gerir a base de dados do Azure PostgreSQL das regras de firewall ao utilizar a CLI do Azure](howto-manage-firewall-using-cli.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="failover-in-site-recovery"></a>Reativação pós-falha na Recuperação de Sites
 Este artigo descreve como a ativação pós-falha máquinas de virtuais e físicos servidores protegidos pela recuperação de sites.
@@ -31,7 +31,7 @@ Utilize a tabela seguinte para saber sobre as opções de ativação pós-falha 
 
 | Cenário | Requisito da recuperação da aplicação | Fluxo de trabalho do Hyper-V | Fluxo de trabalho para VMware
 |---|--|--|--|
-|Ativação pós-falha planeada devido a um período de indisponibilidade futura do Centro de dados| Perda de dados para a aplicação quando é efetuada uma atividade planeada| Para o Hyper-V, a ASR replica os dados com uma frequência de cópia especificado pelo utilizador. Ativação pós-falha planeada é utilizada para substituir a frequência e replicar as alterações finais antes de uma ativação pós-falha é iniciada. <br/> <br/> 1.    Planear uma janela de manutenção de acordo com o processo de gestão de alteração do seu negócio. <br/><br/> 2 notificar os utilizadores do período de indisponibilidade futura. <br/><br/> 3. Coloca offline a aplicação destinada ao utilizador.<br/><br/>4. Inicie a ativação pós-falha planeada através do portal de ASR. As máquinas no local é automaticamente o encerramento.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de alterações de pontos de recuperação também é fornecido numa janela de retenção para um utilizador que pretende utilizar um ponto de recuperação mais antigo. (retenção de 24 horas para Hyper-V).| Para VMware, ASR replica dados continuamente utilizando CDP. Ativação pós-falha fornece-o utilizador a opção de ativação pós-falha para os dados mais recentes (incluindo post aplicação encerramento)<br/><br/> 1. Planear uma janela de manutenção de acordo com o processo de gestão de alterações <br/><br/>2 notificar os utilizadores do período de indisponibilidade futura <br/><br/>3.  Coloca offline a aplicação destinada ao utilizador. <br/><br/>4.  Inicie uma ativação de pós-falha planeada através do portal ASR do ponto mais recente, depois da aplicação está offline. Utilize a opção "Ativação pós-falha não planeada" no portal e selecione o ponto mais recente para ativação pós-falha. As máquinas no local é automaticamente o encerramento.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de alterações de pontos de recuperação numa janela de retenção é fornecido para um cliente que pretende utilizar um ponto de recuperação mais antigo. (72 horas de retenção para VMware).
+|Ativação pós-falha planeada devido a um período de indisponibilidade futura do Centro de dados| Perda de dados para a aplicação quando é efetuada uma atividade planeada| Para o Hyper-V, a ASR replica os dados com uma frequência de cópia é especificado pelo utilizador. Ativação pós-falha planeada é utilizada para substituir a frequência e replicar as alterações finais antes de uma ativação pós-falha é iniciada. <br/> <br/> 1.    Planear uma janela de manutenção de acordo com o processo de gestão de alteração do seu negócio. <br/><br/> 2 notificar os utilizadores do período de indisponibilidade futura. <br/><br/> 3. Coloca offline a aplicação destinada ao utilizador.<br/><br/>4. Inicie a ativação pós-falha planeada através do portal de ASR. As máquinas no local é automaticamente a encerrar pendente.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de alterações de pontos de recuperação também é fornecido numa janela de retenção para um utilizador que pretende utilizar um ponto de recuperação mais antigo. (retenção de 24 horas para Hyper-V).| Para VMware, ASR replica dados continuamente utilizando CDP. Ativação pós-falha fornece-o utilizador a opção de ativação pós-falha para os dados mais recentes (incluindo post aplicação encerrar pendente)<br/><br/> 1. Planear uma janela de manutenção de acordo com o processo de gestão de alterações <br/><br/>2 notificar os utilizadores do período de indisponibilidade futura <br/><br/>3.    Coloca offline a aplicação destinada ao utilizador. <br/><br/>4.  Inicie uma ativação de pós-falha planeada através do portal ASR do ponto mais recente, depois da aplicação está offline. Utilize a opção "Ativação pós-falha não planeada" no portal e selecione o ponto mais recente para ativação pós-falha. As máquinas no local é automaticamente a encerrar pendente.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de alterações de pontos de recuperação numa janela de retenção é fornecido para um cliente que pretende utilizar um ponto de recuperação mais antigo. (72 horas de retenção para VMware).
 |Ativação pós-falha devido a um período de indisponibilidade do Centro de dados não planeada (natural ou desastre IT) | Perda mínima de dados para a aplicação | 1. iniciar o plano BCP da organização <br/><br/>2. Inicie ativação pós-falha não planeada através do portal ASR para a versão mais recente ou um ponto da janela de retenção (diário).| 1. Inicie o plano BCP da organização. <br/><br/>2.  Inicie ativação pós-falha não planeada através do portal ASR para a versão mais recente ou um ponto da janela de retenção (diário).
 
 
@@ -58,25 +58,24 @@ Este procedimento descreve como executar uma ativação pós-falha para um [plan
 
 1. Se algumas das máquinas virtuais no plano de recuperação foram a ativação pós-falha numa execução anterior e agora as máquinas virtuais estão ativas na localização de origem e destino, pode utilizar **mudar a direção** opção decidir a direção na qual deve ocorrer a ativação pós-falha.
 1. Se estiver a efetuar a ativação pós-falha para o Azure e a encriptação de dados é ativada para a nuvem (aplica-se apenas quando proteger máquinas virtuais Hyper-v de um servidor VMM), na **chave de encriptação** selecionar o certificado que foi emitido quando ativar a encriptação de dados durante a configuração no servidor do VMM.
-1. Selecione **encerrar a máquina antes de iniciar a ativação pós-falha** se pretender que a recuperação de sites para tentar efetuar um encerramento de máquinas virtuais de origem antes de acionar a ativação pós-falha. Ativação pós-falha continua, mesmo se falha de encerramento.  
+1. Selecione **máquina encerrar pendente antes de iniciar a ativação pós-falha** se pretender que a recuperação de sites para tentar efetuar um encerramento de máquinas virtuais de origem antes de acionar a ativação pós-falha. Ativação pós-falha continua, mesmo se falha de encerrar pendente.  
 
     > [!NOTE]
-    > Se as máquinas virtuais de Hyper-v estiverem protegidas, a opção de encerramento tenta também sincronizar os dados no local que tenham ainda não foram enviados para o serviço antes de acionar a ativação pós-falha.
+    > Se as máquinas virtuais de Hyper-v estiverem protegidas, a opção para encerrar pendente também tenta sincronizar os dados no local que tenham ainda não foram enviados para o serviço antes de acionar a ativação pós-falha.
     >
     >
 
 1. Pode seguir o progresso de ativação pós-falha no **tarefas** página. Mesmo se ocorrerem erros durante uma ativação pós-falha não planeada, o plano de recuperação é executada até estar concluída.
-1. Após a ativação pós-falha, valide a máquina virtual através do registo mesmo. Se pretender voltar a outro ponto de recuperação para a máquina virtual, em seguida, pode utilizar **alterar o ponto de recuperação** opção.
-1. Quando estiver satisfeito com a ativação pós-falha da máquina virtual, pode **consolidar** a ativação pós-falha. Consolidação elimina todos os pontos de recuperação disponíveis com o serviço e **alterar o ponto de recuperação** opção deixará de estar disponível.
+1. Após a ativação pós-falha, valide a máquina virtual, o registo no mesmo. Se pretender mudar para outro ponto de recuperação da máquina virtual, em seguida, pode utilizar **alterar o ponto de recuperação** opção.
+1. Quando estiver satisfeito com a ativação pós-falha da máquina virtual, pode **consolidar** a ativação pós-falha. **Consolidação elimina todos os pontos de recuperação disponíveis com o serviço** e **alterar o ponto de recuperação** opção já não está disponível.
 
 ## <a name="planned-failover"></a>Ativação pós-falha planeada
-Máquinas virtuais/servidores físicos protegidos através da recuperação de Site também suporte **a ativação pós-falha planeada**. Ativação pós-falha planeada é uma zero opção do dados perda ativação pós-falha. Quando é acionada uma ativação pós-falha planeada, primeiro são encerrar as máquinas virtuais de origem, os dados mais recentes são sincronizados e, em seguida, é acionada uma ativação pós-falha.
+Máquinas virtuais/servidores físicos protegidos através da recuperação de Site também suporte **a ativação pós-falha planeada**. Ativação pós-falha planeada é uma zero opção do dados perda ativação pós-falha. Quando é acionada uma ativação pós-falha planeada, primeiro as máquinas virtuais de origem são encerrar pendente, os dados mais recentes são sincronizados e, em seguida, é acionada uma ativação pós-falha.
 
 > [!NOTE]
-> Quando a ativação pós-falha Hyper-v máquinas virtuais a partir de um local site para outro site no local, para voltar para o site primário no local tem de primeiro **replicar inversamente** a máquina virtual de volta para o site primário e, em seguida, acione uma ativação pós-falha. Se a máquina virtual primária não está disponível, em seguida, antes de começar a **replicar inversamente** tiver de restaurar a máquina virtual a partir de uma cópia de segurança.   
+> Durante a ativação pós-falha de Hyper-v máquinas virtuais de um site no local para outro site no local, para voltar para o site primário no local tem de primeiro **replicação inversa** a máquina virtual de volta para o site primário e, em seguida, acione uma ativação pós-falha. Se a máquina virtual primária não está disponível, em seguida, antes de começar a **replicação inversa** tiver de restaurar a máquina virtual a partir de uma cópia de segurança.   
 >
 >
-
 ## <a name="failover-job"></a>Tarefa de ativação pós-falha
 
 ![Ativação pós-falha](./media/site-recovery-failover/FailoverJob.png)
@@ -108,7 +107,7 @@ Em certos casos, a ativação pós-falha de máquinas virtuais requer um passo i
     * ATAPI
 * Máquinas virtuais VMware que não tenham o serviço DHCP ativado independentemente se estão a utilizar DHCP ou estático de endereços IP
 
-Em todos os outros casos este passo intermédio não é necessário e o tempo decorrido para a ativação pós-falha é significativamente inferior. 
+Em todos os outros casos, este passo intermédio não é necessário e o tempo decorrido para a ativação pós-falha é inferior. 
 
 
 
@@ -117,12 +116,14 @@ Em todos os outros casos este passo intermédio não é necessário e o tempo de
 ## <a name="using-scripts-in-failover"></a>Utilizar scripts na ativação pós-falha
 Poderá automatizar determinadas ações ao efetuar uma ativação pós-falha. Pode utilizar scripts ou [runbooks de automatização do Azure](site-recovery-runbook-automation.md) no [planos de recuperação](site-recovery-create-recovery-plans.md) fazê-lo.
 
-## <a name="other-considerations"></a>Outras considerações
-* **Letra de unidade** — para manter a letra de unidade em máquinas virtuais após ativação pós-falha, pode definir o **SAN política** para a máquina virtual para **OnlineAll**. [Leia mais](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+## <a name="post-failover-considerations"></a>Considerações de ativação pós-falha de POST
+Após a ativação pós-falha, que pode querer considere as seguintes recomendações:
+### <a name="retaining-drive-letter-after-failover"></a>Letra de unidade de retenção após a ativação pós-falha 
+Para manter a letra de unidade em máquinas virtuais após a ativação pós-falha, pode definir o **SAN política** para a máquina virtual para **OnlineAll**. [Leia mais](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!WARNING]
 > Depois de ter a executar a ativação pós-falha de máquinas virtuais e o Centro de dados no local está disponível, deve [ **Proteja** ](site-recovery-how-to-reprotect.md) fazer uma cópia de máquinas virtuais VMware para o Centro de dados no local.

@@ -1,6 +1,6 @@
 ---
 title: "Configurar webhooks em alertas métricas do Azure | Microsoft Docs"
-description: "Reroute alertas do Azure para outros sistemas não do Azure."
+description: "Saiba como reroute alertas do Azure para sistemas de outros, não do Azure."
 author: johnkemnetz
 manager: carmonm
 editor: 
@@ -14,29 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook num alerta métrico do Azure
-Webhooks permitem-lhe uma notificação de alerta do Azure de rotas para outros sistemas de ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para os serviços que enviar SMS, registo de erros, notificar a equipa através de serviços de chat/mensagens ou fazer qualquer número de outras ações. Este artigo descreve como definir um webhook num alerta métrico do Azure e aspeto o payload para o POST de HTTP para um webhook. Para obter informações sobre a configuração e o esquema para um alerta de registo de atividade do Azure (alerta em eventos), [consulte em vez disso, esta página](insights-auditlog-to-webhook-email.md).
+Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas de ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para os serviços que enviam mensagens de SMS, para o registo de erros, notificar a equipa através de chat ou serviços de mensagens ou para várias outras ações. 
 
-Alertas do Azure HTTP POST alerta conteúdos JSON formato, esquema definida abaixo, para um webhook URI que fornecem ao criar o alerta. Este URI tem de ser um ponto final HTTP ou HTTPS válido. Azure mensagens uma entrada por pedido, quando um alerta é ativado.
+Este artigo descreve como definir um webhook num alerta métrico do Azure. Mostra também aspeto o payload para o POST de HTTP para um webhook. Para obter informações sobre a configuração e o esquema de uma atividade do Azure alerta de registo (alerta em eventos), consulte [invocar um webhook num alerta de registo de atividade do Azure](insights-auditlog-to-webhook-email.md).
 
-## <a name="configuring-webhooks-via-the-portal"></a>Como configurar webhooks através do portal
-Pode adicionar ou atualizar o webhook URI no ecrã de alertas de Create/Update no [portal](https://portal.azure.com/).
+Alertas do Azure utilizam HTTP POST para enviar o conteúdo de alerta no formato JSON para um webhook URI que fornecem ao criar o alerta. O esquema está definido neste artigo. O URI tem de ser um ponto final HTTP ou HTTPS válido. Azure mensagens uma entrada por pedido, quando um alerta é ativado.
 
-![Adicionar uma regra de alerta](./media/insights-webhooks-alerts/Alertwebhook.png)
+## <a name="configure-webhooks-via-the-azure-portal"></a>Configurar webhooks através do portal do Azure
+Para adicionar ou atualizar o webhook URI, no [portal do Azure](https://portal.azure.com/), aceda a **Create/Update alertas**.
 
-Também pode configurar um alerta para publicar um URI de webhook utilizando o [Cmdlets do PowerShell do Azure](insights-powershell-samples.md#create-metric-alerts), [CLI de várias plataformas](insights-cli-samples.md#work-with-alerts), ou [API REST da Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+![Adicionar um painel de regra de alerta](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-## <a name="authenticating-the-webhook"></a>Autenticar o webhook
-O webhook pode autenticar através de autorização baseada em tokens. Guardar o webhook URI está com um ID de token, por exemplo. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+Também pode configurar um alerta para publicar um webhook URI utilizando [cmdlets Azure PowerShell](insights-powershell-samples.md#create-metric-alerts), um [CLI de várias plataformas](insights-cli-samples.md#work-with-alerts), ou [as APIs REST da Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+
+## <a name="authenticate-the-webhook"></a>Autenticar o webhook
+O webhook pode autenticar através da utilização de autorização baseada em tokens. Guardar o webhook URI está com um ID de token. Por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Esquema de payload
-A operação POST contém a seguinte payload JSON e o esquema para todos os alertas com base em métrica.
+A operação POST contém as seguinte payload JSON e o esquema para todos os alertas com base em métrica:
 
 ```JSON
 {
@@ -77,38 +79,38 @@ A operação POST contém a seguinte payload JSON e o esquema para todos os aler
 
 | Campo | Obrigatório | Fixo conjunto de valores | Notas |
 |:--- |:--- |:--- |:--- |
-| status |S |"Ativado", "Resolvido" |Estado do alerta baseados nas condições que definiu. |
+| status |S |Ativado, resolvido |O estado para o alerta com base nas condições definido. |
 | context |S | |O contexto do alerta. |
 | carimbo de data/hora |S | |A hora em que o alerta foi acionado. |
-| ID |S | |Cada regra de alerta tem um id exclusivo. |
+| ID |S | |Cada regra de alerta tem um ID exclusivo. |
 | nome |S | |O nome do alerta. |
-| descrição |S | |Descrição do alerta. |
-| conditionType |S |"Métrica", "Evento de" |São suportados dois tipos de alertas. Um baseada numa condição de métrica e outra com base num evento no registo de atividade. Utilize este valor para verificar se o alerta é baseado num métrica ou eventos. |
-| condição |S | |Os campos específicos para procurar com base no conditionType. |
-| metricName |existência de alertas métricas | |O nome da métrica que define o que monitoriza a regra. |
-| metricUnit |existência de alertas métricas |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |A unidade permitida na métrica. [Permitido valores estão listados aqui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
-| metricValue |existência de alertas métricas | |O valor real da métrica que causou o alerta. |
-| Limiar |existência de alertas métricas | |O valor de limiar em que o alerta está ativado. |
-| windowSize |existência de alertas métricas | |O período de tempo que é utilizado para monitorizar a atividade de alerta com base no limiar. Tem de estar entre 5 minutos e 1 dia. Formato de duração ISO 8601. |
-| timeAggregation |existência de alertas métricas |"Average", "Last", "Maximum", "Minimum", "None", "Total" |Como devem ser combinados os dados que são recolhidos ao longo do tempo. O valor predefinido é média. [Permitido valores estão listados aqui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operador |existência de alertas métricas | |O operador utilizado para comparar os dados métricos atuais para o limiar definido. |
-| subscriptionId |S | |ID da subscrição do Azure. |
-| resourceGroupName |S | |Nome do grupo de recursos para o recurso afetado. |
-| resourceName |S | |Nome de recurso do recurso afetado. |
-| resourceType |S | |Tipo de recurso do recurso afetado. |
-| resourceId |S | |ID de recurso do recurso afetado. |
-| resourceRegion |S | |Região ou localização do recurso afetado. |
-| portalLink |S | |Ligação direta para a página de resumo do portal de recursos. |
-| propriedades |N |Opcional |Conjunto de `<Key, Value>` pares (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. O campo de propriedades é opcional. Num personalizada da IU ou lógica baseada na aplicação fluxo de trabalho, os utilizadores podem introduzir chaves/valores que pode ser transmitidos através do payload. A forma alternativa para passar as propriedades personalizadas para o webhook é através do uri de webhook (como parâmetros de consulta) |
+| descrição |S | |Uma descrição do alerta. |
+| conditionType |S |Métrica do evento |São suportados dois tipos de alertas: métricas e eventos. Alertas métricas baseiam-se numa condição de métrica. Alertas de eventos são baseadas num evento no registo de atividade. Utilize este valor para verificar se o alerta é baseado numa métrica ou um evento. |
+| condição |S | |Os campos específicos para verificar se baseiam o **conditionType** valor. |
+| metricName |Existência de alertas métricas | |O nome da métrica que define o que monitoriza a regra. |
+| metricUnit |Existência de alertas métricas |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |A unidade permitida na métrica. Consulte [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricValue |Existência de alertas métricas | |O valor real da métrica que causou o alerta. |
+| Limiar |Existência de alertas métricas | |O valor de limiar em que o alerta está ativado. |
+| windowSize |Existência de alertas métricas | |O período de tempo que é utilizado para monitorizar a atividade de alerta com base no limiar. O valor tem de estar entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |
+| timeAggregation |Existência de alertas métricas |Média, Last, máximo, mínimo, None, Total |Como devem ser combinados os dados que são recolhidos ao longo do tempo. O valor predefinido é média. Consulte [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| operador |Existência de alertas métricas | |O operador que é utilizado para comparar os dados métricos atuais para o limiar definido. |
+| subscriptionId |S | |O ID de subscrição do Azure. |
+| resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
+| resourceName |S | |O nome de recurso do recurso afetado. |
+| resourceType |S | |O tipo de recurso do recurso afetado. |
+| resourceId |S | |O ID de recurso do recurso afetado. |
+| resourceRegion |S | |A região ou a localização do recurso afetado. |
+| portalLink |S | |Uma ligação direta para a página de resumo do portal de recursos. |
+| propriedades |N |Opcional |Um conjunto de pares chave/valor que contém os detalhes sobre o evento. Por exemplo, `Dictionary<String, String>`. O campo de propriedades é opcional. Uma IU personalizada ou um fluxo de trabalho de baseado na aplicação lógica, os utilizadores podem introduzir pares chave/valor que podem ser transmitidas através do payload. Uma maneira alternativa para passar as propriedades personalizadas para o webhook é através de webhook URI propriamente dito (como parâmetros de consulta). |
 
 > [!NOTE]
-> O campo de propriedades só pode ser definido utilizando o [API REST da Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> Pode definir o **propriedades** campo utilizando apenas [as APIs REST da Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 >
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre alertas do Azure e webhooks as vídeo [integrar alertas do Azure com PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
-* [Executar scripts de automatização do Azure (Runbooks) nos alertas do Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Utilize a aplicação lógica para enviar um SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-* [Utilize a aplicação lógica para enviar uma mensagem Slack a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-* [Utilize a aplicação lógica para enviar uma mensagem para uma fila do Azure a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+* Saiba mais sobre alertas do Azure e webhooks as vídeo [alertas de integrar o Azure com PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080).
+* Saiba como [executar scripts de automatização do Azure (runbooks) nos alertas do Azure](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Saiba como [utilizar uma aplicação lógica para enviar uma mensagem SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
+* Saiba como [utilizar uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
+* Saiba como [utilizar uma aplicação lógica para enviar uma mensagem para uma fila do Azure a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).

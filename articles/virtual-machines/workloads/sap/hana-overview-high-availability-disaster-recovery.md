@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b61b7c3778ce3ada7e2130d2e0695c0a7a4b466d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: d41df9b9d9bd518bb507b0fcde001f35c11e6264
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA grande instâncias elevada disponibilidade e recuperação após desastre no Azure 
 
@@ -149,6 +149,15 @@ As secções seguintes fornecem informações para efetuar estes instantâneos, 
 - Durante a maior reorganizations das tabelas de SAP HANA, os instantâneos de armazenamento devem ser evitados, se possível.
 - Os instantâneos de armazenamento são um pré-requisito para tirar partido das capacidades de recuperação após desastre de SAP HANA no Azure (instâncias de grande).
 
+### <a name="pre-requisites-for-leveraging-self-service-storage-snapshots"></a>Pré-requisitos para tirar partido de instantâneos de armazenamento de self-service
+
+Para garantir que o script de instantâneo executa com êxito, certifique-se de que o Perl está instalado no sistema operativo Linux no servidor de instâncias de grande HANA. Perl é previamente instalado na sua unidade de instância grande HANA. Para verificar a versão de perl, utilize o seguinte comando:
+
+`perl -v`
+
+![A chave pública é copiada por executar este comando](./media/hana-overview-high-availability-disaster-recovery/perl_screen.png)
+
+
 ### <a name="setting-up-storage-snapshots"></a>Configurar os instantâneos de armazenamento
 
 Os passos para configurar os instantâneos de armazenamento com instâncias de grande HANA são os seguintes:
@@ -166,7 +175,7 @@ Se estiver a executar um [cenário MCOD](https://launchpad.support.sap.com/#/not
 
 ### <a name="step-1-install-the-sap-hana-hdb-client"></a>Passo 1: Instalar o cliente de SAP HANA HDB
 
-O sistema de operativo Linux instalado SAP HANA no Azure (instâncias de grande) inclui as pastas e os scripts necessários para executar os instantâneos de armazenamento de SAP HANA para fins de cópia de segurança e recuperação após desastre. Verifique a existência de versões mais recentes no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). A versão mais recente dos scripts é 3.0.
+O sistema de operativo Linux instalado SAP HANA no Azure (instâncias de grande) inclui as pastas e os scripts necessários para executar os instantâneos de armazenamento de SAP HANA para fins de cópia de segurança e recuperação após desastre. Verifique a existência de versões mais recentes no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). A versão mais recente dos scripts é 3. Scripts diferentes podem ter diferentes versões de secundárias dentro da mesma versão principal.
 
 >[!IMPORTANT]
 >Mover da versão 2.1 dos scripts 3.0 dos scripts, a estrutura de algumas sintaxe e o ficheiro de configuração para os scripts foi alterados. Consulte as chamada-outs nas secções específicas. 
@@ -223,7 +232,7 @@ Neste momento, contacte SAP HANA na gestão de serviço do Azure e forneça-las 
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Passo 4: Criar uma conta de utilizador de SAP HANA
 
-Para iniciar a criação de instantâneos de SAP HANA, terá de criar uma conta de utilizador no SAP HANA que podem utilizar os scripts de instantâneos de armazenamento. Crie uma conta de utilizador de SAP HANA SAP HANA Studio para esta finalidade. Esta conta tem de ter os seguintes privilégios: **Admin de cópia de segurança** e **catálogo leitura**. Neste exemplo, o nome de utilizador é **SCADMIN**. O nome da conta de utilizador criado no HANA Studio diferencia maiúsculas de minúsculas. Certifique-se de que seleciona **não** para exigir ao utilizador alterar a palavra-passe o próximo início de sessão.
+Para iniciar a criação de instantâneos de SAP HANA, terá de criar uma conta de utilizador no SAP HANA que podem utilizar os scripts de instantâneos de armazenamento. Crie uma conta de utilizador de SAP HANA SAP HANA Studio para esta finalidade. O utilizador tem de ser criado sob o SYSTEMDB e não sob a base de dados de SID. Esta conta tem de ter os seguintes privilégios: **Admin de cópia de segurança** e **catálogo leitura**. Neste exemplo, o nome de utilizador é **SCADMIN**. O nome da conta de utilizador criado no HANA Studio diferencia maiúsculas de minúsculas. Certifique-se de que seleciona **não** para exigir ao utilizador alterar a palavra-passe o próximo início de sessão.
 
 ![Criar um utilizador no HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -278,6 +287,15 @@ azure_hana_dr_failover.pl
 HANABackupCustomerDetails.txt 
 ``` 
 
+Tal como lidar com os scripts de perl: 
+
+- Nunca modificar os scripts, a menos que indicado pelo Microsoft Operations.
+- Quando lhe for pedido para modificar o script ou um ficheiro de parâmetros, utilize sempre o editor de texto de linux como "vi" e não os editores de Windows, como o bloco de notas. Com o editor do windows, poderá danificar o formato de ficheiro.
+- Utilize sempre os scripts mais recentes. Pode transferir a versão mais recente a partir do GitHub.
+- Utilize a mesma versão de scripts para a horizontal.
+- Testar os scripts e obter familiarizado com os parâmetros necessários e o resultado do script antes de utilizar diretamente no sistema de produção.
+- Não altere o nome do ponto de montagem do servidor aprovisionado através do Microsoft Operations. Estes scripts dependem destes pontos de montagem padrão para estar disponível para uma execução bem sucedida.
+
 
 O objetivo das diferentes scripts e ficheiros é:
 
@@ -299,7 +317,7 @@ O objetivo das diferentes scripts e ficheiros é:
 - **Azure\_hana\_testar\_dr\_failover.pl**: Script para executar uma ativação pós-falha de teste para o site de DR. Contrária ao disposto azure_hana_dr_failover.pl script, a execução não interromper a replicação de armazenamento do primário para o secundário. Em vez disso clones dos volumes de armazenamento replicado ser criados no lado DR e mountpoints dos volumes clonados são fornecidos. 
 - **HANABackupCustomerDetails.txt**: este ficheiro é um ficheiro de configuração modificável que terá de modificar para adaptar à sua configuração de SAP HANA. O ficheiro de HANABackupCustomerDetails.txt é o ficheiro de controlo e a configuração para o script que executa os instantâneos de armazenamento. Ajuste o ficheiro para os fins e a configuração. Deve ter recebido o **nome de cópia de segurança de armazenamento** e **endereço de IP de armazenamento** de SAP HANA na gestão de serviço do Azure quando as instâncias que foram implementadas. Não é possível modificar a sequência de ordenação ou espaçamento de qualquer uma das variáveis existentes neste ficheiro. Caso contrário, os scripts não vai ser executado corretamente. Além disso, recebido o endereço IP do nó de vertical ou o nó mestre (se escalável) de SAP HANA na gestão de serviço do Azure. Também souber o número de instância HANA que recebeu durante a instalação de SAP HANA. Agora tem de adicionar um nome de cópia de segurança para o ficheiro de configuração.
 
-Para uma implementação de vertical ou Escalamento horizontal, o ficheiro de configuração seria ter um aspeto semelhante ao seguinte exemplo depois preenchida no nome do servidor da unidade de instância grande HANA e o endereço IP do servidor. Em caso de replicação do sistema de SAP HANA utilize o endereço IP virtual da configuração da replicação do sistema HANA. Preencha todos os campos necessários para cada SID de HANA SAP que pretende efetuar cópia de segurança ou recuperação. Também pode comente linhas de instâncias que não pretende de cópia de segurança para um período de tempo, adicionando um "#" à frente de um campo obrigatório. Também não tem de introduzir todos os SAP HANA as instâncias que estão contidas num servidor, se não é necessário para a cópia de segurança ou recuperar essa instância específica. O formato têm de ser mantido para todos os campos; caso contrário, todos os scripts apresenta uma mensagem de erro e termina o script. No entanto pode eliminar linhas necessárias adicionais de quaisquer detalhes de informações de SID não estiver a utilizar após a última instância de SAP HANA em utilização.  Todas as linhas devem ser preenchidas, comentadas ou eliminadas.
+Para uma implementação de vertical ou Escalamento horizontal, o ficheiro de configuração seria ter um aspeto semelhante ao seguinte exemplo depois preenchida no nome do servidor da unidade de instância grande HANA e o endereço IP do servidor. Em caso de replicação do sistema de SAP HANA utilize o endereço IP virtual da configuração da replicação do sistema HANA. Preencha todos os campos necessários para cada SID de HANA SAP que pretende criar cópias de segurança ou recuperação. Também pode comente linhas de instâncias que não pretende de cópia de segurança para um período de tempo, adicionando um "#" à frente de um campo obrigatório. Também não tem de introduzir todos os SAP HANA as instâncias que estão contidas num servidor, se não é necessário para criar cópias de segurança ou recuperação essa instância específica. O formato têm de ser mantido para todos os campos; caso contrário, todos os scripts apresenta uma mensagem de erro e termina o script. No entanto pode eliminar linhas necessárias adicionais de quaisquer detalhes de informações de SID não estiver a utilizar após a última instância de SAP HANA em utilização.  Todas as linhas devem ser preenchidas, comentadas ou eliminadas.
 
 >[!IMPORTANT]
 >Foi possível alterar a estrutura do ficheiro com a mudança da versão 2.1 para versão 3.0. Se pretender utilizar os scripts de 3.0 versão, tem de se adaptar a estrutura do ficheiro de configuração. 
@@ -317,13 +335,13 @@ Para cada instância que configurar na unidade instância grande HANA ou para a 
 ######***SID #1 Information***#####
 SID1: h01
 ###Provided by Microsoft Operations###
-SID1 Storage Backup Name: cl22h01backup
+SID1 Storage Backup Name: clt1h01backup
 SID1 Storage IP Address: 172.18.18.11
 ######     Customer Provided    ######
 SID1 HANA instance number: 00
 SID1 HANA HDBuserstore Name: SCADMINH01
 ```
-Para configurações de replicação do sistema HANA e escalável, recomenda-se repetir esta configuração em cada um de nós. Isto certifica-se de que em cenários de falha, as cópias de segurança e armazenamento eventual replicação ainda pode continuar a trabalhar.   
+Para configurações de replicação do sistema HANA e escalável, recomenda-se repetir esta configuração em cada um de nós. Esta medida certifica-se de que em cenários de falha, as cópias de segurança e armazenamento eventual replicação ainda pode continuar a trabalhar.   
 
 Depois de colocar todos os dados de configuração no ficheiro HANABackupCustomerDetails.txt, terá de verificar se as configurações estão corretas sobre os dados da instância HANA. Utilize o script `testHANAConnection.pl`. Este script é independente de uma configuração de vertical ou Escalamento horizontal de SAP HANA.
 
@@ -346,12 +364,19 @@ Se o script com êxito obtém o estado da instância HANA, é apresentada uma me
 - Cria um instantâneo de teste ou fictício, para cada volume por instância HANA.
 
 Por este motivo, a instância HANA é incluída como um argumento. Se falhar a execução, não é possível fornecer o erro de verificação para a ligação de armazenamento. Mesmo se não houver nenhum erro de verificação, o script fornece sugestões úteis.
+Execute a sequência de comandos para executar este teste:
 
-O script é executado como:
+```
+ssh <StorageUserName>@<StorageIP>
+```
+
+O nome de utilizador de armazenamento e o endereço IP de armazenamento foram fornecidos para si no handover da unidade instância grande HANA.
+
+Como segundo passo, execute o script de teste como:
 ```
  ./testStorageSnapshotConnection.pl <HANA SID>
 ```
-Em seguida, o script tenta iniciar sessão para o armazenamento utilizando a chave pública fornecida nos passos de configuração anterior e com os dados configurados no ficheiro HANABackupCustomerDetails.txt. Se o início de sessão for bem-sucedida, é apresentado o seguinte conteúdo:
+O script tenta iniciar sessão para o armazenamento utilizando a chave pública fornecida nos passos de configuração anterior e com os dados configurados no ficheiro HANABackupCustomerDetails.txt. Se o início de sessão for bem-sucedida, é apresentado o seguinte conteúdo:
 
 ```
 **********************Checking access to Storage**********************
@@ -418,6 +443,10 @@ Podem ser criados três tipos de cópias de segurança do instantâneo:
 >[!NOTE]
 > A sintaxe de chamada para estes três tipos diferentes de instantâneos alterados com a mudança para a versão 3.0 scripts, que suporta implementações de MCOD. Não é necessário especificar o SID de HANA de uma instância já. Tem de certificar-se de que as instâncias de SAP HANA de uma unidade são configuradas no ficheiro de configuração **HANABackupCustomerDetails.txt**.
 
+>[!NOTE]
+> Quando executar o script pela primeira vez, pode mostrar alguns erros inesperados na várias ambiente sid. Apenas novamente o script e já deve corrigir o problema.
+
+
 
 A nova sintaxe de chamada de instantâneos de armazenamento com o script a executar **azure_hana_backup.pl** parece ser:
 
@@ -433,7 +462,7 @@ For snapshot of the volume storing the boot LUN
 
 ```
 
-Tem de especificar os parâmetros seguintes: 
+Se os detalhes dos parâmetros como: 
 
 - O primeiro parâmetro caracteriza o tipo de cópia de segurança do instantâneo. Os valores permitidos são **hana**, **registos**, e **arranque**. 
 - O parâmetro  **<HANA Large Instance Type>**  é necessário para arranque volume apenas cópias de segurança. Existem dois valores válidos com "TypeI" ou "TypeII" dependentes na unidade de instância grande HANA. Para saber qual é o "tipo" a unidade for, leia este [documentação](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
@@ -498,7 +527,7 @@ O gráfico seguinte ilustra as sequências de tarefas do exemplo anterior, exclu
 SAP HANA efetua escritas regulares contra o volume de /hana/log documentar as alterações consolidadas na base de dados. Regularmente, SAP HANA escreve um ponto de reposição de volume /hana/data. Conforme especificado no crontab, uma cópia de segurança do registo de transações de SAP HANA é executada a cada cinco minutos. Também pode ver que um instantâneo de SAP HANA é executado devido a acionar um instantâneo de armazenamento combinado sobre os volumes /hana/data e /hana/shared a cada hora. Depois do instantâneo HANA for bem sucedida, o instantâneo de armazenamento combinado é executado. As instruções na crontab, o instantâneo de armazenamento no /hana/logbackup volume é executado de cada cinco minutos, cerca de dois minutos após a cópia de segurança do registo de transações de HANA.
 
 > [!NOTE]
->Se agendar cópias de segurança de instantâneos de armazenamento em dois nós de um programa de configuração de replicação do sistema HANA, tem de certificar-se de que a execução das cópias de segurança do instantâneo não se podem sobrepor. SAP HANA tem uma restrição para lidar com um instantâneo HANA em apenas uma vez. Uma vez que um instantâneo HANA um componente básicas de uma cópia de segurança de instantâneos de armazenamento com êxito, tem de certificar-se de que o instantâneo de armazenamento no nó principal e secundário e um nó de terceiro eventual atempada, à excepção de si.
+>Se agendar cópias de segurança de instantâneos de armazenamento em dois nós de um programa de configuração de replicação do sistema HANA, tem de certificar-se de que a execução das cópias de segurança de instantâneos entre dois nós não se podem sobrepor. SAP HANA tem uma restrição para lidar com um instantâneo HANA em apenas uma vez. Uma vez que um instantâneo HANA um componente básicas de uma cópia de segurança de instantâneos de armazenamento com êxito, tem de certificar-se de que o instantâneo de armazenamento no nó principal e secundário e um nó de terceiro eventual atempada, à excepção de si.
 
 
 >[!IMPORTANT]
@@ -524,6 +553,30 @@ Depois de tem foi executados o seu primeiro instantâneos de armazenamento com �
 ```
 ./removeTestStorageSnapshot.pl <hana instance>
 ```
+
+O resultado do script foi aspeto:
+```
+Checking Snapshot Status for h80
+**********************Checking access to Storage**********************
+Storage Snapshot Access successful.
+**********************Getting list of volumes that match HANA instance specified**********************
+Collecting set of volumes hosting HANA matching pattern *h80* ...
+Volume show completed successfully.
+Adding volume hana_data_h80_mnt00001_t020_vol to the snapshot list.
+Adding volume hana_log_backups_h80_t020_vol to the snapshot list.
+Adding volume hana_shared_h80_t020_vol to the snapshot list.
+**********************Adding list of snapshots to volume list**********************
+Collecting set of snapshots for each volume hosting HANA matching pattern *h80* ...
+**********************Displaying Snapshots by Volume**********************
+hana_data_h80_mnt00001_t020_vol
+Test_HANA_Snapshot.2018-02-06_1753.3
+Test_HANA_Snapshot.2018-02-06_1815.2
+….
+Command completed successfully.
+Exiting with return code: 0
+Command completed successfully.
+```
+
 
 ### <a name="monitoring-the-number-and-size-of-snapshots-on-the-disk-volume"></a>O número e tamanho de instantâneos no volume de disco de monitorização
 
@@ -602,12 +655,12 @@ Se executar o script com esta definição, o número de instantâneos, incluindo
  >[!NOTE]
  > Este script reduz o número de instantâneos só se existirem instantâneos que são mais de um horas depois. O script não eliminar instantâneos são inferior a um horas depois. Estas restrições relacionadas com a funcionalidade de recuperação de desastres opcional fornecida.
 
-Se já não pretender manter um conjunto de instantâneos com uma etiqueta de cópia de segurança específica **hanadaily** nos exemplos de sintaxe, pode executar o script com **0** como o número de retenção. Esta ação remove todos os instantâneos correspondente essa etiqueta. No entanto, a remoção de todos os instantâneos pode afetar as capacidades das funcionalidades de recuperação após desastre de instâncias de grande HANA.
+Se já não pretender manter um conjunto de instantâneos com uma etiqueta de cópia de segurança específica **hanadaily** nos exemplos de sintaxe, pode executar o script com **0** como o número de retenção. Com esse parâmetro retenção essa etiqueta de correspondência de todos os instantâneos são removidos. No entanto, a remoção de todos os instantâneos pode afetar as capacidades das funcionalidades de recuperação após desastre de instâncias de grande HANA.
 
-Uma segundo possibilidade para eliminar instantâneos específicos consiste em utilizar o script `azure_hana_snapshot_delete.pl`. Este script foi concebido para eliminar um instantâneo ou um conjunto de instantâneos ou ao utilizar o ID de cópia de segurança HANA como encontrada no HANA Studio ou através de instantâneos nome próprio. Atualmente, o ID de cópia de segurança só está associado aos instantâneos criados para o **hana** tipo de instantâneos. As cópias de segurança do tipo de instantâneos **registos** e **arranque** não efetuar um instantâneo de SAP HANA. Por conseguinte, não há nenhum ID de cópia de segurança para localizar os instantâneos. Se o nome de instantâneo é introduzido, procura todos os instantâneos em volumes diferentes que corresponde ao nome do instantâneo introduzido. A sintaxe de chamada do script é:
+Uma segundo possibilidade para eliminar instantâneos específicos consiste em utilizar o script `azure_hana_snapshot_delete.pl`. Este script foi concebido para eliminar um instantâneo ou um conjunto de instantâneos ou ao utilizar o ID de cópia de segurança HANA como encontrada no HANA Studio ou através de instantâneos nome próprio. Atualmente, o ID de cópia de segurança só está associado aos instantâneos criados para o **hana** tipo de instantâneos. As cópias de segurança do tipo de instantâneos **registos** e **arranque** não efetuar um instantâneo de SAP HANA. Por conseguinte, não há nenhum ID de cópia de segurança para localizar os instantâneos. Se o nome de instantâneo é introduzido, procura todos os instantâneos em volumes diferentes que corresponde ao nome do instantâneo introduzido. Chamar o script é necessário especificar o SID da instância HANA. A sintaxe de chamada do script é:
 
 ```
-./azure_hana_snapshot_delete.pl 
+./azure_hana_snapshot_delete.pl <SID>
 
 ```
 
