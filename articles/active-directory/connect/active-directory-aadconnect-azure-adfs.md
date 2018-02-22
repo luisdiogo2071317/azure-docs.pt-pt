@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementação do Serviço de Federação do Active Directory no Azure
 O AD FS proporciona federação de identidade simplificada e protegida e capacidades de início de sessão único (SSO) na Web. A Federação com o Azure AD ou o O365 permite aos utilizadores autenticarem-se com credenciais no local e aceder a todos os recursos na nuvem. Como resultado, torna-se importante ter uma infraestrutura do AD FS de elevada disponibilidade para garantir acesso aos recursos no local e na nuvem. Implementar o AD FS no Azure pode ajudar a alcançar a elevada disponibilidade necessária com um esforço mínimo.
@@ -358,7 +358,7 @@ Pode utilizar uma rede virtual existente ou criar uma nova VNET ao implementar e
 * [Balanceador de Carga com Acesso à Internet](https://aka.ms/Azure/ILB/Internet)
 * [Contas de armazenamento](https://aka.ms/Azure/Storage)
 * [Redes Virtuais do Azure](https://aka.ms/Azure/VNet)
-* [Ligações para o AD FS e o Proxy de Aplicações Web](http://aka.ms/ADFSLinks) 
+* [Ligações para o AD FS e o Proxy de Aplicações Web](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md)

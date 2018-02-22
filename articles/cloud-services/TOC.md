@@ -20,13 +20,10 @@
 #### [Armazenamento de blobs e serviços ligados](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Armazenamento de filas e serviços ligados](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Armazenamento de tabelas e serviços ligados](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Configurar pacotes para compilação e implementação contínua
-#### [TFS e Compilação de Equipa](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurar regras de tráfego para uma função](cloud-services-enable-communication-role-instances.md)
 ### [Processar eventos de ciclo de vida do Serviço Cloud](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Utilizar o Twilio para fazer uma chamada telefónica (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configurar tarefas de arranque
 #### [Criar tarefas de arranque](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 ### [Rastrear Serviço Cloud com os Diagnósticos](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Enviar dados de diagnóstico às Informações da Aplicação](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Resolução de problemas
 ### Depurar 
-#### [Ativar a depuração remota com entrega contínua](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Opções para um Serviço Cloud](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Serviço Cloud local com o Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Serviço Cloud publicado com o Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

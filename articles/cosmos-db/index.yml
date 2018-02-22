@@ -12,13 +12,13 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/05/2017
+  ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: 4b9eb9a46924f7d4915c67cd8724d02ec3861d2c
-  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+  ms.openlocfilehash: c5a09b76eee27300a7814bba69c5b73f5b2e5aad
+  ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/14/2017
+  ms.lasthandoff: 02/22/2018
 abstract:
   description: "Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuído globalmente. Utilize estes inícios rápidos, tutoriais e exemplos para desenvolver documentos, valor-chave, colunas e bases de dados com gráficos ao utilizar APIs e modelos de programação populares. Em seguida, aprenda a replicar os seus dados por qualquer número de regiões do Azure e dimensione o seu débito independentemente do seu armazenamento, enquanto tira partido de SLAs abrangentes."
   aside:
@@ -68,7 +68,7 @@ sections:
       - href: /azure/cosmos-db/create-graph-java
       - href: /azure/cosmos-db/create-graph-dotnet
       - href: /azure/cosmos-db/create-graph-nodejs
-      - href: 
+      - href: /azure/cosmos-db/create-graph-python
       - href: /azure/cosmos-db/create-graph-gremlin-console
     - title: API de Tabela
       values:
@@ -112,10 +112,10 @@ sections:
     className: cardsD
     items:
     - title: SQL APIs
-      html: "<p><a href=\"/rest/api/documentdb/\">REST</a></p><p><a href=\"https://aka.ms/acdbnetref\">.NET</a></p><p><a href=\"sql-api-sdk-dotnet-changefeed\">Feed de alteração do .NET</a></p><p><a href=\"https://aka.ms/acdbnetcoreref\">.NET Core</a></p><p><a href=\"https://aka.ms/acdbnoderef\">Node.js</a></p><p><a href=\"https://aka.ms/acdbjavaref\">Java</a></p><p><a href=\"https://aka.ms/acdbpythonref\">python</a></p><p><a href=\"/rest/api/documentdbresourceprovider/\">Fornecedor de Recursos REST</a></p><p><a href=\"sql-api-sql-query-reference\">SQL</a></p>"
+      html: "<p><a href=\"/rest/api/documentdb/\">REST</a></p><p><a href=\"https://aka.ms/acdbnetref\">.NET</a></p><p><a href=\"sql-api-sdk-dotnet-changefeed\">Feed de alteração do .NET</a></p><p><a href=\"https://aka.ms/acdbnetcoreref\">.NET Core</a></p><p><a href=\"https://aka.ms/acdbnoderef\">Node.js</a></p><p><a href=\"https://aka.ms/acdbjavaref\">Java</a></p><p><a href=\"https://aka.ms/acdbpythonref\">Python</a></p><p><a href=\"/rest/api/documentdbresourceprovider/\">Fornecedor de Recursos REST</a></p><p><a href=\"sql-api-sql-query-reference\">SQL</a></p>"
     - title: APIs do MongoDB
-      html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
+      html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: APIs de Tabela
-      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">python</a></p>
+      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
     - title: APIs do Gremlin
       html: <p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
