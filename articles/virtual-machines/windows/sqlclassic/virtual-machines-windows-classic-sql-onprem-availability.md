@@ -4,7 +4,7 @@ description: "Este tutorial utiliza recursos criados com o modelo de implementa�
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Expandir no local Always On nos grupos de disponibilidade para o Azure
 Grupos de disponibilidade Always fornecer elevada disponibilidade para grupos de base de dados, adicionando as réplicas secundárias. Permitem a estas réplicas efetuar a ativação pós-falha de bases de dados em caso de falha. Além disso, podem ser utilizados para a descarga de cargas de trabalho de leitura ou tarefas de cópia de segurança.
@@ -57,7 +57,7 @@ Esta secção mostra como utilizar o **Adicionar Assistente do Azure réplica** 
    
    | Definição | Descrição |
    | --- | --- |
-   | **Imagem** |Selecione a combinação pretendida do SO e SQL Server |
+   | **Image** |Selecione a combinação pretendida do SO e SQL Server |
    | **Tamanho da VM** |Selecione o tamanho da VM que melhor se adapta às suas necessidades de negócio |
    | **Nome da VM** |Especifique um nome exclusivo para a nova VM. O nome tem de conter entre 3 e 15 carateres, pode conter apenas letras, números e hífenes e tem de começar com uma letra e terminar com uma letra ou número. |
    | **Nome de utilizador VM** |Especifique um nome de utilizador que irá tornar-se a conta de administrador na VM |
@@ -65,7 +65,7 @@ Esta secção mostra como utilizar o **Adicionar Assistente do Azure réplica** 
    | **Confirmar palavra-passe** |Confirme a palavra-passe da conta nova |
    | **Rede Virtual** |Especifique a rede virtual do Azure que deve utilizar a nova VM. Para obter mais informações sobre redes virtuais, consulte [descrição geral de rede Virtual](../../../virtual-network/virtual-networks-overview.md). |
    | **Sub-rede de rede virtual** |Especifique a sub-rede de rede virtual que deve utilizar a nova VM |
-   | **Domínio** |Confirmar que o valor pré-preenchidos para o domínio está correto |
+   | **Domain** |Confirmar que o valor pré-preenchidos para o domínio está correto |
    | **Nome de utilizador de domínio** |Especifique uma conta que está no grupo de administradores locais em nós de local cluster |
    | **Palavra-passe** |Especifique a palavra-passe para o nome de utilizador de domínio |
 8. Clique em **OK** para validar as definições de implementação.
@@ -89,7 +89,7 @@ Esta secção mostra como utilizar o **Adicionar Assistente do Azure réplica** 
 ## <a name="create-an-availability-group-listener"></a>Criar um serviço de escuta do grupo de disponibilidade
 Depois de criar o grupo de disponibilidade, deve criar um serviço de escuta para clientes que ligam às réplicas. Encaminham as ligações recebidas para o site primário ou de uma réplica secundária só de leitura. Para obter mais informações sobre os serviços de escuta, consulte [configurar um serviço de escuta do ILB para grupos de disponibilidade Always no Azure](../classic/ps-sql-int-listener.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Além de utilizar o **Adicionar Assistente do Azure réplica** para expandir o seu sempre no grupo de disponibilidade para o Azure, pode também mover algumas cargas de trabalho do servidor SQL completamente no Azure. Para começar a utilizar, consulte o artigo [aprovisionamento de uma Máquina Virtual do SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Para outros tópicos relacionados com a executar o SQL Server em VMs do Azure, consulte [do SQL Server em Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

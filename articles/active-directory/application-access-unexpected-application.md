@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4765b71714e88ee91cb9938ad4bb34033cf12422
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef04e557aca69e5a15bb38d816ca9f9b9ffaf502
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicação inesperada na minha lista de aplicações
 
@@ -25,15 +25,15 @@ Este artigo ajuda-o a compreender a forma como as aplicações são apresentadas
 
 ## <a name="how-to-see-all-applications-in-your-tenant"></a>Como ver todas as aplicações no seu inquilino
 
-Para ver todas as aplicações no seu inquilino, tem de utilizar o **filtro** controlo para mostrar **todas as aplicações** sob o **todas as aplicações** lista. Para tal, siga os passos abaixo:
+Para ver todas as aplicações no seu inquilino, tem de utilizar o **filtro** controlo para mostrar **todas as aplicações** sob o **todas as aplicações** lista. Siga estes passos.
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
@@ -47,31 +47,31 @@ Quando filtrada para **todas as aplicações**, a **todas as aplicações** **li
 
 1.  Quando adicionar qualquer aplicação a partir da Galeria de aplicações, incluindo:
 
-   1. **Aplicações de galeria do Azure AD** – uma aplicação que foi previamente integrada para início de sessão com o Azure AD.
+   1. **Aplicações de galeria do Azure AD** – uma aplicação que foi previamente integrada para início de sessão com o Azure AD
 
-   2. **Aplicações de Proxy de aplicação** – uma aplicação em execução no seu ambiente no local que pretende fornecer seguro início de sessão único para externamente.
+   2. **Aplicações de Proxy de aplicação** – uma aplicação em execução no seu ambiente no local que pretende fornecer seguro início de sessão único para externamente
 
-   3. **Desenvolvido personalizada aplicações** – uma aplicação que a sua organização pretende desenvolver na plataforma de desenvolvimento de aplicações do Azure do AD, mas que não pode ainda existe.
+   3. **Desenvolvido personalizada aplicações** – uma aplicação que a sua organização pretende desenvolver na plataforma de desenvolvimento de aplicações do Azure do AD, mas que não exista ainda
 
    4. **Aplicações não galeria** – Traga as suas próprias aplicações! Qualquer ligação web que pretende, qualquer aplicação que compõe um campo de nome de utilizador e palavra-passe, suporta os protocolos SAML ou o OpenID Connect ou suporta SCIM que pretende integrar para início de sessão com o Azure AD.
 
-2.  Quando inscrever-se ou iniciar sessão como um 3<sup>rd</sup> aplicações de terceiros integrado com o Azure Active Directory. Um exemplo desta situação é [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
+2.  Quando inscrever-se ou iniciar sessão como um 3<sup>rd</sup> aplicações de terceiros integrado com o Azure Active Directory. Um exemplo é [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  Quando inscrever-se ou adicionar uma licença a um utilizador ou um grupo para uma primeira aplicação de terceiros, como [Microsoft Office 365](http://products.office.com/).
+3.  Quando inscrever-se ou adicionar uma licença a um utilizador ou um grupo para uma primeira aplicação de terceiros, como [Microsoft Office 365](http://products.office.com/)
 
-4.  Quando adiciona um novo registo de aplicações através da criação de uma aplicação desenvolvida personalizada a utilizar o [registo de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
+4.  Quando adiciona um novo registo de aplicações através da criação de uma aplicação desenvolvida personalizada a utilizar o [registo de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
-5.  Quando adiciona um novo registo de aplicações através da criação de uma aplicação desenvolvida personalizada a utilizar o [Portal de registo de aplicação v 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal).
+5.  Quando adiciona um novo registo de aplicações através da criação de uma aplicação desenvolvida personalizada a utilizar o [portal de registo de aplicação v 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
 
-6.  Quando adicionar uma aplicação estiver a desenvolver com o Visual Studio [métodos de autenticação ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou [serviços ligados](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx).
+6.  Quando adicionar uma aplicação estiver a desenvolver com o Visual Studio [métodos de autenticação ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou [serviços ligados](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
-7.  Quando cria um objeto principal de serviço utilizando o [módulo Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
+7.  Quando cria um objeto principal de serviço utilizando o [módulo PowerShell do Azure AD](/powershell/azure/install-adv2?view=azureadps-2.0)
 
-8.  Quando lhe [consentimento para uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) como um administrador para utilizar dados no seu inquilino.
+8.  Quando lhe [consentimento para uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) como um administrador para utilizar dados no seu inquilino
 
-9.  Quando um [utilizador permitir a uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) utilizar dados no seu inquilino.
+9.  Quando um [utilizador permitir a uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) utilizar dados no seu inquilino
 
-10. Quando ativar a determinados serviços que armazenam dados no seu inquilino. Um exemplo desta situação é repor a palavra-passe, que é modelada como política de reposição de um principal de serviço para armazenar a palavra-passe segura.
+10. Quando ativar a determinados serviços que armazenam dados no seu inquilino. Um exemplo é repor a palavra-passe, que é modelada como política de reposição de um principal de serviço para armazenar a palavra-passe segura.
 
 Para obter mais detalhes sobre como as aplicações são adicionadas ao seu diretório, leia [como e por que razão são adicionadas aplicações para o Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
 
@@ -85,19 +85,19 @@ Para desativar a todos os utilizadores inícios de sessão a uma aplicação, si
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Pretender eliminar uma aplicação totalmente
 
-Para **eliminar uma aplicação**, siga as instruções abaixo:
+Para **eliminar uma aplicação**, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende eliminar.
 
@@ -105,13 +105,13 @@ Para **eliminar uma aplicação**, siga as instruções abaixo:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as operações de consentimento do utilizador futura para qualquer aplicação
 
-Desativar o consentimento do utilizador para o seu diretório todo impedir que os utilizadores finais consenting para qualquer aplicação. Os administradores podem ainda consentimento no behalves do utilizador. Para saber mais sobre o consentimento de aplicação e, por isso poderá ou poderá pretender fazê-lo, ler [utilizador compreender e administração consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Desativar o consentimento do utilizador para o seu diretório todo impedir que os utilizadores finais consenting para qualquer aplicação. Os administradores podem ainda consentimento no behalves do utilizador. Para saber mais sobre o consentimento de aplicação e, por isso poderá ou poderá não querer consentimento, ler [utilizador compreender e administração consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Para **desativar todas as operações de consentimento do utilizador futuras no seu diretório todo**, siga as instruções abaixo:
+Para **desativar todas as operações de consentimento do utilizador futuras no seu diretório todo**, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -121,5 +121,5 @@ Para **desativar todas as operações de consentimento do utilizador futuras no 
 
 6.  Desative todas as operações de consentimento do utilizador futuras definindo a **utilizadores podem permitir que as aplicações aceder aos respetivos dados** alternar para **não** e clique em de **guardar** botão.
 
-## <a name="next-steps"></a>Passos seguintes
-[Gestão de aplicações com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+## <a name="next-steps"></a>Passos Seguintes
+[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md) (Gerir Aplicações com o Azure Active Directory)

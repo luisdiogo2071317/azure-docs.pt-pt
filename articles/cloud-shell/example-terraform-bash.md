@@ -1,6 +1,6 @@
 ---
-title: Implementar com Terraform com Bash na Shell de nuvem do Azure | Microsoft Docs
-description: Implementar recursos do Azure com Terraform no Bash
+title: Implementar com Terraform de Bash na Shell de nuvem do Azure | Microsoft Docs
+description: Implementar com Terraform de Bash na Shell de nuvem do Azure
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform e Bash na Shell de nuvem
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implementar com Terraform de Bash na Shell de nuvem do Azure
 Este artigo explica como criar um grupo de recursos com o [Terraform AzureRM fornecedor](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) é uma ferramenta de código aberto codifies APIs para ficheiros de configuração declarativas que podem ser partilhada entre os membros da equipa para ser editado, rever e com a versão. O fornecedor do Microsoft AzureRM é utilizado para interagir com recursos suportados pelo Azure Resource Manager através de AzureRM APIs. 
@@ -186,6 +186,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Um recurso do Azure através de Terraform foi criada com êxito. Visite os passos seguintes para saber mais sobre a Shell de nuvem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre o fornecedor do Terraform Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Bash no início rápido da Shell de nuvem](quickstart.md)

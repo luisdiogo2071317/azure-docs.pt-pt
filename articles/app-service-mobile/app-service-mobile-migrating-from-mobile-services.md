@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Migrar o serviço de móvel do Azure existente para o App Service do Azure
 Com o [disponibilidade geral do App Service do Azure], sites de Mobile Services do Azure podem ser migrados facilmente no local para tirar partido de todas as funcionalidades do serviço de aplicações do Azure.  Este documento explica o que esperar quando migrar o seu site de Mobile Services do Azure App Service do Azure.
@@ -32,7 +32,7 @@ Migração do seu serviço móvel do Azure ativa o seu serviço móvel para um [
 Microsoft é Recomendamos a migração do seu serviço de móvel do Azure para tirar partido das funcionalidades do App Service do Azure, incluindo:
 
 * Novas funcionalidades de anfitrião, incluindo [WebJobs] e [nomes de domínio personalizados].
-* Monitorização e resolução de problemas com New Relic ou [Application Insights].
+* Monitorização e resolução de problemas com [Application Insights].
 * Ferramentas de DevOps incorporadas, incluindo [ranhuras de teste], reversão e produção de teste.
 * [Escala automática], balanceamento, de carga e [monitorização do desempenho].
 
@@ -127,7 +127,7 @@ O ficheiro PublishSettings é transferido para o seu computador.  É normalmente
 
 1. Abra o Visual Studio e o seu projeto de serviço do Azure Mobile.
 2. Clique com o botão direito no projeto a **Explorador de soluções** e selecione **publicar...**
-3. Clique em **importação**
+3. Clique em **Importar**
 4. Clique em **procurar** e selecione o transferido publicar o ficheiro de definições.  Clique em **OK**
 5. Clique em **validar ligação** para garantir que o trabalho de definições de publicação.
 6. Clique em **publicar** para publicar o seu site.
@@ -184,7 +184,7 @@ Nota: **MS\_AadTenants** é armazenado como uma lista separada por vírgulas de 
 >
 >
 
-### <a name="easytables"></a>Dados
+### <a name="easytables"></a>dados
 O *dados* separador nos Mobile Services foi substituído por *tabelas fácil* no portal do Azure.  Para aceder a tabelas fácil:
 
 1. Inicie sessão no [portal do Azure].
@@ -269,7 +269,7 @@ As seguintes definições de aplicação adicionais são migrados do seu serviç
 | Definição de aplicação | Descrição |
 |:--- |:--- |
 | **MS\_MobileServiceName** |O nome da sua aplicação |
-| **MS\_MobileServiceDomainSuffix** |O prefixo de domínio. revertidos mobile.net do Azure |
+| **MS\_MobileServiceDomainSuffix** |O prefixo de domínio. i.e azure-mobile.net |
 | **MS\_ApplicationKey** |A chave de aplicação |
 | **MS\_MasterKey** |A chave mestra de aplicação |
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d0bdce43796ea555fc20ddc56a2a670042d4f16b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 77f4bf0fc38043afd7a6634bcf16a0f10f7ddfeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Configuração federada-início de sessão único para uma aplicação não galeria do problema
 
@@ -27,37 +27,37 @@ Se ocorrer um problema ao configurar uma aplicação. Certifique-se de que segui
 
 Para adicionar uma segunda instância de uma aplicação, tem de ser capaz de:
 
--   Configure um identificador exclusivo para a segunda instância. Não será possível configurar o mesmo identificador utilizado para a primeira instância.
+-   Configure um identificador exclusivo para a segunda instância. Não é possível configurar o mesmo identificador utilizado para a primeira instância.
 
 -   Configure um certificado diferente daquela utilizado para a primeira instância.
 
-Se a aplicação não suporta qualquer um dos acima. Em seguida, não será possível configurar uma segunda instância.
+Se a aplicação não suporta qualquer um dos precedente, não é possível configurar uma segunda instância.
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde definir o formato EntityID (identificador de utilizador)
 
-Não poderá selecionar o formato de EntityID (utilizador Identifier) que envia do Azure AD para a aplicação na resposta após a autenticação de utilizador.
+Não é possível selecionar o formato de EntityID (utilizador Identifier) que envia do Azure AD para a aplicação na resposta após a autenticação de utilizador.
 
-Selecione de AD do Azure o formato para o atributo de NameID (identificador de utilizador) com base no valor selecionado ou o formato solicitado pela aplicação na AuthRequest SAML. Para obter mais informações, visite o artigo [protocolo SAML de início de sessão único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na secção NameIDPolicy,
+Azure AD seleciona o formato para o atributo de NameID (identificador de utilizador) com base no valor selecionado ou o formato solicitado pela aplicação na AuthRequest SAML. Para obter mais informações, visite o artigo [protocolo SAML de início de sessão único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na secção NameIDPolicy,
 
 ## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Onde obter o certificado ou de metadados da aplicação do Azure AD
 
-Para transferir os metadados da aplicação ou o certificado do Azure AD, siga os passos abaixo:
+Para transferir os metadados da aplicação ou o certificado do Azure AD, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação tiver configurado o início de sessão único.
 
-7.  Quando carrega a aplicação, clique em de **de sessão único-** do menu de navegação esquerdo da aplicação.
+7.  Quando carrega a aplicação, clique em de **de sessão único-** a partir do menu de navegação esquerdo da aplicação.
 
 8.  Aceda a **certificado de assinatura de SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante a aplicação que necessita de configurar o início de sessão único, consulte o a opção para transferir o XML de metadados ou o certificado.
 
@@ -67,5 +67,5 @@ Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser
 
 Para saber como personalizar as afirmações de atributo SAML enviadas para a sua aplicação, consulte [afirmações mapeamento no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
-[Gestão de aplicações com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+## <a name="next-steps"></a>Passos Seguintes
+[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md) (Gerir Aplicações com o Azure Active Directory)

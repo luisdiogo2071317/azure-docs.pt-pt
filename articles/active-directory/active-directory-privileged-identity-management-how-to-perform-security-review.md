@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 8ca735f04334557f40ddbe3119f7110dbcdde2a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d9885fc286e31100e14a5c8a1001df079829dcbe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Como executar uma revisão de acesso no Azure AD Privileged Identity Management
 O Azure Active Directory (AD) Privileged Identity Management simplifica como às empresas gerem o acesso privilegiado para recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
@@ -31,9 +31,9 @@ Se a um administrador com função privilegiada interessado em revisões de aces
 ## <a name="add-the-privileged-identity-management-application"></a>Adicionar a aplicação Privileged Identity Management
 Pode utilizar a aplicação do Azure AD Privileged Identity Management (PIM) a [portal do Azure](https://portal.azure.com/) para efetuar a revisão.  Se não tiver a aplicação Azure AD Privileged Identity Management no seu portal, siga estes passos para começar a utilizar.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione o seu nome de utilizador no canto superior direito do portal do Azure e selecione o diretório onde irá a estar a funcionar.
-3. Selecione **Mais serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
+3. Selecione **todos os serviços** e utilize a caixa de texto de filtro para procurar **do Azure AD Privileged Identity Management**.
 4. Marque **Afixar ao dashboard** e, em seguida, clique em **Criar**. A aplicação de Privileged Identity Management será aberta.
 
 ## <a name="approve-or-deny-access"></a>Aprovar ou negar o acesso
@@ -47,7 +47,7 @@ Siga estes passos para localizar e concluir a revisão do acesso:
 5. Fechar o **funções de revisão do Azure AD** painel.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

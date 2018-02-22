@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Criar aplicações de aprendizagem máquina Apache Spark no Azure HDInsight
 
@@ -28,9 +28,9 @@ Saiba como criar um Apache Spark de machine learning aplicação utilizando um c
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) biblioteca de aprendizagem do Spark máquina dimensionável constituídas por comuns e utilitários de algoritmos de aprendizagem, incluindo classificação, regressão, clustering, filtragem de colaboração, redução dimensionalidade, bem como subjacente primitivos de otimização.
 
-**Pré-requisitos:**
+## <a name="prerequisites"></a>Pré-requisitos:
 
-Tem de ter o seguinte:
+Tem de ter o item seguinte:
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte [clusters do Apache Spark criar no Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
@@ -181,8 +181,8 @@ Nesta aplicação, utiliza um Spark [pipeline de ML](https://spark.apache.org/do
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   Da primeira linha na predição, pode ver que para um sistema de AVAC com ID 20 e duração de sistema de 25 anos, criar será acesso frequente (**predição = 1.0**). O primeiro valor para DenseVector (0.49999) corresponde da predição 0,0 e o segundo valor (0.5001) corresponde da predição 1.0. Na saída, apesar do segundo valor só é aumenta ligeiramente superior, o modelo mostra **predição = 1.0**.
-10. Encerrar o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Deste modo, o bloco de notas é encerrado e fechado.
+   Da primeira linha na predição, pode ver que para um sistema de AVAC com ID 20 e duração de sistema de 25 anos, o edifício é frequente (**predição = 1.0**). O primeiro valor para DenseVector (0.49999) corresponde da predição 0,0 e o segundo valor (0.5001) corresponde da predição 1.0. Na saída, apesar do segundo valor só é aumenta ligeiramente superior, o modelo mostra **predição = 1.0**.
+10. Encerre o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Este procedimento irá encerrar e fechar o bloco de notas.
 
 ## <a name="anaconda"></a>Utilizar Anaconda scikit-saiba biblioteca para o machine learning do Spark
 Clusters do Apache Spark no HDInsight incluem bibliotecas Anaconda. Isto também inclui o **scikit-Saiba** biblioteca para o machine learning. A biblioteca também inclui vários conjuntos de dados que pode utilizar para criar aplicações de exemplo diretamente a partir de um bloco de notas do Jupyter. Para obter exemplos sobre como utilizar o scikit-saber biblioteca, consulte [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
@@ -193,7 +193,6 @@ Clusters do Apache Spark no HDInsight incluem bibliotecas Anaconda. Isto também
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD numa conta de armazenamento especializado
 
@@ -118,7 +118,7 @@ Pode copiar um VHD para outra conta de armazenamento a utilizar quando criar uma
 ### <a name="before-you-begin"></a>Antes de começar
 Certifique-se de que tem:
 
-* Ter informações sobre o **contas de armazenamento de origem e destino**. Para a VM de origem, tem de ter os nomes de conta e contentor de armazenamento. Normalmente, o nome de contentor será **vhds**. Terá também de ter uma conta de armazenamento de destino. Se ainda não tiver uma, pode criar uma com o portal ou (**mais serviços** > contas de armazenamento > Adicionar) ou utilizando o [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
+* Ter informações sobre o **contas de armazenamento de origem e destino**. Para a VM de origem, tem de ter os nomes de conta e contentor de armazenamento. Normalmente, o nome de contentor será **vhds**. Terá também de ter uma conta de armazenamento de destino. Se ainda não tiver uma, pode criar uma com o portal ou (**todos os serviços** > contas de armazenamento > Adicionar) ou utilizando o [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
 * Transferiu e instalou o [AzCopy ferramenta](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Desalocar a VM
@@ -138,7 +138,7 @@ Terá dos URLs das contas de armazenamento de origem e de destino. O aspeto de U
 
 Pode utilizar o portal do Azure ou o Azure Powershell para obter o URL:
 
-* **Portal**: clique no  **>**  para **mais serviços** > **contas de armazenamento** > *conta de armazenamento* > **Blobs** e o ficheiro de VHD de origem está a ser provavelmente o **vhds** contentor. Clique em **propriedades** para o contentor e copie o texto da etiqueta **URL**. Terá dos URLs de contentores de origem e de destino. 
+* **Portal**: clique o  **>**  para **todos os serviços** > **contas do Storage** > *armazenamento conta* > **Blobs** e o ficheiro de VHD de origem está a ser provavelmente o **vhds** contentor. Clique em **propriedades** para o contentor e copie o texto da etiqueta **URL**. Terá dos URLs de contentores de origem e de destino. 
 * **PowerShell**: Utilize [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) para obter as informações de VM com o nome **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, procure no **perfil de armazenamento** secção para o **Uri de Vhd**. A primeira parte do Uri é o URL para o contentor e a última parte é o nome do VHD do SO para a VM.
 
 ```powershell
@@ -148,7 +148,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Obter as chaves de acesso de armazenamento
 Localize as chaves de acesso para a origem e destino contas de armazenamento. Para mais informações sobre chaves de acesso, consulte [contas do storage do Azure sobre](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: clique em **mais serviços** > **contas do Storage** > *conta de armazenamento* > **chaves de acesso**. Copie a chave identificada como **chave1**.
+* **Portal**: clique em **todos os serviços** > **contas do Storage** > *conta de armazenamento*  >   **Chaves de acesso**. Copie a chave identificada como **chave1**.
 * **PowerShell**: Utilize [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **myResourceGroup**. Copie a chave de etiqueta **chave1**.
 
 ```powershell
@@ -312,7 +312,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Certifique-se de que a VM foi criada
-Deverá ver a VM recém-criado está no [portal do Azure](https://portal.azure.com), em **procurar** > **máquinas virtuais**, ou utilizando os seguintes comandos do PowerShell:
+Deverá ver a VM recém-criado está no [portal do Azure](https://portal.azure.com), em **todos os serviços** > **máquinas virtuais**, ou utilizando o PowerShell seguinte comandos:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

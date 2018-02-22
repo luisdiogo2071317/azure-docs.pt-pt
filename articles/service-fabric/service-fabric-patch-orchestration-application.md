@@ -12,19 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Correção do sistema operativo Windows no seu cluster do Service Fabric
 
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
+
 A aplicação de orquestração de patch é uma aplicação de Service Fabric do Azure que automatiza o sistema operativo num cluster de Service Fabric sem períodos de indisponibilidade a aplicação de patches.
 
-A aplicação de orquestração de patch fornece o seguinte:
+A aplicação de orquestração de patch fornece as seguintes funcionalidades:
 
 - **Instalação da atualização automática do sistema operativo**. Atualizações do sistema operativo são transferidas e instaladas automaticamente. Nós de cluster são reiniciados, conforme necessário, sem período de indisponibilidade do cluster.
 
@@ -61,15 +67,15 @@ A aplicação de orquestração de patch requer o serviço de sistema de manager
 Os clusters do Azure no escalão de durabilidade prata têm o serviço do Gestor de reparação ativado por predefinição. Clusters do Azure no escalão de durabilidade gold poderão ou poderão não ter o serviço do Gestor de reparação ativado, consoante quando esses clusters foram criados. Clusters do Azure no escalão bronze durabilidade, por predefinição, é necessário o serviço do Gestor de reparação ativado. Se o serviço já está ativado, pode ver funcionar na secção de serviços de sistema no Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Portal do Azure
-Pode ativar o Gestor de reparação a partir do portal do Azure no momento da configuração de cluster. Selecione **incluem o Gestor de reparação** opção em **adicionar funcionalidades** no momento da configuração de cluster.
+Pode ativar o Gestor de reparação a partir do portal do Azure no momento da configuração de cluster. Selecione **incluem o Gestor de reparação** opção em **funcionalidades de suplemento** no momento da configuração de cluster.
 ![Imagem de ativar o Gestor de reparação a partir do portal do Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-Em alternativa, pode utilizar o [modelo Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para ativar o serviço do Gestor de reparação em clusters de Service Fabric novas e existentes. Obter o modelo para o cluster que pretende implementar. Pode utilizar os modelos de exemplo ou criar um modelo personalizado do Gestor de recursos. 
+##### <a name="azure-resource-manager-deployment-model"></a>Modelo de implementação do Azure Resource Manager
+Em alternativa, pode utilizar o [modelo de implementação Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para ativar o serviço do Gestor de reparação em clusters de Service Fabric novas e existentes. Obter o modelo para o cluster que pretende implementar. Pode utilizar os modelos de exemplo ou criar um modelo de modelo de implementação Azure Resource Manager personalizado. 
 
-Para ativar o Gestor de reparação serviço utilizando [modelo Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Para ativar o Gestor de reparação serviço utilizando [modelo de implementação Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. Primeiro, verifique se o `apiversion` está definido como `2017-07-01-preview` para o `Microsoft.ServiceFabric/clusters` recursos, conforme mostrado no seguinte fragmento. Se for diferente, em seguida, tem de atualizar o `apiVersion` ao valor `2017-07-01-preview`:
+1. Primeiro, verifique se o `apiversion` está definido como `2017-07-01-preview` para o `Microsoft.ServiceFabric/clusters` recursos. Se for diferente, em seguida, tem de atualizar o `apiVersion` ao valor `2017-07-01-preview` ou superior:
 
     ```json
     {
@@ -136,18 +142,18 @@ Transferir a aplicação a [transferir ligação](https://go.microsoft.com/fwlin
 
 O comportamento da aplicação de orquestração patch pode ser configurado para satisfazer as suas necessidades. Substitua os valores predefinidos mediante a transmissão no parâmetro de aplicação durante a criação de aplicação ou atualização. Podem ser fornecidos parâmetros de aplicação, especificando `ApplicationParameter` para o `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication` cmdlets.
 
-|**Parâmetro**        |**Tipo**                          | **Detalhes**|
+|Parâmetro        |**Tipo**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |Longo                              | Número máximo de resultados do Windows Update, que devem ser colocados em cache. <br>Valor predefinido é 3000 partindo do princípio de: <br> -Número de nós é 20. <br> -O número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ter 10. <br> -Devem ser armazenados resultados durante os últimos três meses. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar as atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Windows Update está instalado um nó de cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update está instalado um domínio de atualização de cada vez. (No máximo, podem aceder todos os nós que pertencem a um domínio de atualização para o Windows Update.)
 |LogsDiskQuotaInMB   |Longo  <br> (Predefinição: 1024)               |Tamanho máximo das patch orchestration aplicação regista em MB, que pode ser persistente localmente em nós.
-| WUQuery               | Cadeia<br>(Predefinição: "IsInstalled = 0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | bool <br> (predefinição: VERDADEIRO)                 | Este sinalizador permite que as atualizações do sistema operativo Windows ser instalada.            |
+| WUQuery               | string<br>(Default: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Booleano <br> (predefinição: VERDADEIRO)                 | Este sinalizador permite que as atualizações do sistema operativo Windows ser instalada.            |
 | WUOperationTimeOutInMinutes | Int <br>(Predefinição: 90).                   | Especifica o tempo limite em nenhuma operação de atualização do Windows (pesquisa ou transferir ou instalar). Se não for possível concluir a operação dentro do tempo limite especificado, foi abortada.       |
 | WURescheduleCount     | Int <br> (Predefinição: 5).                  | O número máximo de vezes que o serviço reschedules do Windows update no caso de uma operação falha de forma permanente.          |
 | WURescheduleTimeInMinutes | Int <br>(Predefinição: 30). | O intervalo no qual o serviço reschedules o Windows update no caso de falha persistir. |
-| WUFrequency           | Cadeia separada por vírgulas (predefinição: "Semanal, quarta-feira, 7:00:00")     | A frequência para a instalação do Windows Update. Os valores de formato e possíveis são: <br>-Mensais, DD, hh: mm:, por exemplo, mensalmente, 5, 12: 22:32. <br> -Semanal, dia, hh: mm:, de exemplo, semanalmente, Terça-feira, 12:22:32.  <br> -Diárias, hh: mm:, por exemplo, diariamente, 12:22:32.  <br> -None indica que o Windows Update não deve ser efetuada.  <br><br> Tenha em atenção que todas as horas são em UTC.|
-| AcceptWindowsUpdateEula | bool <br>(Predefinição: VERDADEIRO) | Ao definir este sinalizador, a aplicação aceita o contrato de licença de utilizador final para o Windows Update em nome do proprietário da máquina.              |
+| WUFrequency           | Cadeia separada por vírgulas (predefinição: "Semanal, quarta-feira, 7:00:00")     | A frequência para a instalação do Windows Update. Os valores de formato e possíveis são: <br>-Mensais, DD, hh: mm:, por exemplo, mensalmente, 5, 12: 22:32. <br> -Semanal, dia, hh: mm:, de exemplo, semanalmente, Terça-feira, 12:22:32.  <br> -Diárias, hh: mm:, por exemplo, diariamente, 12:22:32.  <br> -None indica que o Windows Update não deve ser efetuada.  <br><br> Tenha em atenção que os tempos são indicados em UTC.|
+| AcceptWindowsUpdateEula | Booleano <br>(Predefinição: VERDADEIRO) | Ao definir este sinalizador, a aplicação aceita o contrato de licença de utilizador final para o Windows Update em nome do proprietário da máquina.              |
 
 > [!TIP]
 > Se pretender que o Windows Update para ocorrer imediatamente, defina `WUFrequency` relativamente ao momento da implementação de aplicação. Por exemplo, suponha que tem um cluster de teste de cinco nós e planeie a implementar a aplicação em aproximadamente 5:00 PM UTC. Se parte do princípio de que a atualização da aplicação ou implementação demora 30 minutos no máximo, defina o WUFrequency como "Diariamente, 17:30:00."
@@ -217,7 +223,7 @@ Os campos de JSON são descritos abaixo.
 Campo | Valores | Detalhes
 -- | -- | --
 OperationResult | 0 - foi concluída com êxito<br> 1 - foi concluída com êxito com erros<br> 2 - falha<br> 3 - abortada<br> 4 - abortado com tempo limite | Indica o resultado da operação global (geralmente que envolve a instalação de atualizações de um ou mais).
-resultCode | Mesmo que OperationResult | Este campo indica o resultado da operação de instalação para a atualização individual.
+ResultCode | Mesmo que OperationResult | Este campo indica o resultado da operação de instalação para a atualização individual.
 OperationType | 1 - instalação<br> 0 - procurar e transferir.| A instalação é a única OperationType que deverá ser apresentada nos resultados por predefinição.
 WindowsUpdateQuery | Predefinição é "IsInstalled = 0" |Windows update a consulta que foi utilizada para procurar atualizações. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | VERDADEIRO - foi necessário reiniciar o computador<br> FALSO - não foi necessário reiniciar o computador | Indica se reiniciar o computador foi necessário para concluir a instalação das atualizações.
@@ -246,7 +252,7 @@ Para ativar o proxy inverso no cluster, siga os passos no [proxy no Azure Servic
 
 Os registos de aplicação de orquestração de patch são recolhidos como parte dos registos de tempo de execução do Service Fabric.
 
-No caso de pretender capturar registos através de diagnóstico ferramenta por pipeline à sua escolha. Aplicação de orquestração de patch utiliza abaixo fornecedor fixo IDs de eventos através de registo [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+No caso de pretender capturar registos através de diagnóstico ferramenta por pipeline à sua escolha. Aplicação de orquestração de patch utiliza abaixo fornecedor fixo IDs para registar eventos através de [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -300,14 +306,14 @@ Q. **Por que motivo aplicação de patches em clusters de tomar tempo para execu
 A. O tempo necessário para a aplicação de orquestração de patch principalmente está dependente os seguintes fatores:
 
 - A política do serviço de coordenador. 
-  - A política predefinida, `NodeWise`, resulta numa aplicação de patches apenas um nó de cada vez. Especialmente no caso dos clusters maiores, recomendamos que utilize o `UpgradeDomainWise` política para alcançar a aplicação de patches mais rápidos entre clusters.
+  - A política predefinida, `NodeWise`, resulta numa aplicação de patches apenas um nó de cada vez. Especialmente se houver um cluster maior, recomendamos que utilize o `UpgradeDomainWise` política para alcançar a aplicação de patches mais rápidos entre clusters.
 - O número de atualizações disponíveis para transferência e instalação. 
 - O tempo médio necessário para transferir e instalar uma atualização, que não deve ter mais duas horas.
 - O desempenho da VM e rede de largura de banda.
 
-Q. **Por que razão vejo algumas atualizações nos resultados do Windows Update obtidos através da API REST, mas não sob o histórico do Windows Update no computador?**
+Q. **Por que razão vejo algumas atualizações nos resultados do Windows Update obtidos através da REST API, mas não sob o histórico do Windows Update no computador?**
 
-A. Algumas atualizações do produto tem de ser verificado no respetivo histórico de atualização respetivos/patch. Por exemplo, atualizações do Windows Defender não aparecer no histórico do Windows Update no Windows Server 2016.
+A. Algumas atualizações do produto só deverá aparecer no respetivo histórico de atualização/patch respetivo. Por exemplo, atualizações do Windows Defender não aparecer no histórico do Windows Update no Windows Server 2016.
 
 ## <a name="disclaimers"></a>Exclusão de Responsabilidade
 

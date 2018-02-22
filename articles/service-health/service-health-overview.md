@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Estado de funcionamento de serviço do Azure fornece informações atempadamente e personalizadas quando problemas nos serviços do Azure afetam os serviços.  Também o ajuda a preparar para a manutenção planeada futura.
@@ -32,8 +32,13 @@ Estado de funcionamento do serviço controla os três tipos de eventos de estado
     ![Eventos de estado de funcionamento do serviço](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Introdução ao serviço de estado de funcionamento
-Para iniciar o dashboard de estado de funcionamento do serviço, selecione o mosaico estado de funcionamento do serviço no seu dashboard do portal. Se anteriormente tiver removido no mosaico ou estiver a utilizar o dashboard personalizado, procure por serviço de integridade do serviço de "Mais serviços" (inferior esquerda no seu dashboard).
+Para iniciar o dashboard de estado de funcionamento do serviço, selecione o mosaico estado de funcionamento do serviço no seu dashboard do portal. 
+
 ![Introdução ao serviço de estado de funcionamento](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Se anteriormente tiver removido no mosaico ou estiver a utilizar o dashboard personalizado, procure por serviço de integridade do serviço de "**todos os serviços**" (principais à esquerda no seu dashboard).
+
+![Introdução ao serviço de estado de funcionamento](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Ver problemas atuais que tem impacto nos seus serviços
 O **Service problemas** vista mostra a quaisquer problemas em curso nos serviços do Azure que estão a afetar os recursos. Pode compreender quando iniciou o problema e os serviços e regiões são afetadas. Também pode ler a atualização mais recente para compreender que Azure está a fazer para resolver o problema. 

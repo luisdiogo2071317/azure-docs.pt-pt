@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com acelerados da rede
 
@@ -48,8 +48,8 @@ As vantagens do funcionamento em rede na melhoria só se aplicam à VM que está
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 * **Ubuntu 16.04**: 4.11.0-1013 ou a versão mais recente de kernel
 * **SLES SP3**: 4.4.92-6.18 ou a versão mais recente de kernel
-* **RHEL**: 7.4.2017120423 ou a versão mais recente de kernel
-* **CentOS**: 7.4.20171206 ou a versão mais recente de kernel
+* **RHEL 7.4**: 7.4.2017120423 ou a versão mais recente de kernel
+* **CentOS 7.4**: 7.4.20171206 ou a versão mais recente de kernel
 
 ## <a name="supported-vm-instances"></a>Instâncias VM suportadas
 É suportada na melhoria de redes objetivo mais comum e tamanhos de instância com otimização de computação com vCPUs 4 ou mais. Instâncias como D/DSv3 ou I/ESv3 que suportam o Hyper-Threading, acelerados redes é suportada em instâncias VM com 8 ou mais vCPUs.  Série suportado é: D/série DSv2, D/DSv3, I/ESv3, Fs/F/Fsv2 e Ms/Mms. 
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Tem de selecionar uma região de Linux suportada listada na [Linux acelerados redes](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Criar uma rede virtual com [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* com uma sub-rede:
+Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* com uma sub-rede:
 
 ```azurecli
 az network vnet create \
@@ -117,7 +117,7 @@ az network nsg rule create \
 
 ## <a name="create-a-network-interface-with-accelerated-networking"></a>Criar uma interface de rede com redes na melhoria
 
-Criar um endereço IP público com [az público-ip da rede criar](/cli/azure/network/public-ip#az_network_public_ip_create). Um endereço IP público não é necessário se não tiver intenção para aceder a máquina virtual a partir da Internet, mas para concluir os passos neste artigo, é necessário.
+Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Um endereço IP público não é necessário se não tiver intenção para aceder a máquina virtual a partir da Internet, mas para concluir os passos neste artigo, é necessário.
 
 ```azurecli
 az network public-ip create \

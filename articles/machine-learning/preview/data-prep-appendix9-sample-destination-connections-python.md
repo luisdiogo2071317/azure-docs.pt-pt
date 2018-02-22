@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4cad3343461a6c7eda78566b3d2552b1e3591960
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 203c8399153d2bc2d855fc2602b01ed074852687
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-destination-connections-python"></a>Exemplo de ligações de destino (Python) 
 Antes de ler este anexo, leia [descrição geral de extensibilidade do Python](data-prep-python-extensibility-overview.md).
@@ -25,11 +25,11 @@ Antes de ler este anexo, leia [descrição geral de extensibilidade do Python](d
 ## <a name="write-to-excel"></a>Escrever para o Excel 
 
 
-Escrever para o Excel necessita de uma biblioteca adicional. Adicionar novas bibliotecas é descrita na descrição geral extensibilidade. `openpyxl`é a biblioteca que tem de adicionar.
+Escrever para o Excel necessita de uma biblioteca adicional. Adicionar novas bibliotecas é descrita na descrição geral extensibilidade. `openpyxl` é a biblioteca que tem de adicionar.
 
 Antes de escrever para o Excel, poderão ser necessária, algumas das alterações. Alguns dos tipos de dados que são utilizados em preparação de dados não são suportados em alguns formatos de destino. Por exemplo, se existirem objetos "Error", eles não irão serializar corretamente para o Excel. Assim, antes de tentar escrever para o Excel, tem uma transformação de "Substituir valores de erro", que remove os erros de quaisquer colunas.
 
-Se a todo o trabalho anterior estiver concluída, a seguinte linha escreve a tabela de dados para uma folha de única num documento Excel. Adicione uma transformação de escrever o fluxo de dados (Script). Em seguida, introduza o seguinte código na secção de uma expressão.
+Se a todo o trabalho anterior estiver concluída, a seguinte linha escreve a tabela de dados para uma folha de única num documento Excel. Adicione uma transformação de fluxo de transformação dados (Script). Em seguida, introduza o seguinte código na secção de uma expressão.
 
 
 ### <a name="on-windows"></a>No Windows 

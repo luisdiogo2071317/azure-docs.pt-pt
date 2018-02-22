@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: a938e5949896ad3bfa91903106d56ccdf827c725
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias nas funções durável (funções do Azure)
 
@@ -38,12 +38,12 @@ Eis um exemplo simples c#:
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
-public static Task Run(
+public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
     TraceWriter log)
 {
-    string instanceId = starter.StartNewAsync("HelloWorld", input);
+    string instanceId = await starter.StartNewAsync("HelloWorld", input);
     log.Info($"Started orchestration with ID = '{instanceId}'.");
 }
 ```
@@ -146,7 +146,7 @@ public static Task Run(
 > [!WARNING]
 > Se não houver nenhuma instância de orquestração com especificado *ID de instância* ou se a instância não está à espera que o especificado na *nome do evento*, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte o [problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como utilizar as APIs de HTTP para a instância de gestão](durable-functions-http-api.md)

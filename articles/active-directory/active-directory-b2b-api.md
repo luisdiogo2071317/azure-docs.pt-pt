@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Colaboração B2B do Active Directory Azure API e personalização
 
-Iremos tenha tido muitos clientes diga-nos de que pretende personalizar o processo de convite de uma forma que funciona melhor das suas organizações. Com a nossa API, pode fazê-lo imediatamente. [https://Developer.microsoft.com/Graph/Docs/API-Reference/v1.0/Resources/Invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Iremos tenha tido muitos clientes diga-nos de que pretende personalizar o processo de convite de uma forma que funciona melhor das suas organizações. Com a nossa API, pode fazê-lo imediatamente. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Capacidades do convite API
 A API oferece as seguintes capacidades:
@@ -77,7 +77,7 @@ A API pode ser executada num seguintes modos de autorização:
 Neste modo, quem está a utilizar as necessidades de API para ter as permissões para ser criar convites B2B.
 
 ### <a name="app-only-mode"></a>Modo só de aplicação
-No contexto de aplicação apenas a aplicação tem dos âmbitos User.ReadWrite.All ou Directory.ReadWrite.All para o convite com êxito.
+No contexto de aplicação apenas a aplicação tem do âmbito de User.Invite.All para o convite com êxito.
 
 Para obter mais informações, consulte: https://graph.microsoft.io/docs/authorization/permission_scopes
 
@@ -98,7 +98,7 @@ Pode utilizar as seguintes opções:
 
 Também pode consultar a referência de convite de API no [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
 

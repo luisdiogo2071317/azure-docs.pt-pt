@@ -16,120 +16,121 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: c3eaa4d490b61b746e427d2fe2640ae5cdd6032c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac60888d1464d3245bb35e2e3505b16ef4128d36
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Gerir o esquema para vários inquilinos numa aplicação multi-inquilino que utiliza a SQL Database do Azure
+# <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir o esquema de uma aplicação SaaS com o padrão de base de dados por inquilino a SQL Database do Azure
 
-O [primeiro tutorial Wingtip bilhetes SaaS da base de dados por inquilino](saas-dbpertenant-get-started-deploy.md) mostra como a aplicação pode aprovisionar uma base de dados do inquilino e registá-lo no catálogo. Como qualquer aplicação, a aplicação de Wingtip bilhetes SaaS da base de dados por inquilino serão evoluir ao longo do tempo e, por vezes necessitarão alterações à base de dados. As alterações podem incluir o esquema novo ou alterado, os dados de referência novos ou alterados e as tarefas de manutenção de rotina da base de dados para garantir o desempenho ideal da aplicação. Com uma aplicação SaaS, estas alterações têm de ser implementadas de forma coordenada através de uma frota potencialmente massiva de bases de dados de inquilinos. Para estas alterações no futuro estar bases de dados do inquilino, necessitam de ser incorporadas no processo de aprovisionamento.
+À medida que uma aplicação de base de dados evolui, as alterações inevitavelmente precisam de ser efetuadas aos dados da base de dados de esquema ou de referência.  Tarefas de manutenção de base de dados também são necessários periodicamente. Gerir uma aplicação que utiliza a base de dados por padrão de inquilino necessita de aplicar estas alterações ou tarefas de manutenção através de uma frota de bases de dados do inquilino.
 
-Este tutorial explora dois cenários – implementar atualizações de dados de referência para todos os inquilinos e devolver um índice na tabela que contém os dados de referência. O [as tarefas elásticas](sql-database-elastic-jobs-overview.md) funcionalidade é utilizada para executar estas operações em todos os inquilinos e o *dourada* base de dados do inquilino que é utilizado como um modelo para novas bases de dados.
+Este tutorial explicar dois cenários - implementação de atualizações de dados de referência para todos os inquilinos e reconstruir um índice na tabela que contém os dados de referência. O [as tarefas elásticas](sql-database-elastic-jobs-overview.md) funcionalidade é utilizada para executar estas ações todas as bases de dados do inquilino e a base de dados do modelo utilizado para criar bases de dados de novo inquilino.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 
-> * Criar uma conta de tarefa
-> * Consulta em vários inquilinos
-> * Atualizar dados em todas as bases de dados de inquilinos
+> * Criar uma tarefa de agente
+> * Fazer com que as tarefas de T-SQL ser executado em todas as bases de dados do inquilino
+> * Dados de referência de atualização em todas as bases de dados do inquilino
 > * Criar um índice numa tabela em todas as bases de dados de inquilinos
 
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-* A aplicação de Wingtip bilhetes SaaS da base de dados por inquilino é implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de Wingtip bilhetes SaaS da base de dados por inquilino](saas-dbpertenant-get-started-deploy.md)
+* A aplicação de Wingtip bilhetes SaaS da base de dados por inquilino é implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a base de dados de SaaS de bilhetes Wingtip por aplicação do inquilino](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Está instalada a versão mais recente do SQL Server Management Studio (SSMS). [Transferir e instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> Este tutorial utiliza funcionalidades do serviço base de dados do SQL Server que estão numa (tarefas de bases de dados elásticas) de pré-visualização limitada. Se pretender realizar este tutorial, forneça o ID da subscrição paraSaaSFeedback@microsoft.com com assunto=Elastic Jobs Preview (Pré-Visualização de Tarefas Elásticas). Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte SaaSFeedback@microsoft.com para suporte ou questões relacionados.
+> Este tutorial utiliza funcionalidades do serviço base de dados do SQL Server que estão numa (tarefas de bases de dados elásticas) de pré-visualização limitada. Se pretender fazer neste tutorial, forneça o ID de subscrição para SaaSFeedback@microsoft.com com o requerente = elástico de tarefas de pré-visualização. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte SaaSFeedback@microsoft.com para suporte ou questões relacionados.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gestão do esquema de SaaS
 
-O padrão SaaS de inquilino individual por base de dados beneficia em muitos aspetos do isolamento de dados que daí resulta, mas ao mesmo tempo introduz a complexidade adicional de manter e gerir muitas bases de dados. As [Tarefas Elásticas](sql-database-elastic-jobs-overview.md) facilitam a administração e a gestão da camada de dados do SQL. As tarefas permitem-lhe, de forma segura e fiável, executar tarefas (scripts T-SQL) independentemente da interação ou intervenção do utilizador, em relação a um grupo de bases de dados. Este método pode ser utilizado para implementar o esquema e as alterações aos dados de referência comuns em todos os inquilinos numa aplicação. As tarefas elásticas também podem ser utilizadas para manter uma cópia *dourada* da base de dados utilizada para criar novos inquilinos ao assegurar que tem sempre o esquema e os dados de referências mais recentes.
+A base de dados por padrão de inquilino isola efetivamente os dados de inquilino, mas aumenta o número de bases de dados para gerir e manter. [As tarefas elásticas](sql-database-elastic-jobs-overview.md) facilita a administração e gestão de bases de dados do SQL Server. As tarefas permitem-lhe segura e fiável, executar tarefas (scripts T-SQL) em relação a um grupo de bases de dados. As tarefas podem implementar o esquema e de alterações de dados de referência comuns em todas as bases de dados do inquilino de uma aplicação. As tarefas elásticas também podem ser utilizadas para manter um *modelo* base de dados utilizado para criar novos inquilinos, garantindo sempre tem os dados mais recentes do esquema e de referência.
 
-![ecrã](media/saas-tenancy-schema-management/schema-management.png)
+![ecrã](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
 ## <a name="elastic-jobs-limited-preview"></a>Pré-visualização limitada das Tarefas Elásticas
 
-Existe uma nova versão das Tarefas Elásticas, que agora é uma funcionalidade integrada da Base de Dados SQL do Azure (não requer nenhum componente ou serviço adicional). Esta nova versão das Tarefas Elásticas está atualmente em pré-visualização limitada. Esta pré-visualização limitada suporta atualmente o PowerShell para criar contas de tarefa e o T-SQL para criar e gerir tarefas.
+Há uma nova versão do tarefas elásticas que é agora uma funcionalidade integrada da SQL Database do Azure. Esta nova versão das Tarefas Elásticas está atualmente em pré-visualização limitada. Esta pré-visualização limitada suporta atualmente a utilizar o PowerShell para criar um agente de tarefa e o T-SQL para criar e gerir tarefas.
 
 > [!NOTE]
-> Este tutorial utiliza funcionalidades do serviço base de dados do SQL Server que estão numa (tarefas de bases de dados elásticas) de pré-visualização limitada. Se pretender realizar este tutorial, forneça o ID da subscrição paraSaaSFeedback@microsoft.com com assunto=Elastic Jobs Preview (Pré-Visualização de Tarefas Elásticas). Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte SaaSFeedback@microsoft.com para suporte ou questões relacionados.
+> Este tutorial utiliza funcionalidades do serviço base de dados do SQL Server que estão numa (tarefas de bases de dados elásticas) de pré-visualização limitada. Se pretender fazer neste tutorial, forneça o ID de subscrição para SaaSFeedback@microsoft.com com o requerente = elástico de tarefas de pré-visualização. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso, contacte SaaSFeedback@microsoft.com para suporte ou questões relacionados.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicação Wingtip bilhetes SaaS da base de dados por inquilino
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter a base de dados de SaaS de bilhetes Wingtip por scripts de aplicação do inquilino
 
-Os scripts de base de dados do Wingtip bilhetes SaaS multi-inquilino e o código fonte da aplicação, estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip SaaS de pedidos de desbloqueio.
+Os scripts de código e gestão da origem de aplicação estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip SaaS de pedidos de desbloqueio.
 
-## <a name="create-a-job-account-database-and-new-job-account"></a>Criar uma base de dados das contas de tarefa e uma nova conta de tarefa
+## <a name="create-a-job-agent-database-and-new-job-agent"></a>Criar um agente de tarefa da base de dados e o novo agente de tarefa
 
-Este tutorial requer a utilização do PowerShell para criar a base de dados das contas de tarefa e a conta de tarefa. Tal como o MSDB e o Agente SQL, as Tarefas Elásticas utilizam uma Base de Dados SQL do Azure para armazenar as definições de tarefa, o estado da tarefa e o histórico. Depois de criar a conta de tarefa, pode criar e monitorizar tarefas de imediato.
+Neste tutorial necessita de que utilizar o PowerShell para criar um agente de tarefa e a respetiva base de dados de agente de tarefas de cópia de segurança. A base de dados do agente de tarefa contém definições de tarefas, o estado de tarefa e o histórico. Depois do agente de tarefa e a respetiva base de dados são criados, pode criar e monitorizar tarefas imediatamente.
 
 1. **No ISE do PowerShell**, abra... \\Learning módulos\\esquema gestão\\*demonstração SchemaManagement.ps1*.
 1. Prima **F5** para executar o script.
 
-O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1* para criar uma base de dados *S2* denominada **jobaccount** no servidor de catálogo. Em seguida, cria a conta de tarefa ao passar a base de dados jobaccount como um parâmetro para a chamada de criação da conta de tarefa.
+O *demonstração SchemaManagement.ps1* script chamadas a *implementar SchemaManagement.ps1* script para criar uma base de dados do SQL Server com o nome *osagent* no servidor de catálogo. Em seguida, cria o agente de tarefa, utilizando a base de dados como um parâmetro.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar uma tarefa para implementar novos dados de referência para todos os inquilinos
 
-Cada base de dados de inquilinos inclui um conjunto de tipos de local que definem o tipo de eventos que são realizados num local. Neste exercício, vai implementar uma atualização para todas as bases de dados de inquilinos para adicionar dois tipos de local adicionais: *Corrida de Motos* e *Clube de Natação*. Estes tipos de local correspondem à imagem de fundo que vê na aplicação de eventos do inquilino.
+Na aplicação Wingtip bilhetes, cada base de dados do inquilino inclui um conjunto de tipos de venue suportados. Cada venue tem um tipo de venue específico, que define o tipo de eventos que podem ser alojados e determina a imagem de fundo utilizada na aplicação. Para a aplicação suportar novos tipos de eventos, estes dados de referência tem de ser tipos venue novas e atualizadas adicionados.  Neste exercício, vai implementar uma atualização para todas as bases de dados de inquilinos para adicionar dois tipos de local adicionais: *Corrida de Motos* e *Clube de Natação*.
 
-Clique no menu pendente Tipo de Local e valide que apenas 10 opções de tipo de local estão disponíveis e, especificamente, que “Corrida de Motos” e “Clube de Natação” não estão incluídos na lista.
+Em primeiro lugar, reveja os tipos de venue incluídos em cada base de dados do inquilino. Ligar a uma das bases de dados do inquilino no SQL Server Management Studio (SSMS) e Inspecione a tabela de VenueTypes.  Também pode consultar esta tabela em do editor de consultas no portal do Azure, acedido a partir da página de base de dados. 
 
-Agora, vamos criar uma tarefa para atualizar a tabela *VenueTypes* em todas as bases de dados de inquilinos e adicionar os novos tipos de local.
+1. Abra o SSMS e ligar ao servidor do inquilino: *tenants1-dpt -&lt;utilizador&gt;. database.windows.net*
+1. Para confirmar que *da sua motocicleta Racing* e *Swimming Club* **não são** atualmente parte, navegue para o _contosoconcerthall_ base de dados no *tenants1-dpt -&lt;utilizador&gt;*  servidor e consulta o *VenueTypes* tabela.
 
-Para criar uma nova tarefa, vamos utilizar um conjunto de procedimentos armazenados do sistema e tarefas, criado na base de dados jobaccount quando foi criada a conta de tarefa.
+Agora vamos criar uma tarefa para atualizar o *VenueTypes* tabela em todos os inquilinos bases de dados para adicionar os novos tipos de venue.
 
-1. Abra o SSMS e ligar ao servidor de catálogo: catálogo-dpt -\<utilizador\>. database.windows.net servidor
-1. Também ligar ao servidor do inquilino: tenants1-dpt -\<utilizador\>. database.windows.net
-1. Navegue para o *contosoconcerthall* da base de dados no *tenants1-dpt -\<utilizador\>*  servidor e consulta o *VenueTypes* tabela para confirmar que *Da sua motocicleta Racing* e *Swimming Club* **não são** na lista de resultados.
+Para criar uma nova tarefa, utilize um conjunto de sistema de tarefas que criar procedimentos armazenados no _jobagent_ da base de dados quando o agente de tarefa foi criado.
+
+1. No SSMS, ligue para o servidor de catálogo: *catálogo-dpt -&lt;utilizador&gt;. database.windows.net* servidor 
 1. No SSMS, abra o ficheiro... \\Learning módulos\\esquema gestão\\DeployReferenceData.sql
 1. Modificar a instrução: definir @wtpUser = &lt;utilizador&gt; e substitua o valor de utilizador utilizado quando implementou a aplicação de Wingtip bilhetes SaaS da base de dados por inquilino
-1. Verifique se está ligado à base de dados jobaccount e prima **F5** para executar o script
+1. Certifique-se de que está ligado ao _jobagent_ base de dados e prima **F5** para executar o script
 
-Observar as seguintes o *DeployReferenceData.sql* script:
-* **sp\_add\_target\_group** cria o nome do grupo DemoServerGroup de destino. Agora, precisamos adicionar membros de destino.
-* **SP\_adicionar\_destino\_grupo\_membro** adiciona um *servidor* tipo de membro, considere todas as bases de dados dentro desse servidor de destino (tenha em atenção de que este é o tenants1 - dpt - &lt;Utilizador&gt; servidor que contém as bases de dados do inquilino) no momento da tarefa de execução deve ser incluída na tarefa, o segundo é adicionar uma *base de dados* tipo de membro, especificamente o 'dourada' de destino base de dados (basetenantdb) que reside no catálogo-dpt -&lt;utilizador&gt; servidor e por último outro *base de dados* tipo de membro de grupo para incluir a base de dados de adhocanalytics que é utilizada na posterior de destino Tutorial.
-* **sp\_add\_job** cria uma tarefa denominada “Implementação de Dados de Referência”
-* **SP\_adicionar\_passo** cria o passo de tarefa que contém o texto do comando T-SQL ao atualizar a tabela de referência, VenueTypes
-* As vistas restantes no script mostram a existência dos objetos e monitorizam a execução da tarefa. Utilize estas consultas para consultar o valor de estado no **ciclo de vida** coluna para determinar quando a tarefa tem foi concluído com êxito em todas as bases de dados do inquilino e duas bases de dados adicionais que contém a tabela de referência.
+Observar os seguintes elementos no *DeployReferenceData.sql* script:
+* **SP\_adicionar\_destino\_grupo** cria o nome do grupo de destino DemoServerGroup.
+* **SP\_adicionar\_destino\_grupo\_membro** é utilizado para definir o conjunto de bases de dados de destino.  Primeiro o _tenants1-dpt -&lt;utilizador&gt;_  servidor é adicionado.  Adicionar o servidor como um destino faz com que as bases de dados em que o servidor no momento da execução da tarefa a ser incluído na tarefa. Em seguida, a _basetenantdb_ base de dados e o *adhocreporting* base de dados (que é utilizado um tutorial posteriores) são adicionados como destinos.
+* **SP\_adicionar\_tarefa** cria uma tarefa com o nome _implementação de dados de referência_.
+* **SP\_adicionar\_passo** cria o passo de tarefa que contém o texto do comando T-SQL ao atualizar a tabela de referência, VenueTypes.
+* As vistas restantes no script mostram a existência dos objetos e monitorizam a execução da tarefa. Utilize estas consultas para consultar o valor de estado no **ciclo de vida** coluna para determinar quando a tarefa foi concluída em todas as bases de dados de destino.
 
-No SSMS, navegue para o *contosoconcerthall* da base de dados no *tenants1-dpt -\<utilizador\>*  servidor e consulta o *VenueTypes* tabela Confirme que *da sua motocicleta Racing* e *Swimming Club* **são** agora na lista de resultados.
+Após a conclusão do script, pode verificar que os dados de referência foi atualizados.  No SSMS, navegue para o *contosoconcerthall* da base de dados no *tenants1-dpt -&lt;utilizador&gt;*  servidor e consulta o *VenueTypes* tabela.  Verifique se *da sua motocicleta Racing* e *Swimming Club* **são** agora está presente.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar uma tarefa para gerir o índice de tabela de referência
 
-À semelhança do exercício anterior, este exercício vai criar uma tarefa para criar o índice na chave primária da tabela de referência, uma operação de gestão da base de dados típica que um administrador poderá efetuar após uma elevada carga de dados numa tabela.
+Neste exercício utiliza uma tarefa para reconstruir o índice na chave primária da tabela de referência.  Esta é uma operação de manutenção de base de dados típicas que pode ser feita depois de carregar grandes quantidades de dados.
 
 Crie uma tarefa com os mesmos procedimentos armazenados no “sistema” das tarefas.
 
-1. Abra o SSMS e ligar ao catálogo de-dpt -&lt;utilizador&gt;. database.windows.net servidor
-1. Abra o ficheiro ...\\Módulos de Aprendizagem\\Gestão de Esquemas\\OnlineReindex.sql
-1. Clique com o botão direito, selecione a ligação e ligar ao catálogo de-dpt -&lt;utilizador&gt;. database.windows.net servidor, se ainda não estiver ligado
-1. Verifique se está ligado à base de dados jobaccount e prima F5 para executar o script
+1. Abra o SSMS e ligue ao _catálogo-dpt -&lt;utilizador&gt;. database.windows.net_ servidor
+1. Abra o ficheiro _... \\Learning módulos\\esquema gestão\\OnlineReindex.sql_
+1. Clique com o botão direito, selecione a ligação e estabelecer ligação com o _catálogo-dpt -&lt;utilizador&gt;. database.windows.net_ servidor, se ainda não estiver ligado
+1. Certifique-se de que está ligado ao _jobagent_ base de dados e prima **F5** para executar o script
 
-Observar as seguintes o *OnlineReindex.sql* script:
+Observar os seguintes elementos no _OnlineReindex.sql_ script:
 * **SP\_adicionar\_tarefa** cria uma nova tarefa denominada "Online PK reindexar\_\_VenueTyp\_\_265E44FD7FD4C885"
 * **SP\_adicionar\_passo** cria o passo de tarefa que contém o texto de comando T-SQL para atualizar o índice
 * As vistas restantes no script de monitorizar a execução da tarefa. Utilize estas consultas para consultar o valor de estado no **ciclo de vida** coluna para determinar quando a tarefa tem foi concluído com êxito em todos os membros do grupo de destino.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 
-> * Criar uma conta de tarefa para consulta em vários inquilinos
-> * Atualizar dados em todas as bases de dados de inquilinos
+> * Criar uma tarefa de agente para executar nas tarefas de T-SQL várias bases de dados
+> * Dados de referência de atualização em todas as bases de dados do inquilino
 > * Criar um índice numa tabela em todas as bases de dados de inquilinos
 
-Em seguida, tente o [tutorial relatórios Ad-hoc](saas-tenancy-adhoc-analytics.md).
+Em seguida, tente o [tutorial relatórios Ad-hoc](saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas em inquilino bases de dados.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

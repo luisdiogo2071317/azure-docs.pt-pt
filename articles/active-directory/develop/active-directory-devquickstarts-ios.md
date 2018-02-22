@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 93df6f5e6c966fdf4909a4c21ebc36bff4283a59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -63,7 +63,7 @@ Para configurar a sua aplicação para obter os tokens, terá primeiro de regist
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o inquilino do Active Directory onde é necessário registar a sua aplicação.
-3. Clique em **mais serviços** no painel de navegação mais à esquerda e, em seguida, selecione **do Azure Active Directory**.
+3. Clique em **todos os serviços** no painel de navegação mais à esquerda e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
 5. Siga as instruções para criar um novo **aplicação cliente nativa**.
   * O **nome** da aplicação descreve a aplicação aos utilizadores finais.

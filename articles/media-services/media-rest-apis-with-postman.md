@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: a24b73a93bddbeb5b56ddfdf604fa99faccea442
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o Postman para chamadas de API de REST dos serviços de suporte de dados
 
@@ -33,7 +33,7 @@ Neste ambiente e a coleção é utilizada nos artigos que mostram como atingir v
 
 ## <a name="configure-the-environment"></a>Configurar o ambiente 
 
-1. Crie um ficheiro. JSON que contém as variáveis de ambiente utilizadas nos tutoriais de AMS. Nome de ficheiro **AzureMediaServices.postman_environment.json**. Abra o ficheiro e cole o código que define o ambiente do Postman de [listagem este código](postman-environment.md). 
+1. Crie um ficheiro. JSON que contém as variáveis de ambiente utilizadas nos tutoriais de AMS. Nome de ficheiro (por exemplo, **AzureMediaServices.postman_environment.json**). Abra o ficheiro e cole o código que define o ambiente do Postman de [listagem este código](postman-environment.md). 
 2. Abra o **Postman**.
 3. À direita do ecrã, selecione o **gerir ambiente** opção.
 
@@ -48,7 +48,7 @@ Neste ambiente e a coleção é utilizada nos artigos que mostram como atingir v
 
 ## <a name="configure-the-collection"></a>Configurar a coleção
 
-1. Criar um ficheiro. JSON que contém o **Postman** coleção com todas as operações que são necessários para carregar um ficheiro aos Media Services. Nome de ficheiro **AzureMediaServicesOperations.postman_collection.json**. Abra o ficheiro e cole o código que define o **Postman** coleção da [listagem este código](postman-collection.md).
+1. Criar um ficheiro. JSON que contém o **Postman** coleção com todas as operações que são necessários para carregar um ficheiro aos Media Services. Nome de ficheiro (por exemplo, **AzureMediaServicesOperations.postman_collection.json**). Abra o ficheiro e cole o código que define o **Postman** coleção da [listagem este código](postman-collection.md).
 2. Clique em **importar** para importar o ficheiro de coleção.
 3. Escolha o **AzureMediaServicesOperations.postman_collection.json** ficheiro.
 

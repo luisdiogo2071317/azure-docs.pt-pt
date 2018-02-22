@@ -16,18 +16,18 @@ ms.date: 08/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8f1013419f7e54f5760636f169635b84c8bd118e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c569bde2a480ff191dd3079f3ca93a7400cadb3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Gerir as definições para um grupo no Azure Active Directory
 Este artigo explica como alterar as definições para um grupo no Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-and-change-the-settings"></a>Como localizar e alterar as definições?
 1. Inicie sessão no [Centro de administradores do Azure AD](https://aad.portal.azure.com) com uma conta que seja administrador global do diretório.
-2. Selecione **mais serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
+2. Selecione **todos os serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
 
    ![Utilizadores de abertura e painel de grupos](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. No **utilizadores e grupos** painel, selecione **todos os grupos**.
@@ -41,7 +41,7 @@ Este artigo explica como alterar as definições para um grupo no Azure Active D
 
    ![A guardar as alterações de propriedades](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 
 * [Consulte os grupos existentes](active-directory-groups-view-azure-portal.md)

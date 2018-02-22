@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos de serviços Cloud
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função do serviço em nuvem (funções da web e funções de trabalho). Também fornece considerações de implementação a ter em consideração quando planear utilizar estes recursos. Cada tamanho tem um ID que colocar no seu [ficheiro de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis no [preços de serviços em nuvem](https://azure.microsoft.com/pricing/details/cloud-services/) página.
@@ -59,14 +59,14 @@ Foi criado o conceito do Azure computação unidade (ACU) para fornecer uma form
 | Família de SKU | ACU/Núcleo |
 | --- | --- |
 | [ExtraSmall](#a-series) |50 |
-| [Breve ExtraLarge](#a-series) |100 |
-| [A5 7](#a-series) |100 |
+| [Small-ExtraLarge](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [Um v2](#av2-series) |100 |
+| [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
-| [I v3](#ev3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -97,8 +97,8 @@ Para informações e considerações sobre como utilizar estas tamanhos, consult
 
 | Tamanho            | Núcleos de CPU | Memória: GiB  | HDD Local: GiB       | NICs/Largura de banda da rede máximos |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| A8 *             |8          | 56           | 1817                 | 2 / alto |
-| A9 *             |16         | 112          | 1817                 | 4 / muito alto |
+| A8*             |8          | 56           | 1817                 | 2 / alto |
+| A9*             |16         | 112          | 1817                 | 4 / muito alto |
 | A10             |8          | 56           | 1817                 | 2 / alto |
 | A11             |16         | 112          | 1817                 | 4 / muito alto |
 
@@ -147,23 +147,23 @@ Para informações e considerações sobre como utilizar estas tamanhos, consult
 
 | Tamanho            | Núcleos de CPU | Memória: GiB   | SSD Local: GiB       | NICs/Largura de banda da rede máximos |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2/moderado |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2 / alto |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4 / alto |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8 / extremamente alto |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8 / extremamente alto |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8 / extremamente alto |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2/moderado |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2 / alto |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4 / alto |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremamente alto |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremamente alto |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremamente alto |
 
 ## <a name="ev3-series"></a>Série Ev3
 
 | Tamanho            | Núcleos de CPU | Memória: GiB   | SSD Local: GiB       | NICs/Largura de banda da rede máximos |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2/moderado |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2 / alto |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4 / alto |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8 / extremamente alto |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8 / extremamente alto |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8 / extremamente alto |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2/moderado |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2 / alto |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4 / alto |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremamente alto |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremamente alto |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremamente alto |
 
 
 ## <a name="g-series"></a>Série G

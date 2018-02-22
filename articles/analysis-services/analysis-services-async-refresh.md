@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporta chamadas REST, pode efetuar operações de atualização de dados assíncrona nos seus modelos em tabela do Analysis Services do Azure. Isto inclui a sincronização de réplicas de só de leitura para consulta Escalamento horizontal. 
@@ -104,7 +104,7 @@ Não é necessário especificar parâmetros. A predefinição é aplicada.
 |Tipo     |  Enum       |  O tipo de processamento para executar. Os tipos estão alinhados com o TMSL [atualizar comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) tipos: completa, clearValues, calcular apenas dados automático, adicione e desfragmentar.       |   Automática      |
 |CommitMode     |  Enum       |  Determina se os objetos serão confirmados em lotes ou apenas após concluir o procedimento. Modos incluem: partialBatch transacional, predefinição,.  |  transacional       |
 |MaxParallelism     |   Int      |  Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Isto alinhada com a propriedade MaxParallelism que pode ser definida no TMSL [sequência comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou através de outros métodos.       | 10        |
-|retryCount    |    Int     |   Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
+|RetryCount    |    Int     |   Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
 |Objetos     |   Matriz      |   Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se não existem objetos forem especificados, é atualizar o modelo de todo. |   Processar o modelo completo      |
 
 CommitMode é igual ao partialBatch. É utilizado ao fazer uma carga de grandes conjuntos de dados inicial pode demorar horas. Se a operação de atualização falhar após a consolidação com êxito um ou mais lotes, permanecerá consolidadas os lotes consolidadas com êxito (esta irá não reverter lotes consolidadas com êxito).
@@ -208,7 +208,7 @@ Pode utilizar o exemplo de código início de sessão interativo, nome de utiliz
 
 Esta forma de autenticação necessita de ser criada uma aplicação do Azure com as permissões de API necessárias atribuídas. 
 
-1.  No portal do Azure, clique em **novo** > **do Azure Active Directory** > **registos de aplicação** > **novo registo de aplicação**.
+1.  No portal do Azure, clique em **crie um recurso** > **do Azure Active Directory** > **registos de aplicação**  >   **Novo registo de aplicação**.
 
     ![Novo registo de aplicação](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

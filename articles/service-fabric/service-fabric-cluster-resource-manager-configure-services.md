@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 084fdf2f9a65eed3e444851afb88390aacf33738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ae4e874d0fd0922295a4ec7ad719a0a1fb108c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurar definições de Gestor de recursos do cluster para serviços do Service Fabric
 O Gestor de recursos de Cluster do serviço de recursos de infraestrutura permite um controlo detalhado sobre as regras que regem cada indivíduo com o nome de serviço. Cada serviço com o nome pode especificar regras para a forma como deve ser alocada no cluster. Cada serviço com nome também pode definir o conjunto de métricas pretende para o relatório, incluindo a forma como estes são importantes para esse serviço. Configurar os serviços divide em três tarefas diferentes:
@@ -40,7 +40,7 @@ Existem outros tipos de regras de posicionamento que são úteis em menos cenár
 
 Outras regras de posicionamento são configuradas através de correlações ou políticas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - As métricas são como o serviço de recursos de infraestrutura Cluster Resource Manager gere consumo e capacidade do cluster. Para saber mais sobre as métricas e como configurá-las, consulte [neste artigo](service-fabric-cluster-resource-manager-metrics.md)
 - Afinidade é um modo, que pode configurar para os serviços. Não é comum, mas se for necessário, pode saber [aqui](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
 - Existem várias regras de posicionamento diferentes que podem ser configuradas no seu serviço para processar cenários adicionais. Pode descobrir sobre as políticas de colocação diferentes [aqui](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)

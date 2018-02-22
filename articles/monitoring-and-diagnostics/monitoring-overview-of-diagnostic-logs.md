@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -163,7 +163,7 @@ Certifique-se de que todos os seus recursos estão configurados com definições
 
 ![Diagnóstico registos painel no portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Poderá ter de clicar em "Mais serviços" para localizar a secção do Monitor.
+Poderá ter de clicar em "Todos os serviços" para localizar a secção do Monitor.
 
 Aqui pode ver e filtrar todos os recursos que suportam as definições de diagnóstico para ver se têm diagnóstico ativado. Também pode desagregar Consulte se várias definições estão definidas num recurso e verifique que a conta de armazenamento, o espaço de nomes de Event Hubs e/ou as área de trabalho de análise de registos que são enviados dados para.
 
@@ -174,7 +174,7 @@ Adicionar uma definição de diagnóstico aparece a vista de definições de dia
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Serviços suportados, categorias e esquemas de registos de diagnóstico de recursos
 [Consulte este artigo](monitoring-diagnostic-logs-schema.md) para uma lista completa dos serviços suportados e categorias de registo e esquemas utilizadas por esses serviços.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Transmitir os registos de diagnóstico de recursos para **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Alterar definições de diagnóstico de recursos através da API de REST de Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)

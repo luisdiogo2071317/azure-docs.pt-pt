@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorizar os gateways de VPN com a resolução de problemas do observador de rede
 
@@ -51,7 +51,7 @@ Antes de começar este cenário, tem de ter os seguintes pré-requisitos:
 
 ### <a name="create-the-runbook"></a>Criar o runbook
 
-É o primeiro passo para configurar o exemplo para criar o runbook. Este exemplo utiliza uma conta executar como. Para saber mais sobre contas Run as, visite [autenticar Runbooks com a conta Run As do Azure](../automation/automation-sec-configure-azure-runas-account.md)
+É o primeiro passo para configurar o exemplo para criar o runbook. Este exemplo utiliza uma conta executar como. Para saber mais sobre contas Run as, visite [autenticar Runbooks com a conta Run As do Azure](../automation/automation-create-runas-account.md)
 
 ### <a name="step-1"></a>Passo 1
 
@@ -183,7 +183,7 @@ Clique em Guardar para guardar a agenda ao runbook.
 
 ![Passo 10][10]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma compreensão sobre como integrar o observador de rede de resolução de problemas com a automatização do Azure, saiba como acionar capturas de pacotes de alertas VM, visitando [criar uma captura de pacotes accionadas alerta com o observador de rede de Azure](network-watcher-alert-triggered-packet-capture.md).
 

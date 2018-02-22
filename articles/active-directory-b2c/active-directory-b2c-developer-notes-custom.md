@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão de pré-visualização pública do Azure Active Directory B2C política personalizada
 O conjunto de funcionalidades de política personalizada está agora disponível para avaliação em pré-visualização pública para todas as do Azure Active Directory B2C clientes (Azure AD B2C). Este conjunto de funcionalidades é direcionado para programadores de identidades avançada criar soluções de identidade mais complexas.  
@@ -60,7 +60,7 @@ Para beneficiar completamente a pré-visualização pública, sugerimos que os p
 ## <a name="features-by-stage-and-known-issues"></a>Funcionalidades por fase e problemas conhecidos
 Capacidades de estrutura de experiência de política/identidade personalizadas estão em desenvolvimento rápido e constante.  Esta tabela é um índice de disponibilidade de funcionalidades/componentes.
 
-Colocar perguntas no Stack Overflow em [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Colocar perguntas no Stack Overflow em [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Protocolos de fornecedores, Tokens, de identidade
@@ -68,11 +68,11 @@ Interfaces com componentes externos e de aplicações
 
 | Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 |---------------------------------------------|-------------|---------|----|-------|
-| IDP OpenIDConnect |  | x |  | Por exemplo, Google + |
-| IDP OAUTH2 |  | x |  | Por exemplo, Facebook  |
-| IDP OAUTH1 |  | x |  | Por exemplo, Twitter |
-| IDP SAML |  | x |  | Por exemplo, Salesforce, ADFS |
-| IDP WSFED | x |  |  |  |
+| IDP-OpenIDConnect |  | x |  | Por exemplo, Google + |
+| IDP-OAUTH2 |  | x |  | Por exemplo, Facebook  |
+| IDP-OAUTH1 |  | x |  | Por exemplo, Twitter |
+| IDP-SAML |  | x |  | Por exemplo, Salesforce, ADFS |
+| IDP-WSFED | x |  |  |  |
 | Entidade confiadora intervenientes OAUTH |  | x |  |  |
 | Entidade confiadora OIDC intervenientes |  | x |  |  |
 | Entidade confiadora intervenientes SAML | x |  |  |  |
@@ -99,7 +99,7 @@ Interfaces com componentes externos e de aplicações
 |   Página de erro, api.error |  | x |  |  |
 |   Página de seleção de IDP, api.idpselections |  | x |  |  |
 |   Seleção de IDP para inscrição, api.idpselections.signup |  | x |  |  |
-|   Se esqueceu a palavra-passe, api.localaccountpasswordreset |  | x |  |  |
+|   Forgot Password, api.localaccountpasswordreset |  | x |  |  |
 |   Conta local. o início de sessão, api.localaccountsignin |  | x |  |  |
 |   Conta local api.localaccountsignup de inscrição, |  | x |  |  |
 |   Página MFA, api.phonefactor |  | x |  |  |
@@ -143,5 +143,5 @@ Interfaces com componentes externos e de aplicações
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).

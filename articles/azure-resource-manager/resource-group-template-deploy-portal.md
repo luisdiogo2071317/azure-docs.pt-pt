@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
 
@@ -47,7 +47,7 @@ Este tópico mostra como utilizar o [portal do Azure](https://portal.azure.com) 
 
 Depois de criar um grupo de recursos, pode implementar recursos no mesmo do Marketplace. O Marketplace fornece soluções previamente definidas para cenários comuns.
 
-1. Para iniciar uma implementação, selecione **novo**.
+1. Para iniciar uma implementação, selecione **crie um recurso**.
 
    ![Novo recurso](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -65,7 +65,7 @@ Depois de criar um grupo de recursos, pode implementar recursos no mesmo do Mark
 
    Em alternativa, pode optar por criar um grupo de recursos quando implementar os recursos. Selecione **criar nova** e atribua um nome de grupo de recursos.
 
-   ![Criar novo grupo de recursos](./media/resource-group-template-deploy-portal/select-new-group.png)
+   ![Criar um novo grupo de recursos](./media/resource-group-template-deploy-portal/select-new-group.png)
 
 1. Começa a sua implementação. A implementação pode demorar alguns minutos. Quando a implementação estiver concluída, verá uma notificação.
 
@@ -79,7 +79,7 @@ Depois de criar um grupo de recursos, pode implementar recursos no mesmo do Mark
 
 Se pretender executar uma implementação, mas não utilizar qualquer um dos modelos no Marketplace, pode criar um modelo personalizado que define a infraestrutura para a sua solução. Para saber mais sobre a criação de modelos, consulte [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Para implementar um modelo personalizado através do portal, selecione **novo**e procure **modelo de implementação** até que o pode selecionar as opções.
+1. Para implementar um modelo personalizado através do portal, selecione **crie um recurso**e procure **modelo de implementação** até que o pode selecionar as opções.
 
    ![implementação do modelo de pesquisa](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -105,7 +105,7 @@ Se pretender executar uma implementação, mas não utilizar qualquer um dos mod
 
 1. O editor de adiciona automaticamente o JSON para o tipo de recurso. Tenha em atenção que inclua um parâmetro para definir o tipo de conta de armazenamento. Selecione **Guardar**.
 
-   ![Mostrar o modelo](./media/resource-group-template-deploy-portal/show-json.png)
+   ![Mostrar modelo](./media/resource-group-template-deploy-portal/show-json.png)
 
 1. Agora, tem a opção para implementar os recursos definidos no modelo. Para implementar, concorda com os termos e condições e selecione **Compra**.
 
@@ -131,7 +131,7 @@ O portal permite-lhe guardar um modelo para a sua conta do Azure e volte a imple
 
    ![implementar a modelo guardado](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](resource-group-audit.md).
 * Para resolver erros de implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).
 * Para obter um modelo a partir de uma implementação ou o grupo de recursos, consulte [modelo de exportar o Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).

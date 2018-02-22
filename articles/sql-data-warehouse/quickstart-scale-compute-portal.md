@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: cbe2f2d17f309e01e831aa9ee31e01e044896d10
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Dimensionar de computação no Azure SQL Data Warehouse no portal do Azure
 
-Dimensionar a computação no Azure SQL Data Warehouse no portal do Azure. Aumentar horizontalmente computação para um melhor desempenho ou a escala de computação novamente para reduzir os custos. 
+Dimensionar a computação no Azure SQL Data Warehouse no portal do Azure. [Aumentar horizontalmente computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou escala fazer uma cópia de computação para reduzir os custos. 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -34,7 +34,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 Pode dimensionar um armazém de dados que já tem, ou utilize [início rápido: criar e ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados com o nome **mySampleDataWarehouse**.  Este guia de introdução dimensiona **mySampleDataWarehouse**.
 
-## <a name="scale-compute"></a>Dimensionar a computação
+## <a name="scale-compute"></a>Dimensionar computação
 
 No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [criar e ligar - portal](create-data-warehouse-portal.md) criado **mySampleDataWarehouse** e inicializado-lo com 400 DWUs. Os seguintes passos ajustar as DWUs para **mySampleDataWarehouse**.
 

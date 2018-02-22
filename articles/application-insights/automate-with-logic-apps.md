@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de Application Insights utilizando as Logic Apps
 
@@ -31,8 +31,8 @@ Pode adicionar, bem como as ações adicionais. A funcionalidade de Logic Apps d
 Neste tutorial, irá aprender a criar uma aplicação lógica que utiliza o algoritmo de autocluster de análise para atributos de grupos de dados para uma aplicação web. O fluxo envia automaticamente os resultados por correio eletrónico, apenas um exemplo de como pode utilizar o Application Insights Analytics e Logic Apps em conjunto. 
 
 ### <a name="step-1-create-a-logic-app"></a>Passo 1: Criar uma aplicação lógica
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. No **novo** painel, selecione **Web + móvel**e, em seguida, selecione **aplicação lógica**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Clique em **crie um recurso**, selecione **Web + móvel**e, em seguida, selecione **aplicação lógica**.
 
     ![Nova janela de aplicação lógica](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -129,7 +129,7 @@ Quando é executada a sua aplicação lógica, os destinatários especificados n
 
 ![Mensagem de correio eletrónico de aplicação lógica](./media/automate-with-logic-apps/flow9.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre como criar [as consultas de análises](app-insights-analytics-using.md).
 - Saiba mais sobre [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -35,6 +35,73 @@ Permissões obrigatórias | Para as permissões necessárias para aplicar uma at
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117490"></a>1.1.749.0
+Estado: Lançado para selecionar os clientes
+
+>[!NOTE]
+>Quando tiver concluído a atualização para esta nova versão, será automaticamente acionada uma sincronização completa e a importação completa para o conector do Azure AD e uma sincronização completa para o conector do AD. Uma vez que esta operação pode demorar algum tempo, dependendo do tamanho do seu ambiente do Azure AD Connect, certifique-se que seguiu os passos necessários para suportar isto ou espere até ter encontrado um momento conveniente para fazê-lo a atualizar.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas fixos
+* Resolva a janela de temporização no fundo tarefas para filtragem de partição página quando
+* Corrija a janela de temporização tarefas em segundo plano para a página de filtragem de partição ao mudar para a página seguinte.
+
+* Corrigido um erro que provocou a violação de acesso durante a ação personalizada ConfigDB
+
+* Corrigido um erro ao recuperar a partir de tempo limite de ligação do SQL Server.
+
+* Corrigido um erro em que os certificados com carateres universais de SAN falharam uma verificação de pré-requisitos
+
+* Corrigido um erro que faz com que miiserver.exe para falhas durante a exportação de um conector do Azure AD.
+
+* Corrigido um erro registado que tentativa de palavra-passe incorreta no DC ao executar o Assistente do Azure AD Connect para alterar a configuração
+
+
+#### <a name="new-features-and-improvements"></a>Funcionalidades novas e melhoradas
+
+* Adicionar definições de privacidade para regulamento de proteção geral data (GDPR).  Para GDPR, são necessárias para indicar os tipos de dados de cliente que são partilhados com a Microsoft (telemetria, estado de funcionamento, etc.), tem ligações a documentação online detalhada e fornecem uma forma para os nossos clientes, para alterar as respetivas preferências.  Esta verificação-adiciona o seguinte:
+
+
+    - Partilha de dados e a notificação de privacidade no limpa instalar página EULA.
+    - Privacidade e de partilha de notificação de dados na página de atualização.
+    - Uma nova adicional tarefa "Definições de privacidade" onde o utilizador pode alterar as respetivas preferências.
+
+* telemetria de aplicações - administrador pode mudar a este tipo de dados/desactiva à vontade
+
+* Dados de estado de funcionamento do AD do Azure - administrador tem de poderem visitar o portal de estado de funcionamento para controlar as definições de estado de funcionamento.
+   Depois da política de serviço foi alterada, os agentes serão ler e impor-lo.
+
+* Dispositivo adicionado repetição de escrita de ações de configuração e uma barra de progresso para a inicialização da página
+
+* Melhorada geral diagnóstico com o relatório HTML e recolha de dados completa num texto ZIP / relatório HTML
+
+* Melhorado a fiabilidade de atualização automática e adicionada telemetria adicional para garantir que é possível determinar o estado de funcionamento do servidor
+
+* Restringir as permissões disponíveis para contas com privilégios na conta do conector AD
+
+  * Para novas instalações, o assistente irá restringir as permissões que contas privilegiadas ter em conta o MSOL depois de criar a conta MSOL.
+
+As alterações tratará do seguinte:
+1. Express instalações
+2. Instalações personalizadas com Auto-criar conta
+
+* Alterar o instalador, pelo que não requer privilégios de SA na instalação de raiz do Azure AD Connect
+
+* Adicionar um novo utilitário para resolver problemas de sincronização para um objeto específico. Está disponível a opção 'Resolver problemas de sincronização de objetos' do Azure AD Connect assistente resolver problemas de tarefa adicional. Atualmente, o utilitário verifica o seguinte:
+
+  * Erro de correspondência de UserPrincipalName entre objetos de utilizador sincronizadas e a conta de utilizador no inquilino do Azure AD.
+  * Se o objeto está filtrado de sincronização devido a filtragem de domínio
+  * Se o objeto está filtrado de sincronização devido a unidade organizacional (UO) filtragem
+
+* Adicionar um novo utilitário para sincronizar o hash de palavra-passe atual armazenado no diretório do Active Directory no local para uma conta de utilizador específica.
+
+O utilitário não necessita de uma alteração de palavra-passe. Está disponível a opção 'Resolver problemas de palavra-passe sincronização de Hash' do Azure AD Connect assistente resolver problemas de tarefa adicional.
+
+
+
+
+
+
 ## <a name="116540"></a>1.1.654.0
 Estado: 12 de Dezembro de 2017
 
@@ -50,7 +117,7 @@ Um melhoramento foi adicionado para o Azure AD Connect versão 1.1.654.0 (e depo
 >[!NOTE]
 >Nesta versão apenas remove a vulnerabilidade para novas instalações do Azure AD Connect, onde a conta de serviço é criada pelo processo de instalação. Para instalações existentes, ou em casos onde pode fornecer a conta de si próprio, deve certificar-se de que esta vulnerabilidade não existe.
 
-#### <a name="lock"></a>Bloqueie o acesso à conta do AD DS
+#### <a name="lock"></a> Bloqueie o acesso à conta do AD DS
 Bloqueio para baixo de acesso à conta do AD DS através da implementação as seguintes alterações de permissão na no local AD:  
 
 *   Desativar a herança de objeto especificado
@@ -59,7 +126,7 @@ Bloqueio para baixo de acesso à conta do AD DS através da implementação as s
 
 Tipo     | Nome                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
+Permitir    | SYSTEM                        | Controlo Total         | Este objeto  |
 Permitir    | Admins de empresa             | Controlo Total         | Este objeto  |
 Permitir    | Admins do domínio                 | Controlo Total         | Este objeto  |
 Permitir    | Administradores                | Controlo Total         | Este objeto  |
@@ -407,15 +474,15 @@ CBool(
 * Foram introduzidas seguintes alterações de esquema para permitir que os clientes podem criar regras de sincronização personalizados para o fluxo sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como distinguishedName para objetos de utilizador:
 
   * Foram adicionados ao esquema de MV seguintes atributos:
-    * Grupo: AccountName
-    * Grupo: domainNetBios
-    * Grupo: domainFQDN
+    * Group: AccountName
+    * Group: domainNetBios
+    * Group: domainFQDN
     * Pessoa: distinguishedName
 
   * Foram adicionados os seguintes atributos ao esquema do conector do Azure AD:
-    * Grupo: OnPremisesSamAccountName
-    * Grupo: NetBiosName
-    * Grupo: DnsDomainName
+    * Group: OnPremisesSamAccountName
+    * Group: NetBiosName
+    * Group: DnsDomainName
     * Utilizador: OnPremisesDistinguishedName
 
 * O script de cmdlet ADSyncDomainJoinedComputerSync tem agora um novo parâmetro opcional denominado AzureEnvironment. O parâmetro é utilizado para especificar que o inquilino do Azure Active Directory correspondente estiver alojado de região. Os valores válidos incluem:
@@ -431,10 +498,10 @@ CBool(
 #### <a name="issues-fixed"></a>Problemas fixo
 
 * Os seguintes URLs são introduzidos pelo Azure AD para melhorar a resiliência contra a falha de autenticação pontos finais de WS-Federation novo e será adicionado ao local Configuração do AD FS para confiança de entidade parte das:
-  * https://Ests.login.microsoftonline.com/login.srf
+  * https://ests.login.microsoftonline.com/login.srf
   * https://stamp2.login.microsoftonline.com/login.srf
-  * https://CCS.login.microsoftonline.com/login.srf
-  * https://CCS-sdf.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
   
 * Foi corrigido um problema que causou a geração do AD FS gerar o valor de afirmação incorreto para IssuerID. O problema ocorre se existem vários domínios verificados no inquilino do Azure AD e o sufixo de domínio do atributo userPrincipalName utilizado para gerar a afirmação IssuerID é, pelo menos, 3 níveis profunda (por exemplo, johndoe@us.contoso.com). O problema foi resolvido, atualizando o regex utilizada pelas regras de afirmação.
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric - configurar a monitorização com o OMS Log Analytics | Microsoft Docs"
-description: Saiba como configurar o OMS para visualizar e analisar eventos para monitorizar os clusters de Service Fabric do Azure.
+description: Saiba como configurar o Operations Management Suite para visualizar e analisar eventos para monitorizar os clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,67 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 53b06c5a1395f34c96d4011366835a920d5c670b
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="set-up-oms-log-analytics-for-a-cluster"></a>Configurar a análise de registos do OMS para um cluster
+# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurar a análise de registos do Operations Management Suite para um cluster
 
-Pode configurar uma área de trabalho do OMS através do Azure Resource Manager, PowerShell ou através do Azure Marketplace. Se a manutenção de um modelo do Resource Manager atualizada da sua implementação, para utilização futura, utilize o mesmo modelo para configurar o ambiente do OMS. Implementar através do Marketplace é mais fácil se já tiver um cluster implementado com diagnóstico ativado. No caso de que não têm acesso de nível de subscrição na conta que pretende implementar OMS, utilizar o PowerShell ou implementar através do modelo do Resource Manager.
+Pode configurar uma área de trabalho do Operations Management Suite (OMS) através do Azure Resource Manager, o PowerShell ou o Azure Marketplace. Se a manter um modelo do Resource Manager atualizada da sua implementação para utilização futura, utilize o mesmo modelo para configurar o ambiente do OMS. Implementação através do Marketplace é mais fácil se já tiver um cluster implementado com diagnóstico ativado. Se não tiver acesso de nível de subscrição na conta que pretende implementar OMS, implemente utilizando o PowerShell ou o modelo do Resource Manager.
 
 > [!NOTE]
-> Tem de ter o diagnóstico ativado para o cluster para ver o cluster / eventos de nível de plataforma para poder configurar com êxito o OMS para monitorizar o seu cluster.
+> Para configurar o OMS para monitorizar o seu cluster, tem de ter ativado para ver eventos de plataforma ao nível do cluster ou de diagnóstico.
 
-## <a name="deploying-oms-using-azure-marketplace"></a>Implementar OMS através do Azure Marketplace
+## <a name="deploy-oms-by-using-azure-marketplace"></a>Implementar o OMS, utilizando o Azure Marketplace
 
-Se preferir adicionar uma área de trabalho do OMS depois de implementar um cluster, aceda a Azure Marketplace (no Portal) e procure *"Serviço análise de recursos de infraestrutura".*
+Se pretender adicionar uma área de trabalho do OMS depois de implementar um cluster, visite no portal do Azure Marketplace e procure **análise de recursos de infraestrutura de serviço**:
 
-1. Clique em **novo** no menu de navegação esquerdo. 
+1. Selecione **novo** no menu de navegação esquerdo. 
 
-2. Procurar *serviço análise de recursos de infraestrutura*. Clique no recurso que aparece.
+2. Procurar **serviço análise de recursos de infraestrutura**. Selecione o recurso que aparece.
 
-3. Clique em **criar**
+3. Selecione **Criar**.
 
     ![Análise de SF OMS no Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Na janela de criação de análise de recursos de infraestrutura de serviço, clique em **Selecione uma área de trabalho** para o *área de trabalho OMS* campo e, em seguida, **criar uma nova área de trabalho**. Preencha as entradas necessárias - o único requisito aqui é que a subscrição para o cluster do Service Fabric e a área de trabalho do OMS deve ser o mesmo. Depois das suas entradas tem sido validadas, a área de trabalho do OMS irá começar a implementar. Isto deverá demorar apenas alguns minutos.
+4. Na janela de criação de análise de recursos de infraestrutura de serviço, selecione **Selecione uma área de trabalho** para o **área de trabalho OMS** campo e, em seguida, **criar uma nova área de trabalho**. Preencha as entradas necessárias. O único requisito aqui é que a subscrição para o cluster do Service Fabric e a área de trabalho do OMS é o mesmo. Quando as suas entradas tem sido validadas, a área de trabalho do OMS começa a implementar. A implementação demora apenas alguns minutos.
 
-5. Quando terminar, clique em **criar** novamente na parte inferior da janela de criação de análise de recursos de infraestrutura de serviço. Certifique-se de que a nova área de trabalho aparece em *área de trabalho OMS*. Esta ação adiciona a solução para a área de trabalho que acabou de criar.
+5. Quando terminar, selecione **criar** novamente na parte inferior da janela de criação de análise de recursos de infraestrutura de serviço. Certifique-se de que a nova área de trabalho aparece em **área de trabalho OMS**. Esta ação adiciona a solução para a área de trabalho que criou.
 
-Se estiver a utilizar o Windows, continue com os seguintes passos para ligar OMS à conta do Storage onde os eventos de cluster são armazenados. Ativar esta experiência corretamente para os clusters do Linux ainda está em curso. O entretanto, continuar com o agente do OMS a adicionar ao cluster.  
+Se estiver a utilizar o Windows, continue com os seguintes passos para ligar OMS à conta do storage onde os eventos de cluster são armazenados. 
 
-1. A área de trabalho ainda tem de estar ligado dos dados de diagnóstico provenientes do seu cluster. Navegue para o grupo de recursos que criou da solução de análise de recursos de infraestrutura de serviço. Deverá ver uma *ServiceFabric (\<nameOfOMSWorkspace\>)*. Clique na solução de para navegar para a página de descrição geral, a partir de onde pode alterar as definições de solução, definições da área de trabalho e navegue para o portal do OMS.
+>[!NOTE]
+>Ativar esta experiência para os clusters do Linux ainda não está disponível. 
 
-2. No menu de navegação esquerdo, clique em **registos de contas de armazenamento**, em *origens de dados da área de trabalho*.
+### <a name="add-the-oms-agent-to-your-cluster"></a>Adicionar o agente do OMS ao cluster 
 
-3. No *os registos da conta de armazenamento* página, clique em **adicionar** na parte superior para adicionar registos do cluster para a área de trabalho.
+1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfOMSWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições de solução, as definições de área de trabalho e aceder ao portal do OMS.
 
-4. Clique em **conta de armazenamento** para adicionar a conta apropriada criada no seu cluster. Se utilizou o nome predefinido, a conta de armazenamento com o nome *sfdg\<resourceGroupName\>*. Também pode confirmar isto, verificando o modelo Azure Resource Manager utilizado para implementar o cluster, ao verificar o valor utilizado para o `applicationDiagnosticsStorageAccountName`. Também poderá ter de se deslocar para baixo e clique em **carregar mais** se o nome não for apresentada. Clique no nome da conta de armazenamento correta cópias de segurança para o selecionar.
+2. No menu de navegação esquerdo, em **origens de dados da área de trabalho**, selecione **registos de contas de armazenamento**.
 
-5. Em seguida, terá de especificar o *tipo de dados*, que deve ser definido como **eventos de recursos de infraestrutura de serviço**.
+3. No **os registos da conta de armazenamento** página, selecione **adicionar** na parte superior para adicionar registos do cluster para a área de trabalho.
 
-6. O *origem* automaticamente deve ser definido como *WADServiceFabric\*EventTable*.
+4. Selecione **conta de armazenamento** para adicionar a conta apropriada criada no seu cluster. Se utilizou o nome predefinido, a conta de armazenamento é **sfdg\<resourceGroupName\>**. Também pode confirmar isto com o modelo Azure Resource Manager utilizado para implementar o cluster, ao verificar o valor utilizado para **applicationDiagnosticsStorageAccountName**. Se o nome não for apresentada, desloque para baixo e selecione **carregar mais**. Selecione o nome de conta de armazenamento.
 
-7. Clique em **OK** para ligar a sua área de trabalho para registos do seu cluster.
+5. Especifique o tipo de dados. Defina-o como **eventos de recursos de infraestrutura de serviço**.
+
+6. Certifique-se de que a origem é automaticamente definida para **WADServiceFabric\*EventTable**.
+
+7. Selecione **OK** para ligar a sua área de trabalho para registos do seu cluster.
 
     ![Adicionar os registos da conta de armazenamento ao OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-A conta deve são agora apresentadas como parte da sua *os registos da conta de armazenamento* em origens de dados da sua área de trabalho.
+A conta agora apresentado como parte da sua conta do storage registos em origens de dados da sua área de trabalho.
 
-Com esta agora adicionou a solução de análise de recursos de infraestrutura de serviço numa área de trabalho de análise de registos do OMS que agora está corretamente ligada à plataforma do cluster e a tabela de registo de aplicação. Pode adicionar origens adicionais para a área de trabalho da mesma forma.
+Adicionou a solução de análise de recursos de infraestrutura de serviço numa área de trabalho de análise de registos do OMS que agora está corretamente ligada à plataforma do cluster e a tabela de registo de aplicação. Pode adicionar origens adicionais para a área de trabalho da mesma forma.
 
 
-## <a name="deploying-oms-using-a-resource-manager-template"></a>Implementar OMS através de um modelo do Resource Manager
+## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Implementar o OMS, utilizando um modelo do Resource Manager
 
-Quando implementar um cluster com um modelo do Resource Manager, o modelo deve criar uma nova área de trabalho OMS, adicione a solução de recursos de infraestrutura de serviço e configurá-lo para ler os dados das tabelas de armazenamento adequado.
+Quando implementar um cluster utilizando um modelo do Resource Manager, o modelo cria uma nova área de trabalho do OMS, adiciona a solução de Service Fabric para a área de trabalho e configura-o para ler os dados das tabelas de armazenamento adequado.
 
-[Aqui](https://azure.microsoft.com/resources/templates/service-fabric-oms/) é um modelo de exemplo que pode utilizar e modificar de acordo com os requisitos. Modelos mais que dão-lhe diferentes opções para configurar uma área de trabalho do OMS pode ser encontrado em [modelos de Service Fabric e OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Pode utilizar e modificar [este modelo de exemplo](https://azure.microsoft.com/resources/templates/service-fabric-oms/) para satisfazer os seus requisitos. Os modelos que dão-lhe diferentes opções para configurar uma área de trabalho do OMS pode ser encontrado em [modelos de Service Fabric e OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
-As alterações principais são os seguintes:
-
-1. Adicionar `omsWorkspaceName` e `omsRegion` para os parâmetros. Isto significa que a adicionar o fragmento seguinte para parâmetros definidos na sua *Template* ficheiro. Pode modificar os valores predefinidos, como julgar. Também deve adicionar os dois parâmetros novos na sua *Parameters. JSON* para definir os respetivos valores para a implementação de recursos:
+Efetue as seguintes alterações:
+1. Adicionar `omsWorkspaceName` e `omsRegion` para os parâmetros adicionando o seguinte fragmento a parâmetros definidos na sua *Template* ficheiro. Pode modificar os valores predefinidos, como julgar. Além disso, adicione os dois parâmetros novos na sua *Parameters. JSON* ficheiro para definir os respetivos valores para a implementação de recursos:
     
     ```json
     "omsWorkspacename": {
@@ -98,9 +102,9 @@ As alterações principais são os seguintes:
     }
     ```
 
-    O `omsRegion` valores têm de estar em conformidade com um conjunto específico de valores. Deverá escolher aquele que está mais próximo para a implementação do cluster.
+    O `omsRegion` valores têm de estar em conformidade com um conjunto específico de valores. Escolha a que esteja mais próximo para a implementação do cluster.
 
-2. Se vai enviar os registos da aplicação à OMS, confirme que o `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` são incluídos como parâmetros no modelo. Se não estiverem, adicione-o para a secção de variáveis desta forma e editar os respetivos valores conforme necessário. Também pode inclui-los como parâmetros, se desejar, seguindo o formato utilizado acima.
+2. Se enviar os registos da aplicação à OMS, confirme primeiro que o `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` são incluídos como parâmetros no modelo. Se não estiver incluídas, adicioná-los para a secção de variáveis e editar os respetivos valores conforme necessário. Também pode inclui-los como parâmetros ao seguir o formato anterior.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
@@ -114,7 +118,7 @@ As alterações principais são os seguintes:
     "solutionName": "ServiceFabric"
     ```
 
-4. Adicionar o seguinte ao final da secção de recursos, após o qual o recurso de cluster do Service Fabric está declarado.
+4. Adicione o seguinte ao final da secção de recursos, após o qual o recurso de cluster do Service Fabric está declarado:
 
     ```json
     {
@@ -175,19 +179,19 @@ As alterações principais são os seguintes:
     > [!NOTE]
     > Se tiver adicionado o `applicationDiagnosticsStorageAccountName` como uma variável, certifique-se de modificar cada referência ao mesmo para `variables('applicationDiagnosticsStorageAccountName')` em vez de `parameters('applicationDiagnosticsStorageAccountName')`.
 
-5. Implemente o modelo como uma atualização do Gestor de recursos para o cluster. Isto é feito utilizando o `New-AzureRmResourceGroupDeployment` API no módulo AzureRM PowerShell. Um comando de exemplo seria:
+5. Implementar o modelo como uma atualização do Gestor de recursos para o cluster utilizando o `New-AzureRmResourceGroupDeployment` API no módulo AzureRM PowerShell. Um comando de exemplo seria:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
     ``` 
 
-    O Azure Resource Manager será capaz de detetar que se trata de uma atualização para um recurso existente. Processar apenas as alterações entre o modelo de implementação existente a ocasionar e o novo modelo fornecido.
+    O Azure Resource Manager detetar que este comando é uma atualização para um recurso existente. Processa apenas as alterações entre o modelo de implementação existente a ocasionar e o novo modelo fornecido.
 
-## <a name="deploying-oms-using-azure-powershell"></a>Implementar OMS com o Azure PowerShell
+## <a name="deploy-oms-by-using-azure-powershell"></a>Implementar o OMS, utilizando o Azure PowerShell
 
-Também pode implementar o recurso de análise de registos do OMS através do PowerShell. Isto é conseguido utilizando o `New-AzureRmOperationalInsightsWorkspace` comando. Para fazê-lo, certifique-se de que instalou [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilize este script para criar uma área de trabalho de análise de registos do OMS novo e adicione-lhe a solução de Service Fabric: 
+Também pode implementar o recurso de análise de registos do OMS através do PowerShell, utilizando o `New-AzureRmOperationalInsightsWorkspace` comando. Para utilizar este método, certifique-se de que instalou [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilize este script para criar uma área de trabalho de análise de registos do OMS novo e adicione-lhe a solução de Service Fabric: 
 
-```ps
+```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
@@ -211,11 +215,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Depois de esta está concluída, se o cluster for um cluster do Windows, siga os passos na secção acima em ligar OMS análise de registos para a conta de armazenamento adequado.
+Quando tiver terminado, siga os passos na secção anterior para ligar a análise de registos do OMS à conta de armazenamento adequado.
 
-Também pode adicionar outras soluções ou efetue modificações à sua área de trabalho do OMS através do PowerShell. Para ler mais sobre este problema, consulte [Gerir análise de registos com o PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md)
+Também pode adicionar outras soluções ou efetue modificações adicionais à sua área de trabalho do OMS através do PowerShell. Para obter mais informações, consulte [Gerir análise de registos com o PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 * [Implementar o agente do OMS](service-fabric-diagnostics-oms-agent.md) para os nós para recolher os contadores de desempenho e recolher estatísticas de docker registos e para os contentores
 * Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos
 * [Utilize o estruturador de vistas para criar vistas personalizadas no Log Analytics](../log-analytics/log-analytics-view-designer.md)

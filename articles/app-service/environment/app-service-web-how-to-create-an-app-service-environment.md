@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ef0dc1b820f42b73af3af3882085729ecc21230c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um serviço de aplicações ambiente v1 
 
@@ -42,13 +42,13 @@ O ambiente de serviço de aplicações (ASE) é uma opção de serviço Premium 
 Ao escolher uma VNet e especificar uma sub-rede, certifique-se é suficientemente grande para contemplar qualquer crescimento futuro. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Criar uma aplicação do serviço ambiente v1
-Para criar um v1 de ambiente de serviço de aplicações, terá de procurar no Azure Marketplace para ***v1 de ambiente de serviço de aplicações***, ou acedendo através do novo -> Web + Mobile -> ambiente de serviço de aplicações. Para criar um ASEv1:
+Para criar um ambiente de serviço de aplicações v1, pode pesquisar o Azure Marketplace para ***v1 de ambiente de serviço de aplicações***, ou percorrer **crie um recurso** -> **Web + móvel**  ->  **Ambiente de serviço de aplicações**. Para criar um ASEv1:
 
-1. Forneça o nome do seu ASE. O nome especificado para o ASE será utilizado para as aplicações criadas no ASE. Se o nome do ASE é appsvcenvdemo, em seguida, o nome de subdomínio seria. *appsvcenvdemo.p.azurewebsites.net*. Se, por conseguinte, criou uma aplicação com o nome *mytestapp* , em seguida, seria possível endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Não é possível utilizar o espaço em branco no nome das suas ASE. Se utilizar carateres maiúsculos no nome, o nome de domínio será a versão em minúsculas total com esse nome. Se utilizar um ILB, em seguida, o nome da sua ASE não é utilizado na sua subdomínio mas em vez disso, é explicitamente indicado durante a criação de ASE
+1. Forneça o nome do seu ASE. O nome que especificar para o ASE será utilizado para as aplicações criadas no ASE. Se o nome do ASE appsvcenvdemo, o nome de subdomínio seria: *appsvcenvdemo.p.azurewebsites.net*. Se, por conseguinte, criou uma aplicação com o nome *mytestapp*, seria possível endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Não é possível utilizar o espaço em branco no nome das suas ASE. Se utilizar carateres maiúsculos no nome, o nome de domínio será a versão em minúsculas total com esse nome. Se utilizar um ILB, o nome da sua ASE não é utilizado na sua subdomínio mas em vez disso, é explicitamente indicado durante a criação de ASE.
    
     ![][1]
-2. Selecione a sua subscrição. A subscrição utilizada para a sua ASE também é aquele que todas as aplicações em que ASE serão criadas com. Não é possível colocar o seu ASE numa VNet que está a ser outra subscrição
-3. Selecione ou especifique um novo grupo de recursos. O grupo de recursos utilizado para a sua ASE tem de ser o mesmo que é utilizado para a sua VNet. Se selecionar uma VNet já existente, em seguida, a seleção de grupo de recursos para o seu ASE será atualizada para refletir que a VNet.
+2. Selecione a sua subscrição. A subscrição que utilizar para a sua ASE também será aplicada a todas as aplicações que criar nesse ASE. Não é possível colocar o seu ASE numa VNet que está a ser outra subscrição.
+3. Selecione ou especifique um novo grupo de recursos. O grupo de recursos utilizado para a sua ASE tem de ser o mesmo que é utilizado para a sua VNet. Se selecionar uma VNet já existente, a seleção de grupo de recursos para o seu ASE será atualizada para refletir que a VNet.
    
     ![][2]
 4. Certifique-as com as suas seleções de rede Virtual e a localização. Pode optar por criar uma nova VNet ou selecionar uma VNet já existente. Se selecionar uma nova VNet, em seguida, pode especificar um nome e localização. A nova VNet vai ter de endereço intervalo 192.168.250.0/23 e uma sub-rede designada **predefinido** que está definida como 192.168.250.0/24. Pode também simplesmente selecionar um pré-existente clássico ou do VNet do Resource Manager. A seleção do tipo de VIP determina se o ASE pode ser acedido diretamente da internet (externa) ou se utiliza um balanceador de carga interno (ILB). Para obter mais informações sobre os mesmos ler [através de um balanceador de carga interno com um ambiente de serviço de aplicações][ILBASE]. Se selecionar um tipo de VIP de externo, em seguida, pode selecionar quantos endereços IP externos o sistema é criado com para fins IPSSL. Se selecionar interno, em seguida, tem de especificar o subdomínio que irá utilizar o seu ASE. ASEs podem ser implementados em redes virtuais que utilizam *ou* intervalos de endereços públicos, *ou* RFC1918 espaços de endereços (ou seja, endereços privados). Para utilizar uma rede virtual com um intervalo de endereços públicos, terá de criar a VNet antecedência. Quando seleciona uma VNet já existente, terá de criar uma nova sub-rede durante a criação de ASE. **Não é possível utilizar uma sub-rede previamente criada no portal. Pode criar ASE com uma sub-rede pré-existente se criar a sua ASE utilizando um modelo do resource manager.** Para criar ASE contra a utilização de um modelo aqui, a informação de [criar um ambiente de serviço de aplicações a partir do modelo] [ ILBAseTemplate] e aqui, [criar um ambiente de serviço de aplicações do ILB a partir do modelo][ASEfromTemplate].

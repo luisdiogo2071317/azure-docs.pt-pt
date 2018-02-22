@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0ca7b7ca9435d1ba05a2cc0951f5bc88b51bf81b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Criar e instalar VPN configurações ponto a Site da autenticação de certificados de ficheiros de configuração de cliente para o Azure nativo
 
@@ -66,6 +66,11 @@ Pode gerar ficheiros de configuração de cliente com o PowerShell, ou utilizand
 ## <a name="installwin"></a>Instalar um pacote de configuração de cliente de VPN do Windows
 
 Pode utilizar o mesmo pacote de configuração de cliente VPN em cada computador cliente Windows, desde que a versão corresponde à arquitetura do cliente. Para obter a lista de sistemas operativos cliente que são suportados, consulte a secção ponto a Site a [FAQs do VPN Gateway](vpn-gateway-vpn-faq.md#P2S).
+
+>[!NOTE]
+>Tem de ter direitos de administrador no computador cliente Windows partir do qual pretende ligar.
+>
+>
 
 Utilize os seguintes passos para configurar o cliente de VPN do Windows nativo para autenticação de certificados:
 
@@ -118,4 +123,4 @@ Clique em **adicionar** para importar.
 
 Devolver o artigo para [concluir a configuração de P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-Para informações de resolução de problemas de P2S, [ligações ponto a site de resolução de problemas do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar ITSM produtos/serviços com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a ligação entre o ITSM produtos/serviços e o conector de gestão do serviço de TI (ITSMC) no Log Analytics para gerir centralmente os itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ As secções seguintes fornecem detalhes sobre como ligar o ServiceNow produto I
 ### <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que são cumpridos os seguintes pré-requisitos:
 - ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versões suportadas do ServiceNow: Jakarta, Istanbul, Helsinki, Geneva
+- Versões suportadas do ServiceNow: Kingston Jakarta, Istanbul, Helsinki, Geneva.
 
 **Administradores do ServiceNow tem de fazer o seguinte na sua instância do ServiceNow**:
 - Geram o ID de cliente e o segredo do cliente para o produto de ServiceNow. Para obter informações sobre como gerar ID de cliente e o segredo, consulte as seguintes informações conforme necessário:
 
+    - [Configurar a OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Configurar a OAuth para Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar a OAuth para Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar a OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -199,7 +200,7 @@ Certifique-se de que são cumpridos os seguintes pré-requisitos:
 - Instale a aplicação de utilizador para a integração da Microsoft OMS (ServiceNow aplicação). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Crie função de utilizador de integração para a aplicação de utilizador instalada. Informações sobre como criar a função de utilizador de integração são [aqui](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>**Procedimento de ligação**
+### <a name="connection-procedure"></a>Procedimento de ligação
 Utilize o procedimento seguinte para criar uma ligação de ServiceNow:
 
 

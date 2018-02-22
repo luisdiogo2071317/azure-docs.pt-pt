@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar filtros de rota para peering da Microsoft: portal do Azure
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Ser capaz de ligar os filtros de rotas com serviços do Office 365 nos mesmos, t
 > 
 > 
 
-### <a name="workflow"></a>Fluxo de trabalho
+### <a name="workflow"></a>Workflow
 
 Para conseguir ligar com êxito aos serviços através do peering da Microsoft, tem de concluir os seguintes passos de configuração:
 
@@ -92,7 +92,7 @@ Se uma lista dos valores das Comunidades BGP que pretende utilizar no filtro de 
 Um filtro de rota pode ter apenas uma regra e, a regra tem de ser do tipo 'Permitir'. Esta regra pode ter uma lista dos valores das Comunidades BGP associados à mesma.
 
 ### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
-Pode criar um filtro de rota, selecionando a opção para criar um novo recurso. Clique em **novo** > **redes** > **RouteFilter**, conforme mostrado na imagem seguinte:
+Pode criar um filtro de rota, selecionando a opção para criar um novo recurso. Clique em **crie um recurso** > **redes** > **RouteFilter**, conforme mostrado na imagem seguinte:
 
 ![Criar um filtro de rota](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

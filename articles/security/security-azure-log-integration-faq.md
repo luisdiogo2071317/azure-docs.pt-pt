@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Integração de registos do Azure FAQ
-Este artigo responde a perguntas mais frequentes (FAQ) sobre a integração de registo do Azure. 
+
+Este artigo responde a perguntas mais frequentes (FAQ) sobre a integração de registo do Azure.
+
+>[!IMPORTANT]
+>O método preferencial para integrar os registos do Azure é através do conector de Monitor do Azure do seu fornecedor SIEM e seguir estes [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para monitorizar o Azure, poderá utilizar a integração de registo do Azure como uma solução temporária (se o SIEM for suportado pelo Azure registo integração) até esse um conector está disponível.
 
 Integração de registo do Azure é um serviço do sistema operativo Windows que pode utilizar para integrar os registos não processados a partir dos seus recursos do Azure no seu sistemas no local segurança informações e eventos management (SIEM). Esta integração proporciona um dashboard unificado para todos os seus recursos, no local ou na nuvem. Pode, em seguida, Agregar, correlacionar, analisar e alerta para eventos de segurança associados com as suas aplicações.
 
@@ -34,20 +38,20 @@ Sim. Não há sem encargos durante o software de integração de registo do Azur
 Está atualmente disponível no Azure comerciais e Azure Government e não está disponível na China ou na Alemanha.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Como posso ver as contas de armazenamento a partir da qual a integração de registo do Azure é extrair os registos de VM do Azure?
-Execute o comando **lista de origem azlog**.
+Execute o comando **lista de origem AzLog**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Como posso saber a subscrição que pertencem os registos de integração de registo do Azure?
 
 No caso de registos de auditoria que são colocados no **AzureResourcemanagerJson** diretórios, a subscrição do ID está a ser o nome de ficheiro de registo. Isto também se aplica para os registos no **AzureSecurityCenterJson** pasta. Por exemplo:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**. JSON
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Os registos de auditoria do Azure Active Directory incluem o ID de inquilino como parte do nome.
 
 Os registos de diagnóstico que são lidos a partir de um hub de eventos não inclui o ID de subscrição como parte do nome. Em vez disso, incluem o nome amigável especificado como parte da criação da origem de hub de eventos. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Como posso atualizar a configuração do proxy?
-Se a definição de proxy não permite o acesso de armazenamento do Azure diretamente, abra o **AZLOG. EXE. CONFIGURAÇÃO** ficheiros **c:\Program Files\Microsoft Azure registo integração**. Atualizar o ficheiro para incluir o **defaultProxy** secção com o endereço do proxy da sua organização. Depois de terminar a atualização, parar e iniciar o serviço, utilizando os comandos **net stop azlog** e **net iniciar azlog**.
+Se a definição de proxy não permite o acesso de armazenamento do Azure diretamente, abra o **AZLOG. EXE. CONFIGURAÇÃO** ficheiros **c:\Program Files\Microsoft Azure registo integração**. Atualizar o ficheiro para incluir o **defaultProxy** secção com o endereço do proxy da sua organização. Depois de terminar a atualização, parar e iniciar o serviço, utilizando os comandos **net parar AzLog** e **net iniciar AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ O evento de XML tem os metadados seguintes, incluindo o ID de subscrição:
 ![Evento XML][1]
 
 ## <a name="error-messages"></a>Mensagens de erro
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Quando executar o comando **azlog createazureid**, por que motivo obterá o erro seguinte?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Quando executar o comando ```AzLog createazureid```, por que motivo obterá o erro seguinte?
 Erro:
 
   *Falha ao criar a aplicação AAD - inquilino 72f988bf-86f1-41af-91ab-2d7cd011db37-razão = 'Proibido' - mensagem = 'Privilégios suficientes para concluir a operação'.*
@@ -84,7 +88,7 @@ O **azlog createazureid** tenta criar um principal de serviço em todos os inqui
 ### <a name="when-i-run-the-command-azlog-authorize-why-do-i-get-the-following-error"></a>Quando executar o comando **azlog autorizar**, por que motivo obterá o erro seguinte?
 Erro:
 
-  *Criar a atribuição de função - AuthorizationFailed de aviso: O cliente janedo@microsoft.com' com o objeto o id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito ' subscrições/70 d 95299-d689-4C 97-b971-0d8ff0000000'.*
+  *Criar a atribuição de função - AuthorizationFailed de aviso: O cliente janedo@microsoft.com' com o objeto id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito ' / subscrições / 70d 95299-d689-4C 97-b971-0d8ff0000000'.*
 
 O **azlog autorizar** comando atribui a função de leitor para o principal de serviço do Azure AD (criado com **azlog createazureid**) para as subscrições fornecidas. Se o início de sessão do Azure não é um coadministrador ou um proprietário da subscrição, falhará com uma mensagem de erro "Falha de autorização". Azure baseada em funções controlo de acesso (RBAC) de coadministrador ou proprietário é necessário para concluir esta ação.
 

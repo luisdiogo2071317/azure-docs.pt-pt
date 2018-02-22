@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Como escolher o tipo de aplicação a utilizar quando adicionar uma aplicação
 
@@ -39,9 +39,9 @@ AD do Azure suporta quatro tipos de aplicação principal que pode adicionar uti
 
 -   **Aplicações não galeria** – Traga as suas próprias aplicações! Qualquer ligação web que pretende, qualquer aplicação que compõe um campo de nome de utilizador e palavra-passe, suporta os protocolos SAML ou o OpenID Connect ou suporta SCIM que pretende integrar para início de sessão com o Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>Funcionalidades e capacidades suportadas por todos os tipos de aplicação acima
+## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Funcionalidades e capacidades suportadas por todos os tipos de aplicação anterior
 
-As seguintes funcionalidades são suportadas por qualquer um dos tipos de 4 aplicação acima no Azure AD:
+As seguintes funcionalidades são suportadas por qualquer um dos tipos de quatro aplicação anteriores no Azure AD:
 
 -   **Início Rápido** – começar com uma aplicação rapidamente seguindo [passos de implementação simples](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
@@ -49,7 +49,7 @@ As seguintes funcionalidades são suportadas por qualquer um dos tipos de 4 apli
 
 -   **Gestão de utilizadores e grupo** – [atribuir](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) ou [remover](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) utilizadores e grupos para uma aplicação e, opcionalmente, atribua as funções de aplicação específica estes utilizadores e grupos que têm acesso ao
 
--   **Acesso de aplicação personalizada** – permitir aos utilizadores pedir [acesso de aplicação personalizada](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para uma aplicação a partir do respetivo painéis de acesso de aplicação ou ao adicionar uma aplicação diretamente ou [a associar a um grupo ativado self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)opcionalmente exigir a aprovação de negócio ao longo do processo
+-   **Acesso de aplicação personalizada** – permitir aos utilizadores pedir [acesso de aplicação personalizada](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para uma aplicação a partir do respetivo painéis de acesso de aplicação ou ao adicionar uma aplicação diretamente ou [ a associar a um grupo ativado personalizada](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management), opcionalmente, a necessidade de aprovação de negócio ao longo do processo
 
 -   **Os registos de início de sessão** – consulte [todas os inícios de sessão a uma aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), ou todas as suas aplicações
 
@@ -61,28 +61,28 @@ As seguintes funcionalidades são suportadas por qualquer um dos tipos de 4 apli
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>O início de sessão único e o aprovisionamento modos suportados pelos tipos de aplicação específica
 
-A tabela abaixo descreve as diferentes-início de sessão único e modos de aprovisionamento suportados por cada um dos tipos de aplicação acima. Pode utilizar esta tabela para ajudá-lo a compreender que aplicação terá de adicionar a suportar um objetivo específico.
+A tabela seguinte descreve os diferentes único início de sessão e aprovisionamento modos suportados por cada um dos tipos de aplicação anterior. Pode utilizar esta tabela para ajudá-lo a compreender que aplicação terá de adicionar a suportar um objetivo específico.
 
   ![Tabela de tipos de aplicação](./media/application-tables/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Como escolher um modo de início de sessão único
 
-Suportado **de sessão único-** modos de aplicações do Azure AD estão listados abaixo.
+Seguem-se suportado **de sessão único-** modos de aplicações do Azure AD.
 
 -   **Azure AD-início de sessão único desativada** – escolha do Azure AD-início de sessão único desativada **modo de início de sessão único** se ainda não está preparado para integrar esta aplicação-início de sessão único com o Azure AD ou simplesmente são testá-lo de saída
 
--   **Ligado início de sessão** – escolha o [ligado início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modo de início de sessão único** se tiver uma aplicação que já está ligada um único início de sessão solução existente, ou se pretender publicar uma ligação simple para os seus utilizadores no respetivo [painel de acesso de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou [iniciador da aplicação do Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+-   **Ligado início de sessão** – escolha o [ligado início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modo de início de sessão único** se tiver uma aplicação que já está ligada um único início de sessão solução existente, ou se apenas pretender publicar uma ligação simple para os seus utilizadores no respetivo [painel de acesso de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou [iniciador da aplicação do Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
 -   **Baseado em palavra-passe de início de sessão** – escolha o [baseada em palavra-passe de início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modo de início de sessão único** se a aplicação apresenta um campo de nome de utilizador e palavra-passe HTML e de que pretende armazenar esse nome de utilizador e palavra-passe segura para serem reproduzidos para a aplicação mais tarde
 
--   **Baseados em SAML início de sessão** – escolha o [baseados em SAML início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) início de sessão único modo se a aplicação suporta os protocolos SAML ou o OpenID Connect, ou se pretender ser capaz de mapear os utilizadores a funções de aplicação específicos com base nas regras que define nas suas afirmações SAML *
+-   **Baseados em SAML início de sessão** – escolha o [baseados em SAML início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) início de sessão único modo se a aplicação suporta os protocolos SAML ou o OpenID Connect, ou se pretender ser capaz de mapear os utilizadores a funções de aplicação específicos com base nas regras definir nas suas afirmações SAML *
 
    >[!NOTE]
    >Esta opção não está disponível quando o proxy de aplicações está configurado para uma aplicação.
    >
    >
 
--   **Com base no cabeçalho de início de sessão** – Escolha esta [com base no cabeçalho de início de sessão](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) único início de sessão se tiver uma aplicação utilizando PingAccess que suporta o cabeçalho de HTTP basear o modo autenticação que pretende executar o início de sessão único para 
+-   **Com base no cabeçalho de início de sessão** – Escolha esta [com base no cabeçalho de início de sessão](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) único início de sessão no modo se tiver uma aplicação utilizando PingAccess que suporta a autenticação baseada em cabeçalho de HTTP que pretende efetuar o início de sessão único para 
 
    >[!NOTE]
    >Esta opção só está disponível quando o proxy de aplicações e PingAccess está configurado para uma aplicação.
@@ -98,7 +98,7 @@ Suportado **de sessão único-** modos de aplicações do Azure AD estão listad
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modos de início de sessão único para aplicações desenvolvidas por personalizada
 
-Aplicações tiver personalizado desenvolvido através de [aplicações desenvolvidas por personalizada](#_Custom-Developed_Applications) experiência também suportam adicionais único início de sessão modos não enumerados acima. Estas incluem:
+Aplicações tiver personalizado desenvolvido através de [aplicações desenvolvidas por personalizada](#_Custom-Developed_Applications) experiência também suportam adicionais único início de sessão modos listados não anteriormente, que incluem:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) com base em início de sessão
 
@@ -112,23 +112,23 @@ Leia o [guia para programadores do Azure Active Directory](https://docs.microsof
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Como definir único início de sessão no modo uma aplicação
 
-Para definir uma aplicação **de sessão único-** modo, siga as instruções abaixo:
+Para definir uma aplicação **de sessão único-** modo, siga estas instruções:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação para o qual pretende configurar o início de sessão único.
 
-7.  Quando carrega a aplicação, clique em **de sessão único-** do menu de navegação esquerdo da aplicação.
+7.  Quando carrega a aplicação, clique em **de sessão único-** a partir do menu de navegação esquerdo da aplicação.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>Como escolher um modo de aprovisionamento
 
@@ -141,7 +141,7 @@ Para definir uma aplicação **de sessão único-** modo, siga as instruções a
    >
    >
 
--   **Aprovisionamento automático baseado em SCIM** – utilizar [aprovisionamento automático baseado em SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se a aplicação suporta o protocolo SCIM para detetar as alterações aos utilizadores e grupos, que são emitidos automaticamente para as alterações para qualquer aplicação integrado com o Azure AD 
+-   **Aprovisionamento automático baseado em SCIM** – utilizar [aprovisionamento automático baseado em SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se a aplicação suporta o protocolo SCIM para detetar as alterações aos utilizadores e grupos, que são emitidos automaticamente para que as alterações qualquer aplicação integrado com o Azure AD 
 
    >[!NOTE]
    >Esta opção não está indicada como um modo de aprovisionamento específico, mas está ativada por predefinição para todas as aplicações que estão integradas com o Azure AD.
@@ -150,25 +150,25 @@ Para definir uma aplicação **de sessão único-** modo, siga as instruções a
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>Como definir uma aplicação do modo de aprovisionamento
 
-Para definir uma aplicação **aprovisionamento** modo, siga as instruções abaixo:
+Para definir uma aplicação **aprovisionamento** modo, siga estas instruções:
 
-Para definir uma aplicação **de sessão único-** modo, siga as instruções abaixo:
+Para definir uma aplicação **de sessão único-** modo, siga estas instruções:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação para o qual pretende configurar o aprovisionamento.
 
-7.  Quando carrega a aplicação, clique em **aprovisionamento** do menu de navegação esquerdo da aplicação.
+7.  Quando carrega a aplicação, clique em **aprovisionamento** a partir do menu de navegação esquerdo da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
-[Gestão de aplicações com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+## <a name="next-steps"></a>Passos Seguintes
+[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md) (Gerir Aplicações com o Azure Active Directory)

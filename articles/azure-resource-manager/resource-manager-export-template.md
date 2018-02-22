@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportar um modelo do Azure Resource Manager a partir de recursos existentes
 Neste artigo, vai aprender a exportar um modelo do Resource Manager a partir de recursos existentes na sua subscrição. Pode utilizar esse modelo gerado para compreender melhor a sintaxe do modelo.
@@ -33,7 +33,7 @@ Este tópico mostra ambas as abordagens através do portal.
 ## <a name="deploy-resources"></a>Implementar recursos
 Vamos começar por implementar recursos no Azure que pode utilizar para exportar como modelo. Se já tiver um grupo de recursos na sua subscrição que pretende exportar para um modelo, pode ignorar esta secção. O resto deste artigo parte do princípio de que implementou a aplicação Web e a solução de base de dados do SQL apresentadas nesta secção. Se utilizar uma solução diferente, a sua experiência poderá ser ligeiramente diferente, mas os passos para exportar um modelo são os mesmos. 
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Novo**.
+1. No [portal do Azure](https://portal.azure.com), selecione **crie um recurso**.
    
       ![selecionar novo](./media/resource-manager-export-template/new.png)
 2. Procure **aplicação Web + SQL** e selecione-a partir das opções disponíveis.
@@ -169,7 +169,7 @@ Nem todos os tipos de recursos suportam a função de modelo de exportação. Pa
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Aprendeu a exportar um modelo a partir dos recursos que criou no portal.
 
 * Pode implementar um modelo através do [PowerShell](resource-group-template-deploy.md), do [CLI do Azure](resource-group-template-deploy-cli.md) ou da [API REST](resource-group-template-deploy-rest.md).

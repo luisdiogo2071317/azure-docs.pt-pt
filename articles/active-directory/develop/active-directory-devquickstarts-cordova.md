@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -88,7 +88,7 @@ O Azure AD emite tokens para apenas as aplicações conhecidas. Antes de poder u
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. No **diretório** lista, escolha o inquilino do Azure AD, onde é necessário registar a sua aplicação.
-3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
+3. Clique em **todos os serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
 5. Siga as instruções e criar um **aplicação cliente nativa**. (Embora aplicações Cordova HTML com base, estamos a criar uma aplicação cliente nativa aqui. O **aplicação cliente nativa** tem de selecionar a opção ou a aplicação poderá não funciona.)
   * **Nome** descreve a aplicação aos utilizadores.
@@ -121,8 +121,8 @@ Existem várias formas para criar aplicações Cordova. Neste tutorial, iremos u
 
 3. Copie o conteúdo do projeto de arranque na subpasta www através da utilização de um Gestor de ficheiro ou o seguinte comando na sua shell:
 
-  * Windows:`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
-  * MAC:`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
+  * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
+  * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
 4. Adicione a lista branca de plug-in. Isto é necessário para invocar a Graph API.
 
@@ -244,9 +244,9 @@ Execuções subsequentes irão efetuar a pesquisa sem que mostra a qualquer linh
 Os passos para executar a aplicação concretos variam consoante a plataforma.
 
 ### <a name="windows-10"></a>Windows 10
-   Tablet/PC:`cordova run windows --archs=x64 -- --appx=uap`
+   Tablet/PC: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Dispositivo móvel (requer um dispositivo Windows 10 Mobile ligado a um PC):`cordova run windows --archs=arm -- --appx=uap --phone`
+   Dispositivo móvel (requer um dispositivo Windows 10 Mobile ligado a um PC): `cordova run windows --archs=arm -- --appx=uap --phone`
 
    > [!NOTE]
    > Durante a primeira execução, poderá ser-lhe pedido para iniciar sessão uma licença de programador. Para obter mais informações, consulte [licença de programador](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
@@ -258,25 +258,25 @@ Os passos para executar a aplicação concretos variam consoante a plataforma.
    > Durante a primeira execução, poderá ser-lhe pedido para iniciar sessão uma licença de programador. Para obter mais informações, consulte [licença de programador](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### <a name="windows-phone-81"></a>Windows Phone 8.1
-   Para executar num dispositivo ligado:`cordova run windows --device -- --phone`
+   Para executar num dispositivo ligado: `cordova run windows --device -- --phone`
 
-   Para executar o emulador predefinido:`cordova emulate windows -- --phone`
+   Para executar o emulador predefinido: `cordova emulate windows -- --phone`
 
    Utilize `cordova run windows --list -- --phone` para ver todos os destinos disponíveis e `cordova run windows --target=<target_name> -- --phone` para executar a aplicação num dispositivo específico ou emulador (por exemplo, `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
 ### <a name="android"></a>Android
-   Para executar num dispositivo ligado:`cordova run android --device`
+   Para executar num dispositivo ligado: `cordova run android --device`
 
-   Para executar o emulador predefinido:`cordova emulate android`
+   Para executar o emulador predefinido: `cordova emulate android`
 
    Certifique-se de que criou uma instância de emulador utilizando o Gestor de AVD, conforme descrito anteriormente na secção "Pré-requisitos".
 
    Utilize `cordova run android --list` para ver todos os destinos disponíveis e `cordova run android --target=<target_name>` para executar a aplicação num dispositivo específico ou emulador (por exemplo, `cordova run android --target="Nexus4_emulator"`).
 
 ### <a name="ios"></a>iOS
-   Para executar num dispositivo ligado:`cordova run ios --device`
+   Para executar num dispositivo ligado: `cordova run ios --device`
 
-   Para executar o emulador predefinido:`cordova emulate ios`
+   Para executar o emulador predefinido: `cordova emulate ios`
 
    > [!NOTE]
    > Certifique-se de que tem o `ios-sim` instalado para ser executada no emulador do pacote. Para obter mais informações, consulte a secção "Pré-requisitos".

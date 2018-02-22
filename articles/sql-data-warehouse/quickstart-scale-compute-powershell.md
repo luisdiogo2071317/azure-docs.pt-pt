@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: ff6c14ced42385d81f3c42b4b4bf1fd06464c0d1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Início rápido: Escala de computação no Azure SQL Data Warehouse no PowerShell
 
-Dimensionar a computação no Azure SQL Data Warehouse no PowerShell. Aumentar horizontalmente computação para um melhor desempenho ou a escala de computação novamente para reduzir os custos. 
+Dimensionar a computação no Azure SQL Data Warehouse no PowerShell. [Aumentar horizontalmente computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou escala fazer uma cópia de computação para reduzir os custos. 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -67,7 +67,7 @@ Siga estes passos para encontrar informações de localização para o seu armaz
 4. Anote o nome do armazém de dados que será utilizado como o nome de base de dados. Também anote o nome do servidor e o grupo de recursos. Irá utilizá-las na colocar em pausa e retomar comandos.
 5. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como o nome do servidor nos cmdlets do PowerShell. Na imagem anterior, o nome de servidor completo é newserver 20171113.database.windows.net. Utilizamos **newserver 20171113** como o nome do servidor no cmdlet do PowerShell.
 
-## <a name="scale-compute"></a>Dimensionar a computação
+## <a name="scale-compute"></a>Dimensionar computação
 
 No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [criar e ligar - portal](create-data-warehouse-portal.md) criado **mySampleDataWarehouse** e inicializado-lo com 400 DWUs. Os seguintes passos ajustar as DWUs para **mySampleDataWarehouse**.
 

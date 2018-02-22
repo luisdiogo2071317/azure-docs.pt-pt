@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerir o controlo de acesso baseado em funções com a API REST
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
-Baseada em funções controlo de acesso (RBAC) no portal do Azure e a API do Gestor de recursos do Azure ajuda-o a gerir o acesso à sua subscrição e os recursos de um nível detalhado. Com esta funcionalidade, pode conceder acesso para utilizadores, grupos ou principais de serviço do Active Directory através da atribuição de algumas funções aos mesmos num determinado âmbito.
+Com baseada em funções controlo de acesso (RBAC), é possível definir acesso para utilizadores, grupos e principais de serviço através da atribuição de funções num determinado âmbito. Este artigo descreve como gerir o acesso através da API REST.
 
 ## <a name="list-all-role-assignments"></a>Lista todas as atribuições de função
 Apresenta uma lista de todas as atribuições de função no âmbito especificado e subscopes.
@@ -48,9 +48,9 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 2. Substitua *{api-version}* com 2015-07-01.
 3. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de atribuição de função:
 
-   * Listar atribuições de funções para apenas o âmbito especificado, não incluindo as atribuições de função no subscopes:`atScope()`    
-   * Listar atribuições de funções para um utilizador específico, grupo ou aplicação:`principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * Listar atribuições de funções para um utilizador específico, incluindo aqueles herdada a partir de grupos |`assignedTo('{objectId of user}')`
+   * Listar atribuições de funções para apenas o âmbito especificado, não incluindo as atribuições de função no subscopes: `atScope()`    
+   * Listar atribuições de funções para um utilizador específico, grupo ou aplicação: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * Listar atribuições de funções para um utilizador específico, incluindo aqueles herdada a partir de grupos | `assignedTo('{objectId of user}')`
 
 ### <a name="response"></a>Resposta
 Código de estado: 200
@@ -153,7 +153,7 @@ Para o corpo do pedido, forneça os valores no seguinte formato:
 
 | Nome do elemento | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| roleDefinitionId |Sim |Cadeia |O identificador da função. O formato do identificador é:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| roleDefinitionId |Sim |Cadeia |O identificador da função. O formato do identificador é: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Sim |Cadeia |objectId do Azure AD principal (utilizador, grupo ou principal de serviço) para os quais a função é atribuída. |
 
 ### <a name="response"></a>Resposta
@@ -238,8 +238,8 @@ No URI, efetue as seguintes substituições para personalizar o seu pedido:
 2. Substitua *{api-version}* com 2015-07-01.
 3. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de funções:
 
-   * Lista de funções disponíveis para atribuição no âmbito especificado e nenhum dos respetivos âmbitos subordinados:`atScopeAndBelow()`
-   * Pesquisa para uma função com o nome a apresentar exato: `roleName%20eq%20'{role-display-name}'`. Utilize o formato de URL codificado do nome de apresentação exato da função. Por exemplo,`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Lista de funções disponíveis para atribuição no âmbito especificado e nenhum dos respetivos âmbitos subordinados: `atScopeAndBelow()`
+   * Pesquisa para uma função com o nome a apresentar exato: `roleName%20eq%20'{role-display-name}'`. Utilize o formato de URL codificado do nome de apresentação exato da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Resposta
 Código de estado: 200

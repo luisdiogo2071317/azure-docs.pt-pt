@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verifique a utilização dos serviços livres incluído com a sua conta gratuita do Azure 
 
@@ -28,7 +28,7 @@ Não lhe serem cobrados para os serviços incluídos gratuitamente com uma conta
 
 1.  Inicie sessão no [Portal do Azure]( http://portal.azure.com).
 
-2.  Na parte inferior da navegação à esquerda, selecione **mais serviços**.
+2.  Na área de navegação esquerdo, selecione **todos os serviços**.
 
 3.  Selecione **subscrições**.
 
@@ -63,7 +63,7 @@ Não lhe serem cobrados para os serviços incluídos gratuitamente com uma conta
 
 O ficheiro de utilização fornece informações detalhadas para a sua subscrição do Azure. Pode transferir o mensal e diariamente ficheiros de utilização do Centro de contas do Azure. Para saber como transferir o ficheiro de utilização e compreender o acesso requerido, consulte [obter fatura e utilização](billing-download-azure-invoice-daily-usage-date.md). Para saber mais sobre as colunas no ficheiro de utilização, consulte [compreender os termos de licenciamento em conta a utilização](billing-understand-your-usage.md). 
 
-O ficheiro de utilização contém informações de utilização para os serviços gratuitos e pagos. Medidores serviço gratuito teria **livres** no final do nome do medidor. Localizar medidores livres, abra o ficheiro no excel e filtrar o **coluna categoria de medição** de células que contêm texto **- livre** (utilize os filtros de texto &rarr; filtro Contains)&nbsp;
+O ficheiro de utilização contém informações de utilização para os serviços gratuitos e pagos. Medidores serviço gratuito teria **livres** no final do nome do medidor. Localizar medidores livres, abra o ficheiro no excel e filtrar o **coluna categoria de medição** de células que contêm texto **- livre** (utilize os filtros de texto &rarr; filtro Contains) &nbsp;
 
 ![Captura de ecrã que mostra a utilização de serviços gratuitos](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

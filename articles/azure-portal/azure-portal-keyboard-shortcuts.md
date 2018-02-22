@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
 Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure. Serviços individuais podem ter os seus próprios atalhos de teclado.
@@ -27,9 +27,9 @@ Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure
 ## <a name="actions"></a>Ações
 |Para fazê-lo |Prima |
 | --- | --- |
-|Criar um novo recurso|G + N|
-|Abrir o painel "Mais serviços"|G + B|
-|Pesquisar recursos|G + /SAFARI/CHROME| 
+|Criar um novo recurso|G+N|
+|Abra o painel 'Todos os serviços'|G + B|
+|Procurar recursos|G+/| 
 |Itens de menu de recursos de pesquisa|CTRL + /SAFARI/CHROME |
 |Mover o item do painel esquerdo selecionado para cima |ALT + Shift + cópia de segurança seta|
 |Mover o item do painel esquerdo selecionado para baixo |Seta para ALT + Shift + baixo|
@@ -37,13 +37,13 @@ Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure
 ## <a name="navigation"></a>Navegação
 |Para fazê-lo |Prima |
 | --- | --- |
-|Mover o foco à barra de comando |G + |
-|Alternar o foco entre barra superior e barra lateral | G +. |
+|Mover o foco para a barra de comando |G+, |
+|Alternar foco entre barra superior e barra lateral | G+. |
 
 ## <a name="go-to"></a>Ir para
 |Para fazê-lo |Prima |
 | --- | --- |
-|Ir para o dashboard |G + D |
-|Aceda a todos os recursos|G + A |
-|Aceda a grupos de recursos|G + R |
-|Abra o item do painel esquerdo nesta posição |G + número|
+|Ir para o dashboard |G+D |
+|Ir para Todos os recursos|G+A |
+|Ir para Grupos de Recursos|G+R |
+|Abra o item do painel esquerdo nesta posição |G+número|

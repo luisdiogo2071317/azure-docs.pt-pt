@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 Integração de controlo de origem permite-lhe associar os runbooks na sua conta de automatização para um repositório de controlo de origem do GitHub. Controlo de código fonte permite-lhe colaborar com a sua equipa, controlar as alterações, e facilmente reverter para as versões anteriores dos seus runbooks. Por exemplo, controlo de código fonte permite-lhe sincronizar os ramos diferentes no controlo de origem para os desenvolvimento, teste ou de produção as contas de automatização, facilitando a promover o código que tem sido testado no seu ambiente de desenvolvimento para a automatização de produção conta.
@@ -36,12 +36,11 @@ Existem dois passos simples necessários para configurar o controlo de origem pa
 Se já tiver uma conta GitHub e um repositório de que pretende associar a automatização do Azure, em seguida, iniciar sessão na sua conta existente e iniciar a partir do passo 2 abaixo. Caso contrário, navegue para [GitHub](https://github.com/), inscreva-se numa nova conta e [criar um novo repositório de](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>Passo 2 – configurar o controlo de origem na automatização do Azure
-1. Na página de conta de automatização no portal do Azure, clique em **segurança controlo de origem.** 
+1. Da conta de automatização página no portal do Azure, em **as definições da conta**, clique em **controlo de origem.** 
    
-    ![Configurar o controlo de origem](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. O **controlo de código fonte** é aberta, onde pode configurar os detalhes da sua conta GitHub a página. Segue-se a lista de parâmetros a configurar:  
+1. O **controlo de código fonte** é aberta, onde pode configurar os detalhes da sua conta GitHub a página. Segue-se a lista de parâmetros a configurar:  
    
-   | **Parâmetro** | **Descrição** |
+   | Parâmetro | **Descrição** |
    |:--- |:--- |
    | Escolher Origem |Selecione a origem. Atualmente, apenas **GitHub** é suportada. |
    | Autorização |Clique em de **autorizar** botão para conceder acesso de automatização do Azure para o seu repositório do GitHub. Se tiver sessão iniciada sua conta GitHub numa janela diferente, em seguida, são utilizadas as credenciais dessa conta. Depois de autorização é efetuada com êxito, a página irá mostrar o seu nome de utilizador do GitHub em **autorização propriedade**. |
@@ -50,7 +49,7 @@ Se já tiver uma conta GitHub e um repositório de que pretende associar a autom
    | Caminho de pasta do Runbook |O caminho de pasta do runbook Especifica o caminho no repositório de GitHub a partir do qual pretende push ou pull o seu código. Têm de ser introduzido no formato **/nomedapasta/nomedasubpasta**. Apenas os runbooks existentes no caminho da pasta de runbooks serão sincronizados com a sua conta de automatização. Os Runbooks em subpastas do caminho da pasta de runbook será **não** ser sincronizada com êxito. Utilize  **/**  para sincronizar todos os runbooks no repositório. |
 3. Por exemplo, se tiver um repositório denominado **PowerShellScripts** que contém uma pasta denominada **RootFolder**, que contém uma pasta denominada **subpasta**. Pode utilizar as seguintes cadeias ao sincronizar a cada nível de pasta:
    
-   1. Para sincronizar runbooks **repositório**, é o caminho de pasta do runbook*/*
+   1. Para sincronizar runbooks **repositório**, é o caminho de pasta do runbook */*
    2. Para sincronizar runbooks **RootFolder**, caminho de pasta do runbook é */RootFolder*
    3. Para sincronizar runbooks **subpasta**, caminho de pasta do runbook é *RootFolder/subpasta*.
 4. Depois de configurar os parâmetros, estes são apresentados os **segurança controlo de origem** página.  
@@ -64,7 +63,7 @@ Se já tiver uma conta GitHub e um repositório de que pretende associar a autom
    
    * A variável **Microsoft.Azure.Automation.SourceControl.Connection** contém os valores de cadeia de ligação, conforme mostrado abaixo.  
      
-     | **Parâmetro** | **Valor** |
+     | Parâmetro | **Valor** |
      |:--- |:--- |
      | Nome |Microsoft.Azure.Automation.SourceControl.Connection |
      | Tipo |Cadeia |
@@ -72,7 +71,7 @@ Se já tiver uma conta GitHub e um repositório de que pretende associar a autom
 
     * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**, contém o valor encriptado seguro da sua OAuthToken.  
 
-    |**Parâmetro**            |**Valor** |
+    |Parâmetro            |**Valor** |
     |:---|:---|
     | Nome  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Tipo | UNKNOWN(Encrypted) |
@@ -137,7 +136,7 @@ Para desligar da sua conta do GitHub, abra a página de sincronização de repos
 
   ![Botão de desligar](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a integração de controlo de origem, consulte os seguintes recursos:  
 
 * [Da automatização do Azure: Integração do controlo de origem na automatização do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  

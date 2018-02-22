@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
-ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo inclui perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique-los no [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -163,7 +163,7 @@ Para automatizar a foi utilizar o Orchestrator no local ou o Operations Manager 
 Sim, pode utilizar a recuperação para localização alternativa para reativação pós-falha para um anfitrião diferente a partir do Azure. Saiba mais sobre as opções de abaixo as ligações para máquinas virtuais VMware e Hyper-V.
 
 * [Máquinas virtuais VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Máquinas virtuais do Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
+* [Máquinas virtuais do Hyper-V](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>Fornecedores de serviços
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Sou um fornecedor de serviços. Recuperação de sites funciona para modelos de infraestrutura partilhados e dedicados?

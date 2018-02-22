@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91173a14d40f8259927af720986a4efbc9c573ce
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalar e configurar Ansible para gerir máquinas virtuais no Azure
 Este artigo fornece detalhes sobre como instalar Ansible e os módulos do Azure SDK do Python necessários para algumas da distros mais comuns do Linux. Pode instalar Ansible em outros distros ao ajustar os pacotes instalados para ajustar a sua plataforma específica. Para criar recursos do Azure de forma segura, também Saiba como criar e definir credenciais para Ansible a utilizar. 
@@ -28,7 +28,7 @@ Para mais opções de instalação e passos para plataformas adicionais, consult
 
 
 ## <a name="install-ansible"></a>Instalar Ansible
-Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupAnsible* no *eastus* localização:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupAnsible* no *eastus* localização:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -144,7 +144,7 @@ Ansible comunica com o Azure com um nome de utilizador e palavra-passe ou um pri
 Criar um principal de serviço no seu computador anfitrião com [az ad sp criar-para-rbac](/cli/azure/ad/sp#create-for-rbac) e as credenciais que Ansible necessita de saída:
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 Segue-se um exemplo de saída a partir dos comandos do anteriores:

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Gerir o custo de retenção de dados com a sua área de trabalho de análise de registos
 Quando se inscreve para análise de registos, consoante o plano de que selecionar, não há um limite de tempo durante o qual os dados gerados pelas suas origens ligadas são armazenados na sua área de trabalho.  Este artigo realça as considerações que podem influenciar os custos para reter estes dados para diferentes períodos de tempo e como configurar esse limite.   
@@ -44,11 +44,11 @@ Ao utilizar o *livres* planear, se achar que excede consistentemente as quantida
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados 
 
 1. Inicie sessão no [Portal do Azure](http://portal.azure.com). 
-2. Clique em **mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Iniciar análise**.
+2. Clique em **todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 3. No painel de subscrições de análise de registos, selecione a área de trabalho para modificar a partir da lista.
 4. Na página da área de trabalho, clique em **retenção** do painel da esquerda.
 5. No painel de retenção de área de trabalho, mova o controlo de deslize para aumentar ou reduzir o número de dias e, em seguida, clique em **guardar**.  Se tiver o *livre* camada, não será possível modificar o período de retenção de dados e tem de atualizar para o escalão pago para controlar esta definição.<br><br> ![Alteração da definição de retenção de dados de área de trabalho](media/log-analytics-manage-cost/manage-cost-change-retention.png)
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Passos Seguintes  
 
 Para determinar a quantidade de dados é recolhido, as origens de estão a enviar e os diferentes tipos de dados enviados para o ajudar a gerir consumo e o custo, consulte [analisar a utilização de dados na análise de registos](log-analytics-usage.md)

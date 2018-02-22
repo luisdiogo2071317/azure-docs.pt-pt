@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testar o desempenho de um serviço em nuvem localmente no emulador de computação do Azure utilizando o gerador de perfis do Visual Studio
 Uma variedade de ferramentas e técnicas estão disponíveis para testar o desempenho dos serviços em nuvem.
@@ -44,31 +44,35 @@ Pode utilizar estas instruções com um projeto existente ou com um novo projeto
 
 Por exemplo fins, adicionar algum código ao projeto que demora muito tempo e demonstra a um problema de desempenho óbvios. Por exemplo, adicione o seguinte código para um projeto de função de trabalho:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Este código de chamada do método runasync com na classe derivada de RoleEntryPoint da função de trabalho. (Ignorar o aviso sobre o método executar de forma síncrona.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Compilar e executar localmente o serviço em nuvem sem depuração (Ctrl + F5), com a solução definida uma configuração para **versão**. Isto garante que todos os ficheiros e pastas são criados para executar a aplicação localmente e garante que todos os emuladores são iniciados. Inicie a IU do emulador de computação na barra de tarefas para verificar se a sua função de trabalho está em execução.
 
@@ -88,9 +92,11 @@ Se a pasta do projeto é numa unidade de rede, o gerador de perfis irá pedir-lh
  Também pode anexar a uma função web ao anexar o WaIISHost.exe.
 Se existirem vários processos de função de trabalho na sua aplicação, terá de utilizar o ID do processo para distingui-los. Pode consultar o ID do processo através de programação, ao aceder ao objeto de processo. Por exemplo, se adicionar este código para o método de execução da classe derivada de RoleEntryPoint numa função, pode examinar o registo na IU do emulador de computação para saber que processo para ligar a.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Para ver o registo, inicie a IU do emulador de computação.
 
@@ -126,16 +132,18 @@ Se tiver adicionado o código de concatenação de cadeia neste artigo, deverá 
 ## <a name="4-make-changes-and-compare-performance"></a>4: efetuar alterações e compare o desempenho
 Também pode comparar o desempenho antes e após uma alteração de código.  Pare o processo em execução e editar o código para a operação de concatenação de cadeia de substituição com a utilização de StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Não execute outra de desempenho e, em seguida, compare o desempenho. No Explorador de desempenho, se o é executado na mesma sessão, pode apenas selecionar ambos os relatórios, abra o menu de atalho e escolha **comparar o desempenho relatórios**. Se de que pretende comparar com uma execução na outra sessão de desempenho, abra o **analisar** menu e escolha **comparar o desempenho relatórios**. Especifique ambos os ficheiros na caixa de diálogo que aparece.
 
@@ -155,7 +163,7 @@ Parabéns! Que tiver iniciado com o gerador de perfis.
 * Se tiver utilizado a qualquer um dos comandos criação de perfis na linha de comandos, especialmente as definições globais, certifique-se de que VSPerfClrEnv /globaloff EnableNotification for chamada e que VsPerfMon.exe ter sido encerrado.
 * Se ao amostragem, verá a mensagem "PRF0025: foram recolhidos quaisquer dados," Verifique se o processo anexado ao tem atividades de CPU. As aplicações que não estão a fazer qualquer trabalho computacional podem não produzir quaisquer dados de amostragem.  Também é possível que o processo foi terminado antes de qualquer amostragem foi efetuada. Certifique-se de que o método de execução de uma função que lhe está a criação de perfis não terminar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Instrumentação binários do Azure no emulador não é suportado o gerador de perfis do Visual Studio, mas se pretender testar a atribuição de memória, pode escolher essa opção quando a criação de perfis. Pode também escolher simultaneidade criação de perfis, que ajuda a determinar se os threads são perder tempo competir pela bloqueios ou camada interação de criação de perfis, que ajuda a identificar problemas de desempenho quando interagir entre camadas de uma aplicação, mais frequentemente entre a camada de dados e uma função de trabalho.  Pode ver as consultas de base de dados que gera a sua aplicação e os dados de criação de perfis são utilizadas para melhorar a utilização da base de dados. Para obter informações sobre a criação de perfis de interação do escalão, consulte a mensagem de blogue [explicação passo a passo: utilizar o gerador de perfis de interação de camada no Visual Studio Team System 2010][3].
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de palavras-passe perguntas mais frequentes
 
@@ -40,7 +40,7 @@ Estas FAQ é dividida nas seguintes secções:
 
 * **P: os meus utilizadores registar os seus próprios dados de reposição de palavra-passe?**
 
-  > **R:** Sim. Desde que a reposição de palavra-passe está ativada e são licenciados, os utilizadores podem aceder para o portal de registo de reposição (http://aka.ms/ssprsetup) de palavra-passe para registar as suas informações de autenticação. Os utilizadores também podem registar através do painel de acesso (http://myapps.microsoft.com). Para registar através do painel de acesso, que precisam para selecionar a imagem do perfil, selecione **perfil**e, em seguida, selecione o **registar para a reposição de palavra-passe** opção.
+  > **R:** Sim. Desde que a reposição de palavra-passe está ativada e são licenciados, os utilizadores podem aceder para o portal de registo de reposição (https://aka.ms/ssprsetup) de palavra-passe para registar as suas informações de autenticação. Os utilizadores também podem registar através do painel de acesso (http://myapps.microsoft.com). Para registar através do painel de acesso, que precisam para selecionar a imagem do perfil, selecione **perfil**e, em seguida, selecione o **registar para a reposição de palavra-passe** opção.
   >
   >
 * **P: Se ativar a palavra-passe de reposição de um grupo e, em seguida, optar por ativá-la para todos os utilizadores são os meus utilizadores necessário voltar a registar?**
@@ -180,7 +180,7 @@ Estas FAQ é dividida nas seguintes secções:
   >
 * **P: se um utilizador registou mais do que o número máximo de perguntas necessárias para repor, como são as perguntas de segurança selecionadas durante a reposição?**
 
-  > **R:** *N* número de perguntas de segurança é seleccionado aleatoriamente entre o número total de perguntas a que um utilizador tiver registado para onde *N* é a quantidade que está definida para o  **Número de perguntas necessárias para repor** opção. Por exemplo, se um utilizador registou cinco perguntas de segurança, mas apenas três são necessárias para repor uma palavra-passe, três das cinco perguntas são selecionadas aleatoriamente e são apresentadas na reposição. Para evitar pergunta hammering, se o utilizador obtém as respostas às questões errado o processo de seleção é iniciado através de.
+  > **R:** *N* número de perguntas de segurança é seleccionado aleatoriamente entre o número total de perguntas a que um utilizador tiver registado para onde *N* é a quantidade que está definida para o **número de perguntas necessárias para repor** opção. Por exemplo, se um utilizador registou cinco perguntas de segurança, mas apenas três são necessárias para repor uma palavra-passe, três das cinco perguntas são selecionadas aleatoriamente e são apresentadas na reposição. Para evitar pergunta hammering, se o utilizador obtém as respostas às questões errado o processo de seleção é iniciado através de.
   >
   >
 * **P: quanto são o e-mail e o SMS Monouso códigos de acesso válidos?**

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Proteger os dados pessoais com funcionalidades de segurança de rede: Gateway de aplicação do Azure e os grupos de segurança de rede
 
@@ -59,18 +59,9 @@ Pode criar um gateway de aplicação com WAF ou adicionar WAF para um gateway de
 
 Para criar um novo gateway de aplicação com WAF ativada, efetue o seguinte:
 
-1. Inicie sessão no portal do Azure e no **Favoritos** painel do portal, clique em **novo**
-
-2. No painel **Novo**, clique em **Redes**.
-
-3. Clique em **Gateway de aplicação**.
-
-4. Navegue até ao portal do Azure, **clique em novo \> redes \> Gateway de aplicação.**
-
-   ![criar gateways de aplicação](media/protect-netsec/app-gateway-01.png)
-
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Selecione **crie um recurso** > **redes** > **Gateway de aplicação**.
 5. No **Noções básicas** painel apresentado, introduza os valores para os seguintes campos: nome, a camada (padrão ou WAF), tamanho SKU (pequeno, médio ou grande), instância contagem (2 para elevada disponibilidade), subscrição, grupo de recursos e localização.
-
 6. No **definições** painel que é apresentado em **rede Virtual**, clique em **escolha uma rede virtual**. Este passo é aberto o introduza painel virtual network escolha.
 
 7. Clique em **criar nova** para abrir o **criar rede virtual** painel.
@@ -126,7 +117,7 @@ Para obter mais documentação de orientação planear e implementar os NSGs e u
 
 Para criar regras de entrada num NSG existente, efetue o seguinte:
 
-1. Clique em **procurar**e, em seguida, **grupos de segurança de rede**.
+1. Clique em **todos os serviços**e, em seguida, **grupos de segurança de rede**.
 
 2. Na lista de NSGs, clique em **NSG-front-end**e, em seguida, **regras de segurança de entrada.**
 
@@ -140,11 +131,11 @@ A nova regra será apresentado o NSG após alguns segundos.
 
 Para obter mais instruções sobre como criar NSGs em sub-redes, criar regras e associar um NSG uma sub-rede do front-end e back-end, consulte [criar grupos de segurança de rede através do portal do Azure.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Segurança de rede do Azure](https://azure.microsoft.com/blog/azure-network-security/)
 
-[Práticas recomendadas de segurança de rede do Azure](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+[Práticas Recomendadas de Segurança de Rede do Azure](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 
 [Obter informações sobre um grupo de segurança de rede](https://docs.microsoft.com/rest/api/network/virtualnetwork/get-information-about-a-network-security-group)
 

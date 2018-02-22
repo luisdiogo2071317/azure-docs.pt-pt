@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 7ff6817bafdfe1943d70639c7f3c69c417f5f94a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Como as aplicações são apresentadas no painel de acesso
 
-O painel de acesso é um portal baseado na web que permite que um utilizador com uma conta escolar ou profissional no Azure Active Directory (Azure AD) para ver e iniciar as aplicações baseadas na nuvem que o administrador do Azure AD concedeu-lhes acesso. Estas aplicações estão configuradas em nome do utilizador no portal do Azure AD. O administrador pode aprovisionar diretamente a aplicação para o utilizador ou a um grupo de um utilizador faz parte de resultando na aplicação volte a aparecer no painel de acesso do utilizador.
+O painel de acesso é um portal baseado na web, que permite que um utilizador com uma conta escolar ou profissional no Azure Active Directory (Azure AD) para ver e iniciar as aplicações baseadas na nuvem que o administrador do Azure AD concedeu-lhes acesso. Estas aplicações estão configuradas em nome do utilizador no portal do Azure AD. O administrador pode aprovisionar diretamente a aplicação para o utilizador ou a um grupo de um utilizador faz parte de resultando na aplicação volte a aparecer no painel de acesso do utilizador.
 
 ## <a name="general-issues-to-check-first"></a>Problemas gerais para verificar primeiro
 
--   Se uma aplicação apenas foi removida de um utilizador ou grupo, que o utilizador é membro de, tente voltar a iniciar e terminar no painel de acesso do utilizador após alguns minutos para ver se a aplicação é removida.
+-   Se uma aplicação foi removida a partir de um utilizador ou grupo, que o utilizador é membro de, tente voltar a iniciar e terminar no painel de acesso do utilizador após alguns minutos para ver se a aplicação é removida.
 
--   Se uma licença apenas tiver sido removida de um utilizador ou grupo, o utilizador é que membro deste processo poderá demorar muito tempo, dependendo do tamanho e complexidade do grupo para que as alterações para ser efetuada. Permitir tempo adicional antes de iniciar sessão do painel de acesso.
+-   Se tiver sido removida uma licença de um utilizador ou grupo, o utilizador é que membro deste processo poderá demorar muito tempo, dependendo do tamanho e complexidade do grupo para que as alterações para ser efetuada. Permitir tempo adicional antes de iniciar sessão do painel de acesso.
 
 ## <a name="problems-related-to-assigning-applications-to-users"></a>Problemas relacionados com a atribuição de aplicações para utilizadores
 
@@ -41,15 +41,15 @@ Um utilizador pode estar a ver uma aplicação no respetivo painel de acesso por
 
 ### <a name="check-if-a-user-is-assigned-to-the-application"></a>Certifique-se um utilizador atribuído à aplicação
 
-Para verificar se um utilizador está atribuído à aplicação, siga os passos abaixo:
+Para verificar se um utilizador está atribuído à aplicação, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
@@ -63,11 +63,11 @@ Para verificar se um utilizador está atribuído à aplicação, siga os passos 
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Verifique se um utilizador com uma licença relacionadas com a aplicação
 
-Para verificar as licenças atribuídas de um utilizador, siga os passos abaixo:
+Para verificar as licenças atribuídas de um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -79,7 +79,7 @@ Para verificar as licenças atribuídas de um utilizador, siga os passos abaixo:
 
 7.  Clique em **licenças** ver qual licenças atualmente o utilizador tem atribuída.
 
-   * Se o utilizador está atribuído a um Office licenças este ativar primeiro terceiros as aplicações do Office a aparecer no painel de acesso do utilizador.
+   * Se o utilizador é atribuído a uma licença do Office, isto permite que aplicações do Office de terceiros primeiro a aparecer no painel de acesso do utilizador.
 
 ## <a name="problems-related-to-assigning-applications-to-groups"></a>Problemas relacionados com a atribuição de aplicações para grupos
 
@@ -91,11 +91,11 @@ Um utilizador pode estar a ver uma aplicação no respetivo painel de acesso por
 
 ### <a name="check-a-users-group-memberships"></a>Verifique as associações de grupo do utilizador
 
-Para verificar a associação a um grupo, siga os passos abaixo:
+Para verificar a associação a um grupo, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -113,9 +113,9 @@ Para verificar a associação a um grupo, siga os passos abaixo:
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Verifique se um utilizador for um membro de um grupo atribuído a uma licença
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -131,7 +131,7 @@ Para verificar a associação a um grupo, siga os passos abaixo:
 
 9.  Clique em **licenças** ver as licenças que o grupo foi atribuída.
 
-  * Se o grupo for atribuído a uma licença do Office que isto poderá ativar determinadas aplicações do Office de terceiros primeiro a aparecer no painel de acesso do utilizador.
+  * Se o grupo for atribuído a uma licença do Office, este poderá ativar determinadas aplicações do Office de terceiros primeiro a aparecer no painel de acesso do utilizador.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se efetue estes passos de resolução de problemas não a resolva o problema
@@ -150,5 +150,5 @@ Abra um pedido de suporte com as seguintes informações se disponíveis:
 
 -   Rastreios de fiddler
 
-## <a name="next-steps"></a>Passos seguintes
-[Gestão de aplicações com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+## <a name="next-steps"></a>Passos Seguintes
+[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md) (Gerir Aplicações com o Azure Active Directory)

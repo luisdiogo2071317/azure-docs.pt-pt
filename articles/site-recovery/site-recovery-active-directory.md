@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utilizar o Azure Site Recovery para proteger o Active Directory e DNS
-As aplicações empresariais, tais como o SharePoint, Dynamics AX e SAP dependem do Active Directory e uma infraestrutura DNS para funcionar corretamente. Quando cria uma solução de recuperação após desastre para aplicações, para garantir a funcionalidade de aplicação correta, muitas vezes, precisar de recuperar do Active Directory e DNS antes de recuperar outros componentes de aplicações.
 
-Pode utilizar o Azure Site Recovery para criar um plano de recuperação após desastre concluída, automatizada para o Active Directory. Se ocorre uma interrupção, pode iniciar uma ativação pós-falha em segundos a partir de qualquer lugar. Pode ter o Active Directory cópias de segurança e em execução dentro de alguns minutos. Se tiver implementado do Active Directory para várias aplicações no seu site primário, por exemplo, para o SharePoint e SAP, poderá efetuar a ativação pós-falha completa do local. Primeiro pode falhar do Active Directory utilizando a recuperação de Site. Em seguida, efetua a ativação pós-falha de outras aplicações utilizando planos de recuperação específico da aplicação.
+As aplicações empresariais, tais como o SharePoint, Dynamics AX e SAP dependem do Active Directory e uma infraestrutura DNS para funcionar corretamente. Quando configurar a recuperação após desastre para aplicações, muitas vezes necessitam de recuperar o Active Directory e DNS antes de recuperar outros componentes da aplicação, para garantir a funcionalidade de aplicação correto.
 
-Este artigo explica como criar uma solução de recuperação após desastre para o Active Directory, como executar as ativações pós-falha utilizando um plano de recuperação de um clique e pré-requisitos e configurações suportadas. Deve estar familiarizado com o Active Directory e o Azure Site Recovery antes de começar.
+Pode utilizar [recuperação de Site](site-recovery-overview.md) para criar um plano de recuperação após desastre para o Active Directory. Se ocorre uma interrupção, pode iniciar uma ativação pós-falha. Pode ter o Active Directory cópias de segurança e em execução dentro de alguns minutos. Se tiver implementado do Active Directory para várias aplicações no seu site primário, por exemplo, para o SharePoint e SAP, poderá efetuar a ativação pós-falha completa do local. Primeiro pode efetuar a ativação pós-falha do Active Directory utilizando ite recuperação. Em seguida, efetua a ativação pós-falha de outras aplicações, utilizando os planos de recuperação específico da aplicação.
+
+Este artigo explica como criar uma solução de recuperação após desastre para o Active Directory. Inclui os pré-requisitos e instruções de ativação pós-falha. Deve estar familiarizado com o Active Directory e a recuperação de Site antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Um cofre dos serviços de recuperação do Azure de uma subscrição do Microsoft Azure.
-* Se estiver a replicar para o Azure, [preparar](tutorial-prepare-azure.md) recursos do Azure. Os recursos incluem uma subscrição do Azure, uma instância de rede Virtual do Azure e uma conta de armazenamento do Azure.
-* Reveja os requisitos de suporte de todos os componentes.
+
+* Se estiver a replicar para o Azure, [preparar os recursos do Azure](tutorial-prepare-azure.md), incluindo uma subscrição, uma rede Virtual do Azure, uma conta do storage e um cofre dos serviços de recuperação.
+* Reveja os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
 
 ## <a name="replicate-the-domain-controller"></a>Replicar o controlador de domínio
 
-Tem de configurar [replicação do Site Recovery](#enable-protection-using-site-recovery) em, pelo menos, uma máquina virtual que aloja um controlador de domínio ou DNS. Se tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) no seu ambiente, também tem de configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino. O controlador de domínio adicionais pode ser no Azure ou num datacenter secundário no local.
+Tem de configurar [replicação do Site Recovery](#enable-protection-using-site-recovery), pelo menos uma VM que aloja um controlador de domínio ou DNS. Se tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) no seu ambiente, também tem de configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino. O controlador de domínio adicionais pode ser no Azure ou num datacenter secundário no local.
 
-### <a name="single-domain-controller-environments"></a>Ambientes de controlador de domínio único
+### <a name="single-domain-controller"></a>Controlador de domínio único
 Se tiver apenas algumas aplicações e um controlador de domínio, poderá querer efetuar a ativação pós-falha de todo o local em conjunto. Neste caso, recomendamos a utilização de recuperação de sites para replicar o controlador de domínio para o site de destino (a no Azure ou num datacenter secundário no local). Pode utilizar o mesmo controlador de domínio replicados ou a máquina virtual DNS para [ativação pós-falha de teste](#test-failover-considerations).
 
-### <a name="multiple-domain-controllers-environments"></a>Vários ambientes de controladores de domínio
+### <a name="multiple-domain-controllers"></a>Vários controladores de domínio
 Se tiver várias aplicações e mais do que um controlador de domínio no seu ambiente ou, se pretender efetuar a ativação pós-falha algumas aplicações simultaneamente; além disso replicar as máquinas de controlador de domínio com a recuperação de Site, recomendamos que configure um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (a no Azure ou num datacenter secundário no local). Para [ativação pós-falha de teste](#test-failover-considerations), pode utilizar o controlador de domínio que é replicado pela recuperação de sites. Para ativação pós-falha, pode utilizar o controlador de domínio adicionais no site de destino.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Ativar a proteção utilizando a recuperação de Site
+## <a name="enable-protection-with-site-recovery"></a>Ativar a proteção com a recuperação de Site
 
 Pode utilizar a recuperação de sites para proteger a máquina virtual que aloja o controlador de domínio ou DNS.
 
-### <a name="protect-the-virtual-machine"></a>Proteger a máquina virtual
+### <a name="protect-the-vm"></a>Proteger a VM
 O controlador de domínio que é replicado utilizando a recuperação de Site é utilizado para [ativação pós-falha de teste](#test-failover-considerations). Certifique-se de que cumpre os seguintes requisitos:
 
 1. O controlador de domínio é um servidor de catálogo global.
 2. O controlador de domínio deve ser o proprietário da função FSMO para as funções que são necessárias durante uma ativação pós-falha de teste. Caso contrário, estas funções tem de ser [seized](http://aka.ms/ad_seize_fsmo) após a ativação pós-falha.
 
-### <a name="configure-virtual-machine-network-settings"></a>Configurar as definições de rede de máquina virtual
+### <a name="configure-vm-network-settings"></a>Configurar as definições de rede VM
 Para a máquina virtual que aloja o controlador de domínio ou DNS, na recuperação de Site, configurar definições de rede sob o **computação e rede** definições da máquina virtual replicada. Isto garante que a máquina virtual está ligada à rede correta após a ativação pós-falha.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Proteger o Active Directory com a replicação do Active Directory
+## <a name="protect-active-directory"></a>Proteger o Active Directory
+
 ### <a name="site-to-site-protection"></a>Proteção de site a site
 Crie um controlador de domínio no site secundário. Quando promover o servidor para uma função de controlador de domínio, especifique o nome do mesmo domínio que está a ser utilizado no site primário. Pode utilizar o **serviços e locais do Active Directory** snap-in para configurar as definições no objeto de ligação de site a que são adicionados os sites. Ao configurar as definições de uma ligação de site, pode controlar quando ocorre a replicação entre dois ou mais sites e com que frequência ocorre. Para obter mais informações, consulte [agendar a replicação entre sites](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -91,7 +88,7 @@ A maioria das aplicações requerem a presença de um controlador de domínio ou
 
 ### <a name="test-failover-to-a-secondary-site"></a>Ativação pós-falha de teste para um site secundário
 
-1. Se está a replicar para outro site no local e utilizar o DHCP, siga as instruções para [configurar o DNS e DHCP para ativação pós-falha de teste](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. Se está a replicar para outro site no local e utilizar o DHCP, [configurar o DNS e DHCP para ativação pós-falha de teste](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Efetue uma ativação pós-falha de teste da máquina de virtual de controlador de domínio que é executado numa rede isolada. Utilize o mais recente disponível *aplicação consistente* ponto de recuperação da máquina de virtual de controlador de domínio para efetuar a ativação pós-falha de teste.
 3. Execute uma ativação pós-falha de teste para o plano de recuperação contém máquinas virtuais que a aplicação é executada no.
 4. Quando os testes são concluídos, *ativação pós-falha de teste de limpeza* na máquina de virtual do controlador de domínio. Este passo elimina o controlador de domínio que foi criado para ativação pós-falha de teste.

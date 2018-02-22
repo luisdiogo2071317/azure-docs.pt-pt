@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar as implementações de Jenkins para satisfazer o pedido com agentes de VM do Azure
 
@@ -91,7 +91,7 @@ Neste tutorial, irá:
             }
      ```
 
-    O principal de serviço concluídos deve utilizar o `id` campo para **ID de subscrição**, a `appId` valor para **ID de cliente**, `password` para **segredo do cliente**e um URL para **ponto final de tokens de OAuth 2.0** de `https://login.windows.net/<tenant_value>`. Selecione **adicionar** para adicionar o principal de serviço e, em seguida, configurar o plug-in para utilizar a credencial recentemente criada.
+    O principal de serviço concluídos deve utilizar o `id` campo para **ID de subscrição**, a `appId` valor para **ID de cliente**, `password` para **segredo do cliente**, e `tenant` para **ID de inquilino**. Selecione **adicionar** para adicionar o principal de serviço e, em seguida, configurar o plug-in para utilizar a credencial recentemente criada.
 
     ![Configurar o Principal de serviço do Azure](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -130,7 +130,7 @@ Selecione **verificar modelo** para verificar a configuração e, em seguida, se
 2. Introduza `demoproject1` para o nome e selecione **projeto Freestyle**, em seguida, selecione **OK**.
 3. No **geral** separador, escolha **restringir onde pode ser executado projeto** e tipo `ubuntu` no **expressão da etiqueta**. Verá uma mensagem de confirmar que a etiqueta é fornecida na configuração da nuvem criada no passo anterior. 
    ![Configurar a tarefa](./media/jenkins-azure-vm-agents/job-config.png)
-4. No **gestão da origem de código** separador, selecione **Git** e adicione o seguinte URL para o **URL do repositório** campo:`https://github.com/spring-projects/spring-petclinic.git`
+4. No **gestão da origem de código** separador, selecione **Git** e adicione o seguinte URL para o **URL do repositório** campo: `https://github.com/spring-projects/spring-petclinic.git`
 5. No **criar** separador, selecione **Adicionar passo de compilação**, em seguida, **invocar destinos nível superior do Maven**. Introduza `package` no **objetivos** campo.
 6. Selecione **guardar** para guardar a definição de tarefa.
 
@@ -142,7 +142,7 @@ Selecione **verificar modelo** para verificar a configuração e, em seguida, se
 
 ![Saída da consola](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [CI/CD para o App Service do Azure](java-deploy-webapp-tutorial.md)

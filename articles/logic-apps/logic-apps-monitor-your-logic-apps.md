@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ativar alertas para o Azure Logic Apps
 
@@ -29,7 +29,7 @@ Para obter notificações sobre falhas ou outros informações sobre problemas p
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Execuções de vista e o histórico de acionamento para a sua aplicação lógica
 
-1. Para localizar a sua aplicação lógica no [portal do Azure](https://portal.azure.com), no menu principal do Azure, escolha **mais serviços**. Na caixa de pesquisa, localize "logic apps" e escolha **as Logic apps**.
+1. Para localizar a sua aplicação lógica no [portal do Azure](https://portal.azure.com), no menu principal do Azure, escolha **todos os serviços**. Na caixa de pesquisa, escreva "logic apps" e escolha **as Logic apps**.
 
    ![Localizar a sua aplicação lógica](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -97,7 +97,7 @@ Antes de começar, tem de ter uma área de trabalho do OMS. Saiba [como criar um
    3. Em **áreas de trabalho do OMS**, selecione a área de trabalho do OMS a utilizar para o registo.
    4. Em **registo**, selecione o **WorkflowRuntime** categoria.
    5. Escolha o intervalo de métrico.
-   6. Quando tiver terminado, escolha **guardar**.
+   6. Quando tiver terminado, escolha **Save** (Guardar).
 
    ![Selecione a área de trabalho OMS e dados de registo](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -109,7 +109,7 @@ Agora, pode encontrar eventos e outros dados de eventos de Acionador, execute os
 
 Para localizar e visualizar eventos na sua aplicação lógica, incluindo a acionar eventos, executados os eventos e os eventos de ação, siga estes passos.
 
-1. No [portal do Azure](https://portal.azure.com), escolha **mais serviços**. Procure "análise de registos", em seguida, escolha **Log Analytics** conforme mostrado aqui:
+1. No [portal do Azure](https://portal.azure.com), escolha **todos os serviços**. Procure "análise de registos", em seguida, escolha **Log Analytics** conforme mostrado aqui:
 
    ![Escolha "Análise de registos"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerir o início de sessão para aplicações da empresa
 
 Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir definições de início de sessão único para aplicações da empresa. Aplicações da empresa são aplicações que estão implementadas e utilizadas dentro da sua organização. Este artigo aplica-se especialmente para aplicações que foram adicionadas a partir de [Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar as suas aplicações no portal
-Todas as aplicações da empresa que são definidas para o início de sessão único pode ser visto e gerido no portal do Azure. As aplicações podem ser encontradas no **mais serviços** &gt; **aplicações empresariais** secção do portal. 
+Todas as aplicações da empresa que são definidas para o início de sessão único pode ser visto e gerido no portal do Azure. As aplicações podem ser encontradas no **todos os serviços** &gt; **aplicações empresariais** secção do portal. 
 
 ![Painel de aplicações da empresa][1]
 

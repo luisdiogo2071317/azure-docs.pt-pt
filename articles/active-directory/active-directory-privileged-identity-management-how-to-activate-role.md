@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 8bd8a72653699df4f4953053d61c16e30a2a101d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a524e1f9d739b42cd63de82291d98ff8c59f2f5f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Como ativar ou desativar as funções no Azure AD Privileged Identity Management
 O Azure Active Directory (AD) Privileged Identity Management simplifica como às empresas gerem o acesso privilegiado para recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
@@ -31,9 +31,9 @@ Este artigo destina-se a administradores que precisam de ativar a respetiva fun�
 ## <a name="add-the-privileged-identity-management-application"></a>Adicionar a aplicação Privileged Identity Management
 Utilizar a aplicação Azure AD Privileged Identity Management no [portal do Azure](https://portal.azure.com/) para pedir a ativação de uma função, mesmo que vai operar noutro portal ou PowerShell. Se não tiver a aplicação Azure AD Privileged Identity Management no portal do Azure, siga estes passos para começar a utilizar.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione o seu nome de utilizador no canto superior direito do portal do Azure e selecione o diretório onde irá a estar a funcionar.
-3. Selecione **Mais serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
+3. Selecione **todos os serviços** e utilize a caixa de texto de filtro para procurar **do Azure AD Privileged Identity Management**.
 4. Marque **Afixar ao dashboard** e, em seguida, clique em **Criar**. A aplicação Privileged Identity Management abre.
 
 ## <a name="activate-a-role"></a>Ativar uma função
@@ -67,7 +67,7 @@ No caso de não necessitar de ativação de uma função que requeira a aprovaç
 
    ![Cancelar a captura de ecrã do pedido pendente][4]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se estiver interessado em aprender mais sobre o Azure AD Privileged Identity Management, as hiperligações seguintes tem mais informações.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

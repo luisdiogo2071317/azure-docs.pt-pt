@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Começar a utilizar o Azure Stream Analytics: deteção de fraudes em tempo real
 
@@ -61,7 +61,7 @@ Para analisar um fluxo de dados, *inserção* -lo no Azure. Uma forma típica pa
 ### <a name="create-a-namespace-and-event-hub"></a>Criar um hub de espaço de nomes e eventos
 Neste procedimento, tem primeiro de criar um espaço de nome de hub de eventos e, em seguida, adicione um hub de eventos para esse espaço de nomes. Espaços de nomes de hub de eventos são utilizados para agrupar logicamente as instâncias de barramento de eventos relacionados. 
 
-1. Inicie sessão no portal do Azure e clique em **novo** > **Internet das coisas** > **Hub de eventos**. 
+1. Inicie sessão no portal do Azure e clique em **crie um recurso** > **Internet das coisas** > **Hub de eventos**. 
 
 2. No **criar espaço de nomes** painel, introduza um nome de espaço de nomes, como `<yourname>-eh-ns-demo`. Pode utilizar qualquer nome para o espaço de nomes, mas o nome tem de ser válido para um URL e tem de ser exclusivo em todo o Azure. 
     
@@ -149,7 +149,7 @@ Antes de iniciar a aplicação de TelcoGenerator, configurá-lo de modo a que ir
 
 Alguns dos campos chaves que irá utilizar nesta aplicação de deteção de fraudes em tempo real são os seguintes:
 
-|**Record**|Definição|
+|**Record**|**Definição**|
 |----------|--------------|
 |`CallrecTime`|O carimbo de hora de início de chamada. |
 |`SwitchNum`|O comutador de telefone utilizado para ligar a chamada. Neste exemplo, os comutadores são cadeias que representam o país/região de origem (E.U.A., China, RU, Datacenters ou Austrália). |
@@ -165,7 +165,7 @@ Agora que tem um fluxo de eventos de chamada, pode configurar uma tarefa de Stre
 
 ### <a name="create-the-job"></a>Criar a tarefa 
 
-1. No portal do Azure, clique em **novo** > **Internet das coisas** > **tarefa do Stream Analytics**.
+1. No portal do Azure, clique em **crie um recurso** > **Internet das coisas** > **tarefa do Stream Analytics**.
 
 2. A tarefa de nome `sa_frauddetection_job_demo`, especifique uma subscrição, o grupo de recursos e a localização.
 

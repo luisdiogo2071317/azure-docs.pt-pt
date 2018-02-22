@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Introdução aos dispositivos duplos
 #### [Back-end de Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Back-end de Java/Dispositivo Java](iot-hub-java-java-twin-how-to-configure.md)
+#### [Back-end em Python/dispositivo Python](iot-hub-python-python-twin-how-to-configure.md)
 ### Utilizar tarefas de dispositivo para atualizar o firmware do dispositivo
 #### [Back-end de Node/Dispositivo Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Back-end de Java/Dispositivo Java](iot-hub-java-java-firmware-update.md)
+#### [Back-end em Python/dispositivo Python](iot-hub-python-python-firmware-update.md)
 ### Agendar e difundir tarefas
 #### [Back-end de Node.js/Dispositivo Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Back-end de Java/Dispositivo Java](iot-hub-java-java-schedule-jobs.md)
+#### [Back-end em Python/dispositivo Python](iot-hub-python-python-schedule-jobs.md)
 
 ## Gerir
 ### Criar um hub IoT 

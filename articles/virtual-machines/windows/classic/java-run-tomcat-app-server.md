@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicações Java numa máquina virtual criada com o modelo de implementação clássica
 > [!IMPORTANT]
@@ -43,8 +43,8 @@ Os resultados da instalação foi concluída no Tomcat em execução numa máqui
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
-2. Clique em **novo**, clique em **computação**, em seguida, clique em **ver todos os** no **aplicações em destaque**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
+2. Clique em **crie um recurso**, clique em **computação**, em seguida, clique em **ver todos os** no **aplicações em destaque**.
 3. Clique em **JDK**, clique em **JDK 8** no **JDK** painel.  
    Imagens de máquina virtual que suportem **JDK 6** e **JDK 7** estão disponíveis se tiver aplicações antigas que não estão prontas ser executada no JDK 8.
 4. No painel de JDK 8, selecione **clássico**, em seguida, clique em **criar**.
@@ -89,7 +89,7 @@ Depois de Tomcat está em execução, pode aceder Tomcat ao introduzir o URL <ht
 Para ver o Tomcat em execução a partir de computadores externos, terá de criar um ponto final e abrir uma porta.
 
 ## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>Para criar um ponto final para a máquina virtual
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique em **máquinas virtuais (clássicas)**.
 3. Clique no nome da máquina virtual que está a executar o servidor de aplicações Java.
 4. Clique em **Pontos Finais**.
@@ -121,7 +121,7 @@ Para ver o Tomcat em execução a partir de computadores externos, terá de cria
 10. No **nome** ecrã, especifique um nome para a regra, tal como **HttpIn** (o nome da regra não tem de corresponder ao nome do ponto final, no entanto) e, em seguida, clique em **concluir**.  
     ![Novo nome de regra de entrada][NewRuleName]
 
-Neste momento, o seu Web site Tomcat deve ser visível a partir de um browser externo. Na janela de endereço do browser, escreva um URL do formulário  **http://*sua\_DNS\_nome*. cloudapp.net**, onde ***sua\_DNS\_nome*** é o nome DNS que especificou quando criou a máquina virtual.
+Neste momento, o seu Web site Tomcat deve ser visível a partir de um browser externo. Na janela de endereço do browser, escreva um URL do formulário **http://*sua\_DNS\_nome*. cloudapp.net**, onde ***sua\_DNS\_nome*** é o nome DNS que especificou quando criou a máquina virtual.
 
 ## <a name="application-lifecycle-considerations"></a>Considerações de ciclo de vida de aplicação
 * Foi possível criar o seu próprio arquivo da aplicação web (WAR) e adicione-o ao **webapps** pasta. Por exemplo, crie um projeto de web dinâmico de página de serviço de Java (JSP) básico e exportá-lo como um ficheiro WAR. Em seguida, copie o WAR para o Apache Tomcat **webapps** pasta na máquina virtual, em seguida, execute-o num browser.
@@ -131,7 +131,7 @@ Neste momento, o seu Web site Tomcat deve ser visível a partir de um browser ex
 
     A vantagem de ter Tomcat iniciar automaticamente é que entra em execução quando a máquina virtual é reiniciada (por exemplo, depois de instalar as atualizações de software que requerem um reinício).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber sobre outros serviços (por exemplo, o Storage do Azure, o barramento de serviço e a SQL Database) que pode querer incluir com as aplicações de Java. Ver as informações disponíveis no [Centro de programadores Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png

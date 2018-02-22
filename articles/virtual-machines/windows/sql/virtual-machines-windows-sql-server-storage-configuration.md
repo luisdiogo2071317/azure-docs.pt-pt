@@ -4,7 +4,7 @@ description: "Este tópico descreve a forma como o Azure configura armazenamento
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs de SQL Server
 Quando configura uma imagem de máquina virtual do SQL Server no Azure, o Portal de ajuda a automatizar a configuração de armazenamento. Isto inclui anexar armazenamento para a VM, tornando esse armazenamento acessível ao SQL Server e configurá-lo a otimizar para os seus requisitos de desempenho específicos.
@@ -132,7 +132,7 @@ A tabela seguinte descreve as opções de tipo de carga de três trabalho dispon
 
 | Tipo de carga de trabalho | Descrição | Otimizações de |
 | --- | --- | --- |
-| **Geral** |Predefinição que suporta a maioria das cargas de trabalho |Nenhuma |
+| Geral |Predefinição que suporta a maioria das cargas de trabalho |Nenhum |
 | **Processamento de transações** |Otimiza o armazenamento para cargas de trabalho OLTP de bases de dados tradicionais |Sinalizador de rastreio 1117<br/>Sinalizador de rastreio 1118 |
 | **Armazém de dados** |Otimiza o armazenamento para cargas de trabalho analíticas e de relatórios |Sinalizador de rastreio 610<br/>Sinalizador de rastreio 1117 |
 
@@ -141,5 +141,5 @@ A tabela seguinte descreve as opções de tipo de carga de três trabalho dispon
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para outros tópicos relacionados com a executar o SQL Server em VMs do Azure, consulte [do SQL Server em Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

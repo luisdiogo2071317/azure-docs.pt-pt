@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Advisor do Azure
 
 Saiba mais sobre as principais funcionalidades do Advisor do Azure e obtenha respostas às perguntas mais frequentes.
 
 ## <a name="what-is-advisor"></a>O que é o Advisor?
-Advisor é um consultor de nuvem personalizado que o ajuda a seguir as melhores práticas para otimizar as implementações do Azure. Este analisa a telemetria de utilização e configuração do recurso e, em seguida, recomenda soluções que podem ajudar a melhorar a eficácia de custo, desempenho, elevada disponibilidade e segurança dos seus recursos Azure.
+Advisor é um consultor de nuvem personalizado que o ajuda a seguir as melhores práticas para otimizar as implementações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
 
 Com o Advisor, pode:
 * Obter proativa, acionável e recomendações de personalizado melhores práticas. 
 * Melhorar o desempenho, a segurança e a elevada disponibilidade dos seus recursos, à medida que identificar oportunidades para reduzir o Azure geral passam.
 * Obtenha recomendações com ações proposto inline.
 
-Pode aceder ao Advisor através de [portal do Azure](https://aka.ms/azureadvisordashboard). Iniciar sessão para o [portal](https://portal.azure.com), localize **Advisor** no menu de navegação ou procure-lo no **mais serviços** menu.
+Pode aceder ao Advisor através de [portal do Azure](https://aka.ms/azureadvisordashboard). Iniciar sessão para o [portal](https://portal.azure.com), localize **Advisor** no menu de navegação ou procure-lo no **todos os serviços** menu.
 
 O dashboard do Advisor apresenta recomendações personalizadas para todas as subscrições.  Pode aplicar os filtros para apresentar as recomendações para as subscrições específicas e tipos de recursos.  As recomendações são divididas em quatro categorias: 
 
@@ -57,7 +57,7 @@ Se não pretender tome medidas imediatas numa recomendação, pode snooze-lo dur
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-do-i-access-advisor"></a>Como posso aceder Advisor?
-Pode aceder ao Advisor através de [portal do Azure](https://aka.ms/azureadvisordashboard). Iniciar sessão para o [portal](https://portal.azure.com), localize **Advisor** no menu de navegação ou procure-lo no **mais serviços** menu.
+Pode aceder ao Advisor através de [portal do Azure](https://aka.ms/azureadvisordashboard). Iniciar sessão para o [portal](https://portal.azure.com), localize **Advisor** no menu de navegação ou procure-lo no **todos os serviços** menu.
 
 Também pode ver as recomendações do Advisor através da interface de recurso de máquina virtual. Escolha uma máquina virtual e, em seguida, desloque-se para obter recomendações do assistente no menu. 
 
@@ -73,7 +73,7 @@ Advisor fornece recomendações para máquinas virtuais, conjuntos de disponibil
 
 Para snooze ou ignorar uma recomendação, clique o **Snooze** ligação. Pode especificar um tempo de suspensão período ou selecione **nunca** para dispensar a recomendação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as recomendações do assistente, consulte:
 

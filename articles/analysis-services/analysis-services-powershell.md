@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 52c74feacb8cf2e7005f6b284d7b55078449dc79
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir serviços de análise do Azure com o PowerShell
 
@@ -36,15 +36,15 @@ Cmdlets de Analysis Services do Azure estão incluídos no [AzureRM.AnalysisServ
 
 |Cmdlet|Descrição| 
 |------------|-----------------| 
-|[AzureAnalysisServicesAccount adicionar](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Adiciona uma conta a utilizar para pedidos de cmdlet do Azure Analysis Services server autenticada.| 
+|[Add-AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Adiciona uma conta a utilizar para pedidos de cmdlet do Azure Analysis Services server autenticada.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Obtém os detalhes de uma instância de servidor.|  
-|[Novo AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Cria uma instância de servidor.|   
-|[Remover AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Remove uma instância de servidor.|  
-|[AzureAnalysisServicesInstance de reinício](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Reinicia uma instância do servidor do Analysis Services no ambiente atualmente com sessão iniciado; especificados no comando Adicionar AzureAnalysisServicesAccount.|  
-|[Retomar AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Retoma uma instância de servidor.|  
-|[AzureRmAnalysisServicesServer suspender](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspende uma instância de servidor.| 
-|[Conjunto AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifica uma instância de servidor.|   
-|[Teste AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testa a existência de uma instância de servidor.| 
+|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Cria uma instância de servidor.|   
+|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Remove uma instância de servidor.|  
+|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Reinicia uma instância do servidor do Analysis Services no ambiente atualmente com sessão iniciado; especificados no comando Adicionar AzureAnalysisServicesAccount.|  
+|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Retoma uma instância de servidor.|  
+|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspende uma instância de servidor.| 
+|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifica uma instância de servidor.|   
+|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testa a existência de uma instância de servidor.| 
 
 ## <a name="database-operations"></a>Operações de base de dados
 
@@ -55,15 +55,15 @@ O módulo de SqlServer fornece cmdlets de gestão de base de dados específicas 
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[RoleMember adicionar](https://msdn.microsoft.com/library/hh510167.aspx)|Adicione um membro a uma função de base de dados.| 
-|[Cópia de segurança ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Cópia de segurança uma base de dados do Analysis Services.|  
-|[Remover RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remova um membro de uma função de base de dados.|   
-|[ASCmd invocar](https://msdn.microsoft.com/library/hh479579.aspx)|Execute um script TMSL.|
-|[ProcessASDatabase invocar](https://msdn.microsoft.com/library/mt651773.aspx)|Processar uma base de dados.|  
-|[ProcessPartition invocar](https://msdn.microsoft.com/library/hh510164.aspx)|Processar uma partição.| 
-|[ProcessTable invocar](https://msdn.microsoft.com/library/mt651774.aspx)|Processo de uma tabela.|  
-|[Partição de intercalação](https://msdn.microsoft.com/library/hh479576.aspx)|Uma partição de intercalação.|  
-|[Restauro ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Restaure uma base de dados do Analysis Services.| 
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Adicione um membro a uma função de base de dados.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Cópia de segurança uma base de dados do Analysis Services.|  
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remova um membro de uma função de base de dados.|   
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute um script TMSL.|
+|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Processar uma base de dados.|  
+|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Processar uma partição.| 
+|[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Processo de uma tabela.|  
+|[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Uma partição de intercalação.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Restaure uma base de dados do Analysis Services.| 
   
 
 ## <a name="related-information"></a>Informações relacionadas

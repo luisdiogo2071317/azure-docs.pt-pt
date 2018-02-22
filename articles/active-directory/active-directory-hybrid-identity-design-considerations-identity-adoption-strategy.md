@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
-Nesta tarefa, vai definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida cumprir os requisitos de negócio que foram abordados:
+Nesta tarefa, definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida cumprir os requisitos de negócio que foram abordados:
 
 * [Determinar as necessidades de negócio](active-directory-hybrid-identity-design-considerations-business-needs.md)
 * [Determinar os requisitos de sincronização de diretórios](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 * [Determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definir a estratégia de necessidades de negócio
-Tem dos endereços de tarefa primeiro determinar as empresas e organizações.  Isto pode ser muito abrangente e creep âmbito pode ocorrer se não tiver cuidado.  No início manter tudo simples mas lembre-se sempre ao planear uma estrutura que irá suportar e facilitar a alteração no futuro.  Independentemente de ser uma estrutura simple ou a um extremamente complexo, o Azure Active Directory é a plataforma do Microsoft Identity que suporte aplicações com suporte para Office 365, Microsoft Online Services e em nuvem.
+Tem dos endereços de tarefa primeiro determinar as empresas e organizações.  Isto pode ser muito abrangente e creep âmbito pode ocorrer se não tiver cuidado.  No início, manter tudo simples mas lembre-se sempre ao planear uma estrutura que irá suportar e facilitar a alteração no futuro.  Independentemente de ser uma estrutura simple ou a um extremamente complexo, o Azure Active Directory é a plataforma do Microsoft Identity que suporta o Office 365, Microsoft Online Services e em nuvem com suporte para aplicações.
 
 ## <a name="define-an-integration-strategy"></a>Definir uma estratégia de integração
 A Microsoft tem três cenários de integração principais que são as identidades de nuvem, identidades sincronizadas e identidades federadas.  Deve planear a adoção de uma destes estratégias de integração.  A estratégia de que escolha podem variar e podem incluir as decisões de escolher um, o tipo de experiência de utilizador que pretenda fornecer, tem algumas da infraestrutura existente já no local e o que é o mais económico.  
@@ -39,34 +39,34 @@ A Microsoft tem três cenários de integração principais que são as identidad
 Os cenários definidos na figura acima são:
 
 * **Identidades de nuvem**: estes são identidades que existe apenas na nuvem.  No caso do Azure AD, podem residir especificamente no diretório do Azure AD.
-* **Sincronizadas**: estes são identidades que existem no local e na nuvem.  Utilizando o Azure AD Connect, esses utilizadores são ser criados ou associados a contas do Azure AD existentes.  Hash de palavra-passe do utilizador é sincronizado entre o ambiente no local à nuvem em que é chamado um hash de palavra-passe.  Quando utilizar sincronizado a uma advertência é que, se um utilizador é desativado no ambiente no local, pode demorar até 3 horas para esse Estado da conta a aparecer no Azure AD.  Isto acontece porque o intervalo de tempo de sincronização.
+* **Sincronizadas**: estes são identidades que existem no local e na nuvem.  Utilizando o Azure AD Connect, esses utilizadores são ser criados ou associados a contas do Azure AD existentes.  Hash de palavra-passe do utilizador é sincronizado entre o ambiente no local à nuvem em que é chamado um hash de palavra-passe.  Quando utilizar sincronizado a uma advertência é que, se um utilizador é desativado no ambiente no local, pode demorar até três horas para esse Estado da conta a aparecer no Azure AD.  Isto acontece porque o intervalo de tempo de sincronização.
 * **Federado**: existem destas identidades no local e na nuvem.  Utilizando o Azure AD Connect, esses utilizadores são ser criados ou associados a contas do Azure AD existentes.  
 
 > [!NOTE]
-> Para obter mais informações sobre as opções de sincronização ler [integrar as identidades no local ao Azure Active Directory](connect/active-directory-aadconnect.md).
+> Para obter mais informações sobre as opções de sincronização, leia o artigo [integrar as identidades no local ao Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
-A tabela seguinte irá ajudar a determinar as vantagens e desvantagens de cada uma das seguintes estratégias:
+A tabela seguinte ajuda a determinar as vantagens e desvantagens de cada uma das seguintes estratégias:
 
 | Estratégia de | Vantagens | Desvantagens |
 | --- | --- | --- |
-| **Identidades de nuvem** |Mais fácil de gerir para a organização pequena. <br> Nada para instalar hardware adicional no-local-não necessária<br>Facilmente desativada se o utilizador sai da empresa |Os utilizadores terão de início de sessão ao aceder a cargas de trabalho na nuvem <br> As palavras-passe podem ou não podem ser o mesmo para as identidades de nuvem e no local |
-| **Sincronizados** |Palavra-passe de no local irá autenticar no local e na nuvem diretórios <br>Mais fácil de gerir para pequenas, médias ou grandes organizações <br>Os utilizadores podem ter início de sessão único (SSO) para alguns dos recursos <br> Método de Microsoft preferido para sincronização <br> Mais fácil de gerir |Alguns clientes podem estar relutantes sincronizar os seus diretórios com a nuvem devido a política da empresa específica |
-| **Federado** |Os utilizadores podem ter início de sessão único (SSO) <br>Se um utilizador é terminado ou deixa, a conta pode ser desativada imediatamente e acesso revogado,<br> Suporta avançadas cenários que não pode ser conseguido com sincronizados |Mais passos para instalar e configurar o <br> Manutenção superior <br> Pode necessitar de hardware adicional para a infraestrutura de STS <br> Pode necessitar de hardware adicional para instalar o servidor de Federação. Software adicional é necessário se for utilizado o AD FS <br> Requer configuração extensa para SSO <br> Ponto de crítico de falha se o servidor de Federação está inativo, os utilizadores não conseguirá autenticar |
+| **Identidades de nuvem** |Mais fácil de gerir para a organização pequena. <br> Nada para instalar hardware adicional no-local-não necessária<br>Facilmente desativada se o utilizador sai da empresa |Os utilizadores terão de iniciar sessão quando acedem a cargas de trabalho na nuvem <br> As palavras-passe podem ou não podem ser o mesmo para as identidades de nuvem e no local |
+| **Sincronizados** |No local efetua a autenticação de palavra-passe no local e nuvem diretórios <br>Mais fácil de gerir pequena, média ou grandes organizações <br>Os utilizadores podem ter início de sessão único (SSO) para alguns dos recursos <br> Método de Microsoft preferido para sincronização <br> Mais fácil de gerir |Alguns clientes podem estar relutantes sincronizar os seus diretórios com a nuvem devido a política da empresa específica |
+| **Federado** |Os utilizadores podem ter início de sessão único (SSO) <br>Se um utilizador é terminado ou deixa, a conta pode ser desativada imediatamente e acesso revogado,<br> Suporta avançadas de cenários que não podem ser conseguidos com sincronizados |Mais passos para configurar <br> Manutenção superior <br> Pode necessitar de hardware adicional para a infraestrutura de STS <br> Pode necessitar de hardware adicional para instalar o servidor de Federação. Software adicional é necessário se for utilizado o AD FS <br> Requer configuração extensa para SSO <br> Ponto de crítico de falha se o servidor de Federação está inativo, os utilizadores não conseguirá autenticar |
 
 ### <a name="client-experience"></a>Experiência do cliente
-A estratégia de que utiliza determinarão a experiência de início de sessão do utilizador.  As tabelas seguintes lhe fornecem informações sobre os utilizadores que devem esperar sua experiência de início de sessão ser.  Tenha em atenção que nem todos os fornecedores de identidade federada suportam o SSO em todos os cenários.
+A estratégia de que utiliza determinarão a experiência de início de sessão do utilizador.  As tabelas seguintes lhe fornecem informações sobre os utilizadores que devem esperar sua experiência de início de sessão ser.  Nem todos os fornecedores de identidade federada suportam o SSO em todos os cenários.
 
 **Aplicações de rede associados a um domínio e privadas**:
 
 |  | Identidade sincronizada | Identidade federada |
 | --- | --- | --- |
-| Browsers da Web |Autenticação baseada em formulários |início de sessão único no, por vezes, necessário para fornecer o ID de organização |
+| Browsers da Web |Autenticação baseada em formulários |início de sessão único, por vezes, é necessário fornecer o ID de organização |
 | Outlook |Pedido de credenciais |Pedido de credenciais |
-| Skype para empresas (Lync) |Pedido de credenciais |início de sessão único para o Lync, solicitado que as credenciais para o Exchange |
-| Skydrive Pro |Pedido de credenciais |início de sessão único |
-| Office Pro Plus subscrição |Pedido de credenciais |início de sessão único |
+| Skype para empresas (Lync) |Pedido de credenciais |único início de sessão para o Lync,-lhe pedido que as credenciais para o Exchange |
+| Skydrive Pro |Pedido de credenciais |O início de sessão único |
+| Office Pro Plus subscrição |Pedido de credenciais |O início de sessão único |
 
 **Origens externas ou não fidedignas**:
 
@@ -74,23 +74,23 @@ A estratégia de que utiliza determinarão a experiência de início de sessão 
 | --- | --- | --- |
 | Browsers da Web |Autenticação baseada em formulários |Autenticação baseada em formulários |
 | Outlook, o Skype para empresas (Lync), Skydrive Pro, subscrição do Office |Pedido de credenciais |Pedido de credenciais |
-| Exchange ActiveSync |Pedido de credenciais |início de sessão único para o Lync, solicitado que as credenciais para o Exchange |
+| Exchange ActiveSync |Pedido de credenciais |único início de sessão para o Lync,-lhe pedido que as credenciais para o Exchange |
 | Aplicações Móveis |Pedido de credenciais |Pedido de credenciais |
 
-Se tiver determinado na tarefa 1, que tem um 3rd terceiros IdP ou são curso para utilizar uma para fornecer a Federação com o Azure AD, terá de ter em consideração as seguintes capacidades suportadas:
+Se tiver determinado na tarefa 1, que tem um terceiros IdP ou são que utilize uma para fornecer a Federação com o Azure AD, terá de ter em consideração as seguintes capacidades suportadas:
 
-* Nenhum fornecedor de SAML 2.0 que está em conformidade para o perfil SP Lite pode suportar autenticação para o Azure AD e associados a aplicações
-* Suporta autenticação passiva, o que facilita a autenticação OWA, SPO, etc.
+* Qualquer fornecedor de SAML 2.0 que está em conformidade para o perfil SP Lite pode suportar autenticação para o Azure AD e associados a aplicações
+* Suporta autenticação passiva, o que facilita a autenticação do OWA, SPO, etc.
 * Clientes do Exchange Online podem ser suportados através de SAML 2.0 avançada cliente Perfil (ECP)
 
 Deve também estar ciente de que capacidades não estarão disponíveis:
 
-* Sem o suporte de WS-confiança/Federação, irão interromper a todos os outros clientes ativos
+* Sem suporte de WS-confiança/Federation quebra de todos os outros clientes ativos
   * Isto significa que nenhum cliente Lync, o cliente do OneDrive, subscrição do Office, Office Mobile antes do Office 2016
-* Transição do Office para autenticação passiva irão permitir-lhe suportar puro IdPs de 2.0 SAML, mas suporte continuarão a estar numa base do cliente pelo cliente
+* Transição do Office para autenticação passiva permite que os mesmos para suportarem puro IdPs de 2.0 SAML mas suporte continuarão a estar numa base do cliente pelo cliente
 
 > [!NOTE]
-> Para obter a lista mais atualizada ler o artigo http://aka.ms/ssoproviders.
+> Para obter a lista mais atualizada ler o artigo https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -108,7 +108,7 @@ Ao longo dos anos, várias ferramentas de sincronização tem existia e utilizad
 ### <a name="supported-topologies"></a>Topologias suportadas
 Ao definir uma estratégia de sincronização, a topologia utilizada têm de ser determinada. Consoante as informações que foi determinou no passo 2 pode determinar que topologia é o correto para utilizar. A única floresta, única topologia do Azure AD é mais comuns e é composta por uma única floresta do Active Directory e uma única instância do Azure AD.  Isto vai ser utilizada numa maioria dos cenários e é a topologia de esperado ao utilizar a instalação do Azure AD Connect Express conforme mostrado na imagem abaixo.
 
-![](./media/hybrid-id-design-considerations/single-forest.png)Cenário de floresta única é muito comum para mesmo pequenas e grandes organizações com várias florestas, conforme mostrado na figura 5.
+![](./media/hybrid-id-design-considerations/single-forest.png) Floresta única cenário é comum para mesmo pequenas e grandes organizações com várias florestas, conforme mostrado na figura 5.
 
 > [!NOTE]
 > Para obter mais informações sobre as diferentes no local e topologias do Azure AD com o Azure AD Connect sincronização leia o artigo [topologias do Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
@@ -141,7 +141,7 @@ Se o procedimento acima não forem VERDADEIRO e tiver mais do que uma conta Acti
 
 **Várias florestas vários cenário do Azure AD**
 
-Recomenda-se ter apenas um único diretório no Azure AD para uma organização, mas é suportada, uma relação de 1:1 é mantida entre um servidor de sincronização do Azure AD Connect e um diretório do Azure AD.  Para cada instância do Azure AD, terá de uma instalação do Azure AD Connect.  Além disso, do Azure AD, por predefinição está isolado e os utilizadores numa instância do Azure AD não será capazes de ver os utilizadores na outra instância.
+Recomenda-se ter apenas um único diretório no Azure AD para uma organização, mas é suportada, uma relação de 1:1 é mantida entre um servidor de sincronização do Azure AD Connect e um diretório do Azure AD.  Para cada instância do Azure AD, precisa de uma instalação do Azure AD Connect.  Além disso, do Azure AD, por predefinição está isolado e os utilizadores numa instância do Azure AD não será capazes de ver os utilizadores na outra instância.
 
 É possível e suportados para ligar uma instância no local do Active Directory para vários diretórios do Azure AD, conforme mostrado na imagem abaixo:
 
@@ -159,7 +159,7 @@ Para fazê-lo a seguintes deve ser verdadeiras:
   * Grupo de write-back com a configuração predefinida
   * Write-back do dispositivo
 
-Lembre-se de que o seguinte não é suportado e não deve ser selecionado como uma implementação:
+O seguinte não é suportado e não deve ser selecionado como uma implementação:
 
 * Não é suportado ter múltiplos servidores de sincronização do Azure AD Connect ligar para o mesmo diretório do Azure AD, mesmo se estiverem configurados para sincronizar conjunto mutuamente exclusivo de objeto
 * -Não é suportado para sincronizar o mesmo utilizador para vários diretórios do Azure AD. 
@@ -173,7 +173,7 @@ Lembre-se de que o seguinte não é suportado e não deve ser selecionado como u
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definir a estratégia de autenticação multifator
-Nesta tarefa, vai definir a estratégia de autenticação multifator para utilizar.  Multi-factor Authentication do Azure tem dois versão diferente.  Um é uma conta baseada na nuvem e o outro é baseado utilizando o servidor MFA do Azure no local.  Com base na comparação acima, pode determinar que solução é o correto para a sua estratégia.  Utilize a tabela abaixo para determinar que opção de estrutura melhor satisfazer o requisito de segurança da sua empresa:
+Nesta tarefa, vai definir a estratégia de autenticação multifator para utilizar.  Multi-factor Authentication do Azure é fornecido em duas versões diferentes.  Um é uma conta baseada na nuvem e o outro é baseado utilizando o servidor MFA do Azure no local.  Com base na comparação acima, pode determinar que solução é o correto para a sua estratégia.  Utilize a tabela abaixo para determinar que opção de design que melhor satisfaz o requisito de segurança da sua empresa:
 
 Opções de estrutura de multifator:
 
@@ -201,7 +201,7 @@ Embora poderá ter settled numa solução para a sua estratégia, ainda tem de u
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Fornecedor do multi-factor Auth
-Autenticação multifator está disponível por predefinição para os administradores globais que possuam um inquilino do Azure Active Directory. No entanto, se pretender expandir a autenticação multifator para todos os utilizadores e/ou pretende para os administradores globais ser capazes de tirar partido funcionalidades como o portal de gestão, saudações personalizadas e relatórios, em seguida, deve adquirir e configurar o fornecedor de autenticação Multifator.
+Autenticação multifator está disponível por predefinição para administradores globais que possuam um inquilino do Azure Active Directory. No entanto, se pretender expandir a autenticação multifator para todos os utilizadores e/ou pretende para os administradores globais ser capazes de tirar partido funcionalidades como o portal de gestão, saudações personalizadas e relatórios, em seguida, deve adquirir e configurar o fornecedor de autenticação Multifator.
 
 > [!NOTE]
 > Deve também garantir que a opção de estrutura de autenticação multifator que selecionou suporta as funcionalidades que são necessárias para o design. 

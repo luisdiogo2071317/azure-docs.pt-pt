@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do Azure PowerShell de Monitor
-Este artigo apresenta o exemplo comandos do PowerShell para o ajudar a aceder às funcionalidades de monitorização do Azure. Monitor do Azure permite-lhe para serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web. Também permite-lhe enviar notificações de alerta ou chamar URLs web com base nos valores de dados de telemetria configurado.
+Este artigo apresenta o exemplo comandos do PowerShell para o ajudar a aceder às funcionalidades de monitorização do Azure.
 
 > [!NOTE]
 > Monitor do Azure é o novo nome para o que foi chamado "Informações do Azure" até 25th de Setembro de 2016. No entanto, os espaços de nomes e, consequentemente, os seguintes comandos de conter a palavra "informações".
@@ -93,10 +93,10 @@ O seguinte comando obtém os últimas 1 000 eventos de registo de atividade:
 Get-AzureRmLog -MaxEvents 1000
 ```
 
-`Get-AzureRmLog`suporta muitos outros parâmetros. Consulte o `Get-AzureRmLog` referência para obter mais informações.
+`Get-AzureRmLog` suporta muitos outros parâmetros. Consulte o `Get-AzureRmLog` referência para obter mais informações.
 
 > [!NOTE]
-> `Get-AzureRmLog`Fornece apenas 15 dias do histórico. Utilizar o **- MaxEvents** parâmetro permite-lhe consultar os eventos de N últimos, para além de 15 dias. Para eventos de acesso com mais de 15 dias, utilize a REST API ou o SDK (c# exemplo utilizando o SDK). Se não incluir **StartTime**, em seguida, o valor predefinido é **EndTime** menos uma hora. Se não incluir **EndTime**, em seguida, o valor predefinido é a hora atual. Todas as horas são em UTC.
+> `Get-AzureRmLog` Fornece apenas 15 dias do histórico. Utilizar o **- MaxEvents** parâmetro permite-lhe consultar os eventos de N últimos, para além de 15 dias. Para eventos de acesso com mais de 15 dias, utilize a REST API ou o SDK (c# exemplo utilizando o SDK). Se não incluir **StartTime**, em seguida, o valor predefinido é **EndTime** menos uma hora. Se não incluir **EndTime**, em seguida, o valor predefinido é a hora atual. Todas as horas são em UTC.
 > 
 > 
 
@@ -136,7 +136,7 @@ Obter todas as regras de alerta definido para um recurso de destino. Por exemplo
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule`suporta outros parâmetros. Consulte [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) para obter mais informações.
+`Get-AzureRmAlertRule` suporta outros parâmetros. Consulte [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) para obter mais informações.
 
 ## <a name="create-metric-alerts"></a>Criar métricas alertas
 Pode utilizar o `Add-AlertRule` cmdlet para criar, atualizar ou desativar uma regra de alerta.
@@ -145,12 +145,12 @@ Pode criar propriedades de e-mail e webhook utilizando `New-AzureRmAlertRuleEmai
 
 A tabela seguinte descreve os parâmetros e valores utilizados para criar um alerta utilizando uma métrica.
 
-| Parâmetro | valor |
+| parâmetro | valor |
 | --- | --- |
 | Nome |simpletestdiskwrite |
 | Localização desta regra de alerta |EUA Leste |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/S1/resourceGroups/montest/Providers/Microsoft.Compute/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName do alerta que é criado |\PhysicalDisk ( total) \Disk escritas/seg. Consulte o `Get-MetricDefinitions` cmdlet sobre como obter os nomes de métricos exatos |
 | operador |GreaterThan |
 | Valor de limiar (contagem por segundo para esta métrica) |1 |
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Uma lista completa das opções disponíveis para `Get-AzureRmMetricDefinition` está disponível em [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Criar e gerir alertas do registo de atividade
+Pode utilizar o `Set-AzureRmActivityLogAlert` cmdlet para definir um alerta de registo de atividade. Um alerta de registo de atividade requer que primeiro definir as condições como um dicionário de condições e criar um alerta que utiliza dessas condições.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+As propriedades de webhook adicionais são opcionais. Pode obter novamente o conteúdo da utilização de um alerta de registo de atividade `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Criar e gerir definições de dimensionamento automático
 Um recurso (uma aplicação Web, VM, o serviço em nuvem ou conjunto de dimensionamento da Máquina Virtual) pode ter apenas uma definição de dimensionamento automático configurada para ele.

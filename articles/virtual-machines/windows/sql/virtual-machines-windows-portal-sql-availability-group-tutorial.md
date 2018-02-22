@@ -4,7 +4,7 @@ description: Este tutorial mostra como criar um servidor sempre no grupo de disp
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar sempre no grupo de disponibilidade na VM do Azure manualmente
 
@@ -40,13 +40,13 @@ A tabela seguinte lista os pré-requisitos que precisa para concluir antes de in
 
 |  |Requisito |Descrição |
 |----- |----- |----- |
-|![parênteses](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois servidores do SQL Server | -Num conjunto de disponibilidade do Azure <br/> -Num único domínio <br/> -Com a funcionalidade de Clustering de ativação pós-falha instalada |
-|![parênteses](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partilha de ficheiros para o testemunho de cluster |  
-|![parênteses](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta de domínio |
-|![parênteses](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta de domínio |  
-|![parênteses](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | -SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento: **5022** ou qualquer porta disponível <br/> -Sonda do Balanceador de carga as do azure: **59999** ou qualquer porta disponível |
-|![parênteses](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar a funcionalidade de Clustering de ativação pós-falha | Esta funcionalidade necessitam de ambos os servidores do SQL Server |
-|![parênteses](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada servidor de SQL <br/> -O membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Two SQL Servers | -Num conjunto de disponibilidade do Azure <br/> -Num único domínio <br/> -Com a funcionalidade de Clustering de ativação pós-falha instalada |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partilha de ficheiros para o testemunho de cluster |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta de domínio |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta de domínio |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | -SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento: **5022** ou qualquer porta disponível <br/> -Sonda do Balanceador de carga as do azure: **59999** ou qualquer porta disponível |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar a funcionalidade de Clustering de ativação pós-falha | Esta funcionalidade necessitam de ambos os servidores do SQL Server |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada servidor de SQL <br/> -O membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
 
 
 Antes de começar o tutorial, terá de [concluir os pré-requisitos para a criação de grupos de disponibilidade Always em Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se os pré-requisitos são já foi concluídos, pode saltar para [criar Cluster](#CreateCluster).
@@ -55,7 +55,7 @@ Antes de começar o tutorial, terá de [concluir os pré-requisitos para a cria�
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-##Criar o cluster
+## Criar o cluster
 
 Depois dos pré-requisitos estão concluídos, o primeiro passo é criar um Cluster de ativação pós-falha do Windows Server que inclua dois SQL Servers e um servidor de testemunho.  
 
@@ -71,7 +71,7 @@ Depois dos pré-requisitos estão concluídos, o primeiro passo é criar um Clus
 
    | Página | Definições |
    | --- | --- |
-   | Antes de começar |Utilize as predefinições |
+   | Antes de começar |Utilizar predefinições |
    | Selecionar servidores |Escreva o nome do SQL Server primeiro no **introduza o nome de servidor** e clique em **adicionar**. |
    | Aviso de validação |Selecione **um número não precisar do suporte da Microsoft para este cluster e, por conseguinte, não pretender executar testes de validação. Quando posso clicar em seguinte, continue a criar o cluster**. |
    | Ponto de acesso para administrar o Cluster |Escreva um nome de cluster, por exemplo **SQLAGCluster1** no **nome do Cluster**.|
@@ -221,7 +221,7 @@ Repeat these steps on the second SQL Server.
 7. No **Object Explorer**, faça duplo clique **bases de dados** e clique em **nova base de dados**.
 8. No **nome de base de dados**, tipo **MyDB1**, em seguida, clique em **OK**.
 
-### <a name="backupshare"></a>Criar uma partilha de cópia de segurança
+### <a name="backupshare"></a> Criar uma partilha de cópia de segurança
 
 1. No primeiro servidor de SQL no **Gestor de servidor**, clique em **ferramentas**. Abra **gestão de computadores**.
 
@@ -352,10 +352,10 @@ Máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server necessita
    | Definição | Campo |
    | --- | --- |
    | **Nome** |Utilize um nome de texto para o Balanceador de carga, por exemplo **sqlLB**. |
-   | **Tipo** |Interno |
+   | **Tipo** |Interna |
    | **Rede virtual** |Utilize o nome da rede virtual do Azure. |
    | **Sub-rede** |Utilize o nome da sub-rede que a máquina virtual está numa.  |
-   | **Atribuição de endereços IP** |Estático |
+   | Atribuição de endereços IP |Estático |
    | **Endereço IP** |Utilize um endereço disponível da sub-rede. |
    | **Subscrição** |Utilize a mesma subscrição que a máquina virtual. |
    | **Localização** |Utilize a mesma localização que a máquina virtual. |
@@ -380,8 +380,8 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | --- | --- |---
    | **Nome** | Escreva um nome de texto | SQLLBBE
    | **Associado a** | Escolha a partir da lista | Conjunto de disponibilidade
-   | **Conjunto de disponibilidade** | Utilize um nome do conjunto de disponibilidade que as suas VMs do SQL Server estão em | sqlAvailabilitySet |
-   | **Máquinas virtuais** |Os dois nomes de VM do Azure SQL Server | SQLServer-0, sqlserver 1
+   | **conjunto de disponibilidade** | Utilize um nome do conjunto de disponibilidade que as suas VMs do SQL Server estão em | sqlAvailabilitySet |
+   | **Máquinas virtuais** |Os dois nomes de VM do Azure SQL Server | sqlserver-0, sqlserver-1
 
 1. Escreva o nome para o conjunto de back-end.
 
@@ -422,7 +422,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Porta** | Utilizar a porta para a instância do SQL Server | 1433 |
    | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definido para direta do servidor retorno | 1433 |
    | **Sonda** |O nome especificado para a sonda | SQLAlwaysOnEndPointProbe |
-   | **Persistência da sessão** | Na lista pendente | **Nenhum** |
+   | **Persistência da sessão** | Na lista pendente | Nenhum |
    | **Tempo limite de inatividade** | Minutos para manter uma ligação de TCP aberta | 4 |
    | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
 
@@ -431,7 +431,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 
 1. Clique em **OK** para definir a regras de balanceamento de carga.
 
-## <a name="configure-listener"></a>Configurar o serviço de escuta
+## <a name="configure-listener"></a> Configurar o serviço de escuta
 
 A seguinte coisa a fazer é configurar um serviço de escuta do grupo de disponibilidade no cluster de ativação pós-falha.
 
@@ -497,6 +497,6 @@ A ligação de SQLCMD liga-se automaticamente para qualquer instância do SQL Se
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Adicionar um endereço IP para um balanceador de carga para um segundo grupo de disponibilidade](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

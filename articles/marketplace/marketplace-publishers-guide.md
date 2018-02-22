@@ -1,7 +1,7 @@
 ---
-title: Guia de publicador do Azure Marketplace
+title: Guia de AppSource fabricante e do Azure Marketplace
 description: "Guia passo a passo e da publicação listas de verificação para publicadores novo no Azure Marketplace"
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: 
 author: ellacroi
 manager: msmbaldwin
@@ -14,17 +14,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-marketplace-publisher-guide"></a>Guia de publicador do Azure Marketplace
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia de AppSource fabricante e do Azure Marketplace
 
-Bem-vindo ao guia de publicador do Marketplace. Este guia foi concebido para ajudar candidato e publicadores existentes compreender melhor como tirar partido do Azure Marketplace e AppSource storefronts para listar os serviços e aplicações para aumentar os seus negócios em parceria com a Microsoft. No final deste guia, irá saber mais sobre cada um destes tópicos e saber onde encontrar informações mais detalhadas:
+Bem-vindo à [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com) Guia do publicador. Este guia foi concebido para ajudar os publicadores novos e existentes compreender como tirar partido do Azure Marketplace e AppSource storefronts, os passos necessários para publicar as suas aplicações e serviços e como aumentar a sua empresa em parceria com a Microsoft. No final deste guia, irá saber mais sobre cada um destes tópicos e saber onde encontrar informações mais detalhadas:
 
-- Quais são as vantagens de participar no Marketplace
+- Quais são as vantagens de listagem dos storefronts marketplace
 - Quais são Azure Marketplace e AppSource
 - Como tirar partido destes storefronts
 - Que storefront é adequada para as suas ofertas e serviços 
@@ -36,32 +36,35 @@ Bem-vindo ao guia de publicador do Marketplace. Este guia foi concebido para aju
 - Como otimizar uma listagem e utilizar recursos de mercado aceda ao impacto de unidade
 - Onde pretende obter ajuda e suporte para questões sobre a Azure Marketplace, AppSource, ou neste guia de publicação, contacte a equipa do Marketplace,  **cloudmarketplace@microsoft.com** . 
 
-## <a name="the-benefits-of-participating-in-marketplace"></a>As vantagens de participar no Marketplace
+## <a name="benefits-of-participating-in-the-marketplace"></a>Vantagens de participar no marketplace
 
-Marketplace é o painel de arranque para atividades de mercado aceda conjunta com a Microsoft e um flywheel crescimento de negócio. Utilizando a promoção de iniciação, geração a pedido e conjunta venda e marketing, o portefólio de oferta do Marketplace pode ser centerpiece do motor de negócio a nuvem. Não existem não existem taxas para participar no Marketplace. O nosso objetivo é ligar os clientes da Microsoft com melhores soluções que oferece a nossa ecossistema de parceiro.
+Azure Marketplace e AppSource são pontos de iniciar conjunta mercado aceda atividades com a Microsoft e um flywheel crescimento de negócio. Utilizando a promoção de iniciação, geração a pedido e conjunta venda e marketing, as listagens de marketplace podem ser centerpiece do motor de negócio a nuvem. Não existem não existem taxas para participar no marketplace. O nosso objetivo é ligar os clientes da Microsoft com as melhores soluções e serviços que oferece a nossa ecossistema de parceiro.
 
-Tire partido das capacidades de Marketplace para aumentar a sua empresa:
+Tire partido das capacidades de marketplace para aumentar a sua empresa:
 
-- **Gere as oportunidades de clientes potenciais clientes potenciais e de vendas.** Introduza mercados nova com um portefólio de soluções expandido numa plataforma de nuvem da Microsoft. Vendas superiores e ofertas de Marketplace vende cruzada. 
-- **Melhorar o valor de negócio e aumentar a dimensão do negócio com os clientes novos e existentes.** Aumente o grau tamanho e o endereço de cliente pontos de tensão quando mover as cargas de trabalho para a nuvem. Aumente grau rentabilidade vender soluções completas. 
-- **Obter conhecimentos acionáveis.** A taxa de êxito for nosso com êxito. Obter conhecimentos aprofundados através do Portal de parceiros de nuvem em que está a efetuar, o que orienta-o ao ter gerado e como maximizar as atividades de campanha.
+- **Gere as oportunidades de clientes potenciais clientes potenciais e de vendas.** Introduza mercados nova com um portefólio de soluções expandido numa plataforma de nuvem da Microsoft. Ofertas de vendas superiores e entre vende marketplace. 
+- **Melhorar o valor de negócio e aumentar a dimensão do negócio com os clientes novos e existentes.** Aumente o grau tamanho e o endereço de cliente pontos de tensão quando mover as cargas de trabalho para a nuvem. Reduza ciclos de vendas e aumentar rentabilidade de grau, vender soluções completas que cargas de trabalho específicas de destino e cenários da indústria.
+- **Obter conhecimentos acionáveis.** A taxa de êxito for nosso com êxito. Obter informações sobre o desempenho dos seus listagens através do Portal de parceiros de nuvem. Saiba o que está a funcionar, o que orienta-o ao ter gerado e como maximizar as atividades de campanha.
+
+>[!NOTE]
+>As aplicações que expandem o Office irão aceder insights através das processo de publicação de aplicações do Office.
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Quais são Azure Marketplace e AppSource?
 
-A Microsoft fornece duas storefronts Marketplace distintos que permitem que os parceiros da lista de ofertas, ativar avaliações e transact diretamente com os clientes e ecossistema da Microsoft: (https://azuremarketplace.microsoft.com) [Azure Marketplace] e [AppSource] ( https://appsource.microsoft.com). Estes storefronts permitem aos clientes localizar, tente e adquirir aplicações e serviços que acelerar a respetiva transformação Digital e ajudam a publicadores aumentam as respetivas empresas através do aumento do acesso para os clientes e ecossistema de parceiro da Microsoft.
+A Microsoft fornece duas storefronts marketplace distintos que permitem que os parceiros da lista de ofertas, ativar avaliações e transact diretamente com os clientes e ecossistema da Microsoft: (https://azuremarketplace.microsoft.com) [Azure Marketplace] e [AppSource] ( https://appsource.microsoft.com). Estes storefronts permitem aos clientes localizar, tente e adquirir aplicações e serviços que acelerar a respetiva transformação Digital e ajudam a publicadores aumentam as respetivas empresas através do aumento do acesso para os clientes e ecossistema de parceiro da Microsoft.
  
-Os storefronts Marketplace são alinhados com audiências e produtos em nuvem da Microsoft para ajudar os clientes localizar exatamente o precisam. Cada storefront oferece opções de publicação especializadas, para o ajudar a maximizar o investimento de publicação resumido pela tabela seguinte:
+Os storefronts marketplace são alinhados com audiências e produtos em nuvem da Microsoft para ajudar os clientes localizar que precisam. Cada storefront oferece opções de publicação especializadas, para o ajudar a maximizar o investimento de publicação resumido pela tabela seguinte:
 
 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Público-alvo     |Profissionais de TI, os programadores (funções especialista em incluem DBAs, SecOps, DevOps, etc.)    | Linha de decisores de negócios (funções especialista em incluem aprovisionamento, fabrico, gestão de contas, etc.)      |
-|Incorporado para expandir     |Azure         | Azure, Dynamics 365, Office 365, Power BI e aplicações de energia       |
-|Tipos de serviços e soluções     |  Soluções de infraestrutura e serviços profissionais   | Terminar e de linha de negócio serviços profissionais        |
-|Opções de publicação     |  Contactar-Me, serviços de consultoria oferecem, versão de avaliação, Máquina Virtual, modelos de solução e aplicações geridas       |  Contactar-Me, consultadoria oferta de serviços ou a versão de avaliação       |
-|Experiência de na aplicação     | Portal do Azure e a CLI         | Office 365, Dynamics 365, Power BI, aplicações de cliente do Office       |
+|Criada com ou ampliar     |Azure         | Azure, Dynamics 365, Office 365, Power BI e aplicações de energia       |
+|Tipos de serviços e soluções     |  Soluções de infraestrutura e serviços profissionais   | Terminar de linha de negócio cloud, os suplementos do Office 365, serviços e aplicações profissionais        |
+|Opções de publicação     |  Contactar-Me, serviços de consultoria oferecem, versão de avaliação, Máquina Virtual, modelos de solução e aplicações geridas       |  Versão de avaliação gratuita, obter agora, unidade de teste, contacte-Me, consultadoria oferta de serviços      |
+|Na aplicação experiência fornece os utilizadores acedam a aplicações e serviços no contexto da sua aplicação  | Portal do Azure e a CLI         | Office 365, Dynamics 365, Power BI, aplicações de cliente do Office       |
 
-## <a name="leveraging-these-storefronts"></a>Tirar partido destes Storefronts
+## <a name="leveraging-these-storefronts"></a>Tirar partido destes storefronts
 
 Cada storefront serve as necessidades de cliente exclusivos e permite a filtragem por função para que possa oferecer a solução certa ou o serviço com base em quem é o seu cliente.
 
@@ -75,38 +78,41 @@ Interagir com os profissionais de TI e programadores de nuvem através de **Azur
 |**Tem um mecanismo de implementação dimensionável de serviços e aplicações de terceiros**   | Permite a criação e configuração de implementações dimensionáveis de serviços e aplicações de terceiros        |
 |**Precisa de novas aplicações e serviços para integrar e trabalhar com as soluções existentes**  |   Integra-se facilmente serviços e aplicações de terceiros com as soluções existentes no Azure      |
 
-Interagir com os utilizadores empresariais utilizando **AppSource** para detetar e tente a serviços e aplicações SaaS de linha de negócio: 
+Interagir com os utilizadores empresariais no **AppSource** para localizar, tente e obter aplicações de SaaS de linha de negócio e serviços de implementação para ajudar a resultados de negócios de unidade e reduzir o tempo de valor:: 
 
 
 |Necessidade de cliente  |AppSource  |
 |---------|---------|
-|**Pretende expandam a funcionalidade de Dynamics 365, o Office 365, o Power BI e aplicações de energia**   |  Permite aos clientes utilizar serviços e aplicações de terceiros para expandir as capacidades de plataforma de nuvem do Microsoft       |
-|**Localiza-la um desafio para detetar a aplicação à direita ou serviço**    |   Fornece uma cafetaria paragem para detetar e avaliação aplicações e serviços, suplementos e muito mais      |
-|**Necessita de uma solução de linha de negócio específicos da indústria**   | Permite soluções para cada da indústria para que os clientes possam localizar que precisam        |
-|**Necessita de soluções de negócio específicas**    | Permite soluções para cada linha de negócio e problema empresarial, incluindo o serviço de cliente, HR, operações e muitos mais        |
+|**A procurar soluções de negócio que funcionam com produtos Microsoft que já utilizam** | Permitir aos clientes utilizar serviços e aplicações de terceiros para expandir as aplicações de nuvem da Microsoft e tecnologias.       |
+|**Capacidade para localizar facilmente o direito do serviço de solução ou implementação certo.**    |   Fornece uma cafetaria paragem para detetar, versão de avaliação e obter aplicações e serviços, suplementos e muito mais      |
+|**Linha específicos da indústria de solução de negócio para abordar os desafios de negócio específicas**   | Fornece soluções terminar ponto a ponto da indústria para ajudar a requisitos específicos do endereço em indústrias muitos     |
+|**Aplicações para ajudar a melhorar a produtividade, eficiência e informações de negócio**    | Fornece as aplicações de linha de negócio, incluindo o serviço de cliente, HR, operações e muitos mais        |
+| **Parceiro de experiência de implementação para o ajudar a adaptar aplicações para as respetivas situação exclusiva** | Fornece, catálogo de consultadoria ofertas de serviços para soluções baseiam no Dynamics 365, o Power BI, PowerApps e aplicações de terceiros 3rd estão disponíveis no AppSource para ajudar os utilizadores empresariais localizar consultadoria dos serviços de design para fornecer previsíveis resultados |
 
-## <a name="understanding-the-differences-between-storefronts"></a>Compreender as diferenças entre Storefronts
+## <a name="understanding-the-differences-between-storefronts"></a>Compreender as diferenças entre storefronts
 
-Escolher um storefront começa por identificar o público-alvo para a sua oferta: Azure Marketplace está alinhado às necessidades dos programadores e profissionais de TI e AppSource está alinhada aos utilizadores empresariais. Se a sua solução destina-se ambos os audiências, apenas terá de publicar uma vez à lista de ambos os storefronts.
+Escolher um storefront começa por identificar o público-alvo para a sua oferta: Azure Marketplace está alinhado às necessidades dos programadores e profissionais de TI e AppSource está alinhada às necessidades dos utilizadores empresariais. Se a sua solução destina-se ambos os audiências, apenas terá de publicar uma vez à lista de ambos os storefronts.
  
 Considere as vantagens adicionais de cada storefront:
 
 |Benefício storefront  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Flexibilidade de faturação**    | Para máquinas virtuais, as opções de faturação 'Pay as you go', utilize contratos do Microsoft enterprise ou modelos de vendas direta web. Opções de preços incluem também uma subscrição do escalão gratuito onde uma oferta é perpetually livre, bem como uma subscrição do Tente agora que está livre promotionally por um período limitado, após o qual converte numa subscrição paga. Ativação 'Traga a sua própria licença' também é uma opção para suportar editores para ambas as opções de faturação, em cenários em que as máquinas virtuais são implementadas através de aplicações do Azure (por exemplo, o modelo de solução ou aplicação gerida pelo), todos os recursos do Azure aprovisionados são faturados diretamente para o cliente | AppSource oferece aprovisionamento totalmente integrada de uma experiência de avaliação, mas não oferece uma opção publicação ativada de comércio; atualmente Isto permite-lhe tirar partido do seu ordenação atual e a infraestrutura de faturação sem qualquer investimento adicional ou alterações        |
-|**Facilitar ligações com outros parceiros**     |Azure Marketplace não permite atualmente que o publicador associar um parceiros de fornecedor ou entrega do serviço para a oferta         |  Fabricantes independentes de Software, integradores de sistemas e fornecedores de serviços geridos podem ser associado para cenários de implementação específico, que suportam a vender colaboração para clientes novos      |
+|**Flexibilidade de faturação**    | Para máquinas virtuais, as opções de faturação 'Pay as you go', utilize contratos do Microsoft enterprise ou modelos de vendas direta web. Opções de preços incluem também uma subscrição do escalão gratuito onde uma oferta é perpetually livre, bem como uma subscrição do Tente agora que está livre promotionally por um período limitado, após o qual converte numa subscrição paga. Ativação 'Traga a sua própria licença' também é uma opção para suportar editores para ambas as opções de faturação, em cenários em que as máquinas virtuais são implementadas através de aplicações do Azure (por exemplo, o modelo de solução ou aplicação gerida pelo), todos os recursos do Azure aprovisionados são faturados diretamente para o cliente | AppSource oferece o aprovisionamento de uma experiência de avaliação, mas não oferece uma opção publicação ativada de comércio; atualmente Isto permite-lhe tirar partido do seu ordenação atual e a infraestrutura de faturação sem qualquer investimento adicional ou alterações        |
+|**Facilitar ligações com outros parceiros**     |Azure Marketplace não permite atualmente que o publicador associar um parceiros de fornecedor ou entrega do serviço para a oferta, mas serão iniciadas esta funcionalidade no 2018         |  Fabricantes independentes de Software, integradores de sistemas e fornecedores de serviços geridos podem ser associado para cenários de implementação específico, que suportam a vender colaboração para clientes novos      |
 |**Automatização**     |    Azure Marketplace não permite atualmente que o publicador associar um parceiros de fornecedor ou entrega do serviço para a oferta     | Tirar partido de SaaS automatizada com o suplemento do aprovisionamento e utilizar modelos de solução para automatizar a cenários de implementação e de coleção de dados baseados em SaaS        |Fabricantes independentes de Software, integradores de sistemas e fornecedores de serviços geridos podem ser associado para cenários de implementação específico, que suportam a vender colaboração para clientes novos
 |**Vários tipos de Cloud**     |   Publicar na nuvem pública e soluções no local através de pilha do Azure ou publicar no Azure Government e nuvens regionais incluindo China e na Alemanha      |    AppSource atualmente não oferecem suporte para a pilha do Azure, Azure Government ou regionais nuvens     |
-|**No contexto apresentação para clientes**     |  Tornar a sua solução disponível a experiência no portal do Azure para a pesquisa contextual (máquinas virtuais e modelos de solução)       |  Disponibilizar solução a experiência na aplicação para produtos da Microsoft       |
+|**No contexto apresentação para clientes**     |  Tornar a sua solução disponível a experiência no portal do Azure para a pesquisa contextual (máquinas virtuais e modelos de solução)       |  Alcançar mais clientes através de experiência na aplicação para produtos da Microsoft, tais como Dynamics 365, o Power BI e o Office 365    |
 
 ## <a name="select-a-publishing-option"></a>Selecione uma publicação de opção
 
 Cada storefront suporta várias opções de publicação e tipos de oferta: lista, versão de avaliação e Transact. Selecione um tipo de oferta que melhor represente a sua aplicação e os detalhes do serviço. Todas as opções de publicação irão conceder-parceiros acesso para levar a partilha. 
 
+Esta secção explica as opções disponíveis para si em ambos os storefronts. 
+
 
 |**Opção de publicação**  | **Tipo de oferta** | **Storefront**  |
 |---------|---------|---------|
-|**Lista**    |    Contactar-Me, consultar o serviço     |  Azure Marketplace, AppSource       |
+|**List**    |    Contactar-Me, consultar o serviço     |  Azure Marketplace, AppSource       |
 |**Avaliação**   |     Liberte a versão de avaliação, avaliação de SaaS, demonstração interativa, unidade de teste    |  Azure Marketplace, AppSource       |
 |**Transact**     |   A máquina virtual, modelo de solução, aplicações geridas      |    Azure Marketplace     |
 
@@ -114,15 +120,18 @@ Cada storefront suporta várias opções de publicação e tipos de oferta: list
 
 Utilize **contactar-Me** quando não for viável participação um nível de versão de avaliação ou de transação. A vantagem desta abordagem é que permite a publicadores com um solução de mercado iniciar imediatamente a receção de clientes potenciais clientes potenciais que podem ser nurtured para as fundamentais sobre oportunidades para iniciar o flywheel de negócio. No entanto, a desvantagem é que o engagement de cliente é limitada, as compared with outros tipos de oferta.
 
+>[!IMPORTANT]
+>Contactar-Me não é um tipo de listagem recomendada e só deve ser utilizada em situações onde não é possível estabelecer uma experiência de avaliação. O engagement de cliente é melhor com a versão de avaliação e Transact oferece. Se tiver qualquer tipo de experiência de avaliação gratuita, o nosso processo de integração irá ajudá-lo a um dessas opções, dependendo do seu cenário.
+
 Quando a oferta consiste principalmente de serviços profissionais (por exemplo, as avaliações de implementações, workshops), utilize o **serviços de consultoria** oferecem tipo. Âmbito de oferta, a duração e o preço têm de ser corrigidos, tem de ser para um único cliente e tem de ser efetuadas on-site.
 
-### <a name="trial"></a>VERSÃO DE AVALIAÇÃO
+### <a name="trial"></a>TRIAL
 
 Fornecer uma experiência de avaliação aumenta o nível de envolvimento oferecido aos clientes e, por conseguinte, uma mais rica exposição da sua solução. Uma versão de avaliação permite aos clientes explorar a sua solução antes de comprar. Com uma experiência de avaliação, terá maior possibilidades de promoção de storefronts e deve esperar mais rico e mais clientes potenciais clientes potenciais de ações de envolvimento do cliente.
  
 Todas as opções de avaliação são implementadas no seu ambiente de avaliação e/ou a subscrição do Azure, em vez de no ambiente ou na subscrição do Azure do cliente. Avaliações devem ser guiado cliente sem qualquer compras adicionais e mínima, se existirem, a configuração adicional para concluir uma simples utilizar maiúsculas e minúsculas. Avaliações tem de incluir suporte gratuito, pelo menos, durante o período de avaliação. Utilizadores de avaliação, devem ser nurtured e monitorizados ao longo de um caminho de avaliação deliberate para obter os melhores resultados. Os publicadores são encorajados a utilizar clientes potenciais clientes potenciais do Marketplace e intelligence de na aplicação do publicador para monitorizar e gerir os utilizadores de avaliação.
 
-Existem 3 cenários típicos de avaliação:
+Existem 4 cenários típicos de avaliação:
 
 
 |**Opção de avaliação**  |**Principais vantagens**  |**Escolha esta opção se...**  |
@@ -130,6 +139,7 @@ Existem 3 cenários típicos de avaliação:
 |**Avaliação gratuita**    |     Permite que um cliente experimentar o produto antes de poderem comprar com um método para converter para paga automático e permite uma prova de conceitos para o cliente e conjunta o engagement com equipas de vendas da Microsoft |     A solução é uma Máquina Virtual ou solução modelo ou a sua solução é uma oferta oferta e que um produto de SaaS multi-inquilino de SaaS, terá uma primeira experiência para obter um cliente de cópias de segurança de execução e em execução rapidamente, se tiver um único inquilino, mas estiver a adicionar clientes como ' Convidado-nos dos ers|
 **Unidade de teste**     |     Permite que um cliente experimentar o produto antes de poderem comprar e fornece uma experiência assistida da sua solução sobre uma configuração de pré-configurada |   A solução é uma Máquina Virtual, um modelo de solução ou uma aplicação SaaS com inquilino único ou é complicada aprovisionar ou não tem um método para converter a versão de avaliação de oferta paga |
 |**Demonstração interativa**    |  Permite aos clientes ver o seu produto em ação, sem a complexidade do programa de configuração       |    A solução requer configuração complexa que seria difíceis de alcançar no período de avaliação     |
+
 
 #### <a name="free-trial"></a>Avaliação gratuita
 
@@ -159,7 +169,10 @@ No Azure Marketplace, utilize um **Máquina Virtual** quando a solução é impl
 
 Utilize um **modelo de solução do Azure** quando uma solução requer a automatização de implementação e configuração adicional para além da aplicação virtual. Modelos de solução podem automatizar o aprovisionamento de um ou mais recursos de máquina virtual e além disso, podem aprovisionar os recursos de rede e armazenamento. Modelos de solução podem fornecer as vantagens de automatização em máquinas virtuais única, bem como ambientes de solução com base em IaaS completa. Saiba mais sobre como criar modelos de solução [aqui](https://github.com/MicrosoftDocs/azure-docs).
 
-Utilize uma aplicação do Azure gerida pelo quando implementar uma Máquina Virtual ou uma solução de IaaS com base em toda a subscrição de um cliente quando o cliente ou do publicador pretende a solução para ser gerido por uma entidade 3rd, por exemplo um TAMA ou \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB. Saiba mais sobre [aqui a criação de aplicações geridas por](https://docs.microsoft.com/azure/managed-applications/overview). Para obter uma lista de perguntas mais comuns, consulte o [FAQ do Azure Marketplace](https://azure.microsoft.com/marketplace/faq/).
+Utilize um **aplicação gerida do Azure** quando implementar uma Máquina Virtual ou uma solução de IaaS com base em toda a subscrição de um cliente quando o cliente ou do publicador pretende a solução para ser gerido por uma entidade 3rd, por exemplo um TAMA ou \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB. Saiba mais sobre [aqui a criação de aplicações geridas por](https://docs.microsoft.com/azure/managed-applications/overview). Para obter uma lista de perguntas mais comuns, consulte o [FAQ do Azure Marketplace](https://azure.microsoft.com/marketplace/faq/).
+
+>[!NOTE]
+> Aplicações geridas tem de ser implementáveis através do marketplace. Se a comunicação de cliente for uma preocupação, tenha em atenção que poderá aceder aos clientes interessados se tiver ativado de partilha de oportunidades potenciais.
 
 ### <a name="azure-certified"></a>Certificado pelo Azure
 
@@ -197,11 +210,11 @@ Por outro lado, se ativar traga a sua própria licença como uma opção:
 |O custo de licenciamento     | Taxa de licença negociados e faturado por fabricante        |
 |---------|---------|
 |Custo de utilização do Azure (D1/1-núcleos)    | $0.14 por hora         |
-|**Cliente é faturado pela Microsoft**     | **$0.14 por hora**        |
+|**Cliente é faturado pela Microsoft**     | $0.14 por hora        |
 
 Neste cenário, Microsoft faturas $0.14 por hora para utilização da sua publicada imagem de Máquina Virtual. 
 
-|**Faturas da Microsoft**    |   **$0.14 por hora**      |
+|**Faturas da Microsoft**    |   $0.14 por hora      |
 |---------|---------|
 |Microsoft mantém o custo de utilização do Azure     |    $0.14 por hora     |
 |Microsoft mantém 0% dos seus custos de licenciamento     |  $0.00 por hora       |
@@ -227,7 +240,7 @@ Qualquer cliente do Contrato Enterprise pode adicionar o Azure ao respetivo cont
 |---------|---------|---------|
 |**Políticas de participação**    | Reveja as do Azure Marketplace participação políticas [aqui] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, a versão de avaliação, Transact        |
 |**Integração com a Microsoft**    | Ofertas do Azure Marketplace devem tirar partido ou expandir os serviços Microsoft Azure, tais como a computação, o funcionamento em rede ou o armazenamento e alinhar a uma categoria existente do Azure Marketplace como bases de dados, segurança, funcionamento em rede, etc. Localizar a lista completa [aqui](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, a versão de avaliação, Transact        |
-|**Público-alvo**    | Tem de ser ofertas do Azure Marketplace para os profissionais de TI, os programadores de nuvem ou outras funções do cliente técnica.       |  Lista, a versão de avaliação, Transact 
+|público-alvo    | Tem de ser ofertas do Azure Marketplace para os profissionais de TI, os programadores de nuvem ou outras funções do cliente técnica.       |  Lista, a versão de avaliação, Transact 
 |**Levar gestão**    | Para receber clientes potenciais clientes potenciais do Marketplace, tem de ativar o CRM (Marketo, Microsoft Dynamics ou Salesforce) para aceitar dados de oportunidades potenciais.        |   Lista, a versão de avaliação, Transact      |
 |**Política de privacidade e termos de utilização**     |   A política de privacidade tem de estar disponível através de um URL público e os termos de utilização tem de ser introduzidos como texto durante a publicação.      |   Lista, a versão de avaliação, Transact      |
 |**Suporte**     |  A oferta tem de incluir um URL de suporte publicamente disponíveis onde os clientes podem encontrar ajuda. Para avaliações, suporte tem de ser fornecido sem custos adicionais para o período de avaliação.       |  Versão de avaliação, Transact       |
@@ -252,7 +265,7 @@ Qualquer cliente do Contrato Enterprise pode adicionar o Azure ao respetivo cont
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Pré-requisitos específicos para consultar a publicação de serviços
 
 
-|**Requisitos** |**Detalhes**  |**Opção de publicação**  |
+|Requisitos |**Detalhes**  |**Opção de publicação**  |
 |---------|---------|---------|
 |**Características de oferta de serviços**     | O serviço consultadoria tem de ser fornecido como um âmbito fixo, fixo duração, fixo preço (ou livre) engagement, principalmente pré-vendas orientado para, limitado a um único cliente e a realização de um on-site        |    Lista     |
 |**Requisitos de parceiro para consultar os serviços**    |   **AppSource.**  Dynamics 365 para o Engagement cliente [nuvem prata ou Gold cliente relação gestão competência](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 para financeiros e operações Enterprise edition: Silver ou Gold [Enterprise recursos planeamento] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competência e uma mínimo de receitas de 25K de $ na nuvem Operações em à direita de 12 meses. Dynamics 365 para financeiros e de operações, a edição de negócio: servir como [fornecedor de serviços em nuvem (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) ou [Digital parceiro de registo (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) de, pelo menos, um cliente. Power BI: Cumpre os critérios de (20Incentives.pdf file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & %) de [parceiros de solução]. PowerApps: Ter uma solução de [parceiro demonstração] (https://powerapps.microsoft.com/en-us/partner-showcase/) |    Lista     |
@@ -295,7 +308,22 @@ Existem várias opções para aplicações de inquilino único:
 - Desenvolver um por cliente por unidade de teste
 - Criar uma aplicação de demonstração de exemplo do multi-inquilino com o SSO
 
-## <a name="cloud-partner-portal-pre-publishing-checklist"></a>Portal de parceiros de nuvem previamente publicar a lista de verificação
+##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processos de publicação por produto para o Office, Dynamics e o Power BI
+Para aplicações de AppSource que expandem o Office, Dynamics e o Power BI, pode obter mais informações sobre os requisitos específicos na documentação de específico do produto nesta secção. 
+
+
+|Produto |Informações de publicação  |
+|---------|---------|
+|Office 365     |    Reveja o [e diretrizes de processo de publicação]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 para operações e financeiro  |   Ao criar para o Enterprise Edition, reveja o [e diretrizes de processo de publicação](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365 para o Engagement de cliente |Reveja o [e diretrizes de processo de publicação](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource) |
+|Power BI   |     Reveja o [publicação e diretrizes de processo.]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)    |
+|Cortana Intelligence     |    Saiba mais sobre [Cortana no AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)     |
+|AppSource consultadoria ofertas     |  Reveja o [diretrizes e aprender a submeter a oferta.]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+
+
+
+## <a name="cloud-partner-portal-pre-publishing-checklist-for-azure-marketplace"></a>Portal de parceiros de nuvem previamente publicar a lista de verificação para o Azure Marketplace
 
 Antes de iniciar o processo de publicação, é útil compreender os componentes necessários para criar uma oferta. Os artefactos seguintes são necessários para concluir o criar oferecem publicação fluxo de trabalho no Portal de parceiros de nuvem. 
 
@@ -364,7 +392,7 @@ Antes de iniciar o processo de publicação, é útil compreender os componentes
 
 |Precisará disto artefactos de publicação  |Para este tipo de oferta  |
 |---------|---------|
-|**Número de versão**     |    Transact ' aplicações do Azure (modelos de solução e aplicações geridas)     |
+|Número de versão     |    Transact ' aplicações do Azure (modelos de solução e aplicações geridas)     |
 |**Ficheiro de pacote que contém todos os ficheiros de modelo e createUIDefinitionFile**   |Transact ' aplicações do Azure (modelos de solução e aplicações geridas)         |
 |**Detalhes de sistema operativo**    |   Transact ' máquinas virtuais      |
 |**Portas e protocolos em utilização**    |  Transact ' máquinas virtuais       |
@@ -379,16 +407,16 @@ Nesta secção, vamos explicar os passos: para se tornar um publicador no Azure 
 
 |Passos de registo do Marketplace  |Hora  |Descrição  |
 |---------|---------|---------|
-|Criar uma ID da Microsoft     |   15 min.      |   Os parceiros têm de ter um ID da Microsoft que é utilizado para identificar o parceiro. Este ID de Microsoft será utilizado para aceder ao Portal de parceiros de nuvem.       |
+|Criar uma ID da Microsoft     |   15 min      |   Os parceiros têm de ter um ID da Microsoft que é utilizado para identificar o parceiro. Este ID de Microsoft será utilizado para aceder ao Portal de parceiros de nuvem.       |
 |Formulário de Nomination do Marketplace     |  1 a 3 dias       |  Os parceiros têm submeter o formulário Nomination para iniciar o processo de aprovação para o mercado. Depois do formulário é submetido a equipa de integração de Marketplace irá rever a aplicação e confirme o pedido.       |
 |Registar no Centro de programadores     |    5-10 dias     | O registo com o Microsoft Developer Center é necessário para a Microsoft validar se o parceiro é uma entidade legal válida com um ID de dedução dos impostos válido para o país/região na qual está registado. Centro para programadores irá ativar o parceiro para ser um Developer Microsoft registado e fornecem acesso para o programa de programador do Azure. <br><br>*Nota: Se não tiver concluído o formulário de Nomination Marketplace, será pedido aos quais deve prestar uma taxa de registo $99. Para que esta taxa não cobrada, preencha o formulário de Nomination Marketplace e irá receber um código promocional via e-mail.*  |
-|Inicie sessão no Portal de parceiros de nuvem     |  15 min.       |   Depois do parceiro recebe a aprovação da equipa do Marketplace, que os respetivos Nomination for aprovado, o parceiro de acesso ao [Portal de parceiros de nuvem](https://cloudpartner.azure.com/) está ativada. Parceiro deve utilizar os respetivos ID da Microsoft utilizados no formulário Nomination para início de sessão para o respetivo perfil de fabricante no Portal de parceiros de nuvem. Depois de registado com o Centro para programadores, o parceiro terá de associar a conta de centro de programadores com o respetivo perfil de publicador do Azure Marketplace para publicar.      |
+|Inicie sessão no Portal de parceiros de nuvem     |  15 min       |   Depois do parceiro recebe a aprovação da equipa do Marketplace, que os respetivos Nomination for aprovado, o parceiro de acesso ao [Portal de parceiros de nuvem](https://cloudpartner.azure.com/) está ativada. Parceiro deve utilizar os respetivos ID da Microsoft utilizados no formulário Nomination para início de sessão para o respetivo perfil de fabricante no Portal de parceiros de nuvem. Depois de registado com o Centro para programadores, o parceiro terá de associar a conta de centro de programadores com o respetivo perfil de publicador do Azure Marketplace para publicar.      |
 
 #### <a name="create-a-microsoft-id"></a>Criar uma ID da Microsoft
 
 Durante o processo de publicação de Marketplace completo, irá utilizar um endereço de e-mail que identifica a conta do Marketplace. Este endereço de e-mail tem de ser registado como um ID da Microsoft e será utilizado para ambos os [Microsoft Developer Center](https://developer.microsoft.com/) e [Portal de parceiros de nuvem](https://cloudpartner.azure.com/). Deve ter apenas uma conta de ID da Microsoft para os Azure Marketplace e AppSource ofertas e recomendamos vivamente que não seja partilhado com outros serviços ou oferece.
 
-O endereço de e-mail selecionado, de preferência, deve estar no seu domínio empresarial e controladas pela sua equipa de TI. Reveja o apêndice: diretrizes para criar uma ID da Microsoft para gerir a conta do Marketplace e apêndice: orientações para a Microsoft IDs no AAD domínios federados antes das diretrizes criar um ID. 
+O endereço de e-mail selecionado, de preferência, deve estar no seu domínio empresarial e controladas pela sua equipa de TI. Consulte as secções [diretrizes e como Tos](#Guidelines-and-How-Tos) incluindo diretrizes para criar uma ID da Microsoft para gerir a conta do Marketplace e orientações para a Microsoft IDs em domínios federados do AAD para versões anteriores de diretrizes criar um ID. 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>Submeter o formulário de Nomination do Marketplace
 Como parte do processo de integração de Marketplace, terá de submeter um formulário de nomination, submete informações sobre a aplicação ou a oferta de serviço, as informações da empresa e o nível de suporte que irá fornecer.  
@@ -423,175 +451,6 @@ Utilize a sua conta do Marketplace (ID da Microsoft) para aceder ao seu perfil d
 
 Para obter informações detalhadas sobre como utilizar o Portal de parceiros de nuvem, consulte o [Saiba](https://cloudpartner.azure.com/#Learn) menu do portal e clique na secção de documentação. 
 
-## <a name="how-to-grow-your-business-with-marketplace"></a>Como aumentar a sua empresa do Marketplace
-
-Seguir as melhores práticas em marketing irá ajudar a definir para êxito com mercado aceda e iniciativas de Sell conjunta Microsoft, bem como maximizar as vantagens de negócio através do Marketplace. O [rede de parceiros da Microsoft (MPN)](https://partner.microsoft.com/membership) é o seu gateway para todos os recursos de marketing e programáticos relacionados com o tipo não mercado. 
-
-A qualidade da sua publicação de aplicações e o compromisso com o cliente procura centrado em parceiros e de geração engagement ajuda unidade cliente crescimento para a sua empresa. Exercer estas atividades irão ajudar a Microsoft amplify trabalho mercado aceda e soluções de chave de funcionalidade em storefronts o marketplace. 
-
-Esta secção explica-lhe marketing melhores práticas para uma oferta, de acordo com a lista de verificação seguinte:
-
-- Posso ter otimizada meu listagem para tráfego de unidade e o engagement.
-- Criei mensagens no meu site, tirar partido de uma página de destino exclusivo, para o tráfego de unidade para os meus listagem Marketplace.
-- Posso ter publicado uma unidade de teste ou outra versão de avaliação para que os clientes podem sentir meu oferta em execução no Azure.
-- Posso ter planeada e criado o meus próprio campanhas de marketing e promoções para deteção de unidade e o engagement.
-- Posso ativar a geração de fabrico a pedido para que sempre que alguém funciona para testar ou implementar a minha aplicação, receber as respetivas informações de contactos e nome.
-- Posso ter aprendido sobre e ligados com os recursos de parceiro que estão disponíveis para me através de [rede de parceiros da Microsoft (MPN)](https://partner.microsoft.com/membership).
-
-### <a name="create-a-great-listing"></a>Criar uma excelente listagem
-
-A listagem no mercado, por vezes, pode ser a primeiro a interação com um cliente potencial. Como qualquer primeira impressão, que pretende tornar forte e algo seu público-alvo pretende siga a cópia de segurança no. Existem alguns aspetos básicos, pode fazê-lo para ajudar a fazer esta primeira impressão no marketplace excelente!
-
-- **Encontrado:** escrever a descrição de oferta utilizando palavras de chave e os termos, o comprador irá procurar. 
-- **Ser visual:** imagens e vídeos ajuda a mostrar os utilizadores as principais funcionalidades e pode ajudar a ilustrar a sua experiência. Pensa sobre o pode mostrar que ajuda a fornecer a proposta de valor ou responder a perguntas superior do seu comprador.
-- **Fornecer uma experiência:** , como os clientes experimentar antes de poderem comprar. Clientes potenciais clientes potenciais gerado a partir de demonstrações, avaliações, e a unidades de teste demonstrar a levar a mais oportunidades de cliente. O mais forte a experiência de avaliação gratuita pode fornecer o mais forte antecedência que irá gerar. Encontrámos que teste unidade servem como resultado (médio) para oportunidades de 40% fechado.
-- **Ajudar o seu público-alvo saiba:** enquanto seria Aconselhamo-lo a manter o seu espaço de descrição geral simple e limpar, há também muitos espaço para apontar para recursos adicionais sobre o produto. Utilize este espaço para entregar a mensagem concisa sobre o que faz o produto e como é uma opção para as necessidades do seu cliente; Não possível afraid direcioná-los para os materiais adicionais para obter mais informações. Bónus se podem controlar o estes materiais de formação ou ligações para o conteúdo da estratégia de marketing, pelo que pode ser consistentemente nurturing oportunidades potenciais.
-- **Tirar partido das classificações & revisões:** permitem que os seus clientes propor o produto por si. Advocacy de cliente pode ser o controlador maior de vendas e é frequentemente onde buyers aceda antes de poderem obter mais informações sobre o produto. Ter várias revisões fortes também ajudam a efetuar o Bump da sua oferta cópias de segurança nos resultados da pesquisa e nas principais áreas em destaque.
-
-### <a name="build-a-great-landing-page"></a>Criar uma página de destino excelente
-Uma página de destino no seu Web site da empresa é um gateway das atividades de geração de pedido para o mercado listagem no Azure Marketplace. 
-
-Comece por identificar os seus objetivos. Para as soluções do Marketplace, decida que seja seu cliente de destino e que ação pretende efetuar. Ações de exemplo seria 'Teste unidade nossa solução' ou 'Get uma solução agora.' A página de destino pode ser aproveitada entre vários marketing táticas de TI qualquer caráter a partir de eventos, webcasts e de redes sociais para documentos técnicos, as sessões de formação técnica e imprensa. Mais consistente estiver no seu serviço de mensagens e chamar a ação, mais fácil que solução será a localizar.
-
-Quando tiver um pronto do plano de campanha, siga estas práticas recomendadas e considere o que evitar ao criar a página para maximizar a eficácia da sua página de destino: 
-
-
-|Melhores práticas  |Aspetos a evitar  |
-|---------|---------|
-|**Articule que problemas de cliente resolve da sua solução e como tirar partido do Azure para torná-lo acontecer**    |  Falha ao articule as formas em que a solução plus Azure funciona em conjunto       |
-|**Criar um URL de curto, fácil de lembrar**    |    URLs longos não são memorable e são difíceis de localizar     |
-|**Adicionar conteúdo visual relevante: uma arquitetura cliente testimonial vídeo ou solução são melhores práticas**   |   Utilizar demasiada texto pode tornar o seu público-alvo otimizar e parar a explorar consigo      |
-|**Criar uma chamada encriptada para a acção para direcionar os visitantes à sua página de catálogo do Marketplace**    |   Ter demasiadas ligações ou ações possíveis na página       |
-|**Colocar a chamada para a acção num cabeçalho ou claramente delimitada secção**    |  Ao incorporar as ligações para o mercado listagem num parágrafo de texto       |
-|**Pesquisar melhor palavras-chave e otimizar a página de pesquisa**    | Pressupondo que o nome do produto irá gerar as classificações de pesquisa superiores        |
-|**Tirar partido das palavras-chave do seu campanhas publicitárias**    |  Utilizar muitas palavras-chave de diferentes entre as propriedades web será dilute os seus investimentos de publicidade       |
-|**Colocar os nomes de produtos relevantes e as palavras-chave 'acima subconjuntos de validação'**     | Efetuar utilizadores deslocar para ver os produtos ou solução são Mostrar        |
-|**Utilize imagery marca (por exemplo, do Azure certificado *) para validar a sua solução e, em conformidade com a Microsoft imagem corporativa diretrizes**    |    Utilização não aprovada imagery de marca de Microsoft     |
-
-* Saiba mais sobre o [Azure certificadas destaque](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Rede de parceiros da Microsoft (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) os membros podem aceder a recursos adicionais para a imagem corporativa através de [marca Central](https://microsoft.sharepoint.com/teams/brandcentral) e aceder a [logótipo Builder](https://logobuilder.partner.microsoft.com) ferramenta. Clique aqui para saber mais sobre como associar [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
-
-### <a name="promoting-your-new-offer"></a>Promover a oferta de novo
-
-#### <a name="building-an-effective-marketing-campaign"></a>Criar uma campanha de Marketing Efetivo
-Uma campanha de marketing é uma série de atividades promocionais ou táticas de TI de marketing diversificado impulsionar o seu público-alvo para uma ação pretendida ou o resultado. Antes de conceber a sua campanha, deve:
-
-#### <a name="know-your-audience"></a>Conhecer o seu público-alvo
-
-Em primeiro lugar, certifique-se de que é o comprador e quem é o influencer? O táticas de TI e chamadas a ação para cada grupo podem ser diferentes. Peça a estas questões de avaliação:
-
-- Quantidade controlo tem o comprador sobre a decisão de compra? 
-- Quantidade influência tem o influencer? 
-- O que influenciam o influencer? 
-- Estes influenciar orçamento ou que solução é selecionada? 
-
-Saber as respostas a estas perguntas ajudará a tomar decisões sobre onde pretende investir sua utilizados no compromisso e como distribuir os utilizados no compromisso.
-
-#### <a name="define-where-your-audience-learns"></a>Definir onde aprende o seu público-alvo
-
-Buyers são 90% de forma através do respetivo journey visitam um mercado dentro do tempo. Buyers obter esta até que ponto along no processo de tomada de decisão de aprendizagem sobre soluções e avaliar as opções de antecipadamente. Pretende uma campanha que visa ser onde o buyers e influenciadores saber de design. Cada público-alvo para cada da indústria, vertical ou categoria é diferente. Seu público-alvo saiba online, através do endereço de e-mail, mostra compromissos, através de redes sociais ou através de conversações com consultores fidedignas? Dependendo de onde e como o seu público-alvo aprende poderá ser útil para atividades de design e distribuir os utilizados no compromisso marketing em conformidade. A combinação destas táticas de TI torna-se a sua estratégia de campanha.
-
-#### <a name="create-clear-campaign-goals"></a>Criar a campanha encriptada objetivos
-
-Terá de definir o êxito da sua campanha de marketplace e criar KPIs encriptados. Pode executar várias campanhas com os objetivos de end diferente. Obviamente, todos os queremos aumentar as vendas. O objetivo final ultimate é aumentada aquisição de receitas ou cliente. No entanto, as campanhas de marketing podem ser vinculadas à objetivos em outras fases do ciclo comprar.
-
-Por exemplo, se recentemente ter iniciado o produto no nosso Marketplace pode localizar que o foco é melhor despendido na educação do público-alvo e de geração de oportunidades potenciais. Pode ser definido com êxito pelo número de clientes potenciais clientes potenciais gerado a partir do seu listagem marketplace. Neste caso, o táticas de TI de marketing (e página de destino) seriam focar-se no desenho clientes para a listagem do marketplace.
-
-Se tiver um conjunto de avaliação configurados no marketplace e sabe que o produto requer algum nível do engagement e experiência antes de compra, poderá fazer o seu objetivo de campanha que o número de avaliações transferido. Neste caso, o CTA para táticas de TI as campanha seria focar-se sharply no incentivando uma versão de avaliação no marketplace. 
-
-Se o produto ou categoria é mais conhecida e tem capacidades de compra que configurar no mercado, que poderá optar por ignorar o passo de avaliação e direcionar o seu público-alvo diretamente para a ligação 'comprar agora' no marketplace.
-
-Para mais madura pontos no histórico da sua oferta que poderá optar por focar-se os esforços de campanha no upselling seu cliente base e neste caso, ação de unidade na direção de aumenta a compra no Marketplace. As táticas de TI podem focar-se no incentivando clientes ' comprar agora ' no marketplace. Os KPIS poderão as receitas gerada através do Marketplace.
-
-Independentemente maturidade da sua oferta e os objetivos da sua organização, permanecendo focados neste objetivo e mapeamento de um conjunto de integrada táticas de TI marketing alinhado para este objetivo é a chave para maximizar a eficácia de campanha.
-
-Como parte do que está a ser um publicador de novo no Azure Marketplace, iremos irá oferecer-lhe algumas vantagens Marketplace GTM livres. Deve considerar extremamente sobre como tirar partido destas vantagens na sua estratégia de campanha. Permitir que a nossa equipa de marketing saber os objetivos de campanha marketplace e a ação de audiência pretendido. Iremos pode personalizar estas materiais a entregar para funcionar no seu plano.
-
-Para obter suporte mercado aceda adicional, incluindo modelos, conteúdo web, formação e ferramentas para promover a sua visita de negócio [www. MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) para conteúdo adicional no campanha compilação e melhores práticas de marketing, visite [inteligente parceiro Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), um programa do Microsoft Partner Network.
-
-#### <a name="marketplace-gtm-benefits"></a>Vantagens GTM do Marketplace
-
-Novo listagens no Marketplace ficará elegíveis para receber os benefícios de GTM Marketplace livre. Depois de listado, nossa equipa de marketing especialistas irá entrar que dê início a estas atividades. Não há nada para si, excepto para o envolvimento connosco assim vamos entrar. 
-
-As atividades que fornecemos diferem consoante o estado da sua solução na nossa marketplace. Vantagens aumentam significativamente para ofertas que vêm com uma experiência de avaliação ou transact capacidades no marketplace.
-
-Para maximizar o impacto destas atividades, seria Aconselhamo-lo com o seu plano de iniciação pronto para execução. Poderá tirar partido da página de destino para muitos destes táticas de TI. Tenha em atenção que o catálogo OCP (catálogo um de parceiro comercial) é uma vantagem de membros do Microsoft Partner Network. 
-
-![Vantagens GTM do Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
-
-Para obter suporte, incluindo modelos, conteúdo web, formação e ferramentas para promover a sua empresa, visite [aceda ao mercado Microsoft](https://www.microsoftgotomarket.com).
-
-#### <a name="enable-lead-sharing"></a>Ativar a partilha levar
-
-Certifique-se de que a gestão de oportunidades potenciais está ativada na sua oferta do Marketplace, para que recebem as informações de contacto dos seus clientes do Marketplace. Estes clientes potenciais clientes potenciais fornecem a base para outreach para campanhas de geração de pedido, vendas motions pela sua equipa de vendas de campo e informações sobre como está a efetuar a sua oferta. 
-
-Melhores práticas para utilizar estes clientes potenciais clientes potenciais incluem:
-
-- Elegíveis de clientes potenciais clientes potenciais e classificação-los como oportunidades de vendas
-- Nurturing-los para introduzir um pipeline de venda
-- Alinhar estes esforços com a sua estratégia de campanha de marketing global
-
-Estes clientes potenciais clientes potenciais demonstram interesse do utilizador muito direcionado na sua oferta do Marketplace e na sua tecnologia e, por isso, devem ser tratadas como parte de uma forma de localizar potencial e altamente clientes. Quando é criada uma antecedência no mercado, é criada uma antecedência semelhante no vendedor de campo Microsoft CRM. 
-
-No entanto, os clientes de potenciais clientes potenciais Marketplace são diferentes do Microsoft qualificado vendedor clientes potenciais clientes potenciais que são uma funcionalidade do programa conjuntamente vender. Consulte abaixo para saber mais sobre como aceder ao programa de vende conjunta. 
-
-#### <a name="promote-your-business-through-microsoft"></a>Promover a sua empresa através da Microsoft
-
-Existem muitas pessoas e equipas na Microsoft cujo objetivo único é para suportar os nossos parceiros e reduzir a qualquer friction que tiver vender connosco. Agora que já listados no nosso marketplace tiver aberto acesso aos nossos programas marketplace e recursos. 
-
-Se já ainda não iniciou até o [rede de parceiros da Microsoft (MPN)](https://partner.microsoft.com), este deve ser o primeiro passo. Competência MPN oferece orientação para navegar Microsoft ' de novas oportunidades de negócio, estabelecer ligação com equipas ou parceiros, para obter informações sobre soluções e a preparação para o ajudar a aumentar a sua skillset.
-Melhor conhecer os passos seguintes que pode tomar para abrir o acesso ao mesmo mais benefícios de parceiro e recursos são:
-
-1.  Tira partido dos seus [principais benefícios](https://partner.microsoft.com/en-US/membership/core-benefits) como parte do nosso Microsoft Partner Network, receberá um conjunto das vantagens de núcleos que podem ajudar a poupar tempo e dinheiro enquanto reforçar a suas capacidades melhor servir os clientes e ligações de compilação para contactar a sua empresa completa potencial.
-
-2.  Mais significativos beneficiar do [competência de plataforma de nuvem](https://partner.microsoft.com/en-us/membership/cloud-platform-competency) Earning uma competência poder diferenciar si numa rede de amplo de parceiro da Microsoft, bem como para demonstrar o sucesso técnico de conhecimentos e o cliente no mercado. Earning uma competência também é um pré-requisito para muitos programas de chave de parceiro como vende conjunta.
-
-3.  Tornar-se [vende conjunta pronto](https://partner.microsoft.com/en-US/reach-customers/promote-your-business) este programa permite-lhe colaborar diretamente com sellers da Microsoft e outros parceiros de oportunidades de cliente de destino e conta planeamento. Solução fica visível para o nosso sellers no seu catálogo de solução e nosso sellers são recompensados para colaborar e prevalecente consigo.
-
-#### <a name="merchandising"></a>Merchandising 
-Como parte do processo de publicação, considera que tipo de oferta para criar e tinha a oportunidade para escolher uma categoria para a sua oferta no Azure Marketplace. Certifique-se de que seleciona uma categoria de que está correta para a sua solução para que irá ser apresentado com exatidão para potenciais clientes. 
-
-No Azure Marketplace, pode tornar-se elegível para aplicações em destaque quando ativar a funcionalidade de versão de avaliação e Transact. Reveja as vantagens de GTM Marketplace para compreender como as aplicações em destaque enquadra no contexto dos benefícios de ir para o mercado. 
-
-Aplicações em destaque são escolhidas com base em que aplicações fornecem a melhor experiência de cliente para um parceiro de alta qualidade de utilizador e tira partido marketing o engagement. Isto inclui os efeitos de clareza da listagem, a fiabilidade a tecnologia e crescimento da utilização de plataforma de clientes e o nível de envolvimento com a criação de materiais de marketing de alta qualidade. 
-
-Para maximizar as possibilidades da sua aplicação de que está a ser apresentado, deve investir no sucesso da sua oferta do marketplace e considerar as seguintes abordagens para garantir uma experiência de cliente da sua oferta: 
-
-- Certifique-se de que os seus artefactos de marketing são carregados e apresentação corretamente
-- Associar o [Microsoft Partner Network](https://partner.microsoft.com/membership) e interagir com a ecossistema de parceiro
-- Tráfego de alta qualidade de unidade para a oferta no Azure Marketplace através da criação de campanhas de geração de pedido de alta qualidade
-- Certifique-se de que todas as suas soluções do Azure e aplicações estão disponíveis no Azure Marketplace
-- Aumentar o consumo de ofertas do Azure Marketplace, a pedido, fornecer serviço de cliente de alta qualidade, a ocasionar e fornecer atualizações atempadas no seu produto
-
-## <a name="analytics-and-reporting"></a>Análise e relatórios
-
-Na secção de informações do Portal de parceiros de nuvem, verá uma descrição geral de alto nível de desempenho da sua oferta. Os relatórios incluídos nesta secção são:  
-- Instantâneo resumo das ordens
-- Utilização
-- Implementações
-- Tendências de cliente na home page do Insights
-- As ordens de detalhado, utilização e dados de cliente
-- Encomendas pendentes e de utilização apresentado como um resumo mensal ou como uma vista de tendência de seis meses
-- Utilização/ordens segmentadas por vários critérios
-
-Relatórios detalhados apresentam informações de cliente, como o nome da empresa e a localização geográfica para baixo até o código postal, para que possa comparar os seus clientes e compensar os sellers. A lista seguinte inclui os atributos específicos que fornecemos sobre os seus clientes:
-- Revendedor
-- Nome Próprio
-- Apelido
-- E-mail
-- Nome da Empresa
-- Data da transação
-- Nome da Subscrição
-- Id de subscrição do Azure (apenas para clientes PAYG)
-- Nome de instância da nuvem
-- Contagem de ordem
-- Região do país de cliente
-- Cidade do cliente
-- Idioma de comunicação de cliente
-- Código postal de cliente
-
-É a melhor prática para obter as informações nestes relatórios reconciliá-lo com os seus próprios dados internos e utilizá-lo para o ajudar a atribuir prioridades a suas ações de campanha de marketing. 
-
-A secção de análise das informações de Portal de parceiros de nuvem fornece um dashboard avançado com base no Power BI que lhe permite ver o tráfego na sua página de detalhes da aplicação. Funcionalidades novas para este dashboard estão a ser revertidas de uma forma em curso. Também no Portal de parceiros de nuvem é documentação no Microsoft Campaigns, um mecanismo através do qual pode configurar as campanhas e controlá-las no portal.
 
 ## <a name="getting-support"></a>Obter suporte
 
@@ -600,7 +459,7 @@ Esta é a lista das opções de suporte para o Azure Marketplace:
 **Pedidos de Marketplace geral do Azure:**
 |Canal de suporte |Descrição |
 |---------|---------|
-|E-mail:cloudmarketplace@microsoft.com     |  Lista de distribuição de suporte de integração. Utilizado para pedidos de integração, como configurar sessões de deteção e sessões de Design de arquitetura (anúncios) com parceiros.        |
+|E-mail: cloudmarketplace@microsoft.com     |  Lista de distribuição de suporte de integração. Utilizado para pedidos de integração, como configurar sessões de deteção e sessões de Design de arquitetura (anúncios) com parceiros.        |
 
 **Azure Marketplace publicação suporte:**
 
@@ -633,9 +492,9 @@ Amp-testdrive@microsoft.com |   Fornece acesso de integração para unidades de 
 
 |Canal de suporte  |Descrição  |
 |---------|---------|
-|E-mail:cosell@microsoft.com    |  Fornece suporte para processos de integração e perguntas relacionadas com o programa de vende conjunta. Com base na zona de hora do Pacífico.        |
-|E-mail:gtm@microsoft.com    |  Fornece suporte para os benefícios de ir para o mercado e perguntas de programa. Horas de expediente na zona de hora do Pacífico.        |
-|E-mail:CEBrand@Microsoft.com     |  Respostas a perguntas sobre a utilização de marca de logótipos do Azure e a imagem corporativa.       |
+|E-mail: cosell@microsoft.com    |  Fornece suporte para processos de integração e perguntas relacionadas com o programa de vende conjunta. Com base na zona de hora do Pacífico.        |
+|E-mail: gtm@microsoft.com    |  Fornece suporte para os benefícios de ir para o mercado e perguntas de programa. Horas de expediente na zona de hora do Pacífico.        |
+|E-mail: CEBrand@Microsoft.com     |  Respostas a perguntas sobre a utilização de marca de logótipos do Azure e a imagem corporativa.       |
 
 ## <a name="guidelines-and-how-tos"></a>Diretrizes e How-Tos
 
@@ -644,7 +503,7 @@ Amp-testdrive@microsoft.com |   Fornece acesso de integração para unidades de 
 Ao criar uma conta da empresa, siga estas diretrizes se mais do que uma pessoa precisar de aceder a conta ao iniciar sessão com a conta Microsoft que abrir a conta.
 
 >[!IMPORTANT]
->Permitir que vários utilizadores a aceder à sua conta do Dev Center, recomendamos a utilização do Azure Active Directory para atribuir funções a utilizadores individuais, quem podem aceder a conta ao iniciar sessão com as respetivas indivíduo credenciais do Azure AD. Para obter mais informações, consulte o [orientações com domínios federados do AAD](#guidance-with-aad-federated-domains). Criar a sua conta Microsoft com um endereço de e-mail que pertence ao domínio da sua empresa, mas não para um exemplo de individual'for único, windowsapps@fabrikam.com.
+>Permitir que vários utilizadores a aceder à sua conta do Dev Center, recomendamos a utilização do Azure Active Directory para atribuir funções a utilizadores individuais, quem podem aceder a conta ao iniciar sessão com as respetivas indivíduo credenciais do Azure AD. Para obter mais informações, consulte o [orientações com domínios federados do AAD](#guidance-with-aad-federated-domains). Criar a sua conta Microsoft a utilizar um endereço de e-mail que pertence ao domínio da sua empresa, mas não para uma única pessoa, por exemplo, windowsapps@fabrikam.com.
 
 - Limitar o acesso a esta conta Microsoft para o menor número possível de programadores.
 - Configurar uma lista de distribuição de e-mail empresarial que inclui todos os utilizadores que necessitam de aceder à conta de programador e adicionar este endereço de e-mail às suas informações de segurança. Isto permite que todos os empregados na lista para receber os códigos de segurança quando necessário e gerir informações de segurança da sua conta Microsoft. Se configurar uma lista de distribuição não for viável, o proprietário da conta de e-mail individuais terá de estar disponível para aceder e partilhar o código de segurança quando lhe for pedido (por exemplo, quando novas informações de segurança é adicionada à conta ou quando este tem de ser acedido a partir de um dispositivo novo).

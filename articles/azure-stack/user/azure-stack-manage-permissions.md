@@ -3,8 +3,8 @@ title: "Gerir permissões para recursos por utilizador na pilha do Azure | Micro
 description: "Como um administrador de serviço ou o inquilino, saiba como gerir RBAC permissões."
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: dfec5648ff383fd98965c1918cdab6472bb3c17f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control"></a>Gerir o controlo de acesso baseado em funções
 
@@ -36,6 +37,6 @@ Um utilizador na pilha do Azure pode ser um leitor, proprietário ou contribuint
 3. No **utilizadores** painel, clique em **funções**.
 4. No **funções** painel, clique em **adicionar** ao adicionar permissões para o utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 

@@ -1,4 +1,4 @@
-Clique no botão **Novo**. No campo **Procurar no Marketplace**, escreva `Azure Active Directory B2C`.
+Clique em de **crie um recurso** botão. No campo **Procurar no Marketplace**, escreva `Azure Active Directory B2C`.
 
 ![Botão Adicionar realçado e o texto do Azure Active Directory B2C no campo Procurar no Marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

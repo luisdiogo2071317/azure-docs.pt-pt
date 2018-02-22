@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o módulo de limite de IoT primeiro do portal do Azure para um dispositivo Windows – pré-visualização
 
@@ -32,7 +32,7 @@ Este tutorial parte do princípio de que está a utilizar um computador ou máqu
 3. Instalar [Python 2.7 no Windows] [ lnk-python] e certifique-se de que pode utilizar o comando do pip.
 4. Execute o seguinte comando para transferir o script de controlo contorno de IoT.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ Este tutorial parte do princípio de que está a utilizar um computador ou máqu
 >    * Windows IoT Core (criar 16299) num dispositivo baseado em x64
 >
 > Para Windows IoT Core, siga as instruções em [instalar o runtime de limite de IoT no Windows IoT Core][lnk-install-iotcore]. Caso contrário, basta [configurar Docker utilizar contentores Windows][lnk-docker-containers]e, opcionalmente, confirme os pré-requisitos com o seguinte comando do powershell:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ O tempo de execução do limite de IoT é implementado em todos os dispositivos 
 
 Configure o tempo de execução com a cadeia de ligação do dispositivo de limite de IoT da secção anterior.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Inicie o tempo de execução.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Verifique o Docker para ver que o agente de limite de IoT está em execução como um módulo.
 
-```
+```cmd
 docker ps
 ```
 
@@ -129,7 +129,7 @@ Quando já não necessita do IoT Hub que criou, pode utilizar o [delete de hub i
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeu a implementar um módulo de IoT Edge para um dispositivo de limite de IoT. Agora tente implementar tipos diferentes de serviços do Azure como módulos, para que possa analisar dados no limite. 
 

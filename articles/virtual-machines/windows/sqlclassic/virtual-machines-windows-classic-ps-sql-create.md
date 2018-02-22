@@ -4,7 +4,7 @@ description: "Fornece os passos e scripts do PowerShell para criar uma VM do Azu
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Aprovisionar uma máquina virtual de SQL Server com o Azure PowerShell (clássica)
 
@@ -76,7 +76,7 @@ A Máquina Virtual do SQL Server será alojada num serviço em nuvem que reside 
    ```
 
    > [!NOTE]
-   > Se necessitar de uma nova conta de armazenamento, primeiro crie um nome de conta de armazenamento de todos os minúsculas com o comando de novo AzureStorageAccount como no exemplo seguinte:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Se necessitar de uma nova conta de armazenamento, primeiro crie um nome de conta de armazenamento de todos os minúsculas com o comando de novo AzureStorageAccount como no exemplo seguinte: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Atribuir o nome de conta de armazenamento de destino para o **$staccount**. Em seguida, utilize **Set-AzureSubscription** para definir a subscrição e a conta de armazenamento atual.
 
@@ -195,7 +195,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Depois de iniciar sessão na máquina com o ambiente de trabalho remoto, configurar o SQL Server com base nas instruções no [os passos para configurar a conectividade do SQL Server numa VM do Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode encontrar instruções adicionais para o aprovisionamento de máquinas virtuais com o PowerShell no [documentação de virtual machines](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

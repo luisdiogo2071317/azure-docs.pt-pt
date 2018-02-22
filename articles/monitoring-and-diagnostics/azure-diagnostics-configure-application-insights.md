@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de serviço em nuvem, a Máquina Virtual ou o Service Fabric para o Application Insights
 Serviços cloud, máquinas virtuais, conjuntos de dimensionamento de Máquina Virtual e Service Fabric todas as utilizam a extensão de diagnóstico do Azure para recolher dados.  Diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, também pode pipe todas ou um subconjunto dos dados para outras localizações utilizando a extensão de diagnóstico do Azure versão 1.5 ou posterior.
@@ -67,7 +67,7 @@ Configuração de exemplo de um receptor de para o Application Insights:
 
 - O **ApplicationInsights** elemento Especifica a chave de instrumentação do recurso de insights na aplicação onde os dados de diagnóstico do Azure são enviados.
     - Se não tiver um recurso do Application Insights existente, consulte [criar um novo recurso do Application Insights](../application-insights/app-insights-create-new-resource.md) para obter mais informações sobre como criar um recurso e ao obter a chave de instrumentação.
-    - Se estiver a desenvolver um serviço em nuvem com o Azure SDK 2.8 e posterior, esta chave de instrumentação é preenchido automaticamente. O valor é baseado no **APPINSIGHTS_INSTRUMENTATIONKEY** definição de configuração do serviço quando empacotamento o projeto de serviço em nuvem. Consulte [utilize Application Insights com o diagnóstico do Azure para resolver problemas de serviço em nuvem](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+    - Se estiver a desenvolver um serviço em nuvem com o Azure SDK 2.8 e posterior, esta chave de instrumentação é preenchido automaticamente. O valor é baseado no **APPINSIGHTS_INSTRUMENTATIONKEY** definição de configuração do serviço quando empacotamento o projeto de serviço em nuvem. Consulte [utilizar o Application Insights com serviços em nuvem](../application-insights/app-insights-cloudservices.md).
 
 - O **canais** elemento contém um ou mais **canal** elementos.
     - O *nome* atributo refere-se exclusivamente para esse canal.
@@ -219,7 +219,7 @@ A configuração anterior, as seguintes linhas tem os significados seguintes:
 - **O nível de registo para um canal não pode exceder o nível de registo para o que está a ser recolhido ao diagnóstico do Azure.** Por exemplo, não é possível recolher os erros do registo de aplicação no elemento de registos e tente enviar verboso registos para o sink do Application Insight. O *scheduledTransferLogLevelFilter* atributo sempre tem de recolher igual ou mais registos do que os registos está a tentar enviar para um receptor de.
 - **Não é possível enviar os dados de blob recolhidos pela extensão de diagnóstico do Azure ao Application Insights.** Por exemplo, nada especificado sob o *diretórios* nós. Para informações de falhas de informação de falha real é enviada para o armazenamento de BLOBs e apenas uma notificação que foi gerada a informação de falha é enviada para o Application Insights.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Saiba como [veja as suas informações de diagnóstico do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) no Application Insights.
 * Utilize [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação.
 * Utilize [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação

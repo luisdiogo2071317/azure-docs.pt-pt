@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Efetuar análise de dados de sentimento utilizando o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente a uma tarefa de Stream Analytics do Azure simples que integra o Azure Machine Learning. Utilizar um modelo de análise de dados de sentimento do Machine Learning a partir da galeria da Cortana Intelligence para analisar dados de texto de transmissão em fluxo e determinar a classificação de dados de sentimento em tempo real. Utilizar o Cortana Intelligence Suite permite-lhe realizar esta tarefa sem se preocupar intricacies da criação de um modelo de análise de dados de sentimento.
@@ -57,7 +57,7 @@ Um nível elevado, para concluir as tarefas demonstradas neste artigo, efetue o 
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Criar um contentor de armazenamento e carregar o ficheiro de entrada de CSV
 Para este passo, pode utilizar qualquer ficheiro CSV, tal como o disponíveis a partir do GitHub.
 
-1. No portal do Azure, clique em **novo** &gt; **armazenamento** &gt; **conta de armazenamento**.
+1. No portal do Azure, clique em **crie um recurso** &gt; **armazenamento** &gt; **conta de armazenamento**.
 
    ![Criar nova conta de armazenamento](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ Agora, pode criar uma tarefa de Stream Analytics que lê os tweets de exemplo do
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).  
 
-2. Clique em **novo** > **Internet das coisas** > **tarefa do Stream Analytics**. 
+2. Clique em **crie um recurso** > **Internet das coisas** > **tarefa do Stream Analytics**. 
 
    ![Caminho do portal do Azure para obter a uma nova tarefa de Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    
@@ -269,7 +269,7 @@ Também pode ver as métricas relacionadas com a função do Azure Machine Learn
 * **Eventos de função** indica o número de eventos no pedido. Por predefinição, cada pedido a um serviço web do Machine Learning contém até 1000 eventos.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)

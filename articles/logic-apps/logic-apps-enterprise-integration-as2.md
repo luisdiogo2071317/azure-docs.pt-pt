@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Trocar mensagens AS2 para a integração empresarial com logic apps
 
@@ -40,12 +40,12 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 1.  Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure").  
 
-2.  No menu à esquerda, selecione **mais serviços**. Na caixa de pesquisa, introduza **integração** como o filtro. Na lista de resultados, selecione **contas de automatização**.
+2.  No menu à esquerda, selecione **todos os serviços**. Na caixa de pesquisa, introduza **integração** como o filtro. Na lista de resultados, selecione **contas de automatização**.
 
     > [!TIP]
-    > Se não vir **mais serviços**, poderá ter de expanda o menu primeiro. Na parte superior do menu fechado, selecione **Mostrar menu**.
+    > Se não vir **todos os serviços**, poderá ter de expanda o menu primeiro. Na parte superior do menu fechado, selecione **Mostrar menu**.
 
-    ![Mais serviços, o filtro "integração", selecione "Contas de automatização"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    ![Todos os serviços, o filtro "integração", selecione "Contas de automatização"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. No **contas de automatização** painel que abre, selecione a conta de integração onde pretende criar o contrato.
 Se não vir quaisquer contas de automatização, [criar um primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "tudo sobre contas de automatização").  
@@ -68,12 +68,12 @@ Se não vir quaisquer contas de automatização, [criar um primeiro](../logic-ap
     | --- | --- |
     | Nome |Nome do contrato |
     | Tipo de contrato | Deve ser AS2 |
-    | Parceiro de anfitrião |Um contrato tem de parceiro de um anfitrião e convidado. O parceiro de anfitrião representa a organização que configura o contrato. |
-    | Identidade do anfitrião |Um identificador para o parceiro de anfitrião |
-    | Parceiro de convidado |Um contrato tem de parceiro de um anfitrião e convidado. O parceiro de convidado representa a organização que está a decorrer empresas com o parceiro de anfitrião. |
-    | Identidade de convidado |Um identificador para o parceiro de convidado |
-    | Receber definições |Estas propriedades aplicam-se a todas as mensagens recebidas por um contrato. |
-    | Enviar definições |Estas propriedades aplicam-se a todas as mensagens enviadas por um contrato. |
+    | Parceiro do Anfitrião |Um contrato tem de parceiro de um anfitrião e convidado. O parceiro de anfitrião representa a organização que configura o contrato. |
+    | Identidade do Anfitrião |Um identificador para o parceiro de anfitrião |
+    | Parceiro Convidado |Um contrato tem de parceiro de um anfitrião e convidado. O parceiro de convidado representa a organização que está a decorrer empresas com o parceiro de anfitrião. |
+    | Identidade do Convidado |Um identificador para o parceiro de convidado |
+    | Definições de Receção |Estas propriedades aplicam-se a todas as mensagens recebidas por um contrato. |
+    | Definições de Envio |Estas propriedades aplicam-se a todas as mensagens enviadas por um contrato. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurar a forma como os identificadores de contrato receberam mensagens
 
@@ -104,16 +104,16 @@ O contrato está agora pronto para processar mensagens a receber em conformidade
 
 | Propriedade | Descrição |
 | --- | --- |
-| Substituir as propriedades da mensagem |Indica se as propriedades de mensagens recebidas podem ser substituídas. |
-| Mensagem deve estar assinada |Necessita de ser assinados digitalmente de mensagens. Configure o certificado público de parceiro de convidado para a verificação de assinatura.  |
-| Mensagem deve ser encriptada |Requer que as mensagens sejam encriptados. Mensagens encriptadas não são rejeitadas. Para configurar o anfitrião parceiro privada para desencriptar as mensagens.  |
-| Mensagem deve ser comprimida |Necessita de mensagens para ser comprimido. Mensagens de compressão não são rejeitadas. |
+| Substituir propriedades da mensagem |Indica se as propriedades de mensagens recebidas podem ser substituídas. |
+| A mensagem deve estar assinada |Necessita de ser assinados digitalmente de mensagens. Configure o certificado público de parceiro de convidado para a verificação de assinatura.  |
+| A mensagem deve ser encriptada |Requer que as mensagens sejam encriptados. Mensagens encriptadas não são rejeitadas. Para configurar o anfitrião parceiro privada para desencriptar as mensagens.  |
+| A mensagem deve ser comprimida |Necessita de mensagens para ser comprimido. Mensagens de compressão não são rejeitadas. |
 | Texto MDN |A predefinição disposição notificação de mensagem (MDN) sejam enviados para o remetente da mensagem. |
 | Enviar MDN |Requer MDNs para serem enviados. |
 | Enviar MDN assinado |Requer MDNs sejam assinadas. |
-| Algoritmo de Dinâmicas |Selecione o algoritmo a utilizar para assinar mensagens. |
-| Enviar MDN assíncrona | Necessita de mensagens de modo assíncrono. |
-| URL | Especifique o URL para onde enviar os MDNs. |
+| Algoritmo MIC |Selecione o algoritmo a utilizar para assinar mensagens. |
+| Enviar MDN assíncrono | Necessita de mensagens de modo assíncrono. |
+| do IdP | Especifique o URL para onde enviar os MDNs. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configurar como o seu contrato envia mensagens
 
@@ -149,18 +149,18 @@ O contrato está agora pronto para processar mensagens de saída que está em co
 
 | Propriedade | Descrição |
 | --- | --- |
-| Ativar a assinatura das mensagens |Requer que todas as mensagens que são enviadas pelo contrato sejam assinadas. |
-| Algoritmo de Dinâmicas |O algoritmo a utilizar para assinar mensagens. Configura o anfitrião parceiro privada certificado algoritmo Dinâmicas para as mensagens de assinatura. |
+| Ativar assinatura de mensagens |Requer que todas as mensagens que são enviadas pelo contrato sejam assinadas. |
+| Algoritmo MIC |O algoritmo a utilizar para assinar mensagens. Configura o anfitrião parceiro privada certificado algoritmo Dinâmicas para as mensagens de assinatura. |
 | Certificado |Selecione o certificado a utilizar para assinar mensagens. Configura o anfitrião parceiro privada o certificado para assinar as mensagens. |
-| Ativar a encriptação de mensagens |Necessita de encriptação de todas as mensagens que são enviadas do presente contrato. Configura o algoritmo de certificado público de parceiro de convidado para encriptar mensagens. |
-| Algoritmo de encriptação |O algoritmo de encriptação a utilizar para encriptação de mensagens. Configura o certificado público de parceiro de convidado para encriptar mensagens. |
+| Ativar encriptação de mensagens |Necessita de encriptação de todas as mensagens que são enviadas do presente contrato. Configura o algoritmo de certificado público de parceiro de convidado para encriptar mensagens. |
+| Algoritmo de Encriptação |O algoritmo de encriptação a utilizar para encriptação de mensagens. Configura o certificado público de parceiro de convidado para encriptar mensagens. |
 | Certificado |O certificado a utilizar para encriptar mensagens. Configura o certificado privado de parceiro de convidado para encriptar mensagens. |
-| Ativar a compressão de mensagem |Necessita de compressão de todas as mensagens que são enviadas do presente contrato. |
-| Unfold cabeçalhos de HTTP |Coloca o cabeçalho content-type HTTP para uma única linha. |
-| Pedido MDN |Requer um MDN para todas as mensagens que são enviadas do presente contrato. |
-| Pedido assinado MDN |Requer que todos os MDNs que são enviados para este contrato sejam assinados. |
-| MDN assíncrona do pedido |Requer MDNs assíncronas sejam enviados para este contrato. |
-| URL |Especifique o URL para onde enviar os MDNs. |
+| Ativar compressão de mensagens |Necessita de compressão de todas as mensagens que são enviadas do presente contrato. |
+| Desdobrar cabeçalhos HTTP |Coloca o cabeçalho content-type HTTP para uma única linha. |
+| Pedir MDN |Requer um MDN para todas as mensagens que são enviadas do presente contrato. |
+| Pedir MDN assinado |Requer que todos os MDNs que são enviados para este contrato sejam assinados. |
+| Pedir MDN assíncrono |Requer MDNs assíncronas sejam enviados para este contrato. |
+| do IdP |Especifique o URL para onde enviar os MDNs. |
 | Ativar NRR |Não rejeição de receção (NRR), um atributo de comunicação que fornece uma prova de requer que os dados foram recebidos como resolvido. |
 | Formato do Algoritmo SHA2 |Selecione o formato de algoritmo a utilizar o MIC ou assinatura nos cabeçalhos do enviados da mensagem AS2 ou MDN |
 

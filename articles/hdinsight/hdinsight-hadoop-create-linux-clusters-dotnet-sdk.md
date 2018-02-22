@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 78d5c2f37add456fbb5891f76039b453e731a4a8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 8a48579d380784c2c653f8e4be26af51863db578
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight utilizando o SDK .NET
 
@@ -375,7 +375,7 @@ static void Main(string[] args)
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que criou com êxito um cluster do HDInsight, utilize o seguinte para saber como trabalhar com o cluster. 
 
 ### <a name="hadoop-clusters"></a>Clusters do Hadoop
@@ -397,8 +397,6 @@ Agora que criou com êxito um cluster do HDInsight, utilize o seguinte para sabe
 * [Executar tarefas remotamente num cluster do Spark com o Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](spark/apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](spark/apache-spark-eventhub-streaming.md)
-
 ### <a name="run-jobs"></a>Executar tarefas
 * [Executar tarefas do Hive no HDInsight com o .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Executar tarefas do Pig no HDInsight com o .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

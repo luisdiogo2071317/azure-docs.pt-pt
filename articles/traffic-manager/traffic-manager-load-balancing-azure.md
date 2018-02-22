@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizando os serviços de balanceamento de carga no Azure
 
@@ -63,8 +63,8 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Passo 1: Criar um perfil do Traffic Manager
 
-1. No portal do Azure, clique em **novo**e, em seguida, procure o marketplace para "Perfil do Traffic Manager."
-2. No **perfil do Gestor de tráfego criar** painel, introduza as seguintes informações básicas:
+1. No portal do Azure, clique em **crie um recurso** > **redes** > **perfil do Traffic Manager**  >   **Criar**.
+2. Introduza as seguintes informações básicas:
 
   * **Nome**: forneça um DNS do perfil do Traffic Manager prefixo de nome.
   * **Método de encaminhamento**: selecione a política de método de encaminhamento de tráfego. Para obter mais informações sobre os métodos, consulte [sobre o tráfego do traffic Manager métodos de encaminhamento](traffic-manager-routing-methods.md).
@@ -78,7 +78,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 ### <a name="step-2-create-the-application-gateways"></a>Passo 2: Criar os gateways de aplicação
 
-1. No portal do Azure, no painel esquerdo, clique em **novo** > **redes** > **Gateway de aplicação**.
+1. No portal do Azure, no painel esquerdo, clique em **crie um recurso** > **redes** > **Gateway de aplicação**.
 2. Introduza as seguintes informações básicas sobre o gateway de aplicação:
 
   * **Nome**: O nome do gateway de aplicação.
@@ -100,15 +100,15 @@ Quando seleciona um conjunto de back-end, um gateway de aplicação que está co
 
 1. Do seu grupo de recursos, vá para a instância do gateway de aplicação que criou na secção anterior.
 2. Em **definições**, selecione **conjuntos back-end**e, em seguida, selecione **adicionar** para adicionar as VMs que pretende associar os conjuntos de back-end de camada web.
-3. No **adicionar conjunto back-end** painel, introduza o nome do conjunto de back-end e todos os endereços IP das máquinas que residem no conjunto. Neste cenário, estamos a estabelecer ligação dois conjuntos de servidores de back-end de máquinas virtuais.
+3. Introduza o nome do conjunto de back-end e todos os endereços IP das máquinas que residem no conjunto. Neste cenário, estamos a estabelecer ligação dois conjuntos de servidores de back-end de máquinas virtuais.
 
-  ![Painel de "Adicionar conjunto back-end" de Gateway de aplicação](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+  ![Gateway de aplicação "Adicionar o conjunto de back-end"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Em **definições** do gateway de aplicação, selecione **regras**e, em seguida, clique em de **caminho com base** botão para adicionar uma regra.
 
   ![Botão de "Caminho com base" regras do Gateway de aplicação](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. No **Adicionar regra de caminho com base em** painel, configurar a regra, fornecendo as seguintes informações.
+5. Configure a regra, fornecendo as seguintes informações.
 
    Definições básicas:
 
@@ -138,13 +138,13 @@ Neste cenário, o Gestor de tráfego está ligado a gateways de aplicação (con
 
   ![Botão de Gestor de tráfego pontos finais "Adicionar"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. No **adicionar ponto final** painel, crie um ponto final, introduzindo as seguintes informações:
+3. Crie um ponto final, introduzindo as seguintes informações:
 
   * **Tipo**: selecione o tipo de ponto final para balanceamento de carga. Neste cenário, selecione **ponto final do Azure** porque estamos a estabelecer ligação-lo para as instâncias de gateway de aplicação que foram anteriormente configuradas.
   * **Nome**: introduza o nome do ponto final.
   * **Tipo de recurso de destino**: selecione **endereço IP público** e, em **recurso de destino**, selecione o IP público do gateway de aplicação que foi configurado anteriormente.
 
-   ![Painel "Adicionar ponto final" do Gestor de tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   ![Gestor de tráfego "Adicionar ponto final"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. Agora pode testar a sua configuração acedendo-lo com o DNS do seu perfil do Gestor de tráfego (neste exemplo: TrafficManagerScenario.trafficmanager.net). Pode reenviar pedidos, trazer ou colocar baixo VMs e servidores web que foram criados em regiões diferentes e alterar as definições de perfil do Gestor de tráfego para testar a configuração.
 
@@ -156,8 +156,8 @@ Se o cluster de elevada disponibilidade da base de dados está a utilizar o SQL 
 
 Para obter mais informações sobre como configurar um balanceador de carga interno, consulte [criar um balanceador de carga interno no portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. No portal do Azure, no painel esquerdo, clique em **novo** > **redes** > **Balanceador de carga**.
-2. No **criar Balanceador de carga** painel, escolha um nome para o Balanceador de carga.
+1. No portal do Azure, no painel esquerdo, clique em **crie um recurso** > **redes** > **Balanceador de carga**.
+2. Escolha um nome para o Balanceador de carga.
 3. Definir o **tipo** para **interno**e escolha a rede virtual adequado e a sub-rede para o Balanceador de carga estar situada em.
 4. Em **atribuição de endereços IP**, selecione **dinâmica** ou **estático**.
 5. Em **grupo de recursos**, selecione o grupo de recursos para o Balanceador de carga.
@@ -169,18 +169,18 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 1. Do seu grupo de recursos, localize o Balanceador de carga que foi criado nos passos anteriores.
 2. Em **definições**, clique em **conjuntos back-end**e, em seguida, clique em **adicionar** para adicionar um conjunto de back-end.
 
-  ![Painel "Adicionar conjunto back-end" do Balanceador de carga](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+  ![Balanceador de carga "Adicionar o conjunto de back-end"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. No **adicionar conjunto back-end** painel, introduza o nome do conjunto de back-end.
+3. Introduza o nome do conjunto de back-end.
 4. Adicione máquinas individuais ou um conjunto de disponibilidade para o conjunto de back-end.
 
 #### <a name="configure-a-probe"></a>Configurar uma sonda
 
 1. No seu Balanceador de carga em **definições**, selecione **sondas**e, em seguida, clique em **adicionar** para adicionar uma pesquisa.
 
- ![Painel "Adicionar sonda" de Balanceador de carga](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+ ![Balanceador de carga "Adicionar sonda"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. No **adicionar sonda** painel, introduza o nome da sonda.
+2. Introduza o nome da sonda.
 3. Selecione o **protocolo** da sonda. Para uma base de dados, pode querer uma sonda TCP, em vez de uma pesquisa HTTP. Para obter mais informações sobre pesquisas de Balanceador de carga, consulte [sondas de Balanceador de carga de compreender](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Introduza o **porta** da base de dados a ser utilizado para aceder a pesquisa.
 5. Em **intervalo**, especifique a frequência de sonda da aplicação.
@@ -190,7 +190,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 #### <a name="configure-the-load-balancing-rules"></a>Configurar as regras de balanceamento de carga
 
 1. Em **definições** do seu Balanceador de carga, selecione **as regras de balanceamento de carga**e, em seguida, clique em **adicionar** para criar uma regra.
-2. No **regra de balanceamento de carga de adicionar** painel, introduza o **nome** para a regra de balanceamento de carga.
+2. Introduza o **nome** para a regra de balanceamento de carga.
 3. Escolha o **endereço de IP de front-end** do Balanceador de carga, **protocolo**, e **porta**.
 4. Em **porta back-end**, especifique a porta a ser utilizado no conjunto de back-end.
 5. Selecione o **conjunto back-end** e **sonda** que foram criados nos passos anteriores para aplicar a regra.
@@ -201,11 +201,11 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Passo 5: Ligar as VMs de camada web ao balanceador de carga
 
-Agora, iremos configurar a porta de front-end Balanceador de carga e endereços IP nas aplicações que estão em execução em VMs a camada web para todas as ligações de base de dados. Esta configuração é específica para as aplicações que são executados nestas VMS. Para configurar o endereço IP de destino e a porta, consulte a documentação da aplicação. Para localizar o endereço IP do front-end, no portal do Azure, avance para o conjunto IP Front-end a **definições do Balanceador de carga** painel.
+Agora, iremos configurar a porta de front-end Balanceador de carga e endereços IP nas aplicações que estão em execução em VMs a camada web para todas as ligações de base de dados. Esta configuração é específica para as aplicações que são executados nestas VMS. Para configurar o endereço IP de destino e a porta, consulte a documentação da aplicação. Para localizar o endereço IP do front-end, no portal do Azure, avance para o conjunto IP Front-end a **definições do Balanceador de carga**.
 
 ![Painel de navegação de "Conjunto de IP de front-end" de Balanceador de carga](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral do Gestor de tráfego](traffic-manager-overview.md)
 * [Descrição geral do Gateway de aplicação](../application-gateway/application-gateway-introduction.md)

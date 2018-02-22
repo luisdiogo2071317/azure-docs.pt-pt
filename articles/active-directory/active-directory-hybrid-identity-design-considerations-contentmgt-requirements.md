@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de gestão de conteúdos para a sua solução de identidade híbrida
-Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode influenciar a sua decisão em que solução de identidade híbrida a utilizar. Com a proliferação de vários dispositivos e a capacidade dos utilizadores para colocar os seus próprios dispositivos ([BYOD](http://aka.ms/byodcg)), a empresa tem de proteger os seus próprios dados, mas também deve manter a privacidade do utilizador intacto. Normalmente, quando um utilizador tiver a sua própria dispositivo ele pode ter também várias credenciais que irão ser alternados, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade e aumentar a proteção contra fugas de dados. 
+Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode influenciar a sua decisão em que solução de identidade híbrida a utilizar. Com a proliferação de vários dispositivos e a capacidade dos utilizadores para colocar os seus próprios dispositivos ([BYOD](https://aka.ms/byodcg)), a empresa tem de proteger os seus próprios dados, mas também deve manter a privacidade do utilizador intacto. Normalmente, quando um utilizador tiver a sua própria dispositivo ele pode ter também várias credenciais que irão ser alternados, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade e aumentar a proteção contra fugas de dados. 
 
 A solução de identidade irá ser aproveitada pelas diferentes controlos técnicos para fornecer gestão de conteúdo, conforme mostrado na imagem abaixo:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Guardar IoT hub mensagens que contêm dados de sensor para o armazenamento de Blobs do Azure
 
@@ -45,7 +45,7 @@ Saiba como criar uma conta de armazenamento do Azure e uma aplicação de funç�
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **novo** > **armazenamento** > **conta de armazenamento** > **criar**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **crie um recurso** > **armazenamento** > **conta de armazenamento**  >  **Criar**.
 
 2. Introduza as informações necessárias para a conta de armazenamento:
 
@@ -98,7 +98,7 @@ Clique em **adicionar** partir do painel de rotas e introduza um nome para a rot
 
    Deverá ver as mensagens enviadas a partir do seu dispositivo ao seu IoT hub com sessão iniciada no contentor do blob.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Com êxito criou a conta de armazenamento do Azure e encaminhadas mensagens do IoT Hub para um contentor de blob nessa conta de armazenamento.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>A criar os projetos do Azure na linha de comandos
 Utilizar o motor de compilação da Microsoft (MSBuild), pode criar produtos em ambientes de laboratório de compilação em que o Visual Studio não está instalado. MSBuild utiliza um formato XML para ficheiros de projeto do extensível e totalmente suportados pela Microsoft. Utilizar o formato de ficheiro do MSBuild, possa descrever o que itens têm de ser criado para um ou mais plataformas e configurações.
@@ -35,6 +35,5 @@ Por predefinição, cada projeto do Azure inclui um ficheiro de configuração d
 
 Se pretender utilizar um diretório alternativo para o pacote armazenado e ficheiros de configuração, definir o caminho utilizando o `/p:PublishDir=Directory\` opção, incluindo o separador de barra invertida à direita.
 
-## <a name="next-steps"></a>Passos seguintes
-Depois do pacote é criado, pode implementá-la para o Azure. Para um tutorial que demonstra como automatizar o processo, consulte [entrega contínua para serviços em nuvem no Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+## <a name="next-steps"></a>Passos Seguintes
+Depois do pacote é criado, pode implementá-la para o Azure.

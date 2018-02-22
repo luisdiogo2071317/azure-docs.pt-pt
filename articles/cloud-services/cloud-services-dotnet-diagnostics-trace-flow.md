@@ -3,8 +3,8 @@ title: "Analisar o fluxo de uma aplicação de serviços na nuvem com o diagnós
 description: "Adicione mensagens de rastreio para uma aplicação do Azure para o ajudar a depuração, medir o desempenho, monitorização, análise de tráfego e muito mais."
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: 
 ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: robb
-ms.openlocfilehash: 35b4a4270846c54a1ca760e803ef7adba60cf03b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: 7551ae2e3a7c5f3ff6010bf34e7600da1028d67f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Analisar o fluxo de uma aplicação de serviços em nuvem com o diagnóstico do Azure
 O rastreio é uma forma para que possa monitorizar a execução da aplicação enquanto estiver em execução. Pode utilizar o [Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx), e [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) classes para registar informações sobre os erros e execução das aplicações nos registos, ficheiros de texto ou outros dispositivos para análise posterior. Para mais informações sobre o rastreio, consulte [rastreio e Instrumentar aplicações](https://msdn.microsoft.com/library/zs6s4h68.aspx).

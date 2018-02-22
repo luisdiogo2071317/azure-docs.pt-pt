@@ -8,18 +8,22 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registo do Azure: eventos de Cofre de chaves do Azure de processo ao utilizar os Hubs de eventos
 
 Pode utilizar a integração de registo do Azure para obter eventos registados e disponibilizá-los ao sistema de gestão (SIEM) de segurança as informações e eventos. Este tutorial mostra um exemplo de como a integração de registo do Azure podem ser utilizada para processar registos que são adquiridos através do Event Hubs do Azure.
+
+>[!IMPORTANT]
+>O método preferencial para integrar os registos do Azure é através do conector de Monitor do Azure do seu fornecedor SIEM e seguir estes [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para monitorizar o Azure, poderá utilizar a integração de registo do Azure como uma solução temporária (se o SIEM for suportado pelo Azure registo integração) até esse um conector está disponível.
+
  
 Utilize este tutorial para obter acquainted com como o registo a integração do Azure e do Event Hubs funcionam em conjunto, seguindo os passos de exemplo e compreender a forma como cada passo suporta a solução. Em seguida, pode tirar o que aprendeu aqui criar os seus próprios passos para suportar necessidades exclusivas da sua empresa.
 
@@ -86,13 +90,13 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
 
    ![Janela do PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Crie variáveis para armazenar os valores que serão utilizados mais tarde. Introduza cada um dos seguintes linhas de PowerShell. Poderá ter de ajustar os valores para corresponder ao seu ambiente.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(O nome da sua subscrição poderão ser diferente. Pode vê-lo como parte do resultado do comando anterior.)
-    - ```$location = 'West US'```(Esta variável será utilizada para transmitir a localização onde os recursos deverá ser criados. Pode alterar esta variável para ser de qualquer localização da sua escolha.)
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (O nome da sua subscrição poderão ser diferente. Pode vê-lo como parte do resultado do comando anterior.)
+    - ```$location = 'West US'``` (Esta variável será utilizada para transmitir a localização onde os recursos deverá ser criados. Pode alterar esta variável para ser de qualquer localização da sua escolha.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random```(O nome pode ser qualquer coisa, mas deve incluir apenas letras minúsculas e números).
-    - ``` $storageName = $name```(Esta variável será utilizada para o nome da conta de armazenamento).
-    - ```$rgname = $name ```(Esta variável será utilizada para o nome do grupo de recursos).
-    - ``` $eventHubNameSpaceName = $name```(Este é o nome do espaço de nomes de hub de eventos.)
+    - ``` $name = 'azlogtest' + $random``` (O nome pode ser qualquer coisa, mas deve incluir apenas letras minúsculas e números).
+    - ``` $storageName = $name``` (Esta variável será utilizada para o nome da conta de armazenamento).
+    - ```$rgname = $name ``` (Esta variável será utilizada para o nome do grupo de recursos).
+    - ``` $eventHubNameSpaceName = $name``` (Este é o nome do espaço de nomes de hub de eventos.)
 6. Especifique a subscrição que irá ser-lhe trabalhar com:
     
     ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
@@ -175,7 +179,7 @@ Execute o comando AzLog para cada hub de eventos:
 
 Depois de um minuto ou executar os dois últimos comandos, deve ver ficheiros JSON que está a ser gerados. Pode confirmar que, ao monitorizar o diretório **C:\users\AzLog\EventHubJson**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Integração de registos do Azure FAQ](security-azure-log-integration-faq.md)
 - [Introdução à integração do registo do Azure](security-azure-log-integration-get-started.md)

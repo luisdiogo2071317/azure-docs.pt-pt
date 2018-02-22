@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funcionalidades e ferramentas para Bash na Shell de nuvem do Azure
 
@@ -37,7 +37,7 @@ Bash na Shell de nuvem e em segurança os automaticamente autentica o acesso de 
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH para máquinas virtuais do Linux do Azure
 
-Criar uma VM com Linux a partir do Azure CLI 2.0 pode criar uma chave SSH de predefinido e colocá-lo no seu `$Home` diretório. Colocar SSH chaves nos `$Home` permite direcionar ligações SSH para VMs do Azure com Linux diretamente a partir da Shell de nuvem. As chaves são guardadas na acc_<user>.img numa partilha de ficheiros, utilize as melhores práticas quando utilizar ou partilha de acesso à partilha de ficheiros ou chaves.
+Criar uma VM com Linux a partir do Azure CLI 2.0 pode criar uma chave SSH de predefinido e colocá-lo no seu `$Home` diretório. Colocar SSH chaves nos `$Home` permite ligações SSH para VMs do Linux do Azure diretamente a partir da Shell de nuvem. As chaves são guardadas na acc_<user>.img numa partilha de ficheiros, utilize as melhores práticas quando utilizar ou partilha de acesso à partilha de ficheiros ou chaves.
 
 ### <a name="home-persistence-across-sessions"></a>Persistência $Home entre sessões
 
@@ -47,6 +47,10 @@ Além disso, no Bash na Shell de nuvem a `$Home` diretório é mantido como um .
 Ficheiros fora do `$Home` e o estado da máquina não são mantidas entre sessões.
 
 [Saiba mais sobre ficheiros persistentes na Bash na Shell de nuvem.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>A integração total com ferramentas open source
+
+Bash na Shell de nuvem inclui autenticação previamente configurada para ferramentas open source como Terraform e Ansible. Experimente das instruções de exemplo.
 
 ## <a name="tools"></a>Ferramentas
 

@@ -12,23 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 08/08/2017
+ms.date: 02/16/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar os registos de auditoria do Azure Active Directory
 
 Eventos de auditoria do Azure Active Directory (Azure AD) ajudam a identificar ações privilegiadas ocorridas no Azure Active Directory. Pode ver os tipos de eventos que pode controlar revendo [eventos de relatório de auditoria do Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
+
 > [!NOTE]
 > Antes de tentar os passos neste artigo, tem de consultar o [começar](security-azure-log-integration-get-started.md) artigo e conclua os passos não existe.
 
-## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passos para integrar os registos de auditoria do Azure Active directory
+## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passos para integrar o Azure Active Directory de registos de auditoria
 
 1. Abra a linha de comandos e execute este comando:
 
@@ -65,12 +66,10 @@ A assistência de Comunidade está disponível através de [fórum MSDN do Azure
 
 Também pode abrir um [pedido de suporte](../azure-supportability/how-to-create-azure-support-request.md). Selecione **integração de registo** como o serviço para o qual está a pedir suporte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a integração de registo do Azure, consulte:
 
 * [Integração de registo do Microsoft Azure para os registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324): página do Centro de transferências este fornece detalhes, requisitos de sistema e as instruções de instalação para a integração de registo do Azure.
 * [Introdução ao Azure registo integração](security-azure-log-integration-overview.md): Este artigo apresenta-lhe a integração de registo do Azure, as suas capacidades principais e como funciona.
-* [Passos de configuração do parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): Este blogue mostra-lhe como configurar a integração de registo do Azure para trabalhar com soluções de parceiros Splunk, HP ArcSight e IBM QRadar.
 * [FAQ sobre integração do registo do Azure](security-azure-log-integration-faq.md): Este artigo responde a questões sobre a integração de registo do Azure.
-* [Integração de alertas do Centro de segurança com a integração de registo do Azure](../security-center/security-center-integrating-alerts-with-log-integration.md): Este artigo mostra-lhe como sincronizar alertas do Centro de segurança, juntamente com a segurança da máquina virtual recolhidos os eventos de diagnóstico do Azure e auditoria do Azure nos registos, com a análise de registos ou Solução do SIEM.
 * [Registos de auditoria de novas funcionalidades de diagnóstico do Azure e Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): esta mensagem de blogue apresenta-lhe os registos de auditoria do Azure e outras funcionalidades que o ajudam a obterem informações sobre as operações dos seus recursos Azure.
