@@ -95,8 +95,6 @@
           href: apache-spark-streaming-overview.md
         - name: Criar tarefas de transmissão em fluxo do Spark altamente disponíveis no YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Processar eventos de transmissão em fluxo
-          href: apache-spark-eventhub-streaming.md
         - name: Transmissão em fluxo estruturada com os Hubs de Eventos
           href: apache-spark-eventhub-structured-streaming.md
         - name: Transmissão em fluxo estruturada com o Kafka
