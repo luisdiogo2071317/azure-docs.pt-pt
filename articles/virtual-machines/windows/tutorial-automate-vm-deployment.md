@@ -1,6 +1,6 @@
 ---
-title: Personalizar um Windows VM no Azure | Microsoft Docs
-description: "Saiba como utilizar a extensão de script personalizado e um cofre de chaves para personalizar as VMs do Windows no Azure"
+title: Personalizar uma VM do Windows no Azure | Microsoft Docs
+description: "Saiba como utilizar a extensão de script personalizado para automatizar as instalações de aplicações em VMs do Windows no Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,169 +10,103 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17a6c243aaf73fcd88261870fbdd9e8c936471b8
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 63858da0a4a47d67ec659e922ab10f9f7bc97938
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Como personalizar uma máquina virtual do Windows no Azure
-Para configurar máquinas virtuais (VMs) de uma forma rápida e consistente, alguma forma de automatização é normalmente assim o desejar. Uma abordagem comum para personalizar uma VM do Windows está a utilizar [extensão de Script personalizado para Windows](extensions-customscript.md). Neste tutorial, ficará a saber como:
+Para configurar máquinas virtuais (VMs) forma rápida e consistente, normalmente pretende-se alguma forma de automatização. Uma abordagem comum de personalização de uma VM do Windows é a utilização da [Extensão de Script Personalizado para o Windows](extensions-customscript.md). Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Utilizar a extensão de Script personalizado para instalar o IIS
-> * Criar uma VM que utiliza a extensão de Script personalizado
-> * Ver um site do IIS em execução depois de aplicada a extensão
+> * Utilizar a Extensão de Script Personalizado para instalar o IIS
+> * Criar uma VM que utilize a Extensão de Script Personalizado
+> * Ver um site IIS em execução após a extensão ser aplicada
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure. 
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.3 ou posterior do módulo Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure. 
 
 
-## <a name="custom-script-extension-overview"></a>Descrição geral de extensão de script personalizado
-A extensão de Script personalizado transfere e executa os scripts em VMs do Azure. Esta extensão é útil para configuração de implementação de post, instalação de software ou qualquer outra configuração / tarefas de gestão. Scripts podem ser transferidos a partir do armazenamento do Azure ou o GitHub ou fornecidos para o portal do Azure em tempo de execução de extensão.
+## <a name="custom-script-extension-overview"></a>Visão geral da extensão de script personalizado
+A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão.
 
-A extensão de Script personalizado se integra com modelos Azure Resource Manager e também pode ser executada utilizando a CLI do Azure, o PowerShell, o portal do Azure ou a API de REST de Máquina Virtual do Azure.
+A extensão de Script Personalizado é integrada em modelos do Azure Resource Manager, podendo também ser executada ao utilizar a CLI do Azure, PowerShell, portal do Azure ou API REST de Máquinas Virtuais do Azure.
 
-Pode utilizar a extensão de Script personalizado com o Windows e VMs com Linux.
+Pode utilizar a Extensão de Script Personalizado com VMs do Windows e do Linux.
 
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
-Antes de poder criar uma VM, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupAutomate* no *EastUS* localização:
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
-```
-
-Definir um administrador do nome de utilizador e palavra-passe para as VMs com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Agora pode criar a VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria os componentes de rede virtual necessário, a configuração do SO e, em seguida, cria uma VM chamada *myVM*:
+Agora, pode criar a VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se ainda não existirem, serão criados os grupos de recursos *myResourceGroupAutomate* e recursos de rede de apoio. Para permitir um tráfego Web, o cmdlet também abre a porta *80*.
 
 ```azurepowershell-interactive
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine using the configuration
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Credential $cred
 ```
 
-Demora alguns minutos para que os recursos e a VM ser criada.
+Demora alguns minutos até que os recursos e a VM sejam criados.
 
 
 ## <a name="automate-iis-install"></a>Automatizar a instalação do IIS
-Utilize [conjunto AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para instalar a extensão de Script personalizado. As execuções de extensão `powershell Add-WindowsFeature Web-Server` para instalar o servidor Web do IIS e, em seguida, as atualizações a *Default.htm* página para mostrar o nome do anfitrião da VM:
+Utilize [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para instalar a Extensão de Script Personalizado. A extensão executa o `powershell Add-WindowsFeature Web-Server` para instalar o servidor Web IIS e, em seguida, atualiza a página *Default.htm* para mostrar o nome do anfitrião da VM:
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
-    -ExtensionName IIS `
-    -VMName myVM `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
+    -ExtensionName "IIS" `
+    -VMName "myVM" `
+    -Location "EastUS" `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.8 `
-    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location EastUS
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 ```
 
 
-## <a name="test-web-site"></a>Teste web site
-Obter o endereço IP público do seu Balanceador de carga com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
+## <a name="test-web-site"></a>Site de teste
+Obtenha o endereço IP público do seu balanceador de carga com [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIPAddress*, criado anteriormente:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Name myPublicIP | select IpAddress
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myPublicIPAddress" | select IpAddress
 ```
 
-Em seguida, pode introduzir o endereço IP público para um web browser. O Web site é apresentado, incluindo o nome do anfitrião da VM que o Balanceador de carga distribuído tráfego como no exemplo seguinte:
+Em seguida, pode introduzir o endereço IP público num browser. O site é apresentado, incluindo o nome do anfitrião da VM para a qual o balanceador de carga distribuiu tráfego, como no seguinte exemplo:
 
-![Web site do IIS em execução](./media/tutorial-automate-vm-deployment/running-iis-website.png)
+![Site do IIS em execução](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, automatizar a instalação do IIS numa VM. Aprendeu a:
+Neste tutorial, automatizou a instalação do IIS numa VM. Aprendeu a:
 
 > [!div class="checklist"]
-> * Utilizar a extensão de Script personalizado para instalar o IIS
-> * Criar uma VM que utiliza a extensão de Script personalizado
-> * Ver um site do IIS em execução depois de aplicada a extensão
+> * Utilizar a Extensão de Script Personalizado para instalar o IIS
+> * Criar uma VM que utilize a Extensão de Script Personalizado
+> * Ver um site IIS em execução após a extensão ser aplicada
 
-Avançar para o próximo tutorial para saber como criar imagens VM personalizadas.
+Avance para o tutorial seguinte para aprender a criar imagens de VM personalizadas.
 
 > [!div class="nextstepaction"]
 > [Criar imagens de VM personalizadas](./tutorial-custom-images.md)

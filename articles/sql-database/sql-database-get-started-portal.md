@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar uma base de dados SQL do Azure no portal do Azure
 
@@ -84,7 +84,7 @@ Siga estes passos para criar uma base de dados SQL com os dados de exemplo da Ad
    >\* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Para este tutorial de início rápido, selecione o escalão de preço **Standard** e, em seguida, utilize o controlo de deslize para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
+7. Para este tutorial de início rápido, selecione o escalão de preço **Standard** e, em seguida, utilize o controlo de deslize para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
 
    ![criar base de dados-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -138,17 +138,13 @@ Pode agora ligar ao servidor da Base de Dados SQL e às respetivas bases de dado
 
 Agora que criou uma base de dados de exemplo no Azure, vamos utilizar a ferramenta de consulta incorporada no portal do Azure para confirmar que se consegue ligar à base de dados e consultar os dados.
 
-1. Na página da Base de Dados SQL para a base de dados, encontre e clique em **Explorador de dados (pré-visualização)** no menu da esquerda
+1. Na página Base de Dados SQL da sua base de dados, clique em **Editor de consultas (pré-visualização)** no menu à esquerda e, em seguida, clique em **Iniciar sessão**.
 
-   ![encontrar editor de consultas](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![início de sessão](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Clique em **Iniciar sessão**, reveja as informações de início de sessão e, em seguida, clique em **OK** para iniciar sessão com a autenticação do SQL server com o início de sessão de administrador de servidor e a palavra-passe que criou anteriormente.
+2. Selecione a autenticação do servidor SQL, forneça as informações necessárias de início de sessão e, em seguida, clique em **OK** para iniciar sessão.
 
-   ![início de sessão](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Clique em **OK** para iniciar sessão.
-
-4. Quando estiver autenticado como **ServerAdmin**, escreva a consulta seguinte no painel do editor de consultas.
+3. Quando estiver autenticado como **ServerAdmin**, escreva a consulta seguinte no painel do editor de consultas.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Agora que criou uma base de dados de exemplo no Azure, vamos utilizar a ferramen
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Clique em **Executar** e, em seguida, reveja os resultados da consulta no painel **Resultados**.
+4. Clique em **Executar** e, em seguida, reveja os resultados da consulta no painel **Resultados**.
 
    ![Resultados do editor de consultas](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Feche a página **Explorador de dados**, clique em **OK** para eliminar as edições não guardadas.
+5. Feche a página **Explorador de dados**, clique em **OK** para eliminar as edições não guardadas.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

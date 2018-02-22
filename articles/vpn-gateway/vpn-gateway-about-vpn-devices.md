@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: yushwang
-ms.openlocfilehash: bb6f9f4df9afa9d0c1a75fbb1166798a2aef4bb4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca dos dispositivos de VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs
 
@@ -57,6 +57,7 @@ Para obter ajuda na configuração do seu dispositivo VPN, veja as ligações qu
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Guia de configuração*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Exemplos de configuração**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |N/D |Não compatível |Não compatível |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e posterior |[Guia de configuração](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Não compatível |
 | F5 |Série BIG-IP |12.0 |[Guia de configuração](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guia de configuração](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Guia de configuração](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -150,24 +151,24 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 
 |-  |**Encriptação**|**Autenticação**|**Grupo PFS**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
+| 1 |GCM AES256    |GCM (AES256)      |Nenhum         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
-| 4 |AES256        |SHA256            |Nenhuma         |
-| 5 |AES128        |SHA1              |Nenhuma         |
+| 4 |AES256        |SHA256            |Nenhum         |
+| 5 |AES128        |SHA1              |Nenhum         |
 | 6 |3DES          |SHA256            |Nenhuma         |
 
 #### <a name="azure-gateway-as-responder"></a>Gateway do Azure como dispositivo de resposta
 
 |-  |**Encriptação**|**Autenticação**|**Grupo PFS**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
+| 1 |GCM AES256    |GCM (AES256)      |Nenhum         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
 | 4 |AES256        |SHA256            |Nenhuma         |
-| 5 |AES128        |SHA1              |Nenhuma         |
-| 6 |3DES          |SHA256            |Nenhuma         |
-| 7 |DES           |SHA1              |Nenhuma         |
+| 5 |AES128        |SHA1              |Nenhum         |
+| 6 |3DES          |SHA256            |Nenhum         |
+| 7 |DES           |SHA1              |Nenhum         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -182,7 +183,7 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |Nenhuma         |
+| 22|AES128        |SHA256            |Nenhum         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

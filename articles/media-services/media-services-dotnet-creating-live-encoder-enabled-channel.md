@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5529f67ac03fe5c9b09203556f365a6009cf579a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 571467b88668aa2933ada9953b8ea33a9741a03f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Como realizar uma transmissão em fluxo em direto utilizando os Media Services do Azure para criar transmissões com velocidade de transmissão múltipla com .NET
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 > * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
@@ -40,7 +40,7 @@ Para obter mais informações conceptuais relacionadas com Canais ativados para 
 Os passos seguintes descrevem as tarefas envolvidas na criação de aplicações comuns de transmissão em fluxo em direto.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived através de Microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
+> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 > 
 > 
 
@@ -90,14 +90,14 @@ O artigo mostra como fazer o seguinte:
 ## <a name="prerequisites"></a>Pré-requisitos
 O seguinte é necessário para concluir o tutorial.
 
-* Uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Recebe créditos que podem ser utilizados para experimentar os serviços pagos do Azure. Mesmo depois de gastar todos os créditos, pode manter a conta e utilizar os serviços e recursos gratuitos do Azure, tal como a funcionalidade Web Apps no App Service do Azure.
+* Uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Recebe créditos que podem ser utilizados para experimentar os serviços pagos do Azure. Mesmo depois de gastar todos os créditos, pode manter a conta e utilizar os serviços e recursos gratuitos do Azure, tal como a funcionalidade Web Apps no App Service do Azure.
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Criar Conta](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
 * Tem de utilizar a versão 3.2.0.0 ou mais recente do SDK .NET dos Media Services.
 * Uma câmara Web e um codificador que possa enviar uma transmissão de velocidade de transmissão única.
 
 ## <a name="considerations"></a>Considerações
-* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived através de Microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
+* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@Microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 * Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 ## <a name="download-sample"></a>Transferir exemplo

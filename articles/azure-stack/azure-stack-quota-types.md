@@ -3,8 +3,8 @@ title: Tipos de quota na pilha do Azure | Microsoft Docs
 description: "Reveja os tipos diferentes de quota disponíveis para serviços e recursos na pilha do Azure."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
-ms.author: erikje
-ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de quota na pilha do Azure
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 10/25/2017
 [Quotas](azure-stack-plan-offer-quota-overview.md#plans) definir limites de recursos que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um utilizador criar VMs até cinco. Cada recurso pode ter os seus próprios tipos de quotas.
 
 ## <a name="compute-quota-types"></a>Tipos de quota de computação
-| **Tipo** | **Valor predefinido** | **Descrição** |
+| **Tipo** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
 | Número máx. de máquinas virtuais | 20 | O número máximo de máquinas virtuais que pode criar uma subscrição nesta localização. |
 | Número máximo de núcleos de máquina virtual | 50 | O número máximo de núcleos que pode criar uma subscrição nesta localização (por exemplo, uma VM A3 tem quatro núcleos). |
@@ -40,13 +41,13 @@ ms.lasthandoff: 10/25/2017
 > 
 
 ## <a name="storage-quota-types"></a>Tipos de quota de armazenamento
-| **Item** | **Valor predefinido** | **Descrição** |
+| **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
 | Capacidade máxima (GB) |500 |Capacidade de armazenamento total que pode ser utilizada por uma subscrição nesta localização. |
 | Número total de contas de armazenamento |20 |O número máximo de contas do storage que pode criar uma subscrição nesta localização. |
 
 ## <a name="network-quota-types"></a>Tipos de quota de rede
-| **Item** | **Valor predefinido** | **Descrição** |
+| **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
 | Número máximo IPs públicos |50 |O número máximo de IPs públicos que pode criar uma subscrição nesta localização. |
 | Redes virtuais máx. |50 |O número máximo de redes virtuais que pode criar uma subscrição nesta localização. |
@@ -61,7 +62,7 @@ ms.lasthandoff: 10/25/2017
 2. Selecione o serviço com a quota de que pretende visualizar.
 3. Clique em **Quotas**e selecione a quota de que pretende visualizar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre planos, ofertas e quotas.](azure-stack-plan-offer-quota-overview.md)
 
 [Crie quotas ao criar um plano.](azure-stack-create-plan.md)

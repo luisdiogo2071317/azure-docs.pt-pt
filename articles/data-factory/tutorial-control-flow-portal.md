@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
+1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
         - Nome da Fábrica de Dados – que transmite o valor de `@{pipeline().DataFactory}`. Esta é uma variável do sistema, que lhe permite aceder ao nome da fábrica de dados correspondente. Para obter uma lista de variáveis do sistema, veja o artigo [Variáveis do Sistema](control-flow-system-variables.md).
         - Nome do pipeline – que transmite o valor de `@{pipeline().Pipeline}`. Também se trata de uma variável do sistema, que lhe permite aceder ao nome do pipeline correspondente. 
         - Recetor – que transmite o valor de "@pipeline().parameters.receiver"), acedendo aos parâmetros do pipeline.
-    6. As **Definições** devem ser semelhantes à imagem seguinte: 
-
+    
         ![Definições da primeira atividade Web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Ligue a atividade **Copy** à atividade **Web** ao arrastar o botão verde junto à atividade Copy e largar na atividade Web. 
 
@@ -266,8 +266,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. As **Definições** devem ser semelhantes à imagem seguinte: 
-    
+
         ![Definições da segunda atividade Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Selecione a atividade **Copy** no estruturador do pipeline, clique no botão **+->** e selecione **Erro**.  
 
@@ -278,7 +277,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 24. Para validar o pipeline, clique no botão **Validar**, na barra de ferramentas. Clique no botão **>>** para fechar a janela **Saída da Validação do Pipeline**.
 
     ![Validar o pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Para publicar entidades (conjuntos de dados, pipelines, etc.) no serviço Data Factory, clique em **Publicar**. Aguarde até ver a mensagem **Publicação com êxito**.
+24. Para publicar entidades (conjuntos de dados, pipelines, etc.) no serviço Data Factory, selecione **Publicar Tudo**. Aguarde até ver a mensagem **Publicação com êxito**.
 
     ![Publicar](./media/tutorial-control-flow-portal/publish-button.png)
  

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-spring-boot-application"></a>Implementar uma Aplicação Spring Boot
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores. 
@@ -102,6 +102,14 @@ Agora pode aceder à aplicação de Spring Boot que foi implementada num cluster
 Para implementar a aplicação num cluster no Azure, crie o seu próprio cluster.
 
 Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Estes são executados pela equipa do Service Fabric, onde qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Party Cluster, [siga as instruções](http://aka.ms/tryservicefabric). 
+
+Para realizar operações de gestão no cluster de grupo seguro, pode utilizar o Service Fabric Explorer, a CLI ou o PowerShell. De modo a utilizar o Service Fabric Explorer, tem de transferir o ficheiro PFX do site do Cluster de Grupo e importar o certificado para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Não há nenhuma palavra-passe para os certificados autoassinados do cluster de grupo. 
+
+Para realizar operações de gestão com o Powershell ou a CLI, vai precisar do PFX (Powershell) ou do PEM (CLI). Para converter o PFX num ficheiro PEM, execute o seguinte comando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Para obter informações sobre como criar o seu próprio cluster, veja [Crie um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: b29147a37f9a90fc80e16b350ac9b91daac1d7f2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-A configuração de ligações de Rede de VPNs e ExpressRoute coexistentes tem várias vantagens. Pode configurar uma Rede de VPNs como um caminho de ativação pós-falha seguro para o ExpressRoute ou utilizar a Rede de VPNs para ligar a sites que se encontram ligados através do ExpressRoute. Abordamos os passos para configurar ambos os cenários neste artigo. Este artigo aplica-se ao modelo de implementação do Resource Manager e utiliza o PowerShell. Esta configuração não está disponível no Portal do Azure.
+A configuração de ligações de Rede de VPNs e ExpressRoute coexistentes tem várias vantagens. Pode configurar uma VPN Site a Site como um caminho de ativação pós-falha seguro para o ExpressRoute ou utilizar as VPNs Site a Site para ligar a sites que não se encontram ligados através do ExpressRoute. Abordamos os passos para configurar ambos os cenários neste artigo. Este artigo aplica-se ao modelo de implementação do Resource Manager e utiliza o PowerShell. Esta configuração não está disponível no Portal do Azure.
 
 > [!IMPORTANT]
 > Os circuitos ExpressRoute têm de ser previamente configurados antes de seguir as instruções abaixo. Confirme que seguiu os guias para [criar um circuito ExpressRoute](expressroute-howto-circuit-arm.md) e [configurar o encaminhamento](expressroute-howto-routing-arm.md) antes de continuar.

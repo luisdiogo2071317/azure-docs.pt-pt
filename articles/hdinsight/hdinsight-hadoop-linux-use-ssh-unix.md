@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1a1fbac1eb4c529ea89f0f4c72b3317718ac45ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ligar ao HDInsight (Hadoop) através de SSH
 
@@ -62,6 +62,8 @@ O Microsoft Windows não instala nenhum cliente SSH por predefinição. Os clien
     > Se os comandos `ssh` e `scp` não estiverem disponíveis no PowerShell depois de ativar esta funcionalidade, termine sessão e reinicie-a.
 
 * [Bash no Ubuntu no Windows 10](https://msdn.microsoft.com/commandline/wsl/about): os comandos `ssh` e `scp` estão disponíveis através do Bash na linha de comandos do Windows.
+
+* [Cliente OpenSSH (beta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): trata-se de uma funcionalidade opcional introduzida no Windows 10 Fall Creators Update.
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md): o Cloud Shell fornece um ambiente de Bash no seu navegador e fornece `ssh`, `scp` e outros comandos comuns do Linux.
 

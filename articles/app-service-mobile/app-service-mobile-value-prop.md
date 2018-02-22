@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Sobre Aplicações Móveis no Serviço de Aplicações do Azure
 O Serviço de Aplicações do Azure é uma oferta de [plataforma como um serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) completamente gerida para programadores profissionais. O serviço oferece um conjunto avançado de capacidades para cenários Web, móveis e de integração. 
@@ -38,21 +38,21 @@ Com a funcionalidade Aplicações Móveis, pode:
 ## <a name="mobile-apps-features"></a>Funcionalidades das Aplicações Móveis
 As seguintes funcionalidades são importantes para o desenvolvimento móvel preparados para nuvem:
 
-* **Autenticação e autorização**: selecione a partir de uma lista crescente de fornecedores de identidade, incluindo o Azure Active Directory, uma autenticação empresarial e fornecedores de rede sociais, como as contas do Facebook, do Google, do Twitter e da Microsoft. As Aplicações Móveis oferecem um serviço OAuth 2.0 para cada fornecedor. Também é possível integrar o SDK para o fornecedor de identidade para funcionalidades específicas do fornecedor.
+* **Autenticação e autorização**: suporte para fornecedores de identidade, incluindo o Azure Active Directory, uma autenticação empresarial e fornecedores de redes sociais, como as contas do Facebook, do Google, do Twitter e da Microsoft. As Aplicações Móveis oferecem um serviço OAuth 2.0 para cada fornecedor. Também é possível integrar o SDK para o fornecedor de identidade para funcionalidades específicas do fornecedor.
 
     Saiba mais sobre as nossas [funcionalidades de autenticação].
 
 * **Acesso a dados**: as Aplicações Móveis oferecem uma origem de dados OData v3 compatível com dispositivos móveis que está ligada à Base de Dados SQL do Azure ou a um SQL Server no local. Uma vez que este serviço pode ser baseado em Entity Framework, pode integrar facilmente com outros fornecedores de dados NoSQL e SQL, incluindo [Armazenamento de Tabelas do Azure], MongoDB, [Azure Cosmos DB] e fornecedores de API SaaS, como o Office 365 e Salesforce.com.
 
-* **Sincronização offline**: os nossos SDKS do cliente facilitam a compilação de aplicações móveis robustas e reativas que funcionam com um conjunto de dados offline. Pode sincronizar este conjunto de dados automaticamente com os dados de back-end, incluindo o suporte de resolução de conflitos.
+* **Sincronização offline**: os SDKs do cliente facilitam a compilação de aplicações móveis robustas e reativas que funcionam com um conjunto de dados offline. Pode sincronizar este conjunto de dados automaticamente com os dados de back-end, incluindo o suporte de resolução de conflitos.
 
-  Saiba mais sobre as nossas [funcionalidades de dados].
+  Saiba mais sobre as [funcionalidades de dados].
 
-* **Notificações push**: os nossos SDKS do cliente estão totalmente integrados com as capacidades de registo dos Hubs de Notificação do Azure, para que possa enviar notificações push para milhões de utilizadores em simultâneo.
+* **Notificações push**: os SDKs do cliente estão totalmente integrados com as capacidades de registo dos Hubs de Notificação do Azure, para que possa enviar notificações push para milhões de utilizadores em simultâneo.
 
-  Saiba mais sobre as nossas [funcionalidades de notificação push].
+  Saiba mais sobre as [funcionalidades de notificação push].
 
-* **SDKs do Cliente**: fornecemos um conjunto completo de SDKs do cliente que abrangem o desenvolvimento nativo ([iOS], [Android] e [Windows]), desenvolvimento de plataformas cruzadas ([Xamarin.iOS e Xamarin.Android], [Xamarin.Forms]) e desenvolvimento de aplicações híbridas ([Apache Cordova]). Cada SDK do Cliente está disponível com uma licença MIT e é open source.
+* **SDKs do Cliente**: existe um conjunto completo de SDKs do cliente que abrangem o desenvolvimento nativo ([iOS], [Android] e [Windows]), desenvolvimento de plataformas cruzadas ([Xamarin.iOS e Xamarin.Android], [Xamarin.Forms]) e desenvolvimento de aplicações híbridas ([Apache Cordova]). Cada SDK do Cliente está disponível com uma licença MIT e é open source.
 
 ## <a name="azure-app-service-features"></a>Funcionalidades do Serviço de Aplicações do Azure
 As seguintes funcionalidades da plataforma são úteis para sites de produção móveis:
@@ -65,7 +65,7 @@ As seguintes funcionalidades da plataforma são úteis para sites de produção 
 
   Saiba mais sobre os [ambientes de teste].
 
-* **Implementação contínua**: o Serviço de Aplicações pode ser integrado com sistemas de gestão de controlo de origem (SCM) comuns, para que possa implementar automaticamente uma nova versão do seu back-end ao enviar para um ramo do seu sistema SCM.
+* **Implementação contínua**: o Serviço de Aplicações pode ser integrado com sistemas de _gestão de controlo de origem_ (SCM) comuns, permitindo-lhe facilmente implementar uma nova versão do seu back-end.
 
   Saiba mais sobre as [opções de implementação](../app-service/app-service-deploy-local-git.md).
 
@@ -73,7 +73,7 @@ As seguintes funcionalidades da plataforma são úteis para sites de produção 
 
   Saiba mais sobre [ligações híbridas], [redes virtuais] e [ExpressRoute].
 
-* **Ambientes isolados e dedicados**: pode executar o Serviço de Aplicações num ambiente completamente isolado e dedicado para uma execução segura de aplicações do Serviço de Aplicações do Azure numa escala elevada. Este ambiente é ideal para cargas de trabalho de aplicações que exijam uma escala, isolamento ou um acesso de rede elevados.
+* **Ambientes isolados e dedicados**: para uma execução segura de aplicações do Serviço de Aplicações do Azure, pode executar o Serviço de Aplicações num ambiente completamente isolado e dedicado. Este ambiente é ideal para cargas de trabalho de aplicações que exijam uma escala, isolamento ou um acesso de rede elevados.
 
   Saiba mais sobre os [ambientes do Serviço de Aplicações].
 

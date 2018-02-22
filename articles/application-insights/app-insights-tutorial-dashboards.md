@@ -1,6 +1,6 @@
 ---
-title: Crie dashboards personalizados no Azure Application Insights | Microsoft Docs
-description: Tutorial para criar dashboards personalizados do KPI com o Azure Application Insights.
+title: Criar dashboards personalizados no Azure Application Insights | Microsoft Docs
+description: Tutorial para criar dashboards de KPI personalizados com o Azure Application Insights.
 keywords: 
 services: application-insights
 author: mrbullwinkle
@@ -10,22 +10,22 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Crie dashboards personalizados do KPI com o Azure Application Insights
+# <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
-Pode criar dashboards vários no portal do Azure que cada mosaicos incluir visualizar dados de vários recursos do Azure entre subscrições e grupos de recursos diferentes.  Pode afixar gráficos diferentes e vistas a partir da Azure Application Insights para criar dashboards personalizados que fornecem visão geral do Estado de funcionamento e desempenho da aplicação.  Este tutorial orienta-o através da criação de um dashboard personalizado que inclua vários tipos de dados e as visualizações do Azure Application Insights.  Saiba como:
+Pode criar múltiplos dashboards no portal do Azure em que cada um inclui mosaicos que visualizam os dados de vários recursos do Azure entre diferentes grupos de recursos e subscrições.  Pode afixar diferentes gráficos e vistas a partir do Azure Application Insights para criar dashboards personalizados que fornecem uma visão geral do estado de funcionamento e do desempenho da aplicação.  Este tutorial orienta-o através da criação de um dashboard personalizado que inclui vários tipos de dados e visualizações a partir do Azure Application Insights.  Saiba como:
 
 > [!div class="checklist"]
 > * Criar um dashboard personalizado no Azure
-> * Adicione um mosaico da galeria do mosaico
+> * Adicionar um mosaico a partir da Galeria de Mosaicos
 > * Adicionar métricas padrão no Application Insights ao dashboard 
-> * Adicionar um gráfico de métrico personalizado Application Insights ao dashboard
-> * Adicionar os resultados de uma consulta de análise para o dashboard 
+> * Adicionar um gráfico de métricas personalizado no Application Insights ao dashboard
+> * Adicionar os resultados de uma consulta do Analytics ao dashboard 
 
 
 
@@ -33,100 +33,100 @@ Pode criar dashboards vários no portal do Azure que cada mosaicos incluir visua
 
 Para concluir este tutorial:
 
-- Implementar uma aplicação .NET do Azure e [ativar o Application Insights SDK](app-insights-asp-net.md). 
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](app-insights-asp-net.md). 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Criar um novo dashboard
-Um único dashboard pode conter recursos a partir de várias aplicações, grupos de recursos e subscrições.  O tutorial de início ao criar um novo dashboard para a sua aplicação.  
+Um único dashboard pode conter recursos de várias aplicações, grupos de recursos e subscrições.  Comece o tutorial ao criar um novo dashboard para a sua aplicação.  
 
-2.  No ecrã principal do portal, selecione **novo dashboard**.
+2.  No ecrã principal do portal, selecione **Novo dashboard**.
 
     ![Novo dashboard](media/app-insights-tutorial-dashboards/new-dashboard.png)
 
 3. Escreva um nome para o dashboard.
-4. Veja o **mosaico galeria** para uma variedade de mosaicos que pode adicionar ao dashboard.  Para além de adicionar peças de mosaicos a partir da galeria pode afixar gráficos e a outras vistas diretamente a partir do Application Insights ao dashboard.
-5. Localize o **Markdown** mosaico e arraste-o para o dashboard.  Este mosaico permite-lhe adicionar texto formatado no markdown que é ideal para adicionar o texto descritivo para o dashboard.
-6. Adicionar texto a propriedades no mosaico e redimensioná-la na tela dashboard.
+4. Veja a **Galeria de Mosaicos** para obter uma variedade de mosaicos que pode adicionar ao dashboard.  Além de adicionar mosaicos a partir da galeria, pode afixar gráficos e outras vistas diretamente a partir do Application Insights ao dashboard.
+5. Localize o mosaico **Markdown** e arraste-o para o dashboard.  Este mosaico permite-lhe adicionar texto formatado no markdown, o que é ideal para adicionar texto descritivo ao dashboard.
+6. Adicione texto às propriedades do mosaico e redimensione-o na tela do dashboard.
     
-    ![Editar o mosaico de markdown](media/app-insights-tutorial-dashboards/edit-markdown.png)
+    ![Editar mosaico Markdown](media/app-insights-tutorial-dashboards/edit-markdown.png)
 
-6. Clique em **feito personalizar** na parte superior do ecrã, para sair do modo de personalização do mosaico e, em seguida, **publicar alterações** para guardar as alterações.
+6. Clique em **Personalização concluída** na parte superior do ecrã para sair do modo de personalização do mosaico e, em seguida, em **Publicar alterações** para guardar as alterações.
 
-    ![Dashboard com mosaico de markdown](media/app-insights-tutorial-dashboards/dashboard-01.png)
+    ![Dashboard com mosaico Markdown](media/app-insights-tutorial-dashboards/dashboard-01.png)
 
 
-## <a name="add-health-overview"></a>Adicionar descrição geral do Estado de funcionamento
-Um dashboard com texto apenas estático não está muito interessante, por isso, agora, adicione um mosaico do Application Insights para mostrar as informações sobre a sua aplicação.  Pode adicionar mosaicos do Application Insights na galeria do mosaico, ou pode afixá-los diretamente a partir de ecrãs de Application Insights.  Isto permite-lhe configurar gráficos e vistas já estiver familiarizado com antes de afixá-los ao dashboard.  Comece por adicionar a descrição geral do Estado de funcionamento padrão para a sua aplicação.  Isto requer nenhuma configuração e permite aos personalização mínima no dashboard.
+## <a name="add-health-overview"></a>Adicionar descrição geral do estado de funcionamento
+Um dashboard com apenas texto estático não é muito interessante, por isso, adicione agora um mosaico a partir do Application Insights para mostrar informações sobre a aplicação.  Pode adicionar mosaicos do Application Insights a partir da Galeria de Mosaicos ou afixá-los diretamente a partir dos ecrãs do Application Insights.  Isto permite-lhe configurar gráficos e vistas com os quais já está familiarizado antes de afixá-los ao dashboard.  Comece por adicionar a descrição geral do estado de funcionamento padrão para a sua aplicação.  Isto não requer nenhuma configuração e permite uma personalização mínima no dashboard.
 
 
 1. Selecione **Application Insights** no menu do Azure e, em seguida, selecione a aplicação.
-2. No **linha cronológica de descrição geral**, selecione o menu de contexto e clique em **afixar ao dashboard**.  Esta ação adiciona o mosaico do dashboard do último que estava a visualizar.  
+2. Na **linha cronológica de Descrição Geral**, selecione o menu de contexto e clique em **Afixar ao dashboard**.  Esta ação adiciona o mosaico ao último dashboard que estava a visualizar.  
 
-    ![Linha cronológica de descrição geral do PIN](media/app-insights-tutorial-dashboards/pin-overview-timeline.png)
+    ![Afixar linha cronológica de Descrição Geral](media/app-insights-tutorial-dashboards/pin-overview-timeline.png)
  
-3. Na parte superior do ecrã, clique em **veja o dashboard** para regressar ao dashboard.
-4. A linha cronológica de descrição geral é agora adicionada ao dashboard.  Clique e arraste-o na posição e, em seguida, clique em **feito personalizar** e **publicar alterações**.  O dashboard tem agora um mosaico algumas informações úteis.
+3. Na parte superior do ecrã, clique em **Ver dashboard** para regressar ao dashboard.
+4. A linha cronológica de Descrição Geral está agora adicionada ao dashboard.  Clique e arraste-a para a posição pretendida e, em seguida, clique em **Personalização concluída** e **Publicar alterações**.  O dashboard tem agora um mosaico algumas informações úteis.
 
-    ![Dashboard com a linha cronológica de descrição geral](media/app-insights-tutorial-dashboards/dashboard-02.png)
+    ![Dashboard com linha cronológica de Descrição Geral](media/app-insights-tutorial-dashboards/dashboard-02.png)
 
 
 
-## <a name="add-custom-metric-chart"></a>Adicionar gráfico métrico personalizado
-O **métricas** painel permite-lhe uma métrica recolhida pelo Application Insights ao longo do tempo com filtros opcionais e o agrupamento da graph.  Como tudo o resto no Application Insights, pode adicionar este gráfico ao dashboard.  Isto requer que efetue um pequeno personalização primeiro.
+## <a name="add-custom-metric-chart"></a>Adicionar gráfico de métricas personalizado
+O painel **Métricas** permite-lhe criar um gráfico de uma métrica recolhida pelo Application Insights ao longo do tempo com filtros e agrupamentos opcionais.  Tal como tudo no Application Insights, pode adicionar este gráfico ao dashboard.  É necessário efetuar primeiro uma pequena personalização.
 
 1. Selecione **Application Insights** no menu do Azure e, em seguida, selecione a aplicação.
-1. Selecione **métricas**.  
-2. Já tiver sido criado um gráfico vazio e está a ser pedido para adicionar uma métrica.  Adicionar uma métrica do gráfico e, opcionalmente, adicione um filtro e um agrupamento.  O exemplo abaixo mostra o número de pedidos de servidor, agrupados por com êxito.  Isto proporciona uma vista de execução de pedidos com êxito e êxito.
+1. Selecione **Métricas**.  
+2. Já foi criado um gráfico vazio e está a ser-lhe pedido para adicionar uma métrica.  Adicione uma métrica ao gráfico e, opcionalmente, adicione um filtro e um agrupamento.  O exemplo abaixo mostra o número de pedidos de servidor agrupados com êxito.  Isto fornece uma vista de execução de pedidos com e sem êxito.
 
     ![Adicionar métrica](media/app-insights-tutorial-dashboards/metrics-chart.png)
 
-4. Selecione o menu de contexto para o gráfico e selecione **afixar ao dashboard**.  Esta ação adiciona a vista de dashboard do último que estava a trabalhar com.
+4. Selecione o menu de contexto para o gráfico e selecione **Afixar ao dashboard**.  Esta ação adiciona o mosaico ao último dashboard em que estava a trabalhar.
 
-    ![Gráfico de métrico de PIN](media/app-insights-tutorial-dashboards/pin-metrics-chart.png)
+    ![Afixar gráfico de métricas](media/app-insights-tutorial-dashboards/pin-metrics-chart.png)
 
-3. Na parte superior do ecrã, clique em **veja o dashboard** para regressar ao dashboard.
+3. Na parte superior do ecrã, clique em **Ver dashboard** para regressar ao dashboard.
 
-4. A linha cronológica de descrição geral é agora adicionada ao dashboard.  Clique e arraste-o na posição e, em seguida, clique em **feito personalizar** e, em seguida, **publicar alterações**. 
+4. O Gráfico de Métricas da Linha Cronológica está agora adicionado ao dashboard. Clique e arraste-o para a posição pretendida e, em seguida, clique em **Personalização concluída** e **Publicar alterações**. 
 
-    ![Dashboard de métricas](media/app-insights-tutorial-dashboards/dashboard-03.png)
+    ![Dashboard com métricas](media/app-insights-tutorial-dashboards/dashboard-03.png)
 
 
-## <a name="metrics-explorer"></a>Explorador de métricas
-**Explorador de métricas** é semelhante à métrica embora permite significativamente mais personalização quando adicionado ao dashboard.  Que utilizar para as métricas da graph depende da sua preferência específica e requisitos.
+## <a name="metrics-explorer"></a>Explorador de Métricas
+O **Explorador de Métricas** é semelhante às Métricas, embora permite significativamente mais personalização quando adicionado ao dashboard.  A utilização do gráfico para as métricas depende da sua preferência e requisitos específicos.
 
 1. Selecione **Application Insights** no menu do Azure e, em seguida, selecione a aplicação.
-1. Selecione **Explorador de métricas**. 
-2. Clique para editar o gráfico e selecione uma ou mais métricas e, opcionalmente, uma configuração de detalhado.  O exemplo apresenta um gráfico de linhas tempo de resposta médio da página de controlo.
-3. Clique no ícone de pin na parte superior direita para adicionar o gráfico ao dashboard e, em seguida, arraste-o na posição.
+1. Selecione **Explorador de Métricas**. 
+2. Clique para editar o gráfico e selecione uma ou mais métricas e, opcionalmente, uma configuração detalhada.  O exemplo apresenta um tempo de resposta médio da página de controlo do gráfico de linhas.
+3. Clique no ícone de pin na parte superior direita para adicionar o gráfico ao dashboard e, em seguida, arraste-o para a posição pretendida.
 
-    ![Explorador de métricas](media/app-insights-tutorial-dashboards/metrics-explorer.png)
+    ![Explorador de Métricas](media/app-insights-tutorial-dashboards/metrics-explorer.png)
 
-4. O mosaico do Explorador de métricas permite personalização mais uma vez que é adicionado ao dashboard.  Clique com o botão direito do rato no mosaico e selecione **editar título** para adicionar um título personalizado.  Avançar e efetuar outras personalizações, se pretender.
+4. O mosaico Explorador de Métricas permite mais personalização depois de ser adicionado ao dashboard.  Clique com o botão direito do rato no mosaico e selecione **Editar título** para adicionar um título personalizado.  Avance e efetue outras personalizações, se quiser.
 
-    ![Dashboard com o Explorador de métricas](media/app-insights-tutorial-dashboards/dashboard-04a.png)
+    ![Dashboard com explorador de métricas](media/app-insights-tutorial-dashboards/dashboard-04a.png)
 
-5. Tem agora o gráfico de Explorador de métricas adicionado ao dashboard.
+5. Tem agora o gráfico Explorador de Métricas adicionado ao dashboard.
 
-    ![Dashboard com o Explorador de métricas](media/app-insights-tutorial-dashboards/dashboard-04.png)
+    ![Dashboard com explorador de métricas](media/app-insights-tutorial-dashboards/dashboard-04.png)
 
-## <a name="add-analytics-query"></a>Adicionar a consulta de análise
-Application Insights Analytics do Azure fornece um idioma de consulta avançada permite-lhe analisar todos os dados recolhidos Application Insights.  Tal como a outras vistas e gráficos, pode adicionar a saída de uma consulta de análise ao dashboard.   
+## <a name="add-analytics-query"></a>Adicionar a consulta do Analytics
+O Azure Application Insights Analytics fornece uma linguagem de consulta avançada que permite analisar todos os dados recolhidos pelo Application Insights.  Tal como outros gráficos e vistas, pode adicionar a saída de uma consulta do Analytics ao dashboard.   
 
-Uma vez que a análise de informações de aplicações do Azure é um serviço separado, terá de partilhar o dashboard para o mesmo incluir uma consulta de análise.  Quando partilha um dashboard do Azure, publicá-lo como um recurso do Azure que pode tornar disponível para outros utilizadores e recursos.  
+Como o Azure Applications Insights Analytics é um serviço separado, tem de partilhar o dashboard com o mesmo para incluir uma consulta do Analytics.  Quando partilha um dashboard do Azure, publica-o como um recurso do Azure que pode disponibilizá-lo para outros utilizadores e recursos.  
 
-1. Na parte superior do ecrã de dashboard, clique em **partilha**.
+1. Na parte superior do ecrã do dashboard, clique em **Partilhar**.
 
     ![Publicar o dashboard](media/app-insights-tutorial-dashboards/publish-dashboard.png)
 
-2. Manter o **nome do Dashboard** mesmo e selecione o **nome da subscrição** para partilhar o dashboard.  Clique em **Publicar**.  O dashboard está agora disponível para outros serviços e subscrições.  Opcionalmente, pode definir a utilizadores específicos que devem ter acesso ao dashboard.
+2. Mantenha o mesmo **Nome do dashboard** e selecione o **Nome da Subscrição** para partilhar o dashboard.  Clique em **Publicar**.  O dashboard está agora disponível para outros serviços e subscrições.  Opcionalmente, pode definir utilizadores específicos que devem ter acesso ao dashboard.
 1. Selecione **Application Insights** no menu do Azure e, em seguida, selecione a aplicação.
-2. Clique em **análise** na parte superior do ecrã, para abrir o portal de análise.
+2. Clique em **Analytics** na parte superior do ecrã para abrir o portal do Analytics.
 
-    ![Análise de início](media/app-insights-tutorial-dashboards/start-analytics.png)
+    ![Iniciar o Analytics](media/app-insights-tutorial-dashboards/start-analytics.png)
 
-3. Escreva a consulta seguinte, que devolve as superiores 10 mais pedidas as páginas e respetiva contagem de pedido:
+3. Escreva a consulta seguinte, que devolve as 10 páginas mais pedidas e a respetiva contagem de pedidos:
 
     ```
     requests
@@ -135,12 +135,12 @@ Uma vez que a análise de informações de aplicações do Azure é um serviço 
     | take 10 
     ```
 
-4. Clique em **aceda** para validar os resultados da consulta.
-5. Clique no ícone de pin e selecione o nome do dashboard.  O motivo que esta opção tem que selecione um dashboard ao contrário dos passos anteriores, em que foi utilizado o último dashboard é porque a consola de análise é um serviço separado e tem de selecionar a partir de todos os dashboards partilhados disponíveis.
+4. Clique em **Ir** para validar os resultados da consulta.
+5. Clique no ícone de pin e selecione o nome do dashboard.  O motivo para esta opção permitir selecionar um dashboard ao contrário dos passos anteriores em que foi utilizado o último dashboard é porque a consola do Analytics é um serviço separado e tem de selecionar a partir de todos os dashboards partilhados disponíveis.
 
-    ![Consulta de análise do PIN](media/app-insights-tutorial-dashboards/analytics-pin.png)
+    ![Afixar a consulta do Analytics](media/app-insights-tutorial-dashboards/analytics-pin.png)
 
-5. Antes de regressar ao dashboard, adicione outra consulta, mas desta vez compor-lo como um gráfico para ver as diferentes formas para visualizar uma consulta de análise num dashboard.  Começar com a seguinte consulta que resume as principais 10 operações com a maioria das exceções.
+5. Antes de regressar ao dashboard, adicione outra consulta, mas desta vez componha-a como um gráfico para ver as diferentes formas de visualizar uma consulta do Analytics num dashboard.  Comece com a consulta seguinte que resume as 10 principais operações com a maioria das exceções.
 
     ```
     exceptions
@@ -149,21 +149,21 @@ Uma vez que a análise de informações de aplicações do Azure é um serviço 
     | take 10 
     ```
 
-6. Selecione **gráfico** e, em seguida, mude para um **anel** para visualizar os resultados.
+6. Selecione **Gráfico** e, em seguida, mude para **Anel** para visualizar os resultados.
 
-    ![Gráfico de análise](media/app-insights-tutorial-dashboards/analytics-chart.png)
+    ![Gráfico do Analytics](media/app-insights-tutorial-dashboards/analytics-chart.png)
 
-6. Clique no ícone de pin para afixar o gráfico ao dashboard e desta vez, selecione a ligação para regressar ao dashboard.
-4. Agora, os resultados das consultas são adicionados ao seu dashboard no formato que selecionou.  Clique e arraste cada na posição e, em seguida, clique em **terminar a edição**.
-5. Com o botão direito clique em cada um dos mosaicos e selecione **editar título** atribuir-lhes um título descritivo.
+6. Clique no ícone de pin para afixar o gráfico ao dashboard e, desta vez, selecione a ligação para regressar ao dashboard.
+4. Os resultados das consultas estão agora adicionados ao dashboard no formato que selecionou.  Clique e arraste cada um para a posição pretendida e, em seguida, clique em **Edição concluída**.
+5. Clique com o botão direito do rato em cada um dos mosaicos e selecione **Editar Título** para lhes atribuir um título descritivo.
 
-    ![Dashboard de análise](media/app-insights-tutorial-dashboards/dashboard-05.png)
+    ![Dashboard com Analytics](media/app-insights-tutorial-dashboards/dashboard-05.png)
 
-5. Clique em **publicar alterações** para consolidar as alterações ao seu dashboard que inclui agora uma variedade de gráficos e visualizações do Application Insights.
+5. Clique em **Publicar alterações** para confirmar as alterações ao dashboard que inclui agora uma variedade de gráficos e visualizações do Application Insights.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que aprendeu como criar dashboards personalizados, ter um aspeto inativos de documentação do Application Insights, incluindo um caso prático.
+Agora que aprendeu a criar dashboards personalizados, veja a restante documentação do Application Insights, incluindo um caso prático.
 
 > [!div class="nextstepaction"]
-> [Diagnóstico profundo](app-insights-devops.md)
+> [Diagnósticos avançados](app-insights-devops.md)

@@ -1,6 +1,6 @@
 ---
-title: "Disponibilizar dados da aplicação altamente no Azure | Microsoft Docs"
-description: "Utilize o armazenamento georredundante com acesso de leitura para tornar os dados da aplicação de elevada disponibilidade"
+title: "Tornar os dados das aplicações altamente disponíveis no Azure | Microsoft Docs"
+description: "Utilize o armazenamento georredundante de acesso de leitura para tornar os dados das suas aplicações altamente disponíveis"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -9,25 +9,25 @@ editor:
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/23/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados da aplicação de elevada disponibilidade com armazenamento do Azure
+# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados das suas aplicações altamente disponíveis com o Armazenamento do Azure
 
-Este tutorial faz parte de um de uma série. Este tutorial mostra como disponibilizar os dados da aplicação altamente no Azure. Quando tiver terminado, tem uma aplicação de consola do .NET core que carrega e obtém um blob para um [acesso de leitura georredundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) conta de armazenamento (RA-GRS). RA-GRS funciona ao replicar as transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária são eventualmente consistentes. A aplicação utiliza o [disjuntor](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) padrão para determinar o ponto final para ligar a. A aplicação muda para o ponto final secundário quando uma falha é simulada.
+Este tutorial é a primeira parte de uma série, que mostra como tornar os dados das suas aplicações altamente disponíveis no Azure. Quando tiver terminado, terá uma aplicação de consola que carrega e obtém um blob para uma conta de armazenamento [geograficamente redundante de acesso de leitura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS). O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação utiliza o padrão [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar. A aplicação muda para o ponto final secundário quando uma falha é simulada.
 
-Na parte de uma série, saiba como:
+Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Criar uma conta de armazenamento
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola
@@ -35,13 +35,22 @@ Na parte de uma série, saiba como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
-
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 * Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
   - **Desenvolvimento do Azure**
 
-  ![Desenvolvimento do Azure (em Web & nuvem)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Desenvolvimento do Azure (na Web e na Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* Transfira e instale [Fiddler](https://www.telerik.com/download/fiddler)
+* (Opcional) Transferir e instalar o [Fiddler](https://www.telerik.com/download/fiddler)
+ 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+* Instalar o [Python](https://www.python.org/downloads/)
+* Transfira e instale o [SDK de Armazenamento do Azure para Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python).
+* (Opcional) Transferir e instalar o [Fiddler](https://www.telerik.com/download/fiddler)
+
+---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,70 +60,95 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
-Uma conta do storage fornece um espaço de nomes exclusivo para armazenar e aceder aos seus objetos de dados de armazenamento do Azure.
+Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure.
 
 Siga estes passos para criar uma conta de armazenamento georredundante com acesso de leitura:
 
-1. Selecione o **novo** botão encontrado no canto superior esquerdo do portal do Azure.
+1. Selecione o botão **Novo**, no canto superior esquerdo do portal do Azure.
 
-2. Selecione **armazenamento** do **novo** página e selecione **conta de armazenamento - BLOBs, ficheiro, tabela, fila** em **em destaque**.
-3. Preencha o formulário de conta de armazenamento com as seguintes informações, conforme mostrado na imagem seguinte e selecione **criar**:
+2. Selecione **Armazenamento** na página **Novo** e selecione **Conta de armazenamento - blob, ficheiro, tabela, fila** em **Em Destaque**.
+3. Preencha o formulário da conta de armazenamento com as seguintes informações, conforme mostrado na imagem abaixo e selecione **Criar**:
 
    | Definição       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome** | mystorageaccount | Um valor exclusivo para a sua conta de armazenamento |
-   | **Modelo de implementação** | Resource Manager  | Gestor de recursos contém funcionalidades mais recentes.|
-   | **Tipo de conta** | Fins gerais | Para obter detalhes sobre os tipos de contas, consulte [tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Desempenho** | Standard | Padrão é suficiente para o cenário de exemplo. |
-   | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | Isto é necessário para o exemplo funcionar. |
-   |**Transferência segura necessária** | Desativado| Transferência segura não é necessária para este cenário. |
-   |**Subscrição** | A subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
+   | **Nome** | mystorageaccount | Um valor exclusivo para a conta de armazenamento |
+   | **Deployment model** (Modelo de implementação) | Resource Manager  | O Resource Manager contém as funcionalidades mais recentes.|
+   | **Account kind** (Tipo de conta) | Fins gerais | Para obter detalhes sobre os tipos de contas, veja [Tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Performance** (Desempenho) | Standard | O desempenho standard é suficiente para este cenário de exemplo. |
+   | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | É necessário para o exemplo funcionar. |
+   |**Secure transfer required** (Transferência segura necessária) | Desativado| A transferência segura não é necessária neste cenário. |
+   |**Subscrição** | A sua subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    |**ResourceGroup** | myResourceGroup |Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
-   |**Localização** | EUA Leste | Escolha uma localização. |
+   |**Localização** | EUA Leste | Escolher uma localização. |
 
-![Criar conta de armazenamento](media/storage-create-geo-redundant-storage/figure1.png)
+![criar conta de armazenamento](media/storage-create-geo-redundant-storage/figure1.png)
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transferir o projeto de exemplo](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip).
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Extrair (deszipe) o ficheiro storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip.
-O projeto de exemplo contém uma aplicação de consola.
+[Transfira o projeto de exemplo](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) e extraia (deszipe) o ficheiro storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação de consola.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+```
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+[Transfira o projeto de exemplo](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) e extraia (deszipe) o ficheiro storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação Python básica.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
+```
+---
+
 
 ## <a name="set-the-connection-string"></a>Definir a cadeia de ligação
 
-Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Recomenda-se para armazenar esta cadeia de ligação dentro de uma variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do sistema operativo para criar a variável de ambiente.
+Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. É recomendado armazenar esta cadeia de ligação numa variável de ambiente no computador local que está a executar a aplicação. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
 
-No portal do Azure, navegue até à sua conta de armazenamento. Selecione **chaves de acesso** em **definições** na sua conta de armazenamento. Copiar o **cadeia de ligação** partir da chave primária ou secundária. Substitua \<yourconnectionstring\> com a ligação real cadeia executando um dos seguintes comandos com base no seu sistema operativo. Este comando guarda uma variável de ambiente para o computador local. No Windows, a variável de ambiente não está disponível até recarregar o **linha de comandos** ou shell estiver a utilizar. Substitua  **\<storageConnectionString\>**  no seguinte exemplo:
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Substitua \<yourconnectionstring\> pela cadeia de ligação real ao executar um dos comandos seguintes, consoante o seu Sistema Operativo. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **Linha de Comandos** ou o shell que está a utilizar. Substitua **\<storageConnectionString\>** no exemplo seguinte:
 
-### <a name="linux"></a>Linux
+# <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
+export storageconnectionstring=\<yourconnectionstring\> 
 
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
+# <a name="windows-tabwindows"></a>[Windows] (#tab/windows) 
+setx storageconnectionstring "\<yourconnectionstring\>"
 
-### <a name="windows"></a>Windows
+---
 
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
-```
-
-![ficheiro de configuração de aplicação](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Executar a aplicação de consola
 
-No Visual Studio, prima **F5** ou selecione **iniciar** para iniciar a depuração da aplicação. Visual studio automaticamente restauros em falta pacotes NuGet se configurado, visitam para [instalar e reinstalar pacotes com o restauro de pacote](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para obter mais informações.
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+No Visual Studio, prima **F5** ou selecione **Start** (Iniciar) para iniciar a depuração da aplicação. O Visual Studio restaura automaticamente os pacotes NuGet em falta, se estiverem configurados. Para saber mais, aceda a [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) (Instalar e reinstalar pacotes com o restauro de pacotes).
 
-Uma janela da consola é iniciado e começa a aplicação em execução. A aplicação carrega o **HelloWorld.png** imagem da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicado para o ponto final RA-GRS secundário. Em seguida, inicia a transferência da imagem 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final principal e **S** representa o ponto final secundário.
+É iniciada uma janela de consola e a aplicação começa a ser executada. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**, em que **P** representa o ponto final primário e **S** o secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
-No código de exemplo, o `RunCircuitBreakerAsync` de tarefas no `Program.cs` ficheiro é utilizado para transferir uma imagem da conta de armazenamento utilizando o [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) método. Antes da transferência um [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) está definido. O contexto da operação define processadores de eventos, que são acionados quando uma transferência for concluída com êxito ou se uma transferência falhe e repetir a operação.
+No código de exemplo, a tarefa `RunCircuitBreakerAsync` no ficheiro `Program.cs` é utilizada para transferir uma imagem da conta de armazenamento através do método [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet). Antes da transferência, é definido um [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). O contexto da operação define os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
 
-### <a name="retry-event-handler"></a>Repita o processador de eventos
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**, em que **P** representa o ponto final primário e **S** o secundário.
 
-O `OperationContextRetrying` processador de eventos é chamado quando a transferência da imagem de falha e é definido para repetir. Se o número máximo de tentativas, o que são definidas na aplicação é atingido, o [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força o tentar transferir a imagem do ponto final secundário da aplicação. Esta configuração reduz o tempo decorrido para a imagem de pedidos, como o ponto final principal não for repetido indefinidamente.
+![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
+No código de exemplo, o método `run_circuit_breaker` no ficheiro `circuitbreaker.py` é utilizado para transferir uma imagem da conta de armazenamento através do método [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html). 
+
+A função de repetição do objeto de armazenamento está definida como uma política de repetição linear. A função de repetição determina se deve repetir um pedido e especifica o número de segundos a aguardar antes da repetição. Defina o valor **retry\_to\_secondary** como verdadeiro se pretender repetir o pedido para o ponto final secundário, caso o pedido inicial para o primário falhe. A aplicação de exemplo, é definida uma política de repetição personalizada na função `retry_callback` do objeto de armazenamento.
+ 
+Antes da transferência, são definidas as funções [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) do objeto Serviço. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.  
+
+---
+
+### <a name="retry-event-handler"></a>Processador de eventos de repetição
+
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
+O processador de eventos `OperationContextRetrying` é chamado quando a transferência da imagem falha e está definida para repetir. Se for atingido o número máximo de repetições definidas na aplicação, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força a aplicação a tentar transferir a imagem do ponto final secundário. Esta configuração reduz o tempo que demora a pedir a imagem, porque o ponto final primário não é repetido indefinidamente.
+
+No código de exemplo, a tarefa `RunCircuitBreakerAsync` no ficheiro `Program.cs` é utilizada para transferir uma imagem da conta de armazenamento através do método [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Antes da transferência, é definido um [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). O contexto da operação define os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
+ 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -139,10 +173,37 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+O processador de eventos `retry_callback` é chamado quando a transferência da imagem falha e está definida para repetir. Se for atingido o número máximo de repetições definidas na aplicação, [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) do pedido é alterado para `SECONDARY`. Esta definição força a aplicação a tentar transferir a imagem do ponto final secundário. Esta configuração reduz o tempo que demora a pedir a imagem, porque o ponto final primário não é repetido indefinidamente.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+---
+
+
 ### <a name="request-completed-event-handler"></a>Processador de eventos de pedido concluído
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-O `OperationContextRequestCompleted` processador de eventos é chamado quando a transferência da imagem é efetuada com êxito. Se a aplicação estiver a utilizar o ponto final secundário, a aplicação continua a utilizar este ponto final até 20 vezes. Após 20 vezes, os conjuntos de aplicação a [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) para `PrimaryThenSecondary` e repete as tentativas o ponto final principal. Se um pedido for bem-sucedida, continua a aplicação de ler a partir do ponto final principal.
-
+O processador de eventos `OperationContextRequestCompleted` é chamado quando a transferência da imagem é bem-sucedida. Se a aplicação estiver a utilizar o ponto final secundário, continua a utilizar este ponto final até 20 vezes. Ao fim dessas 20 vezes, a aplicação define [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) novamente como `PrimaryThenSecondary` e repete o ponto final primário. Se um pedido for bem-sucedido, a aplicação continua a ler a partir do ponto final primário.
+ 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -160,9 +221,28 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
 
-Parte de uma série, aprendeu sobre disponibilizar uma aplicação altamente com contas de armazenamento RA-GRS, tais como:
+O processador de eventos `response_callback` é chamado quando a transferência da imagem é bem-sucedida. Se a aplicação estiver a utilizar o ponto final secundário, continua a utilizar este ponto final até 20 vezes. Ao fim dessas 20 vezes, a aplicação define [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) novamente como `PRIMARY` e repete o ponto final primário. Se um pedido for bem-sucedido, a aplicação continua a ler a partir do ponto final primário.
+
+```python
+def response_callback(response):
+    global secondary_read_count
+    if blob_client.location_mode == LocationMode.SECONDARY:
+
+        # You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        # then switch back to the primary and see if it is available now.
+        secondary_read_count += 1
+        if secondary_read_count >= secondary_threshold:
+            blob_client.location_mode = LocationMode.PRIMARY
+            secondary_read_count = 0
+```
+
+---
+
+## <a name="next-steps"></a>Passos seguintes
+
+Na parte um da série, aprendeu a tornar uma aplicação altamente disponível com contas de armazenamento RA-GRS, nomeadamente a:
 
 > [!div class="checklist"]
 > * Criar uma conta do Storage
@@ -170,7 +250,7 @@ Parte de uma série, aprendeu sobre disponibilizar uma aplicação altamente com
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola
 
-Avançar para a parte dois da série para saber como simule uma falha e forçar a aplicação para utilizar o ponto final RA-GRS secundário.
+Avance para a parte dois da série para saber como simular uma falha e forçar a aplicação a utilizar o ponto final RA-GRS secundário.
 
 > [!div class="nextstepaction"]
-> [Simule uma falha na ligação para o ponto final de armazenamento primário](storage-simulate-failure-ragrs-account-app.md)
+> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md) (Simular uma falha associada ao ponto final de armazenamento primário)

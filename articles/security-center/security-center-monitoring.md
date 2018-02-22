@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a utilizar as capacidades de monitorização no Centro de Segurança do Azure para monitorizar a conformidade com políticas.
@@ -87,6 +87,13 @@ Para ver os detalhes das recomendações, clique no nome da atualização em fal
 > [!NOTE]
 > As recomendações de segurança aqui são as mesmas que as da opção **Recomendações**. Para obter mais informações sobre como resolver recomendações, veja o artigo [Implementing security recommendations in Azure Security Center (Implementar recomendações de segurança no Centro de Segurança do Azure)](security-center-recommendations.md). Este artigo é aplicável não só a máquinas virtuais e computadores, mas a todos os recursos que estão disponíveis no mosaico **Estado de Funcionamento do Recurso**.
 >
+
+#### <a name="unmonitored-vms"></a>VMs não monitorizadas
+Uma VM não é monitorizada pelo Centro de Segurança se a VM não estiver a executar a extensão do MMA. Uma VM pode ter um agente local já instalado, por exemplo, o agente direto do OMS ou agente do SCOM. As VMs com estes agentes são identificadas como não monitorizadas, uma vez que estes agentes não são totalmente suportados no Centro de Segurança. Para beneficiar totalmente de todas as capacidades do Centro de Segurança, é necessária a extensão MMA.
+
+Pode instalar a extensão na VM não monitorizada, além do agente local já instalado. Configure ambos os agentes da mesma forma, ligando-os à mesma área de trabalho. Isto permite ao Centro de Segurança interagir com a extensão MMA e recolher dados.  Consulte [Ativar a extensão VM](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) para obter instruções sobre como instalar a extensão MMA.
+
+Consulte [problemas de estado do agente de monitorização](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para saber mais sobre os motivos pelos quais o Centro de Segurança não consegue monitorizar com êxito VMs e computadores inicializados para aprovisionamento automático.
 
 #### <a name="vms--computers-section"></a>Secção de VMs e computadores
 A secção de máquinas virtuais e computadores mostra uma descrição geral das recomendações de todos os computadores e máquinas virtuais. Cada coluna representa um conjunto de recomendações como é mostrado na seguinte captura de ecrã:

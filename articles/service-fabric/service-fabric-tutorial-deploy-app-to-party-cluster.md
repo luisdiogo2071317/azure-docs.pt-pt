@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Implementar uma aplicação num Party Cluster no Azure
 Este tutorial é a segunda parte de uma série e mostra-lhe como implementar uma aplicação do Azure Service Fabric num Party Cluster no Azure.
@@ -59,14 +59,33 @@ Pode utilizar o seu próprio cluster em vez do Party Cluster, se quiser.  O fron
 > [!NOTE]
 > Os Party Clusters não estão protegidos, pelo que as suas aplicações e quaisquer dados colocados nos mesmos podem estar visíveis para outros utilizadores. Não implemente nada que não quer que os outros vejam. Certifique-se de que lê os nossos Termos de Utilização para obter todos os detalhes.
 
+Inicie sessão e [adira a um cluster do Windows](http://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. O certificado e o valor do **Ponto final da ligação** são utilizados nos passos seguintes.
+
+![PFX e ponto final de ligação](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Num computador Windows, instale o PFX no arquivo de certificados *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Implementar a aplicação no Azure
 Agora que a aplicação está pronta, pode implementá-la no Party Cluster diretamente a partir do Visual Studio.
 
-1. Clique com o botão direito do rato em **Voting**, no Explorador de Soluções, e escolha **Publish** (Publicar).
+1. Clique com o botão direito do rato em **Voting**, no Explorador de Soluções, e escolha **Publish** (Publicar). 
 
-    ![Caixa de diálogo Publicar](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Introduza o Ponto Final da Ligação do Party Cluster no campo **Ponto Final da Ligação** e clique em **Publicar**.
+2. Copie o **Ponto Final da Ligação** na página Cluster de terceiros para o campo **Ponto Final da Ligação**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros de Ligação Avançada** e preencha as informações seguintes.  Os valores *FindValue* e *ServerCertThumbprint* têm de coincidir com o thumbprint do certificado instalado no passo anterior. Clique em **Publicar**. 
 
     Após a conclusão da publicação, deve conseguir enviar um pedido para a aplicação através de um browser.
 
@@ -81,9 +100,9 @@ O Service Fabric Explorer é uma interface de utilizador gráfica para explorar 
 
 Para remover a aplicação do Party Cluster:
 
-1. Navegue para o Service Fabric Explorer através da ligação fornecida pela página de inscrição do Party Cluster. Por exemplo, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Navegue para o Service Fabric Explorer através da ligação fornecida pela página de inscrição do Party Cluster. Por exemplo, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. No Service Fabric Explorer, navegue para o nó **fabric://Voting** na vista de árvore no lado esquerdo.
+2. No Service Fabric Explorer, navegue para o nó **fabric:/Voting** na vista de árvore no lado esquerdo.
 
 3. Clique no botão **Ação** no painel direito **Essentials** e selecione **Eliminar Aplicação**. Confirme a eliminação da instância da aplicação, que remove a instância da aplicação em execução no cluster.
 

@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -40,10 +40,18 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar aplicaçõ
 
 1. Instalar nodejs e NPM no seu computador
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (suporte de pré-visualização do Service Fabric)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Instalar o gerador de modelos [Yeoman](http://yeoman.io/) no seu computador a partir do NPM
 
   ```bash
@@ -118,11 +126,6 @@ Os projetos de ator não fazem nada só por si. Precisam de outro serviço ou cl
 Para adicionar outro serviço a uma aplicação já criada com o `yo`, execute os seguintes passos:
 1. Altere o diretório para a raiz da aplicação existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é a aplicação criada por Yeoman.
 2. Execute `yo azuresfcsharp:AddService`
-
-## <a name="migrating-from-projectjson-to-csproj"></a>Migrar de project.json para .csproj
-1. A execução de «dotnet migrate» no diretório raiz do projeto migra todos os project.json para o formato csproj.
-2. Atualize adequadamente as referências de projeto para os ficheiros csproj nos ficheiros de projeto.
-3. Atualize os nomes dos ficheiros de projeto para ficheiros csproj em build.sh.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,19 +9,19 @@ manager: jhubbard
 editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
+ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 12/13/2017
+ms.date: 02/12/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: f1aff50a97114ea7e221b4461e375d763a161fa6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure? 
 
@@ -31,6 +31,9 @@ A Base de Dados SQL partilha a base de código com o [motor de bases de dados do
 
 - **[Mapa do Azure para a Base de Dados SQL](https://azure.microsoft.com/roadmap/?category=databases)**: o local onde encontra as novidades atuais e futuras. 
 - **[blogue da Base de Dados SQL do Azure](https://azure.microsoft.com/blog/topics/database)**: o local onde os membros da equipa de produto do SQL Server escrevem sobre as notícias e as funcionalidades da Base de Dados SQL. 
+
+> [!IMPORTANT]
+> Para saber as diferenças de funcionalidades entre a Base de Dados SQL e o SQL Server, consulte [Funcionalidades SQL](sql-database-features.md). 
 
 A Base de Dados SQL proporciona um desempenho previsível a vários níveis de serviço, que fornece escalabilidade dinâmica sem tempo de inatividade, otimização inteligente incorporada, escalabilidade e disponibilidade globais e opções de segurança avançadas — tudo isto sem praticamente qualquer administração. Estas capacidades permitem-lhe concentrar-se no desenvolvimento rápido de aplicações e acelerar o seu tempo de colocação no mercado, em vez de alocar tempo e recursos valiosos para a gestão de máquinas virtuais e de infraestruturas. O serviço Base de Dados SQL encontra-se atualmente em 38 datacenters em todo o mundo, sendo que são colocados online mais datacenters regularmente, o que lhe permite executar a sua base de dados num datacenter perto de si.
 
@@ -44,7 +47,7 @@ Com a Base de Dados SQL, as bases de dados estão isoladas umas das outras e sã
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste o desempenho e dimensione a capacidade sem períodos de indisponibilidade
 
-A Base de Dados SQL tem quatro escalões de serviço para suportar cargas de trabalho de bases de dados leves ou pesadas: Básica, Standard, Premium e Premium RS. Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+A Base de Dados SQL tem quatro escalões de serviço para suportar cargas de trabalho de bases de dados leves ou pesadas: Básica, Standard, e Premium. Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
    ![dimensionamento](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

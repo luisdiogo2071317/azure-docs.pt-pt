@@ -3,8 +3,8 @@ title: Delegar ofertas na pilha do Azure | Microsoft Docs
 description: "Saiba como colocar outras pessoas responsável pela criação de ofertas e inscrever-se os utilizadores."
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: alfredop
-ms.openlocfilehash: 1a1f2789076b610ee557bde5981a331c55cc1c95
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: brenduns
+ms.reviewer: alfredop
+ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
 
@@ -149,6 +150,6 @@ Delegação de várias camadas que permite que o fornecedor de delegado delegar 
 
 Para criar várias camadas de delegação de oferta, o fornecedor de delegado por sua vez delega a oferta ao próximo fornecedor. O processo é o mesmo para o fornecedor de delegado que estava para o operador de pilha do Azure (consulte [operador de pilha do Azure cria a oferta delegada](#cloud-operator-creates-the-delegated-offer)).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Aprovisionar uma VM](azure-stack-provision-vm.md)
 

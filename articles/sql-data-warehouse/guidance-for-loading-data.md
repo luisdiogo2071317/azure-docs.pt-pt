@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Melhores práticas de carregamento de dados para o Azure SQL Data Warehouse
 Recomendações e otimizações de desempenho para carregar dados para o Azure SQL Data Warehouse. 
 
 - Para saber mais sobre o PolyBase e como estruturar um processo de Extração, Carregamento e Transformação (ELT), veja [Design ELT for SQL Data Warehouse](design-elt-data-loading.md) (Estruturar o ELT para o SQL Data Warehouse).
-- Veja o tutorial relativo ao carregamento em [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Para obter um tutorial relativo ao carregamento, veja [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md) (Utilizar o PolyBase para carregar dados do armazenamento de Blobs do Azure para o Azure SQL Data Warehouse).
 
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparar dados no Armazenamento do Azure
@@ -62,13 +62,13 @@ Ligar ao armazém de dados e criar um utilizador. O seguinte código partem do p
 ```
 Para executar uma carga com recursos para as classes de recurso staticRC20, basta iniciar sessão como LoaderRC20 e executá-la.
 
-Execute as cargas em classes de recursos estáticas em vez de dinâmicas. Utilizar as classes estáticas garante os mesmos recursos, independentemente do seu [nível de serviço](performance-tiers.md#service-levels). Se utilizar uma classe de recursos dinâmicas, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
+Execute as cargas em classes de recursos estáticas em vez de dinâmicas. Utilizar as classes estáticas garante os mesmos recursos, independentemente do seu [nível de serviço](performance-tiers.md#service-levels). Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
 
 ## <a name="allowing-multiple-users-to-load"></a>Permitir o carregamento por parte de vários utilizadores
 
 Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. O carregamento com [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requer permissões de CONTROLO na base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
 
-Por exemplo, considere os esquemas de bases de dados schema_A, para departamento A, e schema_B, para departamento B. Permita que os utilizadores user_A e user_B sejam utilizadores do carregamento PolyBase nos departamentos A e B, respetivamente. Foram concedidas a ambos permissões de base de dados CONTROLO. Agora, os criadores dos esquemas A e B bloqueiam os esquemas com DENY.
+Por exemplo, considere os esquemas de bases de dados schema_A, para departamento A, e schema_B, para departamento B. Permita que os utilizadores user_A e user_B sejam utilizadores do carregamento PolyBase nos departamentos A e B, respetivamente. Foram concedidas a ambos permissões de base de dados CONTROL. Agora, os criadores dos esquemas A e B bloqueiam os esquemas com DENY.
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -120,15 +120,19 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Para alternar as chaves da conta de Armazenamento do Azure:
 
-1. Crie uma segunda credencial com âmbito de base de dados com base na chave de acesso ao armazenamento secundária.
-2. Crie uma segunda origem de dados externa baseada nesta credencial nova.
-3. Remova e crie uma tabela(s) externa, de modo a que aponte para as origens de dados externas novas. 
+Para cada conta de armazenamento cuja chave mudou, emita [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-Depois de migrar as tabelas externas para a origem de dados nova, realize as seguintes tarefas de limpeza:
+Exemplo:
 
-1. Remova a primeira origem de dados externa.
-2. Remova a primeira credencial com âmbito de base de dados com base na chave de acesso ao armazenamento primária.
-3. Inicie sessão no Azure e volte a gerar a chave de acesso primária para que fique pronta para a próxima rotação.
+A chave original é criada
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'minha_identidade', SECRET = 'chave1' 
+
+Efetue a rotação de chaves da chave 1 para a chave 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'minha_identidade', SECRET = 'chave2' 
+
+Não é preciso fazer outras alterações às origens de dados externas subjacentes.
 
 
 ## <a name="next-steps"></a>Passos seguintes

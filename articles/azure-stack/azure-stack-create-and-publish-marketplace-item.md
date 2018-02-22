@@ -3,8 +3,8 @@ title: Criar e publicar um item do Marketplace na pilha do Azure | Microsoft Doc
 description: Criar e publicar um item do Marketplace na pilha do Azure.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar itens do Marketplace
 
@@ -102,14 +103,14 @@ ms.lasthandoff: 10/11/2017
 ### <a name="identity-information"></a>Informações de identidade
 | Nome | Necessário | Tipo | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| Nome |X |Cadeia |[A-Za-z0-9] + | |
-| Publicador |X |Cadeia |[A-Za-z0-9] + | |
+| Nome |X |Cadeia |[A-Za-z0-9]+ | |
+| Publicador |X |Cadeia |[A-Za-z0-9]+ | |
 | Versão |X |Cadeia |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadados
 | Nome | Necessário | Tipo | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| displayName |X |Cadeia |Recomendação de 80 carateres |O portal pode não apresentar o nome do item de lidar graciosamente se for mais de 80 carateres. |
+| DisplayName |X |Cadeia |Recomendação de 80 carateres |O portal pode não apresentar o nome do item de lidar graciosamente se for mais de 80 carateres. |
 | PublisherDisplayName |X |Cadeia |Recomendação de 30 carateres |O portal pode não apresentar o nome do publicador corretamente se for mais de 30 carateres. |
 | PublisherLegalName |X |Cadeia |Máximo de 256 carateres | |
 | Resumo |X |Cadeia |60 a 100 carateres | |
@@ -125,7 +126,7 @@ O Marketplace utiliza os ícones seguintes:
 | Grande |115 px |115 px |Sempre necessário |
 | Médio |90 px |90 px |Sempre necessário |
 | Pequeno |40 px |40 px |Sempre necessário |
-| Captura de ecrã |533 px |32 px |Opcional |
+| captura de ecrã |533 px |32 px |Opcional |
 
 ### <a name="categories"></a>Categorias
 Cada item do Marketplace deve ser etiquetado com uma categoria que identifica a onde o item é apresentado na IU do portal. Pode escolher uma das categorias existentes na pilha do Azure (computação, dados + armazenamento, etc.) ou escolher uma nova.
@@ -135,7 +136,7 @@ Cada item do Marketplace pode incluir várias ligações para conteúdo adiciona
 
 | Nome | Necessário | Tipo | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| displayName |X |Cadeia |Máximo de 64 carateres | |
+| DisplayName |X |Cadeia |Máximo de 64 carateres | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Propriedades adicionais
@@ -143,13 +144,13 @@ Para além dos metadados anterior, os autores de Marketplace podem fornecer dado
 
 | Nome | Necessário | Tipo | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| displayName |X |Cadeia |Máximo de 25 carateres | |
+| DisplayName |X |Cadeia |Máximo de 25 carateres | |
 | Valor |X |Cadeia |Máximo de 30 carateres | |
 
 ### <a name="html-sanitization"></a>Sanitização de HTML
 Para qualquer campo que lhe permite HTML, são permitidos os seguintes elementos e atributos:
 
-H1, h2, h3, h4, h5, p, ol, ul, li, uma [destino | href], br, segura, IT, o b, posso
+h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i
 
 ## <a name="reference-marketplace-item-ui"></a>Referência: O item do Marketplace IU
 Ícones e o texto de itens do Marketplace visto no portal do Azure pilha são as seguintes.

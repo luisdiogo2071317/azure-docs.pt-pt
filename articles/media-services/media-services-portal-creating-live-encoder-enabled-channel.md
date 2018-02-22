@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d19f48d99d0be9d2702060be04cf29a30290a001
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Como realizar uma transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla com o Portal do Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Este tutorial explica-lhe os passos da criação de um **Canal** que recebe uma 
 Os seguintes são passos gerais referentes à criação de aplicações comuns de transmissão em fluxo em direto.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived através de Microsoft.com, se tiver de executar um Canal durante períodos de tempo mais longos.
+> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 > 
 > 
 
@@ -74,7 +74,7 @@ Neste tutorial, o Portal do Azure é utilizado para realizar as seguintes tarefa
 O seguinte é necessário para concluir o tutorial.
 
 * Para concluir este tutorial, precisa de uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. 
-  Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+  Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Criar Conta](media-services-portal-create-account.md).
 * Uma câmara Web e um codificador que possa enviar uma transmissão de velocidade de transmissão única.
 
@@ -193,7 +193,7 @@ Para gerir os seus elementos, selecione **Definição** e clique em **Elementos*
 ![Elementos](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considerações
-* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte amslived através de Microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
+* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 * Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir o seu conteúdo está no estado **Em execução**.
 
 ## <a name="next-step"></a>Passo seguinte

@@ -3,8 +3,8 @@ title: "Configurar origens de implementação para os serviços de aplicação n
 description: "Como um administrador de serviço podem configurar origens de implementação (Git, GitHub, BitBucket, DropBox e OneDrive) para serviço de aplicações na pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurar origens de implementação
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
