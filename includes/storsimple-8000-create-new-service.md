@@ -5,7 +5,7 @@
 
 1. Utilize as credenciais da sua conta Microsoft para iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
-2. No portal do Azure, clique em **+** e, em seguida, no mercado, clique em **Ver todos**.
+2. No portal do Azure, clique em **crie um recurso** e, em seguida, no marketplace, clique em **ver todos os**.
 
     ![Crie o Gestor de Dispositivos do StorSimple](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
