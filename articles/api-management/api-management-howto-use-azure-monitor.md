@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -50,7 +50,7 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos serviços de Gestão de API. Ao utilizar registos de atividades, pode determinar o "quê, quem e quando" de quaisquer operações de escrita (PUT, POST, DELETE) efetuadas nos seus serviços de Gestão de API. 
 
 > [!NOTE]
-> Os registos de atividades não incluem operações de leitura (GET) nem operações executadas no Portal do publicador clássico ou com as APIs de Gestão originais.
+> Os registos de atividades não incluem operações de leitura (GET) nem operações executadas no Portal do Azure ou com as APIs de Gestão originais.
 
 Pode aceder aos registos de atividades no serviço de Gestão de API ou aceder aos registos de todos os recursos do Azure no Azure Monitor. 
 

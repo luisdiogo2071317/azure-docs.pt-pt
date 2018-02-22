@@ -3,8 +3,8 @@ title: Publicar um item do marketplace personalizado na pilha do Azure (operador
 description: Como um operador de pilha do Azure, saiba como publicar um item do marketplace personalizado na pilha do Azure.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
-ms.openlocfilehash: 7b5f976eb2d51eb86761a2bd0be6adb45ca87681
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: c791708e11b7e9e8bbe046f06233d948d4632c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Descrição geral do Azure pilha Marketplace
 
@@ -43,6 +44,6 @@ Tem a todos os itens do Marketplace:
 
 Todos os itens publicados no Marketplace utiliza um formato denominado pacote da galeria do Azure (azpkg). Adicione implementação ou o tempo de execução recursos (por exemplo, o código, ficheiros zip com software ou imagens da máquina virtual) a pilha do Azure em separado, não como parte do Item do Marketplace. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Criar e publicar um item do marketplace](azure-stack-create-and-publish-marketplace-item.md)
 

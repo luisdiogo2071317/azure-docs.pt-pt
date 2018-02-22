@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes no tutorial do Azure – cluster de atualização"
-description: "Kubernetes no tutorial do Azure – cluster de atualização"
+title: Tutorial do Kubernetes no Azure - atualizar cluster
+description: Tutorial do Kubernetes no Azure - atualizar cluster
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,28 +9,28 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: d82232d590bcc5c578ebe8ed7c85d25aebcfe097
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Atualizar Kubernetes no serviço de contentor do Azure (AKS)
+# <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Atualizar o Kubernetes no Azure Container Service (AKS)
 
-Um cluster do serviço de contentor do Azure (AKS) possa ser atualizado utilizando a CLI do Azure. Durante o processo de atualização, Kubernetes nós são cuidadosamente [cordoned e drained] [ kubernetes-drain] para minimizar perturbações para as aplicações em execução.
+Um cluster do Azure Container Service (AKS) poder ser atualizado através da CLI do Azure. Durante o processo de atualização, os nós do Kubernetes são cuidadosamente [isolados e drenados][kubernetes-drain] para minimizar a interrupção das aplicações em execução.
 
-Neste tutorial, parte oito de oito, um cluster de Kubernetes é atualizado. As tarefas que concluir incluem:
+Neste tutorial, parte oito de oito, é atualizado um cluster do Kubernetes. As tarefas que concluir incluem:
 
 > [!div class="checklist"]
-> * Identificar as versões de Kubernetes atual e disponíveis
-> * Atualize os nós de Kubernetes
+> * Identificar versões do Kubernetes atuais e disponíveis
+> * Atualizar os nós do Kubernetes
 > * Validar uma atualização com êxito
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Tutoriais anteriores, uma aplicação foi compactada uma imagem de contentor, esta imagem carregada para o registo de contentor do Azure e um cluster de Kubernetes criada. A aplicação, em seguida, foi executada no Kubernetes cluster.
+Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contentor, carregada esta imagem para o Azure Container Registry e criado um cluster de Kubernetes. A aplicação foi, em seguida, executada no cluster de Kubernetes.
 
-Se não o fez estes passos e gostaria de acompanhar, voltar para o [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app].
+Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Obter versões de cluster
@@ -38,10 +38,10 @@ Se não o fez estes passos e gostaria de acompanhar, voltar para o [Tutorial 1 �
 Antes de atualizar um cluster, utilize o comando `az aks get-versions` para verificar que versões do Kubernetes estão disponíveis para atualização.
 
 ```azurecli-interactive
-az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
+az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Aqui pode ver que a versão atual do nó é `1.7.7` e essa versão `1.7.9`, `1.8.1`, e `1.8.2` estão disponíveis.
+Aqui, pode ver que a versão atual do nó é a `1.7.7` e que as versões `1.7.9`, `1.8.1` e `1.8.2` estão disponíveis.
 
 ```
 Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
@@ -49,21 +49,21 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-## <a name="upgrade-cluster"></a>Atualizar cluster
+## <a name="upgrade-cluster"></a>Atualizar o cluster
 
-Utilize o `az aks upgrade` comando para atualizar os nós do cluster. Os exemplos seguintes atualiza o cluster para a versão `1.8.2`.
+Utilize o comando `az aks upgrade` para atualizar os nós de cluster. O exemplo seguinte atualiza o cluster para a versão `1.8.2`.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Saída:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -78,7 +78,7 @@ Saída:
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -113,12 +113,12 @@ Saída:
 }
 ```
 
-## <a name="validate-upgrade"></a>Validar a atualização
+## <a name="validate-upgrade"></a>Validar atualização
 
 Agora, pode confirmar se a atualização foi concluída com êxito com o comando `az aks show`.
 
 ```azurecli-interactive
-az aks show --name myK8sCluster --resource-group myResourceGroup --output table
+az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 Saída:
@@ -126,22 +126,22 @@ Saída:
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+myAKSCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, atualizado Kubernetes num AKS cluster. As tarefas seguintes foram concluídas:
+Neste tutorial, atualizou o Kubernetes num cluster do AKS. Foram realizadas as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Identificar as versões de Kubernetes atual e disponíveis
-> * Atualize os nós de Kubernetes
+> * Identificar versões do Kubernetes atuais e disponíveis
+> * Atualizar os nós do Kubernetes
 > * Validar uma atualização com êxito
 
-Siga esta ligação para obter mais informações sobre AKS.
+Siga esta ligação para saber mais sobre o AKS.
 
 > [!div class="nextstepaction"]
-> [Descrição geral AKS][aks-intro]
+> [Descrição geral do AKS][aks-intro]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

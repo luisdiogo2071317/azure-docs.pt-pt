@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -30,9 +31,9 @@ As Funções do Azure permitem-lhe executar o seu código num ambiente [sem serv
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra o portal do Azure. Para fazê-lo, inicie a sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
+Inicie sessão no portal do Azure, em <http://portal.azure.com>, com a sua conta do Azure.
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
@@ -64,7 +65,7 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 2. Cole o URL da função na barra de endereço do navegador. Adicione o valor da cadeia de consulta `&name=<yourname>` ao final deste URL e prima a tecla `Enter` no teclado para executar o pedido. Deverá ver a resposta devolvida pela função apresentada no browser.  
 
-    Segue-se um exemplo de resposta no browser Edge (outros browsers podem incluir o XML apresentado):
+    Segue-se um exemplo que mostra a resposta no browser Edge (outros browsers podem incluir o XML apresentado):
 
     ![Resposta da função no browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
@@ -76,7 +77,7 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

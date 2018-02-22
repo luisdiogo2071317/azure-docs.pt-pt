@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/18/2018
+ms.date: 02/08/2018
 ms.author: pareshmu
-ms.openlocfilehash: 9450f509b777c6142e84470bf8e3e69d87fcf145
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 828532dcb583dc46ecb5c9fc63e47a263ddc2a20
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -82,23 +82,25 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Suportado |Suportado |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Suportado |Amesterdão, Dublin, Londres, Paris, Tóquio |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
-| **[Consola](https://www.consoleconnect.com/partners/cloudsaas/)**| Suportado | Suportado |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Chicago, Denver, Los Angeles, Nova Iorque, Silicon Valley, Washinton D.C. |
+| **eir** |Suportado |Suportado |Dublin|
 | **Epsilon Global Communications** |Suportado |Suportado |Singapura |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amesterdão, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **euNetworks** |Suportado |Suportado |Amesterdão, Londres |
 | **GÉANT** |Suportado |Suportado |Amesterdão |
 | **[Cloud Global do Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Suportado| Suportado | Chennai, Mumbai |
 | **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportado |Amesterdão, Londres, Paris, Singapura, Washington D.C. |
+| **Internet2** |Suportado |Suportado |Washington DC |
 | **[Internet Initiative Japan Inc. – IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **Internet Solutions – Cloud Connect** |Suportado |Suportado |Amesterdão, Londres |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportado |Amesterdão, Dublin, Londres, Paris |
+| **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Suportado |Suportado |Toronto
 | **Jisc** |Suportado |Suportado |Londres |
 | **KINX** |Suportado |Suportado |Seoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Suportado | Suportado | Amesterdão | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Las Vegas, Londres, Newport, Nova Iorque, San Antonio, São Paulo, Seattle, Silicon Valley, Singapura, Tóquio, Washington D.C. |
 | **LG CNS** |Suportado |Suportado |Busan, Seul |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova Iorque, Cidade do Quebeque, San Antonio, Seattle, Silicon Valley, Singapura, Singapura2, Sydney, Toronto, Washington, D.C. |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Dublin, Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova Iorque, Cidade do Quebeque, San Antonio, Seattle, Silicon Valley, Singapura, Singapura2, Sydney, Toronto, Washington, D.C. |
 | **MTN** |Suportado |Suportado |Londres |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportado |Miami, São Paulo |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
@@ -106,6 +108,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Suportado |Suportado |Londres, Los Angeles, Osaca, Singapura, Tóquio, Washington DC |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Suportado |Suportado |Osaka |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportado |Amesterdão, Hong Kong, Londres, Paris, Silicon Valley, Singapura, Sydney, Washington D.C. |
+| **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Suportado |Suportado |Chicago, Silicon Valley |
 | **PCCW Global Limited** |Suportado |Suportado |RAE de Hong Kong |
 | **Sejong Telecom** |Suportado |Suportado |Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Suportado |Suportado |Chennai, Mumbai |
@@ -121,7 +124,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Suportado |Suportado |São Paulo |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Hong Kong, Londres, Silicon Valley, Singapura, Sydney, Tóquio, Washington D.C |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Suportado |Não suportado |Londres |
-| **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Suportado |Suportado |Amesterdão, Chicago, Dallas+, Londres+, Los Angeles, Nova Iorque, Silicon Valley, Toronto, Washington D.C. |
+| **[Zayo](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Londres, Los Angeles, Montreal, Nova Iorque, Silicon Valley, Toronto, Washington D.C. |
 
  **+** brevemente disponível
 
@@ -159,10 +162,10 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 
 * Consulte o seu fornecedor de conectividade para saber se este está ligado a alguma das trocas na tabela acima. Pode verificar as ligações seguintes para recolher mais informações sobre os serviços disponibilizados pelos fornecedores de troca. Vários fornecedores de conectividade já estão ligados às trocas de Ethernet.
   * [Cologix](http://www.cologix.com/)
-  * [Console](https://www.consoleconnect.com/partners/cloudsaas/)
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [Interxion](http://www.interxion.com/products/interconnection/cloud-connect/)
+  * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](http://www.nextdc.com/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
@@ -183,6 +186,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | Londres |
 | **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tóquio |
 | **[C3ntro Telecom](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | Dallas |
+| **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Frankfurt, Hamburgo |
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | Dallas, Silicon Valley, Washington DC | 
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
@@ -219,8 +223,8 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 | **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport |
 | **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
-| **[RagingWire Data Centers](http://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | Consola |
-| **[T5 Datacenters](http://t5datacenters.com/network-cloud-connect/)** | Consola |
+| **[RagingWire Data Centers](http://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach |
+| **[T5 Datacenters](http://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividade Através de National Research and Education Networks (NREN, Redes de Investigação e Ensino Nacionais)
 
@@ -231,6 +235,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 | **GARR, através da GÉANT**|
 | **GÉANT**|
 | **HEAnet, através da GÉANT**|
+| **Internet2**|
 | **JISC**|
 | **RedIRIS, através da GÉANT**|
 | **SINET**|

@@ -5,21 +5,18 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha integração do Centro de dados - publicar pontos finais
-
-*Aplica-se a: Azure pilha integrado sistemas*
-
-Pilha do Azure configura vários pontos finais (VIPs - endereços IP virtuais) para as respetivas funções de infraestrutura. Estes VIPs são atribuídos de conjunto de endereços IP público. Cada VIP está protegido com uma lista de controlo de acesso (ACL) na camada de rede definidas por software. As ACLs também são utilizadas em todos os comutadores físicos (TORs e BMC) para proteger ainda mais a solução. Uma entrada DNS é criada para cada ponto final na zona DNS externa que foi especificada no momento da implementação.
+Pilha do Azure configura vários endereços IP virtuais (VIP) para as respetivas funções de infraestrutura. Estes VIPs são atribuídos de conjunto de endereços IP público. Cada VIP está protegido com uma lista de controlo de acesso (ACL) na camada de rede definidas por software. As ACLs também são utilizadas em todos os comutadores físicos (TORs e BMC) para proteger ainda mais a solução. Uma entrada DNS é criada para cada ponto final na zona DNS externa que foi especificada no momento da implementação.
 
 
 O diagrama da arquitetura seguinte mostra as camadas de rede diferente e ACLs:
@@ -28,7 +25,7 @@ O diagrama da arquitetura seguinte mostra as camadas de rede diferente e ACLs:
 
 ## <a name="ports-and-protocols-inbound"></a>Portas e protocolos (entrada)
 
-Os VIPs de infraestrutura que são necessários para publicação do Azure pilha pontos finais para redes externas são listadas na seguinte tabela. A lista mostra cada ponto final, a porta necessária e o protocolo. Pontos finais necessários para fornecedores de recursos adicionais, como o fornecedor de recursos do SQL e outros, são abordados na documentação de implementação do fornecedor de recursos específico.
+Os VIPs de infraestrutura que são necessários para publicação do Azure pilha pontos finais para redes externas são listados abaixo. A lista mostra cada ponto final, a porta necessária e o protocolo. Pontos finais necessários para fornecedores de recursos adicionais, como o fornecedor de recursos do SQL e outros, são abordados na documentação de implementação do fornecedor de recursos específico.
 
 A infra-estrutura interna VIPs não estão listadas porque não forem necessários para publicação pilha do Azure.
 
@@ -52,14 +49,18 @@ A infra-estrutura interna VIPs não estão listadas porque não forem necessári
 |Tabela de armazenamento|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Blob de armazenamento|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Fornecedor de recursos SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Fornecedor de recursos de MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|Fornecedor de recursos de MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Serviço de Aplicações|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Gestor de recursos do azure)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>Portas e URLs (saídos)
 
 Pilha do Azure suporta apenas servidores de proxy transparente. Numa implementação em que um uplinks de proxy transparentes para um servidor proxy tradicionais, tem de permitir os URLs e portas seguintes para comunicação de saída:
 
 
-|Objetivo|URL|Protocolo|Portas|
+|Objetivo|do IdP|Protocolo|Portas|
 |---------|---------|---------|---------|
 |Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
 |Sindicação do Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|

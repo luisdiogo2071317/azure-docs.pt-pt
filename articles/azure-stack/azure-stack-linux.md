@@ -3,8 +3,8 @@ title: Adicionar imagens de Linux a pilha do Azure
 description: Saiba como adicionar imagens de Linux com pilha do Azure.
 services: azure-stack
 documentationcenter: 
-author: anjayajodha
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
-ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: anajod
+ms.openlocfilehash: 29e5443de4dc43efe6d536b0f8b9cfc6ad37a669
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Adicionar imagens de Linux a pilha do Azure
 
@@ -94,6 +95,6 @@ Preparar a sua própria imagem Linux utilizando um dos seguintes instruções:
 2. [Adicionar a imagem para o mercado](azure-stack-add-vm-image.md). Certifique-se de que o `OSType` parâmetro está definido como `Linux`.
 3. Depois de adicionar a imagem do Marketplace, é criado um item do Marketplace e os utilizadores podem implementar uma máquina virtual Linux.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Descrição geral da oferta de serviços na pilha do Azure](azure-stack-offer-services-overview.md)
 

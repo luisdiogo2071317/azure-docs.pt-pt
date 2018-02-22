@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Implementar uma aplicação de contentor do Linux do Azure Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
@@ -34,50 +34,47 @@ Neste início rápido, vai aprender a:
 > * Dimensionar e efetuar a ativação pós-falha de contentores no Service Fabric
 
 ## <a name="prerequisite"></a>Pré-requisito
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se optar por instalar e utilizar a interface de linha de comandos (CLI) localmente, certifique-se de que está a executar a versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute az - versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. Se optar por instalar e utilizar a interface de linha de comandos (CLI) localmente, certifique-se de que está a executar a versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute az - versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Obter o pacote de aplicação
 Para implementar contentores no Service Fabric, precisa de um conjunto de ficheiros de manifesto (a definição da aplicação), que descrevem os contentores individuais e a aplicação.
 
 No Cloud Shell, utilize o git para clonar uma cópia da definição da aplicação.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>Implementar a aplicação no Azure
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Implementar os contentores num cluster do Service Fabric no Azure
-Para implementar a aplicação num cluster no Azure, utilize o seu próprio cluster ou utilize um Cluster de grupo.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurar o Cluster do Azure Service Fabric
+Para implementar a aplicação num cluster no Azure, crie o seu próprio cluster.
 
-> [!Note]
-> A aplicação tem de ser implementada para um cluster no Azure e não para um cluster do Service Fabric no seu computador de desenvolvimento local. 
->
+Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Estes são executados pela equipa do Service Fabric, onde qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Party Cluster, [siga as instruções](http://aka.ms/tryservicefabric). 
 
-Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Estes são mantidos pela equipa do Service Fabric, onde qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Cluster de grupo, [siga as instruções](http://aka.ms/tryservicefabric). 
+Para realizar operações de gestão no cluster de grupo seguro, pode utilizar o Service Fabric Explorer, a CLI ou o PowerShell. De modo a utilizar o Service Fabric Explorer, tem de transferir o ficheiro PFX do site do Cluster de Grupo e importar o certificado para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Não há nenhuma palavra-passe para os certificados autoassinados do cluster de grupo. 
+
+Para realizar operações de gestão com o Powershell ou a CLI, vai precisar do PFX (Powershell) ou do PEM (CLI). Para converter o PFX num ficheiro PEM, execute o seguinte comando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Para obter informações sobre como criar o seu próprio cluster, veja [Crie um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> O serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 80. Certifique-se de que a porta está aberta no seu cluster. Se estiver a utilizar um Cluster de grupo, esta porta estará aberta.
+> O serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 80. Certifique-se de que a porta está aberta no seu cluster. Se estiver a utilizar um Cluster de Grupo, esta porta estará aberta.
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Instale a Interface de Linha de Comandos do Service Fabric e Ligue ao seu cluster
-Instale a [CLI do Service Fabric (sfctl)](service-fabric-cli.md) no ambiente da CLI
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Ligue ao cluster do Service Fabric no Azure com a CLI do Azure. O ponto final é o ponto final de gestão do seu cluster - por exemplo, `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Ligue ao cluster do Service Fabric no Azure com a CLI do Azure. O ponto final é o ponto final de gestão do seu cluster - por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>Implementar a aplicação do Service Fabric 
@@ -86,13 +83,13 @@ As aplicações do contentor do Service Fabric podem ser implementadas com o pac
 #### <a name="deploy-using-service-fabric-application-package"></a>Implementar com o pacote de aplicação de Service Fabric
 Utilize o script de instalação fornecido para copiar a definição da aplicação de Voto para o cluster, registar o tipo de aplicação e criar uma instância da mesma.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>Implementar a aplicação com o Docker compose
 Implementar e instalar a aplicação no cluster do Service Fabric com o Docker Compose com o seguinte comando.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

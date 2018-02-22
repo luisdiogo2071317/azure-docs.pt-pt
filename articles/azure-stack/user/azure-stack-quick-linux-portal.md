@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Criar uma máquina virtual Linux com o portal de pilha do Azure
 
@@ -59,7 +59,7 @@ Inicie sessão no portal do Azure pilha. O endereço do portal do Azure pilha de
 
 ## <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 
-1. Clique em de **novo** botão encontrado no canto superior esquerdo do portal do Azure pilha.
+1. Clique em **crie um recurso** no canto superior esquerdo do portal do Azure pilha.
 
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Clique em **Criar**.
@@ -137,7 +137,7 @@ Abra um browser e navegue para ```http://<public IP address>```.
 
 Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos a partir da página da máquina virtual e clique em **eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este início rápido, a tiver implementado uma máquina de virtual com Linux simple, uma regra de grupo de segurança de rede e o instalado num servidor web. Para saber mais sobre as máquinas virtuais de pilha do Azure, avance para [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).
 

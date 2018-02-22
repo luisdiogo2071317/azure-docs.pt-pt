@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Iniciar uma pesquisa de mapas interativa de demonstração com o Azure Location Based Services (pré-visualização)
 
-Este artigo demonstra as capacidades do Azure Location Based Services (pré-visualização), ou LBS, através de uma pesquisa interativa com o Azure Maps. Explica também os passos básicos para criar a sua própria conta do LBS e obter a chave da conta a utilizar na aplicação Web de demonstração. 
+Este artigo demonstra as capacidades do Azure Location Based Services (LBS) para efetuar uma pesquisa interativa com o Azure Maps. Explica também os passos básicos para criar a sua própria conta do LBS e obter a chave da conta a utilizar na aplicação Web de demonstração. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -27,7 +27,7 @@ Vai executar os seguintes passos neste tutorial:
 > [!div class="checklist"]
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
-> * Crie um integration runtime autoalojado.
+> * Criar um integration runtime autoalojado.
 > * Instalou o integration runtime. 
 > * Criar serviços ligados. 
 > * Crie conjuntos de dados de origem, de sink e de marca d'água.
@@ -110,7 +110,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>Criar tabelas de destino na base de dados SQL
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Criar tabelas de destino na base de dados SQL do Azure
 1. Abra o SQL Server Management Studio e ligue-se à base de dados do SQL Server.
 
 2. No **Explorador de Servidores**, clique com botão direito do rato na base de dados e escolha **Nova Consulta**.
@@ -133,7 +133,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL para armazenar o valor de limite de tamanho superior
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL do Azure para armazenar o valor de limite superior de tamanho
 1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água: 
     
     ```sql
@@ -155,7 +155,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Criar um procedimento armazenado na base de dados SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Criar um procedimento armazenado na base de dados SQL do Azure 
 
 Execute o comando seguinte para criar um procedimento armazenado na base de dados SQL. Este procedimento armazenado atualiza o valor de limite de tamanho após cada execução de pipeline. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Criar tipos de dados e procedimentos armazenados adicionais
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais na base de dados SQL do Azure
 Execute a consulta seguinte para criar dois procedimentos armazenados e dois tipos de dados de dois na sua base de dados SQL. São utilizados para intercalar os dados das tabelas de origem nas tabelas de destino.
 
 ```sql

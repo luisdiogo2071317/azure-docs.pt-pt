@@ -2,24 +2,18 @@
 title: "Guia de Introdução do Azure – Transferir objetos de/para o armazenamento de Blobs do Azure com Node.js | Microsoft Docs"
 description: Aprenda rapidamente a transferir objetos de/para o armazenamento de Blobs do Azure com Node.js
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com Node.js
 
@@ -109,9 +103,9 @@ Em seguida, vamos analisar o código de exemplo, para que saiba como funciona.
 
 ### <a name="get-references-to-the-storage-objects"></a>Obter referências para os objetos de armazenamento
 
-A primeira coisa a fazer é criar a referência para os `BlobService` utilizados para aceder e gerir ao armazenamento de Blobs. Estes objetos dependem uns dos outros - cada um é utilizado pelo que vem a seguir na lista.
+A primeira coisa a fazer é criar a referência para o objeto **BlobService** utilizado para aceder e gerir ao armazenamento de Blobs. Estes objetos dependem uns dos outros - cada um é utilizado pelo que vem a seguir na lista.
 
-* Crie uma instância do objeto **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** que aponte para o serviço de Blobs na sua conta de armazenamento.
+* Crie uma instância do objeto [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) que aponte para o serviço de Blobs na sua conta de armazenamento.
 
 * Crie um contentor novo e, em seguida, defina as permissões no contentor, para que os blobs sejam públicos e possam ser acedidos com apenas um URL. O contentor começa com **quickstartcontainer-**.
 
@@ -199,4 +193,4 @@ Neste guia de introdução, aprendeu a transferir ficheiros entre um disco local
 > [!div class="nextstepaction"]
 > [Procedimentos de Operações de Armazenamento de Blobs](storage-nodejs-how-to-use-blob-storage.md)
 
-Para obter mais informações sobre o Explorador de armazenamento e os Blobs, veja [Manage Azure Blob storage resources with Storage Explorer (Gerir recursos de armazenamento do Blob do Azure com o Explorador de Armazenamento](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)).
+Para a referência Node-js para Armazenamento do Microsoft Azure, consulte [pacote de armazenamento do azure](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

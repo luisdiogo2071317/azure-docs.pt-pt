@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -27,7 +27,7 @@ Vai executar os seguintes passos neste tutorial:
 > [!div class="checklist"]
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
-> * Crie um integration runtime autoalojado.
+> * Criar um integration runtime autoalojado.
 > * Instalou o integration runtime. 
 > * Criar serviços ligados. 
 > * Crie conjuntos de dados de origem, de sink e de marca d'água.
@@ -135,7 +135,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL para armazenar o valor de limite de tamanho superior
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL do Azure para armazenar o valor de limite superior de tamanho
 1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água: 
     
     ```sql
@@ -157,7 +157,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Criar um procedimento armazenado na base de dados SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Criar um procedimento armazenado na base de dados SQL do Azure 
 
 Execute o comando seguinte para criar um procedimento armazenado na base de dados SQL. Este procedimento armazenado atualiza o valor de limite de tamanho após cada execução de pipeline. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Criar tipos de dados e procedimentos armazenados adicionais
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais na base de dados SQL do Azure
 Execute a consulta seguinte para criar dois procedimentos armazenados e dois tipos de dados de dois na sua base de dados SQL. São utilizados para intercalar os dados das tabelas de origem nas tabelas de destino.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
+1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
     3. Selecione **Objeto** no parâmetro **tipo**.
 
     ![Parâmetros do pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Arraste e largue a atividade **ForEach** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline. No separador **Geral** da janela **Propriedades**, introduza **IterateSQLTables**. 
+4. Na caixa de ferramentas **Atividades**, expanda **Iteração e Condições** e arraste e largue a atividade **ForEach** na superfície de estruturador do pipeline. No separador **Geral** da janela **Propriedades**, introduza **IterateSQLTables**. 
 
     ![Atividade ForEach - nome](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Mude para o separador **Definições** da janela **Propriedades** e introduza `@pipeline().parameters.tableList` em **Itens**. A atividade ForEach itera através da lista de tabelas e realiza a operação de cópia incremental. 
@@ -431,7 +432,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 6. Selecione a atividade **ForEach** no pipeline, se ainda não estiver selecionada. Clique no botão **Editar (Ícone de lápis)**.
 
     ![Atividade ForEach - editar](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Arraste e largue a atividade **Pesquisar** da caixa de ferramentas **Atividades** e introduza **LookupOldWaterMarkActivity** em **Nome**.
+7. Na caixa de ferramentas **Atividades**, expanda **Geral**, arraste e largue a atividade **Lookup** na superfície de estruturador do pipeline e introduza **LookupOldWaterMarkActivity** em **Nome**.
 
     ![Primeira Atividade Pesquisar - nome](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Mude para o separador **Definições** da janela **Propriedades** e siga os passos seguintes: 
@@ -497,12 +498,13 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
     ![Atividade Stored Procedure - Conta do SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Mude para o separador **Procedimento Armazenado** e siga os passos abaixo:
 
-    1. Introduza `sp_write_watermark` em **Nome do procedimento armazenado**. 
-    2. Utilize o botão **Novo** para adicionar os seguintes parâmetros: 
+    1. Para **Nome do procedimento armazenado** , selecione `sp_write_watermark`. 
+    2. Selecione **Parâmetro de importação**. 
+    3. Especifique os seguintes valores para os parâmetros: 
 
         | Nome | Tipo | Valor | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Cadeia | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

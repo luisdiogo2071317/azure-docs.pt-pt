@@ -1,6 +1,6 @@
 ---
-title: Como carregar equilibrar os computadores virtuais Linux no Azure | Microsoft Docs
-description: "Saiba como utilizar o Balanceador de carga do Azure para criar uma aplicação de elevada disponibilidade e segura entre três VMs do Linux"
+title: "Como fazer o balanceamento de carga das máquinas virtuais do Linux no Azure | Microsoft Docs"
+description: "Saiba como utilizar o balanceador de carga do Azure para criar uma aplicação de elevada disponibilidade e segura entre três VMs do Linux"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,50 +16,50 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Como carregar equilibrar os computadores virtuais Linux no Azure para criar uma aplicação altamente disponível
-Balanceamento de carga fornece um nível mais elevado de disponibilidade propagando-se os pedidos recebidos em várias máquinas virtuais. Neste tutorial, pode saber mais sobre os diferentes componentes do Balanceador de carga do Azure que distribui o tráfego de e para fornecem elevada disponibilidade. Saiba como:
+# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Como fazer o balanceamento de carga das máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade
+O balanceamento de carga fornece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e fornecem elevada disponibilidade. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um balanceador de carga do Azure
-> * Criar uma sonda de estado de funcionamento do Balanceador de carga
-> * Criar regras de tráfego de Balanceador de carga
-> * Utilize init da nuvem para criar uma aplicação Node.js básica
-> * Criar máquinas virtuais e ligue a um balanceador de carga
+> * Criar uma sonda de estado de funcionamento do balanceador de carga
+> * Criar regras de tráfego do balanceador de carga
+> * Utilizar a inicialização da cloud para criar uma aplicação Node.js básica
+> * Criar máquinas virtuais e anexar a um balanceador de carga
 > * Ver um balanceador de carga em ação
-> * Adicionar e remover as VMs a partir de um balanceador de carga
+> * Adicionar e remover VMs de um balanceador de carga
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="azure-load-balancer-overview"></a>Descrição geral do Balanceador de carga do Azure
-Um balanceador de carga do Azure é um balanceador de carga de camada 4 (TCP, UDP) que fornece elevada disponibilidade, distribuição de tráfego de entrada entre VMs em bom estado. Uma sonda de estado de funcionamento do Balanceador de carga monitoriza uma porta especificada em cada VM e apenas distribui o tráfego para uma VM operacional.
+## <a name="azure-load-balancer-overview"></a>Descrição geral do balanceador de carga do Azure
+Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP) que fornece elevada disponibilidade ao distribuir o tráfego de entrada entre VMs em bom estado de funcionamento. Uma sonda de estado de funcionamento do balanceador de carga monitoriza uma porta especificada em cada VM e apenas distribui o tráfego para uma VM operacional.
 
-É possível definir uma configuração de IP Front-end que contém um ou mais endereços IP públicos. Esta configuração de IP Front-end permite que o Balanceador de carga e aplicações para estar acessível através da Internet. 
+Pode definir uma configuração de IP de front-end com um ou mais endereços IP públicos. Esta configuração de IP de front-end permite ao balanceador de carga e às aplicações estarem acessíveis através da Internet. 
 
-As máquinas virtuais ligar a um balanceador de carga com o seu cartão de interface de rede virtual (NIC). Para distribuir o tráfego para as VMs, um conjunto de endereços de back-end contém o IP endereços dos virtuais (NICs) ligadas ao balanceador de carga.
+As máquinas virtuais ligam a um balanceador de carga através da respetiva placa de interface de rede virtual (NIC). Para distribuir o tráfego pelas VMs, um conjunto de endereços de back-end contém os endereços IP das placas virtuais (NICs) ligadas ao balanceador de carga.
 
-Para controlar o fluxo de tráfego, é possível definir as regras de Balanceador de carga para portas específicas e protocolos que mapeiam para as suas VMs.
+Para controlar o fluxo de tráfego, pode definir regras de balanceador de carga para portas específicas e protocolos que mapeiam para as suas VMs.
 
-Se seguiu o tutorial anterior para [criar um conjunto de dimensionamento de máquina virtual](tutorial-create-vmss.md), um balanceador de carga foi criado por si. Todos estes componentes foram configurados automaticamente como parte do conjunto de dimensionamento.
+Se seguiu o tutorial anterior para [criar um conjunto de dimensionamento de máquinas virtuais](tutorial-create-vmss.md), foi criado um balanceador de carga. Todos estes componentes foram configurados como parte do conjunto de dimensionamento.
 
 
-## <a name="create-azure-load-balancer"></a>Criar Balanceador de carga do Azure
-Esta secção descreve em detalhe como pode criar e configurar cada componente do Balanceador de carga. Antes de poder criar seu Balanceador de carga, crie um grupo de recursos com [criar grupo az](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupLoadBalancer* no *eastus* localização:
+## <a name="create-azure-load-balancer"></a>Criar um balanceador de carga do Azure
+Esta secção descreve como pode criar e configurar cada componente do balanceador de carga. Antes de poder criar o balanceador de carga, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupLoadBalancer* na localização *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Para aceder à sua aplicação na Internet, terá um endereço IP público para o Balanceador de carga. Criar um endereço IP público com [az público-ip da rede criar](/cli/azure/network/public-ip#create). O exemplo seguinte cria um endereço IP público com o nome *myPublicIP* no *myResourceGroupLoadBalancer* grupo de recursos:
+Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). O exemplo seguinte cria um endereço IP público com o nome *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -68,7 +68,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Criar um balanceador de carga
-Criar um balanceador de carga com [az rede lb criar](/cli/azure/network/lb#create). O exemplo seguinte cria um balanceador de carga com o nome *myLoadBalancer* e atribui o *myPublicIP* endereço para a configuração de IP Front-end:
+Crie um balanceador de carga com [az network lb create](/cli/azure/network/lb#az_network_lb_create). O exemplo seguinte cria um balanceador de carga com o nome *myLoadBalancer* e atribui o endereço *myPublicIP* à configuração de IP de front-end:
 
 ```azurecli-interactive 
 az network lb create \
@@ -79,12 +79,12 @@ az network lb create \
     --public-ip-address myPublicIP
 ```
 
-### <a name="create-a-health-probe"></a>Criar uma sonda do Estado de funcionamento
-Para permitir que o Balanceador de carga monitorizar o estado da sua aplicação, pode utilizar uma sonda do Estado de funcionamento. A sonda de estado de funcionamento dinamicamente adiciona ou remove as VMs a rotação de Balanceador de carga com base na respetiva resposta para verificações de estado de funcionamento. Por predefinição, uma VM é removida da distribuição do Balanceador de carga após duas falhas consecutivas em intervalos de 15 segundo. Criar uma sonda do Estado de funcionamento com base num protocolo ou uma página de verificação do Estado de funcionamento específico para a sua aplicação. 
+### <a name="create-a-health-probe"></a>Criar uma sonda de estado de funcionamento
+Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode utilizar uma sonda de estado de funcionamento. A sonda de estado de funcionamento adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na respetiva resposta às verificações de estado de funcionamento. Por predefinição, uma VM é removida da distribuição do balanceador de carga após duas falhas consecutivas em intervalos de 15 segundos. Pode criar uma sonda de estado de funcionamento com base num protocolo ou numa página de verificação de estado de funcionamento específica da aplicação. 
 
-O exemplo seguinte cria uma sonda TCP. Também pode criar das sondas personalizadas do HTTP para obter mais detalhada do Estado de funcionamento verificações. Quando utilizar uma pesquisa HTTP personalizada, tem de criar a página de verificação do Estado de funcionamento, tal como *healthcheck.js*. A sonda tem de devolver um **HTTP 200 OK** resposta para o Balanceador de carga manter o anfitrião no rotação.
+O exemplo seguinte cria uma sonda TCP. Também pode criar sondas HTTP personalizadas para obter verificações de estado de funcionamento mais detalhadas. Quando utilizar uma sonda HTTP personalizada, tem de criar a página de verificação de estado de funcionamento, tal como *healthcheck.js*. A sonda tem de devolver uma resposta **HTTP 200 OK** para o balanceador de carga manter o anfitrião na rotação.
 
-Para criar uma sonda do Estado de funcionamento TCP, utilize [sonda do az rede lb criar](/cli/azure/network/lb/probe#create). O exemplo seguinte cria uma sonda do Estado de funcionamento com o nome *myHealthProbe*:
+Para criar uma sonda de estado de funcionamento TCP, utilize [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). O exemplo seguinte cria uma sonda de estado de funcionamento com o nome *myHealthProbe*:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -95,10 +95,10 @@ az network lb probe create \
     --port 80
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Criar uma regra de Balanceador de carga
-Uma regra de Balanceador de carga é utilizada para definir a forma como o tráfego é distribuído para as VMs. É possível definir a configuração de IP Front-end o tráfego de entrada e o conjunto IP back-end para receber o tráfego, juntamente com a porta de origem e de destino necessário. Para garantir que apenas as VMs bom receberem tráfego, também é possível definir a sonda de estado de funcionamento para utilizar.
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
+Uma regra de balanceador de carga é utilizada para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas as VMs em bom estado de funcionamento recebem o tráfego, também pode definir a sonda de estado de funcionamento a utilizar.
 
-Criar uma regra de Balanceador de carga com [criar regra de lb az rede](/cli/azure/network/lb/rule#create). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRule*, utiliza o *myHealthProbe* sonda do Estado de funcionamento e saldos de tráfego na porta *80*:
+Crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRule*, utiliza a sonda de estado de funcionamento *myHealthProbe* e faz o balanceamento de carga do tráfego na porta *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -115,10 +115,10 @@ az network lb rule create \
 
 
 ## <a name="configure-virtual-network"></a>Configurar uma rede virtual
-Antes de implementar algumas VMs e pode testar o seu balanceador, crie os suporte recursos de rede virtual. Para obter mais informações sobre as redes virtuais, consulte o [gerir redes virtuais do Azure](tutorial-virtual-network.md) tutorial.
+Antes de implementar algumas VMs e testar o balanceador, crie os recursos de rede virtual. Para obter mais informações sobre redes virtuais, veja o tutorial [Gerir Redes Virtuais do Azure](tutorial-virtual-network.md).
 
 ### <a name="create-network-resources"></a>Criar recursos de rede
-Criar uma rede virtual com [az rede vnet criar](/cli/azure/network/vnet#create). O exemplo seguinte cria uma rede virtual denominada *myVnet* com uma sub-rede denominada *mySubnet*:
+Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual com o nome *myVnet* com uma sub-rede denominada *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -127,7 +127,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Para adicionar um grupo de segurança de rede, utilize [az rede nsg criar](/cli/azure/network/nsg#create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
+Para adicionar um grupo de segurança de rede, utilize [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -135,7 +135,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Criar uma regra de grupo de segurança de rede com [criar regras de nsg de rede az](/cli/azure/network/nsg/rule#create). O exemplo seguinte cria uma regra de grupo de segurança de rede com o nome *myNetworkSecurityGroupRule*:
+Crie uma regra de grupo de segurança de rede com [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). O exemplo seguinte cria uma regra de grupo de segurança de rede com o nome *myNetworkSecurityGroupRule*:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -147,7 +147,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-NICs virtuais são criados com [nic da rede az criar](/cli/azure/network/nic#create). O exemplo seguinte cria três NICs virtuais. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes). Pode criar o NICs virtuais adicionais e VMs em qualquer altura e adicioná-los para o Balanceador de carga:
+As NICs virtuais são criadas com [az network nic create](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria três NICs virtuais. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes). Pode criar NICs virtuais e VMs adicionais em qualquer altura e adicioná-las ao balanceador de carga:
 
 ```bash
 for i in `seq 1 3`; do
@@ -162,15 +162,15 @@ for i in `seq 1 3`; do
 done
 ```
 
-Quando todos os NICs virtuais três são criados, avançar para o passo seguinte
+Quando as três NICs virtuais estiverem criadas, avance para o passo seguinte
 
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-### <a name="create-cloud-init-config"></a>Criar a configuração de nuvem init
-Um tutorial anterior em [como personalizar uma máquina virtual do Linux no primeiro arranque](tutorial-automate-vm-deployment.md), aprendeu a automatizar a personalização de VM com init de nuvem. Pode utilizar o mesmo ficheiro de configuração de nuvem init para instalar NGINX e executar um simples "Olá, mundo" aplicação Node.js no próximo passo. Para ver o Balanceador de carga em ação, no final do tutorial, vai aceder a esta aplicação simple num web browser.
+### <a name="create-cloud-init-config"></a>Criar configuração de inicialização da cloud
+Num tutorial anterior sobre [Como personalizar uma máquina virtual do Linux no primeiro arranque](tutorial-automate-vm-deployment.md), aprendeu a automatizar a personalização de VMs com inicialização da cloud. Pode utilizar o mesmo ficheiro de configuração de inicialização da cloud para instalar o NGINX e executar uma aplicação Node.js "Hello World" simples no próximo passo. Para ver o balanceador de carga em ação, no final do tutorial, pode aceder a esta aplicação simples num browser.
 
-Na sua shell atual, crie um ficheiro denominado *nuvem init.txt* e cole a seguinte configuração. Por exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha:
+Na shell atual, crie um ficheiro com o nome *cloud-init.txt* e cole a seguinte configuração. Por exemplo, crie o ficheiro no Cloud Shell, não no seu computador local. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -215,9 +215,9 @@ runcmd:
 ```
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
-Para melhorar a elevada disponibilidade da sua aplicação, coloque as suas VMs num conjunto de disponibilidade. Para obter mais informações sobre conjuntos de disponibilidade, consulte o artigo anterior [como criar máquinas virtuais altamente disponíveis](tutorial-availability-sets.md) tutorial.
+Para melhorar a elevada disponibilidade da aplicação, coloque as VMs num conjunto de disponibilidade. Para obter mais informações sobre conjuntos de disponibilidade, veja o tutorial anterior [Como criar máquinas virtuais de elevada disponibilidade](tutorial-availability-sets.md).
 
-Criar um conjunto de disponibilidade com [az vm conjunto de disponibilidade criar](/cli/azure/vm/availability-set#create). O exemplo seguinte cria um conjunto nomeado de disponibilidade *myAvailabilitySet*:
+Crie um conjunto de disponibilidade com [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -225,7 +225,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Agora pode criar as VMs com [az vm criar](/cli/azure/vm#create). O exemplo seguinte cria três VMs e gera chaves SSH, caso ainda não existam:
+Agora, pode criar as VMs com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria três VMs e gera chaves SSH, caso não existam:
 
 ```bash
 for i in `seq 1 3`; do
@@ -242,11 +242,11 @@ for i in `seq 1 3`; do
 done
 ```
 
-Existem tarefas em segundo plano que continuam a ser executado após a CLI do Azure devolve ao pedido. O `--no-wait` parâmetro não aguarda para todas as tarefas a concluir. Pode ser outro alguns minutos antes de poder aceder a aplicação. A sonda de estado de funcionamento do Balanceador de carga Deteta automaticamente quando a aplicação está em execução em cada VM. Assim que a aplicação está em execução, a regra de Balanceador de carga começa a distribuir o tráfego.
+Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. O parâmetro `--no-wait` não aguarda a conclusão de todas as tarefas. Pode demorar mais alguns minutos antes de poder aceder à aplicação. A sonda de estado de funcionamento do balanceador de carga deteta automaticamente quando a aplicação está em execução em cada VM. Assim que a aplicação estiver em execução, a regra de balanceador de carga começa a distribuir o tráfego.
 
 
-## <a name="test-load-balancer"></a>Balanceador de carga de teste
-Obter o endereço IP público do seu Balanceador de carga com [mostrar de ip público de rede az](/cli/azure/network/public-ip#show). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
+## <a name="test-load-balancer"></a>Testar o balanceador de carga
+Pode obter o endereço IP público do balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -256,18 +256,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Em seguida, pode introduzir o endereço IP público para um web browser. Lembre-se - demora alguns minutos para que as VMs para estar pronto antes de começa o Balanceador de carga distribuir o tráfego aos mesmos. A aplicação é apresentada, incluindo o nome do anfitrião da VM que o Balanceador de carga distribuído tráfego como no exemplo seguinte:
+Em seguida, pode introduzir o endereço IP público num browser. Não se esqueça de que demora alguns minutos até as VMs estarem prontas antes de o balanceador de carga começar a distribuir o tráfego pelas mesmas. A aplicação é apresentada, incluindo o nome do anfitrião da VM para a qual o balanceador de carga distribuiu tráfego, como no seguinte exemplo:
 
-![Aplicação Node.js em execução](./media/tutorial-load-balancer/running-nodejs-app.png)
+![Executar aplicação Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
-Para ver o Balanceador de carga distribuir o tráfego entre todas as três VMs executar a sua aplicação, pode forçar atualizar o browser.
+Para ver o balanceador de carga a distribuir tráfego pelas três VMs que estão a executar a aplicação, pode forçar a atualização do browser.
 
 
 ## <a name="add-and-remove-vms"></a>Adicionar e remover VMs
-Terá de efetuar a manutenção em VMs executar a sua aplicação, como a instalação de atualizações do SO. Para lidar com maior tráfego para a sua aplicação, poderá ter de adicionar VMs adicionais. Esta secção mostra como remover ou adicionar uma VM do Balanceador de carga.
+Pode ter de efetuar a manutenção nas VMs que estão a executar a aplicação, como instalar atualizações do SO. Para lidar com maior volume de tráfego para a aplicação, pode ter de adicionar mais VMs. Esta secção mostra como adicionar ou remover uma VM do balanceador de carga.
 
-### <a name="remove-a-vm-from-the-load-balancer"></a>Remover uma VM do Balanceador de carga
-Pode remover uma VM de conjunto de endereços back-end com [az nic configuração de ip-conjunto de endereços rede remover](/cli/azure/network/nic/ip-config/address-pool#remove). O exemplo a seguir remove o NIC virtual para **myVM2** de *myLoadBalancer*:
+### <a name="remove-a-vm-from-the-load-balancer"></a>Remover uma VM do balanceador de carga
+Pode remover uma VM do conjunto de endereços de back-end com [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). O exemplo seguinte remove a NIC virtual para **myVM2** de *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -278,9 +278,9 @@ az network nic ip-config address-pool remove \
     --address-pool myBackEndPool 
 ```
 
-Para ver o Balanceador de carga distribuir o tráfego entre as restantes duas VMs, executar a sua aplicação, pode forçar-atualizar o browser. Agora pode efetuar a manutenção da VM, tais como instalar atualizações do SO ou efetuar um reinício VM.
+Para ver o balanceador de carga a distribuir tráfego pelas duas VMs restantes que estão a executar a aplicação, pode forçar a atualização do browser. Pode agora efetuar a manutenção da VM, como instalar atualizações do SO ou reiniciar.
 
-Para ver uma lista de VMs com NICs virtuais ligadas ao balanceador de carga, utilize [mostrar de conjunto de endereços do az rede lb](/cli/azure/network/lb/address-pool#show). Consultar e filtrar o ID de virtual NIC da seguinte forma:
+Para ver uma lista de VMs com NICs virtuais ligadas ao balanceador de carga, utilize [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show). Consulte e filtre pelo ID da NIC virtual da seguinte forma:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -291,15 +291,15 @@ az network lb address-pool show \
     --output tsv | cut -f4
 ```
 
-O resultado será semelhante ao exemplo seguinte, que mostra que o NIC virtual para a VM 2 já não faz parte do conjunto de endereços back-end:
+O resultado é semelhante ao exemplo seguinte, que mostra que a NIC virtual para a VM 2 já não faz parte do conjunto de endereços de back-end:
 
 ```bash
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
 ```
 
-### <a name="add-a-vm-to-the-load-balancer"></a>Adicionar uma VM para o Balanceador de carga
-Depois de efetuar a manutenção VM, ou se precisa de expandir a capacidade, pode adicionar uma VM para o conjunto de endereços de back-end com [az nic configuração de ip-conjunto de endereços rede adicionar](/cli/azure/network/nic/ip-config/address-pool#add). O exemplo seguinte adiciona o NIC virtual para **myVM2** para *myLoadBalancer*:
+### <a name="add-a-vm-to-the-load-balancer"></a>Adicionar uma VM ao balanceador de carga
+Depois de efetuar a manutenção da VM, ou se tiver de expandir a capacidade, pode adicionar uma VM ao conjunto de endereços de back-end com [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add). O exemplo seguinte adiciona a NIC virtual para **myVM2** a *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -310,22 +310,22 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-Para verificar que o virtual NIC está ligado ao conjunto de endereços back-end, utilize [mostrar de conjunto de endereços do az rede lb](/cli/azure/network/lb/address-pool#show) novamente a partir do passo anterior.
+Para verificar se a NIC virtual está ligada ao conjunto de endereços de back-end, utilize novamente [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) do passo anterior.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, criou um balanceador de carga e anexados VMs. Aprendeu a:
+Neste tutorial, criou um balanceador de carga e anexou VMs ao mesmo. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um balanceador de carga do Azure
-> * Criar uma sonda de estado de funcionamento do Balanceador de carga
-> * Criar regras de tráfego de Balanceador de carga
-> * Utilize init da nuvem para criar uma aplicação Node.js básica
-> * Criar máquinas virtuais e ligue a um balanceador de carga
+> * Criar uma sonda de estado de funcionamento do balanceador de carga
+> * Criar regras de tráfego do balanceador de carga
+> * Utilizar a inicialização da cloud para criar uma aplicação Node.js básica
+> * Criar máquinas virtuais e anexar a um balanceador de carga
 > * Ver um balanceador de carga em ação
-> * Adicionar e remover as VMs a partir de um balanceador de carga
+> * Adicionar e remover VMs de um balanceador de carga
 
-Avançar para o próximo tutorial para saber mais sobre os componentes de rede virtual do Azure.
+Avance para o próximo tutorial para saber mais sobre os componentes de rede virtual do Azure.
 
 > [!div class="nextstepaction"]
 > [Gerir VMs e redes virtuais](tutorial-virtual-network.md)

@@ -1,6 +1,6 @@
 ---
-title: Personalizar uma VM com Linux no primeiro arranque no Azure | Microsoft Docs
-description: Saiba como utilizar init de nuvem e o Cofre de chaves para customze VMs com Linux a primeira vez que estes arrancam no Azure
+title: Personalizar uma VM do Linux no primeiro arranque no Azure | Microsoft Docs
+description: Saiba como utilizar o cloud-init e o Key Vault para personalizar as VMs do Linux na primeira vez que iniciam no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,49 +16,49 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Como personalizar uma máquina virtual do Linux no primeiro arranque
-Um tutorial anterior, aprendeu como para SSH para uma máquina virtual (VM) e manualmente instalar NGINX. Para criar as VMs de uma forma rápida e consistente, alguma forma de automatização é normalmente assim o desejar. Uma abordagem comum para personalizar uma VM no primeiro arranque é utilizar [nuvem init](https://cloudinit.readthedocs.io). Neste tutorial, ficará a saber como:
+Num tutorial anterior, aprendeu a realizar SSH para uma máquina virtual (VM) e instalar manualmente o NGINX. Para criar VMs de forma rápida e consistente, normalmente pretende-se alguma forma de automatização. Uma abordagem comum para personalizar uma VM no primeiro arranque é utilizar o [cloud-init](https://cloudinit.readthedocs.io). Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um ficheiro de configuração de nuvem init
-> * Criar uma VM que utiliza um ficheiro de init de nuvem
-> * Ver uma aplicação Node.js em execução depois da VM é criada
-> * Utilizar o Cofre de chaves para armazenar em certificados
-> * Automatizar implementações seguras de NGINX com init de nuvem
+> * Criar um ficheiro de configuração do cloud-init
+> * Criar uma VM que utiliza um ficheiro cloud-init
+> * Ver uma aplicação Node.js em execução depois de a VM ser criada
+> * Utilizar o Key Vault para armazenar certificados
+> * Automatizar implementações seguras do NGINX com o cloud-init
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
 
 
 ## <a name="cloud-init-overview"></a>Descrição geral da inicialização de cloud
-[Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Como é executado na nuvem init durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.
+[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Como o cloud-init é executado durante o processo de arranque inicial, não existem passos adicionais ou agentes necessários a aplicar à configuração.
 
-Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
+O cloud-init também funciona em distribuições. Por exemplo, não utiliza **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes a instalar. O cloud-init utiliza automaticamente a ferramenta de gestão de pacotes nativa para a distribuição que selecionar.
 
-Estamos a trabalhar com os nossos parceiros de obter init cloud incluídos e a funcionar nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade de nuvem init atual nas imagens de plataforma do Azure:
+Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído e fique operacional nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade atual do cloud-init nas imagens de plataforma do Azure:
 
 | Alias | Publicador | Oferta | SKU | Versão |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canónico |UbuntuServer |16.04 LTS |mais recente |
+| UbuntuLTS |Canónico |UbuntuServer |16.04-LTS |mais recente |
 | UbuntuLTS |Canónico |UbuntuServer |14.04.5-LTS |mais recente |
 | CoreOS |CoreOS |CoreOS |Estável |mais recente |
-| | OpenLogic | CentOS | 7 CI | mais recente |
-| | RedHat | RHEL | 7 CI NÃO PROCESSADOS | mais recente
+| | OpenLogic | CentOS | 7-CI | mais recente |
+| | RedHat | RHEL | 7-RAW-CI | mais recente
 
 
-## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração de nuvem init
-Para ver a nuvem-init em ação, crie uma VM que instala NGINX e executa uma simples "Olá, mundo" aplicação Node.js. A seguinte configuração de nuvem init instala os pacotes necessários, cria uma aplicação Node.js, em seguida, inicializar e inicia a aplicação.
+## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração do cloud-init
+Para ver o cloud-init em ação, crie uma VM que instala o NGINX e executa uma aplicação Node.js “Hello World” simples. A seguinte configuração do cloud-init instala os pacotes necessários, cria uma aplicação Node.js e, em seguida, inicializa e lança a aplicação.
 
-Na sua shell atual, crie um ficheiro denominado *nuvem init.txt* e cole a seguinte configuração. Por exemplo, crie o ficheiro na Shell na nuvem não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha:
+Na shell atual, crie um ficheiro com o nome *cloud-init.txt* e cole a seguinte configuração. Por exemplo, crie o ficheiro no Cloud Shell, não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud-init.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -102,16 +102,16 @@ runcmd:
   - nodejs index.js
 ```
 
-Para obter mais informações sobre as opções de configuração de nuvem init, consulte [exemplos de configuração de nuvem init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
+Para obter mais informações sobre as opções de configuração do cloud-init, veja [exemplos de configuração do cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
-Antes de poder criar uma VM, crie um grupo de recursos com [criar grupo az](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupAutomate* no *eastus* localização:
+Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAutomate* na localização *eualeste*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Agora criar uma VM com [az vm criar](/cli/azure/vm#create). Utilize o `--custom-data` parâmetro para passar o ficheiro de configuração de nuvem init. Forneça o caminho completo para o *nuvem init.txt* configuração se guardou o ficheiro fora do diretório de trabalho presente. O exemplo seguinte cria uma VM chamada *myAutomatedVM*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria uma VM com o nome *myAutomatedVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,34 +123,34 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Demora alguns minutos para que a VM ser criada, os pacotes para instalar e iniciar a aplicação. Existem tarefas em segundo plano que continuam a ser executado após a CLI do Azure devolve ao pedido. Pode ser outro alguns minutos antes de poder aceder a aplicação. Quando a VM foi criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js através de um browser web.
+Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Poderão ser necessários mais alguns minutos antes de poder aceder à aplicação. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js num browser.
 
-Para permitir o tráfego da web alcançar a VM, abra a porta 80 da Internet com [az vm open-porta](/cli/azure/vm#open-port):
+Para permitir que o tráfego da Web aceda à VM, abra a porta 80 a partir da Internet com [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
-## <a name="test-web-app"></a>Aplicação do teste web
-Agora pode abrir um browser e introduza *http://<publicIpAddress>*  na barra de endereço. Forneça o suas próprias público endereço IP da VM criar o processo. A aplicação Node.js é apresentada como no exemplo seguinte:
+## <a name="test-web-app"></a>Testar a aplicação Web
+Agora, pode abrir um browser e introduzir *http://<publicIpAddress>* na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada como no exemplo seguinte:
 
-![Ver o site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
+![Ver site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
 
 
-## <a name="inject-certificates-from-key-vault"></a>Inserir certificados a partir do Cofre de chaves
-Esta secção opcional mostra como pode em segurança armazenar certificados no Cofre de chaves do Azure e inseri-los durante a implementação de VM. Em vez de utilizar uma imagem personalizada que inclui os certificados integrada-in, este processo garante que os certificados mais atualizadas à sua são injetados uma VM no primeiro arranque. Durante o processo, o certificado nunca deixa a plataforma do Azure ou está exposto num script, histórico de linha de comandos ou modelo.
+## <a name="inject-certificates-from-key-vault"></a>Inserir certificados a partir do Key Vault
+Esta secção opcional mostra como pode, em segurança, armazenar certificados no Azure Key Vault e inseri-los durante a implementação de VMs. Em vez de utilizar uma imagem personalizada que inclui os certificados integrados, este processo garante que os certificados mais atualizados são inseridos numa VM no primeiro arranque. Durante o processo, o certificado nunca sai da plataforma do Azure nem é exposto num script, histórico de linha de comandos ou modelo.
 
-O Cofre de chaves do Azure salvaguarda as chaves criptográficas e segredos, tais como certificados ou palavras-passe. O Cofre de chaves ajuda a simplificar o processo de gestão de chaves e permite-lhe manter o controlo de teclas que acede e encripta os seus dados. Este cenário apresenta alguns conceitos do Cofre de chaves para criar e utilizar um certificado, embora não é exaustiva geral sobre como utilizar o Cofre de chaves.
+O Azure Key Vault salvaguarda as chaves criptográficas e os segredos, como os certificados ou as palavras-passe. O Key Vault ajuda a simplificar o processo de gestão de chaves e permite-lhe manter o controlo de chaves que acedem aos seus dados e os encriptam. Este cenário apresenta alguns conceitos do Key Vault para criar e utilizar um certificado, embora não seja uma descrição geral exaustiva de como utilizar o Key Vault.
 
 Os passos seguintes mostram como pode:
 
-- Criar um cofre de chaves do Azure
-- Gerar ou carregar um certificado para o Cofre de chaves
-- Criar um segredo do certificado ao inserir na uma VM
+- Criar um Azure Key Vault
+- Gerar ou carregar um certificado para o Key Vault
+- Criar um segredo do certificado para inserir numa VM
 - Criar uma VM e inserir o certificado
 
-### <a name="create-an-azure-key-vault"></a>Criar um cofre de chaves do Azure
-Em primeiro lugar, crie um cofre de chaves com [az keyvault criar](/cli/azure/keyvault#create) e ative-a para utilização quando implementar uma VM. Cada Cofre de chaves requer um nome exclusivo e deve ser todas as letras maiúsculas e minúsculas. Substitua *mykeyvault* no exemplo seguinte, com o seu próprio nome exclusivo do Cofre de chaves:
+### <a name="create-an-azure-key-vault"></a>Criar um Azure Key Vault
+Em primeiro lugar, crie um Key Vault com [az keyvault create](/cli/azure/keyvault#az_keyvault_create) e ative-o para utilização quando implementar uma VM. Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua *mykeyvault* no exemplo seguinte pelo nome exclusivo do seu Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -160,8 +160,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-### <a name="generate-certificate-and-store-in-key-vault"></a>Gerar certificado e armazenar no Cofre de chaves
-Para utilização em produção, deve importar um certificado válido assinado por um fornecedor fidedigno com [importação de certificados de keyvault az](/cli/azure/keyvault/certificate#import). Para este tutorial, o exemplo seguinte mostra como pode gerar um certificado autoassinado com [Criar certificado de keyvault az](/cli/azure/keyvault/certificate#create) que utiliza a política de certificado predefinido:
+### <a name="generate-certificate-and-store-in-key-vault"></a>Gerar um certificado e armazená-lo no Key Vault
+Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno com [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Para este tutorial, o exemplo seguinte mostra como pode gerar um certificado autoassinado com [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) que utiliza a política de certificado predefinida:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -171,8 +171,8 @@ az keyvault certificate create \
 ```
 
 
-### <a name="prepare-certificate-for-use-with-vm"></a>Preparar o certificado para utilização com a VM
-Para utilizar o certificado durante a VM processo de criar, obter o ID do certificado com [az keyvault lista-as versões do segredo](/cli/azure/keyvault/secret#list-versions). A VM tem do certificado num formato para injetá-lo no arranque, por isso, converta o certificado com [az vm formato-secret](/cli/azure/vm#format-secret). O seguinte exemplo atribui o resultado destes comandos variáveis facilidade de utilização nos passos:
+### <a name="prepare-certificate-for-use-with-vm"></a>Preparar um certificado para utilização numa VM
+Para utilizar o certificado durante o processo de criação da VM, obtenha o ID do certificado com [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). A VM precisa do certificado num determinado formato para inseri-lo no arranque, por isso, converta o certificado com [az vm format-secret](/cli/azure/vm#az_vm_format_secret). O exemplo seguinte atribui o resultado destes comandos a variáveis para uma utilização mais fácil nos passos que se seguem:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -183,10 +183,10 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 
-### <a name="create-cloud-init-config-to-secure-nginx"></a>Criar a configuração de nuvem init para proteger NGINX
-Quando cria uma VM, certificados e chaves são armazenadas no protegida */var/lib/waagent/* diretório. Para automatizar a adicionar o certificado para a VM e configurar NGINX, pode utilizar uma configuração de nuvem-init atualizado do exemplo anterior.
+### <a name="create-cloud-init-config-to-secure-nginx"></a>Criar uma configuração do cloud-init para proteger o NGINX
+Quando criar uma VM, os certificados e as chaves são armazenados no diretório */var/lib/waagent/* protegido. Para automatizar a adição do certificado à VM e configurar o NGINX, pode utilizar uma configuração atualizada de cloud-init do exemplo anterior.
 
-Crie um ficheiro denominado *nuvem-init-secured.txt* e cole a seguinte configuração. Novamente, se utilizar a Shell de nuvem, crie o ficheiro de configuração de nuvem init há e não no seu computador local. Utilize `sensible-editor cloud-init-secured.txt` para criar o ficheiro e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de toda a nuvem-init é copiado corretamente, especialmente a primeira linha:
+Crie um ficheiro com o nome *cloud-init-secured.txt* e cole a seguinte configuração. Novamente, se utilizar o Cloud Shell, crie o ficheiro de configuração do cloud-init aqui, não no seu computador local. Utilize `sensible-editor cloud-init-secured.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -237,8 +237,8 @@ runcmd:
   - nodejs index.js
 ```
 
-### <a name="create-secure-vm"></a>Criar a VM segura
-Agora criar uma VM com [az vm criar](/cli/azure/vm#create). Os dados de certificado são injetados a partir do Cofre de chaves com o `--secrets` parâmetro. O exemplo anterior, que também passa a configuração de nuvem init com o `--custom-data` parâmetro:
+### <a name="create-secure-vm"></a>Criar uma VM segura
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Os dados do certificado são inseridos a partir do Key Vault com o parâmetro `--secrets`. Como no exemplo anterior, também transmite a configuração do cloud-init com o parâmetro `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -251,9 +251,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Demora alguns minutos para que a VM ser criada, os pacotes para instalar e iniciar a aplicação. Existem tarefas em segundo plano que continuam a ser executado após a CLI do Azure devolve ao pedido. Pode ser outro alguns minutos antes de poder aceder a aplicação. Quando a VM foi criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js através de um browser web.
+Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Poderão ser necessários mais alguns minutos antes de poder aceder à aplicação. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js num browser.
 
-Para permitir o tráfego web seguro alcançar a VM, abra a porta 443 a partir da Internet com [az vm open-porta](/cli/azure/vm#open-port):
+Para permitir que o tráfego da Web seguro aceda à VM, abra a porta 443 a partir da Internet com [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -262,27 +262,27 @@ az vm open-port \
     --port 443
 ```
 
-### <a name="test-secure-web-app"></a>Aplicação do teste web seguro
-Agora pode abrir um browser e introduza *https://<publicIpAddress>*  na barra de endereço. Forneça o suas próprias público endereço IP da VM criar o processo. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+### <a name="test-secure-web-app"></a>Testar uma aplicação Web segura
+Agora, pode abrir um browser e introduzir *https://<publicIpAddress>* na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
-![Aceitar o aviso de segurança do browser web](./media/tutorial-automate-vm-deployment/browser-warning.png)
+![Aceitar o aviso de segurança do browser](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-O NGINX site protegida e o Node.js aplicação, em seguida, é apresentada como no exemplo seguinte:
+O site NGINX protegido e a aplicação Node.js são apresentados como no exemplo seguinte:
 
-![Site NGINX está em execução segura de vista](./media/tutorial-automate-vm-deployment/secured-nginx.png)
+![Ver site NGINX seguro em execução](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, configurou as VMs no primeiro arranque com init de nuvem. Aprendeu a:
+Neste tutorial, configurou as VMs no primeiro arranque com o cloud-init. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um ficheiro de configuração de nuvem init
-> * Criar uma VM que utiliza um ficheiro de init de nuvem
-> * Ver uma aplicação Node.js em execução depois da VM é criada
-> * Utilizar o Cofre de chaves para armazenar em certificados
-> * Automatizar implementações seguras de NGINX com init de nuvem
+> * Criar um ficheiro de configuração do cloud-init
+> * Criar uma VM que utiliza um ficheiro cloud-init
+> * Ver uma aplicação Node.js em execução depois de a VM ser criada
+> * Utilizar o Key Vault para armazenar certificados
+> * Automatizar implementações seguras do NGINX com o cloud-init
 
-Avançar para o próximo tutorial para saber como criar imagens VM personalizadas.
+Avance para o tutorial seguinte para aprender a criar imagens de VM personalizadas.
 
 > [!div class="nextstepaction"]
 > [Criar imagens de VM personalizadas](./tutorial-custom-images.md)

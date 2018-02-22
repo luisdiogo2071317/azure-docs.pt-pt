@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ac8a9f28881ff7d249a02976f310bf6a8283aeb6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="network-security"></a>Segurança da rede
 
@@ -116,7 +116,7 @@ Não pode remover as regras predefinidas, mas pode criar regras com prioridades 
 
  As etiquetas de serviço representam um grupo de prefixos de endereços IP, que ajudam a minimizar a complexidade da criação de regras de segurança. Não pode criar as suas próprias etiquetas de serviço nem especificar que endereços IP estão incluídos nas mesmas. A Microsoft gere os prefixos de endereços que as etiquetas abrangem e atualiza-as automaticamente à medida que os endereços são alterados. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Estão disponíveis as etiquetas de serviço seguintes para utilização em definições de regras de segurança. Os nomes variam ligeiramente entre os [modelos de implementação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-* **VirtualNetwork** (*Resource Manager) (**VIRTUAL_NETWORK** para a clássica): esta etiqueta inclui o espaço de endereços das redes virtuais (todos os intervalos de CIDR definidos para as redes virtuais), todos os espaços de endereços no local ligados e as redes em [modo de peering](virtual-network-peering-overview.md) ou as redes virtuais ligadas a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para a clássica): esta etiqueta inclui o espaço de endereços das redes virtuais (todos os intervalos de CIDR definidos para as redes virtuais), todos os espaços de endereços no local ligados e as redes em [modo de peering](virtual-network-peering-overview.md) ou as redes virtuais ligadas a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** par clássica): esta etiqueta denota o balanceador de carga da infraestrutura do Azure. A etiqueta traduz-se num [endereço IP de um datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), onde as sondas de estado de funcionamento do Azure têm origem. Se não estiver a utilizar o balanceador de carga do Azure, pode substituir esta regra.
 * **Internet** (Gestor de Recursos) (**INTERNET** para clássica): esta etiqueta denota o espaço de endereços IP que está fora da rede virtual e acessível pela Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (apenas Resource Manager): esta etiqueta denota o espaço de endereços IP de pesquisa do Gestor de Tráfego do Azure. Pode encontrar mais informações no Gestor de Tráfego de pesquisa de IPs nas [Perguntas e Respostas do Gestor de Tráfego do Azure](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs).

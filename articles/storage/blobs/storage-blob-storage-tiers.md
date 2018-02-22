@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivos
 
 ## <a name="overview"></a>Descrição geral
 
-O Armazenamento do Azure disponibiliza três camadas de armazenamento para o Armazenamento de objetos de blobs, para que possa armazenar os seus dados de forma mais económica consoante o modo como os utiliza. A **camada de armazenamento de acesso frequente** do Azure está otimizada para armazenar dados que são acedidos com frequência. A **camada de armazenamento de acesso esporádico** do Azure está otimizada para armazenar dados que são acedidos com pouca frequência e armazenados durante 30 dias, pelo menos. A **camada de armazenamento de arquivos** do Azure está otimizada para armazenar dados que são raramente acedidos e armazenados durante, pelo menos, 180 dias, com requisitos de latência flexíveis (na ordem das horas). A camada de armazenamento de arquivo só está disponível ao nível do blob e não ao nível de conta de armazenamento. Os dados na camada de armazenamento de acesso esporádico podem tolerar disponibilidade ligeiramente inferior, mas ainda requerem uma durabilidade elevada, bem como tempo de acesso e características de débito semelhantes aos dados de acesso frequente. Para os dados de acesso esporádico, um SLA de disponibilidade ligeiramente inferior e custos de acesso superiores comparados com frequentes são compromissos aceitáveis em troca de custos de armazenamento inferiores. O armazenamento de arquivos está offline e oferece custos de armazenamento mais baixos, mas também custos de acesso mais elevados.
+O Armazenamento do Azure disponibiliza três camadas de armazenamento para o Armazenamento de objetos de blobs, para que possa armazenar os seus dados de forma mais económica consoante o modo como os utiliza. A **camada de armazenamento de acesso frequente** do Azure está otimizada para armazenar dados que são acedidos com frequência. A **camada de armazenamento de acesso esporádico** do Azure está otimizada para armazenar dados que são acedidos com pouca frequência e armazenados durante 30 dias, pelo menos. A **camada de armazenamento de arquivos** do Azure está otimizada para armazenar dados que são raramente acedidos e armazenados durante, pelo menos, 180 dias, com requisitos de latência flexíveis (na ordem das horas). Este armazenamento só está disponível ao nível do blob e não ao nível da conta de armazenamento. Os dados na camada de armazenamento de acesso esporádico podem tolerar disponibilidade ligeiramente inferior, mas ainda requerem uma durabilidade elevada, bem como tempo de acesso e características de débito semelhantes aos dados de acesso frequente. Para os dados de acesso esporádico, um SLA de disponibilidade ligeiramente inferior e custos de acesso superiores comparados com frequentes são compromissos aceitáveis em troca de custos de armazenamento inferiores. O armazenamento de arquivos está offline e oferece os custos de armazenamento mais baixos, mas também os custos de acesso mais elevados. Apenas os níveis de armazenamento frequente e esporádico (não arquivo) podem ser definidos ao nível de conta. Todos os três níveis podem ser definidos ao nível de objeto.
 
 Atualmente, os dados armazenados na nuvem estão a crescer a um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes em termos da forma como são gerados, processados e acedidos ao longo da respetiva duração. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem inativos na nuvem e são raramente acedidos após serem armazenados ou não são acedidos de todo.
 
-Cada um destes cenários de acesso a dados beneficia de uma camada de armazenamento diferente, otimizada para um padrão de acesso específico. Com as camadas de armazenamento frequente, esporádico e de arquivo, o Armazenamento de blobs do Azure dá resposta a esta necessidade de camadas de armazenamento diferenciadas com modelos de preços distintos.
+Cada um destes cenários de acesso a dados beneficia de uma camada de armazenamento diferente, otimizada para um padrão de acesso específico. Com as camadas de armazenamento frequente, esporádico e de arquivo, o armazenamento de Blobs do Azure dá resposta à necessidade de ter camadas de armazenamento diferenciadas com modelos de preços distintos.
 
 ## <a name="storage-accounts-that-support-tiering"></a>Contas de armazenamento que suportam camadas
 
@@ -38,14 +38,14 @@ As contas GPv2 e de Armazenamento de Blobs expõem o atributo **Access Tier** (C
 
 ## <a name="hot-access-tier"></a>Escalão de acesso frequente
 
-O armazenamento frequente tem custos de armazenamento superiores que o armazenamento de arquivo e esporádico, mas custos de acesso mais baixos. Os exemplos de cenários de utilização da camada de armazenamento frequente incluem:
+Os custos de armazenamento do armazenamento frequente são superiores aos dos armazenamentos de arquivo e esporádico, mas os custos de acesso são mais baixos. Os exemplos de cenários de utilização da camada de armazenamento frequente incluem:
 
 * Dados que estão a ser utilizados ativamente ou que deverão ser acedidos (para operações de leitura e escrita) com frequência.
 * Dados preparados para processamento e eventual migração para a camada de armazenamento de acesso esporádico.
 
 ## <a name="cool-access-tier"></a>Escalão de acesso esporádico
 
-A camada de armazenamento esporádico tem custos de armazenamento inferiores e custos de acesso superiores em comparação com armazenamento frequente. Esta camada destina-se de dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os exemplos de cenários de utilização da camada de armazenamento esporádico incluem:
+A camada de armazenamento esporádico tem custos de armazenamento inferiores e custos de acesso superiores em comparação com armazenamento frequente. Esta camada destina-se a dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os exemplos de cenários de utilização da camada de armazenamento esporádico incluem:
 
 * Conjuntos de dados de cópia de segurança e recuperação após desastre de curto prazo.
 * Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
@@ -53,13 +53,13 @@ A camada de armazenamento esporádico tem custos de armazenamento inferiores e c
 
 ## <a name="archive-access-tier"></a>Camada de acesso de arquivo
 
-O armazenamento de arquivos tem o custo de armazenamento mais baixo e os custos de obtenção de dados mais altos em comparação com o armazenamento frequente e esporádico. Esta camada destina-se de dados que podem tolerar a várias horas de latência de obtenção e irão permanecer na camada de arquivo, pelo menos, 180 dias.
+O armazenamento de arquivo tem o custo de armazenamento mais baixo e os custos de obtenção de dados mais altos em comparação com o armazenamento frequente e esporádico. Esta camada destina-se a dados que podem tolerar várias horas de latência de obtenção e que vão permanecer na camada de arquivo, pelo menos, 180 dias.
 
 Enquanto um blob está num armazenamento de arquivo, está offline e não pode ser lido (exceto os metadados, que estão online e disponíveis), copiado, substituído ou modificado. Do mesmo modo, também não pode criar instantâneos de blobs no armazenamento de arquivo. Contudo, pode utilizar operações existentes para eliminar, listar, obter propriedades/metadados de blobs ou alterar a camada dos seus blobs.
 
 Os exemplos de cenários de utilização da camada de armazenamento de arquivo incluem:
 
-* Conjuntos de dados de cópias de segurança, arquivo e recuperação após desastre de longo prazo
+* Conjuntos de dados de arquivo, cópia de segurança secundária e cópia de segurança a longo prazo
 * Dados originais (não processados) que têm de ser preservados, mesmo depois de terem sido processados para a forma utilizável final. (*Por exemplo,*, ficheiros de multimédia não processados após a transcodificação noutros formatos)
 * Dados de conformidade e arquivo que têm ser armazenados durante muito tempo e que raramente são acedidos. (*Por exemplo,*, filmagens de câmaras de segurança, raios X/RMs antigos para organizações de cuidados de saúde, gravações de áudio e transcrições de chamadas dos clientes para serviços financeiros)
 
@@ -70,7 +70,7 @@ Durante a “reidratação”, pode verificar a propriedade **Archive Status** d
 
 ## <a name="blob-level-tiering"></a>Camadas ao nível do blob
 
-As camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao nível do objeto através de uma operação individual, chamada [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Pode alterar facilmente a camada de acesso de um blob de entre as camadas frequente, esporádica ou de arquivo à medida que os padrões de utilização se modificam, sem ter de mover dados entre contas. Todas as alterações às camadas entram em vigor imediatamente, exceto se um blob estiver a ser reidratado do arquivo, o que pode demorar várias horas. A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Se um blob estiver na camada de arquivo, não pode ser substituído e, por conseguinte, carregar o mesmo blob não é permitido neste cenário. Pode substituir um blob frequente e esporádico e, neste caso, o novo blob herda a camada do blob antigo que foi substituído.
+As camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao nível do objeto através de uma operação individual, chamada [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Pode alterar facilmente a camada de acesso de um blob de entre as camadas frequente, esporádica ou de arquivo à medida que os padrões de utilização se modificam, sem ter de mover dados entre contas. Todas as alterações às camadas entram em vigor imediatamente, exceto se um blob estiver a ser reidratado do arquivo, o que pode demorar várias horas. A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Se um blob estiver na camada de arquivo, não pode ser substituído e, por conseguinte, não é permitido carregar o mesmo blob neste cenário. Pode substituir um blob no armazenamento frequente e esporádico e, neste caso, o blob novo herda a camada do blob antigo que foi substituído.
 
 Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob que não tenha uma camada atribuída explicitamente infere a camada da definição da camada de acesso da conta. Se a camada de acesso for inferida a partir da conta, pode ver que a propriedade **Access Tier Inferred** (Camada de Acesso Inferida) do blob está definida como "true" e que a propriedade **Access Tier** do blob corresponde à camada da conta. No portal do Azure, a propriedade da camada de acesso inferido é apresentada com a camada de acesso do blob (por exemplo, acesso frequente (inferido) ou esporádico (inferido)).
 
@@ -83,7 +83,7 @@ Quando um blob é movido para uma camada mais esporádica (frequente->esporádic
 
 Se mudar a camada da conta de frequente para esporádica, são-lhe cobradas operações de escrita (por 10 000) para todos os blobs que não tenham uma camada definida em contas GPv2 apenas. Estas cobranças não acontecem nas contas de Armazenamento de Blobs. Se mudar a conta GPv2 ou de Armazenamento de Blobs de esporádica para frequente, são-lhe cobradas as operações de escrita (por 10 000) e obtenção de dados (por GB). Podem também aplicar-se cobranças com deteções precoces para qualquer blob que seja retirado da camada esporádica ou de arquivo.
 
-### <a name="cool-and-archive-early-deletion-effective-february-1-2018"></a>Eliminação precoce do armazenamento esporádico e de arquivos (em vigor a partir de 1 de fevereiro de 2018)
+### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Eliminação antecipada de acesso esporádico e arquivo (em vigor a partir de 1 de março de 2018)
 
 Para além dos custos por mês por GB, qualquer blob que seja movido para a camada esporádica (apenas contas GPv2) está sujeito a um período de 30 dias de eliminação precoce esporádica e qualquer blob que seja incluído na camada de arquivos está sujeito a um período de 180 dias de eliminação precoce de arquivos. Estes custos são rateados. Por exemplo, se um blob for movido para arquivo e, em seguida, for eliminado ou movido para a camada frequente após 45 dias, é-lhe cobrada uma tarifa de eliminação precoce equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo.
 
@@ -106,7 +106,7 @@ A tabela seguinte mostra uma comparação das camadas de armazenamento frequente
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
-Nesta secção os seguintes cenários são demonstrados através do portal do Azure:
+Nesta secção, são demonstrados os seguintes cenários através do portal do Azure:
 
 * Como alterar a camada de acesso predefinida de uma conta de Armazenamento de Blobs ou GPv2.
 * Como alterar a camada de um blob numa conta de Armazenamento de Blobs ou GPv2.
@@ -177,7 +177,7 @@ Cada blob é sempre faturado de acordo com a camada indicada pela propriedade **
 
 **Como posso saber se me vai ser faturada uma cobrança de eliminação precoce quando eliminar ou retirar um blob da camada esporádica ou de arquivo?**
 
-Qualquer blob que seja eliminado ou retirado da camada esporádica (contas GPv2 apenas) ou de arquivo antes de aí estar 30 dias e 180 dias, respetivamente, implica uma cobrança de eliminação precoce rateada (em vigor a partir de 1 de fevereiro de 2018). Para saber há quanto tempo é que um blob está na camada esporádica ou de arquivo, veja a respetiva propriedade **Access Tier Time** (Tempo na Camada de Acesso), que mostra um carimbo de data/hora da última alteração à camada. Veja a secção [Cool and archive early deletion](#cool-and-archive-early-deletion) (Eliminação precoce na camada esporádica e de arquivo) para obter mais detalhes.
+Qualquer blob que seja eliminado ou retirado da camada esporádica (contas GPv2 apenas) ou de arquivo antes de aí estar 30 dias e 180 dias, respetivamente, implica uma cobrança de eliminação precoce rateada (em vigor a partir de 1 de março de 2018). Para saber há quanto tempo é que um blob está na camada esporádica ou de arquivo, veja a respetiva propriedade **Access Tier Time** (Tempo na Camada de Acesso), que mostra um carimbo de data/hora da última alteração à camada. Veja a secção [Cool and archive early deletion](#cool-and-archive-early-deletion) (Eliminação precoce na camada esporádica e de arquivo) para obter mais detalhes.
 
 **Que ferramentas e SDKs do Azure suportam a atribuição de camadas ao nível do blob e o armazenamento de arquivo?**
 

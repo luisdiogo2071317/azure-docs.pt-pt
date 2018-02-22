@@ -3,8 +3,8 @@ title: "Utilizar a validação do modelo para procurar modelos a pilha do Azure 
 description: "Verificação de modelos de implementação para a pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.date: 02/20/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 6a77efb3ef4236048ff08b14346175b592493982
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Procurar os modelos de pilha do Azure com a validação do modelo
 
@@ -26,13 +27,28 @@ ms.lasthandoff: 01/23/2018
 
 Pode utilizar a ferramenta de validação do modelo para verificar se o Azure Resource Manager [modelos](azure-stack-arm-templates.md) estão prontos para a pilha do Azure. A ferramenta de validação do modelo está disponível como parte das ferramentas de pilha do Azure. Transferir as ferramentas de pilha do Azure utilizando os passos descritos no [descarregar as ferramentas a partir do GitHub](azure-stack-powershell-download.md) artigo. 
 
-Para validar os modelos, utilize os seguintes módulos do PowerShell e o ficheiro JSON localizado no **TemplateValidator** e **CloudCapabilities** pastas: 
+Para validar os modelos, utilize os seguintes módulos do PowerShell no **TemplateValidator** e **CloudCapabilities** pastas: 
 
  - AzureRM.CloudCapabilities.psm1 cria um ficheiro JSON de capacidades de nuvem que representam os serviços e as versões numa nuvem, como a pilha do Azure.
  - AzureRM.TemplateValidator.psm1 utiliza um ficheiro JSON de capacidades de nuvem para testar os modelos de implementação na pilha do Azure.
- - AzureStackCloudCapabilities_with_AddOns_20170627.json é um ficheiro de capacidades de nuvem de predefinição.  Pode criar as suas próprias ou utilizar este ficheiro para começar a utilizar. 
+ 
+Neste artigo, criar um ficheiro de capacidades de nuvem e, em seguida, execute a ferramenta de validação.
 
-Neste tópico, execute a validação contra os modelos e, opcionalmente, criar um ficheiro de capacidades de nuvem.
+## <a name="build-cloud-capabilities-file"></a>Criar ficheiro de capacidades de nuvem
+Antes de utilizar a validação do modelo, execute o módulo do PowerShell de AzureRM.CloudCapabilities para criar um ficheiro JSON. Se atualizar o sistema integrado ou adicionar quaisquer novos serviços ou extensões VM, deve também executar esse módulo novamente.
+
+1.  Certifique-se de que tem ligação à pilha do Azure. Estes passos podem ser executados a partir do anfitrião de kit de desenvolvimento de pilha do Azure ou pode utilizar um [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para ligar a partir da sua estação de trabalho. 
+2.  Importe o módulo PowerShell do AzureRM.CloudCapabilities:
+
+    ```PowerShell
+    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
+    ``` 
+
+3.  Utilize o cmdlet Get-CloudCapabilities para obter versões de service e crie um ficheiro JSON de capacidades de nuvem. Se não especificar - OutputPath, o ficheiro é criado AzureCloudCapabilities.Json no diretório atual. Utilize a localização real:
+
+    ```PowerShell
+    Get-AzureRMCloudCapability -Location <your location> -Verbose
+    ```             
 
 ## <a name="validate-templates"></a>Validar modelos
 Nestes passos, validar modelos utilizando o módulo do AzureRM.TemplateValidator PowerShell. Pode utilizar os seus próprios modelos ou validar o [modelos de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates).
@@ -52,7 +68,7 @@ Nestes passos, validar modelos utilizando o módulo do AzureRM.TemplateValidator
     -Verbose
     ```
 
-Avisos de validação do modelo ou erros são registados na consola do PowerShell e também são registados para um ficheiro HTML no diretório de origem. Um exemplo da saída de relatório de validação tem o seguinte aspeto:
+Quaisquer erros ou avisos de validação do modelo tem sessão iniciados a consola do PowerShell e um ficheiro HTML no diretório de origem. Eis um exemplo do relatório de validação:
 
 ![relatório de validação de exemplo](./media/azure-stack-validate-templates/image1.png)
 
@@ -60,7 +76,7 @@ Avisos de validação do modelo ou erros são registados na consola do PowerShel
 
 | Parâmetro | Descrição | Necessário |
 | ----- | -----| ----- |
-| TemplatePath | Especifica o caminho para recursivamente localizar modelos do Resource Manager | Sim | 
+| TemplatePath | Especifica o caminho para recursivamente localizar modelos Azure Resource Manager | Sim | 
 | TemplatePattern | Especifica o nome dos ficheiros de modelo para fazer corresponder. | Não |
 | CapabilitiesPath | Especifica o caminho para o ficheiro JSON de capacidades de nuvem | Sim | 
 | IncludeComputeCapabilities | Inclui a avaliação dos recursos IaaS como extensões de VM e tamanhos de VM | Não |
@@ -79,22 +95,6 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -IncludeComputeCapabilities`
 -Report TemplateReport.html
 ```
-
-## <a name="build-cloud-capabilities-file"></a>Criar ficheiro de capacidades de nuvem
-Os ficheiros transferidos incluem uma predefinição *AzureStackCloudCapabilities_with_AddOns_20170627.json* ficheiro, que descreve as versões de serviço disponíveis no Kit de desenvolvimento de pilha do Azure com os serviços de PaaS instalados.  Se instalar fornecedores de recursos adicionais, pode utilizar o módulo do AzureRM.CloudCapabilities PowerShell para criar um ficheiro JSON, incluindo os serviços de novo.  
-
-1.  Certifique-se de que tem ligação à pilha do Azure.  Estes passos podem ser executados a partir do anfitrião de kit de desenvolvimento de pilha do Azure ou pode utilizar [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para ligar a partir da sua estação de trabalho. 
-2.  Importe o módulo PowerShell do AzureRM.CloudCapabilities:
-
-    ```PowerShell
-    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
-    ``` 
-
-3.  Utilize o cmdlet Get-CloudCapabilities para obter versões de service e crie um ficheiro JSON de capacidades de nuvem:
-
-    ```PowerShell
-    Get-AzureRMCloudCapability -Location 'local' -Verbose
-    ```             
 
 
 ## <a name="next-steps"></a>Passos Seguintes

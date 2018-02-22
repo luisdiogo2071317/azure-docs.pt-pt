@@ -1,74 +1,71 @@
 ---
-title: "Efetuar a ativação pós-falha e falhar back-VMs do Azure são replicados para uma região do Azure secundária com o Azure Site Recovery (pré-visualização)"
-description: "Saiba como efetuar a ativação pós-falha e falhar back replicação de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery"
+title: "Realizar a ativação pós-falha e a reativação pós-falha de VMs do Azure replicadas para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)"
+description: "Aprenda a realizar a ativação pós-falha e a reativação pós-falha da replicação de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery"
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 02b709bb8dbab5d10ce9f4cf6155ff26ce229298
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: b45d1287444d200727550a81ce72a19a417fe510
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Ativação pós-falha e falhar novamente Azure VMs entre regiões do Azure (pré-visualização)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Realizar a ativação pós-falha e a reativação pós-falha das VMs do Azure entre regiões do Azure (Pré-visualização)
 
-O [do Azure Site Recovery](site-recovery-overview.md) serviço contribui para a sua estratégia de recuperação após desastre, gerir e da orquestração de replicação, ativação pós-falha e a reativação pós-falha de máquinas no local e máquinas de virtuais (VMs) do Azure.
+O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a estratégia de recuperação após desastre, através da gestão e orquestração de replicação, ativação pós-falha e reativação pós-falha de máquinas no local e máquinas virtuais (VMs) do Azure.
 
-Este tutorial descreve como efetuar a ativação pós-falha numa única VM do Azure para uma região secundária do Azure. Depois de ter a efetuar a ativação pós-falha, falhar novamente para a região primária quando estiver disponível. Neste tutorial, ficará a saber como:
+Este tutorial descreve como realizar a ativação pós-falha numa única VM do Azure para uma região secundária do Azure. Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para a região primária quando estiver disponível. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Efetuar a ativação pós-falha da VM do Azure
-> * Voltar a proteger a VM do Azure secundária, para que replica para a região primária
-> * Falhar novamente a VM secundária
-> * Voltar a proteger a VM principal para a região secundária
+> * Realizar a ativação pós-falha da VM do Azure
+> * Voltar a proteger a VM do Azure secundária, para que replique para a região primária
+> * Realizar a reativação pós-falha da VM secundária
+> * Voltar a proteger a VM primária para a região secundária
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Disponibilizar concluiu uma [exercício de recuperação após desastre](azure-to-azure-tutorial-dr-drill.md) para verificar que tudo está a funcionar conforme esperado.
-- Verifique as propriedades da VM antes de executar a ativação pós-falha de teste. A VM tem de cumprir [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Certifique-se de que concluiu um [teste de recuperação após desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se está tudo a funcionar conforme esperado.
+- Verifique as propriedades da VM antes de executar a ativação pós-falha de teste. A VM tem de cumprir os [Requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-## <a name="run-a-failover-to-the-secondary-region"></a>Executar uma ativação pós-falha para a região secundária
+## <a name="run-a-failover-to-the-secondary-region"></a>Realize uma ativação pós-falha para a região secundária
 
-1. No **replicado itens**, selecione a VM que pretende efetuar a ativação pós-falha > **ativação pós-falha**
+1. Nos **Itens replicados**, selecione a VM em que pretende realizar a ativação pós-falha > **Ativação pós-falha**
 
    ![Ativação pós-falha](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
-2. No **ativação pós-falha**, selecione um **ponto de recuperação** para efetuar a ativação pós-falha. Pode utilizar uma das seguintes opções:
+2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual irá realizar a ativação pós-falha. Pode utilizar uma das opções seguintes:
 
-   * **Mais recente** (predefinição): esta opção processa todos os dados no serviço de recuperação de Site e fornece o objetivo de ponto de recuperação (RPO) mais baixa.
-   * **Mais recentes processados**: esta opção reverte a máquina virtual para o ponto de recuperação mais recente que tenha sido processada pelo serviço de recuperação de sites.
-   * **Personalizada**: Utilize esta opção para efetuar a ativação pós-falha para um ponto de recuperação específico. Esta opção é útil para efetuar uma ativação pós-falha de teste.
+   * **Mais recente** (predefinição): esta opção processa todos os dados no serviço do Site Recovery e apresenta o Objetivo do Ponto de Recuperação (RPO) mais baixo.
+   * **Processado recentemente** : esta opção reverte a máquina virtual para o ponto de recuperação mais recente que foi processado pelo serviço Site Recovery.
+   * **Personalizado**: utilize esta opção para realizar a ativação pós-falha para um ponto de recuperação específico. Esta opção é útil para realizar uma ativação pós-falha de teste.
 
-3. Selecione **encerrar a máquina antes de iniciar a ativação pós-falha** se pretender que a recuperação de sites para tentar efetuar um encerramento de máquinas virtuais de origem antes de acionar a ativação pós-falha. Ativação pós-falha continua, mesmo se falha de encerramento.
+3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha** se quiser que o Site Recovery tente encerrar as máquinas virtuais de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe.
 
-4. Siga o progresso de ativação pós-falha no **tarefas** página.
+4. Siga o progresso da ativação pós-falha na página **Tarefas**.
 
-5. Após a ativação pós-falha, valide a máquina virtual através do registo mesmo. Se pretender voltar a outro ponto de recuperação para a máquina virtual, em seguida, pode utilizar **alterar o ponto de recuperação** opção.
+5. Após a ativação pós-falha, valide a máquina virtual ao iniciar sessão. Se pretender voltar a outro ponto de recuperação para a máquina virtual, então pode utilizar a opção **Alterar ponto de recuperação**.
 
-6. Quando estiver satisfeito com a ativação pós-falha da máquina virtual, pode **consolidar** a ativação pós-falha.
-   Consolidar elimina todos os pontos de recuperação disponíveis com o serviço. O **alterar o ponto de recuperação** opção já não está disponível.
+6. Quando estiver satisfeito com a ativação pós-falha da máquina virtual, pode **Consolidar** a ativação pós-falha.
+   Ao consolidar elimina todos os pontos de recuperação disponíveis com o serviço. A opção **Alterar o ponto de recuperação** já não está disponível.
 
 ## <a name="reprotect-the-secondary-vm"></a>Voltar a proteger a VM secundária
 
-Após a ativação pós-falha da VM, terá de voltar a proteger, para que este replica novamente para a região primária.
+Após a ativação pós-falha da VM, tem de voltar a protege-la, para que esta replique novamente para a região primária.
 
-1. Certifique-se de que a VM está a ser o **ativação pós-falha consolidada** estado e verifique se a região primária está disponível e poderá criar e aceder a recursos de novo no mesmo.
-2. No **cofre** > **replicado itens**, faça duplo clique a VM é foi efetuada a ativação pós-falha e, em seguida, selecione **voltar a proteger**.
+1. Certifique-se de que a VM está no estado **Ativação pós-falha consolidada** e verifique se a região primária está disponível, e poderá criar e aceder a novos recursos na mesma.
+2. No **Cofre** > **Itens Replicados**, clique com o botão direito do rato na VM em que foi realizada a ativação pós-falha e, em seguida, selecione **Voltar a Proteger**.
 
-   ![Faça duplo clique para voltar a proteger](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Clique com o botão direito do rato para voltar a proteger](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
-2. Tenha em atenção que a direção da proteção secundária para a região primária, já está selecionada.
-3. Reveja o **grupo de recursos, conjuntos de disponibilidade, armazenamento e rede** informações. Quaisquer recursos marcados (novo) são criados como parte da operação de reproteção.
-4. Clique em **OK** para acionar uma tarefa de reproteção. Esta tarefa implementa o site de destino com os dados mais recentes. Em seguida, replica as diferenças para a região primária. A VM está agora num estado protegido.
+2. Veja se a direção da proteção, a região secundária para primária, já está selecionada.
+3. Veja as informações **Grupo de recursos, Rede, Armazenamento e Conjuntos de disponibilidade**. Quaisquer recursos marcados (novo) são criados como parte da operação de reproteção.
+4. Clique em **OK** para acionar uma tarefa de reproteção. Esta tarefa realiza o seeding do site de destino com os dados mais recentes. Em seguida, replica as diferenças para a região primária. A VM está agora num estado protegido.
 
-## <a name="fail-back-to-the-primary-region"></a>Falhar novamente para a região primária
+## <a name="fail-back-to-the-primary-region"></a>Realizar a reativação pós-falha para a região primária
 
-Depois de são proteger VMs, pode falhar novamente para a região primária, conforme necessário para. Para tal, siga o [ativação pós-falha](#run-a-failover) instruções.
+Depois de voltar a proteger as VMs, pode realizar a reativação pós-falha para a região primária, conforme precisar. Para tal, siga as instruções da [ativação pós-falha](#run-a-failover).

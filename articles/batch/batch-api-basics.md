@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -134,7 +134,7 @@ Quando cria um agrupamento do Batch, pode especificar a configuração da máqui
     Os sistemas operativos disponíveis para os conjuntos de Configuração de Serviços Cloud estão listados em [Azure Guest OS releases and SDK compatibility matrix (Versões de SO Convidado do Azure e matriz de compatibilidade de SDK)](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria um agrupamento que contém nós de Serviços Cloud, tem de especificar o tamanho do nó e a respetiva *Família de SO*. Os Serviços Cloud são implementados no Azure mais rapidamente do que as máquinas virtuais que executem o Windows. Se quiser agrupamentos de nós de computação do Windows, vai chegar à conclusão de que os Serviços Cloud são mais vantajosos no que diz respeito ao tempo de implementação.
 
     * A *Família do SO* também determina quais as versões do .NET que estão instaladas no SO.
-    * Tal como acontece com as funções de trabalho nos Serviços Cloud, pode especificar uma *Versão de SO* (para obter mais informações sobre as funções de trabalho, veja a secção [Tell me about cloud services (Saber mais sobre os serviços em nuvem)](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services), na [Descrição geral dos Serviços Cloud](../cloud-services/cloud-services-choose-me.md)).
+    * Tal como acontece com as funções de trabalho nos Serviços Cloud, pode especificar uma *Versão de SO* (para obter mais informações sobre as funções de trabalho, consulte a [descrição geral dos Serviços Cloud](../cloud-services/cloud-services-choose-me.md)).
     * Tal como com as funções de trabalho, recomendamos que especifique `*` para a *Versão do SO*, para que os nós sejam atualizados automaticamente e não seja necessário fazer nada para fornecer versões lançadas recentemente. O principal motivo para selecionar uma versão de SO específica é garantir a compatibilidade da aplicação, o que permite fazer testes de retrocompatibilidade antes de permitir a atualização da versão. Após a validação, a *Versão do SO* do conjunto pode ser atualizada e a nova imagem do SO instalada. As tarefas que estejam em execução são interrompidas e colocadas novamente em fila.
 
 Quando cria um agrupamento, tem de selecionar o **nodeAgentSkuId** adequado, consoante o SO da imagem de base do VHD. Pode chamar a operação [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) para ver um mapeamento dos IDs de SKUs de agente de nós disponíveis para as respetivas referências de Imagem do SO.
@@ -479,6 +479,8 @@ Pode iniciar sessão remotamente num nó de computação para realizar depuraç�
 > Para ligar a um nó através de DRP ou SSH, tem de criar, primeiro, um utilizador no nó. Para tal, pode utilizar o portal do Azure, [adicionar uma conta de utilizador a um nó][rest_create_user] com a API REST do Batch, chamar o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Batch ou chamar o método [add_user][py_add_user] no módulo Python do Batch.
 >
 >
+
+Se precisar de restringir ou desativar o acesso RDP ou SSH para computação de nós, consulte [Configurar ou desativar acesso remoto para computação de nós num conjunto do Azure Batch](pool-endpoint-configuration.md).
 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Resolução de problemas de nós de computação problemáticos
 Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cliente ou o serviço Batch podem examinar os metadados das tarefas com falhas para identificar um nó a funcionar incorretamente. Cada nó num conjunto recebe um ID exclusivo e o nó no qual é executada uma tarefa está incluído nos metadados da tarefa. Depois de ter identificado um nó de problema, pode tomar várias medidas no mesmo:

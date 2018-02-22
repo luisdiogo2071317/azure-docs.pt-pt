@@ -11,14 +11,14 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de Dados do Azure para PostgreSQL: utilizar o Python para se ligar e consultar dados
-Este guia de início rápido mostra como utilizar o [Python](https://python.org) para se ligar a uma Base de Dados do Azure para PostgreSQL. Mostra também como utilizar declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas macOS, Ubuntu Linux e Windows. Os passos neste artigo pressupõem que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
+Este guia de início rápido mostra como utilizar o [Python](https://python.org) para se ligar a uma Base de Dados do Azure para PostgreSQL. Mostra também como utilizar declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas macOS, Ubuntu Linux e Windows. Os passos neste artigo pressupõem que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL. Para obter mais detalhes sobre o SDK, consulte a documentação [Referência de bibliotecas do PostgreSQL para o SDK Python](/python/api/overview/azure/postgresql) e um [exemplo de psycopg](http://initd.org/psycopg/docs/usage.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
@@ -54,7 +54,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 3. Clique no nome do servidor **mypgserver 20170401**.
 4. Selecione a página de **Descrição geral** e, em seguida, tome nota do **Nome do servidor** e **Nome de início de sessão de administração do servidor**.
  ![Base de Dados do Azure para o PostgreSQL – Início de sessão de administrador do servidor](./media/connect-python/1-connection-string.png)
-5. Caso se tenha esquecido das informações de início de sessão do seu servidor, navegue até à página **Descrição geral** para visualizar o nome de início de sessão de administrador do servidor e, se necessário, repor a palavra-passe.
+5. Se se esqueceu das informações de início de sessão do seu servidor, navegue até à página **Descrição geral** para visualizar o nome de início de sessão de administrador do servidor e, se necessário, repor a palavra-passe.
 
 ## <a name="how-to-run-python-code"></a>Como executar o código do Python
 Este artigo contém um total de quatro exemplos de código, cada um dos quais realiza uma função específica. As instruções seguintes indicam como criar um ficheiro de texto, inserir um bloco de código e, em seguida, guardar o ficheiro de modo a que pode executá-lo mais tarde. Certifique-se de que cria quatro ficheiros separados, um para cada bloco de código.

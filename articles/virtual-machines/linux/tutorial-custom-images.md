@@ -1,6 +1,6 @@
 ---
-title: Criar imagens VM personalizadas com a CLI do Azure | Microsoft Docs
-description: Tutorial - criar uma imagem VM personalizada utilizando a CLI do Azure.
+title: Criar imagens da VM personalizadas com a CLI do Azure | Microsoft Docs
+description: Tutorial - Criar uma imagem da VM personalizada com a CLI do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 297faeb56ac2d4743bfe5887e369be066e91fbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Criar uma imagem personalizada da VM do Azure utilizando a CLI
+# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Criar uma imagem personalizada de uma VM do Azure com a CLI
 
-São imagens personalizadas, como imagens do marketplace, mas que são criados por si. Imagens personalizadas podem ser utilizadas para configurações de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações de SO. Neste tutorial, vai criar sua imagem personalizada de uma máquina virtual do Azure. Saiba como:
+As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. Neste tutorial, vai criar a sua imagem personalizada de uma máquina virtual do Azure. Saiba como:
 
 > [!div class="checklist"]
 > * Desaprovisionar e generalizar VMs
 > * Criar uma imagem personalizada
 > * Criar uma VM a partir de uma imagem personalizada
-> * Lista todas as imagens na sua subscrição
+> * Listar todas as imagens na sua subscrição
 > * Eliminar uma imagem
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Como efetuar uma VM existente e ativá-la para uma imagem personalizada reutilizável que pode utilizar para criar novas instâncias VM de detalhe os passos abaixo.
+Os passos abaixo detalham como tornar uma VM existente numa imagem personalizada reutilizável que pode utilizar para criar novas instâncias da VM.
 
-Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se for necessário, isto [script de exemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) pode criar uma por si. Quando trabalhar com o tutorial, substitua o grupo de recursos e VM nomes sempre que necessário.
+Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se for preciso, este [script de exemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) pode criar um para si. Quando trabalhar no tutorial, substitua o grupo de recursos e os nomes da VM sempre que preciso.
 
 ## <a name="create-a-custom-image"></a>Criar uma imagem personalizada
 
-Para criar uma imagem de uma máquina virtual, terá de preparar a VM ao desaprovisionamento, Desalocação e, em seguida, marcar a VM como generalizado de origem. Assim que a VM tenha sido preparada, pode criar uma imagem.
+Para criar uma imagem de uma máquina virtual, tem de preparar a VM ao desaprovisionar, desalocar e, em seguida, marcar a VM de origem como generalizada. Assim que a VM tiver sido preparada, pode criar uma imagem.
 
 ### <a name="deprovision-the-vm"></a>Desaprovisionar a VM 
 
-Desaprovisionamento generaliza VM ao remover informações específicas do computador. Este generalização torna possível implementar várias VMs a partir de uma única imagem. Durante o desaprovisionamento, o nome do anfitrião é reposto a *localhost.localdomain*. Chaves de anfitrião do SSH, configurações de nameserver, palavra-passe raiz e concessões DHCP em cache também são eliminados.
+O desaprovisionamento generaliza a VM ao remover informações específicas do computador. Esta generalização torna possível implementar várias VMs a partir de uma única imagem. Durante o desaprovisionamento, o nome do anfitrião é reposto para *localhost.localdomain*. Também são eliminadas as chaves de anfitrião do SSH, as configurações do servidor de nomes, a palavra-passe de raiz e as concessões DHCP em cache.
 
-Para desaprovisionar a VM, utilize o agente da VM do Azure (waagent). O agente da VM do Azure está instalado na VM e gere de aprovisionamento e interagir com o controlador de recursos de infraestrutura do Azure. Para obter mais informações, consulte o [guia de utilizador do agente Linux do Azure](agent-user-guide.md).
+Para desaprovisionar a VM, utilize o agente da VM do Azure (waagent). O agente da VM do Azure é instalado na VM e gere o aprovisionamento e a interação com o Controlador dos Recursos de Infraestrutura do Azure. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](agent-user-guide.md).
 
-Ligar à VM através do SSH e execute o comando para desaprovisionar a VM. Com o `+user` argumento, a última conta de utilizador aprovisionado e quaisquer dados associados também são eliminados. Substitua o endereço IP de exemplo com o endereço IP público da sua VM.
+Ligue à VM atual através do SSH e execute o comando para desaprovisionar a VM. Com o argumento `+user`, a última conta de utilizador aprovisionada e quaisquer dados associados também são eliminados. Substitua o endereço IP de exemplo pelo endereço IP público da VM.
 
 SSH para a VM.
 ```bash
 ssh azureuser@52.174.34.95
 ```
-Desaprovisionar a VM.
+Desaprovisione a VM.
 
 ```bash
 sudo waagent -deprovision+user -force
@@ -71,15 +71,15 @@ Feche a sessão SSH.
 exit
 ```
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Desalocar e marcar a VM como generalizado
+### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Desaloque e marque a VM como generalizada
 
-Para criar uma imagem, a VM tem de ser anulada. Desalocação da VM utilizando [az vm desalocar](/cli//azure/vm#deallocate). 
+Para criar uma imagem, a VM tem de ser desalocada. Desaloque a VM com [az vm deallocate](/cli//azure/vm#deallocate). 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Por fim, definir o estado da VM como generalizado com [az vm Generalizar](/cli//azure/vm#generalize) para a plataforma do Azure confie a VM tenha sido generalizada. Só pode criar uma imagem de uma VM generalizada.
+Por fim, defina o estado da VM como generalizado com [az vm generalize](/cli//azure/vm#generalize), para que a plataforma do Azure saiba que a VM foi generalizada. Pode criar apenas uma imagem a partir de uma VM generalizada.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>Criar a imagem
 
-Agora pode criar uma imagem da VM utilizando [criar imagem az](/cli//azure/image#create). O exemplo seguinte cria uma imagem com o nome *myImage* de uma VM chamada *myVM*.
+Já pode criar uma imagem da VM com [az image create](/cli//azure/image#create). O exemplo seguinte cria uma imagem designada *myImage* a partir de uma VM designada *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -96,9 +96,9 @@ az image create \
     --source myVM
 ```
  
-## <a name="create-vms-from-the-image"></a>Criar as VMs a partir da imagem
+## <a name="create-vms-from-the-image"></a>Criar VMs a partir da imagem
 
-Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem utilizando [az vm criar](/cli/azure/vm#create). O exemplo seguinte cria uma VM chamada *myVMfromImage* na imagem com o nome do *myImage*.
+Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM denominada *myVMfromImage* a partir de uma imagem denominada *myImage*.
 
 ```azurecli-interactive 
 az vm create \
@@ -109,18 +109,18 @@ az vm create \
     --generate-ssh-keys
 ```
 
-## <a name="image-management"></a>Gestão de imagens 
+## <a name="image-management"></a>Gestão das imagens 
 
-Seguem-se alguns exemplos de tarefas comuns de gestão de imagem e como conclui-los utilizando a CLI do Azure.
+Seguem-se alguns exemplos de tarefas comuns de gestão de imagens e como concluí-las com a CLI do Azure.
 
-Liste todas as imagens de por nome de um formato de tabela.
+Liste todas as imagens por nome num formato de tabela.
 
 ```azurecli-interactive 
 az image list \
     --resource-group myResourceGroup
 ```
 
-Elimine uma imagem. Neste exemplo elimina a imagem com o nome *myOldImage* do *myResourceGroup*.
+Elimine uma imagem. Este exemplo elimina a imagem denominada *myOldImage* do *myResourceGroup*.
 
 ```azurecli-interactive 
 az image delete \
@@ -130,17 +130,17 @@ az image delete \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, vai criar uma imagem VM personalizada. Aprendeu a:
+Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 
 > [!div class="checklist"]
 > * Desaprovisionar e generalizar VMs
 > * Criar uma imagem personalizada
 > * Criar uma VM a partir de uma imagem personalizada
-> * Lista todas as imagens na sua subscrição
+> * Listar todas as imagens na sua subscrição
 > * Eliminar uma imagem
 
-Avançar para o próximo tutorial para saber mais sobre máquinas virtuais altamente disponíveis.
+Avance para o próximo tutorial para saber mais sobre máquinas virtuais de elevada disponibilidade.
 
 > [!div class="nextstepaction"]
-> [Criar VMs de elevada](tutorial-availability-sets.md).
+> [Criar VMs de elevada disponibilidade](tutorial-availability-sets.md).
 

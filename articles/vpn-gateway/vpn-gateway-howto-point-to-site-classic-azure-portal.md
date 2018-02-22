@@ -1,10 +1,10 @@
 ---
 title: "Ligar um computador a uma rede virtual através de Ponto a Site e autenticação de certificado: Portal do Azure clássico | Microsoft Docs"
-description: "Crie uma ligação de gateway de VPN Ponto a Site com o portal do Azure para se ligar à sua Rede Virtual do Azure clássica em segurança."
+description: "Crie uma ligação de gateway de VPN Ponto a Site clássica utilizando o portal do Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bac84043eb6456feae35c59b6ee12f9be5f46297
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configurar uma ligação de Ponto a Site a uma VNet com a autenticação de certificado (clássico): Portal do Azure
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Este artigo mostra como criar uma VNet com uma ligação Ponto a Site no modelo de implementação clássica através do portal do Azure. Esta configuração utiliza certificados para autenticar o cliente da ligação. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
+Este artigo mostra como criar uma VNet com uma ligação Ponto a Site no modelo de implementação clássica através do portal do Azure. Esta configuração utiliza certificados para autenticar o cliente da ligação, seja autoassinado ou emitido pela AC. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -262,3 +262,5 @@ Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de re
 
 ## <a name="next-steps"></a>Passos seguintes
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+
+Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

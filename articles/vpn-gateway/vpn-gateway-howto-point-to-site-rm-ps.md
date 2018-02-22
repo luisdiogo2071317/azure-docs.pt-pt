@@ -1,10 +1,10 @@
 ---
 title: "Ligar um computador a uma rede virtual do Azure através de Ponto a Site e da autenticação de certificados nativa do Azure: PowerShell | Microsoft Docs"
-description: "Crie uma ligação de gateway de VPN Ponto a Site para ligar de forma segura um computador à sua rede virtual através da autenticação de certificados nativa do Azure do gateway de VPN. Este artigo aplica-se ao modelo de implementação do Resource Manager e utiliza o PowerShell."
+description: Ligue os clientes Windows e Mac OS X de forma segura a uma rede virtual do Azure, utilizando certificados autoassinados ou emitidos pela AC ou P2S. Este artigo utiliza o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
@@ -13,55 +13,34 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6c0e26b25db4ac92d30f89aac52990d4856e8c96
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma ligação Ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: PowerShell
 
-Este artigo mostra como criar uma VNet com uma ligação Ponto a Site no modelo de implementação Resource Manager com o PowerShell. Esta configuração utiliza certificados para autenticação. Nesta configuração, o gateway de VPN do Azure realiza a validação de certificados, em vez de um servidor RADIUS. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
+Este artigo ajuda-o a ligar de forma segura clientes individuais com Windows ou Mac OS X a uma VNet do Azure. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Pode também utilizar P2S em vez de uma VPN Site a Site, quando são poucos os clientes que precisam de ligar a uma VNet. As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2. Para obter mais informações sobre VPN Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
->
+![Ligar um computador a uma VNet do Azure - diagrama da ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-Um gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligação segura à sua rede virtual a partir de um computador cliente individual. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Uma VPN P2S também é uma solução útil para utilizar em vez de uma Rede de VPNs, quando são poucos os clientes que precisam de ligar a uma VNet. Uma ligação VPN P2S é iniciada a partir dos dispositivos Windows e Mac. 
 
-Os clientes que se ligam podem utilizar os seguintes métodos de autenticação:
+## <a name="architecture"></a>Arquitetura
 
-* Servidor RADIUS
-* Autenticação de certificados nativa do Azure do Gateway de VPN
-
-Este artigo ajuda-o a configurar uma configuração P2S com autenticação através da autenticação de certificados nativa do Azure. Se quiser utilizar RADIUS para autenticar os utilizadores que se ligam, veja [P2S através da autenticação RADIUS](point-to-site-how-to-radius-ps.md).
-
-![Ligar um computador a uma VNet do Azure - diagrama da ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-rm-ps/p2snativeps.png)
-
-As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2.
-
-* SSTP é um túnel VPN baseado em SSL que é suportado apenas nas plataformas de cliente Windows. Consegue penetrar firewalls, pelo que é uma opção ideal para ligar ao Azure a partir de qualquer lugar. No lado do servidor, são suportadas as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide que versão irá utilizar. Para o Windows 8.1 e versões posteriores, o SSTP utiliza 1.2 por predefinição.
-
-* VPN IKEv2, uma solução de VPN IPsec baseada em normas. A VPN IKEv2 pode ser utilizada para ligar a partir de dispositivos Mac (versões de OSX 10.11 e superiores).
-
-As ligações de autenticação de certificados nativa do Azure Ponto a Site precisam do seguinte:
+As ligações de autenticação de certificados nativos do Azure Ponto a Site utilizam os seguintes itens, que irá configurar neste exercício:
 
 * Um gateway de VPN RouteBased.
 * A chave pública (ficheiro .cer) de um certificado de raiz que é carregado para o Azure. Assim que o certificado estiver carregado, é considerado um certificado fidedigno e é utilizado para autenticação.
-* Um certificado de cliente que é gerado a partir do certificado de raiz e instalado em cada computador de cliente que se irá ligar à VNet. Este certificado é utilizado para autenticação de cliente.
+* Um certificado de cliente que é gerado a partir do certificado de raiz. O certificado de cliente instalado em cada computador cliente que vai ligar à VNet. Este certificado é utilizado para autenticação de cliente.
 * Uma configuração de cliente VPN. Os ficheiros de configuração de cliente VPN contêm as informações necessárias para o cliente se ligar à VNet. Os ficheiros configuram o cliente VPN existente que é nativo ao sistema operativo. Cada cliente que estabelece ligação tem de ser configurado com as definições dos ficheiros de configuração.
-
-Para obter mais informações sobre ligações Ponto a Site, veja [Acerca das ligações Ponto a Site](point-to-site-about.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Instale a versão mais recente dos cmdlets do PowerShell do Resource Manager. Para obter mais informações sobre como instalar os cmdlets PowerShell, consulte [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+* Instale a versão mais recente dos cmdlets do PowerShell do Resource Manager. Para obter mais informações sobre como instalar os cmdlets PowerShell, consulte [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Isto é importante porque as versões anteriores dos cmdlets não contêm os valores atuais de que precisa para este exercício.
 
 ### <a name="example"></a>Valores de exemplo
 
@@ -164,7 +143,7 @@ Nesta secção, vai iniciar sessão e declarar os valores utilizados para esta c
 Configure e crie o gateway de rede virtual da sua VNet.
 
 * O -GatewayType tem de ser **Vpn** e o -VpnType tem de ser **RouteBased**.
-* O -VpnClientProtocol é utilizado para especificar os tipos de túnel que quer ativar. As duas opções de túnel são **SSTP** e **IKEv2**. Pode optar por ativar uma ou ambas as opções. Se quiser ativar ambas, especifique ambos os nomes separados por vírgula. O cliente Strongswan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP.
+* O -VpnClientProtocol é utilizado para especificar os tipos de túnel que quer ativar. As duas opções de túnel são **SSTP** e **IKEv2**. Pode optar por ativar uma ou ambas as opções. Se quiser ativar ambas, especifique ambos os nomes separados por vírgula. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP.
 * Um gateway de VPN pode demorar até 45 minutos a concluir, consoante a [sku do gateway](vpn-gateway-about-vpn-gateway-settings.md) que selecionar. Este exemplo utiliza IKEv2.
 
 ```powershell
@@ -428,3 +407,5 @@ Pode restabelecer um certificado de cliente, removendo o thumbprint da lista de 
 
 ## <a name="next-steps"></a>Passos seguintes
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+
+Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

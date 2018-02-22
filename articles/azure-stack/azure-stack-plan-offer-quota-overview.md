@@ -3,8 +3,8 @@ title: "Pilha plano, oferta, quota e subscrição descrição geral do Azure | M
 description: "Como um operador da nuvem, pretender compreender os planos de pilha do Azure, ofertas, quotas e subscrições."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plano, oferta, quota e descrição geral da subscrição
 
@@ -51,11 +52,11 @@ Para ajudar a gerir a sua capacidade de nuvem, selecione ou crie uma quota para 
 
 Quotas podem ser configuradas por região. Por exemplo, um plano de serviços de computação da região A ter uma quota de duas máquinas virtuais, 4 GB de RAM e 10 núcleos de CPU. No Kit de desenvolvimento de pilha do Azure, apenas uma região (com o nome *local*) está disponível.
 
-### <a name="base-plan"></a>Plano de base
+### <a name="base-plan"></a>Plano base
 
 Ao criar uma oferta, o administrador de serviços pode incluir um plano de base. Estes esquemas de base são incluídas por predefinição, quando um utilizador subscreve que oferta. Quando um utilizador subscreve, têm acesso a todos os fornecedores de recursos especificado esses planos base (com as quotas correspondentes).
 
-### <a name="add-on-plans"></a>Planos de suplemento
+### <a name="add-on-plans"></a>Planos de suplementos
 
 Também pode incluir planos de suplemento opcional numa oferta. Planos de suplemento não estão incluídos por predefinição na subscrição. Planos de suplemento são planos adicionais (com as quotas) disponíveis numa oferta, que pode adicionar um subscritor para as suas subscrições. Por exemplo, pode oferecer um plano de base com recursos limitados para uma versão de avaliação e um plano de suplemento com recursos mais significativas para os clientes que optar por adotar o serviço.
 
@@ -75,6 +76,6 @@ Quando lhe [criar uma oferta](azure-stack-create-offer.md), tem de incluir, pelo
 
 A subscrição do fornecedor predefinido é criada automaticamente quando implementa o Kit de desenvolvimento de pilha do Azure. Esta subscrição pode ser utilizada para gerir a pilha do Azure, implementar mais fornecedores de recursos e criar planos e as ofertas para os utilizadores. Para segurança e as razões de licenciamento, este não deve ser utilizada para executar aplicações e cargas de trabalho do cliente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Criar um plano](azure-stack-create-plan.md)

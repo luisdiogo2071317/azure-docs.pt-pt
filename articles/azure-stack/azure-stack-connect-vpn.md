@@ -3,8 +3,8 @@ title: "Ligar a pilha do Azure ao Azure através da VPN"
 description: "Como ligar redes virtuais na pilha do Azure para redes virtuais no Azure através da VPN."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 16cc1962eb72ac219adc8483f38cecf41a4296c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Ligar a pilha do Azure ao Azure através da VPN
 
@@ -40,7 +41,7 @@ Para concluir a configuração da ligação, certifique-se de que tem os seguint
 ## <a name="network-example-values-table"></a>Tabela de valores de exemplo de rede
 A tabela de valores de exemplo de rede mostra os valores de exemplo que são utilizados neste artigo. Pode utilizar estes valores ou possa consultá-las para compreender melhor os exemplos neste artigo.
 
-**Tabela de valores de exemplo de rede**
+Tabela de valores de exemplo de rede
 |   |Azure Stack|Azure|
 |---------|---------|---------|
 |Nome da rede virtual     |Azs-VNet|AzureVNet |

@@ -3,8 +3,8 @@ title: "Criar uma ligação de VPN de site a site entre duas redes virtuais em d
 description: "Procedimento passo a passo que um administrador da nuvem utiliza para criar uma ligação de VPN de site a site entre dois ambientes do Kit de desenvolvimento de pilha do Azure de nó único."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Criar uma ligação de VPN de site a site entre duas redes virtuais em diferentes ambientes do Kit de desenvolvimento de pilha do Azure
 ## <a name="overview"></a>Descrição geral
@@ -52,7 +53,7 @@ A tabela seguinte resume a configuração de rede para ambos os ambientes do Kit
 |---------|---------|---------|
 |Nome da rede virtual     |VNET-01|VNET-02 |
 |Espaço de endereços de rede virtual |10.0.10.0/23|10.0.20.0/23|
-|Nome da sub-rede     |Sub-rede-01|Sub-rede-02|
+|Nome da sub-rede     |Subnet-01|Subnet-02|
 |Intervalo de endereços da sub-rede|10.0.10.0/24 |10.0.20.0/24 |
 |Sub-rede de gateway     |10.0.11.0/24|10.0.21.0/24|
 |Endereço BGPNAT externo     |         |         |
@@ -365,4 +366,4 @@ Se pretender saber a quantidade de dados atravessa a ligação de site a site, e
 2. Aceda a **todos os recursos**e, em seguida, selecione o **POC2 POC1** ligação. **Ligações** aparece.
 4. No **ligação** painel, as estatísticas de **dados** e **a dados extra** aparecer. Na captura de ecrã seguinte, os números de grandes dimensões são atribuída ao utilizador a transferência de ficheiro adicionais. Deverá ver alguns valores diferentes de zero não existe.
    
-    ![Dados de entrada e saída](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Entrada e saída de dados](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

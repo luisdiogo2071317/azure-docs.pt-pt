@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2018
+ms.date: 02/11/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 839fc3a326dca8b60c6750231b06d2369c3de2fc
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 804d9df37b5c89501200fc4e233108c09cce9262
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Recolher dados de computadores com Linux alojados no seu ambiente
+# <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Recolher dados de computadores com Linux alojados no seu ambiente
 O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente de computadores com Linux físicos ou virtuais e de outros recursos no seu ambiente para um único repositório para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
 
-Para compreender os requisitos da rede e do sistema para implementar o agente do Linux, consulte [Recolher dados do seu ambiente com o Log Analytics do Azure](log-analytics-concept-hybrid.md#prerequisites).
+Para compreender os requisitos de rede e sistema para implementar o agente Linux, consulte [pré-requisitos de sistemas operativos Linux](log-analytics-concept-hybrid.md#prerequisites).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -61,10 +61,20 @@ Os passos seguintes configuram o agente do Log Analytics no Azure e na cloud do 
 >[!NOTE]
 >O agente do OMS para Linux não pode ser configurado para reportar a mais do que uma área de trabalho do Log Analytics.  
 
+Se o seu computador Linux precisar de comunicar através de um servidor Proxy com o Log Analytics, a configuração do proxy pode ser especificada na linha de comandos ao incluir `-p [protocol://][user:password@]proxyhost[:port]`.  A propriedade *proxyhost* aceita um nome de domínio completamente qualificado ou o endereço IP do servidor proxy. 
+
+Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
+
 1. Para configurar o computador com Linux para ligar ao Log Analytics, execute o seguinte comando ao fornecer o ID da área de trabalho e a chave primária que copiou anteriormente.  Este comando transfere o agente, valida a respetiva soma de verificação e instala-o. 
     
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
+    ```
+
+    Este comando inclui o parâmetro de proxy `-p` e sintaxe de exemplo.
+
+   ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
 2. Para configurar o computador com Linux para ligar ao Log Analytics na cloud do Azure Government, execute o seguinte comando ao fornecer o ID da área de trabalho e a chave primária que copiou anteriormente.  Este comando transfere o agente, valida a respetiva soma de verificação e instala-o. 
@@ -73,18 +83,11 @@ Os passos seguintes configuram o agente do Log Analytics no Azure e na cloud do 
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>Configurar o agente para comunicar com um servidor proxy
+    Este comando inclui o parâmetro de proxy `-p` e sintaxe de exemplo.
 
-Execute os passos seguintes se os computadores com Linux precisarem de comunicar através de um servidor proxy com o Log Analytics.  O valor de configuração do proxy tem a seguinte sintaxe `[protocol://][user:password@]proxyhost[:port]`.  A propriedade *proxyhost* aceita um nome de domínio completamente qualificado ou o endereço IP do servidor proxy.    
-
-1. Edite o ficheiro `/etc/opt/microsoft/omsagent/proxy.conf` ao executar os comandos seguintes e altere os valores para as definições específicas.
-
+   ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-    proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
-    sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
-    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf 
-    ```
-
 2. Reinicie o agente ao executar o seguinte comando: 
 
     ```
@@ -99,7 +102,7 @@ O Log Analytics pode recolher eventos do Linux Syslog e contadores de desempenho
 3. Na tabela, desmarque as gravidades **Informações**, **Aviso** e **Depurar**. 
 4. Clique em **Guardar** no início da página para guardar a configuração.
 5. Selecione **Dados de Desempenho do Linux** para ativar a recolha de contadores de desempenho num computador Windows. 
-6. Quando configurar os contadores de desempenho do Linux pela primeira vez para uma nova área de trabalho do Log Analytics, é-lhe dada a opção de criar rapidamente vários contadores comuns. São listados com uma caixa de verificação junto a cada um.<br><br> ![Contadores de desempenho do Windows predefinidos](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br><br> Clique em **Adicionar os contadores de desempenho selecionados**.  Estes são adicionados e predefinidos com um intervalo de amostra de recolha de dez segundo.  
+6. Quando configurar os contadores de desempenho do Linux pela primeira vez para uma nova área de trabalho do Log Analytics, é-lhe dada a opção de criar rapidamente vários contadores comuns. São listados com uma caixa de verificação junto a cada um.<br><br> ![Contadores de desempenho do Windows predefinidos](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> Clique em **Adicionar os contadores de desempenho selecionados**.  Estes são adicionados e predefinidos com um intervalo de amostra de recolha de dez segundo.  
 7. Clique em **Guardar** no início da página para guardar a configuração.
 
 ## <a name="view-data-collected"></a>Ver os dados recolhidos
@@ -111,12 +114,9 @@ Agora que ativou a recolha de dados, vamos executar um exemplo de pesquisa de re
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, pode remover o agente do computador com Linux e eliminar a área de trabalho do Log Analytics.  
 
-Para remover o agente, efetue os passos seguintes.
+Para remover o agente, execute o seguinte comando no computador Linux.  O argumento *--purge* remove por completo o agente e a respetiva configuração.
 
-1. Transfira o agente Linux [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) para o computador.
-2. Execute o ficheiro .sh do pacote com o argumento *--purge* no computador, o que remove completamente o agente e a respetiva configuração.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 Para eliminar a área de trabalho, selecione a área de trabalho do Log Analytics criada anteriormente e clique em **Eliminar** na página de recursos.<br><br> ![Eliminar o recurso do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 

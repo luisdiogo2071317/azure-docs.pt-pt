@@ -1,18 +1,22 @@
 ---
-title: "Disponibilizar os conjuntos de dimensionamento de máquina virtual na pilha do Azure"
-description: "Saiba como um administrador da nuvem adicionar dimensionamento da máquina virtual para a pilha do Azure Marketplace"
+title: "Dimensionamento de máquina virtual de disponibilizar define disponível na pilha do Azure | Microsoft Docs"
+description: "Saiba como um operador da nuvem adicionar dimensionamento da máquina virtual para a pilha do Azure Marketplace"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar os conjuntos de dimensionamento de máquina virtual na pilha do Azure
 
@@ -47,7 +51,7 @@ Na pilha do Azure, conjuntos de dimensionamento de Máquina Virtual não suporta
 
 Editar o seguinte script do PowerShell para o seu ambiente e, em seguida, execute-o para adicionar um dimensionamento de máquina virtual definido para a pilha do Azure Marketplace. 
 
-``$User``é a conta que utiliza para ligar o portal de administrador. Por exemplo, serviceadmin@contoso.onmicrosoft.com.
+``$User`` é a conta que utiliza para ligar o portal de administrador. Por exemplo, serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"
@@ -80,6 +84,6 @@ Para remover uma máquina virtual item da Galeria de conjunto de dimensionamento
 > O item da Galeria não pode ser removido imediatamente. Poderá ter de atualizar o portal várias vezes antes de serem removidos do Marketplace.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Perguntas mais frequentes sobre pilha do Azure](azure-stack-faq.md)
 
