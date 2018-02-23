@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: d02c29fa6239cb36cb5fb95da4d325cca57952aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uma aplicação de Proxy da aplicação demora demasiado tempo a carregar
 
@@ -31,9 +31,9 @@ Se não ajudam a essas considerações, infelizmente não tem atualmente temos r
 Os centros de dados com o serviço de Proxy de aplicações podem ser encontrados com o [ferramenta de teste de portas de conector](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Comentários sobre localizações de centro de dados de Proxy de aplicações 
-É possível que existam centros de dados do Azure que como ainda não incluem o Proxy de aplicações, mas seriam levar a uma melhoria de latência excelente para si. Os dados do Centro de localização em < aadapfeedback@microsoft.com > pelo que pode utilizar os seus comentários para planear como podemos expanda.
+É possível que existam centros de dados do Azure que como ainda não incluem o Proxy de aplicações, mas seriam levar a uma melhoria de latência excelente para si. Os dados do Centro de localização em <aadapfeedback@microsoft.com> pelo que pode utilizar os seus comentários para planear como podemos expanda.
 
 Estamos a trabalhar para algumas funcionalidades adicionais que ajudam a melhorar a latência para inquilinos atualmente Consulte latências longas e certifique-se a partilha de documentação quando disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Trabalhar com servidores de proxy no local existentes](application-proxy-working-with-proxy-servers.md)

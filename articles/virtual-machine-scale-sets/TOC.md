@@ -30,6 +30,9 @@
 #### [Dimensionamento automático avançado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplicações em conjuntos de dimensionamento](virtual-machine-scale-sets-deploy-app.md)
 ### [Utilizar discos de dados com conjuntos de dimensionamento](virtual-machine-scale-sets-attached-disks.md)
+### Encriptar discos em conjuntos de dimensionamento
+#### [Utilizar o PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Utilizar CLI 2.0 do Azure](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Trabalhar com conjuntos de dimensionamento de grande escala](virtual-machine-scale-sets-placement-groups.md)
 ### [Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido](virtual-machine-scale-sets-convert-template-to-md.md)
 

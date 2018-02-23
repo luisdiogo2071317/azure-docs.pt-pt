@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas mais frequentes sobre gestão de API do Azure
 Obter as respostas a perguntas comuns, padrões e melhores práticas para a API Management do Azure.
@@ -51,7 +51,7 @@ Obter as respostas a perguntas comuns, padrões e melhores práticas para a API 
 Pode contactar-nos através de uma destas opções:
 
 * Publique as suas perguntas nos nossos [fórum MSDN de gestão de API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Envie um e-mail para < mailto:apimgmt@microsoft.com >.
+* Envie um e-mail para <mailto:apimgmt@microsoft.com>.
 * Envie-num pedido de funcionalidade [fórum de comentários do Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>O que o significa de uma funcionalidade está em pré-visualização?

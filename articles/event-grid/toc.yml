@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: Guias de procedimentos
   items:
+    - name: Receber eventos para um ponto final HTTP
+      href: receive-events.md
     - name: Dados de fluxo dos Hubs de Eventos no armazém de dados
       href: event-grid-event-hubs-integration.md
     - name: Enviar notificações sobre os eventos do Hub IoT
