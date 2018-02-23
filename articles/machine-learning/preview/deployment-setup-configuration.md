@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 82841833ea0c63d22c43f9509fe9f88f9e9edebe
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -42,16 +42,7 @@ Instale o Python https://www.python.org/. Certifique-se de que selecionou para i
 Abra uma linha de comandos utilizando executar como administrador e execute os seguintes comandos:
 
 ```cmd
-pip install azure-cli
-pip install azure-cli-ml
-```
- 
->[!NOTE]
->Se tiver uma versão anterior, desinstale-pela primeira vez utilizando o seguinte comando:
->
-
-```cmd
-pip uninstall azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="installing-or-updating-on-linux"></a>Instalar (ou atualizar) no Linux
@@ -59,8 +50,7 @@ Execute o seguinte comando na linha de comandos e siga as instruções:
 
 ```bash
 sudo -i
-pip install azure-cli
-pip install azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Configurar Docker no Linux

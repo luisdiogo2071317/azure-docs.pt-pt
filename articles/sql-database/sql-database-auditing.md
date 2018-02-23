@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria também:
@@ -42,7 +42,8 @@ Pode configurar a auditoria para diferentes tipos de categorias de evento, confo
 > [!IMPORTANT]
 > Os registos de auditoria são escritos **os Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure.
 >
-> **Armazenamento na VNet** está atualmente **não suportado**.
+> * **Armazenamento Premium** está atualmente **não suportado** pelos Blobs de acréscimo.
+> * **Armazenamento na VNet** está atualmente **não suportado**.
 
 ## <a id="subheading-8"></a>Definir o nível de servidor vs. a política de auditoria de nível de base de dados
 
@@ -68,7 +69,7 @@ A secção seguinte descreve a configuração de auditoria no portal do Azure.
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Vá para o **definições** painel do SQL Server da base de dados/SQL server que pretende de auditoria. No **definições** painel, selecione **deteção de ameaças e auditoria**.
 
-    <a id="auditing-screenshot"></a>![Painel de navegação][1]
+    <a id="auditing-screenshot"></a> ![Painel de navegação][1]
 3. Se preferir configurar uma política de auditoria do servidor, pode selecionar o **ver definições do servidor** ligação no painel de auditoria da base de dados. Pode ver ou modificar o definições de auditoria do servidor. Políticas de auditoria do servidor aplicam-se às bases de dados recentemente criados e todas as existentes neste servidor.
 
     ![Painel de navegação][2]
@@ -81,7 +82,7 @@ A secção seguinte descreve a configuração de auditoria no portal do Azure.
    >[!TIP]
    >Para tirar o máximo partido os modelos de relatórios de auditoria, utilize a mesma conta de armazenamento para todas as bases de dados auditadas.
 
-    <a id="storage-screenshot"></a>![Painel de navegação][4]
+    <a id="storage-screenshot"></a> ![Painel de navegação][4]
 6. Se pretender personalizar os eventos auditados, pode fazê-lo através do PowerShell ou a API REST.
 7. Depois de configurar as definições de auditorias, pode ativar a nova funcionalidade de deteção de ameaças e configurar mensagens de correio eletrónico para receber alertas de segurança. Quando utilizar a deteção de ameaças, recebe alertas proativa em atividades de base de dados anómalas, que podem indicar a potenciais ameaças de segurança. Para obter mais informações, consulte [como começar a deteção de ameaças](sql-database-threat-detection-get-started.md).
 8. Clique em **Guardar**.

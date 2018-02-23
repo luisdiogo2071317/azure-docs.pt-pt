@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Sempre encriptado: Proteger dados sensíveis na base de dados SQL e armazenar as chaves de encriptação no arquivo de certificados do Windows
 
@@ -46,9 +46,9 @@ Para este tutorial, precisa de:
 * [.NET framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou posterior (num computador cliente).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-## <a name="create-a-blank-sql-database"></a>Criar uma base de dados do SQL Server em branco
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **novo** > **dados + armazenamento** > **base de dados SQL**.
+## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Clique em **crie um recurso** > **dados + armazenamento** > **base de dados SQL**.
 3. Criar um **em branco** base de dados denominada **Clinic** num servidor novo ou existente. Para obter instruções detalhadas sobre como criar uma base de dados no portal do Azure, consulte [sua primeira base de dados SQL do Azure](sql-database-get-started-portal.md).
    
     ![Criar uma base de dados vazia](./media/sql-database-always-encrypted/create-database.png)
@@ -503,7 +503,7 @@ Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o **
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de criar uma base de dados que utiliza sempre encriptados, poderá pretender efetuar o seguinte:
 
 * Execute este exemplo de um computador diferente. -Não têm acesso às chaves de encriptação, pelo que não terá acesso aos dados de texto simples e não será executado com êxito.

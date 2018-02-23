@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Monitorizar e obter informações sobre a execução de aplicação lógica com o Operations Management Suite (OMS) e análise de registos
 
@@ -35,7 +35,7 @@ Antes de começar, tem de ter uma área de trabalho do OMS. Saiba [como criar um
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registo de diagnóstico ao criar as logic apps
 
-1. No [portal do Azure](https://portal.azure.com), criar uma aplicação lógica. Escolha **novo** > **integração empresarial com** > **aplicação lógica** > **criar**.
+1. No [portal do Azure](https://portal.azure.com), criar uma aplicação lógica. Escolha **crie um recurso** > **integração empresarial com** > **aplicação lógica**.
 
    ![Criar uma aplicação lógica](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
@@ -152,7 +152,7 @@ Se já ativou análise de registos quando criou a sua aplicação lógica, ignor
 
      ![Análise de registos do Azure - vista de consulta](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Monitorizar mensagens B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
 

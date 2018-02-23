@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrar os recursos de IaaS do clássico para o Azure Resource Manager, utilizando o Azure PowerShell
 Estes passos mostram como utilizar comandos do PowerShell do Azure para migrar a infraestrutura como um recursos de serviço (IaaS) do modelo de implementação clássica para o modelo de implementação Azure Resource Manager.
@@ -59,7 +59,7 @@ Para obter instruções de instalação, consulte [como instalar e configurar o 
 Para efetuar a migração, tem de ser adicionado como coadministrador da subscrição no [portal do Azure](https://portal.azure.com).
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. No Hub menu, selecione **subscrição**. Se não o vir, selecione **mais serviços**.
+2. No Hub menu, selecione **subscrição**. Se não o vir, selecione **todos os serviços**.
 3. Localizar a entrada de subscrição adequado, em seguida, observar o **função MY** campo. Para um coadministrador, o valor deve ser _administrador da conta_.
 
 Se não é possível adicionar um coadministrador, contacte um administrador de serviço ou coadministrador da subscrição para si adicionado.   
@@ -340,7 +340,7 @@ Se a configuração preparada procura boa, pode avançar e consolidar os recurso
     Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral da migração de plataforma suportada dos recursos IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Técnica descrição profunda sobre a migração de plataforma suportada do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

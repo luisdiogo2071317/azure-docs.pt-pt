@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233e4eea8439320c1c7446e2c2b2e9d379351a3e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 53e9b55a82e7750393dfb6c4818681028c5c4d2f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Criar uma VM com um endereço IP público estático no portal do Azure
 
@@ -43,25 +43,25 @@ ms.lasthandoff: 12/21/2017
 Para criar uma VM com um endereço IP público estático no portal do Azure, execute os seguintes passos:
 
 1. Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e, se necessário, inicie sessão com a sua conta do Azure.
-2. No canto superior esquerdo do portal, clique em **novo**>>**computação**>**Windows Server 2012 R2 Datacenter**.
+2. No canto superior esquerdo do portal, clique em **crie um recurso**>>**computação**>**Windows Server 2012 R2 Datacenter**.
 3. No **selecionar um modelo de implementação** lista, selecione **Resource Manager** e clique em **criar**.
-4. No **Noções básicas** painel, introduza as informações de VM, conforme mostrado abaixo e, em seguida, clique em **OK**.
+4. No **Noções básicas** painel, introduza as informações de VM da seguinte forma e, em seguida, clique em **OK**.
    
     ![Portal do Azure – Noções básicas](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. No **escolher um tamanho** painel, clique em **A1 padrão** conforme mostrado abaixo e, em seguida, clique em **selecione**.
+5. No **escolher um tamanho** painel, clique em **A1 padrão** como forma e, em seguida, clique em **selecione**.
    
     ![Portal do Azure – escolher um tamanho](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. No **definições** painel, clique em **endereço IP público**, em seguida, no **Criar endereço IP público** painel, em **atribuição**, clique em **estático** conforme mostrado abaixo. E, em seguida, clique em **OK**.
+6. No **definições** painel, clique em **endereço IP público**, em seguida, no **Criar endereço IP público** painel, em **atribuição**, clique em  **Estático** como forma. E, em seguida, clique em **OK**.
    
     ![Portal do Azure – Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. No **definições** painel, clique em **OK**.
-8. Reveja o **resumo** painel, conforme mostrado abaixo e, em seguida, clique em **OK**.
+8. Reveja o **resumo** painel, como forma e, em seguida, clique em **OK**.
    
     ![Portal do Azure – Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 9. Repare no novo mosaico no dashboard.
    
     ![Portal do Azure – Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. Assim que a VM é criada, o **definições** é apresentado o painel conforme mostrado abaixo
+10. Assim que a VM é criada, o **definições** painel apresenta da seguinte forma:
     
     ![Portal do Azure – Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 

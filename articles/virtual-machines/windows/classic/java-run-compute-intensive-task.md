@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ccccdf58fbb84605bc5dff29d870b373134f1f97
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Como executar uma tarefa de computação intensiva em Java numa máquina virtual
 > [!IMPORTANT] 
@@ -52,7 +52,7 @@ Segue-se um exemplo de aplicação Java a tarefa de computação intensivas de m
 
 ## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **novo**, clique em **computação**, clique em **Máquina Virtual**e, em seguida, clique em **da galeria**.
+2. Clique em **crie um recurso**, clique em **computação**, clique em **Máquina Virtual**e, em seguida, clique em **da galeria**.
 3. No **selecione de imagem de Máquina Virtual** caixa de diálogo, selecione **JDK 7 do Windows Server 2012**.
    Tenha em atenção que **JDK 6 Windows Server 2012** está disponível no caso de ter aplicações antigas que ainda não estão prontas ser executada no JDK 7.
 4. Clique em **Seguinte**.

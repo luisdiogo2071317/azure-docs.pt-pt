@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 56cc2a82e7957e677f96c638f7e3e903a3b717e1
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Storage do Azure
 Neste artigo, fornecemos instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure para transferir de forma segura grandes quantidades de dados para o Blob storage do Azure e ficheiros do Azure por envio unidades de disco para um centro de dados do Azure. Este serviço também pode ser utilizado para transferir dados do storage do Azure para unidades de disco rígido e são enviados para os sites no local. Dados a partir de uma única unidade de disco SATA interna podem ser importados o Blob storage do Azure ou os ficheiros do Azure. 
@@ -87,7 +87,7 @@ Pode utilizar este serviço, tal como nos cenários:
 Nesta secção, iremos lista os pré-requisitos necessários para utilizar este serviço. Revê-los cuidadosamente antes de envio suas unidades.
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Tem de ter uma subscrição do Azure existente e uma ou mais contas de armazenamento para utilizar o serviço de importação/exportação. Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Por outras palavras, uma tarefa de importação/exportação único não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
+Tem de ter uma subscrição do Azure existente e uma ou mais contas de armazenamento para utilizar o serviço de importação/exportação. Importar/exportar do Azure suporta apenas clássico, as contas do Blob Storage e contas de armazenamento de v1 de objetivo geral. Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Por outras palavras, uma tarefa de importação/exportação único não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Tipos de dados
 Pode utilizar o serviço importar/exportar do Azure para copiar dados para **bloco** blobs, **página** blobs, ou **ficheiros**. Por outro lado, só pode exportar **bloco** blobs, **página** blobs ou **acrescentar** blobs storage do Azure utilizar este serviço. O serviço suporta apenas importação de ficheiros do Azure para o armazenamento do Azure. Exportar os ficheiros do Azure não é atualmente suportado.

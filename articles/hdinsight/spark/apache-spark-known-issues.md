@@ -16,22 +16,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: bb5557eb0672b9ad137bc5817e47bf4f89e1c34d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7faa1fa1537dd71bdf0493d92f26ddda2ae59264
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster do Apache Spark no HDInsight
 
 Este documento mantém um registo dos problemas conhecidos para a pré-visualização pública do HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>O Livy fugas de sessão interativa
-Quando o Livy é reiniciado (do Ambari ou devido a reinício da máquina virtual de headnode 0), com uma sessão interativa ainda ativo, uma sessão interativa de tarefa será transmitida. Por este motivo, as novas tarefas podem bloqueada no Estado aceites e não podem ser iniciadas.
+Quando o Livy é reiniciado (do Ambari ou devido a reinício da máquina virtual de headnode 0), com uma sessão interativa ainda alive, é podem fugir uma sessão interativa de tarefa. Por este motivo, as novas tarefas podem estar bloqueadas no Estado aceites e não podem ser iniciadas.
 
 **Atenuação:**
 
-Utilize o procedimento seguinte para resolver o problema:
+Utilize o procedimento seguinte para contornar este problema:
 
 1. SSH para headnode. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -39,12 +39,12 @@ Utilize o procedimento seguinte para resolver o problema:
    
         yarn application –list
    
-    A tarefa predefinida nomes serão Livy se as tarefas foram iniciadas com uma sessão interativa de Livy com sem nomes explícitos especificado, iniciar sessão de para o Livy pelo bloco de notas do Jupyter, o nome da tarefa começará com remotesparkmagics_ *. 
+    Os nomes de tarefa de predefinição será o Livy se as tarefas foram começar com uma sessão interativa de Livy sem nomes explícitos especificados. Para a sessão de Livy iniciada pelo bloco de notas do Jupyter, o nome da tarefa começa com remotesparkmagics_ *. 
 3. Execute o seguinte comando para eliminar essas tarefas. 
    
         yarn application –kill <Application ID>
 
-Novas tarefas iniciará a executar. 
+Novas tarefas de iniciar a execução. 
 
 ## <a name="spark-history-server-not-started"></a>Servidor de histórico de Spark não foi iniciado
 Servidor do histórico de Spark não está iniciado automaticamente depois de um cluster é criado.  
@@ -69,13 +69,13 @@ Atualmente, o conector do Spark Phoenix não é suportado com um cluster do HDIn
 
 **Atenuação:**
 
-Em vez disso, tem de utilizar o conector do HBase do Spark. Para obter instruções, consulte [como utilizar o conector do Spark HBase](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Em vez disso, tem de utilizar o conector do HBase do Spark. Para instruções, consulte [como utilizar o conector do Spark HBase](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemas relacionados com blocos de notas do Jupyter
 Seguem-se alguns problemas conhecidos relacionados com blocos de notas do Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Blocos de notas com carateres não ASCII em nomes de ficheiros
-Blocos de notas Jupyter que podem ser utilizados em clusters do Spark HDInsight não devem ter carateres não ASCII em nomes de ficheiros. Se tentar carregar um ficheiro através da IU do Jupyter que tem um nome de ficheiro não ASCII, ocorrerá uma falha silenciosamente (ou seja, não permite Jupyter carregar o ficheiro, mas não irá gerar um erro de visível ou). 
+Blocos de notas Jupyter que podem ser utilizados em clusters do Spark HDInsight não devem ter carateres não ASCII em nomes de ficheiros. Se tentar carregar um ficheiro através da IU do Jupyter, que tem um nome de ficheiro não ASCII, falhar de forma silenciosa (ou seja, Jupyter não permitem-lhe carregar o ficheiro, mas não inicia um erro de visível ou). 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar os blocos de notas de tamanhos superiores
 Poderá ver um erro  **`Error loading notebook`**  quando carrega blocos de notas que são maiores de tamanho.  
@@ -84,7 +84,7 @@ Poderá ver um erro  **`Error loading notebook`**  quando carrega blocos de nota
 
 Se obtiver este erro, não significa que os dados estão danificados ou perdidos.  Os blocos de notas são ainda num disco em `/var/lib/jupyter`, e pode SSH para o cluster possam aceder às mesmas. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Assim que tiver estabelecido ligação ao cluster através de SSH, pode copiar os blocos de notas do seu cluster no seu computador local (através de SCP ou WinSCP) de cópia de segurança para evitar a perda de quaisquer dados importantes no bloco de notas. Pode, em seguida, túnel SSH no seu headnode na porta 8001 aceder Jupyter sem passar o gateway.  A partir daí, pode desmarcar a saída do seu bloco de notas e voltar a guardar para minimizar o tamanho do bloco de notas.
+Assim que tiver estabelecido ligação ao cluster através de SSH, pode copiar os blocos de notas do seu cluster no seu computador local (através de SCP ou WinSCP) de cópia de segurança para evitar a perda de quaisquer dados importantes no bloco de notas. Pode, em seguida, túnel SSH no seu headnode na porta 8001 aceder Jupyter sem passar o gateway.  A partir daí, pode desmarcar a saída do seu bloco de notas e resave para minimizar o tamanho do bloco de notas.
 
 Para impedir que este erro ocorrer no futuro, tem de seguir algumas melhores práticas:
 
@@ -99,7 +99,7 @@ Primeira instrução de código no bloco de notas do Jupyter utilizando a magia 
 Isto acontece porque quando a primeira célula do código é executada. Em segundo plano este inicia a configuração de sessão e Spark, SQL e contextos de ramo de registo estão definidos. Depois destas contextos estão definidos, a primeira instrução é executada e Isto permite que a impressão que a instrução demorava muito tempo a concluir.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite de bloco de notas do Jupyter criar a sessão
-Quando o cluster do Spark tem recursos insuficientes, os Spark e Pyspark kernels no bloco de notas do Jupyter serão tempo limite excedido ao criar a sessão. 
+Quando o cluster do Spark tem recursos insuficientes, os Spark e PySpark kernels no bloco de notas do Jupyter serão tempo limite excedido ao criar a sessão. 
 
 **Mitigações:** 
 
@@ -109,14 +109,13 @@ Quando o cluster do Spark tem recursos insuficientes, os Spark e Pyspark kernels
    * A parar a outras aplicações do Spark do YARN.
 2. Reinicie o bloco de notas que estava a tentar iniciar a cópia de segurança. Recursos suficientes devem estar disponíveis para criar uma sessão agora.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

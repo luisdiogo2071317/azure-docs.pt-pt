@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Compre um nome de domínio personalizado para Web Apps do Azure
 
@@ -30,7 +30,7 @@ Este artigo é para o App Service do Azure (Web Apps, API Apps, Mobile Apps, as 
 
 Para concluir este tutorial:
 
-* [Criar uma aplicação do app Service](/azure/app-service/), ou utilizar uma aplicação que criou para outro tutorial.
+* [Crie uma aplicação do Serviço de Aplicações](/azure/app-service/) ou utilize uma aplicação que tenha criado para outro tutorial.
 * [Remover o limite de gastos na sua subscrição](../billing/billing-spending-limit.md#remove). Não é possível comprar a domínios do serviço de aplicações com os créditos de subscrição gratuita.
 
 ## <a name="prepare-the-app"></a>Preparar a aplicação
@@ -41,44 +41,44 @@ Para utilizar domínios personalizados do Web Apps do Azure, a aplicação web [
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra o [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
+Abra ao [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navegue para a aplicação no portal do Azure
+### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navegar para a aplicação no portal do Azure
 
-No menu à esquerda, selecione **serviços aplicacionais**e, em seguida, selecione o nome da aplicação.
+No menu à esquerda, selecione **Serviços de Aplicações** e selecione o nome da aplicação Web.
 
-![Navegação do portal para aplicações do Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-Será apresentada a página de gestão da aplicação do serviço de aplicações.  
+Será apresentada a página de gestão da aplicação do Serviço de Aplicações.  
 
-### <a name="check-the-pricing-tier"></a>Verifique o escalão de preço
+### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 
-No painel de navegação esquerdo da página da aplicação, desloque-se para o **definições** secção e selecione **aumentar verticalmente (plano do App Service)**.
+No painel de navegação esquerdo da página da aplicação, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)**.
 
-![Menu de dimensionamento](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Menu de aumento vertical](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Camada da aplicação de actual é realçada por um limite azul. Certifique-se de que a aplicação não está no **livres** camada. DNS personalizado não é suportada a **livres** camada. 
+O escalão atual da aplicação é realçado com um limite azul. Confirme que a aplicação não está no escalão **Gratuito**. O DNS personalizado não é suportado no escalão **Gratuito**. 
 
-![Verifique o escalão de preço](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Se o plano de serviço de aplicações não está **livres**, feche o **escolher o escalão de preço** página e avançar para o [comprar o domínio](#buy-the-domain).
 
-### <a name="scale-up-the-app-service-plan"></a>Aumentar verticalmente o plano de serviço de aplicações
+### <a name="scale-up-the-app-service-plan"></a>Aumentar verticalmente o plano do Serviço de Aplicações
 
-Selecione qualquer uma das camadas não livre (**partilhados**, **básico**, **padrão**, ou **Premium**). 
+Selecione qualquer um dos escalões não gratuitos (**Partilhado**, **Básico**, **Standard** ou **Premium**). 
 
 Clique em **Selecionar**.
 
-![Verifique o escalão de preço](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Quando for apresentada a seguinte notificação, a operação de dimensionamento está concluída.
+Quando vir a notificação seguinte, significa que a operação de dimensionamento está completa.
 
-![Confirmação de operação de escala](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+![Confirmação de operação de dimensionamento](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Comprar o domínio
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Abra o [portal do Azure](https://portal.azure.com/) e inicie sessão com a sua conta do Azure.
+Abra ao [portal do Azure](https://portal.azure.com/) e inicie sessão com a sua conta do Azure.
 
 ### <a name="launch-buy-domains"></a>Iniciar comprar domínios
 No **Web Apps** separador, clique no nome da sua aplicação web, selecione **definições**e, em seguida, selecione **domínios personalizados**
@@ -114,7 +114,7 @@ Em seguida, selecione as opções pretendidas para o seu domínio. Consulte a ta
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Proteção de privacidade | Ativar | Optar por "A proteção de privacidade", que está incluída no preço de compra _gratuitamente_. Alguns domínios de nível superior são geridos pelo registrars que não suportam a proteção de privacidade e são listados no **a proteção de privacidade** página. |
-| Atribuir nomes de anfitrião predefinidos | **www** e**@** | Selecione os enlaces do nome de anfitrião desejado, se assim o desejar. Quando a operação de compra de domínio estiver concluída, a aplicação web pode ser acedida em nomes de anfitrião selecionado. Se a aplicação web está protegido por [Traffic Manager do Azure](https://azure.microsoft.com/services/traffic-manager/), não vir a opção de atribuir o domínio de raiz (@), devido Gestor de tráfego não suporte registos. Pode efetuar alterações às atribuições de nome de anfitrião depois de concluir a compra de domínio. |
+| Atribuir nomes de anfitrião predefinidos | **www** e **@** | Selecione os enlaces do nome de anfitrião desejado, se assim o desejar. Quando a operação de compra de domínio estiver concluída, a aplicação web pode ser acedida em nomes de anfitrião selecionado. Se a aplicação web está protegido por [Traffic Manager do Azure](https://azure.microsoft.com/services/traffic-manager/), não vir a opção de atribuir o domínio de raiz (@), devido Gestor de tráfego não suporte registos. Pode efetuar alterações às atribuições de nome de anfitrião depois de concluir a compra de domínio. |
 
 ### <a name="accept-terms-and-purchase"></a>Aceitar os termos e compra
 
@@ -166,7 +166,7 @@ Certifique-se de que o seu domínio adquirido está listado no **domínios do se
 >
 >
 
-Selecione **adicionar hostname**.
+Selecione **Adicionar nome de anfitrião**.
 
 ### <a name="configure-hostname"></a>Configurar o nome de anfitrião
 No **adicionar hostname** caixa de diálogo, escreva o nome de domínio completamente qualificado do seu domínio da aplicação de serviço ou de qualquer subdomínio. Por exemplo:
@@ -177,7 +177,7 @@ No **adicionar hostname** caixa de diálogo, escreva o nome de domínio completa
 
 Quando terminar, selecione **validar**. O tipo de registo de nome de anfitrião é selecionado automaticamente para si.
 
-Selecione **adicionar hostname**.
+Selecione **Adicionar nome de anfitrião**.
 
 Quando a operação foi concluída, verá uma notificação de sucesso para o nome do anfitrião atribuído.  
 
@@ -220,7 +220,7 @@ No Azure, os registos DNS para um domínio da aplicação de serviço são gerid
 
 ### <a name="open-app-service-domain"></a>Domínio de abrir o serviço de aplicações
 
-No portal do Azure, no menu à esquerda, selecione **mais serviços** > **domínios do serviço de aplicações**.
+No portal do Azure, no menu à esquerda, selecione **todos os serviços** > **domínios do serviço de aplicações**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ Depois de comprar o domínio da aplicação de serviço, terá de cinco dias par
 
 ### <a name="open-app-service-domain"></a>Domínio de abrir o serviço de aplicações
 
-No portal do Azure, no menu à esquerda, selecione **mais serviços** > **domínios do serviço de aplicações**.
+No portal do Azure, no menu à esquerda, selecione **todos os serviços** > **domínios do serviço de aplicações**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -272,7 +272,7 @@ Depois de concluída a operação, o domínio é libertado da sua subscrição e
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Direcionar o URL predefinido para um diretório personalizado
 
-Por predefinição, o serviço de aplicações direciona pedidos web para o diretório de raiz do seu código de aplicação. A direcioná-los para um subdiretório, tais como `public`, consulte [direcionar o URL predefinido para um diretório personalizado](app-service-web-tutorial-custom-domain.md#virtualdir).
+Por predefinição, o Serviço de Aplicações direciona os pedidos Web para o diretório de raiz do código da sua aplicação. A direcioná-los para um subdiretório, tais como `public`, consulte [direcionar o URL predefinido para um diretório personalizado](app-service-web-tutorial-custom-domain.md#virtualdir).
 
 ## <a name="more-resources"></a>Mais recursos
 

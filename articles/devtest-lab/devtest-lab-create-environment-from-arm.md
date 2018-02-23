@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMS e PaaS recursos com modelos Azure Resource Manager
 
@@ -65,7 +65,7 @@ Existem duas regras a seguir para organizar os modelos Azure Resource Manager nu
 Os seguintes passos guiá-lo através da adição de um repositório para o laboratório no portal do Azure. 
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório pretendido.   
 1. No laboratório de **descrição geral** painel, selecione **políticas de configuração e**.
 
@@ -95,7 +95,7 @@ A secção seguinte irá guiá-lo a criar ambientes de um modelo Azure Resource 
 Assim que tiver sido configurado um repositório de modelo Azure Resource Manager no laboratório, os utilizadores de laboratório podem criar um ambiente com o portal do Azure com os seguintes passos:
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório pretendido.   
 1. No painel do laboratório, selecione **adicionar +**.
 1. O **escolher uma base** painel apresenta as imagens de base que pode utilizar com os modelos Azure Resource Manager listados pela primeira vez. Selecione o modelo Azure Resource Manager pretendido.
@@ -109,10 +109,10 @@ Assim que tiver sido configurado um repositório de modelo Azure Resource Manage
     > [!NOTE]
     > Existem vários valores de parâmetros que - mesmo especificado - são apresentados como valores vazios. Por conseguinte, se os utilizadores atribuir esses valores para parâmetros de um modelo Azure Resource Manager, DevTest Labs não apresentar os valores. Em vez disso, os campos de entrada em branco são apresentados em que os utilizadores de laboratório tem de introduzir um valor ao criar o ambiente.
     > 
-    > - GEN EXCLUSIVO
-    > - GEN - EXCLUSIVO-[N]
-    > - GEN--PUB-CHAVE SSH
-    > - GEN-PALAVRA-PASSE 
+    > - GEN-UNIQUE
+    > - GEN-UNIQUE-[N]
+    > - GEN-SSH-PUB-KEY
+    > - GEN-PASSWORD 
  
 1. Selecione **adicionar** para criar o ambiente. O ambiente inicia imediatamente de aprovisionamento com a apresentação de estado no **meu máquinas de virtuais** lista. Um novo grupo de recursos é criado automaticamente pelo laboratório para aprovisionar todos os recursos definidos no modelo Azure Resource Manager.
 1. Assim que for criado o ambiente, selecione o ambiente no **meu máquinas de virtuais** lista para abrir o painel do grupo de recursos e procurar todos os recursos aprovisionados no ambiente.

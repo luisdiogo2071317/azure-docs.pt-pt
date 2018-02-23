@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/13/2018
+ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -127,9 +127,6 @@ Tem a opção de utilizar [controlo de acesso baseado em funções (RBAC)] [ rba
 ## <a name="limitations"></a>Limitações
 
 Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual tem as seguintes limitações:
-
-- Atualmente, uma aplicação Web do Azure numa sub-rede que tem **pontos finais de serviço** ativada does não ainda funcione como esperado. Estamos a trabalhar para ativar esta funcionalidade.
-    - Até que esta funcionalidade é totalmente implementada, recomendamos que mova a aplicação Web para outra sub-rede que não tem pontos finais de serviço ativados no SQL Server.
 
 - Na firewall para a base de dados do SQL Server, cada regra de rede virtual faz referência a uma sub-rede. Estas sub-redes referenciadas tem de estar alojadas na mesma região geográfica que aloja a base de dados do SQL Server.
 

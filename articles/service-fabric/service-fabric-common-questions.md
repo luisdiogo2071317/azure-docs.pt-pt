@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Normalmente mais frequentes sobre o Service Fabric
 
@@ -36,8 +36,8 @@ Se estiver interessado neste cenário, Aconselhamo-lo para obter na contacte ou 
 
 Alguns aspetos a ter em conta: 
 
-1. O recurso de cluster do Service Fabric no Azure é regional hoje em dia, pois que o dimensionamento da máquina virtual define que o cluster está incorporado no. Isto significa que, se ocorrer uma falha regional poderá perder a capacidade de gerir o cluster através do Azure Resource Manager ou o Portal do Azure. Isto pode acontecer, apesar do cluster permanece em execução e deverá ser capazes de interagir com ele diretamente. Além disso, Azure hoje não oferecem a capacidade de ter uma única rede virtual que pode ser utilizada em regiões. Isto significa que um cluster de multirregião no Azure requer um [endereços IP públicos para cada VM em conjuntos de dimensionamento VM](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) ou [Gateways de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Estas opções de rede têm impactos diferentes em custos, desempenho, e a estrutura de aplicação algumas grau, cuidado, por isso, análise e planeamento é necessário antes de colocado configurar um ambiente deste tipo.
-2. A manutenção, gestão e monitorização destas máquinas pode tornar-se complexa, especialmente quando abrangido em _tipos_ dos ambientes, como impedindo fornecedores de nuvem diferente ou entre recursos no local e o Azure. Deve ter cuidado para garantir que as atualizações, monitorização, gestão e diagnóstico é compreendido para o cluster e as aplicações antes de executar cargas de trabalho de produção num ambiente deste tipo. Se já tiver muitos experiência de resolução desses problemas no Azure ou nos seus centros de dados, em seguida, é provável que essas soluções mesmas podem ser aplicadas quando a criação de saída ou em execução no cluster do Service Fabric. 
+1. O recurso de cluster do Service Fabric no Azure é regional hoje em dia, pois que o dimensionamento da máquina virtual define que o cluster está incorporado no. Isto significa que, se ocorrer uma falha regional poderá perder a capacidade de gerir o cluster através do Azure Resource Manager ou o portal do Azure. Isto pode acontecer, apesar do cluster permanece em execução e deverá ser capazes de interagir com ele diretamente. Além disso, Azure hoje não oferecem a capacidade de ter uma única rede virtual que pode ser utilizada em regiões. Isto significa que um cluster de multirregião no Azure requer um [endereços IP públicos para cada VM em conjuntos de dimensionamento VM](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) ou [Gateways de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Estas opções de rede têm impactos diferentes em custos, desempenho, e a estrutura de aplicação algumas grau, cuidado, por isso, análise e planeamento é necessário antes de colocado configurar um ambiente deste tipo.
+2. A manutenção, gestão e monitorização destas máquinas pode tornar-se complexa, especialmente quando abrangido em _tipos_ dos ambientes, como impedindo fornecedores de nuvem diferente ou entre recursos no local e o Azure. Deve ter cuidado para garantir que as atualizações, monitorização, gestão e diagnóstico é compreendido para o cluster e as aplicações antes de executar cargas de trabalho de produção num ambiente deste tipo. Se já tiver experiência de resolução desses problemas no Azure ou nos seus centros de dados, em seguida, é provável que essas soluções mesmas podem ser aplicadas quando a criação de saída ou em execução no cluster do Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Nós de Service Fabric automaticamente a receber atualizações do SO?
 
@@ -49,11 +49,11 @@ O desafio com atualizações do SO é que, normalmente, requer um reinício do c
 
 No futuro, planeamos suportar uma política de atualização de SO que está totalmente automatizada e coordenada entre domínios de atualização, garantindo que a disponibilidade é mantida apesar reinícios e outras falhas inesperadas.
 
-### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Pode utilizar grandes conjuntos de dimensionamento de Máquina Virtual em cluster os meus SF? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Pode utilizar os conjuntos de dimensionamento de máquina virtual grande num cluster meu SF? 
 
 **Resposta de curta** - No. 
 
-**Responder a tempo** - embora a grandes conjuntos de dimensionamento de Máquina Virtual permitem-lhe dimensionar uma máquina virtual dimensionar as instâncias VM do conjunto até 1000, isto é feito com a utilização de grupos de posicionamento (PGs). Domínios de falhas (FDs) e domínios de atualização (UDs) apenas são consistentes dentro de um posicionamento grupo Service fabric utiliza FDs e UDs para tomar decisões de colocação das instâncias de serviço/réplicas do serviço. Uma vez que o FDs e UDs comparáveis apenas dentro de um grupo de posicionamento SF não pode ser utilizada. Por exemplo, se VM1 no PG1 tem uma topologia do DF = 0 e VM9 no PG2 tem uma topologia do DF = 4, não significa que VM1 e VM2 estiverem em dois bastidores Hardware diferente, por conseguinte, SF não podem utilizar os valores de DF neste caso para tomar decisões de colocação.
+**Responder a tempo** - embora os conjuntos de dimensionamento de máquina virtual grande permitem-lhe dimensionar uma máquina virtual dimensionar as instâncias VM do conjunto até 1000, isto é feito com a utilização de grupos de posicionamento (PGs). Domínios de falhas (FDs) e domínios de atualização (UDs) apenas são consistentes dentro de um posicionamento grupo Service fabric utiliza FDs e UDs para tomar decisões de colocação das instâncias de serviço/réplicas do serviço. Uma vez que o FDs e UDs comparáveis apenas dentro de um grupo de posicionamento, SF não pode ser utilizada. Por exemplo, se VM1 no PG1 tem uma topologia do DF = 0 e VM9 no PG2 tem uma topologia do DF = 4, não significa que VM1 e VM2 estiverem em dois bastidores Hardware diferente, por conseguinte, SF não podem utilizar os valores de DF neste caso para tomar decisões de colocação.
 
 Existem outros problemas com conjuntos de dimensionamento de máquina virtual grande, como a falta de nível 4 suporte balanceamento de carga. Consulte para [detalhes em grande escala conjuntos](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
@@ -86,22 +86,25 @@ Se gostaria de criar clusters para testar a aplicação antes do que é implemen
 
 Enquanto que estamos a trabalhar uma experiência melhorada, hoje em dia, o utilizador é responsável pela atualização. Tem de atualizar a imagem do SO nas máquinas virtuais de cluster de uma VM a uma hora. 
 
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Pode encriptar dados anexados discos de um tipo de nó de cluster (conjunto de dimensionamento da máquina virtual)?
+Sim.  Para obter mais informações, consulte [criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [encriptar discos (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), e [encriptar discos (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
 ## <a name="container-support"></a>Suporte de contentor
 
 ### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Por que razão são os meus contentores que são implementadas para SF não é possível resolver endereços DNS?
 
 Este problema foi comunicado em clusters que se encontram num 5.6.204.9494 versão 
 
-**Mitigação** : siga [neste documento](service-fabric-dnsservice.md) para ativar o serviço de recursos de infraestrutura de serviço DNS no seu cluster.
+**Mitigação**: siga [neste documento](service-fabric-dnsservice.md) para ativar o serviço de recursos de infraestrutura de serviço DNS no seu cluster.
 
-**Corrigir** : atualização para uma versão de cluster suportadas é superior ao 5.6.204.9494, quando estiver disponível. Se o cluster estiver definido como as atualizações automáticas, em seguida, o cluster irá atualizar automaticamente para a versão que tem este problema corrigido.
+**Corrigir**: atualização para uma versão de cluster suportadas é superior ao 5.6.204.9494, quando estiver disponível. Se o cluster estiver definido como as atualizações automáticas, em seguida, o cluster irá atualizar automaticamente para a versão que tem este problema corrigido.
 
   
 ## <a name="application-design"></a>Design da aplicação
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>O que é a melhor forma de consultar os dados entre as partições de uma coleção fiável?
 
-Coleções fiáveis são normalmente [particionada](service-fabric-concepts-partitioning.md) para ativar a ampliação de um desempenho superior e débito. Isto significa que o estado para um determinado serviço pode ser distribuído por 10s ou 100s de máquinas. Para executar operações sobre esse conjunto de dados completo, tem algumas opções:
+Coleções fiáveis são normalmente [particionada](service-fabric-concepts-partitioning.md) para ativar a ampliação de um desempenho superior e débito. Isto significa que o estado para um determinado serviço pode ser distribuído por dezenas ou centenas de computadores. Para executar operações sobre esse conjunto de dados completo, tem algumas opções:
 
 - Crie um serviço que consulta a todas as partições de outro serviço para obter os dados necessários.
 - Crie um serviço que pode receber dados de todas as partições de outro serviço.
@@ -119,17 +122,17 @@ Atores foram concebidos para serem independentes unidades de estado e computaç�
 
 Serviços fiáveis normalmente estiverem particionados, pelo que a quantidade que pode armazenar apenas é limitada, o número de máquinas que ter no cluster e a quantidade de memória disponível dessas máquinas.
 
-Por exemplo, suponha que tem uma coleção fiável num serviço com 100 partições e 3 réplicas, armazenar os objetos que o tempo médio de 1kb de tamanho. Agora, suponha que tem um cluster de 10 máquina com 16gb de memória por máquina. De simplicidade e para ser muito conservador, partem do princípio de que o sistema operativo e serviços do sistema, o tempo de execução do Service Fabric e os serviços de consumam 6gb de que, deixando de 10gb disponíveis por computador ou 100gb para o cluster.
+Por exemplo, suponha que tem uma coleção fiável num serviço com 100 partições e 3 réplicas, armazenar os objetos que o tempo médio de 1 kb de tamanho. Agora, suponha que tem um cluster de 10 máquina com 16gb de memória por máquina. De simplicidade e para ser conservador, partem do princípio de que o sistema operativo e serviços do sistema, o tempo de execução do Service Fabric e os serviços de consumam 6gb de que, deixando de 10gb disponíveis por computador ou 100 gb para o cluster.
 
 Manter em atenção que cada objeto tem de ser armazenados três horas (um site primário e duas réplicas), terá de memória suficiente para cerca de 35 milhões de objetos na sua coleção quando funciona na capacidade total. No entanto, recomendamos que está a ser resiliente à perda de um domínio de falhas e de um domínio de atualização, que representa cerca de 1/3 da capacidade e pretende reduzir o número para aproximadamente 23 milhões em simultâneo.
 
 Tenha em atenção que este cálculo também parte do princípio de:
 
-- Se a distribuição de dados entre as partições é aproximadamente uniform ou que que está a denunciar métricas de carga para o Gestor de recursos do Cluster. Por predefinição, Service Fabric será o balanceamento de carga com base na contagem de réplica. No nosso exemplo acima, que pretende colocar 10 réplicas primárias e 20 réplicas secundárias em cada nó no cluster. Funciona bem para a carga que é distribuída uniformemente pelas partições. Se a carga não é mesmo, tem de comunicar carga para que o Gestor de recursos possam pacote réplicas mais pequenas em conjunto e permitir que as réplicas maior consuma mais memória num nó individual.
+- Se a distribuição de dados entre as partições é aproximadamente uniform ou que que está a denunciar métricas de carga para o Gestor de recursos do Cluster. Por predefinição, o Service Fabric carrega equilíbrio com base na contagem de réplica. No exemplo anterior, que pretende colocar 10 réplicas primárias e 20 réplicas secundárias em cada nó no cluster. Funciona bem para a carga que é distribuída uniformemente pelas partições. Se a carga não é mesmo, tem de comunicar carga para que o Gestor de recursos possam pacote réplicas mais pequenas em conjunto e permitir que as réplicas maior consuma mais memória num nó individual.
 
-- Que o serviço fiável em questão é o apenas um Estado armazenar no cluster. Uma vez que pode implementar vários serviços para um cluster, tem de ser mindful dos recursos que cada terá de executar e gerir o seu estado.
+- Que o serviço fiável em questão é o apenas um Estado armazenar no cluster. Uma vez que pode implementar vários serviços para um cluster, tem de ser mindful dos recursos que cada um tem de executar e gerir o seu estado.
 
-- Se o próprio cluster não está a crescer ou reduzir. Se adicionar mais máquinas, o Service Fabric será rebalancear as réplicas para tiram partido da capacidade de adicional até que o número de máquinas excede o número de partições no seu serviço, uma vez que uma réplica individuais não pode abranger máquinas. Por outro lado, se reduzir o tamanho do cluster, removendo máquinas, as réplicas serão packed mais rigidamente e tem menos capacidade global.
+- Se o próprio cluster não está a crescer ou reduzir. Se adicionar mais máquinas, o Service Fabric será rebalancear as réplicas para tiram partido da capacidade de adicional até que o número de máquinas excede o número de partições no seu serviço, uma vez que uma réplica individuais não pode abranger máquinas. Por outro lado, se reduzir o tamanho do cluster, removendo máquinas, as réplicas são packed mais rigidamente e tem menos capacidade global.
 
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>Quantidade de dados pode armazenar num ator
 
@@ -141,12 +144,12 @@ Tal como acontece com os serviços fiável, a quantidade de dados que podem arma
 
 Contentores oferecem uma forma simples de serviços de pacote e as respetivas dependências, para que possam executam de forma consistente em todos os ambientes e podem funcionar de forma isolada num único computador. Recursos de infraestrutura de serviço oferece uma forma de implementar e gerir serviços, incluindo [serviços que foram empacotados num contentor](service-fabric-containers-overview.md).
 
-### <a name="are-you-planning-to-open-source-service-fabric"></a>Está a planear abrir a origem de Service Fabric?
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Está a planear open source Service Fabric?
 
-Pretendemos abrir as estruturas de reliable actors no GitHub e serviços fiáveis de origem e aceitará contribuições da Comunidade para os projetos. Siga o [blogue de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes, como é que está a ser anunciados.
+Pretendemos open source do fiável serviços e estruturas reliable actors no GitHub e aceitar contribuições da Comunidade para os projetos. Siga o [blogue de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes, como é que está a ser anunciados.
 
-O estão atualmente não planos para abrir origem o tempo de execução do Service Fabric.
+O estão atualmente não existem planos para open source o tempo de execução do Service Fabric.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais sobre conceitos de Service Fabric principais e melhores práticas](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

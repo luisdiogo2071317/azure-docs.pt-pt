@@ -2,7 +2,7 @@
 
 ![Máquinas virtuais no serviço autónomo em nuvem](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-Se colocar as máquinas virtuais numa rede virtual, pode decidir quantos serviços em nuvem que pretende utilizar para conjuntos de disponibilidade e balanceamento de carga. Além disso, pode organizar as máquinas virtuais em sub-redes da mesma forma como o local de rede e ligar a rede virtual à sua rede no local. Eis um exemplo:
+Se colocar as máquinas virtuais numa rede virtual, pode decidir quantos serviços em nuvem que pretende utilizar para conjuntos de disponibilidade e balanceamento de carga. Além disso, pode organizar as máquinas virtuais em sub-redes da mesma forma como o local de rede e ligar a rede virtual à sua rede no local. Segue-se um exemplo:
 
 ![Máquinas virtuais numa rede virtual](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
@@ -12,11 +12,11 @@ Redes virtuais são a forma recomendada para ligar a máquinas virtuais no Azure
 Ligar máquinas virtuais numa rede virtual:
 
 1. Criar a rede virtual no [portal do Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) e especifique 'implementação clássica'.
-2. Crie o conjunto de serviços em nuvem para a implementação refletir o design para conjuntos de disponibilidade e o balanceamento de carga. No portal do Azure, clique em **novo > computação > serviço em nuvem** para cada serviço em nuvem.
+2. Crie o conjunto de serviços em nuvem para a implementação refletir o design para conjuntos de disponibilidade e o balanceamento de carga. No portal do Azure, clique em **crie um recurso > computação > serviço em nuvem** para cada serviço em nuvem.
 
   Como preencher os detalhes do serviço de nuvem, selecione a mesma _grupo de recursos_ utilizado com a rede virtual.
 
-3. Para criar cada nova máquina virtual, clique em **novo > computação**, em seguida, selecione a imagem VM adequada do **aplicações em destaque**.
+3. Para criar cada nova máquina virtual, clique em **crie um recurso > computação**, em seguida, selecione a imagem VM adequada do **aplicações em destaque**.
 
   Na VM **Noções básicas** painel, selecione a mesma _grupo de recursos_ utilizado com a rede virtual.
 

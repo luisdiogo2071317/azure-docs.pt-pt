@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integração do Azure Active Directory com FloQast
 
@@ -106,22 +106,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio FloQast e os URLs únicos de informações de início de sessão](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.floqast.com/`
-
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.floqast.com/api/sso/saml/azure`
+     No **identificador** caixa de texto, escreva um URL: `https://go.floqast.com/`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio FloQast e os URLs únicos de informações de início de sessão](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.floqast.com/login/sso`
+     No **URL de início de sessão** caixa de texto, escreva um URL: `https://go.floqast.com/login/sso`
      
-    > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente FloQast](mailto:support@floqast.com) para obter estes valores.
-
 5. Aplicação de FloQast espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
     
-    ![Configurar attb Single Sign-On](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+    ![Configurar o início de sessão único atributo](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
     
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
     
@@ -241,8 +236,6 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

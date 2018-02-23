@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VM de computação de elevado desempenho
 
@@ -36,13 +36,7 @@ Esta interface que permite que as instâncias comunicar através de uma rede Inf
 
 Seguem-se os requisitos para VMs do Windows com capacidade RDMA à rede Azure RDMA: 
 
-* **Sistema operativo**
-  
-  Windows Server 2012 R2, Windows Server 2012
-  
-  > [!NOTE]
-  > Atualmente, Windows Server 2016 não suporta a conectividade RDMA no Azure.
-  >
+* **Sistema operativo** -Windows Server 2016, o Windows Server 2012 R2, Windows Server 2012
 
 * **Conjunto de disponibilidade ou serviço em nuvem** – implementar as VMs com capacidade RDMA no mesmo conjunto de disponibilidade (ao utilizar o modelo de implementação Azure Resource Manager) ou o mesmo serviço de nuvem (quando utiliza o modelo de implementação clássica). Se utilizar o Azure Batch, as VMs com capacidade RDMA tem de estar no mesmo conjunto.
 
@@ -52,7 +46,7 @@ Seguem-se os requisitos para VMs do Windows com capacidade RDMA à rede Azure RD
 
 * **Espaço de endereços de rede RDMA** -o endereço espaço 172.16.0.0/16 de reservas de rede RDMA o no Azure. Para executar aplicações MPI no instâncias implementadas numa rede virtual do Azure, certifique-se de que o espaço de endereços de rede virtual não se sobreponha a rede RDMA.
 
-* **Extensão da HpcVmDrivers VM** -em VMs com capacidade RDMA, tem de adicionar a extensão de HpcVmDrivers para instalar controladores de dispositivo de rede do Windows para conectividade RDMA. (Em determinadas implementações das instâncias A8 e A9, a extensão de HpcVmDrivers é adicionada automaticamente.) Para adicionar a extensão VM a uma VM, pode utilizar [Azure PowerShell](/powershell/azure/overview) cmdlets. 
+* **Extensão da HpcVmDrivers VM** - em VMs com capacidade RDMA, adicione a extensão de HpcVmDrivers para instalar controladores de dispositivo de rede do Windows para conectividade RDMA. (Em determinadas implementações das instâncias A8 e A9, a extensão de HpcVmDrivers é adicionada automaticamente.) Para adicionar a extensão VM a uma VM, pode utilizar [Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
   
   O seguinte comando instala a mais recente HpcVMDrivers extensão da versão 1.1 numa VM com capacidade RDMA existente com o nome *myVM* implementada no grupo de recursos com o nome *myResourceGroup* no *EUA oeste* região:
@@ -78,7 +72,7 @@ Seguem-se os requisitos para VMs do Windows com capacidade RDMA à rede Azure RD
 - [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)
 - [Com otimização de GPU](sizes-gpu.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para listas de verificação utilizar as instâncias intensivas de computação com o HPC Pack no Windows Server, consulte [configurar um cluster do Windows RDMA com o HPC Pack para executar aplicações MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

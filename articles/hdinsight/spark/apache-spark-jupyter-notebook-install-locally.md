@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1508faf7a05461de65b7a4c2f68e2ef9bbd7e19d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5549c175c280961b09f5996e3387a50dae31222f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de notas do Jupyter no seu computador e ligue ao Apache Spark no HDInsight
 
@@ -55,9 +55,9 @@ Tem de instalar o Python antes de poder instalar blocos de notas do Jupyter. Pyt
 
 Para obter instruções sobre como instalar a magia do Spark, kernels PySpark e Spark, siga as instruções de instalação no [sparkmagic documentação](https://github.com/jupyter-incubator/sparkmagic#installation) no GitHub. O primeiro passo na documentação de mágica do Spark pede-lhe instalar magic de Spark. Substitua os comandos seguintes, dependendo da versão do cluster do HDInsight que irá ligar a esse primeiro passo na ligação. Depois disso, siga os passos restantes na documentação de mágica do Spark. Se pretender instalar os kernels diferentes, tem de efetuar o passo 3 na secção de instruções de instalação mágica do Spark.
 
-* Para clusters v3.4, instale sparkmagic 0.2.3 executando`pip install sparkmagic==0.2.3`
+* Para clusters v3.4, instale sparkmagic 0.2.3 executando `pip install sparkmagic==0.2.3`
 
-* Para clusters 3.5 e v3.6, instalar sparkmagic 0.11.2 executando`pip install sparkmagic==0.11.2`
+* Para clusters 3.5 e v3.6, instalar sparkmagic 0.11.2 executando `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Configurar a magia do Spark para ligar ao cluster do HDInsight Spark
 
@@ -150,7 +150,6 @@ Pode ser um número dos motivos por que razão poderá pretender instalar o Jupy
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

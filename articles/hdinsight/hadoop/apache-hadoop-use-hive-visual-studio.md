@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f374e846dd0f67627c3caaa5b29e8bfb258f470
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 410c2ee581a98a44e7c3c98e680686e5a1eae34e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Hive, utilizando as ferramentas do Data Lake para Visual Studio
 
@@ -43,7 +43,7 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
 
 * Ferramentas do HDInsight para Visual Studio ou o Azure Data Lake tools para Visual Studio. Consulte [começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
 
-## <a id="run"></a>Executar consultas do Hive com o Visual Studio
+## <a id="run"></a> Executar consultas do Hive com o Visual Studio
 
 1. Abra **Visual Studio** e selecione **novo** > **projeto** > **do Azure Data Lake** > **HIVE** > **aplicação do Hive**. Forneça um nome para este projeto.
 
@@ -75,7 +75,7 @@ Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consulta
 
    * `SELECT`: Selecione uma contagem de todas as linhas onde coluna `t4` contém o valor `[ERROR]`. Esta declaração devolve um valor `3` porque existem três linhas que contêm este valor.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo. Esta cláusula restringe a pesquisa para o ficheiro de sample.log que contém os dados.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo. Esta cláusula restringe a pesquisa para o ficheiro de sample.log que contém os dados.
 
 3. Na barra de ferramentas, selecione o **Cluster do HDInsight** que pretende utilizar para esta consulta. Selecione **submeter** para executar as instruções de como uma tarefa do Hive.
 

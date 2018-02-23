@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Introdução ao Azure Monitor
-O Azure Monitor é o serviço de plataforma que fornece uma única origem para a monitorização de recursos do Azure. Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas e registos provenientes de recursos no Azure. Pode trabalhar com estes dados utilizando o painel do portal do Monitor, [Cmdlets do PowerShell do Monitor](insights-powershell-samples.md), a [CLI de Várias Plataformas](insights-cli-samples.md)ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, explicaremos alguns dos principais componentes do Azure Monitor, utilizando o portal para demonstração.
+O Azure Monitor é o serviço de plataforma que fornece uma única origem para a monitorização de recursos do Azure. Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas e registos provenientes de recursos no Azure. Pode trabalhar com dados utilizando através do portal do Azure, [Cmdlets do PowerShell Monitor](insights-powershell-samples.md), [CLI de várias plataformas](insights-cli-samples.md), ou [as APIs REST da Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, explicaremos alguns dos principais componentes do Azure Monitor, utilizando o portal para demonstração.
 
 ## <a name="walkthrough"></a>Instruções
-1. No portal, navegue até **Mais serviços** e localize a opção **Monitor**. Clique no ícone de estrela para adicionar esta opção à sua lista de favoritos, para que esteja sempre facilmente acessível a partir da barra de navegação à esquerda.
+1. No portal, navegue para **todos os serviços** e localize o **Monitor** opção. Clique no ícone de estrela para adicionar esta opção à sua lista de favoritos, para que esteja sempre facilmente acessível a partir da barra de navegação à esquerda.
 
     ![Monitorizar na lista de serviços](./media/monitoring-get-started/monitor-more-services.png)
-2. Clique na opção **Monitor** para abrir o painel **Monitor**. Este painel reúne todas as suas definições e dados de monitorização numa vista consolidada. É aberto pela primeira vez para a secção **Registo de atividade**.
+2. Clique em de **Monitor** opção para abrir o **Monitor** página. Esta página reúne todas as suas monitorização definições e dados para uma vista consolidada. É aberto pela primeira vez para a secção **Registo de atividade**.
 
-    ![Navegação no painel Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
+    ![Monitor de navegação](./media/monitoring-get-started/monitor-blade-nav.png)
 
     O Azure Monitor tem três categorias básicas de dados de monitorização: **registo de atividade**, **métricas** e **registos de diagnóstico**.
 3. Clique em **Registo de atividade** para certificar-se de que a secção de registo de atividade é apresentada.
 
-    ![Painel Registo de Atividade](./media/monitoring-get-started/monitor-act-log-blade.png)
+    ![Registo de Atividades](./media/monitoring-get-started/monitor-act-log-blade.png)
 
     O [**registo de atividade**](monitoring-overview-activity-logs.md) descreve todas as operações executadas nos recursos da sua subscrição. Ao utilizar o Registo de Atividade, pode determinar “o quê, quem e quando” para qualquer operação de criação, atualização ou eliminação dos recursos da sua subscrição. Por exemplo, o Registo de Atividade informa-o quando uma aplicação Web tiver sido interrompida, e por quem. Os eventos do Registo de Atividade são armazenados na plataforma e ficam disponíveis para consulta durante 90 dias.
 
@@ -50,12 +50,12 @@ O Azure Monitor é o serviço de plataforma que fornece uma única origem para a
 6. Volte ao dashboard. Pode agora pode ver que a consulta (e o número de resultados) é apresentada no seu dashboard. Isto é útil se pretender ver rapidamente as ações de perfil de alta ocorridas recentemente na sua subscrição, por exemplo foi atribuída uma nova função ou uma VM foi eliminada.
 
     ![Registos de atividade afixados ao dashboard](./media/monitoring-get-started/monitor-act-log-db.png)
-7. Volte ao mosaico **Monitor** e clique na secção **Métricas**. Primeiro tem de selecionar um recurso de filtragem e selecionando utilizando as opções de lista pendente na parte superior do painel.
+7. Volte ao mosaico **Monitor** e clique na secção **Métricas**. Primeiro tem de selecionar um recurso de filtragem e selecionando utilizando as opções de lista pendente na parte superior da página.
 
     ![Filtrar recursos para métricas](./media/monitoring-get-started/monitor-met-filter.png)
 
     Todos os recursos do Azure emitem [**métricas**](monitoring-overview-metrics.md). Esta vista reúne todas as métricas num único painel no ecrã, para que possa compreender facilmente o desempenho dos recursos. Além disso, consulte a nossa marca [nova métrica charting experiência](https://aka.ms/azuremonitor/new-metrics-charts) ao clicar no **métricas (pré-visualização)** separador.
-8. Assim que tiver selecionado um recurso, todas as métricas disponíveis são apresentadas no lado esquerdo do painel. Pode criar um gráfico de várias métricas ao mesmo tempo, selecionando as métricas e modificando o tipo de gráfico e o intervalo de tempo. Também pode ver todos os alertas de métricas definidos neste recurso.
+8. Assim que tiver selecionado um recurso, todas as métricas disponíveis são apresentados no lado esquerdo da página. Pode criar um gráfico de várias métricas ao mesmo tempo, selecionando as métricas e modificando o tipo de gráfico e o intervalo de tempo. Também pode ver todos os alertas de métricas definidos neste recurso.
 
     ![Painel Métricas](./media/monitoring-get-started/monitor-metric-blade.png)
 
@@ -64,14 +64,14 @@ O Azure Monitor é o serviço de plataforma que fornece uma única origem para a
    >
    >
 9. Quando estiver satisfeito com o seu gráfico, pode utilizar o botão **Afixar** para afixá-lo ao dashboard.
-10. Volte ao painel **Monitor** e clique em **Registos de diagnóstico**.
+10. Volte ao **Monitor** e clique em **registos de diagnóstico**.
 
     ![Painel de registos de diagnóstico](./media/monitoring-get-started/monitor-diaglogs-blade.png)
 
     [**Registos de diagnóstico**](monitoring-overview-of-diagnostic-logs.md) e registos emitidos *por* um recurso que fornece dados sobre o funcionamento desse recurso. Por exemplo, os registos de Contadores de Regras de Grupo de Segurança de Rede e de Fluxo de Trabalho de Aplicação Lógica são ambos tipos de registos de diagnóstico. Estes registos podem ser armazenados numa conta de armazenamento, transmitidos em fluxo para um Hub de Eventos e/ou enviados para o [Log Analytics](../log-analytics/log-analytics-overview.md). O Log Analytics é o produto de informações operacionais da Microsoft para pesquisa e alertas avançados.
 
     No portal, pode visualizar e filtrar uma lista de todos os recursos na sua subscrição para identificar se têm registos de diagnóstico ativados.
-11. Clique num recurso no painel de registos de diagnóstico. Se os registos de diagnóstico estiverem a ser armazenados numa conta de armazenamento, irá ver uma lista de registos por hora que pode transferir diretamente.
+11. Clique num recurso na página de registos de diagnóstico. Se os registos de diagnóstico estiverem a ser armazenados numa conta de armazenamento, irá ver uma lista de registos por hora que pode transferir diretamente.
 
     ![Registos de diagnóstico para um recurso](./media/monitoring-get-started/monitor-diaglogs-detail.png)
 
@@ -80,7 +80,7 @@ O Azure Monitor é o serviço de plataforma que fornece uma única origem para a
     ![Ativar registos de diagnóstico](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     Se tiver configurado registos de diagnóstico para o Log Analytics, então pode procurá-los na secção **Pesquisa de Registos** do portal.
-12. Navegue para a secção **Alertas** do painel Monitor.
+12. Navegue para o **alertas** secção da página Monitor.
 
     ![painel de alertas para o público](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
@@ -100,5 +100,5 @@ Ao seguir estes passos e ao afixar todos os mosaicos relevantes num dashboard, p
 
 ![Dashboard Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Leia a [Descrição geral do Azure Monitor](monitoring-overview.md)

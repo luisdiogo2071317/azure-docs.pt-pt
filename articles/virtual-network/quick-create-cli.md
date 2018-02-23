@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Criar uma rede virtual com a CLI do Azure
 
@@ -70,7 +70,7 @@ Outra parte das informações devolvido é o **addressPrefix** de *10.0.0.0/24* 
 
 Uma rede virtual permite que vários tipos de recursos do Azure em privado comuniquem entre si. Um tipo de recurso que pode implementar numa rede virtual é uma máquina virtual. Crie duas máquinas virtuais na rede virtual para que possa validar e compreender como funciona a comunicação entre as máquinas virtuais numa rede virtual num passo posterior.
 
-Criar uma máquina virtual com o [az vm criar](/cli/azure/vm#az_vm_create) comando. O exemplo seguinte cria uma máquina virtual denominada *myVm1*. Se as chaves SSH ainda não existir numa localização chaves predefinido, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O `--no-wait` opção cria a máquina virtual em segundo plano, para poder continuar para o passo seguinte.
+Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma máquina virtual denominada *myVm1*. Se as chaves SSH ainda não existir numa localização chaves predefinido, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O `--no-wait` opção cria a máquina virtual em segundo plano, para poder continuar para o passo seguinte.
 
 ```azurecli-interactive 
 az vm create \
@@ -81,7 +81,7 @@ az vm create \
   --no-wait
 ```
 
-Azure cria automaticamente a máquina virtual no *predefinido* sub-rede do *myVirtualNetwork* virtual de rede, porque a rede virtual existe no grupo de recursos e a nenhuma rede virtual ou sub-rede foi especificado no comando. Azure DHCP atribuído automaticamente 10.0.0.4 à máquina virtual durante a criação, porque é o primeiro endereço disponível no *predefinido* sub-rede. A localização em que uma máquina virtual é criada na tem de ser a mesma localização que da rede virtual existe. A máquina virtual não é necessário para estar no mesmo grupo de recursos que a máquina virtual, embora seja neste artigo.
+Azure cria automaticamente a máquina virtual no *predefinido* sub-rede do *myVirtualNetwork* virtual de rede, porque a rede virtual existe no grupo de recursos e a nenhuma rede virtual ou sub-rede foi especificado no comando. Azure DHCP atribuído automaticamente 10.0.0.4 à máquina virtual durante a criação, porque é o primeiro endereço disponível no *predefinido* sub-rede. A localização em que uma máquina virtual é criada na tem de ser a mesma localização que da rede virtual existe. A máquina virtual não é necessário para estar no mesmo grupo de recursos de rede virtual, embora seja neste artigo.
 
 Crie uma segunda máquina virtual. Por predefinição, o Azure cria também esta máquina virtual no *predefinido* sub-rede.
 

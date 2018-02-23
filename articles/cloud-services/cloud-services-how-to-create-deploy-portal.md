@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implementar um serviço em nuvem
 O portal do Azure fornece duas formas para criar e implementar um serviço em nuvem: *criação rápida* e *criação personalizada*.
@@ -59,13 +59,13 @@ Para criar um serviço em nuvem com as implementações de funções da web ou f
 
 ## <a name="create-and-deploy"></a>Criar e implementar
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **novo > computação**e, em seguida, desloque para baixo para e clique em **serviço em nuvem**.
+2. Clique em **crie um recurso > computação**e, em seguida, desloque para baixo para e clique em **serviço em nuvem**.
 
     ![Publicar o seu serviço em nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. Na nova **serviço em nuvem** painel, introduza um valor para o **nome DNS**.
 4. Crie um novo **grupo de recursos** ou selecione um existente.
 5. Selecione uma **Localização**.
-6. Clique em **pacote**. Esta ação irá abrir o **carregar um pacote** painel. Preencha os campos obrigatórios. Se qualquer uma das suas funções contenham uma única instância, certifique-se **implementar mesmo que uma ou mais funções contenham uma única instância** está selecionada.
+6. Clique em **pacote**. Esta ação abre o **carregar um pacote** painel. Preencha os campos obrigatórios. Se qualquer uma das suas funções contenham uma única instância, certifique-se **implementar mesmo que uma ou mais funções contenham uma única instância** está selecionada.
 7. Certifique-se de que **iniciar a implementação** está selecionada.
 8. Clique em **OK** que irá fechar o **carregar um pacote** painel.
 9. Se não tiver quaisquer certificados para adicionar, clique em **criar**.
@@ -91,7 +91,7 @@ Se o pacote de implementação foi [configurado para utilizar certificados](clou
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Configuração geral do seu serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerir o serviço de nuvem](cloud-services-how-to-manage-portal.md).

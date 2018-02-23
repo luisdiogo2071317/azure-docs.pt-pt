@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -42,8 +42,8 @@ Quando escrever funções do orchestrator no linguagens de scripts (por exemplo,
 }
 ```
 
-* `orchestration`é o nome da orquestração. Este é o valor que os clientes devem utilizar quando pretendem inicie novas instâncias desta função do orchestrator. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
-* `version`é uma etiqueta de versão da orquestração. Clientes que iniciar uma nova instância de uma orquestração tem de incluir a etiqueta da versão correspondente. Esta propriedade é opcional. Se não for especificado, é utilizada a cadeia vazia. Para obter mais informações sobre o controlo de versões, consulte [Versioning](durable-functions-versioning.md).
+* `orchestration` é o nome da orquestração. Este é o valor que os clientes devem utilizar quando pretendem inicie novas instâncias desta função do orchestrator. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
+* `version` é uma etiqueta de versão da orquestração. Clientes que iniciar uma nova instância de uma orquestração tem de incluir a etiqueta da versão correspondente. Esta propriedade é opcional. Se não for especificado, é utilizada a cadeia vazia. Para obter mais informações sobre o controlo de versões, consulte [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Definir valores para `orchestration` ou `version` propriedades não é recomendado neste momento.
@@ -116,8 +116,8 @@ Se estiver a utilizar o portal do Azure para desenvolvimento, o acionador de ati
 }
 ```
 
-* `activity`é o nome da atividade. Este é o valor que as funções do orchestrator utilizarem para invocar esta função de atividade. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
-* `version`é uma etiqueta de versão da atividade. As funções do Orchestrator que invocam a atividade tem de incluir a etiqueta da versão correspondente. Esta propriedade é opcional. Se não for especificado, é utilizada a cadeia vazia. Para obter mais informações, consulte [Versioning](durable-functions-versioning.md).
+* `activity` é o nome da atividade. Este é o valor que as funções do orchestrator utilizarem para invocar esta função de atividade. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
+* `version` é uma etiqueta de versão da atividade. As funções do Orchestrator que invocam a atividade tem de incluir a etiqueta da versão correspondente. Esta propriedade é opcional. Se não for especificado, é utilizada a cadeia vazia. Para obter mais informações, consulte [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Definir valores para `activity` ou `version` propriedades não é recomendado neste momento.
@@ -172,7 +172,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 ## <a name="orchestration-client"></a>Cliente de orquestração
 
-O cliente de orquestração de enlace permite-lhe escrever funções que interagem com as funções do orchestrator. Por exemplo, pode agir em instâncias de orquestração followng formas:
+O cliente de orquestração de enlace permite-lhe escrever funções que interagem com as funções do orchestrator. Por exemplo, pode agir em instâncias de orquestração das seguintes formas:
 * Iniciá-los.
 * Consulta o respetivo estado.
 * Terminá-los.
@@ -192,8 +192,8 @@ Se estiver a utilizar linguagens de scripts (por exemplo, *.csx* ficheiros) para
 }
 ```
 
-* `taskHub`-Utilizar em cenários em que várias aplicações de função partilham a mesma conta de armazenamento, mas tem de ser isolados uns dos outros. Se não for especificado, o valor predefinido de `host.json` é utilizado. Este valor tem de corresponder ao valor utilizado pelas funções do orchestrator de destino.
-* `connectionName`-O nome de uma definição de aplicação que contém uma cadeia de ligação da conta de armazenamento. A conta de armazenamento representada por esta cadeia de ligação tem de ser a mesma utilizado pelas funções do orchestrator de destino. Se não for especificado, a cadeia de ligação de conta de armazenamento predefinido para a aplicação de função é utilizada.
+* `taskHub` -Utilizar em cenários em que várias aplicações de função partilham a mesma conta de armazenamento, mas tem de ser isolados uns dos outros. Se não for especificado, o valor predefinido de `host.json` é utilizado. Este valor tem de corresponder ao valor utilizado pelas funções do orchestrator de destino.
+* `connectionName` -O nome de uma definição de aplicação que contém uma cadeia de ligação da conta de armazenamento. A conta de armazenamento representada por esta cadeia de ligação tem de ser a mesma utilizado pelas funções do orchestrator de destino. Se não for especificado, a cadeia de ligação de conta de armazenamento predefinido para a aplicação de função é utilizada.
 
 > [!NOTE]
 > Na maioria dos casos, recomendamos que omitir estas propriedades e dependem o comportamento predefinido.

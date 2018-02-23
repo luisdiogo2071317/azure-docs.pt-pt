@@ -4,7 +4,7 @@ description: "Este artigo explica como configurar um grupo de disponibilidade do
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade Always On em máquinas virtuais do Azure em regiões diferentes
 
@@ -165,9 +165,9 @@ Depois de testar a conectividade, regresse ao seu centro de dados principal a r�
 
 | Localização | Instância do servidor | Função | Modo de disponibilidade | Modo de ativação pós-falha
 | ----- | ----- | ----- | ----- | -----
-| Centro de dados primária | SQL SERVER-1 | Primária | Síncrona | Automática
-| Centro de dados primária | 2 DO SQL SERVER | Secundária | Síncrona | Automática
-| Centro de dados secundária ou remoto | SQL SERVER-3 | Secundária | Assíncrona | Manual
+| Centro de dados primária | SQL-1 | Primária | Síncrona | Automático
+| Centro de dados primária | SQL-2 | Secundária | Síncrona | Automático
+| Centro de dados secundária ou remoto | SQL-3 | Secundária | Assíncrona | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Obter mais informações sobre a ativação de pós-falha manual planeada e forçada
@@ -177,9 +177,9 @@ Para obter mais informações, consulte os seguintes tópicos:
 - [Efetuar uma ativação pós-falha Manual planeada de um grupo de disponibilidade (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [Efetuar uma ativação pós-falha Manual forçada de um grupo de disponibilidade (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Ligações adicionais
+## <a name="additional-links"></a>Ligações Adicionais
 
 * [Always On nos grupos de disponibilidade](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Máquinas virtuais do Azure](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Máquinas Virtuais do Azure](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Balanceadores de carga do Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Conjuntos de disponibilidade do Azure](../manage-availability.md)

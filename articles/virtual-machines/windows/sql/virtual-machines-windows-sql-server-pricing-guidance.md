@@ -4,7 +4,7 @@ description: "Fornece as melhores práticas para escolher o direita máquina do 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Preço orientação para as VMs do SQL do Azure
 
@@ -46,11 +46,11 @@ Para criar uma VM do SQL Server 2017 do Azure com uma destas imagens, consulte a
 
 Se tiver uma carga de trabalho de produção não lightweight, utilize uma das seguintes edições do SQL Server:
 
-| Edição do SQL Server | Carga de trabalho |
+| SQL Server Edition | Carga de trabalho |
 |-----|-----|
 | Web | Pequeno web sites |
 | Standard | Pequenas e médias cargas de trabalho |
-| Empresa | Grandes ou fundamentais cargas de trabalho|
+| Enterprise | Grandes ou fundamentais cargas de trabalho|
 
 Tem duas opções pagar para licenciamento do SQL Server para estas edições: *pague por utilização* ou *traga a sua própria licença (BYOL)*.
 
@@ -112,7 +112,7 @@ Para criar uma VM do SQL Server 2016 do Azure com uma destas imagens bring-your-
 
 Para evitar custos desnecessários, escolha um tamanho ideal da máquina virtual e considere encerramentos intermitentes para cargas de trabalho não contínuos.
 
-### <a id="machinesize"></a>Tamanho corretamente a VM
+### <a id="machinesize"></a> Tamanho corretamente a VM
 
 O custo de licenciamento do SQL Server está diretamente relacionada com o número de núcleos. Escolha um tamanho VM que corresponda às suas necessidades esperadas para a CPU, memória, armazenamento e largura de banda de e/s. Para obter uma lista completa de opções de tamanho da máquina, consulte [tamanhos de Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [tamanhos de VM com Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -121,7 +121,7 @@ Existem novos tamanhos de máquina que funcionam bem com determinados tipos de c
 | Tamanho da VM | vCPUs | Memória | Número máximo discos | Débito de e/s máx. | Custos de licenciamento do SQL Server | Custos totais (computação + licenciamento) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51,200 IOPS ou 768 MB/s | | |
-| **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51,200 IOPS ou 768 MB/s | 75% inferior | % de 57 inferior |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51,200 IOPS ou 768 MB/s | 75% inferior | % de 57 inferior |
 
 > [!IMPORTANT]
 > Este é um exemplo de ponto no tempo. As especificações mais recentes, consulte os artigos de tamanhos de máquina e o página de preços do Azure [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
@@ -143,7 +143,7 @@ Para outros fluxos de trabalho, considere automaticamente encerrar e reiniciar a
 > [!IMPORTANT]
 > Encerrar e Desalocação da VM são a única forma de evitar custos. Basta parar ou utilizar as opções de energia para encerre a VM ainda incorreu custos de utilização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para o Azure geral preços orientações, consulte o artigo [evitar custos inesperados com faturação do Azure e custos de gestão](../../../billing/billing-getting-started.md).
 

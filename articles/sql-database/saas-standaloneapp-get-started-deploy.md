@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação de inquilino único autónoma que utiliza a SQL Database do Azure
 
@@ -47,7 +47,7 @@ Tutoriais adicionais serão lançadas. Irá permitir-lhe explorar uma gama de ce
 Implemente a aplicação para os inquilinos fornecidos três:
 
 1. Clique em cada blue **implementar no Azure** botão para abrir o modelo de implementação no [portal do Azure](https://portal.azure.com). Cada modelo requer dois valores de parâmetro; um nome para um novo grupo de recursos e um nome de utilizador que distingue esta implementação de outras implementações da aplicação. O passo seguinte fornece detalhes para definir estes valores.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Contoso Concert Hall**
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
@@ -100,9 +100,7 @@ Num ambiente de produção, normalmente, cria um registo CNAME DNS para [ *apont
 Vamos ver alguns dos recursos que foram implementados:
 
 1. No [portal do Azure](http://portal.azure.com), navegue para a lista de grupos de recursos.
-2. Consulte o **wingtip-sa-catálogo -&lt;utilizador&gt;**  grupo de recursos.
-    - Neste grupo de recursos, o **catálogo-sa -&lt;utilizador&gt;**  servidor esteja implementado. O servidor contém o **tenantcatalog** base de dados.
-    - Também deverá ver os grupos de recursos de três inquilino.
+2. Deverá ver os grupos de recursos de três inquilino.
 3. Abra o **wingtip-sa-fabrikam -&lt;utilizador&gt;**  grupo de recursos, que contém os recursos para a implementação da Fabrikam Jazz Club.  O **fabrikamjazzclub -&lt;utilizador&gt;**  servidor contém o **fabrikamjazzclub** base de dados.
 
 Cada base de dados do inquilino é um DTU 50 *autónomo* base de dados.
@@ -131,6 +129,6 @@ Neste tutorial, ficou a saber:
 > * Sobre os servidores e bases de dados que constituem a aplicação.
 > * Como eliminar os recursos de exemplo para parar a faturação relacionada.
 
-Em seguida, tente o [aprovisionar e catálogo](saas-standaloneapp-provision-and-catalog.md) tutorial.
+Em seguida, tente o [aprovisionar e catálogo](saas-standaloneapp-provision-and-catalog.md) tutorial em que será a explorar a utilização de um catálogo de inquilinos que permite uma gama de cenários de inquilino em vários locais, tais como a análise de gestão e de inquilino do esquema.
  
 

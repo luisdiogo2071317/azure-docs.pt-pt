@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 89eb2e567e06660efa5feddce1db0fcdb47792f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
@@ -39,7 +39,7 @@ Nesta secção, utilize IU da fábrica de dados para criar um pipeline do Data F
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Primeiro passo é criar uma fábrica de dados utilizando o portal do Azure. 
 
-1. Iniciar **Microsoft Edge** ou **Google Chrome** web browser. Atualmente, a IU da fábrica de dados é suportada apenas em browsers de web do Microsoft Edge e o Google Chrome.
+1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 2. Navegue para o [portal do Azure](https://portal.azure.com). 
 3. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
    
@@ -122,7 +122,7 @@ Nesta secção, acionar uma execução de pipeline e, em seguida, monitorizá-lo
 1. Para acionar um pipeline executar, clique em **acionador** na barra de ferramentas e clique em **acionar agora**. 
 
     ![Acionar agora](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. No **Pipeline executar** janela, selecione **concluir**. 
+2. Na janela **Executar Pipeline**, selecione **Concluir**. 
 3. Mude para o separador **Monitorizar**, no lado esquerdo. Consulte o pipeline de execução e o respetivo estado, juntamente com outras informações (por exemplo, o tempo de execução iniciar). Para atualizar a vista, clique em **Atualizar**.
 
     ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
@@ -196,7 +196,7 @@ Crie um serviço ligado para ligar a base de dados SQL do Azure que aloja o cat�
 
     ```json
     {
-        "name": "AzureSqlDbLinkedService",
+        "name": "AzureSqlDatabaseLinkedService",
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
@@ -235,7 +235,7 @@ Neste passo, cria um pipeline com uma atividade de procedimento armazenado. A at
                     "description":"Runs an SSIS package",
                     "type": "SqlServerStoredProcedure",
                     "linkedServiceName": {
-                        "referenceName": "AzureSqlDbLinkedService",
+                        "referenceName": "AzureSqlDatabaseLinkedService",
                         "type": "LinkedServiceReference"
                     },
                     "typeProperties": {

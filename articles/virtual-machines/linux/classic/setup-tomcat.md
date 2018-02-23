@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurar Tomcat7 numa máquina virtual Linux com o Azure
 Apache Tomcat (ou simplesmente Tomcat, também anteriormente denominadas Jakarta Tomcat) é um servidor de web de código aberto e contentor de servlet desenvolvidas por Foundation de Software do Apache (ASF). Tomcat implementa a Servlet Java e as especificações de páginas JavaServer (JSP) de Sun Microsystems. Tomcat disponibiliza um ambiente de servidor de web de Java HTTP puro na qual executar o código de Java. A configuração mais simples, Tomcat é executado num processo de sistema operativo única. Este processo é executada uma máquina virtual de Java (JVM). Todos os pedidos HTTP a partir de um browser para Tomcat é processado como um thread separado no processo de Tomcat.  
@@ -64,7 +64,7 @@ Siga estes passos para gerar a chave de autenticação SSH.
 6. Clique em **Guardar chave privada**e guarde-o num ficheiro denominado privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Passo 2: Criar a imagem no portal do Azure
-1. No [portal](https://portal.azure.com/), clique em **novo** na barra de tarefas para criar uma imagem. Em seguida, selecione a imagem do Linux com base nas suas necessidades. O exemplo seguinte utiliza a imagem de Ubuntu 14.04.
+1. No [portal](https://portal.azure.com/), clique em **crie um recurso** na barra de tarefas para criar uma imagem. Em seguida, selecione a imagem de Linux com base nas suas necessidades. O exemplo seguinte utiliza a imagem de Ubuntu 14.04.
 ![Captura de ecrã do portal que mostra o botão novo][3]
 
 2. Para **nome de anfitrião**, especifique o nome para o URL que clientes de Internet e irão utilizar para aceder a esta máquina virtual. Defina a última parte do nome de DNS, por exemplo, tomcatdemo. Azure irá então gerar o URL como tomcatdemo.cloudapp.net.  

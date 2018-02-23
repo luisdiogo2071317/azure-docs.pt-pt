@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Ligar às origens de dados no local a partir das logic apps com o gateway de dados no local
 
@@ -35,8 +35,8 @@ O gateway suporta ligações para estas origens de dados no local:
 *   MySQL
 *   Base de dados Oracle
 *   PostgreSQL
-*   Servidor de aplicações SAP 
-*   Servidor de mensagens SAP
+*   SAP Application Server 
+*   SAP Message Server
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -63,21 +63,19 @@ Para obter informações sobre como utilizar o gateway com outros serviços, con
   > [!NOTE]
   > A conta de serviço do Windows é diferente da conta utilizada para ligar aos dados no local origens e do Azure conta escolar ou profissional utilizada para iniciar sessão em serviços em nuvem.
 
-## <a name="set-up-the-data-gateway-connection"></a>Configurar a ligação de gateway de dados
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Instalar o gateway de dados no local
+## <a name="install-the-on-premises-data-gateway"></a>Instalar o gateway de dados no local
 
 Se ainda não o fez, siga o [passos para instalar o gateway de dados no local](logic-apps-gateway-install.md). Antes de continuar com os outros passos, certifique-se de que instalou o gateway de dados num computador local.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Criar um recurso do Azure para o gateway de dados no local
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Criar um recurso do Azure para o gateway de dados no local
 
 Depois de instalar o gateway num computador local, tem de criar o gateway de dados como um recurso no Azure. Este passo também associa o seu recurso de gateway com a sua subscrição do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure"). Certifique-se ao utilizar o mesmo Azure trabalho ou escola endereço de correio eletrónico utilizado para instalar o gateway.
 
-2. No menu principal do Azure, escolha **novo** > **integração empresarial com** > **gateway de dados no local** conforme mostrado aqui:
+2. No menu principal do Azure, escolha **crie um recurso** > **integração empresarial com** > **gateway de dados no local**:
 
    ![Localizar "gateway de dados no local"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -103,7 +101,7 @@ Depois de instalar o gateway num computador local, tem de criar o gateway de dad
     * **Nome de instalação**: se a instalação do gateway não estiver selecionada, selecione o gateway instalado anteriormente. 
 
     Para adicionar o recurso de gateway ao dashboard do Azure, escolha **afixar ao dashboard**. 
-    Quando tiver terminado, escolha **criar**.
+    Quando tiver terminado, escolha **Create** (Criar).
 
     Por exemplo:
 
@@ -115,7 +113,7 @@ Depois de instalar o gateway num computador local, tem de criar o gateway de dad
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Ligar a sua aplicação lógica para o gateway de dados no local
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Ligar a sua aplicação lógica para o gateway de dados no local
 
 Agora que já criou o seu recurso de gateway de dados e associado à sua subscrição do Azure com esse recurso, crie uma ligação entre a sua aplicação lógica e o gateway de dados.
 
@@ -126,7 +124,7 @@ Agora que já criou o seu recurso de gateway de dados e associado à sua subscri
 
 2. Adicione um conector que suporte ligações no local, como o SQL Server.
 
-3. Seguir ordem apresentada, selecione **ligar através do gateway de dados no local**, forneça um nome de ligação exclusiva e as informações necessárias e selecione o recurso de gateway de dados que pretende utilizar. Quando tiver terminado, escolha **criar**.
+3. Seguir ordem apresentada, selecione **ligar através do gateway de dados no local**, forneça um nome de ligação exclusiva e as informações necessárias e selecione o recurso de gateway de dados que pretende utilizar. Quando tiver terminado, escolha **Create** (Criar).
 
    > [!TIP]
    > Um nome de ligação exclusiva ajuda-o a identificar facilmente essa ligação mais tarde, especialmente quando cria várias ligações. Se aplicável, incluem também o domínio qualificado para o seu nome de utilizador. 
@@ -157,6 +155,7 @@ Depois de criar uma ligação de gateway para a sua aplicação lógica, pode qu
    > Se as atualizações não entre em vigor, tente [parando e reiniciando o serviço Windows do gateway](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Comutador ou eliminar o recurso de gateway de dados no local
 
 Para criar um recurso de gateway diferentes, associar o seu gateway um recurso diferente ou remova o recurso de gateway, pode eliminar o recurso de gateway sem afetar a instalação do gateway. 
@@ -166,11 +165,12 @@ Para criar um recurso de gateway diferentes, associar o seu gateway um recurso d
 3. Escolha **Gateway de dados no local**e na barra de ferramentas recursos, escolha **eliminar**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Proteger as suas aplicações lógicas](./logic-apps-securing-a-logic-app.md)
 * [Exemplos e cenários para aplicações lógicas comuns](./logic-apps-examples-and-scenarios.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar as recomendações de desempenho
 
@@ -32,7 +32,7 @@ Para ver e aplicar as recomendações de desempenho, terá do correto [controlo 
 Utilize os seguintes passos para obter recomendações de desempenho no portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Aceda a **mais serviços** > **bases de dados SQL**e selecione a base de dados.
+2. Aceda a **todos os serviços** > **bases de dados SQL**e selecione a base de dados.
 3. Navegue para **recomendação de desempenho** para ver as recomendações disponíveis para a base de dados selecionada.
 
 Recomendações de desempenho são apresentadas na tabela semelhante ao apresentado na figura seguinte:

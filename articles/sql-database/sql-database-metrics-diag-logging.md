@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnóstico 
 Base de dados SQL do Azure pode emitir métricas e diagnóstico registos para a monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -180,7 +180,7 @@ Monitorização de uma frota de base de dados SQL é simple com a análise de re
 
 ### <a name="create-a-log-analytics-resource"></a>Crie um recurso de análise de registos
 
-1. Selecione **novo** no menu à esquerda.
+1. Selecione **crie um recurso** no menu à esquerda.
 
 2. Selecione **monitorização + gestão**.
 
@@ -266,7 +266,7 @@ Saiba como [transferir os registos de métricas e diagnóstico do armazenamento]
 |**Recurso**|**Métricas**|
 |---|---|
 |Base de Dados|Percentagem DTU, DTU utilizado, o limite DTU, percentagem de CPU, percentagem de leitura de dados físicos, escrever o registo de percentagem, Successful/falhado/bloqueado por ligações de firewall, percentagem de sessões, percentagem workers, armazenamento, percentagem de armazenamento, a percentagem de armazenamento XTP, e impasses |
-|Agrupamento elástico|percentagem de eDTU, eDTU utilizado, o limite de eDTU, percentagem de CPU, percentagem de leitura de dados físicos, registo escrever percentagem, percentagem de sessões, percentagem workers, armazenamento, a percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento XTP |
+|Conjunto elástico|percentagem de eDTU, eDTU utilizado, o limite de eDTU, percentagem de CPU, percentagem de leitura de dados físicos, registo escrever percentagem, percentagem de sessões, percentagem workers, armazenamento, a percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento XTP |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução do arquivo de consultas
@@ -277,7 +277,7 @@ Saiba como [transferir os registos de métricas e diagnóstico do armazenamento]
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
 |Tipo|Sempre: AzureDiagnostics|
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL SERVER|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
 |Recurso|Nome do recurso.|
@@ -328,7 +328,7 @@ Saiba mais sobre [dados de estatísticas do arquivo de consultas runtime](https:
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
 |Tipo|Sempre: AzureDiagnostics|
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL SERVER|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics|
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent|
 |Recurso|Nome do recurso|
@@ -366,7 +366,7 @@ Saiba mais sobre [dados de estatísticas de espera de arquivo de consultas](http
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
 |Tipo|Sempre: AzureDiagnostics|
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL SERVER|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: erros|
 |OperationName|Nome da operação. Sempre: ErrorEvent|
 |Recurso|Nome do recurso|
@@ -395,7 +395,7 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/en
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
 |Tipo|Sempre: AzureDiagnostics|
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL SERVER|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics|
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent|
 |Recurso|Nome do recurso|
@@ -424,7 +424,7 @@ Saiba mais sobre [base de dados de estatísticas de espera](https://docs.microso
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
 |Tipo|Sempre: AzureDiagnostics|
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL SERVER|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: tempos limite|
 |OperationName|Nome da operação. Sempre: TimeoutEvent|
 |Recurso|Nome do recurso|
@@ -447,7 +447,7 @@ Saiba mais sobre [base de dados de estatísticas de espera](https://docs.microso
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
 |Tipo|Sempre: AzureDiagnostics|
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL SERVER|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: blocos|
 |OperationName|Nome da operação. Sempre: BlockEvent|
 |Recurso|Nome do recurso|
@@ -466,7 +466,7 @@ Saiba mais sobre [base de dados de estatísticas de espera](https://docs.microso
 ### <a name="intelligent-insights-dataset"></a>Conjunto de dados de Insights inteligente
 Saiba mais sobre o [formato de registo Insights inteligente](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como ativar o registo e compreender as categorias de métricas e registo suportadas pelos vários serviços do Azure, leia:
 

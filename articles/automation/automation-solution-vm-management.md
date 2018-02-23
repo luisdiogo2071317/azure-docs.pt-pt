@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>VMs de início/paragem durante a solução de off-hours (pré-visualização) na automatização do Azure
 
@@ -75,7 +75,7 @@ Todos os runbooks principais incluem o *WhatIf* parâmetro. Quando definido como
 |AutoStop_Disable | nenhum | Desativa AutoStop alertas e a agenda predefinida.| 
 |AutoStop_StopVM_Child | WebHookData | Chamado apenas a partir do runbook principal. Regras de alerta de chamar este runbook para parar a VM.|  
 |Bootstrap_Main | nenhum | Utilizado uma vez para definir configurações de arranque do sistema, tais como webhookURI, que normalmente não estão acessíveis a partir do Azure Resource Manager. Este runbook é automaticamente removido após a implementação com êxito.|  
-|ScheduledStartStop_Child | VMName <br> Ação: Parar ou iniciar <br> resourceGroupName | Chamado apenas a partir do runbook principal. Executa parar ou iniciar de paragem da agendada.|  
+|ScheduledStartStop_Child | VMName <br> Ação: Parar ou iniciar <br> ResourceGroupName | Chamado apenas a partir do runbook principal. Executa parar ou iniciar de paragem da agendada.|  
 |ScheduledStartStop_Parent | Ação: Parar ou iniciar <br> WhatIf: VERDADEIRO ou FALSO | Este procedimento afeta todas as VMs na subscrição. Editar o **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** a executar apenas nestes grupos de recursos de destino. Também pode excluir VMs específicas atualizando o **External_ExcludeVMNames** variável. *WhatIf* comporta-se os mesmos que outros runbooks.|  
 |SequencedStartStop_Parent | Ação: Parar ou iniciar <br> WhatIf: VERDADEIRO ou FALSO | Criar etiquetas com o nome **SequenceStart** e **SequenceStop** em cada VM para o qual pretende que a atividade iniciar/parar de sequência. O valor da etiqueta deve ser um número inteiro positivo (1, 2, 3) que corresponde à ordem na qual pretende iniciar ou parar. *WhatIf* comporta-se os mesmos que outros runbooks. <br> **Tenha em atenção**: VMs tem de ser em grupos de recursos definidos como External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Têm de ter as etiquetas adequadas para ações entre em vigor.|
 
@@ -83,7 +83,7 @@ Todos os runbooks principais incluem o *WhatIf* parâmetro. Quando definido como
 
 A tabela seguinte lista as variáveis criadas na sua conta de automatização.  Só deve modificar variáveis de prefixo **externo**. Modificar variáveis de prefixo **interno** faz com que os efeitos indesejáveis.  
 
-|**Variável** | **Descrição**|
+|**Variable** | **Descrição**|
 ---------|------------|
 |External_AutoStop_Condition | O operador condicional necessário para configurar a condição antes de acionar um alerta. Os valores aceitáveis são **GreaterThan**, **GreaterThanOrEqual**, **LessThan**, e **LessThanOrEqual**.|  
 |External_AutoStop_Description | O alerta para parar a VM se a percentagem de CPU exceder o limiar.|  
@@ -115,12 +115,12 @@ A tabela seguinte lista cada as agendas predefinidas criadas na sua conta de aut
 
 Não deve ativar todas as agendas, porque pode criar ações de agenda sobrepostos. É melhor determinar quais as otimizações de que pretende executar e modificar em conformidade.  Ver os cenários de exemplo na secção Descrição geral para obter explicações mais.   
 
-|**Nome da agenda** | **Frequência** | **Descrição**|
+|**nome da agenda** | **Frequência** | **Descrição**|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Cada 8 horas | Executa o runbook de AutoStop_CreateAlert_Parent a cada 8 horas, por sua vez interrompe baseados em VM valores existentes na External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure.  Em alternativa, pode especificar uma lista separada por vírgulas de VMs utilizando o parâmetro VMList.|  
 |Scheduled_StopVM | Utilizador definido, diariamente | Executa o runbook Scheduled_Parent com um parâmetro de *parar* diariamente à hora especificada.  Para automaticamente todas as VMs que cumpram as regras definidas pelo variáveis de recurso. Deve ativar o agendamento relacionado, **agendada-StartVM**.|  
 |Scheduled_StartVM | Utilizador definido, diariamente | Executa o runbook Scheduled_Parent com um parâmetro de *iniciar* diariamente à hora especificada.  Inicia automaticamente todas as VMs que cumpram as regras definidas pelas variáveis adequadas.  Deve ativar o agendamento relacionado, **agendada StopVM**.|
-|StopVM sequenciado | 1:00:00 (UTC), cada sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de *parar* cada sexta-feira no momento especificado.  Sequencialmente (ascendente) deixa de todas as VMs com uma etiqueta de **SequenceStop** definidos pelas variáveis adequadas.  Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta.  Deve ativar o agendamento relacionado, **Sequenced-StartVM**.|
+|Sequenced-StopVM | 1:00:00 (UTC), cada sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de *parar* cada sexta-feira no momento especificado.  Sequencialmente (ascendente) deixa de todas as VMs com uma etiqueta de **SequenceStop** definidos pelas variáveis adequadas.  Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta.  Deve ativar o agendamento relacionado, **Sequenced-StartVM**.|
 |Sequenciado-StartVM | 1:00 PM (UTC), cada segunda-feira | Executa o runbook Sequenced_Parent com um parâmetro de *iniciar* cada segunda-feira no momento especificado. Sequencialmente (descendente) inicia todas as VMs com uma etiqueta de **SequenceStart** definidos pelas variáveis adequadas.  Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta.  Deve ativar o agendamento relacionado, **Sequenced StopVM**.|
 
 <br>
@@ -129,7 +129,7 @@ Não deve ativar todas as agendas, porque pode criar ações de agenda sobrepost
 
 Execute os seguintes passos para adicionar as VMs de início/paragem durante a solução de off-hours à sua conta de automatização e, em seguida, configure as variáveis para personalizar a solução.
 
-1. No portal do Azure, clique em **Novo**.<br> ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. No portal do Azure, clique em **Criar um recurso**.<br> ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. No painel de Marketplace, escreva uma palavra-chave como **iniciar** ou **iniciar/parar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Em alternativa, pode escrever um ou mais palavras-chave do nome completo da solução e, em seguida, prima Enter.  Selecione **VMs de início/paragem durante off-hours [pré-visualização]** de resultados da pesquisa.  
 3. No **VMs de início/paragem durante off-hours [pré-visualização]** painel para a solução selecionada, reveja as informações de resumo e, em seguida, clique em **criar**.  
 4. O **Adicionar solução** painel aparece. Lhe for pedido para configurar a solução antes de importá-lo na sua subscrição de automatização.<br><br> ![Painel Adicionar Solução de Gestão de VMs](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
@@ -296,8 +296,8 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 Consulta | Descrição|
 ----------|----------|
-Localizar a tarefa de runbook ScheduledStartStop_Parent tiver concluído com êxito | Procurar categoria = = "JobLogs" &#124; onde (RunbookName_s = = "ScheduledStartStop_Parent") &#124; onde (ResultType = = "Concluída") &#124; resumir AggregatedValue = existente pelo ResultType, bin (TimeGenerated, 1h) &#124; Ordenar por TimeGenerated desc|
-Localizar a tarefa de runbook SequencedStartStop_Parent tiver concluído com êxito | Procurar categoria = = "JobLogs" &#124; onde (RunbookName_s = = "SequencedStartStop_Parent") &#124; onde (ResultType = = "Concluída") &#124; resumir AggregatedValue = existente pelo ResultType, bin (TimeGenerated, 1h) &#124; Ordenar por TimeGenerated desc
+Localizar a tarefa de runbook ScheduledStartStop_Parent tiver concluído com êxito | search Category == "JobLogs" &#124; where ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc|
+Localizar a tarefa de runbook SequencedStartStop_Parent tiver concluído com êxito | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
 
 ## <a name="removing-the-solution"></a>Remover a solução
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 687e5b65e89ae2a79d8e9aa5c4345c91b4943d3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb1e3f9a93d18e949cb42ac0a4e09129cfe414f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância de observador de rede do Azure
 
@@ -29,7 +29,7 @@ Observador de rede é um serviço regional que lhe permite monitorizar e diagnos
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Criar um observador de rede no portal
 
-Navegue para **mais serviços** > **redes** > **observador de rede**. Pode selecionar todas as subscrições que pretende ativar o observador de rede para. Esta ação cria um observador de rede em cada região que está disponível.
+Navegue para **todos os serviços** > **redes** > **observador de rede**. Pode selecionar todas as subscrições que pretende ativar o observador de rede para. Esta ação cria um observador de rede em cada região que está disponível.
 
 ![criar um observador de rede][1]
 
@@ -73,7 +73,7 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma instância do observador de rede, saiba mais sobre as funcionalidades disponíveis:
 

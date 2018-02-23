@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Cópia de segurança e restaurar encriptadas máquinas virtuais com o Backup do Azure
 Este artigo aborda os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Backup do Azure. Também fornece detalhes sobre cenários suportados, pré-requisitos e passos de resolução de problemas de casos de erro.
@@ -48,7 +48,7 @@ Este artigo aborda os passos para criar cópias de segurança e restaurar máqui
 Utilize os seguintes passos para definir um objetivo de cópia de segurança, definir uma política, configurar os itens e acione uma cópia de segurança.
 
 ### <a name="configure-backup"></a>Configurar a cópia de segurança
-1. Se já tiver um cofre dos serviços de recuperação, abrir, avance para o passo seguinte. Se não tiver um cofre dos serviços de recuperação, abrir, mas está no portal do Azure, no **Hub** menu, selecione **procurar**.
+1. Se já tiver um cofre dos serviços de recuperação, abrir, avance para o passo seguinte. Se não tiver um cofre dos serviços de recuperação abrir mas encontra-se no portal do Azure, selecione **todos os serviços**.
 
    a. Na lista de recursos, escreva **Serviços de Recuperação**.
 
@@ -98,7 +98,7 @@ Se tiver VMs já a ser efetuadas num cofre dos serviços de recuperação que es
 
 ## <a name="provide-permissions-to-backup"></a>Fornecer permissões para cópia de segurança
 Utilize os seguintes passos para fornecer permissões relevantes à cópia de segurança para o Cofre de chaves de acesso e efetuar cópia de segurança de VMs encriptadas.
-1. Selecione **mais serviços**e procure **cofres de chaves**.
+1. Selecione **todos os serviços**e procure **cofres de chaves**.
 
     ![Cofres de chaves](./media/backup-azure-vms-encryption/search-key-vault.png)
     

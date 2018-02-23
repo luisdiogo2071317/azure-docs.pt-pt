@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: v-craic
-ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7a0a86f658ac19bfb197c7e233b8717bf9fba40b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados para uma máquina virtual no Azure DevTest Labs
 [Discos do Azure gerida](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas aos discos de dados de máquina virtual. Um utilizador liga um novos dados em disco para uma VM, especifica o tipo e o tamanho de disco necessários e o Azure cria e gere automaticamente o disco. O disco de dados, em seguida, pode ser desligado da VM e um novamente ligado mais tarde para a mesma VM ou anexado a uma VM diferente, que pertence ao mesmo utilizador.
@@ -35,7 +35,7 @@ Antes de ligar um disco de dados para uma VM, reveja estas sugestões:
 Siga estes passos para criar e anexar um disco de dados geridos novo a uma VM no Azure DevTest Labs.
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório pretendido. 
 1. Na lista de **meu máquinas de virtuais**, selecione uma VM em execução.
 1. No menu à esquerda, selecione **discos**.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 Este tópico responde a algumas perguntas os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
@@ -80,7 +80,7 @@ Quando contas de várias do Azure AD de diferentes inquilinos do Azure AD estão
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Quais são as opções de definições de roaming para aplicações de ambiente de trabalho Windows existentes?
 Roaming só funciona para aplicações Universal do Windows. Existem duas opções disponíveis para ativar uma aplicação de ambiente de trabalho existente do Windows está em roaming:
 
-* O [Bridge de ambiente de trabalho](http://aka.ms/desktopbridge) ajuda-o a colocar as aplicações de ambiente de trabalho do Windows existentes para a plataforma Universal do Windows. Aqui, alterações de código mínimas será necessárias para tirar partido de roaming de dados de aplicação do Azure AD. A Bridge de ambiente de trabalho fornece as suas aplicações com uma identidade de aplicação, o que é necessária para ativar o roaming para aplicações de ambiente de trabalho existentes de dados de aplicação.
+* O [Bridge de ambiente de trabalho](https://aka.ms/desktopbridge) ajuda-o a colocar as aplicações de ambiente de trabalho do Windows existentes para a plataforma Universal do Windows. Aqui, alterações de código mínimas será necessárias para tirar partido de roaming de dados de aplicação do Azure AD. A Bridge de ambiente de trabalho fornece as suas aplicações com uma identidade de aplicação, o que é necessária para ativar o roaming para aplicações de ambiente de trabalho existentes de dados de aplicação.
 * [Virtualização de experiência de utilizador (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) ajuda-o a criar um modelo de definições personalizadas para aplicações de ambiente de trabalho do Windows existentes e ativar roaming para aplicações de Win32. Esta opção não necessita que o programador da aplicação alterar o código da aplicação. UE-V está limitado a Itinerância de Active Directory no local para os clientes que compraram Microsoft Desktop Optimization Pack.
 
 Os administradores podem configurar UE-V para se movem os dados da aplicação de ambiente de trabalho Windows alterando o roaming das definições do sistema operativo Windows e os dados de aplicação Universal através de [políticas de grupo de UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), incluindo:

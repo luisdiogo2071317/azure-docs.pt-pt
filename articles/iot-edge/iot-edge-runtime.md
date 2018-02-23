@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura – pré-visualização
 
@@ -64,14 +64,18 @@ Hub de limite facilita a comunicação de módulo para o módulo. Utilizar Edge 
 
 Para enviar dados para o hub de limite, um módulo chama o método de SendEventAsync. O primeiro argumento especifica em qual saída para enviar a mensagem. A seguinte pseudocode envia uma mensagem no output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Para receber uma mensagem, registe-se uma chamada de retorno que processa mensagens futuras numa introdução específica. A seguinte pseudocode regista messageProcessor a função a ser utilizada para processar todas as mensagens recebidas em input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 O Programador de solução é responsável por especificando as regras que determinam como o hub de limite passa mensagens entre módulos. As regras de encaminhamento estão definidas na nuvem e enviadas para baixo para hub Edge no respetivo dispositivo duplo. A mesma sintaxe para rotas de IoT Hub é utilizada para definir as rotas entre os módulos no limite de IoT do Azure. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -86,11 +90,11 @@ Para iniciar a execução do agente Edge, execute o comando de início do azure-
 
 Cada item no dicionário de módulos contém informações específicas sobre um módulo e é utilizado pelo agente de contorno para controlar o ciclo de vida do módulo. Algumas das propriedades mais interessantes são: 
 
-* **Settings.Image** – a imagem de contentor que o agente de limite utiliza para iniciar o módulo. O agente de limite deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. Para configurar o agente de limite, utilize o seguinte comando:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** – a imagem de contentor que o agente de limite utiliza para iniciar o módulo. O agente de limite deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. Para configurar o agente de limite, utilize o seguinte comando: `azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** – uma cadeia que é transmitida diretamente para o daemon de Docker ao iniciar o contentor de um módulo. A adição de opções de Docker esta propriedade permite opções avançadas, como a porta de reencaminhamento ou montar os volumes num contentor de um módulo.  
 * **estado** – o estado em que o agente de Edge coloca o módulo. Este valor, normalmente, é definido como *executar* como a maioria das pessoas pretende que o agente de contorno para iniciar imediatamente a todos os módulos no dispositivo. No entanto, pode especificar o estado inicial de um módulo para ser interrompida e aguarde uma hora no futuro saber se o agente de contorno para iniciar um módulo. O agente de limite reporta o estado de cada módulo novamente para a nuvem nas propriedades que relatados. Uma diferença entre a propriedade pretendida e a propriedade comunicada é um indicador ou um dispositivo funcionar incorretamente. Os Estados suportados são:
    * A transferir
-   * Em Execução
+   * A executar
    * Estado de funcionamento incorreto
    * Com Falhas
    * Parada

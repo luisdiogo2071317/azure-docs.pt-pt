@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de utilizador predefinidas no Azure Active Directory
 
@@ -59,7 +59,7 @@ Capacidade para se registar (criar) aplicações | Definir esta opção para nã
 Os administradores e utilizadores na função de inviter de convidados podem convidar os convidados | Definir esta opção para não impede que todos os utilizadores convidados convidando. Consulte a configurar as permissões predefinidas para os utilizadores de membro. Para obter mais informações, consulte [consentimento no Azure Active Directory, aplicações e permissões](active-directory-apps-permissions-consent.md).
 Os membros podem convidar os convidados | Definir este como não impede que os utilizadores convidados convidando. Global de administradores, administradores de conta de utilizador e convidado Inviters continuarão a poder convidar convidados. Para obter mais informações, consulte [consentimento no Azure Active Directory, aplicações e permissões](active-directory-apps-permissions-consent.md).
 Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para não impede que os utilizadores aceder ao portal do Azure Active Directory.
-Capacidade de leitura a outros utilizadores | Para obter mais informações, consulte [consentimento no Azure Active Directory, aplicações e permissões](active-directory-apps-permissions-consent.md).
+Capacidade de leitura a outros utilizadores | Esta definição só está disponível no PowerShell. Definir este como $false impede que todos os não-administradores ler contato de utilizador do diretório. Isto não o impede leitura contato de utilizador em outros serviços Microsoft como o Exchange Online. Esta definição destina-se para circunstâncias especiais e definição que isto para $false não é recomendado.
 
 ## <a name="object-ownership"></a>Propriedade do objeto
 

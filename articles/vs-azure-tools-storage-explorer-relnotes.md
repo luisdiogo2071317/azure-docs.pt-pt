@@ -14,25 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure (pré-visualização)
 
-Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.4 (pré-visualização), bem como as notas de versão para versões anteriores.
+Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.5 (pré-visualização), bem como as notas de versão para versões anteriores.
 
 [Explorador de armazenamento do Microsoft Azure (pré-visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
+
+## <a name="version-095"></a>Versão 0.9.5
+02/06/2018
+
+### <a name="download-azure-storage-explorer-095-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.5 (pré-visualização)
+- [Explorador de armazenamento do Azure 0.9.5 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 0.9.5 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 0.9.5 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+
+* Suporte para instantâneos de partilhas de ficheiros:
+    * Criar e gerir instantâneos para as partilhas de ficheiros.
+    * Mude facilmente vistas entre os instantâneos de partilhas de ficheiros como explora.
+    * Restaure versões anteriores dos ficheiros.
+* Suporte de pré-visualização do Azure Data Lake Store:
+    * Ligar aos recursos da sua ADLS em várias contas.
+    * Ligar a e partilhar recursos ADLS utilizando ADL URIs.
+    * Execute em modo recursivo operações de ficheiro/pasta básico.
+    * Pastas individuais PIN para acesso rápido.
+    * Apresentar estatísticas de pasta.
+
+### <a name="fixes"></a>Correções
+* Melhorias de desempenho de arranque.
+* Várias correções de erros.
+
+### <a name="known-issues"></a>Problemas Conhecidos
+* Explorador de armazenamento não suporta contas ADFS.
+* Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Isto acontece porque está a utilizar a solução de filtro de cancelar descrita aqui.
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça de que decisão.
+* O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar as subscrições.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor do blob cujo nome foi alterado) não preserva a instantâneos. Todas as outras propriedades e metadados para blobs, ficheiros e entidades são preservados durante uma mudança de nome.
+* Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
+* A shell de Electron utilizada pelo Explorador de armazenamento tem problemas com algumas aceleração de hardware da GPU (unidade de processamento de gráficos). Se o Explorador de armazenamento apresenta uma janela de principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento na linha de comandos e desativar a aceleração de GPU adicionando o `--disable-gpu` comutador:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-094--093"></a>Versão 0.9.4 / 0.9.3
 01/21/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização)
-- [Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Novo
 * A janela do Explorador de armazenamento existente será reutilizado quando:
@@ -76,15 +130,30 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
     sudo apt-get install libgconf-2-4
     ```
 
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 0.9.2](#version-092)
+* [Versão 0.9.1 / 0.9.0](#version-091)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Versão 0.8.9 / 0.8.8](#version-089--088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-092"></a>Versão 0.9.2
 11/01/2017
-
-### <a name="download-azure-storage-explorer-092-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.2 (pré-visualização)
-* [Transferir o Explorador de armazenamento do Azure 0.9.2 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Transferir o Explorador de armazenamento do Azure 0.9.2 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Transferir o Explorador de armazenamento do Azure 0.9.2 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
 
 ### <a name="hotfixes"></a>Hotfixes
 * Alterações de dados inesperado foram possíveis ao editar Edm.DateTime valores para as entidades da tabela, consoante o fuso horário local. O editor de utiliza uma caixa de texto simples, dar controlo preciso, consistente Edm.DateTime valores.
@@ -144,32 +213,6 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 0.9.1 / 0.9.0](#version-091)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Versão 0.8.9 / 0.8.8](#version-089--088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-091--090-preview"></a>Versão 0.9.1 / 0.9.0 (pré-visualização)
 10/20/2017

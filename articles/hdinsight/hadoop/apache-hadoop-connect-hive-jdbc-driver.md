@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta do Hive através de controlador JDBC no HDInsight
 
@@ -102,9 +102,9 @@ SQuirreL SQL é um cliente JDBC que pode ser utilizado para executar remotamente
 
         3. Assim que estiver ligado, copie os seguintes ficheiros da sessão do ambiente de trabalho remoto para o computador local. Colocá-los num diretório local com o nome `hivedriver`.
 
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-JDBC-0.14.0.2.2.9.1-7-Standalone.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-Common-2.6.0.2.2.9.1-7.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.JAR
+            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
             > [!NOTE]
             > Os números de versão incluídos na caminhos e nomes de ficheiro podem ser diferentes para o cluster.
@@ -122,7 +122,7 @@ SQuirreL SQL é um cliente JDBC que pode ser utilizado para executar remotamente
 4. Na caixa de diálogo Adicionar controlador, adicione as seguintes informações:
 
     * **Nome**: ramo de registo
-    * **URL do exemplo**:`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **URL do exemplo**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Caminho de classe extra**: Utilize o botão Adicionar para adicionar os ficheiros jar transferiu anteriormente
     * **Nome de classe**: org.apache.hive.jdbc.HiveDriver
 
@@ -140,7 +140,7 @@ SQuirreL SQL é um cliente JDBC que pode ser utilizado para executar remotamente
 
     * **Controlador**: Utilize o menu pendente para selecionar o **Hive** controlador
 
-    * **URL**:`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Substitua **CLUSTERNAME** pelo nome do cluster do HDInsight.
 

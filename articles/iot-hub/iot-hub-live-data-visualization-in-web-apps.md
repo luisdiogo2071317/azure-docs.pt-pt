@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar dados de sensores em tempo real do seu hub IoT do Azure utilizando a funcionalidade Web Apps do App Service do Azure
 
@@ -49,7 +49,7 @@ Neste tutorial, irá aprender a visualizar os dados de sensores em tempo real qu
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-1. No [portal do Azure](https://ms.portal.azure.com/), clique em **novo** > **Web + móvel** > **aplicação Web**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **crie um recurso** > **Web + móvel** > **aplicação Web**.
 2. Introduza um nome de tarefa exclusivo, certifique-se a subscrição, especifique um grupo de recursos e uma localização, selecione **afixar ao dashboard**e, em seguida, clique em **criar**.
 
    Recomendamos que selecione a mesma localização que o grupo de recursos. Se o fizer, auxilia com velocidade de processamento e reduz os custos de transferência de dados.
@@ -115,7 +115,7 @@ Deverá ver os dados relativos à temperatura e humidade em tempo real do seu Io
 > [!NOTE]
 > Certifique-se de que a aplicação de exemplo está em execução no seu dispositivo. Se não, obterá um gráfico em branco, pode consultar os tutoriais em [configurar o seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Utilizou com êxito a aplicação web para visualizar dados de sensores em tempo real a partir do seu IoT hub.
 
 Para uma maneira visualizar dados a partir do IoT Hub do Azure, consulte [utilize o Power BI para visualizar dados de sensores em tempo real do seu IoT hub](iot-hub-live-data-visualization-in-power-bi.md).

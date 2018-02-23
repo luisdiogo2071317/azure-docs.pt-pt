@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utilizar o Spark MLlib para criar uma aplicação de aprendizagem e analisar um conjunto de dados
 
@@ -79,9 +79,9 @@ Os passos abaixo, desenvolver um modelo para ver que demora a transmitir ou efet
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Construir uma entrada dataframe
-Podemos utilizar `sqlContext` para efetuar transformações em dados estruturados. A primeira tarefa está a carregar os dados de exemplo ((**Food_Inspections1.csv**)) para um Spark SQL *dataframe*.
+Pode utilizar `sqlContext` para efetuar transformações em dados estruturados. A primeira tarefa está a carregar os dados de exemplo ((**Food_Inspections1.csv**)) para um Spark SQL *dataframe*.
 
-1. Porque os dados não processados estão num formato CSV, é necessário utilizar o contexto de Spark extraia cada linha do ficheiro para a memória como texto não estruturado; em seguida, pode utilizar bibliotecas CSV do Python para analisar individualmente cada linha.
+1. Porque os dados não processados estão num formato CSV, tem de utilizar o contexto de Spark extraia cada linha do ficheiro para a memória como texto não estruturado; em seguida, pode utilizar bibliotecas CSV do Python para analisar individualmente cada linha.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Podemos utilizar `sqlContext` para efetuar transformações em dados estruturado
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Agora temos o ficheiro CSV como uma RDD.  Para compreender o esquema dos dados, vamos obter uma linha a RDD.
+1. Tem agora o ficheiro CSV como uma RDD.  Para compreender o esquema dos dados, pode obter uma linha a RDD.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Podemos utilizar `sqlContext` para efetuar transformações em dados estruturado
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. A saída anterior nos dá uma ideia do esquema do ficheiro de entrada. Inclui o nome de cada estabelecimento, o tipo de estabelecimento, o endereço, os dados dos inspections e a localização, entre outros. Vamos selecione algumas colunas que são úteis para o nosso Análise Preditiva e os resultados de grupo como um dataframe, que, em seguida, são utilizadas para criar uma tabela temporária.
+1. A saída anterior nos dá uma ideia do esquema do ficheiro de entrada. Inclui o nome de cada estabelecimento, o tipo de estabelecimento, o endereço, os dados dos inspections e a localização, entre outros. Vamos selecione algumas colunas que são úteis para o nosso Análise Preditiva e os resultados de grupo como um dataframe, que depois utiliza para criar uma tabela temporária.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ Podemos utilizar `sqlContext` para efetuar transformações em dados estruturado
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Agora temos um *dataframe*, `df` no qual vamos pode executar uma análise do nosso. Além disso, temos uma chamada de tabela temporária **CountResults**. Iremos tiver incluído quatro colunas de interesse no dataframe: **id**, **nome**, **resultados**, e **violações**.
+1. Tem agora um *dataframe*, `df` em que pode realizar nosso Analysis Services. Tem também uma chamada de tabela temporária **CountResults**. Iremos tiver incluído quatro colunas de interesse no dataframe: **id**, **nome**, **resultados**, e **violações**.
 
     Vamos obter um exemplo dos dados pequeno:
 
@@ -172,7 +172,7 @@ Podemos utilizar `sqlContext` para efetuar transformações em dados estruturado
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. Uma visualização rápida pode ajudar-na razão sobre a distribuição estes resultados. Temos já os dados numa tabela temporária **CountResults**. Pode executar a seguinte consulta SQL na tabela para obter uma melhor compreensão da forma como os resultados são distribuídos.
+1. Uma visualização rápida pode ajudar-na razão sobre a distribuição estes resultados. Já dispõe dos dados numa tabela temporária **CountResults**. Pode executar a seguinte consulta SQL na tabela para obter uma melhor compreensão da forma como os resultados são distribuídos.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -207,8 +207,8 @@ Podemos utilizar `sqlContext` para efetuar transformações em dados estruturado
    * Suporte técnico com condições
    * Fora de negócio
 
-     Informe-nos desenvolva um modelo que pode adivinhar o resultado de uma inspeção prato, dada as violações. Uma vez que regressão logística de um método de classificação binária, faz sentido para agrupar os nossos dados em duas categorias: **falhar** e **passar**. Um "passar com condições" ainda está a ser uma passagem de, pelo que, quando estamos a preparar o modelo, iremos considerar os dois resultados equivalente. Dados com os resultados ("Empresas não localizada" ou "fora do horário comercial") não são úteis para Removemos do nosso conjunto de preparação. Isto deve ser pode, uma vez que estas duas categorias constituem uma percentagem muito pequena dos resultados mesmo assim.
-1. Informe-nos avançar e converter nosso dataframe existente (`df`) para um novo dataframe onde cada inspeção é representada como um par de violações de etiqueta. No nosso caso, uma etiqueta de `0.0` representa uma falha, uma etiqueta de `1.0` representa concluído com êxito e uma etiqueta de `-1.0` representa alguns resultados para além dos dois. Iremos filtrar esses outros resultados quando informática moldura de dados de novo.
+     Informe-nos desenvolva um modelo que pode adivinhar o resultado de uma inspeção prato, dada as violações. Uma vez que regressão logística de um método de classificação binária, faz sentido para agrupar os nossos dados em duas categorias: **falhar** e **passar**. Um "passar com condições" ainda está a ser uma passagem de, pelo que, ao preparar o modelo, considere os dois resultados equivalente. Dados com os resultados ("Empresas não localizada" ou "fora do horário comercial") não são úteis para removê-los do nosso conjunto de preparação. Isto deve ser pode, uma vez que estas duas categorias constituem uma percentagem muito pequena dos resultados mesmo assim.
+1. Informe-nos avançar e converter nosso dataframe existente (`df`) para um novo dataframe onde cada inspeção é representada como um par de violações de etiqueta. No nosso caso, uma etiqueta de `0.0` representa uma falha, uma etiqueta de `1.0` representa concluído com êxito e uma etiqueta de `-1.0` representa alguns resultados para além dos dois. Pode filtrar esses outros resultados ao novo moldura de dados.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Podemos utilizar `sqlContext` para efetuar transformações em dados estruturado
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Criar um modelo de regressão logística da partir da entrada dataframe
-É converter os dados identificados num formato que pode ser analisado por regressão logística da nossa tarefa final. A entrada de um algoritmo de regressão logística da deve ser um conjunto de *pares de vetor de etiqueta funcionalidade*, onde "vetor de funcionalidade" é um vetor de números que representa o ponto de entrada. Por isso, é necessário converter a coluna "violações", que é semiestruturados e contém muitas comentários no texto de gratuita, a uma matriz de números de real que uma máquina foi compreender facilmente.
+É converter os dados identificados num formato que pode ser analisado por regressão logística da nossa tarefa final. A entrada de um algoritmo de regressão logística da deve ser um conjunto de *pares de vetor de etiqueta funcionalidade*, onde "vetor de funcionalidade" é um vetor de números que representa o ponto de entrada. Por isso, terá de converter a coluna "violações", que é semiestruturados e contém muitas comentários no texto de gratuita, a uma matriz de números de real que uma máquina foi compreender facilmente.
 
 É um padrão aprendizagem abordagem para o processamento de linguagem natural atribuir a cada palavra distinta "index" e, então, passe um vetor de para o algoritmo de aprendizagem, de modo a que o valor de cada índice contém a frequência relativa essa palavra na cadeia de texto.
 
-MLlib fornece uma forma fácil para efetuar esta operação. Em primeiro lugar, "tokenize" cada cadeia violações ao obter as palavras individuais na cadeia de cada. Em seguida, utilize um `HashingTF` para converter um vetor de funcionalidade que, em seguida, pode ser transferido para o algoritmo de regressão logística para construir um modelo de cada conjunto de tokens. Podemos realizar todos estes passos numa sequência com um "pipeline".
+MLlib fornece uma forma fácil para efetuar esta operação. Em primeiro lugar, "tokenize" cada cadeia violações ao obter as palavras individuais na cadeia de cada. Em seguida, utilize um `HashingTF` para converter um vetor de funcionalidade que, em seguida, pode ser transferido para o algoritmo de regressão logística para construir um modelo de cada conjunto de tokens. Realize todos estes passos numa sequência com um "pipeline".
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ MLlib fornece uma forma fácil para efetuar esta operação. Em primeiro lugar, 
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Avaliar o modelo de um conjunto de dados de teste separada
-Podemos utilizar o modelo que criámos anteriormente a *prever* quais os resultados da nova inspections serão, com base nas violações que foram observadas. Iremos preparado neste modelo no conjunto de dados **Food_Inspections1.csv**. Informe-nos utilizar um segundo conjunto de dados, **Food_Inspections2.csv**ao *avaliar* à força deste modelo em novos dados. Este segundo conjunto de dados (**Food_Inspections2.csv**) já deve estar no contentor de armazenamento de predefinido associado com o cluster.
+Pode utilizar o modelo que criou anteriormente para *prever* quais os resultados da nova inspections serão, com base nas violações que foram observadas. Preparado neste modelo no conjunto de dados **Food_Inspections1.csv**. Informe-nos utilizar um segundo conjunto de dados, **Food_Inspections2.csv**ao *avaliar* à força deste modelo em novos dados. Este segundo conjunto de dados (**Food_Inspections2.csv**) já deve estar no contentor de armazenamento de predefinido associado com o cluster.
 
 1. O fragmento seguinte cria um novo dataframe, **predictionsDf** que contém a predição gerada pelo modelo. O fragmento também cria uma tabela temporária denominada **Predições** com base no dataframe.
 
@@ -279,7 +279,7 @@ Podemos utilizar o modelo que criámos anteriormente a *prever* quais os resulta
         predictionsDf.take(1)
 
    Há uma predição a entrada primeiro o conjunto de dados de teste.
-1. O `model.transform()` aplica-se a mesma transformação a quaisquer novos dados com o mesmo esquema sendo que chegam a uma predição de como classificar os dados. Podemos fazer algumas estatísticas simples para ter uma noção do foram como exata do nosso predições:
+1. O `model.transform()` aplica-se a mesma transformação a quaisquer novos dados com o mesmo esquema sendo que chegam a uma predição de como classificar os dados. Pode efetuar algumas estatísticas simples para ter uma noção do foram como exata do nosso predições:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Podemos utilizar o modelo que criámos anteriormente a *prever* quais os resulta
     Através de regressão logística com o Spark dá-na um modelo da relação entre as descrições de violações em inglês e se um determinado negócio seria passar ou efetuar uma inspeção prato preciso.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Criar uma representação visual da predição
-Iremos pode agora criar uma visualização final para nos ajudar a razão sobre os resultados de teste, este.
+Agora pode construir uma visualização final para nos ajudar a razão sobre os resultados deste teste.
 
-1. Vamos começar por extrair o predições diferentes e os resultados do **Predições** tabela temporária criada anteriormente. As seguintes consultas de separam o resultado como *true_positive*, *false_positive*, *true_negative*, e *false_negative*. Nas consultas abaixo, iremos desativar visualização utilizando `-q` e também guardar a saída (utilizando `-o`) como dataframes que podem ser utilizadas com o `%%local` magic.
+1. Iniciar extraindo o predições diferentes e os resultados do **Predições** tabela temporária criada anteriormente. As seguintes consultas de separam o resultado como *true_positive*, *false_positive*, *true_negative*, e *false_negative*. Nas consultas abaixo, desativar a visualização utilizando `-q` e também guardar a saída (utilizando `-o`) como dataframes que podem ser utilizadas com o `%%local` magic.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ Depois de terminar de executar a aplicação, deve encerrar o bloco de notas par
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

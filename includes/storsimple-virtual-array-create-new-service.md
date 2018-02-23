@@ -2,7 +2,7 @@
 
 1.  Com as credenciais da conta Microsoft, inicie sessão no portal do Azure acedendo a este URL: <https://portal.azure.com/>. Se implementar o dispositivo no portal de administração pública, inicie sessão no: <https://portal.azure.us/>
 
-2.  No portal do Azure, clique em **+ novo** &gt; **armazenamento** &gt; **série Virtual StorSimple**.
+2.  No portal do Azure, clique em **+ criar um recurso** &gt; **armazenamento** &gt; **série Virtual StorSimple**.
 
     ![Criar novo serviço](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

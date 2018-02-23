@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 Este tópico mostra como mover dados de uma base de dados do servidor de SQL no local para uma base de dados do SQL do Azure através do Blob Storage do Azure com a fábrica de dados do Azure (ADF).
@@ -61,12 +61,12 @@ Este tutorial parte do princípio de que tem:
 >
 >
 
-## <a name="upload-data"></a>Carregar os dados para o SQL Server no local
+## <a name="upload-data"></a> Carregar os dados para o SQL Server no local
 Utilizamos o [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) para demonstrar o processo de migração. O conjunto de dados NYC Taxi está disponível, conforme indicado nesse post, no armazenamento de Blobs do Azure [NYC Taxi dados](http://www.andresmh.com/nyctaxitrips/). Os dados têm dois ficheiros, o trip_data.csv, que contém detalhes viagem, e o ficheiro de trip_far.csv, que contém detalhes de fare paga para cada viagem. Um exemplo e uma descrição destes ficheiros são fornecidos na [NYC Taxi viagens Dataset Descrição](sql-walkthrough.md#dataset).
 
 Pode adaptar o procedimento indicado aqui a um conjunto de dados da sua própria ou siga os passos, conforme descrito utilizando o conjunto de dados NYC Taxi. Para carregar o conjunto de dados NYC Taxi para a base de dados do SQL Server no local, siga o procedimento descrito no [em massa importar dados na base de dados do SQL Server](sql-walkthrough.md#dbload). Estas instruções se destinam a um SQL Server uma Máquina Virtual no Azure, mas o procedimento para carregar para o SQL Server no local é o mesmo.
 
-## <a name="create-adf"></a>Criar um Azure Data Factory
+## <a name="create-adf"></a> Criar um Azure Data Factory
 As instruções para criar uma nova fábrica de dados do Azure e um grupo de recursos a [portal do Azure](https://portal.azure.com/) são fornecidos [criar um Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Nome a nova ocorrência do ADF *adfdsp* e atribua o nome do grupo de recursos criado *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalar e configurar o Data Management Gateway
@@ -105,7 +105,7 @@ As definições baseadas em JSON nas tabelas utilizem os nomes seguintes:
 São necessários três definições de tabela para este pipeline ADF:
 
 1. [Tabela do SQL Server no local](#adf-table-onprem-sql)
-2. [Tabela de BLOBs](#adf-table-blob-store)
+2. [Tabela de BLOBs ](#adf-table-blob-store)
 3. [SQL Server tabela do Azure](#adf-table-azure-sql)
 
 > [!NOTE]
@@ -113,7 +113,7 @@ São necessários três definições de tabela para este pipeline ADF:
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>Tabela do SQL Server no local
+### <a name="adf-table-onprem-sql">Tabela do SQL Server no local</a>
 A definição de tabela para o SQL Server no local é especificada no seguinte ficheiro JSON:
 
         {
@@ -148,7 +148,7 @@ Copiar a definição de JSON da tabela num ficheiro denominada *onpremtabledef.j
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>Tabela de BLOBs
+### <a name="adf-table-blob-store">Tabela de BLOBs </a>
 A definição da tabela para a localização de blob de saída é a seguir (mapeia os dados de transmissões no local ao blob do Azure):
 
         {
@@ -178,7 +178,7 @@ Copiar a definição de JSON da tabela num ficheiro denominada *bloboutputtabled
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL Server tabela do Azure
+### <a name="adf-table-azure-sql">SQL Server tabela do Azure</a>
 Definição da tabela para o SQL Azure de saída é a seguir (este esquema mapeia dos dados provenientes das blob):
 
     {

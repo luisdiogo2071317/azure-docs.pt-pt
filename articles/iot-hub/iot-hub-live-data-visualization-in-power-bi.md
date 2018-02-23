@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensores em tempo real do IoT Hub do Azure através do Power BI
 
@@ -52,7 +52,7 @@ Irá aprender a visualizar dados de sensores em tempo real que recebe o seu hub 
 
 ### <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. No portal do Azure, clique em Novo > Internet das coisas > tarefa do Stream Analytics.
+1. No [portal do Azure](https://portal.azure.com), clique em **crie um recurso** > **Internet das coisas** > **tarefa do Stream Analytics**.
 1. Introduza as seguintes informações para a tarefa.
 
    **Nome da tarefa**: O nome da tarefa. O nome tem de ser globalmente exclusivo.
@@ -61,7 +61,7 @@ Irá aprender a visualizar dados de sensores em tempo real que recebe o seu hub 
 
    **Localização**: utilizar a mesma localização como o grupo de recursos.
 
-   **Afixar ao dashboard**: confirme esta opção para facilitar o acesso ao seu IoT hub a partir do dashboard.
+   **Afixar ao dashboard**: marque esta opção para facilitar o acesso ao hub IoT a partir do dashboard.
 
    ![Criar uma tarefa de Stream Analytics no Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
@@ -153,7 +153,7 @@ Está a fornecido a ligação do relatório que pode partilhar com qualquer pess
 
 A Microsoft também oferece o [aplicações móveis do Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) para ver e interagir com os seus relatórios e dashboards do Power BI no seu dispositivo móvel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Utilizou com êxito Power BI para visualizar dados de sensores em tempo real a partir do seu hub IoT do Azure.
 Há uma maneira alternativa para visualizar dados a partir do IoT Hub do Azure. Consulte [Web Apps do Azure Utilize para visualizar dados de sensores em tempo real do IoT Hub do Azure](iot-hub-live-data-visualization-in-web-apps.md).

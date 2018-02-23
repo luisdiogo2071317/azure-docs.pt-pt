@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de ciência dados
 
@@ -35,7 +35,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Windows      |
 | Utilizações comuns      | Importar vários blobs storage do Azure para o Azure Data Lake Store.      |
 |  Como utilizar / executá-lo?    |   Abra uma linha de comandos, em seguida, escreva `adlcopy` para obter ajuda.    |
-| Ligações para amostras      | Https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob [utilizando AdlCopy])      |
+| Ligações para amostras      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Ferramentas relacionadas no DSVM      | AzCopy, linha de comandos do Azure     |
 
 ## <a name="azure-command-line"></a>Linha de comandos do Azure
@@ -84,6 +84,17 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 |  Como utilizar / executá-lo?    |   Abra uma linha de comandos, em seguida, escreva `bcp` para obter ajuda.    |
 | Ligações para amostras      | [Utilitário de cópia em massa](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Ferramentas relacionadas no DSVM      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| O que é?   | Uma ferramenta para montar um contentor de Blobs do Azure no sistema de ficheiros de Linux.      |
+| Versões suportadas DSVM      | Linux      |
+| Utilizações comuns      | Leitura e escrita de blobs num contentor      |
+|  Como utilizar / executá-lo?    |   Executar _blobfuse_ num terminal.    |
+| Ligações para amostras      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Ferramentas relacionadas no DSVM      | Linha de comandos do Azure      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Microsoft Data Management Gateway

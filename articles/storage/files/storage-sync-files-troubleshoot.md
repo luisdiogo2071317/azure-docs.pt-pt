@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -43,6 +43,10 @@ Reveja installer.log para determinar a causa da falha de instalação.
 > [!Note]  
 > A instalação do agente irá falhar se a máquina está configurada para utilizar o Microsoft Update e o serviço Windows Update não está em execução.
 
+<a id="agent-installation-on-DC"></a>**Instalação do agente falhar no controlador de domínio do Active Directory** se tentar instalar o agente de sincronização num controlador de domínio do Active Directory em que o proprietário da função PDC é um 2008 R2 do Windows Server ou abaixo versão do SO, pode atingir o problema em que a sincronização agente falhará instalar.
+
+Para resolver, transfira a função de PDC, para outro domínio controlador em execução do Windows Server 2012R2 ou mais recente, em seguida, instalar a sincronização.
+
 <a id="agent-installation-websitename-failure"></a>**Instalação do agente falhar com este erro: "Assistente do agente de sincronização de armazenamento terminou prematuramente"**  
 Este problema pode ocorrer se o nome do Web site predefinido do IIS é alterado. Para contornar este problema, mude o nome do Web site predefinido do IIS como "Default Web Site" e repita a instalação. O problema será resolvido numa atualização futura do agente. 
 
@@ -51,6 +55,8 @@ Se um servidor não está listado em **registado servidores** para um serviço d
 1. Inicie sessão servidor que pretende registar.
 2. Abra o Explorador de ficheiros e, em seguida, avance para o diretório de instalação do agente de sincronização de armazenamento (a localização predefinida é c:\Programas\Microsoft Files\Azure\StorageSyncAgent). 
 3. Execute ServerRegistration.exe e conclua o Assistente para registar o servidor com um serviço de sincronização de armazenamento.
+
+
 
 <a id="server-already-registered"></a>**Registar o servidor apresenta a seguinte mensagem de erro durante a instalação do agente de sincronização de ficheiros do Azure: "este servidor já está registado"** 
 
@@ -95,9 +101,7 @@ Para criar um ponto final da nuvem, a conta de utilizador tem de ter as seguinte
 
 As seguintes funções incorporadas tem as permissões de Microsoft Authorization necessárias:  
 * Proprietário
-* Administrador de Acesso de Utilizador
-
-Para determinar se a sua função de utilizador da conta tem as permissões necessárias:  
+* Administrador de acesso de utilizador para determinar se a sua função de utilizador da conta tem as permissões necessárias:  
 1. No portal do Azure, selecione **grupos de recursos**.
 2. Selecione o grupo de recursos onde está localizada a conta de armazenamento e, em seguida, selecione **(IAM) do controlo de acesso**.
 3. Selecione o **função** (por exemplo, proprietário ou contribuinte) para a sua conta de utilizador.
@@ -105,11 +109,24 @@ Para determinar se a sua função de utilizador da conta tem as permissões nece
     * **Atribuição de função** deve ter **leitura** e **escrever** permissões.
     * **Definição de função** deve ter **leitura** e **escrever** permissões.
 
-<a id="server-endpoint-createjobfailed"></a>**Falha de criação do ponto final de servidor, com este erro: "MgmtServerJobFailed" (código de erro:-2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Falha de criação do ponto final de servidor, com este erro: "MgmtServerJobFailed" (código de erro:-2134375898)**                                                                                                                    
 Este problema ocorre se o caminho do ponto final de servidor estiver num volume de sistema e na nuvem em camadas está ativada. Nuvem em camadas não é suportado no volume do sistema. Para criar um ponto final do servidor no volume do sistema, desative a criação de camadas ao criar o ponto final do servidor de nuvem.
 
 <a id="server-endpoint-deletejobexpired"></a>**Falha de eliminação de ponto final do servidor, com este erro: "MgmtServerJobExpired"**                
 Este problema ocorre se o servidor está offline ou não tem conectividade de rede. Se o servidor já não estiver disponível, anular o registo do servidor no portal do qual irá eliminar os pontos finais de servidor. Para eliminar os pontos finais de servidor, siga os passos descritos em [anular o registo de um servidor com sincronização de ficheiros do Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Não é possível abrir a página de propriedades do ponto final de servidor ou atualizar a política de camadas na nuvem**
+
+Este problema pode ocorrer se falhar de uma operação de gestão no servidor ponto final. Se a página de propriedades do ponto final de servidor não for aberto no portal do Azure, ao atualizar ponto final do servidor com comandos do PowerShell do servidor pode corrigir este problema. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Se criar um ficheiro diretamente na minha partilha de ficheiros do Azure através de SMB ou através do portal, quanto tempo demora para o ficheiro a sincronizar para servidores no grupo de sincronização?**  

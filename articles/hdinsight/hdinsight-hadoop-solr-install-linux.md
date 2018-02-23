@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar Solr em clusters do HDInsight Hadoop
 
@@ -45,9 +45,9 @@ Saiba como instalar Solr no Azure HDInsight ao utilizar a ação de Script. Solr
 
 Este script faz as seguintes alterações ao cluster do HDInsight:
 
-* Instala Solr 4.9 em`/usr/hdp/current/solr`
+* Instala Solr 4.9 em `/usr/hdp/current/solr`
 * Cria um utilizador, **solrusr**, que é utilizada para executar o serviço de Solr
-* Conjuntos de **solruser** como proprietário do`/usr/hdp/current/solr`
+* Conjuntos de **solruser** como proprietário do `/usr/hdp/current/solr`
 * Adiciona um [Upstart](http://upstart.ubuntu.com/) configuração inicia Solr automaticamente.
 
 ## <a name="install"></a>Instalar Solr utilizando ações de Script
@@ -321,7 +321,7 @@ Utilize os seguintes passos para criar cópias de segurança Solr dados para o a
 
 Para obter mais informações sobre como trabalhar com Solr cópia de segurança e restauros, consulte [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Instalar Giraph nos clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilize personalização de cluster para instalar Giraph em clusters do HDInsight Hadoop. Giraph permite-lhe efetuar o processamento através da utilização do Hadoop e pode ser utilizado com o Azure HDInsight.
 

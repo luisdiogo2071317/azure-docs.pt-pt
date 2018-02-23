@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Criar um padrão de Balanceador de público de carga com redundância de zona IP público endereço front-end através do portal do Azure
 
@@ -44,7 +44,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-a-zone-redundant-load-balancer"></a>Criar um balanceador de carga redundante de zona
 
 1. Num browser, navegue para o Portal do Azure: [http://portal.azure.com](http://portal.azure.com) e inicie sessão com a sua conta do Azure.
-2. No lado superior esquerdo do ecrã, selecione **novo** > **redes** > **Balanceador de carga.**
+2. No lado superior esquerdo do ecrã, selecione **crie um recurso** > **redes** > **Balanceador de carga.**
 3. No * * criar o Balanceador de carga, em **nome** tipo **myPublicLB**.
 4. Em **Tipo**, selecione **Público**.
 5. Em SKU, selecione **Standard (pré-visualização)**.
@@ -54,7 +54,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     ![criar o padrão de Balanceador de carga com redundância de zona com o portal do Azure](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [criar um IP público numa zona de disponibilidade](../virtual-network/create-public-ip-availability-zone-portal.md)
 
 

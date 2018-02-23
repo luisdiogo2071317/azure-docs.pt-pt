@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 48e8eb91a5febcc1109bee3404bb534bd0391f88
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurar e utilizar a análise de registos (OMS) com uma aplicação de SaaS de base de dados do SQL Azure multi-inquilino
 
-Neste tutorial, configurar e utilizar *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para conjuntos elásticos e bases de dados de monitorização. Este tutorial baseia-se a [tutorial de gestão e monitorização do desempenho](saas-dbpertenant-performance-monitoring.md). Mostra como utilizar *Log Analytics* para melhorar a monitorização e alertas fornecido no portal do Azure. Análise de registos é adequado para a monitorização e alertas na escala porque suporta centenas de agrupamentos e centenas de milhares de bases de dados. Também fornece uma solução de monitorização única que pode integrar a monitorização de diferentes aplicações e serviços do Azure, em várias subscrições do Azure.
+Neste tutorial, configurar e utilizar *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para conjuntos elásticos e bases de dados de monitorização. Este tutorial baseia-se a [tutorial de gestão e monitorização do desempenho](saas-dbpertenant-performance-monitoring.md). Mostra como utilizar *Log Analytics* para melhorar a monitorização e alertas fornecido no portal do Azure. Análise de registos suporta milhares de monitorização de conjuntos elásticos e centenas de milhares de bases de dados. Análise de registos fornece uma solução de monitorização único, que pode integrar a monitorização de diferentes aplicações e serviços do Azure, através de várias subscrições do Azure.
 
 Neste tutorial, ficará a saber como:
 
@@ -39,51 +39,52 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 Veja o [Tutorial de Monitorização e Gestão do Desempenho](saas-dbpertenant-performance-monitoring.md) para ver um debate sobre padrões e cenários SaaS e como afetam os requisitos numa solução de monitorização.
 
-## <a name="monitoring-and-managing-performance-with-log-analytics-oms"></a>Monitorizar e gerir o desempenho com o Log Analytics (OMS)
+## <a name="monitoring-and-managing-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite-oms"></a>Monitorizar e gerir o desempenho de agrupamento de base de dados e elástico com o Log Analytics ou o Operations Management Suite (OMS)
 
-Na Base de Dados SQL, a monitorização e os alertas estão disponíveis nas bases de dados e nos conjuntos. Estes alertas e monitorização incorporados, específicos dos recursos, são convenientes quando existirem números baixos de recursos, mas são menos adequados para a monitorização de grandes instalações ou para fornecer uma vista unificada nos diferentes recursos e subscrições.
+Para a base de dados do SQL Server, monitorização e alertas estão disponível em bases de dados e agrupamentos no portal do Azure. Esta monitorização incorporada e os alertas são conveniente, mas a recursos específicos, é menos também adequada para monitorização grandes instalações de ou para fornecer uma vista unificada através de recursos e as subscrições.
 
-Para cenários de volume elevado, pode ser utilizado o Log Analytics. Este é um serviço do Azure separado que fornece análises sobre os registos de diagnóstico emitidos e a telemetria recolhida na área de trabalho do Log Analytics, que pode recolher telemetria de muitos serviços e ser utilizado para consultar e definir alertas. O Log Analytics fornece uma linguagem de consulta incorporada e ferramentas de visualização de dados que permitem análises operacionais e visualização de dados. A solução de análise do SQL Server fornece vários predefinido conjunto elástico e base de dados de monitorização e alertas, vistas e consultas e permite-lhe adicionar as suas próprias consultas ad-hoc e guardá-las conforme necessário. O OMS também fornece um estruturador de vistas personalizado.
+Para cenários de volume elevado, análise de registos pode ser utilizado para monitorização e alertas. Análise de registos é um serviço separada do Azure que permite a análise através de registos de diagnóstico e telemetria recolhidos numa área de trabalho de potencialmente vários serviços. Análise de registos fornece uma consulta incorporada ferramentas de visualização de dados e de idioma permitir análise de dados operacional. A solução de análise do SQL Server fornece vários predefinido conjunto elástico e base de dados de monitorização e alerta vistas e consultas. O OMS também fornece um estruturador de vistas personalizado.
 
 As áreas de trabalho do Log Analytics e as soluções de análise podem ser abertas no portal do Azure e no OMS. O portal do Azure é o mais recente ponto de acesso, mas pode ficar atrás em relação ao portal do OMS em algumas áreas.
 
-### <a name="create-data-by-starting-the-load-generator"></a>Criar dados ao iniciar o gerador de carga 
+### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho simulando uma carga de trabalho nos seus inquilinos 
 
-1. No **ISE do PowerShell**, abra **demonstração PerformanceMonitoringAndManagement.ps1**. Mantenha este script aberto, uma vez que poderá querer executar vários cenários de geração de carga durante este tutorial.
-1. Se tiver menos de cinco inquilinos, aprovisionar um lote de inquilinos para fornecer um mais interessante monitorização contexto:
-   1. Defina **$DemoScenario = 1,** **Aprovisionar um lote de inquilinos**
-   1. Para executar o script, prima **F5**.
+1. No **ISE do PowerShell**, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\* * PerformanceMonitoringAndManagement.ps1*** de demonstração. Mantenha este script aberto, uma vez que poderá querer executar vários cenários de geração de carga durante este tutorial.
+1. Se ainda não o tiver o feito, Aprovisione um lote de inquilinos para fornecer um contexto de monitorização mais interessante. Esta ação demora alguns minutos:
+   1. Definir **$DemoScenario = 1**, _aprovisionar um lote de inquilinos_
+   1. Para executar o script e implementar uma inquilinos 17 adicionais, prima **F5**.  
 
-1. Definir **$DemoScenario** = 2, **carga normal intensidade de gerar (approx. 40 DTU)**.
-1. Para executar o script, prima **F5**.
+1. Inicie agora o gerador de carga para executar uma carga simulada em todos os inquilinos.  
+    1. Definir **$DemoScenario = 2**, _carga normal intensidade de gerar (approx. 30 DTU)_.
+    1. Para executar o script, prima **F5**.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicação Wingtip bilhetes SaaS da base de dados por inquilino
 
-Os scripts de base de dados do Wingtip bilhetes SaaS multi-inquilino e o código fonte da aplicação, estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip SaaS de pedidos de desbloqueio.
+Os scripts de base de dados do Wingtip bilhetes SaaS multi-inquilino e o código fonte da aplicação, estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts do PowerShell de bilhetes Wingtip de desbloqueio.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalar e configurar o Log Analytics e a solução Análise de SQL do Azure
 
-O Log Analytics é um serviço em separado que tem de ser configurado. O Log Analytics recolhe dados de registo, telemetria e métricas numa área de trabalho do Log Analytics. Uma área de trabalho é um recurso, tal como os outros recursos no Azure, e tem de ser criada. Enquanto a área de trabalho não precisa de ser criada no mesmo grupo de recursos como a aplicação (ou aplicações) que está a monitorizar, muitas vezes, isto faz mais sentido. Para a aplicação de Wingtip bilhetes SaaS da base de dados por inquilino SaaS, isto permite que a área de trabalho, ao eliminar o grupo de recursos, facilmente ser eliminadas com a aplicação.
+O Log Analytics é um serviço em separado que tem de ser configurado. Análise de registos recolhe dados de registo, telemetria e métricas numa área de trabalho de análise de registo. Uma área de trabalho de análise do registo é um recurso, tal como outros recursos no Azure e tem de ser criada. Enquanto a área de trabalho não tem de ser criada no mesmo grupo de recursos de aplicação (ões) que está a monitorizar, se o fizer, por isso, muitas vezes, faz com que a maioria dos sentido. Para a aplicação de bilhetes Wingtip, utilizar um grupo de recursos única garante que a área de trabalho é eliminada com a aplicação.
 
-1. No **ISE do PowerShell**, abra... \\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\*demonstração LogAnalytics.ps1*.
+1. No **ISE do PowerShell**, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\* * LogAnalytics.ps1*** de demonstração.
 1. Para executar o script, prima **F5**.
 
-Nesta fase, deve ser capaz de análise de registos de abrir o portal do Azure (ou o portal do OMS). Demora alguns minutos para que a telemetria recolhida na área de trabalho de análise de registos e ficar visível. Mais tempo deixar o sistema de recolha de dados mais interessante a experiência é. Agora é o momento indicado para tomar um café. Só tem de verificar se o gerador de carga ainda está em execução!
-
+Nesta fase, deve ser capaz de análise de registos de abrir o portal do Azure (ou o portal do OMS). Demora alguns minutos para que a telemetria recolhida na área de trabalho de análise de registos e ficar visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico a experiência é mais interessante. Agora é o momento indicado para tomar um café. Só tem de verificar se o gerador de carga ainda está em execução!
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Utilizar o Log Analytics e a Solução de Análise de SQL para monitorizar conjuntos e bases de dados
 
 
 Neste exercício, abra o portal do OMS e de análise de registo para ver a telemetria a ser recolhida para as bases de dados e agrupamentos.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com) e abra o Log Analytics ao clicar em Mais serviços e, em seguida, procure o Log Analytics:
+1. Navegue para o [portal do Azure](https://portal.azure.com) e abra a análise de registos, clicando em **todos os serviços**, em seguida, procure a análise de registos:
 
    ![abrir o Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selecione a área de trabalho com o nome *wtploganalytics-&lt;UTILIZADOR&gt;*.
+1. Selecione a área de trabalho com o nome _wtploganalytics -&lt;utilizador&gt;_.
 
 1. Selecione **Descrição Geral** para abrir a solução Log Analytics no portal do Azure.
-   ![ligação da descrição geral](media/saas-dbpertenant-log-analytics/click-overview.png)
+
+   ![overview-link](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > Pode demorar alguns minutos antes da solução está ativa. Seja paciente!
@@ -92,36 +93,51 @@ Neste exercício, abra o portal do OMS e de análise de registo para ver a telem
 
     ![descrição geral](media/saas-dbpertenant-log-analytics/overview.png)
 
-    ![análise](media/saas-dbpertenant-log-analytics/analytics.png)
+    ![análise](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. A vista no painel Solução tem deslocação lateral, com a sua própria barra de deslocamento na parte inferior (atualize o painel, se necessário).
+1. As vistas na solução lado, desloque com as seus próprios barra de deslocamento interna na parte inferior (Atualize a página se necessário).
 
-1. Explore as várias vistas ao clicar nelas ou nos recursos individuais para abrir o explorador detalhado, onde pode utilizar o controlo de deslize temporal na parte superior esquerda ou clicar na barra vertical para se concentrar numa fatia temporal mais pequena. Com esta vista, pode selecionar as bases de dados individuais ou os conjuntos para se concentrar em recursos específicos:
+1. Explore a página de resumo clicando nos mosaicos ou uma base de dados individual para abrir o Explorador de desagregação.
 
-    ![gráfico](media/saas-dbpertenant-log-analytics/chart.png)
+1. Alterar o filtro de definição para modificar o intervalo de tempo - para este tutorial escolha _última 1 hora_
 
-1. De volta ao painel Solução, se se deslocar para extremidade direita, verá algumas consultas guardadas que pode clicar para abrir e explorar. Pode experimentar modificar estes e guardar quaisquer interessantes consultas produzir, o que pode, em seguida, volte a abrir e utilizar com outros recursos.
+    ![filtro de tempo](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. De volta ao painel da área de trabalho do Log Analytics, selecione Portal do OMS para abrir aí a solução.
+1. Selecione uma base de dados para explorar a utilização de consulta e métricas para essa base de dados.
 
-    ![oms](media/saas-dbpertenant-log-analytics/oms.png)
+    ![análise de base de dados](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-1. No portal do OMS, pode configurar alertas. Clique na parte de alertas da vista DTU da base de dados.
+1. Para ver a utilização de métricas, desloque-se a página de análise para a direita.
+ 
+     ![métricas de base de dados](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Na vista Pesquisa de Registos apresentada, verá um gráfico de barras das métricas que estão a ser representadas.
+1. Desloque-se a página de análise para a esquerda e clique no mosaico de servidor na lista de informações de recurso. Esta ação abre uma página que mostra os conjuntos e as bases de dados no servidor. 
 
-    ![pesquisa de registos](media/saas-dbpertenant-log-analytics/log-search.png)
+     ![informações de recurso](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
-1. Se clicar no alerta na barra de ferramentas, será capaz de ver a configuração do alerta e pode alterá-la.
+ 
+     ![servidor com conjuntos e as bases de dados](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-    ![adicionar regra de alerta](media/saas-dbpertenant-log-analytics/add-alert.png)
+1. No servidor de página que abre-se de que mostra os conjuntos e bases de dados no servidor, clique no conjunto.  Na página de agrupamento que se abre, desloque-se para a direita para ver as métricas de agrupamento.  
 
-A monitorização e os alertas no Log Analytics e no OMS baseiam-se em consultas sobre os dados na área de trabalho, ao contrário dos alertas em cada painel de recursos, que são específicos dos recursos. Assim, pode definir um alerta que procura em todas as bases de dados, em vez de definir um por base de dados. Em alternativa, pode também escrever um alerta que utiliza uma consulta composta em vários tipos de recursos. As consultas são apenas limitadas pelos dados disponíveis na área de trabalho.
-
-O Log Analytics da Base de Dados SQL é cobrado com base no volume de dados na área de trabalho. Neste tutorial, criou uma área de trabalho Gratuita, limitada a 500 MB por dia. Assim que esse limite for atingido, os dados já não serão adicionados à área de trabalho.
+     ![métricas de conjunto](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+
+1. Novamente na área de trabalho de análise de registos, selecione **Portal do OMS** para abrir a área de trabalho existe.
+
+    ![oms](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+
+No portal do OMS, pode explorar os dados de registo e a métrica na área de trabalho adicional.  
+
+A monitorização e alertas na análise de registos e OMS baseada em consultas sobre os dados na área de trabalho, ao contrário de alertas definido em cada recurso no portal do Azure. Por basing alertas em consultas, pode definir um único alerta que se pareça através de todas as bases de dados, em vez de uma definição por base de dados. As consultas são apenas limitadas pelos dados disponíveis na área de trabalho.
+
+Para obter mais informações sobre a utilização do OMS para consultar e definir alertas, consulte, [trabalhar com regras de alertas na análise de registos](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+
+O Log Analytics da Base de Dados SQL é cobrado com base no volume de dados na área de trabalho. Neste tutorial, vai criar uma área de trabalho gratuita, que é limitado a 500 MB por dia. Assim que esse limite é atingido, os dados já não são adicionados à área de trabalho.
+
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

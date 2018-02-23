@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;chackdan;maburlik
+ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Service Fabric do Azure para criar clusters de Service Fabric em qualquer máquinas virtuais ou computadores que executam o Windows Server. Isto significa que pode implementar e executar aplicações de Service Fabric em qualquer ambiente que contém um conjunto de computadores do Windows Server interligados, sê-lo no local ou com qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de Service Fabric chamados o pacote do Windows Server autónomo.
@@ -185,7 +185,7 @@ Para desativar a telemetria, adicione o seguinte ao *propriedades* na sua config
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>Funcionalidades de pré-visualização incluídas no pacote
-nenhum.
+Nenhum.
 
 
 > [!NOTE]
@@ -193,7 +193,7 @@ nenhum.
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Implementar e remover aplicações utilizando o PowerShell](service-fabric-deploy-remove-applications.md)
 * [Definições de configuração do cluster do Windows autónomo](service-fabric-cluster-manifest.md)
 * [Adicionar ou remover nós para um cluster do Service Fabric autónomo](service-fabric-cluster-windows-server-add-remove-nodes.md)

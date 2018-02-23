@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte de recuperação de sites do Azure para replicar no local para Azure
 
@@ -72,17 +72,17 @@ A tabela seguinte resume o suporte do sistema de operativo replicadas em vários
 
 >[!NOTE]
 >
-> \*Windows Server 2016 Nano Server não é suportado.
+> \* Windows Server 2016 Nano Server não é suportado.
 >
 > Sobre as distribuições do Linux, são suportados apenas os cotações kernels que fazem parte da versão secundária versão/atualização da distribuição.
 >
 > Atualizações entre versões principais de uma distribuição Linux num Azure Site Recovery proteger a máquina virtual VMware ou servidor físico não é suportado. Ao atualizar o sistema operativo em versões principais (por exemplo 6.* CentOS para CentOS 7.*), desative a replicação da máquina, atualize o sistema operativo na máquina e, em seguida, ativar a replicação novamente.
-> 
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versões suportadas do kernel Ubuntu para VMware/servidores físicos
 
-**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Versão** | **Versão do serviço de mobilidade** | Versão de kernel |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic para 3.13.0-121-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic para 3.13.0-128-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-91-generic |
@@ -134,7 +134,7 @@ Vários NICs | Sim | Sim
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuração de rede de VM do Azure de efetuada a ativação pós-falha
 
-**Redes do Azure** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
+Redes do Azure | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Sim | Sim
 ILB | Sim | Sim
@@ -166,7 +166,7 @@ Caminho multi (o MPIO)<br></br>Testar com: Microsoft DSM, EMC PowerPath 5.7 SP4,
 VMDK | Sim | N/A
 VHD/VHDX | N/A | Sim
 Ger 2 VM | N/A | Sim
-EFI/UEFI| Migração para o Azure para o Windows Server 2012 e apenas mais tarde. </br></br> * * Consulte a nota no fim da tabela.  | Sim
+EFI/UEFI| Migração para o Azure para o Windows Server 2012 e posterior VMware apenas a máquinas virtuais. </br></br> * * Consulte a nota no fim da tabela.  | Sim
 Disco de cluster partilhado | Não | Não
 Disco encriptado | Não | Não
 NFS | Não | N/A
@@ -182,10 +182,11 @@ Excluir o disco | Sim | Sim
 Caminho multi (o MPIO) | N/A | Sim
 
 > [!NOTE]
-> * * UEFI arrancar em máquinas virtuais VMware ou servidores físicos com o Windows Server 2012 ou posterior, que podem ser migrados para o Azure. As seguintes restrições aplicam-se.
+> * * UEFI arrancar em máquinas virtuais VMware com o Windows Server 2012 ou posterior, que podem ser migrados para o Azure. As seguintes restrições aplicam-se.
 > - Migração para o Azure apenas. Reativação pós-falha para o site de VMware no local não suportada.
 > - São suportadas não mais de 4 partições no disco de SO do servidor.
 > - Requer a versão do serviço de mobilidade de recuperação de Site do Azure 9.13 ou posterior.
+> - Não é suportado para servidores físicos.
 
 **Armazenamento do Azure** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
@@ -214,21 +215,21 @@ Managed disks | Sim | Sim<br/><br/>A reativação pós-falha no local na VM do A
 
 Pode implementar o Site Recovery para replicar máquinas virtuais e servidores físicos que executem qualquer sistema operativo que o Azure suporte. Estes incluem a maioria das versões do Windows e do Linux. No local as VMs que pretende replicar devem estar em conformidade com os seguintes requisitos do Azure ao replicar para o Azure.
 
-**Entidade** | **Requisitos** | **Detalhes**
+**Entidade** | Requisitos | **Detalhes**
 --- | --- | ---
-**Sistema operativo convidado** | Hyper-V para replicação do Azure: recuperação de sites suporta todos os sistemas operativos que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para VMware e replicação do servidor físico: verificar o Windows e Linux [pré-requisitos](site-recovery-vmware-to-azure-classic.md) | Verificação de pré-requisitos irá falhar se não suportado.
+Sistema operativo convidado | Hyper-V para replicação do Azure: recuperação de sites suporta todos os sistemas operativos que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para VMware e replicação do servidor físico: verificar o Windows e Linux [pré-requisitos](site-recovery-vmware-to-azure-classic.md) | Verificação de pré-requisitos irá falhar se não suportado.
 **Arquitetura do sistema operativo convidado** | 64 bits | Verificação de pré-requisitos irá falhar se não suportado
 **Tamanho do disco do sistema operativo** | Até 2048 GB se estiver a replicar **VMs de VMware ou servidores físicos para o Azure**.<br/><br/>Até 2048 GB para **geração do Hyper-V 1** VMs.<br/><br/>Até 300 GB para **VMs de Hyper-V de geração 2**.  | Verificação de pré-requisitos irá falhar se não suportado
 **Contagem de discos do sistema operativo** | 1 | Verificação de pré-requisitos irá falhar se não suportado.
 **Contagem de discos de dados** | 64 ou menos se estiver a replicar **VMs de VMware para Azure**; 16 ou menos se estiver a replicar **VMs de Hyper-V para o Azure** | Verificação de pré-requisitos irá falhar se não suportado
-**Tamanho VHD do disco de dados** | 4095 GB | Verificação de pré-requisitos irá falhar se não suportado
+**Tamanho do VHD do disco de dados** | Até 4095 GB | Verificação de pré-requisitos irá falhar se não suportado
 **Adaptadores de rede** | São suportados vários adaptadores |
 **VHD partilhado** | Não suportado | Verificação de pré-requisitos irá falhar se não suportado
 **Disco FC** | Não suportado | Verificação de pré-requisitos irá falhar se não suportado
-**Formato de disco rígido** | VHD <br/><br/> VHDX | Embora VHDX não é atualmente suportado no Azure, a recuperação de sites converte automaticamente VHDX VHD, quando efetuar a ativação pós-falha para o Azure. Quando falhar no local as máquinas virtuais continuam a utilizar o formato VHDX.
-**Bitlocker** | Não suportado | O BitLocker tem de ser desativado antes de proteger uma máquina virtual.
-**Nome da VM** | Entre 1 e 63 carateres. Restritas a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou número. | Atualize o valor nas propriedades de máquina virtual na recuperação de sites.
-**Tipo VM** | Geração 1<br/><br/> Geração 2 – Windows | Geração 2 VMs com um tipo de disco de SO de basic (que inclui um ou dois volumes de dados formatados como VHDX) e inferior a 300 GB de espaço em disco são suportadas.<br></br>As VMs do Linux geração 2 não são suportadas. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+**Formato de disco rígido** | VHD <br/><br/> VHDX | Apesar de o formato VHDX não ser suportado atualmente no Azure, o Site Recovery converte automaticamente VHDX em VHD quando executa a ativação pós-falha para o Azure. Quando falhar no local as máquinas virtuais continuam a utilizar o formato VHDX.
+**BitLocker** | Não suportado | O BitLocker tem de ser desativado antes de proteger uma máquina virtual.
+**Nome da VM** | Entre 1 e 63 carateres. Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número. | Atualize o valor nas propriedades de máquina virtual na recuperação de sites.
+**Tipo de VM** | Geração 1<br/><br/> Geração 2 – Windows | Geração 2 VMs com um tipo de disco de SO de basic (que inclui um ou dois volumes de dados formatados como VHDX) e inferior a 300 GB de espaço em disco são suportadas.<br></br>As VMs do Linux geração 2 não são suportadas. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="support-for-recovery-services-vault-actions"></a>Suporte para ações de cofre dos serviços de recuperação
 
@@ -240,7 +241,7 @@ Mover o armazenamento, rede, as VMs do Azure através de grupos de recursos<br/>
 
 ## <a name="support-for-provider-and-agent"></a>Suporte para o fornecedor e agente
 
-**Nome** | **Descrição** | **Versão mais recente** | **Detalhes**
+**Nome** | **Descrição** | **versão mais recente** | **Detalhes**
 --- | --- | --- | --- | ---
 **Fornecedor do Azure Site Recovery** | Coordena a comunicação entre servidores no local e o Azure <br/><br/> Instalado em servidores do Virtual Machine Manager no local ou em servidores de Hyper-V, se não houver nenhum servidor do Virtual Machine Manager | 5.1.2700.1 (disponível a partir do portal) | [Funcionalidades e correções mais recentes](https://aka.ms/latest_asr_updates)
 **Recuperação de sites do Azure Unified configuração (VMware para o Azure)** | Coordena a comunicação entre servidores do VMware no local e o Azure <br/><br/> Instalado nos servidores do VMware no local | 9.12.4653.1 (disponível a partir do portal) | [Funcionalidades e correções mais recentes](https://aka.ms/latest_asr_updates)

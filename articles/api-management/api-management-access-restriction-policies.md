@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -500,7 +500,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |clock-skew|TimeSpan. Utilize para especificar o tempo esperado máximo de diferença entre os relógios de sistema de emissor de token e a instância de API Management.|Não|0 segundos|  
 |failed-validation-error-message|Mensagem de erro para devolver no corpo da resposta HTTP, se o JWT não transmite a validação. Esta mensagem tem de ter os caracteres especiais caráter de escape correto.|Não|Mensagem de erro predefinida depende de problema de validação, por exemplo "JWT não está presente."|  
 |failed-validation-httpcode|Código de estado de HTTP a devolver se a JWT não aprovado na validação.|Não|401|  
-|nome do cabeçalho|O nome do cabeçalho de HTTP que contém o token.|O `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/A|  
+|nome do cabeçalho|O nome do cabeçalho de HTTP que contém o token.|O `header-name` ou `query-parameter-name` tem de ser especificado; mas não ambos.|N/A|  
 |ID|O `id` atributo no `key` elemento permite-lhe especificar a cadeia que irá ser comparada com `kid` de afirmação no token (caso exista) localizar a chave a utilizar para a validação da assinatura adequada.|Não|N/A|  
 |Correspondência|O `match` atributo no `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para validação com êxito. Os valores possíveis são:<br /><br /> -                          `all` -cada valor de afirmação na política tem de estar presente no token para validação com êxito.<br /><br /> -                          `any` -valor, pelo menos, uma afirmação deve estar presente no token para validação com êxito.|Não|all|  
 |query-paremeter-name|O nome do parâmetro de consulta que contém o token.|O `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/A|  
@@ -508,7 +508,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |require-scheme|O nome do token de esquema, por exemplo "Portador". Quando este atributo for definido, a política irá garantir que esquema especificada encontra-se no valor de cabeçalho de autorização.|Não|N/A|
 |require-signed-tokens|valor booleano. Especifica se um token é necessário para ser iniciada.|Não|true|  
 |separador|Cadeia. Especifica um separador (por exemplo, ",") para ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.|Não|N/A| 
-|url|Abra o URL de ponto final de configuração de ID de onde podem obter metadados de configuração de ID aberta. Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do seu inquilino de diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/A|  
+|url|Abra o URL de ponto final de configuração de ID de onde podem obter metadados de configuração de ID aberta. A resposta deve ser de acordo com especificações conforme definido no URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do seu inquilino de diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

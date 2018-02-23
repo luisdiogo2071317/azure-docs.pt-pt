@@ -4,7 +4,7 @@ description: "Configure serviços de escuta de grupo de disponibilidade no model
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On disponibilidade grupo escuta - Resource Manager
 Este tópico mostra como:
@@ -28,13 +28,13 @@ Este tópico mostra como:
 
 Um serviço de escuta do grupo de disponibilidade é um nome de rede virtual que os clientes ligam para acesso de base de dados. Máquinas virtuais do Azure, um balanceador de carga contém o endereço IP para o serviço de escuta. O load balancer encaminha o tráfego para a instância do SQL Server que está a escutar a porta da sonda. Normalmente, um grupo de disponibilidade utiliza um balanceador de carga interno. Um balanceador de carga interno do Azure pode alojar um ou vários endereços IP. Cada endereço IP utiliza uma porta específica de pesquisa. Este documento mostra como utilizar o PowerShell para criar um balanceador de carga, ou adicionar endereços IP a um balanceador de carga existente para grupos de disponibilidade do SQL Server. 
 
-A capacidade de atribuir vários endereços IP para um balanceador de carga interno é nova no Azure e só está disponível no modelo do Resource Manager. Para concluir esta tarefa, tem de ter um grupo de disponibilidade do SQL Server implementado em máquinas virtuais do Azure no modelo do Resource Manager. Máquinas virtuais do SQL Server têm de pertencer ao mesmo conjunto de disponibilidade. Pode utilizar o [modelo Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade no Gestor de recursos do Azure. Este modelo cria automaticamente o grupo de disponibilidade, incluindo o Balanceador de carga interno para si. Se preferir, pode [configurar manualmente a um grupo de disponibilidade Always On](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+A capacidade de atribuir vários endereços IP para um balanceador de carga interno é nova no Azure e só está disponível no modelo do Resource Manager. Para concluir esta tarefa, tem de ter um grupo de disponibilidade do SQL Server implementado em máquinas virtuais do Azure no modelo do Resource Manager. Máquinas virtuais do SQL Server têm de pertencer ao mesmo conjunto de disponibilidade. Pode utilizar o [modelo Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade no Gestor de recursos do Azure. Este modelo cria automaticamente o grupo de disponibilidade, incluindo o Balanceador de carga interno para si. Se preferir, pode [configurar manualmente a um grupo de disponibilidade Always On](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Este tópico requer que os grupos de disponibilidade já estão configurados.  
 
 Tópicos relacionados incluem:
 
-* [Configurar grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Configurar grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Configurar uma ligação VNet a VNet através do Azure Resource Manager e o PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
@@ -98,7 +98,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Script de exemplo: adicionar um endereço IP para um balanceador de carga existente com o PowerShell
+## <a name="Add-IP"></a> Script de exemplo: adicionar um endereço IP para um balanceador de carga existente com o PowerShell
 Para utilizar mais do que um grupo de disponibilidade, adicione um endereço IP adicional ao balanceador de carga. Cada endereço IP requer a sua própria regra, a porta de pesquisa e a porta de front-de balanceamento de carga.
 
 A porta de front-end é a porta que as aplicações a utilizar para ligar à instância do SQL Server. Endereços IP para grupos de disponibilidade diferente, podem utilizar a mesma porta front-end.
@@ -195,8 +195,8 @@ Tenha em atenção as seguintes diretrizes no serviço de escuta de grupo de dis
 * Com um balanceador de carga interno, aceder apenas o serviço de escuta a partir da mesma rede virtual.
 
 
-## <a name="for-more-information"></a>Para obter mais informações
-Para obter mais informações, consulte [configurar Always On do grupo de disponibilidade na VM do Azure manualmente](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+## <a name="for-more-information"></a>Para obter mais informações:
+Para obter mais informações, consulte [configurar Always On do grupo de disponibilidade na VM do Azure manualmente](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 Utilize os seguintes cmdlets PowerShell para criar um balanceador de carga interno para máquinas virtuais do Azure.

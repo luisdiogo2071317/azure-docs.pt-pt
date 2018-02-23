@@ -1,7 +1,7 @@
 ---
 title: "Criar um conjunto de dimensionamento de Máquina Virtual no portal do Azure | Microsoft Docs"
 description: "Saiba como criar rapidamente um dimensionamento da máquina virtual no portal do Azure"
-keywords: "Conjuntos de dimensionamento de máquina virtual"
+keywords: "conjuntos de dimensionamento da máquina virtual"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ae41149bf507e30dc5281fd60a9d6f77d2023293
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Criar um conjunto de dimensionamento de Máquina Virtual no portal do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos, como CPU, exigência de memória ou tráfego de rede. Neste artigo Introdução ao obter, criar um conjunto no portal do Azure de dimensionamento de máquina virtual. Também pode criar uma escala definida com o [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
@@ -36,7 +36,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 ## <a name="create-virtual-machine-scale-set"></a>Criar conjunto de dimensionamento da máquina virtual
 Pode implementar um conjunto com uma imagem do Windows Server ou Linux imagem como RHEL, CentOS, Ubuntu ou SLES de dimensionamento.
 
-1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1. Clique em **crie um recurso** no canto superior esquerdo do portal do Azure.
 2. Procurar *conjunto de dimensionamento*, escolha **conjunto de dimensionamento da Máquina Virtual**, em seguida, selecione **criar**.
 3. Introduza um nome para o conjunto de dimensionamento, tais como *myScaleSet*.
 4. Selecione o tipo de SO pretendido, tais como *Datacenter do Windows Server 2016*.
@@ -65,8 +65,8 @@ Para ver estas NAT regras e as informações da ligação para a escala definir 
 
 Pode ligar para cada VM em escala definida utilizando estas regras NAT. Cada instância VM apresenta uma lista de um endereço IP de destino e o valor da porta TCP. Por exemplo, se o endereço IP de destino é *104.42.1.19* e a porta TCP é *50001*, ligar a instância VM da seguinte forma:
 
-- Para um conjunto de dimensionamento do Windows, ligar-se para a instância VM com o RDP no`104.42.1.19:50001`
-- Para um conjunto de dimensionamento do Linux, ligar-se para a instância VM com o SSH no`ssh azureuser@104.42.1.19 -p 50001`
+- Para um conjunto de dimensionamento do Windows, ligar-se para a instância VM com o RDP no `104.42.1.19:50001`
+- Para um conjunto de dimensionamento do Linux, ligar-se para a instância VM com o SSH no `ssh azureuser@104.42.1.19 -p 50001`
 
 Quando lhe for pedido, introduza as credenciais que especificou no passo anterior, quando criou o conjunto de dimensionamento. As instâncias do conjunto de dimensionamento são VMs regulares que pode interagir com como normal. Para obter mais informações sobre como implementar e executar aplicações no seu dimensionamento instâncias do conjunto, consulte [implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual](virtual-machine-scale-sets-deploy-app.md)
 

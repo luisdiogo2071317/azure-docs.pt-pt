@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: v-craic
-ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 616117e1f1e55e9c59b409740e17e295ce114d52
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir claimable VMs no Azure DevTest Labs
 Adicionar uma VM claimable para um laboratório de forma semelhante ao procedimento [adicionar uma VM padrão](devtest-lab-add-vm.md) – num *base* que está a um [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica-lhe utilizar o portal do Azure para adicionar uma VM claimable para um laboratório no DevTest Labs e mostra os processos de um utilizador que se segue para afirmações e unclaim a VM.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Passos para adicionar uma VM claimable a um laboratório no Azure DevTest Labs
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório no qual pretende criar a VM claimable.  
 1. No laboratório de **descrição geral** painel, selecione **+ adicionar**.  
 

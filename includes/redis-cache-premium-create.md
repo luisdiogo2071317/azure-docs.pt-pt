@@ -1,4 +1,4 @@
-Para criar uma cache premium, inicie sessão no [portal do Azure](https://portal.azure.com) e clique em **Novo** > **Bases de Dados** > **Cache de Redis**.
+Para criar uma cache de premium, início de sessão para o [portal do Azure](https://portal.azure.com) e clique em **crie um recurso** > **bases de dados** > **a Cache de Redis** .
 
 ![Criar cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory totalmente integrada Single Sign-On: início rápido
 
@@ -75,10 +75,10 @@ Siga estas instruções para verificar que ativou SSO totalmente integrado corre
 
 ## <a name="step-3-roll-out-the-feature"></a>Passo 3: Implementar a funcionalidade
 
-Para implementar a funcionalidade aos seus utilizadores, tem de adicionar os seguintes URLs de AD do Azure para as definições de zona de Intranet dos utilizadores através da política de grupo no Active Directory:
+Para implementar a funcionalidade aos seus utilizadores, tem de adicionar o seguinte URL de AD do Azure para as definições de zona de Intranet dos utilizadores através da política de grupo no Active Directory:
 
-- https://AutoLogon.microsoftazuread-SSO.com
-- https://aadg.Windows.NET.nsatc.NET
+- https://autologon.microsoftazuread-sso.com
+
 
 Além disso, tem de ativar uma política de zona de Intranet definição chamado **permita que as atualizações na barra de estado através do script** através da política de grupo. 
 
@@ -87,7 +87,7 @@ Além disso, tem de ativar uma política de zona de Intranet definição chamado
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que motivo é necessário modificar as definições de zona de Intranet dos utilizadores?
 
-Por predefinição, o browser calcula automaticamente a zona correta, Internet ou da Intranet, a partir de um URL específico. Por exemplo, "http://contoso/" mapeia para a zona da Intranet, enquanto "http://intranet.contoso.com/" mapeia para a zona de Internet (porque o URL contém um período). Browsers não enviam permissões de Kerberos para um ponto final da nuvem, como os dois URLs do Azure AD, a menos que tem de adicionar explicitamente o URL da zona de Intranet do browser.
+Por predefinição, o browser calcula automaticamente a zona correta, Internet ou da Intranet, a partir de um URL específico. Por exemplo, "http://contoso/" mapeia para a zona da Intranet, enquanto "http://intranet.contoso.com/" mapeia para a zona de Internet (porque o URL contém um período). Browsers não enviará permissões de Kerberos para um ponto final da nuvem, como o URL do Azure AD, a menos que adicionar explicitamente o URL para a zona de Intranet do browser.
 
 ### <a name="detailed-steps"></a>Passos detalhados
 
@@ -96,21 +96,17 @@ Por predefinição, o browser calcula automaticamente a zona correta, Internet o
 3. Navegue até à **configuração do utilizador** > **modelos administrativos** > **componentes do Windows**  >   **Internet Explorer** > **painel de controlo de Internet** > **página segurança**. Em seguida, selecione **Site à zona atribuição lista**.
     ![Início de sessão único](./media/active-directory-aadconnect-sso/sso6.png)
 4. Ativar a política e, em seguida, introduza os seguintes valores na caixa de diálogo:
-   - **Nome do valor**: O Azure AD URLs onde são reencaminhados de permissões de Kerberos.
+   - **Nome do valor**: O Azure AD URL onde são reencaminhados de permissões de Kerberos.
    - **Valor** (dados): **1** indica a zona de Intranet.
 
    O resultado tem o seguinte aspeto:
 
-    Valor: https://autologon.microsoftazuread-sso.com
+    Value: https://autologon.microsoftazuread-sso.com
   
-    Dados: 1
-        
-   Valor: https://aadg.windows.net.nsatc.net
-
     Dados: 1
 
    >[!NOTE]
-   > Se pretender não permitir alguns utilizadores de utilizar o SSO totalmente integrada (por exemplo, se estes utilizadores iniciam sessão em quiosques partilhados), defina os valores anteriores para **4**. Esta ação adiciona os URLs do AD do Azure para a zona restrita e falha SSO totalmente integrado sempre.
+   > Se pretender não permitir alguns utilizadores de utilizar o SSO totalmente integrada (por exemplo, se estes utilizadores iniciam sessão em quiosques partilhados), defina os valores anteriores para **4**. Esta ação adiciona o URL de AD do Azure para a zona restrita e falha SSO totalmente integrado sempre.
    >
 
 5. Selecione **OK**e, em seguida, selecione **OK** novamente.
@@ -146,9 +142,9 @@ Se tiver substituído o [AuthNegotiateDelegateWhitelist](https://www.chromium.or
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (apenas no Mac SO)
 
-Google Chrome em outras plataformas de não-Windows e Mac OS, consulte [a lista de políticas de projeto Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como URLs da lista branca o Azure AD para autenticação integrada.
+Google Chrome em outras plataformas de não-Windows e Mac OS, consulte [a lista de políticas de projeto Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como a lista branca o URL do Azure AD para autenticação integrada.
 
-A utilização de extensões de política de grupo do Active Directory de terceiros para implementar os URLs do Azure AD para o Firefox e Google Chrome nos utilizadores de Mac está fora do âmbito deste artigo.
+A utilização de extensões de política de grupo do Active Directory de terceiros para implementar o URL do Azure AD para o Firefox e Google Chrome nos utilizadores de Mac está fora do âmbito deste artigo.
 
 #### <a name="known-browser-limitations"></a>Limitações conhecidas do browser
 
@@ -176,7 +172,7 @@ No passo 2, o Azure AD Connect cria contas de computador (que representa o Azure
 >[!IMPORTANT]
 >Não precisa de efetuar este passo _imediatamente_ depois de ter ativado a funcionalidade. Rollover as chaves de desencriptação de Kerberos, pelo menos, uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Descrição detalhada da Technical](active-directory-aadconnect-sso-how-it-works.md): compreender como funciona a funcionalidade totalmente integrado Single Sign-On.
 - [Perguntas mais frequentes](active-directory-aadconnect-sso-faq.md): obter respostas a perguntas mais frequentes sobre totalmente integrada Single Sign-On.
