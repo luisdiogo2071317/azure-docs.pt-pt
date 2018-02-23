@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 97e8d23d90821489575b3ac6e8f1e810b7ce25a9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Gerir os dados pessoais no Microsoft Azure
 
@@ -59,23 +59,23 @@ Tem de iniciar sessão com uma conta que seja um administrador global do diretó
 
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 
-2. Selecione **mais serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
+2. Selecione **todos os serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
 
-    ![suporte de dados/image1.png](media/manage-personal-data-azure/image001.png)
+    ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
 3. No **utilizadores e grupos** painel, selecione **utilizadores**.
 
-    ![suporte de dados/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. No **utilizadores e grupos - os utilizadores** painel, selecione um utilizador na lista e, em seguida, no painel de para o utilizador selecionado, selecione **perfil** para ver as informações de perfil de utilizador que tem de ser corrigido ou atualizadas.
 
-    ![suporte de dados/image3.png](media/manage-personal-data-azure/image005.png)
+    ![media/image3.png](media/manage-personal-data-azure/image005.png)
 
 5. Corrigir ou atualizar as informações e, em seguida, na barra de comandos, selecione **guardar.**
 
 6.  No painel de para o utilizador selecionado, selecione **trabalhar informações** para ver informações de trabalho de utilizador que tem de ser corrigido ou atualizadas.
 
-    ![suporte de dados/image4.png](media/manage-personal-data-azure/image007.png)
+    ![media/image4.png](media/manage-personal-data-azure/image007.png)
 
 7. Corrigir ou atualizar as informações de trabalho de utilizador e, em seguida, na barra de comando, selecione **guardar.**
 
@@ -83,17 +83,17 @@ Tem de iniciar sessão com uma conta que seja um administrador global do diretó
 
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 
-2. Selecione **mais serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
+2. Selecione **todos os serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
 3. No **utilizadores e grupos** painel, selecione **utilizadores**.
 
-    ![suporte de dados/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. No painel **Utilizadores e grupos - Utilizadores**, selecione um utilizador na lista.
 
-    ![suporte de dados/image3.png](media/manage-personal-data-azure/image007.png)
+    ![media/image3.png](media/manage-personal-data-azure/image007.png)
 
 5. No painel de para o utilizador selecionado, selecione **descrição geral**e, em seguida, na barra de comandos, selecione **eliminar**.
 

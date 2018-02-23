@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -127,7 +127,7 @@ Recomendamos vivamente que desenvolver o VHD na nuvem utilizando o protocolo RDP
 
 **Ligar através de RDP a utilizar o [portal do Microsoft Azure][link-azure-portal]**
 
-1. Selecione **procurar** > **VMs**.
+1. Selecione **todos os serviços** > **VMs**.
 2. É aberto o painel de máquinas virtuais. Certifique-se de que a VM que pretende estabelecer ligação com está em execução e, em seguida, selecione-o da lista de VMs implementadas.
 3. É aberto um painel que descreve a VM selecionada. Na parte superior, clique em **Connect**.
 4. Lhe for pedido que introduza o nome de utilizador e palavra-passe que especificou durante o aprovisionamento.
@@ -136,7 +136,7 @@ Recomendamos vivamente que desenvolver o VHD na nuvem utilizando o protocolo RDP
 
 Para transferir um ficheiro de ambiente de trabalho remoto para um computador local, utilize o [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Para utilizar este cmdlet, terá de saber o nome do serviço e nome da VM. Se tiver criado a VM a partir de [portal do Microsoft Azure][link-azure-portal], pode encontrar estas informações em propriedades VM:
 
-1. No portal do Microsoft Azure, selecione **procurar** > **VMs**.
+1. No portal do Microsoft Azure, selecione **todos os serviços** > **VMs**.
 2. É aberto o painel de máquinas virtuais. Selecione a VM que tenha implementado.
 3. É aberto um painel que descreve a VM selecionada.
 4. Clique em **Propriedades**.
@@ -214,7 +214,6 @@ Para implementar uma VM a partir de uma imagem VM de utilizador, pode utilizar a
 
 1. Aceda a **novo** > **computação** > **Máquina Virtual** > **da galeria**.
 
-    ![desenho][img-manage-vm-new]
 2. Aceda a **minhas imagens**e, em seguida, selecione a imagem VM a partir da qual pode implementar uma VM:
 
    1. Preste especial atenção para a imagem que seleciona, porque o **minhas imagens** vista apresenta uma lista de imagens do sistema operativo e imagens VM.
@@ -407,15 +406,15 @@ Seguem-se os passos para gerar o SAS URL utilizando o Explorador de armazenament
 
     É gerado URL SAS para o contentor de nível e agora precisamos de adicionar o nome do VHD no mesmo.
 
-    Formato do URL de SAS ao nível do contentor:`https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Formato do URL de SAS ao nível do contentor: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    Insira o nome do VHD após o nome de contentor no URL de SAS, tal como indicado abaixo`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Insira o nome do VHD após o nome de contentor no URL de SAS, tal como indicado abaixo `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     Exemplo:
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
-    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Certifique-se de que a imagem de nome de ficheiro e **". vhd"** são no URI.
     - No meio da assinatura, certifique-se de que **"SP2 = rl"** aparece. Isto demonstra que o acesso de leitura e lista foi fornecido com êxito.
@@ -471,11 +470,11 @@ Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.  Insira o nome do VHD após o nome do contentor no SAS URL conforme mostrado abaixo`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Insira o nome do VHD após o nome do contentor no SAS URL conforme mostrado abaixo `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Exemplo:
 
-    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD
+    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD 
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

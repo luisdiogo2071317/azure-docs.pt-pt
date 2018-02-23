@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Compreender como módulos de IoT limite podem ser utilizados, configurado e reutilizada - pré-visualização
 
@@ -28,7 +28,7 @@ O *o manifesto de implementação* é um documento JSON que descreve:
 
 Os tutoriais de limite de IoT do Azure, criar um manifesto de implementação acedendo através de um assistente no portal do Azure IoT Edge. Também pode aplicar um manifesto de implementação utilizando através de programação REST ou o SDK do serviço do IoT Hub. Consulte [implementar e monitorizar] [ lnk-deploy] para obter mais informações sobre implementações de limite de IoT.
 
-Um nível elevado, o manifesto de implementação configura as propriedades dos módulos de limite de IoT implementados num dispositivo IoT Edge pretendidas. Dois destes módulos são sempre presente: o agente de limite e o hub de limite.
+Um nível elevado, o manifesto de implementação configura propriedades pretendido de um duplo de módulo de módulos de limite de IoT implementados num dispositivo de limite de IoT. Dois destes módulos são sempre presente: o agente de limite e o hub de limite.
 
 O manifesto segue esta estrutura:
 
@@ -96,10 +96,10 @@ A condição pode ser qualquer condição suportada pelo [idioma de consulta do 
 
 O sink pode ser um dos seguintes:
 
-| sink | Descrição |
+| Sink | Descrição |
 | ---- | ----------- |
 | `$upstream` | Enviar a mensagem ao IoT Hub |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem de entrada `{input}` do módulo`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem de entrada `{input}` do módulo `{moduleId}` |
 
 É importante ter em atenção que Edge hub fornece garantias em-menos-uma vez, que significa que as mensagens serão armazenadas localmente no caso de uma rota não é possível entregar a mensagem à respetiva dependente, por exemplo, o hub Edge não é possível ligar ao IoT Hub ou o módulo de destino não está ligado.
 
@@ -112,6 +112,8 @@ O manifesto de implementação pode especificar as propriedades pretendidas de d
 Quando as propriedades pretendidas são especificadas no manifesto de implementação, podem substituem quaisquer propriedades pretendidas atualmente no duplo módulo.
 
 Se não especificar propriedades de pretendido de um duplo de módulo no manifesto de implementação, o IoT Hub não irá modificar o duplo de módulo de qualquer forma e conseguirá definir as propriedades de pretendido através de programação.
+
+Os mesmos mecanismos que lhe permitem modificar dispositivos duplos são utilizados para modificar duplos do módulo. Consulte o [guia para programadores do dispositivo duplo](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) para obter mais informações.   
 
 ### <a name="deployment-manifest-example"></a>Exemplo de manifesto de implementação
 
@@ -196,7 +198,7 @@ As propriedades pretendidas são definidas ao aplicar um manifesto de implementa
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem de ser "1.0" | Sim |
-| Runtime.Type | Tem de ser "docker" | Sim |
+| runtime.type | Tem de ser "docker" | Sim |
 | runtime.settings.minDockerVersion | Definido para a versão mínima do Docker necessária para o manifesto de implementação | Sim |
 | runtime.settings.loggingOptions | Um stringified JSON que contém as opções de registo para o contentor de agente de limite. [Opções de registo do docker][lnk-docker-logging-options] | Não |
 | systemModules.edgeAgent.type | Tem de ser "docker" | Sim |
@@ -209,12 +211,12 @@ As propriedades pretendidas são definidas ao aplicar um manifesto de implementa
 | systemModules.edgeHub.settings.image | O URI da imagem do Edge hub. | Sim |
 | systemModules.edgeHub.settings.createOptions | Um stringified JSON que contém as opções para a criação do contentor de hub de limite. [Docker criar opções][lnk-docker-create-options] | Não |
 | systemModules.edgeHub.configuration.id | O ID da implementação que implementado Este módulo. | Isto é definido pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
-| módulos. .version {moduleId} | Uma cadeia definida pelo utilizador, que representa a versão deste módulo. | Sim |
-| módulos. .type {moduleId} | Tem de ser "docker" | Sim |
-| módulos. .restartPolicy {moduleId} | {"nunca" \| "no-falhou" \| "no-mau estado de funcionamento" \| "sempre"} | Sim |
-| módulos. .settings.image {moduleId} | O URI para a imagem do módulo. | Sim |
-| módulos. .settings.createOptions {moduleId} | Um stringified JSON que contém as opções para a criação do contentor do módulo. [Docker criar opções][lnk-docker-create-options] | Não |
-| módulos. .configuration.id {moduleId} | O ID da implementação que implementado Este módulo. | Isto é definido pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
+| modules.{moduleId}.version | Uma cadeia definida pelo utilizador, que representa a versão deste módulo. | Sim |
+| modules.{moduleId}.type | Tem de ser "docker" | Sim |
+| modules.{moduleId}.restartPolicy | {"nunca" \| "no-falhou" \| "no-mau estado de funcionamento" \| "sempre"} | Sim |
+| modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
+| modules.{moduleId}.settings.createOptions | Um stringified JSON que contém as opções para a criação do contentor do módulo. [Docker criar opções][lnk-docker-create-options] | Não |
+| modules.{moduleId}.configuration.id | O ID da implementação que implementado Este módulo. | Isto é definido pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
 
 ### <a name="edge-agent-twin-reported-properties"></a>Duplo de agente Edge comunicadas propriedades
 
@@ -236,10 +238,10 @@ A tabela seguinte não inclui as informações que são copiadas a partir das pr
 | lastDesiredVersion | Este int refere-se para a última versão das propriedades pretendidas processados pelo agente de limite. |
 | lastDesiredStatus.code | Este é o código de estado que faça referência a última propriedades pretendidas vistas pelo agente de limite. Valores permitidos: `200` com êxito, `400` configuração inválida, `412` versão de esquema inválida, `417` as propriedades pretendidas estão vazios, `500` falhou |
 | lastDesiredStatus.description | Descrição de texto do Estado |
-| DeviceHealth | `healthy`Se o estado do tempo de execução de todos os módulos `running` ou `stopped`, `unhealthy` caso contrário |
-| configurationHealth. .health {deploymentId} | `healthy`Se o estado do tempo de execução de todos os módulos definido pela implementação {deploymentId} `running` ou `stopped`, `unhealthy` caso contrário |
+| deviceHealth | `healthy` Se o estado do tempo de execução de todos os módulos `running` ou `stopped`, `unhealthy` caso contrário |
+| configurationHealth.{deploymentId}.health | `healthy` Se o estado do tempo de execução de todos os módulos definido pela implementação {deploymentId} `running` ou `stopped`, `unhealthy` caso contrário |
 | runtime.platform.OS | Relatórios de SO em execução no dispositivo |
-| Runtime.Platform.Architecture | A arquitetura da CPU de relatórios no dispositivo |
+| runtime.platform.architecture | A arquitetura da CPU de relatórios no dispositivo |
 | systemModules.edgeAgent.runtimeStatus | O estado do agente de limite: {"em execução" \| "mau estado de funcionamento"} |
 | systemModules.edgeAgent.statusDescription | Descrição de texto do Estado do agente Edge comunicado. |
 | systemModules.edgeHub.runtimeStatus | Estado atual do hub de limite: {"em execução" \| "parado" \| "Falha" \| "término" \| "mau estado de funcionamento"} |
@@ -249,13 +251,13 @@ A tabela seguinte não inclui as informações que são copiadas a partir das pr
 | systemModules.edgeHub.lastExitTimeUtc | Quando terminado pela última vez hub de limite de tempo |
 | systemModules.edgeHub.lastRestartTimeUtc | Tempo quando Edge hub foi reiniciado pela última vez |
 | systemModules.edgeHub.restartCount | Número de vezes que este módulo foi reiniciado como parte da política de reinício. |
-| módulos. .runtimeStatus {moduleId} | Estado atual do módulo: {"em execução" \| "parado" \| "Falha" \| "término" \| "mau estado de funcionamento"} |
-| módulos. .statusDescription {moduleId} | Descrição de texto do estado atual do módulo se mau estado de funcionamento. |
-| módulos. .exitCode {moduleId} | Se terminado, o código de saída comunicado pelo contentor de módulo |
-| módulos. .startTimeUtc {moduleId} | Tempo quando o módulo foi iniciado pela última vez |
-| módulos. .lastExitTimeUtc {moduleId} | Tempo quando o módulo terminado pela última vez |
-| módulos. .lastRestartTimeUtc {moduleId} | Tempo quando o módulo foi reiniciado pela última vez |
-| módulos. .restartCount {moduleId} | Número de vezes que este módulo foi reiniciado como parte da política de reinício. |
+| modules.{moduleId}.runtimeStatus | Estado atual do módulo: {"em execução" \| "parado" \| "Falha" \| "término" \| "mau estado de funcionamento"} |
+| modules.{moduleId}.statusDescription | Descrição de texto do estado atual do módulo se mau estado de funcionamento. |
+| modules.{moduleId}.exitCode | Se terminado, o código de saída comunicado pelo contentor de módulo |
+| modules.{moduleId}.startTimeUtc | Tempo quando o módulo foi iniciado pela última vez |
+| modules.{moduleId}.lastExitTimeUtc | Tempo quando o módulo terminado pela última vez |
+| modules.{moduleId}.lastRestartTimeUtc | Tempo quando o módulo foi reiniciado pela última vez |
+| modules.{moduleId}.restartCount | Número de vezes que este módulo foi reiniciado como parte da política de reinício. |
 
 ## <a name="reference-edge-hub-module-twin"></a>Referência: Duplo de módulo de hub de limite
 
@@ -267,7 +269,7 @@ As propriedades pretendidas são definidas ao aplicar um manifesto de implementa
 | Propriedade | Descrição | Necessário no manifesto de implementação |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem de ser "1.0" | Sim |
-| rotas. {routeName} | Uma cadeia que representa uma rota de hub de limite. | O `routes` elemento pode estar presente, mas vazio. |
+| routes.{routeName} | Uma cadeia que representa uma rota de hub de limite. | O `routes` elemento pode estar presente, mas vazio. |
 | storeAndForwardConfiguration.timeToLiveSecs | O tempo em segundos, que mantém o hub de limite mensagens no caso de pontos finais de encaminhamento desligados, por exemplo, desligado do IoT Hub ou módulo local | Sim |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Duplo de hub de limite comunicadas propriedades

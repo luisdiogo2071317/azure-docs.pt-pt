@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -220,20 +220,29 @@ Em c# e c# script, aceder aos dados blob utilizando um parâmetro de método com
 * `TextReader`
 * `Byte[]`
 * `string`
-* `ICloudBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudBlockBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudPageBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudAppendBlob`(requer a direção de enlace "inout" no *function.json*)
+* `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudBlockBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudPageBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudAppendBlob` (requer a direção de enlace "inout" no *function.json*)
 
 Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
 
-Se os blobs de texto são esperados, é possível vincular o `string` tipo. Só é recomendada se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo.
+Se os blobs de texto são esperados, é possível vincular o `string` tipo. Só é recomendada se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) posteriormente neste artigo.
 
 Em JavaScript, aceder aos dados de blob de entrada utilizando `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Acionador - padrões de nome de blob
 
-Pode especificar um padrão de nome do blob no `path` propriedade no *function.json* ou no `BlobTrigger` construtor de atributos. O padrão de nome pode ser um [expressão de filtro ou enlace](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Pode especificar um padrão de nome do blob no `path` propriedade no *function.json* ou no `BlobTrigger` construtor de atributos. O padrão de nome pode ser um [expressão de filtro ou enlace](functions-triggers-bindings.md#binding-expressions-and-patterns). As secções seguintes fornecem exemplos.
+
+### <a name="get-file-name-and-extension"></a>Obter nome de ficheiro e extensão
+
+O exemplo seguinte mostra como à qual vincular o nome de ficheiro de blob e extensão separadamente:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Se o blob com o nome *original Blob1.txt*, o valor da `blobname` e `blobextension` as variáveis no código de função são *original Blob1* e *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrar por nome do blob
 
@@ -262,15 +271,6 @@ Para procurar chavetas em nomes de ficheiros, como as chavetas utilizando dois c
 ```
 
 Se o blob com o nome *{20140101}-soundfile.mp3*, a `name` valor da variável no código da função é *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Obter nome de ficheiro e extensão
-
-O exemplo seguinte mostra como à qual vincular o nome de ficheiro de blob e extensão separadamente:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Se o blob com o nome *original Blob1.txt*, o valor da `blobname` e `blobextension` as variáveis no código de função são *original Blob1* e *txt*.
 
 ## <a name="trigger---metadata"></a>Acionador - metadados
 
@@ -309,6 +309,14 @@ Se a todas as tentativas de 5 falharem, as funções do Azure adiciona uma mensa
 * ContainerName
 * BlobName
 * ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Acionador - a simultaneidade e a utilização de memória
+
+O acionador de blob utiliza uma fila internamente, para que o número máximo de invocações de função em simultâneo e é controlado pelo [configuração de filas no host.json](functions-host-json.md#queues). As predefinições limitam simultaneidade para 24 invocações. Este limite aplica-se em separado para cada função que utiliza um acionador de blob.
+
+[O plano de consumo](functions-scale.md#how-the-consumption-plan-works) limita uma aplicação de função uma máquina virtual (VM) para 1,5 GB de memória. Memória é utilizada por cada instância de função em execução e o tempo de execução de funções em si. Se uma função acionada por blob carrega o blob completo para memória, o máximo de memória utilizado por essa função apenas para blobs é 24 * tamanho do blob máximo. Por exemplo, uma aplicação de função com três funções acionadas de blob e as definições predefinidas teria uma simultaneidade de por VM máximo de 3 * 24 = 72 invocações de função.
+
+Funções JavaScript carregar o blob completo para a memória e c# funções fazê-lo se vincular ao `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Acionador - a consultar grandes contentores
 
@@ -498,10 +506,10 @@ Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudBlockBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudPageBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudAppendBlob`(requer a direção de enlace "inout" no *function.json*)
+* `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudBlockBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudPageBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudAppendBlob` (requer a direção de enlace "inout" no *function.json*)
 
 Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
 
@@ -710,10 +718,10 @@ Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudBlockBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudPageBlob`(requer a direção de enlace "inout" no *function.json*)
-* `CloudAppendBlob`(requer a direção de enlace "inout" no *function.json*)
+* `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudBlockBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudPageBlob` (requer a direção de enlace "inout" no *function.json*)
+* `CloudAppendBlob` (requer a direção de enlace "inout" no *function.json*)
 
 Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
 

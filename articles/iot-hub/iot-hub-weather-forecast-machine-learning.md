@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Meteorologia previsão a utilizar os dados de sensor do seu hub IoT no Azure Machine Learning
 
@@ -80,7 +80,7 @@ Saiba como utilizar o Azure Machine Learning para meteorologia previsão (possib
 
 ### <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. No [portal do Azure](https://ms.portal.azure.com/), clique em **novo** > **Internet das coisas** > **tarefa do Stream Analytics**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **crie um recurso** > **Internet das coisas** > **tarefa do Stream Analytics**.
 1. Introduza as seguintes informações para a tarefa.
 
    **Nome da tarefa**: O nome da tarefa. O nome tem de ser globalmente exclusivo.
@@ -89,7 +89,7 @@ Saiba como utilizar o Azure Machine Learning para meteorologia previsão (possib
 
    **Localização**: utilizar a mesma localização como o grupo de recursos.
 
-   **Afixar ao dashboard**: confirme esta opção para facilitar o acesso ao seu IoT hub a partir do dashboard.
+   **Afixar ao dashboard**: marque esta opção para facilitar o acesso ao hub IoT a partir do dashboard.
 
    ![Criar uma tarefa de Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 

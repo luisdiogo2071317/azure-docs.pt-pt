@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Configurar a palavra-passe-início de sessão único para uma aplicação não galeria do problema
 
@@ -33,39 +33,39 @@ Existem duas formas pode capturar o início de sessão campos para as suas aplic
 
 -   Captura de campo de início de sessão manual
 
-**Captura de campo de início de sessão automático** funciona bem com a maioria das ativada de HTML início de sessão páginas, caso utilizem **conhecidos DIV IDs para o nome de utilizador e palavra-passe de entrada** campo. É a forma como isto funciona por scraping HTML na página para localizar os IDs de DIV que correspondem a determinados critérios e, em seguida, guardar esses metadados para esta aplicação, pelo que pode reproduzir palavras-passe ao mesmo mais tarde.
+**Captura de campo de início de sessão automático** funciona bem com a maioria das ativada de HTML início de sessão páginas, caso utilizem **conhecidos DIV IDs para o nome de utilizador e palavra-passe de entrada** campo. É a forma como isto funciona por scraping HTML na página para localizar os IDs de DIV que correspondem a determinados critérios e, em seguida, guardar esses metadados para esta aplicação de reprodução de palavras-passe ao mesmo mais tarde.
 
-**Captura de campo de início de sessão manual** pode ser utilizado no caso de que a aplicação **fornecedor não etiqueta** campos de entrada utilizados para iniciar sessão. Captura de campo de início de sessão manual, também pode ser utilizada no caso quando o **fornecedor composições vários campos** que não pode ser automaticamente detetados. Azure AD pode armazenar dados para tantos campos que estão na página de início de sessão, desde que diga-nos onde os campos estão na página.
+**Captura de campo de início de sessão manual** pode ser utilizado no caso de que a aplicação **fornecedor não etiqueta** campos de entrada utilizados para início de sessão. Captura de campo de início de sessão manual, também pode ser utilizada no caso quando o **fornecedor composições vários campos** que não pode ser automaticamente detetados. Azure AD pode armazenar dados de campos tantos dado que estão na página de início de sessão, desde que diga-nos onde os campos estão na página.
 
-Em geral, **se captura do campo de início de sessão automático não funcionar, sugerimos sempre a opção manual a tentar.**
+Em geral, **se captura do campo de início de sessão automático não funcionar, experimente a opção manual.**
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Como capturar automaticamente os campos de início de sessão para uma aplicação
 
 Para configurar **baseada em palavra-passe Single Sign-on** para uma aplicação utilizando **captura do campo de início de sessão automático**, siga os passos abaixo:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Quando carrega a aplicação, clique em de **de sessão único-** do menu de navegação esquerdo da aplicação.
+7.  Quando carrega a aplicação, clique em de **de sessão único-** a partir do menu de navegação esquerdo da aplicação.
 
 8.  Selecione o modo **baseada em palavra-passe de início de sessão.**
 
-9.  Introduza o **URL de início de sessão**. Este é o URL onde os utilizadores introduzem o respetivo nome de utilizador e palavra-passe para iniciar sessão no. **Certifique-se de que os campos de início de sessão está visível no URL que fornecer**.
+9.  Introduza o **URL de início de sessão**, o URL onde os utilizadores introduzem o respetivo nome de utilizador e palavra-passe para iniciar sessão. **Certifique-se de que os campos de início de sessão estão visíveis no URL que fornecer**.
 
 10. Clique no botão **Guardar**.
 
-11. Depois, fazê-lo, iremos irá scrape automaticamente esse URL para um nome de utilizador e palavra-passe caixa de entrada e permite a utilização do Azure AD de forma segura transmitir palavras-passe para essa aplicação utilizando a extensão de browser do painel de acesso.
+11. Uma vez, fazê-lo, que o URL é automaticamente scraped para um nome de utilizador e palavra-passe caixa de entrada e permite a utilização do Azure AD de forma segura transmitir palavras-passe para essa aplicação utilizando a extensão de browser do painel de acesso.
 
 ## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Como capturar manualmente os campos de início de sessão para uma aplicação
 
@@ -73,29 +73,29 @@ Para capturar manualmente os campos de início de sessão, primeiro tem de ter a
 
 Para configurar **baseada em palavra-passe Single Sign-on** para uma aplicação utilizando **captura do campo de início de sessão manual**, siga os passos abaixo:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Quando carrega a aplicação, clique em de **de sessão único-** do menu de navegação esquerdo da aplicação.
+7.  Quando carrega a aplicação, clique em de **de sessão único-** a partir do menu de navegação esquerdo da aplicação.
 
 8.  Selecione o modo **baseada em palavra-passe de início de sessão.**
 
-9.  Introduza o **URL de início de sessão**. Este é o URL onde os utilizadores introduzem o respetivo nome de utilizador e palavra-passe para iniciar sessão no. **Certifique-se de que os campos de início de sessão está visível no URL que fornecer**.
+9.  Introduza o **URL de início de sessão**, o URL onde os utilizadores introduzem o respetivo nome de utilizador e palavra-passe para iniciar sessão. **Certifique-se de que os campos de início de sessão estão visíveis no URL que fornecer**.
 
 10. Clique no botão **Guardar**.
 
-11. Depois, fazê-lo, iremos irá scrape automaticamente esse URL para um nome de utilizador e palavra-passe caixa de entrada e permite a utilização do Azure AD de forma segura transmitir palavras-passe para essa aplicação utilizando a extensão de browser do painel de acesso. No caso isto falhar, pode **alterar o modo de início de sessão para utilizar a captura de campo de início de sessão manual** ao continuar para o passo 12.
+11. Uma vez, fazê-lo, que o URL é automaticamente scraped para um nome de utilizador e palavra-passe caixa de entrada e permite a utilização do Azure AD de forma segura transmitir palavras-passe para essa aplicação utilizando a extensão de browser do painel de acesso. No caso de falha, pode **alterar o modo de início de sessão para utilizar a captura de campo de início de sessão manual** ao continuar para o passo 12.
 
 12. Clique em **configurar &lt;appname&gt; as definições de início de sessão único de palavra-passe**.
 
@@ -109,15 +109,15 @@ Para configurar **baseada em palavra-passe Single Sign-on** para uma aplicação
 
 ## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Vejo um erro "Não foi possível encontrar quaisquer campos de início de sessão, esse URL"
 
-Ver este erro quando a deteção automática dos campos de início de sessão falha. Para resolver este problema, tente deteção manual campo de início de sessão, seguindo os passos a [como capturar manualmente os campos de início de sessão para uma aplicação](#how-to-manually-capture-sign-in-fields-for-an-application) secção.
+Ver este erro quando a deteção automática dos campos de início de sessão falha. Para resolver o problema, tente deteção manual campo de início de sessão, seguindo os passos a [como capturar manualmente os campos de início de sessão para uma aplicação](#how-to-manually-capture-sign-in-fields-for-an-application) secção.
 
 ## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Vejo uma "não é possível guardar a configuração do início de sessão" erro
 
-Em certos casos raros, pode efetuar a atualizar a configuração de início de sessão único. Para resolver isto tente guardar a configuração única de início de sessão novamente.
+Em certos casos raros, pode efetuar a atualizar a configuração de início de sessão único. Para resolver, tente guardar a configuração única de início de sessão novamente.
 
-Se isto continua a falharem de forma consistente, abra um incidente de suporte e forneça as informações recolhidas [como ver os detalhes de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secções.
+Se continuar a falhar de forma consistente, abra um incidente de suporte e forneça as informações recolhidas [como ver os detalhes de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como obter ajuda com o envio de detalhes de notificação para um suporte engenheiro](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secções.
 
-## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Posso manualmente não consegue detetar sessão nos campos para a minha aplicação
+## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Posso não consegue detetar manualmente os campos de início de sessão para a minha aplicação
 
 Alguns dos comportamentos que poderá ver quando a deteção manual não está a funcionar incluem:
 
@@ -139,9 +139,9 @@ Verifique o seguinte se tiver algum destes problemas:
 
 -   Repita o processo de captura manual novamente, garantindo que os marcadores de vermelhos são os campos corretos.
 
--   Se o processo de captura manual parece fique suspensa ou o página de início de sessão não faz nada (caso 3 acima), repita o processo de captura manual. But, desta vez depois de concluir o processo, prima a **F12** botão para abrir a consola de programador do seu browser. Uma vez, abra o **consola** e tipo **window.location= "&lt;introduzir o início de sessão no url especificado quando configurar a aplicação&gt;"** e, em seguida, prima **Enter**. Este impor uma página redirecionar que termina o processo de captura e armazenar os campos que tenham sido capturados.
+-   Se o processo de captura manual parece fique suspensa ou a página de início de sessão não faz nada (caso 3 acima), repita o processo de captura manual. But, desta vez depois de concluir o processo, prima a **F12** botão para abrir a consola de programador do seu browser. Uma vez, abra o **consola** e tipo **window.location= "&lt;introduza o url de início de sessão especificado ao configurar a aplicação&gt;"** e, em seguida, prima **Enter** . Isto força o redirecionamento de página que termina o processo de captura e armazena os campos que tenham sido capturados.
 
-Se nenhuma destas abordagens resolver o problema, podemos ajudar. Abrir um incidente de suporte com os detalhes do que tentou, bem como as informações recolhidas [como ver os detalhes de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secções (se aplicável).
+Se nenhuma destas abordagens resolver o problema, pode ajudar o suporte. Abrir um incidente de suporte com os detalhes do que tentou, bem como as informações recolhidas [como ver os detalhes de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secções (se aplicável).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão de Browser do painel de acesso
 
@@ -171,7 +171,7 @@ Também pode transferir a extensão para Chrome e Firefox a partir de hiperliga�
 
 Pode ver os detalhes de qualquer notificação do portal, seguindo os passos abaixo:
 
-1.  Clique em de **notificações** ícone (de sino) no canto superior direito do Portal do Azure
+1.  Clique em de **notificações** ícone (de sino) no canto superior direito do portal do Azure
 
 2.  Selecione qualquer notificação num **erro** Estado (as com um vermelho (!) junto ao-las).
 
@@ -179,17 +179,17 @@ Pode ver os detalhes de qualquer notificação do portal, seguindo os passos aba
   >
   >
 
-3.  Este abra o **detalhes de notificação** painel.
+3.  O **detalhes de notificação** abre o painel.
 
-4.  Utilize estas informações por si para compreender a obter mais detalhes sobre o problema.
+4.  Utilize as informações por si para compreender a obter mais detalhes sobre o problema.
 
-5.  Se ainda precisar de ajuda, também pode partilhar estas informações com um engenheiro de suporte técnico ou o grupo do produto para obter ajuda com o seu problema.
+5.  Se ainda precisar de ajuda, também pode partilhar as informações com um engenheiro de suporte técnico ou o grupo do produto para obter ajuda com o seu problema.
 
 6.  Clique no **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo do produto ou de suporte.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte
 
-É muito importante que partilha **todos os detalhes apresentados abaixo** com um engenheiro de suporte se precisar de ajuda, para que o podem ajudar a rapidamente. Pode fazê-lo facilmente por **tirar uma captura de ecrã,** ou clicando a **ícone de erro de cópia**, encontrado para a direita do **copiar erro** caixa de texto.
+É muito importante que partilha **todos os detalhes apresentados abaixo** com um engenheiro de suporte se precisar de ajuda, para que o podem ajudar a rapidamente. Pode **tirar uma captura de ecrã,** ou clique em de **ícone de erro de cópia**, encontrado para a direita do **copiar erro** caixa de texto.
 
 ## <a name="notification-details-explained"></a>Detalhes de notificação explicados
 
@@ -205,11 +205,11 @@ O abaixo explica mais que cada da notificação significa que os itens e fornece
 
     -   Exemplo – **interno url introduzido já está a ser utilizado por outra aplicação**
 
--   **Id de notificação** – o id exclusivo da notificação
+-   **ID de notificação** – o id exclusivo da notificação
 
     -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Id do pedido de cliente** – o id do pedido específico efetuado pelo browser
+-   **ID do pedido de cliente** – o id do pedido específico efetuado pelo browser
 
     -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -217,19 +217,19 @@ O abaixo explica mais que cada da notificação significa que os itens e fornece
 
     -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
--   **Id de transação interno** – o ID interno podemos utilizar ao procurar o erro do nosso sistemas
+-   **ID de transação interno** – o ID interno utilizado para procurar o erro nos nossos sistemas
 
     -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 -   **UPN** – o utilizador que executou a operação
 
-    -   Exemplo –**tperkins@f128.info**
+    -   Exemplo – **tperkins@f128.info**
 
--   **Id de inquilino** – o ID exclusivo do inquilino que o utilizador que executou a operação foi membro de
+-   **ID de inquilino** – o ID exclusivo do inquilino que o utilizador que executou a operação foi membro de
 
     -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Id de objeto de utilizador** – o ID exclusivo do utilizador que executou a operação
+-   **ID de objeto de utilizador** – o ID exclusivo do utilizador que executou a operação
 
     -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -243,7 +243,7 @@ O abaixo explica mais que cada da notificação significa que os itens e fornece
 
     -   Exemplo * – **falhou**
 
--   **Id de objeto** – **(pode estar vazio)** o ID de objeto relativamente ao qual foi efetuada a operação
+-   **ID de objeto** – **(pode estar vazio)** o ID de objeto relativamente ao qual foi efetuada a operação
 
     -   Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
@@ -253,8 +253,8 @@ O abaixo explica mais que cada da notificação significa que os itens e fornece
 
 -   **Copiar erro** – clique no **ícone copiar** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo de suporte ou produto
 
-    -   Exemplo –```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    -   Exemplo – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Fornecer início de sessão único às suas aplicações com o Proxy da aplicação](active-directory-application-proxy-sso-using-kcd.md)
 

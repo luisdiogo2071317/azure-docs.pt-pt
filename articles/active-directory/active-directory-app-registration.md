@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registar a aplicação com o seu inquilino do Azure Active Directory
 
 Pode utilizar o portal do Azure para registar a aplicação com o seu inquilino do Azure Active Directory (Azure AD). Isto cria um ID de aplicação para a aplicação e ativa-o para receber tokens.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Escolha o seu inquilino do Azure AD, selecionando a sua conta no canto superior direito da página.
-3. No painel de navegação da esquerda, escolha **mais serviços**, clique em **registos de aplicação**e clique em **adicionar**.
+3. No painel de navegação da esquerda, escolha **todos os serviços**, clique em **registos de aplicação**e clique em **adicionar**.
 4. Siga os avisos e crie uma nova aplicação. Se gostaria de exemplos específicos de aplicações web ou aplicações nativas, consulte o nosso [inícios Rápidos](active-directory-developers-guide.md).
   * Para aplicações Web, forneça o **URL de início de sessão**, que é o URL de base da sua aplicação, onde os utilizadores podem iniciar sessão por exemplo `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -38,9 +38,9 @@ Pode utilizar o portal do Azure para registar a aplicação com o seu inquilino 
 
 Pode facilmente modificar definições de uma aplicação existente no portal do Azure. Por exemplo, poderá pretender configurar um URL de resposta, o que é onde o Azure AD emite o token respostas. Também poderá configurar as permissões para outras aplicações para a instância para permitir a sua aplicação aceder a Microsoft Graph API. Pode fazer tudo isto através da página de definições de aplicação.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Escolha o seu inquilino do Azure AD, selecionando a sua conta no canto superior direito da página.
-3. No painel de navegação da esquerda, escolha **mais serviços**, clique em **registos de aplicação**e escolha a aplicação a partir da lista.
+3. No painel de navegação da esquerda, escolha **todos os serviços**, clique em **registos de aplicação**e escolha a aplicação a partir da lista.
 4. Clique em **definições** para abrir a página de definições para a aplicação.
   * O **propriedades** página permite modificar as informações gerais para a aplicação. Isto inclui o nome da aplicação, o URL de início de sessão e o URL de fim de sessão.
   * O **URLs de resposta** página permite-lhe adicionar um URL de resposta, o que é onde do Azure AD envia o token respostas.
@@ -52,13 +52,13 @@ Pode facilmente modificar definições de uma aplicação existente no portal do
 
 Pode utilizar o editor de manifesto inline para modificar determinadas propriedades de aplicação que não são expostas diretamente no portal do Azure. Por exemplo, pode utilizá-lo para modificar o URI de ID de aplicação da aplicação ou para ativar o fluxo implícito OAuth2.0 em vez do fluxo de código de conceder de autorização de predefinição.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Escolha o seu inquilino do Azure AD, selecionando a sua conta no canto superior direito da página.
-3. No painel de navegação da esquerda, escolha **mais serviços**, clique em **registos de aplicação**e escolha a aplicação a partir da lista.
+3. No painel de navegação da esquerda, escolha **todos os serviços**, clique em **registos de aplicação**e escolha a aplicação a partir da lista.
 4. Clique em **manifesto** da página de aplicação para abrir o editor de manifesto inline.
 5. Pode efetuar alterações ao manifesto diretamente e guardá-lo quando estiver pronto. Em alternativa, pode transferir o manifesto para abri-lo no seu editor favorito e carregar o manifesto atualizado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 1. Veja o [inícios Rápidos](active-directory-developers-guide.md) para instruções detalhadas de aplicações, efetuar a autenticação com o Azure AD.
 2. Consulte a nossa lista completa dos exemplos de código no [GitHub](https://github.com/azure-samples).

@@ -4,7 +4,7 @@ description: "Descreve as considerações de cópia de segurança e restauro de 
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: mikeray
-ms.openlocfilehash: 65557938673c5442758396a47873be1016e0f71b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16fef048e7c795f3d21fbc4185f6ba31bbc885fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Cópia de Segurança e Restauro para SQL Server em Máquinas Virtuais do Azure
 ## <a name="overview"></a>Descrição geral
@@ -81,7 +81,7 @@ Para a cópia de segurança do SQL Server e de restauro no SQL Server 2008 R2, c
 
 Para a cópia de segurança do SQL Server e de restauro no SQL Server 2008, consulte [cópia de segurança e restaurar bases de dados no SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se estiver a planear a implementação do SQL Server numa VM do Azure, pode encontrar orientações aprovisionamento no tutorial seguinte: [aprovisionamento de uma Máquina Virtual do SQL Server no Azure com o Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
 
 Apesar de cópia de segurança e restauro podem ser utilizados para migrar os dados, existem caminhos de migração de dados potencialmente mais fácil para o SQL Server numa VM do Azure. Para ver um debate completo de opções de migração e as recomendações, consulte [migrar uma base de dados para o SQL Server numa VM do Azure](virtual-machines-windows-migrate-sql.md).

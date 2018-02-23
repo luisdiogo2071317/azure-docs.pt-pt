@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fef5ed126575727c23cdff496c6684b9bf3192cf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -112,7 +112,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Para reduzir o número de rede arredondar viagens necessárias para obter resultados todos aplicáveis, pode aumentar o tamanho de página utilizando a [x-ms-máx.--número de itens](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) cabeçalho do pedido a até 1000. Nos casos em que seja necessário apresentar apenas alguns resultados, por exemplo, se a API de aplicação ou interface de utilizador devolve apenas os 10 resultados de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
 
-    Também pode definir o tamanho de página utilizando ao [setPageSize método](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    Também pode definir o tamanho de página utilizando a [setPageSize método](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## <a name="indexing-policy"></a>Política de Indexação
  

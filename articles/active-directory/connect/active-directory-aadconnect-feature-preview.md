@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Obter mais detalhes sobre as funcionalidades em pré-visualização
 Este tópico descreve como utilizar as funcionalidades atualmente em pré-visualização.
@@ -26,7 +26,7 @@ Este tópico descreve como utilizar as funcionalidades atualmente em pré-visual
 ## <a name="group-writeback"></a>Repetição de escrita do grupo
 A opção para repetição de escrita do grupo em funcionalidades opcionais permite-lhe a repetição de escrita **grupos do Office 365** a uma floresta com o Exchange instalado. Este é um grupo que é controlado sempre na nuvem. Se tiver o Exchange no local, em seguida, pode escrever novamente estes grupos no local para que os utilizadores com uma caixa de correio do Exchange no local podem enviar e receber e-mails destes grupos.
 
-Podem encontrar mais informações sobre grupos do Office 365 e como utilizá-los [aqui](http://aka.ms/O365g).
+Podem encontrar mais informações sobre grupos do Office 365 e como utilizá-los [aqui](https://aka.ms/O365g).
 
 Um grupo do Office 365 é representado como um grupo de distribuição no local do AD DS. O servidor do Exchange no local tem de estar na atualização cumulativa do Exchange 2013 8 (lançada em Março de 2015) ou o Exchange 2016 para reconhecer este novo tipo de grupo.
 

@@ -16,31 +16,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight utilizando o arranque de configuração
 
 Por vezes, pretende configurar os ficheiros de configuração, que incluem:
 
 * clusterIdentity.xml
-* Core-site.XML
-* gateway.XML
-* hbase env.xml
-* hbase site.xml
-* hdfs site.xml
-* env.xml do Hive
-* site.xml do Hive
-* mapred site
-* oozie site.xml
-* oozie env.xml
-* Storm site.xml
-* tez site.xml
-* webhcat site.xml
-* yarn site.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
+* hbase-site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
+* mapred-site
+* oozie-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
+* yarn-site.xml
 * Server.Properties (configuração kafka mediador)
 
 Existem três métodos para utilizar o arranque de configuração:
@@ -86,7 +86,7 @@ Um script do PowerShell de trabalho completado pode ser encontrado na [apêndice
 **Para verificar a alteração:**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, clique em **clusters do HDInsight**. Se não o vir, clique em **mais serviços** primeiro.
+2. No menu à esquerda, clique em **clusters do HDInsight**. Se não o vir, clique em **todos os serviços** primeiro.
 3. Clique no cluster que acabou de criar utilizando o script do PowerShell.
 4. Clique em **Dashboard** da parte superior do painel para abrir a IU do Ambari.
 5. Clique em **Hive** no menu esquerdo.

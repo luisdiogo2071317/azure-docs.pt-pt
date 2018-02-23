@@ -2,18 +2,19 @@
 title: "Rápido do Azure de pilha iniciar - criar uma máquina virtual do Windows"
 description: "Rápido do Azure de pilha iniciar - criar uma VM do Windows através do portal"
 services: azure-stack
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9df976fd26318038ab4152863638e262d7f284aa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Criar uma máquina virtual do Windows com o portal de pilha do Azure
 
@@ -46,5 +47,5 @@ Inicie sessão no portal do Azure pilha. O endereço do portal do Azure pilha de
 
 Quando já não necessita da máquina virtual, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos a partir da página da máquina virtual e clique em **eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este guia de introdução, implementou uma máquina virtual simple do Windows. Para saber mais sobre as máquinas virtuais de pilha do Azure, avance para [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).

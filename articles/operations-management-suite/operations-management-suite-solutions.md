@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Trabalhar com as soluções de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -36,7 +36,7 @@ Existem vários métodos para localizar e instalar as soluções de gestão, con
 As soluções de gestão fornecido pela Microsoft e parceiros confiadores poderão estar instalados no Azure Marketplace no portal do Azure.
 
 1. Inicie sessão no portal do Azure.
-2. No painel esquerdo, selecione **mais serviços**.
+2. No painel esquerdo, selecione **todos os serviços**.
 3. O desloque para baixo até **soluções** ou tipo *soluções* para o **filtro** caixa de diálogo.
 4. Clique em de **+ adicionar** botão.
 5. Procurar soluções que está interessado no navegando, clicando no **filtro** botão ou escrever o **Everthing de pesquisa** caixa.
@@ -92,7 +92,7 @@ Pode verificar a ligação entre uma área de trabalho de análise de registos e
 Utilize o procedimento seguinte para ver as soluções de gestão nas áreas de trabalho ligadas à sua subscrição do Azure.
 
 1. Inicie sessão no portal do Azure.
-2. No painel esquerdo, selecione **mais serviços**.
+2. No painel esquerdo, selecione **todos os serviços**.
 3. O desloque para baixo até **soluções** ou tipo *soluções* para o **filtro** caixa de diálogo.
 4. Soluções instaladas em todas as áreas de trabalho serão apresentadas.
 

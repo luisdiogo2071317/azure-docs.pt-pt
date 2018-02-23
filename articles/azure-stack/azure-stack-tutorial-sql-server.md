@@ -3,8 +3,8 @@ title: Disponibilizar bases de dados SQL para os utilizadores de pilha do Azure 
 description: Tutorial para instalar o fornecedor de recursos do SQL Server e criar oferece que permitem que os utilizadores de pilha do Azure criar bases de dados do SQL Server.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f774888ba3921d0688feddac669ed1dca4667441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Disponibilizar bases de dados SQL para os utilizadores de pilha do Azure
 
@@ -68,12 +69,12 @@ Agora que implementou o fornecedor de recursos do SQL Server e criar uma oferta,
     - **Nome de base de dados**: SQLdb
     - **Tamanho máximo em MB**: 100
     - **Subscrição**: TestSQLOffer
-    - **Grupo de recursos**: RG do SQL Server
+    - **Resource Group**: SQL-RG
 3. Clique em **definições de início de sessão**, introduza as credenciais para a base de dados e, em seguida, clique em **OK**.
 4. Clique em **SKU** > selecione o SKU de SQL que criou para o servidor de alojamento do SQL Server > **OK**.
 5. Clique em **Criar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

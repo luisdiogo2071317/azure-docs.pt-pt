@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
 Servidores de Analysis Services do Azure suportam a ligar a origens de dados na nuvem e no local na sua organização. Origens de dados suportadas adicionais estão a ser adicionadas sempre. A verificar frequentemente. 
@@ -37,13 +37,13 @@ Atualmente são suportadas as seguintes origens de dados:
 |---|---|---|---|
 | Base de dados de acesso  | Pasta * | Base de dados Oracle  | Teradata Database |
 | Active Directory *  | Documento JSON *  | Base de dados Postgre SQL *  |Tabela XML * |
-| Analysis Services  | Linhas de binário *  | SAP HANA *  |
+| Analysis Services  | Linhas de binário *  | SAP HANA*  |
 | Analytics Platform System  | Base de Dados MySQL  | SAP Business Warehouse *  | |
-| Dynamics CRM *  | Feed de OData *  | SharePoint *  |
-| Livro do Excel  | Consulta ODBC  | Base de Dados SQL  |
-| Exchange *  | OLE DB  | Base de dados Sybase  |
+| Dynamics CRM*  | Feed de OData *  | SharePoint*  |
+| Livro do Excel  | Consulta ODBC  | SQL Database  |
+| Exchange*  | OLE DB  | Base de dados Sybase  |
 
-\*Modelos em tabela 1400 apenas. 
+\* Modelos em tabela 1400 apenas. 
 
 > [!IMPORTANT]
 > A ligar a origens de dados no local requer um [gateway de dados no local](analysis-services-gateway.md) instalado num computador no seu ambiente.
@@ -99,7 +99,7 @@ Para origens de dados de nuvem:
 
 * Se utilizar a autenticação de SQL, representação deve ser a conta de serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se tiver de origens de dados no local, não se esqueça de instalar o [gateway no local](analysis-services-gateway.md).   
 Para saber mais sobre como gerir o servidor no SSDT ou SSMS, veja [gerir o seu servidor](analysis-services-manage.md).
 

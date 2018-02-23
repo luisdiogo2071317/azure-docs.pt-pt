@@ -1,5 +1,5 @@
 ---
-title: "Executar consultas de análise em bases de dados | Microsoft Docs"
+title: "Executar a análise de inquilino entre utilizando os dados extraídos | Microsoft Docs"
 description: "Consultas de análises de inquilino entre utilizando os dados extraídos de várias bases de dados do SQL Database do Azure."
 keywords: tutorial de base de dados sql
 services: sql-database
@@ -15,19 +15,19 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise de inquilino entre utilizar dados extraídos
 
-Neste tutorial, percorrer um cenário de análise completa. O cenário demonstra como análise pode ativar a empresas tomar decisões inteligentes. Utilizar dados extraídos a partir de cada base de dados do inquilino, utilize análise para obter informações acerca comportamento de inquilino, incluindo a utilização da aplicação exemplo Wingtip bilhetes SaaS. Este cenário envolve três passos: 
+Neste tutorial, percorrer um cenário de análise completa. O cenário demonstra como análise pode ativar a empresas tomar decisões inteligentes. Utilizar dados extraídos a partir de cada base de dados do inquilino, utilize análise para obter informações acerca inquilino utilização comportamento e a aplicação. Este cenário envolve três passos: 
 
-1.  **Extrair dados** de cada base de dados do inquilino para um arquivo de análise.
-2.  **Otimizar os dados extraídos** para processamento de análise.
-3.  Utilize **Business Intelligence** ferramentas para desenhar horizontalmente as informações úteis, podem guia faz de decisão. 
+1.  **Extrair** dados a partir de cada base de dados do inquilino e **carga** para um arquivo de análise.
+2.  **Transformar os dados extraídos** para processamento de análise.
+3.  Utilize **intelligence negócio** ferramentas para desenhar horizontalmente as informações úteis, podem guia faz de decisão. 
 
 Neste tutorial, ficará a saber como:
 
@@ -42,29 +42,28 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="offline-tenant-analytics-pattern"></a>Padrão de análise offline de inquilino
 
-Aplicações de SaaS que desenvolver têm acesso a uma grande quantidade de dados do inquilino armazenados na nuvem. Os dados fornece uma origem avançada das informações sobre a operação e a utilização da sua aplicação e sobre o comportamento dos inquilinos. Estas informações podem ajudá desenvolvimento da funcionalidade, melhoramentos de Facilidade de utilização e outros investimentos na aplicação e plataforma.
+Aplicações de SaaS multi-inquilino têm normalmente uma grande quantidade de dados do inquilino armazenados na nuvem. Estes dados disponibilizam uma origem avançada das informações sobre o funcionamento e a utilização da sua aplicação e o comportamento dos seus inquilinos. Estas informações podem ajudá desenvolvimento da funcionalidade, melhoramentos de Facilidade de utilização e outros investimentos na aplicação e plataforma.
 
-Acesso aos dados para todos os inquilinos é simple quando todos os dados apenas uma base de dados do multi-inquilino. Mas o acesso é mais complexo quando distribuídos à escala milhares de bases de dados. É uma forma de tame a complexidade para extrair os dados para uma base de dados de análise ou um armazém de dados. Em seguida, consultar o arquivo de análise para recolher informações dos dados de pedidos de todos os inquilinos.
+Aceder aos dados para todos os inquilinos é simple quando todos os dados apenas uma base de dados do multi-inquilino. Mas o acesso é mais complexo quando distribuídos à escala potencialmente milhares de bases de dados. Uma forma tame a complexidade e minimizar o impacto de consultas de análise em dados transacionais é para extrair dados para um armazém de base de dados ou dados de análise do objetivo concebido.
 
-Este tutorial apresenta um cenário de análise completa para esta aplicação SaaS. Primeiro, elásticas tarefas são utilizadas para agendar a extração de dados de cada base de dados do inquilino. Os dados são enviados para um arquivo de análise. O arquivo de análise pode ser uma base de dados do SQL Server ou um SQL Data Warehouse. Para extração de dados em grande escala, [do Azure Data Factory](../data-factory/introduction.md) é commended.
+Este tutorial apresenta um cenário de análise completa para aplicação Wingtip bilhetes SaaS. Primeiro, *as tarefas elásticas* é utilizado para extrair dados de cada base de dados do inquilino e carregue-o em tabelas de um arquivo de análise de testes. O arquivo de análise pode ser uma base de dados do SQL Server ou um SQL Data Warehouse. Para extração de dados em grande escala, [do Azure Data Factory](../data-factory/introduction.md) é recomendada.
 
-Em seguida, os dados agregados é shredded para um conjunto de [esquemas de estrela](https://www.wikipedia.org/wiki/Star_schema) tabelas. As tabelas consistem de uma tabela de factos central plus as tabelas de dimensões relacionados:
+Em seguida, os dados agregados são transformados para um conjunto de [esquemas de estrela](https://www.wikipedia.org/wiki/Star_schema) tabelas. As tabelas consistem de uma tabela de factos central plus as tabelas de dimensões relacionadas.  Para bilhetes de Wingtip:
 
 - A tabela de factos central no esquema de estrela contém dados de pedido de suporte.
-- As tabelas de dimensão contém dados sobre venues, eventos, os clientes e as datas de compra.
+- As tabelas de dimensão descrevem venues, eventos, os clientes e as datas de compra.
 
-Em conjunto os central e tabelas ativar eficiente analíticos processamento de dimensão. O esquema de estrela utilizado neste tutorial, é apresentado na imagem seguinte:
+Em conjunto, as tabelas de factos e de dimensões centrais ativar processamento analítico eficiente. O esquema de estrela utilizado neste tutorial, é apresentado na imagem seguinte:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Por fim, as tabelas de esquema de estrela são consultadas. Os resultados da consulta são apresentados visualmente para realçar as informações sobre o comportamento de inquilino e a sua utilização da aplicação. Com este esquema de estrela, pode executar consultas que ajudam a detetar os itens como o seguinte:
+Por fim, o arquivo de análise está a ser consultado utilizando **PowerBI** para realçar as informações sobre o comportamento de inquilino e a sua utilização da aplicação Wingtip pedidos de suporte. Executar consultas que:
+ 
+- Mostrar a popularidade relativa de cada venue
+- Realce padrões de vendas de permissão para eventos diferentes
+- Mostrar o sucesso relativo de venues diferentes em vender os respetivos eventos
 
-- Quem é comprar permissões e a partir da qual venue.
-- Ocultos padrões e tendências nas seguintes áreas:
-    - Vendas de pedidos de suporte.
-    - A popularidade relativa de cada venue.
-
-Compreender como consistentemente cada inquilino está a utilizar o serviço fornece uma oportunidade de criar planos de serviço para se adaptar a suas necessidades. Este tutorial fornece exemplos básicos das informações que podem ser obtidas a partir dos dados de inquilino.
+Compreender a forma como cada inquilino está a utilizar o serviço é utilizado para explorar as opções para monetizing o serviço e melhorar o serviço para ajudar os inquilinos ser mais com êxito. Este tutorial fornece exemplos básicos dos tipos de informações que podem ser obtidas a partir dos dados de inquilino.
 
 ## <a name="setup"></a>Configurar
 
@@ -76,7 +75,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 - Os scripts de Wingtip bilhetes SaaS da base de dados por inquilino e a aplicação [código fonte](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) são transferidos a partir do GitHub. Consulte o artigo de instruções de transferência. Certifique-se para *desbloquear o ficheiro zip* antes de a extrair o respetivo conteúdo. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip SaaS de pedidos de desbloqueio.
 - Ambiente de trabalho do Power BI está instalado. [Transferir o ambiente de trabalho do Power BI](https://powerbi.microsoft.com/downloads/)
 - O lote de inquilinos adicionais tiver sido aprovisionado, consulte o [ **aprovisionar inquilinos tutorial**](saas-dbpertenant-provision-and-catalog.md).
-- Uma conta de tarefa e a base de dados de conta de tarefa foram criados. Consulte os passos adequados de [ **tutorial de gestão de esquema**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Uma conta de tarefa e a base de dados de conta de tarefa foram criados. Consulte os passos adequados de [ **tutorial de gestão de esquema**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Criar dados de demonstração de
 
@@ -228,7 +227,7 @@ Anteriormente deepened a análise para detetar que vendas permissão tendem a se
 
 Ter observados tendências em dados de inquilino da aplicação WingTip. Pode contemplate outras formas que a aplicação pode informar decisões de negócio para fornecedores de aplicações SaaS. Os fornecedores podem aparência melhor às necessidades dos respetivos inquilinos. Hopefully neste tutorial tem equipados com as ferramentas necessárias para efetuar a análise nos dados de inquilino para capacitar as empresas para tomar decisões condicionada por dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

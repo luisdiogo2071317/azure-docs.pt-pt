@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Gerir esquema de inquilino
               href: saas-tenancy-schema-management.md
-            - name: Executar consultas ad hoc
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Relatórios entre inquilinos
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL para análise
               href: saas-tenancy-tenant-analytics.md
         - name: Base de dados multi-inquilino

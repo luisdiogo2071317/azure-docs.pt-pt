@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos de fluxo de NSG de observador de rede do Azure com ferramentas open source
 
@@ -46,7 +46,7 @@ Ao ligar os registos de fluxo NSG com a pilha elástico, podemos criar um dashbo
 1. A pilha elástico da versão 5.0 e posterior requer Java 8. Execute o comando `java -version` para verificar a sua versão. Se não tiver java instalar, consulte a documentação sobre [site da Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Transferir o pacote de binário correto para o seu sistema:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ Ao ligar os registos de fluxo NSG com a pilha elástico, podemos criar um dashbo
 
 1. Certifique-se de que o Elasticsearch está em execução com o comando:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Deverá ver uma resposta semelhante a isto:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Para obter mais instruções sobre pesquisa elástica instalar, consulte a pági
 
 1. Para instalar Logstash execute os seguintes comandos:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Em seguida, é necessário configurar Logstash para aceder e analisar os registos de fluxo. Crie um ficheiro de logstash.conf utilizando:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ Para obter mais instruções sobre como instalar Logstash, consulte o [documenta
 
 Este plug-in de Logstash permitirá aceda diretamente os registos de fluxo a partir da respetiva conta de armazenamento designada. Execute o comando para instalar este plug-in, do diretório de instalação predefinido Logstash (neste /usr/share/logstash/bin maiúsculas):
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Para iniciar o Logstash execute o comando:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,19 +178,19 @@ Para mais informações sobre este plug-in, consulte a documentação [aqui](htt
 
 1. Execute os seguintes comandos para instalar Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Para executar os comandos de utilização de Kibana:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```
 
-1. Para ver a sua interface de web Kibana, navegue para`http://localhost:5601`
+1. Para ver a sua interface de web Kibana, navegue para `http://localhost:5601`
 1. Para este cenário, o padrão de índice utilizado para os registos de fluxo é "registos de fluxo de nsg". Pode alterar o padrão de índice na secção "saída" do ficheiro logstash.conf.
 
 1. Se pretender ver o dashboard de Kibana remotamente, criar uma regra de NSG entrada permitir o acesso à **porta 5601**.
@@ -213,7 +213,7 @@ O dashboard de exemplo fornece visualizações de vários registos de fluxo:
 
 1. Fluxos decisão/direção ao longo do tempo de - de gráficos de séries de tempo que mostra o número de fluxos durante o período de tempo. Pode editar a unidade de tempo e o intervalo de ambas estas visualizações. Fluxos de decisão mostra a proporção de permitir ou negar as decisões tomadas, enquanto fluxos por direção mostra a proporção do tráfego de entrada e saída. Com estas visuais pode examinar as tendências de tráfego ao longo do tempo e procure quaisquer picos ou invulgares padrões.
 
-  ![figura 2][2]
+  ![figure2][2]
 
 1. Fluxos por porta de origem/destino – gráficos circulares que discrimina fluxos para as suas respetivas portas. Com esta vista, pode ver as portas utilizadas com mais frequência. Se clicar numa porta específica no gráfico circular, irá filtrar o resto do dashboard para baixo para fluxos dessa porta.
 
@@ -221,7 +221,7 @@ O dashboard de exemplo fornece visualizações de vários registos de fluxo:
 
 1. Número de fluxos e o tempo de registo mais antigo – métricas que mostra o número de fluxos registadas e a data do registo mais antigo capturada.
 
-  ![figura 4][4]
+  ![figure4][4]
 
 1. Fluxos por NSG e regra – um gráfico de barras que mostra a distribuição dos fluxos dentro de cada NSG, bem como a distribuição das regras dentro de cada NSG. Aqui pode ver as regras de NSG e gerados mais tráfego.
 
@@ -241,7 +241,7 @@ Utilizar a barra de consulta na parte superior do dashboard, pode filtrar para b
 
 Ao combinar os registos de fluxo do grupo de segurança de rede com a pilha elástico, ter obtemos uma forma poderosa e personalizável para visualizar o nosso tráfego de rede. Estes dashboards permitem-lhe obter rapidamente e partilhar informações sobre o tráfego de rede, bem como filtro para baixo e investigar em qualquer potenciais anomalias. Utilizar Kibana, pode personalizar estas dashboards e criar visualizações específicas para satisfazer as necessidades de segurança, auditoria e conformidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como visualizar os registos de fluxo NSG com o Power BI, visitando [visualizar NSG flui registos com o Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

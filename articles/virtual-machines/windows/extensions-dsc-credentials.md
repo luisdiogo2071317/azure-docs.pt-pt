@@ -1,6 +1,6 @@
 ---
-title: "Transmissão de credenciais para o Azure utilizando o DSC | Microsoft Docs"
-description: "Obter uma descrição geral em segurança a ser transmitidos credenciais para máquinas virtuais do Azure utilizando a configuração de estado pretendido do PowerShell"
+title: "Introduzir credenciais no Azure através da configuração de estado pretendido | Microsoft Docs"
+description: "Saiba como em segurança introduzir credenciais para máquinas virtuais do Azure utilizando o PowerShell pretendido Estado Configuration (DSC)."
 services: virtual-machines-windows
 documentationcenter: 
 author: zjalexander
@@ -16,26 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: zachal,migreene
-ms.openlocfilehash: 140ca3cc9b72afac720e5bcf1d620ac9b1b72132
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a0a565c0bb7e17315c7b0475f3213b620a3e2d6c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="passing-credentials-to-the-azure-dsceextension-handler"></a>Credenciais de transmissão para o processador de DSCEextension do Azure
+# <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Introduzir as credenciais para o processador de DSCExtension do Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Este artigo abrange a extensão de configuração de estado pretendido do Azure.
-Uma descrição geral do processador de extensão de DSC pode ser encontrada em [introdução para o processador de extensão de configuração de estado pretendido do Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Este artigo abrange a extensão de configuração de estado pretendido (DSC) do Azure. Para obter uma descrição geral do processador de extensão de DSC, consulte [introdução para o processador de extensão de configuração de estado pretendido do Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="passing-in-credentials"></a>Transmissão de credenciais
+## <a name="pass-in-credentials"></a>Transmita as credenciais de início
 
-Como parte do processo de configuração, pode precisar de configurar contas de utilizador, aceder aos serviços, ou instale um programa num contexto de utilizador. Para fazer tudo isto, terá de fornecer credenciais.
+Como parte do processo de configuração, poderá precisar de configurar contas de utilizador, aceder aos serviços, ou instale um programa num contexto de utilizador. Para fazer tudo isto, terá de fornecer credenciais.
 
-DSC permite parametrizadas configurações que credenciais são transmitidas para a configuração e armazenadas em segurança em ficheiros MOF.
-O processador de extensão do Azure simplifica a gestão de credenciais ao fornecer uma gestão automática de certificados.
+Pode utilizar o DSC definir configurações parametrizadas. Numa configuração parametrizada, as credenciais são transmitidas para a configuração e armazenadas em segurança em ficheiros. MOF. O processador de extensão do Azure simplifica a gestão de credenciais ao fornecer uma gestão automática de certificados.
 
-Considere o seguinte script de configuração de DSC que cria uma conta de utilizador local com a palavra-passe especificada:
+O seguinte script de configuração de DSC cria uma conta de utilizador local com a palavra-passe especificada:
 
 ```powershell
 configuration Main
@@ -61,15 +59,13 @@ configuration Main
 }
 ```
 
-É importante incluir *localhost nó* como parte da configuração.
-Se esta instrução está em falta, os seguintes passos não funcionam conforme especificamente procura o processador de extensão para a instrução de localhost de nó.
-Também é importante incluir a typecast *[PsCredential]*, como a extensão para encriptar a credencial é acionado deste tipo específico.
+É importante incluir **localhost nó** como parte da configuração. O processador de extensão especificamente procura o **localhost nó** instrução. Se esta instrução está em falta, os seguintes passos não funcionam. Também é importante incluir a typecast **[PsCredential]**. A extensão para encriptar a credencial é acionado deste tipo específico.
 
-Publicar este script para o blob storage:
+Para publicar este script para o armazenamento de Blobs do Azure:
 
 `Publish-AzureVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Definir a extensão de DSC do Azure e forneça a credencial:
+Para definir a extensão de DSC do Azure e forneça a credencial:
 
 ```powershell
 $configurationName = "Main"
@@ -83,21 +79,15 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 
-## <a name="how-credentials-are-secured"></a>Como as credenciais são protegidas
+## <a name="how-a-credential-is-secured"></a>Como uma credencial está protegida
 
-Executar este código solicita uma credencial.
-Assim que é fornecido, este é armazenado na memória brevemente.
-Quando está publicado com `Set-AzureVmDscExtension` cmdlet, são transmitidos através de HTTPS para a VM, onde do Azure armazena-encriptado no disco, utilizando o certificado da VM local.
-Em seguida, brevemente é desencriptado na memória e encriptado novamente transmiti-lo no DSC.
+Executar este código solicita uma credencial. Depois da credencial for fornecida, que são armazenada na memória. Quando a credencial é publicada utilizando o **conjunto AzureVmDscExtension** cmdlet, a credencial é transmitido através de HTTPS para a VM. Na VM, o Azure armazena as credenciais encriptada no disco, utilizando o certificado da VM local. A credencial é desencriptada brevemente na memória e, em seguida, volte é encriptada transmiti-lo no DSC.
 
-Este comportamento é diferente do [utilizar configurações seguras sem o processador de extensão](https://msdn.microsoft.com/powershell/dsc/securemof). O ambiente do Azure fornece uma forma para transmitir dados de configuração de forma segura através de certificados. Ao utilizar o processador de extensão de DSC, é necessário fornecer $CertificatePath ou um $CertificateID / entrada $Thumbprint ConfigurationData.
+Este processo é diferente do [utilizar configurações seguras sem o processador de extensão](https://msdn.microsoft.com/powershell/dsc/securemof). O ambiente do Azure dá-lhe uma forma para transmitir dados de configuração de forma segura através de certificados. Quando utiliza o processador de extensão de DSC, não precisa de fornecer **$CertificatePath** ou um **$CertificateID**/ **$Thumbprint** entrada no **ConfigurationData**.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o processador de extensão de DSC do Azure, consulte [introdução para o processador de extensão de configuração de estado pretendido do Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Examine o [modelo Azure Resource Manager para a extensão de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Para obter mais informações sobre o PowerShell DSC, [visitar o Centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
-
-Para encontrar funcionalidades adicionais que pode ser geridas com o PowerShell DSC, [procurar na galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) mais recursos de DSC.
+* Obter um [introdução ao processador de extensão de DSC do Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Examine o [modelo Azure Resource Manager para a extensão de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para obter mais informações sobre o PowerShell DSC, vá para o [Centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+* Para obter mais funcionalidades que pode gerir utilizando o PowerShell DSC e mais recursos de DSC, procure o [galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

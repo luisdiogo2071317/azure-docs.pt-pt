@@ -4,7 +4,7 @@ description: "Saiba como automatizar a configuração de encriptação do SQL Se
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em Virtual Machines do Azure (clássica)
 > [!div class="op_single_selector"]
@@ -53,8 +53,8 @@ A tabela seguinte lista os parâmetros necessários para executar o script do Po
 | Parâmetro | Descrição | Exemplo |
 | --- | --- | --- |
 | **$akvURL** |**O URL do Cofre de chaves** |"https://contosokeyvault.vault.azure.net/" |
-| **$spName** |**Nome Principal de serviço** |"fde2b411 - 33d 5-4e11-af04eb07b669ccf2" |
-| **$spSecret** |**Segredo Principal de serviço** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =" |
+| **$spName** |**Nome Principal de serviço** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spSecret** |**Segredo Principal de serviço** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nome da credencial**: a Integração AKV cria uma credencial dentro do SQL Server, permitindo que a VM tenha acesso ao cofre de chaves. Escolha um nome para esta credencial. |"mycred1" |
 | **$vmName** |**Nome da máquina virtual**: O nome de uma VM do SQL Server criado anteriormente. |"myvmname" |
 | **$serviceName** |**Nome do serviço**: nome do serviço em nuvem que está associado a VM do SQL Server. |"mycloudservicename" |

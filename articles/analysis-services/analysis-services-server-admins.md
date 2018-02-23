@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 6a42baf9fd880264e4130c009f27935a4743de21
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
-Os administradores de servidores tem de ser um utilizador ou grupo válido no Azure Active Directory (Azure AD) para o inquilino em que reside o servidor. Pode utilizar **administradores de serviços de análise** no painel de controlo para o servidor no portal do Azure ou propriedades do servidor no SSMS para gerir os administradores de servidores. 
+Os administradores de servidores tem de ser um utilizador ou grupo válido no Azure Active Directory (Azure AD) para o inquilino em que reside o servidor. Pode utilizar **administradores de serviços de análise** para o servidor no portal do Azure ou propriedades do servidor no SSMS para gerir os administradores de servidores. 
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar os administradores de servidores utilizando o portal do Azure
-1. No painel de controlo para o servidor, clique em **administradores de serviços de análise**.
-2. No  **\<servername >-administradores de serviços de análise** painel, clique em **adicionar**.
-3. No **adicionar administradores de servidor** painel, selecione as contas de utilizador do seu Azure AD ou convidar utilizadores externos ao endereço de correio eletrónico.
+1. No portal, para o servidor, clique em **administradores de serviços de análise**.
+2. No  **\<servername >-administradores de serviços de análise**, clique em **adicionar**.
+3. No **adicionar administradores de servidor**, selecione as contas de utilizador do seu Azure AD ou convidar utilizadores externos ao endereço de correio eletrónico.
 
     ![Administradores de servidor no portal do Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)
 
@@ -38,7 +38,7 @@ Os administradores de servidores tem de ser um utilizador ou grupo válido no Az
    
     ![Adicionar administradores de servidor no SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 [Autenticação e permissões de utilizador](analysis-services-manage-users.md)  
 [Gerir utilizadores e funções de base de dados](analysis-services-database-users.md)  
 [Controlo de Acesso Baseado em Funções](../active-directory/role-based-access-control-what-is.md)  

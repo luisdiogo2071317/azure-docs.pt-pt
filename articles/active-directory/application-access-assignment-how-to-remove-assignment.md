@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: bb1dc88164aa7971427984b5956e00b1d343cab7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aec49b108c21b97646e622c47bf69728a81d6d33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
 
@@ -33,19 +33,19 @@ Para desativar a todos os utilizadores inícios de sessão a uma aplicação, si
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Pretender eliminar uma aplicação totalmente
 
-Para **eliminar uma aplicação**, siga as instruções abaixo:
+Para **eliminar uma aplicação**, siga estas instruções:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** do menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende eliminar.
 
@@ -55,11 +55,11 @@ Para **eliminar uma aplicação**, siga as instruções abaixo:
 
 Desativar o consentimento do utilizador para o seu diretório todo impedir que os utilizadores finais consenting para qualquer aplicação. Os administradores podem ainda consentimento no behalves do utilizador. Para saber mais sobre o consentimento de aplicação e, por isso poderá ou poderá pretender fazê-lo, ler [utilizador compreender e administração consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Para **desativar todas as operações de consentimento do utilizador futuras no seu diretório todo**, siga as instruções abaixo:
+Para **desativar todas as operações de consentimento do utilizador futuras no seu diretório todo**, siga estas instruções:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -70,5 +70,5 @@ Para **desativar todas as operações de consentimento do utilizador futuras no 
 6.  Desative todas as operações de consentimento do utilizador futuras definindo a **utilizadores podem permitir que as aplicações aceder aos respetivos dados** alternar para **não** e clique em de **guardar** botão.
 
 
-# <a name="next-steps"></a>Passos seguintes
+# <a name="next-steps"></a>Passos Seguintes
 [Gerir o acesso a aplicações](active-directory-managing-access-to-apps.md)

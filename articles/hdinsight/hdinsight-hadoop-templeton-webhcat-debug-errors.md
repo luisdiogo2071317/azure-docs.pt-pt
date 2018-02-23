@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: c21b575e9e055b2dec69bea270012b91df2b662b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compreender e resolver erros recebidos de WebHCat no HDInsight
 
@@ -48,9 +48,9 @@ Se os valores predefinidos seguintes for excedidos, pode degradar o desempenho d
 
 | Definição | O que faz | Valor predefinido |
 | --- | --- | --- |
-| [yarn.Scheduler.CAPACITY.Maximum-aplicações][maximum-applications] |O número máximo de tarefas que podem estar ativas em simultâneo (pendentes ou em execução) |10,000 |
-| [templeton.exec.Max procs][max-procs] |O número máximo de pedidos que podem ser servidos em simultâneo |20 |
-| [mapreduce.jobhistory.Max-idade-ms][max-age-ms] |O número de dias que histórico da tarefa é retido |7 dias |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |O número máximo de tarefas que podem estar ativas em simultâneo (pendentes ou em execução) |10,000 |
+| [templeton.exec.max-procs][max-procs] |O número máximo de pedidos que podem ser servidos em simultâneo |20 |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |O número de dias que histórico da tarefa é retido |7 dias |
 
 ## <a name="too-many-requests"></a>Demasiados pedidos
 
@@ -60,7 +60,7 @@ Se os valores predefinidos seguintes for excedidos, pode degradar o desempenho d
 | --- | --- |
 | Excedeu o máximo de pedidos simultâneo servido pelo WebHCat por minuto (predefinição 20) |Reduza a carga de trabalho para se certificar de que não submeta mais do que o número máximo de pedidos simultâneos ou aumentar o limite do pedido simultâneo modificando `templeton.exec.max-procs`. Para obter mais informações, consulte [Modifying configuração](#modifying-configuration) |
 
-## <a name="server-unavailable"></a>Server indisponível
+## <a name="server-unavailable"></a>Servidor indisponível
 
 **Código de estado HTTP**: 503
 
@@ -86,7 +86,7 @@ Se os valores predefinidos seguintes for excedidos, pode degradar o desempenho d
 | --- | --- |
 | Libertação de memória interna está a ocorrer dentro do processo de WebHCat |Aguardar a recolha de lixo concluir ou reinicie o serviço de WebHCat |
 | Tempo limite a aguardar uma resposta do serviço ResourceManager. Este erro pode ocorrer quando o número de aplicações do Active Directory passa o máximo configurado (predefinição 10 000) |Aguarde tarefas para concluir ou aumentar o limite de trabalho em simultâneo através da modificação atualmente em execução `yarn.scheduler.capacity.maximum-applications`. Para obter mais informações, consulte o [Modifying configuração](#modifying-configuration) secção. |
-| Tentar obter todas as tarefas através do [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) chamada ao `Fields` está definido como`*` |Não obtêm *todos os* detalhes da tarefa. Em vez disso, utilize `jobid` para obter os detalhes para as tarefas de maiores apenas a determinados id da tarefa. Ou, não utilize`Fields` |
+| Tentar obter todas as tarefas através do [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) chamada ao `Fields` está definido como `*` |Não obtêm *todos os* detalhes da tarefa. Em vez disso, utilize `jobid` para obter os detalhes para as tarefas de maiores apenas a determinados id da tarefa. Ou, não utilize `Fields` |
 | O serviço de WebHCat está inativo durante a ativação pós-falha de HeadNode |Aguardar dois minutos e repita a operação |
 | Existem mais do que 500 tarefas pendentes submetidas através de WebHCat |Aguarde pela conclusão das tarefas actualmente a aguardar antes de submeter mais tarefas |
 

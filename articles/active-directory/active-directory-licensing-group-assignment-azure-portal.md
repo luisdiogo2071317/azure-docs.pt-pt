@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores através da associação a grupos no Azure Active Directory
 
@@ -31,15 +31,15 @@ Neste exemplo, o inquilino contém um grupo de segurança denominado **departame
 > [!NOTE]
 > Alguns serviços da Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar a propriedade de localização de utilização no utilizador.
 
-> Para atribuição de licença de grupo, os utilizadores sem uma localização de utilização especificada irão herdar a localização do diretório. Se tiver utilizadores em vários locais, recomendamos que defina a localização de utilização sempre como parte do seu fluxo de criação de utilizador no Azure AD (por exemplo, através do AAD Connect configuração) - irá garantir o resultado da atribuição de licenças sempre está correto e que os utilizadores não recebem serviços em locais que não são permitidos.
+> Para atribuição de licença de grupo, os utilizadores sem uma localização de utilização especificada herdam a localização do diretório. Se tiver utilizadores em vários locais, recomendamos que defina a localização de utilização sempre como parte do seu fluxo de criação de utilizador no Azure AD (por exemplo, através do AAD Connect configuração) - garante o resultado da atribuição de licenças sempre está correto e que os utilizadores não recebem serviços em locais que não são permitidos.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Passo 1: Atribuir as licenças necessárias
 
 1. Iniciar sessão para o [ **portal do Azure** ](https://portal.azure.com) com uma conta de administrador. Para gerir licenças, a conta tem de ser um administrador de conta de utilizador ou função de administrador global.
 
-2. Selecione **mais serviços** no painel de navegação esquerdo e, em seguida, selecione **do Azure Active Directory**. Pode adicionar este painel aos Favoritos ou afixá-lo ao dashboard do portal.
+2. Selecione **todos os serviços** no painel de navegação esquerdo e, em seguida, selecione **do Azure Active Directory**. Pode adicionar neste painel aos Favoritos ou afixá-lo ao dashboard do portal.
 
-3. No **do Azure Active Directory** painel, selecione **licenças**. Esta ação abre um painel onde pode ver e gerir todos os produtos sujeito a licença no inquilino.
+3. No **do Azure Active Directory** painel, selecione **licenças** para abrir um painel onde pode ver e gerir todos os produtos sujeito a licença no inquilino.
 
 4. Em **todos os produtos**, selecione o Office 365 Enterprise E3 e Enterprise Mobility + Security selecionando os nomes de produto. Para iniciar a atribuição, selecione **atribuir** na parte superior do painel.
 
@@ -47,7 +47,7 @@ Neste exemplo, o inquilino contém um grupo de segurança denominado **departame
 
 5. No **atribuir licenças** painel, clique em **utilizadores e grupos** para abrir o **utilizadores e grupos** painel. Procure o nome do grupo *departamento de RH*, selecione o grupo e, em seguida, lembre-se de que confirme clicando **selecione** na parte inferior do painel.
 
-   ![Selecione um grupo](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
+   ![Selecionar um grupo](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
 6. No **atribuir licenças** painel, clique em **opções de atribuição (opcionais)**, que apresenta todos os planos de serviço incluídos os dois produtos são selecionados anteriormente. Localizar **Yammer Enterprise** e ativá-la **desativar** desativar que o serviço de licença do produto. Confirmar clicando **OK** na parte inferior **opções de atribuição**.
 
@@ -57,7 +57,7 @@ Neste exemplo, o inquilino contém um grupo de segurança denominado **departame
 
 8. É apresentada uma notificação no canto superior direito que mostra o estado e o resultado do processo. Se não foi possível concluir a atribuição de grupo (por exemplo, devido a já existentes licenças no grupo), clique na notificação para ver os detalhes da falha.
 
-Especificamos agora um modelo de licença para o grupo do departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros desse grupo existentes. Esta operação inicial pode demorar algum tempo, dependendo do tamanho atual do grupo. No próximo passo, vamos descrever como verificar se o processo foi concluída e determinar se mais atenção é necessário resolver problemas.
+Especificamos agora um modelo de licença para o grupo do departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros desse grupo existentes. Esta operação inicial pode demorar algum tempo, dependendo do tamanho atual do grupo. O passo seguinte descreve como verificar se o processo foi concluída e determinar se mais atenção é necessário resolver problemas.
 
 > [!NOTE]
 > Pode iniciar a atribuição do mesma a partir de uma localização alternativa: **utilizadores e grupos** no Azure AD. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**. Em seguida, localize o grupo, selecione-o e aceda ao **licenças** separador. O **atribuir** botão na parte superior do painel abre o painel de atribuição de licença.
@@ -66,7 +66,7 @@ Especificamos agora um modelo de licença para o grupo do departamento de RH. Um
 
 1. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**. Em seguida, localize o **departamento de RH** grupo de licenças atribuídas a.
 
-2. No **departamento de RH** painel do grupo, selecione **licenças**. Isto permite-lhe confirmar rapidamente se licenças totalmente atribuídas a utilizadores e se existem quaisquer erros que tem de ter um aspeto no. Estão disponíveis as seguintes informações:
+2. No **departamento de RH** painel de grupo, selecione **licenças**. Isto permite-lhe confirmar rapidamente se licenças totalmente atribuídas a utilizadores e se existem quaisquer erros que tem de ter um aspeto no. Estão disponíveis as seguintes informações:
 
    - Lista de licenças de produtos que estão atualmente atribuídas ao grupo. Selecione uma entrada para mostrar os serviços específicos que foram ativados e efetuar alterações.
 
@@ -87,7 +87,7 @@ Especificamos agora um modelo de licença para o grupo do departamento de RH. Um
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passo 3: Verificar problemas de licença e resolvê-los
 
 1. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**e localize o **departamento de RH** grupo de licenças atribuídas a.
-2. No **departamento de RH** painel do grupo, selecione **licenças**. A notificação na parte superior do painel mostra que existem 10 utilizadores que não foi possível atribuir licenças. Clicar nela abre-se de uma lista de todos os utilizadores num Estado de erro de licenciamento para este grupo.
+2. No **departamento de RH** painel de grupo, selecione **licenças**. A notificação na parte superior do painel mostra que existem 10 utilizadores que não foi possível atribuir licenças. Clicar nela abre-se de uma lista de todos os utilizadores num Estado de erro de licenciamento para este grupo.
 3. O **falha atribuições** coluna indica-nos que ambas as licenças de produto não foi possível atribuir aos utilizadores. O **principais motivo da falha** coluna contém a causa da falha. Neste caso, tem **planos de serviços em conflito**.
 
    ![Atribuições de falha](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
@@ -100,7 +100,7 @@ Especificamos agora um modelo de licença para o grupo do departamento de RH. Um
 
    ![Licença atribuída corretamente](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a funcionalidade definido para a gestão de licenças através de grupos, consulte os artigos seguintes:
 

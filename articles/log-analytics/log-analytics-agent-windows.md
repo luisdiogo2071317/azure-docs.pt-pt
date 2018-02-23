@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows para o serviço de análise de registos do Azure
 
@@ -33,12 +33,12 @@ O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das 
 * Script do PowerShell.
 * Modelo do Resource Manager para máquinas virtuais com Windows no local na pilha do Azure.  
 
-Para compreender os requisitos de rede e do sistema para implementar o agente do Windows, consulte [recolher dados do seu ambiente com o Log Analytics do Azure](log-analytics-concept-hybrid.md#prerequisites).
+Para compreender os requisitos da rede e do sistema para implementar o agente do Windows, consulte [Recolher dados do seu ambiente com o Log Analytics do Azure](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
 Antes de instalar o agente Microsoft Monitoring para Windows, precisa do ID e da chave da área de trabalho do Log Analytics.  Esta informação é necessária durante a configuração de cada método de instalação para configurar o agente e certifique-se de que consegue comunicar com êxito com a análise de registos de corretamente.  
 
-1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. Na lista de áreas de trabalho de análise de registos, selecione a área de trabalho que pretende configurar o agente para comunicar ao.
 3. Selecione **Definições avançadas**.<br><br> ![Definições Avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Windows**.   
@@ -160,7 +160,7 @@ No computador no **painel de controlo**, localizar o item **Microsoft Monitoring
 
 Também pode efetuar uma pesquisa de registo simples no portal do Azure.  
 
-1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.  
+1. No portal do Azure, clique em **todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.  
 2. Na página da área de trabalho de análise de registos, selecione a área de trabalho de destino e, em seguida, selecione o **pesquisa registo** mosaico. 
 2. No painel de pesquisa de registo, no tipo de campo de consulta:  
 
@@ -173,6 +173,6 @@ Também pode efetuar uma pesquisa de registo simples no portal do Azure.
 
 Nos resultados da pesquisa devolveu, deverá ver registos de heartbeat para o computador que indica que está ligada e relatórios para o serviço.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Reveja [gerir e manter o agente de análise de registos para o Windows e Linux](log-analytics-agent-manage.md) para saber mais sobre como gerir o agente durante o ciclo de vida de implementação no seu máquinas.  

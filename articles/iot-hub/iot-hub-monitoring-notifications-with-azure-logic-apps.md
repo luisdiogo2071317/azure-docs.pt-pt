@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitorização remota do IoT e notificações com Azure Logic Apps ligar o seu IoT hub e a caixa de correio
 
@@ -50,7 +50,7 @@ Saiba como criar uma aplicação lógica que liga o seu IoT hub e a caixa de cor
 
 ### <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes de barramento de serviço
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **novo** > **integração empresarial com** > **Service Bus**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **crie um recurso** > **integração empresarial com** > **Service Bus**.
 1. Forneça as seguintes informações:
 
    **Nome**: O nome do service bus.
@@ -111,7 +111,7 @@ Saiba como criar uma aplicação lógica que liga o seu IoT hub e a caixa de cor
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **novo** > **integração empresarial com** > **aplicação lógica**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **crie um recurso** > **integração empresarial com** > **aplicação lógica**.
 1. Introduza as seguintes informações:
 
    **Nome**: O nome da aplicação lógica.
@@ -170,7 +170,7 @@ A aplicação lógica está por ordem de trabalho quando o guardou.
    > [!NOTE]
    > O fornecedor de serviços de e-mail poderá ter de verificar a identidade do remetente certificar-se de que o que envia a mensagem de e-mail é.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Uma aplicação lógica que liga o seu IoT hub e a caixa de correio para notificações e a monitorização de temperatura foi criada com êxito.
 

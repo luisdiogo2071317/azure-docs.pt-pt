@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Validar o XML com esquemas para o Azure Logic Apps e o pacote de integração do Enterprise
 
@@ -26,9 +26,9 @@ Esquemas confirmar que os documentos XML que receberá são válidos e possuem o
 
 ## <a name="add-a-schema"></a>Adicionar um esquema
 
-1. No portal do Azure, selecione **mais serviços**.
+1. No portal do Azure, selecione **todos os serviços**.
 
-    ![Portal do Azure, "Mais serviços"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Portal do Azure, "Todos os serviços"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. Na caixa de filtro de pesquisa, introduza **integração**e selecione **contas de automatização** na lista de resultados.
 
@@ -130,6 +130,6 @@ Azure mostra uma mensagem que o esquema carregada com êxito.
 
     ![A integração de conta, com "Esquemas" realçado](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do enterprise").  
 

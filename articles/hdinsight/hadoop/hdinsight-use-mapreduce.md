@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: bfd176aaf02dd96cee8877f1754dd0ce7ebded13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Hadoop no HDInsight
 
@@ -31,10 +31,10 @@ Saiba como executar as tarefas do MapReduce nos clusters do HDInsight. Utilize a
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Utilize o comando de Hadoop através de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Submeter a tarefa remotamente utilizando **REST** (exemplos utilizam cURL) |Linux ou do Windows |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submeter a tarefa remotamente utilizando **do Windows PowerShell** |Linux ou do Windows |Windows |
-| [Ambiente de trabalho remoto](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 e 3.3) |Utilize o comando de Hadoop através de **ambiente de trabalho remoto** |Windows |Windows |
 
 > [!IMPORTANT]
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+>
 
 ## <a id="whatis"></a>O que é o MapReduce
 
@@ -46,7 +46,7 @@ Hadoop MapReduce é uma arquitetura de software para escrever as tarefas que pro
 
 Um exemplo de tarefa de MapReduce de contagem do word básico é ilustrado no diagrama seguinte:
 
-![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
+![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 O resultado da tarefa é uma contagem de quantas vezes que ocorreu de cada palavra no texto.
 
@@ -168,7 +168,6 @@ HDInsight pode executar tarefas de HiveQL utilizando vários métodos. Utilize a
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Utilize o comando de Hadoop através de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Submeter a tarefa remotamente utilizando **REST** |Linux ou do Windows |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submeter a tarefa remotamente utilizando **do Windows PowerShell** |Linux ou do Windows |Windows |
-| [Ambiente de trabalho remoto](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 e 3.3) |Utilize o comando de Hadoop através de **ambiente de trabalho remoto** |Windows |Windows |
 
 > [!IMPORTANT]
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).

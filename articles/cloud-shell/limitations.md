@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações da Shell de nuvem do Azure
 
@@ -33,7 +33,6 @@ A máquina que fornece a sua sessão de Shell de nuvem é temporária e é recic
 * Com o armazenamento montado, apenas as modificações dentro de `clouddrive` diretório são mantidas. No Bash, o `$Home` diretório também é persistente.
 * Partilhas de ficheiros do Azure podem ser montadas apenas a partir do seu [atribuído região](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Na Bash, execute `env` para localizar a sua região definida como `ACC_LOCATION`.
-* Ficheiros do Azure suporta armazenamento apenas localmente redundante e contas de armazenamento georredundante.
 
 ### <a name="browser-support"></a>Suporte de browsers
 
@@ -55,18 +54,11 @@ Shell de nuvem destina-se em casos de utilização interativo. Como resultado, a
 
 ### <a name="user-permissions"></a>Permissões de utilizador
 
-As permissões estão definidas como regulares utilizadores sem acesso de sudo. Qualquer instalação fora da sua `$Home` não é continuado diretório.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB limitada permissões
-Determinados comandos dentro do `clouddrive` diretório, tal como `git clone`, não tem permissões adequadas para leitura/escrita determinados ficheiros. Se clicar neste problema, volte a tentar da sua `$Home` diretório que não tem limitações de SMB.
+As permissões estão definidas como regulares utilizadores sem acesso de sudo. Qualquer instalação fora da sua `$Home` ou `clouddrive` não é continuado diretório.
 
 ### <a name="editing-bashrc"></a>Editar .bashrc
 
-Tome atenção quando editar .bashrc, se o fizer, pode provocar erros inesperados na Shell de nuvem.
-
-### <a name="bashhistory"></a>.bash_history
-
-O histórico dos comandos bash pode ser inconsistente devido a interrupção de sessão da Shell de nuvem ou sessões em simultâneo.
+Tome atenção quando editar .bashrc, se o fizer, pode provocar erros inesperados com Bash na Shell de nuvem.
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 

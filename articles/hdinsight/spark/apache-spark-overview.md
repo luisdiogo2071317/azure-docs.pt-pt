@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/13/2017
 ms.author: nitinme
-ms.openlocfilehash: b52f896c0d2a023a0a371668c4f6ce55060c2cfd
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d2b2e33de25fc5b76b1df4a42fd25e4e0b374439
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introdução ao Spark no HDInsight
 
@@ -92,7 +92,6 @@ O Apache Spark no HDInsight armazena dados no Armazenamento do Azure ou no Azure
 O Apache Spark inclui o [MLlib](http://spark.apache.org/mllib/), uma biblioteca de aprendizagem automática baseada no Spark, que pode utilizar a partir de um cluster do Spark no HDInsight. Além disso, o cluster do Spark no HDInsight também inclui o Anaconda, uma distribuição da Python com uma variedade de pacotes de aprendizagem automática. Associe a isto o suporte incorporado para blocos de notas do Jupyter e Zeppelin, e obtenha um ambiente topo de gama para a criação de aplicações de aprendizagem automática.
 
 ### <a name="spark-streaming-and-real-time-data-analysis"></a>Análise de dados de transmissão em fluxo e em tempo real do Spark
-[Ver um tutorial](apache-spark-eventhub-streaming.md)
 
 Os clusters do Spark no HDInsight oferecem um suporte avançado para a criação de soluções de análise em tempo real. Embora o Spark já tenha conectores para ingerir dados de várias fontes, como o Kafka, o Flume, o Twitter, o ZeroMQ ou os sockets de TCP, o Spark no HDInsight acrescenta um suporte de primeira classe para a ingestão de dados a partir de Event Hubs do Azure. Os Hubs de Eventos são o serviço de colocação em fila mais utilizado no Azure. O facto de ter um suporte imediato para os Hubs de Eventos faz com que os clusters do Spark no HDInsight sejam uma plataforma ideal para a criação do pipeline de análise em tempo real.
 
@@ -115,7 +114,6 @@ Comece por criar um cluster do Spark no HDInsight. Veja o [Guia de Introdução:
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

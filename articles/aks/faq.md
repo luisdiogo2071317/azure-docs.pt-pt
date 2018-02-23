@@ -6,19 +6,19 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/01/2018
+ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 59dceded1e72e6e0e3d1a2bb25ca63bd023a9d21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Perguntas mais frequentes sobre o serviço de contentor do Azure (AKS)
 
 Endereços este artigo induzirem frequentes perguntas sobre o serviço de contentor do Azure (AKS).
 
-## <a name="which-azure-regions-will-have-azure-container-service-aks"></a>Em que regiões do Azure terá o serviço de contentor do Azure (AKS)? 
+## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Em que regiões do Azure fornecem o serviço de contentor do Azure (AKS) de hoje em dia?
 
 - Canadá Central 
 - Leste do Canadá 
@@ -32,13 +32,17 @@ Endereços este artigo induzirem frequentes perguntas sobre o serviço de conten
 
 Regiões adicionais são adicionadas à medida que aumenta a pedido.
 
-## <a name="are-security-updates-applied-to-aks-nodes"></a>Atualizações de segurança são aplicadas a nós AKS? 
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Atualizações de segurança são aplicadas a nós de agente AKS? 
 
-OS patches de segurança são aplicadas a nós do cluster com base numa agenda noturna, no entanto, não é efetuada uma reinicialização. Se for necessário, poderão ser reiniciados nós através do portal ou a CLI do Azure. Ao atualizar um cluster, a imagem de Ubuntu mais recente é utilizada e todos os patches de segurança são aplicadas (com um reinício).
+Azure aplica automaticamente patches de segurança para os nós do cluster com base numa agenda noturna. No entanto, é responsável por assegurar que nós são reiniciados conforme necessário. Tem várias opções para efetuar a reinícios de nó:
 
-## <a name="do-you-recommend-customers-use-acs-or-akss"></a>É recomendada aos clientes utilizar ACS ou AKSs? 
+- Manualmente, através do portal do Azure ou a CLI do Azure. 
+- Atualizando o seu cluster AKS. Atualizações do cluster automaticamente [cordon e drenar nós](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), em seguida, colocá-los a cópia de segurança com a imagem de Ubuntu mais recente. Pode atualizar a imagem do SO nos seus nós sem alterar Kubernetes versões especificando a versão atual do cluster na `az aks upgrade`.
+- Utilizar [Kured](https://github.com/weaveworks/kured), um daemon de reinício de open source para Kubernetes. Kured é executada como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitoriza a cada nó quanto à presença de um ficheiro com a indicação de que é necessário um reinício. Em seguida, orquestra os reinícios no cluster, seguindo o mesmo cordon e o processo de drenagem descrito anteriormente.
 
-Dado que o serviço de contentor do Azure (AKS) será GA numa data posterior, recomendamos que crie da PoC, desenvolvimento e teste clusters no AKS mas clusters de produção no ACS Kubernetes.  
+## <a name="do-you-recommend-customers-use-acs-or-aks"></a>É recomendada aos clientes utilizar ACS ou AKS? 
+
+Enquanto AKS permanece na pré-visualização, recomendamos a criação de clusters de produção utilizando ACS Kubernetes ou [motor de acs](https://github.com/azure/acs-engine). Pode utilizar AKS para implementações de prova do conceito e ambientes de desenvolvimento/teste.
 
 ## <a name="when-will-acs-be-deprecated"></a>Quando os ACS vão ser preteridos? 
 
@@ -48,21 +52,27 @@ ACS que vão ser preteridos perto da hora que AKS torna-se depois da disponibili
 
 Dimensionamento automático de nó não é suportado, mas é no plano. Pode querer observe isto tenham origem open [implementação de dimensionamento automático][auto-scaler].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que razão são criados dois grupos de recursos com AKS? 
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS suporta Kubernetes controlo de acesso baseado em funções (RBAC)?
 
-Cada cluster do serviço de contentor do Azure (AKS) está contida em dois grupos de recursos. O primeiro é criado por si e contém apenas o recurso AKS. O segundo grupo de recursos é automaticamente criada durante a implementação e contém todos os recursos de infraestrutura de cluster como VMs, redes e recursos de armazenamento. Este grupo de recursos é criado para a limpeza de recursos mais fácil. 
+Não, RBAC não é atualmente suportado no AKS mas estará disponível brevemente.   
 
-O grupo de recursos criado de automática tem um nome semelhante a:
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Pode implementar AKS na minha rede virtual existente?
 
-```
-MC_myResourceGRoup_myAKSCluster_eastus
-```
-
-Ao adicionar os recursos do Azure para ser utilizado com o cluster Kubernetes, tais como contas de armazenamento ou endereço IP público reservado, estes recursos têm de ser criados na automática criou o grupo de recursos.   
+Não, isto ainda não está disponível mas estará disponível brevemente.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>O Cofre de chaves do Azure está integrado com AKS? 
 
 Não, não é, mas esta integração é planeada. Entretanto, pode experimentar as seguintes soluções da [Hexadite][hexadite]. 
+
+## <a name="can-i-run-windows-server-containers-on-aks"></a>Pode executar contentores do Windows Server no AKS?
+
+Não, AKS atualmente fornecem nós de agente baseado no Windows Server, por isso não é possível executar contentores do Windows Server. Se precisar de executar os contentores do Windows Server em Kubernetes no Azure, consulte o [documentação para o motor de acs](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que razão são criados dois grupos de recursos com AKS? 
+
+Cada implementação AKS abrange dois grupos de recursos. O primeiro é criado por si e contém apenas o recurso AKS. O fornecedor de recursos AKS cria automaticamente um segundo durante a implementação com o nome como *MC_myResourceGRoup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, redes e armazenamento. É criado para simplificar a limpeza de recursos. 
+
+Se estiver a criar recursos que serão utilizados com o cluster AKS, tais como contas de armazenamento ou endereço IP público reservado, deve colocá-los no grupo de recursos geradas automaticamente.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

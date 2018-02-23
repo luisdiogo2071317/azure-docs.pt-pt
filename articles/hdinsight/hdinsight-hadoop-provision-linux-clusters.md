@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais
 
@@ -68,7 +68,7 @@ Siga as instruções no ecrã para efetuar uma configuração de cluster básico
 
 [O Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) ajuda a trabalhar com os recursos na sua aplicação como um grupo, referido como um grupo de recursos do Azure. Pode implementar, atualizar, monitorizar ou eliminar todos os recursos para a sua aplicação numa única operação coordenada.
 
-## <a name="cluster-types"></a>Tipos de cluster e a configuração
+## <a name="cluster-types">Tipos de cluster e a configuração</a>
 O Azure HDInsight fornece atualmente os seguintes tipos de cluster, cada um com um conjunto de componentes para fornecer determinadas funcionalidades.
 
 > [!IMPORTANT]
@@ -127,6 +127,8 @@ Durante a configuração, para o ponto final de armazenamento de predefinido, es
 
 ### <a name="optional-metastores"></a>Metastores opcionais
 Pode criar metastores Hive ou Oozie opcionais. No entanto, nem todos os tipos de cluster suportam metastores e Azure SQL Data Warehouse não é compatível com metastores. 
+
+Para obter mais informações, consulte [utilizar arquivos de metadados externo no Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > Quando cria um metastore personalizado, não utilize travessões, hífenes ou espaços no nome de base de dados. Isto pode provocar a falha no processo de criação de cluster.
@@ -226,20 +228,20 @@ Alguns componentes de Java nativas, como o Mahout e Cascading, podem ser executa
 Por vezes, pretende configurar os seguintes ficheiros de configuração durante o processo de criação:
 
 * clusterIdentity.xml
-* Core-site.XML
-* gateway.XML
-* hbase env.xml
-* hbase site.xml
-* hdfs site.xml
-* env.xml do Hive
-* site.xml do Hive
-* mapred site
-* oozie site.xml
-* oozie env.xml
-* Storm site.xml
-* tez site.xml
-* webhcat site.xml
-* yarn site.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
+* hbase-site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
+* mapred-site
+* oozie-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
+* yarn-site.xml
 
 Para obter mais informações, consulte [HDInsight personalizar clusters com o arranque](hdinsight-hadoop-customize-cluster-bootstrap.md).
 

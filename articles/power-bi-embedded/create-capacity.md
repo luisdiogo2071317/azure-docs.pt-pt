@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Criar a capacidade de Power BI Embedded no portal do Azure
 
@@ -41,7 +41,7 @@ Para concluir este guia de início rápido, necessita de:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione **+ (novo)** > **dados + análise**.
+2. Selecione **crie um recurso** > **dados + análise**.
 
 3. Na caixa de pesquisa, procure *Power BI Embedded*.
 
@@ -62,11 +62,11 @@ Para concluir este guia de início rápido, necessita de:
 
 6. Selecione **Criar**.
 
-Criação normalmente demora sob um minuto; muitas vezes, apenas alguns segundos. Se tiver selecionado **afixar ao dashboard**, navegue até ao seu dashboard para ver a capacidade de novo. Ou, navegue para **mais serviços** > **Power BI Embedded** para ver se a sua capacidade está pronta.
+Criação normalmente demora sob um minuto; muitas vezes, apenas alguns segundos. Se tiver selecionado **afixar ao dashboard**, navegue até ao seu dashboard para ver a capacidade de novo. Ou, navegue para **todos os serviços** > **Power BI Embedded** para ver se a sua capacidade está pronta.
 
 ![Dashboard do portal do Azure com Power BI Embedded capacidade](media/create-capacity/azure-portal-dashboard.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para utilizar a nova capacidade de Power BI Embedded, navegue para o portal de administração do Power BI para atribuir áreas de trabalho. Para obter mais informações, veja [Gerir capacidades no Power BI Premium e no Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

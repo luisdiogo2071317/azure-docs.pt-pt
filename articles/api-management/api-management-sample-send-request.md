@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 6b7f1268ea4893307713931e7288f5d38c5ee080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilizando os serviços externos do serviço de API Management do Azure
-As políticas disponíveis no serviço de API Management do Azure o podem fazer uma vasta gama de trabalho útil com base puramente no pedido a receber, as respostas a enviar e informações básicas de configuração. No entanto, a ser capazes de interagir com os serviços externos da gestão de API políticas abre-se muitas oportunidades mais.
+As políticas disponíveis no serviço de API Management do Azure o podem fazer uma vasta gama de trabalho útil, consoante puramente o pedido de entrada, a saída de resposta e informações básicas de configuração. No entanto, a ser capazes de interagir com os serviços externos da gestão de API políticas abre-se muitas oportunidades mais.
 
-Podemos ter visto anteriormente como podemos pode interagir com o [serviço de Hub de eventos do Azure para o registo, monitorização e análise](api-management-log-to-eventhub-sample.md). Neste artigo, vamos demonstrar políticas que lhe permitem interagir com quaisquer HTTP externo com base em serviço. Estas políticas podem ser utilizadas para acionar eventos remotos ou para obter informações que serão utilizadas para manipular a pedido e resposta de alguma forma original.
+Constatou anteriormente como interagir com o [serviço de Hub de eventos do Azure para registo, monitorização e análise](api-management-log-to-eventhub-sample.md). Este artigo demonstra políticas que lhe permitem interagir com qualquer serviço de acesso baseado em HTTP externo. Estas políticas podem ser utilizadas para acionar eventos remotos ou para obter informações de que são utilizadas para manipular a pedido e resposta de alguma forma original.
 
-## <a name="send-one-way-request"></a>Enviar-uma forma de pedido
-Possivelmente a interação externa mais simples é o estilo fire e esquecido de pedido que permite que um serviço externo ser notificado de algum tipo de eventos importantes. Podemos utilizar a política de controlo de fluxo `choose` para detetar qualquer tipo de condição que estamos interessados em e, em seguida, se a condição for satisfeita, podemos efetuar um externo através de pedidos HTTP a [forma-pedido de envio-um](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) política. Isto pode dever um pedido para um sistema de mensagens como Hipchat ou Slack ou um API de correio como SendGrid ou MailChimp ou para incidentes de suporte críticos como PagerDuty. Todos estes sistemas de mensagens tem APIs HTTP simples que vamos facilmente pode invocar.
+## <a name="send-one-way-request"></a>Send-One-Way-Request
+Possivelmente a interação externa mais simples é o estilo fire e esquecido de pedido que permite que um serviço externo ser notificado de algum tipo de eventos importantes. A política de controlo de fluxo `choose` pode ser utilizado para detetar qualquer tipo de condição que está interessado em.  Se a condição é satisfeita, pode efetuar um externo através de pedidos HTTP a [forma-pedido de envio-um](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) política. Isto pode dever um pedido para um sistema de mensagens como Hipchat ou Slack ou um API de correio como SendGrid ou MailChimp ou para incidentes de suporte críticos como PagerDuty. Todos estes sistemas de mensagens tem APIs HTTP simples que pode ser invocado.
 
 ### <a name="alerting-with-slack"></a>Alertas com Slack
-O exemplo seguinte demonstra como enviar uma mensagem para uma sala de chat Slack se o código de estado de resposta HTTP é maior que ou igual a 500. Um erro de 500 intervalo indica um problema com o nosso back-end da API que o cliente da nossa API não é possível resolver si próprios. Normalmente, requer algum tipo de intervenção no nosso parte.  
+O exemplo seguinte demonstra como enviar uma mensagem para uma sala de chat Slack se o código de estado de resposta HTTP é maior que ou igual a 500. Um erro de 500 intervalo indica um problema com o back-end API que o cliente da API não é possível resolver si próprios. Normalmente, requer algum tipo de intervenção na peça de API Management.  
 
 ```xml
 <choose>
@@ -56,31 +56,31 @@ O exemplo seguinte demonstra como enviar uma mensagem para uma sala de chat Slac
 </choose>
 ```
 
-Slack tem a noção de hooks de entrada web. Quando configurar um hook de entrada web, Slack gera um URL especial que lhe permite efetuar um pedido POST simple e introduzir uma mensagem para o canal Slack. O corpo JSON que criamos baseia-se no formato definido pelo Slack.
+Slack tem a noção de hooks de entrada web. Quando configurar um hook de entrada web, Slack gera um URL especial, o que lhe permite efetuar um pedido POST simple e introduzir uma mensagem para o canal Slack. O corpo JSON que criar baseia-se no formato definido pelo Slack.
 
 ![Slack Web Hook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>É fire e se esqueça aconselhável suficientemente?
-Existem determinadas fala quando utilizar um estilo fire e esquecido de pedido. Se por alguma razão, falha o pedido, em seguida, a falha não será reportada. Nesta situação específica, a complexidade de ter uma falha secundária, sistema e o custo de desempenho adicionais de aguardar a resposta de relatórios não é garantida. Para cenários em que é essencial para verificar a resposta a [pedido de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) política é uma opção melhor.
+Existem determinadas fala quando utilizar um estilo fire e esquecido de pedido. Se, por algum motivo, o pedido falha, em seguida, não é possível comunicar a falha. Nesta situação específica, a complexidade de ter uma falha secundária, sistema e o custo de desempenho adicionais de aguardar a resposta de relatórios não é garantida. Para cenários em que é essencial para verificar a resposta a [pedido de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) política é uma opção melhor.
 
 ## <a name="send-request"></a>Pedido de envio
 O `send-request` permite que política utilizar um serviço externo para realizar funções de processamento complexa e devolver dados para a gestão de API do serviço que pode ser utilizadas para processamento adicional da política.
 
 ### <a name="authorizing-reference-tokens"></a>Autorizar os tokens de referência
-Uma função principais da API Management está a proteger os recursos de back-end. Se o servidor de autorização utilizado pela sua API cria [os tokens JWT](http://jwt.io/) como parte do seu fluxo de OAuth2, como [do Azure Active Directory](../active-directory/active-directory-aadconnect.md) , em seguida, pode utilizar o `validate-jwt` política para verificar a validade do token. No entanto, alguns servidores de autorização criar são conhecidas [referenciar tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não é possível verificar sem efetuar uma chamada para o servidor de autorização.
+Uma função principais da API Management está a proteger os recursos de back-end. Se o servidor de autorização utilizado pela sua API cria [os tokens JWT](http://jwt.io/) como parte do seu fluxo de OAuth2, como [do Azure Active Directory](../active-directory/active-directory-aadconnect.md) , em seguida, pode utilizar o `validate-jwt` política para verificar a validade do token. Alguns servidores de autorização criar são conhecidas [referenciar tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não é possível verificar sem fazer uma chamada de retorno para o servidor de autorização.
 
 ### <a name="standardized-introspection"></a>Introspection normalizado
-No passado não foi efectuada nenhuma forma normalizada de verificar um token de referência com um servidor de autorização. No entanto padrão recentemente proposto [RFC 7662](https://tools.ietf.org/html/rfc7662) publicou a IETF que define a forma como um servidor de recurso pode verificar a validade de um token.
+No passado, não foi efectuada nenhuma forma normalizada de verificar um token de referência com um servidor de autorização. No entanto padrão recentemente proposto [RFC 7662](https://tools.ietf.org/html/rfc7662) publicou a IETF que define a forma como um servidor de recurso pode verificar a validade de um token.
 
 ### <a name="extracting-the-token"></a>Extrair o token
-O primeiro passo é ao extrair o token do cabeçalho de autorização. O valor do cabeçalho deve ser formatado com o `Bearer` esquema de autorização, um único espaço e, em seguida, a autorização token como por [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Lamentamos, mas há casos em que o esquema de autorização for omitido. Para durante a análise de uma conta para isto, iremos dividir o valor do cabeçalho num espaço e selecione a cadeia de última da matriz devolvido de cadeias. Isto fornece uma solução para cabeçalhos de autorização incorretamente formatado.
+O primeiro passo é ao extrair o token do cabeçalho de autorização. O valor do cabeçalho deve ser formatado com o `Bearer` esquema de autorização, um único espaço e, em seguida, o token de autorização, como por [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Lamentamos, mas há casos em que o esquema de autorização for omitido. A conta para este ao analisar, API Management divide o valor do cabeçalho num espaço e seleciona a cadeia de último da matriz devolvido de cadeias. Isto fornece uma solução para cabeçalhos de autorização incorretamente formatado.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 ```
 
 ### <a name="making-the-validation-request"></a>Efetuar o pedido de validação
-Assim que tivermos o token de autorização, podemos efetuar o pedido para validar o token. RFC 7662 chama introspection este processo e requer que lhe `POST` um formulário HTML para o recurso de introspection. O formulário HTML tem de conter, pelo menos, um par chave/valor com a chave `token`. Este pedido para o servidor de autorização também têm de ser autenticado para se certificar de que os clientes maliciosos não é possível ir trawling para tokens válidos.
+Assim que a API Management tem o token de autorização, gestão de API pode efetuar o pedido para validar o token. RFC 7662 chama introspection este processo e requer que lhe `POST` um formulário HTML para o recurso de introspection. O formulário HTML tem de conter, pelo menos, um par chave/valor com a chave `token`. Este pedido para o servidor de autorização tem também de ser autenticado, para garantir que os clientes maliciosos não é possível ir trawling para tokens válidos.
 
 ```xml
 <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
@@ -99,10 +99,10 @@ Assim que tivermos o token de autorização, podemos efetuar o pedido para valid
 ### <a name="checking-the-response"></a>A verificar a resposta
 O `response-variable-name` atributo é utilizado para dar acesso a resposta devolvida. O nome definido nesta propriedade pode ser utilizado como uma chave para o `context.Variables` dicionário para aceder a `IResponse` objeto.
 
-O objeto de resposta é possível obter o corpo e RFC 7622 informa-nos que a resposta tem de ser um objeto JSON e tem de conter, pelo menos, uma propriedade denominada `active` que é um valor booleano. Quando `active` for VERDADEIRO, o token é considerado válido.
+O objeto de resposta, pode obter o corpo e RFC 7622 indica a API Management que a resposta tem de ser um objeto JSON e tem de conter, pelo menos, uma propriedade denominada `active` que é um valor booleano. Quando `active` for VERDADEIRO, o token é considerado válido.
 
 ### <a name="reporting-failure"></a>Falha de criação de relatórios
-Utilizamos uma `<choose>` política para detetar se o token é inválido e, se assim for, devolver uma resposta 401.
+Pode utilizar um `<choose>` política para detetar se o token é inválido e, se assim for, devolver uma resposta 401.
 
 ```xml
 <choose>
@@ -117,10 +117,10 @@ Utilizamos uma `<choose>` política para detetar se o token é inválido e, se a
 </choose>
 ```
 
-Como por [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) que descreve como `bearer` tokens devem ser utilizados, que também enviamos um `WWW-Authenticate` cabeçalho com a resposta 401. O WWW-Authenticate destina-se ao instruir o cliente sobre como construir um pedido corretamente autorizado. Devido à grande variedade de abordagens possíveis com a arquitetura de OAuth2, é difícil comunicar todas as informações necessárias. Felizmente, existem esforços em curso para o ajudar [clientes detetar como autorizar corretamente os pedidos para um servidor de recurso](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Como por [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) que descreve como `bearer` tokens devem ser utilizados, API de gestão também devolve um `WWW-Authenticate` cabeçalho com a resposta 401. O WWW-Authenticate destina-se ao instruir o cliente sobre como construir um pedido corretamente autorizado. Devido à grande variedade de abordagens possíveis com a arquitetura de OAuth2, é difícil comunicar todas as informações necessárias. Felizmente, existem esforços em curso para o ajudar [clientes detetar como autorizar corretamente os pedidos para um servidor de recurso](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Solução final
-Passar todas as peças em conjunto, obtemos a seguinte política:
+No final, obtenha a seguinte política:
 
 ```xml
 <inbound>
@@ -159,29 +159,29 @@ Passar todas as peças em conjunto, obtemos a seguinte política:
 Esta é apenas um dos muitos exemplos de como o `send-request` política pode ser utilizada para integrar os serviços de externos útil para o processo de pedidos e respostas de fluir através do serviço de API Management.
 
 ## <a name="response-composition"></a>Composição de resposta
-O `send-request` política pode ser utilizada para otimização um pedido principal para um sistema de back-end, à medida que vimos no exemplo anterior, ou pode ser utilizado como uma substituição completa para a chamada de back-end. Com esta técnica pode facilmente criamos compostos recursos que são agregados a partir de vários sistemas diferentes.
+O `send-request` política pode ser utilizada para otimização um pedido principal para um sistema de back-end, à medida que vimos no exemplo anterior, ou pode ser utilizado como uma substituição completa para a chamada de back-end. Com esta técnica, pode facilmente criar compostos recursos que são agregados de vários sistemas diferentes.
 
 ### <a name="building-a-dashboard"></a>Criar um dashboard
 Por vezes, pretende poder para expor as informações que existe em vários sistemas de back-end, por exemplo, para um dashboard de unidade. Os KPIs provenientes de todas as diferentes back-ends, mas que prefira não fornecer acesso direto aos mesmos e seria nice se foi possível obter as informações num único pedido. Talvez algumas das informações de back-end tem de alguns segmentação e repartição e limpeza um pequeno primeiro! A capacidade para colocar em cache esse recurso composto seria útil reduzir a carga de back-end como sabe que os utilizadores têm um hábito de hammering a tecla F5 para ver se as métricas underperforming podem ser alterado.    
 
 ### <a name="faking-the-resource"></a>Faking o recurso
-É o primeiro passo para criar o nosso recursos de dashboard para configurar uma operação de novo no portal do publicador da API Management. Esta será uma operação de marcador de posição utilizada para configurar a nossa política de composição para criar o nosso recursos dinâmicos.
+É o primeiro passo para criar o recurso de dashboard para configurar uma operação de novo no portal do Azure. Esta é uma operação de marcador de posição utilizada para configurar uma política de composição para criar o recurso dinâmico.
 
 ![Operação de dashboard](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
 
 ### <a name="making-the-requests"></a>Efetuar os pedidos
-Uma vez a `dashboard` operação ter sido criada, pode configurar uma política especificamente para essa operação. 
+Depois da operação foi criada, pode configurar uma política especificamente para essa operação. 
 
 ![Operação de dashboard](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-O primeiro passo é extrair os parâmetros de consulta do pedido de entrada, para que possa reencaminhar ao nosso back-end. Neste exemplo nosso dashboard está a ser mostrada informações com base no durante um período de tempo de um, por conseguinte, tem um `fromDate` e `toDate` parâmetro. Podemos utilizar o `set-variable` política para extrair as informações do URL do pedido.
+O primeiro passo é extrair os parâmetros de consulta do pedido de entrada, para que possa reencaminhá-los para o back-end. Neste exemplo, o dashboard está a ser mostrada informações com base num período de tempo e, por conseguinte, tem um `fromDate` e `toDate` parâmetro. Pode utilizar o `set-variable` política para extrair as informações do URL do pedido.
 
 ```xml
 <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
 <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 ```
 
-Assim que tivermos estas informações podemos efetuar pedidos para todos os sistemas de back-end. Cada pedido constrói um novo URL com as informações de parâmetro e chama o respetivo servidor e armazena a resposta uma variável de contexto.
+Assim que tiver estas informações, que pode efetuar pedidos para todos os sistemas de back-end. Cada pedido constrói um novo URL com as informações de parâmetro e chama o respetivo servidor e armazena a resposta uma variável de contexto.
 
 ```xml
 <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
@@ -205,10 +205,10 @@ Assim que tivermos estas informações podemos efetuar pedidos para todos os sis
 </send-request>
 ```
 
-Estes pedidos são executados na sequência, que não é ideal. Uma versão futura irá ser introduzir uma nova política chamada `wait` que ativará todos estes pedidos para executar em paralelo.
+Executar estes pedidos na sequência, que não é ideal. 
 
 ### <a name="responding"></a>Responder
-Para construir a resposta composta podemos utilizar o [retorno resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) política. O `set-body` elemento pode utilizar uma expressão para construir um novo `JObject` com todos os componentes representações incorporadas como propriedades.
+Para construir a resposta composta, pode utilizar o [retorno resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) política. O `set-body` elemento pode utilizar uma expressão para construir um novo `JObject` com todos os componentes representações incorporadas como propriedades.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -278,13 +278,13 @@ A política concluída procura da seguinte forma:
 </policies>
 ```
 
-A configuração do marcador de posição operação que pode configurar o recurso de dashboard à colocadas em cache durante, pelo menos, uma hora porque compreendemos a natureza dos dados significa que mesmo se for uma hora desatualizada, irá ainda ser suficientemente eficiente para transmitir importantes informações para os utilizadores.
+Na configuração da operação de marcador de posição, pode configurar o recurso de dashboard a ser colocados em cache durante, pelo menos, uma hora. 
 
 ## <a name="summary"></a>Resumo
 Serviço de API Management do Azure fornece as políticas flexíveis que podem ser aplicadas seletivamente a tráfego HTTP e permite a composição dos serviços de back-end. Se pretender melhorar o gateway de API com as funções, a verificação, capacidades de validação de alerta ou criar novos recursos compostos com base nos vários serviços de back-end, o `send-request` e políticas relacionadas abrir um mundo de possibilidades.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Veja uma descrição geral do vídeo destas políticas
-Para mais informações sobre o [forma-pedido de envio-um](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [pedido de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), e [retorno resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) abordadas neste artigo, as políticas, veja o vídeo seguinte.
+Para mais informações sobre o [forma-pedido de envio-um](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [pedido de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), e [retorno resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) políticas abordadas neste artigo, veja o vídeo seguinte:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 

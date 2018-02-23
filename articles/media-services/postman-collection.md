@@ -1,27 +1,14 @@
----
-title: "Importar a coleção de Postman"
-description: "Este artigo fornece uma definição da coleção Postman para chamadas de REST de serviços de suporte de dados do Azure."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Importar a coleção de Postman
+ ---
+Título: importar a coleção de Postman com a descrição de operações do Azure a pedido de transmissão em fluxo: Este artigo fornece uma definição da coleção Postman para chamadas de REST de serviços de suporte de dados do Azure.
+serviços: documentationcenter de serviços de suporte de dados: ' autor: Gestor Juliako: cfowler editor: '
 
-Este artigo contém uma definição do **Postman** coleção que contenha agrupados pedidos de HTTP chamar APIs REST do suporte de dados de serviços. Esta definição é utilizada pelo [chama de configurar o Postman para API de REST dos serviços de suporte de dados](media-rest-apis-with-postman.md) tutorial.
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção de Postman com operações de transmissão em fluxo a pedido
+
+Este artigo contém uma definição do **Postman** coleção que contenha agrupados pedidos de HTTP chamar as APIs REST do serviços de suporte de dados do Azure. Para obter informações sobre como configurar **Postman** para que possam ser utilizado para chamar as APIs REST do suporte de dados de serviços, consulte [chama de configurar o Postman para API de REST dos serviços de suporte de dados](media-rest-apis-with-postman.md) tutorial.
 
 ```
 {

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introdução ao Apache Cassandra API para o Azure Cosmos DB
 
@@ -64,7 +64,7 @@ A API de Cassandra permite-lhe interagir com os dados armazenados na base de dad
 
 Se já tiver uma subscrição do Azure, pode inscrever aderir ao programa de API Cassandra (pré-visualização) [portal do Azure](https://aka.ms/cosmosdb-cassandra-signup).  Se estiver familiarizado com o Azure, inscreva-se um [avaliação gratuita](https://azure.microsoft.com/free) onde pode obter de acesso gratuito a base de dados do Azure Cosmos de 12 meses. Conclua os seguintes passos para pedir acesso para o programa de API Cassandra (pré-visualização).
 
-1. No [portal do Azure](https://portal.azure.com), clique em **novo** > **bases de dados** > **Azure Cosmos DB**. 
+1. No [portal do Azure](https://portal.azure.com), clique em **crie um recurso** > **bases de dados** > **Azure Cosmos DB**. 
 
 2. Na página de nova conta, selecione **Cassandra** na caixa de API. 
 
@@ -88,7 +88,7 @@ Uma vez tiver associado a um programa de pré-visualização, siga os inícios r
 * [Início rápido: Criar um Cassandra aplicação web com o .NET e da base de dados do Azure Cosmos](create-cassandra-dotnet.md)
 * [Início rápido: Criar um Cassandra aplicação web com o Python e Azure Cosmos DB](create-cassandra-python.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Informações sobre a API do Azure Cosmos DB Cassandra estão integradas a documentação de base de dados do Azure Cosmos geral, mas aqui estão alguns ponteiros para começar:
 

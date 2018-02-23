@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: fad1994791f9766282db2a9db569f64473e1c15a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f356b5d8e2b047add41873ab2676bd46db8d1fd2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Implementar um modelo a partir de SSDT
 Depois de criar um servidor na sua subscrição do Azure, está pronto para implementar uma base de dados de modelo de tabela no mesmo. Pode usar as SQL Server Data Tools (SSDT) para criar e implementar um projeto de modelo de tabela em que está a trabalhar. 

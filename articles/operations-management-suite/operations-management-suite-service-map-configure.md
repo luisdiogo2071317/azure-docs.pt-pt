@@ -1,6 +1,6 @@
 ---
-title: "Configurar o mapa de serviço no Operations Management Suite | Microsoft Docs"
-description: "Mapa de serviço é uma solução de Operations Management Suite que Deteta os componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços automaticamente. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-la numa variedade de cenários."
+title: "Configurar o mapa de serviço no Azure | Microsoft Docs"
+description: "O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-la numa variedade de cenários."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 1be3dd5718f940c784d22dbafb75c217dddecb9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Configurar o mapa de serviço no Operations Management Suite
+# <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode utilizá-lo para ver os servidores que acha que deles – como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos e portas em qualquer arquitetura TCP ligados sem qualquer configuração necessária, que não seja a instalação de um agente.
 
-Este artigo descreve os detalhes de configuração de agentes de mapa de serviço e integração. Para obter informações sobre como utilizar o mapa de serviço, consulte [utilizar a solução de mapa de serviço no Operations Management Suite](operations-management-suite-service-map.md).
+Este artigo descreve os detalhes de configuração de agentes de mapa de serviço e integração. Para obter informações sobre como utilizar o mapa de serviço, consulte [utilizar a solução de mapa de serviço no Azure](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Transferências de agente de dependência
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.0 | 13CE5E232311010A6E63B21615F669C63B5DF450F26F7BA092F951E924656611 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.0 | A8913CA5308A0ED2EAEAC6E1E374B62E0EA4F8A941C560F63E89EBC3F8971D38  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>Origens ligadas
-Mapa de serviço obtém os dados do agente de dependência do Microsoft. O agente de dependência depende do agente do OMS para as suas ligações no Operations Management Suite. Isto significa que um servidor tem de ter o agente do OMS instalado e configurado pela primeira vez e, em seguida, pode ser instalado o agente de dependência. A tabela seguinte descreve as origens ligadas que suporte a solução de mapa de serviço.
+Mapa de serviço obtém os dados do agente de dependência do Microsoft. O agente de dependência depende do agente do OMS para as suas ligações à análise de registos. Isto significa que um servidor tem de ter o agente do OMS instalado e configurado pela primeira vez e, em seguida, pode ser instalado o agente de dependência. A tabela seguinte descreve as origens ligadas que suporte a solução de mapa de serviço.
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
 | Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Windows. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-windows-agent.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
 | Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Linux. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-linux-agents.md), agentes Linux requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
-| Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados do Windows e Linux agentes num ligado [grupo de gestão do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Não é necessária uma ligação direta a partir do computador de agente do System Center Operations Manager no Operations Management Suite. Dados seja reencaminhados do grupo de gestão para o repositório do Operations Management Suite.|
+| Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados do Windows e Linux agentes num ligado [grupo de gestão do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Não é necessária uma ligação direta do computador de agente do System Center Operations Manager para análise de registos. Dados seja reencaminhados do grupo de gestão para a área de trabalho de análise de registos.|
 | Conta de armazenamento do Azure | Não | Mapa de serviço recolhe dados de computadores de agente, pelo que não existem dados a partir do mesmo para recolher do armazenamento do Azure. |
 
 Mapa de serviço suporta apenas plataformas de 64 bits.
 
-No Windows, o Microsoft Monitoring Agent (MMA) é utilizado pelo System Center Operations Manager e Operations Management Suite para recolher e enviar dados de monitorização. (Este agente é denominado o agente do System Center Operations Manager, agente do OMS, agente de análise do registo, MMA ou agente direta, dependendo no contexto.) System Center Operations Manager e Operations Management Suite fornecem versões de caixa de fora os diferentes do MMA. Estas versões de cada relatório para o System Center Operations Manager, ao Operations Management Suite ou a ambos.  
+No Windows, o Microsoft Monitoring Agent (MMA) é utilizado pelo System Center Operations Manager e análise de registos para recolher e enviar dados de monitorização. (Este agente é denominado o agente do System Center Operations Manager, agente do OMS, agente de análise do registo, MMA ou agente direta, dependendo no contexto.) System Center Operations Manager e análise de registos fornecem versões de caixa de fora os diferentes do MMA. Estas versões de cada relatório para o System Center Operations Manager, para análise de registos ou para ambos.  
 
-No Linux, o agente do OMS para reúne de Linux e envia dados para o Operations Management Suite de monitorização. Pode utilizar o mapa de serviço em servidores com agentes direta do OMS ou em servidores que estão ligados ao Operations Management Suite através de grupos de gestão do System Center Operations Manager.  
+No Linux, o agente do OMS para reúne de Linux e envia dados para análise de registos de monitorização. Pode utilizar o mapa de serviço em servidores com agentes direta do OMS ou em servidores que estejam anexados a análise de registos através de grupos de gestão do System Center Operations Manager.  
 
-Neste artigo, iremos irá referir-se a todos os agentes – se Linux ou Windows, se ligada a um grupo de gestão do System Center Operations Manager ou diretamente ao Operations Management Suite – como o "agente OMS." Iremos utilizar o nome da implementação específico do agente apenas se for necessário para o contexto.
+Neste artigo, iremos irá referir-se a todos os agentes – se Linux ou Windows, se ligada a um grupo de gestão do System Center Operations Manager ou diretamente ao Log Analytics – como o "agente OMS." Iremos utilizar o nome da implementação específico do agente apenas se for necessário para o contexto.
 
-O agente de mapa de serviço não transmitir quaisquer dados propriamente ditos, e não requer quaisquer alterações aos firewalls ou portas. Os dados no mapa de serviço é sempre transmitidos pelo agente OMS no Operations Management Suite, diretamente ou através do Gateway do OMS.
+O agente de mapa de serviço não transmitir quaisquer dados propriamente ditos, e não requer quaisquer alterações aos firewalls ou portas. Os dados no mapa de serviço é sempre transmitidos pelo agente OMS à análise de registos, diretamente ou através do Gateway do OMS.
 
 ![Agentes de mapa de serviço](media/oms-service-map/agents.png)
 
-Se for um cliente do System Center Operations Manager com um grupo de gestão ligado ao Operations Management Suite:
+Se for um cliente do System Center Operations Manager com um grupo de gestão ligado à análise de registos:
 
-- Se os agentes do System Center Operations Manager podem aceder à Internet para ligar ao Operations Management Suite, é necessária nenhuma configuração adicional.  
-- Se os agentes do System Center Operations Manager não é possível aceder ao Operations Management Suite através da Internet, terá de configurar o Gateway do OMS para trabalhar com o System Center Operations Manager.
+- Se os agentes do System Center Operations Manager podem aceder à Internet para ligar à análise de registos, é necessária nenhuma configuração adicional.  
+- Se os agentes do System Center Operations Manager não consegue aceder à análise de registos através da Internet, terá de configurar o Gateway do OMS para trabalhar com o System Center Operations Manager.
   
-Se estiver a utilizar o agente do OMS direta, terá de configurar o agente de OMS estabelecer ligação ao Operations Management Suite ou para o seu Gateway OMS. O Gateway do OMS pode ser transferido a partir de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Se estiver a utilizar o agente do OMS direta, terá de configurar o agente de OMS para ligar à análise de registos ou para o seu Gateway OMS. O Gateway do OMS pode ser transferido a partir de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Pacotes de gestão
-Quando o mapa de serviço está ativado numa área de trabalho do Operations Management Suite, é enviado um pacote de gestão de 300 KB para todos os servidores do Windows na área de trabalho. Se estiver a utilizar os agentes do System Center Operations Manager num [grupo de gestão ligado](../log-analytics/log-analytics-om-agents.md), é implementado o pacote de gestão de mapa de serviço do System Center Operations Manager. Se os agentes estarem ligados diretamente, o Operations Management Suite fornece o pacote de gestão.
+Quando o mapa de serviço está ativado numa área de trabalho de análise de registos, é enviado um pacote de gestão de 300 KB para todos os servidores do Windows na área de trabalho. Se estiver a utilizar os agentes do System Center Operations Manager num [grupo de gestão ligado](../log-analytics/log-analytics-om-agents.md), é implementado o pacote de gestão de mapa de serviço do System Center Operations Manager. Se os agentes estarem ligados diretamente, análise de registos fornece o pacote de gestão.
 
 O pacote de gestão é denominado Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Este é escrito %Programfiles%\Microsoft monitorização Agent\Agent\Health serviço State\Management Packs\. A origem de dados que utiliza o pacote de gestão é % programa files%\Microsoft monitorização Agent\Agent\Health serviço State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -147,7 +147,7 @@ Para implementar a extensão da VM do Azure através do PowerShell, pode utiliza
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Uma forma mesmo mais fácil de garantir a é o agente de dependência em cada um
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -267,11 +267,11 @@ Se a instalação do agente de dependência com êxito, mas não vir o seu servi
 
 * São-na [livre preços escalão do Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? O plano gratuito permite até cinco servidores exclusivos de mapa de serviço. Quaisquer servidores subsequentes não serão apresentados no mapa de serviço, mesmo que os cinco anterior já não estão a enviar dados.
 
-* É o envio de registo do servidor e dados de desempenho para o Operations Management Suite? Aceda a pesquisa de registo e execute a seguinte consulta para o seu computador: 
+* É o envio de registo do servidor e dados de desempenho a análise de registos? Aceda a pesquisa de registo e execute a seguinte consulta para o seu computador: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Obteve uma variedade de eventos nos resultados? Os dados é recente? Se Sim, o agente do OMS está a funcionar corretamente e comunicação com o serviço do Operations Management Suite. Caso contrário, verifique o agente do OMS no seu servidor: [resolução de problemas do agente do OMS para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) ou [agente do OMS para resolução de problemas do Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Obteve uma variedade de eventos nos resultados? Os dados é recente? Se Sim, o agente do OMS está a funcionar corretamente e comunicar com a análise de registos. Caso contrário, verifique o agente do OMS no seu servidor: [resolução de problemas do agente do OMS para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) ou [agente do OMS para resolução de problemas do Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>O servidor é apresentado no mapa de serviço, mas não tem nenhum processo
 Se vir o seu servidor no mapa de serviço, mas não tem nenhum processo ou da ligação de dados, que indica que o agente de dependência está instalado e em execução, mas não carregar o controlador de kernel. 

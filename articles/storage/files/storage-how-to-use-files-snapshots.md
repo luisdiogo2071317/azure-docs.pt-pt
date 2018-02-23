@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Trabalhar com instantâneos de partilha (pré-visualização)
 Um instantâneo de partilha (pré-visualização) é uma versão só de leitura de uma partilha de ficheiros do Azure que é executada num ponto no tempo. Depois de criar um instantâneo de partilha,-lo pode ser ler, copiar, ou eliminada, mas não modificado. Um instantâneo de partilha fornece uma forma de fazer cópias de segurança a partilha como é apresentado um momento. 
@@ -246,13 +246,12 @@ Na saída, verá que o conteúdo do ficheiro transferido e as respetivas proprie
 }
 ```
 
-<<<<<<< HEAD
 ### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Operações de instantâneo de partilha de ficheiros no Azure PowerShell
 Pode utilizar o Azure Powershell para efetuar operações mesmas como instantâneos de partilha de listagem, navegação na partilha de conteúdo de instantâneo, ter de restaurar ou transferir os ficheiros de instantâneo de partilha ou a eliminação de instantâneos de partilha.
 
 #### <a name="list-share-snapshots"></a>Instantâneos de partilha de lista
 
-Pode listar os instantâneos de partilha de uma determinada partilha utilizando`Get-AzureStorageShare`
+Pode listar os instantâneos de partilha de uma determinada partilha utilizando `Get-AzureStorageShare`
 
 ```powershell
 Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
@@ -281,11 +280,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## <a name="delete-azure-files-share-snapshot"></a>Eliminar instantâneo de partilha de ficheiros do Azure
-=======
 ## <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Pode eliminar os instantâneos de partilha ao utilizar o portal do Azure, PowerShell, CLI, a API REST ou qualquer SDK de armazenamento. As secções seguintes descrevem como eliminar os instantâneos de partilha utilizando o portal do Azure, CLI e PowerShell.
 

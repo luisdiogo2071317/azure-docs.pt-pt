@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: fb2487ec854260bacf98789bd1be482172ead6a7
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 5606df8770cf611d7d278800c9871bee17c5b895
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar tarefas do Apache Spark em execução no Azure HDInsight
 
-Neste artigo, irá aprender a controlar e depurar tarefas de Spark em execução nos clusters do HDInsight utilizando a IU do YARN, Spark IU e o servidor de histórico de Spark. Para este artigo, vamos iniciar uma tarefa de Spark através de um bloco de notas disponível com o cluster do Spark, **Machine learning: Análise Preditiva nos dados de inspeção de prato utilizando MLLib**. Pode utilizar os passos abaixo para controlar uma aplicação que é submetido com quaisquer outra abordagem, bem como, por exemplo, **submeter o spark**.
+Neste artigo, irá aprender a controlar e depurar tarefas de Spark em execução nos clusters do HDInsight utilizando a IU do YARN, Spark IU e o servidor de histórico de Spark. Iniciar uma tarefa de Spark através de um bloco de notas disponível com o cluster do Spark, **Machine learning: Análise Preditiva nos dados de inspeção de prato utilizando MLLib**. Pode utilizar os seguintes passos para monitorizar uma aplicação que é submetido com quaisquer outra abordagem, bem como, por exemplo, **submeter o spark**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Tem de ter o seguinte:
@@ -34,12 +34,12 @@ Tem de ter o seguinte:
 * Deve ter iniciado a executar o bloco de notas,  **[Machine learning: Análise Preditiva nos dados de inspeção de prato utilizando MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Para obter instruções sobre como executar este bloco de notas, siga a ligação.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Controlar uma aplicação na IU do YARN
-1. Inicie a IU do YARN. No painel do cluster, clique em **Cluster Dashboard**e, em seguida, clique em **YARN**.
+1. Inicie a IU do YARN. Clique em **Cluster Dashboard**e, em seguida, clique em **YARN**.
    
     ![Iniciar a IU do YARN](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > Em alternativa, pode também iniciar a IU do YARN da IU do Ambari. Para iniciar a IU do Ambari, no painel do cluster, clique em **Cluster Dashboard**e, em seguida, clique em **Dashboard de Cluster do HDInsight**. Na IU do Ambari, clique em **YARN**, clique em **ligações rápidas**, clique o Gestor de recursos do Active Directory e, em seguida, clique em **ResourceManager IU**.    
+   > Em alternativa, pode também iniciar a IU do YARN da IU do Ambari. Para iniciar a IU do Ambari, clique em **Cluster Dashboard**e, em seguida, clique em **Dashboard de Cluster do HDInsight**. Na IU do Ambari, clique em **YARN**, clique em **ligações rápidas**, clique em Gestor de recursos do Active Directory e, em seguida, clique em **da IU do Gestor de recursos**.    
    > 
    > 
 2. Porque iniciou a tarefa de Spark utilizando blocos de notas do Jupyter, a aplicação com o nome **remotesparkmagics** (este é o nome de todas as aplicações que são iniciada a partir de blocos de notas). Clique no ID da aplicação contra o nome da aplicação para obter mais informações sobre a tarefa. Isto inicia a vista da aplicação.
@@ -102,7 +102,7 @@ Depois de uma tarefa é concluída, as informações sobre a tarefa são continu
    > Em alternativa, pode também iniciar a IU do servidor de histórico do Spark da IU do Ambari. Para iniciar a IU do Ambari, no painel do cluster, clique em **Cluster Dashboard**e, em seguida, clique em **Dashboard de Cluster do HDInsight**. Na IU do Ambari, clique em **Spark**, clique em **ligações rápidas**e, em seguida, clique em **IU do servidor de histórico de Spark**.
    > 
    > 
-2. Irá ver todas as aplicações concluídas listadas. Clique num ID de aplicação para desagregar para uma aplicação para obter mais informações.
+2. Pode ver todas as aplicações concluídas listadas. Clique num ID de aplicação para desagregar para uma aplicação para obter mais informações.
    
     ![Iniciar o servidor de histórico do Spark](./media/apache-spark-job-debugging/view-completed-applications.png)
 
@@ -122,7 +122,6 @@ Depois de uma tarefa é concluída, as informações sobre a tarefa são continu
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
 * [Executar tarefas remotamente num cluster do Spark com o Livy](apache-spark-livy-rest-interface.md)
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](apache-spark-eventhub-streaming.md)
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utilizar blocos de notas do Zeppelin com um cluster do Spark no HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Spark para o HDInsight](apache-spark-jupyter-notebook-kernels.md)

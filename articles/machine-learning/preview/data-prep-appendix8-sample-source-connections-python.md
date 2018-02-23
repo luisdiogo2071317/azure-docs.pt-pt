@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 66c356d6d42254e7443b645bff3393daca67012b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Exemplo de ligações à origem personalizada (Python) 
 Antes de ler este anexo, leia [descrição geral de extensibilidade do Python](data-prep-python-extensibility-overview.md).
@@ -45,7 +45,7 @@ Agora, deve conseguir importar data.world bibliotecas.
 
 #### <a name="load-data-into-data-preparation"></a>Carregar dados para a preparação de dados
 
-Crie um novo fluxo de dados baseados em script. Em seguida, utilize o seguinte script para carregar os dados de data.world.
+Crie uma transformação de transformação do fluxo de dados (Script). Em seguida, utilize o seguinte script para carregar os dados de data.world.
 
 ```python
 #paths = df['Path'].tolist()

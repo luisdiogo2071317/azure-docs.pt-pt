@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD
 
@@ -31,7 +31,7 @@ No portal do Azure, o **aprovisionamento** separador no painel de navegação es
 
 Se Manual é o único modo mostrado para uma aplicação específica, significa que nenhum automático do Azure AD aprovisionamento conector foi criado para a aplicação ainda. Ou, significa que a aplicação não suporta a API de gestão de pré-requisitos do utilizador após a qual pretende criar um conector de aprovisionamento automatizado.
 
-Se gostaria de pedido de suporte para o aprovisionamento automático para uma determinada aplicação, pode preencher um pedido no <http://aka.ms/aadapprequest>.
+Se gostaria de pedido de suporte para o aprovisionamento automático para uma determinada aplicação, pode preencher um pedido através de [pedidos de aplicações do Azure Active Directory](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configurar uma aplicação para o aprovisionamento automático
 
@@ -50,6 +50,6 @@ Tutoriais de aplicação podem ser encontrados em [lista de tutoriais sobre como
 
 Um aspeto importante a considerar ao configurar o aprovisionamento ser para rever e configurar os mapeamentos de atributos e os fluxos de trabalho que definem o que utilizador (ou grupo) propriedades fluxo do Azure AD para a aplicação. Isto inclui a definição "da propriedade correspondente" que ser utilizado para identificar e correspondam aos utilizadores/grupos entre os dois sistemas de forma exclusiva. Para mais informações sobre este processo importante.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Personalização de utilizador aprovisionamento mapeamentos de atributos para aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

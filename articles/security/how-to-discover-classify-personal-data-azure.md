@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detetar, identificar e classificar os dados pessoais no Microsoft Azure
 
@@ -59,22 +59,22 @@ Isto é particularmente útil se pretender localizar ou alterar os dados pessoai
 
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 
-2. Selecione **mais serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
+2. Selecione **todos os serviços**, introduza **utilizadores e grupos** na caixa de texto e, em seguida, selecione **Enter**.
 
    ![como localizar o perfil de utilizador e informação de trabalho](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. No **utilizadores e grupos** painel, selecione **utilizadores**.
 
-  ![Abrir utilizadores e grupo](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Abrir utilizadores e grupo](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. No **utilizadores e grupos - os utilizadores** painel, selecione um utilizador na lista e, em seguida, no painel de para o utilizador selecionado, selecione **perfil** para ver informações de perfil de utilizador que poderão conter dados pessoais.
 
-  ![Selecionar utilizador](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![Selecionar utilizador](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Se precisar de adicionar ou alterar as informações do perfil de utilizador, pode fazê-lo e, em seguida, na barra de comandos, selecione **guardar.**
 6. No painel de para o utilizador selecionado, selecione **trabalhar informações** para ver informações de trabalho de utilizador que poderão conter dados pessoais.
 
- ![visualizar informações de trabalho](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![visualizar informações de trabalho](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Se precisar de adicionar ou alterar as informações de trabalho do utilizador, pode fazê-lo e, em seguida, na barra de comandos, selecione **guardar.**
 
@@ -187,7 +187,7 @@ Para obter mais orientações aprofundadas sobre a criação de consultas SQL, v
 
 Se estiver familiarizado com a base de dados do Azure Cosmos e gostaria de saber como criar uma base de dados, adicionar uma coleção e adicionar dados, visite o [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server](../cosmos-db/create-sql-api-dotnet.md) tutorial de início rápido. Se gostaria de fazê-lo num idioma diferente do .NET, tais como o Java ou Python, escolha o idioma preferencial da depois de obter ao site.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Base de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/?v=16.50)
 

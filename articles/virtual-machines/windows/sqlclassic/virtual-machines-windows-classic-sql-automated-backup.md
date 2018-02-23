@@ -4,7 +4,7 @@ description: "Explica a funcionalidade de cópia de segurança automatizada do S
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Cópia de segurança automatizada do SQL Server em máquinas virtuais do Azure (clássica)
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ A tabela seguinte descreve as opções que podem ser configuradas para cópia de
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** |Ativar/desativar (desativada) |Ativa ou desativa a cópia de segurança automatizada para uma VM do Azure a executar o SQL Server 2014 Standard ou Enterprise. |
 | **Período de retenção** |1-30 dias (30 dias) |O número de dias a manter uma cópia de segurança. |
-| **Conta de armazenamento** |Conta de armazenamento do Azure (a conta de armazenamento criada para a VM especificada) |Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no blob storage. Um contentor é criado nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e nome da máquina. |
+| **Storage Account** |Conta de armazenamento do Azure (a conta de armazenamento criada para a VM especificada) |Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no blob storage. Um contentor é criado nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e nome da máquina. |
 | **Encriptação** |Ativar/desativar (desativada) |Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada no mesmo contentor automaticbackup utilizando a mesma Convenção de nomenclatura. Se alterar a palavra-passe, é gerado um novo certificado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
 | **Palavra-passe** |Texto de palavra-passe (nenhum) |Uma palavra-passe para as chaves de encriptação. Isto apenas é necessário se a encriptação está ativada. Para restaurar uma cópia de segurança encriptada, tem de ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento que da cópia de segurança foi efetuada. | **Bases de dados de cópia de segurança do sistema** | Ativar/desativar (desativada) | Fazer cópias de segurança completas de mestra, modelo e MSDB |
 | **Configurar agenda de cópia de segurança** | Manual/automática (automatizada) | Selecione **automatizada** automaticamente demorar completa e iniciar as cópias de segurança com base em crescimento de registo. Selecione **Manual** para especificar a agenda para completo e cópias de segurança de registo. |

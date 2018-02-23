@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -81,7 +81,7 @@ Sim. Pode utilizar o utilizador definido encaminhamento (UDR). Para obter mais i
 Não. Não é proporcionado suporte multicast ou difusão.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Protocolos de que pode utilizar nas VNets?
-Pode utilizar protocolos de TCP, UDP e TCP/IP de ICMP nas VNets. Multicast, difusão, pacotes de IP-em-IP encapsulado e pacotes de Generic Routing Encapsulation (GRE) estão bloqueadas nas VNets. 
+Pode utilizar protocolos de TCP, UDP e TCP/IP de ICMP nas VNets. Unicast é suportado nas VNets, à exceção dinâmica anfitrião configuração protocolo (DCHP) através de Unicast (porta UDP/68 de origem / destino porta UDP/67). Multicast, difusão, pacotes de IP-em-IP encapsulado e pacotes de Generic Routing Encapsulation (GRE) estão bloqueadas nas VNets. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Posso ping meu routers predefinido numa VNet?
 Não.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Aplicação web do Azure AD Node.js, introdução
 Aqui, utilizamos o Passport para:
@@ -48,14 +48,14 @@ A aplicação concluída é fornecida no final deste tutorial bem.
 
 2. No menu na parte superior da página, selecione a sua conta. Sob o **diretório** lista, escolha o inquilino do Active Directory onde é necessário registar a sua aplicação.
 
-3. Selecione **mais serviços** no menu no lado esquerdo do ecrã e, em seguida, selecione **do Azure Active Directory**.
+3. Selecione **todos os serviços** no menu no lado esquerdo do ecrã e, em seguida, selecione **do Azure Active Directory**.
 
 4. Selecione **registos de aplicação**e, em seguida, selecione **adicionar**.
 
 5. Siga as instruções para criar um **aplicação Web** e/ou **end WebAPI**.
   * O **nome** da aplicação descreve a aplicação aos utilizadores.
 
-  * O **URL de início de sessão** é o URL de base da sua aplicação.  Predefinição a estrutura é ' http://localhost:3000/auth/openid/devolver '.
+  * O **URL de início de sessão** é o URL de base da sua aplicação.  Predefinição a estrutura é `http://localhost:3000/auth/openid/return`.
 
 6. Depois de registar, do Azure AD atribui a aplicação um ID de aplicação único. É necessário que este valor nas secções seguintes, por isso, copie-o partir da página da aplicação.
 7. Do **definições** -> **propriedades** página para a sua aplicação, atualize o URI de ID de aplicação. O **URI de ID de aplicação** é um identificador exclusivo para a sua aplicação. A Convenção de consiste em utilizar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -252,7 +252,7 @@ O código anterior aceita qualquer utilizador que ocorre autenticar para o nosso
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Passo 4: Utilizar Passport para emitir pedidos de início de sessão e fim de sessão para o Azure AD
-A aplicação agora está corretamente configurada para comunicar com o ponto final, utilizando o protocolo de autenticação OpenID Connect.  `passport-azure-ad`tem Tratado dos todos os detalhes das mensagens de autenticação de composição, tokens de validação do Azure AD e manutenção de sessões de utilizador. Tudo o que permanece é fornecer aos utilizadores uma forma de iniciar sessão e terminar sessão e recolha de informações adicionais sobre os utilizadores com sessão iniciada.
+A aplicação agora está corretamente configurada para comunicar com o ponto final, utilizando o protocolo de autenticação OpenID Connect.  `passport-azure-ad` tem Tratado dos todos os detalhes das mensagens de autenticação de composição, tokens de validação do Azure AD e manutenção de sessões de utilizador. Tudo o que permanece é fornecer aos utilizadores uma forma de iniciar sessão e terminar sessão e recolha de informações adicionais sobre os utilizadores com sessão iniciada.
 
 1. Em primeiro lugar, vamos adicionar o predefinido, início de sessão, conta e fim de sessão métodos para a nossa `app.js` ficheiro:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos de base de dados SQL do Azure
 
@@ -114,7 +114,16 @@ Pode aumentar ou diminuir os recursos disponíveis para um conjunto elástico co
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>O que é o número máximo de servidores e bases de dados?
 
-O número máximo de servidores por subscrição por região é 21. O número máximo de bases de dados por servidor é 5000. Estes são os limites parciais estabelecida payload experimentally com base no tamanho análise, análise de coleção de telemetria mestre lógico e alguns outros aspetos. Pode pedir exceda estes limites fornecido permanecer dentro da sua quota DTU. Como o número de servidores e bases de dados fica grande, o problema que irão aceder é coleção de estatísticas de recursos no mestre lógico e de contenção em operações de gestão. Estes problemas não são fatais; estes irão aumentar a latência.
+| Máximo | Valor |
+| :--- | :--- |
+| Bases de dados por servidor | 5000 |
+| Número de servidores por subscrição por região | 21 |
+|||
+
+> [!IMPORTANT]
+> Como o número de bases de dados se aproxima o valor limite por servidor, pode ocorrer o seguinte:
+> <br> • Latência aumento na execução de consultas na base de dados mestra.  Isto inclui a vistas de estatísticas de utilização de recursos, tais como resource_stats.
+> <br> • Aumentando a latência das operações de gestão e compor viewpoints portais que envolvam a enumerar as bases de dados no servidor.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>O que acontece quando são atingidos e limites de recursos de conjunto elástico da base de dados?
 

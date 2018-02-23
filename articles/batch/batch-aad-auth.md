@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço Batch com o Active Directory
 
@@ -92,7 +92,7 @@ Para autenticar com a autenticação integrada, tem de conceder as permissões d
 
 Assim que tiver [registado a sua aplicação](#register-your-application-with-an-azure-ad-tenant), siga estes passos no portal do Azure para conceder acesso para o serviço Batch:
 
-1. No painel de navegação esquerdo do portal do Azure, escolha **mais serviços**, clique em **registos de aplicação**.
+1. No painel de navegação esquerdo do portal do Azure, escolha **todos os serviços**. Clique em **registos de aplicação**.
 2. Procure o nome da sua aplicação na lista de registos de aplicação:
 
     ![Procure o nome da sua aplicação](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Quando a aplicação se autentica com um principal de serviço, envia o ID da ap
 
 Siga estes passos no portal do Azure:
 
-1. No painel de navegação esquerdo do portal do Azure, escolha **mais serviços**, clique em **registos de aplicação**.
+1. No painel de navegação esquerdo do portal do Azure, escolha **todos os serviços**. Clique em **registos de aplicação**.
 2. Procure o nome da sua aplicação na lista de registos de aplicação.
 3. Apresentar o **definições** painel. No **acesso à API** secção, selecione **chaves**.
 4. Para criar uma chave, introduza uma descrição para a chave. Em seguida, selecione uma duração para a chave de um ou dois anos. 

@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>A aplicação de Wingtip bilhetes SaaS
 
-O mesmo *Wingtip bilhetes* aplicação é implementada em cada uma das três amostras. A aplicação é um evento simple de listagem e relatórios de aplicações SaaS filtragem pequenos venues - theaters, clubs, etc. Cada venue é um inquilino da aplicação e se tem os seus próprios dados: venue detalhes, listas de eventos, os clientes, as ordens de permissão, etc.  A aplicação, juntamente com os scripts de gestão e tutoriais, showcases um cenário de SaaS ponto-a-ponto. Isto inclui o aprovisionamento de inquilinos, monitorizar e gerir o desempenho, gestão de esquema e inquilinos entre análises e relatórios.
+O mesmo *Wingtip bilhetes* aplicação SaaS está implementada em cada uma das três amostras. A aplicação é um evento simple de listagem e relatórios de aplicações SaaS filtragem pequenos venues - theaters, clubs, etc. Cada venue é um inquilino da aplicação e se tem os seus próprios dados: venue detalhes, listas de eventos, os clientes, as ordens de permissão, etc.  A aplicação, juntamente com os scripts de gestão e tutoriais, showcases um cenário de SaaS ponto-a-ponto. Isto inclui o aprovisionamento de inquilinos, monitorizar e gerir o desempenho, gestão de esquema e inquilinos entre análises e relatórios.
 
-## <a name="three-saas-application-patterns"></a>Três padrões de aplicações SaaS
+## <a name="three-saas-application-and-tenancy-patterns"></a>Três padrões de aplicação e inquilinos de SaaS
 
-Estão disponíveis; três versões da aplicação cada explicar um padrão de inquilinos de base de dados diferente na SQL Database do Azure.  O primeiro utiliza uma aplicação de inquilino único com uma base de dados de inquilino único isolado. O segundo utiliza uma aplicação de multi-inquilino, com uma base de dados por inquilino. O terceiro exemplo utiliza uma aplicação multi-inquilino com a bases de dados do multi-inquilinos.
+Estão disponíveis; três versões da aplicação cada explicar um padrão de inquilinos de base de dados diferente na SQL Database do Azure.  O primeiro utiliza uma aplicação autónoma por inquilino com a sua própria base de dados. O segundo utiliza uma aplicação multi-inquilino com uma base de dados por inquilino. O terceiro exemplo utiliza uma aplicação multi-inquilino com a bases de dados do multi-inquilinos.
 
 ![Três padrões de inquilinos][image-three-tenancy-patterns]
 
- Cada amostra inclui scripts de gestão e tutoriais explorar um intervalo de design e padrões de gestão, que pode utilizar na sua própria aplicação.  Cada amostra implementa no menor do que cinco minutos.  Todas as três podem ser implementado lado lado a lado, pelo que pode comparar as diferenças na conceção e na gestão.
+ Cada amostra inclui o código da aplicação, e scripts de gestão e tutoriais explorar um intervalo de padrões de conceção e de gestão.  Cada amostra implementa no menor do que cinco minutos.  Todas as três podem ser implementado lado lado a lado, pelo que pode comparar as diferenças na conceção e na gestão.
 
-## <a name="standalone-application-pattern"></a>Padrão de aplicação autónoma
+## <a name="standalone-application-per-tenant-pattern"></a>Aplicação autónoma por padrão de inquilino
 
-O padrão de aplicação autónomo utiliza uma aplicação de inquilino único com uma base de dados de inquilino único para cada inquilino. Aplicação de cada inquilino é implementada num grupo de recursos do Azure separado. Isto pode ser na subscrição do fornecedor de serviços ou de subscrição do inquilino e gerido pelo fornecedor em nome do inquilino. Este padrão fornece o isolamento de inquilino é maior, mas é, normalmente, mais dispendioso vez que não há nenhuma oportunidade de partilhar recursos em vários inquilinos.
+A aplicação autónoma por padrão de inquilino utiliza uma aplicação de inquilino único com uma base de dados para cada inquilino. Aplicação de cada inquilino, incluindo a respetiva base de dados, é implementada num grupo de recursos do Azure separado. O grupo de recursos pode ser implementado numa subscrição do fornecedor de serviços ou de subscrição do inquilino e gerido pelo fornecedor em nome do inquilino. A aplicação autónoma por padrão de inquilino fornece o isolamento de inquilino é maior, mas é, geralmente, mais dispendioso vez que não há nenhuma oportunidade de partilhar recursos entre vários inquilinos.  Este padrão é também adequado para as aplicações que poderá ser mais complexa e que são implementadas para o menor número de inquilinos.  Das implementações autónomas, a aplicação pode ser personalizada para cada inquilino mais facilmente do que na outros padrões.  
 
 Veja o [tutoriais] [ docs-tutorials-for-wingtip-sa] e código no GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
@@ -47,13 +47,13 @@ Veja o [tutoriais] [ docs-tutorials-for-wingtip-dpt] e código no GitHub [.../Mi
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Padrão da base de dados do multi-inquilino
 
-Bases de dados do multi-inquilinos são eficazes para fornecedores de serviços à procura de custo mais baixo por inquilino e há problema com o isolamento de inquilino reduzida. Este padrão permite packing grande número de inquilinos numa base de dados único, a impulsionar o custo por inquilino para baixo. Escala infinita near é possível ao fragmentação através da base de dados de vários inquilinos.  Uma base de dados do catálogo novamente mapeia inquilinos para bases de dados.  
+Bases de dados do multi-inquilinos são eficazes para fornecedores de serviços à procura de custo mais baixo por inquilino e há problema com o isolamento de inquilino reduzida. Este padrão permite packing grande número de inquilinos numa base de dados único, a impulsionar o custo por inquilino para baixo. Escala infinita near é possível ao fragmentação inquilinos em várias bases de dados. Uma base de dados do catálogo mapeia inquilinos para bases de dados.  
 
-Este padrão também permite que um modelo de híbrida, na qual pode otimizar o custo com múltiplos inquilinos numa base de dados ou otimizar para isolamento com um inquilino único na sua própria base de dados. Se a opção pode ser efetuada numa base de inquilino por inquilino quando o inquilino seja aprovisionado ou posterior, sem afetar a aplicação.
+Este padrão também permite que um *híbrida* modelo no qual pode otimizar o custo com múltiplos inquilinos numa base de dados ou otimizar para isolamento com um inquilino único na sua própria base de dados. Se a opção pode ser efetuada numa base de inquilino por inquilino quando o inquilino seja aprovisionado ou posterior, sem afetar a aplicação.  Este modelo pode ser utilizado com eficiência quando grupos de inquilinos têm de ser tratados de forma diferente. Por exemplo, os inquilinos de baixo custo podem ser atribuídos a bases de dados partilhadas, enquanto inquilinos premium podem ser atribuídos para as suas próprias bases de dados. 
 
 Veja o [tutoriais] [ docs-tutorials-for-wingtip-mt] e código no GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 #### <a name="conceptual-descriptions"></a>Descrições conceptuais
 
@@ -61,9 +61,9 @@ Veja o [tutoriais] [ docs-tutorials-for-wingtip-mt] e código no GitHub [.../Mic
 
 #### <a name="tutorials-and-code"></a>Tutoriais e código
 
-- Aplicação autónoma:
-    - [Tutoriais para a aplicação autónoma][docs-tutorials-for-wingtip-sa].
-    - [Código autónomo, no GitHub][github-code-for-wingtip-sa].
+- Aplicação autónoma e por inquilino:
+    - [Tutoriais para a aplicação autónoma ] [ docs-tutorials-for-wingtip-sa].
+    - [Código de aplicação autónoma e, no GitHub][github-code-for-wingtip-sa].
 
 - Base de dados por inquilino:
     - [Tutoriais para a base de dados por inquilino][docs-tutorials-for-wingtip-dpt].

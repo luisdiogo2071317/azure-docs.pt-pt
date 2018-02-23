@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorizar alterações de máquina virtual com a grelha de eventos do Azure e Logic Apps
 
@@ -51,7 +51,7 @@ Em primeiro lugar, crie uma aplicação lógica e adicionar um acionador de grel
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-2. No canto superior esquerdo do menu principal do Azure, escolha **novo** > **integração empresarial com** > **aplicação lógica**.
+2. No canto superior esquerdo do menu principal do Azure, escolha **crie um recurso** > **integração empresarial com** > **aplicação lógica**.
 
    ![Criar uma aplicação lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
@@ -109,7 +109,7 @@ Em primeiro lugar, crie uma aplicação lógica e adicionar um acionador de grel
    
    ![Detalhes de Acionador de grelha de eventos de exemplo](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-9. Guarde a sua aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**. Para fechar e ocultar detalhes de uma ação na sua aplicação lógica, escolha a barra de título a ação.
+9. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**. Para fechar e ocultar detalhes de uma ação na sua aplicação lógica, escolha a barra de título a ação.
 
    ![Guardar a aplicação lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
@@ -134,7 +134,7 @@ Introduza esta expressão:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
-   A condição agora parece que este exemplo:
+   A sua condição terá agora este aspeto:
 
    ![Condição vazia](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
 
@@ -150,7 +150,7 @@ Introduza esta expressão:
 
    ![Condição de aplicação lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
-5. Guarde a sua aplicação lógica.
+5. Guarde a aplicação lógica.
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Enviar correio eletrónico quando altera a sua máquina virtual
 
@@ -196,9 +196,9 @@ Agora adicione um [ *ação* ](../logic-apps/logic-apps-overview.md#logic-app-co
 
    E a sua aplicação lógica terminar aspeto que poderá ter neste exemplo:
 
-   ![Aplicação lógica concluído](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
+   ![Aplicação lógica concluída](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
-5. Guarde a sua aplicação lógica. Para fechar e ocultar detalhes de cada ação na sua aplicação lógica, escolha a barra de título a ação.
+5. Guarde a aplicação lógica. Para fechar e ocultar detalhes de cada ação na sua aplicação lógica, escolha a barra de título a ação.
 
    ![Guardar a aplicação lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 

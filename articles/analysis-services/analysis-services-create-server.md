@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Criar um servidor de Analysis Services do Azure no portal do Azure
 Este artigo explica como criar um recurso de servidor do Analysis Services na sua subscrição do Azure.
@@ -37,7 +37,7 @@ Para concluir este guia de início rápido, necessita de:
 > 
 
 ## <a name="to-create-a-server-in-azure-portal"></a>Para criar um servidor no portal do Azure
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
 2. Clique em **+ novo** > **dados + análise** > **Analysis Services**.
 3. No **Analysis Services** painel, preencha os campos obrigatórios e, em seguida, prima **criar**.
    
@@ -50,12 +50,12 @@ Para concluir este guia de início rápido, necessita de:
    * **Escalão de preço**: selecione um escalão de preço. Tabela modelos até 400 GB são suportados. Para obter mais informações, consulte [preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Clique em **Criar**.
 
-Criar normalmente tem num minuto; muitas vezes, apenas alguns segundos. Se tiver selecionado **adicionar ao Portal**, navegue até ao seu portal para ver o novo servidor. Ou, navegue para **mais serviços** > **Analysis Services** para ver se o servidor está pronto.
+Criar normalmente tem num minuto; muitas vezes, apenas alguns segundos. Se tiver selecionado **adicionar ao Portal**, navegue até ao seu portal para ver o novo servidor. Ou, navegue para **todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Assim que tiver criado o seu servidor, pode [implementar um modelo](analysis-services-deploy.md) ao mesmo utilizando o SSDT ou com o SSMS.
 
 Se um modelo de implementação para o servidor se liga a origens de dados no local, terá de instalar um [gateway de dados no local](analysis-services-gateway.md) num computador na sua rede.

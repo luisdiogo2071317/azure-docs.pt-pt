@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Utilizar a vista Ambari Hive com o Hadoop no HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Saiba como executar consultas do Hive, utilizando a vista do Hive do Ambari. Ambari é uma gestão e monitorização utilitário fornecido com clusters do HDInsight baseado em Linux. Uma das funcionalidades fornecidas através do Ambari é uma IU da Web que pode ser utilizado para executar consultas do Hive.
-
-> [!NOTE]
-> Ambari tem muitas funcionalidades que não são debatidas neste documento. Para obter mais informações, consulte [gerir clusters do HDInsight utilizando a IU da Web do Ambari](../hdinsight-hadoop-manage-ambari.md).
+Saiba como executar consultas do Hive, utilizando a vista do Hive do Ambari. A vista do Hive permite-lhe criar, otimizar e executar consultas do Hive a partir do seu browser.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do HDInsight baseado em Linux. Para obter informações sobre a criação de clusters, consulte [começar a utilizar o Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* Um Hadoop baseado em Linux no clusters do HDInsight versão 3.4 ou superior.
 
-> [!IMPORTANT]
-> Os passos neste documento exigem um cluster do HDInsight do Azure que utiliza o Linux. Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+  > [!IMPORTANT]
+  > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-## <a name="open-the-hive-view"></a>Abrir a vista do Hive
+* Um browser
 
-Pode abrir as vistas Ambari do portal do Azure. Selecione o cluster do HDInsight e, em seguida, selecione **vistas do Ambari** do **ligações rápidas** secção.
+## <a name="run-a-hive-query"></a>Executar uma consulta do Hive
 
-![secção de ligações rápidas do portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. Abra o [Portal do Azure](https://portal.azure.com).
 
-Na lista de vistas, selecione __vista do Hive__.
+2. Selecione o cluster do HDInsight e, em seguida, selecione **vistas do Ambari** do **ligações rápidas** secção.
 
-![A vista de ramo de registo selecionada](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![secção de ligações rápidas do portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> Quando estiver a aceder a Ambari, é-lhe pedido que autenticar para o site. Introduza o administrador (predefinição `admin`) conta nome e palavra-passe que utilizou quando criou o cluster.
+    Quando lhe for solicitado para autenticar, utilizar o início de sessão do cluster (predefinido `admin`) conta nome e palavra-passe que forneceu quando criou o cluster.
 
-Deverá ver uma página semelhante para a imagem seguinte:
+3. Na lista de vistas, selecione __vista do Hive__.
 
-![Imagem da folha de cálculo de consulta para a vista do Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![A vista de ramo de registo selecionada](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>Executar uma consulta
+    A página de vista do Hive é semelhante a imagem seguinte:
 
-Para executar uma consulta do Hive, utilize os seguintes passos da vista do Hive.
+    ![Imagem da folha de cálculo de consulta para a vista do Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. Do __consulta__ separador, cole as seguintes declarações HiveQL na folha de cálculo:
+4. Do __consulta__ separador, cole as seguintes declarações HiveQL na folha de cálculo:
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     As declarações de efetuar as seguintes ações:
@@ -82,42 +87,20 @@ Para executar uma consulta do Hive, utilize os seguintes passos da vista do Hive
 
    * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [erro].
 
-     > [!NOTE]
-     > Utilize as tabelas externas quando espera que os dados subjacentes ser atualizados por uma origem externa, tais como um dados automatizado carregar processo ou outra operação de MapReduce. Remover uma tabela externa *não* eliminar os dados, a definição de tabela.
-
     > [!IMPORTANT]
     > Deixe o __base de dados__ seleção no __predefinido__. Os exemplos neste documento utilizam a base de dados predefinida incluído com o HDInsight.
 
-2. Para iniciar a consulta, utilize o **executar** no botão abaixo a folha de cálculo. O botão fica laranja e o texto muda para **parar**.
+5. Para iniciar a consulta, utilize o **executar** no botão abaixo a folha de cálculo. O botão fica laranja e o texto muda para **parar**.
 
-3. Após concluir a consulta, o **resultados** separador apresenta os resultados da operação. O seguinte texto é o resultado da consulta:
+6. Após concluir a consulta, o **resultados** separador apresenta os resultados da operação. O seguinte texto é o resultado da consulta:
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     Pode utilizar o **registos** separador para ver as informações de registo que criou a tarefa.
 
    > [!TIP]
    > Transferir ou guardar resultados do **guardar resultados** caixa de diálogo de lista pendente no canto superior esquerdo do **resultados do processo de consulta** secção.
-
-4. Selecione as quatro primeiras linhas desta consulta e, em seguida, selecione **executar**. Tenha em atenção que existem não existem resultados quando a tarefa estiver concluída. Utilizar o **executar** botão quando é selecionada a parte da consulta apenas executa as instruções de selecionado. Neste caso, a seleção não tenha incluído a instrução final que obtém linhas da tabela. Se selecionar apenas dessa linha e utilizar **executar**, deverá ver os resultados esperados.
-
-5. Para adicionar uma folha de cálculo, utilize o **nova folha de cálculo** na parte inferior do **Editor de consultas**. Na nova folha de cálculo, introduza as seguintes declarações HiveQL:
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  As declarações de efetuar as seguintes ações:
-
-   * **Criar tabela não se existe**: cria uma tabela se ainda não existir. Porque o **externo** palavra-chave não é utilizada, é criada uma tabela interna. Uma tabela interna é armazenada no armazém de dados do Hive e for gerida por completo o Hive. Ao contrário com as tabelas externas, remover uma tabela interna elimina dados subjacentes.
-
-   * **ARMAZENADOS ORC de AS**: armazena os dados no formato otimizada linha Columnar (ORC). ORC é um formato altamente otimizado e eficiente para armazenar dados do Hive.
-
-   * **SUBSTITUIR INSERT... SELECIONE**: seleciona as linhas do **log4jLogs** tabela que contenham `[ERROR]`e, em seguida, insere os dados para o **foram** tabela.
-
-Utilize o **executar** botão para executar esta consulta. O **resultados** separador não contém quaisquer informações quando a consulta devolve zero linhas. Deve mostrar o estado como **com êxito** após a conclusão da consulta.
 
 ### <a name="visual-explain"></a>Explicar Visual
 
@@ -152,9 +135,14 @@ Do **consulta** separador, opcionalmente, pode guardar consultas. Depois de guar
 
 ![Imagem de separador de consultas guardadas](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> Consultas guardadas são armazenadas no armazenamento de cluster predefinido. Pode encontrar as consultas guardadas sob o caminho `/user/<username>/hive/scripts`. Estes são armazenadas como texto simples `.hql` ficheiros.
+>
+> Se eliminar o cluster, mas manter o armazenamento, pode utilizar um utilitário como [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) ou no Explorador de armazenamento do Data Lake (da [Portal do Azure](https://portal.azure.com)) para obter as consultas.
+
 ## <a name="user-defined-functions"></a>Funções definidas pelo utilizador
 
-Também pode expandir o ramo de registo através de funções definidas pelo utilizador (UDF). Utilize um UDF para implementar funcionalidades ou lógica que não é modelada facilmente no HiveQL.
+Pode expandir o ramo de registo através de funções definidas pelo utilizador (UDF). Utilize um UDF para implementar funcionalidades ou lógica que não é modelada facilmente no HiveQL.
 
 Declarar e guardar um conjunto de UDFs utilizando o **UDF** separador no topo da vista do Hive. Estas UDFs podem ser utilizados com o **Editor de consultas**.
 

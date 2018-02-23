@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir as fórmulas de Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Os seguintes passos guiá-lo durante o processo de criação de uma fórmula de 
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-2. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 
 3. Na lista de laboratórios, selecione o laboratório pretendido.  
 
@@ -87,7 +87,7 @@ Os seguintes passos guiá-lo durante o processo de criação de uma fórmula com
 > 
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Na lista de laboratórios, selecione o laboratório pretendido.  
 4. No laboratório de **descrição geral** painel, selecione a partir do qual pretende criar a fórmula VM.
    
@@ -104,7 +104,7 @@ Os seguintes passos guiá-lo durante o processo de criação de uma fórmula com
 Para modificar uma fórmula, siga estes passos:
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Na lista de laboratórios, selecione o laboratório pretendido.  
 4. No painel do laboratório, selecione **fórmulas (bases reutilizáveis)**.
    
@@ -116,7 +116,7 @@ Para modificar uma fórmula, siga estes passos:
 Para eliminar uma fórmula, siga estes passos:
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista.
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Na lista de laboratórios, selecione o laboratório pretendido.  
 4. No laboratório **definições** painel, selecione **fórmulas**.
    

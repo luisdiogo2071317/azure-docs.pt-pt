@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorizar alertas de cópias de segurança de máquinas virtuais do Azure
 Os alertas são as respostas do serviço do que um limiar de evento foi alcançado ou ultrapassado. Saber quando o início de problemas pode ser fundamental para manter os custos de negócio para baixo. Normalmente, não ocorrerem os alertas com base numa agenda e por isso, é útil logo que possível saber depois de ocorrerem os alertas. Por exemplo, quando uma tarefa de cópia de segurança ou restauro falhar, um alerta ocorre dentro de cinco minutos da falha. No dashboard do cofre, o mosaico alertas de cópia de segurança apresenta os eventos críticos e de nível de aviso. Nas definições de alertas de cópia de segurança, pode ver todos os eventos. Mas, o que pode fazer se um alerta ocorre quando estiver a trabalhar num problema separado? Se não souber quando o alerta acontece, pode ser uma inconveniência secundária ou comprometer dados. Para garantir que as pessoas corretas sabem de um alerta - quando ocorrer, configure o serviço para enviar notificações de alerta por e-mail. Para obter mais informações sobre como configurar notificações por e-mail, consulte [configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
@@ -43,7 +43,7 @@ Para abrir o painel de alertas de cópia de segurança a partir do painel de ale
     ![Mosaico alertas de cópias de segurança](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. Para ver informações detalhadas sobre um alerta específico, da lista de eventos, clique no alerta para abrir o respetivo **detalhes** painel.
 
-    ![Detalhe do evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Detalhe do Evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
     Para personalizar os atributos apresentados na lista, consulte [ver atributos eventos adicionais](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
@@ -70,9 +70,9 @@ Para configurar notificações por e-mail para alertas
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Que tipos de alertas estão disponíveis para cópia de segurança de VM do IaaS do Azure?
    | Nível de alerta | Alertas enviados |
    | --- | --- |
-   | Crítico |Falha de cópia de segurança, falha de recuperação |
-   | Aviso |Nenhum |
-   | Informativo |Nenhum |
+   | Crítico | Falha de cópia de segurança, falha de recuperação |
+   | Aviso | para as tarefas de cópia de segurança efetuada com êxito com avisos (ex: alguns escritores falharam ao criar um instantâneo) |
+   | Informativo | Atualmente, não existem alertas informativos estão disponíveis para cópia de segurança de VM do Azure |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Existem situações em que um e-mail não é enviado, mesmo que as notificações estejam configuradas?
 Existem situações em que não é enviado um alerta, apesar das notificações foi configuradas corretamente. No e-mail de situações seguintes não são enviadas notificações para evitar o ruído de alertas:
@@ -99,7 +99,7 @@ O **registos de auditoria** definição inclui um conjunto predefinido de filtro
     ![Detalhes de operação](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
 3. Para ver informações detalhadas sobre um determinado evento, na lista de eventos, clique no evento para abrir o respetivo **detalhes** painel.
 
-    ![Detalhe do evento](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+    ![Detalhe do Evento](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
 
     As informações de nível do evento são como detalhadas como obtém as informações. Se preferir ver neste muito informações sobre cada evento e pretende adicionar este muito detalhes para a **eventos** painel, consulte a secção [expandir as informações de evento](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
@@ -207,9 +207,9 @@ Registos de eventos ativar excelente post-mortem e suporte para as operações d
 * Interrompa a proteção
 * Eliminar dados de cópia de segurança
 * Adicionar política
-* Eliminar aplicação
+* Eliminar política
 * Atualizar política
-* Cancelar a tarefa
+* Cancelar tarefa
 
 Para obter uma explicação abrangente de eventos, operações e os registos de auditoria em todos os serviços do Azure, consulte o artigo [ver eventos e registos de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 

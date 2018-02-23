@@ -4,7 +4,7 @@ description: "Este artigo explica como criar a instância de Cluster de ativaç�
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em Virtual Machines do Azure
 
@@ -117,7 +117,7 @@ Com estas pré-requisitos no local, pode continuar com a criação do cluster de
       >[!IMPORTANT]
       >Não é possível definir ou alterar conjunto depois de criar uma máquina virtual de disponibilidade.
 
-   Escolha uma imagem do Azure Marketplace. Pode utilizar um mercado imagem com o que inclui o Windows Server e SQL Server ou apenas o Windows Server. Para obter mais informações, consulte [descrição geral do SQL Server em Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Escolha uma imagem do Azure Marketplace. Pode utilizar um mercado imagem com o que inclui o Windows Server e SQL Server ou apenas o Windows Server. Para obter mais informações, consulte [descrição geral do SQL Server em Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
 
    As imagens do SQL Server oficiais na galeria do Azure incluem uma instância do SQL Server instalada, e o software de instalação do SQL Server e a chave necessária.
 
@@ -128,7 +128,7 @@ Com estas pré-requisitos no local, pode continuar com a criação do cluster de
       - **SQL Server 2016 padrão no Datacenter do Windows Server 2016**
       - **SQL Server 2016 Programador no Datacenter do Windows Server 2016**
 
-   - **Bring-your-proprietário-licença (BYOL)**
+   - **Bring-your-own-license (BYOL)**
 
       - **{BYOL} SQL Server 2016 Enterprise no Datacenter do Windows Server 2016**
       - **{BYOL} SQL Server 2016 padrão no Datacenter do Windows Server 2016**
@@ -352,7 +352,7 @@ Para criar o Balanceador de carga:
    - **Rede virtual**: A mesma rede que as máquinas virtuais.
    - **Sub-rede**: A mesma sub-rede que as máquinas virtuais.
    - **Endereço IP privado**: O mesmo endereço IP que atribuiu para o recurso de rede de cluster do SQL Server FCI.
-   - **subscrição**: subscrição do Azure.
+   - **Subscrição**: subscrição do Azure.
    - **Grupo de recursos**: utilizar o mesmo grupo de recursos como as máquinas virtuais.
    - **Localização**: utilizar a mesma localização do Azure como máquinas virtuais.
    Consulte a imagem seguinte:
@@ -481,7 +481,7 @@ Para testar a conectividade, inicie sessão outra máquina virtual na mesma rede
 ## <a name="limitations"></a>Limitações
 Máquinas virtuais do Azure, coordenador de transações distribuídas ' (DTC) da Microsoft não é suportada em FCIs porque a porta RPC não é suportada pelo balanceador de carga.
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 
 [A configuração S2D com o ambiente de trabalho remoto (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

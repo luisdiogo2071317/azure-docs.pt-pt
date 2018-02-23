@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reagir a eventos de IoT Hub, utilizando a grelha de evento a acionar ações - pré-visualização
 
@@ -107,7 +107,7 @@ Para obter uma descrição detalhada de cada propriedade, consulte [esquema de e
 
 ## <a name="filter-events"></a>Filtrar eventos
 
-Subscrições de eventos do IoT Hub podem filtrar eventos com base no nome de dispositivo e o tipo de evento. Filtros de requerente em projetos de grelha de eventos com base no **prefixo** e **sufixo** corresponder, para que os eventos com um assunto correspondente são entregues para o subscritor. 
+Subscrições de eventos do IoT Hub podem filtrar eventos com base no nome de dispositivo e o tipo de evento. Filtros de requerente em projetos de grelha de eventos com base no **prefixo** e **sufixo** corresponde. O filtro utiliza um `AND` operador, pelo que os eventos com um assunto que correspondem o prefixo e o sufixo são entregues para o subscritor. 
 
 O requerente de eventos de IoT utiliza o formato:
 

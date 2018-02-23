@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self-service reposição palavra-passe na descrição profunda do Azure AD
 
@@ -78,7 +78,7 @@ Por predefinição, apenas o telefone do escritório de atributos de nuvem e o t
 
 Os utilizadores só podem repor a palavra-passe se tiver dados presentes nos métodos de autenticação que o administrador tiver ativado e requer.
 
-Se os utilizadores não pretenderem que o número de telemóvel seja visível no diretório, mas ainda pretende utilizá-lo para a reposição de palavra-passe, os administradores devem preenchê-lo não no diretório. Os utilizadores, em seguida, devem preencher os respetivos **telefone de autenticação** atributo através de [portal de registo de reposição de palavra-passe](http://aka.ms/ssprsetup). Os administradores podem ver estas informações no perfil de utilizador, mas não está publicada noutro local.
+Se os utilizadores não pretenderem que o número de telemóvel seja visível no diretório, mas ainda pretende utilizá-lo para a reposição de palavra-passe, os administradores devem preenchê-lo não no diretório. Os utilizadores, em seguida, devem preencher os respetivos **telefone de autenticação** atributo através de [portal de registo de reposição de palavra-passe](https://aka.ms/ssprsetup). Os administradores podem ver estas informações no perfil de utilizador, mas não está publicada noutro local.
 
 ### <a name="the-number-of-authentication-methods-required"></a>O número de métodos de autenticação necessário
 
@@ -180,7 +180,7 @@ Para ativar esta opção, um utilizador que está ativado para a reposição de 
 * Aplicações federadas
 * Aplicações personalizadas ao utilizar o Azure AD
 
-Quando a necessidade de registo está desativada, os utilizadores podem manualmente registar as suas informações de contactos. Estes requisitos podem ambos visite [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) ou selecione o **registar para a reposição de palavra-passe** ligação sob o **perfil** separador no painel de acesso.
+Quando a necessidade de registo está desativada, os utilizadores podem manualmente registar as suas informações de contactos. Estes requisitos podem ambos visite [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) ou selecione o **registar para a reposição de palavra-passe** ligação sob o **perfil** separador no painel de acesso.
 
 > [!NOTE]
 > Os utilizadores podem ignorar o portal de registo de reposição de palavra-passe, selecionando **Cancelar** ou se fechar a janela. Mas são lhe for pedidos para registar cada vez que iniciar sessão até que concluírem o respetivo registo.

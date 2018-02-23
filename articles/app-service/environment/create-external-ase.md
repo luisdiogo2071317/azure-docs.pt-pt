@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externas #
 
@@ -59,7 +59,7 @@ O plano de serviço de aplicações é um contentor de aplicações. Quando cria
 
 Para criar ASE enquanto cria um plano de serviço de aplicações:
 
-1. No [portal do Azure](https://portal.azure.com/), selecione **novo** > **Web + móvel** > **aplicação Web**.
+1. No [portal do Azure](https://portal.azure.com/), selecione **crie um recurso** > **Web + móvel** > **aplicação Web**.
 
     ![Criação da aplicação Web][1]
 
@@ -97,7 +97,7 @@ Para criar ASE enquanto cria um plano de serviço de aplicações:
 
 Se criar um ASE autónomo, tem nada no mesmo. ASE vazio ainda implica um custo mensal para a infraestrutura. Siga estes passos para criar ASE com um ILB ou criar ASE no seu próprio grupo de recursos. Depois de criar o ASE, pode criar aplicações no mesmo, utilizando o processo normal. Selecione o novo ASE como a localização.
 
-1. Procure o Azure Marketplace para **ambiente de serviço de aplicações**, ou selecione **novo** > **Web Mobile** > **do serviço de aplicações Ambiente**. 
+1. Procure o Azure Marketplace para **ambiente de serviço de aplicações**, ou selecione **crie um recurso** > **Web Mobile** > **aplicação Ambiente de serviço**. 
 
 2. Introduza o nome do seu ASE. Este nome é utilizado para as aplicações criadas no ASE. Se o nome for *mynewdemoase*, é o nome de subdomínio *. mynewdemoase.p.azurewebsites.net*. Se criar uma aplicação com o nome *mytestapp*, é endereçável em mytestapp.mynewdemoase.p.azurewebsites.net. Não é possível utilizar o espaço em branco no nome. Se utilizar carateres maiúsculos, o nome de domínio é a versão total em minúsculas do nome. Se utilizar um ILB, o nome da sua ASE não é utilizado no seu subdomínio, mas em vez disso, é explicitamente indicado durante a criação de ASE.
 

@@ -3,8 +3,8 @@ title: "Implementar a aplicação no Azure e Azure pilha | Microsoft Docs"
 description: "Saiba como implementar aplicações do Azure e pilha do Azure com um pipeline de CI/CD híbrida."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Implementar aplicações do Azure e Azure pilha
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
@@ -49,7 +50,7 @@ Este tópico também parte do princípio que tiver algum conhecimento do Azure e
  - Implementar [do serviço de aplicações](../azure-stack-app-service-deploy.md) PaaS serviços à pilha do Azure.
  - Criar uma aplicação Web e configurá-la para [a publicação FTP](../azure-stack-app-service-enable-ftp.md).  Anote o URL da aplicação Web novas, porque é utilizado mais tarde.  
 
-### <a name="developer-tools"></a>Ferramentas de programador
+### <a name="developer-tools"></a>Ferramentas de programação
  - Criar um [área de trabalho VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  O processo de inscrição cria um projeto com o nome "MyFirstProject."  
  - [Instalar Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [início de sessão para VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Ligar para o projeto e [clonar localmente](https://www.visualstudio.com/docs/git/gitquickstart).
@@ -71,7 +72,7 @@ Nesta secção, pode criar uma aplicação ASP.NET simples e enviá-lo para VSTS
 ### <a name="commit-and-push-changes-to-vsts"></a>Consolide e emita as alterações para VSTS
 1.  Utilizar o Explorador de equipa no Visual Studio, selecione a menu pendente e clique em **alterações**.
 2.  Forneça uma mensagem de consolidação e selecione **consolidar todas**. Poderá ser-lhe pedido para guardar o ficheiro de solução, clique em Sim para guardar todas as.
-3.  Depois de consolidado, o Visual Studio oferece sincronizar as alterações ao seu projeto. Selecione **sincronização**.
+3.  Depois de consolidado, o Visual Studio oferece sincronizar as alterações ao seu projeto. Selecione **Sincronizar**.
 
     ![imagem que mostra o ecrã de confirmação depois de concluída a consolidação](./media/azure-stack-solution-pipeline/image1.png)
 
@@ -114,11 +115,11 @@ Agora que já criou uma definição de versão vazio e vinculada-lo para a compi
     | Parâmetro | Valor |
     | ----- | ----- |
     |Método de Autenticação| Introduza as credenciais|
-    |URL do servidor | Obter o URL de FTP de aplicação Web do portal do Azure |
+    |URL do Servidor | Obter o URL de FTP de aplicação Web do portal do Azure |
     |Nome de utilizador | Nome de utilizador que configurou ao criar as credenciais de FTP para a aplicação Web |
     |Palavra-passe | Palavra-passe que criou ao estabelecer as credenciais de FTP para a aplicação Web|
     |Diretório de origem | $(System.DefaultWorkingDirectory)\**\ |
-    |Diretório remoto | /site/wwwroot / |
+    |Diretório remoto | /site/wwwroot/ |
     |Preservar caminhos de ficheiro | Ativada (marcada)|
 
 4.  Clique em **guardar**
@@ -158,11 +159,11 @@ Agora que criou uma versão, irá configurar os passos necessários para publica
     | Parâmetro | Valor |
     | -----     | ----- |
     |Método de Autenticação| Introduza as credenciais|
-    |URL do servidor | URL de FTP de aplicação Web obtidos a partir do portal de pilha do Azure |
+    |URL do Servidor | URL de FTP de aplicação Web obtidos a partir do portal de pilha do Azure |
     |Nome de utilizador | Nome de utilizador que configurou ao criar as credenciais de FTP para a aplicação Web |
     |Palavra-passe | Palavra-passe que criou ao estabelecer as credenciais de FTP para a aplicação Web|
     |Diretório de origem | $(System.DefaultWorkingDirectory)\**\ |
-    |Diretório remoto | /site/wwwroot /|
+    |Diretório remoto | /site/wwwroot/|
     |Preservar caminhos de ficheiro | Ativada (marcada)|
 
 2.  Clique em **guardar**
@@ -198,7 +199,7 @@ Pode agora testar o pipeline de CI/CD híbrida, com o passo final, publicação 
 
 Agora pode utilizar o novo pipeline de CI/CD híbrida como um bloco modular para outros padrões de nuvem híbrida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a criar uma versão híbrida CI/CD pipeline que:
 
 > [!div class="checklist"]

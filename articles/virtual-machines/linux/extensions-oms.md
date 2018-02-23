@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 02/15/2018
 ms.author: danis
-ms.openlocfilehash: 8aa29dfb46a1aafb9e7b713456e1006af423a2b2
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fea3e992c70d286695691d837c746522f6a5ebb3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual OMS para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-Operations Management Suite (OMS) fornece capacidades de remediação de monitorização, alertas e alertas na nuvem e no local ativos. A extensão de máquina virtual do agente do OMS de Linux está publicada e suportada pela Microsoft. A extensão instala o agente do OMS em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho existente do OMS. Este documento fornece detalhes sobre as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do OMS Linux.
+Análise de registos fornece capacidades de remediação de monitorização, alertas e alertas na nuvem e no local ativos. A extensão de máquina virtual do agente do OMS de Linux está publicada e suportada pela Microsoft. A extensão instala o agente do OMS em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho de análise de registos existente. Este documento fornece detalhes sobre as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do OMS Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,9 +42,19 @@ A extensão de agente do OMS pode ser executada em relação a estas distribuiç
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | Servidor Linux Empresarial SUSE | 11 e 12 |
 
+A tabela seguinte fornece um mapeamento da versão da OMS VM extensão e pacote de agente do OMS para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do OMS está incluída.  
+
+| Versão da extensão de VM de Linux do OMS | Versão do pacote de agente do OMS | 
+|--------------------------------|--------------------------|
+| 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
+| 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
+| 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
+| 1.4.55.4 | [1.4.1-123](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-123)|
+| 1.4.45.3 | [1.4.1-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-45)|
+
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-Centro de segurança do Azure Aprovisiona o agente do OMS e liga com a área de trabalho da análise de registos predefinida da subscrição do Azure automaticamente. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e quebra a ligação com o Centro de segurança do Azure.
+Centro de segurança do Azure Aprovisiona o agente do OMS e liga a uma área de trabalho de análise de registos predefinida criada pelo ASC na sua subscrição do Azure automaticamente. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e interrompe a ligação com o Centro de segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
@@ -52,7 +62,7 @@ A extensão de agente do OMS para Linux requer que a máquina virtual de destino
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão de agente do OMS. A extensão requer o ID da área de trabalho e a chave de área de trabalho a partir da área de trabalho do OMS de destino; Estes valores podem ser encontrados no portal do OMS. Porque a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados da definição de extensão protegido de VM do Azure é encriptados e desencriptados apenas na máquina virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON seguinte mostra o esquema para a extensão de agente do OMS. A extensão requer o ID da área de trabalho e a chave de área de trabalho a partir da área de trabalho de análise de registos do destino; Estes valores podem ser [encontrado na sua área de trabalho de análise de registos](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal do Azure. Porque a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados da definição de extensão protegido de VM do Azure é encriptados e desencriptados apenas na máquina virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -82,20 +92,20 @@ O JSON seguinte mostra o esquema para a extensão de agente do OMS. A extensão 
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Fabricante | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | OmsAgentForLinux |
 | typeHandlerVersion | 1.4 |
-| workspaceId (por exemplo) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
-| workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
+| workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração de implementação de post, tais como a integração do OMS. Um modelo de Gestor de recursos de exemplo que inclui a extensão de VM de agente do OMS pode ser encontrado no [Galeria de início rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração de implementação de post, como de integração para análise de registos. Um modelo de Gestor de recursos de exemplo que inclui a extensão de VM de agente do OMS pode ser encontrado no [Galeria de início rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 A configuração de JSON para uma extensão da máquina virtual pode ser aninhada o recurso de máquina virtual ou colocada no nível superior de um modelo do Resource Manager JSON de raiz ou. A colocação da configuração JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [definir nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-O exemplo seguinte assume que a extensão do OMS é aninhada o recurso de máquina virtual. Quando o recurso de extensão de aninhamento, JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo seguinte assume que a extensão da VM é aninhada o recurso de máquina virtual. Quando o recurso de extensão de aninhamento, JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 ```json
 {
@@ -147,7 +157,7 @@ Quando colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma 
 
 ## <a name="azure-cli-deployment"></a>Implementação da CLI do Azure
 
-A CLI do Azure pode ser utilizada para implementar a extensão de VM de agente do OMS para uma máquina virtual existente. Substitua a chave do OMS e o ID do OMS as da sua área de trabalho do OMS. 
+A CLI do Azure pode ser utilizada para implementar a extensão de VM de agente do OMS para uma máquina virtual existente. Substitua o *workspaceId* e *workspaceKey* com os da sua área de trabalho de análise de registos. 
 
 ```azurecli
 az vm extension set \
@@ -177,16 +187,16 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e os respetivos significados
 
-| Código de erro | Significado | Ação possíveis |
+| Código de Erro | Significado | Ação possíveis |
 | :---: | --- | --- |
-| 10 | VM já está ligada a uma área de trabalho do OMS | Para ligar a VM para a área de trabalho especificada no esquema de extensão, defina stopOnMultipleConnections como false nas definições públicas ou remova esta propriedade. Esta VM obtém cobrada depois de cada área de trabalho está ligado a um. |
+| 10 | VM já está ligada a uma área de trabalho de análise de registos | Para ligar a VM para a área de trabalho especificada no esquema de extensão, defina stopOnMultipleConnections como false nas definições públicas ou remova esta propriedade. Esta VM obtém cobrada depois de cada área de trabalho está ligado a um. |
 | 11 | Configuração inválida fornecida para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implementação. |
 | 12 | O Gestor de pacotes dpkg está bloqueado | Certifique-se de que todos os dpkg operações de atualização na máquina tiver concluído e tente novamente. |
 | 20 | Ativar chamado prematuramente | [Atualizar o agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
 | 51 | Esta extensão não é suportada no sistema de operação da VM | |
 | 55 | Não é possível ligar ao serviço do Microsoft Operations Management Suite | Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID de área de trabalho. |
 
-Informações adicionais de resolução de problemas podem ser encontradas no [guia de resolução de problemas do OMS agente para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
+Informações adicionais de resolução de problemas podem ser encontradas no [guia de resolução de problemas do OMS agente para Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Suporte
 

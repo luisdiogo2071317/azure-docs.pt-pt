@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cd452ff46f8a87fd04eaca037b6bc0120ca86e4d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-analysis-services"></a>Gerir do Analysis Services
 Depois de criar um servidor de Analysis Services no Azure, poderão existir algumas tarefas de administração e gestão que terá de efetuar imediatamente ou algum tempo para baixo viagem. Por exemplo, executar processamento para os atualização de dados, controlar quem pode aceder aos modelos no seu servidor, ou monitorizar estado de funcionamento do seu servidor. Algumas tarefas de gestão só podem ser efetuadas no portal do Azure, outros no SQL Server Management Studio (SSMS), e algumas tarefas podem ser efetuadas no.
@@ -64,7 +64,7 @@ No Azure Analysis Services, existem dois tipos de utilizadores, os administrador
 ## <a name="troubleshooting-connection-problems"></a>Resolução de problemas de ligação
 Ao estabelecer ligação com o SSMS, caso se depare com problemas, poderá ter de limpar a cache de início de sessão. Nada é colocado em cache para disco. Para limpar a cache, feche e reinicie o processo de ligação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se já tiver ainda não implementado um modelo de tabela para o novo servidor, agora é uma boa altura. Para obter mais informações, consulte [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Implementar no Azure Analysis Services).
 
 Se tiver implementado um modelo para o servidor, está pronto para ligar ao mesmo utilizando um cliente ou browser. Para obter mais informações, consulte [obter dados a partir do servidor de Analysis Services do Azure](analysis-services-connect.md).

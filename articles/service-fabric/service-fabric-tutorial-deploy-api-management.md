@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Implementar a Gestão de API com o Service Fabric
 Este tutorial é a quarta parte de uma série.  A implementação da Gestão de API do Azure no Service Fabric é um cenário avançado.  A Gestão de API é útil se tiver de publicar APIs com um conjunto avançado de regras de encaminhamento para os seus serviços de back-end do Service Fabric. Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. No Service Fabric, esse gateway pode ser qualquer serviço, sem estado, concebido para a entrada de tráfego, tal como uma aplicação ASP.NET Core, os Hubs de Eventos, o Hub IoT ou a Gestão de API do Azure. 
@@ -38,13 +38,13 @@ Neste tutorial, ficará a saber como:
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou um [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protegidos no Azure utilizando um modelo
-> * [Reduzir ou aumentar um cluster horizontalmente](/service-fabric-tutorial-scale-cluster.md)
+> * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
 > * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Implementar a Gestão de API com o Service Fabric
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial:
-- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou a [CLI do Azure 2.0](/cli/azure/install-azure-cli).
 - Crie um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou um [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protegidos no Azure.
 - Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2017](http://www.visualstudio.com) e as cargas de trabalho **desenvolvimento no Azure**, **desenvolvimento em ASP.NET e na Web** e **desenvolvimento em várias plataformas .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).

@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -61,9 +61,8 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 | [Leitor de monitorização](#monitoring-reader) |Pode ler todos os dados de monitorização |
 | [Monitorização contribuinte](#monitoring-contributor) |Pode ler os dados de monitorização e editar as definições de monitorização |
 | [Contribuidor de Rede](#network-contributor) |Pode gerir todos os recursos de rede |
-| [Novo contribuinte de conta APM Relic](#new-relic-apm-account-contributor) |Pode gerir contas de gestão de desempenho de aplicações do novo Relic e as aplicações |
 | [Proprietário](#owner) |Podem gerir tudo, incluindo o acesso |
-| [Leitor](#reader) |Pode ver tudo, mas não é possível efetuar alterações |
+| [leitor](#reader) |Pode ver tudo, mas não é possível efetuar alterações |
 | [Contribuinte de Cache de redis](#redis-cache-contributor) |Pode gerir caches de Redis |
 | [Contribuinte de coleções de tarefa do agendador](#scheduler-job-collections-contributor) |Pode gerir coleções de tarefas do Programador |
 | [Contribuinte de serviço de pesquisa](#search-service-contributor) |Pode gerir os serviços de pesquisa |
@@ -299,7 +298,7 @@ Pode gerir bases de dados ClearDB MySQL
 | Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
-| successbricks.cleardb/Databases/* |Criar e gerir bases de dados ClearDB MySQL |
+| successbricks.cleardb/databases/* |Criar e gerir bases de dados ClearDB MySQL |
 
 ### <a name="contributor"></a>Contribuinte
 Pode gerir tudo, exceto acesso
@@ -308,7 +307,7 @@ Pode gerir tudo, exceto acesso
 | --- | --- |
 | * |Criar e gerir recursos de todos os tipos |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Não é possível eliminar funções e atribuições de função |
 | Microsoft.Authorization/*/Write |Não é possível criar funções e atribuições de função |
@@ -364,7 +363,7 @@ Pode gerir zonas DNS e registos.
 
 | **Ações** |  |
 | --- | --- |
-| Microsoft.Authorization/ \* /leitura |Funções de leitura e atribuições de função |
+| Microsoft.Authorization/\*/read |Funções de leitura e atribuições de função |
 | Microsoft.Insights/alertRules/\* |Criar e gerir regras de alertas |
 | Microsoft.Network/dnsZones/\* |Criar e gerir registos e zonas DNS |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler o estado de funcionamento dos recursos |
@@ -440,19 +439,6 @@ Pode gerir todos os recursos de rede
 | Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
-
-### <a name="new-relic-apm-account-contributor"></a>Contribuidor de Conta APM do New Relic
-Pode gerir contas de gestão de desempenho de aplicações do novo Relic e as aplicações
-
-| **Ações** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Funções de leitura e atribuições de função |
-| Microsoft.Insights/alertRules/* |Criar e gerir regras de alertas |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler o estado de funcionamento dos recursos |
-| Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
-| Microsoft.Support/* |Criar e gerir pedidos de suporte |
-| NewRelic.APM/accounts/* |Criar e gerir contas de gestão de desempenho do New Relic aplicação |
 
 ### <a name="owner"></a>Proprietário
 Podem gerir tudo, incluindo o acesso
@@ -563,7 +549,7 @@ Pode gerir todas as ações de gestão de recuperação de sites, exceto criar C
 | Microsoft.RecoveryServices/Vaults/certificates/write | O certificado de credenciais do Cofre de atualizações |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerir informações expandidas relacionados com o Cofre |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Alertas de leitura para o Cofre de serviços de recuperação |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/leitura  | Configuração de notificação do Cofre de serviços de recuperação de leitura |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Configuração de notificação do Cofre de serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/Vaults/read | Os cofres dos serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Gerir a operação de deteção para obtenção recém-criado contentores |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerir identidades registadas |
@@ -592,7 +578,7 @@ Pode ativação pós-falha e a reativação pós-falha, mas pode não efetuar ou
 | Microsoft.Network/virtualNetworks/read | Ler as redes virtuais |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Ler informações expandidas relacionados com o Cofre |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Alertas de leitura para o Cofre de serviços de recuperação |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/leitura  | Configuração de notificação do Cofre de serviços de recuperação de leitura |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Configuração de notificação do Cofre de serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/Vaults/read | Os cofres dos serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Gerir a operação de deteção para obtenção recém-criado contentores |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Ler o estado da operação e o resultado de uma operação submetido |
@@ -601,38 +587,38 @@ Pode ativação pós-falha e a reativação pós-falha, mas pode não efetuar ou
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler eventos de replicação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verificação de consistência de recursos de infraestrutura |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Recursos de infraestrutura de replicação de leitura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/ação | Voltar a associar o gateway de replicação |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Voltar a associar o gateway de replicação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar certificado de recursos de infraestrutura de replicação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Ler replicação redes de infraestrutura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/leitura | Mapeamento de rede de recursos de infraestrutura de replicação de leitura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/leitura | Leu os contentores de proteção |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/leitura | Obter a lista de todos os itens passíveis de proteção |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/ação | Aplicar um ponto de recuperação específico |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/failoverCommit/ação | Consolidar ativação pós-falha de uma falha ao longo do item |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Mapeamento de rede de recursos de infraestrutura de replicação de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Leu os contentores de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Obter a lista de todos os itens passíveis de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ applyRecoveryPoint/action | Aplicar um ponto de recuperação específico |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ failoverCommit/action | Consolidar ativação pós-falha de uma falha ao longo do item |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/plannedFailover/ação | Iniciar ativação pós-falha planeada para um item protegido |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/leitura | Obter a lista de todos os itens protegidos |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/leitura | Obter a lista de pontos de recuperação disponíveis |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/repairReplication/ação | Reparar a replicação para um item protegido |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/Reproteção/ação | Começar a proteger novamente para um item protegido|
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Obter a lista de todos os itens protegidos |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Obter a lista de pontos de recuperação disponíveis |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ repairReplication/action | Reparar a replicação para um item protegido |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Começar a proteger novamente para um item protegido|
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/ação | Iniciar ativação pós-falha de teste de um item protegido |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/ação | Limpeza de início de uma ativação pós-falha de teste |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/ação | Iniciar ativação pós-falha não planeada de um item protegido |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/ação | Atualizar o serviço de mobilidade |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/leitura | Leia os mapeamentos de contentor de proteção |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/leitura | Fornecedores de serviços de recuperação de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Iniciar ativação pós-falha não planeada de um item protegido |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Atualizar o serviço de mobilidade |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Leia os mapeamentos de contentor de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Fornecedores de serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/ação | Atualize o fornecedor de serviços de recuperação |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/leitura | Classificações de armazenamento para recursos de infraestrutura de replicação de leitura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/leitura | Mapeamentos de classificação de armazenamento de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Classificações de armazenamento para recursos de infraestrutura de replicação de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Mapeamentos de classificação de armazenamento de leitura |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Leitura registado informações de vCenter |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Criar e gerir tarefas de replicação |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Políticas de replicação de leitura |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/ação | Consolidar ativação pós-falha para ativação pós-falha do plano de recuperação |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/ação | Iniciar ativação pós-falha de um plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/action | Consolidar ativação pós-falha para ativação pós-falha do plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/action | Iniciar ativação pós-falha de um plano de recuperação |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Planos de recuperação de leitura |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Iniciar a voltar a proteger de um plano de recuperação |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Iniciar ativação pós-falha de teste de um plano de recuperação |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/ação | Inicie a limpeza da ativação pós-falha de teste do plano recuperação |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/ação | Iniciar ativação pós-falha não planeada de um plano de recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/action | Inicie a limpeza da ativação pós-falha de teste do plano recuperação |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/action | Iniciar ativação pós-falha não planeada de um plano de recuperação |
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Ler a configuração de armazenamento de um cofre dos serviços de recuperação |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Informações sobre o token de cofre dos serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/Vaults/usages/read | Lê os detalhes de utilização de um cofre dos serviços de recuperação |
@@ -650,7 +636,7 @@ Pode monitorizar o estado de recuperação de sites no Cofre de serviços de rec
 | Microsoft.Authorization/*/read | Funções de leitura e atribuições de função |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Ler informações expandidas relacionados com o Cofre |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Alertas de leitura para o Cofre de serviços de recuperação |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/leitura  | Configuração de notificação do Cofre de serviços de recuperação de leitura |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Configuração de notificação do Cofre de serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/Vaults/read  | Os cofres dos serviços de recuperação de leitura |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Gerir a operação de deteção para obtenção recém-criado contentores |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Ler o estado da operação e o resultado de uma operação submetido |
@@ -659,15 +645,15 @@ Pode monitorizar o estado de recuperação de sites no Cofre de serviços de rec
 | Microsoft.RecoveryServices/vaults/replicationEvents/read  | Ler eventos de replicação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read  | Recursos de infraestrutura de replicação de leitura |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Ler replicação redes de infraestrutura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/leitura  | Mapeamento de rede de recursos de infraestrutura de replicação de leitura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/leitura  |  Leu os contentores de proteção |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/leitura  | Obter a lista de todos os itens passíveis de proteção |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/leitura  | Obter a lista de todos os itens protegidos |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/leitura  | Obter a lista de pontos de recuperação disponíveis |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/leitura  | Leia os mapeamentos de contentor de proteção |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/leitura  | Fornecedores de serviços de recuperação de leitura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/leitura  | Classificações de armazenamento para recursos de infraestrutura de replicação de leitura |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/leitura  |  Mapeamentos de classificação de armazenamento de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read  | Mapeamento de rede de recursos de infraestrutura de replicação de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read  |  Leu os contentores de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Obter a lista de todos os itens passíveis de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read  | Obter a lista de todos os itens protegidos |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Obter a lista de pontos de recuperação disponíveis |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read  | Leia os mapeamentos de contentor de proteção |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read  | Fornecedores de serviços de recuperação de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read  | Classificações de armazenamento para recursos de infraestrutura de replicação de leitura |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Mapeamentos de classificação de armazenamento de leitura |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read  |  Leitura registado informações de vCenter |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read  |  Ler o estado das tarefas de replicação |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read  |  Políticas de replicação de leitura |
@@ -691,7 +677,7 @@ Pode gerir bases de dados SQL, mas não as respetivas políticas relacionadas co
 | Microsoft.Sql/servers/read |Servidores SQL de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Não é possível editar as políticas de auditoria |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Não é possível editar as definições de auditoria |
@@ -741,7 +727,7 @@ Pode gerir servidores SQL e de bases de dados, mas não as respetivas políticas
 | Microsoft.Sql/servers/* |Criar e gerir servidores SQL |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Não é possível editar as políticas de auditoria do SQL server |
 | Microsoft.Sql/servers/auditingSettings/* |Não é possível editar definições de auditoria do SQL server |

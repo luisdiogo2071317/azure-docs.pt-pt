@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop baseados em Windows no HDInsight ao utilizar o portal do Azure
 
@@ -43,7 +43,7 @@ Antes de começar este artigo, tem de ter o seguinte:
 1. Inicie sessão no [https://portal.azure.com](https://portal.azure.com).
 2. Depois de abrir o portal, pode:
 
-   * Clique em **novo** no menu à esquerda para criar um novo cluster:
+   * Clique em **crie um recurso** no menu à esquerda para criar um novo cluster:
 
        ![novo botão de cluster do HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Clique em **Clusters do HDInsight** no menu esquerdo.
@@ -352,7 +352,7 @@ Para ligar ao cluster, utilizando o ambiente de trabalho remoto e utilizar a lin
 1. Ligar ao cluster através de ambiente de trabalho remoto.
 2. No ambiente de trabalho, faça duplo clique em **linha de comandos do Hadoop**.
 
-    ![HDI. HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Para obter mais informações sobre os comandos de Hadoop, consulte [referência de comandos do Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
@@ -365,7 +365,7 @@ Captura de ecrã anterior, o nome da pasta tem o número de versão do Hadoop in
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como criar um cluster do HDInsight através do Portal e como abrir a ferramenta de linha de comandos do Hadoop. Para obter mais informações, consulte os artigos seguintes:
 
 * [Administrar HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md)

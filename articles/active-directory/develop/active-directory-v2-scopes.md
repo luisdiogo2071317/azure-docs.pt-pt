@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Âmbitos, permissões e consentimento no ponto final v 2.0 do Azure Active Directory
 As aplicações que se integram com o Azure Active Directory (Azure AD), siga um modelo de autorização que proporciona aos utilizadores controlo sobre a forma como uma aplicação pode aceder aos respetivos dados. A implementação de v 2.0 do modelo de autorização foi atualizada e as alterações como uma aplicação tem de interagir com o Azure AD. Este artigo aborda os conceitos básicos neste modelo de autorização, incluindo âmbitos, permissões e consentimento.
@@ -32,23 +32,23 @@ As aplicações que se integram com o Azure Active Directory (Azure AD), siga um
 ## <a name="scopes-and-permissions"></a>Âmbitos e permissões
 Azure AD implementa o [OAuth 2.0](active-directory-v2-protocols.md) protocolo de autorização. OAuth 2.0 é um método através do qual uma aplicação de terceiros pode aceder a recursos alojados em web em nome de um utilizador. Quaisquer recursos alojados em web que se integra com o Azure AD tem um identificador de recurso, ou *URI de ID de aplicação*. Por exemplo, alguns dos recursos de alojada em web da Microsoft incluem:
 
-* O Office 365 Unified correio API:`https://outlook.office.com`
-* A API do Azure AD Graph:`https://graph.windows.net`
-* Microsoft Graph:`https://graph.microsoft.com`
+* O Office 365 Unified correio API: `https://outlook.office.com`
+* A API do Azure AD Graph: `https://graph.windows.net`
+* Microsoft Graph: `https://graph.microsoft.com`
 
 O mesmo se aplica a quaisquer recursos de terceiros que tenha integrado com o Azure AD. Qualquer um destes recursos também pode definir um conjunto de permissões que pode ser utilizado para dividir a funcionalidade desse recurso em segmentos mais pequenos. Por exemplo, [Microsoft Graph](https://graph.microsoft.io) tiver definido permissões para efetuar as seguintes tarefas, entre outras pessoas:
 
 * Calendário de um utilizador de leitura
 * Escrever calendário de um utilizador
-* Enviar e-mails como se fosse um utilizador
+* Enviar correio eletrónico como um utilizador
 
 Ao definir estes tipos de permissões, o recurso tem controlo detalhado sobre os dados e como os dados são expostos. Uma aplicação de terceiros pode pedir as permissões de um utilizador de aplicação. O utilizador da aplicação têm de aprovar as permissões para a aplicação pode agir em nome do utilizador. Através da funcionalidade do recurso para conjuntos mais pequenos de permissão de agrupamento, aplicações de terceiros podem ser criadas para pedir apenas as permissões específicas que precisam para realizar o seu funcionamento. Utilizadores de aplicações podem saber exatamente como uma aplicação utilizará os seus dados e podem ser mais a certeza de que a aplicação não está a comportar com intenções maliciosas.
 
 No Azure AD e OAuth, estes tipos de permissões são denominados *âmbitos*. Eles também por vezes, são referidos como *oAuth2Permissions*. Um âmbito é representado no Azure AD como um valor de cadeia. Continuar com o exemplo de Microsoft Graph, o valor do âmbito para cada permissão é:
 
-* Leia o calendário de um utilizador através da utilização`Calendars.Read`
-* Escrever calendário do utilizador através da utilização`Calendars.ReadWrite`
-* Enviar correio eletrónico como um utilizador a utilizar pelo`Mail.Send`
+* Leia o calendário de um utilizador através da utilização `Calendars.Read`
+* Escrever calendário do utilizador através da utilização `Calendars.ReadWrite`
+* Enviar correio eletrónico como um utilizador a utilizar pelo `Mail.Send`
 
 Uma aplicação pode solicitar estas permissões, especificando os âmbitos nos pedidos para o ponto final v 2.0.
 
@@ -102,9 +102,9 @@ Para pedir consentimento para todos os utilizadores de um inquilino, a aplicaç�
 ## <a name="admin-restricted-scopes"></a>Âmbitos de administração restrito
 Alguns permissões de privilégio elevado no ecossistema da Microsoft podem ser definidas como *admin restrito*. Os exemplos destes tipos de âmbitos incluem as seguintes permissões:
 
-* Ler dados do diretório da organização utilizando`Directory.Read`
-* Escrever dados para o diretório da organização utilizando`Directory.ReadWrite`
-* Grupos de segurança de leitura no diretório da organização utilizando`Groups.Read.All`
+* Ler dados do diretório da organização utilizando `Directory.Read`
+* Escrever dados para o diretório da organização utilizando `Directory.ReadWrite`
+* Grupos de segurança de leitura no diretório da organização utilizando `Groups.Read.All`
 
 Apesar de um utilizador de consumidor pode conceder um acesso de aplicação para este tipo de dados, os utilizadores organizacionais são impedidos de conceder acesso para o mesmo conjunto de dados confidenciais da empresa. Se a aplicação solicitar acesso a uma destas permissões de um utilizador organizacional, o utilizador recebe uma mensagem de erro que indica que não estão autorizados a autorizar permissões da sua aplicação.
 
@@ -147,7 +147,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| Inquilino |Necessário |O inquilino de diretório que pretende pedir permissão a partir da. Pode ser fornecido no formato de nome amigável ou de GUID. |
+| inquilino |Necessário |O inquilino de diretório que pretende pedir permissão a partir da. Podem ser fornecidos no formato de nome amigável ou GUID ou genericamente referenciada com "comuns", como mostrado no exemplo. |
 | client_id |Necessário |ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída à aplicação. |
 | redirect_uri |Necessário |O URI de redirecionamento do onde pretende que a resposta sejam enviados para a sua aplicação processar. Este deve corresponder exatamente um do redirecionamento de URIs registados no portal de registo de aplicação. |
 | state |Recomendado |Um valor incluído no pedido de que também vai ser devolvido na resposta token. Pode ser uma cadeia de qualquer conteúdo que pretende. Utilize o estado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
@@ -163,7 +163,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parâmetro | Descrição |
 | --- | --- | --- |
-| Inquilino |O inquilino de diretório concedidas as permissões de aplicação pediu, no formato GUID. |
+| inquilino |O inquilino de diretório concedidas as permissões de aplicação pediu, no formato GUID. |
 | state |Um valor incluído no pedido de que também vai ser devolvido na resposta token. Pode ser uma cadeia de qualquer conteúdo que pretende. O estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
 | admin_consent |Será definida para **verdadeiro**. |
 

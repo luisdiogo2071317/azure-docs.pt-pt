@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Colocar em pausa e iniciar a sua capacidade de Power BI Embedded no portal do Azure
 
@@ -35,9 +35,9 @@ Colocar em pausa a capacidade impede-o ser cobrados. Colocar em pausa a capacida
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione **mais serviços** > **Power BI Embedded** para ver as suas capacidades.
+2. Selecione **todos os serviços** > **Power BI Embedded** para ver as suas capacidades.
 
-    ![Mais serviços no portal do Azure](media/pause-start/azure-portal-more-services.png)
+    ![Todos os serviços no portal do Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Selecione a capacidade de que pretende colocar em pausa.
 
@@ -57,9 +57,9 @@ Retomar utilização iniciando a capacidade. Também iniciar a sua capacidade de
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione **mais serviços** > **Power BI Embedded** para ver as suas capacidades.
+2. Selecione **todos os serviços** > **Power BI Embedded** para ver as suas capacidades.
 
-    ![Mais serviços no portal do Azure](media/pause-start/azure-portal-more-services.png)
+    ![Todos os serviços no portal do Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Selecione a capacidade de que pretende iniciar.
 
@@ -75,7 +75,7 @@ Retomar utilização iniciando a capacidade. Também iniciar a sua capacidade de
 
 Se qualquer conteúdo está atribuído a esta capacidade, está disponível uma vez iniciada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se pretender dimensionar a sua capacidade ou reduzir verticalmente, consulte [dimensionar a sua capacidade de Power BI Embedded](scale-capacity.md).
 

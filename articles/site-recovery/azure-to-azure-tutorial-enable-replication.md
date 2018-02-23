@@ -5,15 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 02/07/2018
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: HT
+ms.openlocfilehash: ed604209a8db4f2b39d433eb9596064da6104145
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure (Pré-visualização)
 
@@ -25,7 +28,7 @@ Este tutorial mostra como configurar a recuperação após desastre para uma reg
 > * Criar um cofre dos Serviços de Recuperação 
 > * Verificar as definições dos recursos de destino
 > * Configurar o acesso de saída das VMs
-> * Ativar a replicação para uma VM
+> * Ativar replicação para uma VM
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +42,7 @@ Para concluir este tutorial:
 Crie o cofre em qualquer região, exceto na região de origem.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique em **Novo** > **Monitorização e Gestão** > **Backup e Site Recovery**.
+2. Clique em **crie um recurso** > **de monitorização e gestão** > **cópia de segurança e recuperação de Site**.
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se tiver mais do que uma subscrição, selecione a que for adequada.
 4. Crie um grupo de recursos ou selecione um existente. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Para aceder rapidamente ao cofre a partir do dashboard, clique em **Afixar ao dashboard** e clique em **Criar**.
@@ -52,7 +55,7 @@ Crie o cofre em qualquer região, exceto na região de origem.
 
 1. Certifique-se de que a sua subscrição do Azure permite criar VMs na região de destino utilizada para recuperação após desastre. Contacte o suporte para ativar a quota necessária.
 
-2. Certifique-se a que sua subscrição tem recursos suficientes para suportar as VMs com tamanhos que correspondem às VMs de origem. O Site Recovery escolhe o mesmo tamanho ou o tamanho mais próximo possível da VM de destino.
+2. Certifique-se de que a sua subscrição tem recursos suficientes para suportar as VMs com tamanhos que correspondem às VMs de origem. O Site Recovery escolhe o mesmo tamanho ou o tamanho mais próximo possível da VM de destino.
 
 ## <a name="configure-outbound-network-connectivity"></a>Configurar a conectividade de rede de saída
 
@@ -171,7 +174,7 @@ Para substituir as predefinições da política de replicação, clique em **Per
 
 3. Em **Definições** > **Itens Replicados**, pode ver o estado das VMs e o progresso da replicação inicial. Clique na VM para desagregar as respetivas definições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou a recuperação após desastre para uma VM do Azure. O passo seguinte consiste em testar a configuração.
 

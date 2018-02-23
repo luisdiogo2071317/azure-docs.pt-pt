@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 4291d765bec94ca1edd50b8df0c414524f29fba2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas de Proxy de aplicações e as mensagens de erro
 Se ocorrerem erros ao aceder a uma aplicação publicada ou numa publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -68,7 +68,7 @@ Esta tabela aborda os erros mais comuns que vêm da configuração de Kerberos e
 | 13016 - as do azure AD não é possível obter uma permissão de Kerberos em nome do utilizador, porque não há nenhum UPN no token de limite ou o cookie de acesso. | Não há um problema com a configuração de STS. Corrija a configuração de afirmação UPN STS. |
 | 13019 - as do azure AD não é possível obter uma permissão de Kerberos em nome do utilizador devido ao seguinte erro geral de API. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de controlador de domínio ou um problema na configuração de data e hora em ambas as máquinas. O controlador de domínio recusado a permissão de Kerberos criada pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicação de back-end estão corretamente configurados, especialmente a configuração de SPN. Certifique-se de que o Azure AD domínio associado ao mesmo domínio que o controlador de domínio para se certificar de que o controlador de domínio estabelece a fidedignidade com o Azure AD. Certifique-se de que a configuração de data e o Azure AD e o controlador de domínio estão sincronizadas. |
 | 13020 - as do azure AD não é possível obter uma permissão de Kerberos em nome do utilizador, porque o SPN do servidor de back-end não está definida. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de controlador de domínio ou um problema na configuração de data e hora em ambas as máquinas. O controlador de domínio recusado a permissão de Kerberos criada pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicação de back-end estão corretamente configurados, especialmente a configuração de SPN. Certifique-se de que o Azure AD domínio associado ao mesmo domínio que o controlador de domínio para se certificar de que o controlador de domínio estabelece a fidedignidade com o Azure AD. Certifique-se de que a configuração de data e o Azure AD e o controlador de domínio estão sincronizadas. |
-| 13022 - as do azure AD não consegue autenticar o utilizador porque o servidor de back-end responde a tentativas de autenticação Kerberos com um erro de HTTP 401. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de aplicação de back-end, ou um problema na configuração de data e hora em ambas as máquinas. O servidor de back-end recusado a permissão de Kerberos criada pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicação de back-end estão configuradas corretamente. Certifique-se de que a configuração de data e o Azure AD e o servidor de aplicação de back-end estão sincronizadas. |
+| 13022 - as do azure AD não consegue autenticar o utilizador porque o servidor de back-end responde a tentativas de autenticação Kerberos com um erro de HTTP 401. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de aplicação de back-end, ou um problema na configuração de data e hora em ambas as máquinas. O servidor de back-end recusado a permissão de Kerberos criada pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicação de back-end estão configuradas corretamente. Certifique-se de que a configuração de data e o Azure AD e o servidor de aplicação de back-end estão sincronizadas. Para obter mais informações, consulte [resolver Kerberos restrita delegação configurações de Proxy de aplicações](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Erros de utilizador final
 

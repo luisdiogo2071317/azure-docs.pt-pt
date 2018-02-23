@@ -4,7 +4,7 @@ description: "Saiba como efetuar cópias de segurança do SQL Server para o arma
 services: virtual-machines-windows
 documentationcenter: 
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utilizar o armazenamento do Azure para cópia de segurança do SQL Server e de restauro
 ## <a name="overview"></a>Descrição geral
@@ -48,8 +48,8 @@ Os seguintes componentes do Azure são utilizados quando efetuar cópias de segu
 
 | Componente | Descrição |
 | --- | --- |
-| **Conta de armazenamento** |A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para aceder a um serviço de armazenamento de Blobs do Azure, primeiro de criar uma conta de armazenamento do Azure. Para mais informações sobre o serviço de armazenamento de Blobs do Azure, consulte [como utilizar o serviço de armazenamento de Blobs do Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
-| **Contentor** |Um contentor fornece um agrupamento de um conjunto de blobs e pode armazenar um número ilimitado de Blobs. Escrever um SQL Server cópia de segurança para um serviço Blob do Azure, tem de ter, pelo menos, o contentor de raiz que criou. |
+| **Storage Account** |A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para aceder a um serviço de armazenamento de Blobs do Azure, primeiro de criar uma conta de armazenamento do Azure. Para mais informações sobre o serviço de armazenamento de Blobs do Azure, consulte [como utilizar o serviço de armazenamento de Blobs do Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
+| contentor |Um contentor fornece um agrupamento de um conjunto de blobs e pode armazenar um número ilimitado de Blobs. Escrever um SQL Server cópia de segurança para um serviço Blob do Azure, tem de ter, pelo menos, o contentor de raiz que criou. |
 | **Blob** |Um ficheiro de qualquer tipo e tamanho. Os BLOBs são endereçáveis utilizando o seguinte formato de URL: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Para mais informações sobre os Blobs de páginas, consulte [compreender blocos e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Componentes de servidor do SQL Server
@@ -58,14 +58,14 @@ Os seguintes componentes do SQL Server são utilizados quando a cópia de segura
 | Componente | Descrição |
 | --- | --- |
 | **URL** |Um URL especifica um Uniform Resource Identifier (URI) para um único ficheiro de cópia de segurança. O URL é utilizado para fornecer a localização e o nome do ficheiro de cópia de segurança do SQL Server. O URL tem de apontar para um blob real, não apenas um contentor. Se o blob não existe, é criado. Se um blob existente for especificado, cópia de segurança falha, a menos que o > a opção WITH FORMAT está especificada. Segue-se um exemplo de URL tem de especificar o comando de cópia de segurança: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS é recomendado, mas não é necessária. |
-| **Credencial** |As informações necessárias para estabelecer ligação e autenticar para o serviço de armazenamento de Blobs do Azure são armazenadas como uma credencial.  Por ordem para o SQL Server escrever as cópias de segurança para um Blob do Azure ou o restauro a partir do mesmo, tem de ser criada uma credencial do SQL Server. Para obter mais informações, consulte [credencial do servidor SQL](https://msdn.microsoft.com/library/ms189522.aspx). |
+| **credencial** |As informações necessárias para estabelecer ligação e autenticar para o serviço de armazenamento de Blobs do Azure são armazenadas como uma credencial.  Por ordem para o SQL Server escrever as cópias de segurança para um Blob do Azure ou o restauro a partir do mesmo, tem de ser criada uma credencial do SQL Server. Para obter mais informações, consulte [credencial do servidor SQL](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
 > Se optar por copiar e carregar um ficheiro de cópia de segurança para o serviço de armazenamento de Blobs do Azure, tem de utilizar um tipo de blob de página como a opção de armazenamento se estiver a planear utilizar este ficheiro para operações de restauro. RESTAURO a partir de um tipo de blob de bloco irá falhar com um erro.
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 1. Crie uma conta do Azure se ainda não tiver um. Se estiver a avaliar o Azure, considere o [avaliação gratuita](https://azure.microsoft.com/free/).
 2. Em seguida, avance através de um dos seguintes tutoriais guiá-lo através da criação de uma conta de armazenamento e efetuar um restauro.
    

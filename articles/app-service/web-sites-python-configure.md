@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configurar o Python com as Web Apps do App Service do Azure
 Este tutorial descreve as opções de criação e configuração de uma aplicação básica para o Web Server Gateway Interface (WSGI) em conformidade Python no [Web Apps do Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,7 +36,7 @@ O Azure Marketplace contém modelos para as estruturas Bottle, Flask e Django. S
 ## <a name="web-app-creation-on-azure-portal"></a>Criação da aplicação Web no portal do Azure
 Este tutorial assume uma subscrição do Azure existente e o acesso ao portal do Azure.
 
-Se não tiver uma aplicação web existente, pode criar um o [portal do Azure](https://portal.azure.com).  Clique no botão novo no canto superior esquerdo, em seguida, clique em **Web + móvel** > **aplicação Web**.
+Se não tiver uma aplicação web existente, pode criar um o [portal do Azure](https://portal.azure.com). No canto superior esquerdo, clique em **crie um recurso** > **Web + móvel** > **aplicação Web**.
 
 ## <a name="git-publishing"></a>Publicação de Git
 Configure a publicação de Git para a sua aplicação Web recentemente criada ao seguir as instruções apresentadas em [Implementação de Git Local para o Serviço de Aplicações do Azure](app-service-deploy-local-git.md). Este tutorial utiliza o Git para criar, gerir e publicar a aplicação web do Python no App Service do Azure.
@@ -53,7 +53,7 @@ Nas secções seguintes, são criados os seguintes ficheiros. Estes devem ser co
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a>Processador WSGI
+## <a name="wsgi-handler"></a>WSGI Handler
 WSGI é uma norma de Python descrita através de [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definir uma interface entre o servidor web e Python. Fornece uma interface padronizada para escrever várias aplicações web e estruturas com o Python. Estruturas de web do Python populares utilizam atualmente WSGI. Oferece de Web Apps do App Service do Azure que suporta para qualquer estruturas; Além disso, utilizadores avançados podem ainda criar os seus próprios, desde que o processador personalizado segue-se as diretrizes de especificação WSGI.
 
 Eis um exemplo de um `app.py` que define um processador personalizado:
@@ -207,9 +207,9 @@ Ficheiros estáticos são processados pelo servidor web diretamente, sem passar 
 
 Nos exemplos anteriores, a localização dos ficheiros estáticos no disco deve corresponder a localização no URL. Isto significa que um pedido para `http://pythonapp.azurewebsites.net/static/site.css` irá servir o ficheiro no disco em `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`é aqui que pode especificar o processador WSGI. Nos exemplos anteriores, tem `app.wsgi_app` porque o processador é uma função com o nome `wsgi_app` no `app.py` na pasta raiz.
+`WSGI_ALT_VIRTUALENV_HANDLER` é aqui que pode especificar o processador WSGI. Nos exemplos anteriores, tem `app.wsgi_app` porque o processador é uma função com o nome `wsgi_app` no `app.py` na pasta raiz.
 
-`PYTHONPATH`pode ser personalizado, mas se instalar todas as suas dependências no ambiente virtual especificando-los no requirements.txt, não deverá ser necessário alterá-la.
+`PYTHONPATH` pode ser personalizado, mas se instalar todas as suas dependências no ambiente virtual especificando-los no requirements.txt, não deverá ser necessário alterá-la.
 
 ## <a name="virtual-environment-proxy"></a>Proxy de ambiente virtual
 O script seguinte é utilizado para obter o processador WSGI, ative os erros de registo e de ambiente virtuais. Foi concebido para ser genérico e utilizada sem modificações.
@@ -349,7 +349,7 @@ Conteúdo do `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Resolução de problemas - Ambiente Virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte o [Centro para Programadores do Python](/develop/python/).
 
 > [!NOTE]

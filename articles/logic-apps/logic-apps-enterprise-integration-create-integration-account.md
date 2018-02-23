@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7ec63810fe78b38c574ec39369d5926f80e595e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-an-integration-account"></a>O que é uma conta de integração?
 
 Uma conta de integração permite que a empresa integração de aplicações gerir artefactos, incluindo esquemas, mapas, certificados, parceiros e contratos. Qualquer aplicação de integração que criar utiliza uma conta de integração para aceder estes esquemas, mapas, certificados e assim sucessivamente.
 
-## <a name="create-an-integration-account"></a>Criar uma conta de integração
+## <a name="create-an-integration-account"></a>Criar uma conta de Integração
 
-1.  Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **mais serviços**.
+1.  Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **todos os serviços**.
 
-    ![Selecione "Mais serviços"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Selecione "Todos os serviços"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Na caixa de pesquisa, escreva "" integração para o filtro. Na lista de resultados, selecione **contas de automatização**.
 
@@ -85,9 +85,9 @@ Agora que a sua conta de integração está ligada à sua aplicação lógica, p
 
 ## <a name="delete-your-integration-account"></a>Eliminar a conta de integração
 
-1. Selecione **mais serviços**.
+1. Selecione **todos os serviços**.
 
-    ![Selecione "Mais serviços"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Selecione "Todos os serviços"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Na caixa de pesquisa, escreva "" integração para o filtro. Na lista de resultados, selecione **contas de automatização**.
 
@@ -110,9 +110,9 @@ Para mover uma conta de integração para outro grupo de subscrição ou recurso
 > [!IMPORTANT]
 > Tem de atualizar todos os scripts para utilizar o novo recurso IDs depois de mover uma conta de integração.
 
-1. Selecione **mais serviços**.
+1. Selecione **todos os serviços**.
 
-    ![Selecione "Mais serviços"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Selecione "Todos os serviços"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Na caixa de pesquisa, escreva "" integração para o filtro. Na lista de resultados, selecione **contas de automatização**.
 
@@ -126,6 +126,6 @@ Para mover uma conta de integração para outro grupo de subscrição ou recurso
 
     ![Escolha o grupo de recursos de alteração ou de subscrição de alteração](./media/logic-apps-enterprise-integration-accounts/move-2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Saiba mais sobre contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração do enterprise")  
 

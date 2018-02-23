@@ -3,17 +3,17 @@ title: "Módulo de SQL de limite de IoT do Azure | Microsoft Docs"
 description: "Armazenar dados no limite com módulos do Microsoft SQL, com as funções do Azure para formatar os dados."
 services: iot-edge
 keywords: 
-author: ebertrams
+author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
-ms.date: 02/07/2018
+ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f7ff069a2536d0138be8cbb32eefba342e1e9275
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Armazenar dados no limite com bases de dados do SQL Server
 
@@ -92,7 +92,6 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
              }
           }
         }
-      }
    ```
 
 3. Dependendo do sistema operativo que estiver a executar, Atualize as definições para o módulo SQL com o seguinte código: 
@@ -101,7 +100,7 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
       ```
 
    * Linux:
@@ -118,7 +117,7 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
 8. Para iniciar o tempo de execução de limite, selecione **Edge: Iniciar Edge** na paleta do comando.
 
 >[!TIP]
->Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema de predefinição](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker.md#change-the-sa-password).
+>Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema de predefinição](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
 ## <a name="create-the-sql-database"></a>Criar a base de dados do SQL Server
 
@@ -132,7 +131,7 @@ Numa ferramenta de linha de comandos, ligar à base de dados:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -144,7 +143,7 @@ Abra a ferramenta do comando SQL:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
@@ -189,7 +188,7 @@ Limite de IoT automaticamente baseia-se uma ponte (Linux) ou a rede NAT (Windows
 
 * Linux
 
-   ```cmd
+   ```bash
    sudo docker network inspect azure-iot-edge
    ```
 
@@ -309,7 +308,7 @@ Numa ferramenta de linha de comandos, ligar à base de dados:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -321,7 +320,7 @@ Abra a ferramenta do comando SQL:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Controlar a comunicação de B2B no Microsoft Operations Management Suite (OMS)
 
@@ -47,7 +47,7 @@ Após configurar a comunicação de B2B entre duas a executar os processos de ne
 
 Para que o OMS controlar B2B mensagens para a sua aplicação lógica, tem de adicionar o **Logic Apps B2B** solução para o portal do OMS. Saiba mais sobre [adicionar soluções OMS](../log-analytics/log-analytics-get-started.md).
 
-1. No [portal do Azure](https://portal.azure.com), escolha **mais serviços**. Procure "análise de registos" e, em seguida, escolha **Log Analytics** conforme mostrado aqui:
+1. No [portal do Azure](https://portal.azure.com), escolha **todos os serviços**. Procure "análise de registos" e, em seguida, escolha **Log Analytics** conforme mostrado aqui:
 
    ![Localizar a análise de registos](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
@@ -156,7 +156,7 @@ Seguem-se as descrições de propriedade para cada mensagem AS2.
 | Confirmação | O estado de mensagem MDN <br>Aceite = recebidos ou enviados um MDN positivo. <br>Pendente = à espera de receber ou enviar um MDN. <br>Rejeitado = recebidos ou enviados um MDN negativo. <br>Não é necessária = MDN não está definido no contrato. |
 | Direção | A direção de mensagem AS2 |
 | ID de Correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
-| ID da Mensagem | O ID de mensagem AS2 de cabeçalhos de mensagens AS2 |
+| ID da mensagem | O ID de mensagem AS2 de cabeçalhos de mensagens AS2 |
 | Carimbo de data/hora | A hora quando a ação de AS2 processar a mensagem |
 |          |             |
 

@@ -4,7 +4,7 @@ description: "Explica a funcionalidade de cópia de segurança automatizada para
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 281aac8229c55cde1f36857a8f1042aa08f7e372
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e7e4aab3a4c4f1ccca6868134ec0b829cb7af2f2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Cópia de segurança automatizada para máquinas de virtuais do SQL Server 2014 (Gestor de recursos)
 
@@ -57,7 +57,7 @@ Para utilizar a cópia de segurança automatizada, considere os seguintes pré-r
 
 - Resource Manager
 
-**O Azure PowerShell**:
+**Azure PowerShell**:
 
 - [Instalar os comandos do Azure PowerShell mais recentes](/powershell/azure/overview) se planear configurar cópia de segurança automatizada com o PowerShell.
 
@@ -72,7 +72,7 @@ A tabela seguinte descreve as opções que podem ser configuradas para cópia de
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/desativar (desativada) | Ativa ou desativa a cópia de segurança automatizada para uma VM do Azure a executar o SQL Server 2014 Standard ou Enterprise. |
 | **Período de retenção** | 1-30 dias (30 dias) | O número de dias a manter uma cópia de segurança. |
-| **Conta de armazenamento** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no blob storage. Um contentor é criado nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e nome da máquina. |
+| **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no blob storage. Um contentor é criado nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e nome da máquina. |
 | **Encriptação** | Ativar/desativar (desativada) | Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada na mesma `automaticbackup` contentor utilizando a mesma Convenção de nomenclatura. Se alterar a palavra-passe, é gerado um novo certificado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
 | **Palavra-passe** | Texto da palavra-passe | Uma palavra-passe para as chaves de encriptação. Isto apenas é necessário se a encriptação está ativada. Para restaurar uma cópia de segurança encriptada, tem de ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento que da cópia de segurança foi efetuada. |
 
@@ -138,7 +138,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
 > [!IMPORTANT]
 > Se a extensão já não estiver instalada, a instalação da extensão reinicia o serviço SQL Server.
 
-### <a id="verifysettings"></a>Verifique as definições atuais
+### <a id="verifysettings"></a> Verifique as definições atuais
 
 Se ativou a cópia de segurança automatizada durante o aprovisionamento, pode utilizar o PowerShell para verificar a configuração atual. Execute o **Get-AzureRmVMSqlServerExtension** de comandos e examine a **AutoBackupSettings** propriedade:
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: 5342b5290fab9826a2b38cd7ada63a6736c77601
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma aplicação SaaS multi-inquilino que utiliza a base de dados por padrão do inquilino com a SQL Database do Azure
 
@@ -50,18 +50,21 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>Implementar a aplicação de Wingtip bilhetes SaaS
 
-Implemente a aplicação:
+#### <a name="plan-the-names"></a>Planear os nomes
 
-1. Escolha e lembre-se os valores que necessitará para os seguintes parâmetros:
+Os passos desta secção, deve fornecer um *utilizador* valor que é utilizado para garantir que os nomes de recursos são exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implementação da aplicação. Para uma pessoa designada *Ann Finley*, sugerimos que:
+- *Utilizador:* **af1***(respetivo iniciais, mais um dígito.   Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
+- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip dpt indica que esta é a aplicação de base de dados por inquilino. Acrescentar o af1 de nome de utilizador está correlacionada com o nome do grupo de recursos com os nomes dos recursos que nele contidos.)*
 
-    - **Utilizador**: Escolha um valor curto, tais como as suas iniciais seguido de um dígito. Por exemplo, *af1*. O parâmetro de utilizador pode conter apenas letras, números e hífenes (sem espaços). O primeiro e último caráter tem de ser uma letra ou um dígito. Recomendamos que todas as letras estar em minúsculas.
-    - **Grupo de recursos**: sempre que implementar a aplicação de Wingtip, tem de escolher outro nome exclusivo para o novo grupo de recursos. Recomendamos que acrescentar o nome de utilizador para um nome de base para o grupo de recursos. Pode ser um nome de grupo de recursos de exemplo *wingtip af1*. Novamente, recomendamos que todas as letras estar em minúsculas.
+Escolha os nomes agora e escrevê-las para baixo. 
 
-2. Abrir Wingtip pedidos de suporte de SaaS base de dados por modelo de implementação de inquilino no portal do Azure, clicando a azul **implementar no Azure** botão.
+#### <a name="steps"></a>Passos
+
+1. Abrir Wingtip pedidos de suporte de SaaS base de dados por modelo de implementação de inquilino no portal do Azure, clicando a azul **implementar no Azure** botão.
 
    <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-3. Para o modelo, introduza valores para os parâmetros obrigatórios:
+1. Para o modelo, introduza valores para os parâmetros obrigatórios:
 
     > [!IMPORTANT]
     > Algumas autenticações e firewalls do servidor são intencionalmente não seguras para fins de demonstração. Recomendamos que lhe *criar um novo grupo de recursos*. Não utilize grupos de recursos, servidores ou conjuntos existente. Não utilize esta aplicação, scripts ou quaisquer recursos implementados para produção. Elimine este grupo de recursos quando tiver terminado com a aplicação para parar a faturação relacionada.
@@ -70,12 +73,12 @@ Implemente a aplicação:
     - **Localização** - selecione um **localização** na lista pendente.
     - **Utilizador** -utilize o valor de nome de utilizador que selecionou anteriormente.
 
-4. Implemente a aplicação.
+1. Implemente a aplicação.
 
     - Clique para aceitar os termos e condições.
     - Clique em **Comprar**.
 
-5. Monitorizar o estado de implementação, clicando em **notificações**, que é o ícone de campainha à direita da caixa de pesquisa. Implementar a aplicação SaaS de bilhetes Wingtip demora cerca de cinco minutos.
+1. Monitorizar o estado de implementação, clicando em **notificações**, que é o ícone de campainha à direita da caixa de pesquisa. Implementar a aplicação SaaS de bilhetes Wingtip demora cerca de cinco minutos.
 
    ![implementação concluída com êxito](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -98,10 +101,10 @@ Scripts estão localizados no *... \\Mestre de DbPerTenant WingtipTicketsSaaS\\L
 
 ## <a name="update-the-user-configuration-file-for-this-deployment"></a>Atualize o ficheiro de configuração de utilizador para esta implementação
 
-Antes de executar quaisquer scripts, atualize o *grupo de recursos* e *utilizador* valores na **UserConfig.psm1**. Defina estas variáveis para os valores utilizados durante a implementação.
+Antes de executar quaisquer scripts, atualize o *grupo de recursos* e *utilizador* valores no *configuração de utilizador* ficheiro. Defina estas variáveis para os valores utilizados durante a implementação.
 
-1. No *ISE do PowerShell*, abra... \\Learning módulos\\*UserConfig.psm1* 
-2. Atualização *ResourceGroupName* e *nome* com os valores específicos para a sua implementação (em linhas 10 e 11 apenas).
+1. No **ISE do PowerShell**, abra... \\Learning módulos\\**UserConfig.psm1** 
+2. Atualização **ResourceGroupName** e **nome** com os valores específicos para a sua implementação (em linhas 10 e 11 apenas).
 3. Guarde as alterações!
 
 Estes valores são referenciados quase todos os script.
@@ -124,27 +127,27 @@ Um centro **Hub de eventos** página fornece uma lista de ligações para os inq
 
 #### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
 
-A aplicação de Wingtip utiliza [ *Traffic Manager do Azure* ](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de pedidos recebidos. O URL para aceder ao hub de eventos para um inquilino tem obedecer o seguinte formato:
+A aplicação de Wingtip utiliza [ *Traffic Manager do Azure* ](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de pedidos recebidos. O URL para aceder à página Eventos para um inquilino específico utiliza o seguinte formato:
 
-- http://events.Wingtip-DPT.&lt;utilizador&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
 As partes do formato anterior são explicados com a tabela seguinte.
 
-| Parte do URL | Descrição |
-| :------- | :---------- |
-| http://events.Wingtip-DPT | As partes de eventos da aplicação Wingtip.<br /><br />o ***-dpt*** parte distingue a *da base de dados por inquilino* implementação Wingtip partir de outras implementações ligeiramente diferentes. Por exemplo, os outros artigos de documentação oferecem Wingtip para *Standalong* (*-sa*), ou para *DB de multi-inquilino*. |
-| .  *&lt;UTILIZADOR&gt;* | *af1* no nosso exemplo. |
-| .trafficmanager.NET/ | Traffic Manager do Azure, base de URL. |
-| fabrikamjazzclub | Para o inquilino com o nome *Fabrikam Jazz Club*. |
+| Parte do URL        | Descrição       |
+| :-------------- | :---------------- |
+| http://events.wingtip-dpt | As partes de eventos da aplicação Wingtip.<br /><br /> *-dpt* distingue a *base de dados por inquilino* implementação Wingtip permissões de outras implementações. Por exemplo, o *autónomo* aplicação por inquilino (*-sa*), ou *base de dados do multi-inquilino* (*- mt*) implementações. |
+| .*&lt;user&gt;* | *af1* no nosso exemplo. |
+| .trafficmanager.net/ | Traffic Manager do Azure, base de URL. |
+| fabrikamjazzclub | Identifica o inquilino com o nome *Fabrikam Jazz Club*. |
 | &nbsp; | &nbsp; |
 
-1. O nome do inquilino é analisado a partir do URL de pela aplicação de eventos.
+1. O nome do inquilino é analisado a partir do URL pela aplicação de eventos.
 2. O nome do inquilino é utilizado para criar uma chave.
 3. A chave é utilizada para aceder ao catálogo, para obter a localização da base de dados do inquilino.
-    - O catálogo é implementado utilizando *gestão de mapa de partições horizontais*.
-4. O *Hub de eventos* utiliza metadados expandido no catálogo para obter uma lista dos URLs de eventos.
+    - O catálogo é implementado com *gestão de mapa de partições horizontais*.
+4. O *Hub de eventos* utiliza metadados expandido no catálogo para construir a lista de URLs de página de eventos para cada inquilino.
 
-Num ambiente de produção, normalmente, cria um registo CNAME DNS para [ *apontar um domínio de internet da empresa* ](../traffic-manager/traffic-manager-point-internet-domain.md) para o perfil do Gestor de tráfego.
+Num ambiente de produção, normalmente, cria um registo CNAME DNS para [ *apontar um domínio de internet da empresa* ](../traffic-manager/traffic-manager-point-internet-domain.md) para o nome DNS do Gestor de tráfego.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Começar a gerar carga nas bases de dados de inquilinos
 
@@ -156,30 +159,18 @@ Os bursts ocorrem em intervalos aleatório.
 Demora alguns minutos até o padrão de carga surgir. Por isso, é melhor permitir que o gerador de execução para, pelo menos, três ou quatro minutos antes da carga de monitorização.
 
 1. No *ISE do PowerShell*, abra a... \\Learning módulos\\utilitários\\*demonstração LoadGenerator.ps1* script.
-2. Prima **F5** para executar o script e iniciar o gerador de carga. (Mantenha a predefinição os valores de parâmetros por agora.)
+1. Prima **F5** para executar o script e iniciar o gerador de carga. (Mantenha a predefinição os valores de parâmetros por agora.)
+1. Será solicitado para iniciar sessão sua conta do Azure e, se necessário, para selecionar a subscrição que pretende utilizar.
 
-Não reutilize a mesma instância de ISE do PowerShell para qualquer coisa, que não sejam talvez uma reexecução de *demonstração LoadGenerator.ps1*. Se precisar de executar outros scripts do PowerShell, inicie um separado ISE do PowerShell.
-
-#### <a name="rerun-with-different-parameters"></a>Volte a executar com diferentes parâmetros
-
-Se pretender voltar a executar o teste de carga de trabalho com diferentes parâmetros, siga estes passos:
-
-1. Parar *LoadGenerator.ps1*.
-    - Utilize **Ctrl + C**, ou clique em de **parar** botão.
-    - Este interrupção não parar ou afetam as tarefas de incompleta em segundo plano que ainda estão em execução.
-
-2. Volte a executar *demonstração LoadGenerator.ps1*.
-    - Volte a executar este deixa de qualquer uma das tarefas em segundo plano que podem ainda estar a executar primeiro *sp_CpuLoadGenerator*.
-
-Ou pode terminar a instância do ISE do PowerShell, o que deixa de todas as tarefas em segundo plano. Em seguida, iniciar uma nova instância do ISE do PowerShell e execute novamente *demonstração LoadGenerator.ps1*.
+O script de gerador de carga inicia uma tarefa em segundo plano para cada base de dados no catálogo e, em seguida, interrompe.  Se voltar a executar o script de gerador de carga, primeiro irá parar todas as tarefas em segundo plano que estejam a executar antes de iniciar a novos.
 
 #### <a name="monitor-the-background-jobs"></a>Monitorizar as tarefas em segundo plano
 
 Se pretender controlar e monitorizar as tarefas em segundo plano, pode utilizar os seguintes cmdlets:
 
-- Get-Job
-- Tarefa receber
-- Tarefa de paragem
+- `Get-Job`
+- `Receive-Job`
+- `Stop-Job`
 
 #### <a name="demo-loadgeneratorps1-actions"></a>Ações de demonstração LoadGenerator.ps1
 
@@ -188,17 +179,19 @@ Se pretender controlar e monitorizar as tarefas em segundo plano, pode utilizar 
 1. *Demonstração LoadGenerator.ps1* inicia *LoadGenerator.ps1* em primeiro plano.
     - Ambos estes ficheiros. ps1 são armazenados em pastas *Learning módulos\\utilitários\\*.
 
-2. *LoadGenerator.ps1* ciclos através de todas as bases de dados do inquilino que são registadas no catálogo.
+1. *LoadGenerator.ps1* ciclos através de todas as bases de dados do inquilino no catálogo.
 
-3. Para cada base de dados do inquilino, *LoadGenerator.ps1* inicia uma execução de Transact-SQL armazenados com o nome de procedimento *sp_CpuLoadGenerator*.
-    - As execuções são iniciadas em segundo plano, chamando o *Invoke-SqlAzureWithRetry* cmdlet.
-    - *sp_CpuLoadGenerator* ciclos em torno de uma instrução SQL SELECT para uma duração predefinida de 60 segundos. O intervalo de tempo entre problemas a SELECIONAR varia de acordo com os valores de parâmetros.
+1. *LoadGenerator.ps1* inicia um trabalho do PowerShell em segundo plano para cada base de dados do inquilino: 
+    - Por predefinição, as tarefas em segundo plano executam para 120 minutos.
+    - Cada tarefa faz com que uma carga de CPU baseada na base de dados de um inquilino executando *sp_CpuLoadGenerator*.  A intensidade e a duração da carga do varia consoante `$DemoScenario`. 
+    - *sp_CpuLoadGenerator* ciclos em torno de uma instrução SQL SELECT que faz com que uma elevada carga de CPU. O intervalo de tempo entre problemas a SELECIONAR varia de acordo com os valores de parâmetros para criar uma carga de CPU controllable. Níveis de carga e os intervalos são aleatória para simular cargas mais realistas.
     - Este ficheiro. SQL é armazenado em *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-4. Para cada base de dados do inquilino, *LoadGenerator.ps1* também inicia o *Start-Job* cmdlet.
-    - *Tarefa de início* mimics uma carga de trabalho de vendas de permissão.
+1. Se `$OneTime = $false`, o gerador de carga inicia as tarefas em segundo plano e, em seguida, continua a ser executado, a monitorização de cada 10 segundos para quaisquer novos inquilinos aprovisionados. Se definir `$OneTime = $true`, o LoadGenerator irá iniciar as tarefas em segundo plano e, em seguida, deixe de funcionar em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
-5. *LoadGenerator.ps1* continua em execução, a monitorização de quaisquer novos inquilinos aprovisionados.
+  Utilize Ctrl-C ou Ctrl-Break de operação de parar para interromper ou reiniciar o gerador de carga. 
+
+  Se deixar o gerador de carga em execução em primeiro plano, utilize outra instância do ISE do PowerShell para executar outros scripts do PowerShell.
 
 &nbsp;
 
@@ -208,7 +201,8 @@ Antes de avançar para a secção seguinte, deixe o gerador de carga em execuç�
 
 A implementação inicial cria três inquilinos de exemplo. Agora pode criar outro inquilino para ver o impacto na aplicação implementada. Na aplicação Wingtip, o fluxo de trabalho para aprovisionar novos inquilinos é explicado no [tutorial de aprovisionamento e o catálogo](saas-dbpertenant-provision-and-catalog.md). Nesta fase, crie um novo inquilino, demora menos de um minuto.
 
-1. No *ISE do PowerShell*, abra... \\Learning Modules\Provision e catálogo\\*demonstração ProvisionAndCatalog.ps1* .
+1. Abra uma nova *ISE do PowerShell*.
+1. Abra... \\Learning Modules\Provision e catálogo\\*demonstração ProvisionAndCatalog.ps1* .
 2. Prima **F5** para executar o script. (Mantenha os valores predefinidos por agora).
 
    > [!NOTE]
@@ -231,7 +225,7 @@ Atualize o *Hub de eventos* efetuar ao novo inquilino aparecer na lista.
 Agora que já iniciou a execução de carga na coleção de inquilinos, vamos ver alguns dos recursos que foram implementados:
 
 1. No [portal do Azure](http://portal.azure.com), navegue até à sua lista de servidores SQL e, em seguida, abra o **catálogo-dpt -&lt;utilizador&gt;**  servidor.
-    - O servidor de catálogo contém duas bases de dados, o **tenantcatalog** e **basetenantdb** (modelo base de dados que é copiado para criar novos inquilinos).
+    - O servidor de catálogo contém duas bases de dados, **tenantcatalog** e **basetenantdb** (modelo base de dados que é copiado para criar novos inquilinos).
 
    ![bases de dados](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
@@ -254,13 +248,13 @@ Navegue para o servidor **tenants1-dpt -&lt;utilizador&gt;**e clique em **Pool1*
    ![monitorização do conjunto](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
 - O gráfico primeiro, com a etiqueta **utilização de recursos**, mostra a utilização de eDTU do conjunto.
-- Segundo gráfico mostra a utilização de eDTU das bases de dados de cinco superiores no conjunto.
+- Segundo gráfico mostra a utilização de eDTU das bases de dados mais ativos cinco no conjunto.
 
-Os dois gráficos mostram que são adequados para cargas de trabalho de aplicações de SaaS conjuntos elásticos e base de dados SQL.
+Os dois gráficos mostram que são adequados para cargas de trabalho de aplicação imprevisíveis SaaS conjuntos elásticos e base de dados SQL.
 Os gráficos mostram que 4 bases de dados são cada segurança para quanto 40 eDTUs e ainda todas as bases de dados comfortably são suportados por um conjunto de 50 eDTU. O conjunto de 50 eDTU pode suportar as cargas de trabalho mesmo mais pesadas.
-Se estes tenham sido aprovisionados como bases de dados autónomo, fariam cada têm de ser um S2 (50 DTU) para suportar os bursts.
+Se estes tenham sido aprovisionados como bases de dados autónomo, cada base de dados iria têm de ser um S2 (50 DTU) para suportar os bursts.
 O custo de 4 bases de dados do autónomo S2 seria quase 3 vezes o preço do conjunto.
-Em situações de mundo real, os clientes de base de dados do SQL Server estão atualmente em execução até 500 bases de dados em 200 conjuntos de eDTU.
+Em situações de mundo real, os clientes de base de dados SQL executam até 500 bases de dados em 200 conjuntos de eDTU.
 Para obter mais informações, veja o [tutorial de monitorização do desempenho](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -271,7 +265,7 @@ Para obter mais informações, veja o [tutorial de monitorização do desempenho
 - Para saber mais sobre as aplicações SaaS multi-inquilino, veja [*Design patterns for multi-tenant SaaS applications (Padrões de conceção para aplicações SaaS multi-inquilino)*](saas-tenancy-app-design-patterns.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber:
 

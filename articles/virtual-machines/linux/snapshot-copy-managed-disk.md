@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo 
 
@@ -64,8 +64,8 @@ O resultado deverá ter um aspeto semelhante ao seguinte:
 
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Utilize o portal do Azure para criar um instantâneo 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. A partir do canto superior esquerdo, clique em **novo** e procure **instantâneo**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. A partir do canto superior esquerdo, clique em **crie um recurso** e procure **instantâneo**.
 3. No painel do instantâneo, clique em **criar**.
 4. Introduza um **nome** para o instantâneo.
 5. Selecione um [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) ou escreva o nome para um novo. 
@@ -77,7 +77,7 @@ O resultado deverá ter um aspeto semelhante ao seguinte:
 Se planear utilizar o instantâneo para criar um disco gerido e ligá-lo uma VM que tem de ser a execução elevada, utilize o parâmetro `--sku Premium_LRS` com o `az snapshot create` comando. Esta ação cria o instantâneo, de modo a que seja armazenada como um disco de gerido para Premium. Os discos Premium geridos melhor efetuar porque são unidades de estado sólido (SSDs), mas custo mais do que os discos padrão (HDDs).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
  Crie uma máquina virtual a partir de um instantâneo ao criar um disco gerido do instantâneo e, em seguida, anexar o disco novo gerido como disco do SO. Para obter mais informações, consulte o [criar uma VM a partir de um instantâneo](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) script.
 

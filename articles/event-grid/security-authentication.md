@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
@@ -59,6 +59,11 @@ Para provar a propriedade de ponto final, escreverá novamente o código de vali
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Segurança de entrega de eventos
+
+Pode proteger o ponto final de webhook ao adicionar parâmetros de consulta para o URL do webhook quando criar uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que pode utilizar o webhook para reconhecer o evento é proveniente de grelha de eventos com permissões válidas. Grelha de eventos irá incluir estes parâmetros de consulta em cada entrega de eventos para o webhook.
+
+Ao editar a subscrição de evento, os parâmetros de consulta não irão sejam apresentados ou devolvidos, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Por fim, é importante ter em atenção que a grelha de eventos do Azure suporta apenas pontos finais de webhook HTTPS.
 
@@ -68,15 +73,15 @@ Para subscrever um evento, tem de ter o **Microsoft.EventGrid/EventSubscriptions
 
 ### <a name="system-topics-azure-service-publishers"></a>Tópicos de sistema (editores de serviço do Azure)
 
-Tópicos de sistema, necessita de permissão para escrever uma nova subscrição de eventos no âmbito do recurso publicar o evento. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Tópicos de sistema, necessita de permissão para escrever uma nova subscrição de eventos no âmbito do recurso publicar o evento. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Por exemplo subscrever um evento de uma conta de armazenamento com o nome **myacct**, é preciso permissão Microsoft.EventGrid/EventSubscriptions/Write em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Por exemplo subscrever um evento de uma conta de armazenamento com o nome **myacct**, é preciso permissão Microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Tópicos personalizados
 
-Tópicos personalizado, terá permissão para escrever uma nova subscrição de eventos no âmbito do tópico grelha de eventos. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Tópicos personalizado, terá permissão para escrever uma nova subscrição de eventos no âmbito do tópico grelha de eventos. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Por exemplo subscrever um tópico personalizado denominado **mytopic**, é preciso permissão Microsoft.EventGrid/EventSubscriptions/Write em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Por exemplo subscrever um tópico personalizado denominado **mytopic**, é preciso permissão Microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Publicação de tópico
 
@@ -86,7 +91,7 @@ Incluir o valor de autenticação no cabeçalho de HTTP. Para SAS, utilize **tok
 
 ### <a name="key-authentication"></a>Autenticação de chave
 
-Autenticação de chave é a forma mais simples de autenticação. Utilize o formato:`aeg-sas-key: <your key>`
+Autenticação de chave é a forma mais simples de autenticação. Utilize o formato: `aeg-sas-key: <your key>`
 
 Por exemplo, transmitir uma chave com:
 
@@ -98,7 +103,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Os tokens SAS de grelha de eventos incluem o recurso, uma hora de expiração e uma assinatura. O formato do SAS token é: `r={resource}&e={expiration}&s={signature}`.
 
-O recurso é o caminho para o tópico para o qual está a enviar eventos. Por exemplo, é um caminho de recurso válido:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+O recurso é o caminho para o tópico para o qual está a enviar eventos. Por exemplo, é um caminho de recurso válido: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Gerar a assinatura de uma chave.
 

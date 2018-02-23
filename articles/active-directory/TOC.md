@@ -88,6 +88,7 @@
 #### [Exemplos do Azure PowerShell para licenciamento baseado no grupo](active-directory-licensing-ps-examples.md)
 #### [Referência para produtos e planos de serviço em Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Configurar a expiração de grupos do Office 365](active-directory-groups-lifecycle-azure-portal.md)
+### [Impor uma política de nomes para grupos](groups-naming-policy.md)
 ### [Ver todos os grupos](active-directory-groups-view-azure-portal.md)
 ### [Adicionar acesso do grupo às aplicações SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Restaurar um grupo do Office 365 eliminado](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [Ambiente de Trabalho Remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Equipas da Microsoft](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [Resolução de problemas](active-directory-application-proxy-troubleshoot.md)
+
 
 ### Gerir aplicações empresariais
 #### [Atribuir utilizadores](active-directory-coreapps-assign-user-azure-portal.md)

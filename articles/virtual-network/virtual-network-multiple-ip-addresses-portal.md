@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: d264bd47d76db8015a64f09248c57c94572e2693
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 906105e737087de91e7393861e9057f8acb06aa4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP para máquinas virtuais utilizando o portal do Azure
 
@@ -31,11 +31,11 @@ Este artigo explica como criar uma máquina virtual (VM) através do modelo de i
 
 ## <a name = "create"></a>Criar uma VM com vários endereços IP
 
-Se pretender criar uma VM com vários endereços IP ou um endereço IP privado estático, tem de criar, utilizar o PowerShell ou a CLI do Azure. Clique em Opções do PowerShell ou a CLI na parte superior deste artigo para saber como. Pode criar uma VM com um único endereço IP privado dinâmico e (opcionalmente) um único endereço IP público utilizando o portal, seguindo os passos a [criar uma VM do Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [criar uma VM com Linux](../virtual-machines/linux/quick-create-portal.md) artigos. Depois de criar a VM, pode alterar o tipo de endereço IP dinâmico para estática e adicionar endereços IP adicionais através do portal, os seguintes passos de [endereços IP de adicionar a uma VM](#add) secção deste artigo.
+Se pretender criar uma VM com vários endereços IP ou um endereço IP privado estático, tem de criar, utilizar o PowerShell ou a CLI do Azure. Para saber como, clique nas opções do PowerShell ou a CLI na parte superior deste artigo. Pode criar uma VM com um único endereço IP privado dinâmico e (opcionalmente) um único endereço IP público. Utilizar o portal, seguindo os passos a [criar uma VM do Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [criar uma VM com Linux](../virtual-machines/linux/quick-create-portal.md) artigos. Depois de criar a VM, pode alterar o tipo de endereço IP dinâmico para estática e adicionar endereços IP adicionais através do portal, os seguintes passos de [endereços IP de adicionar a uma VM](#add) secção deste artigo.
 
 ## <a name="add"></a>Adicionar endereços IP para uma VM
 
-Pode adicionar endereços IP públicos e privados a um NIC, efetuando os passos que se seguem. Os exemplos das secções seguintes partem do princípio de que já tem uma VM com as três configurações de IP descritas no [cenário](#Scenario) deste artigo, mas não é necessário que efetuar.
+Pode adicionar endereços IP públicos e privados a um NIC, efetuando os passos que se seguem. Os exemplos das secções seguintes partem do princípio de que já tem uma VM com as três configurações de IP descritas no [cenário](#Scenario), mas não é necessário.
 
 ### <a name="coreadd"></a>Passos de núcleo
 
@@ -57,11 +57,11 @@ Conclua os seguintes passos para adicionar um novo endereço IP privado:
 2. Clique em **Adicionar**. No **configuração de IP adicionar** painel que aparece, criar uma configuração de IP com o nome *IPConfig 4* com *10.0.0.7* como um *estático* IP privado de endereços, em seguida, clique em **OK**.
 
     > [!NOTE]
-    > Ao adicionar um endereço IP estático, tem de especificar um endereço válido, não utilizado na sub-rede que a NIC está ligada. Se o endereço que selecionou não estiver disponível, o portal irá mostrar um X para o endereço IP e terá de selecionar um diferente.
+    > Ao adicionar um endereço IP estático, tem de especificar um endereço válido, não utilizado na sub-rede que a NIC está ligada. Se o endereço que selecionou não estiver disponível, o portal apresenta um X para o endereço IP e tem de selecionar um tipo diferente.
 
-3. Assim que clicar em OK, o painel será fechado e verá que a nova configuração de IP listada. Clique em **OK** para fechar o **configuração de IP adicionar** painel.
+3. Assim que clicar em OK, o painel fecha e ver a nova configuração de IP listada. Clique em **OK** para fechar o **configuração de IP adicionar** painel.
 4. Pode clicar em **adicionar** adicionar configurações de IP adicionais ou fechar todas as abra painéis para acabar de adicionar endereços IP.
-5. Adicionar os endereços IP privados para o sistema operativo VM, efetuando os passos para o seu sistema operativo no [endereços IP de adicionar a um sistema de operativo VM](#os-config) secção deste artigo.
+5. Adicionar os endereços IP privados para o sistema operativo VM, efetuando os passos a [endereços IP de adicionar a um sistema de operativo VM](#os-config) secção deste artigo.
 
 ### <a name="add-a-public-ip-address"></a>Adicionar um endereço IP público
 
@@ -76,7 +76,7 @@ Um endereço IP público é adicionado ao associar um recurso de endereço IP p�
 Um endereço IP público é uma definição para um recurso de endereço IP público. Se tiver um recurso de endereço IP público que não está atualmente associado a uma configuração de IP que pretende associar a uma configuração de IP, ignorar os passos seguintes e execute os passos de uma das seguintes secções que se seguem, forem necessárias. Se não tiver um recurso de endereço IP público disponível, execute os seguintes passos para criar um:
 
 1. Navegue até ao portal do Azure em https://portal.azure.com e inicie sessão para a mesma, se necessário.
-3. No portal, clique em **novo** > **redes** > **endereço IP público**.
+3. No portal, clique em **crie um recurso** > **redes** > **endereço IP público**.
 4. No **Criar endereço IP público** painel apresentado, introduza um **nome**, selecione um **atribuição de endereços IP** tipo, um **subscrição**, um **Grupo de recursos**e um **localização**, em seguida, clique em **criar**, conforme mostrado na imagem seguinte:
 
     ![Criar um recurso de endereço IP público](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
@@ -88,7 +88,7 @@ Um endereço IP público é uma definição para um recurso de endereço IP púb
 1. Concluir os passos a [principais passos](#coreadd) secção deste artigo.
 2. Clique em **Adicionar**. No **configuração de IP adicionar** painel que aparece, criar uma configuração de IP com o nome *IPConfig 4*. Ativar o **endereço IP público** e selecione um existente, disponível endereço recurso de IP público do **escolher endereço IP público** painel que aparece.
 
-    Depois de selecionar o recurso de endereço IP público, clique em **OK** e o painel será fechada. Se não tiver um endereço IP público existente, pode criar um, efetuando os passos a [criar um recurso de endereço IP público](#create-public-ip) secção deste artigo. 
+    Depois de selecionar o recurso de endereço IP público, clique em **OK** e fecha o painel. Se não tiver um endereço IP público existente, pode criar um, efetuando os passos a [criar um recurso de endereço IP público](#create-public-ip) secção deste artigo. 
 
 3. Reveja a nova configuração de IP. Apesar de explicitamente não foi atribuído um endereço IP privado, um foi atribuído automaticamente a configuração de IP, porque todas as configurações de IP tem de ter um endereço IP privado.
 4. Pode clicar em **adicionar** adicionar configurações de IP adicionais ou fechar todas as abra painéis para acabar de adicionar endereços IP.
@@ -98,9 +98,9 @@ Um endereço IP público é uma definição para um recurso de endereço IP púb
 
 1. Concluir os passos a [principais passos](#coreadd) secção deste artigo.
 2. Clique em que pretende adicionar o recurso de endereço IP público para a configuração de IP.
-3. No painel de IPConfig que é apresentado, clique em **endereço IP**.
+3. No painel de IPConfig que aparece, clique em **endereço IP**.
 4. No **escolher endereço IP público** painel que aparece, selecione um endereço IP público.
-5. Clique em **guardar** e irão fechar os painéis. Se não tiver um endereço IP público existente, pode criar um, efetuando os passos a [criar um recurso de endereço IP público](#create-public-ip) secção deste artigo.
+5. Clique em **guardar** e fechar os painéis. Se não tiver um endereço IP público existente, pode criar um, efetuando os passos a [criar um recurso de endereço IP público](#create-public-ip) secção deste artigo.
 3. Reveja a nova configuração de IP.
 4. Pode clicar em **adicionar** adicionar configurações de IP adicionais ou fechar todas as abra painéis para acabar de adicionar endereços IP. Adicione o endereço IP público para o sistema operativo.
 

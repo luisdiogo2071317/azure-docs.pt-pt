@@ -3,8 +3,8 @@ title: "Máquinas virtuais disponibilizar aos utilizadores de pilha do Azure | M
 description: "Tutorial para disponibilizar as máquinas virtuais na pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: vhorne
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Máquinas virtuais disponibilizar aos utilizadores de pilha do Azure
 
@@ -86,7 +87,7 @@ Agora pode obter coisas pronto para os seus utilizadores. Quando inicia o proces
 
    Repita estes passos para os serviços de armazenamento e de rede e, em seguida, clique em **OK** no **Quotas** secção.
 
-   posso. Clique em **OK** no **novo plano** secção.
+   i. Clique em **OK** no **novo plano** secção.
 
    j. No **plano** secção, selecione o novo plano e clique em **selecione**.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS, introdução
 
@@ -48,7 +48,7 @@ Para ativar a sua aplicação autenticar os utilizadores e obter tokens, primeir
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Se tem sessão iniciada para vários diretórios, poderá ter de Certifique-se de que está a visualizar o diretório correto. Para tal, na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o inquilino do Azure AD, onde é necessário registar a sua aplicação.
-3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
+3. Clique em **todos os serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
 5. Siga as instruções e crie uma nova aplicação web e/ou web API:
   * **Nome** descreve a aplicação aos utilizadores.
@@ -78,8 +78,8 @@ Comece por adicionar adal.js ao projeto TodoSPA utilizando a consola do Gestor d
 
 ### <a name="configure-the-back-end-server"></a>Configurar o servidor de back-end
 Para back-end para fazer lista API a aplicação de página única aceitar tokens a partir do browser, o back-end tem informações de configuração sobre o registo de aplicação. No projeto TodoSPA, abra `web.config`. Substitua os valores de elementos no `<appSettings>` secção para refletir os valores que utilizou no portal do Azure. O código será referenciar estes valores, sempre que utilizar a ADAL.
-  * `ida:Tenant`é o domínio de inquilino do Azure AD – por exemplo, contoso.onmicrosoft.com.
-  * `ida:Audience`é o ID de cliente da aplicação que copiou do portal.
+  * `ida:Tenant` é o domínio de inquilino do Azure AD – por exemplo, contoso.onmicrosoft.com.
+  * `ida:Audience` é o ID de cliente da aplicação que copiou do portal.
 
 ## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Passo 3: Utilizar a ADAL para ajudar a proteger páginas na aplicação de página única
 Adal.js integra AngularJS rota e fornecedores de HTTP, para que possa ajudar vistas individuais seguras na sua aplicação de página única.

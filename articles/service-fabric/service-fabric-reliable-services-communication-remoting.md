@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação remota do serviço com Reliable Services
 Para os serviços que não estão associados a um protocolo de comunicação específico ou pilha, como end WebAPI, o Windows Communication Foundation (WCF) ou outros recursos, a arquitetura de Reliable Services fornece um mecanismo de comunicação remota de forma rápida e fácil configurar a chamada de procedimento remoto para os serviços.
@@ -30,7 +30,7 @@ Configurar a gestão remota para um serviço é efetuada em dois passos simples:
 2. Utilize um serviço de escuta de comunicação remota no seu serviço. RemotingListener é um `ICommunicationListener` implementação que oferece funções de sistema de interação remota. O `Microsoft.ServiceFabric.Services.Remoting.Runtime` espaço de nomes contém um método de extensão,`CreateServiceRemotingListener` para serviços sem monitorização de estado e com monitorização de estado que podem ser utilizados para criar um serviço de escuta da gestão remota utilizando o protocolo de transporte de comunicação remota de predefinição.
 
 >[!NOTE]
->O `Remoting` espaço de nomes está disponível como um pacote NuGet separado denominado`Microsoft.ServiceFabric.Services.Remoting`
+>O `Remoting` espaço de nomes está disponível como um pacote NuGet separado denominado `Microsoft.ServiceFabric.Services.Remoting`
 
 Por exemplo, o serviço sem monitorização de estado seguinte expõe um único método para obter "Olá mundo" através de uma chamada de procedimento remoto.
 
@@ -59,7 +59,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -84,7 +84,7 @@ A arquitetura de sistema de interação remota propaga exceções acionadas pelo
 ## <a name="service-proxy-lifetime"></a>Duração do Proxy de serviço
 Criação de ServiceProxy é uma operação simples, para que os utilizadores podem criar tantas como que precisam. Instâncias de Proxy de serviço podem ser reutilizadas, desde que os utilizadores necessitam. Se uma chamada de procedimento remoto emite uma exceção, os utilizadores ainda podem reutilizar a mesma instância de proxy. Cada ServiceProxy contém um cliente de comunicação utilizado para enviar mensagens através da transmissão. Ao invocar chamadas remotas, iremos internamente Verifique se o cliente de comunicação é válido. Com base no que resultam, vamos voltar a criar o cliente de comunicação se for necessário. Por conseguinte, se ocorrer uma exceção, os utilizadores não necessário recriá- `ServiceProxy` porque este é feito transparente.
 
-### <a name="serviceproxyfactory-lifetime"></a>Duração de ServiceProxyFactory
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica de que cria instâncias de proxy para interfaces de comunicação remota diferente. Se utilizar a api `ServiceProxy.Create` para criar o proxy, em seguida, a estrutura cria um singleton ServiceProxy.
 É útil criar um manualmente quando for necessário substituir [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) propriedades.
 A criação do Factory é uma operação dispendiosa. ServiceProxyFactory mantém uma cache do cliente de comunicação interna.
@@ -146,7 +146,7 @@ Eis os passos a seguir.
   </Resources>
   ```
 
-2. Utilize [V2Listener de comunicação remota](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Nome de recurso de ponto final de serviço predefinido utilizado é "ServiceEndpointV2" e tem de ser definido no Service Manifest.
+2. Utilize [V2Listener de comunicação remota](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet). Nome de recurso de ponto final de serviço predefinido utilizado é "ServiceEndpointV2" e tem de ser definido no Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -387,7 +387,7 @@ Exemplo seguinte utiliza serialização Json com o sistema de interação remota
             });
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Web API com OWIN nos serviços de fiáveis](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicação de WCF com Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Proteger a comunicação para Reliable Services](service-fabric-reliable-services-secure-communication.md)

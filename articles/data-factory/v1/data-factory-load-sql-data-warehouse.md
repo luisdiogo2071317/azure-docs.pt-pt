@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Data Factory
 > [!NOTE]
@@ -114,8 +114,8 @@ Com os passos de pré-requisitos foi concluídos, mas agora está prontas para c
 
 ## <a name="launch-copy-wizard"></a>Inicie o Assistente de Cópia
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **+ novo** no canto superior esquerdo, clique em **Intelligence + análise**e clique em **Data Factory**.
-3. No painel **Nova fábrica de dados**:
+2. Clique em **crie um recurso** no canto superior esquerdo, clique em **Intelligence + análise**e clique em **Data Factory**.
+3. No **nova fábrica de dados** painel:
 
    1. Introduza **LoadIntoSQLDWDataFactory** para o **nome**.
        O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **nome da fábrica de dados "LoadIntoSQLDWDataFactory" não está disponível**, alterar o nome da fábrica de dados (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.  

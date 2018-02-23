@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um certificado de gestão de serviço do Azure
 Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pelo Azure. Muitos programas e ferramentas (tais como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação de vários serviços do Azure. 
@@ -38,7 +38,7 @@ Também pode utilizar [do Azure Active Directory](https://azure.microsoft.com/en
 Depois de ter um certificado de gestão criado, (ficheiro. cer com apenas a chave pública) pode carregá-lo no portal. Quando o certificado está disponível no portal, qualquer pessoa com um certificado correspondente (chave privada) pode ligar através da API de gestão e aceder aos recursos da subscrição associada.
 
 1. Inicie sessão no [Portal do Azure](http://portal.azure.com).
-2. Clique em **mais serviços** na lista de serviço do Azure na parte inferior, em seguida, selecione **subscrições** no _geral_ grupo de serviço.
+2. Clique em **todos os serviços** na lista de serviço do Azure na parte inferior, em seguida, selecione **subscrições** no _geral_ grupo de serviço.
 
     ![Menu de subscrição](./media/azure-api-management-certs/subscriptions_menu.png)
 

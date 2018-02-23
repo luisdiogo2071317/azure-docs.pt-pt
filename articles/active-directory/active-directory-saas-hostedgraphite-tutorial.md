@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutorial: Integração do Azure Active Directory com Graphite alojado
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.hostedgraphite.com/metadata/<user id>`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. No **URLs e de domínio de Graphite alojado** secção, se pretender configurar a aplicação no **SP iniciada modo**, execute os seguintes passos:
    
@@ -120,7 +120,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
   
     a. Clique em de **Mostrar avançadas definições de URL** opção
 
-    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
     > Tenha em atenção que estas não são os valores reais. Tem de atualizar estes valores com o identificador real, URL de resposta e URL de início de sessão. Para obter estes valores, pode aceder ao acesso -> configuração SAML no lado de aplicação ou contacte [equipa de suporte de alojado Graphite](mailto:help@hostedgraphite.com).
@@ -205,7 +205,7 @@ O objetivo desta secção consiste em criar um utilizador chamado Britta Simon G
 Não há nenhum item de ação para si nesta secção. Durante uma tentativa de aceder Graphite alojados, se não existir ainda será criado um novo utilizador.
 
 >[!NOTE]
->Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de Graphite alojado através de < mailto:help@hostedgraphite.com >. 
+>Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de Graphite alojado através de <mailto:help@hostedgraphite.com>. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

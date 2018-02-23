@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4246ecfa50176400c54cd80857e25675290e7170
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Descrição geral de SAP HANA (instâncias de grandes dimensões) e arquitetura no Azure
 
@@ -137,21 +137,19 @@ A partir de Julho de 2017, SAP HANA no Azure (instâncias de grande) está dispo
 | Otimizado para OLAP: SAP BW, BW/4HANA<br /> ou SAP HANA para carga de trabalho OLAP genérica | SAP HANA no S72 do Azure<br /> – 2x processador Intel Xeon de®® E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  768 GB |  3 TB | Disponível |
 | --- | SAP HANA no S144 do Azure<br /> – 4 x processador Intel Xeon de®® E7 8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  1,5 TB |  6 TB | Não oferecido já |
 | --- | SAP HANA no S192 do Azure<br /> – 4 x processador Intel Xeon de®® E7 8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU |  2.0 TB |  8 TB | Disponível |
-| --- | SAP HANA no S384 do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  4.0 TB |  16 TB | Pronto para ordenação |
+| --- | SAP HANA no S384 do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  4.0 TB |  16 TB | Disponível |
 | Otimizado para OLTP: SAP Business Suite<br /> SAP HANA ou S/4HANA (OLTP)<br /> OLTP genérico | SAP HANA no S72m do Azure<br /> – 2x processador Intel Xeon de®® E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  1,5 TB |  6 TB | Disponível |
 |---| SAP HANA no S144m do Azure<br /> – 4 x processador Intel Xeon de®® E7 8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  3.0 TB |  12 TB | Não oferecido já |
 |---| SAP HANA no S192m do Azure<br /> – 4 x processador Intel Xeon de®® E7 8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU  |  4.0 TB |  16 TB | Disponível |
-|---| SAP HANA no S384m do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6.0 TB |  18 TB | Pronto para ordenação |
-|---| SAP HANA no S384xm do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8.0 TB |  22 TB |  Pronto para ordenação |
-|---| SAP HANA no S576 do Azure<br /> – 12 x processador Intel Xeon de®® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 TB | Pronto para ordenação |
-|---| SAP HANA no S768 do Azure<br /> – 16 x processador Intel Xeon de®® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16.0 TB |  36 TB | Pronto para ordenação |
-|---| SAP HANA no S960 do Azure<br /> – 20 x processador Intel Xeon de®® E7 8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20.0 TB |  46 TB | Pronto para ordenação |
+|---| SAP HANA no S384m do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6.0 TB |  18 TB | Disponível |
+|---| SAP HANA no S384xm do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8.0 TB |  22 TB |  Disponível |
+|---| SAP HANA no S576 do Azure<br /> – 12 x processador Intel Xeon de®® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 TB | Disponível |
+|---| SAP HANA no S768 do Azure<br /> – 16 x processador Intel Xeon de®® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16.0 TB |  36 TB | Disponível |
+|---| SAP HANA no S960 do Azure<br /> – 20 x processador Intel Xeon de®® E7 8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20.0 TB |  46 TB | Disponível |
 
 - Núcleos de CPU = soma de núcleos de CPU não-com hyper-threading da soma de processadores da unidade do servidor.
 - Threads de CPU = soma de threads de computação fornecidos pelo núcleos de CPU com hyper-threading da soma de processadores da unidade do servidor. Todas as unidades estão configuradas por predefinição para utilizar o Hyper-Threading.
 
-
-As configurações diferentes acima que se encontram disponíveis ou 'não poderão utilizar deixam de ser' referenciadas na [2316233 de n. º de nota de suporte de SAP – SAP HANA no Microsoft Azure (instâncias de grande)](https://launchpad.support.sap.com/#/notes/2316233/E). As configurações que estão marcadas como 'Pronto para ordenação' irão encontrar os respetivos entrada para a nota SAP em breve. No entanto, os SKUs de instância pode ser ordenados já para seis diferentes regiões do Azure que o serviço de instância grande HANA está disponível.
 
 As configurações específicas escolhidas são dependentes de carga de trabalho, recursos de CPU e memória pretendida. É possível utilizar os SKUs que estão otimizados para carga de trabalho do OLAP de carga de trabalho OLTP. 
 
@@ -187,9 +185,9 @@ Alguns exemplos de executar várias instâncias de SAP HANA podem ter o seguinte
 
 | SKU | Tamanho da Memória | Tamanho de Armazenamento | Tamanhos com várias bases de dados |
 | --- | --- | --- | --- |
-| S72 | 768 GB | 3 TB | 1 x 768 GB HANA instância<br /> ou instância de 1 x 512 GB + 1 x 256 GB instância<br /> ou instâncias de 3 x 256 GB | 
-| S72m | 1,5 TB | 6 TB | 3x512GB HANA instâncias<br />ou instância de 1 x 512 GB + 1 1 TB instância<br />ou instâncias de 6 x 256 GB<br />ou instância de 1x1.5 TB | 
-| S192m | 4 TB | 16 TB | Instâncias de 8 x 512 GB<br />ou instâncias de 4 1 TB<br />ou instâncias de 4 x 512 GB + 2 1 TB instâncias<br />ou instâncias de 4 x 768 GB + instâncias de 2 x 512 GB<br />a instância de 1 4 TB ou |
+| S72 | 768 GB | 3 TB | 1x768 GB HANA Instance<br /> ou instância de 1 x 512 GB + 1 x 256 GB instância<br /> ou instâncias de 3 x 256 GB | 
+| S72m | 1,5 TB | 6 TB | 3x512GB HANA Instances<br />ou instância de 1 x 512 GB + 1 1 TB instância<br />ou instâncias de 6 x 256 GB<br />ou instância de 1x1.5 TB | 
+| S192m | 4 TB | 16 TB | 8x512 GB Instances<br />ou instâncias de 4 1 TB<br />ou instâncias de 4 x 512 GB + 2 1 TB instâncias<br />ou instâncias de 4 x 768 GB + instâncias de 2 x 512 GB<br />a instância de 1 4 TB ou |
 | S384xm | 8 TB | 22 TB | Instâncias de 4 x 2 TB<br />ou instâncias de 2 4 TB<br />ou instâncias de 2, 3 TB + 1 x 2 TB instâncias<br />ou instâncias de 2x2.5 TB + 1 x 3 TB instâncias<br />a instância de 1 x 8 TB ou |
 
 
@@ -277,7 +275,7 @@ Esta lista monta requisitos para executar o SAP HANA no Azure (instâncias super
 
 - Azure ExpressRoute no local para o Azure: ligar o seu centro de dados no local ao Azure, certifique-se ordenar, pelo menos, uma ligação de Gbps 1 a partir do seu ISP. 
 
-**Sistema operativo:**
+Sistema operativo:
 
 - Licenças do SUSE Linux Enterprise Server 12 para aplicações SAP.
 

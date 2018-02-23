@@ -23,6 +23,7 @@
 ### [Arquitetura de MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Escalões de desempenho](performance-tiers.md)
 ### [Unidades do Data Warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Escalamento horizontal, colocar em pausa, retomar](sql-data-warehouse-manage-compute-overview.md)
 ### [Cópias de segurança do armazém de dados](sql-data-warehouse-backups.md)
 ### [Auditoria](sql-data-warehouse-auditing-overview.md)
 ### [Limites de capacidade](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## Monitorizar e ajustar
-### [Orientações](resource-classes-for-workload-management.md)
+### [Gestão de cargas de trabalho](resource-classes-for-workload-management.md)
 ### [Compressão Columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitorizar](sql-data-warehouse-manage-monitor.md)
 ### [Resolução de problemas](sql-data-warehouse-troubleshoot.md)

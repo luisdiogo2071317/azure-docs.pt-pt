@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Criar uma rede virtual com um modelo Azure Resource Manager
 
@@ -39,9 +39,9 @@ Este artigo explica como criar uma VNet através do modelo de implementação do
 - [PowerShell (Clássico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (Clássica)](virtual-networks-create-vnet-classic-cli.md)
 
-Irá aprender a transferir e modificar o modelo ARM existente a partir do GitHub, e a implementar o modelo a partir do GitHub, PowerShell e da CLI do Azure.
+Saiba como transferir e modificar e o modelo Azure Resource Manager existente a partir do GitHub e implementar o modelo a partir do GitHub, PowerShell e a CLI do Azure.
 
-Se estiver a implementar o modelo ARM diretamente a partir do GitHub, sem quaisquer alterações, avance para [implementar um modelo a partir do github](#deploy-the-arm-template-by-using-click-to-deploy).
+Se estiver a implementar o modelo Azure Resource Manager diretamente a partir do GitHub, sem quaisquer alterações, avance para o [implementar um modelo a partir do github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ Pode transferir o modelo existente para criar uma VNet e duas sub-redes a partir
 2. Clique em **azuredeploy.json** e em **RAW**.
 3. Guarde o ficheiro numa pasta local do computador.
 4. Se estiver familiarizado com modelos, avance para o passo 7.
-5. Abra o ficheiro que guardou e observe o conteúdo em **parâmetros**, na linha 5. Os parâmetros do modelo ARM fornecem um marcador de posição para valores que podem ser preenchidos durante a implementação.
+5. Abra o ficheiro que guardou e observe o conteúdo em **parâmetros** na linha 5. Os parâmetros do modelo Azure Resource Manager fornecem um marcador de posição para valores que podem ser preenchidos durante a implementação.
    
    | Parâmetro | Descrição |
    | --- | --- |
-   | **localização** |Região do Azure onde a VNet vai ser criada |
+   | **localização** |Região do Azure onde a VNet será criada |
    | **vnetName** |Nome para a nova VNet |
    | **addressPrefix** |Espaço de endereços da VNet, no formato CIDR |
    | **subnet1Name** |Nome para a primeira VNet |
@@ -71,7 +71,7 @@ Pode transferir o modelo existente para criar uma VNet e duas sub-redes a partir
 6. Verifique o conteúdo em **recursos** e tenha em atenção o seguinte:
    
    * **tipo**. Tipo de recurso a ser criado pelo modelo. Neste caso, **Microsoft.Network/virtualNetworks**, que representa uma VNet.
-   * **nome**. Nome do recurso. Tenha em atenção a utilização de **[parameters('vnetName')]**, que significa que o nome será fornecido como uma entrada pelo utilizador ou por um ficheiro de parâmetros durante a implementação.
+   * **nome**. Nome do recurso. Tenha em atenção a utilização de **[parameters('vnetName')]**, que significa que o nome fornecido como entrada pelo utilizador ou um ficheiro de parâmetros durante a implementação.
    * **propriedades**. Lista de propriedades do recurso. Este modelo utiliza as propriedades do espaço de endereços e da sub-rede durante a criação da VNet.
 7. Regresse à [página do modelo de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Clique em **azuredeploy-paremeters.json** e em **RAW**.
@@ -231,7 +231,7 @@ Pode reutilizar predefinido modelos Azure Resource Manager carregados para um re
    
     ![Mosaico Submeter implementação no portal de pré-visualização](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Assim que a implementação estiver concluída, no, clique em portal do Azure **mais serviços**, tipo *redes virtuais* na caixa do filtro aparece, em seguida, clique em redes virtuais para ver o painel de redes virtuais. No painel, clique em *TestVNet*. No *TestVNet* painel, clique em **sub-redes** para ver as sub-redes criadas, conforme mostrado na imagem seguinte:
+10. Assim que a implementação estiver concluída, no, clique em portal do Azure **todos os serviços**, tipo *redes virtuais* na caixa do filtro aparece, em seguida, clique em redes virtuais para ver o painel de redes virtuais. No painel, clique em *TestVNet*. No *TestVNet* painel, clique em **sub-redes** para ver as sub-redes criadas, conforme mostrado na imagem seguinte:
     
      ![Criar a VNet no portal de pré-visualização](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Tipos e fornecedores de recursos
 
@@ -53,7 +53,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por predefinição, muitos fornecedores de recursos são registados automaticamente. No entanto, terá de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para efetuar o `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de contribuinte e proprietário.
+Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por predefinição, muitos fornecedores de recursos são registados automaticamente. No entanto, terá de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para efetuar o `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -157,7 +157,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por predefinição, muitos fornecedores de recursos são registados automaticamente. No entanto, terá de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para efetuar o `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de contribuinte e proprietário.
+Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por predefinição, muitos fornecedores de recursos são registados automaticamente. No entanto, terá de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para efetuar o `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -257,15 +257,15 @@ Selecione **fornecedores de recursos** e ver a lista de fornecedores de recursos
 
 ![Mostrar os fornecedores de recursos](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por predefinição, muitos fornecedores de recursos são registados automaticamente. No entanto, terá de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para efetuar o `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de contribuinte e proprietário. Para registar um fornecedor de recursos, selecione **registar**.
+Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por predefinição, muitos fornecedores de recursos são registados automaticamente. No entanto, terá de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para efetuar o `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Para registar um fornecedor de recursos, selecione **registar**.
 
 ![registar o fornecedor de recursos](./media/resource-manager-supported-services/register-provider.png)
 
 Não é possível anular o registo de um fornecedor de recursos quando tem tipos de recursos desse fornecedor de recursos na sua subscrição.
 
-Para ver informações de um fornecedor de recurso específico, selecione **mais serviços**.
+Para ver informações de um fornecedor de recurso específico, selecione **todos os serviços**.
 
-![Selecione mais serviços](./media/resource-manager-supported-services/more-services.png)
+![Selecione todos os serviços](./media/resource-manager-supported-services/more-services.png)
 
 Procurar **Explorador de recursos** e selecione-a partir das opções disponíveis.
 
@@ -287,7 +287,7 @@ A versão de API corresponde a uma versão das operações de REST API que são 
 
 ![Mostrar versões de API](./media/resource-manager-supported-services/show-api-versions.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre como criar modelos do Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre a implementação de recursos, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
 * Para ver as operações de um fornecedor de recursos, consulte [API REST da Azure](/rest/api/).

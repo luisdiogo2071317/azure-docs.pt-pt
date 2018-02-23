@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
-Assim que tiver iniciado a utilizar um ou mais bases de dados de BD do Cosmos do Azure, pode querer monitorizar como e quando as bases de dados são acedidos. Diagnóstico de registo na base de dados do Azure Cosmos permite-lhe executar esta monitorização. Ao ativar o registo de diagnóstico, pode enviar registos para [Storage do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/), e/ou exportá-las para [Log Analytics](https://azure.microsoft.com/services/log-analytics/), que faz parte de [ Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Assim que tiver iniciado a utilizar um ou mais bases de dados de BD do Cosmos do Azure, pode querer monitorizar como e quando as bases de dados são acedidos. Este artigo fornece uma descrição geral de todos os registos disponíveis na plataforma do Azure, em seguida, explica como ativar o registo de diagnóstico para a monitorização fins para enviar registos ao [Storage do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Event Hubs do Azure ](https://azure.microsoft.com/services/event-hubs/), e/ou exportá-las para [Log Analytics](https://azure.microsoft.com/services/log-analytics/), que faz parte de [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## <a name="logs-available-in-azure"></a>Registos disponíveis no Azure
+
+Antes de vamos entrar na sua conta de base de dados do Azure Cosmos de monitorização, permite esclarecer alguns aspetos sobre o registo e monitorização. Existem diferentes tipos de registos na plataforma do Azure. Existem [registos de atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, heartbeat monitorização, registos de operações, etc. Existem plethora de registos. Pode ver uma lista completa de registos no [Log Analytics do Azure](https://azure.microsoft.com/en-us/services/log-analytics/) no portal do Azure. 
+
+A imagem seguinte mostra os diferentes tipos de registos do Azure disponíveis.
+
+![Diferentes tipos de registos do Azure](./media/logging/azurelogging.png)
+
+Para o nosso debate permite foco na atividade do Azure, Azure Diagnotic e métricas. Por isso, o que é a diferença entre estes três registos? 
+
+### <a name="azure-activity-log"></a>Registo de atividade do Azure
+
+O registo de atividade do Azure é um registo de subscrição que fornece informações sobre os eventos de nível de subscrição ocorridos no Azure. O registo de atividade relatórios plane de controlo de eventos para as suas subscrições sob a categoria administrativa. Utilizar o registo de atividade, poderá determinar o ' que, quem e quando ' para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também pode compreender o estado da operação e outras propriedades relevantes. 
+
+O registo de atividade difere dos registos de diagnóstico. Registos de atividade fornecem dados sobre as operações num recurso do exterior (o "plane de controlo"). O contexto de base de dados do Azure Cosmos, alguns dos plane controlo operações incluem criar coleção, chaves de lista, chaves de eliminação, base de dados de lista, etc. Registos de diagnóstico são emitidos por um recurso e fornecem informações sobre o funcionamento do recurso de (o "plane de dados"). Alguns dos exemplos de registo de diagnóstico de plane dados serão delete, insert, operação readfeed, etc.
+
+Registos de atividade (controlo plane operações) poderão ser muito mais rico natureza, estes podem incluir o endereço de e-mail completo do autor da chamada, endereço IP do emissor, nome de recurso, o nome da operação e TenantId, etc. O registo de atividade contém várias [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para obter detalhes completos na esquemas destas categorias, consulte [esquema de eventos de registo de atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  No entanto, os registos de diagnóstico pode ser restritivos natureza como dados PII, muitas vezes, são eliminados dos mesmos. Por isso, poderá ter o endereço IP do chamador, mas o último octent é removido.
+
+### <a name="azure-metrics"></a>Métricas do Azure
+
+[As métricas do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics), ter o tipo de dados de telemetria do Azure (também denominados de contadores de desempenho) emitidos pelo Azure mais recursos mais importante. Métricas permitem-lhe ver informações sobre débito, armazenamento, consistência, disponibilidade e a latência dos seus recursos Azure Cosmos DB. Para obter mais informações consulte [monitorização e a depuração com métricas do BD Azure Cosmos](use-metrics.md).
+
+### <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
+
+Os registos de diagnóstico do Azure são emitidos por um recurso de registos e fornecem dados avançados, frequentes sobre o funcionamento do recurso de. O conteúdo estes registos varia consoante o tipo de recurso. Os registos de diagnóstico de nível de recursos também diferem dos registos de diagnóstico de nível de SO convidado. Os registos de diagnóstico de SO convidado são esses recolhidos por um agente em execução dentro de uma máquina virtual ou outros suportado o tipo de recurso. Os registos de diagnóstico de nível de recursos requerem sem dados de recursos específicos de agente e captura da plataforma do Azure, enquanto os registos de diagnóstico de nível de SO convidado capturar os dados do sistema operativo e aplicações em execução numa máquina virtual.
 
 ![Registo de diagnóstico para o armazenamento, os Event Hubs ou através de análise de registos do Operations Management Suite](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Utilize este tutorial para começar com Azure Cosmos DB registo através do portal do Azure, CLI ou PowerShell.
-
-## <a name="what-is-logged"></a>O que é registado?
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>O que é registado por registos de diagnóstico do Azure?
 
 * Todos os pedidos de back-end autenticado (TCP/REST) em todos os APIs, são registados, que inclui os pedidos falhados resultantes de permissões de acesso, erros de sistema ou pedidos incorretos. Suporte para o utilizador iniciada no gráfico, Cassandra, e pedidos de API de tabela não estão atualmente disponíveis.
 * Operações de na base de dados autónomo, que inclui as operações CRUD em todos os documentos, contentores e bases de dados.
 * Operações sobre chaves de conta, que incluem a criar, modificar ou eliminar estas chaves.
 * Pedidos não autenticados que resultam numa resposta 401. Por exemplo, pedidos que não têm um token de portador ou pedidos incorretamente formulados ou expirados ou com um token inválido.
 
-## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este tutorial, tem de ter os seguintes recursos:
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Ative o registo no portal do Azure
+
+Para ativar o registo de diagnóstico, tem de ter os seguintes recursos:
 
 * Um existente do Azure Cosmos DB conta, base de dados e contentor. Para obter instruções sobre como criar estes recursos, consulte [criar uma conta de base de dados utilizando o portal do Azure](create-sql-api-dotnet.md#create-a-database-account), [amostras CLI](cli-samples.md), ou [exemplos do PowerShell](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Ative o registo no portal do Azure
+Para ativar o registo de diagnóstico no portal do Azure, efetue o seguinte:
 
 1. No [portal do Azure](https://portal.azure.com), no seu Azure Cosmos DB conta, clique em **registos de diagnóstico** na navegação à esquerda e, em seguida, clique em **ative os diagnósticos**.
 
@@ -98,7 +123,7 @@ Pode combinar estes parâmetros para ativar várias opções de saída.
 
 ## <a name="turn-on-logging-using-powershell"></a>Ativar o registo com o PowerShell
 
-Para ativar o registo com o PowerShell, terá de Azure Powershell, com uma versão mínima 1.0.1.
+Para ativar o registo de diagnóstico com o PowerShell, terá de Azure Powershell, com uma versão mínima 1.0.1.
 
 Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
@@ -233,7 +258,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-Como pode neste resultado, os blobs seguem uma convenção de nomenclatura:`resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Como pode neste resultado, os blobs seguem uma convenção de nomenclatura: `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Os valores data e hora utilizam o UTC.
 
@@ -285,8 +310,8 @@ Para transferir seletivamente blobs, utilize carateres universais. Por exemplo:
 
 Além disso:
 
-* Para consultar o estado das definições de diagnóstico para o seu recurso de base de dados:`Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
-* Para desativar o registo de **DataPlaneRequests** categoria para o seu recurso de conta de base de dados:`Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
+* Para consultar o estado das definições de diagnóstico para o seu recurso de base de dados: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+* Para desativar o registo de **DataPlaneRequests** categoria para o seu recurso de conta de base de dados: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
 
 Os blobs que são devolvidos em cada uma das seguintes consultas são armazenados como texto, formatados como um blob JSON, conforme mostrado no seguinte código. 
@@ -315,7 +340,7 @@ Para saber mais sobre os dados de cada blob JSON, consulte [interpretar os regis
 
 ## <a name="managing-your-logs"></a>Gerir os seus registos
 
-Os registos são disponibilizados na sua conta de duas horas desde o momento que a operação de base de dados do Azure Cosmos foi efetuada. Cabe-lhe gerir os seus registos na sua conta de armazenamento:
+Os registos de diagnóstico são disponibilizados na sua conta de duas horas desde o momento que a operação de base de dados do Azure Cosmos foi efetuada. Cabe-lhe gerir os seus registos na sua conta de armazenamento:
 
 * Utilize métodos padrão de controlo de acesso do Azure para proteger os seus registos, restringindo o seu acesso.
 * Elimine os registos que já não pretende manter na sua conta de armazenamento.
@@ -325,7 +350,7 @@ Os registos são disponibilizados na sua conta de duas horas desde o momento que
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Ver registos na análise de registos
 
-Se tiver selecionado o **enviar ao Log Analytics** opção quando ativou o registo, dados de diagnóstico da sua coleção seja reencaminhados para a análise de registos dentro de duas horas. Isto significa que se observar a análise de registos imediatamente depois de desativar o registo, que não veja todos os dados. Apenas, aguarde duas horas e tente novamente. 
+Se tiver selecionado o **enviar ao Log Analytics** opção quando ativou o registo de diagnóstico, diagnóstico dados da sua coleção seja reencaminhados para a análise de registos dentro de duas horas. Isto significa que se observar a análise de registos imediatamente depois de desativar o registo, que não veja todos os dados. Apenas, aguarde duas horas e tente novamente. 
 
 Antes de visualizar os seus registos, poderá ser útil verificar e ver se a sua área de trabalho de análise de registos foi atualizada para utilizar o novo idioma de consulta de análise de registos. Para verificar isto, abra o [portal do Azure](https://portal.azure.com), clique em **Log Analytics** no lado esquerdo até ao momento, em seguida, selecione o nome da área de trabalho conforme mostrado na imagem seguinte. O **área de trabalho OMS** é apresentada a página, conforme mostrado na imagem seguinte.
 

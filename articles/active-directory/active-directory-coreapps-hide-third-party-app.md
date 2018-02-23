@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Ocultar uma aplicação da experiência do utilizador no Azure Active Directory
 
@@ -38,7 +38,7 @@ Pode utilizar os passos abaixo, dependendo da sua situação, para ocultar as ap
 Utilize os seguintes passos para ocultar uma aplicação a partir do painel de acesso de um utilizador e launchers de aplicação do Office 365.
 
 1.  Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2.  Selecione **mais serviços**, introduza **do Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
+2.  Selecione **todos os serviços**, introduza **do Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
 3.  No **Azure Active Directory - *directoryname***  ecrã (ou seja, o Azure AD ecrã para o diretório que está a gerir), selecione **aplicações empresariais**.
 ![Aplicações da empresa](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  No **aplicações empresariais** ecrã, selecione **todas as aplicações**. É apresentada uma lista das aplicações que pode gerir.
@@ -54,7 +54,7 @@ Utilize os seguintes passos para ocultar uma aplicação a partir do painel de a
 Utilize os seguintes passos para ocultar todas as aplicações do Office 365 do painel de acesso. Estas aplicações continuarão a estar visíveis no portal do Office 365.
 
 1.  Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2.  Selecione **mais serviços**, introduza **do Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
+2.  Selecione **todos os serviços**, introduza **do Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
 3.  No **Azure Active Directory - *directoryname***  ecrã (ou seja, o Azure AD ecrã para o diretório que está a gerir), selecione **as definições de utilizador**.
 4.  No **as definições de utilizador** ecrã em **aplicações empresariais** selecione **Sim** para **os utilizadores apenas podem ver as aplicações do Office 365 no portal do Office 365**.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Implementar um serviço de divisão/intercalação
 A ferramenta de intercalação de divisão permite-lhe mover dados entre bases de dados em partição horizontal. Consulte [mover dados entre bases de dados de nuvem de escalamento horizontal](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -39,8 +39,8 @@ Os ficheiros são colocados num diretório com o nome **Microsoft.Azure.SqlDatab
 2. Certifique-se de que o servidor de BD SQL do Azure permite que os serviços do Azure ligar ao mesmo. No portal, no **as definições da Firewall**, certifique-se a **permitir o acesso aos serviços do Azure** definição está definida como **no**. Clique no ícone "Guardar".
    
    ![Serviços permitidos][1]
-3. Crie uma conta de armazenamento do Azure que será utilizada para a saída de diagnóstico. Aceda ao portal do Azure. Na barra da esquerda, clique em **novo**, clique em **dados + armazenamento**, em seguida, **armazenamento**.
-4. Crie um serviço em nuvem do Azure que irá conter o seu serviço de divisão de intercalação.  Aceda ao portal do Azure. Na barra da esquerda, clique em **novo**, em seguida, **computação**, **serviço em nuvem**, e **criar**. 
+3. Crie uma conta de armazenamento do Azure que será utilizada para a saída de diagnóstico. Aceda ao portal do Azure. Na barra da esquerda, clique em **crie um recurso**, clique em **dados + armazenamento**, em seguida, **armazenamento**.
+4. Crie um serviço em nuvem do Azure que irá conter o seu serviço de divisão de intercalação.  Aceda ao portal do Azure. Na barra da esquerda, clique em **crie um recurso**, em seguida, **computação**, **serviço em nuvem**, e **criar**. 
 
 ## <a name="configure-your-split-merge-service"></a>Configurar o serviço de divisão de intercalação
 ### <a name="split-merge-service-configuration"></a>Configuração do serviço de divisão de intercalação
@@ -128,7 +128,7 @@ Para a função da web:
 3. Clique em **Dashboard**.
 4. Escolha o ambiente de teste, em seguida, clique em **carregue uma nova implementação de teste**.
    
-   ![Transição][3]
+   ![Testes][3]
 5. Na caixa de diálogo, introduza uma etiqueta de implementação. Para o 'Pacote de' e 'Configuração', clique em 'Do Local' e escolha o **SplitMergeService.cspkg** de ficheiros e o ficheiro cscfg que configurou anteriormente.
 6. Certifique-se de que a caixa de verificação com etiqueta **implementar mesmo que uma ou mais funções contenham uma única instância** está marcada.
 7. Prima o botão de marcas de escala no direito de parte inferior para iniciar a implementação. Espere que o Se demorar alguns minutos a concluir.

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Registo de diagnóstico de configuração
 
@@ -49,13 +49,13 @@ Selecionar **motor** regista todos os [xEvents](https://docs.microsoft.com/sql/a
 |Comandos     |  Início de comando       |
 |Comandos     |  Fim de comando       |
 |Erros & avisos     |   Erro      |
-|Descobrir     |   Fim de detetar      |
+|Descobrir     |   Discover End      |
 |Notificação     |    Notificação     |
 |Sessão     |  Inicialização de sessão       |
 |Bloqueios    |  impasse       |
 |Processamento da consulta     |   Comece de consulta SE VertiPaq      |
-|Processamento da consulta     |   Fim de consulta SE VertiPaq      |
-|Processamento da consulta     |   Correspondência de Cache de consulta SE VertiPaq      |
+|Processamento da consulta     |   VertiPaq SE Query End      |
+|Processamento da consulta     |   VertiPaq SE Query Cache Match      |
 |Processamento da consulta     |   Comece de consulta direta      |
 |Processamento da consulta     |  Fim de consulta direta       |
 
@@ -83,12 +83,12 @@ A categoria de métricas regista o mesmo [métricas do servidor](analysis-servic
 
     ![Ativar o registo de diagnóstico para a BD do Cosmos do Azure no portal do Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. No **definições de diagnóstico**, efetue o seguinte procedimento: 
+2. No **definições de diagnóstico**, especifique as seguintes opções: 
 
     * **Nome**. Introduza um nome para os registos para o criar.
 
-    * **Arquivo para uma conta de armazenamento**. Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar uma conta para fins gerais do Resource Manager. Em seguida, regresse a esta página no portal para selecionar a sua conta do storage. Pode demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
-    * **Fluxo para um hub de eventos**. Para utilizar esta opção, terá de um existente Hub de eventos espaço de nomes e event hub para ligar a. Para criar um espaço de nomes de Event Hubs, consulte [criar um espaço de nomes de Event Hubs e um hub de eventos no portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política de Hub de eventos.
+    * **Arquivo para uma conta de armazenamento**. Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar um Gestor de recursos, a conta para fins gerais, em seguida, selecione a sua conta de armazenamento ao devolver a esta página no portal. Pode demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
+    * **Fluxo para um hub de eventos**. Para utilizar esta opção, terá de um existente Hub de eventos espaço de nomes e event hub para ligar a. Para obter mais informações, consulte [criar um espaço de nomes de Event Hubs e um hub de eventos no portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política de Hub de eventos.
     * **Enviar ao Log Analytics**. Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho de análise de registos, seguindo os passos para [criar uma nova área de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre a visualização dos registos na análise de registos, consulte [ver os registos na análise de registos](#view-in-loganalytics).
 
     * **Motor**. Selecione esta opção para registar xEvents. Se estiver a arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
@@ -171,7 +171,7 @@ No **tipo**, clique em **AzureDiagnostics**e, em seguida, clique em **aplicar**.
 
 Clique em **EventClass\_s** ou um dos nomes do evento e análise de registos continua a construção de uma consulta. Lembre-se de que a guardar as suas consultas reutilizar mais tarde.
 
-Lembre-se de que finalizar Operations Management Suite, que fornece um Web site com consulta avançada, dashboarding e as capacidades de alertas do dados de análise de registos.
+Lembre-se de que consulte Operations Management Suite, que fornece um Web site com consulta avançada, dashboarding e as capacidades de alertas do dados de análise de registos.
 
 ### <a name="queries"></a>Consultas
 

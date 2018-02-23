@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Criar uma rede virtual (clássica) com várias sub-redes
 
@@ -39,10 +39,10 @@ Pode criar uma rede virtual (clássica) utilizando o [portal do Azure](#portal),
 ## <a name="portal"></a>Portal
 
 1. Num browser da Internet, vá para o [portal do Azure](https://portal.azure.com). Inicie sessão com a sua [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, pode inscrever-se para obter uma [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Clique em **+ novo** no portal.
-3. Introduza *rede Virtual* no **procurar no Marketplace** caixa na parte superior a **novo** painel que aparece.  Clique em **rede Virtual** quando for apresentada nos resultados da pesquisa.
+2. Clique em **crie um recurso** no portal.
+3. Introduza *rede Virtual* no **procurar no Marketplace** caixa na parte superior a **novo** painel que aparece. Clique em **rede Virtual** quando for apresentada nos resultados da pesquisa.
 4. Selecione **clássico** no **selecionar um modelo de implementação** caixa o **rede Virtual** painel apresentado, clique em **criar**. 
-5. Introduza os seguintes valores **criar rede virtual (clássica)** painel e clique em **criar**:
+5. Introduza os seguintes valores **criar rede virtual (clássica)** painel e, em seguida, clique em **criar**:
 
     |Definição|Valor|
     |---|---|

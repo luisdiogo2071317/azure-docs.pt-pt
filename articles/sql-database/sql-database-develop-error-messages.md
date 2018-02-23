@@ -1,30 +1,12 @@
----
-title: "Códigos de erro do SQL Server - erro de ligação de base de dados | Microsoft Docs"
-description: "Saiba mais sobre os códigos de erro SQL para aplicações de cliente da base de dados SQL, como erros de ligação de base de dados comuns, problemas de cópia da base de dados e erros gerais. "
-keywords: "Erro de ligação de base de dados do sql de acesso do código de erro do SQL Server, códigos de erro do SQL Server"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ ---
+Título: códigos de erro do SQL Server - erro de ligação de base de dados | Descrição da Microsoft Docs: ' Saiba mais sobre os códigos de erro SQL para aplicações de cliente da base de dados SQL, como erros de ligação de base de dados comuns, problemas de cópia da base de dados e erros gerais. ' palavras-chave: código de erro do SQL Server, acesso sql, erro de ligação de base de dados serviços os códigos de erro sql: documentationcenter de base de dados sql: ' autor: Gestor stevestein: jhubbard editor: '
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro do SQL Server para as aplicações de cliente de base de dados SQL: base de dados de erros de ligação e outros problemas
 
-Este artigo apresenta uma lista de códigos de erro SQL para aplicações de cliente da base de dados SQL, incluindo erros de ligação de base de dados, erros transitórios (também denominados falhas transitórias), erros de governação de recursos, problemas de cópia da base de dados, conjunto elástico e outros erros. A maioria das categorias são específicas para a SQL Database do Azure e não se aplicam ao Microsoft SQL Server.
+Este artigo apresenta uma lista de códigos de erro SQL para aplicações de cliente da base de dados SQL, incluindo erros de ligação de base de dados, erros transitórios (também denominados falhas transitórias), erros de governação de recursos, problemas de cópia da base de dados, conjunto elástico e outros erros. A maioria das categorias são específicas para a SQL Database do Azure e não se aplicam ao Microsoft SQL Server. Consulte também [mensagens de erro de sistema](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erros de ligação de base de dados, erros transitórios e outros erros temporários
 A tabela seguinte abrange os códigos de erro do SQL Server para erros de perda de ligação e outros erros transitórios que poderão surgir quando a aplicação tenta aceder à base de dados SQL. Para obter tutoriais de introdução no como ligar à SQL Database do Azure, consulte [ligar à SQL Database do Azure](sql-database-libraries.md).
@@ -37,7 +19,7 @@ A infraestrutura do Azure tem a capacidade de reconfigurar os servidores de form
 Erros de falhas transitórias normalmente manifestam como uma das seguintes mensagens de erro dos programas de cliente:
 
 * Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de &lt;session_id&gt;
-* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, erro: 40613)
+* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * Uma ligação existente foi forçado a fechar pelo anfitrião remoto.
 * System.Data.Entity.Core.EntityCommandExecutionException: Ocorreu um erro ao executar a definição de comando. Consulte a exceção interna para obter mais detalhes. ---> System.Data.SqlClient.SqlException: Ocorreu um erro ao nível de transporte ao receber os resultados do servidor. (fornecedor: fornecedor de sessão, erro: 19 - ligação física não é utilizável)
 * Uma tentativa de ligação para uma base de dados secundário falhou porque a base de dados está no processo reconfguration e este estiver ocupado aplicar novas páginas ao meio de um transation Active Directory na base de dados primária. 
@@ -118,14 +100,14 @@ Para criar e utilizar conjuntos elásticos relacionados com os seguintes erros:
 | 40859 |EX_USER |Conjunto elástico não suporta a camada de serviço '%ls'. |camada de serviço do conjunto elástico |Camada de serviço especificado não é suportada para o aprovisionamento do conjunto elástico. |Forneça a edição correta ou deixe em branco para utilizar o escalão de serviço predefinido a camada de serviço. |
 | 40860 |EX_USER |Combinação de objetivo '%ls' de '%ls' e o serviço do conjunto elástico é inválida. |nome do conjunto elástico; nome de objetivo de nível de serviço |Elástico objetivo de agrupamento e serviço pode ser especificado em conjunto, apenas se o objetivo de serviço está especificado como 'ElasticPool'. |Especifique a combinação correta de conjunto elástico e o objetivo de serviço. |
 | 40861 |EX_USER |A edição da base de dados ' %. *ls não podem ser diferentes da camada de serviço de conjunto elástico que é ' %.* ls'. |edição de base de dados, o escalão de serviço do conjunto elástico |A edição da base de dados é diferente da camada de serviço do conjunto elástico. |Não especifique uma edição de base de dados que é diferente de camada de serviço de conjunto elástico.  Tenha em atenção que a edição da base de dados não tem de ser especificado. |
-| 40862 |EX_USER |Nome do conjunto elástico têm de ser especificado se o objetivo de serviço do conjunto elástico está especificado. |Nenhuma |Objetivo de serviço do conjunto elástico não identifica exclusivamente um conjunto elástico. |Especifique o nome do conjunto elástico se utilizar o objetivo de serviço do conjunto elástico. |
+| 40862 |EX_USER |Nome do conjunto elástico têm de ser especificado se o objetivo de serviço do conjunto elástico está especificado. |Nenhum |Objetivo de serviço do conjunto elástico não identifica exclusivamente um conjunto elástico. |Especifique o nome do conjunto elástico se utilizar o objetivo de serviço do conjunto elástico. |
 | 40864 |EX_USER |As DTUs do conjunto elástico tem de ser, pelo menos, (%d) DTUs no escalão de serviço ' %. * ls'. |DTUs do conjunto elástico; camada de serviço do conjunto elástico. |A tentar definir as DTUs do conjunto elástico abaixo o limite mínimo. |Volte a tentar definir as DTUs para elástico agrupamento para, pelo menos, o limite mínimo. |
 | 40865 |EX_USER |As DTUs do conjunto elástico não podem exceder (%d) DTUs no escalão de serviço ' %. * ls'. |DTUs do conjunto elástico; camada de serviço do conjunto elástico. |A tentar definir as DTUs do conjunto elástico supera o limite máximo. |Repita a definição as DTUs do conjunto elástico não maior do que o limite máximo. |
 | 40867 |EX_USER |O máximo de DTUS por base de dados tem de ser, pelo menos, (%d) no escalão de serviço ' %. * ls'. |Máximo de DTUS por base de dados; camada de serviço do conjunto elástico |A tentar definir o máximo de DTUS por base de dados abaixo do limite suportado. | onsider utilizando a camada de serviço do conjunto elástico que suporta a definição pretendida. |
 | 40868 |EX_USER |O máximo de DTUS por base de dados não pode exceder (%d) no escalão de serviço ' %. * ls'. |Máximo de DTUS por base de dados; camada de serviço do conjunto elástico. |A tentar definir o máximo de DTUS por base de dados para além do limite suportado. | Considere utilizar a camada de serviço do conjunto elástico que suporta a definição pretendida. |
 | 40870 |EX_USER |O mínimo de DTUS por base de dados não pode exceder (%d) no escalão de serviço ' %. * ls'. |Mínimo de DTUS por base de dados; camada de serviço do conjunto elástico. |A tentar definir o mínimo de DTUS por base de dados para além do limite suportado. | Considere utilizar a camada de serviço do conjunto elástico que suporta a definição pretendida. |
 | 40873 |EX_USER |O número de bases de dados (%d) e o mínimo de DTUS por base de dados (%d) não pode exceder as DTUs do conjunto elástico (%d). |Número de bases de dados num conjunto elástico; Mínimo de DTUS por base de dados; DTUs do conjunto elástico. |A tentar especificar mínimo de DTUS para bases de dados no conjunto elástico excede as DTUs do conjunto elástico. | É aconselhável aumentar as DTUs do conjunto elástico ou diminuir o mínimo de DTUS por base de dados para reduzir o número de bases de dados no agrupamento elástico. |
-| 40877 |EX_USER |Não é possível eliminar o conjunto elástico, a menos que não contém quaisquer bases de dados. |Nenhuma |O conjunto elástico contém um ou mais bases de dados e, por conseguinte, não pode ser eliminado. |Remova bases de dados do conjunto elástico para eliminá-lo. |
+| 40877 |EX_USER |Não é possível eliminar o conjunto elástico, a menos que não contém quaisquer bases de dados. |Nenhum |O conjunto elástico contém um ou mais bases de dados e, por conseguinte, não pode ser eliminado. |Remova bases de dados do conjunto elástico para eliminá-lo. |
 | 40881 |EX_USER |O conjunto elástico "%. * ls atingiu o limite de contagem de base de dados.  O limite de contagem de base de dados para o conjunto elástico não pode exceder (%d) para um agrupamento elástico com as DTUs (%d). |Nome do conjunto elástico; limite de contagem de base de dados do conjunto elástico; eDTUs de conjunto de recursos. |Tentativa de criar ou adicionar base de dados do agrupamento elástico quando for alcançado o limite de contagem de base de dados do conjunto elástico. | É aconselhável aumentar as DTUs do conjunto elástico se possível, para aumentar o limite de base de dados ou remova as bases de dados do conjunto elástico. |
 | 40889 |EX_USER |As DTUs ou o limite de armazenamento para o conjunto elástico "%. * ls não podem ser diminuídos, uma vez que isso não forneceria espaço de armazenamento suficiente para as suas bases de dados. |Nome do conjunto elástico. |A tentar diminuir o limite de armazenamento do conjunto elástico abaixo respetiva utilização de armazenamento. | Considere a possibilidade de reduzir a utilização do armazenamento de bases de dados individuais num conjunto elástico ou remover bases de dados do agrupamento para reduzir o respetivo DTUs ou o limite de armazenamento. |
 | 40891 |EX_USER |O mínimo de DTUS por base de dados (%d) não pode exceder o máximo de DTUS por base de dados (%d). |Mínimo de DTUS por base de dados; Máximo de DTUS por base de dados. |A tentar definir o mínimo de DTUS por base de dados superior ao máximo de DTUS por base de dados. |Certifique-se de que o mínimo de DTUS por bases de dados não pode exceder o máximo de DTUS por base de dados. |
@@ -144,7 +126,7 @@ Os seguintes erros não enquadram-se em qualquer categorias anteriores.
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) não é um nome válido porque contém carateres inválidos. |
-| 18452 |14 |Falha ao iniciar sessão. O início de sessão é proveniente de um domínio não fidedigno e não pode ser utilizado com o Windows authentication.%. & #x2a; ls (inícios de sessão do Windows não são suportados nesta versão do SQL Server.) |
+| 18452 |14 |O início de sessão falhou. O início de sessão é proveniente de um domínio não fidedigno e não pode ser utilizado com o Windows authentication.%. & #x2a; ls (inícios de sessão do Windows não são suportados nesta versão do SQL Server.) |
 | 18456 |14 |Falha de início de sessão para o utilizador ' %. & #x2a;ls'.%. & #x2a % ls. & #x2a; ls (falha de início de sessão do utilizador "%. & #x2a; ls". A alteração da palavra-passe falhou. Alteração de palavra-passe durante o início de sessão não é suportada nesta versão do SQL Server.) |
 | 18470 |14 |Falha de início de sessão para o utilizador '%. & #x2a; ls'. Razão: A conta é disabled.%. & #x2a; ls |
 | 40014 |16 |Não não possível utilizar várias bases de dados na mesma transação. |
@@ -209,7 +191,7 @@ Os seguintes erros não enquadram-se em qualquer categorias anteriores.
 | 45168 |16 |O sistema do SQL Azure está sob carga e é colocando um limite superior no operações CRUD de base de dados em simultâneo para um único servidor (por exemplo, criar base de dados). O servidor especificado na mensagem de erro foi excedido o número máximo de ligações em simultâneo. Tente novamente mais tarde. |
 | 45169 |16 |O sistema SQL do azure está em carga e é colocando um limite superior no número de operações CRUD de servidor em simultâneo para uma única subscrição (por exemplo, criar servidor). A subscrição especificada na mensagem de erro foi excedido o número máximo de ligações em simultâneo, e o pedido foi negado. Tente novamente mais tarde. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Leia sobre [funcionalidades de base de dados SQL do Azure](sql-database-features.md).
 * Leia sobre [escalões de serviço](sql-database-service-tiers.md).
 

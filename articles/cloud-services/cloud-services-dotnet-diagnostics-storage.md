@@ -3,8 +3,8 @@ title: "Arquivo e a vista de dados de diagnóstico no armazenamento do Azure | M
 description: "Obter dados de diagnóstico do Azure para o armazenamento do Azure e vê-la"
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: tysonn
 ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: robb
-ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: 448d685cf2c0a21f4f87e672644a3cf72c2a576f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Arquivo e a vista de dados de diagnóstico no armazenamento do Azure
 Dados de diagnóstico não são permanentemente armazenados, a menos que a transferência para o emulador de armazenamento do Microsoft Azure ou para armazenamento do Azure. Uma vez no armazenamento, podem ser visualizado com uma das várias ferramentas disponíveis.
@@ -82,6 +82,6 @@ Várias ferramentas estão disponíveis para ver os dados depois de serem transf
 * [Explorador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, OSX e Linux.
 * [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) inclui o Gestor de diagnóstico do Azure que permite-lhe ver, transfira e gerir os dados de diagnóstico recolhidos pelas aplicações em execução no Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 [Analisar o fluxo de uma aplicação de serviços em nuvem com o diagnóstico do Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 

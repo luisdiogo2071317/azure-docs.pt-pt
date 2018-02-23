@@ -1,10 +1,10 @@
 ---
-title: Como criar VMs de SQL Server com o Azure PowerShell | Microsoft Docs
+title: Guia de aprovisionamento para VMs de SQL Server com o Azure PowerShell | Microsoft Docs
 description: "Fornece os passos e comandos do PowerShell para criar uma VM do Azure com imagens de Galeria de máquina virtual do SQL Server."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/29/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Como criar máquinas virtuais do SQL Server com o Azure PowerShell
+# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como aprovisionar as máquinas de virtuais do SQL Server com o Azure PowerShell
 
 Este guia explica as opções para criar as VMs do Windows SQL Server com o Azure PowerShell. Para obter um exemplo do Azure PowerShell simplificado com mais valores predefinidos, consulte o [início rápido do SQL VM Azure PowerShell](quickstart-sql-vm-create-powershell.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este início rápido requer a versão 3.6 ou posterior do módulo Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
+Este artigo requer o Azure PowerShell versão do módulo 3,6 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
 
 ## <a name="configure-your-subscription"></a>Configurar a sua subscrição
 
@@ -399,7 +399,7 @@ Depois da máquina virtual é criada, pode:
 
 - Ligar à máquina virtual utilizando o ambiente de trabalho remoto (RDP).
 - Configurar definições do SQL Server no portal para a VM, incluindo:
-   - [Definições de armazenamento](virtual-machines-windows-sql-server-storage-configuration.md) 
+   - [definições de armazenamento](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [Tarefas de gestão automatizada](virtual-machines-windows-sql-server-agent-extension.md)
 - [Configurar a conectividade](virtual-machines-windows-sql-connect.md).
 - Ligar-se de que os clientes e aplicações para a nova instância do SQL Server.

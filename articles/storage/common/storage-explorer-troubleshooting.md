@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas de Explorador de armazenamento do Azure
 
-Explorador de armazenamento do Microsoft Azure (pré-visualização) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux. A aplicação pode ligar a contas de armazenamento alojadas no Azure, Sovereign nuvens e pilha do Azure.
+Explorador de armazenamento do Microsoft Azure (pré-visualização) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux. A aplicação pode ligar a contas de armazenamento alojadas no Azure, nuvens nacionais e pilha do Azure.
 
 Este guia resume soluções para problemas comuns vistos no Explorador de armazenamento.
 
@@ -59,7 +59,7 @@ Quando o Explorador de armazenamento encontra um dos problemas, pode já não sa
 
 6. Abra o Explorador de armazenamento, clique em **editar** > **certificados SSL** > **importar certificados**e, em seguida, utilize o Seletor de ficheiros para localizar, selecione e abra os ficheiros. cer que criou.
 
-Se não encontrar quaisquer certificados autoassinados, utilizando os passos acima, contacte-nos através da ferramenta de comentários para obter mais ajuda.
+Se não encontrar quaisquer certificados autoassinados através dos passos anteriores, contacte-nos através da ferramenta de comentários para obter mais ajuda.
 
 ### <a name="unable-to-retrieve-subscriptions"></a>Não é possível obter subscrições
 
@@ -73,7 +73,7 @@ Se não for possível obter as suas subscrições, depois de se inscrever com ê
 
 - Tente remover e readding a conta.
 
-- Tente eliminar os seguintes ficheiros do diretório de raiz (ou seja, C:\Users\ContosoUser) e, em seguida, voltar a adicionar a conta:
+- Tente eliminar os seguintes ficheiros do diretório de raiz (ou seja, C:\Users\ContosoUser) e, em seguida, readding a conta:
 
     - .adalcache
 
@@ -83,7 +83,7 @@ Se não for possível obter as suas subscrições, depois de se inscrever com ê
 
 - Veja as ferramentas de programador da consola (por prima F12) quando iniciar sessão para as mensagens de erro:
 
-![Ferramentas de programador](./media/storage-explorer-troubleshooting/4022501_en_2.png)
+![ferramentas de programação](./media/storage-explorer-troubleshooting/4022501_en_2.png)
 
 ### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação
 
@@ -116,7 +116,7 @@ Se não for possível remover uma conta, ou se a ligação reautenticação faze
     - ~/.config/StorageExplorer para Linux
 
 > [!NOTE]
->  Terá de reintroduzir as suas credenciais, se eliminar estes ficheiros.
+>  Depois de eliminar os ficheiros acima referidos, terá de voltar a iniciar sessão às suas contas.
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
@@ -173,18 +173,26 @@ Se estiver a ligar a um serviço utilizando um URL SAS e estão a ocorrer este e
 
 - Se o URL de SAS baseiam-se uma política de acesso, certifique-se de que a política de acesso não foi revogada.
 
-Se o acidentalmente ligado um URL SAS inválido e não foi possível desligar, siga estes passos:
+Se acidentalmente anexados utilizando um URL SAS inválido e não é possível desanexar, siga estes passos:
 1.  Ao executar o Explorador de armazenamento, premir a tecla F12 para abrir a janela de ferramentas de programador.
 2.  Clique no separador de aplicação, em seguida, clique em armazenamento Local > file:// na árvore à esquerda.
-3.  Localize a chave associada com o tipo de serviço do URI de SAS problemáticas. Por exemplo, se o incorretos URI de SAS para um contentor de blob, procure a chave com o nome "StorageExplorer_AddStorageServiceSAS_v1_blob".
+3.  Localize a chave associada com o tipo de serviço do URI de SAS problemáticas. Por exemplo, se o incorretos URI de SAS para um contentor de blob, procure a chave com o nome `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  O valor da chave deve ser uma matriz JSON. Localizar o objeto associado ao URI incorreto e removê-lo.
 5.  Prima Ctrl + R recarregar o Explorador de armazenamento.
 
+## <a name="linux-dependencies"></a>Dependências do Linux
 
-## <a name="next-steps"></a>Passos seguintes
+Para Linux distros diferente Ubuntu 16.04, poderá ter de instalar manualmente algumas dependências. Em geral, os pacotes seguintes são necessários:
+* libgconf-2-4
+* libsecret
+* GCC atualizado
+
+Dependendo do seu distro, poderão existir outros pacotes que tem de instalar. O Explorador de armazenamento [notas de versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém passos específicos para algumas distros.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Se nenhuma das soluções de resolver o problema, submeter o seu problema através da ferramenta de comentários com o seu e-mail e tantos detalhes sobre o problema incluídas como podem, para que podemos contactá-lo para corrigir o problema.
 
 Para tal, clique em **ajudar** e, em seguida, clique em **enviar comentários**.
 
-![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+![Comentários](./media/storage-explorer-troubleshooting/4022503_en_1.png)

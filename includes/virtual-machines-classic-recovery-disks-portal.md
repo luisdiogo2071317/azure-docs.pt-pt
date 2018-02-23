@@ -57,6 +57,6 @@ Após resolver os erros, desmonte e desanexe o disco rígido virtual já existen
 Para criar uma VM a partir do seu disco rígido virtual original, utilize [portal do Azure](https://portal.azure.com).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Na parte superior esquerda do portal, selecione **novo** > **computação** > **Máquina Virtual** > **da galeria**.
+2. Na parte superior esquerda do portal, selecione **crie um recurso** > **computação** > **Máquina Virtual** > **do Galeria**.
 3. Na secção **Escolher Imagem**, selecione **Os meus discos** e selecione o disco rígido virtual original. Verifique a informação da localização. Esta é a região em que a VM tem de ser implementada. Selecione o botão “seguinte”.
 4. Na secção **Configuração da máquina virtual**, escreva o nome da VM e selecione um tamanho para a mesma.

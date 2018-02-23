@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar as funcionalidades da solução pré-configurada de monitorização remota
 
@@ -31,6 +31,7 @@ Neste tutorial, ficará a saber como:
 > * Responder a um alarme
 > * Atualizar o firmware nos seus dispositivos
 > * Organizar os elementos
+> * Parar e iniciar dispositivos simulados
 
 O vídeo seguinte mostra as obter instruções sobre a solução de monitorização remota:
 
@@ -230,6 +231,16 @@ Pode utilizar os valores de etiqueta para criar filtros.
 
 Agora, o operador de Contoso pode consultar dispositivos com base na equipa de sistema operativo sem a necessidade de alterar nada nos dispositivos.
 
+## <a name="stop-simulated-devices"></a>Parar dispositivos simulados
+
+Pode utilizar o menu de definições para os dispositivos simulados. Isto ajuda a reduzir os custos de teste e explorar a solução. Para iniciar ou parar os dispositivos simulados:
+
+1. Escolha o **definições** ícone.
+
+1. Em seguida, ative **executar** ou desativar:
+
+    ![Menu de definições](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a:
@@ -239,6 +250,7 @@ Neste tutorial, aprendeu a:
 > * Responder a um alarme
 > * Atualizar o firmware nos seus dispositivos
 > * Organizar os elementos
+> * Parar e iniciar dispositivos simulados
 
 Agora que tem explorou a solução de monitorização remota, se os passos sugeridos saber mais sobre as funcionalidades avançadas de solução de monitorização remota:
 

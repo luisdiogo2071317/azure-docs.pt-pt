@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 1484ecdeb26f06d54dceef0e4fb1a5c63fab732a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: de397117f6891d28d24a4279d94e4e4ecc1e7afc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Utilizar uma identidade de serviço geridas do Linux VM para aceder ao armazenamento do Azure através de chave de acesso
 
@@ -143,7 +143,7 @@ Para concluir estes passos, terá de um cliente SSH. Se estiver a utilizar o Win
 Agora utilizar CURL para chamar o Resource Manager utilizando o token de acesso que obteve na secção anterior, para obter a chave de acesso de armazenamento. Assim que tivermos a chave de acesso de armazenamento, podemos chamar operações de carregamento/transferência de armazenamento. Não se esqueça de substituir o `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, e `<STORAGE ACCOUNT NAME>` valores de parâmetros com os seus próprios valores. Substitua o `<ACCESS TOKEN>` valor com o token de acesso que obteve anteriormente:
 
 ```bash 
-curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –-request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
+curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 --request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
 ```
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: "Este tutorial orienta-o pelos passos da criação de um sempre na 
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 38bb77c6b1d083bd6b52b785a991f24965d00e12
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurar um serviço de escuta externo para grupos de disponibilidade Always no Azure
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Tem de criar um ponto final com balanceamento de carga para cada VM que aloja um
 3. Certifique-se de que o **nome** e **Porta pública** do serviço de escuta ponto final que pretende utilizar não está já em utilização. No exemplo abaixo, o nome é "MyEndpoint" e a porta é "1433".
 4. No seu cliente local, transfira e instale [o módulo do PowerShell mais recente](https://azure.microsoft.com/downloads/).
 5. Iniciar **o Azure PowerShell**. Uma nova sessão PowerShell é aberta com os módulos de administração do Azure carregados.
-6. Executar **Get-AzurePublishSettingsFile**. Este cmdlet direciona-o para um browser para transferir um ficheiro de definições de publicação para um diretório local. Poderão ser-lhe solicitadas as credenciais de início de sessão para a sua subscrição do Azure.
+6. Run **Get-AzurePublishSettingsFile**. Este cmdlet direciona-o para um browser para transferir um ficheiro de definições de publicação para um diretório local. Poderão ser-lhe solicitadas as credenciais de início de sessão para a sua subscrição do Azure.
 7. Execute o **importação AzurePublishSettingsFile** comando com o caminho do ficheiro de definições de publicação transferido:
    
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 91efb85d17bd6ba57b1dc14253257f3f20e37c92
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET ambiente de trabalho (WPF) introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -47,7 +47,7 @@ Para ativar a sua aplicação obter os tokens, primeiro tem de registá-lo no se
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta e, no **diretório** lista, escolha o inquilino do Active Directory onde pretende registar a sua aplicação.
-3. Clique em **mais serviços** na navegação esquerda e escolha **do Azure Active Directory**.
+3. Clique em **todos os serviços** na navegação esquerda e escolha **do Azure Active Directory**.
 4. Clique em **registos de aplicação** e escolha **adicionar**.
 5. Siga as instruções e crie um novo **aplicação cliente nativa**.
   * O **nome** da aplicação irá descrever a aplicação aos utilizadores finais
@@ -131,7 +131,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-* No entanto, se o utilizador não clique no botão "Terminar sessão", irá pretender manter a sessão do utilizador para a próxima vez que executam o DirectorySearcher.  Quando inicia a aplicação, pode verificar a cache de token da ADAL para um token existente e atualize a IU em conformidade.  No `CheckForCachedToken()` método, efetuar outra chamada para `AcquireTokenAsync(...)`, desta vez transmitir no `PromptBehavior.Never` parâmetro.  `PromptBehavior.Never`informará o ADAL que o utilizador não deve ser pedido para iniciar sessão e a ADAL em vez disso, deve acionar uma excepção, se for não é possível devolver um token.
+* No entanto, se o utilizador não clique no botão "Terminar sessão", irá pretender manter a sessão do utilizador para a próxima vez que executam o DirectorySearcher.  Quando inicia a aplicação, pode verificar a cache de token da ADAL para um token existente e atualize a IU em conformidade.  No `CheckForCachedToken()` método, efetuar outra chamada para `AcquireTokenAsync(...)`, desta vez transmitir no `PromptBehavior.Never` parâmetro.  `PromptBehavior.Never` informará o ADAL que o utilizador não deve ser pedido para iniciar sessão e a ADAL em vez disso, deve acionar uma excepção, se for não é possível devolver um token.
 
 ```csharp
 public async void CheckForCachedToken() 

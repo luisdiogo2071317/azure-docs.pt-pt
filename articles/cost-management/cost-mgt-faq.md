@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Perguntas mais frequentes sobre gestão de custo do Azure
 
@@ -58,7 +58,7 @@ Se não é possível ver quaisquer dados de recomendação otimizador, em seguid
 
 Para ativar uma conta:
 
-1.  No portal do Cloudyn, clique em **definições** no canto superior direito e selecione **contas na nuvem**.
+1.  No portal do Cloudyn, clique em **Definições** na parte superior direita e selecione **Contas da Cloud**.
 2.  No separador de contas do Microsoft Azure, procure a contas que têm um **não ativados tentarem** subscrição.
 3.  À direita de uma conta não ativados tentarem, clique em de **editar** símbolo que se assemelha um lápis.
 4.  O inquilino ID e o ID de taxa é detetado automaticamente. Clique em **Seguinte**.
@@ -116,9 +116,9 @@ Para adicionar contas CSP adicionais para uma entidade, selecione **\\<ServerNam
 
 Pode ter várias contas do Azure utilizando moedas diferentes. No entanto, os relatórios de custo em Cloudyn não mostram mais do que um tipo de moeda por cada relatório.
 
-Se tiver várias subscrições utilizando moedas diferentes, uma entidade principal e o respetivas moedas de entidade subordinados são apresentadas com o  **$**  símbolo. A nossa sugerida melhor prática é evitar a utilização de moedas diferentes na mesma hierarquia de entidades. Por outras palavras, todas as subscrições organizadas de uma estrutura de entidade devem utilizar a mesma moeda.
+Se tiver várias subscrições utilizando moedas diferentes, uma entidade principal e o respetivas moedas de entidade subordinados são apresentadas no EUR  **$** . A nossa sugerida melhor prática é evitar a utilização de moedas diferentes na mesma hierarquia de entidades. Por outras palavras, todas as subscrições organizadas de uma estrutura de entidade devem utilizar a mesma moeda.
 
-Cloudyn automaticamente Deteta moeda de subscrição do Enterprise Agreement e apresenta-la corretamente nos relatórios.  No entanto, Cloudyn apresenta apenas o  **$**  símbolo de CSP e as contas do Azure de web-direta.
+Cloudyn automaticamente Deteta moeda de subscrição do Enterprise Agreement e apresenta-la corretamente nos relatórios.  No entanto, o Cloudyn apresenta apenas EUR  **$**  para contas do Azure web direta e CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Quais são os dados de Cloudyn atualizar linhas cronológicas?
 

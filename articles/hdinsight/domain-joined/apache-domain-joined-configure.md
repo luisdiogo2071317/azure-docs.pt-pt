@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurar o ambiente de sandbox HDInsight associados a um domínio
 
-Saiba como configurar um cluster do Azure HDInsight com autónomo do Active Directory e [Apache Ranger](http://hortonworks.com/apache/ranger/) para tirar partido da autenticação forte e de acesso baseado em funções abundante políticas de controlo (RBAC). Para obter mais informações, consulte [clusters do HDInsight associados a um domínio introduzir](apache-domain-joined-introduction.md).
+Saiba como configurar um cluster do Azure HDInsight com autónomo do Active Directory e [Apache Ranger](http://hortonworks.com/apache/ranger/) para tirar partido da autenticação forte e de acesso baseado em funções abundante políticas de controlo (RBAC). Para obter mais informações, consulte [clusters do HDInsight associados a um domínio introduzir](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Por predefinição, este conjunto de cópias de segurança só pode ser utilizado com a utilização de contas do Storage do Azure. Para utilizar com o Azure Data Lake Store, sincronizar o Active Directory para um novo Azure Active Directory.
 
 Sem domínio associado a um cluster do HDInsight, cada cluster só pode ter uma conta de utilizadores de HTTP do Hadoop e uma conta de utilizador SSH.  A autenticação de vários utilizador pode ser conseguida utilizando:
 
@@ -40,6 +43,7 @@ Utilizar uma autónoma do Active Directory em execução no IaaS do Azure é des
     - Criar cluster do HDInsight
 
 > [!IMPORTANT]
+> 
 > Oozie não está ativado no HDInsight associados a um domínio.
 
 ## <a name="prerequisite"></a>Pré-requisito

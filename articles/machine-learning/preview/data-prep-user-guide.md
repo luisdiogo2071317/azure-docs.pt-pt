@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Guia do utilizador de preparativos de dados 
 A experiência de preparativos de dados do Azure Machine Learning fornece muitas das funcionalidades avançadas. Este artigo documentos as partes da experiência mais profundo existente.
@@ -89,7 +89,7 @@ Para bifurcar:
 4. Depois de **condições**, selecione **criar fluxo de dados que contém as filtrado saída linhas** para bifurcar o resultado de apresentação não definido para um novo fluxo de dados.
 
 
-Esta prática é frequentemente utilizada para separar fora de um conjunto de dados que necessita de preparação adicional. Depois de wrangle o conjunto de dados forked, é comum para intercalar os dados com o resultado definido no fluxo de dados original. Para executar uma intercalação (inversa de uma operação de bifurcação), utilize uma das seguintes ações:
+Esta prática é frequentemente utilizada para separar fora de um conjunto de dados que necessita de preparação adicional. Depois de preparar o conjunto de dados forked, é comum para intercalar os dados com o resultado definido no fluxo de dados original. Para executar uma intercalação (inversa de uma operação de bifurcação), utilize uma das seguintes ações:
 
 - **Acrescente linhas**. Intercalar duas ou mais fluxos de dados verticalmente (row-wise). 
 - **Acrescentar colunas**. Intercalar duas ou mais fluxos de dados horizontalmente (column-wise).

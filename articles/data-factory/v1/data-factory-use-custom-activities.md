@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Eis os passos que efetuar nesta secção:
 
 ### <a name="step-1-create-the-data-factory"></a>Passo 1: Criar a fábrica de dados
 1. Após iniciar sessão no portal do Azure, efetue os seguintes passos:
-   1. Clique em **NOVO** no menu da esquerda.
+   1. Clique em **crie um recurso** no menu da esquerda.
    2. Clique em **dados + análise** no **novo** painel.
    3. Clique em **Data Factory** no painel **Análise de dados**.
    
@@ -441,7 +441,7 @@ Eis os passos que efetuar nesta secção:
 Os serviços ligados ligam os arquivos de dados ou serviços de computação a um Azure Data Factory. Neste passo, ligar a conta de armazenamento do Azure e a conta do Azure Batch à fábrica de dados.
 
 #### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Storage do Azure
-1. Clique em de **autor e implementar** mosaico a **DATA FACTORY** painel **CustomActivityFactory**. Consulte o Editor do Data Factory.
+1. Clique em de **autor e implementar** mosaico a **DATA FACTORY** painel **CustomActivityFactory**. Será apresentado o Editor do Data Factory.
 2. Clique em **novo arquivo de dados** no comando barra e escolha **storage do Azure**. Deverá ver o script JSON para criar um serviço ligado do Storage do Azure no editor.
     
     ![Novo arquivo de dados - Storage do Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)

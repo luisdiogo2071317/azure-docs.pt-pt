@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Descrição geral de monitorização de rede do Azure
 
@@ -46,7 +46,7 @@ Observador de rede atualmente tem as seguintes capacidades:
 * **[Gateway de rede virtual e a resolução de problemas de ligação](network-watcher-troubleshoot-manage-rest.md)**  -fornece a capacidade de resolução de problemas de Gateways da Virtual Network e ligações.
 * **[Limites de subscrição de rede](#network-subscription-limits)**  -permite-lhe ver utilização de recursos de rede contra os limites.
 * **[Configurar registo de diagnóstico](#diagnostic-logs)**  – disponibiliza um painel único para ativar ou desativar os registos de diagnóstico para recursos de rede num grupo de recursos.
-* **[Conectividade (pré-visualização)](network-watcher-connectivity-overview.md)**  -verifica a possibilidade de estabelecer uma ligação de TCP direta de uma máquina virtual para um ponto final especificado.
+* **[Resolver problemas de ligação](network-watcher-connectivity-overview.md)**  -verifica a possibilidade de estabelecer uma ligação de TCP direta de uma máquina virtual para um determinado ponto de final enriquecido com o contexto do Azure.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controlo de acesso baseado em funções (RBAC) na observador de rede
 
@@ -114,7 +114,7 @@ O painel de resolução de problemas, uma experiência de utilização no portal
 
 O estado de funcionamento de um recurso de rede é fornecido numa base periódica. Esses recursos incluem o Gateway de VPN e túnel VPN. Estado de funcionamento do recurso está acessível no portal do Azure. Para mais informações sobre o estado de funcionamento de recursos, visite [descrição geral do Estado de funcionamento de recursos](../resource-health/resource-health-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de aprender mais sobre o observador de rede, pode aprender a:
 

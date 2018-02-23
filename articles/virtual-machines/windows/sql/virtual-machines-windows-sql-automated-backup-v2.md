@@ -4,7 +4,7 @@ description: "Explica a funcionalidade de cópia de segurança automatizada para
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Automatizada v2 cópia de segurança para o SQL Server 2016 máquinas virtuais do Azure (Gestor de recursos)
 
@@ -70,23 +70,23 @@ A tabela seguinte descreve as opções que podem ser configuradas para cópia de
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/desativar (desativada) | Ativa ou desativa a cópia de segurança automatizada para uma VM do Azure a executar o SQL Server 2016 Standard ou Enterprise. |
 | **Período de retenção** | 1-30 dias (30 dias) | O número de dias a manter as cópias de segurança. |
-| **Conta de armazenamento** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no blob storage. Um contentor é criado nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e a base de dados GUID. |
-| **Encriptação** |Ativar/desativar (desativada) | Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada na mesma **automaticbackup** contentor utilizando a mesma Convenção de nomenclatura. Se alterar a palavra-passe, é gerado um novo certificado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
-| **Palavra-passe** |Texto da palavra-passe | Uma palavra-passe para as chaves de encriptação. Isto apenas é necessário se a encriptação está ativada. Para restaurar uma cópia de segurança encriptada, tem de ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento que da cópia de segurança foi efetuada. |
+| **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no blob storage. Um contentor é criado nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e a base de dados GUID. |
+| **Encriptação** |Ativar/desativar (desativada) | Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada. Utiliza o mesmo **automaticbackup** contentor com a mesma Convenção de nomenclatura. Se alterar a palavra-passe, é gerado um novo certificado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
+| **Palavra-passe** |Texto da palavra-passe | Uma palavra-passe para as chaves de encriptação. Esta palavra-passe só é necessário se a encriptação está ativada. Para restaurar uma cópia de segurança encriptada, tem de ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento que da cópia de segurança foi efetuada. |
 
 ### <a name="advanced-settings"></a>Definições Avançadas
 
 | Definição | Intervalo (predefinição) | Descrição |
 | --- | --- | --- |
-| **Cópias de segurança do sistema da base de dados** | Ativar/desativar (desativada) | Quando ativada, esta funcionalidade também irá criar cópias de segurança de bases de dados do sistema: mestre, MSDB e modelo. Para as bases de dados MSDB e o modelo, certifique-se de que estão em modo de recuperação completo se pretender que as cópias de segurança de registo para ser executada. Cópias de segurança de registo nunca direcionadas para mestre. E não existem cópias de segurança são encaminhadas para TempDB. |
-| **Agenda de cópia de segurança** | Manual/automática (automatizada) | Por predefinição, a agenda de cópia de segurança será automaticamente determinada com base no crescimento do registo. Agenda de cópia de segurança manual permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança apenas nunca ocorrerá a frequência especificada e durante a janela de tempo especificado de um determinado dia. |
-| **Frequência de cópia de segurança completa** | Diariamente/semanal | Frequência de cópias de segurança completas. Em ambos os casos, irão iniciar as cópias de segurança completas durante a próxima janela de hora agendada. Quando é selecionada semanal, as cópias de segurança foi abranger vários dias, até que todas as bases de dados com êxito de ter uma cópia de segurança. |
+| **Cópias de segurança do sistema da base de dados** | Ativar/desativar (desativada) | Quando ativada, esta funcionalidade também efetua cópias de segurança de bases de dados do sistema: mestre, MSDB e modelo. Para as bases de dados MSDB e o modelo, certifique-se de que estão em modo de recuperação completo se pretender que as cópias de segurança de registo para ser executada. Cópias de segurança de registo nunca direcionadas para mestre. E não existem cópias de segurança são encaminhadas para TempDB. |
+| **Agenda de cópia de segurança** | Manual/automática (automatizada) | Por predefinição, a agenda de cópia de segurança é determinada automaticamente com base no crescimento do registo. Agenda de cópia de segurança manual permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança apenas de efetuar a frequência especificada e durante a janela de tempo especificado de um determinado dia. |
+| **Frequência de cópia de segurança completa** | Diariamente/semanal | Frequência de cópias de segurança completas. Em ambos os casos, as cópias de segurança completas começarem durante a próxima janela de hora agendada. Quando é selecionada semanal, as cópias de segurança foi abranger vários dias, até que todas as bases de dados com êxito de ter uma cópia de segurança. |
 | **Hora de início de cópia de segurança completa** | 00:00 – 23:00 (01:00) | A hora de início de um determinado dia durante os quais podem efetuar cópias de segurança completas. |
 | **Janela de tempo de cópia de segurança completa** | 1 – 23 horas (1 hora) | Duração da janela de tempo de um determinado dia durante os quais podem efetuar cópias de segurança completas. |
 | **Frequência de cópia de segurança do registo** | 5 – 60 minutos (60 minutos) | Frequência de cópias de segurança do registo. |
 
 ## <a name="understanding-full-backup-frequency"></a>Compreender a frequência de cópia de segurança completa
-É importante compreender a diferença entre cópias de segurança completas diárias e semanais. Este esforço, iremos ajudá-dois cenários de exemplo.
+É importante compreender a diferença entre cópias de segurança completas diárias e semanais. Considere os seguintes cenários de exemplo de dois.
 
 ### <a name="scenario-1-weekly-backups"></a>Cenário 1: Cópias de segurança semanais
 Tiver uma VM do SQL Server que contém um número de bases de dados muito grandes.
@@ -98,13 +98,13 @@ Na segunda-feira, ativar a cópia de segurança automatizada v2 com as seguintes
 - Hora de início de cópia de segurança de completa: **01:00**
 - Janela de tempo de cópia de segurança completa: **1 hora**
 
-Isto significa que a próxima janela de cópia de segurança disponível terça-feira às 1: 00 de 1 hora. Nessa altura, cópia de segurança automatizada irá iniciar a cópia de segurança das bases de dados um cada vez. Neste cenário, as bases de dados, são suficientemente grandes para que as cópias de segurança completas concluirá para as bases de dados de algumas primeiro. No entanto, depois de uma hora nem todas as bases de dados tem uma cópia de segurança.
+Isto significa que a próxima janela de cópia de segurança disponível terça-feira às 1: 00 de 1 hora. Nessa altura, a cópia de segurança automatizada começa a efetuar cópia de segurança das bases de dados um cada vez. Neste cenário, as bases de dados, são suficientemente grandes para que as cópias de segurança completas concluir para as bases de dados de algumas primeiro. No entanto, depois de uma hora nem todas as bases de dados tem uma cópia de segurança.
 
-Quando isto acontecer, cópia de segurança automatizada irá iniciar a cópia de segurança das bases de dados restantes o dia seguinte, quarta-feira às 1: 00 de 1 hora. Se nem todas as bases de dados tem uma cópia de segurança nessa hora, tentará novamente o dia seguinte ao mesmo tempo. Isto irá continuar até que todas as bases de dados tem sido com êxito uma cópia de segurança.
+Quando isto acontecer, a cópia de segurança automatizada começa a cópia de segurança das bases de dados restantes o dia seguinte, quarta-feira às 1 AM durante uma hora. Se nem todas as bases de dados tem uma cópia de segurança nessa hora, tentará novamente o dia seguinte ao mesmo tempo. Isto continua até que todas as bases de dados tem sido com êxito uma cópia de segurança.
 
-Assim que chegar novamente Terça-feira, cópia de segurança automatizada irá iniciar a cópia de segurança de todas as bases de dados novamente.
+Depois de atingir novamente Terça-feira, a cópia de segurança automatizada começa a cópia de segurança de todas as bases de dados novamente.
 
-Este cenário mostra que a cópia de segurança automatizada só irá funcionar dentro da janela de tempo especificado, e cada base de dados será feita uma vez por semana. Isto também mostra que é possível que as cópias de segurança abranger vários dias em casos em que não é possível concluir todas as cópias de segurança num único dia.
+Este cenário mostra que a cópia de segurança automatizada só funciona dentro da janela de tempo especificado, e cada base de dados de cópias de segurança uma vez por semana. Isto também mostra que é possível que as cópias de segurança abranger vários dias em casos em que não é possível concluir todas as cópias de segurança num único dia.
 
 ### <a name="scenario-2-daily-backups"></a>Cenário 2: Cópias de segurança diárias
 Tiver uma VM do SQL Server que contém um número de bases de dados muito grandes.
@@ -116,9 +116,9 @@ Na segunda-feira, ativar a cópia de segurança automatizada v2 com as seguintes
 - Hora de início de cópia de segurança de completa: 22:00
 - Janela de tempo de cópia de segurança completa: 6 horas
 
-Isto significa que a próxima janela de cópia de segurança disponível segunda-feira em 10 PM durante 6 horas. Nessa altura, cópia de segurança automatizada irá iniciar a cópia de segurança das bases de dados um cada vez.
+Isto significa que a próxima janela de cópia de segurança disponível segunda-feira em 10 PM durante 6 horas. Nessa altura, a cópia de segurança automatizada começa a efetuar cópia de segurança das bases de dados um cada vez.
 
-Em seguida, na Terça-feira, 10 para 6 horas, as cópias de segurança completas de todas as bases de dados serão iniciada novamente.
+Em seguida, na Terça-feira, 10 para 6 horas, as cópias de segurança completas de todas as bases de dados iniciar novamente.
 
 > [!IMPORTANT]
 > Durante o agendamento de cópias de segurança diárias, recomenda-se que agende uma janela de tempo wide para garantir que todas as bases de dados podem ser feitas no momento. Isto é especialmente importante no caso em que tiver uma grande quantidade de dados para cópia de segurança.
@@ -152,7 +152,7 @@ No **configuração do SQL Server** painel, clique em de **editar** botão na se
 
 Quando terminar, clique em de **OK** botão na parte inferior do **configuração do SQL Server** painel para guardar as alterações.
 
-Se pretende ativar a cópia de segurança automatizada pela primeira vez, o Azure configura o agente do SQL Server IaaS em segundo plano. Durante este período, o portal do Azure poderá não mostrar que a cópia de segurança automatizada está configurada. Aguarde alguns minutos para que o agente ser instalado, configurado. Depois de que o portal do Azure irá refletir as novas definições.
+Se pretende ativar a cópia de segurança automatizada pela primeira vez, o Azure configura o agente do SQL Server IaaS em segundo plano. Durante este período, o portal do Azure poderá não mostrar que a cópia de segurança automatizada está configurada. Aguarde alguns minutos para que o agente ser instalado, configurado. Depois disso, o portal do Azure irá refletir as novas definições.
 
 ## <a name="configuration-with-powershell"></a>Configuração com o PowerShell
 
@@ -182,7 +182,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"></a>Verifique as definições atuais
+### <a id="verifysettings"></a> Verifique as definições atuais
 Se ativou a cópia de segurança automatizada durante o aprovisionamento, pode utilizar o PowerShell para verificar a configuração atual. Execute o **Get-AzureRmVMSqlServerExtension** de comandos e examine a **AutoBackupSettings** propriedade:
 
 ```powershell

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 8534fefc863a6cb04c43e81a4bea459844e58d91
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2512bf452c628c6c4a20f40f2182025f4591f200
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analisar os registos de telemetria do Application Insights com o Spark no HDInsight
 
@@ -372,7 +372,6 @@ Para obter mais exemplos de utilização do Spark para trabalhar com dados e ser
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Transmissão em fluxo do Spark: Utilizar o Spark no HDInsight para compilar aplicações de transmissão em fluxo](apache-spark-eventhub-streaming.md)
 * [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Para obter informações sobre como criar e executar Spark aplicações, consulte os seguintes documentos:

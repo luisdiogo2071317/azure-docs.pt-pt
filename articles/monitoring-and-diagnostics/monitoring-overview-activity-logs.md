@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
 O **registo de atividade do Azure** é um registo de subscrição que fornece informações sobre os eventos de nível de subscrição ocorridos no Azure. Isto inclui uma série de dados, a partir dos dados operacionais do Azure Resource Manager para atualizações de eventos de estado de funcionamento do serviço. O registo de atividade era anteriormente conhecido como "Registos de auditoria" ou "Registos operacionais," dado que os eventos de controlo plane de relatórios de categoria administrativa para as suas subscrições. Utilizar o registo de atividade, poderá determinar o ' que, quem e quando ' para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também pode compreender o estado da operação e outras propriedades relevantes. O registo de atividade não incluir operações de leitura (GET) ou as operações para recursos que utilizam clássica / modelo "RDFE".
@@ -72,10 +72,10 @@ Seguem-se algumas das ações que pode fazer com o registo de atividade:
 * Consultá-lo através do Cmdlet do PowerShell, a CLI ou a REST API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o registo de atividade no portal do Azure
-No portal do Azure pode ver o registo de atividades em vários locais:
-* O **painel do registo de atividade**, que pode aceder ao procurar o registo de atividade em "Mais serviços" no painel de navegação esquerdo.
-* O **painel Monitor**, que é apresentado por predefinição no painel de navegação esquerdo. O registo de atividade é uma secção deste painel de monitorização do Azure.
-* Qualquer recurso **painel de recursos**, por exemplo, o painel de configuração para uma Máquina Virtual. O registo de atividade está a ser uma das secções na maioria nestes painéis de recursos e clicar nela automaticamente filtra os eventos para os relacionados com esse recurso específico.
+No portal do Azure, pode ver o registo de atividades em vários locais:
+* O **registo de atividade** que pode aceder ao procurar o registo de atividade em **todos os serviços** no painel de navegação esquerdo.
+* **Monitor** aparece por predefinição no painel de navegação esquerdo. O registo de atividade é uma secção de Monitor do Azure.
+* Qualquer recurso **recursos**, por exemplo, o painel de configuração para uma Máquina Virtual. O registo de atividade está a ser uma das secções na maioria nestes painéis de recursos e clicar nela automaticamente filtra os eventos para os relacionados com esse recurso específico.
 
 No portal do Azure, pode filtrar o registo de atividade por estes campos:
 * TimeSpan - a hora de início e de fim de eventos.
@@ -113,7 +113,7 @@ Estas definições podem ser configuradas através da opção "Export" no painel
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar perfis de registo no portal do Azure
 Pode transmitir o registo de atividade para um Hub de eventos ou armazená-las numa conta do Storage utilizando a opção "Export" no portal do Azure.
 
-1. Navegue para o **registo de atividade** painel utilizando o menu no lado esquerdo do portal.
+1. Navegue para **registo de atividade** utilizando o menu no lado esquerdo do portal.
 
     ![Navegue até ao registo de atividade no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Clique em de **exportar** botão na parte superior do painel.

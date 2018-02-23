@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gerir o Azure Data Lake Analytics utilizando o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,8 +32,8 @@ Saiba como gerir contas de Azure Data Lake Analytics, origens de dados de conta,
 
 ### <a name="create-an-account"></a>Criar uma conta
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Novo** > **Intelligence + análise** > **Data Lake Analytics**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Clique em **crie um recurso** > **Intelligence + análise** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens: 
    1. **Nome**: O nome da conta do Data Lake Analytics.
    2. **Subscrição**: subscrição do Azure utilizada para a conta.
@@ -248,7 +248,7 @@ Há uma política predefinida definida em cada conta. A política predefinida é
 * [Mensagem de blogue de políticas ao nível da conta](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
 * [Mensagem de blogue de políticas ao nível da tarefa](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introdução ao Data Lake Analytics utilizando o portal do Azure](data-lake-analytics-get-started-portal.md)

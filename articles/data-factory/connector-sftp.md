@@ -108,7 +108,7 @@ Para utilizar a autenticação de chave pública SSH, definir a propriedade de "
 | passPhrase | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
 
 > [!NOTE]
-> Conector SFTP suporta chave RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro de chave começa com "---BEGIN [RSA/DSA] chave privada---". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de *.ppk OpenSSH formato. 
+> Conector SFTP suporta chave RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro de chave começa com "---BEGIN [RSA/DSA] chave privada---". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de .ppk OpenSSH formato. 
 
 **Exemplo 1: Autenticação de parâmetros SshPublicKey utilizar filePath chave privada**
 

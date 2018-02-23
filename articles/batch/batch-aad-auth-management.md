@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gestão do Batch com o Active Directory
 
@@ -49,7 +49,7 @@ Em seguida, terá de delegar o acesso à sua aplicação para a API do Azure Res
 
 Siga estes passos no portal do Azure:
 
-1. No painel de navegação esquerdo do portal do Azure, escolha **mais serviços**, clique em **registos de aplicação**e clique em **adicionar**.
+1. No painel de navegação esquerdo do portal do Azure, escolha **todos os serviços**, clique em **registos de aplicação**e clique em **adicionar**.
 2. Procure o nome da sua aplicação na lista de registos de aplicação:
 
     ![Procure o nome da sua aplicação](./media/batch-aad-auth-management/search-app-registration.png)
@@ -122,7 +122,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 Depois de fornecer as suas credenciais, pode continuar a aplicação de exemplo para emitir pedidos autenticados para o serviço de gestão do Batch. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre a execução de [aplicação de exemplo AccountManagement][acct_mgmt_sample], consulte [gerir contas e Batch quotas com a biblioteca de cliente de gestão do Batch para .NET](batch-management-dotnet.md).
 

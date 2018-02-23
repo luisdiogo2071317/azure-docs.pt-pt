@@ -6,24 +6,23 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75df4436d5d36878f361e87f34d9bfc8bed1e58f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
-Este artigo contém instruções para utilizar os cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e grupos de atualização. Este conteúdo aplica-se apenas a grupos do Office 365. 
+Este artigo contém instruções para utilizar os cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e grupos de atualização. Este conteúdo aplica-se apenas a grupos do Office 365 (por vezes denominados grupos unificados). 
 
 > [!IMPORTANT]
 > Algumas definições requerem uma licença do Azure Active Directory Premium P1. Para obter mais informações, consulte o [as definições do modelo](#template-settings) tabela.
@@ -42,7 +41,7 @@ Se souber o nome da definição de que pretende obter, pode utilizar o cmdlet pa
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Criar as definições ao nível do diretório
-Estes passos criar definições ao nível do diretório, que se aplicam a todos os grupos do Office 365 (Unified grupos) no diretório.
+Estes passos criar definições ao nível do diretório, que se aplicam a todos os grupos do Office 365 no diretório.
 
 1. Os cmdlets DirectorySettings, tem de especificar o ID de SettingsTemplate que pretende utilizar. Se não souber este ID, este cmdlet devolve a lista de todos os modelos de definições:
   
@@ -55,7 +54,7 @@ Estes passos criar definições ao nível do diretório, que se aplicam a todos 
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -93,20 +92,19 @@ Seguem-se as definições especificadas no Group.Unified SettingsTemplate. A men
 
 | **Definição** | **Descrição** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tipo: booleano<li>Predefinição: VERDADEIRO |O sinalizador que indica se a criação de grupo unificado é permitida no diretório por utilizadores de não administrador. Esta definição não exige uma licença do Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: Cadeia<li>Predefinição: "" |GUID do grupo de segurança para os quais os membros estão autorizados a criar unificados grupos mesmo quando EnableGroupCreation = = false. |
+|  <ul><li>EnableGroupCreation<li>Tipo: booleano<li>Predefinição: VERDADEIRO |O sinalizador que indica se a criação de grupo do Office 365 é permitida no diretório por utilizadores de não administrador. Esta definição não exige uma licença do Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: Cadeia<li>Predefinição: "" |GUID do grupo de segurança para os quais os membros estão autorizados a criar grupos do Office 365, mesmo quando EnableGroupCreation = = false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: Cadeia<li>Predefinição: "" |Uma ligação para as diretrizes de utilização do grupo. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: Cadeia<li>Predefinição: "" | Uma lista delimitada por vírgulas de descrições de classificação. |
 |  <ul><li>DefaultClassification<li>Tipo: Cadeia<li>Predefinição: "" | A classificação que está a ser utilizado como a classificação predefinida para um grupo se foi especificado nenhum.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: Cadeia<li>Predefinição: "" | Não utilize. Não implementado. |
-| <ul><li>CustomBlockedWordsList<li>Tipo: Cadeia<li>Predefinição: "" | Não utilize. Não implementado. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: Cadeia<li>Predefinição: "" | Cadeia com um comprimento máximo de 64 carateres, que define a Convenção de nomenclatura configurada para grupos do Office 365. Para obter mais informações, consulte [impor uma política de atribuição de nomes de grupos do Office 365 (pré-visualização)](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Tipo: Cadeia<li>Predefinição: "" | Cadeia de valores separados por vírgulas das expressões que os utilizadores não poderão utilizar nomes de grupo ou aliases. Para obter mais informações, consulte [impor uma política de atribuição de nomes de grupos do Office 365 (pré-visualização)](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Tipo: booleano<li>Predefinição: "False" | Não utilize
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booleano<li>Predefinição: False | Valor boleano que indica se é ou não um utilizador convidado pode ser um proprietário de grupos. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booleano<li>Predefinição: VERDADEIRO | Valor boleano que indica se é ou não um utilizador convidado pode ter acesso ao conteúdo dos grupos de unificada.  Esta definição não exige uma licença do Azure Active Directory Premium P1.|
+|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booleano<li>Predefinição: VERDADEIRO | Valor boleano que indica se é ou não um utilizador convidado pode ter acesso ao conteúdo de grupos do Office 365.  Esta definição não exige uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: Cadeia<li>Predefinição: "" | O url de uma ligação para as diretrizes de utilização do convidado. |
 |  <ul><li>AllowToAddGuests<li>Tipo: booleano<li>Predefinição: VERDADEIRO | Um booleano que indica se é ou não tem permissão para adicionar os convidados a este diretório.|
-|  <ul><li>ClassificationList<li>Tipo: Cadeia<li>Predefinição: "" |Uma lista delimitada por vírgulas dos valores de classificação válido que pode ser aplicado aos grupos de unificada. |
-
+|  <ul><li>ClassificationList<li>Tipo: Cadeia<li>Predefinição: "" |Uma lista delimitada por vírgulas dos valores de classificação válido que podem ser aplicados a grupos do Office 365. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Ler definições ao nível do diretório
 Estes passos ler definições ao nível do diretório, que se aplicam a todos os grupos do Office no diretório.
@@ -138,6 +136,7 @@ Estes passos ler definições ao nível do diretório, que se aplicam a todos os
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
@@ -157,7 +156,7 @@ Estes passos ler definições ao nível do diretório, que se aplicam a todos os
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -186,7 +185,7 @@ Estes passos ler definições ao nível do diretório, que se aplicam a todos os
 
 ## <a name="update-settings-at-the-directory-level"></a>Atualizar as definições ao nível do diretório
 
-Estes passos atualizar as definições ao nível do diretório, que são aplicadas a todos os grupos de unificado no diretório. Estes exemplos assumem que já há um objeto de definições no seu diretório.
+Estes passos atualizar as definições ao nível do diretório, que se aplicam a todos os grupos do Office 365 no diretório. Estes exemplos assumem que já há um objeto de definições no seu diretório.
 
 1. Encontrar o objeto de definições existente:
   ```

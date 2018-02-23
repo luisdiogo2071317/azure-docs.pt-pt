@@ -1,9 +1,9 @@
 ---
-title: "Configurar o Monitor de desempenho de rede para circuitos do ExpressRoute do Azure (pré-visualização) | Microsoft Docs"
-description: "Configure NPM para circuitos do ExpressRoute do Azure. (Pré-visualização)"
+title: Configurar o Monitor de desempenho de rede para circuitos do ExpressRoute do Azure | Microsoft Docs
+description: "Configure a monitorização de rede baseado na nuvem para circuitos do ExpressRoute do Azure."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurar o Monitor de desempenho de rede para o ExpressRoute (pré-visualização)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de desempenho de rede para o ExpressRoute
 
 Monitor de desempenho de rede (NPM) é uma solução que monitoriza a conectividade entre as implementações de nuvem do Azure e localizações no local (sucursais, etc.) de monitorização de rede baseado na nuvem. NPM faz parte do Microsoft Operations Management Suite (OMS). Agora, NPM oferece uma extensão para o ExpressRoute permite-lhe monitorizar o desempenho de rede através de circuitos ExpressRoute que estão configurados para utilizar o Peering privado. Quando configurar NPM para o ExpressRoute, pode detetar problemas de rede para identificar e eliminar.
 
@@ -62,9 +62,15 @@ Se encontram instalados agentes de monitorização em vários servidores, no loc
 
 Se já estiver a utilizar o Monitor de desempenho de rede para monitorizar os outros objetos ou os serviços e já tiver área de trabalho de uma das regiões suportadas, pode ignorar o passo 1 e o passo 2 e iniciar a configuração com o passo 3.
 
-## <a name="configure"></a>Passo 1: Criar uma área de trabalho (a subscrição que tenha as VNETs ligadas Circuit(s)) o ExpressRoute
+## <a name="configure"></a>Passo 1: Criar uma área de trabalho
+
+Crie uma área de trabalho na subscrição com a ligação de VNets para circuit(s) o ExpressRoute.
 
 1. No [portal do Azure](https://portal.azure.com), selecione a subscrição que tenha as VNETs em modo de peering para o circuito do ExpressRoute. Em seguida, pesquise a lista de serviços no **Marketplace** 'Monitor de desempenho de rede'. No retorno, clique para abrir o **Monitor de desempenho de rede** página.
+
+>[!NOTE]
+>Pode criar uma área de trabalho nova ou utilize uma área de trabalho existente.  Se pretender utilizar uma área de trabalho existente, certifique-se de que a área de trabalho foi migrada para o novo idioma de consulta. [Obter mais informações...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Na parte inferior do principal **Monitor de desempenho de rede** página, clique em **criar** para abrir **Monitor de desempenho de rede - criar nova solução** página. Clique em **área de trabalho do OMS - Selecione uma área de trabalho** para abrir a página de áreas de trabalho. Clique em **+ criar nova área de trabalho** para abrir a página da área de trabalho.
@@ -79,29 +85,25 @@ Se já estiver a utilizar o Monitor de desempenho de rede para monitorizar os ou
   >[!NOTE]
   >O circuito de ExpressRoute pode ser qualquer parte do mundo e não tem de estar na mesma região que a área de trabalho.
   >
-
-
+  
   ![Área de trabalho](.\media\how-to-npm\4.png)<br><br>
 4. Clique em **OK** para guardar e implementar o modelo de definições. Assim que valida o modelo, clique em **criar** para implementar a área de trabalho.
 5. Depois da área de trabalho ter sido implementada, navegue para o **NetworkMonitoring(name)** recursos que criou. Valide as definições, em seguida, clique em **solução requer configuração adicional**.
 
   ![configuração adicional](.\media\how-to-npm\5.png)
-6. No **bem-vindo ao Monitor de desempenho de rede** página, selecione **TCP de utilização para transações sintéticas**, em seguida, clique em **submeter**. As transações de TCP são utilizadas apenas para tornar e quebrar a ligação. Não são enviados dados através destas ligações de TCP.
-
-  ![TCP para transações sintéticas](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Passo 2: Instalar e configurar agentes
 
 ### <a name="download"></a>2.1: Transfira o ficheiro de configuração do agente
 
-1. No **configuração de Monitor de desempenho de rede - página de configuração de TCP** para o seu recurso no **instalar agentes do OMS** secção, clique no agente que corresponde ao processador e a transferência do servidor de ficheiro de configuração.
+1. Vá para o **definições comuns** separador do **configuração de Monitor de desempenho de rede** página para o seu recurso. Clique no agente que corresponde ao processador do servidor a **instalar agentes de OMS** secção e transfira o ficheiro de configuração.
 
   >[!NOTE]
   >O agente tem de ser instalado num servidor do Windows (2008 SP1 ou posterior). Não é suportada a monitorização dos circuitos do ExpressRoute com o sistema operativo de ambiente de trabalho do Windows e com SO Linux. 
   >
   >
 2. Em seguida, copie o **ID da área de trabalho** e **chave primária** para bloco de notas.
-3. No **configurar agentes** secção, transfira o Script do Powershell. O script do PowerShell ajuda-o a abrir a porta de firewall relevantes para as transações de TCP.
+3. Do **configurar agentes OMS para a monitorização utilizando o protocolo TCP** secção, transfira o Script do Powershell. O script do PowerShell ajuda-o a abrir a porta de firewall relevantes para as transações de TCP.
 
   ![Script do PowerShell](.\media\how-to-npm\7.png)
 
@@ -217,7 +219,7 @@ Para ver uma lista de todos os circuitos ExpressRoute monitorizados, clique no *
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Tendência de perda, débito e latência
+#### <a name="trend"></a>Tendência de perda, latência e débito
 
 Os gráficos de largura de banda, a latência e perda são interativos. Pode ampliar em qualquer secção nestes gráficos, utilizar controlos de rato. Também pode ver as largura de banda, a latência e perda de dados para outros intervalos clicando **data/hora**, localizado abaixo do botão de ações no canto superior esquerdo.
 

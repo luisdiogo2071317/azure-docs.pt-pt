@@ -3,8 +3,8 @@ title: Utilizar modelos Azure Resource Manager na pilha do Azure | Microsoft Doc
 description: Saiba como utilizar os modelos Azure Resource Manager na pilha do Azure para Aprovisionar recursos.
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 7648855011e8f77c35713d2d2ae50f2e474a08a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 6d4ef16881ef8dc249116aec706f760b163a2972
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utilizar modelos Azure Resource Manager na pilha do Azure
 
@@ -69,7 +70,7 @@ Implemente uma VM do Windows que inclui uma rede virtual (com o DNS), o endereç
 ## <a name="cancel-a-running-template-deployment"></a>Cancelar uma implementação de modelo em execução
 Para cancelar uma implementação de modelo em execução, utilize o `Stop-AzureRmResourceGroupDeployment` cmdlet do PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Implementar modelos com o portal](azure-stack-deploy-template-portal.md)
 
 [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)

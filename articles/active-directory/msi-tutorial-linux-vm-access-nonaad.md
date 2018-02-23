@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utilize um Linux VM geridos serviço de identidade (MSI) para aceder ao Cofre de chaves do Azure 
 
@@ -45,7 +45,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 
 Para este tutorial, iremos criar uma nova VM do Linux. Também pode ativar MSI numa VM existente.
 
-1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1. Clique em de **crie um recurso** botão encontrado no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Introduza as informações da máquina virtual. Para **tipo de autenticação**, selecione **chave pública SSH** ou **palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão VM.
 
@@ -77,7 +77,7 @@ Utilizar MSI código pode obter tokens de acesso para autenticar em recursos que
 
 Em primeiro lugar, temos de criar um cofre de chaves e conceder acesso de identidade do nosso VM para o Cofre de chaves.   
 
-1. Na parte superior da barra de navegação esquerdo, selecione **+ novo** , em seguida, **segurança + identidade** , em seguida, **Cofre de chaves**.  
+1. Na parte superior da barra de navegação esquerdo, selecione **crie um recurso** > **segurança + identidade** > **Cofre de chaves**.  
 2. Forneça um **nome** para o novo cofre de chaves. 
 3. Localize o Cofre de chaves do mesmo grupo de subscrição e dos recursos da VM que criou anteriormente. 
 4. Selecione **políticas de acesso** e clique em **adicionar novo**. 

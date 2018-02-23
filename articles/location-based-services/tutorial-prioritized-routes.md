@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Localizar rotas para diferentes meios de deslocação com o Azure Location Based Services
 
@@ -209,9 +209,9 @@ Esta secção mostra como utilizar a API Route Service do Azure Location Based S
     ```
     Este fragmento de código cria um [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adiciona um processador de eventos para analisar a resposta recebida. Para uma resposta com êxito, cria uma matriz de coordenadas para a rota devolvida e adiciona-a à camada `truckRouteLayerName` do mapa. 
     
-    Este fragmento de código também envia a consulta para o Route Service, para obter a rota para o ponto de início e de fim especificado, para a sua chave de conta. Os seguintes parâmetros opcionais são utilizados para indicar a rota para um camião pesado:- O parâmetro `travelMode=truck` especifica o meio de transporte como *camião*. Outros meios de transporte suportados são *táxi*, *autocarro*, *carrinha*, *motociclo* e a predefinição *carro*.  
-        - Os parâmetros `vehicleWidth`, `vehicleHeight` e `vehicleLength` especificam as dimensões do veículo em metros e são considerados apenas se o meio de transporte for *camião*.  
-        - O `vehicleLoadType` classifica a carga como perigosa e restrita em algumas estradas. Atualmente, esta classificação também só é considerada para o meio *camião*.  
+    Este fragmento de código também envia a consulta para o Route Service, para obter a rota para o ponto de início e de fim especificado, para a sua chave de conta. Os seguintes parâmetros opcionais são utilizados para indicar a rota para um camião pesado:- O parâmetro `travelMode=truck` especifica o meio de transporte como *camião*. Outros meios de transporte suportados são *táxi*, *autocarro*, *carrinha*, *motociclo* e a predefinição *carro*.
+        - Os parâmetros `vehicleWidth`, `vehicleHeight` e `vehicleLength` especificam as dimensões do veículo em metros e são considerados apenas se o meio de transporte for *camião*.
+        - O `vehicleLoadType` classifica a carga como perigosa e restrita em algumas estradas. Atualmente, esta classificação também só é considerada para o meio *camião*.
 
 2. Adicione o seguinte código JavaScript para obter a rota para um carro utilizando o Route Service:
 

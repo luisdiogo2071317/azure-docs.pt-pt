@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Criar um conjunto de dimensionamento de máquina virtual que utiliza zonas de disponibilidade (pré-visualização)
 Para proteger os conjuntos de dimensionamento de máquina virtual de falhas de nível de centro de dados, pode criar um conjunto através de zonas de disponibilidade de dimensionamento. Regiões do Azure que suportam zonas de disponibilidade tem um mínimo de três zonas separadas, cada um com os seus próprios independente de origem, rede e arrefecimento de energia. Para obter mais informações, consulte [zonas de descrição geral da disponibilidade](../availability-zones/az-overview.md).
@@ -30,13 +30,7 @@ Para proteger os conjuntos de dimensionamento de máquina virtual de falhas de n
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de dimensionamento de zona único e com redundância de zona
 Quando implementa um conjunto de dimensionamento de máquina virtual, pode optar por utilizar uma única zona de disponibilidade numa região ou várias zonas.
 
-Quando cria um conjunto numa única zona, controlo que zona todas essas instâncias de VM executam no, e o conjunto de dimensionamento é gerido e autoscales apenas dentro desse horário de dimensionamento. O diagrama seguinte mostra um exemplo de como pode criar várias única zona escala define com um balanceador de carga com redundância de zona que distribui o tráfego:
-
-![Conjunto de dimensionamento de zona único de implementação com o Balanceador de carga com redundância de zona](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Um conjunto de dimensionamento com redundância de zona permite-lhe criar um conjunto de dimensionamento única que abrange várias zonas. Como são criadas instâncias de VM, por predefinição, são uniformemente equilibrados nos zonas. Uma interrupção deve ocorrer das zonas de, um conjunto de dimensionamento não automaticamente aumentar horizontalmente para aumentar a capacidade. Uma melhor prática, seria possível configurar regras de dimensionamento automático com base na utilização de CPU ou memória. As regras de dimensionamento automático permitiria que o conjunto para responder a uma perda das instâncias de VM em que uma zona ao aumentar horizontalmente novas instâncias nas restantes zonas operacionais de dimensionamento. O diagrama seguinte mostra um exemplo de um conjunto de dimensionamento única que é implementado em várias zonas:
-
-![Dimensionamento zonal redundante definir implementação e o Balanceador de carga](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+Quando cria um conjunto numa única zona, controlo que zona todas essas instâncias de VM executam no, e o conjunto de dimensionamento é gerido e autoscales apenas dentro desse horário de dimensionamento. Um conjunto de dimensionamento com redundância de zona permite-lhe criar um conjunto de dimensionamento única que abrange várias zonas. Como são criadas instâncias de VM, por predefinição, são uniformemente equilibrados nos zonas. Uma interrupção deve ocorrer das zonas de, um conjunto de dimensionamento não automaticamente aumentar horizontalmente para aumentar a capacidade. Uma melhor prática, seria possível configurar regras de dimensionamento automático com base na utilização de CPU ou memória. As regras de dimensionamento automático permitiria que o conjunto para responder a uma perda das instâncias de VM em que uma zona ao aumentar horizontalmente novas instâncias nas restantes zonas operacionais de dimensionamento.
 
 Para utilizar zonas disponibilidade, o conjunto de dimensionamento tem de ser criado num [suportado região do Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones). Terá também de [registar para as zonas de disponibilidade de pré-visualização](http://aka.ms/azenroll). Pode criar um conjunto de dimensionamento que utiliza as zonas de disponibilidade com um dos seguintes métodos:
 

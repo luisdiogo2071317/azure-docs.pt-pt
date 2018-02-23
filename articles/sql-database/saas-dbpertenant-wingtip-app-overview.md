@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Introdução a um exemplo de aplicação de SaaS de multi-inquilino de base de dados SQL
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a uma aplicação SaaS multi-inquilino que utiliza a base de dados por padrão do inquilino com a base de dados SQL
 
-O *Wingtip SaaS* aplicação é uma aplicação de multi-inquilino de exemplo que demonstra vantagens exclusivas da base de dados SQL. A aplicação utiliza uma base de dados por inquilino, o padrão da aplicação SaaS, para servir vários inquilinos. A aplicação foi concebida para demonstram as funcionalidades da SQL Database do Azure que ativar cenários de SaaS, incluindo vários padrões de conceção e gestão de SaaS. Para obter rapidamente e em execução, a aplicação Wingtip SaaS implementa em menos de cinco minutos!
+O *Wingtip SaaS* aplicação é uma aplicação de multi-inquilino de exemplo. A aplicação utiliza a base de dados por inquilino, o padrão de aplicação SaaS, para servir vários inquilinos. A aplicação showcases funcionalidades da SQL Database do Azure que ativar cenários de SaaS, utilizando vários padrões de conceção e gestão de SaaS. Para obter rapidamente e em execução, a aplicação Wingtip SaaS implementa em menos de cinco minutos!
 
-Scripts de gestão e código de origem de aplicação estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip SaaS de pedidos de desbloqueio.
+Scripts de gestão e código de origem de aplicação estão disponíveis no [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repositório do GitHub. Antes de começar, consulte o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de gestão Wingtip pedidos de desbloqueio.
 
 ## <a name="application-architecture"></a>Arquitetura da aplicação
 
@@ -48,13 +48,13 @@ Depois de implementar a aplicação, explore os tutoriais seguintes que criar ap
 |[Monitorizar e gerir o desempenho](saas-dbpertenant-performance-monitoring.md)| Saiba como utilizar funcionalidades de monitorização da base de dados do SQL Server e como configurar alertas quando os limiares de desempenho for excedidos. |
 |[Monitor com a análise de registos (OMS)](saas-dbpertenant-log-analytics.md) | Saiba como utilizar [Log Analytics](../log-analytics/log-analytics-overview.md) monitorizar grandes quantidades de recursos, entre vários conjuntos. |
 |[Restaurar um inquilino único](saas-dbpertenant-restore-single-tenant.md)| Saiba como restaurar uma base de dados do inquilino para um ponto anterior no tempo. Passos para restaurar uma base de dados paralelas, deixando a base de dados existente do inquilino online, também são incluídos. |
-|[Gerir o esquema de inquilino](saas-tenancy-schema-management.md)| Saiba como atualizar o esquema e atualizar os dados de referência, em todos os inquilinos Wingtip SaaS. |
-|[Executar a análise de ad-hoc](saas-tenancy-adhoc-analytics.md) | Criar uma base de dados de análise do ad-hoc e executar consultas distribuídas em tempo real em todos os inquilinos.  |
-|[Executar a análise de inquilino](saas-tenancy-tenant-analytics.md) | Extrair dados do inquilino para um armazém de dados ou base de dados de análise para executar consultas de análise offline. |
+|[Gerir o esquema de base de dados do inquilino](saas-tenancy-schema-management.md)| Saiba como atualizar o esquema e atualizar os dados de referência, em todas as bases de dados do inquilino. |
+|[Executar consultas distribuídas cross-inquilino](saas-tenancy-cross-tenant-reporting.md) | Criar uma base de dados de análise do ad-hoc e executar consultas distribuídas em tempo real em todos os inquilinos.  |
+|[Executar a análise nos dados de inquilino extraídos](saas-tenancy-tenant-analytics.md) | Extrair dados do inquilino para um armazém de dados ou base de dados de análise para consultas de análise offline. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Orientações e sugestões de exemplo de aplicação SaaS do SQL Database do Azure multi-inquilino](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Orientações gerais e sugestões quando implementar e utilizar o exemplo de aplicação Wingtip bilhetes SaaS](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Implementar a aplicação Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)

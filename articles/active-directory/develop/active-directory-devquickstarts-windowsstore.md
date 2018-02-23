@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b8bfbfca8daf506df083555d3046433b63e6bffe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD plataforma Universal do Windows (UWP/XAML) introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -48,7 +48,7 @@ Para ativar a aplicação obter os tokens, terá primeiro de registá-lo no seu 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. Em seguida, sob o **diretório** lista, selecione o inquilino do Active Directory onde é necessário registar a aplicação.
-3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
+3. Clique em **todos os serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
 5. Siga as instruções para criar um **aplicação cliente nativa**.
   * **Nome** descreve a aplicação aos utilizadores.

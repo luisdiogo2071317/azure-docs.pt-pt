@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão automático-aceleração para uma aplicação utilizando uma política de deteção de Realm Inicial
 
@@ -85,7 +85,7 @@ Existem três passos necessários para a definição de início de sessão autom
 
 2. Localizar o principal de serviço ao qual pretende anexar a política.
 
-3. Anexar a política para o princípio de serviço. As políticas que poderão ter sido criadas de um inquilino, mas não têm qualquer efeito até que estão ligados a uma entidade. 
+3. Anexar a política para o principal de serviço. As políticas que poderão ter sido criadas de um inquilino, mas não têm qualquer efeito até que estão ligados a uma entidade. 
 
 Uma política HRD pode ser anexada a um principal de serviço e apenas uma política HRD pode estar ativa numa determinada entidade num dado momento.  
 
@@ -170,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-Para ativar a aceleração de automaticamente depois de ter uma política HRD, pode atribuí-la para vários princípios de serviço de aplicações.
+Para ativar a aceleração de automaticamente depois de ter uma política HRD, pode atribuí-la para vários principais de serviço de aplicações.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passo 2: Localizar o principal de serviço ao qual pretende atribuir a política  
 É necessário o **ObjectID** de principais de serviço ao qual pretende atribuir a política. Existem várias formas de localizar o **ObjectID** de principais de serviço.    
 
-Pode utilizar o portal ou pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Pode também aceder ao [gráfico Explorer ferramenta](https://graphexplorer.cloudapp.net/) e inicie sessão na sua conta do Azure AD para ver os principais de serviço da sua organização. Porque estão a utilizar o PowerShell, pode utilizar o cmdlet get-AzureADServicePrincipal para listar os princípios de serviço e os respetivos IDs.
+Pode utilizar o portal ou pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Pode também aceder ao [gráfico Explorer ferramenta](https://graphexplorer.cloudapp.net/) e inicie sessão na sua conta do Azure AD para ver os principais de serviço da sua organização. Porque estão a utilizar o PowerShell, pode utilizar o cmdlet get-AzureADServicePrincipal para listar os principais de serviço e os respetivos IDs.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Passo 3: Atribuir a política para o principal de serviço  
 Depois de ter o **ObjectID** do principal de serviço da aplicação para o qual pretende configurar automaticamente aceleração, execute o seguinte comando. Este comando associa a política HRD que criou no passo 1 com o principal de serviço que localizou no passo 2.
@@ -226,7 +226,7 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação para o Azure AD](develop/active-directory-authentication-scenarios.md).
 - Para obter mais informações sobre o utilizador-início de sessão único, consulte [acesso a aplicações e início de sessão no Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 - Visite o [guia para programadores do Active Directory](develop/active-directory-developers-guide.md) para uma descrição geral de todos os conteúdos relacionados com o programador.

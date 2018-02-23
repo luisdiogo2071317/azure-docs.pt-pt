@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema de início de sessão para o site do painel de acesso
 
@@ -32,7 +32,7 @@ Os utilizadores podem iniciar sessão painel de acesso se tiverem uma conta esco
 
 -   Os utilizadores podem ser autenticados pelo Windows Server Active Directory.
 
-Se um utilizador tem uma subscrição do Azure ou do Office 365 e foi utilizando o portal do Azure ou uma aplicação do Office 365, deverá conseguir utilizar o painel de acesso totalmente integrada sem ser necessário voltar a iniciar sessão. Os utilizadores que não são autenticados pedido que inicie sessão com o nome de utilizador e palavra-passe da sua conta no Azure AD. Se a organização tiver configurado a Federação, escrever o nome de utilizador é suficiente.
+Se um utilizador tem uma subscrição do Azure ou do Office 365 e foi utilizando o portal do Azure ou uma aplicação do Office 365, deverá conseguir utilizar o painel de acesso totalmente integrada sem ser necessário voltar a iniciar sessão. Os utilizadores que não são autenticados-lhe pedido que inicie sessão com o nome de utilizador e palavra-passe da sua conta no Azure AD. Se a organização tiver configurado a Federação, escrever o nome de utilizador é suficiente.
 
 ## <a name="general-issues-to-check-first"></a>Problemas gerais para verificar primeiro 
 
@@ -50,7 +50,7 @@ Se um utilizador tem uma subscrição do Azure ou do Office 365 e foi utilizando
 
 -   Certifique-se de um **política de acesso condicional** ou **Identity Protection** política não está a bloquear o acesso do utilizador.
 
--   Certifique-se de que um utilizador **informações de contacto de autenticação** é atualizado para permitir que as políticas de autenticação Multifator ou o acesso condicional a serem impostas.
+-   Certifique-se de que um utilizador **informações de contacto de autenticação** está atualizada para permitir que as políticas de autenticação Multifator ou o acesso condicional a serem impostas.
 
 -   Certifique-se para também tente limpar os cookies do browser e tentar iniciar sessão novamente.
 
@@ -93,11 +93,11 @@ O acesso ao painel de acesso pode ser bloqueado devido a um problema com a conta
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Verifique se existe uma conta de utilizador no Azure Active Directory
 
-Para verificar a conta de utilizador estiver presente, siga os passos abaixo:
+Para verificar a conta de utilizador estiver presente, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -111,11 +111,11 @@ Para verificar a conta de utilizador estiver presente, siga os passos abaixo:
 
 ### <a name="check-a-users-account-status"></a>Verifique o estado da conta do utilizador
 
-Para verificar o estado da conta do utilizador, siga os passos abaixo:
+Para verificar o estado da conta do utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -131,11 +131,11 @@ Para verificar o estado da conta do utilizador, siga os passos abaixo:
 
 ### <a name="reset-a-users-password"></a>Repor palavra-passe de um utilizador
 
-Para repor a palavra-passe de um utilizador, siga os passos abaixo:
+Para repor a palavra-passe de um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -151,11 +151,11 @@ Para repor a palavra-passe de um utilizador, siga os passos abaixo:
 
 9.  Copiar o **palavra-passe temporária** ou **introduza uma palavra-passe nova** para o utilizador.
 
-10. Comunicar esta nova palavra-passe ao utilizador, necessário para alterar esta palavra-passe durante o próximo início de sessão no Azure Active Directory.
+10. Comunicar esta nova palavra-passe ao utilizador, necessário para alterar esta palavra-passe durante o seu próximo início de sessão ao Azure Active Directory.
 
 ### <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavra-passe self-service
 
-Para ativar a reposição de palavra-passe self-service, siga os passos de implementação abaixo:
+Para ativar a reposição de palavra-passe self-service, siga estes passos de implementação:
 
 -   [Permitir que os utilizadores reponham as respetivas palavras-passe do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
@@ -163,11 +163,11 @@ Para ativar a reposição de palavra-passe self-service, siga os passos de imple
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verificar o estado de autenticação multifator do utilizador
 
-Para verificar o estado de autenticação multifator de um utilizador, siga os passos abaixo:
+Para verificar o estado de autenticação multifator de um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -184,17 +184,17 @@ Para verificar o estado de autenticação multifator de um utilizador, siga os p
 9.  Selecione o utilizador na lista de utilizadores e **ativar**, **desativar**, ou **impor** autenticação multifator conforme pretendido.
 
    >[!NOTE]
-   >Se um utilizador estiver num **imposto** Estado, pode defini-los como **desativado** temporariamente a informá-los novamente para a respetiva conta. Depois de estarem no, em seguida, pode alterar o respetivo estado para **ativado** novamente para exigi-las para voltar a registar as suas informações de contactos durante o início de sessão seguinte. Em alternativa, pode seguir os passos a [verificar informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info) para verificar ou definir estes dados para os mesmos.
+   >Se um utilizador estiver num **imposto** Estado, pode defini-los como **desativado** temporariamente a informá-los novamente para a respetiva conta. Depois de estarem no, em seguida, pode alterar o respetivo estado para **ativado** novamente para exigi-las para voltar a registar as suas informações de contactos durante o seu próximo início de sessão. Em alternativa, pode seguir os passos a [verificar informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info) para verificar ou definir estes dados para os mesmos.
    >
    >
 
 ### <a name="check-a-users-authentication-contact-info"></a>Verifique as informações de contacto de autenticação de um utilizador
 
-Para verificar a informação de contacto de autenticação de um utilizador utilizada para autenticação multifator, acesso condicional, proteção de identidade e de reposição de palavra-passe, siga os passos abaixo:
+Para verificar a informação de contacto de autenticação de um utilizador utilizada para autenticação multifator, acesso condicional, proteção de identidade e de reposição de palavra-passe, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -212,11 +212,11 @@ Para verificar a informação de contacto de autenticação de um utilizador uti
 
 ### <a name="check-a-users-group-memberships"></a>Verifique as associações de grupo do utilizador
 
-Para verificar as associações de grupo do utilizador, siga os passos abaixo:
+Para verificar as associações de grupo do utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -230,11 +230,11 @@ Para verificar as associações de grupo do utilizador, siga os passos abaixo:
 
 ### <a name="check-a-users-assigned-licenses"></a>Verifique as licenças atribuídas de um utilizador
 
-Para verificar as licenças atribuídas de um utilizador, siga os passos abaixo:
+Para verificar as licenças atribuídas de um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -248,11 +248,11 @@ Para verificar as licenças atribuídas de um utilizador, siga os passos abaixo:
 
 ### <a name="assign-a-user-a-license"></a>Atribuir uma licença de um utilizador 
 
-Para atribuir uma licença a um utilizador, siga os passos abaixo:
+Para atribuir uma licença a um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -288,5 +288,5 @@ Abra um pedido de suporte com as seguintes informações se disponíveis:
 
 -   Rastreios de fiddler
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Fornecer início de sessão único às suas aplicações com o Proxy da aplicação](active-directory-application-proxy-sso-using-kcd.md)

@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise de inquilino entre utilizar dados extraídos
 
@@ -76,7 +76,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 - Os scripts de Wingtip SaaS e aplicação [código fonte](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) são transferidos a partir do GitHub. Certifique-se para *desbloquear o ficheiro zip* antes de a extrair o respetivo conteúdo. Veja o [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip SaaS de pedidos de desbloqueio.
 - Ambiente de trabalho do Power BI está instalado. [Transferir o ambiente de trabalho do Power BI](https://powerbi.microsoft.com/downloads/)
 - O lote de inquilinos adicionais tiver sido aprovisionado, consulte o [ **aprovisionar inquilinos tutorial**](saas-multitenantdb-provision-and-catalog.md).
-- Uma conta de tarefa e a base de dados de conta de tarefa foram criados. Consulte os passos adequados de [ **tutorial de gestão de esquema**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Um agente de tarefa e a base de dados de agente de tarefa foram criados. Consulte os passos adequados de [ **tutorial de gestão de esquema**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Criar dados de demonstração de
 
@@ -228,7 +228,7 @@ Anteriormente deepened a análise para detetar que vendas permissão tendem a se
 
 Ter observados tendências em dados de inquilino da aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino. Pode contemplate outras formas que a aplicação pode informar decisões de negócio para fornecedores de aplicações SaaS. Os fornecedores podem aparência melhor às necessidades dos respetivos inquilinos. Hopefully neste tutorial tem equipados com as ferramentas necessárias para efetuar a análise nos dados de inquilino para capacitar as empresas para tomar decisões condicionada por dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

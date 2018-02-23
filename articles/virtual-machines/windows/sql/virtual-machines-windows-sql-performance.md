@@ -4,7 +4,7 @@ description: "Apresenta as melhores práticas para otimizar o desempenho de SQL 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: 6eb55c3d1f339a621050de6b239f840d2cff63fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Melhores práticas de desempenho do SQL Server nas Máquinas Virtuais do Azure
 
@@ -39,7 +39,7 @@ Segue-se uma lista de verificação rápida para um desempenho ideal do SQL Serv
 
 | Área | Otimizações de |
 | --- | --- |
-| [Tamanho da VM](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) ou superior para o SQL Server Enterprise edition.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) ou superior para edições Standard do SQL Server e Web. |
+| [Tamanho da VM](#vm-size-guidance) |[DS3](../sizes-memory.md) ou superior para o SQL Server Enterprise edition.<br/><br/>[DS2](../sizes-memory.md) ou superior para edições Standard do SQL Server e Web. |
 | [Armazenamento](#storage-guidance) |Utilize [armazenamento Premium](../premium-storage.md). Armazenamento Standard só é recomendado para dev/teste.<br/><br/>Manter o [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e VM do SQL Server na mesma região.<br/><br/>Desativar o Azure [armazenamento georredundante](../../../storage/common/storage-redundancy.md) (georreplicação) na conta de armazenamento. |
 | [Discos](#disks-guidance) |Utilize um mínimo de 2 [P30 discos](../premium-storage.md#scalability-and-performance-targets) (1 para ficheiros de registo; 1 para ficheiros de dados e o TempDB).<br/><br/>Evite utilizar o sistema operativo ou discos temporários para o armazenamento de base de dados ou registo.<br/><br/>Permitir leitura de colocação em cache em discos que alojam os ficheiros de dados e o TempDB.<br/><br/>Não ative a colocação em cache em discos que alojam o ficheiro de registo.<br/><br/>Importante: Pare o serviço do SQL Server ao alterar as definições de cache para um disco da VM do Azure.<br/><br/>Stripe vários discos de dados do Azure para obter o aumento do débito de e/s.<br/><br/>O formato com o tamanho de alocação documentado. |
 | [E/S](#io-guidance) |Ative a compressão de página de base de dados.<br/><br/>Ative a inicialização instantânea de ficheiros para ficheiros de dados.<br/><br/>Limitar ou desativar a opção autogrow na base de dados.<br/><br/>Desative autoshrink na base de dados.<br/><br/>Mova bases de dados de todos os discos de dados, incluindo bases de dados do sistema.<br/><br/>Mova SQL Server erro registo e rastreio ficheiro diretórios para discos de dados.<br/><br/>Configure localizações de ficheiros de cópia de segurança e a base de dados predefinidos.<br/><br/>Ative páginas bloqueadas.<br/><br/>Aplica correções de desempenho de SQL Server. |

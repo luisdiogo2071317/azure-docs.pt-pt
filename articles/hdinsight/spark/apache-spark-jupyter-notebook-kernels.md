@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para bloco de notas do Jupyter nos clusters do Spark no Azure HDInsight 
 
@@ -88,8 +88,8 @@ Seguem-se algumas vantagens de utilizar os novo kernels com o bloco de notas do 
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é continuado no % % contexto de Python local como uma [Pandas](http://pandas.pydata.org/) dataframe. |
    | local |`%%local`<br>`a=1` |Todos os o código em linhas subsequentes é executado localmente. Código tem de ser válido Python2 código mesmo, independentemente do kernel que está a utilizar. Sim, mesmo se tiver selecionado **PySpark3** ou **Spark** kernels ao criar o bloco de notas, se utilizar o `%%local` mágica numa célula, nessa célula só podem ter código Python2 válido... |
    | registos |`%%logs` |Os registos para a sessão atual do Livy saídas. |
-   | eliminar |`%%delete -f -s <session number>` |Elimina uma específica de sessão do ponto final Livy atual. Tenha em atenção que não é possível eliminar a sessão iniciada para o kernel do próprio. |
-   | Limpeza |`%%cleanup -f` |Elimina todas as sessões atuais ponto final Livy, incluindo sessão este bloco de notas. O sinalizador -f force é obrigatório. |
+   | eliminar |`%%delete -f -s <session number>` |Elimina uma específica de sessão do ponto final Livy atual. Não é possível eliminar a sessão iniciada para o kernel do próprio. |
+   | limpeza |`%%cleanup -f` |Elimina todas as sessões atuais ponto final Livy, incluindo sessão este bloco de notas. O sinalizador -f force é obrigatório. |
 
    > [!NOTE]
    > Além a magia adicionada pelo kernel do PySpark, também pode utilizar o [incorporada IPython magia](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo `%%sh`. Pode utilizar o `%%sh` magic para executar scripts e bloco de código no headnode cluster.
@@ -160,7 +160,6 @@ Os novo kernels estão em fase de evolução e serão madura ao longo do tempo. 
 * [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Transmissão em Fluxo do Spark: Utilizar o Spark no HDInsight para criar aplicações de transmissão em fluxo em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

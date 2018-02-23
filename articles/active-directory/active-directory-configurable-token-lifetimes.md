@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização pública)
 Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir token durações para todas as aplicações na sua organização, para uma aplicação de (multi organização) de multi-inquilino ou para um principal de serviço específicos na sua organização.
@@ -73,11 +73,11 @@ Uma política de duração do token é um tipo de objeto de política que conté
 | Propriedade | Cadeia de propriedade de política | Afeta | Predefinição | Mínimo | Máximo |
 | --- | --- | --- | --- | --- | --- |
 | Duração do Token de acesso |AccessTokenLifetime |Os tokens de acesso, os tokens de ID, SAML2 tokens |1 hora |10 minutos |1 dia |
-| Atualize o tempo inativo do Token máx. |MaxInactiveTime |Tokens de atualização |nos últimos 14 dias |10 minutos |90 dias |
-| Idade máxima Token do fator único atualização |MaxAgeSingleFactor |Atualizar tokens (para todos os utilizadores) |Até revogado |10 minutos |Até revogado<sup>1</sup> |
-| Idade máxima Token do multi-factor atualização |MaxAgeMultiFactor |Atualizar tokens (para todos os utilizadores) |Até revogado |10 minutos |Até revogado<sup>1</sup> |
-| Idade máxima Token do fator único sessão |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sessão (persistentes e nonpersistent) |Até revogado |10 minutos |Até revogado<sup>1</sup> |
-| Idade máxima Token do multi-factor sessão |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sessão (persistentes e nonpersistent) |Até revogado |10 minutos |Até revogado<sup>1</sup> |
+| Atualize o tempo inativo do Token máx. |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
+| Idade máxima Token do fator único atualização |MaxAgeSingleFactor |Atualizar tokens (para todos os utilizadores) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima Token do multi-factor atualização |MaxAgeMultiFactor |Atualizar tokens (para todos os utilizadores) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima Token do fator único sessão |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sessão (persistentes e nonpersistent) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima Token do multi-factor sessão |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sessão (persistentes e nonpersistent) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento máximo explícito que pode ser definido para estes atributos.
 * <sup>2</sup>se **MaxAgeSessionSingleFactor** não está definido, este valor demora a **MaxAgeSingleFactor** valor. Se for definido nenhum dos parâmetros, a propriedade tem o valor predefinido (até-revogados).
@@ -88,7 +88,7 @@ Uma política de duração do token é um tipo de objeto de política que conté
 | --- | --- | --- |
 | Atualizar o Token idade máxima (emitidos para utilizadores federados que tenham informações de revogação insuficientes<sup>1</sup>) |Tokens de atualização (emitidos para utilizadores federados que tenham informações de revogação insuficientes<sup>1</sup>) |12 horas |
 | Atualize o tempo inativo de máx. Token (emitidos para clientes confidenciais) |Atualizar tokens (emitidos para clientes confidenciais) |90 dias |
-| Atualizar o Token idade máxima (emitidos para clientes confidenciais) |Atualizar tokens (emitidos para clientes confidenciais) |Até revogado |
+| Atualizar o Token idade máxima (emitidos para clientes confidenciais) |Atualizar tokens (emitidos para clientes confidenciais) |Until-revoked |
 
 * <sup>1</sup>Federated utilizadores com informações de revogação insuficientes incluem os utilizadores que não tem o atributo "LastPasswordChangeTimestamp" sincronizado com êxito. Estes utilizadores recebem este idade máxima curto porque não é possível verificar a revogar tokens que estão associados a uma credencial antiga (por exemplo, uma palavra-passe que foi alterada) e tem de verificar novamente no mais frequentemente para se certificar de que o utilizador e tokens associados ainda são AAD na boa  colocado. Para melhorar a esta experiência, administradores de inquilinos tem de garantir que estes estão a sincronizar o atributo "LastPasswordChangeTimestamp" (Isto pode ser definido no objeto de utilizador com o Powershell ou através de AADSync).
 
@@ -145,7 +145,7 @@ Esta política força os utilizadores que não estão ativos no respetivo client
 A propriedade atualizar Token tempo máx. inativa tem de ser definida para um valor inferior a idade máxima Token fator único e as propriedades de multi-factor atualizar Token idade máxima.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Idade máxima Token do fator único atualização
-**Cadeia:** MaxAgeSingleFactor
+**String:** MaxAgeSingleFactor
 
 **Afeta:** tokens de atualização
 
@@ -154,7 +154,7 @@ A propriedade atualizar Token tempo máx. inativa tem de ser definida para um va
 Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais frequência. Porque a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que defina esta propriedade para um valor que seja igual ou menor que a propriedade de multi-factor atualizar Token idade máxima.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Idade máxima Token do multi-factor atualização
-**Cadeia:** MaxAgeMultiFactor
+**String:** MaxAgeMultiFactor
 
 **Afeta:** tokens de atualização
 
@@ -163,7 +163,7 @@ Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais fr
 Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais frequência. Porque a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que defina esta propriedade para um valor que seja igual ou maior do que a propriedade de único fatores atualizar Token idade máxima.
 
 ### <a name="single-factor-session-token-max-age"></a>Idade máxima Token do fator único sessão
-**Cadeia:** MaxAgeSessionSingleFactor
+**String:** MaxAgeSessionSingleFactor
 
 **Afeta:** tokens de sessão (persistentes e nonpersistent)
 
@@ -172,7 +172,7 @@ Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais fr
 Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais frequência. Porque a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que defina esta propriedade para um valor que seja igual ou menor do que a propriedade de idade de máxima de Token de sessão de multi-factor.
 
 ### <a name="multi-factor-session-token-max-age"></a>Idade máxima Token do multi-factor sessão
-**Cadeia:** MaxAgeSessionMultiFactor
+**String:** MaxAgeSessionMultiFactor
 
 **Afeta:** tokens de sessão (persistentes e nonpersistent)
 
@@ -355,7 +355,7 @@ Neste exemplo, criar algumas políticas, para saber como funciona o sistema de p
 
 Pode utilizar os seguintes cmdlets para gerir as políticas.
 
-#### <a name="new-azureadpolicy"></a>Novo AzureADPolicy
+#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
 Cria uma nova política.
 
@@ -369,7 +369,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Cadeia com o nome da política. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Se for VERDADEIRO, define a política como a política da organização predefinido. Se for FALSO, não produz qualquer efeito. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Tipo de política. Para o token durações, utilize sempre "TokenLifetimePolicy." | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Opcional] |Define um ID alternativo para a política. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define um ID alternativo para a política. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -382,7 +382,7 @@ Get-AzureADPolicy
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Opcional] |**ObjectId (Id)** da política que pretende. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |**ObjectId (Id)** da política que pretende. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -399,7 +399,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 </br></br>
 
-#### <a name="set-azureadpolicy"></a>Conjunto AzureADPolicy
+#### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 As atualizações de uma política existente.
 
 ```PowerShell
@@ -410,14 +410,14 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** da política que pretende. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Cadeia com o nome da política. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[Opcional] |Matriz de stringified JSON que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[Opcional] |Se for VERDADEIRO, define a política como a política da organização predefinido. Se for FALSO, não produz qualquer efeito. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[Opcional] |Tipo de política. Para o token durações, utilize sempre "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Opcional] |Define um ID alternativo para a política. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [Opcional] |Matriz de stringified JSON que contém todas as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se for VERDADEIRO, define a política como a política da organização predefinido. Se for FALSO, não produz qualquer efeito. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Opcional] |Tipo de política. Para o token durações, utilize sempre "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define um ID alternativo para a política. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
-#### <a name="remove-azureadpolicy"></a>Remover AzureADPolicy
+#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Elimina a política especificada.
 
 ```PowerShell
@@ -433,7 +433,7 @@ Elimina a política especificada.
 ### <a name="application-policies"></a>Políticas de aplicações
 Pode utilizar os seguintes cmdlets para políticas de aplicações.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>AzureADApplicationPolicy adicionar
+#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Ligações à política especificada para uma aplicação.
 
 ```PowerShell
@@ -460,7 +460,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 </br></br>
 
-#### <a name="remove-azureadapplicationpolicy"></a>Remover AzureADApplicationPolicy
+#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Remove uma política a partir de uma aplicação.
 
 ```PowerShell
@@ -477,7 +477,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 ### <a name="service-principal-policies"></a>Políticas de principal de serviço
 Pode utilizar os seguintes cmdlets para políticas de principal de serviço.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>AzureADServicePrincipalPolicy adicionar
+#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Liga à política especificada para um principal de serviço.
 
 ```PowerShell
@@ -504,7 +504,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 </br></br>
 
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Remover AzureADServicePrincipalPolicy
+#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Remove a política de principal de serviço especificado.
 
 ```PowerShell

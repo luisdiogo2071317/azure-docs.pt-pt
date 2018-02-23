@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/07/2017
+ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 938e4f4fa3326db23ea4c2b499c783de78dcfa76
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9926ceef9777032d52c7655e4c2d03f63a4a6af7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Como implementar um Runbook Worker híbrido do Linux
 
@@ -28,33 +28,33 @@ Esta funcionalidade é ilustrada na imagem seguinte:<br>
 
 ![Descrição geral de trabalho de Runbook híbrida](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Para uma descrição geral técnica da função do Runbook Worker híbrido, consulte [descrição geral da arquitetura de automatização](automation-offering-get-started.md#automation-architecture-overview). Reveja as seguintes informações sobre o [requisitos de hardware e software](automation-offering-get-started.md#hybrid-runbook-worker) e [informações para preparar a sua rede](automation-offering-get-started.md#network-planning) antes de começar a implementar um Runbook Worker híbrido.  Depois de ter implementado com êxito um runbook worker, reveja [executar runbooks num Runbook Worker híbrido](automation-hrw-run-runbooks.md) para saber como configurar os runbooks para automatizar processos no seu centro de dados no local ou outro ambiente de nuvem.     
+Para uma descrição geral técnica da função do Runbook Worker híbrido, consulte [descrição geral da arquitetura de automatização](automation-offering-get-started.md#automation-architecture-overview). Reveja as seguintes informações sobre o [requisitos de hardware e software](automation-offering-get-started.md#hybrid-runbook-worker) e [informações para preparar a sua rede](automation-offering-get-started.md#network-planning) antes de começar a implementar um Runbook Worker híbrido. Depois de ter implementado com êxito um runbook worker, reveja [executar runbooks num Runbook Worker híbrido](automation-hrw-run-runbooks.md) para saber como configurar os runbooks para automatizar processos no seu centro de dados no local ou outro ambiente de nuvem.     
 
 ## <a name="hybrid-runbook-worker-groups"></a>Grupos de trabalho de Runbook híbrida
-Cada Runbook Worker híbrido é um membro de um grupo de trabalho de Runbook híbrida que especificou quando instalar o agente.  Um grupo pode incluir um único agente, mas pode instalar múltiplos agentes num grupo de disponibilidade elevada.
+Cada Runbook Worker híbrido é um membro de um grupo de trabalho de Runbook híbrida que especificou quando instalar o agente. Um grupo pode incluir um único agente, mas pode instalar múltiplos agentes num grupo de disponibilidade elevada.
 
-Quando inicia um runbook num Runbook Worker híbrido, especifique o grupo que é executada no.  Os membros do grupo de determinam qual trabalho processa o pedido.  Não é possível especificar uma função de trabalho específica.
+Quando inicia um runbook num Runbook Worker híbrido, especifique o grupo que é executada no. Os membros do grupo de determinam qual trabalho processa o pedido. Não é possível especificar uma função de trabalho específica.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Instalar o Runbook Worker híbrido Linux
-Para instalar e configurar um Runbook Worker híbrido no computador Linux, pode seguir um processo muito diretamente reencaminhar para instalar manualmente e configurar a função.   É necessário ativar o **automatização de trabalho híbrida** solução na sua área de trabalho do OMS e, em seguida, executar um conjunto de comandos para registar o computador como uma função de trabalho e adicioná-lo a um grupo novo ou existente. 
+Para instalar e configurar um Runbook Worker híbrido no computador Linux, é seguido um processo de reencaminhar simples de instalar e configurar a função manualmente. É necessário ativar o **automatização de trabalho híbrida** solução na sua área de trabalho do OMS e, em seguida, executar um conjunto de comandos para registar o computador como uma função de trabalho e adicioná-lo a um grupo novo ou existente. 
 
-Antes de continuar, terá de ter em atenção a área de trabalho de análise de registos que está ligada a conta de automatização bem como a chave primária para a sua conta de automatização.  Pode encontrar no portal, selecione a sua conta de automatização e selecionar **área de trabalho** para o ID da área de trabalho e selecionar **chaves** para a chave primária.  
+Antes de continuar, tem de ter em atenção a área de trabalho de análise de registos que está ligada a conta de automatização bem como a chave primária para a sua conta de automatização. Pode encontrar no portal, selecione a sua conta de automatização e selecionar **área de trabalho** para o ID da área de trabalho e selecionar **chaves** para a chave primária.  
 
 1.  Ative a solução "Worker híbrido de automatização" no OMS. Isto pode ser feito ao:
 
-   1. Na galeria do soluções no [portal do OMS](https://mms.microsoft.com) ativar o **automatização de trabalho híbrida** solução
+   1. Na galeria do soluções no [portal do OMS](https://mms.microsoft.com), ativar o **automatização de trabalho híbrida** solução
    2. Execute o seguinte cmdlet:
 
         ```powershell
          $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-2.  Execute o seguinte comando, alterando os valores para parâmetros *-w*, *-k*, *-g*, e *-i*. Para o *-g* parâmetro substitua o valor com o nome do grupo de trabalho de Runbook híbrida que o Runbook Worker novo do Linux híbrido deve ser associado. Se o nome não existir já na sua conta de automatização, um novo grupo de trabalho de Runbook híbrida será efetuado com esse nome.
+2.  Execute o seguinte comando, alterando os valores para parâmetros *-w*, *-k*, *-g*, e *-i*. Para o *-g* parâmetro substitua o valor com o nome do grupo de trabalho de Runbook híbrida que o Runbook Worker novo do Linux híbrido deve ser associado. Se o nome não existir já na sua conta de automatização, um novo grupo de trabalho de Runbook híbrida é feito com esse nome.
     
     ```
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
-3. Depois do comando for concluído, o painel de grupos de trabalho híbrida no portal do Azure irá mostrar o novo grupo e o número de membros ou se um grupo existente, o número de membros é incrementado.  Pode selecionar o grupo da lista no **grupos de trabalho híbrida** painel e selecione o **híbridos** mosaico.  No **híbridos** painel, verá cada membro do grupo listado.  
+3. Depois do comando for concluído, o painel de grupos de trabalho híbrida no portal do Azure irá mostrar o novo grupo e o número de membros ou se um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista no **grupos de trabalho híbrida** painel e selecione o **híbridos** mosaico. No **híbridos** painel, verá cada membro do grupo listado.  
 
 
 ## <a name="turning-off-signature-validation"></a>Desativar a validação da assinatura 
@@ -63,7 +63,22 @@ Por predefinição, os Runbook Workers híbridos Linux exigir validação da ass
     ```
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
     ```
-   
+
+## <a name="supported-runbook-types"></a>Tipos de runbook suportados
+
+Os Runbook Workers híbridos Linux não suportam o conjunto completo de tipos de runbook que se encontram dentro da automatização do Azure.
+
+Os seguintes tipos de runbook funcionam numa função de trabalho híbrida Linux:
+
+* Python 2
+* PowerShell
+ 
+Os seguintes tipos de runbook não funcionam numa função de trabalho híbrida Linux:
+
+* Fluxo de trabalho do PowerShell
+* Gráfico
+* Fluxo de trabalho do PowerShell gráfico
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Reveja [executar runbooks num Runbook Worker híbrido](automation-hrw-run-runbooks.md) para saber como configurar os runbooks para automatizar processos no seu centro de dados no local ou outro ambiente de nuvem.

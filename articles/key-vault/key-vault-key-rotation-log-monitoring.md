@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com auditoria e rotação de ponto a ponto
 ## <a name="introduction"></a>Introdução
@@ -255,12 +255,12 @@ O passo seguinte consiste em [criar uma fila do Service Bus do Azure](../service
 
 1. Crie um espaço de nomes de barramento de serviço (se já tiver um que pretende utilizar para este, avance para o passo 2).
 2. Navegue para o service bus no portal do Azure e selecione o espaço de nomes que pretende criar a fila.
-3. Selecione **novo** e escolha **Service Bus > fila** e introduza os detalhes necessários.
+3. Selecione **crie um recurso**, **integração empresarial com**, **Service Bus**e, em seguida, introduza os detalhes necessários.
 4. Selecione as informações de ligação do Service Bus de escolher o espaço de nomes e clicando em **informações de ligação**. Estas informações serão necessárias para a secção seguinte.
 
 Em seguida, [criar uma função do Azure](../azure-functions/functions-create-first-azure-function.md) para consultar os registos do Cofre de chaves dentro da conta de armazenamento e processará novos eventos. Esta será uma função que é acionada com base numa agenda.
 
-Para criar uma função do Azure, escolha **novo > aplicação de função** no portal do Azure. Durante a criação, pode utilizar um plano de alojamento existente ou crie um novo. Também pode escolher para o alojamento dinâmico. Obter mais detalhes sobre as opções de alojamento de função podem ser encontrados em [como dimensionar as funções do Azure](../azure-functions/functions-scale.md).
+Para criar uma função do Azure, escolha **crie um recurso**, procurar no marketplace para _aplicação de função_e clique em **criar**. Durante a criação, pode utilizar um plano de alojamento existente ou crie um novo. Também pode escolher para o alojamento dinâmico. Obter mais detalhes sobre as opções de alojamento de função podem ser encontrados em [como dimensionar as funções do Azure](../azure-functions/functions-scale.md).
 
 Quando é criada a função do Azure, navegue para a mesma e escolha um temporizador função e C\#. Em seguida, clique em **criar esta função**.
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir o Azure HDInsight utilizando uma rede Virtual do Azure
 
@@ -210,7 +210,7 @@ Para ligar a Ambari e outras páginas web através da rede virtual, utilize os s
 
 2. Para determinar o nó e a porta que tem um serviço disponível, consulte o [portas utilizadas pelos serviços do Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md) documento.
 
-## <a id="networktraffic"></a>Controlar o tráfego de rede
+## <a id="networktraffic"></a> Controlar o tráfego de rede
 
 Tráfego de rede num redes virtuais do Azure pode ser controlado utilizando os seguintes métodos:
 
@@ -227,7 +227,7 @@ Como um serviço gerido, o HDInsight requer acesso sem restrições aos serviço
 
 HDInsight expõe serviços em várias portas. Quando utilizar uma firewall de aplicação virtual, tem de permitir tráfego nas portas utilizadas para estes serviços. Para obter mais informações, consulte a secção [as portas necessárias].
 
-### <a id="hdinsight-ip"></a>HDInsight com grupos de segurança de rede e as rotas definidas pelo utilizador
+### <a id="hdinsight-ip"></a> HDInsight com grupos de segurança de rede e as rotas definidas pelo utilizador
 
 Se planeia utilizar **grupos de segurança de rede** ou **rotas definidas pelo utilizador** para controlar o tráfego de rede, execute as seguintes ações antes de instalar o HDInsight:
 
@@ -250,7 +250,7 @@ Para obter mais informações sobre grupos de segurança de rede ou as rotas def
 
 Imposição do túnel é uma configuração de encaminhamento definido pelo utilizador em que todo o tráfego de sub-rede é forçado a uma rede específico ou a localização, tal como a sua rede no local. HDInsight __não__ suporte imposição do túnel.
 
-## <a id="hdinsight-ip"></a>Endereços IP necessários
+## <a id="hdinsight-ip"></a> Endereços IP necessários
 
 > [!IMPORTANT]
 > Os serviços de estado de funcionamento e a gestão do Azure tem de conseguir comunicar com o HDInsight. Se utilizar grupos de segurança de rede ou as rotas definidas pelo utilizador, de permitir tráfego de endereços IP para estes serviços alcançar o HDInsight.
@@ -299,6 +299,7 @@ Se utilizar grupos de segurança de rede ou as rotas definidas pelo utilizador, 
     | &nbsp; | EUA Leste | 13.82.225.233</br>40.71.175.99 | 443 | Entrada |
     | &nbsp; | EUA Centro-Norte | 157.56.8.38</br>157.55.213.99 | 443 | Entrada |
     | &nbsp; | EUA Centro-Oeste | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
+    | &nbsp; | EUA Oeste | 13.64.254.98</br>23.101.196.19 | 443 | Entrada |
     | &nbsp; | EUA Oeste 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
 
     Para obter informações sobre os endereços IP a utilizar para o Azure Government, consulte o [Azure Government Intelligence + análise](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) documento.
@@ -307,7 +308,7 @@ Se utilizar grupos de segurança de rede ou as rotas definidas pelo utilizador, 
 
 Para obter mais informações, consulte o [controlar o tráfego de rede](#networktraffic) secção.
 
-## <a id="hdinsight-ports"></a>Portas necessárias
+## <a id="hdinsight-ports"></a> Portas necessárias
 
 Se planeia utilizar uma rede **firewall de aplicação virtual** para proteger a rede virtual, tem de permitir tráfego de saída nas portas seguintes:
 
@@ -499,7 +500,7 @@ Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a>Exemplo: Configuração de DNS
+## <a id="example-dns"></a> Exemplo: Configuração de DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Resolução de nome entre uma rede virtual e uma rede ligada no local
 

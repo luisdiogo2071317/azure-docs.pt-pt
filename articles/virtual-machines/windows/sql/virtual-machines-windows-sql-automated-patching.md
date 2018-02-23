@@ -4,7 +4,7 @@ description: "Explica a funcionalidade de aplicação de patches automatizada pa
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c1cdf03133d765f7726d16378b042de8e04b2cfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicação de Patches Automatizada para o SQL Server nas Máquinas Virtuais do Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Clássico](../classic/sql-automated-patching.md)
-> 
-> 
+> * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 Patching automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure com o SQL Server. As atualizações automáticas só podem ser instaladas durante este período de manutenção. Para o SQL Server, este rescriction garante atualizações do sistema e os reinícios associados ocorrerem o momento melhor possíveis para a base de dados. Patching automatizada depende o [extensão de agente do SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para ver a versão clássica deste artigo, consulte [aplicação de patches automatizada para o SQL Server no modelo clássico de máquinas virtuais do Azure](../classic/sql-automated-patching.md).
+Para ver a versão clássica deste artigo, consulte [aplicação de patches automatizada para o SQL Server no modelo clássico de máquinas virtuais do Azure](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar a aplicação de patches automatizada, considere os seguintes pré-requisitos:
@@ -49,7 +47,7 @@ Para utilizar a aplicação de patches automatizada, considere os seguintes pré
 * SQL Server 2014
 * SQL Server 2016
 
-**O Azure PowerShell**:
+**Azure PowerShell**:
 
 * [Instalar os comandos do Azure PowerShell mais recentes](/powershell/azure/overview) se pretender configurar a aplicação de patches automatizada com o PowerShell.
 

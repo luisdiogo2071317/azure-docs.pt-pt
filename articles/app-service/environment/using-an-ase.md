@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
 
@@ -48,7 +48,7 @@ Se não tiver ASE, pode criar um, seguindo as instruções em [criar um ambiente
 
 Para criar uma aplicação web está num ASE:
 
-1. Selecione **novo** > **Web + móvel** > **aplicação Web**.
+1. Selecione **crie um recurso** > **Web + móvel** > **aplicação Web**.
 
 2. Introduza um nome para a aplicação web. Se já tiver selecionado um plano de serviço aplicacional está num ASE, o nome de domínio para a aplicação reflete o nome de domínio do ASE.
 
@@ -102,15 +102,15 @@ Recursos de front-end são o ponto final HTTP/HTTPS para o ASE. Com a configura�
 
 Está num ASE externo, o domínio que é utilizado quando criar aplicações é diferente do multi-inquilino do serviço de aplicações. Inclui o nome do ASE. Para obter mais informações sobre como criar ASE externas, consulte [criar um ambiente de serviço de aplicações][MakeExternalASE]. O nome de domínio está num ASE externo aspeto *.&lt; asename&gt;. p.azurewebsites.net*. Por exemplo, se o seu ASE é denominado _externo ase_ e alojar uma aplicação chamada _contoso_ nessa ASE, chegá-lo nos seguintes URLs:
 
-- contoso.external ase.p.azurewebsites.net
-- contoso.SCM.external ase.p.azurewebsites.net
+- contoso.external-ase.p.azurewebsites.net
+- contoso.scm.external-ase.p.azurewebsites.net
 
 O URL contoso.scm.external-ase.p.azurewebsites.net é utilizado para aceder à consola do Kudu ou para publicar a aplicação através da utilização de web implementar. Para obter informações sobre a consola do Kudu, consulte [App Service do Azure na consola do Kudu][Kudu]. A consola do Kudu fornece uma IU da web para depuração, carregar ficheiros, editar os ficheiros e muito mais.
 
 Está num ILB ASE, determine o domínio no momento da implementação. Para obter mais informações sobre como criar ILB ASE, consulte [criar e utilizar ILB ASE][MakeILBASE]. Se especificar o nome de domínio _ilb ase.info_, as aplicações que ASE utilizam esse domínio durante a criação da aplicação. Para a aplicação com o nome _contoso_, os URLs são:
 
-- contoso.ilb ase.info
-- contoso.SCM.ilb ase.info
+- contoso.ilb-ase.info
+- contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publicação ##
 
@@ -126,9 +126,9 @@ Com ASE externo, todas estas opções de publicação comportam-se a mesma. Para
 
 A principal diferença com a publicação é relativamente à ILB ASE. Com ILB ASE, os pontos finais de publicação estão disponíveis apenas através do ILB. O ILB é um IP privado na sub-rede ASE na rede virtual. Se não tiver acesso à rede para o ILB, não é possível publicar quaisquer aplicações nesse ASE. Conforme indicado no [criar e utilizar ILB ASE][MakeILBASE], terá de configurar o DNS para as aplicações no sistema. Que inclui o ponto final SCM. Se estes não estão definidas corretamente, não é possível publicar. Os IDEs também tem de ter acesso à rede para o ILB para publicar diretamente ao mesmo.
 
-Sistemas CI baseado na Internet, tais como o GitHub e o Visual Studio Team Services, não funcionam com ILB ASE, porque o ponto final da publicação não está acessível a Internet. Em vez disso, tem de utilizar um sistema de CI que utiliza um modelo de extração, tais como o Dropbox.
+Sistemas CI baseado na Internet, tais como o GitHub e o Visual Studio Team Services, não funcionam com ILB ASE, porque o ponto final da publicação não está acessível a Internet. Em alternativa, tem de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
 
-Os pontos finais de publicação de aplicações está num ILB ASE utilizam o domínio que o ILB ASE foi criado com. Pode ver no perfil de publicação da aplicação e no painel do portal da aplicação (na **descrição geral** > **Essentials** e também em **propriedades**). 
+Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Pode ver no perfil de publicação da aplicação e no painel do portal da aplicação (na **descrição geral** > **Essentials** e também em **propriedades**). 
 
 ## <a name="pricing"></a>Preços ##
 

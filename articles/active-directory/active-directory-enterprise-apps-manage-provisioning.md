@@ -15,17 +15,17 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações da empresa no portal do Azure
 Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir o aprovisionamento da conta de utilizador automáticas e anular o aprovisionamento de aplicações que suportem-lo, particularmente as que foram adicionados a categoria do "emdestaque"[ Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o aprovisionamento da conta de utilizador automáticas e como funciona, consulte [automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar as suas aplicações no portal
-Todas as aplicações que estão configuradas para início de sessão num diretório, por um administrador do diretório a utilizar o [Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), podem ser vistos e geridos no [portal do Azure](https://portal.azure.com). As aplicações podem ser encontradas no **mais serviços** &gt; **aplicações empresariais** secção do portal. Aplicações da empresa são aplicações que estão implementadas e utilizadas dentro da sua organização.
+Todas as aplicações que estão configuradas para início de sessão num diretório, por um administrador do diretório a utilizar o [Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), podem ser vistos e geridos no [portal do Azure](https://portal.azure.com). As aplicações podem ser encontradas no **todos os serviços** &gt; **aplicações empresariais** secção do portal. Aplicações da empresa são aplicações que estão implementadas e utilizadas dentro da sua organização.
 
 ![Painel de aplicações da empresa][0]
 
@@ -81,6 +81,6 @@ São fornecidas hiperligações para a **relatório de atividade de aprovisionam
 Esperamos, como a sua experiência do Azure AD. Manter os comentários provenientes! Publique os seus comentários e ideias para melhoria no **Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Iremos estiver entusiasmados sobre como criar conteúdo novo frio diariamente e utilize a orientações sobre a forma e definir o que devemos criar a seguir.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

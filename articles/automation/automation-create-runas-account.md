@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 30ed7c2f9a65f66d9d45b1bdd5be2957cfe1d08a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação da conta de Automatização com contas Run As 
 Pode atualizar a sua conta de Automatização existente a partir do portal do Azure ou utilizar o PowerShell, se:
@@ -49,7 +49,7 @@ Se optar por [utilizar o PowerShell para criar as contas Run As](#create-run-as-
 
 Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são parâmetros necessários para o script, faça o seguinte:
 
-1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+1. No portal do Azure, clique em **todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
 2. Na página da conta de Automatização, selecione a sua conta de Automatização e, em **Definições da Conta** selecione **Propriedades**.  
 3. Repare nos valores na página **Propriedades**.<br><br> ![O painel “Propriedades” da conta de Automatização](media/automation-create-runas-account/automation-account-properties.png)  
 
@@ -65,7 +65,7 @@ Se não for membro da instância do Active Directory da subscrição antes de se
 Nesta secção, execute os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure.  Crie as contas Run As e Classic Run As individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.  
 
 1. Inicie sessão no portal do Azure com uma conta que seja membro da função Administradores da Subscrição e coadministrador da subscrição.
-2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+2. No portal do Azure, clique em **todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
 3. Na página **Contas de Automatização**, selecione a sua conta de Automatização a partir da lista de contas de Automatização.
 4. No painel da esquerda, selecione **Contas Run As** na secção **Definições da Conta**.  
 5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**.  Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.  

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Uma abordagem de várias camadas de segurança de palavra-passe do Azure AD
 
@@ -46,7 +46,7 @@ Azure AD e o sistema de contas do Microsoft utilizar da indústria comprovada ab
 * Palavras-passe banidas dinamicamente
 * Smart Password Lockout
 
-Para obter informações sobre a gestão de palavra-passe com base na investigação atual, consulte o documento técnico [orientações de palavra-passe](http://aka.ms/passwordguidance).
+Para obter informações sobre a gestão de palavra-passe com base na investigação atual, consulte o documento técnico [orientações de palavra-passe](https://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Palavras-passe banidas dinamicamente
 
@@ -80,7 +80,7 @@ Para obter informações sobre a reposição no Azure Active Directory palavra-p
   >Se for administrador do Azure AD, poderá ser útil utilizar o [Windows Hello](https://www.microsoft.com/windows/windows-hello) para impedir que os seus utilizadores criem palavras-passe tradicionais.
   >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como atualizar a sua própria palavra-passe](active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md) (As noções básicas da gestão de identidades do Azure)

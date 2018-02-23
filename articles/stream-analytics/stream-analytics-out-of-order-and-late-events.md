@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerações de ordem de eventos do Azure Stream Analytics
 
@@ -70,6 +70,9 @@ Eventos que chegam desordenados mas dentro do período de tolerância de fora de
 * **Removido**: rejeitados.
 
 Quando o Stream Analytics reordena eventos que são recebidos o período de tolerância fora de ordem, o resultado da consulta está atrasado, o período de tolerância fora de ordem.
+
+### <a name="early-events"></a>Os eventos
+Durante o processamento do tempo de aplicação, cujo tempo de aplicação é mais de 5 minutos os respetivos antecedência de chegada de eventos são ignorados ou ajustados, de acordo com a opção de configuração selecionada.
 
 ### <a name="example"></a>Exemplo
 
@@ -132,7 +135,7 @@ O Azure Stream Analytics implementa esta funcionalidade utilizando o [TIMESTAMP 
 ## <a name="get-help"></a>Obter ajuda
 Para obter assistência adicional, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)

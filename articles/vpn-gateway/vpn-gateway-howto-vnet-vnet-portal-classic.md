@@ -1,10 +1,10 @@
 ---
 title: "Criar uma ligação entre as VNets: clássico: portal do Azure | Microsoft Docs"
-description: Como ligar redes virtuais do Azure em conjunto com o PowerShell e o portal do Azure.
+description: Ligar redes virtuais do Azure em conjunto com o PowerShell e o portal do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma ligação VNet a VNet (clássica)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Este artigo mostra-lhe como criar uma ligação de gateway de VPN entre redes virtuais. As redes virtuais podem estar nas mesmas regiões ou em regiões diferentes e pertencer às mesmas subscrições ou a subscrições diferentes. Os passos neste artigo aplicam-se ao modelo de implementação clássica e o portal do Azure. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
+Este artigo ajuda-o a criar uma ligação de gateway VPN entre redes virtuais. As redes virtuais podem estar nas mesmas regiões ou em regiões diferentes e pertencer às mesmas subscrições ou a subscrições diferentes. Os passos neste artigo aplicam-se ao modelo de implementação clássica e o portal do Azure. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -97,7 +97,7 @@ Se estiver a utilizar este artigo como um exercício, pode utilizar os seguintes
 
 **Valores da TestVNet1**
 
-Nome: TestVNet1<br>
+Name: TestVNet1<br>
 Espaço de endereços: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nome da sub-rede: predefinido<br>
 Intervalo de endereços da sub-rede: 10.11.0.1/24<br>
@@ -107,7 +107,7 @@ GatewaySubnet: 10.11.1.0/27
 
 **Valores da TestVNet4**
 
-Nome: TestVNet4<br>
+Name: TestVNet4<br>
 Espaço de endereços: 10.41.0.0/16, 10.42.0.0/16 (opcional)<br>
 Nome da sub-rede: predefinido<br>
 Intervalo de endereços da sub-rede: 10.41.0.1/24<br>

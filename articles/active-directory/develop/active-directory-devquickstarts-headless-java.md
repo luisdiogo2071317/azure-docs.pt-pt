@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Utilizar a aplicação de linha de comandos de Java para aceder a uma API com o Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,9 +44,9 @@ Para começar, [transferir a estrutura de aplicação](https://github.com/Azure-
 ## <a name="1--register-an-application-with-azure-ad"></a>1.  Registar uma aplicação com o Azure AD
 Para ativar a sua aplicação autenticar os utilizadores, primeiro terá de registar uma nova aplicação no seu inquilino.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta e, no **diretório** lista, escolha o inquilino do Active Directory onde pretende registar a sua aplicação.
-3. Clique em **mais serviços** na navegação esquerda e escolha **do Azure Active Directory**.
+3. Clique em **todos os serviços** na navegação esquerda e escolha **do Azure Active Directory**.
 4. Clique em **registos de aplicação** e escolha **adicionar**.
 5. Siga as instruções e crie um novo **aplicação Web e/ou End WebAPI**.
   * O **nome** da aplicação irá descrever a aplicação aos utilizadores finais
@@ -262,7 +262,7 @@ Agora, deve ter um `adal4jsample.war` de ficheiros no seu `/targets` diretório.
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Parabéns! Agora tem uma aplicação de Java que tenha a capacidade para autenticar utilizadores, de forma segura chamar APIs da Web através de OAuth 2.0 e obter informações básicas sobre o utilizador.  Se ainda não o fez, agora é o tempo para preencher o seu inquilino com alguns utilizadores.
 
 Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um. zip aqui](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), ou pode cloná-la a partir do GitHub:

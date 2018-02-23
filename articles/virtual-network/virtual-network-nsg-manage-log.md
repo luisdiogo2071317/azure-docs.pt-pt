@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Log analytics for network security groups (NSGs) (Análise de registos de grupos de segurança de rede (NSGs))
 
@@ -46,7 +46,7 @@ Registo de diagnóstico tem de estar ativado para *cada* NSG que pretende recolh
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para utilizar o portal para ativar o registo de início de sessão para o [portal](https://portal.azure.com). Clique em **mais serviços**, em seguida, escreva *grupos de segurança de rede*. Selecione o NSG que pretende ativar o registo de. Siga as instruções para os recursos de computação não no [ativar registos de diagnóstico no portal do](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artigo. Selecione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, ou ambas as categorias de registos.
+Para utilizar o portal para ativar o registo de início de sessão para o [portal](https://portal.azure.com). Clique em **todos os serviços**, em seguida, escreva *grupos de segurança de rede*. Selecione o NSG que pretende ativar o registo de. Siga as instruções para os recursos de computação não no [ativar registos de diagnóstico no portal do](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artigo. Selecione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, ou ambas as categorias de registos.
 
 ### <a name="powershell"></a>PowerShell
 

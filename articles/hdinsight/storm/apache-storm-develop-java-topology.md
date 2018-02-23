@@ -14,21 +14,18 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Cria uma topologia do Apache Storm em Java
 
 Saiba como criar uma topologia baseada em Java para o Apache Storm. Criar uma topologia do Storm que implementa uma aplicação word contagem. Utilizar o Maven para criar e o projeto do pacote. Em seguida, irá aprender a definir a topologia utilizando a estrutura do Flux.
-
-> [!NOTE]
-> A estrutura do Flux está disponível no Storm 0.10.0 ou posterior. O Storm 0.10.0 está disponível com o HDInsight 3.3 e 3.4.
 
 Depois de concluir os passos neste documento, pode implementar a topologia ao Apache Storm no HDInsight.
 
@@ -43,11 +40,11 @@ Depois de concluir os passos neste documento, pode implementar a topologia ao Ap
 
 * Num editor de texto ou IDE.
 
-## <a name="configure-environment-variables"></a>Configurar variáveis de ambiente
+## <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
 As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK. No entanto, deve verificar que existe e que contêm os valores corretos para o seu sistema.
 
-* **JAVA_HOME** -devem apontar para o diretório onde o ambiente de tempo de execução Java (JRE) está instalado. Por exemplo, uma distribuição Unix ou Linux, deve ter um valor semelhante a `/usr/lib/jvm/java-8-oracle`. No Windows, terá um valor semelhante a`c:\Program Files (x86)\Java\jre1.8`
+* **JAVA_HOME** -devem apontar para o diretório onde o ambiente de tempo de execução Java (JRE) está instalado. Por exemplo, uma distribuição Unix ou Linux, deve ter um valor semelhante a `/usr/lib/jvm/java-8-oracle`. No Windows, terá um valor semelhante a `c:\Program Files (x86)\Java\jre1.8`
 
 * **CAMINHO** -deve conter os seguintes caminhos:
 
@@ -80,8 +77,8 @@ Este comando cria um diretório com o nome `WordCount` no local atual, que cont�
 
 Elimine o teste gerado e os ficheiros da aplicação:
 
-* **src\test\java\com\microsoft\example\AppTest.Java**
-* **src\main\java\com\microsoft\example\App.Java**
+* **src\test\java\com\microsoft\example\AppTest.java**
+* **src\main\java\com\microsoft\example\App.java**
 
 ## <a name="add-maven-repositories"></a>Adicionar repositórios de Maven
 
@@ -781,7 +778,7 @@ Trident aplicações podem ser criadas utilizando projetos do Maven. Utilize os 
 
 Para obter mais informações sobre Trident, consulte o [descrição geral da API de Trident](http://storm.apache.org/documentation/Trident-API-Overview.html).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Aprendeu como criar uma topologia do Storm utilizando Java. Agora saber como:
 

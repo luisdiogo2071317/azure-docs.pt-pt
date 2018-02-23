@@ -1,6 +1,6 @@
 ---
-title: "Aplicação web utilizando o Azure Site Recovery com base de replicar IIS um multicamadas | Microsoft Docs"
-description: "Este artigo descreve como replicar máquinas virtuais IIS web farm utilizando o Azure Site Recovery."
+title: "Replicar uma multicamadas de aplicação web baseada em IIS utilizando o Azure Site Recovery | Microsoft Docs"
+description: "Saiba como replicar máquinas virtuais IIS web farm utilizando o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,100 +14,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 00d5c1fa8c0c16daef5d928147e169553672e1f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7ed7df2451a44075a79f514cf67efbf479a2ebb1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Replicar uma aplicação web do IIS com base de várias camadas utilizando o Azure Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Replicar uma aplicação web de várias camadas, com base no IIS, utilizando a recuperação de sites
 
-## <a name="overview"></a>Descrição geral
+Software de aplicação é o motor de produtividade da empresa numa organização. Várias aplicações web podem servir diferentes fins numa organização. Algumas aplicações, como as aplicações utilizadas para processamento de folha de pagamentos, aplicações financeiras e direcionadas para o cliente de Web sites, podem ser fundamental para uma organização. Para evitar a perda de produtividade, é importante para a organização para que estas aplicações continuamente e funcional. Mais importante ainda, estas aplicações consistentemente disponíveis podem ajudar a evitar danos para a imagem da organização ou marca.
 
+As aplicações web críticos normalmente estão definidas como aplicações de várias camadas: web, base de dados e aplicações estão em diferentes camadas. Para além das que está a ser distribuídos por várias camadas, as aplicações podem também utilizar vários servidores em cada camada para equilibrar o tráfego. Além disso, os mapeamentos entre várias camadas e no servidor web podem ser baseados em endereços IP estáticos. Na ativação pós-falha, alguns destes mapeamentos tem de ser atualizado, especialmente se vários sites são configurados no servidor web. Se as aplicações web utilizam SSL, tem de atualizar enlaces de certificado.
 
-Software de aplicação é o motor de produtividade da empresa numa organização. Várias aplicações web podem servir diferentes fins numa organização. Alguns deles como o processamento de folha de pagamentos, aplicações financeiras e cliente Web sites podem ser utmost críticos de uma organização. É importante para a organização tenha-los a cópia de segurança e em execução em todas as vezes para evitar a perda de produtividade e mais importante ainda impedir que os danos à imagem de marca da organização.
+Métodos tradicionais de recuperação que não são baseados na replicação envolvem a cópia de segurança de vários ficheiros de configuração, definições de registo, enlaces, componentes personalizados (COM ou .NET), conteúdo e certificados. Os ficheiros são recuperados através de um conjunto de passos manuais. Os métodos tradicionais de recuperação de cópia de segurança e recuperar manualmente os ficheiros são complexa, propensas ao erro e não dimensionável. Por exemplo, pode facilmente se esqueça de cópia de segurança de certificados. Após a ativação pós-falha, está a esquerda com a opção de não mas comprar novos certificados para o servidor.
 
-Aplicações web críticas são normalmente configuradas como aplicações de várias camadas com web, base de dados e aplicações em diferentes camadas. Para além dos que está a ser distribuídos por várias camadas, as aplicações podem também utilizar vários servidores em cada camada para equilibrar o tráfego. Além disso, os mapeamentos entre várias camadas e no servidor web podem ser baseados em endereços IP estáticos. Na ativação pós-falha, alguns destes mapeamentos tem de ser atualizado, especialmente, se tiver vários sites configurados no servidor web. Se as aplicações web utilizam SSL, enlaces de certificado tem de ser atualizados.
+Uma solução de recuperação após desastre boa suporta a recuperação de modelação planos de arquiteturas de aplicações complexas. Deve também conseguir adicionar passos personalizados para o plano de recuperação para processar os mapeamentos de aplicação entre camadas. Se ocorrer um desastre, mapeamentos de aplicação fornecem uma solução de clique único, captura se de que o ajuda a levar a uma RTO inferior.
 
-Métodos de recuperação com base de replicação não tradicional envolvem a cópia de segurança de vários ficheiros de configuração, definições de registo, enlaces, componentes personalizados (COM ou .NET), conteúdo e também certificados e a recuperação de ficheiros através de um conjunto de passos manuais. Estes técnicas são claramente complexos, propensa a erros e não dimensionável. É, por exemplo, facilmente possível se esquecer da cópia de segurança de certificados e ficar com a opção de não mas comprar novos certificados para o servidor após a ativação pós-falha.
-
-Uma solução de recuperação de desastre boa, deve permitir a modelação de planos de recuperação em torno de arquiteturas de aplicações complexas. Também deve ter a capacidade de adicionar passos personalizados para processar os mapeamentos de aplicação entre várias camadas. Se ocorrer um desastre, esta opção fornece uma solução de certeza de que a captura de clique único originando uma RTO inferior.
-
-
-Este artigo descreve como proteger uma através de aplicações web do IIS com base [do Azure Site Recovery](site-recovery-overview.md). Este artigo abrange as melhores práticas para replicar uma camada de três IIS com base da aplicação web do Azure, como pode fazer um exercício de recuperação após desastre e como pode de ativação pós-falha, a aplicação no Azure.
-
+Este artigo descreve como proteger uma aplicação web com base nos serviços de informação Internet (IIS), utilizando [do Azure Site Recovery](site-recovery-overview.md). O artigo aborda as melhores práticas para replicar uma aplicação web de três camadas, com base no IIS para o Azure, como fazê-lo um exercício de recuperação após desastre e como efetuar a ativação pós-falha a aplicação no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que compreende os seguintes requisitos:
+Antes de começar, certifique-se de que sabe como efetuar as seguintes tarefas:
 
-1. [Uma máquina virtual a replicar para o Azure](site-recovery-vmware-to-azure.md)
-1. Como [estruturar uma rede de recuperação](site-recovery-network-design.md)
-1. [Efetuar uma ativação pós-falha de teste para o Azure](./site-recovery-test-failover-to-azure.md)
-1. [Efetuar uma ativação pós-falha para o Azure](site-recovery-failover.md)
-1. Como [replicar um controlador de domínio](site-recovery-active-directory.md)
-1. Como [replicar do SQL Server](site-recovery-sql.md)
+* [Replicar uma máquina virtual para o Azure](site-recovery-vmware-to-azure.md)
+* [Estruturar uma rede de recuperação](site-recovery-network-design.md)
+* [Efetue uma ativação pós-falha de teste para o Azure](site-recovery-test-failover-to-azure.md)
+* [Efetue uma ativação pós-falha para o Azure](site-recovery-failover.md)
+* [Replicar um controlador de domínio](site-recovery-active-directory.md)
+* [Replicação do SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Padrões de implementação
-Uma aplicação web IIS com base normalmente segue-se um dos padrões de implementação seguintes:
+Uma aplicação web baseada em IIS normalmente segue-se um dos padrões de implementação seguintes:
 
-**O padrão de implementação 1** com base do IIS uma web farm com Routing(ARR) de pedido de aplicação, o servidor de IIS e o Microsoft SQL Server.
+**Padrão de implementação 1**
 
-![Implementação padrão](./media/site-recovery-iis/deployment-pattern1.png)
+Um farm de web IIS com base com Application Request Routing (ARR), um servidor IIS e SQL Server.
 
-**O padrão de implementação 2** com base do IIS uma web farm com Routing(ARR) de pedido de aplicação, o servidor de IIS, o servidor de aplicações e o Microsoft SQL Server.
+![Diagrama de um farm de web IIS com base que tenha três camadas](./media/site-recovery-iis/deployment-pattern1.png)
 
+**Padrão de implementação 2**
 
-![Implementação padrão](./media/site-recovery-iis/deployment-pattern2.png)
+Um farm web baseado no IIS com o ARR, um servidor IIS, um servidor de aplicações e do SQL Server.
+
+![Diagrama de um farm de web IIS com base tem quatro camadas](./media/site-recovery-iis/deployment-pattern2.png)
 
 ## <a name="site-recovery-support"></a>Suporte de recuperação de site
 
-Para fins de criação deste artigo, máquinas virtuais VMware com o servidor de IIS versão 7.5 no Windows Server 2012 R2 Enterprise são utilizadas. Como a replicação de recuperação de site desconhece de aplicação, as recomendações fornecidas aqui são esperadas para reter nos seguintes cenários bem e para uma versão diferente do IIS.
+Para os exemplos neste artigo, vamos utilizar máquinas virtuais VMware com o IIS 7.5 no Windows Server 2012 R2 Enterprise. Porque a replicação do Site Recovery não está específicas da aplicação, as recomendações neste artigo são esperadas para aplicar nos cenários listados na seguinte tabela e para versões diferentes do IIS.
 
 ### <a name="source-and-target"></a>A origem e destino
 
-**Cenário** | **Para um site secundário** | **Para o Azure**
+Cenário | Para um site secundário | Para o Azure
 --- | --- | ---
-**Hyper-V** | Sim | Sim
-**VMware** | Sim | Sim
-**Servidor físico** | Não | Sim
-**Azure**|ND|Sim
+Hyper-V | Sim | Sim
+VMware | Sim | Sim
+Servidor físico | Não | Sim
+Azure|ND|Sim
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
-Siga [esta orientação](site-recovery-vmware-to-azure.md) iniciar a replicação de todas as IIS web farm máquinas virtuais no Azure.
+Para iniciar a replicação de todas as IIS web farm máquinas virtuais no Azure, siga as orientações no [ativação pós-falha de teste para o Azure no Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se estiver a utilizar um IP estático, em seguida, especifique o IP que pretende que a máquina virtual para efetuar para a [ **IP de destino** ](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) definição nas definições de rede e computação.
+Se estiver a utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual a tomar. Para definir o endereço IP, aceda a **computação e rede definições** > [**IP de destino**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
 
-![IP de destino](./media/site-recovery-active-directory/dns-target-ip.png)
+![Captura de ecrã que mostra como definir o IP de destino no painel de computação de recuperação de Site e da rede](./media/site-recovery-active-directory/dns-target-ip.png)
+
+## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
+Um plano de recuperação suporta a sequenciação de várias camadas numa aplicação multicamada durante uma ativação pós-falha. Sequenciação ajuda a manter a consistência da aplicação. Quando cria um plano de recuperação para uma aplicação web de várias camadas, concluir os passos descritos na [criar um plano de recuperação utilizando a recuperação de Site](site-recovery-create-recovery-plans.md).
+
+### <a name="add-virtual-machines-to-failover-groups"></a>Adicionar máquinas virtuais para grupos de ativação pós-falha
+Uma aplicação web do IIS de várias camada típica é composta pelos seguintes componentes:
+* Uma camada de base de dados que tenha as máquinas virtuais do SQL Server.
+* A camada web, que é composta por um servidor IIS e uma camada de aplicação. 
+
+Adicione máquinas virtuais para diferentes grupos com base na camada de:
+
+1. Crie um plano de recuperação. Adicione as máquinas virtuais de camada de base de dados em grupo 1. Isto garante que as máquinas de virtuais de camada de base de dados são encerrar último e produzidas primeiro.
+1. Adicione as máquinas de virtuais de camada de aplicação de grupo 2. Isto garante que as máquinas de virtuais de camada de aplicação são produzidas depois da camada de base de dados foram produzida.
+1. Adicione as máquinas de virtuais de camada web no grupo 3. Isto garante que as máquinas de virtuais de camada web são produzidas depois da camada de aplicação foram produzida.
+1. Adicione máquinas de virtuais de balanceamento de carga no grupo 4. Isto garante que as máquinas de virtuais de balanceamento de carga são produzidas depois da camada web foram produzida.
+
+Para obter mais informações, consulte [personalizar o plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
 
-## <a name="creating-a-recovery-plan"></a>Criar um plano de recuperação
-
-Um plano de recuperação permite a ativação pós-falha de várias camadas numa aplicação de várias camada, por conseguinte, manter a consistência da aplicação da sequência. Seguem-se os passos para criar um plano de recuperação para uma aplicação web de várias camadas.  [Saiba mais sobre como criar um plano de recuperação](./site-recovery-create-recovery-plans.md).
-
-### <a name="adding-virtual-machines-to-failover-groups"></a>A adicionar máquinas virtuais para grupos de ativação pós-falha
-Uma aplicação web do IIS de várias camada típica é constituída por uma camada de base de dados com máquinas virtuais do SQL Server, a camada web constituted por um servidor IIS e uma camada de aplicação. Adicione todas estas máquinas virtuais para outro grupo com base na camada como é dado nos passos seguintes. [Saiba mais sobre customising plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
-
-1. Crie um plano de recuperação. Adicione as máquinas de virtuais de camada de base de dados em grupo 1 para garantir que são encerramento pela última vez e produzidos primeiro.
-
-1. Adicione as máquinas de virtuais de camada de aplicação de grupo 2, de modo a que estes são produzidos depois da camada de base de dados foram produzida.
-
-1. Adicione as máquinas de virtuais de camada web no grupo 3, de modo a que estes são produzidos depois da camada de aplicação foram produzida.
-
-1. Adicione máquinas de virtuais de balanceamento de carga na 4 do grupo de forma a que estes são produzidos depois da camada web foram produzida.
-
-
-### <a name="adding-scripts-to-the-recovery-plan"></a>A adição de scripts para o plano de recuperação
-Terá de fazer algumas operações em máquinas virtuais do Azure após ativação pós-falha/ativação pós-falha de teste para efetuar corretamente a função do IIS web farm. Pode automatizar a operação de ativação pós-falha do post, como atualizar a entrada DNS, alterar o enlace de site, alterar na cadeia de ligação, adicionando scripts correspondentes no plano de recuperação, tal como indicado abaixo. [Saiba mais sobre como adicionar o plano de recuperação de script](./site-recovery-how-to-add-vmmscript.md).
+### <a name="add-a-script-to-the-recovery-plan"></a>Adicionar um script para o plano de recuperação
+Para o web farm do IIS funcione corretamente, poderá ter de fazer algumas operações de pós-falha de máquinas virtuais do Azure ou durante uma ativação pós-falha de teste. Pode automatizar algumas operações de pós-falha. Por exemplo, pode atualizar a entrada DNS, alterar um enlace de site ou alterar uma cadeia de ligação, adicionando scripts correspondentes para o plano de recuperação. [Adicionar um script do VMM para um plano de recuperação](site-recovery-how-to-add-vmmscript.md) descreve como configurar tarefas automatizadas utilizando um script.
 
 #### <a name="dns-update"></a>Atualização de DNS
-Se o DNS está configurado para a atualização dinâmica de DNS, em seguida, as máquinas virtuais, normalmente, atualize o DNS com as novas IP assim que for iniciado. Se pretender adicionar um passo explícito para atualizar o DNS com os IPs novo das máquinas virtuais, em seguida, adicione [script para atualizar o IP no DNS](https://aka.ms/asr-dns-update) como uma ação de post em grupos de plano de recuperação.  
+Se o DNS está configurado para a atualização dinâmicas DNS, máquinas virtuais atualizar, normalmente, o DNS com o novo endereço IP, quando são iniciados. Se pretender adicionar um passo explícito para atualizar o DNS com os novos endereços IP das máquinas virtuais, adicione um [script para atualizar o IP no DNS](https://aka.ms/asr-dns-update) como uma ação de pós-falha nos grupos do plano de recuperação.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Cadeia de ligação em Web. config de uma aplicação
-A cadeia de ligação Especifica a base de dados que o web site comunica com.
+A cadeia de ligação Especifica a base de dados que o Web site comunica com. Se a cadeia de ligação acarreta o nome da máquina virtual da base de dados, não existem passos adicionais são pós-falha necessária. A aplicação automaticamente pode comunicar com a base de dados. Além disso, se o endereço IP para a máquina virtual de base de dados é mantido, não ser necessário atualizar a cadeia de ligação. 
 
-Se a cadeia de ligação acarreta o nome da máquina virtual da base de dados, não existem passos adicionais são ativação pós-falha de post necessários. A aplicação automaticamente pode comunicar com a base de dados. Além disso, se o endereço IP para a máquina virtual de base de dados é mantido, que será não ser necessária para atualizar a cadeia de ligação. Se a cadeia de ligação refere-se para a máquina virtual de base de dados utilizando um endereço IP, tem de ser de ativação pós-falha de post atualizado. Por exemplo, a seguinte cadeia de ligação aponta para a base de dados com o IP 127.0.1.2
+Se a cadeia de ligação refere-se a máquina virtual de base de dados utilizando um endereço IP, tem de ser atualizada pós-falha. Por exemplo, os seguintes pontos de cadeia de ligação à base de dados com o IP endereços 127.0.1.2:
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
@@ -116,53 +115,54 @@ Se a cadeia de ligação acarreta o nome da máquina virtual da base de dados, n
         </connectionStrings>
         </configuration>
 
-Pode atualizar a cadeia de ligação na camada web adicionando [script de atualização de ligação de IIS](https://aka.ms/asr-update-webtier-script-classic) após grupo 3 no plano de recuperação.
+Para atualizar a cadeia de ligação na camada web, adicione um [script de atualização de ligação de IIS](https://aka.ms/asr-update-webtier-script-classic) após grupo 3 no plano de recuperação.
 
 #### <a name="site-bindings-for-the-application"></a>Enlaces de site para a aplicação
-Cada site é composta por informações que inclui o tipo de enlace, o endereço IP no qual o servidor IIS escuta os pedidos para o site, o número de porta e os nomes de anfitrião para o site de enlace. Durante a ativação pós-falha, destes enlaces poderão ter de ser atualizada se existir uma alteração de endereço IP associados aos mesmos.
+Cada site é composta por informações de enlace. As informações de enlace incluem o tipo de enlace, o endereço IP no qual o servidor IIS escuta os pedidos para o site, o número de porta e os nomes de anfitrião para o site. Durante a ativação pós-falha, poderá ter de atualizar estes enlaces se houver uma alteração no endereço IP que tiver associado aos mesmos.
 
 > [!NOTE]
 >
-> Se marcou 'todos os não atribuídos' para o enlace de site como no exemplo abaixo, não precisa de atualizar esta ativação pós-falha post de enlace. Além disso, se o endereço IP associado um site não é alterado post ativação pós-falha, o enlace de site tem de não estar atualizado (depende da retenção do endereço IP a arquitetura de rede e sub-redes atribuídas aos sites primário e de recuperação e, por conseguinte, podem ou não podem ser exequível para a sua organização.)
+> Se definir o enlace de site para **todos os não atribuídos**, não precisa de atualizar este enlace post-ativação pós-falha. Além disso, se o endereço IP associado um site não estiver pós-falha alterada, não precisa de atualizar o enlace de site. (A retenção do endereço IP depende da arquitetura de rede e sub-redes atribuídas aos sites primário e de recuperação. Atualizá-las poderá não estar viável para a sua organização.)
 
-![Enlace SSL](./media/site-recovery-iis/sslbinding.png)
+![Captura de ecrã que mostra a definição o enlace SSL](./media/site-recovery-iis/sslbinding.png)
 
-Se tiver associado o endereço IP um site, terá de atualizar todos os enlaces de site com o novo endereço IP. Pode adicionar [script de atualização de escalão de IIS Web](https://aka.ms/asr-web-tier-update-runbook-classic) após grupo 3 no plano de recuperação para alterar os enlaces de site.
+Se o endereço IP que tenha associado um site, atualize todos os enlaces de site com o novo endereço IP. Para alterar os enlaces de site, adicione um [script de atualização de escalão de web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) após grupo 3 no plano de recuperação.
 
+#### <a name="update-the-load-balancer-ip-address"></a>Atualizar o endereço IP do Balanceador de carga
+Se tiver uma máquina virtual do ARR, para atualizar o endereço IP, adicionar um [script de ativação pós-falha do IIS ARR](https://aka.ms/asr-iis-arrtier-failover-script-classic) após as 4 de grupo.
 
-#### <a name="update-load-balancer-ip-address"></a>Atualizar o endereço IP do Balanceador de carga
-Se tiver máquinas de virtuais de encaminhamento de pedidos de aplicação, adicionar [script de ativação pós-falha do IIS ARR](https://aka.ms/asr-iis-arrtier-failover-script-classic) após 4 de grupo para atualizar o endereço IP.
+#### <a name="ssl-certificate-binding-for-an-https-connection"></a>Enlace do certificado SSL para uma ligação HTTPS
+Um Web site poderá ter um certificado SSL associado que ajuda a garantir uma comunicação segura entre o servidor web e o browser do utilizador. Se o Web site tiver uma ligação HTTPS e também tem um enlace de site HTTPS associado, para o endereço IP do servidor de IIS com um enlace de certificado SSL, tem de adicionar um novo enlace de site para o certificado com o endereço IP do post de máquina virtual a IIS-ativação pós-falha.
 
-#### <a name="the-ssl-cert-binding-for-an-https-connection"></a>O enlace de certificado SSL para uma ligação https
-Web sites podem ter um certificado SSL associado que ajuda a garantir uma comunicação segura entre o servidor Web e o browser do utilizador. Se o Web site tiver uma ligação https e um enlace de site para o endereço IP do servidor de IIS https associado com um enlace de certificado SSL, um novo enlace de site tem de ser adicionada para o certificado com o IP da máquina virtual IIS após ativação pós-falha.
+O certificado SSL pode ser emitido contra estes componentes:
 
-O certificado SSL pode ser emitido contra-
+* O nome de domínio completamente qualificado do Web site.
+* O nome do servidor.
+* Um certificado de caráter universal para o nome de domínio.  
+* Um endereço IP. Se o certificado SSL é emitido contra o endereço IP do servidor de IIS, outro certificado SSL tem de ser emitido contra o endereço IP do servidor do IIS no site do Azure. Um enlace SSL adicional para este certificado tem de ser criado. Por este motivo, recomendamos que não utilize um certificado SSL emitido contra o endereço IP. Esta opção é menos amplamente utilizada e logo que vai ser preterida em conformidade com as novas alterações de fórum de autoridade/browser de certificado.
 
-a) o nome de domínio completamente qualificado do Web site<br>
-b) o nome do servidor<br>
-c) um certificado de caráter universal para o nome de domínio<br>
-d) um endereço IP – se o certificado SSL é emitido contra o IP do servidor IIS, outro certificado SSL tem de ser emitido contra o endereço IP do servidor do IIS no site do Azure e um enlace SSL adicional para este certificado tem de ser criado. Por conseguinte, é recomendado para não utilizar um certificado SSL emitido relativamente IP. Esta opção é um menor amplamente utilizado e logo que vai ser preterida de acordo com novas alterações de fórum de AC/browser.
+#### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Atualizar a dependência entre a camada web e a camada de aplicação
+Se tiver uma dependência de aplicação específicos com base no endereço IP de máquinas virtuais, tem de atualizar este pós-falha dependência.
 
-#### <a name="update-the-dependency-between-the-web-and-the-application-tier"></a>Atualizar a dependência entre web e a camada de aplicação
-Se tiver uma dependência de aplicação específicos com base no endereço IP de máquinas virtuais, terá de atualizar esta ativação pós-falha post de dependência.
+## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
-## <a name="doing-a-test-failover"></a>Efetuar uma ativação pós-falha de teste
-Siga [esta orientação](site-recovery-test-failover-to-azure.md) para efetuar uma ativação pós-falha de teste.
+1. No portal do Azure, selecione o Cofre dos serviços de recuperação.
+2. Selecione o plano de recuperação que criou para o web farm do IIS.
+3. Selecione **ativação pós-falha de teste**.
+4. Para iniciar o processo de ativação pós-falha de teste, selecione o ponto de recuperação e a rede virtual do Azure.
+5. Quando o ambiente secundário, pode realizar validações.
+6. Quando validações estiverem concluídas, para limpar o ambiente de ativação pós-falha de teste, selecione **validações concluir**.
 
-1.  Aceda ao portal do Azure e selecione o Cofre de serviço de recuperação.
-1.  Clique no plano de recuperação criado para a web farm do IIS.
-1.  Clique em "Ativação pós-falha de teste".
-1.  Selecione o ponto de recuperação e de rede virtual do Azure para iniciar o processo de ativação pós-falha de teste.
-1.  Assim que o ambiente secundário está ativo, pode realizar as validações.
-1.  Depois de validações estiverem concluídas, pode selecionar 'Validações Concluir' e o ambiente de ativação pós-falha de teste é limpa.
+Para obter mais informações, consulte [ativação pós-falha de teste para o Azure no Site Recovery](site-recovery-test-failover-to-azure.md).
 
-## <a name="doing-a-failover"></a>Efetuar uma ativação pós-falha
-Siga [esta orientação](site-recovery-failover.md) quando estão a fazer uma ativação pós-falha.
+## <a name="run-a-failover"></a>Executar uma ativação pós-falha
 
-1.  Aceda ao portal do Azure e selecione o Cofre de serviço de recuperação.
-1.  Clique no plano de recuperação criado para a web farm do IIS.
-1.  Clique em 'Failover'.
-1.  Selecione o ponto de recuperação para iniciar o processo de ativação pós-falha.
+1. No portal do Azure, selecione o Cofre dos serviços de recuperação.
+1. Selecione o plano de recuperação que criou para o web farm do IIS.
+1. Selecione **ativação pós-falha**.
+1. Para iniciar o processo de ativação pós-falha, selecione o ponto de recuperação.
+
+Para obter mais informações, consulte [ativação pós-falha na recuperação de Site](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Pode saber mais sobre [replicar outras aplicações](site-recovery-workload.md) utilizando a recuperação de sites.
+* Saiba mais sobre [replicar outras aplicações](site-recovery-workload.md) utilizando a recuperação de Site.

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e796c8be0a5db8cb67e4a091fa51ed89920852c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Criar um endereço IP público numa zona de disponibilidade com o portal do Azure
 
@@ -40,7 +40,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-zonal-public-ip-address"></a>Criar um endereço IP público zonal
 
-1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1. Clique em **crie um recurso** no canto superior esquerdo do portal do Azure.
 2. Selecione **redes**e, em seguida, selecione **endereço IP público**.
 3. Introduza ou selecione os valores para as seguintes definições, selecione a sua subscrição, aceite as predefinições para as restantes definições e clique em **criar**:
 
@@ -59,7 +59,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 > [!NOTE]
 > Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview)
 - Saiba mais sobre [endereços IP públicos](virtual-network-public-ip-address.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

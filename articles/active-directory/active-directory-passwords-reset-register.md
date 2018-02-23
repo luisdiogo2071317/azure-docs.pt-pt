@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user;seohack1
-ms.openlocfilehash: ffdffc0c471970e5a7e7a0bb291658cefe99ed71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbb82e125381a4307ed742294f880600612ffc52
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>Registar-se na reposição personalizada de palavra-passe
 
@@ -31,7 +31,7 @@ Como um utilizador final, pode repor a palavra-passe ou desbloquear a conta por 
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registar ou confirmar dados de autenticação com SSPR
 
-1. Abra o browser no seu dispositivo e vá para o [página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup).
+1. Abra o browser no seu dispositivo e vá para o [página de registo de reposição de palavra-passe](https://aka.ms/ssprsetup).
 2. Introduza o nome de utilizador e a palavra-passe que o administrador fornecido.
 3. Dependendo de como a sua equipa de TI configurou coisas, um ou mais das seguintes opções estão disponíveis para configurar e verificar. Se o administrador tem permissão para utilizar as informações, pode de preencher algumas das informações por si.
     * **Telefone do escritório**: apenas o administrador pode definir esta opção.
@@ -56,12 +56,12 @@ Os administradores podem implicar a confirmar os métodos de autenticação apó
 | --- | --- | --- |
 | Posso obter uma página ". Contacte o administrador" depois de introduzir o meu ID de utilizador | Contacte o administrador. <br> <br> Detetámos que a palavra-passe da conta de utilizador não é gerida pela Microsoft. Como resultado, não conseguimos automaticamente repor a palavra-passe. <br> <br> Contacte a equipa de TI para obter ajuda adicional. | Está a ver esta mensagem porque a sua equipa de TI gere a palavra-passe no seu ambiente no local e não permite-lhe repor a palavra-passe do **não é possível aceder à sua conta** ligação. <br> <br> Para repor a palavra-passe, contacte a equipa de TI diretamente para obter ajuda. Informe de que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si.|
 | Posso obter um erro "a conta não está ativada para a reposição de palavra-passe" depois de introduzir o meu ID de utilizador | A conta não está ativada para a reposição de palavra-passe. <br> <br> Lamentamos, mas a sua equipa de TI não tenha configurado a sua conta para utilização com este serviço. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque a sua equipa de TI não activou a reposição da sua organização de palavra-passe a **não é possível aceder à sua conta** ligar ou ainda não está licenciado para utilizar a funcionalidade. <br> <br> Para repor a palavra-passe, selecione o **contacte um administrador** ligação. Mensagens de correio eletrónico serão enviadas para a sua empresa equipa de TI. Mensagem de correio eletrónico permite-lhes saber que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si. |
-| Posso obter um erro de "pode não verificar a sua conta" depois de introduzir o meu ID de utilizador | Não foi possível verificar a sua conta. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque está a ser ativada para a reposição de palavra-passe, mas ainda não está registado para utilizar o serviço. Para registar para a reposição de palavra-passe, vá para o [página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup) depois de ter recuperou o acesso à sua conta. <br> <br> Para repor a palavra-passe, selecione o **contacte um administrador** ligação para enviar uma mensagem de e-mail da sua empresa equipa de TI. |
+| Posso obter um erro de "pode não verificar a sua conta" depois de introduzir o meu ID de utilizador | Não foi possível verificar a sua conta. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque está a ser ativada para a reposição de palavra-passe, mas ainda não está registado para utilizar o serviço. Para registar para a reposição de palavra-passe, vá para o [página de registo de reposição de palavra-passe](https://aka.ms/ssprsetup) depois de ter recuperou o acesso à sua conta. <br> <br> Para repor a palavra-passe, selecione o **contacte um administrador** ligação para enviar uma mensagem de e-mail da sua empresa equipa de TI. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Alterar a palavra-passe através da utilização de reposição de palavra-passe self-service](active-directory-passwords-update-your-own-password.md)
-* [Página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup)
+* [Página de registo de reposição de palavra-passe](https://aka.ms/ssprsetup)
 * [Portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/)
 * [Quando não é possível iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

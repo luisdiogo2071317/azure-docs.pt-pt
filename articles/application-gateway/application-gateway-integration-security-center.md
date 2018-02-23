@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68d4f9cb5fc9c9f15a355d9fdade922889d2aa30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Descrição geral da integração entre o Gateway de aplicação e o Centro de segurança do Azure
 
@@ -31,35 +31,35 @@ Gateway de aplicação WAF é uma recomendação no Centro de segurança para pr
 
 ![integração com o Centro de segurança][1]
 
-Ao clicar em qualquer recomendações sobre firewall de aplicações web abre um novo painel que mostra os detalhes da recomendação.
+Ao clicar em qualquer recomendações sobre firewall de aplicações web abre uma nova página que mostra os detalhes da recomendação.
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Adicionar uma firewall de aplicação web para um recurso existente
 
-Navegue para **mais serviços** > **segurança + identidade** > **Centro de segurança** e o **Centro de segurança - descrição geral**  painel, clique em **aplicações**. No **Centro de segurança - aplicações** painel, a tabela contém uma lista de aplicações do Centro de segurança detetado na sua subscrição.
+Navegue para **todos os serviços** > **segurança + identidade** > **Centro de segurança** e no **Centro de segurança - descrição geral**, clique em **aplicações**. No **Centro de segurança - aplicações**, a tabela contém uma lista de aplicações do Centro de segurança detetado na sua subscrição.
 
 ![aplicações Web][3]
 
-Ao clicar numa aplicação web com um problema crítico, obter o **estado de funcionamento de segurança de aplicação** painel. Na imagem abaixo, a aplicação web que não está protegido por uma firewall de aplicação web. 
+Ao clicar numa aplicação web com um problema crítico, obter o **estado de funcionamento de segurança de aplicação** página. Na imagem abaixo, a aplicação web que não está protegido por uma firewall de aplicação web. 
 
 ![recursos da Web não protegidos][2]
 
-Clique em **adicionar uma firewall de aplicação web** em **recomendações** para abrir o **adicionar uma Firewall de aplicação Web** painel.
+Clique em **adicionar uma firewall de aplicação web** em **recomendações** para abrir o **adicionar uma Firewall de aplicação Web** página.
 
-Se não tiver um Gateway de aplicação existente, ou para criar um novo, clique em **criar novo** e o **criar uma nova Firewall de aplicação Web** painel e clique em **Microsoft - aplicações Gateway**. Isto leva-o pelos passos para criar um gateway de aplicação. Neste momento, a aplicação web é adicionada como um recurso protegido, o Centro de segurança agora controla que este recurso é protegido por uma firewall de aplicação web. Isto não adicioná-lo como um membro do conjunto de back-end.
+Se não tiver um Gateway de aplicação existente, ou para criar um novo, clique em **criar novo** e no **criar uma nova Firewall de aplicação Web**e clique em **Microsoft - Gateway de aplicação** . Isto leva-o pelos passos para criar um gateway de aplicação. Neste momento, a aplicação web é adicionada como um recurso protegido, o Centro de segurança agora controla que este recurso é protegido por uma firewall de aplicação web. Isto não adicioná-lo como um membro do conjunto de back-end.
 
 Se tiver um gateway de aplicação existente, pode escolhê-lo em **utilizar solução existente**
 
-![painel Adicionar de firewall de aplicações Web][4]
+![firewall de aplicações Web Adicionar página][4]
 
-Adicionar que uma aplicação web para um gateway de aplicação através do Centro de segurança não adiciona o recurso como um membro do conjunto de back-end, isto deve ser efetuado no recurso de gateway de aplicação diretamente.
+Adicionar uma aplicação web para um gateway de aplicação através do Centro de segurança não adicionar o recurso como um membro do conjunto de back-end. Isto deve ser efetuado no recurso de gateway de aplicação diretamente.
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Adicione um recurso a uma firewall de aplicação web existente
 
-Navegue para **mais serviços** > **segurança + identidade** > **Centro de segurança** e o **Centro de segurança - descrição geral**  painel, clique em **soluções de parceiros**. Gateways de aplicação com suporte para o Centro de segurança existentes mostram o **soluções de parceiros** painel.
+Navegue para **todos os serviços** > **segurança + identidade** > **Centro de segurança** e no **Centro de segurança - descrição geral**, clique em **soluções de parceiros**. Gateways de aplicação com suporte para o Centro de segurança existentes mostram o **soluções de parceiros** página.
 
 ![soluções de parceiros][7]
 
-Clique em **ligar aplicação** para abrir o **ligar aplicações** painel, aqui é-lhe dada as opções para selecionar as aplicações existentes. Escolher as aplicações para proteger e clique em **OK**. Isto não adiciona a aplicação web para o conjunto de back-end do gateway de aplicação. Isto define os recursos como um recurso protegido pelo centro de segurança podem controlá-lo. Para adicionar o recurso como um membro do conjunto de back-end, este tem de ser efetuada no gateway de aplicação, no painel atual pode clicar em **consola solução** para ir para o recurso de gateway de aplicação onde pode adicionar a aplicação web para o conjunto de back-end.
+Clique em **ligar aplicação** para abrir **ligar aplicações**, aqui recebem as opções para selecionar as aplicações existentes. Escolher as aplicações para proteger e clique em **OK**. Isto não adiciona a aplicação web para o conjunto de back-end do gateway de aplicação. Isto define os recursos como um recurso protegido pelo centro de segurança podem controlá-lo. Para adicionar o recurso como um membro do conjunto de back-end, este tem de ser efetuada no gateway de aplicação, da página atual pode clicar em **consola solução** para ir para o recurso de gateway de aplicação onde pode adicionar a aplicação web para o conjunto de back-end.
 
 ![aplicações de soluções de parceiros][6]
 
@@ -67,7 +67,7 @@ Clique em **ligar aplicação** para abrir o **ligar aplicações** painel, aqui
 
 Centro de segurança monitoriza aplicações adicionadas a um gateway de aplicação como um recurso protegido.  Monitoriza o estado de funcionamento deste recurso e assegura que está protegida por um gateway de aplicação. O passo seguinte consiste em adicionar o IP privado, o IP público ou o NIC da sua máquina virtual para o conjunto de back-end do gateway de aplicação. Até que este procedimento é efetuado uma recomendação adicional de **finalizar proteção aplicação** é apresentada até que o recurso seja adicionado.
 
-![painel Adicionar de firewall de aplicações Web][5]
+![firewall de aplicações Web Adicionar página][5]
 
 ## <a name="security-alerts"></a>Alertas de Segurança
 

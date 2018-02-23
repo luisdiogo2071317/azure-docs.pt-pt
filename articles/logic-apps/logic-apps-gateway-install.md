@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para Azure Logic Apps
 
-As logic apps podem aceder a origens de dados no local, tem de instalar e configurar o gateway de dados no local. O gateway funciona como uma ponte que fornece a transferência de dados rápida e encriptação entre sistemas no local e as logic apps. O gateway transmite dados a partir de origens do local em canais encriptados através do Service Bus do Azure. Todo o tráfego origina como tráfego de saída seguro do agente de gateway. Saiba mais sobre [como funciona o gateway de dados](#gateway-cloud-service).
+Antes das logic apps podem aceder a origens de dados no local, terá de instalar e configurar o gateway de dados no local. O gateway funciona como uma ponte que fornece a transferência de dados rápida e encriptação entre sistemas no local e as logic apps. O gateway transmite dados a partir de origens do local em canais encriptados através do Service Bus do Azure. Todo o tráfego origina como tráfego de saída seguro do agente de gateway. Saiba mais sobre [como funciona o gateway de dados](#gateway-cloud-service).
 
 O gateway suporta ligações para estas origens de dados no local:
 
@@ -35,8 +35,8 @@ O gateway suporta ligações para estas origens de dados no local:
 *   MySQL
 *   Base de dados Oracle
 *   PostgreSQL
-*   Servidor de aplicações SAP 
-*   Servidor de mensagens SAP
+*   SAP Application Server 
+*   SAP Message Server
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -54,18 +54,18 @@ Para obter informações sobre como utilizar o gateway com outros serviços, con
 
 ## <a name="requirements"></a>Requisitos
 
-**Mínimo**:
+**Minimum**
 
-* 4.5 do .NET framework
+* .NET 4.5 Framework
 * versão de 64 bits do Windows 7 ou Windows Server 2008 R2 (ou posterior)
 
-**Recomendado**:
+**recomendado**
 
 * CPU de 8 núcleos
 * 8 GB de memória
 * versão de 64 bits do Windows 2012 R2 (ou posterior)
 
-**Considerações importantes sobre**:
+**Considerações importantes sobre o**
 
 * Instale o gateway de dados no local apenas num computador local.
 Não é possível instalar o gateway num controlador de domínio.
@@ -80,7 +80,7 @@ Não é possível instalar o gateway num controlador de domínio.
   > [!TIP]
   > Se pretender utilizar uma conta Microsoft que tem um Visual Studio com a subscrição do MSDN, primeiro [criar um diretório (inquilino) no Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) com a sua conta Microsoft, ou utilize o diretório predefinido. Adicionar um utilizador com uma palavra-passe para o diretório e, em seguida, atribuir esse acesso de utilizador à sua subscrição. Em seguida, pode iniciar sessão durante a instalação do gateway com este nome de utilizador e palavra-passe.
 
-  Tem de utilizar a mesma conta escolar ou profissional mais tarde no portal do Azure ao criar e associar um recurso de gateway com a instalação do gateway. Em seguida, selecione este recurso de gateway ao criar a ligação entre a sua aplicação lógica e a origem de dados no local. [Por que motivo deve utilizar um trabalho do Azure AD ou escola conta?](#why-azure-work-school-account)
+  Tem de utilizar a mesma conta escolar ou profissional mais tarde no portal do Azure, ao criar e associar um recurso de gateway com a instalação do gateway. Em seguida, selecione este recurso de gateway ao criar a ligação entre a sua aplicação lógica e a origem de dados no local. [Por que motivo tenho de utilizar um trabalho do Azure AD conta escolar ou profissional?](#why-azure-work-school-account)
 
   > [!TIP]
   > Se se inscreveu no Office 365 uma oferta de serviço e não fornecer o seu e-mail de trabalho real, o seu endereço de início de sessão poderá aspeto jeff@contoso.onmicrosoft.com. 
@@ -93,7 +93,7 @@ Não é possível instalar o gateway num controlador de domínio.
 
 ## <a name="install-the-data-gateway"></a>Instalar o gateway de dados
 
-1.  [Transfira e execute o instalador do gateway num computador local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Transfira e execute o instalador do gateway num computador local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Reveja e aceite os termos de utilização e declaração de privacidade.
 
@@ -197,7 +197,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Se **TcpTestSucceeded** não está definido como **verdadeiro**, poderá ser bloqueado por uma firewall. Se pretender ser abrangente, substitua o **ComputerName** e **porta** valores com os valores listados em [configurar portas](#configure-ports) neste tópico.
+Se **TcpTestSucceeded** não está definido como **verdadeiro**, poderá ser bloqueado por uma firewall. Se pretender ser abrangente, substitua o **ComputerName** e **porta** valores com os valores listados em [configurar portas](#configure-ports) neste artigo.
 
 A firewall também poderá bloquear as ligações que o Service Bus do Azure torna dos centros de dados do Azure. Se acontecer neste cenário, aprovar (desbloquear) todos os endereços IP para os centros de dados na sua região. Para esses endereços IP, [obter a lista de endereços IP de Azure aqui](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -205,25 +205,27 @@ A firewall também poderá bloquear as ligações que o Service Bus do Azure tor
 
 O gateway cria uma ligação de saída para [Service Bus do Azure](https://azure.microsoft.com/services/service-bus/) e comunica nas portas de saída: TCP 443 (predefinição), 5671, 5672, 9350 através de 9354. O gateway não necessita de porta de entrada. Saiba mais sobre [soluções de Service Bus do Azure e híbridas](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| NOMES DE DOMÍNIO | PORTAS DE SAÍDA | DESCRIÇÃO |
-| --- | --- | --- |
-| *. analysis.windows.net | 443 | HTTPS | 
-| *. login.windows.net | 443 | HTTPS | 
-| *. servicebus.windows.net | 5671-5672 | (AMQP) do protocolo de colocação de mensagens de avançadas | 
-| *. servicebus.windows.net | 443, 9350-9354 | Serviços de escuta barramento de serviço de reencaminhamento através de TCP (443 é necessária para a aquisição de token de controlo de acesso) | 
-| *. frontend.clouddatahub.net | 443 | HTTPS | 
-| *. core.windows.net | 443 | HTTPS | 
+| Nomes de domínio | Portas de saída | Descrição |
+| ------------ | -------------- | ----------- |
+| *.analysis.windows.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 5671-5672 | (AMQP) do protocolo de colocação de mensagens de avançadas | 
+| *.servicebus.windows.net | 443, 9350-9354 | Serviços de escuta barramento de serviço de reencaminhamento através de TCP (443 é necessária para a aquisição de token de controlo de acesso) | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
-| *. msftncsi.com | 443 | Utilizado para testar a conectividade à internet quando o gateway não está acessível pelo serviço Power BI. | 
+| *.msftncsi.com | 443 | Utilizado para testar a conectividade à internet quando o gateway não está acessível pelo serviço Power BI. | 
+||||
 
 Se tiver de aprovar endereços IP em vez dos domínios, pode transferir e utilizar o [lista de intervalos de IP de centro de dados do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Em alguns casos, as ligações de barramento de serviço do Azure são efetuadas com endereço IP, em vez de nomes de domínio completamente qualificado.
 
 <a name="gateway-cloud-service"></a>
+
 ## <a name="how-does-the-data-gateway-work"></a>Como funciona o gateway de dados?
 
 O gateway de dados facilita a comunicação de um processo rápida e segura entre a sua aplicação lógica, o serviço de nuvem de gateway e a origem de dados no local. 
 
-![Diagram-for-On-Premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 Assim, quando o utilizador na nuvem interage com um elemento que está ligado à sua origem de dados no local:
 
@@ -240,6 +242,7 @@ Assim, quando o utilizador na nuvem interage com um elemento que está ligado à
 6. Os resultados são enviados da origem de dados, de volta para o gateway e, em seguida, ao serviço de nuvem do gateway. O serviço de gateway de nuvem, em seguida, utiliza os resultados.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="general"></a>Geral
@@ -252,7 +255,7 @@ Assim, quando o utilizador na nuvem interage com um elemento que está ligado à
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: por que motivo deve posso utilizar um trabalho do Azure conta escolar ou profissional para iniciar sessão? <br/>
+**Q**: por que motivo tenho de utilizar um trabalho do Azure conta escolar ou profissional para iniciar sessão? <br/>
 **A**: pode apenas utilizar um trabalho do Azure conta escolar ou profissional quando a instalação do gateway de dados no local. A conta de início de sessão é armazenada num inquilino gerida pelo Azure Active Directory (Azure AD). Normalmente, o nome de principal de utilizador (UPN) da sua conta do Azure AD corresponde o endereço de e-mail.
 
 **Q**: onde são as minhas credenciais armazenadas? <br/>
@@ -289,7 +292,7 @@ Pode utilizar a aplicação de teste de velocidade do Azure da ferramenta de ter
 **A**: A chave de recuperação fornece uma forma para migrar ou recuperar as definições do gateway após desastres.
 
 **Q**: existem quaisquer planos para ativar cenários de elevada disponibilidade com o gateway? <br/>
-**A**: estes cenários estão no plano, mas ainda não temos uma linha cronológica.
+**A**: alguns conectores suportam cenários de elevada disponibilidade, tais como o conector sistema de ficheiros e outros da forma. Para obter mais informações, consulte [clusters de elevada disponibilidade para o gateway de dados no local](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -301,7 +304,7 @@ Pode utilizar a aplicação de teste de velocidade do Azure da ferramenta de ter
 Também pode ver as ferramentas que tenha a sua origem de dados para consultas de rastreio. Por exemplo, pode utilizar o evento expandido ou gerador de perfis do SQL Server para o SQL Server e do Analysis Services.
 
 **Q**: onde estão os registos do gateway? <br/>
-**A**: Consulte ferramentas posterior deste tópico.
+**A**: Consulte ferramentas neste artigo.
 
 ### <a name="update-to-the-latest-version"></a>Atualizar para a versão mais recente
 
@@ -337,7 +340,7 @@ Pode encontrar os registos do Data Management Gateway e PowerBIGateway em **regi
 
 [Fiddler](http://www.telerik.com/fiddler) é uma ferramenta gratuita da Telerik que monitoriza o tráfego HTTP. Pode ver este tráfego com o serviço de Power BI a partir do computador cliente. Este serviço pode mostrar erros e outras informações relacionadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
     
 * [Ligar a dados no local a partir das logic apps](../logic-apps/logic-apps-gateway-connection.md)
 * [Funcionalidades de integração do Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md)

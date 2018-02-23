@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestão de aplicações com o Azure Active Directory
 Para além do fluxo de trabalho real ou conteúdo, as empresas têm dois requisitos básicos para todas as aplicações:
@@ -78,7 +78,7 @@ Quando utilizar o Azure AD para gerir aplicações e ativar a SSO:
 * A autenticação é efetuada no local (por exemplo, AD) o utilizador ou a conta do Azure AD.
 * Autorização executa do Azure AD proteção e de atribuição de política de garantir que a experiência de utilizador final consistente e que permite adicionar condições MFA, atribuição e localizações em qualquer aplicação, independentemente das respetivas capacidades de internas.
 
-Importante compreender que a forma como a autorização é enacted na aplicação de destino que varia consoante a forma como a aplicação foi integrada com o Azure AD.
+É importante compreender que a forma como a autorização é enacted na aplicação de destino varia consoante a forma como a aplicação foi integrada com o Azure AD.
 
 * **Aplicações previamente integradas pelo fornecedor de serviço** como o Office 365 e o Azure, estes são criados diretamente no Azure AD e depender para as respetivas capacidades de gestão de identidades e acessos abrangentes de aplicações. Acesso a estas aplicações é ativado através da emissão de tokens e informações de diretório.
 * **Aplicações previamente integradas pela Microsoft e aplicações personalizadas** são independentes da nuvem aplicações que dependem de um diretório de aplicação interna e podem funcionar independentemente do Azure AD. Acesso a estas aplicações é ativado através da emissão de uma credencial de específico de aplicação mapeada para uma conta de aplicação. Consoante as capacidades de aplicação, a credencial pode ser um token de Federação ou nome de utilizador e palavra-passe para uma conta que foi aprovisionada na aplicação.
@@ -90,13 +90,13 @@ Por exemplo, se um utilizador associa a sua organização, terá de criar uma co
 Moderna empresas, departamentos de TI, normalmente, não têm conhecimento de todas as aplicações em nuvem que estão a ser utilizadas. Em conjunto com a Cloud App Discovery, do Azure AD fornece uma solução para detetar estas aplicações.
 
 ## <a name="account-management"></a>Gestão de contas
-Tradicionalmente, gerir contas de várias aplicações é um processo manual realizado IT ou suporta pessoais na organização. Do Azure AD totalmente automatizado gestão de contas em todas as aplicações de fornecedor integrado de serviço e as aplicações previamente integradas pela Microsoft que suportam o aprovisionamento automatizado do utilizador ou SAML JIT.
+Tradicionalmente, gerir contas de várias aplicações é um processo manual realizado IT ou o suporte técnico da organização. Do Azure AD totalmente automatiza a gestão de contas em todas as aplicações de fornecedor integrado de serviço e as aplicações previamente integradas pela Microsoft que suportam o aprovisionamento automatizado do utilizador ou SAML just aprovisionamento.
 
 ## <a name="automated-user-provisioning"></a>O aprovisionamento automatizado do utilizador
 Algumas aplicações fornecem interfaces de automatização para criação e remoção (ou desativação) de contas. Se um fornecedor de oferecer dessa interface, é utilizado pelo Azure AD. Esta reduz os custos operacionais porque as tarefas administrativas ocorrem automaticamente e melhora a segurança do seu ambiente, porque o diminui a probabilidade de acesso não autorizado.
 
 ## <a name="access-management"></a>Gestão de acesso
-Utilizar o Azure AD pode gerir o acesso a aplicações utilizando individuais ou regra orientadas por atribuições. Também pode delegar o acesso de gestão para as pessoas corretas na organização de garantir o melhor supervisão e reduzir a carga sobre o suporte técnico.
+Com o Azure AD pode gerir o acesso a aplicações utilizando individuais ou regra orientadas por atribuições. Também pode delegar o acesso de gestão para as pessoas corretas na organização de garantir o melhor supervisão e reduzir a carga sobre o suporte técnico.
 
 ## <a name="on-premises-applications"></a>Aplicações no local
 O incorporado na aplicação o proxy permite-lhe publicar as suas aplicações no local para os seus utilizadores, resultando em ambos consistente aceder à experiência com a aplicação em nuvem modernas e as vantagens de capacidades de monitorização, relatórios e segurança do Azure AD.

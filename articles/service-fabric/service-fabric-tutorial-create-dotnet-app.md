@@ -1,26 +1,10 @@
+-Título: criar uma aplicação .NET para o Service Fabric | Descrição da Microsoft Docs: Saiba como criar uma aplicação com um front-end do ASP.NET Core e um serviço fiável com monitorização de estado back-end da e implementar a aplicação para um cluster.
+serviços: documentationcenter de service fabric: autor .net: rwike77 manager: timlt editor: '
+
+ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
+
 ---
-title: "Criar uma aplicação .NET para o Service Fabric | Microsoft Docs"
-description: "Saiba como criar uma aplicação com um front-end do ASP.NET Core e um back-end com monitorização de estado de Reliable Service e como implementar a aplicação num cluster."
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/29/2018
-ms.author: ryanwi
-ms.custom: mvc
-ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
----
+
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Criar e implementar uma aplicação com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado
 Este tutorial é a primeira parte de uma série.  Ficará a saber como criar uma aplicação do Azure Service Fabric com um front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado para armazenar dados. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](#walkthrough_anchor).
 
@@ -43,7 +27,7 @@ Nesta série de tutoriais, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial:
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Instale o Visual Studio 2017](https://www.visualstudio.com/), versão 15.3 ou superior, com as cargas de trabalho de **desenvolvimento no Azure** e de **desenvolvimento Web e em ASP.NET**.
+- [Instalar Visual Studio 2017](https://www.visualstudio.com/) versão 15.5 ou posterior com o **programação do Azure** e **desenvolvimento ASP.NET e web** cargas de trabalho.
 - [Instale o SDK do Service Fabric](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web do ASP.NET como um Reliable Service
@@ -629,7 +613,7 @@ Para ver o que acontece no código, conclua os passos seguintes:
 Para parar a sessão de depuração, prima **Shift + F5**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nesta parte do tutorial, ficou a saber como:
 
 > [!div class="checklist"]
