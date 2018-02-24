@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters de HBase no HDInsight na Azure Virtual Network
 Saiba como criar clusters do HBase do HDInsight do Azure num [Azure Virtual Network][1].
@@ -34,7 +34,7 @@ Com a integração de rede virtual, clusters de HBase podem ser implementados pa
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, tem de ter os seguintes itens:
 
-* **Uma subscrição do Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Uma estação de trabalho com o Azure PowerShell**. Consulte [instalar e utilizar o Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>Criar cluster HBase numa rede virtual
@@ -243,15 +243,15 @@ Para utilizar estas informações numa aplicação Java, pode seguir os passos e
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a criar um cluster HBase. Para saber mais, consulte:
 
 * [Introdução ao HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Utilize nós de limite vazio no HDInsight](../hdinsight-apps-use-edge-node.md)
 * [Configurar a replicação do HBase no HDInsight](apache-hbase-replication.md)
 * [Criar clusters do Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Introdução ao hbase com o Hadoop no HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Descrição geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
+* [Get started using HBase with Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md) (Introdução à utilização do HBase com o Hadoop no HDInsight)
+* [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) (Descrição Geral da Rede Virtual)
 
 [1]: http://azure.microsoft.com/services/virtual-network/
 [2]: http://technet.microsoft.com/library/ee176961.aspx

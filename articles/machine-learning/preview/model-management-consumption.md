@@ -4,17 +4,17 @@ description: "Este documento descreve os conceitos e os passos envolvidos na con
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="consuming-web-services"></a>Consumir os serviços web
 Depois de implementar um modelo como um serviço de web em tempo real, pode enviar os dados e obter predições a partir de uma variedade de plataformas e aplicações. O serviço de web em tempo real que expõe uma API REST para obter as predições. Pode enviar dados para o serviço web no formato único ou várias linha para obter um ou mais predições cada vez.

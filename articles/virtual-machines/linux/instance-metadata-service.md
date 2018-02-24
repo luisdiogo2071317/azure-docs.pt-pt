@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9222fcebd51ff13e797f40f3fdb0ddaa955d2611
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -284,8 +284,8 @@ Dados | Descrição | Versão introduzida
 localização | Região do Azure a VM está em execução no | 2017-04-02 
 nome | Nome da VM | 2017-04-02
 oferta | Disponibilizam informações para a imagem VM. Este valor só está presente para imagens implementadas a partir da Galeria de imagem do Azure. | 2017-04-02
-Fabricante | Publicador de imagem de VM | 2017-04-02
-SKU | SKU específico para a imagem VM | 2017-04-02
+publisher | Publicador de imagem de VM | 2017-04-02
+sku | SKU específico para a imagem VM | 2017-04-02
 versão | Versão da imagem VM | 2017-04-02
 osType | Linux ou do Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução no | 2017-04-02
@@ -296,13 +296,13 @@ subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
 placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu dimensionamento da Máquina Virtual definido | 2017-08-01
-IPv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
-IPv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
-endereço de sub-rede / | Endereço de sub-rede da VM | 2017-04-02 
-prefixo de sub-rede / | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
-IPv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
-MacAddress | Endereço mac VM | 2017-04-02 
-scheduledevents | Está a ser atualmente consulte de pré-visualização pública [scheduledevents](scheduled-events.md) | 2017-03-01
+ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
+ipv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
+subnet/address | Endereço de sub-rede da VM | 2017-04-02 
+subnet/prefix | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
+ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
+macAddress | Endereço mac VM | 2017-04-02 
+scheduledevents | Consulte [scheduledevents](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários de utilização  
 
@@ -376,17 +376,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Idioma | Exemplo 
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.RB
-Ir  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.PY
-C++      | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample-Windows.cpp
-C#       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.CS
-JavaScript | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.ps1
-Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
-Perl       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.pl
-Java       | https://github.com/Microsoft/azureimds/blob/Master/imdssample.Java
-Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>FAQ
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
     
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [agendada eventos](scheduled-events.md) API **em pré-visualização pública** fornecido pelo serviço de metadados de instância.
+- Saiba mais sobre [agendada eventos](scheduled-events.md).

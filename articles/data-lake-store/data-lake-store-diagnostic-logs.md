@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Aceder a registos de diagnóstico para o Azure Data Lake Store
 Saiba mais ativar o diagnóstico de registo para a sua conta do Data Lake Store e ver os registos recolhidos para a sua conta.
@@ -82,9 +82,9 @@ Existem duas formas para ver os dados de registo para a sua conta do Data Lake S
    
     ![Registo de diagnóstico de vista](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "ver registos de diagnóstico")
    
-    Por exemplo, pode ser o caminho completo para um registo de auditoria`https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+    Por exemplo, pode ser o caminho completo para um registo de auditoria `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    Da mesma forma, pode ser o caminho completo para um registo de pedido`https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    Da mesma forma, pode ser o caminho completo para um registo de pedido `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## <a name="understand-the-structure-of-the-log-data"></a>Compreender a estrutura dos dados de registo
 Os registos de auditoria e pedido são num formato JSON. Nesta secção, observe a estrutura de JSON para o pedido e registos de auditoria.
@@ -132,9 +132,9 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 | httpMethod |Cadeia |O método de HTTP utilizado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia |O caminho a operação foi efetuado em |
 | RequestContentLength |Int |O comprimento do conteúdo do pedido HTTP |
-| clientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
+| ClientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
 | StartTime |Cadeia |A hora em que o servidor recebeu o pedido |
-| endTime |Cadeia |A hora em que o servidor enviou uma resposta |
+| EndTime |Cadeia |A hora em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob tem um objeto de raiz denominado **registos** que contém uma matriz de objetos de registo

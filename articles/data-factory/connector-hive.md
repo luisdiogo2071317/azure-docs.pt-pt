@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de ramo de registo utilizando o Azure Data Factory 
 
@@ -48,7 +48,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ramo de regi
 | anfitrião | Nome anfitrião ou endereço IP do servidor do Hive, separado por ';' para vários anfitriões (apenas quando serviceDiscoveryMode está activada).  | Sim |
 | porta | A porta TCP que o servidor de ramo de registo utiliza para escutar ligações de cliente.  | Não |
 | serverType | O tipo de servidor de ramo de registo. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não |
-| thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, * * HTTP * * | Não |
+| thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, **HTTP** | Não |
 | authenticationType | O método de autenticação utilizado para aceder ao servidor de ramo de registo. <br/>Valores permitidos são: **anónimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | serviceDiscoveryMode | Verdadeiro para indicar a utilizar o serviço de ZooKeeper false não.  | Não |
 | zooKeeperNameSpace | O espaço de nomes no ZooKeeper em que Server 2 ramo de registo são adicionados nós.  | Não |

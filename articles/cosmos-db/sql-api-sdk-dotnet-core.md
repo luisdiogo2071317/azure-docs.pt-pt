@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 365101fc6267a5a295462d7a9902e5fd25964086
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/13/2018
 
 <tr><td>**Amostras**</td><td>[Exemplos de código do .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>Introdução</td><td>[Introdução ao Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Introdução**</td><td>[Introdução ao Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Tutorial de aplicação Web**</td><td>[Desenvolvimento da aplicação Web com base de dados do Azure Cosmos](sql-api-dotnet-application.md)</td></tr>
 
@@ -59,7 +59,11 @@ Cosmos DB SDK .NET da Azure Core tem paridade de funcionalidades com a versão m
 > [!NOTE] 
 > O Azure Cosmos DB .NET Core SDK ainda não é compatível com aplicações da plataforma Universal do Windows (UWP). Se estiver interessado em .NET Core SDK que suportam aplicações UWP, enviar correio eletrónico para [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Fixa intermitente SessionConsistency condição provável de antecipação.
+
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
 * Corrigido regressão onde FeedOptions.MaxItemCount = -1 emitiu um System.ArithmeticException: tamanho da página é negativo.
 * Adicionar uma nova função de ToString () para QueryMetrics.
@@ -165,6 +169,7 @@ Se tiver perguntas relacionadas com este SDK, publicar [StackOverflow](http://st
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |
 | [1.8.1](#1.8.1) |05 de Fevereiro de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de novembro de 2017 |--- |
 | [1.7.0](#1.7.0) |10 de Novembro de 2017 |--- |

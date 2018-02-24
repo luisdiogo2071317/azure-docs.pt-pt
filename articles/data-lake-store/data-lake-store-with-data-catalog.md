@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 93de6a574b306e3fd8959454709e84a57ee4fc10
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registar dados do Data Lake Store no catálogo de dados do Azure
 Neste artigo, ficará a saber como integrar o Azure Data Lake Store com o catálogo de dados do Azure para tornar os dados detetável dentro de uma organização, como o integrar com o catálogo de dados. Para obter mais informações sobre cataloging dados, consulte [catálogo de dados do Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Para compreender os cenários em que pode utilizar o catálogo de dados, consulte [cenários comuns do catálogo de dados do Azure](../data-catalog/data-catalog-common-scenarios.md).
@@ -78,7 +78,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
     * [Anotar origens de dados no catálogo de dados](../data-catalog/data-catalog-how-to-annotate.md)
     * [Origens de dados de documento no catálogo de dados](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Anotar origens de dados no catálogo de dados](../data-catalog/data-catalog-how-to-annotate.md)
 * [Origens de dados de documento no catálogo de dados](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrar o Data Lake Store com outros serviços do Azure](data-lake-store-integrate-with-other-services.md)

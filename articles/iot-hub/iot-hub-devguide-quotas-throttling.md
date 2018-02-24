@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - quotas do IoT Hub e a limitação
 
@@ -31,6 +31,8 @@ O SKU também determina os limites de limitação do IoT Hub impõe em todas as 
 
 ## <a name="operation-throttles"></a>Limitações de operação
 Limitações de operação tem limitações de velocidade a que são aplicadas em intervalos de minutos e destinam-se para evitar abuso. IoT Hub tenta evitar a devolver erros sempre que possível, mas inicia exceções a devolver se a limitação é violada há demasiado tempo.
+
+Em qualquer momento, pode aumentar quotas ou limites de limitação de aumento do número de unidades aprovisionados num IoT hub.
 
 A tabela seguinte mostra as limitações impostas. Consulte os valores para um hub individuais.
 
@@ -50,15 +52,11 @@ A tabela seguinte mostra as limitações impostas. Consulte os valores para um h
 
 <sup>1</sup>limitação de tamanho do medidor é de 8 KB
 
-> [!IMPORTANT]
-> O *ligações de dispositivos* limitação regulam a velocidade a que seja possível estabelecer novas ligações de dispositivo com um IoT hub. O *ligações de dispositivos* limitação não governar o número máximo de dispositivos ligados em simultâneo. A limitação depende o número de unidades que sejam aprovisionados para o IoT hub.
+O *ligações de dispositivos* limitação regulam a velocidade a que seja possível estabelecer novas ligações de dispositivo com um IoT hub. O *ligações de dispositivos* limitação não governar o número máximo de dispositivos ligados em simultâneo. A limitação depende o número de unidades que sejam aprovisionados para o IoT hub.
 
 Por exemplo, se comprar uma única unidade S1, receberá uma limitação de ligações de 100 por segundo. Por conseguinte, para estabelecer a ligação de 100 000 dispositivos, demora menos de 1000 segundos (cerca de 16 minutos). No entanto, pode ter como vários dispositivos ligados em simultâneo que tenham dispositivos registados no registo de identidade.
 
 Para um debate aprofundado do IoT Hub limitação comportamento, consulte a mensagem de blogue [limitação do IoT Hub e][lnk-throttle-blog].
-
-> [!NOTE]
-> Em qualquer momento, pode aumentar quotas ou limites de limitação de aumento do número de unidades aprovisionados num IoT hub.
 
 > [!IMPORTANT]
 > Operações de registo de identidade destinam-se a utilização de tempo de execução em cenários de aprovisionamento e gestão de dispositivos. Ler ou atualizar um grande número de identidades de dispositivo é suportada através de [importar e exportar tarefas][lnk-importexport].

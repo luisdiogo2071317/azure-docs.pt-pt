@@ -3,7 +3,7 @@ title: "Controlar as alterações com o Log Analytics do Azure | Microsoft Docs"
 description: "A solução de controlo de alterações no Log Analytics ajuda a identificar o software e as alterações de serviço do Windows que ocorrem no seu ambiente."
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: magoedte
+ms.author: gwallace
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7af2fb89f8fac9df3f784aac50c8fac7880fde43
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações de software no seu ambiente com a solução de controlo de alterações
 
@@ -112,7 +112,7 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
 
 A tabela seguinte mostra a frequência de recolha de dados para os tipos de alterações.
 
-| **Tipo de alteração** | **frequency** | **Does****agente****enviar as diferenças quando encontradas?**  |
+| **Tipo de alteração** | **frequency** | **Does****agente****enviar as diferenças quando encontradas?** |
 | --- | --- | --- |
 | Registo do Windows | minutos de 50 | Não |
 | Ficheiro do Windows | 30 minutos | Sim. Se não houver nenhuma alteração no 24 horas, é enviado um instantâneo. |

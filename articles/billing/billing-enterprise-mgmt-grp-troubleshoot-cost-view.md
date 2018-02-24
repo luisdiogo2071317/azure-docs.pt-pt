@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Resolver problemas empresariais vistas de custos 
 
 Dentro de inscrições de enterprise, existem várias definições que pode fazer com que os utilizadores dentro da inscrição não conseguir ver os custos.  Estas definições são geridas pelo administrador de inscrição ou pelo parceiro de se a inscrição não está a ser adquirida diretamente com a Microsoft.  Este artigo ajuda-o a compreender quais são as definições e forma afetam a inscrição. Estas definições são independentes do [funções do RBAC do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> Esta funcionalidade está atualmente a ser uma pré-visualização privada. [Inscrever-se aqui](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) ter a associar a pré-visualização a inscrição.     
 
 ## <a name="enabling-access-to-costs"></a>Ativar o acesso aos custos
 
-São vir uma mensagem não autorizado, ou *"vistas de custo estão desativadas no seu registo."* Quando à procura de informações de custo? ![não autorizado](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Tem a ver uma mensagem não autorizado, ou *"vistas de custo estão desativadas no seu registo."* Quando à procura de informações de custo? ![não autorizado](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 Tal poderá dever-se um dos seguintes motivos:
 
@@ -43,8 +41,7 @@ Tal poderá dever-se um dos seguintes motivos:
 ## <a name="asset-is-unavailable"></a>Recurso não está disponível? 
 Se receber uma mensagem de erro "este recurso não está disponível" quando tenta aceder a um grupo de gestão ou de subscrição, em seguida, que não tem a função correta para ver este item.  
 
-![recurso não encontrado](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Contacte o administrador dos grupos de gestão ou de subscrição para terem acesso.  
 * Para as subscrições, referência [controlo de acesso em funções do Azure (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) documento para obter ajuda nos quais a função é necessária.
-* Para grupos de gestão, o acesso do RBAC não está disponível e estará disponível em breve. Contacte o seu portal da empresa administrar a ter acesso atribuído.   
