@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 04f76d15f12b52d7b47011010a5ce20cc45174ee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serializar dados no Hadoop com o Microsoft Avro Library
 
@@ -55,7 +55,7 @@ Quando o esquema de dados é conhecido para o escritor e o leitor da transmissã
 ## <a name="install-avro-library"></a>Instalar Avro biblioteca
 É necessário o seguinte antes de instalar a biblioteca:
 
-* <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">O Microsoft .NET Framework 4</a>
+* <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 ou posterior)
 
 Tenha em atenção que a dependência de Newtonsoft.Json.dll é transferida automaticamente com a instalação do Microsoft Avro Library. O procedimento é fornecido na secção seguinte:
@@ -78,7 +78,7 @@ A Microsoft Avro Library contém um utilitário de geração de código que lhe 
 3. Ir para a pasta C:\SDK\src\Microsoft.Hadoop.Avro.Tools e execute build.bat. (O ficheiro chamadas MSBuild da distribuição de 32 bits do .NET Framework. Se gostaria de utilizar a versão de 64 bits, editar build.bat, seguindo os comentários dentro do ficheiro.) Certifique-se de que a compilação for concluída com êxito. (Em alguns sistemas MSBuild pode produzir avisos. Estes avisos não afetam o utilitário enquanto existirem erros de compilação.)
 4. O utilitário compilado está localizado em C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
 
-Para se familiarizar com a sintaxe da linha de comandos, execute o seguinte comando a partir da pasta onde está localizado o utilitário de geração de código:`Microsoft.Hadoop.Avro.Tools help /c:codegen`
+Para se familiarizar com a sintaxe da linha de comandos, execute o seguinte comando a partir da pasta onde está localizado o utilitário de geração de código: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 Para testar o utilitário, pode gerar c# classes do ficheiro de esquema do JSON de exemplo fornecido com o código de origem. Execute o seguinte comando:
 

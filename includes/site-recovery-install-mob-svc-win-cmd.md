@@ -27,13 +27,13 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 | Parâmetro|Tipo|Descrição|Valores possíveis|
 |-|-|-|-|
-|/ Função|Obrigatório|Especifica se deve ser instalado o serviço de mobilidade (MS) ou MasterTarget(MT) deve ser instalado|MS </br> MT|
-|/InstallLocation|Opcional|Localização onde o serviço de mobilidade está instalado|Qualquer pasta no computador|
-|/ Plataforma|Obrigatório|Especifica a plataforma em que o serviço de mobilidade está a obter instalado </br> </br>- **VMware** : Utilize este valor se estiver a instalar o serviço de mobilidade numa VM em execução no *VMware vSphere anfitriões ESXi*, *anfitriões Hyper-V* e *servidores físicos* </br> - **Azure** : Utilize este valor se estiver a instalar o agente de uma VM do IaaS do Azure| VMware </br> Azure|
-|/ Automática|Opcional|Especifica a executar o programa de instalação no modo silencioso| ND|
+|/Role|Obrigatório|Especifica se deve ser instalado o serviço de mobilidade (MS) ou MasterTarget (MT) deve ser instalado.|MS </br> MT|
+|/InstallLocation|Opcional|Localização onde o serviço de mobilidade está instalado.|Qualquer pasta no computador|
+|/ Plataforma|Obrigatório|Especifica a plataforma em que o serviço de mobilidade está instalado. </br> </br>- **VMware**: Utilize este valor se instalar o serviço de mobilidade numa VM em execução no *anfitriões do VMware vSphere ESXi*, *anfitriões Hyper-V*, e *servidores físicos*. </br> - **Azure**: Utilize este valor se instalar um agente numa VM do IaaS do Azure. | VMware </br> Azure|
+|/ Automática|Opcional|Especifica a executar o programa de instalação no modo silencioso.| N/A|
 
 >[!TIP]
-> Os registos de configuração podem ser encontrados em %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> Os registos de configuração podem ser encontrados em % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Argumentos da linha de comandos de registo do serviço de mobilidade
 
@@ -44,9 +44,9 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
 
   | Parâmetro|Tipo|Descrição|Valores possíveis|
   |-|-|-|-|
-  |/ CSEndPoint |Obrigatório|Endereço IP do servidor de configuração| Qualquer endereço IP válido|
+  |/CSEndPoint |Obrigatório|Endereço IP do servidor de configuração| Qualquer endereço IP válido|
   |/PassphraseFilePath|Obrigatório|Localização do frase de acesso |Qualquer UNC válido ou o caminho do ficheiro local|
 
 
 >[!TIP]
-> Os registos de AgentConfiguration podem ser encontrados em %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> Os registos de configuração do agente podem ser encontrados em % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.

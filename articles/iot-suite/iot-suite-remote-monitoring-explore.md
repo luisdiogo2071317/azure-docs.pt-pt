@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar as funcionalidades da solução pré-configurada de monitorização remota
 
@@ -114,7 +114,7 @@ No **manutenção** página, pode ver os detalhes da regra que acionou o alarme 
 
     ![Página de manutenção mostra a lista de alarmes ter acionado](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. O alarme primeiro na lista é a mais recente. Clique em de **Chiller pressão** alarme para ver a telemetria e de dispositivos associados. A telemetria mostra um pico de pedidos de pressão para o chiller:
+1. O alarme primeiro na lista é a mais recente. Clique em de **Chiller pressão demasiado elevada** alarme para ver a telemetria e de dispositivos associados. A telemetria mostra picos de pressão para o chiller:
 
     ![Página de manutenção mostra a telemetria alarme selecionado](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Para efetuar as tarefas de gestão de dispositivo necessários, utilize o **disp
 
     ![Selecione um dispositivo na página de dispositivos](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Clique em de **agenda** botão e, em seguida, escolha **atualização de Firmware**. Introduza os valores para **nome da tarefa** e **URI de Firmware**. Escolha **aplicar** para agendar a tarefa para executar agora:
+1. Clique em de **agenda** botão e, em seguida, escolha **atualização de Firmware**. Introduza os valores para **nome da tarefa**, **versão de Firmware**, e **URI de Firmware**. Escolha **aplicar** para agendar a tarefa para executar agora:
 
     ![Agendar a atualização de firmware no dispositivo](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Com os dispositivos simulados pode utilizar qualquer URL que quiser como o **URI de Firmware** valor. Os dispositivos simulados não aceder ao URL.
+    > Com os dispositivos simulados pode utilizar qualquer URL que quiser como o **URI de Firmware** valor e qualquer valor como para o **versão de Firmware**. Os dispositivos simulados não aceder ao URL.
 
 1. Tenha em atenção o número de dispositivos afeta a tarefa e escolha **aplicar**:
 

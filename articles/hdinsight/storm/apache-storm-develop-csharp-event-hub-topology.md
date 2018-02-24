@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Processar eventos provenientes dos Hubs de eventos do Azure com o Storm no HDInsight (c#)
 
-Saiba como trabalhar com os Hubs de eventos do Azure do Apache Storm no HDInsight. Este documento utiliza uma topologia do Storm c# para ler e escrever dados a partir de Evbent Hubs
+Saiba como trabalhar com os Hubs de eventos do Azure do Apache Storm no HDInsight. Este documento utiliza uma topologia do Storm c# para ler e escrever dados a partir dos Event Hubs
 
 > [!NOTE]
 > Para uma versão de Java deste projeto, consulte [processar eventos provenientes dos Hubs de eventos do Azure com o Storm no HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -36,9 +37,6 @@ Os passos neste documento utilizam SCP.NET, um pacote NuGet que torna mais fáci
 > Enquanto os passos neste documento dependem de um ambiente de desenvolvimento do Windows com o Visual Studio, o projeto compilado pode ser submetido para um cluster Storm no HDInsight que utiliza o Linux. Apenas os clusters baseados em Linux criados após 28 de Outubro de 2016, suportam SCP.NET topologias.
 
 HDInsight 3.4 e maior utilização Mono a execução de topologias c#. O exemplo utilizado neste documento funciona com o HDInsight 3.6. Se pretender criar as suas próprias soluções de .NET para o HDInsight, verifique o [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) documento para incompatibilidades potenciais.
-
-> [!WARNING]
-> Se tiver algum problema ao compilar projetos que utilizam a versão SCP.NET 1.0.0.x, contacte o suporte da Microsoft para obter assistência.
 
 ### <a name="cluster-versioning"></a>Controlo de versões de cluster
 
@@ -142,11 +140,11 @@ Criar um diretório com o nome `eventhubspout`e guarde o ficheiro para o diretó
 
 Os Event Hubs é a origem de dados para este exemplo. Utilize as informações na secção "Criar um hub de eventos" [introdução ao Event Hubs](../../event-hubs/event-hubs-create.md).
 
-1. Depois do hub de eventos foi criado, ver o **EventHub** painel no Azure portal e selecione **políticas de acesso partilhado**. Selecione **+ adicionar** para adicionar as políticas seguintes:
+1. Depois do hub de eventos foi criado, ver o **EventHub** definições no Azure portal e selecione **políticas de acesso partilhado**. Selecione **+ adicionar** para adicionar as políticas seguintes:
 
    | Nome | Permissões |
    | --- | --- |
-   | Escritor |Enviar |
+   | escritor |Enviar |
    | leitor |Escutar |
 
     ![Janela de políticas de acesso de captura de ecrã da partilha](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
@@ -227,7 +225,7 @@ Para parar as topologias, selecione cada topologia no **Visualizador de topologi
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste documento, aprendeu como utilizar o Hubs de eventos de Java spout e bolt a partir de uma topologia de c# para trabalhar com dados de Event Hubs do Azure. Para obter mais informações sobre como criar topologias c#, consulte o seguinte:
 

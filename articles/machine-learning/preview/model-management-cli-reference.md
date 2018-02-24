@@ -4,18 +4,18 @@ description: "Referência da interface de linha de comandos de gestão de modelo
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referência de interface de linha de comandos de gestão de modelo
 
@@ -70,7 +70,7 @@ Argumentos locais:
 
 **Configurar o ambiente de implementação**
 
-O comando de configuração requer que tenha acesso de Contribuidor na subscrição. Se não tiver que, pelo menos precisa de acesso de contribuinte ao grupo de recursos que está a implementar. Para fazer a última opção, tem de especificar o nome do grupo de recursos como parte do comando de configuração utilizando `-g` o sinalizador. 
+O comando de configuração requer que tenha acesso de Contribuidor na subscrição. Se não o tiver, precisa, pelo menos, de acesso Contribuidor ao grupo de recursos no qual está a implementar. Neste último caso, tem de especificar o nome do grupo de recursos como parte do comando de configuração através do sinalizador `-g`. 
 
 Existem duas opções para a implementação: *local* e *cluster*. Definir o `--cluster` (ou `-c`) sinalizador permite a implementação de cluster, o que aprovisiona um cluster de ACS. A sintaxe de configuração básica é o seguinte:
 
@@ -110,7 +110,7 @@ Argumentos global
     register
     show
 
-**Registar um modelo**
+Registar um modelo
 
 Comando para registar o modelo.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 3149147a95ac6e12b8866fbd03dd159de97c43cb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ea83a6b4fa3399ae6a30157c720005683d445d8a
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrigir um ramo de registo fora de erro de memória no Azure HDInsight
 
@@ -122,6 +122,6 @@ Como uma máquina D12 tem 28GB de memória, decidimos utilizar um tamanho de con
 
 Com as novas definições, a consulta executou com êxito em 10 minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Obter um erro OOM não significam necessariamente que o tamanho do contentor é demasiado pequeno. Em vez disso, deve configurar as definições de memória para que o tamanho da área dinâmica para dados é aumentado e é, pelo menos, 80% do tamanho de memória do contentor. Para otimizar as consultas do Hive, consulte [consultas otimizar Hive do Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).

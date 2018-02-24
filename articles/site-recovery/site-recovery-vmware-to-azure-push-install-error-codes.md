@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery resolução de problemas do VMware para Azure | Microsoft Docs"
-description: "Resolver erros ao replicar máquinas virtuais do Azure"
+description: "Resolva os erros quando replicar máquinas virtuais do Azure."
 services: site-recovery
 author: anoopkv
 manager: gauravd
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a03766f8a22399f7d72a01f8d744bfd1cef90ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação push do serviço de mobilidade
 
@@ -36,14 +36,14 @@ Este erro pode ser emitido pelo serviço por vários motivos. Escolha o erro do 
 
 **Código de erro** | **Causas possíveis** | **Recomendações de erro específico**
 --- | --- | ---
-95105 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0856**. <br> O **impressora partilha de ficheiros e** não é permitida na origem de máquinas ou há são rede problemas de conectividade entre o servidor de processos e a máquina de origem.| **Impressora partilha de ficheiros e** não está ativada. | Permitir **impressora partilha de ficheiros e** na máquina de origem na Firewall do Windows. Na máquina de origem, em **Firewall do Windows** > **permitir que uma aplicação ou funcionalidade através da Firewall**, selecione **impressora partilha para todos os perfis de ficheiros e**. </br> Além disso, verifique os pré-requisitos seguintes para concluir com êxito a instalação de push.<br> Leia mais sobre [isssues WMI de resolução de problemas](#troubleshoot-wmi-issues)
+95105 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0856**. <br> O **impressora partilha de ficheiros e** não é permitida na origem de máquinas ou há são rede problemas de conectividade entre o servidor de processos e a máquina de origem.| **Impressora partilha de ficheiros e** não está ativada. | Permitir **impressora partilha de ficheiros e** na máquina de origem na Firewall do Windows. Na máquina de origem, em **Firewall do Windows** > **permitir que uma aplicação ou funcionalidade através da Firewall**, selecione **impressora partilha para todos os perfis de ficheiros e**. </br> Além disso, verifique os pré-requisitos seguintes para concluir com êxito a instalação de push.<br> Leia mais sobre [problemas de resolução de problemas de WMI](#troubleshoot-wmi-issues).
 
 
 ## <a name="error-95107---protection-could-not-be-enabled-ep0858"></a>Erro 95107 - não foi possível proteção ativada (EP0858)
 
 **Código de erro** | **Causas possíveis** | **Recomendações de erro específico**
 --- | --- | ---
-95107 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0858**. <br> As credenciais fornecidas para instalar o serviço de mobilidade estão incorretas ou a conta de utilizador não tem privilégios suficientes. | Credenciais de utilizador fornecidas para instalar o serviço de mobilidade na máquina de origem estão incorretas. | Certifique-se de que as credenciais de utilizador fornecidas para a máquina de origem no servidor de configuração estão corretas. <br> Para adicionar/editar credenciais de utilizador, vá para o servidor de configuração e selecionar **Cspsconfigtool** > **gerir conta**. </br> Além disso, verifique o seguinte [pré-requisitos](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery) para concluir com êxito a instalação de push.
+95107 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0858**. <br> As credenciais fornecidas para instalar o serviço de mobilidade estão incorretas ou a conta de utilizador não tem privilégios suficientes. | Credenciais de utilizador fornecidas para instalar o serviço de mobilidade na máquina de origem estão incorretas. | Certifique-se de que as credenciais de utilizador fornecidas para a máquina de origem no servidor de configuração estão corretas. <br> Para adicionar ou editar credenciais de utilizador, vá para o servidor de configuração e selecionar **Cspsconfigtool** > **gerir conta**. </br> Além disso, verifique o seguinte [pré-requisitos](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery) para concluir com êxito a instalação de push.
 
 
 ## <a name="error-95117---protection-could-not-be-enabled-ep0865"></a>Erro 95117 - não foi possível proteção ativada (EP0865)
@@ -62,38 +62,38 @@ Este erro pode ser emitido pelo serviço por vários motivos. Escolha o erro do 
 
 **Código de erro** | **Causas possíveis** | **Recomendações de erro específico**
 --- | --- | ---
-95213 </br>**Mensagem:** instalação do serviço de mobilidade falhou na máquina de origem % SourceIP; falhou com o código de erro **EP0874**. <br> | Versão do sistema operativo na máquina de origem não é suportada. <br>| Certifique-se de que a máquina de origem é suportada a versão do SO. Leia o [matriz de suporte](https://aka.ms/asr-os-support). </br> Além disso, verifique o seguinte [pré-requisitos](https://aka.ms/pushinstallerror) para concluir com êxito a instalação de push.| 
+95213 </br>**Mensagem:** instalação do serviço de mobilidade de origem na máquina % SourceIP; falhou com o código de erro **EP0874**. <br> | A versão do sistema operativo na máquina de origem não é suportada. <br>| Certifique-se de que a máquina de origem é suportada a versão do SO. Leia o [matriz de suporte](https://aka.ms/asr-os-support). </br> Além disso, verifique o seguinte [pré-requisitos](https://aka.ms/pushinstallerror) para concluir com êxito a instalação de push.| 
 
 
 ## <a name="error-95108---protection-could-not-be-enabled-ep0859"></a>Erro 95108 - não foi possível proteção ativada (EP0859)
 
 **Código de erro** | **Causas possíveis** | **Recomendações de erro específico**
 --- | --- | ---
-95108 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0859**. <br>| As credenciais fornecidas para instalar o serviço de mobilidade estão incorretas ou a conta de utilizador tem privilégios insuficientes <br>| Certifique-se de que as credenciais fornecidas são a **raiz** credenciais da conta. Adicionar/editar credenciais de utilizador, vá para o servidor de configuração e clique no ícone de atalho "Cspsconfigtool" no ambiente de trabalho. Clique em "Gerir conta" para adicionar/editar credenciais.|
+95108 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0859**. <br>| As credenciais fornecidas para instalar o serviço de mobilidade estão incorretas ou a conta de utilizador não tem privilégios suficientes. <br>| Certifique-se de que as credenciais fornecidas são a **raiz** credenciais da conta. Para adicionar ou editar credenciais de utilizador, vá para o servidor de configuração e selecionar o **Cspsconfigtool** ícone de atalho no ambiente de trabalho. Selecione **gerir conta** para adicionar ou editar as credenciais.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Erro 95265 - não foi possível proteção ativada (EP0902)
 
 **Código de erro** | **Causas possíveis** | **Recomendações de erro específico**
 --- | --- | ---
-95265 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem foi concluída com êxito mas a máquina de origem requer um reinício para algumas alterações de sistema entre em vigor. <br>| Já foi instalada uma versão anterior do serviço de mobilidade no servidor.| Replicação da máquina virtual continua de forma totalmente integrada.<br> Reinicie o servidor durante a próxima janela de manutenção para obter os benefícios dos novos melhoramentos no serviço de mobilidade.|
+95265 </br>**Mensagem:** a instalação Push do serviço de mobilidade da máquina de origem foi concluída com êxito, mas a máquina de origem requer um reinício para algumas alterações de sistema entre em vigor. <br>| Já foi instalada uma versão anterior do serviço de mobilidade no servidor.| Replicação da máquina virtual continua de forma totalmente integrada.<br> Reinicie o servidor durante a próxima janela de manutenção para obter os benefícios dos novos melhoramentos no serviço de mobilidade.|
 
 
 ## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Erro 95224 - não foi possível proteção ativada (EP0883)
 
 **Código de erro** | **Causas possíveis** | **Recomendações de erro específico**
 --- | --- | ---
-95224 </br>**Mensagem:** instalação Push do serviço de mobilidade da máquina de origem % SourceIP; falhou com o código de erro EP0883. Um sistema de reinício de uma instalação anterior / atualização está pendente.| O sistema não foi reiniciado a desinstalar uma versão mais antiga/incompatível do serviço de mobilidade.| Certifique-se de que não existe nenhuma versão do serviço de mobilidade no servidor. <br> Reinicie o servidor e execute novamente a tarefa de proteção de ativação|
+95224 </br>**Mensagem:** Push de instalação do serviço de mobilidade da máquina de origem % SourceIP; falhou com o código de erro **EP0883**. Está pendente um reinício de sistema de uma instalação anterior ou atualização.| O sistema não foi reiniciado quando desinstalar uma versão anterior ou incompatível do serviço de mobilidade.| Certifique-se de que não existe nenhuma versão do serviço de mobilidade no servidor. <br> Reinicie o servidor e execute novamente a tarefa de proteção de ativação.|
 
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Recursos para resolver problemas de instalação de push
 
-#### <a name="troubleshoot-file-and-print-sharing-issues"></a>Resolver problemas de impressão partilha de ficheiros e
-*  [Ativar ou desativar a partilha de ficheiros com a política de grupo](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [Como ativar o ficheiro e imprimir partilha através da Firewall do Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
+#### <a name="troubleshoot-file-and-print-sharing-issues"></a>Resolver problemas de ficheiro e problemas de partilha de impressão
+* [Ativar ou desativar a partilha com a política de grupo de ficheiros](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Ativar a partilha de impressão através da Firewall do Windows e de ficheiros](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Resolver problemas WMI
-* [Teste de WMI básico](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
+* [Teste básico de WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [Resolução de problemas do WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
-* [Resolução de problemas com scripts WMI e serviços de WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
+* [Resolução de problemas com scripts WMI e serviços WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

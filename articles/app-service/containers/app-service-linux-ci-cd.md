@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementação contínua com a aplicação Web para contentores
 
@@ -83,12 +83,12 @@ Para o URL do Webhook, tem de fornecer o URL obtido **passo 3**
 
 Quando a imagem for atualizada, a aplicação web for atualizado automaticamente com a nova imagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é o serviço de aplicações do Azure no Linux?](./app-service-linux-intro.md)
 * [Registo de contentor do Azure](https://azure.microsoft.com/services/container-registry/)
-* [Utilizando o .NET Core no App Service do Azure no Linux](quickstart-dotnetcore.md)
-* [Utilizar Ruby no App Service do Azure no Linux](quickstart-ruby.md)
-* [Como utilizar uma imagem personalizada do Docker da aplicação Web para contentores](quickstart-custom-docker-image.md)
-* [Aplicação de Web do App Service do Azure para contentores FAQ](./app-service-linux-faq.md)
+* [Utilizar o .NET Core no Serviço de Aplicações do Azure no Linux](quickstart-dotnetcore.md)
+* [Utilizar o Ruby no Serviço de Aplicações do Azure no Linux](quickstart-ruby.md)
+* [Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores](quickstart-docker-go.md)
+* [FAQ sobre a Aplicação Web do Serviço de Aplicações do Azure para Contentores](./app-service-linux-faq.md)
 * [Gerir a aplicação Web para contentores utilizando o Azure CLI 2.0](./app-service-linux-cli.md)

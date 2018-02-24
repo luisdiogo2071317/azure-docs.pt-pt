@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Segurança no Azure Data Lake Store
 Muitas empresas são tirar partido da análise de macrodados informações empresariais ajudar a tomar decisões inteligentes. Uma organização pode ter um ambiente complexo e regulado, com um número crescente de diversos utilizadores. É vital para uma empresa para se certificar de que os dados empresariais críticos são armazenados de forma mais segura, com o nível correto de acesso concedido a utilizadores individuais. O Azure Data Lake Store foi concebido para ajudar que cumpram estes requisitos de segurança. Neste artigo, saiba mais sobre as capacidades de segurança do Data Lake Store, incluindo:
@@ -54,7 +54,7 @@ Tenha em atenção que, apesar das funções são atribuídas para gestão de co
 
 | Funções | Direitos de gestão | Direitos de acesso de dados | Explicação |
 | --- | --- | --- | --- |
-| Nenhuma função atribuída |Nenhuma |Regida pelo ACL |O utilizador não é possível utilizar o portal do Azure ou os cmdlets do Azure PowerShell para procurar o Data Lake Store. O utilizador pode utilizar apenas as ferramentas da linha de comandos. |
+| Nenhuma função atribuída |Nenhum |Regida pelo ACL |O utilizador não é possível utilizar o portal do Azure ou os cmdlets do Azure PowerShell para procurar o Data Lake Store. O utilizador pode utilizar apenas as ferramentas da linha de comandos. |
 | Proprietário |Todos |Todos |A função de proprietário é um Superutilizador. Esta função pode gerir tudo e tem acesso total aos dados. |
 | Leitor |Só de Leitura |Regida pelo ACL |A função de leitor pode ver tudo sobre gestão de contas, por exemplo, o que o utilizador está atribuído ao qual a função. A função de leitor não é possível efetuar quaisquer alterações. |
 | Contribuinte |Todos os exceto adicionar e remover funções |Regida pelo ACL |A função de contribuinte pode gerir alguns aspetos de uma conta, tais como implementações e criar e gerir alertas. A função de contribuinte não é possível adicionar ou remover funções. |

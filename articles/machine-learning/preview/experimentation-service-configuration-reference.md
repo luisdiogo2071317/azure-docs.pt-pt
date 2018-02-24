@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Ficheiros de configuração do serviço de experimentação do Machine Learning do Azure
 
@@ -36,7 +36,7 @@ Este ficheiro é um [ficheiros do ambiente de conda](https://conda.io/docs/using
 
 Neste ficheiro, especifique os pacotes de Python que necessita de script para execução. Serviço de experimentação do Azure ML cria o ambiente de conda na imagem do Docker, de acordo com a lista de dependências. A lista de pacotes aqui tem de ser acessível pelo motor de execução. Por esse motivo, pacotes precisam de ser listado em canais, tais como:
 
-* [continuum.IO](https://anaconda.org/conda-forge/repo)
+* [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
 * um ponto final acessível publicamente (URL)
 * ou um caminho de ficheiro local
@@ -143,7 +143,7 @@ _\<nome do destino de computação > .compute_ ficheiro Especifica as informaç�
 
 **sharedVolumes**: sinalizador para assinalar desse motor de execução deve utilizar o Docker partilhados são enviados os ficheiros de projeto anterior e descritos da funcionalidade de volume. Ter este sinalizador ativado pode acelerar a execução, uma vez que Docker pode aceder a projetos diretamente, sem a necessidade de copiá-los. É melhor definir _falso_ se o motor de Docker em execução no Windows desde o volume de partilha para Docker no Windows pode ser flaky. Defina-o como _verdadeiro_ se está a ser executado no macOS ou Linux.
 
-**nvidiaDocker**: este sinalizador, quando definido como _verdadeiro_, indica o serviço de experimentação do Azure ML para utilizar _nvidia docker_ comando, por oposição a regular _docker_ comando para iniciar a imagem de Docker. O _nvidia docker_ motor permite que o contentor de Docker ao hardware da GPU de acesso. A definição é necessária se pretender executar a execução de GPU no contentor de Docker. Suporta apenas o anfitrião Linux _nvidia docker_. Por exemplo, DSVM baseado em Linux no Azure é fornecido com _nvidia docker_. _NVIDIA docker_ a partir de agora, não é suportada no Windows.
+**nvidiaDocker**: este sinalizador, quando definido como _verdadeiro_, indica o serviço de experimentação do Azure ML para utilizar _nvidia docker_ comando, por oposição a regular _docker_comando para iniciar a imagem de Docker. O _nvidia docker_ motor permite que o contentor de Docker ao hardware da GPU de acesso. A definição é necessária se pretender executar a execução de GPU no contentor de Docker. Suporta apenas o anfitrião Linux _nvidia docker_. Por exemplo, DSVM baseado em Linux no Azure é fornecido com _nvidia docker_. _NVIDIA docker_ a partir de agora, não é suportada no Windows.
 
 **nativeSharedDirectory**: Esta propriedade especifica o diretório de base (por exemplo: _~/.azureml/share/_) onde os ficheiros podem ser guardados para poder ser partilhadas em é executado no mesmo destino de computação. Se esta definição é utilizada quando em execução no contentor de Docker, _sharedVolumes_ tem de ser definido como true. Caso contrário, a execução falhará.
 
@@ -166,8 +166,8 @@ _"experimentação de ml az submeter foo.runconfig"_ executa automaticamente o c
 **As variáveis de ambiente**: Esta secção permite aos utilizadores a definir variáveis de ambiente como parte do respetivo é executado. Utilizador pode especificar variáveis de ambiente utilizando pares nome-valor no seguinte formato:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Estas variáveis de ambiente podem ser acedidos no código do utilizador. Por exemplo, este código phyton imprime a variável de ambiente com o nome "EXAMPLE_ENV_VAR"
@@ -210,5 +210,5 @@ Com base na substituição acima, o seguinte exemplo de código agora lê a part
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [a configuração do serviço de experimentação](experimentation-service-configuration.md).

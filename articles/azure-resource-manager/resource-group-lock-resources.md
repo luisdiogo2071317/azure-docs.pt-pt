@@ -12,17 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: ab42789b091898c69091ba6b3fa2a8bf91e711f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6832bd6dfb136b944a752ae61da74465a01c80a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Recursos de bloqueio para impedir que as alterações inesperadas 
 
-Como administrador, poderá ter de bloquear uma subscrição, grupo de recursos ou recursos para impedir que outros utilizadores na sua organização acidentalmente eliminem ou modificar a recursos críticos. Pode definir o bloqueio para **CanNotDelete** ou **ReadOnly**. 
+Como administrador, poderá ter de bloquear uma subscrição, grupo de recursos ou recursos para impedir que outros utilizadores na sua organização acidentalmente eliminem ou modificar a recursos críticos. Pode definir o bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são denominados **eliminar** e **só de leitura** respetivamente.
 
 * **CanNotDelete** significa que os utilizadores autorizados, podem ainda ler e modificar um recurso, mas não é possível eliminar o recurso. 
 * **Só de leitura** significa que os utilizadores autorizados podem ler um recurso, mas não é possível eliminar ou atualizar o recurso. Aplicar esta bloqueio é semelhante ao restringir todos os utilizadores autorizados para as permissões concedidas à **leitor** função. 

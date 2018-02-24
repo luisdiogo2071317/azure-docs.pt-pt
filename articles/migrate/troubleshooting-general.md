@@ -4,13 +4,13 @@ description: "Fornece uma descrição geral dos problemas conhecidos no serviço
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -26,12 +26,12 @@ Se estiver a utilizar qualquer proxy firewall baseada no URL para controlar a co
 
 **URL** | **Objetivo**  
 --- | ---
-*. portal.azure.com | Necessário para verificar a conectividade com o serviço do Azure e validar a sincronização de hora problemas.
-*. oneget.org | Necessário para transferir o powershell com base vCenter PowerCLI módulo.
+*.portal.azure.com | Necessário para verificar a conectividade com o serviço do Azure e validar a sincronização de hora problemas.
+*.oneget.org | Necessário para transferir o powershell com base vCenter PowerCLI módulo.
 
 **O recoletor não é possível ligar ao projeto com o ID de projeto e chave posso copiada a partir do portal.**
 
-Certifique-se ter copiados e colados as informações corretas. Para resolver problemas, instale o Microsoft Monitoring Agent (MMA) da seguinte forma:
+Certifique-se ter copiados e colados as informações corretas. Para resolver problemas, instale o Microsoft Monitoring Agent (MMA) e verifique se o MMA pode ligar para o projeto da seguinte forma:
 
 1. No recoletor VM, transfira o [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Para iniciar a instalação, faça duplo clique o ficheiro transferido.
@@ -67,15 +67,15 @@ Para ativar a recolha de dados de desempenho de disco e da rede, altere o nível
 
 ## <a name="troubleshoot-readiness-issues"></a>Resolver problemas de preparação
 
-**Problema** | **Corrigir**
+**Issue** | **Fix**
 --- | ---
-Tipo de arranque não suportado | Alterar a BIOS antes de executar uma migração.
-Contagem de discos excede o limite | Remova os discos da máquina antes da migração.
-Tamanho do disco excede o limite | Reduzir discos para menos de 4 TB antes da migração. 
-Disco disponível na localização especificada | Certifique-se o disco na localização de destino antes de migrar.
-Disco disponível para a redundância especificada | O disco deve utilizar o tipo de armazenamento de redundância definido nas definições de avaliação (LRS por predefinição).
-Não foi possível determinar a adequabilidade do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo. 
-VM com núcleos necessários e a memória não encontrado | Não foi possível ao Azure ajustar um tipo VM adequado. Reduza a memória e o número de núcleos da máquina no local antes de migrar. 
+Tipo de arranque não suportado | Azure não suporta VMs com o tipo de arranque EFI. Recomenda-se para converter o tipo de arranque BIOS antes de executar uma migração. <br/><br/>Pode utilizar [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) para fazer a migração dessas VMs irá converter o tipo de arranque da VM BIOS durante a migração.
+A contagem do disco excede o limite | Remova os discos da máquina antes da migração.
+O tamanho do disco excede o limite | Azure suporta discos com até tamanho 4 TB. Reduzir discos para menos de 4 TB antes da migração. 
+Disco indisponível na localização especificada | Certifique-se o disco na localização de destino antes de migrar.
+Disco indisponível para a redundância especificada | O disco deve utilizar o tipo de armazenamento de redundância definido nas definições de avaliação (LRS por predefinição).
+Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo. 
+Não foi encontrada uma VM com os núcleos e memória necessários | Não foi possível ao Azure ajustar um tipo VM adequado. Reduza a memória e o número de núcleos da máquina no local antes de migrar. 
 Um ou mais discos unsuitable. | Disponibilizar Certifique-se no local são de discos de 4 TB ou em antes de executar uma migração.
 Um ou mais adaptadores de rede unsuitable. | Remova os adaptadores de rede não utilizadas da máquina antes da migração.
 Não foi possível determinar a adequabilidade da VM devido a um erro interno. | Tente criar uma nova avaliação para o grupo. 
@@ -83,12 +83,15 @@ Não foi possível determinar o adequação a um ou mais discos devido a um erro
 Não foi possível determinar o adequação a um ou mais adaptadores de rede devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
 VM não encontrada para o desempenho de armazenamento necessária. | O desempenho de armazenamento (IOPS/débito) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
 VM não encontrada para o desempenho de rede necessários. | O desempenho de rede (na/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede da máquina. 
-VM não encontrada para o escalão de preço especificado. | Verifique as definições de escalão de preço. 
+VM não foi encontrado no escalão de preço especificado. | Se o escalão de preço está definido como Standard, considere downsizing da VM antes de migrar para o Azure. Se a camada de dimensionamento é básica, considere alterar o escalão de preço de avaliação Standard. 
 VM não foi encontrado na localização especificada. | Utilize outra localização de destino antes da migração.
-Problemas de suporte de SO Linux | Certifique-se de que está em execução de 64 bits com estas suportado [sistemas operativos](../virtual-machines/linux/endorsed-distros.md).
-Problemas de suporte do sistema operativo Windows | Certifique-se de que está a executar um sistema operativo suportado. [Saiba mais](concepts-assessment-calculation.md#azure-suitability-analysis)
-Sistema de operativo desconhecido. | Verifique se o sistema operativo especificado no vCenter está correto e repita o processo de deteção.
-Requer subscrição do Visual Studio. | Sistemas operativos cliente Windows só são suportados em subscrições do Visual Studio (MSDN).
+Sistema de operativo desconhecido | O sistema operativo da VM foi especificado como 'Outro' no vCenter Server, devido a que migrar do Azure não consegue identificar a preparação da VM do Azure. Certifique-se de que o SO em execução dentro da máquina é [suportado](https://aka.ms/azureoslist) pelo Azure antes de migrar a máquina.
+SO de Windows condicionalmente suportados | O SO passou o respetivo fim de suporte de data e tem um personalizada suporta contrato (CSA) para [suportar no Azure](https://aka.ms/WSosstatement), considere atualizar o sistema operativo antes de migrar para o Azure.
+SO de Windows não suportado | Azure só suporta [versões de SO Windows selecionadas](https://aka.ms/WSosstatement), considere atualizar o sistema operativo da máquina antes de migrar para o Azure. 
+Condicionalmente aprovadas com SO Linux | Azure patrocina apenas [versões de SO Linux selecionadas](../virtual-machines/linux/endorsed-distros.md), considere atualizar o sistema operativo da máquina antes de migrar para o Azure.
+Linux unendorsed SO | O computador pode efetuar o arranque no Azure, mas sem suporte de SO é fornecido pelo Azure, considere atualizar o sistema operativo para um [aprovadas versão do Linux](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure
+Número de bits do SO não suportados | As VMs com um SO de 32 bits podem efetuar o arranque no Azure, mas recomenda-se a atualização do SO da VM de 32 bits para 64 bits antes de migrar para o Azure.
+Requer subscrição do Visual Studio. | As máquinas tem um cliente Windows SO em execução dentro do mesmo que só é suportado em subscrição do Visual Studio.
 
 
 ## <a name="collect-logs"></a>Recolher registos

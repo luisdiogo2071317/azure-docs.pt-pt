@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias c# para Apache Storm, utilizando as ferramentas do Data Lake para Visual Studio
 
@@ -42,9 +43,6 @@ Para utilizar uma topologia de c# com um cluster baseado em Linux, tem de atuali
 
 > [!IMPORTANT]
 > As topologias C# em clusters baseados em Linux têm de utilizar o .NET 4.5 e utilizar o Mono para serem executadas no cluster do HDInsight. Verifique [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para incompatibilidades potenciais.
-
-> [!WARNING]
-> Se tiver algum problema ao compilar projetos que utilizam a versão SCP.NET 1.0.0.x, contacte o suporte da Microsoft para obter assistência.
 
 ## <a name="install-visual-studio"></a>Instalar o Visual Studio
 
@@ -124,7 +122,7 @@ As ferramentas do Data Lake para Visual Studio fornecem os seguintes modelos:
 | Exemplo de Storm |Uma topologia de contagem do word básico. |
 
 > [!WARNING]
-> Nem todos os modelos irão funcionar com o HDInsight baseado em Linux. Não podem ser compatíveis com Mono utilizados pelos modelos de pacotes de Nuget. Verifique o [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) documentos e utilizar o [.NET portabilidade analisador](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) para identificar potenciais problemas.
+> Nem todos os modelos funcionam com o HDInsight baseado em Linux. Não podem ser compatíveis com Mono utilizados pelos modelos de pacotes de NuGet. Verifique o [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) documentos e utilizar o [.NET portabilidade analisador](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) para identificar potenciais problemas.
 
 Nos passos neste documento, utilize o tipo de projeto de aplicação Storm básico para criar uma topologia.
 
@@ -169,7 +167,7 @@ Para uma topologia de exemplo que utiliza este componente e funciona com o Storm
 
    * **Falhar** (apenas na topologia transacional): processa cadeias de identificação que são falhar processamento de outros componentes na topologia. Implementar um método de falhas permite-lhe emitir novamente a cadeia de identificação, de modo a que pode ser processado novamente.
 
-2. Substitua os conteúdos do **Spout** classe com o seguinte texto. Este spout aleatoriamente emite uma frase para a topologia.
+2. Substitua os conteúdos do **Spout** classe com o seguinte texto: este spout emite aleatoriamente uma frase para a topologia.
 
     ```csharp
     private Context ctx;
@@ -290,7 +288,7 @@ Para uma topologia de exemplo que utiliza este componente e funciona com o Storm
     }
     ```
 
-5. Abra **Counter.cs**e substitua o conteúdo de classe com o seguinte:
+5. Abra **Counter.cs**e substitua o conteúdo de classe com o seguinte código:
 
     ```csharp
     private Context ctx;
@@ -352,7 +350,7 @@ Spouts e bolts são dispostas num gráfico que define como os dados fluem entre 
 
 Frases são emitidos a partir de spout e são distribuídos para instâncias de bolt divisor. Bolt divisor quebras de frases no palavras, o que são distribuídas para o bolt de contador.
 
-Porque a contagem de word é mantida localmente na instância do contador, queremos certificar-se de que as palavras específicas circular para a mesma instância de bolt do contador. Cada instância mantém um registo dos palavras específicas. Uma vez que o bolt divisor mantém sem estado, realmente irrelevante que instância do divisor recebe o frase.
+Porque a contagem de word é mantida localmente na instância do contador, pretende assegurar-se de que as palavras específicas circular para a mesma instância de bolt do contador. Cada instância mantém um registo dos palavras específicas. Uma vez que o bolt divisor mantém sem estado, realmente irrelevante que instância do divisor recebe o frase.
 
 Abra **Program.cs**. O método de importante **GetTopologyBuilder**, que é utilizado para definir a topologia que foi submetida para Storm. Substitua os conteúdos de **GetTopologyBuilder** com o seguinte código para implementar a topologia descrita anteriormente:
 
@@ -472,16 +470,16 @@ Para obter um exemplo de uma topologia de híbrida, crie um projeto e selecione 
   > Esta versão também demonstra como utilizar Clojure código a partir de um ficheiro de texto como um componente de Java.
 
 
-Para mudar a topologia que é utilizada quando o projeto é submetido, basta mover o `[Active(true)]` declaração à topologia que pretende utilizar, antes de submetê-lo para o cluster.
+Para mudar a topologia que é utilizada quando o projeto é submetido, mova o `[Active(true)]` declaração à topologia que pretende utilizar, antes de submetê-lo para o cluster.
 
 > [!NOTE]
 > Todos os ficheiros de Java que são necessários são fornecidos como parte deste projeto no **JavaDependency** pasta.
 
 Quando estiver a criar e submeter uma topologia de híbrida, considere o seguinte:
 
-* Tem de utilizar **JavaComponentConstructor** para criar uma instância da classe Java para um spout ou bolt.
+* Utilize **JavaComponentConstructor** para criar uma instância da classe Java para um spout ou bolt.
 
-* Deve utilizar **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** para serializar os dados ou a sair componentes de Java de objetos de Java para JSON.
+* Utilize **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** para serializar os dados ou a sair componentes de Java de objetos de Java para JSON.
 
 * Ao submeter a topologia para o servidor, tem de utilizar o **configurações adicionais** opção para especificar o **caminhos de ficheiro de Java**. O caminho especificado deve ser o diretório que contém os ficheiros JAR que contêm as classes de Java.
 
@@ -703,7 +701,7 @@ Embora seja fácil de implementar uma topologia para um cluster, em alguns casos
 
 ### <a name="log-information"></a>Informações de registo
 
-Pode facilmente registar informações de componentes da topologia utilizando `Context.Logger`. Por exemplo, o seguinte cria uma entrada de registo informativa:
+Pode facilmente registar informações de componentes da topologia utilizando `Context.Logger`. Por exemplo, o comando seguinte cria uma entrada de registo informativa:
 
 ```csharp
 Context.Logger.Info("Component started");
@@ -746,7 +744,7 @@ Se o `hdinsight-scpwebapi.out` registo contém um `FileNotFoundException`, poder
 * O JDK não está a ser o caminho no ambiente de desenvolvimento. Certifique-se de que o JDK está instalado no ambiente de desenvolvimento e de que `%JAVA_HOME%/bin` está no caminho.
 * Estão em falta uma dependência de Java. Certifique-se de que é incluindo quaisquer ficheiros necessários. JAR como parte da submissão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter um exemplo de dados de processamento de Event Hubs, consulte [processar eventos provenientes dos Hubs de eventos do Azure com o Storm no HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

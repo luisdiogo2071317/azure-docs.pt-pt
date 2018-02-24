@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c10362fa1d5d9e4316dd94a3d08c9e1fcd3eb985
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Orientações de recuperação de desastre para os dados no Data Lake Store
 
@@ -42,7 +42,7 @@ Para impedir a eliminação acidental, recomendamos que defina primeiro as polí
 
 As organizações também podem ativar o [registo de diagnósticos](data-lake-store-diagnostic-logs.md) na respetiva conta do Azure Data Lake Store para recolher registos de auditoria de acesso a dados que fornecem informações sobre quem poderá ter eliminado ou atualizado um ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 

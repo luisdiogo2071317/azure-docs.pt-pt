@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Cópia de segurança de máquinas virtuais do Windows no Azure
 
@@ -46,7 +46,7 @@ Quando a transferência de dados estiver concluída, o instantâneo é removido 
 ## <a name="create-a-backup"></a>Criar uma cópia de segurança
 Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Recuperação. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
 4. No painel de VM, no **definições** secção, clique em **cópia de segurança**. O **ativar cópia de segurança** abre o painel.
@@ -92,7 +92,7 @@ Neste exemplo, mostramos como recuperar o ficheiro de imagem que é utilizado na
 18. No seu computador local, regressar ao separador do browser para o portal do Azure e no **passo 3: desmontar os discos após a recuperação** clique o **desmonte discos** botão. Caso se esqueça efetuar este passo, a ligação para a pontodemontagem é fechar automaticamente após 12 horas. Depois dessas 12 horas, terá de transferir um script novo para criar uma novo pontodemontagem.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -104,7 +104,7 @@ Neste tutorial, ficou a saber como:
 Avançar para o próximo tutorial para saber mais sobre a monitorização de máquinas virtuais.
 
 > [!div class="nextstepaction"]
-> [Monitorizar máquinas virtuais](tutorial-monitoring.md)
+> [Governar máquinas virtuais](tutorial-govern-resources.md)
 
 
 

@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -39,9 +39,10 @@ Se planear executar cargas de trabalho de produção no Batch, poderá ter de au
 ## <a name="resource-quotas"></a>Quotas de recursos
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Quotas no modo de subscrição de utilizador
 
-Se utilizou uma versão anterior da API do Batch para criar uma conta do Batch com o modo de atribuição de agrupamento definido como **subscrição de utilizador**, quotas são aplicadas de forma diferente. Neste modo, o que já não é recomendado, VMs de lote e a outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. A quota de núcleos do Azure Batch não é aplicável a uma conta criada neste modo. Em vez disso, as quotas na sua subscrição para regionais compute núcleos e outros recursos são aplicados. Saiba mais sobre estas quotas no [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de núcleos no modo de subscrição de utilizador
+
+Se criou uma conta do Batch com o modo de atribuição de agrupamento definido como **subscrição de utilizador**, quotas são aplicadas de forma diferente. Neste modo, as VMs do Batch e a outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. As quotas de núcleos do Azure Batch não se aplicam a uma conta criada neste modo. Em vez disso, as quotas na sua subscrição para regionais compute núcleos e outros recursos são aplicados. Saiba mais sobre estas quotas no [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Outros limites
 | **Recurso** | **Limite Máximo** |
@@ -108,7 +109,7 @@ Depois de ter submetido o pedido de suporte, o suporte do Azure irá contactá-l
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Criar uma conta do Azure Batch no portal do Azure](batch-account-create-portal.md)
 * [Descrição geral da funcionalidade do Azure Batch](batch-api-basics.md)
-* [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md)
+* [Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

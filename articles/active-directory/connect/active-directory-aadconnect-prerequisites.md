@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -61,7 +61,7 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilizada pelo Azure AD Connect
 * O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (versão leve do SQL Server Express). SQL Server Express tem um limite de tamanho de 10GB que lhe permite gerir aproximadamente 100 000 objetos. Se precisar de gerir um volume maior de objetos de diretório, terá do Assistente de instalação de apontar para uma instalação diferente do SQL Server.
 * Se utilizar um servidor separado do SQL Server, aplicam-se estes requisitos:
-  * Azure AD Connect suporta todos os tipos do Microsoft SQL Server do SQL Server 2008 (com Service Pack mais recente) ao SQL Server 2016 SP1. Base de dados do Microsoft Azure SQL é **não suportado** como uma base de dados.
+  * Azure AD Connect suporta todas as versões do Microsoft SQL Server do SQL Server 2008 (com Service Pack mais recente) ao SQL Server 2016 SP1. Base de dados do Microsoft Azure SQL é **não suportado** como uma base de dados.
   * Tem de utilizar um agrupamento do SQL Server sensível. Estes agrupamentos são identificados com um \_CI_ no respetivo nome. É **não suportado** para utilizar um agrupamento de maiúsculas e minúsculas, identificado por \_CS_ no respetivo nome.
   * Só pode ter um motor de sincronização por instância de SQL. É **não suportado** para partilhar uma instância do SQL Server com a sincronização do FIM/MIM, o DirSync ou o Azure AD Sync.
 
@@ -149,13 +149,13 @@ Antes da versão 1.1.614.0, Azure AD Connect, por predefinição, utiliza TLS 1.
 Quando utilizar o Azure AD Connect para implementar serviços de Federação do Active Directory ou o Proxy de aplicações Web, consulte estes requisitos:
 
 * Se o servidor de destino é associado a um domínio, em seguida, certifique-se de que geridos remota do Windows está ativado
-  * Numa janela elevada do comando PSH, utilize o comando`Enable-PSRemoting –force`
+  * Numa janela elevada do comando PSH, utilize o comando `Enable-PSRemoting –force`
 * Se o servidor de destino for um não-associado a um domínio máquina WAP, em seguida, existem alguns requisitos adicionais
   * No computador de destino (máquina WAP):
     * Certifique-se o winrm (Windows Remote Management / WS-Management) está a executar o serviço através do snap-in Serviços
-    * Numa janela elevada do comando PSH, utilize o comando`Enable-PSRemoting –force`
+    * Numa janela elevada do comando PSH, utilize o comando `Enable-PSRemoting –force`
   * No computador no qual o assistente está em execução (se a máquina de destino sem domínio não fidedigno ou associados a um domínio):
-    * Numa janela elevada do comando PSH, utilize o comando`Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * Numa janela elevada do comando PSH, utilize o comando `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * No Gestor de servidor:
       * Adicionar anfitrião de rede de Perímetro WAP ao agrupamento de máquina (Gestor de servidor -> Gerir -> adicionar servidores... Utilize o separador DNS)
       * Separador Gestor de servidor de todos os servidores: clique com o botão direito do rato em servidor do WAP e escolha gerir executados..., introduza credenciais local (e não do domínio) para a máquina WAP

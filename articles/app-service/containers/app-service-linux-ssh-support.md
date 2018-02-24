@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -69,14 +69,14 @@ Estes passos são apresentados no repositório de App Service do Azure como [um 
 
     > [!NOTE]
     > O *sshd_config* ficheiros têm de incluir o seguinte procedimento ou a ligação falhar: 
-    > * `Ciphers`tem de incluir, pelo menos, um dos seguintes: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`tem de incluir, pelo menos, um dos seguintes: `hmac-sha1,hmac-sha1-96`.
+    > * `Ciphers` tem de incluir, pelo menos, um dos seguintes: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` tem de incluir, pelo menos, um dos seguintes: `hmac-sha1,hmac-sha1-96`.
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
-1. Incluir porta 2222 no [ `EXPOSE` instrução](https://docs.docker.com/engine/reference/builder/#expose) para o Dockerfile. Apesar da palavra-passe de raiz é conhecida, porta 2222 não pode ser acedida através da internet. É uma porta única interna acessível apenas por contentores dentro da rede de bridge de uma rede privada virtual.
+1. Incluir porta 2222 no [ `EXPOSE` instrução](https://docs.docker.com/engine/reference/builder/#expose) para o Dockerfile. Embora a palavra-passe de raiz seja conhecida, não é possível aceder à porta 2222 a partir da Internet. É uma porta única interna acessível apenas por contentores dentro da rede de bridge de uma rede privada virtual.
 
     ```docker
     EXPOSE 2222 80
@@ -99,11 +99,11 @@ O Dockerfile utiliza o [ `CMD` instrução](https://docs.docker.com/engine/refer
     CMD ["/bin/init_container.sh"]
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte as ligações seguintes para obter mais informações sobre a aplicação Web para contentores. Pode publicar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Como utilizar uma imagem personalizada do Docker da aplicação Web para contentores](quickstart-custom-docker-image.md)
-* [Utilizando o .NET Core no App Service do Azure no Linux](quickstart-dotnetcore.md)
-* [Utilizar Ruby no App Service do Azure no Linux](quickstart-ruby.md)
-* [Aplicação de Web do App Service do Azure para contentores FAQ](app-service-linux-faq.md)
+* [Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores](quickstart-docker-go.md)
+* [Utilizar o .NET Core no Serviço de Aplicações do Azure no Linux](quickstart-dotnetcore.md)
+* [Utilizar o Ruby no Serviço de Aplicações do Azure no Linux](quickstart-ruby.md)
+* [FAQ sobre a Aplicação Web do Serviço de Aplicações do Azure para Contentores](app-service-linux-faq.md)

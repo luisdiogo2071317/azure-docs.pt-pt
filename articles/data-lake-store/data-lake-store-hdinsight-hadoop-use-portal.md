@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 20f87e9c545eae283ff1514feeda0b1f9057e668
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Criar clusters do HDInsight com o Data Lake Store utilizando o portal do Azure
 > [!div class="op_single_selector"]
@@ -185,9 +185,9 @@ Se utilizar, por exemplo, o cluster que criou com o Data Lake Store, como armaze
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsstorage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 Descrições:
-* `adl://hdiadlstorage.azuredatalakestore.net/`é a raiz da conta do Data Lake Store.
-* `/clusters/myhdiadlcluster`é a raiz dos dados de cluster que especificou ao criar o cluster.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`é a localização do ficheiro de exemplo que utilizou na consulta.
+* `adl://hdiadlstorage.azuredatalakestore.net/` é a raiz da conta do Data Lake Store.
+* `/clusters/myhdiadlcluster` é a raiz dos dados de cluster que especificou ao criar o cluster.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` é a localização do ficheiro de exemplo que utilizou na consulta.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-additional-storage"></a>Executar uma consulta do Hive contra dados num arquivo Data Lake (como armazenamento adicional)
 

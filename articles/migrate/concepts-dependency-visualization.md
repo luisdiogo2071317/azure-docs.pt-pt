@@ -4,13 +4,13 @@ description: "Fornece uma descrição geral de cálculos de avaliação no servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -35,7 +35,7 @@ Para utilizar a visualização de dependência, terá de transferir e instalar a
 
 ## <a name="do-i-need-to-pay-for-it"></a>É necessário pagar para o mesmo?
 
-Sim. A área de trabalho de análise de registos é criada por predefinição, mas não é utilizada a menos que utilize a visualização de dependência no Azure migrar. Se utilizar a visualização de dependência (ou utilizar a área de trabalho fora do Azure migrar), são-lhe cobrados para utilização de área de trabalho.  [Saiba mais](https://azure.microsoft.com/pricing/details/insight-analytics/) sobre os preços da solução de mapa de serviço. 
+Saiba mais sobre os preços do Azure Migrate [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Como gerir a área de trabalho?
 
@@ -43,6 +43,6 @@ Pode utilizar a área de trabalho do Log Analytics fora do Azure migrar. Não é
 
 Não elimine a área de trabalho criada pelo Azure migrar, a menos que elimine o projeto de migração. Se o fizer, dependências não funcionam conforme esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Máquinas de grupo utilizando dependências de máquina](how-to-create-group-machine-dependencies.md)

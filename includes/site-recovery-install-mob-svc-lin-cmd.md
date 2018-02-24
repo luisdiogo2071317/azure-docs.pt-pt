@@ -9,7 +9,7 @@
   ```
   sudo ./install -d <Install Location> -r MS -v VmWare -q
   ```
-3. Após a conclusão da instalação, o serviço de mobilidade tem de obter registados no servidor de configuração. Execute o seguinte comando para registar o serviço de mobilidade no servidor de configuração.
+3. Depois de concluída a instalação, o serviço de mobilidade tem de estar registado para o servidor de configuração. Execute o seguinte comando para registar o serviço de mobilidade no servidor de configuração:
 
   ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
@@ -24,10 +24,10 @@ Usage:
 
 |Parâmetro|Tipo|Descrição|Valores possíveis|
 |-|-|-|-|
-|-r |Obrigatório|Especifica se deve ser instalado o serviço de mobilidade (MS) ou MasterTarget(MT) deve ser instalado|MS </br> MT|
-|-d |Opcional|Localização onde será instalado o serviço de mobilidade|/usr/local/ASR|
-|-v|Obrigatório|Especifica a plataforma em que o serviço de mobilidade está a obter instalado </br> </br>-* * VMware: Utilize este valor se estiver a instalar o serviço de mobilidade numa VM em execução no *VMware vSphere anfitriões ESXi*, * anfitriões Hyper-V, e *servidores físicos* </br> -* * Azure: Utilize este valor se estiver a instalar o agente numa VM do IaaS do Azure| VMware </br> Azure|
-|-q|Opcional|Especifica a executar o programa de instalação no modo silencioso| N/A|
+|-r |Obrigatório|Especifica se deve ser instalado o serviço de mobilidade (MS) ou MasterTarget (MT) deve ser instalado.|MS </br> MT|
+|-d |Opcional|Localização onde o serviço de mobilidade está instalado.|/usr/local/ASR|
+|-v|Obrigatório|Especifica a plataforma em que o serviço de mobilidade está instalado. </br> </br>- **VMware**: Utilize este valor se instalar o serviço de mobilidade numa VM em execução no *anfitriões do VMware vSphere ESXi*, *anfitriões Hyper-V*, e *servidores físicos*. </br> - **Azure**: Utilize este valor se instalar um agente numa VM do IaaS do Azure.| VMware </br> Azure|
+|-q|Opcional|Especifica a executar o programa de instalação no modo silencioso.| N/A|
 
 
 #### <a name="mobility-service-configuration-command-line"></a>Linha de comandos da configuração de serviço de mobilidade
@@ -41,4 +41,4 @@ UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 |Parâmetro|Tipo|Descrição|Valores possíveis|
 |-|-|-|-|
 |-i |Obrigatório|IP do servidor de configuração|Qualquer endereço IP válido|
-|-P |Obrigatório|Caminho completo do ficheiro do ficheiro onde está guardado o frase de acesso de ligação|Qualquer pasta válido|
+|-P |Obrigatório|Caminho completo do ficheiro para o ficheiro em que a ligação passar o frase é guardado|Qualquer pasta válido|

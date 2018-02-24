@@ -4,17 +4,17 @@ description: "Este documento descreve os conceitos e os passos envolvidos na con
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -107,7 +107,7 @@ O comando de configuração do ambiente local cria os seguintes recursos na sua 
 - Um grupo de recursos (se não for indicado)
 - uma conta de armazenamento
 - Um registo de contentor do Azure (ACR)
-- Informações de aplicação
+- Application Insights
 
 Após a conclusão da configuração com êxito, defina o ambiente para ser utilizado com o seguinte comando:
 
@@ -129,7 +129,7 @@ O comando de configuração do ambiente de cluster cria os seguintes recursos na
 - uma conta de armazenamento
 - Um registo de contentor do Azure (ACR)
 - Uma implementação de Kubernetes num cluster do serviço de contentor do Azure (ACS)
-- Informações de aplicação
+- Application Insights
 
 O grupo de recursos, a conta de armazenamento e o ACR são criados rapidamente. A implementação de ACS pode demorar até 20 minutos. 
 
@@ -167,5 +167,5 @@ Agora está pronto para implementar o seu modelo guardado como um serviço web.
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Próximos Passos
 Experimente um dos muitos exemplos na galeria.

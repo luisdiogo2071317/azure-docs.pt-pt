@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Implementar a solução pré-configurada de monitorização remota
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de uma subscrição ativa do Azure.
 
-Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="deploy-the-preconfigured-solution"></a>Implementar a solução pré-configurada
 
@@ -80,7 +80,7 @@ Quando o processo de aprovisionamento estiver concluído, pode iniciar sessão s
 
 1. Apresenta o dashboard de solução de monitorização remota no seu browser.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

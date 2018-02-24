@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementar e gerir topologias Apache Storm no HDInsight
 
@@ -86,7 +86,7 @@ As ferramentas do HDInsight pode ser utilizadas para submeter topologias de c# o
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Este comando inicia a topologia do WordCount de exemplo no cluster. Esta topologia gera aleatoriamente frases, em seguida, contagens e a ocorrência de cada palavra nas frases.
+    Deste modo, este comando inicia a topologia do WordCount de exemplo no cluster. Esta topologia gera aleatoriamente frases, em seguida, contagens e a ocorrência de cada palavra nas frases.
 
    > [!NOTE]
    > Ao submeter a topologia para o cluster, primeiro, tem de copiar o ficheiro jar que contém o cluster antes de utilizar o comando `storm`. Para copiar o ficheiro para o cluster, pode utilizar o `scp` comando. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -226,7 +226,7 @@ Pode encontrar o nome de domínio completamente qualificado (FQDN) para o nó pr
 
 * **A partir de uma sessão SSH**: Utilize o comando `headnode -f` numa sessão SSH para o cluster.
 * **Da Web do Ambari**: selecione **serviços** na parte superior da página, em seguida, selecione **Storm**. Do **resumo** separador, selecione **servidor de IU do Storm**. O FQDN do nó que aloja a IU do Storm e a REST API é apresentado na parte superior da página.
-* **Da API de REST do Ambari**: Utilize o comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para obter informações sobre a IU do Storm e a REST API em execução no nó. Substitua **palavra-passe** com a palavra-passe de administrador para o cluster. Substitua **CLUSTERNAME** com o nome do cluster. Na resposta, a entrada de "host_name" contém o FQDN do nó.
+* **Da API de REST do Ambari**: Utilize o comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para obter informações sobre a IU do Storm e a REST API em execução no nó. Substitua **CLUSTERNAME** com o nome do cluster. Quando lhe for pedido, introduza a palavra-passe da conta de início de sessão (administrador). Na resposta, a entrada de "host_name" contém o FQDN do nó.
 
 ### <a name="authentication"></a>Autenticação
 
@@ -239,7 +239,7 @@ Pedidos para a API REST têm de utilizar **autenticação básica**, por isso, u
 
 As informações que são devolvidas a partir da API de REST podem apenas ser utilizáveis partir do cluster. Por exemplo, o nome de domínio completamente qualificado (FQDN) para servidores de Zookeeper devolvido não está acessível a partir da Internet.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba como [topologias baseadas em Java desenvolver com o Maven](apache-storm-develop-java-topology.md).
 
