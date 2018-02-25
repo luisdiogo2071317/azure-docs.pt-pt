@@ -3,8 +3,8 @@ title: Arquitetura do Kit de desenvolvimento de pilha do Microsoft Azure | Micro
 description: Ver a arquitetura do Kit de desenvolvimento de pilha do Microsoft Azure.
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e8ff17e069bd9237bf06cd79b4c222c50a999eda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: b754ff5b5a82ac284eb59ff9b9d30a581f3d3af5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Arquitetura do Kit de desenvolvimento de pilha do Microsoft Azure
 
@@ -36,22 +37,22 @@ O kit de desenvolvimento de pilha do Azure oferece serviços, utilizando as segu
 
 | Nome | Descrição |
 | ----- | ----- |
-| **AzS ACS01** | Serviços de armazenamento de pilha do Azure.|
-| **AzS ADFS01** | Serviços de Federação do Active Directory (ADFS).  |
-| **AzS BGPNAT01** | Contorno router e fornece capacidades NAT e VPN para a pilha do Azure. |
-| **AzS CA01** | Serviços de autoridade de certificados para serviços de função de pilha do Azure.|
-| **AzS DC01** | Active Directory, DNS e DHCP dos serviços de pilha do Microsoft Azure.|
-| **AzS ERCS01** | Consola da recuperação de emergência VM. |
-| **AzS GWY01** | Gateway de serviços, tais como ligações do VPN site a site para redes de inquilino.|
-| **AzS NC01** | Controlador de rede, que gere os serviços de rede de pilha do Azure.  |
-| **AzS SLB01** | O balanceamento de carga serviços multiplexer na pilha do Azure para os inquilinos e os serviços de infraestrutura de pilha do Azure.  |
-| **AzS SQL01** | Arquivo de dados internos para funções de infraestrutura de pilha do Azure.  |
-| **AzS WAS01** | Portal de administração de pilha do Azure e os serviços do Azure Resource Manager.|
-| **AzS WASP01**| Portal de utilizador (inquilino) de pilha do Azure e os serviços do Azure Resource Manager.|
-| **AzS XRP01** | Controlador de gestão de infraestrutura do Microsoft Azure pilha, incluindo os fornecedores de recursos de computação, rede e armazenamento.|
+| **AzS-ACS01** | Serviços de armazenamento de pilha do Azure.|
+| **AzS-ADFS01** | Serviços de Federação do Active Directory (ADFS).  |
+| **AzS-BGPNAT01** | Contorno router e fornece capacidades NAT e VPN para a pilha do Azure. |
+| **AzS-CA01** | Serviços de autoridade de certificados para serviços de função de pilha do Azure.|
+| **AzS-DC01** | Active Directory, DNS e DHCP dos serviços de pilha do Microsoft Azure.|
+| **AzS-ERCS01** | Consola da recuperação de emergência VM. |
+| **AzS-GWY01** | Gateway de serviços, tais como ligações do VPN site a site para redes de inquilino.|
+| **AzS-NC01** | Controlador de rede, que gere os serviços de rede de pilha do Azure.  |
+| **AzS-SLB01** | O balanceamento de carga serviços multiplexer na pilha do Azure para os inquilinos e os serviços de infraestrutura de pilha do Azure.  |
+| **AzS-SQL01** | Arquivo de dados internos para funções de infraestrutura de pilha do Azure.  |
+| **AzS-WAS01** | Portal de administração de pilha do Azure e os serviços do Azure Resource Manager.|
+| **AzS-WASP01**| Portal de utilizador (inquilino) de pilha do Azure e os serviços do Azure Resource Manager.|
+| **AzS-XRP01** | Controlador de gestão de infraestrutura do Microsoft Azure pilha, incluindo os fornecedores de recursos de computação, rede e armazenamento.|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Implementar a pilha do Azure](azure-stack-deploy.md)
 
 [Cenários de primeira para experimentar](azure-stack-first-scenarios.md)

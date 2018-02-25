@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 Pilha do Azure tem uma rede de infraestrutura público com externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, VMs inquilinas. São necessários certificados PKI com os nomes DNS adequados para estes pontos finais públicos de infraestrutura de pilha do Azure durante a implementação de pilha do Azure. Este artigo fornece informações sobre:
@@ -37,6 +37,7 @@ A lista seguinte descreve os requisitos de certificados que são necessários pa
 - O algoritmo de assinatura de certificado não pode ser SHA1, como deve ser mais forte. 
 - O formato de certificado tem de ser PFX, como as chaves públicas e privadas são necessárias para a instalação de pilha do Azure. 
 - Os ficheiros pfx do certificado tem um valor "Assinatura Digital" e "KeyEncipherment" do respetivo campo "Utilização de chave".
+- Os ficheiros pfx do certificado tem de ter valores "Autenticação de servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Utilização de chave avançada".
 - As palavras-passe para todos os ficheiros pfx de certificado devem ser o mesmo no momento da implementação
 - Certifique-se de que o se os nomes de requerente e do requerente alternativo nomes de todos os certificados coincidem com as especificações descritas neste artigo para evitar a implementação falhou.
 
