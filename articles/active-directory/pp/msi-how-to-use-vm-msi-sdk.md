@@ -14,15 +14,16 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 808b0357494adac8c8ad7f51e668317e378d290d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Utilize SDKs do Azure com um utilizador atribuído geridos serviço de identidade (MSI)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+
 Este artigo fornece uma lista de amostras SDK, que demonstram a utilização de suporte dos seus respetivos Azure do SDK para o utilizador atribuído MSI.
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Utilizar Kafka do Apache Storm no HDInsight
 
@@ -36,7 +36,7 @@ O código de exemplo utilizado neste documento está disponível em [https://git
 
 Para compilar a este projeto, terá da seguinte configuração para o seu ambiente de desenvolvimento:
 
-* [1.8 do Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou superior. HDInsight 3.5 ou superior necessário Java 8.
+* [1.8 do Java JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) ou superior. HDInsight 3.5 ou superior necessário Java 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -46,11 +46,11 @@ Para compilar a este projeto, terá da seguinte configuração para o seu ambien
 
 As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK na sua estação de trabalho de desenvolvimento. No entanto, deve verificar que existe e que contêm os valores corretos para o seu sistema.
 
-* `JAVA_HOME`-devem apontar para o diretório onde está instalado o JDK.
-* `PATH`-deve conter os seguintes caminhos:
+* `JAVA_HOME` -devem apontar para o diretório onde está instalado o JDK.
+* `PATH` -deve conter os seguintes caminhos:
   
-    * `JAVA_HOME`(ou o caminho equivalente).
-    * `JAVA_HOME\bin`(ou o caminho equivalente).
+    * `JAVA_HOME` (ou o caminho equivalente).
+    * `JAVA_HOME\bin` (ou o caminho equivalente).
     * O diretório onde está instalado o Maven.
 
 ## <a name="create-the-clusters"></a>Criar os clusters
@@ -121,7 +121,7 @@ Este projeto contém duas topologias:
     Esta topologia utiliza o Storm HdfsBolt para escrever dados para o armazenamento de predefinido para o cluster do Storm.
 ### <a name="flux"></a>Flux
 
-As topologias são definidas utilizando [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux foi introduzida no Storm 0.10.x e permite separar a configuração da topologia do código. Para as topologias que utilizam o framework Flux, a topologia está definida num ficheiro YAML. O ficheiro YAML pode ser incluído como parte da topologia. Também pode ser um ficheiro autónomo utilizado ao submeter a topologia. Flux também suporta a substituição das variáveis em tempo de execução, que é utilizada neste exemplo.
+As topologias são definidas utilizando [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux foi introduzida no Storm 0.10.x e permite separar a configuração da topologia do código. Para as topologias que utilizam o framework Flux, a topologia está definida num ficheiro YAML. O ficheiro YAML pode ser incluído como parte da topologia. Também pode ser um ficheiro autónomo utilizado ao submeter a topologia. Flux também suporta a substituição das variáveis em tempo de execução, que é utilizada neste exemplo.
 
 Os seguintes parâmetros são definidos em tempo de execução para estes topologias:
 
@@ -131,7 +131,7 @@ Os seguintes parâmetros são definidos em tempo de execução para estes topolo
 
 * `${kafka.zookeeper.hosts}`: Os anfitriões que Zookeeper é executado no Kafka cluster.
 
-Para obter mais informações sobre topologias Flux, consulte [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Para obter mais informações sobre topologias Flux, consulte [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Transferir e compilar o projeto
 
@@ -255,7 +255,7 @@ Para obter mais informações sobre topologias Flux, consulte [https://storm.apa
 
     * `--remote`: Submeta a topologia para Nimbus. A topologia é distribuída em todos os nós de trabalho no cluster.
 
-    * `-R /writer.yaml`: Utilize o `writer.yaml` ficheiros para configurar a topologia. `-R`indica que este recurso está incluído no ficheiro jar. É por isso, na raiz da jar, `/writer.yaml` é o caminho para o mesmo.
+    * `-R /writer.yaml`: Utilize o `writer.yaml` ficheiros para configurar a topologia. `-R` indica que este recurso está incluído no ficheiro jar. É por isso, na raiz da jar, `/writer.yaml` é o caminho para o mesmo.
 
     * `--filter`: A preencher a entradas no `writer.yaml` topologia utilizando valores no `dev.properties` ficheiro. Por exemplo, o valor da `kafka.topic` entrada do ficheiro é utilizada para substituir o `${kafka.topic}` entrada na definição de topologia.
 

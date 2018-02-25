@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 Agora disponível: BD do Azure do Cosmos [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner). Saiba mais em [estimar o débito tem](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ BD do Cosmos do Azure é uma base de dados com múltiplos modelo, é importante 
 ## <a name="request-units-and-request-charges"></a>Unidades de pedido e custos de pedido
 BD do Azure do Cosmos oferece um desempenho previsível, rápido por *reservar* recursos para satisfazer as necessidades de débito da sua aplicação.  Porque a aplicação de carga e alteração de padrões ao longo do tempo de acesso, base de dados do Azure Cosmos permite-lhe facilmente aumentar ou diminuir a quantidade de débito reservado disponível para a aplicação.
 
-Com base de dados do Azure Cosmos, débito reservado é especificado em termos de unidades de pedido de processamento por segundo. Pode considerar unidades de pedido como moeda de débito, em *reservar* uma quantidade garantida de unidades de pedido disponíveis para a aplicação numa base por segundo.  Cada operação na base de dados do Azure Cosmos - escrita de um documento, executar uma consulta, atualizar um documento - consome CPU, memória e IOPS.  Ou seja, cada operação implica um *pedido encargos*, que é expresso em *unidades de pedido*.  Compreender os fatores que afetam os encargos de unidade de pedido, juntamente com os requisitos de débito da sua aplicação, permite-lhe executar a aplicação como custo eficientemente possível. O Explorador de consulta também é uma ferramenta wonderful para testar as principais de uma consulta.
+Com base de dados do Azure Cosmos, débito reservado é especificado em termos de unidades de pedido de processamento por segundo. Pode considerar unidades de pedido como moeda de débito, em *reservar* uma quantidade garantida de unidades de pedido disponíveis para a aplicação numa base por segundo.  Cada operação na base de dados do Azure Cosmos - escrita de um documento, executar uma consulta, atualizar um documento - consome CPU, memória e IOPS.  Ou seja, cada operação implica um *pedido encargos*, que é expresso em *unidades de pedido*.  Compreender os fatores que afetam os encargos de unidade de pedido, juntamente com os requisitos de débito da sua aplicação, permite-lhe executar a aplicação como custo eficientemente possível. O Explorador de dados no portal do Azure também é uma ferramenta wonderful para testar as principais de uma consulta.
 
 Recomendamos que comece por ver o vídeo seguinte, onde Aravind Ramachandran explica unidades de pedido e o desempenho previsível, com base de dados do Azure Cosmos.
 
@@ -118,8 +118,8 @@ Por exemplo, aqui está uma tabela que mostra o número de unidades de pedido pa
     <tbody>
         <tr>
             <td valign="top"><p><strong>Tamanho do item</strong></p></td>
-            <td valign="top"><p><strong>Leituras/segundo</strong></p></td>
-            <td valign="top"><p><strong>Escritas de paginações/segundo</strong></p></td>
+            <td valign="top"><p><strong>Reads/second</strong></p></td>
+            <td valign="top"><p><strong>Writes/second</strong></p></td>
             <td valign="top"><p><strong>Unidades de pedidos</strong></p></td>
         </tr>
         <tr>
@@ -190,9 +190,7 @@ Utilizar a ferramenta é simple:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Utilize o cabeçalho de resposta de encargos de pedido de base de dados do Azure Cosmos
-Cada resposta do serviço de base de dados do Azure Cosmos inclui um cabeçalho personalizado (`x-ms-request-charge`) que contenha as unidades de pedido utilizadas para o pedido. Também é acessível através do Azure Cosmos DB SDKs este cabeçalho. SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse.  Para consultas, o Explorador de consulta de base de dados do Azure Cosmos no portal do Azure fornece informações de encargos de pedido para consultas executadas.
-
-![A examinar os encargos RU no Explorador de consulta][1]
+Cada resposta do serviço de base de dados do Azure Cosmos inclui um cabeçalho personalizado (`x-ms-request-charge`) que contenha as unidades de pedido utilizadas para o pedido. Também é acessível através do Azure Cosmos DB SDKs este cabeçalho. SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse.  Para consultas, o Explorador de dados de base de dados do Azure Cosmos no portal do Azure fornece informações de encargos de pedido para consultas executadas.
 
 Com isto em mente, um método para estimar a quantidade de débito reservado exigido pela sua aplicação é a taxa de unidade de pedido associada com operações em execução típicas contra um item representativo utilizado pela sua aplicação e, em seguida, fazer uma estimativa de registo o número de operações que antecipa efetuar por segundo.  Lembre-se de que medir e incluir consultas típicas e a utilização de script de base de dados do Azure Cosmos bem.
 
@@ -304,8 +302,8 @@ A tabela seguinte mostra a pedido aproximado encargos de unidade para operaçõe
 
 | Operação | Encargos de unidade de pedido |
 | --- | --- |
-| Criar item |~ 15 RU |
-| Item de leitura |~ 1 RU |
+| Criar item |~15 RU |
+| Item de leitura |~1 RU |
 | Item de consulta por id |~2.5 RU |
 
 Além disso, esta tabela mostra pedido aproximado encargos de unidade para consultas típicos utilizados na aplicação:
@@ -313,9 +311,9 @@ Além disso, esta tabela mostra pedido aproximado encargos de unidade para consu
 | Consulta | Encargos de unidade de pedido | n. º de itens devolvidos |
 | --- | --- | --- |
 | Selecione prato por id |~2.5 RU |1 |
-| Selecione foods por fabricante |~ 7 RU |7 |
-| Selecione pelo grupo prato e ordem por ponderação |~ 70 RU |100 |
-| Selecione 10 foods superiores de um grupo de prato |~ 10 RU |10 |
+| Selecione foods por fabricante |~7 RU |7 |
+| Selecione pelo grupo prato e ordem por ponderação |~70 RU |100 |
+| Selecione 10 foods superiores de um grupo de prato |~10 RU |10 |
 
 > [!NOTE]
 > Custos de RU variam com base no número de itens devolvidos.
@@ -330,11 +328,11 @@ Com estas informações, pode estimar os requisitos de RU para esta aplicação 
 | Item de leitura |100 |100 |
 | Selecione foods por fabricante |25 |175 |
 | Selecione pelo grupo prato |10 |700 |
-| Selecione 10 principais |15 |Total de 150 |
+| Selecione 10 principais |15 |150 Total |
 
 Neste caso, o que esperava um requisito de débito médio de 1,275 RU/s.  Arredondamento até 100 mais próximo, teria de aprovisionar 1.300 RU/s para a recolha esta aplicação.
 
-## <a id="RequestRateTooLarge"></a>Exceder os limites de débito reservado do BD Azure Cosmos
+## <a id="RequestRateTooLarge"></a> Exceder os limites de débito reservado do BD Azure Cosmos
 Recuperar-se de que o consumo de unidade de pedido é avaliado como uma taxa por segundo, se a atribuição de está vazia. Para aplicações que excedem a taxa de unidade de pedido aprovisionado para um contentor, pedidos para essa coleção limitados até que a taxa de ignora abaixo do nível reservado. Quando ocorre uma limitação, o servidor preventivamente termina o pedido com RequestRateTooLargeException (código de estado HTTP 429) de colunas e devolve o cabeçalho x-ms-repetição-após-ms que indica a quantidade de tempo, em milissegundos, que o utilizador terá de aguardar antes de reattempting o pedido.
 
     HTTP Status 429
@@ -345,7 +343,7 @@ Se estiver a utilizar os SDK de cliente .NET e LINQ consultas, em seguida, na ma
 
 Se tiver mais do que um cliente cumulativamente e operativo acima a taxa de pedidos, o comportamento de repetição predefinido não poderá suffice e o cliente irá gerar um DocumentClientException com o código de estado 429 à aplicação. Em casos como esta, poderá considerar a processar o comportamento de repetição e lógica no registo de erros da sua aplicação rotinas de processamento ou aumentar o débito reservado para o contentor.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a>Exceder os limites de débito reservado na API para MongoDB
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na API para MongoDB
 As aplicações que excedem as unidades de pedido aprovisionado para uma coleção serão limitadas até que a taxa de ignora abaixo do nível reservado. Quando ocorre uma limitação, o back-end preventivamente vai terminar o pedido com um *16500* código de erro - *demasiados pedidos*. Por predefinição, a API para o MongoDB seja automaticamente repetida até 10 vezes antes de o devolver um *demasiados pedidos* código de erro. Se está a receber muitas *demasiados pedidos* códigos de erro, poderá considerar o comportamento de repetição adicionar no rotinas de processamento de erros da aplicação ou [aumentar o débito reservado para a coleção](set-throughput.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -358,7 +356,6 @@ Para saber mais sobre a base de dados do Azure Cosmos, consulte o artigo da base
 
 Para começar com dimensionamento e desempenho de teste com base de dados do Azure Cosmos, consulte o artigo [desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

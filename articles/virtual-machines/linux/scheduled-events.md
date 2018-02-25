@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: ericrad
-ms.openlocfilehash: 79cbdb4d7c11fac0ca27758e92b44799ce0c1a3e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 1f4c542c179f196e61457ddba6b9dfe76dd1dc79
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs com Linux
 
@@ -27,7 +27,8 @@ Eventos agendados é um serviço de metadados do Azure que indica a hora da apli
 
 Para obter informações sobre eventos agendadas no Windows, consulte [agendada eventos para VMs do Windows](../windows/scheduled-events.md).
 
-[!IMPORTANT] Eventos agendados está normalmente disponível em todas as regiões do Azure. Consulte [versão e disponibilidade de região](#version-and-region-availability) para obter informações de versão mais recentes.
+> [!Note] 
+> Eventos agendados está normalmente disponível em todas as regiões do Azure. Consulte [versão e disponibilidade de região](#version-and-region-availability) para obter informações de versão mais recentes.
 
 ## <a name="why-use-scheduled-events"></a>Porquê utilizar agendada eventos?
 

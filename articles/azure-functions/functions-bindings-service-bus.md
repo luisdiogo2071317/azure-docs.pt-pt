@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 472d61debff016cfd3df79bae1f63e176c14849d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Service Bus do Azure para as funções do Azure
 
@@ -56,6 +56,8 @@ public static void Run(
 }
 ```
 
+Neste exemplo é para a versão das funções do Azure 1. x; para 2. x, [omita o parâmetro de direitos de acesso](#trigger---configuration).
+ 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
 O exemplo seguinte mostra um acionador de Service Bus enlace num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função regista uma mensagem de fila do Service Bus.
@@ -150,7 +152,9 @@ No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  O construtor do atributo tem o nome da fila ou tópico e a subscrição. Também pode especificar os direitos de acesso da ligação. Se não especificar direitos de acesso, a predefinição é `Manage`. Como escolher os definição de direitos de acesso é explicado no [acionador - configuração](#trigger---configuration) secção. Eis um exemplo que mostra o atributo utilizado com um parâmetro de cadeia:
+  O construtor do atributo tem o nome da fila ou tópico e a subscrição. Na versão das funções do Azure 1. x, também pode especificar os direitos de acesso a ligação. Se não especificar direitos de acesso, a predefinição é `Manage`. Para obter mais informações, consulte o [acionador - configuração](#trigger---configuration) secção.
+
+  Eis um exemplo que mostra o atributo utilizado com um parâmetro de cadeia:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -214,19 +218,20 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**topicName**|**TopicName**|Nome do tópico para monitorizar. Defina apenas se a monitorização um tópico, não para uma fila.|
 |**subscriptionName**|**SubscriptionName**|Nome da subscrição para monitorizar. Defina apenas se a monitorização um tópico, não para uma fila.|
 |**connection**|**Ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação de barramento de serviço a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome. Por exemplo, se definir `connection` para "MyServiceBus", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação do Service Bus predefinida na definição de aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados em [obter as credenciais de gestão](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico. |
-|**accessRights**|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se utilizar uma cadeia de ligação que não tenha o **gerir** conjunto de permissões, `accessRights` "escutar". Caso contrário, as funções de tempo de execução poderá falhar a tentar efetuar operações que exigem gerirem direitos.|
+|**accessRights**|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se utilizar uma cadeia de ligação que não tenha o **gerir** conjunto de permissões, `accessRights` "escutar". Caso contrário, as funções de tempo de execução poderá falhar a tentar efetuar operações que exigem gerirem direitos. Na versão das funções do Azure 2. x, esta propriedade não está disponível porque a versão mais recente do SDK de armazenamento não suporta operações de gerir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-Em c# e c# script, aceder a mensagem de fila ou um tópico com um parâmetro de método como `string paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. Pode utilizar qualquer um dos seguintes tipos de, em vez de `string`:
+Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para a mensagem de fila ou um tópico:
 
-* `byte[]`-Útil para dados binários.
+* `string` -Se a mensagem de texto.
+* `byte[]` -Útil para dados binários.
 * Um tipo personalizado - se a mensagem contém um JSON, as funções do Azure tentar anular a serialização os dados JSON.
-* `BrokeredMessage`-Dá-lhe a mensagem de serialização anulada com o [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) método.
+* `BrokeredMessage` -Dá-lhe a mensagem de serialização anulada com o [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) método.
 
-Em JavaScript, aceder a mensagem de fila ou um tópico utilizando `context.bindings.<name>`. `<name>`o valor especificado no `name` propriedade *function.json*. A mensagem do barramento de serviço é transmitida para a função como uma cadeia ou um objeto JSON.
+Em JavaScript, aceder a mensagem de fila ou um tópico utilizando `context.bindings.<name from function.json>`. A mensagem do barramento de serviço é transmitida para a função como uma cadeia ou um objeto JSON.
 
 ## <a name="trigger---poison-messages"></a>Acionador - mensagens nocivas
 
@@ -452,22 +457,25 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**topicName**|**TopicName**|Nome do tópico para monitorizar. Defina apenas se o envio de mensagens de tópico, não para uma fila.|
 |**subscriptionName**|**SubscriptionName**|Nome da subscrição para monitorizar. Defina apenas se o envio de mensagens de tópico, não para uma fila.|
 |**connection**|**Ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação de barramento de serviço a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome. Por exemplo, se definir `connection` para "MyServiceBus", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação do Service Bus predefinida na definição de aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados em [obter as credenciais de gestão](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico.|
-|**accessRights**|**Acesso** |Direitos de acesso para a cadeia de ligação. Os valores disponíveis são "Gerir" e "escutar". A predefinição é "Gerir", que indica que a ligação tem **gerir** permissões. Se utilizar uma cadeia de ligação que não tenha **gerir** definir as permissões, `accessRights` "escutar". Caso contrário, as funções de tempo de execução poderá falhar a tentar efetuar operações que exigem gerirem direitos.|
+|**accessRights**|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se utilizar uma cadeia de ligação que não tenha o **gerir** conjunto de permissões, `accessRights` "escutar". Caso contrário, as funções de tempo de execução poderá falhar a tentar efetuar operações que exigem gerirem direitos. Na versão das funções do Azure 2. x, esta propriedade não está disponível porque a versão mais recente do SDK de armazenamento não suporta operações de gerir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Em c# e c# script, aceder a fila ou um tópico utilizando um parâmetro de método como `out string paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. Pode utilizar qualquer um dos seguintes tipos de parâmetro:
+Nas funções do Azure 1. x, o tempo de execução cria a fila se não existir e tiver definido `accessRights` para `manage`. Na versão de funções 2, a fila ou um tópico tem de existir; Se especificar uma fila ou um tópico que não exista, a função irá falhar. 
 
-* `out T paramName` - `T`pode ser qualquer tipo de JSON serializável. Se o valor do parâmetro é nulo quando a função sai, funções cria a mensagem com um objeto nulo.
-* `out string`-Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
-* `out byte[]`-Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
-* `out BrokeredMessage`-Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
+Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o enlace de saída:
 
-Para criar várias mensagens num c# ou função de script do c#, pode utilizar `ICollector<T>` ou `IAsyncCollector<T>`. Uma mensagem é criada quando chamar o `Add` método.
+* `out T paramName` - `T` pode ser qualquer tipo de JSON serializável. Se o valor do parâmetro é nulo quando a função sai, funções cria a mensagem com um objeto nulo.
+* `out string` -Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
+* `out byte[]` -Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
+* `out BrokeredMessage` -Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
+* `ICollector<T>` ou `IAsyncCollector<T>` - para criar várias mensagens. Uma mensagem é criada quando chamar o `Add` método.
 
-Em JavaScript, aceder a fila ou um tópico utilizando `context.bindings.<name>`. `<name>`o valor especificado no `name` propriedade *function.json*. Pode atribuir um objeto de Javascript (anulada a serialização JSON), uma cadeia ou uma matriz de bytes a `context.binding.<name>`.
+Nas funções de async, utilize o valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
+
+Em JavaScript, aceder a fila ou um tópico utilizando `context.bindings.<name from function.json>`. Pode atribuir um objeto de Javascript (anulada a serialização JSON), uma cadeia ou uma matriz de bytes a `context.binding.<name>`.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

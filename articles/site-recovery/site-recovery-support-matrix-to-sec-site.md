@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matriz de suporte para a replicação para um site secundário com o Azure Site Recovery
 
@@ -49,7 +49,7 @@ A tabela seguinte resume suporte do sistema operativo para máquinas replicados 
 
 **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | ---
-64 bits do Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 11 SP4  | Qualquer sistema operativo de convidado [suportadas pelo Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64 bits do Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 11 SP4  | Qualquer sistema operativo de convidado [suportadas pelo Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Armazenamento de máquina do Linux
 
@@ -90,8 +90,8 @@ Vários NICs | Sim | Sim
 
 **Armazenamento (anfitrião)** | **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | --- | ---
-NFS | Sim | N/D
-SMB 3.0 | N/D | Sim
+NFS | Sim | N/A
+SMB 3.0 | N/A | Sim
 SAN (ISCSI) | Sim | Sim
 Caminho multi (o MPIO) | Sim | Sim
 
@@ -99,21 +99,21 @@ Caminho multi (o MPIO) | Sim | Sim
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com o VMM)**
 --- | --- | ---
-VMDK | Sim | N/D
-VHD/VHDX | N/D | Sim (até 16 discos)
-Ger 2 VM | N/D | Sim
+VMDK | Sim | N/A
+VHD/VHDX | N/A | Sim (até 16 discos)
+Ger 2 VM | N/A | Sim
 Disco de cluster partilhado | Sim  | Não
 Disco encriptado | Não | Não
-UEFI| Sim | N/D
+UEFI| Sim | N/A
 NFS | Não | Não
 SMB 3.0 | Não | Não
-RDM | Sim | N/D
+RDM | Sim | N/A
 Disco > 1 TB | Sim | Sim
 Volume com o disco repartidos > 1 TB<br/><br/> LVM | Sim | Sim
 Espaços de armazenamento | Não | Sim
 Disco frequente Adicionar/remover | Sim | Não
 Excluir o disco | Sim | Sim
-Caminho multi (o MPIO) | N/D | Sim
+Caminho multi (o MPIO) | N/A | Sim
 
 ## <a name="vaults"></a>cofres
 
@@ -124,13 +124,13 @@ Mover o armazenamento, rede, as VMs do Azure através de grupos de recursos (den
 
 ## <a name="provider-and-agent"></a>Fornecedor e agente
 
-**Nome** | **Descrição** | **Versão mais recente** | **Detalhes**
+**Nome** | **Descrição** | **versão mais recente** | **Detalhes**
 --- | --- | --- | --- | ---
 **Fornecedor do Azure Site Recovery** | Coordena a comunicação entre servidores no local e o Azure <br/><br/> Instalado nos servidores do VMM no local, ou em servidores de Hyper-V, se não houver nenhum servidor VMM | 5.1.19 ([disponível a partir do portal](http://aka.ms/downloaddra)) | [Funcionalidades e correções mais recentes](https://support.microsoft.com/kb/3155002)
-**Serviço de mobilidade** | Coordena a replicação entre servidores do VMware no local ou servidores físicos e o site secundário<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar  | N/d (disponível a partir do portal) | N/D
+**Serviço de mobilidade** | Coordena a replicação entre servidores do VMware no local ou servidores físicos e o site secundário<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar  | N/d (disponível a partir do portal) | N/A
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Replicar VMs de Hyper-V em nuvens VMM para um site secundário](tutorial-vmm-to-vmm.md)
 - [Replicar VMs VMware e servidores físicos para um site secundário](tutorial-vmware-to-vmware.md)

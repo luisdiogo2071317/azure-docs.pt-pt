@@ -2,17 +2,17 @@
 title: "Gerir aplicações de Service Fabric do Azure com a CLI do Azure Service Fabric"
 description: "Saiba como implementar e remover aplicações a partir de um cluster do Service Fabric do Azure ao utilizar a CLI do Azure Service Fabric"
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gerir uma aplicação de Service Fabric do Azure ao utilizar a CLI do Azure Service Fabric
 
@@ -75,7 +75,7 @@ Para eliminar o pacote de aplicações da loja de imagem, utilize o seguinte com
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`tem de ser o nome do diretório que carregou quando criou a aplicação.
+`content-path` tem de ser o nome do diretório que carregou quando criou a aplicação.
 
 ### <a name="create-an-application-from-an-application-type"></a>Criar uma aplicação a partir de um tipo de aplicação
 
@@ -85,7 +85,7 @@ Depois de aprovisionar a aplicação, utilize o seguinte comando para o nome e c
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`é o nome que pretende utilizar para a instância de aplicação. Pode obter os parâmetros adicionais do manifesto da aplicação aprovisionados anteriormente.
+`app-name` é o nome que pretende utilizar para a instância de aplicação. Pode obter os parâmetros adicionais do manifesto da aplicação aprovisionados anteriormente.
 
 O nome da aplicação tem de começar com o prefixo `fabric:/`.
 
@@ -164,7 +164,7 @@ Quando uma atualização da aplicação está em curso, o estado pode ser obtido
 
 Por fim, se uma atualização está em progresso e tem de ser cancelado, pode utilizar o `sfctl application upgrade-rollback` para reverter a atualização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Noções básicas do Service Fabric CLI](service-fabric-cli.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)

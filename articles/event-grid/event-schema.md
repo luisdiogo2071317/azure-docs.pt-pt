@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de grelha de eventos do Azure
 
@@ -30,7 +30,7 @@ O exemplo seguinte mostra as propriedades que são utilizadas por todos os publi
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,27 +72,29 @@ Por exemplo, se o esquema publicado um evento de armazenamento de Blobs do Azure
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Propriedades do evento
 
 Todos os eventos contenham os seguintes dados de nível superior mesmos:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
-| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| Tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
+| Requerente | string | Caminho definida pelo fabricante para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos específicos do fornecedor de recursos. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 Para saber mais sobre as propriedades no objecto de dados, consulte a origem do evento:
 
 * [Subscrições do Azure (operações de gestão)](event-schema-subscriptions.md)
 * [Armazenamento de blobs](event-schema-blob-storage.md)
-* [Event hubs](event-schema-event-hubs.md)
+* [Hubs de Eventos](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [Hub IoT](event-schema-iot-hub.md)
 * [Grupos de recursos (operações de gestão)](event-schema-resource-groups.md)
 
 Para tópicos personalizados, o publicador de eventos determina o objeto de dados. Os dados de nível superior devem conter os campos mesmos como eventos definidos pelo recurso padrão. Quando publica eventos tópicos personalizados, deve considerar o assunto do seu eventos para ajudar a filtragem e de encaminhamento de modelação.

@@ -1,25 +1,24 @@
 ---
-title: "Sobre o mapeamento da rede para a replicação de VMs de Hyper-V em nuvens VMM com a recuperação de Site | Microsoft Docs"
+title: "Sobre o mapeamento da rede para a replicação de VM de Hyper-V (com o VMM) para o Azure com a recuperação de Site | Microsoft Docs"
 description: "Descreve como configurar o mapeamento de rede para a replicação de VMs de Hyper-V geridas em nuvens VMM, com o Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Sobre o mapeamento da rede VM de Hyper-V com a replicação do VMM 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparar o mapeamento de rede para replicação da VM de Hyper-V para o Azure
 
 
-Este artigo ajuda-o a compreender e planear o mapeamento da rede durante a replicação de VMs de Hyper-V em nuvens do System Center Virtual Machine Manager (VMM), utilizando o [serviço Azure Site Recovery](site-recovery-overview.md).
+Este artigo ajuda-o a compreender e preparar o mapeamento da rede quando replicar VMs de Hyper-V em nuvens do System Center Virtual Machine Manager (VMM) para o Azure ou para um site secundário, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
-Mapeamento da rede é utilizado quando replicar VMs Hyper-V geridas numa nuvem VMM, a uma nuvem VMM secundária ou para o Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Preparar o mapeamento da rede para replicação no Azure
 
@@ -112,7 +111,7 @@ VM2 (réplica do VM1) | VMNetwork1-Chicago
 
 Com estas definições, vamos rever o que acontece em alguns cenários possíveis.
 
-**Cenário** | **Outcome**
+Cenário | **Outcome**
 ---|---
 Nenhuma alteração nas propriedades de rede de VM-2 após a ativação pós-falha. | VM 1 continua a ser ligado à rede de origem.
 Propriedades da rede de VM-2 foram alterados após a ativação pós-falha e está desligado. | VM-1 é desligado.
@@ -123,4 +122,5 @@ Mapeamento da rede de VMNetwork1 Chicago é alterado. | VM 1 serão ligadas à r
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba mais sobre](hyper-v-vmm-networking.md) endereçamento IP após a ativação pós-falha para um site secundário do VMM.
+- [Saiba mais sobre](hyper-v-vmm-networking.md) endereçamento IP após a ativação pós-falha para um site secundário do VMM.
+- [Saiba mais sobre](concepts-on-premises-to-azure-networking.md) endereçamento IP após a ativação pós-falha para o Azure.

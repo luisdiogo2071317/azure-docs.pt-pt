@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerida de uma VM generalizada no Azure
 
@@ -55,7 +55,7 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 3. No **nome**, escreva o nome que pretende utilizar para a imagem.
 4. No **grupo de recursos** selecione **criar nova** e escreva um nome, ou selecione **utilizar existente** e selecione um grupo de recursos para utilizar na lista pendente.
 5. Se pretender eliminar a VM de origem depois da imagem ter sido criada, selecione **eliminar automaticamente esta máquina virtual depois de criar a imagem**.
-6. Quando tiver terminado, clique em **criar**.
+6. Quando tiver concluído, clique em **Criar**.
 16. Depois de criada a imagem, irá vê-los como um **imagem** recursos na lista de recursos no grupo de recursos.
 
 
@@ -65,7 +65,7 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 Criar uma imagem diretamente a partir da VM garante que a imagem inclui todos os discos associados a VM, incluindo o disco do SO e discos de dados. Este exemplo mostra como criar uma imagem gerida a partir de uma VM que utiliza discos geridos pelo.
 
 
-Antes de começar, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Execute o seguinte comando para instalá-lo.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Execute o seguinte comando para instalá-lo. (Utilize `Get-Module` para verificar a versão que tiver.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Arquitetura de replicação do Azure para o Azure
 
@@ -69,10 +69,10 @@ Como a replicação está ativada, o serviço de mobilidade de extensão de recu
  - Endereços de IP/os URLs de autenticação do Office 365
  - Endereços IP de conta de armazenamento de cache
 
-Se ativar a consistência multi VM, as máquinas do grupo de replicação comunicam entre si através da porta 20004. Certifique-se de que não há nenhum dispositivo de firewall a bloquear a comunicação entre as VMs através da porta 20004 interna.
+Se ativar a consistência multi-VM, as máquinas no grupo de replicação comunicam entre si pela porta 20004. Certifique-se de que não há nenhum dispositivo de firewall a bloquear a comunicação interna entre as VMs através da porta 20004.
 
 > [!IMPORTANT]
-Se pretender que as VMs do Linux fazer parte de um grupo de replicação, certifique-se de que o tráfego de saída na porta 20004 é aberto manualmente de acordo com as orientações da versão específica do Linux.
+Se pretender que as VMs do Linux pertençam a um grupo de replicação, certifique-se de que o tráfego de saída na porta 20004 é aberto manualmente de acordo com as orientações da versão específica do Linux.
 
 ### <a name="step-3"></a>Passo 3
 

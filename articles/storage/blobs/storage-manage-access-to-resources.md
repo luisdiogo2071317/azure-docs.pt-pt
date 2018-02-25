@@ -2,23 +2,17 @@
 title: "Ativar o acesso de leitura público para contentores e blobs do armazenamento de Blobs do Azure | Microsoft Docs"
 description: "Saiba como tornar disponível para acesso anónimo a contentores e blobs e como aceder às mesmas através de programação."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: f52079c72be298daaa45074e516f911022780392
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4ddafb095816b5be82a18faa9c60869094e5e4c6
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
 Pode ativar o acesso de leitura anónimo, público para um contentor e os respetivos blobs no armazenamento de Blobs do Azure. Ao fazê-lo, pode conceder acesso só de leitura a estes recursos sem partilha a chave de conta e, sem necessidade de uma assinatura de acesso partilhado (SAS).
@@ -148,7 +142,7 @@ Mostra o seguinte tabela que operações podem ser chamadas por utilizadores an�
 | Obter intervalos de página |Todos |Todos |
 | Blob de acréscimo |Apenas o proprietário |Apenas o proprietário |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Autenticação para os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Utilizar assinaturas de acesso partilhado (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

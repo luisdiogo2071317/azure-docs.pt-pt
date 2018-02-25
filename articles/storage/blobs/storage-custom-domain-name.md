@@ -2,23 +2,17 @@
 title: "Configurar um nome de domínio personalizado para o ponto final de armazenamento de Blobs do Azure | Microsoft Docs"
 description: "Utilize o portal do Azure para mapear o seus próprios nome canónico (CNAME) para o ponto final de armazenamento de BLOBs numa conta do Storage do Azure."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar um nome de domínio personalizado para o ponto final do Armazenamento de Blobs
 
@@ -32,8 +26,8 @@ A tabela seguinte mostra alguns URLs de exemplo de dados de blob localizados num
 
 | Tipo de Recurso | URL predefinido | URL do domínio personalizado |
 | --- | --- | --- |
-| Conta de armazenamento | http://mystorageaccount.blob.Core.Windows.NET | http://www.contoso.com |
-| Blobs |http://mystorageaccount.blob.Core.Windows.NET/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
+| Conta de armazenamento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
+| Blobs |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Recipiente-raiz | http://mystorageaccount.blob.Core.Windows.NET/myblob ou http://mystorageaccount.blob.core.windows.net/$ raiz/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$ raiz/myblob |
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Direto vs mapeamento intermédios domínio
@@ -160,6 +154,6 @@ Utilize o [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azu
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Mapear um domínio personalizado para um ponto final do Azure rede de entrega conteúdos (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md)

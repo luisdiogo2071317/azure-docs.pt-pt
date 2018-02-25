@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49e367d4bf1ae2e060b77b0259771403c81a56d6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 72c46efdb5ccddde59660d49d323d79de8d87050
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Configurar controladores GPU para VMs N série com o Windows Server
 Para tirar partido das capacidades de GPU de VMs de série N do Azure com o Windows Server 2016 ou o Windows Server 2012 R2, instale controladores de gráficos NVIDIA suportados. Este artigo fornece os passos de configuração de controlador depois de implementar uma VM de série N. As informações de configuração do controlador também estão disponíveis para [VMs com Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -57,10 +57,6 @@ Para consultar o estado do dispositivo para a GPU, execute o [nvidia smi](https:
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
 Conectividade de rede RDMA, pode ser ativada em série N VMs o RDMA ativado como NC24r implementadas no mesmo conjunto de disponibilidade. Tem de adicionar a extensão de HpcVmDrivers para instalar controladores de dispositivos de rede do Windows que ativar a conetividade RDMA. Para adicionar a extensão VM para uma VM de série N com capacidade RDMA, utilize [Azure PowerShell](/powershell/azure/overview) cmdlets do Azure Resource Manager.
-
-> [!NOTE]
-> Atualmente, apenas o Windows Server 2012 R2 suporta a rede RDMA em série N VMs.
-> 
 
 Para instalar a versão mais recente 1.1 HpcVMDrivers extensão numa VM com capacidade RDMA existente com o nome myVM na região EUA oeste:
   ```PowerShell

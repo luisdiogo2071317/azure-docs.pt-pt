@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Resolver problemas de replicação do servidor de VMware/físico no local
 Poderá receber uma mensagem de erro específico ao proteger as máquinas virtuais VMware ou servidores físicos, utilizando o Azure Site Recovery. Este artigo fornece detalhes sobre algumas das mensagens de erro mais comuns encontradas, juntamente com os passos para resolvê-los de resolução de problemas.
@@ -83,11 +83,11 @@ Se não for possível estabelecer ligação, em seguida, verifique se o problema
 
   `*.backup.windowsazure.com:` Utilizado para transferência de dados de replicação e orquestração
 
-  `*.blob.core.windows.net:`Utilizado para acesso à conta de armazenamento que armazena os dados replicados
+  `*.blob.core.windows.net:` Utilizado para acesso à conta de armazenamento que armazena os dados replicados
 
   `*.hypervrecoverymanager.windowsazure.com:` Utilizado para operações e gestão de replicação e orquestração
 
-  `time.nist.gov`e `time.windows.com`: utilizado para verificar a sincronização de hora entre o sistema e a hora global.
+  `time.nist.gov` e `time.windows.com`: utilizado para verificar a sincronização de hora entre o sistema e a hora global.
 
 URLs para **Cloud do Azure Government**:
 
@@ -115,5 +115,5 @@ Abra-o e clique na ação > alterar propriedades. No separador de configuração
 
 * **Verifique se a largura de banda de limitação não é restrita no servidor de processos**: aumentar a largura de banda e verifique se o problema ainda existe.
 
-##<a name="next-steps"></a>Passos seguintes
+##<a name="next-steps"></a>Passos Seguintes
 Se precisar de mais ajuda, em seguida, publicar a sua consulta [fórum do Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Temos uma Comunidade de Active Directory e um dos nossos engenheiros conseguirá ajudá-lo.

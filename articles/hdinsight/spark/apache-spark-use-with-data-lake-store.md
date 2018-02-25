@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 5a4c7d944577685182240a24c522db4542c09fc2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6e44ffc26bbb618e0ff14d412ed77e4827232b42
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Utilizar um cluster do Spark do HDInsight para analisar dados no Data Lake Store
 
@@ -136,7 +136,7 @@ Se tiver criado um cluster do HDInsight com o Data Lake Store como armazenamento
 8. Depois de terminar a execução da aplicação, deve encerrar o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Deste modo, o bloco de notas é encerrado e fechado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar uma aplicação de Scala para ser executada no cluster do Apache Spark de autónoma](apache-spark-create-standalone-application.md)
 * [Utilizar as ferramentas do HDInsight no Toolkit do Azure para o IntelliJ para criar Spark aplicações para o cluster do HDInsight Spark Linux](apache-spark-intellij-tool-plugin.md)

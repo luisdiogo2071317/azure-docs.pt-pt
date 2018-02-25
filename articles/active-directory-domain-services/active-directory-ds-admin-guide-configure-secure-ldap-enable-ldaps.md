@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar segura LDAP (LDAPS) para um domínio gerido dos serviços de domínio do Azure AD
 
@@ -113,7 +113,6 @@ A tabela seguinte ilustra um exemplo NSG, pode configurar, para bloquear o acess
 ## <a name="troubleshooting"></a>Resolução de problemas
 Se tiver problemas de ligação ao domínio gerido utilizando LDAP segura, execute os seguintes passos de resolução de problemas:
 * Certifique-se de que a cadeia de emissor do certificado LDAP seguro é considerado fidedigno no cliente. Pode optar por adicionar a autoridade de certificação de raiz para o arquivo de certificados de raiz fidedigna no cliente para estabelecer a fidedignidade.
-* Certifique-se de que o certificado LDAP seguro não é emitido por uma autoridade de certificação intermediárias que não é fidedigno por predefinição num computador windows raiz.
 * Certifique-se de que o cliente LDAP (por exemplo, ldp.exe) liga-se para o ponto final LDAP seguro com um nome DNS, não é o endereço IP.
 * Verifique o nome DNS, que o cliente LDAP liga ao seja resolvido para o endereço IP público para o LDAP seguro no domínio gerido.
 * Certifique-se de que o certificado LDAP seguro para o seu domínio gerido tem o nome DNS no assunto ou o atributo de nomes de alternativo do requerente.

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b6275cee87455bf8a226a51a6b2093b67c3159d0
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6c4e29a9d7976f5f18d3cf825b22cdef04c0c16d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte de implementação do docker Compose no Service Fabric do Azure (pré-visualização)
 
@@ -45,7 +45,7 @@ Crie uma implementação compor de recursos de infraestrutura de serviço a part
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName`e `RegistryPassword` palavra-passe e do nome de utilizador de registo de contentor. Após concluir a implementação, pode verificar o estado do mesmo utilizando o seguinte comando:
+`RegistryUserName` e `RegistryPassword` palavra-passe e do nome de utilizador de registo de contentor. Após concluir a implementação, pode verificar o estado do mesmo utilizando o seguinte comando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp

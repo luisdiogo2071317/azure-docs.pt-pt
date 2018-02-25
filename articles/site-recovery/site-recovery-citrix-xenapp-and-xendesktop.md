@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 02/22/2018
 ms.author: ponatara
-ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implementação de várias camada Citrix XenApp e XenDesktop utilizando o Azure Site Recovery
 
@@ -60,7 +60,7 @@ Para efeitos deste artigo, Citrix implementações em máquinas virtuais VMware 
 
 ### <a name="source-and-target"></a>A origem e destino
 
-**Cenário** | **Para um site secundário** | **Para o Azure**
+Cenário | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
 **Hyper-V** | Não está no âmbito | Sim
 **VMware** | Não está no âmbito | Sim
@@ -195,6 +195,6 @@ Siga [esta orientação](site-recovery-test-failover-to-azure.md) para efetuar u
 
 Siga [esta orientação](site-recovery-failover.md) quando estão a fazer uma ativação pós-falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode [mais](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre implementações de Citrix XenApp e XenDesktop neste documento em branco a replicar. Observe as orientações para [replicar outras aplicações](site-recovery-workload.md) utilizando a recuperação de sites.

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: fc98bdd8b3597810b0c07563af507e93c611f769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc5e81ff7e5466d258624cee80c520c848bd60fa
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planeamento da capacidade para aplicações de Service Fabric
 Este documento informa como estimar a quantidade de recursos (CPU, RAM, armazenamento de disco), que tem de executar as aplicações do Azure Service Fabric. É comum para os seus requisitos de recursos alterar o ao longo do tempo. Normalmente, é necessário alguns recursos à medida que o serviço de desenvolve/teste e, em seguida, requerem mais recursos, vá para a produção e a sua aplicação cresce no popularidade. Quando criar uma aplicação, analisar os requisitos de longa duração e efetue as opções que permitem que o serviço de dimensionamento para satisfazer o pedido de cliente elevado.
@@ -58,7 +58,7 @@ Agora, com base em todas estas informações, a folha de cálculo mostra que fis
 
 ![Folha de cálculo de cálculo do custo][Image1]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Veja [serviços de criação de partições de Service Fabric] [ 10] para saber mais sobre o serviço de criação de partições.
 
 <!--Image references-->

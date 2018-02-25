@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -127,6 +127,8 @@ Tem a opção de utilizar [controlo de acesso baseado em funções (RBAC)] [ rba
 ## <a name="limitations"></a>Limitações
 
 Para a base de dados SQL do Azure, a funcionalidade de regras de rede virtual tem as seguintes limitações:
+
+- Uma aplicação Web pode ser mapeada para um IP privado na sub-rede/VNet. Mesmo se os pontos finais de serviço são ativados da VNet/sub-rede especificada, ligações a partir da aplicação Web para o servidor tem uma origem de IP pública do Azure, não uma origem de VNet/sub-rede. Para ativar a conetividade de uma aplicação Web para um servidor que tem regras de firewall de VNet, deve **permitir todos os serviços do Azure** no servidor.
 
 - Na firewall para a base de dados do SQL Server, cada regra de rede virtual faz referência a uma sub-rede. Estas sub-redes referenciadas tem de estar alojadas na mesma região geográfica que aloja a base de dados do SQL Server.
 
