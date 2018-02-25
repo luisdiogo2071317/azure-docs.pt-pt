@@ -3,8 +3,8 @@ title: "O que é o Azure Stack? | Microsoft Docs"
 description: "Pilha do Azure permite-lhe executar serviços do Azure no seu centro de dados."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 950ba44c0b7eb80c9b0a3c69a9fca03cd244576d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d1e1752f934e61bbb60c0c934a80b564896a36
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="what-is-azure-stack"></a>O que é o Azure Stack?
 
@@ -36,7 +37,7 @@ Kit de desenvolvimento de pilha do Azure tem as seguintes limitações:
 * Com todos os componentes implementados num único computador, existem limitados recursos físicos disponíveis para os recursos de inquilino. Esta configuração não se destina a avaliação de escala ou desempenho.
 * Cenários de redes estão limitados devido ao requisito de anfitrião único/NIC.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Funcionalidades e conceitos principais](azure-stack-key-features.md)
 
 [Pilha do Azure: Uma extensão do Azure (pdf)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/)
