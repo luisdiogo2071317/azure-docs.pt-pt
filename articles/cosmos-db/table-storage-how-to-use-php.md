@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o table storage do PHP | Microsoft Docs
-description: "Saiba como utilizar o serviço de tabela do PHP para criar e eliminar uma tabela e inserir, eliminar e consultar a tabela."
+title: "Como utilizar o serviço tabela de armazenamento do Azure ou a API de tabela do Azure Cosmos DB de PHP | Microsoft Docs"
+description: "Saiba como utilizar a API do serviço de tabela do PHP para criar e eliminar uma tabela e inserir, eliminar e consultar a tabela."
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -12,83 +12,114 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 7fa82875ba823f1a4a9a886d4f699ca6757c3a3b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4965247d77e8a3a9f5dbaa2e70952993b4bdf4ff
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="how-to-use-azure-table-storage-from-php"></a>Como utilizar o Table storage do Azure do PHP
+# <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Como utilizar o serviço tabela de armazenamento do Azure ou a API de tabela do Cosmos BD do PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia mostra como efetuar cenários comuns utilizando o serviço de Azure Table. Os exemplos são escritos no PHP e a utilização de [Azure SDK para PHP][download]. Os cenários abrangidos incluem **criar e eliminar uma tabela e inserir, eliminar e consultar entidades numa tabela**. Para obter mais informações sobre o serviço de tabelas do Azure, consulte o [passos](#next-steps) secção.
+Este guia mostra como efetuar cenários comuns utilizando o serviço de tabela de armazenamento do Azure e a API de tabela de base de dados do Azure Cosmos. Os exemplos são escritos no PHP e a utilização de [Azure SDK para PHP][download]. Os cenários abrangidos incluem **criar e eliminar uma tabela**, e **inserir, eliminar e consultar entidades numa tabela**. Para obter mais informações sobre o serviço de tabelas do Azure, consulte o [passos](#next-steps) secção.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
+
+Pode trabalhar com tabelas utilizando o Table storage do Azure ou a API de tabela de base de dados do Azure Cosmos. Pode saber mais sobre as diferenças entre os serviços ao ler [tabela ofertas](table-introduction.md#table-offerings). Terá de criar uma conta para o serviço que vai utilizar. 
+
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
+
+É a forma mais fácil para criar a primeira conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com). Para saber mais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
+Também pode criar uma conta de armazenamento utilizando [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) ou [CLI do Azure](../storage/common/storage-azure-cli.md).
+
+Se preferir não criar uma conta de armazenamento neste momento, também pode utilizar o emulador de armazenamento do Azure para executar e testar o seu código num ambiente local. Para obter mais informações, veja [Utilizar o emulador de armazenamento do Azure para programação e teste](../storage/common/storage-use-emulator.md).
+
+### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
+
+Para obter instruções sobre como criar uma conta de base de dados do Azure Cosmos, consulte [criar uma conta de API de tabela](create-table-dotnet.md#create-a-database-account).
 
 ## <a name="create-a-php-application"></a>Criar uma aplicação PHP
-O único requisito para criar uma aplicação PHP que acede ao serviço de tabelas do Azure está a referenciar de classes no Azure SDK para PHP de dentro do seu código. Pode utilizar as ferramentas de desenvolvimento para criar a sua aplicação, incluindo o bloco de notas.
 
-Neste guia, pode utiliza as funcionalidades do serviço de tabela que podem ser chamadas de dentro de uma aplicação PHP localmente, ou no código em execução dentro de uma função da web do Azure, a função de trabalho ou o Web site.
+É o único requisito para criar uma aplicação PHP para aceder ao serviço tabela de armazenamento ou a API de tabela de base de dados do Azure Cosmos referenciar classes na tabela de armazenamento do azure SDK para PHP a partir de dentro do seu código. Pode utilizar as ferramentas de desenvolvimento para criar a sua aplicação, incluindo o bloco de notas.
 
-## <a name="get-the-azure-client-libraries"></a>Obtenha as bibliotecas de cliente do Azure
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+Neste guia, utiliza o serviço de tabela de armazenamento ou as funcionalidades de base de dados do Azure Cosmos que podem ser chamadas de dentro de uma aplicação PHP localmente, ou no código em execução dentro de uma função da web do Azure, a função de trabalho ou o Web site.
 
-## <a name="configure-your-application-to-access-the-table-service"></a>Configurar a sua aplicação para aceder ao serviço tabela
-Para utilizar as APIs do serviço de tabelas do Azure, tem de:
+## <a name="get-the-client-library"></a>Obter a biblioteca de clientes
 
-1. Referenciar o ficheiro do Carregador automático utilizando o [require_once] [ require_once] declaração, e
-2. Referência a quaisquer classes que poderá utilizar.
+1. Crie um ficheiro denominado Composer na raiz do projeto e adicione o seguinte código:
+```json
+{
+  "require": {
+    "microsoft/azure-storage-table": "*"
+  }
+}
+```
+2. Transferir [composer.phar](http://getcomposer.org/composer.phar) na sua raiz. 
+3. Abra uma linha de comandos e execute o seguinte comando na raiz do projeto:
+```
+php composer.phar install
+```
+Em alternativa, vá para o [biblioteca de clientes do PHP do Azure Storage tabela](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) no GitHub para clonar o código de origem.
 
-O exemplo seguinte mostra como inclui o Carregador automático ficheiros e a referência a **ServicesBuilder** classe.
 
-> [!NOTE]
-> Os exemplos deste artigo partem do princípio de que instalou as bibliotecas de cliente do PHP do Azure através do compositor. Se tiver instalado as bibliotecas manualmente, tem de referenciar o <code>WindowsAzure.php</code> Carregador automático ficheiros.
->
->
+## <a name="add-required-references"></a>Adicione referências necessárias
+Para utilizar o serviço tabela de armazenamento ou APIs de BD do Cosmos do Azure, tem de:
+
+* Referenciar o ficheiro do Carregador automático utilizando o [require_once] [ require_once] declaração, e
+* Referência a todas as classes que utiliza.
+
+O exemplo seguinte mostra como inclui o Carregador automático ficheiros e a referência a **TableRestProxy** classe.
 
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 ```
 
 Nos exemplos abaixo, o `require_once` instrução sempre é apresentada, mas apenas as classes de necessárias para o exemplo para executar são referenciadas.
 
-## <a name="set-up-an-azure-storage-connection"></a>Configurar uma ligação de armazenamento do Azure
-Ao instanciar um cliente do serviço de tabelas do Azure, primeiro tem de ter uma cadeia de ligação válido. O formato da cadeia de ligação de serviço tabela é:
-
-Para aceder a um serviço em direto:
+## <a name="add-a-storage-table-service-connection"></a>Adicionar uma ligação de serviço tabela de armazenamento
+Ao instanciar um cliente do serviço tabela de armazenamento, primeiro tem de ter uma cadeia de ligação válido. O formato da cadeia de ligação de serviço tabela de armazenamento é:
 
 ```php
-DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-Para aceder ao armazenamento emulador:
+## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação de base de dados do Azure Cosmos
+Ao instanciar um cliente de tabelas de base de dados do Cosmos do Azure, primeiro tem de ter uma cadeia de ligação válido. O formato de cadeia de ligação de base de dados do Azure Cosmos está:
 
 ```php
-UseDevelopmentStorage=true
+$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
-Para criar qualquer cliente de serviço do Azure, tem de utilizar o **ServicesBuilder** classe. Pode:
+## <a name="add-a-storage-emulator-connection"></a>Adicionar uma ligação de emulador de armazenamento
+Aceder ao armazenamento de emulador:
+
+```php
+UseDevelopmentStorage = true
+```
+
+Para criar um cliente do serviço de Azure Table ou a base de dados do Azure Cosmos cliente, terá de utilizar o **TableRestProxy** classe. Pode:
 
 * passar a cadeia de ligação direta ou
 * Utilize o **CloudConfigurationManager (CCM)** para verificar a várias origens externas para a cadeia de ligação:
-  * Por predefinição, este inclui suporte para uma origem externa - variáveis de ambientais
-  * Pode adicionar novas origens ao alargar o **ConnectionStringSource** classe
+  * Por predefinição, este inclui suporte para uma origem externa - variáveis de ambientais.
+  * Pode adicionar novas origens ao alargar o `ConnectionStringSource` classe.
 
-Para os exemplos aqui descritos, a cadeia de ligação irá ser transmitida diretamente.
+Para os exemplos aqui descritos, a cadeia de ligação é transmitida diretamente.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## <a name="create-a-table"></a>Criar uma tabela
@@ -97,22 +128,22 @@ A **TableRestProxy** objeto permite-lhe criar uma tabela com o **createTable** m
 ```php
 require_once 'vendor\autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
-// Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+// Create Table REST proxy.
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 try    {
     // Create table.
-    $tableRestProxy->createTable("mytable");
+    $tableClient->createTable("mytable");
 }
 catch(ServiceException $e){
     $code = $e->getCode();
     $error_message = $e->getMessage();
     // Handle exception based on error codes and messages.
     // Error codes and messages can be found here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
 }
 ```
 
@@ -124,13 +155,13 @@ Para adicionar uma entidade a uma tabela, crie um novo **entidade** de objeto e 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 $entity = new Entity();
 $entity->setPartitionKey("tasksSeattle");
@@ -142,12 +173,12 @@ $entity->addProperty("DueDate",
 $entity->addProperty("Location", EdmType::STRING, "Home");
 
 try{
-    $tableRestProxy->insertEntity("mytable", $entity);
+    $tableClient->insertEntity("mytable", $entity);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
 }
@@ -155,18 +186,18 @@ catch(ServiceException $e){
 
 Para obter informações sobre as propriedades de tabela e tipos, consulte [compreender o modelo de dados do serviço tabela][table-data-model].
 
-O **TableRestProxy** classe fornece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para utilizar estes métodos, crie um novo **entidade** e transmita-o como um parâmetro para cada método. Cada método de inserir a entidade se não existir. Se a entidade já existir, **insertOrMergeEntity** atualiza os valores de propriedade se as propriedades já existem e adiciona novas propriedades se não existir, enquanto **insertOrReplaceEntity** completamente substitui uma entidade existente. O exemplo seguinte mostra como utilizar **insertOrMergeEntity**. Se a entidade com `PartitionKey` "tasksSeattle" e `RowKey` "1" ainda não existir, será inserido. No entanto, se anteriormente tiver sido introduzida (conforme ilustrado no exemplo acima), o `DueDate` propriedade será atualizada e o `Status` propriedade será adicionada. O `Description` e `Location` propriedades também são atualizadas, mas com valores que efetivamente deixe-os inalterado. Se estas duas propriedades última não foram adicionadas, conforme mostrado no exemplo, mas existiam na entidade de destino, os respetivos valores existentes permanecerá inalterados.
+O **TableRestProxy** classe fornece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para utilizar estes métodos, crie um novo **entidade** e transmita-o como um parâmetro para cada método. Cada método de inserir a entidade se não existir. Se a entidade já existir, **insertOrMergeEntity** atualiza os valores de propriedade se as propriedades já existem e adiciona novas propriedades se não existir, enquanto **insertOrReplaceEntity** completamente substitui uma entidade existente. O exemplo seguinte mostra como utilizar **insertOrMergeEntity**. Se a entidade com `PartitionKey` "tasksSeattle" e `RowKey` "1" ainda não existir, será inserido. No entanto, se anteriormente tiver sido introduzida (conforme ilustrado no exemplo acima), o `DueDate` propriedade é atualizada e o `Status` propriedade é adicionada. O `Description` e `Location` propriedades também são atualizadas, mas com valores que efetivamente deixe-os inalterado. Se estas duas propriedades última não foram adicionadas, conforme mostrado no exemplo, mas existiam na entidade de destino, os respetivos valores existentes permanecerá inalterados.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 //Create new entity.
 $entity = new Entity();
@@ -185,12 +216,12 @@ $entity->addProperty("Status", EdmType::STRING, "Complete"); // Added Status fie
 try    {
     // Calling insertOrReplaceEntity, instead of insertOrMergeEntity as shown,
     // would simply replace the entity with PartitionKey "tasksSeattle" and RowKey "1".
-    $tableRestProxy->insertOrMergeEntity("mytable", $entity);
+    $tableClient->insertOrMergeEntity("mytable", $entity);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -203,19 +234,19 @@ O **TableRestProxy -> getEntity** método permite-lhe obter uma entidade única 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 try    {
-    $result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
+    $result = $tableClient->getEntity("mytable", "tasksSeattle", 1);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -232,21 +263,21 @@ Consultas de entidade são construídas utilizando filtros (para obter mais info
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 $filter = "PartitionKey eq 'tasksSeattle'";
 
 try    {
-    $result = $tableRestProxy->queryEntities("mytable", $filter);
+    $result = $tableClient->queryEntities("mytable", $filter);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -265,21 +296,21 @@ O mesmo padrão utilizado no exemplo anterior, pode ser utilizado para obter qua
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 $filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
 
 try    {
-    $result = $tableRestProxy->queryEntities("mytable", $filter);
+    $result = $tableClient->queryEntities("mytable", $filter);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -293,28 +324,28 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Obter um subconjunto de propriedades de entidade
-Uma consulta pode obter um subconjunto de propriedades de entidade. Esta técnica, denominada *projecção*, reduz a largura de banda e pode melhorar o desempenho de consulta, especialmente para entidades grandes. Para especificar uma propriedade a recuperar, transmitir o nome da propriedade para o **consulta -> addSelectField** método. Pode chamar este método várias vezes para adicionar propriedades. Depois de executar **TableRestProxy -> queryEntities**, as entidades devolvidas só terão das propriedades selecionadas. (Se pretender regressar um subconjunto de entidades de tabela, utilize um filtro conforme mostrado nas consultas acima.)
+Uma consulta pode obter um subconjunto de propriedades de entidade. Esta técnica, denominada *projecção*, reduz a largura de banda e pode melhorar o desempenho de consulta, especialmente para entidades grandes. Para especificar uma propriedade para obter, transmitir o nome da propriedade para o **consulta -> addSelectField** método. Pode chamar este método várias vezes para adicionar propriedades. Depois de executar **TableRestProxy -> queryEntities**, as entidades devolvidas só terão das propriedades selecionadas. (Se pretender regressar um subconjunto de entidades de tabela, utilize um filtro conforme mostrado nas consultas acima.)
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 $options = new QueryEntitiesOptions();
 $options->addSelectField("Description");
 
 try    {
-    $result = $tableRestProxy->queryEntities("mytable", $options);
+    $result = $tableClient->queryEntities("mytable", $options);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -332,36 +363,33 @@ foreach($entities as $entity){
 ```
 
 ## <a name="update-an-entity"></a>Atualizar uma entidade
-Uma entidade existente pode ser atualizada utilizando o **entidade -> setProperty** e **entidade -> addProperty** métodos na entidade e, em seguida, chamar **TableRestProxy -> updateEntity**. O exemplo seguinte obtém uma entidade, modifica uma propriedade, remove outra propriedade e adiciona uma nova propriedade. Tenha em atenção que pode remover uma propriedade, definindo o valor como **nulo**.
+Pode atualizar uma entidade existente ao utilizar o **entidade -> setProperty** e **entidade -> addProperty** métodos na entidade e, em seguida, chamar **TableRestProxy -> updateEntity**. O exemplo seguinte obtém uma entidade, modifica uma propriedade, remove outra propriedade e adiciona uma nova propriedade. Tenha em atenção que pode remover uma propriedade, definindo o valor como **nulo**.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
-$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
+$result = $tableClient->getEntity("mytable", "tasksSeattle", 1);
 
 $entity = $result->getEntity();
-
 $entity->setPropertyValue("DueDate", new DateTime()); //Modified DueDate.
-
 $entity->setPropertyValue("Location", null); //Removed Location.
-
 $entity->addProperty("Status", EdmType::STRING, "In progress"); //Added Status.
 
 try    {
-    $tableRestProxy->updateEntity("mytable", $entity);
+    $tableClient->updateEntity("mytable", $entity);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -374,27 +402,27 @@ Para eliminar uma entidade, transmitir o nome da tabela e a entidade `PartitionK
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 try    {
     // Delete entity.
-    $tableRestProxy->deleteEntity("mytable", "tasksSeattle", "2");
+    $tableClient->deleteEntity("mytable", "tasksSeattle", "2");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
 }
 ```
 
-Tenha em atenção para verificações de simultaneidade, pode definir Etag de uma entidade eliminada utilizando o **DeleteEntityOptions -> setEtag** método e transmitir o **DeleteEntityOptions** object **deleteEntity** como um parâmetro quarto.
+Para verificações de simultaneidade, pode definir Etag de uma entidade eliminada utilizando o **DeleteEntityOptions -> setEtag** método e transmitir o **DeleteEntityOptions** object  **deleteEntity** como um parâmetro quarto.
 
 ## <a name="batch-table-operations"></a>Operações de tabela do batch
 O **TableRestProxy -> batch** método permite-lhe executar várias operações num único pedido. O padrão aqui envolve adicionar operações a **BatchRequest** objeto e, em seguida, transmitir o **BatchRequest** de objeto para o **TableRestProxy -> batch** método. Para adicionar uma operação para um **BatchRequest** objeto, pode chamar qualquer um dos seguintes métodos várias vezes:
@@ -406,19 +434,25 @@ O **TableRestProxy -> batch** método permite-lhe executar várias operações n
 * **addInsertOrMergeEntity** (adiciona uma operação insertOrMergeEntity)
 * **addDeleteEntity** (adiciona uma operação deleteEntity)
 
-O exemplo seguinte mostra como executar **insertEntity** e **deleteEntity** operações num único pedido:
+O exemplo seguinte mostra como executar **insertEntity** e **deleteEntity** operações num único pedido. 
+
+> [!NOTE]
+> BD do Azure do Cosmos ainda não suporta operações de batch de tabelas. 
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\BatchOperations;
 
-    // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+// Configure a connection string for Storage Table service.
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
+
+// Create table REST proxy.
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 // Create list of batch operation.
 $operations = new BatchOperations();
@@ -439,12 +473,12 @@ $operations->addInsertEntity("mytable", $entity1);
 $operations->addDeleteEntity("mytable", "tasksSeattle", "1");
 
 try    {
-    $tableRestProxy->batch($operations);
+    $tableClient->batch($operations);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -459,20 +493,20 @@ Por fim, para eliminar uma tabela, transmitir o nome de tabela para o **TableRes
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Table\TableRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$tableClient = TableRestProxy::createTableService($connectionString);
 
 try    {
     // Delete table.
-    $tableRestProxy->deleteTable("mytable");
+    $tableClient->deleteTable("mytable");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+    // https://docs.microsoft.com/rest/api/storageservices/Table-Service-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -480,16 +514,16 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas do serviço tabela do Azure, siga estas ligações para saber mais sobre as tarefas de armazenamento mais complexas.
+Agora que aprendeu as noções básicas do serviço de tabelas do Azure e Azure Cosmos DB, siga estas ligações para saber mais.
 
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
 * [Centro para programadores do PHP](/develop/php/).
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: http://php.net/require_once
-[table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
+[table-service-timeouts]: https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations
 
-[table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
-[filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
-[entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+[table-data-model]: https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model
+[filters]: https://docs.microsoft.com/rest/api/storageservices/Querying-Tables-and-Entities
+[entity-group-transactions]: https://docs.microsoft.com/rest/api/storageservices/Performing-Entity-Group-Transactions

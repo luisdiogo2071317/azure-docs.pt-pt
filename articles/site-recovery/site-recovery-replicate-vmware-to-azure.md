@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/29/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 028aa0f23c3a7c98c4801d9e306c5dcfa35aab80
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replicar as aplicações em execução em máquinas virtuais VMware para Azure
 
@@ -50,7 +50,7 @@ Quando replicar máquinas virtuais VMware:
 1. Clique em **Passo 2: Replicar aplicação** > **Origem**. Depois de ativar a replicação pela primeira vez, clique em **+Replicar**, no cofre, para ativar a replicação em máquinas adicionais.
 2. No **origem** página > **origem**, selecione o servidor de configuração.
 3. No **máquina tipo**, selecione **máquinas virtuais** ou **máquinas físicas**.
-4. No **vCenter/vSphere hipervisor**, selecione o servidor vCenter que gere o anfitrião do Vcenter ou selecione o anfitrião. Esta definição não é relevante se estiver a replicar máquinas físicas.
+4. Em **vCenter/vSphere Hypervisor**, selecione o servidor vCenter que gere o anfitrião vSphere ou selecione o anfitrião. Esta definição não é relevante se estiver a replicar máquinas físicas.
 5. Selecione o servidor de processos, que será o nome do servidor de configuração se ainda não criou quaisquer servidores de processos adicionais. Em seguida, clique em **OK**.
 
     ![Ativar a origem de replicação](./media/site-recovery-vmware-to-azure/enable-replication2.png)
@@ -84,7 +84,7 @@ Quando replicar máquinas virtuais VMware:
     >    * Reunir VMs e servidores físicos, para que estes espelhar as cargas de trabalho. Ativar a consistência de várias VMS pode afetar o desempenho da carga de trabalho. Utilize apenas se máquinas a executar a mesma carga de trabalho e necessitar de consistência.
 
     ![Ativar a replicação](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-14. Clique em **ativar a replicação**. Pode controlar o progresso do **ativar proteção** da tarefa no **definições** > **tarefas** > **tarefas de recuperação de Site**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
+14. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
 > [!NOTE]
 > Se a máquina está preparada para a instalação de push, o componente de serviço de mobilidade é instalado quando a proteção está ativada. Depois do componente está instalado no computador, uma tarefa de proteção é iniciado e falha. Após a falha, terá de reiniciar manualmente cada máquina. Após o reinício, a tarefa de proteção começa novamente e ocorre a replicação inicial.
@@ -119,7 +119,7 @@ Em seguida, verifique as propriedades da máquina de origem. Lembre-se de que o 
     Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino suporta quatro, a máquina de destino tem dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino só suporta um, o computador de destino tem apenas um adaptador.
     - Se a máquina virtual tem vários adaptadores de rede, todos os ligam à mesma rede. Além disso, o primeiro um mostrado na lista torna-se a *predefinido* adaptador de rede na máquina virtual do Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Benefício de utilização de híbridos do Azure
+### <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
 
 Os clientes do Software Assurance da Microsoft podem utilizar a vantagem de utilizar híbrida do Azure para guardar no licenciamento de custos para máquinas de Windows Server que são migradas para o Azure ou para utilizar o Azure para recuperação após desastre. Se estiver elegível para utilizar o Azure híbrida utilizar beneficiar, pode especificar que a máquina virtual atribuída desta vantagem é um que Azure Site Recovery cria se houver uma ativação pós-falha. Para efetuar este procedimento:
 - Aceda à secção de propriedades de computação e rede da máquina virtual replicada.
@@ -135,7 +135,7 @@ Saiba mais sobre [benefício de utilização do Azure híbrida](https://aka.ms/a
 * O disco de SO deve ser um disco básico e não um disco dinâmico.
 * Para 2/UEFI-ativa máquinas virtuais de geração, a família do sistema operativo deve ser o Windows e o disco de arranque deve ser inferior a 300 GB.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois da proteção está concluída e a máquina atingiu um estado protegido, pode tentar uma [ativação pós-falha](site-recovery-failover.md) para verificar se a aplicação é apresentada no Azure ou não.
 

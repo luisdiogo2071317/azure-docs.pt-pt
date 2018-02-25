@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 02/22/2018
 ms.author: krnese
-ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: eb837858fe81fa1f2d4966051bd4b7b068defe8b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implementar o serviço de mobilidade com Automation DSC do Azure para a replicação de VM
 No Operations Management Suite, fornecemos-lhe com uma cópia de segurança completa e a solução de recuperação de desastre pode utilizar como parte do seu plano de continuidade do negócio.
@@ -66,7 +66,7 @@ O serviço de mobilidade pode ser instalado através da linha de comandos e acei
 ## <a name="step-1-extract-binaries"></a>Passo 1: Os binários extrair
 1. Para extrair os ficheiros que sejam necessárias para esta configuração, navegue para o diretório no servidor de gestão seguinte:
 
-    **\Microsoft Recovery\home\svsystems\pushinstallsvc\repository de sites do azure**
+    **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
     Nesta pasta, deverá ver um ficheiro MSI designado:
 
@@ -508,5 +508,5 @@ $RGDeployArgs = @{
 New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de implementar os agentes do serviço de mobilidade, pode [ativar a replicação](site-recovery-vmware-to-azure.md) para as máquinas virtuais.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Registo de alertas no Monitor do Azure - alertas (pré-visualização)
 Este artigo fornece detalhes de regras de alerta como em projetos de consultas de análise nos alertas do Azure (pré-visualização) e descreve as diferenças entre os diferentes tipos de regras de alerta de registo.
@@ -27,11 +27,20 @@ Atualmente alertas do Azure (pré-visualização), suporta registar alertas em c
 
 > [!WARNING]
 
-> Atualmente, os alertas de registo nos alertas do Azure (pré-visualização) não suporta consultas de área de trabalho em vários locais ou em várias aplicações.
+> Atualmente, o alerta de registo nos alertas do Azure (pré-visualização) não suporta consultas de área de trabalho em vários locais ou em várias aplicações.
+
+Além disso, os utilizadores podem perfect as consultas na plataforma de análise escolhidas no Azure e, em seguida, *importá-los para utilização nos alertas (pré-visualização) ao guardar a consulta*. Passos a seguir:
+- Para o Application Insights: Portal da análise de preferida, validar a consulta e os respetivos resultados. Em seguida, guarde com nome exclusivo para *consultas partilhadas*.
+- Para análise de registos: Aceda a pesquisa de registo, validar a consulta e os respetivos resultados. Utilize, em seguida, guarde com nome exclusivo para qualquer categoria.
+
+Em seguida, quando [criar um alerta de registo em alertas (pré-visualização)](monitor-alerts-unified-usage.md), consulte consulta guardada listada como tipo de sinal **registo (consulta guardada)**; conforme ilustrado no exemplo abaixo: ![consulta guardada importado para alertas](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> Utilizar **registo (consulta guardada)** resulta na importação a alertas. Por conseguinte, quaisquer alterações efetuadas após em análise não serão possível reflective em regras de alerta guardadas e vice-versa.
 
 ## <a name="log-alert-rules"></a>Regras de alerta de registo
 
-Os alertas são criados pelo alertas do Azure (pré-visualização) automaticamente executar consultas de registo em intervalos regulares.  Se os resultados da consulta registo corresponderem aos critérios específicos, em seguida, é criado um registo de alerta. A regra, em seguida, pode executar automaticamente uma ou mais ações para notificá-lo do alerta ou da invocação do outro processo tal como a execução de runbooks, utilizando proativamente [ação grupos](monitoring-action-groups.md).  Diferentes tipos de regras de alerta utilizam lógica diferente para efetuar esta análise.
+Os alertas são criados pelo alertas do Azure (pré-visualização) automaticamente executar consultas de registo em intervalos regulares.  Se os resultados da consulta registo corresponderem aos critérios específicos, em seguida, é criado um registo de alerta. A regra, em seguida, pode executar automaticamente uma ou mais ações para notificá-lo do alerta ou da invocação do outro processo, como o envio de dados para aplicações externas utilizando proativamente [webhook baseadas em json](monitor-alerts-unified-log-webhook.md)com [ação grupos](monitoring-action-groups.md). Diferentes tipos de regras de alerta utilizam lógica diferente para efetuar esta análise.
 
 Regras de alerta são definidas pelos seguintes detalhes:
 
@@ -47,24 +56,26 @@ Cada regra de alerta no Log Analytics é um dos dois tipos.  Cada um destes tipo
 
 As diferenças entre os tipos de regra de alerta são os seguintes.
 
-- **Número de resultados** regra de alerta cria sempre um tempo de alerta único **medida métrica** regra de alerta cria um alerta para cada objeto que é superior ao limiar.
+- * * Número de regras de alerta de resultados cria sempre um tempo de alerta único **medida métrica** regra de alerta cria um alerta para cada objeto que é superior ao limiar.
 - **Número de resultados** regras de alerta criar um alerta quando o limiar for excedido uma única vez. **Medida de métrica** regras de alertas podem criar um alerta quando o limiar for excedido um determinado número de vezes ao longo de um intervalo de tempo específico.
 
 ## <a name="number-of-results-alert-rules"></a>Número de regras de alerta de resultados
-**Número de resultados** regras de alerta criar um único alerta quando o número de registos devolvidos pela consulta pesquisa excede o limiar especificado.
+**Número de resultados** regras de alerta criar um único alerta quando o número de registos devolvidos pela consulta pesquisa excede o limiar especificado. Este tipo de regra de alerta é ideal para trabalhar com eventos como registos de eventos do Windows, o Syslog, WebApp resposta e registos personalizados.  Poderá pretender criar um alerta quando um evento de erro específico é criado ou quando são criados vários eventos de erro dentro de uma janela de tempo específico.
 
-**Limiar**: O limiar para um **número de resultados** regra de alerta é maior ou menor do que um valor específico.  Se o número de registos devolvidos pela pesquisa de registo corresponde este critério, é criado um alerta.
+**Limiar**: O limiar para um * * número de regras de alerta de resultados é maior ou menor do que um valor específico.  Se o número de registos devolvidos pela pesquisa de registo corresponde este critério, é criado um alerta.
 
-### <a name="scenarios"></a>Cenários
-
-#### <a name="events"></a>Eventos
-Este tipo de regra de alerta é ideal para trabalhar com eventos, tais como registos de eventos do Windows, Syslog, e os registos personalizados.  Poderá pretender criar um alerta quando um evento de erro específico é criado ou quando são criados vários eventos de erro dentro de uma janela de tempo específico.
-
-Para o alerta sobre um único evento, defina o número de resultados para um valor superior a 0 e a frequência e a janela de tempo para cinco minutos.  A consulta que executa cada cinco minutos e procurar a ocorrência de um único evento que foi criada desde a última vez que a consulta foi executada.  Uma frequência de tempo pode atrasar o tempo entre o evento que está a ser recolhidos e o alerta a ser criada.
-
-Algumas aplicações podem iniciar um erro de ocasional necessariamente não deve emitir um alerta.  Por exemplo, a aplicação pode repetir o processo que criou o evento de erro e, em seguida, êxito da próxima vez.  Neste caso, não poderá criar o alerta, a menos que são criados vários eventos dentro de uma janela de tempo específico.  
+Alerta sobre um único evento, defina o número de resultados para maior que 0 e procurar a ocorrência de um único evento que foi criada desde a última vez que a consulta foi executada. Algumas aplicações podem iniciar um erro de ocasional necessariamente não deve emitir um alerta.  Por exemplo, a aplicação pode repetir o processo que criou o evento de erro e, em seguida, êxito da próxima vez.  Neste caso, não poderá criar o alerta, a menos que são criados vários eventos dentro de uma janela de tempo específico.  
 
 Em alguns casos, poderá pretender criar um alerta na ausência de um evento.  Por exemplo, um processo pode registar eventos regulares para indicar que está a funcionar corretamente.  Se não registar um estes eventos dentro de uma janela de tempo específico, deverá ser criado um alerta.  Neste caso, deverá definir o limiar **inferior a 1**.
+
+### <a name="example"></a>Exemplo
+Considere um cenário em que pretende saber quando a aplicação baseada na web fornece uma resposta a utilizadores com o código de 500 (ou seja) erro interno do servidor. Poderá criar uma regra de alerta com os seguintes detalhes:  
+**Consulta:** pedidos | onde resultCode = = "500"<br>
+**Janela de tempo:** 30 minutos<br>
+**Frequência de alerta:** cinco minutos<br>
+**Valor de limiar:** excelente que 0<br>
+
+Em seguida, alerta iria executar a consulta a cada 5 minutos, com 30 minutos de dados - procurar qualquer registo em que o código de resultado foi 500. Se for encontrado um até esse registo, este é acionado o alerta e o acionador de ação configurada.
 
 ## <a name="metric-measurement-alert-rules"></a>Regras de alerta de métrica de medida
 
@@ -74,7 +85,7 @@ Em alguns casos, poderá pretender criar um alerta na ausência de um evento.  P
 
 > [!NOTE]
 
-> Função de agregação na consulta tem de ser chamado/com o nome: AggregatedValue e forneça um valor numérico.
+> Função de agregação na consulta tem de ser chamado/com o nome: AggregatedValue e forneça um valor numérico. 
 
 
 **Campo de grupo**: é criado um registo com um valor de agregados para cada instância deste campo e pode ser gerado um alerta para cada.  Por exemplo, se pretendesse gerar um alerta para cada computador, teria de utilizar **por computador**   
@@ -84,6 +95,8 @@ Em alguns casos, poderá pretender criar um alerta na ausência de um evento.  P
 > Para a medida métrica regras de alertas que são baseadas no Application Insights, pode especificar o campo para agrupar os dados. Para tal, utilize o **agregado no** opção na definição da regra.   
 
 **Intervalo**: define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se tiver especificado **cinco minutos**, seria possível criar um registo para cada instância do campo Grupo agregada em intervalos de 5 minutos durante a janela de tempo especificada para o alerta.
+> [!NOTE]
+> Função de Reciclagem tem de ser utilizada na consulta. Também se intervalos de tempo unequal são produzidos de janela de tempo através da utilização da função de reciclagem - alerta em vez disso, utilizará bin_at função em vez disso, para garantir que não há um ponto de fixo
 
 **Limiar**: O limiar para regras de alerta de métrica de medida é definido por um valor de agregação e um número de violações.  Se qualquer ponto de dados na pesquisa de registo exceder este valor, tem considerado uma violação.  Se o número de falhas para qualquer objeto no resultado excede o valor especificado, é criado um alerta para esse objeto.
 
@@ -104,6 +117,8 @@ Neste exemplo, seriam possível criar alertas separadas para srv02 e srv03, uma 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
+* Compreender [ações de Webhook para alertas de registo](monitor-alerts-unified-log-webhook.md)
 * [Obter uma descrição geral dos alertas do Azure (pré-visualização)](monitoring-overview-unified-alerts.md)
 * Saiba mais sobre [através de alertas do Azure (pré-visualização)](monitor-alerts-unified-usage.md)
+* Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md)
 * Saiba mais sobre [Log Analytics](../log-analytics/log-analytics-overview.md).    

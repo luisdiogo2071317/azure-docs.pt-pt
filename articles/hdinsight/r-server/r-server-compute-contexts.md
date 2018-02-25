@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>As opções de contexto para o servidor R no HDInsight de computação
 
 Microsoft R Server no Azure HDInsight controla a forma como as chamadas são executadas ao definir o contexto de computação. Este artigo descreve as opções disponíveis especificar se e como a execução é paralelizada por núcleos do nó de extremidade ou cluster do HDInsight.
 
-O nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e executar os scripts de R. Com um nó de extremidade, tem a opção de executar as funções distribuídas parallelized do ScaleR em todos os núcleos do servidor edge nó. Também pode executá-los em todos os nós do cluster através Hadoop mapa reduzir do ScaleR ou contextos de computação de Spark.
+O nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e executar os scripts de R. Com um nó de extremidade, tem a opção de executar as funções distribuídas parallelized do RevoScaleR em todos os núcleos do servidor edge nó. Também pode executá-los em todos os nós do cluster através Hadoop mapa reduzir do RevoScaleR ou contextos de computação de Spark.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server no Azure HDInsight
-[Microsoft R Server no Azure HDInsight](r-server-overview.md) fornece funcionalidades mais recentes para a análise baseada em R. Pode utilizar os dados armazenados num contentor do HDFS no seu [Blob do Azure](../../storage/common/storage-introduction.md "Blob storage do Azure") conta de armazenamento, um arquivo Data Lake ou o sistema de ficheiros local do Linux. Uma vez que o servidor R está incorporado no código aberto R, podem aplicar as aplicações baseadas em R que criar nenhum dos pacotes de open source para R 8000 +. Também poderá utilizar rotinas no [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), pacote de análise de macrodados da Microsoft que está incluído com o servidor R.  
+[Microsoft R Server no Azure HDInsight](r-server-overview.md) fornece funcionalidades mais recentes para a análise baseada em R. Pode utilizar os dados armazenados num contentor do HDFS no seu [Blob do Azure](../../storage/common/storage-introduction.md "Blob storage do Azure") conta de armazenamento, um arquivo Data Lake ou o sistema de ficheiros local do Linux. Uma vez que o servidor R está incorporado no código aberto R, podem aplicar as aplicações baseadas em R que criar nenhum dos pacotes de open source para R 8000 +. Também poderá utilizar rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), pacote de análise de macrodados da Microsoft que está incluído com o servidor R.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de um nó de extremidade de computação
-Em geral, um script do R que é executado no servidor R no nó de extremidade é executado dentro do interpretador de R nesse nó. As exceções são esses passos que chamar uma função de ScaleR. As chamadas de ScaleR executam num ambiente de computação que é determinado pelo como definir o contexto de computação ScaleR.  Quando executar o script do R a partir de um nó de extremidade, os valores possíveis do contexto de computação são:
+Em geral, um script do R que é executado no servidor R no nó de extremidade é executado dentro do interpretador de R nesse nó. As exceções são esses passos que chamar uma função de RevoScaleR. As chamadas de RevoScaleR executam num ambiente de computação que é determinado pelo como definir o contexto de computação RevoScaleR.  Quando executar o script do R a partir de um nó de extremidade, os valores possíveis do contexto de computação são:
 
 - local sequencial (*local*)
 - local paralelo (*localpar*)
 - Reduzir o mapa
 - Spark
 
-O *local* e *localpar* diferem opções apenas em como **rxExec** chamadas são executadas. Ambos os executar outras chamadas de função rx de forma paralela em núcleos disponíveis a menos que especificado em contrário através da utilização do ScaleR **numCoresToUse** opção, por exemplo `rxOptions(numCoresToUse=6)`. Opções de execução paralela oferecem um desempenho ideal.
+O *local* e *localpar* diferem opções apenas em como **rxExec** chamadas são executadas. Ambos os executar outras chamadas de função rx de forma paralela em núcleos disponíveis a menos que especificado em contrário através da utilização do RevoScaleR **numCoresToUse** opção, por exemplo `rxOptions(numCoresToUse=6)`. Opções de execução paralela oferecem um desempenho ideal.
 
 A tabela seguinte resume as várias opções de contexto de computação para definir a forma como as chamadas são executadas:
 
@@ -72,13 +72,13 @@ Tendo em conta estes princípios, as secções seguintes disponibilizam algumas 
 * Utilize o contexto de computação mapa reduzir apenas se ocorrer um problema com o contexto de computação do Spark insurmountable, uma vez que é, geralmente, mais lenta.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Ajuda inline no rxSetComputeContext
-Para obter mais informações e exemplos de contextos de computação ScaleR, consulte o inline ajudar R no método rxSetComputeContext, por exemplo:
+Para obter mais informações e exemplos de contextos de computação RevoScaleR, consulte inline ajudar R no método rxSetComputeContext, por exemplo:
 
     > ?rxSetComputeContext
 
-Também pode consultar o [ScaleR Distributed informática Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) que está disponível a partir do [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) biblioteca.
+Também pode consultar o [distribuídas descrição geral de informática](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) no [documentação do servidor do Machine Learning](https://docs.microsoft.com/machine-learning-server/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada por núcleos do nó de extremidade ou cluster do HDInsight. Para saber mais sobre como utilizar o R Server com clusters do HDInsight, consulte os seguintes tópicos:
 
 * [Descrição geral do R Server para o Hadoop](r-server-overview.md)

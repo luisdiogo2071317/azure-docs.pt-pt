@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerir as identidades de dispositivo do IoT Hub em massa
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Para utilizar o **RegistryManager** classe no seu código c#, adicione o **Microsoft.Azure.Devices** pacote NuGet ao seu projeto. O **RegistryManager** classe está a ser o **Microsoft.Azure.Devices** espaço de nomes.
 
-Pode utilizar o **RegistryManager** classe para consultar o estado do **tarefa** utilizando o devolvido **JobProperties** metadados.
+Pode utilizar o **RegistryManager** classe para consultar o estado do **tarefa** utilizando o devolvido **JobProperties** metadados. Para criar uma instância do **RegistryManager** classe, utilize o **CreateFromConnectionString** método:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+Para localizar a cadeia de ligação para o seu IoT hub no portal do Azure:
+
+- Navegue até ao seu IoT hub.
+- Selecione **políticas de acesso partilhado**.
+- Selecione uma política, tendo em conta as permissões que precisa.
+- Copie connectionstring a partir do painel do lado direito do ecrã.
 
 O fragmento de código do c# seguinte mostra como consultar a cada cinco segundos para ver se a tarefa terminou a execução:
 
@@ -240,7 +251,7 @@ Utilize a opção **importMode** propriedade dos dados de serialização de impo
 | --- | --- |
 | **createOrUpdate** |Se não existir um dispositivo especificado com **id**, recentemente está registado. <br/>Se o dispositivo já existir, as informações existentes são substituídas com os dados de entrada fornecidos sem para o **ETag** valor. <br> O utilizador pode especificar opcionalmente dados duplo juntamente com os dados do dispositivo. Etag o duplo, se for especificado, é processada independentemente do etag do dispositivo. Se existir um erro de correspondência com etag o duplo existente, um erro é escrito no ficheiro de registo. |
 | **criar** |Se não existir um dispositivo especificado com **id**, recentemente está registado. <br/>Se o dispositivo já existir, é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplo juntamente com os dados do dispositivo. Etag o duplo, se for especificado, é processada independentemente do etag do dispositivo. Se existir um erro de correspondência com etag o duplo existente, um erro é escrito no ficheiro de registo. |
-| **Atualizar** |Se já existir um dispositivo especificado com **id**, informações existentes são substituídas com os dados de entrada fornecidos sem para o **ETag** valor. <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
+| **update** |Se já existir um dispositivo especificado com **id**, informações existentes são substituídas com os dados de entrada fornecidos sem para o **ETag** valor. <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
 | **updateIfMatchETag** |Se já existir um dispositivo especificado com **id**, informações existentes são substituídas com os dados de entrada fornecidos apenas se existir um **ETag** corresponder. <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. <br/>Se existir um **ETag** erro de correspondência, o erro é escrito para o ficheiro de registo. |
 | **createOrUpdateIfMatchETag** |Se não existir um dispositivo especificado com **id**, recentemente está registado. <br/>Se o dispositivo já existir, são substituídas informações existentes com os dados de entrada fornecidos, apenas se existir um **ETag** corresponder. <br/>Se existir um **ETag** erro de correspondência, o erro é escrito para o ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplo juntamente com os dados do dispositivo. Etag o duplo, se for especificado, é processada independentemente do etag do dispositivo. Se existir um erro de correspondência com etag o duplo existente, um erro é escrito no ficheiro de registo. |
 | **eliminar** |Se já existir um dispositivo especificado com **id**, este é eliminado sem para o **ETag** valor. <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |

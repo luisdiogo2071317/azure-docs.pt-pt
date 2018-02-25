@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
 
@@ -43,7 +43,7 @@ Quando desenvolver as funções utilizando o Visual Studio para criar uma biblio
 
 Para obter informações sobre os quais os enlaces estão na pré-visualização ou estão aprovados para utilização em produção, consulte [idiomas suportados](supported-languages.md).
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>Exemplo: acionador de filas e tabela de saída do enlace
+## <a name="example-trigger-and-binding"></a>Acionador de exemplo e enlace
 
 Suponha que pretende escrever uma nova linha no Table storage do Azure, sempre que uma nova mensagem é apresentada no armazenamento de filas do Azure. Este cenário pode ser implementado através de uma fila do Azure vínculo de saída de Acionador de armazenamento e um Table storage do Azure. 
 
@@ -79,7 +79,7 @@ Para ver e editar o conteúdo do *function.json* no portal do Azure, clique em d
 > [!NOTE]
 > O valor de `connection` é o nome de uma definição de aplicação que contenha a cadeia de ligação, não a cadeia de ligação em si. Enlaces utilizam ligação cadeias armazenadas nas definições de aplicação para impor as melhores práticas que *function.json* não contém segredos do serviço.
 
-Eis o script código c# que funciona com este acionador e o enlace. Tenha em atenção que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order`; este nome é necessário porque o `name` valor da propriedade no *function.json* é`order` 
+Eis o script código c# que funciona com este acionador e o enlace. Tenha em atenção que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order`; este nome é necessário porque o `name` valor da propriedade no *function.json* é `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -124,7 +124,7 @@ function generateRandomId() {
 }
 ```
 
-Na biblioteca de classes, o mesmo acionador e informações de enlace &mdash; parâmetros de entrada e saída da função de nomes de filas e tabela, contas de armazenamento, &mdash; é fornecido por atributos:
+Na biblioteca de classes, o mesmo acionador e informações de enlace &mdash; parâmetros de entrada e saída da função de nomes de filas e tabela, contas de armazenamento, &mdash; é fornecido por atributos em vez de um ficheiro de function.json. Segue-se um exemplo:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -156,18 +156,59 @@ Na biblioteca de classes, o mesmo acionador e informações de enlace &mdash; pa
 
 Todos os acionadores e enlaces de tem um `direction` propriedade no *function.json* ficheiro:
 
-- Para acionadores, a direção é sempre`in`
-- Utilizam enlaces de entrada e de saída `in` e`out`
+- Para acionadores, a direção é sempre `in`
+- Utilizam enlaces de entrada e de saída `in` e `out`
 - Alguns enlaces suportam uma direção especial `inout`. Se utilizar `inout`, apenas o **editor avançada** está disponível no **integrar** separador.
 
 Quando utiliza [atributos na biblioteca de classes](functions-dotnet-class-library.md) para configurar os acionadores e enlaces, a direção é fornecida no construtor de atributos ou inferida a partir do tipo de parâmetro.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>Utilizar o tipo de retorno da função para devolver um resultado único
+## <a name="using-the-function-return-value"></a>Utilizar o valor de retorno da função
 
-O exemplo anterior mostra como utilizar o valor de retorno da função para fornecer a saída para um enlace, o que é especificado na *function.json* utilizando o valor especial `$return` para o `name` propriedade. (Esta é apenas suportada em idiomas que tenham um valor de retorno, como o script do c#, JavaScript e F #.) Se uma função tem múltiplos enlaces de resultados, utilize `$return` para apenas um dos enlaces de saída. 
+Os idiomas que tenham um valor de retorno, é possível vincular um enlace de saída para o valor devolvido:
+
+* Em c# biblioteca de classes, aplique o atributo de enlace de saída para o valor de retorno do método.
+* Outros idiomas, defina o `name` propriedade no *function.json* para `$return`.
+
+Se precisar de mais de um item de escrita, utilize um [objeto recoletor](functions-reference-csharp.md#writing-multiple-output-values) em vez do valor de retorno. Se existirem vários enlaces de resultados, utilize o valor de retorno para apenas um deles.
+
+Veja o exemplo de específicas do idioma:
+
+* [C#](#c-example)
+* [Script do c# (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>Exemplo do c#
+
+Código c# Eis que utiliza o valor de retorno para um enlace de saída, seguido de um exemplo de async:
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>Exemplo de script do c#
+
+Eis o enlace de saída *function.json* ficheiro:
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +217,9 @@ O exemplo anterior mostra como utilizar o valor de retorno da função para forn
 }
 ```
 
-Os exemplos abaixo mostram como devolvem tipos são utilizados com enlaces de saída em c# script, JavaScript e F #.
+Eis o script código c#, seguido de um exemplo de async:
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +229,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +237,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>O F # exemplo
+
+Eis o enlace de saída *function.json* ficheiro:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Eis o código F #:
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>Exemplo de JavaScript
+
+Eis o enlace de saída *function.json* ficheiro:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Em JavaScript, o valor de retorno entra no segundo parâmetro para `context.done`:
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>Propriedade de tipo de dados de enlace
@@ -232,13 +299,32 @@ Para os idiomas que são escritos dinamicamente, como JavaScript, utilize o `dat
 
 Outras opções para `dataType` são `stream` e `string`.
 
-## <a name="resolving-app-settings"></a>Resolver as definições de aplicação
+## <a name="binding-expressions-and-patterns"></a>Expressões de enlace e padrões
 
-Como melhor prática, os segredos e cadeias de ligação devem ser geridas utilizando as definições de aplicação, em vez de ficheiros de configuração. Isto limita o acesso a estes segredos e torna seguro armazenar *function.json* num repositório de controlo de origem público.
+Uma das funcionalidades mais poderosas de acionadores e enlaces é *expressões de enlace*. No *function.json* ficheiros e de parâmetros de função e código, pode utilizar expressões de resolver para valores de várias origens.
+
+Maior parte das expressões são identificados pelo encapsulamento-los chavetas. Por exemplo, numa função de Acionador de fila, `{queueTrigger}` é resolvido para o texto da mensagem de fila. Se o `path` enlace é de saída de propriedade para um blob `container/{queueTrigger}` e a função é acionada por uma mensagem de fila `HelloWorld`, um blob com o nome `HelloWorld` é criado.
+
+Tipos de expressões de enlace
+
+* [Definições de aplicação](#binding-expressions---app-settings)
+* [Nome de ficheiro do acionador](#binding-expressions---trigger-file-name)
+* [Metadados de Acionador](#binding-expressions---trigger-metadata)
+* [JSON payloads](#binding-expressions---json-payloads)
+* [Novo GUID](#binding-expressions---create-guids)
+* [Data e hora atuais](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>Expressões de enlace - as definições de aplicação
+
+Como melhor prática, os segredos e cadeias de ligação devem ser geridas utilizando as definições de aplicação, em vez de ficheiros de configuração. Isto limita o acesso a estes segredos e torna seguro armazenar os ficheiros, tais como *function.json* em repositórios de controlo de origem público.
 
 As definições de aplicações também são úteis sempre que pretender alterar a configuração com base no ambiente. Por exemplo, num ambiente de teste, pode querer monitorizar um contentor de armazenamento de fila ou blob diferente.
 
-São resolvidas as definições de aplicação sempre que um valor está entre símbolos de percentagem inicia, tais como `%MyAppSetting%`. Tenha em atenção que o `connection` propriedade de acionadores e enlaces é num caso especial e resolve automaticamente os valores das definições de aplicação. 
+Expressões de enlace de definição de aplicação são identificadas de forma diferente de outras expressões de enlace: estes são moldadas numa percentagem sinais em vez de chavetas. Por exemplo, se o caminho de enlace de saída do blob é `%Environment%/newblob.txt` e `Environment` valor de definição de aplicação é `Development`, será criado um blob no `Development` contentor.
+
+Quando uma função é executada localmente, os valores de definição de aplicação provenientes de *local.settings.json* ficheiro.
+
+Tenha em atenção que o `connection` propriedade de acionadores e enlaces é num caso especial e resolve automaticamente os valores das definições de aplicação, sem sinais por cento. 
 
 O exemplo seguinte é um acionador de armazenamento de filas do Azure que utiliza uma definição de aplicação `%input-queue-name%` para definir a fila para acionar.
 
@@ -268,9 +354,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>Propriedades de metadados do acionador
+### <a name="binding-expressions---trigger-file-name"></a>Expressões de enlace - nome de ficheiro do acionador
 
-Para além do payload de dados fornecido por um acionador (por exemplo, a mensagem da fila que acionou uma função), acionadores muitos forneça valores de metadados adicionais. Estes valores podem ser utilizados como parâmetros de entrada em c# e F # ou propriedades no `context.bindings` objeto em JavaScript. 
+O `path` para um Blob acionador pode ser um padrão que permite-lhe fazer referência ao nome do blob acionadora noutros enlaces e código de função. O padrão também pode incluir os critérios de filtragem que especifique que os blobs podem acionar uma invocação de função.
+
+Por exemplo, no acionador Blob seguinte enlace, o `path` padrão é `sample-images/{filename}`, que cria uma expressão de enlace com o nome `filename`:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+A expressão `filename` , em seguida, pode ser utilizado num enlace de saída para especificar o nome do blob a ser criado:
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Código de função tem acesso a este valor mesmo utilizando `filename` como um nome de parâmetro:
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+A mesma capacidade de utilizar expressões de enlace e padrões se aplica a atributos em bibliotecas de classes. No exemplo seguinte, os parâmetros do construtor de atributo são os mesmos `path` valores como precedente *function.json* exemplos: 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+Também pode criar as expressões para partes do nome do ficheiro, como a extensão. Para obter mais informações sobre como utilizar expressões e padrões na cadeia de caminho de Blob, consulte o [referência de enlace de blob de armazenamento](functions-bindings-storage-blob.md).
+ 
+### <a name="binding-expressions---trigger-metadata"></a>Expressões de enlace - acionar metadados
+
+Para além do payload de dados fornecido por um acionador (por exemplo, o conteúdo da mensagem de fila que acionou uma função), acionadores muitos forneça valores de metadados adicionais. Estes valores podem ser utilizados como parâmetros de entrada em c# e F # ou propriedades no `context.bindings` objeto em JavaScript. 
 
 Por exemplo, um acionador de armazenamento de filas do Azure suporta as seguintes propriedades:
 
@@ -304,112 +456,11 @@ Estes valores de metadados estão acessíveis no *function.json* propriedades do
 
 Detalhes das propriedades de metadados para cada acionador são descritos no artigo de referência correspondente. Por exemplo, consulte [metadados de Acionador de fila](functions-bindings-storage-queue.md#trigger---message-metadata). Também está disponível na documentação sobre o **integrar** separador do portal, no **documentação** secção abaixo da área de configuração do enlace.  
 
-## <a name="binding-expressions-and-patterns"></a>Expressões de enlace e padrões
+### <a name="binding-expressions---json-payloads"></a>Expressões de enlace - JSON payloads
 
-Uma das funcionalidades mais poderosas de acionadores e enlaces é *expressões de enlace*. Na configuração para um enlace, pode definir as expressões de padrão que, em seguida, podem ser utilizadas noutros enlaces ou o seu código. Metadados de Acionador também podem ser utilizado em expressões de enlace, conforme mostrado na secção anterior.
+Quando um payload de Acionador é JSON, pode consultar as respetivas propriedades na configuração para noutros enlaces na mesma função e no código da função.
 
-Por exemplo, suponha que pretende redimensionar imagens de um determinado contentor de blob storage, semelhante ao **Resizer imagem** modelo no **nova função** página do portal do Azure (consulte o **amostras**  cenário). 
-
-Eis o *function.json* definição:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Tenha em atenção que o `filename` parâmetro é utilizado na definição do acionador de blob e o blob de saída do enlace. Este parâmetro também pode ser utilizado no código da função.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-A mesma capacidade de utilizar expressões de enlace e padrões se aplica a atributos em bibliotecas de classes. Por exemplo, aqui está uma imagem de redimensionamento função numa biblioteca de classe:
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>Criar GUIDs
-
-O `{rand-guid}` expressão de enlace cria um GUID. O exemplo seguinte utiliza um GUID para criar um nome exclusivo de blob: 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>Hora atual
-
-A expressão de enlace `DateTime` é resolvido para `DateTime.UtcNow`.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>Vincular a propriedades de entrada personalizadas
-
-Expressões de enlace também podem referenciar propriedades que são definidas no payload do acionador em si. Por exemplo, poderá pretender dinamicamente vincular a um ficheiro de armazenamento de BLOBs a partir de um nome de ficheiro fornecido num webhook.
-
-Por exemplo, o seguinte *function.json* utiliza uma propriedade denominada `BlobName` do payload do acionador:
+O seguinte exemplo mostra o *function.json* ficheiro para uma função de webhook que recebe um nome do blob no JSON: `{"BlobName":"HelloWorld.txt"}`. Um enlace de entrada do Blob lê o blob e o HTTP de saída do enlace devolve os conteúdos do blob na resposta HTTP. Tenha em atenção que o enlace de entrada do Blob obtém o nome do blob ao referir-se diretamente para o `BlobName` propriedade (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -424,7 +475,7 @@ Por exemplo, o seguinte *function.json* utiliza uma propriedade denominada `Blob
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +487,7 @@ Por exemplo, o seguinte *function.json* utiliza uma propriedade denominada `Blob
 }
 ```
 
-Para tal em c# e F #, tem de definir um POCO que define os campos que serão possível anular a serialização no payload do acionador.
+Para isto funcionar em c# e F #, precisa de uma classe que define os campos para anular a serialização, como no exemplo seguinte:
 
 ```csharp
 using System.Net;
@@ -458,7 +509,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-Em JavaScript, a desserialização de JSON é automaticamente executada e pode utilizar as propriedades diretamente.
+Em JavaScript, a desserialização de JSON é automaticamente executada.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +527,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>Configuração de enlace de dados em tempo de execução
+#### <a name="dot-notation"></a>Notação de pontos
 
-Em c# e outras linguagens .NET, pode utilizar um padrão de enlace imperativo, por oposição os enlaces declarativos no *function.json* e atributos. Enlace imperativo é útil quando os parâmetros de enlace tem de ser calculada ao tempo de tempo de execução, em vez de design. Para obter mais informações, consulte [enlace no tempo de execução através dos enlaces imperativo](functions-reference-csharp.md#imperative-bindings) a referência de programador do c#.
+Se algumas das propriedades do payload JSON são objetos com propriedades, pode fazer referência aos diretamente, utilizando a notação de pontos. Por exemplo, suponha que o JSON tem o seguinte aspeto:
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+Pode consultar diretamente para `FileName` como `BlobName.FileName`. Com este formato JSON, eis o que o `path` propriedade no exemplo anterior deverá ter o seguinte aspeto:
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+Em c#, terá de duas classes:
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>Expressões de enlace - criar GUIDs
+
+O `{rand-guid}` expressão de enlace cria um GUID. O seguinte caminho de blob num `function.json` ficheiro cria um blob com o nome como *50710cb5-84b9 - 4d 87 9d 83-a03d6976a682.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>Expressões de enlace - hora atual
+
+A expressão de enlace `DateTime` é resolvido para `DateTime.UtcNow`. O seguinte caminho de blob num `function.json` ficheiro cria um blob com o nome como *2018-02-16T17-59-55Z.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>Enlace no tempo de execução
+
+Em c# e outras linguagens .NET, pode utilizar um padrão de enlace imperativo, por oposição os enlaces declarativos no *function.json* e atributos. Enlace imperativo é útil quando os parâmetros de enlace tem de ser calculada ao tempo de tempo de execução, em vez de design. Para obter mais informações, consulte o [referência de programador do c#](functions-dotnet-class-library.md#binding-at-runtime) ou [referência para programadores script c#](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="functionjson-file-schema"></a>esquema do ficheiro Function.JSON
 

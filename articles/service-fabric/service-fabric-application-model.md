@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: d5f6fbb9d9c0bc0d9762f8d6b4b4eb3b02d29adc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 506daa2dc0612fc49a67c5faf3c7ab51ac90126f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelar uma aplicação no Service Fabric
 Este artigo fornece uma descrição geral do modelo de aplicação de Service Fabric do Azure e como definir uma aplicação e do serviço através de ficheiros de manifesto.
@@ -48,7 +48,7 @@ O diagrama seguinte mostra a relação entre as aplicações e instâncias de se
 > 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [escalabilidade de aplicação](service-fabric-concepts-scalability.md).
 - Saiba mais sobre o serviço [estado](service-fabric-concepts-state.md), [criação de partições](service-fabric-concepts-partitioning.md), e [disponibilidade](service-fabric-availability-services.md).
 - Leia sobre como aplicações e serviços são definidos na [aplicações e serviço manifestos](service-fabric-application-and-service-manifests.md).

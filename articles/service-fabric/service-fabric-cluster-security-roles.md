@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controlo de acesso baseado em funções para clientes de Service Fabric
 Recursos de infraestrutura de serviço do Azure suporta dois tipos de controlo de acesso diferentes para clientes que estão ligados a um cluster do Service Fabric: administrador e utilizador. Controlo de acesso permite ao administrador de cluster limitar o acesso a determinadas operações de cluster para diferentes grupos de utilizadores, tornando o cluster mais segura.  
@@ -101,7 +101,7 @@ O controlo de acesso de administrador também tem acesso para as operações ant
 ## <a name="changing-default-settings-for-client-roles"></a>Alterar as predefinições para as funções do cliente
 O ficheiro de manifesto do cluster, pode fornecer capacidades de administrador para o cliente se for necessário. Pode alterar as predefinições, acedendo ao **definições de recursos de infraestrutura** opção durante [criação de cluster](service-fabric-cluster-creation-via-portal.md)e fornecer as definições anteriores no **nome**, **admin**, **utilizador**, e **valor** campos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Segurança de cluster do Service Fabric](service-fabric-cluster-security.md)
 
 [Criação de cluster do Service Fabric](service-fabric-cluster-creation-via-portal.md)

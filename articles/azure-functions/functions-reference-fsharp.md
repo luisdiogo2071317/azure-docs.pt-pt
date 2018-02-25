@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência F # para programadores das funções do Azure
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -172,7 +172,7 @@ Um editor que suporte serviços de compilador F # não saberão dos espaços de 
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -184,7 +184,7 @@ Quando as funções do Azure executa o código, processa a origem com `COMPILED`
 <a name="package"></a>
 
 ## <a name="package-management"></a>Gestão de pacotes
-Para utilizar pacotes de NuGet numa função F #, adicione um `project.json` do ficheiro para a pasta da função no sistema de ficheiros da aplicação de função. Eis um exemplo `project.json` ficheiro que adiciona uma referência de pacote NuGet para `Microsoft.ProjectOxford.Face` versão 1.1.0:
+Para utilizar pacotes de NuGet numa função F #, adicione um `project.json` ficheiro para pasta a função no sistema de ficheiros da aplicação de função. Eis um exemplo `project.json` ficheiro que adiciona uma referência de pacote NuGet para `Microsoft.ProjectOxford.Face` versão 1.1.0:
 
 ```json
 {
@@ -258,13 +258,13 @@ let mylog(log: TraceWriter, text: string) =
 
 Caminhos fornece para o `#load` tem directiva relativo à localização de sua `.fsx` ficheiro.
 
-* `#load "logger.fsx"`carrega um ficheiro localizado na pasta de função.
-* `#load "package\logger.fsx"`carrega um ficheiro localizado no `package` a pasta de função.
-* `#load "..\shared\mylogger.fsx"`carrega um ficheiro localizado no `shared` pasta com o mesmo nível, como a pasta de função, ou seja, diretamente em `wwwroot`.
+* `#load "logger.fsx"` carrega um ficheiro localizado na pasta de função.
+* `#load "package\logger.fsx"` carrega um ficheiro localizado no `package` a pasta de função.
+* `#load "..\shared\mylogger.fsx"` carrega um ficheiro localizado no `shared` pasta com o mesmo nível, como a pasta de função, ou seja, diretamente em `wwwroot`.
 
 O `#load` diretiva só funciona com `.fsx` ficheiros (F # script) e não com `.fs` ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
 * [O F # guia](/dotnet/articles/fsharp/index)

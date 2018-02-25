@@ -12,13 +12,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: af6bf1d69761520d20d0a0c5d872377793f6650b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1e6f1e1ee37592d974cab01ca229995c4ff6b70e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar Presto em clusters do HDInsight Hadoop
 
@@ -169,7 +169,7 @@ TPC DS é a norma da indústria para medir o desempenho de vários sistemas de s
 
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Instalar e utilizar Hue nos clusters do HDInsight](hdinsight-hadoop-hue-linux.md). Hue é uma IU da web do que torna mais fácil de criar, executar e guardar as tarefas do Pig e do Hive, bem como a procura o armazenamento de predefinido para o HDInsight cluster.
 
 * [Instalar Giraph nos clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilize personalização de cluster para instalar Giraph em clusters do HDInsight Hadoop. Giraph permite-lhe efetuar o processamento através da utilização do Hadoop e pode ser utilizado com o Azure HDInsight.

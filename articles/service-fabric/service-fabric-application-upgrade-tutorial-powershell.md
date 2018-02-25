@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização da aplicação de Service Fabric com o PowerShell
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Mais frequentemente utilizadas e a abordagem recomendada de atualização é a a
 
 Uma atualização da aplicação monitorizada pode ser efetuada utilizando o nativo ou gerido APIs, PowerShell ou REST. Para obter instruções sobre como executar uma atualização com o Visual Studio, consulte [atualizar a sua aplicação com o Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Com atualizações graduais do Service Fabric monitorizado, o administrador da aplicação pode configurar a política de avaliação do Estado de funcionamento que utiliza o Service Fabric para determinar se a aplicação está em bom estada. Além disso, o administrador pode configurar a ação a executar quando a avaliação de estado de funcionamento falha (por exemplo, efetuar uma reversão automática.) Esta secção explica uma atualização monitorizada para um dos exemplos de SDK que utiliza o PowerShell. A seguinte Microsoft Virtual Academy vídeo também explica-lhe uma atualização da aplicação:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
+Com atualizações graduais do Service Fabric monitorizado, o administrador da aplicação pode configurar a política de avaliação do Estado de funcionamento que utiliza o Service Fabric para determinar se a aplicação está em bom estada. Além disso, o administrador pode configurar a ação a executar quando a avaliação de estado de funcionamento falha (por exemplo, efetuar uma reversão automática.) Esta secção explica uma atualização monitorizada para um dos exemplos de SDK que utiliza o PowerShell. A seguinte Microsoft Virtual Academy vídeo também explica-lhe uma atualização da aplicação: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

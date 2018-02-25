@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e9fe49873a03867bdc55239eb4af623f0587f4f8
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 8ce1d6300731af5ae972675a08ef64f5c4ffa342
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager para clusters do HDInsight
 
@@ -37,21 +37,21 @@ Os comandos básicos que a CLI do Azure fornecida para trabalhar com o HDInsight
 
 Comandos básicos para trabalhar com o HDInsight através do Azure Resource Manager são:
 
-* `azure hdinsight cluster create`-cria um novo cluster do HDInsight
-* `azure hdinsight cluster delete`-Elimina o cluster do HDInsight existente
-* `azure hdinsight cluster show`-apresentar informações sobre um cluster existente
-* `azure hdinsight cluster list`-Apresenta uma lista de clusters do HDInsight para a sua subscrição do Azure
+* `azure hdinsight cluster create` -cria um novo cluster do HDInsight
+* `azure hdinsight cluster delete` -Elimina o cluster do HDInsight existente
+* `azure hdinsight cluster show` -apresentar informações sobre um cluster existente
+* `azure hdinsight cluster list` -Apresenta uma lista de clusters do HDInsight para a sua subscrição do Azure
 
 Utilize o `-h` comutador para inspecionar os parâmetros e os comutadores disponíveis para cada comando.
 
 ### <a name="new-commands"></a>Novos comandos
 Novos comandos disponíveis com o Azure Resource Manager são:
 
-* `azure hdinsight cluster resize`-alterado dinamicamente o número de nós de trabalho no cluster
-* `azure hdinsight cluster enable-http-access`-permite o acesso de HTTPs para o cluster (em por predefinição)
-* `azure hdinsight cluster disable-http-access`-Desativa o acesso de HTTPs para o cluster
-* `azure hdinsight script-action`-fornece comandos para criar/gerir ações de Script num cluster
-* `azure hdinsight config`-fornece comandos para criar um ficheiro de configuração que pode ser utilizado com o `hdinsight cluster create` comando para fornecer informações de configuração.
+* `azure hdinsight cluster resize` -alterado dinamicamente o número de nós de trabalho no cluster
+* `azure hdinsight cluster enable-http-access` -permite o acesso de HTTPs para o cluster (em por predefinição)
+* `azure hdinsight cluster disable-http-access` -Desativa o acesso de HTTPs para o cluster
+* `azure hdinsight script-action` -fornece comandos para criar/gerir ações de Script num cluster
+* `azure hdinsight config` -fornece comandos para criar um ficheiro de configuração que pode ser utilizado com o `hdinsight cluster create` comando para fornecer informações de configuração.
 
 ### <a name="deprecated-commands"></a>Comandos preteridos
 Se utilizar o `azure hdinsight job` comandos para submeter tarefas ao cluster do HDInsight, estes não estão disponíveis os comandos do ARM. Se precisar de programaticamente submeter tarefas ao HDInsight de scripts, em vez disso, deve utilizar as APIs REST fornecidas pelo HDInsight. Para obter mais informações sobre a submeter as tarefas que utilizam as APIs REST, consulte os seguintes documentos.
@@ -65,18 +65,18 @@ Para obter informações sobre outras formas de executar o MapReduce, de ramo de
 ### <a name="examples"></a>Exemplos
 **Criar um cluster**
 
-* Comando antigo (ASM)-`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Novo comando (ARM)-`azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Comando antigo (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Novo comando (ARM)- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Eliminar um cluster**
 
-* Comando antigo (ASM)-`azure hdinsight cluster delete myhdicluster`
-* Novo comando (ARM)-`azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Comando antigo (ASM)- `azure hdinsight cluster delete myhdicluster`
+* Novo comando (ARM)- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Lista de clusters**
 
-* Comando antigo (ASM)-`azure hdinsight cluster list`
-* Novo comando (ARM)-`azure hdinsight cluster list`
+* Comando antigo (ASM)- `azure hdinsight cluster list`
+* Novo comando (ARM)- `azure hdinsight cluster list`
 
 > [!NOTE]
 > Para o comando de lista, especificando o grupo de recursos utilizando `-g` irá devolver apenas os clusters no grupo de recursos especificado.
@@ -85,18 +85,18 @@ Para obter informações sobre outras formas de executar o MapReduce, de ramo de
 
 **Mostrar informações de cluster**
 
-* Comando antigo (ASM)-`azure hdinsight cluster show myhdicluster`
-* Novo comando (ARM)-`azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Comando antigo (ASM)- `azure hdinsight cluster show myhdicluster`
+* Novo comando (ARM)- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrar o Azure PowerShell para o Azure Resource Manager
 As informações gerais sobre o Azure PowerShell no modo Azure Resource Manager (ARM) podem ser encontradas em [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Os cmdlets do Azure ARM do PowerShell podem ser instalado do lado do lado a lado com os cmdlets ASM. Os cmdlets de dois modos podem ser distinguidos pelos respetivos nomes.  O modo ARM tem *AzureRmHDInsight* em comparação com os nomes de cmdlet *AzureHDInsight* no modo ASM.  Por exemplo, *New-AzureRmHDInsightCluster* vs. *Novo AzureHDInsightCluster*. Os parâmetros e comutadores poderão ter nomes de notícias e existem muitas novos parâmetros disponíveis quando utilizar ARM.  Por exemplo, vários cmdlets necessitam de um novo comutador chamado *- ResourceGroupName*. 
+Os cmdlets do Azure ARM do PowerShell podem ser instalado do lado do lado a lado com os cmdlets ASM. Os cmdlets de dois modos podem ser distinguidos pelos respetivos nomes.  O modo ARM tem *AzureRmHDInsight* em comparação com os nomes de cmdlet *AzureHDInsight* no modo ASM.  Por exemplo, *New-AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Os parâmetros e comutadores poderão ter nomes de notícias e existem muitas novos parâmetros disponíveis quando utilizar ARM.  Por exemplo, vários cmdlets necessitam de um novo comutador chamado *- ResourceGroupName*. 
 
 Antes de poder utilizar os cmdlets do HDInsight, tem de ligar à sua conta do Azure e criar um novo grupo de recursos:
 
 * Login-AzureRmAccount ou [selecione AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Consulte [autenticar um principal de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-* [Novo-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
+* [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Cmdlets cujo nome foi alterados
 Para listar os cmdlets do HDInsight ASM na consola do Windows PowerShell:
@@ -107,33 +107,33 @@ A tabela seguinte lista os cmdlets ASM e os respetivos nomes no modo ARM:
 
 | Cmdlets ASM | Cmdlets ARM |
 | --- | --- |
-| Add-AzureHDInsightConfigValues |[AzureRmHDInsightConfigValues adicionar](https://msdn.microsoft.com/library/mt603530.aspx) |
-| Add-AzureHDInsightMetastore |[AzureRmHDInsightMetastore adicionar](https://msdn.microsoft.com/library/mt603670.aspx) |
-| Add-AzureHDInsightScriptAction |[AzureRmHDInsightScriptAction adicionar](https://msdn.microsoft.com/library/mt603527.aspx) |
-| Add-AzureHDInsightStorage |[AzureRmHDInsightStorage adicionar](https://msdn.microsoft.com/library/mt619445.aspx) |
+| Add-AzureHDInsightConfigValues |[Add-AzureRmHDInsightConfigValues](https://msdn.microsoft.com/library/mt603530.aspx) |
+| Add-AzureHDInsightMetastore |[Add-AzureRmHDInsightMetastore](https://msdn.microsoft.com/library/mt603670.aspx) |
+| Add-AzureHDInsightScriptAction |[Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) |
+| Add-AzureHDInsightStorage |[Add-AzureRmHDInsightStorage](https://msdn.microsoft.com/library/mt619445.aspx) |
 | Get-AzureHDInsightCluster |[Get-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619371.aspx) |
 | Get-AzureHDInsightJob |[Get-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603590.aspx) |
 | Get-AzureHDInsightJobOutput |[Get-AzureRmHDInsightJobOutput](https://msdn.microsoft.com/library/mt603793.aspx) |
 | Get-AzureHDInsightProperties |[Get-AzureRmHDInsightProperties](https://msdn.microsoft.com/library/mt603546.aspx) |
-| Grant-AzureHDInsightHttpServicesAccess |[Conceder AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619407.aspx) |
-| Grant-AzureHdinsightRdpAccess |[Conceder AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603717.aspx) |
-| Invoke-AzureHDInsightHiveJob |[AzureRmHDInsightHiveJob invocar](https://msdn.microsoft.com/library/mt603593.aspx) |
-| New-AzureHDInsightCluster |[Novo AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) |
-| New-AzureHDInsightClusterConfig |[Novo AzureRmHDInsightClusterConfig](https://msdn.microsoft.com/library/mt603700.aspx) |
-| New-AzureHDInsightHiveJobDefinition |[Novo AzureRmHDInsightHiveJobDefinition](https://msdn.microsoft.com/library/mt619448.aspx) |
-| New-AzureHDInsightMapReduceJobDefinition |[Novo AzureRmHDInsightMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
-| New-AzureHDInsightPigJobDefinition |[Novo AzureRmHDInsightPigJobDefinition](https://msdn.microsoft.com/library/mt603671.aspx) |
-| New-AzureHDInsightSqoopJobDefinition |[Novo AzureRmHDInsightSqoopJobDefinition](https://msdn.microsoft.com/library/mt608551.aspx) |
-| New-AzureHDInsightStreamingMapReduceJobDefinition |[Novo AzureRmHDInsightStreamingMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
-| Remove-AzureHDInsightCluster |[Remover AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619431.aspx) |
-| Revoke-AzureHDInsightHttpServicesAccess |[Revogar AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619375.aspx) |
-| Revoke-AzureHdinsightRdpAccess |[Revogar AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603523.aspx) |
-| Set-AzureHDInsightClusterSize |[Conjunto AzureRmHDInsightClusterSize](https://msdn.microsoft.com/library/mt603513.aspx) |
-| Set-AzureHDInsightDefaultStorage |[Conjunto AzureRmHDInsightDefaultStorage](https://msdn.microsoft.com/library/mt603486.aspx) |
-| Start-AzureHDInsightJob |[Início AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603798.aspx) |
+| Grant-AzureHDInsightHttpServicesAccess |[Grant-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619407.aspx) |
+| Grant-AzureHdinsightRdpAccess |[Grant-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603717.aspx) |
+| Invoke-AzureHDInsightHiveJob |[Invoke-AzureRmHDInsightHiveJob](https://msdn.microsoft.com/library/mt603593.aspx) |
+| New-AzureHDInsightCluster |[New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) |
+| New-AzureHDInsightClusterConfig |[New-AzureRmHDInsightClusterConfig](https://msdn.microsoft.com/library/mt603700.aspx) |
+| New-AzureHDInsightHiveJobDefinition |[New-AzureRmHDInsightHiveJobDefinition](https://msdn.microsoft.com/library/mt619448.aspx) |
+| New-AzureHDInsightMapReduceJobDefinition |[New-AzureRmHDInsightMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
+| New-AzureHDInsightPigJobDefinition |[New-AzureRmHDInsightPigJobDefinition](https://msdn.microsoft.com/library/mt603671.aspx) |
+| New-AzureHDInsightSqoopJobDefinition |[New-AzureRmHDInsightSqoopJobDefinition](https://msdn.microsoft.com/library/mt608551.aspx) |
+| New-AzureHDInsightStreamingMapReduceJobDefinition |[New-AzureRmHDInsightStreamingMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
+| Remove-AzureHDInsightCluster |[Remove-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619431.aspx) |
+| Revoke-AzureHDInsightHttpServicesAccess |[Revoke-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619375.aspx) |
+| Revoke-AzureHdinsightRdpAccess |[Revoke-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603523.aspx) |
+| Set-AzureHDInsightClusterSize |[Set-AzureRmHDInsightClusterSize](https://msdn.microsoft.com/library/mt603513.aspx) |
+| Set-AzureHDInsightDefaultStorage |[Set-AzureRmHDInsightDefaultStorage](https://msdn.microsoft.com/library/mt603486.aspx) |
+| Start-AzureHDInsightJob |[Start-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603798.aspx) |
 | Stop-AzureHDInsightJob |[Stop-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt619424.aspx) |
-| Use-AzureHDInsightCluster |[Utilize AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619442.aspx) |
-| Wait-AzureHDInsightJob |[Espera-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
+| Use-AzureHDInsightCluster |[Use-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619442.aspx) |
+| Wait-AzureHDInsightJob |[Wait-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
 
 ### <a name="new-cmdlets"></a>Novos cmdlets
 Seguem-se os novos cmdlets que só estão disponíveis no modo ARM. 
@@ -153,7 +153,7 @@ Para informações adicionais de utilização, consulte [clusters do HDInsight b
 * **AzureRmHDInsightClusterIdentity adicionar**: Adiciona uma identidade de cluster para um objeto de configuração de cluster para que o cluster do HDInsight pode aceder aos arquivos do Azure Data Lake. Consulte [criar um cluster do HDInsight com o Data Lake Store com o Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Exemplos
-**Criar cluster**
+Criar cluster
 
 Comando antigo (ASM): 
 
@@ -187,7 +187,7 @@ Novo comando (ARM):
         -SshCredential $sshCredentials
 
 
-**Eliminar o cluster**
+Eliminar o cluster
 
 Comando antigo (ASM):
 

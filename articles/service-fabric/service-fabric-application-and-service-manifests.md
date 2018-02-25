@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Aplicação de Service Fabric e os manifestos de serviço
 Este artigo descreve como aplicações de Service Fabric e os serviços são definidas e com a versão utilizando os ficheiros ApplicationManifest.xml e ServiceManifest.xml.  O esquema XML para estes ficheiros de manifesto é descrito da [documentação de esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -159,7 +159,7 @@ Como manifestos de serviço, **versão** atributos são cadeias não estruturada
 
 **Certificados** (não definido no exemplo anterior) declara os certificados utilizados para [configurar pontos finais HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) ou [encriptar os segredos no manifesto da aplicação](service-fabric-application-secret-management.md).
 
-**Políticas** (não definido no exemplo anterior) descreve a coleção de registo, [predefinido Run](service-fabric-application-runas-security.md), [estado de funcionamento](service-fabric-health-introduction.md#health-policies), e [acesso de segurança](service-fabric-application-runas-security.md) políticas para definir na o nível de aplicação.
+**Políticas** (não definido no exemplo anterior) descreve a coleção de registo, [predefinido Run](service-fabric-application-runas-security.md), [estado de funcionamento](service-fabric-health-introduction.md#health-policies), e [acesso de segurança](service-fabric-application-runas-security.md) políticas para definir no nível de aplicação.
 
 **Principais** (não definido no exemplo anterior) descrevem os princípios de segurança (utilizadores ou grupos) necessário para [executados serviços e recursos de serviço seguro](service-fabric-application-runas-security.md).  Principais são referenciados no **políticas** secções.
 
@@ -176,7 +176,7 @@ For more information about other features supported by application manifests, re
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Uma aplicação do pacote](service-fabric-package-apps.md) e torná-lo pronto para implementar.
 - [Implementar e remover aplicações](service-fabric-deploy-remove-applications.md).
 - [Configurar parâmetros e variáveis de ambiente para instâncias de aplicações diferentes](service-fabric-manage-multiple-environment-app-configuration.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 96faa0cf518e4b02b5ba9fd8aedaf21bd6288b02
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar os documentos JSON utilizando o Apache Hive no Azure HDInsight
 
@@ -63,7 +63,7 @@ O ficheiro pode ser encontrado em  **wasb://processjson@hditutorialdata.blob.cor
 
 Neste tutorial, utilize a consola do Hive. Para obter instruções sobre como abrir a consola do Hive, consulte [utilizar o Hive com o Hadoop no HDInsight com o ambiente de trabalho remoto](apache-hadoop-use-hive-remote-desktop.md).
 
-## <a name="flatten-json-documents"></a>Aplanar documentos JSON
+## <a name="flatten-json-documents"></a>Flatten JSON documents
 Os métodos apresentados na secção seguinte requerem que o documento JSON ser composto por uma única linha. Por isso, tem aplanar o documento JSON numa cadeia. Se o documento JSON já é simplificado, pode ignorar este passo e ir diretamente para a secção seguinte no analisar dados JSON. Para aplanar o documento JSON, execute o seguinte script:
 
     DROP TABLE IF EXISTS StudentsRaw;
@@ -151,7 +151,6 @@ Para artigos relacionados, consulte:
 * [Utilizar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um ficheiro Apache log4j de exemplo](../hdinsight-use-hive.md)
 * [Analisar dados de atraso do voo utilizando o Hive no HDInsight](../hdinsight-analyze-flight-delay-data.md)
 * [Analisar dados do Twitter através do Hive no HDInsight](../hdinsight-analyze-twitter-data.md)
-* [Executar uma tarefa de Hadoop, utilizando a BD do Cosmos do Azure e o HDInsight](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

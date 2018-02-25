@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -234,16 +234,16 @@ Em JavaScript, utilize `context.bindings.<name>` para aceder ao payload de item 
 
 ## <a name="trigger---message-metadata"></a>Acionador - mensagem metadados
 
-O acionador de fila fornece várias propriedades de metadados. Estas propriedades podem ser utilizadas como parte das expressões de enlace noutros enlaces ou como parâmetros no seu código. Os valores têm a mesma semântica como [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+O acionador de fila fornece vários [propriedades de metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propriedades podem ser utilizadas como parte das expressões de enlace noutros enlaces ou como parâmetros no seu código. Os valores têm a mesma semântica como [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Payload de fila (se for uma cadeia válida). Se a fila de mensagens payload como uma cadeia, `QueueTrigger` tem o mesmo valor que a variável com o nome de `name` propriedade no *function.json*.|
 |`DequeueCount`|`int`|O número de vezes que esta mensagem foi removida.|
-|`ExpirationTime`|`DateTimeOffset?`|A hora de expiração a mensagem.|
+|`ExpirationTime`|`DateTimeOffset`|A hora de expiração a mensagem.|
 |`Id`|`string`|ID de mensagem de fila.|
-|`InsertionTime`|`DateTimeOffset?`|O tempo que a mensagem foi adicionada à fila.|
-|`NextVisibleTime`|`DateTimeOffset?`|O tempo que a mensagem seguinte será visível.|
+|`InsertionTime`|`DateTimeOffset`|O tempo que a mensagem foi adicionada à fila.|
+|`NextVisibleTime`|`DateTimeOffset`|O tempo que a mensagem seguinte será visível.|
 |`PopReceipt`|`string`|Receção pop da mensagem.|
 
 ## <a name="trigger---poison-messages"></a>Acionador - mensagens nocivas
@@ -251,6 +251,18 @@ O acionador de fila fornece várias propriedades de metadados. Estas propriedade
 Quando uma função de Acionador de fila falha, as funções do Azure tentará novamente a função de até cinco vezes para uma mensagem de fila especificado, incluindo a primeira tentativa. Se a todas as tentativas de cinco falharem, o tempo de execução de funções adiciona uma mensagem para uma fila com o nome  *&lt;originalqueuename >-nocivas*. Pode escrever uma função para processar mensagens da fila nocivas pelo registá-los ou enviar uma notificação que atenção manual é necessária.
 
 Para processar mensagens nocivas manualmente, verifique o [dequeueCount](#trigger---message-metadata) da mensagem de fila.
+
+## <a name="trigger---polling-algorithm"></a>Acionador - algoritmo de consulta
+
+O acionador de fila implementa um aleatório exponencial término algoritmo para minimizar o efeito da fila de inatividade de consulta em custos de transação de armazenamento.  Quando é encontrada uma mensagem, tem de aguardar dois segundos e, em seguida, verifica a existência de outra mensagem; o tempo de execução Quando não é encontrada nenhuma mensagem, aguarda cerca de quatro segundos antes de tentar novamente. Depois de tentativas falhadas subsequentes para receber uma mensagem de fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, que está predefinida para um minuto. O tempo de espera máximo é configurável através de `maxPollingInterval` propriedade no [host.json ficheiro](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Acionador - simultaneidade
+
+Quando existem vários de fila de mensagens a aguardar, o acionador de fila obtém um lote de mensagens e invoca instâncias de função em simultâneo para processá-los. Por predefinição, o tamanho do lote, é 16. Quando o número a ser processado obtém-se para baixo para 8, o tempo de execução obtém outro lote e começa a processar as mensagens. Por isso, o número máximo de mensagens em simultâneo a ser processado por uma máquina virtual (VM), a função é 24. Este limite aplica-se em separado para cada função de acionada pela fila de mensagens em fila em cada VM. Se a sua aplicação de função aumenta horizontalmente de forma a várias VMs, cada VM irá aguardar acionadores e tente executar as funções. Por exemplo, se uma aplicação de função aumenta horizontalmente de forma a 3 VMs, o número máximo predefinido de instâncias em simultâneo de uma função acionada pela fila é 72.
+
+O tamanho de lote e o limiar para obter um novo lote são configuráveis no [host.json ficheiro](functions-host-json.md#queues). Se pretender minimizar a execução paralela para funções de acionada pela fila de mensagens em fila na aplicação de função, pode definir o tamanho do lote para 1. Esta definição elimina simultaneidade apenas desde que a aplicação de função é executada numa única máquina virtual (VM). 
+
+O acionador de fila automaticamente impede que uma função de processar uma mensagem de fila várias vezes; as funções não tem de ser escrito para ser idempotent.
 
 ## <a name="trigger---hostjson-properties"></a>Acionador - host.json propriedades
 

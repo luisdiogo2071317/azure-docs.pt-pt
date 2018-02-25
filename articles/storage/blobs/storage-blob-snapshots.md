@@ -2,23 +2,17 @@
 title: "Criar um instantâneo só de leitura de um blob no Storage do Azure | Microsoft Docs"
 description: "Saiba como criar um instantâneo de um blob para cópia de segurança de dados de BLOBs um determinado momento. Compreenda a forma como os instantâneos são faturados e como utilizá-los para minimizar os custos de capacidade."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: tamram
-ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Criar um instantâneo de blob
 
@@ -171,7 +165,7 @@ Cenário 4, o blob base foi atualizado completamente e contém nenhum dos seus b
 
 ![Recursos de armazenamento do Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Pode encontrar mais informações sobre como trabalhar com instantâneos de disco de máquina virtual (VM) no [cópia de segurança do Azure discos VM não geridos com instantâneos incrementais](../../virtual-machines/windows/incremental-snapshots.md)
 

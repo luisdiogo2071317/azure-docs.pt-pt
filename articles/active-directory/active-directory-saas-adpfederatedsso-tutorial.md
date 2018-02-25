@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Tutorial: Integração do Azure Active Directory com o SSO federado do ADP
 
@@ -122,7 +122,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio de SSO federado ADP e os URLs únicos de informações de início de sessão](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
 
-    No **identificador** caixa de texto, escreva um URL:`https://fed.adp.com/` 
+    No **identificador** caixa de texto, escreva um URL: `https://fed.adp.com/` 
     
 5. A aplicação de SSO federado do ADP espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizado à sua configuração de atributos token SAML. A seguinte captura de ecrã mostra um exemplo para este. O nome de afirmação será sempre **"PersonImmutableID"** e o valor que podemos ter mapeado **campo IDdeEmpregado**. 
 
@@ -197,9 +197,8 @@ Após a receção de confirmação do seu representante ADP, configure os seus A
     ![Configurar a ligação de início de sessão único][4]
 
 7. No **de sessão único-** caixa de diálogo, selecione **modo** como **ligado início de sessão** ligar a sua aplicação para **SSO federado do ADP**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Início de sessão ligado](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Navegue para o **URL de início de sessão configurar** secção, execute os seguintes passos:
 

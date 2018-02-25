@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+A cadeia `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [expressão de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) que pode utilizar no código de função para o nome de ficheiro do blob acionadora de acesso. Para obter mais informações, consulte [padrões de nome do Blob](#trigger---blob-name-patterns) posteriormente neste artigo.
+
 Para obter mais informações sobre o `BlobTrigger` de atributos, consulte [acionador - atributos](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
@@ -79,14 +81,16 @@ Segue-se os dados do enlace *function.json* ficheiro:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-O [configuração](#trigger---configuration) secção explica estas propriedades.
+A cadeia `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [expressão de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) que pode utilizar no código de função para o nome de ficheiro do blob acionadora de acesso. Para obter mais informações, consulte [padrões de nome do Blob](#trigger---blob-name-patterns) posteriormente neste artigo.
+
+Para obter mais informações sobre *function.json* propriedades de ficheiros, consulte o [configuração](#trigger---configuration) secção explica estas propriedades.
 
 Eis o script código c# que está vinculado a um `Stream`:
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* de ficheiros e [código JavaScript] (funções-referência-node.md) que utiliza o enlace. A função escreve um registo quando um blob é adicionado ou atualizado no `samples-workitems` contentor.
+O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [código JavaScript](functions-reference-node.md) que utiliza o enlace. A função escreve um registo quando um blob é adicionado ou atualizado no `samples-workitems` contentor.
 
 Eis o *function.json* ficheiro:
 
@@ -124,14 +128,16 @@ Eis o *function.json* ficheiro:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-O [configuração](#trigger---configuration) secção explica estas propriedades.
+A cadeia `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [expressão de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) que pode utilizar no código de função para o nome de ficheiro do blob acionadora de acesso. Para obter mais informações, consulte [padrões de nome do Blob](#trigger---blob-name-patterns) posteriormente neste artigo.
+
+Para obter mais informações sobre *function.json* propriedades de ficheiros, consulte o [configuração](#trigger---configuration) secção explica estas propriedades.
 
 Eis o código JavaScript:
 
@@ -214,12 +220,13 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-Em c# e c# script, aceder aos dados blob utilizando um parâmetro de método como `T paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
+Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o blob acionadora:
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* Um POCO serializável como JSON
 * `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
 * `CloudBlockBlob` (requer a direção de enlace "inout" no *function.json*)
 * `CloudPageBlob` (requer a direção de enlace "inout" no *function.json*)
@@ -227,9 +234,9 @@ Em c# e c# script, aceder aos dados blob utilizando um parâmetro de método com
 
 Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
 
-Se os blobs de texto são esperados, é possível vincular o `string` tipo. Só é recomendada se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) posteriormente neste artigo.
+A associação à `string`, `Byte[]`, ou POCO só é recomendada se o tamanho do blob é pequeno, como o blob de todo o conteúdo é carregado na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) posteriormente neste artigo.
 
-Em JavaScript, aceder aos dados de blob de entrada utilizando `context.bindings.<name>`.
+Em JavaScript, aceder aos dados de blob de entrada utilizando `context.bindings.<name from function.json>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Acionador - padrões de nome de blob
 
@@ -242,7 +249,7 @@ O exemplo seguinte mostra como à qual vincular o nome de ficheiro de blob e ext
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
-Se o blob com o nome *original Blob1.txt*, o valor da `blobname` e `blobextension` as variáveis no código de função são *original Blob1* e *txt*.
+Se o blob com o nome *original Blob1.txt*, os valores a `blobname` e `blobextension` as variáveis no código de função são *original Blob1* e *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrar por nome do blob
 
@@ -276,13 +283,28 @@ Se o blob com o nome *{20140101}-soundfile.mp3*, a `name` valor da variável no 
 
 O acionador de blob fornece várias propriedades de metadados. Estas propriedades podem ser utilizadas como parte das expressões de enlace noutros enlaces ou como parâmetros no seu código. Estes valores têm a mesma semântica como o [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) tipo.
 
-
 |Propriedade  |Tipo  |Descrição  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho para o blob acionadora.|
 |`Uri`|`System.Uri`|URI do blob para a localização primária.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Propriedades do sistema do blob. |
 |`Metadata` |`IDictionary<string,string>`|Os metadados definidos pelo utilizador para o blob.|
+
+Por exemplo, o seguinte script do c# e JavaScript exemplos regista o caminho para o blob acionadora, incluindo o contentor:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>Acionador - recibos de blob
 
@@ -316,9 +338,9 @@ O acionador de blob utiliza uma fila internamente, para que o número máximo de
 
 [O plano de consumo](functions-scale.md#how-the-consumption-plan-works) limita uma aplicação de função uma máquina virtual (VM) para 1,5 GB de memória. Memória é utilizada por cada instância de função em execução e o tempo de execução de funções em si. Se uma função acionada por blob carrega o blob completo para memória, o máximo de memória utilizado por essa função apenas para blobs é 24 * tamanho do blob máximo. Por exemplo, uma aplicação de função com três funções acionadas de blob e as definições predefinidas teria uma simultaneidade de por VM máximo de 3 * 24 = 72 invocações de função.
 
-Funções JavaScript carregar o blob completo para a memória e c# funções fazê-lo se vincular ao `string`.
+Funções JavaScript carregar o blob completo para a memória e c# funções fazê-lo se vincular ao `string`, `Byte[]`, ou POCO.
 
-## <a name="trigger---polling-for-large-containers"></a>Acionador - a consultar grandes contentores
+## <a name="trigger---polling"></a>Acionar - de consulta
 
 Se o contentor de blob a ser monitorizado contém mais de 10 000 blobs, análises de tempo de execução funções ficheiros de registo da observar blobs novos ou alterados. Este processo pode resultar em atrasos. Uma função pode não obter uma acionada até vários minutos ou já depois de criado o blob. Além disso, [os registos de armazenamento são criados em "melhor esforço"](/rest/api/storageservices/About-Storage-Analytics-Logging) base. Não há nenhuma garantia de que todos os eventos são capturados. Em algumas condições, os registos podem ser omitidos. Se necessitar de processamento mais rápido ou mais fiável do blob, considere criar um [mensagem da fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, utilize um [acionador de fila](functions-bindings-storage-queue.md) em vez de um acionador de BLOBs para processar o blob. Outra opção consiste em utilizar a grelha de eventos; consulte o tutorial [Automate redimensionamento carregado imagens com eventos grelha](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
@@ -498,12 +520,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="input---usage"></a>Entrada - utilização
 
-Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro de método como `Stream paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
+Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o enlace de entrada do blob:
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` (requer a direção de enlace "inout" no *function.json*)
@@ -513,9 +535,9 @@ Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro
 
 Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
 
-Se a leitura de blobs de texto, é possível vincular a um `string` tipo. Este tipo só é recomendado se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo.
+A associação à `string` ou `Byte[]` só é recomendada se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) anteriormente neste artigo.
 
-Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name>`.
+Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name from function.json>`.
 
 ## <a name="output"></a>Saída
 
@@ -709,7 +731,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro de método como `Stream paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
+Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o blob vínculo de saída:
 
 * `TextWriter`
 * `out string`
@@ -725,9 +747,12 @@ Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro
 
 Conforme indicado, alguns destes tipos requerem um `inout` enlace direção no *function.json*. Esta não é suportada pelo editor padrão no portal do Azure, pelo que deverá utilizar o editor de avançadas.
 
-Se a leitura de blobs de texto, é possível vincular a um `string` tipo. Este tipo só é recomendado se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo.
+Nas funções de async, utilize o valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 
-Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name>`.
+A associação à `string` ou `Byte[]` só é recomendada se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) anteriormente neste artigo.
+
+
+Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name from function.json>`.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

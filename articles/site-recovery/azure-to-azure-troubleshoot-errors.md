@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: be43e34976682847c4756e062ec5b638ebc26063
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VM do Azure para o Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve os problemas comuns no quando replicar e recuperar máquina
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemas de quota de recursos do Azure (código de erro 150097)
 A subscrição deve ser ativada para criar as VMs do Azure na região de destino que pretende utilizar como a região de recuperação após desastre. Além disso, a sua subscrição deve ter quota suficiente ativada para criar as VMs do tamanho específico. Por predefinição, a recuperação de sites escolhe o mesmo tamanho da VM de destino como a VM de origem. Se o tamanho correspondente não estiver disponível, o tamanho de possíveis mais próximo é selecionado automaticamente. Se não houver nenhum tamanho correspondente que suporte a configuração de VM de origem, é apresentada esta mensagem de erro:
 
-Código de erro | **Causas possíveis** | Recomendação
+**Código de erro** | **Causas possíveis** | **Recomendação**
 --- | --- | ---
 150097<br></br>**Mensagem**: não foi possível ativar a replicação da máquina virtual VmName. | -O ID de subscrição não pode estar ativado para criar quaisquer VMs na localização de região de destino.</br></br>-O ID de subscrição pode não estar ativado ou não tem quota suficiente para criar específicos tamanhos de VM na localização de região de destino.</br></br>-Um destino adequado de tamanho da VM que corresponde à origem de contagem de VM NIC (2) não for encontrado para o ID de subscrição na localização de região de destino.| Contacte [ao apoio de faturação do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para permitir a criação de VM para os tamanhos VM necessários na localização de destino para a sua subscrição. Depois de estar ativado, repita a operação falhada.
 
@@ -35,7 +35,7 @@ Se a localização de destino tiver uma restrição de capacidade, desative a re
 
 Se todos os certificados de raiz fidedigna mais recentes não estão presentes na VM, poderá falhar a tarefa "ativar a replicação". Sem os certificados, a autenticação e autorização de chamadas de serviço de recuperação de sites da VM falharem. É apresentada a mensagem de erro para a tarefa de recuperação de Site "ativar a replicação de" falhada:
 
-Código de erro | **Uma causa possível** | **Recommendations (Recomendações)**
+**Código de erro** | **Uma causa possível** | **Recommendations (Recomendações)**
 --- | --- | ---
 151066<br></br>**Mensagem**: Falha na configuração de recuperação de sites. | Necessários fidedignos certificados de raiz utilizado para autorização e autenticação não estão presentes na máquina. | -Para uma VM com o sistema operativo do Windows, certifique-se de que os certificados de raiz fidedigna estão presentes na máquina. Para informações, consulte [configurar raízes confiáveis e certificados não permitidos](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Para uma VM com o sistema operativo Linux, siga as orientações para certificados de raiz fidedigna publicados pelo distribuidor de versão do sistema operativo Linux.
 
@@ -161,7 +161,7 @@ Lista branca [os URLs necessários](azure-to-azure-about-networking.md#outbound-
 
 Tem de ser inicializado num disco novo anexado à VM.
 
-Código de erro | **Causas possíveis** | **Recommendations (Recomendações)**
+**Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
 --- | --- | ---
 150039<br></br>**Mensagem**: o disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser reportado de dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi ligado à VM, mas não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor do LUN em que o disco foi ligado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 6428c6d9fcb577f18221ee48a61456c460bd8176
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Utilizar o Azure Data Lake Store para requisitos de macrodados
 Existem quatro fases principais grande de processamento de dados:
@@ -55,7 +55,7 @@ Seguem-se as ferramentas que pode utilizar:
 ### <a name="relational-data"></a>Dados relacionais
 Também pode originar dados a partir de bases de dados relacionais. Durante um período de tempo, bases de dados relacionais recolhem quantidades enormes de dados que podem fornecer informações de chaves se processados através de um pipeline de macrodados. Pode utilizar as ferramentas seguintes para mover esses dados para o Data Lake Store.
 
-* [O Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+* [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Dados de registo do servidor Web (carregamento utilizando aplicações personalizadas)
@@ -72,7 +72,7 @@ Para carregar dados de registo do servidor web e também para carregar outros ti
 A maioria dos tipos de cluster de HDInsight (Hadoop, HBase, Storm) suportam Data Lake Store, como um repositório de armazenamento de dados. Clusters do HDInsight aceder aos dados de Blobs de armazenamento do Azure (WASB). Para um melhor desempenho, pode copiar os dados de WASB para uma conta do Data Lake Store associada com o cluster. Pode utilizar as ferramentas seguintes para copiar os dados.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
-* [Serviço de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Os dados armazenados no local ou IaaS Hadoop clusters
@@ -115,7 +115,7 @@ Pode também querer transferir ou mover dados do Azure Data Lake Store para cen�
 
 Nestes casos, pode utilizar qualquer uma das seguintes opções:
 
-* [O Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+* [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Advisor do Azure
 
@@ -52,7 +52,7 @@ Pode clique numa categoria para ver a lista de recomendações dentro dessa cate
 
 Selecione a ação recomendada para uma recomendação implementar a recomendação.  Uma interface simples abrirá que lhe permite implementar a recomendação ou consulte a documentação que ajuda a com a implementação.  Depois de implementar uma recomendação, pode demorar até ao dia para o Advisor reconhecer que.
 
-Se não pretender tome medidas imediatas numa recomendação, pode snooze-lo durante um período de tempo especificado ou dispensá-lo.  Se não pretender receber recomendações para uma subscrição específica ou grupo de recursos, pode configurar o Advisor só gerar recomendações para especificado subscrições e grupos de recursos.
+Se não pretender tome medidas imediatas numa recomendação, pode adiar o fim durante um período de tempo especificado ou dispensá-lo.  Se não pretender receber recomendações para uma subscrição específica ou grupo de recursos, pode configurar o Advisor só gerar recomendações para especificado subscrições e grupos de recursos.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -69,9 +69,9 @@ Para obter recomendações do Assistente para uma subscrição, tem primeiro de 
 
 Advisor fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicação, serviços de aplicações, servidores SQL, bases de dados SQL e a Cache de Redis.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Pode snooze ou ignorar uma recomendação?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Pode adiar ou ignorar uma recomendação?
 
-Para snooze ou ignorar uma recomendação, clique o **Snooze** ligação. Pode especificar um tempo de suspensão período ou selecione **nunca** para dispensar a recomendação.
+Para adiar ou ignorar uma recomendação, clique o **' Adiar '** ligação. Pode especificar um ' Adiar ' período ou selecione **nunca** para dispensar a recomendação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

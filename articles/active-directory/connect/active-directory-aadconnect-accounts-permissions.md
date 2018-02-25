@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Do Azure AD Connect: Contas e permissões
 O Assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -43,7 +43,7 @@ As definições rápidas, o Assistente de instalação pede-lhe as credenciais d
 
 | Página do Assistente | Credenciais recolhidas | Permissões necessárias | Utilizado para |
 | --- | --- | --- | --- |
-| N/D |Utilizador que executa o Assistente de instalação |Administrador do servidor local |<li>Cria a conta local que é utilizada como o [conta de serviço do motor de sincronização](#azure-ad-connect-sync-service-account). |
+| N/A |Utilizador que executa o Assistente de instalação |Administrador do servidor local |<li>Cria a conta local que é utilizada como o [conta de serviço do motor de sincronização](#azure-ad-connect-sync-service-account). |
 | Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>A criação do [conta do Azure AD](#azure-ad-service-account) que é utilizada para operações de sincronização em curso no Azure AD.</li> |
 | Ligar ao AD DS |Credenciais de Active Directory no local |Membro do grupo Admins de empresa (EA) no Active Directory |<li>Cria um [conta](#active-directory-account) no Active Directory e atribui permissões para a mesma. Esta conta foi criada é utilizada para ler e escrever informações de diretório durante a sincronização.</li> |
 
@@ -70,12 +70,12 @@ O Azure AD Connect versão 1.1.524.0 e posterior, tem a opção para permitir qu
 
 | Página do Assistente | Credenciais recolhidas | Permissões necessárias | Utilizado para |
 | --- | --- | --- | --- |
-| N/D |Utilizador que executa o Assistente de instalação |<li>Administrador do servidor local</li><li>Se utilizar um servidor SQL completo, o utilizador tem de ser administrador de sistema (SA) no SQL Server</li> |Por predefinição, cria a conta local que é utilizada como o [conta de serviço do motor de sincronização](#azure-ad-connect-sync-service-account). A conta é criada apenas quando o administrador não especificar uma conta específica. |
+| N/A |Utilizador que executa o Assistente de instalação |<li>Administrador do servidor local</li><li>Se utilizar um servidor SQL completo, o utilizador tem de ser administrador de sistema (SA) no SQL Server</li> |Por predefinição, cria a conta local que é utilizada como o [conta de serviço do motor de sincronização](#azure-ad-connect-sync-service-account). A conta é criada apenas quando o administrador não especificar uma conta específica. |
 | Instalar serviços de sincronização, opção de conta de serviço |AD ou as credenciais da conta de utilizador local |Utilizador, as permissões são concedidas pelo Assistente de instalação |Se o administrador especifica uma conta, esta conta é utilizada como a conta de serviço para o serviço de sincronização. |
 | Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>A criação do [conta do Azure AD](#azure-ad-service-account) que é utilizada para operações de sincronização em curso no Azure AD.</li> |
 | Ligar os diretórios |Credenciais do Active Directory no local para cada floresta que está ligado ao Azure AD |As permissões dependem as funcionalidades que pode ativa e pode ser encontrado na [criar a conta do AD DS](#create-the-ad-ds-account) |Esta conta é utilizada para ler e escrever informações de diretório durante a sincronização. |
 | Servidores do AD FS |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador a executar o assistente não são suficientes estabelecer a ligação |Administrador de domínio |Instalação e configuração da função de servidor do AD FS. |
-| Servidores proxy de aplicações Web |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador a executar o assistente não são suficientes estabelecer a ligação |Administrador local no computador de destino |Instalação e configuração da função de servidor do WAP. |
+| Servidores de proxy de aplicações Web |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador a executar o assistente não são suficientes estabelecer a ligação |Administrador local no computador de destino |Instalação e configuração da função de servidor do WAP. |
 | Credenciais de confiança do proxy |As credenciais (as credenciais de proxy utiliza para inscrever um certificado de confiança do FS de confiança do serviço de Federação |Conta de domínio que seja um administrador local do servidor do AD FS |Inscrição inicial do certificado de confiança FS WAP. |
 | Página de conta de serviço FS AD, "Utilizar uma opção de conta de utilizador de domínio" |Credenciais de conta de utilizador do AD |Utilizador de domínio |A conta de utilizador do AD cujas credenciais são fornecidas é utilizada como a conta de início de sessão do serviço do AD FS. |
 
@@ -98,7 +98,7 @@ As permissões necessárias depende de funcionalidades opcionais, ativar. Se tiv
 Ao atualizar de uma versão do Azure AD Connect para uma nova versão, terá as seguintes permissões:
 
 >[!IMPORTANT]
->A partir da compilação 1.1.484, do Azure AD Connect apresentou um erro de regressão que necessita de permissões de administrador do sistema para atualizar a base de dados do SQL Server.  Este erro ainda está presente na compilação mais recente 1.1.614.  Se estiver a atualizar para esta compilação, precisa de permissões de administrador do sistema.  Permissões de dbo não são suficientes.  Se tentar atualizar o Azure AD Connect sem ter permissões de administrador do sistema, a atualização falhará e o Azure AD Connect deixarão de funcionar corretamente posteriormente.  A Microsoft está ciente disto e está a funcionar para corrigir isto.
+>A partir da compilação 1.1.484, do Azure AD Connect apresentou um erro de regressão que necessita de permissões de administrador do sistema para atualizar a base de dados do SQL Server.  Este erro seja corrigido na compilação 1.1.647.  Se estiver a atualizar para esta compilação, precisa de permissões de administrador do sistema.  Permissões de dbo não são suficientes.  Se tentar atualizar o Azure AD Connect sem ter permissões de administrador do sistema, a atualização falhará e o Azure AD Connect deixarão de funcionar corretamente posteriormente.  A Microsoft está ciente disto e está a funcionar para corrigir isto.
 
 
 | Principal | Permissões necessárias | Utilizado para |
@@ -146,8 +146,8 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL Server remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónomo/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina associada ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA, gMSA | **gMSA**</br>Conta de domínio |
-| **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
+| **máquina associada ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA,gMSA | **gMSA**</br>Conta de domínio |
+| **Controlador de domínio** | Conta de domínio | *gMSA*</br>Conta de domínio</br>sMSA| *gMSA*</br>Conta de domínio|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual
 Uma conta de serviço virtual é um tipo especial de conta que não tem uma palavra-passe e for gerido pelo Windows.
@@ -191,9 +191,9 @@ O nome do servidor que é utilizada a conta no pode ser identificado na segunda 
 
 A conta de serviço é criada com uma palavra-passe complexa desde que não expire. É concedido uma função especial **contas de sincronização de diretórios** que tenha apenas as permissões para executar tarefas de sincronização de diretórios. Não é possível conceder esta função incorporada especial fora do Assistente do Azure AD Connect. O portal do Azure mostra esta conta com a função **utilizador**.
 
-Não há um limite de 20 contas de serviço de sincronização no Azure AD. Para obter a lista de contas de serviço do Azure AD existentes no seu Azure AD, execute o seguinte cmdlet do PowerShell do Azure AD:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Não há um limite de 20 contas de serviço de sincronização no Azure AD. Para obter a lista de contas de serviço do Azure AD existentes no seu Azure AD, execute o seguinte cmdlet do PowerShell do Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Para remover AD do Azure não utilizado contas de serviço, execute o seguinte cmdlet do PowerShell do Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Para remover AD do Azure não utilizado contas de serviço, execute o seguinte cmdlet do PowerShell do Azure AD: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](../active-directory-aadconnect.md).

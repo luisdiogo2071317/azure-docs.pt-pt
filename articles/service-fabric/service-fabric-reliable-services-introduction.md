@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: masnider;
-ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="reliable-services-overview"></a>Descrição geral do Reliable Services
 Azure Service Fabric simplifica escrever e gerir serviços fiável sem monitorização de estado e com monitorização de estado. Este tópico abrange:
@@ -45,7 +45,7 @@ Reliable Services dá-lhe um modelo de programação simple, poderoso, nível su
 * Um modelo de comunicação incorporável. Utilize o transporte à sua escolha, tal como HTTP com [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, ou qualquer outra função. Reliable Services fornecem algumas excelente out of box opções pode utilizar, ou pode fornecer os seus próprios.
 * Para os serviços com monitorização de estado, o modelo de programação Reliable Services poder consistentemente e fiável armazenar o estado do direito dentro do seu serviço utilizando [coleções fiável](service-fabric-reliable-services-reliable-collections.md). Coleções fiáveis são um conjunto simple de classes de coleção e de elevada disponibilidade fiável que será familiar para qualquer pessoa que tenha utilizado c# coleções. Tradicionalmente, os serviços necessários sistemas externos para a gestão de estado fiável. Com coleções fiável, pode armazenar o estado junto ao seu computação com a mesma elevada disponibilidade e fiabilidade que tiver provenientes esperar elevados arquivos externos. Este modelo melhora também a latência porque que está a colocalização de computação e de estado tem de funcionar.
 
-Veja este vídeo Microsoft Virtual Academy para uma descrição geral dos serviços fiáveis:<center>
+Veja este vídeo Microsoft Virtual Academy para uma descrição geral dos serviços fiáveis: <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>
@@ -113,7 +113,7 @@ Se qualquer uma das seguintes caracterizam suas necessidades de serviço de apli
 * A aplicação tem de manter histórico de alterações para o respetivas unidades de estado.
 * Pretende desenvolver ou consumir fornecedores de estado personalizado, desenvolvido de terceiros de terceiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Início rápido de serviços fiável](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services avançadas de utilização](service-fabric-reliable-services-advanced-usage.md)
 * [O modelo de programação Reliable Actors](service-fabric-reliable-actors-introduction.md)
