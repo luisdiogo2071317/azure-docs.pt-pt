@@ -197,7 +197,7 @@
           items:
             - name: Ambiente de origem para VMware para o Azure
               href: site-recovery-set-up-vmware-to-azure.md
-            - name: Implementar o servidor de configuração para o VMware e servidores físicos
+            - name: Implementar o servidor de configuração para a recuperação após desastre do VMware
               href: how-to-deploy-configuration-server.md
             - name: Ambiente de origem para replicação física para o Azure
               href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +267,10 @@
       items:
         - name: Gerir servidores de processos no Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-        - name: Gerir o servidor de configuração
+        - name: Gerir o servidor de configuração para a recuperação após desastre do VMware
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: Gerir o servidor de configuração para a recuperação após desastre da máquina física
+          href: physical-manage-configuration-server.md
         - name: Gerir servidores vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Gerir vários inquilinos com CSP
