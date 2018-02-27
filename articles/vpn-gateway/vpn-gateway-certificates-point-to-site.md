@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ff590ecb5091695d6105b510f563251fe43412fe
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Gerar e exportar certificados para ligações ponto a Site através do PowerShell no Windows 10 ou Windows Server 2016
 
@@ -78,7 +78,7 @@ Este exemplo utiliza a variável '$cert' declarado da secção anterior. Se fech
 Modificar e execute o exemplo para gerar um certificado de cliente. Se executar o exemplo seguinte sem modificá-lo, o resultado será um certificado de cliente com o nome 'P2SChildCert'.  Se pretender nomear o certificado de subordinados outra coisa, modifique o valor CN. Não altere o TextExtension quando executar este exemplo. O certificado de cliente que geram o é instalado automaticamente nos 'Certificados - User\Personal\Certificates atual' no seu computador.
 
 ```powershell
-New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
 -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
 -HashAlgorithm sha256 -KeyLength 2048 `
 -CertStoreLocation "Cert:\CurrentUser\My" `
@@ -116,7 +116,7 @@ Se estiver a criar certificados de cliente adicionais ou se não estiver a utili
 4.  Modificar e execute o exemplo para gerar um certificado de cliente. Se executar o exemplo seguinte sem modificá-lo, o resultado será um certificado de cliente com o nome 'P2SChildCert'. Se pretender nomear o certificado de subordinados outra coisa, modifique o valor CN. Não altere o TextExtension quando executar este exemplo. O certificado de cliente que geram o é instalado automaticamente nos 'Certificados - User\Personal\Certificates atual' no seu computador.
 
   ```powershell
-  New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
   -HashAlgorithm sha256 -KeyLength 2048 `
   -CertStoreLocation "Cert:\CurrentUser\My" `

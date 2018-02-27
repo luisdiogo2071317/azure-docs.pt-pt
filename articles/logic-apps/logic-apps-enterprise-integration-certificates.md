@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Mais informações sobre certificados e o Enterprise Integration Pack
 ## <a name="overview"></a>Descrição geral
@@ -44,7 +44,7 @@ Depois de carregar um certificado, fica disponível para o ajudar a proteger as 
 
 Eis os passos detalhados para carregar os certificados públicos na sua conta de integração, depois de iniciar sessão no portal do Azure:
 
-1. Selecione **mais serviços** e introduza **integração** na caixa de pesquisa de filtro. Selecione **contas de automatização** na lista de resultados     
+1. Selecione **todos os serviços** e introduza **integração** na caixa de pesquisa de filtro. Selecione **contas de automatização** na lista de resultados     
 ![Selecione procurar](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Selecione a conta de integração para o qual pretende adicionar o certificado.  
 ![Selecione a conta de integração para o qual pretende adicionar o certificado](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
@@ -67,7 +67,7 @@ Para utilizar um *certificado privado* nas suas logic apps com B2B capacidades, 
 1. [Carregar a chave privada para o Cofre de chaves](../key-vault/key-vault-get-started.md "Saiba mais sobre o Cofre de chaves") e fornecer um **nome da chave** 
    
    > [!TIP]
-   > Deve autorizar as Logic Apps para executar operações no Cofre de chaves. Pode conceder acesso para o principal de serviço de aplicações lógicas utilizando o seguinte comando do PowerShell:`Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
+   > Deve autorizar as Logic Apps para executar operações no Cofre de chaves. Pode conceder acesso para o principal de serviço de aplicações lógicas utilizando o seguinte comando do PowerShell: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
    > 
    > 
 

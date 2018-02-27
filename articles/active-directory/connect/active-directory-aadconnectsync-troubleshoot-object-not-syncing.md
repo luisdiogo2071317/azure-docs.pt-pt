@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Resolver problemas de um objeto que não está a sincronizar com o Azure AD
 
 Se um objeto não está a sincronizar conforme esperado para o Azure AD, em seguida, pode ser devido a várias razões. Se recebeu um e-mail de erro do Azure AD ou consulte o erro no Azure AD Connect Health, em seguida, lidos [resolver erros de exportação](active-directory-aadconnect-troubleshoot-sync-errors.md) em vez disso. Mas, se estiver a resolver um problema em que o objeto não está no Azure AD, em seguida, este tópico é que o utilizador. Descreve como localizar erros na sincronização do Azure AD Connect de componente no local.
+
+>[!IMPORTANT]
+>Para a implementação do Azure Active Directory (AAD) ligar com a versão <verison> ou superior, utilize o [tarefas de resolução de problemas](active-directory-aadconnect-troubleshoot-objectsync.md) no Assistente para resolver problemas de sincronização do objeto. 
 
 Para localizar os erros, vai observe alguns locais diferentes pela seguinte ordem:
 
@@ -36,7 +39,7 @@ Iniciar [Synchronization Service Manager](active-directory-aadconnectsync-servic
 No separador operações o Synchronization Service Manager é onde deve começar a resolução de problemas. No separador operações mostra os resultados das operações mais recentes.  
 ![Gestor do serviço de sincronização](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-A metade superior mostra todas as execuções chronic ordem. Por predefinição, as operações de registo mantém informações sobre os últimos sete dias, mas esta definição pode ser alterada com o [programador](active-directory-aadconnectsync-feature-scheduler.md). Pretende procurar qualquer execução que mostram um Estado de êxito. Pode alterar a ordenação clicando os cabeçalhos.
+A metade superior mostra todas as execuções por ordem cronológica. Por predefinição, as operações de registo mantém informações sobre os últimos sete dias, mas esta definição pode ser alterada com o [programador](active-directory-aadconnectsync-feature-scheduler.md). Pretende procurar qualquer execução que mostram um Estado de êxito. Pode alterar a ordenação clicando os cabeçalhos.
 
 O **estado** coluna são as informações mais importantes e mostra o problema mais grave para execução. Eis um resumo rápido dos Estados mais comuns por ordem de prioridade para investigar (onde * indicar vários cadeias de erro possíveis).
 
@@ -78,7 +81,7 @@ Se não encontrar o objeto que procura, então poderá ter sido filtrado com [fi
 
 Outra pesquisa útil consiste em Selecionar o conector do Azure AD, no **âmbito** selecione **importação pendente**e selecione o **adicionar** caixa de verificação. Esta pesquisa dá-lhe todos os objetos sincronizados no Azure AD que não pode ser associado um objeto no local.  
 ![Orphan de pesquisa de espaço de conector](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Os objetos foram criados por outro motor de sincronização ou um motor de sincronização com uma configuração de filtragem diferente. Esta vista está uma lista de **orphan** objetos já não é geridos. Deve rever esta lista e considere remover estes objetos utilizando o [Azure AD PowerShell](http://aka.ms/aadposh) cmdlets.
+Os objetos foram criados por outro motor de sincronização ou um motor de sincronização com uma configuração de filtragem diferente. Esta vista está uma lista de **orphan** objetos já não é geridos. Deve rever esta lista e considere remover estes objetos utilizando o [Azure AD PowerShell](https://aka.ms/aadposh) cmdlets.
 
 ### <a name="cs-import"></a>Importação de CS
 Quando abre um objeto de cs, existem vários separadores na parte superior. O **importar** separador mostra os dados que são testados após uma importação.  
@@ -140,7 +143,7 @@ Se estão em falta o conector para o Azure AD, em seguida, lidos [atributos de M
 
 Este separador também permite-lhe navegar para o [objeto de espaço de conector](#connector-space-object-properties). Selecionar uma linha e clique em **propriedades**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

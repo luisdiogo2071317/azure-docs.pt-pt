@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível baixo 
 
@@ -62,7 +62,7 @@ Este tópico fornece orientações sobre como resolver potenciais problemas de r
 
 1. Abra a linha de comandos como administrador 
 
-2. Tipo`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. tipo `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
 Este comando apresenta uma caixa de diálogo que fornece-lhe obter mais detalhes sobre o estado de associação.
 
@@ -82,6 +82,18 @@ Se a associação do Azure AD híbrido não foi bem sucedida, a caixa de diálog
 - Não tem sessão iniciada como um utilizador de domínio
 
     ![Associação à área de trabalho para Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Existem alguns diferentes motivos por que motivo esta situação pode ocorrer:
+    
+    1. Se o utilizador com sessão iniciado não é um utilizador de domínio (por exemplo, um utilizador local). Associação do Azure AD híbrido nos dispositivos de nível inferior só é suportada para os utilizadores de domínio.
+    
+    2. Se, por qualquer motivo, Autoworkplace.exe conseguir autenticar silenciosamente com o Azure AD ou AD FS. Algumas das razões possíveis podem ser problemas de conectividade de rede out-vinculado aos URLs de AD do Azure (Verifique os pré-requisitos) ou se o MFA é ativada/configurado para o utilizador, mas WIAORMUTLIAUTHN não está configurado no servidor de Federação (passos de configuração de verificação). Possibilidade de outra é nessa página do realm inicial (HRD) de deteção está a aguardar interação do utilizador, impedindo Autoworkplace.exe obtenham silenciosamente um 
+    
+    3. Se a organização está a utilizar o Azure AD totalmente integrada Single Sign-On, os URLs seguintes não estão presentes i/e as definições no dispositivo da intranet:
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    e a definição "Permitir que as atualizações à barra de estado através do script" tem de estar ativada para a zona de Intranet.
 
 - Foi atingida a quota de uma
 
@@ -107,6 +119,6 @@ Também pode encontrar as informações de estado no registo de eventos em **apl
 
   - Um utilizador atingiu o limite de dispositivos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para perguntas, consulte o [perguntas mais frequentes sobre a gestão de dispositivos](device-management-faq.md)  

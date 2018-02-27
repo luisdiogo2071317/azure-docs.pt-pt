@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorizar e gerir cofres e servidores dos serviços de recuperação do Azure para computadores Windows
 
@@ -32,13 +32,11 @@ Este artigo contém uma descrição geral de tarefas monitorização e gestão d
 O dashboard do cofre dos serviços de recuperação mostra os detalhes ou atributos de um cofre dos serviços de recuperação.
 
 1. Iniciar sessão para o [Portal do Azure](https://portal.azure.com/) através da sua subscrição do Azure.
-2. No Hub menu, clique em **mais serviços**.
-
-    ![Abrir lista de cofres de serviços de recuperação passo 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Clique em **todos os serviços**. 
 
 3. Pretende abrir um cofre dos serviços de recuperação. Na caixa de diálogo, comece a escrever **dos serviços de recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **cofres dos serviços de recuperação** para apresentar a lista de cofres dos serviços de recuperação na sua subscrição.
 
-    ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Abrir lista de cofres de serviços de recuperação passo 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     A lista de cofres dos serviços de recuperação abre.
 
@@ -74,9 +72,9 @@ Na parte superior do Dashboard:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Alertas de cópias de segurança utilizando o agente de cópia de segurança do Azure:
 | Nível de alerta | Alertas enviados |
 | --- | --- |
-| Crítico |Falha de cópia de segurança, falha de recuperação |
-| Aviso |Cópia de segurança foi concluída com avisos (quando < 100 ficheiros não são guardados em cópia de segurança devido a problemas de danos e > 1,000,000 ficheiros com êxito são uma cópia de segurança) |
-| Informativo |Nenhuma |
+| Crítico | para falhas de cópia de segurança, falha de recuperação e elimine diferida ou seja, quando alguém para proteção com eliminar dados |
+| Aviso | para cópia de segurança foi concluída com avisos (quando < 100 ficheiros não são guardados em cópia de segurança devido a problemas de danos e > 1,000,000 ficheiros com êxito são uma cópia de segurança) |
+| Informativo | Atualmente, estão disponíveis para o agente de cópia de segurança do Azure não existem alertas informativos |
 
 ## <a name="manage-backup-alerts"></a>Gerir alertas de cópia de segurança
 Clique em de **alertas de cópia de segurança** mosaico para abrir o **alertas de cópia de segurança** menu e gerir alertas.
@@ -110,7 +108,7 @@ Alertas podem ser enviados para os seguintes níveis de gravidade:
 
 * Crítico
 * aviso
-* Informações
+* informações
 
 Desativar o alerta com o **desativar** botão no menu de detalhes da tarefa. Ao clicar em desativar, pode fornecer as notas de resolução.
 
@@ -307,10 +305,10 @@ R3. Abaixo são os casos, quando a notificação não será enviada para reduzir
 2. Partindo do princípio de que o processo de mensagens em fila não está em execução, abra **painel de controlo** e navegar na lista de serviços. Iniciar ou reinicie **o agente de gestão do Microsoft Azure Recovery Services**.
 
     Para obter mais informações, procure os registos em:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Por exemplo:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Por exemplo:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Restaurar o Windows Server ou o cliente do Windows a partir do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup do Azure, consulte [descrição geral de cópia de segurança do Azure](backup-introduction-to-azure-backup.md)
 * Visite o [fórum de cópia de segurança do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)

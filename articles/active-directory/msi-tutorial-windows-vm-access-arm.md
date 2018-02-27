@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: de73481bc171ff5884ccdb42f374b2f9138e599c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 57d79abc4f82eec896639c1dcb11c25e4cb353f9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos
 
@@ -43,7 +43,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 
 Para este tutorial, iremos criar uma nova VM do Windows.  Também pode ativar MSI numa VM existente.
 
-1.  Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1.  Clique em de **crie um recurso** botão encontrado no canto superior esquerdo do portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
 3.  Introduza as informações da máquina virtual. O **Username** e **palavra-passe** criada aqui é as credenciais que utiliza para início de sessão para a máquina virtual.
 4.  Escolha o adequado **subscrição** para a máquina virtual na lista pendente.

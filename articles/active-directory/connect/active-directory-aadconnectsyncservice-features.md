@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
@@ -28,7 +28,7 @@ A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
 
 Este tópico explica como as seguintes funcionalidades do **serviço de sincronização do Azure AD Connect** trabalho e como pode configurá-los através do Windows PowerShell.
 
-Estas definições são configuradas pelo [módulo Azure Active Directory para Windows PowerShell](http://aka.ms/aadposh). Transfira e instale-o em separado a partir do Azure AD Connect. Os cmdlets documentados neste tópico foram introduzidos no [versão de Março de 2016 (compilação 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou não produzem o mesmo resultado, em seguida, certifique-se de que executa a versão mais recente.
+Estas definições são configuradas pelo [módulo Azure Active Directory para Windows PowerShell](https://aka.ms/aadposh). Transfira e instale-o em separado a partir do Azure AD Connect. Os cmdlets documentados neste tópico foram introduzidos no [versão de Março de 2016 (compilação 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou não produzem o mesmo resultado, em seguida, certifique-se de que executa a versão mais recente.
 
 Para ver a configuração no diretório do Azure AD, execute `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)

@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que é novo no Azure Active Directory?
 
@@ -219,7 +219,7 @@ Para obter mais informações, consulte [menos avisos de início de sessão: A n
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** termos de utilização  
-**Capacidade de produto:** governação
+**Capacidade de produto:** governação/compatibilidade
  
 Uma opção para os administradores requer que os utilizadores expandir os termos de utilização antes de aceitar os termos.
 
@@ -494,7 +494,7 @@ Agora pode incluir (ou excluir) macOS como uma condição de plataforma do dispo
 
 Para obter mais informações, consulte:
 
-- [Criar uma política de conformidade de dispositivos para dispositivos macOS com o Intune](https://aka.ms/macoscompliancepolicy)
+- [Criar uma política de conformidade para dispositivos macOS com o Intune](https://aka.ms/macoscompliancepolicy)
 - [Acesso condicional no Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
@@ -666,7 +666,7 @@ Para obter mais informações, consulte [referência para MFA relatórios no por
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** termos de utilização  
-**Capacidade de produto:** governação  
+**Capacidade de produto:** governação/compatibilidade  
 
 
 
@@ -709,7 +709,7 @@ Para obter mais informações, consulte [Privileged Identity Management para rec
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** revisões de acesso  
-**Capacidade de produto:** governação  
+**Capacidade de produto:** governação/compatibilidade  
 
 
 

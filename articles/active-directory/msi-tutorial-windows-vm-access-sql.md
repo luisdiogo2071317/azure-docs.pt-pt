@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58c6b5e076e9546aa621c9d1aea8893edf4335c0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure
 
@@ -44,7 +44,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 
 Para este tutorial, iremos criar uma nova VM do Windows.  Também pode ativar MSI numa VM existente.
 
-1.  Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1.  Clique em de **crie um recurso** botão encontrado no canto superior esquerdo do portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
 3.  Introduza as informações da máquina virtual. O **Username** e **palavra-passe** criada aqui é as credenciais que utiliza para início de sessão para a máquina virtual.
 4.  Escolha o adequado **subscrição** para a máquina virtual na lista pendente.
@@ -155,7 +155,7 @@ Para este passo seguinte, terá de [Microsoft SQL Server Management Studio](http
 1.  Inicie o SQL Server Management Studio.
 2.  No **ligar ao servidor** caixa de diálogo, introduza o nome do seu SQL server no **nome do servidor** campo.
 3.  No **autenticação** campo, selecione **do Active Directory - Universal com suporte MFA**.
-4.  No **nome de utilizador** campo, introduza o nome da conta do Azure AD que definir como o administrador do servidor, por exemplo,helen@woodgroveonline.com
+4.  No **nome de utilizador** campo, introduza o nome da conta do Azure AD que definir como o administrador do servidor, por exemplo, helen@woodgroveonline.com
 5.  Clique em **Opções**.
 6.  No **ligar à base de dados** campo, introduza o nome da base de dados não pertencente ao sistema que pretende configurar.
 7.  Clique em **Ligar**.  Conclua o processo de início de sessão.

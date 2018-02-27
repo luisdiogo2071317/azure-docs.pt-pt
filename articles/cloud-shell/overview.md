@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral da Shell de nuvem do Azure
 Shell de nuvem do Azure é uma shell interativa e acessíveis para o browser para a gestão de recursos do Azure.
@@ -69,9 +69,9 @@ Na primeira execução que nuvem Shell pede-lhe criar um recurso de grupo, a con
 Uma conta de armazenamento localmente redundante (LRS) e a partilha de ficheiros do Azure podem ser criados em seu nome. Se optar por utilizar ambas a partilha de ficheiros do Azure será utilizada para ambientes de Bash e PowerShell. Aplicam os custos de armazenamento normal.
 
 Três recursos serão criados em seu nome:
-1. Grupo de recursos com o nome:`cloud-shell-storage-<region>`
-2. Conta de armazenamento com o nome:`cs<uniqueGuid>`
-3. Partilha de ficheiros com o nome:`cs-<user>-<domain>-com-<uniqueGuid>`
+1. Grupo de recursos com o nome: `cloud-shell-storage-<region>`
+2. Conta de armazenamento com o nome: `cs<uniqueGuid>`
+3. Partilha de ficheiros com o nome: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
 > Bash na Shell de nuvem também cria uma imagem de disco de 5 GB predefinido para manter `$Home`. Todos os ficheiros no seu diretório $Home tal como chaves SSH são mantidos da imagem de disco do utilizador armazenada numa partilha de ficheiros do Azure montados de. Aplique as melhores práticas ao guardar os ficheiros no diretório $Home e partilha de ficheiros do Azure montada.
@@ -83,7 +83,7 @@ Três recursos serão criados em seu nome:
 Na linha de comandos do programa de configuração da armazenamento, clique em "Definições avançadas de mostrar" para mostrar as opções adicionais.
 
 > [!Note]
-> As DropDowns são filtradas para a sua região de nuvem Shell previamente atribuído e contas de armazenamento LRS/GRS.
+> As DropDowns são filtradas para a sua região de nuvem Shell previamente atribuído e contas de armazenamento LRS/GRS/ZRS.
 
 [Saiba mais sobre armazenamento de nuvem Shell, ao atualizar as partilhas de ficheiros do Azure e a carregar/transferência de ficheiros.](persisting-shell-storage.md)
 

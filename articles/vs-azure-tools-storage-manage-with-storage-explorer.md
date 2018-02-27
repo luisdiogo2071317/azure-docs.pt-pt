@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Explorador de Armazenamento (Pré-visualização)
 ## <a name="overview"></a>Descrição geral
@@ -28,6 +28,16 @@ O Explorador de Armazenamento do Azure (Pré-visualização) é uma aplicação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Transferir e instalar o Explorador de Armazenamento (Pré-visualização)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Para Linux distros diferente Ubuntu 16.04, poderá ter de instalar manualmente algumas dependências. Em geral, os pacotes seguintes são necessários:
+> * libgconf-2-4
+> * libsecret
+> * GCC atualizado
+>
+> Dependendo do seu distro, poderão existir outros pacotes que tem de instalar. O Explorador de armazenamento [notas de versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém passos específicos para algumas distros.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Ligar a um serviço ou a uma conta do Storage
 O Explorador de Armazenamento (Pré-visualização) proporciona várias formas de ligar a contas de armazenamento. Pode, por exemplo:
@@ -240,18 +250,18 @@ Besides gerir contas de base de dados do Azure Cosmos através de subscrição d
     ![connection-string][22]
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Ligar ao Azure Data Lake Store pelo URI
-Se pretender obter acesso a recursos, o que não existem na sua subscrição. Mas outros conceder-lhe obter o Uri para os recursos. Neste caso, pode ligar ao Data Lake Store utilizando o Uri depois de ter sessão iniciada. Consulte os seguintes passos.
+Se pretender obter acesso a recursos que não existem na sua subscrição. Mas outros concedem-lhe permissão para obter o Uri dos recursos. Neste caso, pode ligar ao Data Lake Store com o Uri, depois de ter sessão iniciada. Consulte os seguintes passos.
 1. Abrir o Explorador de Armazenamento (Pré-visualização).
-2. No painel esquerdo, expanda **locais e anexadas**.
-3. Clique com botão direito **Data Lake Store**e, no menu de contexto - selecione **ligar ao Data Lake Store...** .
+2. No painel esquerdo, expanda **Local e Ligado**.
+3. Clique com botão direito do rato em **Data Lake Store** e, no menu de contexto, selecione **Ligar ao Data Lake Store...**.
 
-    ![ligar ao menu de contexto do Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![menu de contexto Ligar ao Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. Introduza o Uri, em seguida, a ferramenta navega para a localização do URL introduzido apenas.
+4. Introduza o Uri e, em seguida, a ferramenta navega para a localização do URL que acabou de introduzir.
 
-    ![ligar ao diálogo de contexto do Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![caixa de diálogo de contexto Ligar ao Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-    ![ligar ao resultado de Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+    ![resultado de Ligar ao Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="search-for-storage-accounts"></a>Procurar contas do Storage
 Se precisar de localizar um recurso de armazenamento e não souber qual é, pode utilizar a caixa de pesquisa na parte superior do painel esquerdo para procurar o recurso.

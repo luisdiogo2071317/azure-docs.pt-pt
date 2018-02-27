@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -41,20 +41,19 @@ O HDInsight fornece vários tipos de cluster, que estão otimizados para cargas 
 
 ## <a name="how-to-use-hive"></a>Como utilizar o Hive
 
-Utilize a tabela seguinte para saber como utilizar o Hive com o HDInsight:
+Utilize a tabela seguinte para detetar as diferentes formas de utilizar o Hive com o HDInsight:
 
-| **Utilize este método** se pretender que... | … .an **interativa** shell | ... **batch** processamento | … .with isto **sistema de operativo de cluster** | … .from isto **sistema operativo do cliente** |
+| **Utilize este método** se pretender que... | ... **interativa** consultas | ... **batch** processamento | … .with isto **sistema de operativo de cluster** | … .from isto **sistema operativo do cliente** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Qualquer (baseadas no browser) |
 | [Cliente beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X ou Windows |
 | [API REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux ou Windows * |Linux, Unix, Mac OS X ou Windows |
+| [Ferramentas do HDInsight para Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X ou Windows |
 | [Ferramentas do HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux ou Windows * |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux ou Windows * |Windows |
 
 > [!IMPORTANT]
-> \*Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou superior. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
->
-> Se estiver a utilizar um cluster do HDInsight baseados em Windows, pode utilizar o [consola consulta](../hadoop/apache-hadoop-use-hive-query-console.md) partir do seu browser ou [ambiente de trabalho remoto](../hadoop/apache-hadoop-use-hive-remote-desktop.md) para executar consultas do Hive.
+> \* Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou superior. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="hiveql-language-reference"></a>Referência de linguagem HiveQL
 
@@ -65,7 +64,14 @@ Referência de linguagem HiveQL está disponível no [manual de idioma (https://
 Ramo de registo compreende como trabalhar com dados estruturados e semiestruturados. Por exemplo, ficheiros de texto em que os campos são delimitados por carateres específicas. A seguinte instrução de HiveQL cria uma tabela dados delimitada por espaços:
 
 ```hiveql
-CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
@@ -74,20 +80,20 @@ Ramo de registo também suporta personalizada **serializador/deserializers (SerD
 
 Para obter mais informações sobre os formatos de ficheiro suportados pelo ramo de registo, consulte o [manual de idioma (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
-## <a name="hive-internal-tables-vs-external-tables"></a>Tabelas externas do vs tabelas interno de ramo de registo
+### <a name="hive-internal-tables-vs-external-tables"></a>Tabelas externas do vs tabelas interno de ramo de registo
 
 Existem dois tipos de tabelas que pode criar com o Hive:
 
 * __Interno__: os dados são armazenados no armazém de dados do Hive. O armazém de dados está localizado em `/hive/warehouse/` no armazenamento de predefinido para o cluster.
 
-    Utilização interna tabelas quando:
+    Utilize tabelas internas quando uma das seguintes condições se aplicarem:
 
     * Dados são temporários.
     * Pretende que o ramo de registo para gerir o ciclo de vida da tabela e os dados.
 
 * __Externo__: os dados são armazenados fora do armazém de dados. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
 
-    Utilize externo tabelas quando:
+    Utilize as tabelas externas quando uma das seguintes condições se aplicarem:
 
     * Os dados são também utilizados fora do Hive. Por exemplo, os ficheiros de dados são atualizados por outro processo (que não bloqueia os ficheiros.)
     * Dados tem de permanecer na localização subjacente, mesmo depois de remover a tabela.
@@ -102,9 +108,9 @@ Ramo de registo também pode ser expandido através de **as funções definidas 
 
 * [Utilize uma função definida pelo utilizador do Java com o Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Utilizar uma função definida pelo utilizador do Python com o Hive e do Pig](../hadoop/python-udf-hdinsight.md)
+* [Utilize uma função definida pelo utilizador do Python com o Hive](../hadoop/python-udf-hdinsight.md)
 
-* [Utilize um c# definido pelo utilizador função com o Hive e do Pig](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Utilize um c# definido pelo utilizador função com o Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Como adicionar uma função personalizada de definido pelo utilizador do Hive no HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
@@ -118,16 +124,27 @@ Hive no HDInsight vem previamente carregada com uma tabela interna chamada `hive
 
 As seguintes declarações HiveQL projeto colunas para o `/example/data/sample.log` ficheiro:
 
-    set hive.execution.engine=tez;
-    DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+```hiveql
+set hive.execution.engine=tez;
+DROP TABLE log4jLogs;
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE LOCATION '/example/data/';
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+    GROUP BY t4;
+```
 
 No exemplo anterior, as declarações HiveQL efetuar as seguintes ações:
 
-* `set hive.execution.engine=tez;`: O motor de execução para utilizar Tez define. Utilizar Tez em vez de MapReduce pode fornecer um aumento do desempenho de consulta. Para obter mais informações sobre Tez, consulte o [utilizar o Apache Tez para um melhor desempenho](#usetez) secção.
+* `set hive.execution.engine=tez;`: O motor de execução para utilizar Tez define. Utilizar Tez, pode fornecer um aumento do desempenho de consulta. Para obter mais informações sobre Tez, consulte o [utilizar o Apache Tez para um melhor desempenho](#usetez) secção.
 
     > [!NOTE]
     > Esta instrução só é necessário quando utilizar um cluster do HDInsight baseados em Windows. Tez é o motor de execução predefinido para o HDInsight baseado em Linux.
@@ -142,7 +159,7 @@ No exemplo anterior, as declarações HiveQL efetuar as seguintes ações:
 
 * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[erro]**. Esta declaração devolve um valor **3** porque existem três linhas que contêm este valor.
 
-* `INPUT__FILE__NAME LIKE '%.log'`-Hive tenta aplicar o esquema para todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de libertação da memória nos resultados, esta instrução diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo.
+* `INPUT__FILE__NAME LIKE '%.log'` -Hive tenta aplicar o esquema para todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de libertação da memória nos resultados, esta instrução diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo.
 
 > [!NOTE]
 > As tabelas externas devem ser utilizadas ao espera os dados subjacentes ser atualizados por uma origem externa. Por exemplo, um processo de carregamento de dados automática ou operação de MapReduce.
@@ -151,11 +168,21 @@ No exemplo anterior, as declarações HiveQL efetuar as seguintes ações:
 
 Para criar um **interno** tabela em vez de externo, utilize o HiveQL seguinte:
 
-    set hive.execution.engine=tez;
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs
-    SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+```hiveql
+set hive.execution.engine=tez;
+CREATE TABLE IF NOT EXISTS errorLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+STORED AS ORC;
+INSERT OVERWRITE TABLE errorLogs
+SELECT t1, t2, t3, t4, t5, t6, t7 
+    FROM log4jLogs WHERE t4 = '[ERROR]';
+```
 
 As declarações de efetuar as seguintes ações:
 
@@ -195,7 +222,15 @@ Para ajudar a depurar tarefas foi executada com Tez, o HDInsight fornece o segui
 
 O HDInsight fornece LLAP no tipo de cluster de consulta interativo. Para obter mais informações, consulte o [começar a utilizar consultas interativas](../interactive-query/apache-interactive-query-get-started.md) documento.
 
-## <a name="hive-jobs-and-sql-server-integration-services"></a>Tarefas do Hive e o SQL Server Integration Services
+## <a name="scheduling-hive-queries"></a>Agendamento de consultas do Hive
+
+Existem vários serviços que podem ser utilizados para executar consultas do Hive como parte de um fluxo de trabalho agendado ou a pedido.
+
+### <a name="azure-data-factory"></a>Azure Data Factory
+
+O Azure Data Factory permite-lhe utilizar o HDInsight como parte de um pipeline do Data Factory. Para obter mais informações sobre como utilizar o Hive a partir de um pipeline, consulte o [transformar dados utilizando a atividade do ramo de registo no Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md) documento.
+
+### <a name="hive-jobs-and-sql-server-integration-services"></a>Tarefas do Hive e o SQL Server Integration Services
 
 Pode utilizar o SQL Server Integration Services (SSIS) para executar uma tarefa do Hive. O pacote de funcionalidades do Azure para SSIS fornece os seguintes componentes que funcionam com tarefas do Hive no HDInsight.
 
@@ -203,7 +238,11 @@ Pode utilizar o SQL Server Integration Services (SSIS) para executar uma tarefa 
 
 * [Gestor de ligações de subscrição do Azure][connectionmanager]
 
-Saiba mais sobre o pacote de funcionalidades do Azure para SSIS [aqui][ssispack].
+Para obter mais informações, consulte o [pacote de funcionalidades do Azure] [ ssispack] documentação.
+
+### <a name="apache-oozie"></a>O Apache Oozie
+
+O Apache Oozie é um sistema de coordenação e fluxos de trabalho que gere as tarefas do Hadoop. Para obter mais informações sobre como utilizar o Oozie com o Hive, consulte o [Oozie de utilização para definir e executar um fluxo de trabalho](../hdinsight-use-oozie-linux-mac.md) documento.
 
 ## <a id="nextsteps"></a>Passos seguintes
 

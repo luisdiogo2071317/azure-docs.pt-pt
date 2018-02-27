@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -51,6 +51,7 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 | [Contribuinte de BizTalk](#biztalk-contributor) |Pode gerir os BizTalk services |
 | [Contribuidor ClearDB MySQL DB](#cleardb-mysql-db-contributor) |Pode gerir bases de dados ClearDB MySQL |
 | [Contribuinte](#contributor) |Podem gerir tudo, exceto o acesso. |
+| [Função de leitor de conta do cosmos DB](#cosmos-db-account-reader-role) |Pode ler os dados de conta de base de dados do Azure Cosmos |
 | [Contribuinte da fábrica de dados](#data-factory-contributor) |Pode criar e gerir as fábricas de dados e recursos subordinados dentro delas. |
 | [DevTest Labs utilizador](#devtest-labs-user) |Pode ver tudo e estabelecer ligação, início, reiniciar e encerrar as máquinas virtuais |
 | [Contribuinte de zona DNS](#dns-zone-contributor) |Pode gerir registos e zonas DNS |
@@ -307,10 +308,23 @@ Pode gerir tudo, exceto acesso
 | --- | --- |
 | * |Criar e gerir recursos de todos os tipos |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Não é possível eliminar funções e atribuições de função |
 | Microsoft.Authorization/*/Write |Não é possível criar funções e atribuições de função |
+
+### <a name="cosmos-db-account-reader-role"></a>Função do Leitor da Conta do Cosmos DB
+Pode ler os dados de conta de base de dados do Azure Cosmos. Consulte [contribuinte de conta do DocumentDB](#documentdb-account-contributor) para gerir contas de base de dados do Azure Cosmos.
+
+| **Ações** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Funções de leitura e atribuições de funções, pode permissões de leitura para cada utilizador|
+|Microsoft.DocumentDB/*/read|Uma coleção de leitura|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|O painel de chaves de só de leitura de leitura|
+|Microsoft.Insights/Metrics/read|Ler métricas de conta|
+|Microsoft.Insights/MetricDefinitions/read|Definições de métrica de leitura|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Grupos de recursos de leitura|
+|Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
 ### <a name="data-factory-contributor"></a>Contribuinte do Data Factory
 Criar e gerir as fábricas de dados e recursos subordinados dentro delas.
@@ -677,7 +691,7 @@ Pode gerir bases de dados SQL, mas não as respetivas políticas relacionadas co
 | Microsoft.Sql/servers/read |Servidores SQL de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Não é possível editar as políticas de auditoria |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Não é possível editar as definições de auditoria |
@@ -727,7 +741,7 @@ Pode gerir servidores SQL e de bases de dados, mas não as respetivas políticas
 | Microsoft.Sql/servers/* |Criar e gerir servidores SQL |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Não é possível editar as políticas de auditoria do SQL server |
 | Microsoft.Sql/servers/auditingSettings/* |Não é possível editar definições de auditoria do SQL server |

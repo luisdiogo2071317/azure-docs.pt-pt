@@ -3,7 +3,7 @@ title: "Configurar o endereçamento IP para ligar após a ativação pós-falha 
 description: "Descreve como configurar a ligação para VMs do Azure após a ativação pós-falha no local com o Azure Site Recovery de endereçamento IP"
 services: site-recovery
 documentationcenter: 
-author: prateek9us
+author: mayanknayar
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/14/2017
-ms.author: pratshar
-ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/22/2018
+ms.author: manayar
+ms.openlocfilehash: 9b14f6ea361d3c1d7402d1a8aeb10695a8726edb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurar a ligação após a ativação pós-falha para o Azure de endereçamento IP
 
@@ -88,7 +88,7 @@ Para além da ligação vnet a vnet, após a ativação pós-falha, pode configu
 
 Isto [blogue](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explica como configurar a infraestrutura de rede do Azure quando não precisa de manter os endereços IP após a ativação pós-falha. Começa com uma descrição da aplicação, analisa como definir a segurança de rede no local e no Azure e conclui com informações sobre como executar as ativações pós-falha. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Executar uma ativação pós-falha](site-recovery-failover.md)
 
 

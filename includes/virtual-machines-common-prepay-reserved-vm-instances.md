@@ -8,7 +8,7 @@ Pode comprar instâncias de Máquina Virtual reservada [portal do Azure](https:/
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar uma instância de Máquina Virtual reservada
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione **mais serviços** > **reservas**.
+2. Selecione **todos os serviços** > **reservas**.
 3. Selecione **adicionar** para comprar uma nova reserva.
 4. Preencha os campos obrigatórios. VM em execução instâncias que correspondam os atributos que selecionar elegíveis para obter o desconto de reserva. O número real das instâncias de VM que obtenha o desconto depende no âmbito e na quantidade selecionado.
 
