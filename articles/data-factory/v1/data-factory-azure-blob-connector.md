@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f66ddecd6b999400b05a4b00aa781ffef3f7887d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: d94fef9d51c5f696df37b26867c1c8ebe12a15b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -122,7 +122,7 @@ Neste exemplo, {setor} é substituída pelo valor da variável de sistema do Dat
 
 Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em separado variáveis que são utilizadas pelas propriedades folderPath e nome de ficheiro.
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, conjuntos de dados e as políticas estão disponíveis para todos os tipos de atividades. Enquanto, propriedades disponíveis no **typeProperties** secção da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks. Se estiver a mover dados de um Blob Storage do Azure, defina o tipo de origem na atividade de cópia para **BlobSource**. Da mesma forma, se estiver a mover dados para um armazenamento de Blobs do Azure, definir o tipo de sink na atividade de cópia para **BlobSink**. Esta secção fornece uma lista de propriedades suportadas por BlobSource e BlobSink.
 
 **BlobSource** suporta as seguintes propriedades no **typeProperties** secção:
@@ -184,8 +184,8 @@ Vamos ver como rapidamente copiar dados de/para um armazenamento de Blobs do Azu
     ```
 ### <a name="create-the-data-factory"></a>Criar fábrica de dados
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique em **+ novo** no canto superior esquerdo, clique em **Intelligence + análise**e clique em **Data Factory**.
-3. No painel **Nova fábrica de dados**:   
+2. Clique em **crie um recurso** no canto superior esquerdo, clique em **Intelligence + análise**e clique em **Data Factory**.
+3. No **nova fábrica de dados** painel:   
     1. Introduza **ADFBlobConnectorDF** para o **nome**. O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: `*Data factory name “ADFBlobConnectorDF” is not available`, alterar o nome da fábrica de dados (por exemplo, yournameADFBlobConnectorDF) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.
     2. Selecione a sua **subscrição** do Azure.
     3. Para o grupo de recursos, selecione **utilização existente** para selecionar um grupo de recursos existente (ou) selecione **criar nova** para introduzir um nome para um grupo de recursos.

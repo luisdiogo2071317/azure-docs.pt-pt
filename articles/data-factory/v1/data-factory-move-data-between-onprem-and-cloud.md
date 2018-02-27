@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -55,7 +55,7 @@ Antes de iniciar estas instruções, tem de ter os seguintes pré-requisitos:
 Neste passo, utiliza o portal do Azure para criar uma instância do Azure Data Factory com o nome **ADFTutorialOnPremDF**.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **+ novo**, clique em **Intelligence + análise**e clique em **Data Factory**.
+2. Clique em **crie um recurso**, clique em **Intelligence + análise**e clique em **Data Factory**.
 
    ![Novo -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. No **nova fábrica de dados** página, introduza **ADFTutorialOnPremDF** para o nome.
@@ -131,7 +131,7 @@ Neste passo, utiliza o portal do Azure para criar uma instância do Azure Data F
    * **Agendar atualizações** para ser instalada num momento específico do dia.
    * Ver quando o gateway foi **atualizado pela última vez**.
    * Especifique a hora em que pode ser instalada uma atualização para o gateway.
-8. Mudar para o **definições** separador. O certificado especificado no **certificado** secção é utilizada para encriptar/desencriptar as credenciais para o arquivo de dados no local que especificou no portal. (opcional) Clique em **alteração** para utilizar em vez disso, o seu próprio certificado. Por predefinição, o gateway utiliza o certificado que é gerado automaticamente pelo serviço Data Factory.
+8. Mudar para o separador **Definições**. O certificado especificado no **certificado** secção é utilizada para encriptar/desencriptar as credenciais para o arquivo de dados no local que especificou no portal. (opcional) Clique em **alteração** para utilizar em vez disso, o seu próprio certificado. Por predefinição, o gateway utiliza o certificado que é gerado automaticamente pelo serviço Data Factory.
 
     ![Configuração de certificado do gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 

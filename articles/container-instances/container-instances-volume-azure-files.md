@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 37310689881e403aa5e3f4f4d4a18180cbccc05d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar uma partilha de ficheiros do Azure em instâncias de contentor do Azure
 
@@ -74,8 +74,8 @@ Para montar uma partilha de ficheiros do Azure como um volume num contentor, esp
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image seanmckenna/aci-hellofiles \
-    --ip-address Public \
+    --image microsoft/aci-hellofiles \
+    --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
     --azure-file-volume-account-key $STORAGE_KEY \
@@ -83,12 +83,14 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
+O `--dns-name-label` valor tem de ser exclusivo dentro da região do Azure cria a instância do contentor. Atualize o valor no comando anterior, se receber um **etiqueta de nome DNS** mensagem de erro quando executar o comando.
+
 ## <a name="manage-files-in-mounted-volume"></a>Gerir ficheiros no volume montado
 
-Depois do contentor é iniciado, pode utilizar a aplicação web simples implementada através de [aci/seanmckenna-hellofiles] [ aci-hellofiles] imagem para gerir os ficheiros na partilha de ficheiros do Azure no caminho de montagem que especificou. Obter o endereço IP da aplicação web com o [mostrar de contentor az] [ az-container-show] comando:
+Depois do contentor é iniciado, pode utilizar a aplicação web simples implementada através de [aci/microsoft-hellofiles] [ aci-hellofiles] imagem para gerir os ficheiros na partilha de ficheiros do Azure no caminho de montagem que especificou. Obter o nome de domínio completamente qualificado da aplicação web (FQDN) com o [mostrar de contentor az] [ az-container-show] comando:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
 ```
 
 Pode utilizar o [portal do Azure] [ portal] ou uma ferramenta como o [Explorador de armazenamento do Microsoft Azure] [ storage-explorer] para obter e Inspecione o ficheiro de escrita a partilha de ficheiros.
@@ -142,7 +144,7 @@ Saiba como montar outros tipos de volume em instâncias de contentor do Azure:
 * [Montar um volume secreto em instâncias de contentor do Azure](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalável do Azure Analysis Services
 
@@ -42,7 +42,7 @@ Quando as operações de processamento estiverem concluídas, tem de ser efetuad
 
 ## <a name="monitor-qpu-usage"></a>Monitorizar a utilização QPU
 
- Para determinar se escalável para o servidor é necessário, monitorize o servidor no portal do Azure utilizando as métricas. Se a sua QPU regularmente maxes terminar, significa que o número de consultas dos seus modelos está a exceder o limite QPU para o seu plano. Métrica de comprimento de fila de tarefa de conjunto de consulta também aumenta quando o número de consultas na fila do conjunto de thread de consulta excede QPU disponível. Para obter mais informações, consulte [monitorizar métricas do servidor](analysis-services-monitor.md).
+ Para determinar se escalável para o servidor é necessário, monitorize o servidor no portal do Azure utilizando as métricas. Se a sua QPU regularmente maxes terminar, significa que o número de consultas dos seus modelos está a exceder o limite QPU para o seu plano. Métrica de comprimento de fila de tarefa de conjunto de consulta também aumenta quando o número de consultas na fila do conjunto de thread de consulta excede QPU disponível. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md).
 
 ## <a name="configure-scale-out"></a>Configurar Escalamento horizontal
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Gerir instâncias de Máquina Virtual reservada
 
@@ -28,7 +28,7 @@ Depois de comprar uma instância de VM reservados do Azure, pode pretender aplic
 
 Para atualizar o âmbito de uma reserva de: 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione **mais serviços** > **reservas**.
+2. Selecione **todos os serviços** > **reservas**.
 3. Selecione a reserva.
 4. Selecione **definições** > **configuração**.
 5. Altere o âmbito. Se mudar de partilhada único âmbito, só pode selecionar subscrições em que seja proprietário. Apenas as subscrições dentro do contexto de faturação mesmo como a reserva, podem ser selecionadas. O contexto de faturação é determinado pela subscrição que selecionou quando a reserva foi comprou. O âmbito apenas se aplica a subscrições de MS-AZR - 0003P oferta pay as you go e as subscrições de oferta MS-AZR - 0017P empresariais. Para contratos enterprise, subscrições de programador/teste não são elegíveis para obter o desconto de reserva.
@@ -69,7 +69,7 @@ Pode gerir o acesso ao reservas independentemente de subscrições que obtenha o
  
 Delegar a gestão de acesso para uma reserva de: 
 1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2.  Selecione **mais serviços** > **reserva** para reservas de lista que tenha acesso.
+2.  Selecione **todos os serviços** > **reserva** para reservas de lista que tenha acesso.
 3.  Selecione a reserva de que pretende delegar o acesso a outros utilizadores.
 4.  Selecione **controlo de acesso (IAM)** no menu.
 5.  Selecione **adicionar** > **função** > **proprietário** (ou uma função diferente se pretende conceder acesso limitado). 

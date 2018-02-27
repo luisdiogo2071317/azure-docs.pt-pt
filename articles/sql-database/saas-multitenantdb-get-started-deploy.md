@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma a aplicação multi-inquilino que utiliza a SQL Database do Azure
 
@@ -59,11 +59,11 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 #### <a name="plan-the-names"></a>Planear os nomes
 
-Os passos desta secção, existem dois locais onde tem de introduzir nomes de utilizador, como um *utilizador* e para a nova *grupo de recursos*. Para uma pessoa designada *Ann Finley*, sugerimos que os nomes seguintes:
-- *Utilizador:* &nbsp; **af1** &nbsp; *(respetivo iniciais, mais um dígito.)*
-- *Grupo de recursos:* &nbsp; **wingtip af1** &nbsp; *(Recomendamos todo em minúsculas. Acrescentar um hífen, em seguida, o nome de utilizador.)*
+Os passos desta secção, deve fornecer um *utilizador* valor que é utilizado para garantir que os nomes de recursos são exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implementação da aplicação. Para uma pessoa designada *Ann Finley*, sugerimos que:
+- *Utilizador:* **af1***(respetivo iniciais, mais um dígito.   Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
+- *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip dpt indica que esta é a aplicação de base de dados por inquilino. Acrescentar o af1 de nome de utilizador está correlacionada com o nome do grupo de recursos com os nomes dos recursos que nele contidos.)*
 
-Escolha os nomes agora e escrevê-las para baixo.
+Escolha os nomes agora e escrevê-las para baixo. 
 
 #### <a name="steps"></a>Passos
 
@@ -72,7 +72,7 @@ Escolha os nomes agora e escrevê-las para baixo.
 
     [![Botão para implementar no Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Introduza os valores de parâmetro necessário para a implementação.
+1. Introduza os valores de parâmetro necessário para a implementação.
 
     > [!IMPORTANT]
     > Para esta demonstração, não utilize qualquer pré-existente grupos de recursos, servidores ou conjuntos. Em vez disso, escolher **criar um novo grupo de recursos**. Elimine este grupo de recursos quando tiver terminado com a aplicação para parar a faturação relacionada.
@@ -82,12 +82,12 @@ Escolha os nomes agora e escrevê-las para baixo.
         - Selecione um **localização** na lista pendente.
     - Para **utilizador** -que recomendamos que escolha um curto **utilizador** valor.
 
-3. **Implemente a aplicação**.
+1. **Implemente a aplicação**.
 
     - Clique para aceitar os termos e condições.
     - Clique em **Comprar**.
 
-4. Monitorizar o estado de implementação, clicando em **notificações**, que é o ícone de campainha para a direita da caixa de pesquisa. Implementar a aplicação de Wingtip demora cerca de cinco minutos.
+1. Monitorizar o estado de implementação, clicando em **notificações**, que é o ícone de campainha para a direita da caixa de pesquisa. Implementar a aplicação de Wingtip demora cerca de cinco minutos.
 
    ![implementação concluída com êxito](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Cada venue obtém uma aplicação web personalizado para listar os respetivos ev
 Um centro **Hub de eventos** página Web fornece uma lista de ligações para os inquilinos na sua implementação específica. Utilize os seguintes passos para experimentar o **Hub de eventos** página Web e uma aplicação web individuais:
 
 1. Abra o **Hub de eventos** no seu browser:
-    - http://events.Wingtip. &lt;Utilizador&gt;. trafficmanager.net &nbsp; *(substituir &lt;utilizador&gt; com o valor de utilizador da sua implementação.)*
+    - http://events.Wingtip-MT.&lt;utilizador&gt;. trafficmanager.net &nbsp; *(substituir &lt;utilizador&gt; com o valor de utilizador da sua implementação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Um centro **Hub de eventos** página Web fornece uma lista de ligações para os
 
 Para controlar a distribuição de pedidos recebidos, utiliza a aplicação de Wingtip [Traffic Manager do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino no respetivo URL. Cada URL também inclui o valor de utilizador específico. Cada URL obeys o formato mostrado utilizando os seguintes passos:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. A aplicação de eventos analisa o nome de inquilino a partir do URL. O nome do inquilino é *fabrikamjazzclub* no URL do exemplo anterior.
 2. A aplicação, em seguida, codifica o nome do inquilino para criar uma chave para aceder a um catálogo utilizando [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md).

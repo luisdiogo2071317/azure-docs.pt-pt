@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir utilizadores e funções de base de dados
 
@@ -123,9 +123,9 @@ O [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) módulo fornece 
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[RoleMember adicionar](https://msdn.microsoft.com/library/hh510167.aspx)|Adicione um membro a uma função de base de dados.| 
-|[Remover RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remova um membro de uma função de base de dados.|   
-|[ASCmd invocar](https://msdn.microsoft.com/library/hh479579.aspx)|Execute um script TMSL.|
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Adicione um membro a uma função de base de dados.| 
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remova um membro de uma função de base de dados.|   
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute um script TMSL.|
 
 ## <a name="row-filters"></a>Filtros de linha  
 Filtros de linha definem as linhas numa tabela podem ser consultadas por membros da função específica. Filtros de linha são definidos para cada tabela de um modelo através da utilização de fórmulas DAX.  
@@ -138,15 +138,15 @@ Aplicam filtros de linha para as linhas especificadas e as linhas relacionadas. 
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  
-|Região|= Região [País] = "EUA"|  
+|Região|=Region[Country]=”USA”|  
 |ProductCategory|= ProductCategory [nome] = "Bicycles"|  
-|Transações|= Transações [ano] = 2016|  
+|Transações|=Transactions[Year]=2016|  
   
  O efeito net é membros podem consultar as linhas de dados em que o cliente está em a EUA, a categoria de produto é bicycles, não sendo ano 2016. Os utilizadores não podem consultar transações fora EUA, transações que não sejam bicycles ou transações não 2016, a menos que sejam membros de outra função que concede as permissões.
   
  Pode utilizar o filtro *=FALSE()*, para negar o acesso a todas as linhas de uma tabela inteira.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
   [Gerir administradores de servidor](analysis-services-server-admins.md)   
   [Gerir serviços de análise do Azure com o PowerShell](analysis-services-powershell.md)  
   [Modelo de tabela Scripting referência de linguagem (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

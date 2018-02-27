@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar uma aplicação web no v1 ambiente de serviço de aplicações
 
@@ -38,7 +38,7 @@ Este tutorial mostra como criar aplicações web e planos do App Service num [v1
 Este tutorial parte do princípio de que criou um ambiente de serviço de aplicações. Se ainda não o fez que ainda, consulte [criar um ambiente de serviço de aplicações](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
-1. No [Portal do Azure](https://portal.azure.com/), clique em **novo > Web + móvel > aplicação Web**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **crie um recurso > Web + móvel > aplicação Web**. 
    
     ![][1]
 2. Selecione a sua subscrição.  
@@ -47,7 +47,7 @@ Este tutorial parte do princípio de que criou um ambiente de serviço de aplica
 3. Selecione ou crie um grupo de recursos.
    
     *Grupos de recursos* permitem-lhe gerir recursos relacionados do Azure como uma unidade e são úteis quando estabelecer *controlo de acesso baseado em funções* regras (RBAC) para as suas aplicações. Para obter mais informações, consulte [descrição geral do Azure Resource Manager][ResourceGroups]. 
-4. Selecione ou crie um plano de serviço de aplicações.
+4. Selecione ou crie um plano do Serviço de Aplicações.
    
     *Planos do App Service* gerido conjuntos de aplicações web.  Normalmente, quando seleciona preços, o preço cobrado é aplicado para o plano de serviço de aplicações, em vez de aplicações individuais. Está num ASE pagar para as instâncias de computação alocadas para o ASE em vez do que listados com o ASP.  Para aumentar verticalmente o número de instâncias de uma aplicação web dimensionar as instâncias do seu serviço de aplicações do plano e afeta todas as aplicações web no que plano.  Algumas funcionalidades, tais como ranhuras de site ou integração de VNET também tem restrições quantidade dentro do plano.  Para obter mais informações, consulte [descrição geral dos planos do App Service do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
    
@@ -63,7 +63,7 @@ Este tutorial parte do princípio de que criou um ambiente de serviço de aplica
     Se a sua ASE utiliza um VIP interno, em seguida, o URL de uma aplicação na qual que ASE é: [*sitename*]. [ *subdomínio especificado durante a criação de ASE*]   
     Depois de selecionar o ASP durante a criação de ASE, verá o subdomínio atualizar abaixo **nome**
 
-## <a name="createplan"></a>Criar um plano de serviço de aplicações
+## <a name="createplan"></a> Criar um plano de serviço de aplicações
 Quando cria um plano de serviço de aplicações num ambiente de serviço de aplicações, as opções de trabalho são diferentes, porque não existem nenhum trabalhadores partilhados num ASE.  Os trabalhadores que tiver de utilizar são aqueles que teriam sido alocados para o ASE pelo administrador.  Isto significa que para criar um novo plano, tem de ter mais trabalhadores alocados ao agrupamento de trabalho de ASE que o número total de instâncias em todos os seus planos já em que conjunto de trabalho.  Se não tiver suficiente trabalhadores do conjunto de trabalho ASE para criar o seu plano, terá de trabalhar com o administrador de ASE para obtê-los adicionado.
 
 Diferença outra com os planos de serviço de aplicações alojadas por um ambiente de serviço de aplicações é a falta de seleção de preço.  Quando tiver um ambiente de serviço de aplicações pagar com recursos de computação utilizados pelo sistema e não tem custos adicionados para os planos nesse ambiente.  Normalmente, quando criar um plano de serviço de aplicações, selecionar um plano de preços que determina a faturação.  Um ambiente de serviço de aplicações é, essencialmente, uma localização privada onde pode criar conteúdo.  Paga para o ambiente e não para alojar o seu conteúdo.

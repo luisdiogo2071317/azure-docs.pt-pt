@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4198b5fd971291e78a45af764eaaa1b9dc155893
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d670b2400fc1ac50afdcc8b809a1d482c3219686
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Como atribuir utilizadores e grupos a uma aplicação
 
-Antes dos utilizadores podem efetuar qualquer uma do abaixo para uma aplicação específica, tem primeiro **atribuí-las para a aplicação** para lhe conceder acesso:
+Antes dos utilizadores podem fazer qualquer uma das seguintes opções para uma aplicação específica, tem primeiro **atribuí-las para a aplicação** para lhe conceder acesso:
 
 -   Aceder a uma aplicação por **navegar para o URL da aplicação diretamente** (também conhecido como iniciado por SP início de sessão).
 
@@ -45,9 +45,9 @@ Existem 3 formas pode atribuir as aplicações com o Azure Active Directory:
 
 Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** na parte superior do menu de navegação esquerda principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -55,7 +55,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
 
@@ -69,7 +69,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 11. Coloque o cursor sobre o **utilizador** na lista de revela um **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil do utilizador ou logótipo para adicionar o utilizador para o **selecionados** lista.
 
-12. **Opcional:** se gostaria de **adicionar mais do que um utilizador**, tipo noutra **nome completo** ou **endereço de correio eletrónico** para o **pesquisa por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
+12. **Opcional:** se gostaria de **adicionar mais do que um utilizador**, tipo noutra **nome completo** ou **endereço de correio eletrónico** para o **pesquisar por nome ou endereço de correio eletrónico** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar utilizadores, clique em de **selecione** botão para os adicionar à lista de utilizadores e grupos atribuídos à aplicação.
 
@@ -83,9 +83,9 @@ Após um curto período de tempo, os utilizadores que selecionou conseguir inici
 
 Para atribuir um ou mais grupos diretamente a uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** na parte superior do menu de navegação esquerda principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -93,7 +93,7 @@ Para atribuir um ou mais grupos diretamente a uma aplicação, siga os passos ab
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+  * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
 
@@ -107,7 +107,7 @@ Para atribuir um ou mais grupos diretamente a uma aplicação, siga os passos ab
 
 11. Coloque o cursor sobre o **grupo** na lista de revela um **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil ou logótipo para adicionar o utilizador para o grupo de **selecionados** lista.
 
-12. **Opcional:** se gostaria de **adicionar mais de um grupo**, tipo noutra **nome do grupo completa** para o **pesquisa por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este grupo para o **selecionados** lista.
+12. **Opcional:** se gostaria de **adicionar mais de um grupo**, tipo noutra **nome do grupo completa** para o **pesquisa por nome ou endereço de e-mail** caixa de pesquisa, e Clique na caixa de verificação para adicionar este grupo para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar grupos, clique em de **selecione** botão para os adicionar à lista de utilizadores e grupos atribuídos à aplicação.
 
@@ -123,9 +123,9 @@ Acesso à aplicação self-service é uma excelente forma de permitir que os uti
 
 Para ativar o acesso de aplicação personalizada para uma aplicação, siga os passos abaixo:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** na parte superior do menu de navegação esquerda principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -133,7 +133,7 @@ Para ativar o acesso de aplicação personalizada para uma aplicação, siga os 
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações.**
+   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende ativar o Self-Service acesso a partir da lista.
 
@@ -145,9 +145,9 @@ Para ativar o acesso de aplicação personalizada para uma aplicação, siga os 
 
 10. **Opcional:** se pretender necessitam de uma aprovação de negócio antes dos utilizadores estão autorizados acesso, defina o **exigir a aprovação antes de conceder acesso a esta aplicação?** alternar para **Sim**.
 
-11. **Opcional: para aplicações utilizando a palavra-passe início de sessão único em apenas,** se pretender permitir que esses aprovadores de negócio especificar as palavras-passe que são enviadas para esta aplicação para os utilizadores aprovados, defina o **permitir aprovadores definir palavras-passe de utilizador para esta aplicação?** alternar para **Sim**.
+11. **Opcional: para aplicações utilizando a palavra-passe início de sessão único em apenas,** se pretender permitir que esses aprovadores de negócio especificar as palavras-passe que são enviadas para esta aplicação para os utilizadores aprovados, defina o **permitir aprovadores definir do utilizador palavras-passe para esta aplicação?**  alternar para **Sim**.
 
-12. **Opcional:** para especificar os aprovadores de negócio que têm permissão para aprovar o acesso a esta aplicação, clique em Seletor junto a etiqueta **quem tem permissão para aprovar o acesso a esta aplicação?** para selecionar até 10 aprovadores de negócio individuais.
+12. **Opcional:** para especificar os aprovadores de negócio que têm permissão para aprovar o acesso a esta aplicação, clique em Seletor junto a etiqueta **quem tem permissão para aprovar o acesso a esta aplicação?** para selecionar o indivíduo até 10 aprovadores de negócio.
 
   >[!NOTE]
   >Não são suportados grupos.
@@ -162,5 +162,5 @@ Depois de concluir a configuração da aplicação de self-service, os utilizado
 
 Estas aprovações suportam apenas, fluxos de trabalho de aprovação único, o que significa que, se especificar vários aprovadores, qualquer aprovador único pode acesso aprovador à aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Fornecer início de sessão único às suas aplicações com o Proxy da aplicação](active-directory-application-proxy-sso-using-kcd.md)

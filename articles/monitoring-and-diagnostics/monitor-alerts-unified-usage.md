@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Criar, ver e gerir alertas utilizando o Monitor do Azure - alertas (pré-visualização)
 
@@ -28,11 +28,11 @@ Este artigo mostra como configurar alertas através da nova interface de alertas
 - Critérios de: Condição específica ou lógica que quando é apresentada no sinal, deve acionar ação
 - Ação: Chamada específica enviada para um recetor de uma notificação - por e-mail, SMS, webhook etc.
 
-Alertas (pré-visualização) utiliza o termo **alertas de registo** para descrever alertas em que o sinal é consulta personalizada em [Log Analytics do Azure](../log-analytics/log-analytics-tutorial-viewdata.md). A capacidade de alerta métrica chamado [quase em tempo real métrica alertas](monitoring-near-real-time-metric-alerts.md) os alertas existentes experiência é referida como **métrica alertas** dos alertas (pré-visualização). No *métrica alertas*, alguns tipos de recurso fornecem [métricas multidimensionais](monitoring-metric-charts.md) para recursos do Azure específico e alerta, por conseguinte, para esses recursos podem ser efetuado mais específicos utilizando filtros adicionais no dimensões; tais alertas são referidas como **alertas de métrica de acordo com**.
+O alerta (pré-visualização) utiliza o termo **alertas de registo** para descrever alertas em que o sinal é consulta personalizada em [Log Analytics do Azure](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Azure Application Insights](../application-insights/app-insights-analytics.md). A capacidade de alerta métrica chamado [quase em tempo real métrica alertas](monitoring-near-real-time-metric-alerts.md) os alertas existentes experiência é referida como **métrica alertas** dos alertas (pré-visualização). No *métrica alertas*, alguns tipos de recurso fornecem [métricas multidimensionais](monitoring-metric-charts.md) para recursos do Azure específico e alerta, por conseguinte, para esses recursos podem ser efetuado mais específicos utilizando filtros adicionais no dimensões; tais alertas são referidas como **alertas de métrica de acordo com**.
 Alertas do Azure (pré-visualização) também fornece uma vista unificada para todas as suas regras de alertas e capacidade para geri-los de um único local; incluindo a visualização de todos os alertas não resolvidos. Saiba mais sobre as funcionalidades da [Azure Alerts(Preview) - Descrição geral](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> Enquanto os alertas do Azure (pré-visualização) oferece uma experiência de novo e melhorada para a criação de alertas no Azure. Existente [alertas do Azure](monitoring-overview-alerts.md) experiência permanecer utilizável
+> Enquanto os alertas do Azure (pré-visualização) oferece uma experiência de novo e melhorada para a criação de alertas no Azure. Existente [alertas do Azure](monitoring-overview-alerts.md) experiência permanece utilizável
 >
 
 Detalhadas seguinte é um guia passo a passo para utilizar alertas do Azure (pré-visualização).
@@ -81,16 +81,13 @@ Detalhadas seguinte é um guia passo a passo para utilizar alertas do Azure (pr�
 
     ![Configurar o sinal lógica para a métrica multidimensional](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Registar alertas*: Certifique-se **tipo de recurso** é uma origem de análise, como *Log Analytics*/*Application Insights*, em seguida, uma vez adequado **recursos** é escolhido, clique em *feito*. Em seguida utilize o **adicionar critérios** botão para ver a lista das opções de sinal disponíveis para o recurso e a lista de sinal **pesquisa de registo personalizado** opção para monitor de serviço como o registo de escolhida *registo Análise de*/*Application Insights*.
+8. *Registar alertas*: Certifique-se **tipo de recurso** é uma origem de análise como *Log Analytics* ou *Application Insights*, em seguida, uma vez adequado  **recurso** é escolhido, clique em *feito*. Em seguida utilize o **adicionar critérios** botão para ver a lista das opções de sinal disponíveis para o recurso e a lista de sinal **pesquisa de registo personalizado** opção para monitor de serviço como o registo de escolhida *registo Análise de* ou *Application Insights*.
 
    ![Selecione um recurso - pesquisa de registo personalizado](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Pré-visualização de alertas** registo listas guardadas pesquisa como tipo de sinal - registo (consulta guardada), quando o recurso escolhido está a análise de registos.
-   Para que possam perfect sua consulta na análise e, em seguida, guarde-as para utilização futura - mais detalhes disponíveis em [utilizando a pesquisa de registo na análise de registos](../log-analytics/log-analytics-log-searches.md). Em seguida, pode criar regras de alertas com base nestas consultas diretamente, conforme mostrado no seguinte ecrã de exemplo com pesquisas guardadas:
-
-   ![Selecione um recurso - pesquisa de registo personalizado](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Alertas listas (pré-visualização), podem importar consulta de análise como tipo de sinal - **registo (consulta guardada)**, como mostrado na acima ilustração. Para que os utilizadores possam perfect sua consulta na análise e, em seguida, guarde-as para utilização futura alertas - mais detalhes sobre como utilizar a gravação de consulta disponíveis em [utilizando a pesquisa de registo na análise de registos](../log-analytics/log-analytics-log-searches.md) ou [consulta partilhada no application insights análise de](../log-analytics/log-analytics-overview.md). 
 
 9.  *Registar alertas*: depois de selecionada, a consulta para alertar pode ser indicada na **consulta de pesquisa** campo; se a sintaxe de consulta está incorreta, o campo apresenta o erro vermelho. Se a sintaxe da consulta está correta – para referência dados históricos da consulta declarado são mostrados como um gráfico com a opção para otimizar a janela de tempo da última seis horas da última semana.
 
@@ -125,7 +122,7 @@ Para **alertas de registo** alertas podem ser baseados em:
     Para **alertas de registo** algumas funcionalidades adicionais estão disponíveis para substituir as ações predefinidas:
 
     - **Notificação por e-mail**: substituições assunto do e-mail, enviado através do grupo de ação. Não é possível modificar o corpo da mensagem.
-    - **Incluir payload Json personalizado**: substitui o webhook Json utilizado por grupos de ação e em vez disso, substitua o payload de predefinição um payload personalizado. Para obter mais detalhes sobre os formatos de webhook, consulte [ação do webhook para alertas de registo](monitor-alerts-unified-log-webhook.md)
+    - **Incluir payload Json personalizado**: substitui o webhook Json utilizado por grupos de ação e em vez disso, substitua o payload de predefinição um payload personalizado. Para obter mais informações sobre os formatos de webhook, consulte [ação do webhook para alertas de registo](monitor-alerts-unified-log-webhook.md)
 
         ![Substituições de ação para alertas de registo](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
@@ -141,7 +138,7 @@ Para **alertas de registo** alertas podem ser baseados em:
 
 2. O **alertas (pré-visualização) Dashboard** é apresentado - wherein todos os alertas do Azure são unified e apresentados num painel único ![Dashboard alerta](./media/monitoring-overview-unified/alerts-preview-overview.png)
 3. Da parte superior esquerda para a direita, o Dashboard mostra rapidamente, o seguinte -, que pode ser clicado para ver uma lista detalhada:
-    - *É desencadeado alertas*: O número de alertas atualmente ter cumprido lógica e no desencadeou o Estado
+    - *É desencadeado alertas*: O número de alertas atualmente, tiver cumprido lógica e no desencadeou o Estado
     - *Total de regras de alerta*: O número de regras de alerta criadas e na subtext, o número que estão atualmente ativadas
 4. Uma lista de todos os alertas fired é apresentada que o utilizador pode clicar para ver os detalhes
 5. Aiding no específicos a localizar os alertas; um pode utilizar as opções de lista pendente na parte superior para filtrar específico *subscrição, grupo de recursos e/ou recurso*. Adicional para qualquer não pode estar resolvido de alertas, um utilize o *alerta filtro* opção para encontrar para fornecido palavra-chave - alertas correspondentes específicos com *nome, alerta critérios, grupo de recursos e o recurso de destino*

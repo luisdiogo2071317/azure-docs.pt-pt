@@ -3,8 +3,8 @@ title: Gerir contas de armazenamento do Azure pilha | Microsoft Docs
 description: Saiba como localizar, gerir, recuperar e recuperar as contas de armazenamento de pilha do Azure
 services: azure-stack
 documentationcenter: 
-author: AniAnirudh
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/6/2017
-ms.author: anirudha
-ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: anirudha
+ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerir contas de armazenamento na pilha do Azure
 Saiba como gerir contas de armazenamento na pilha do Azure para localizar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio.
@@ -89,7 +90,7 @@ Na pilha de Azure há uma forma muito simple para o fazer:
    
    Assim que a conta recuperada está sincronizada com êxito, podem ser utilizada novamente.
 
-### <a name="some-gotchas"></a>Alguns Gotchas
+### <a name="some-gotchas"></a>Some Gotchas
 * A conta eliminada mostra o estado como **fora de retenção**.
   
   Isto significa que a conta eliminada excedeu o período de retenção e poderá não ser recuperável.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 880be5f27ca4198004511e01e63cdb3d72f107d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1dc727f46785d2896544d8ef9098259f9ab994d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas em iniciar sessão para uma aplicação da Microsoft
 
@@ -47,7 +47,7 @@ Segue-se uma lista de áreas de problema geral que pode explorar se tiver uma id
 
 ## <a name="steps-to-troubleshoot-microsoft-application-access"></a>Passos para resolver problemas de acesso do Microsoft Application
 
-Abaixo são alguns utilizadores problemas comuns depare quando os utilizadores não podem iniciar sessão para uma aplicação da Microsoft.
+Seguem-se alguns problemas comuns utilizadores depare quando os utilizadores não podem iniciar sessão para uma aplicação da Microsoft.
 
 -   Problemas gerais para verificar primeiro
 
@@ -111,11 +111,11 @@ Acesso de aplicação pode ser bloqueado devido a um problema com um utilizador 
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Verifique se existe uma conta de utilizador no Azure Active Directory
 
-Para verificar a conta de utilizador estiver presente, siga os passos abaixo:
+Para verificar a conta de utilizador estiver presente, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -129,11 +129,11 @@ Para verificar a conta de utilizador estiver presente, siga os passos abaixo:
 
 ### <a name="check-a-users-account-status"></a>Verifique o estado da conta do utilizador
 
-Para verificar o estado da conta do utilizador, siga os passos abaixo:
+Para verificar o estado da conta do utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -149,11 +149,11 @@ Para verificar o estado da conta do utilizador, siga os passos abaixo:
 
 ### <a name="reset-a-users-password"></a>Repor palavra-passe de um utilizador
 
-Para repor a palavra-passe de um utilizador, siga os passos abaixo:
+Para repor a palavra-passe de um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -181,11 +181,11 @@ Para ativar a reposição de palavra-passe self-service, siga os passos de imple
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verificar o estado de autenticação multifator do utilizador
 
-Para verificar o estado de autenticação multifator de um utilizador, siga os passos abaixo:
+Para verificar o estado de autenticação multifator de um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -195,7 +195,7 @@ Para verificar o estado de autenticação multifator de um utilizador, siga os p
 
 6.  Clique em de **multi-factor Authentication** botão na parte superior do painel.
 
-7.  Uma vez a **Portal de administração do multi-factor Authentication** cargas, certifique-se no **utilizadores** separador.
+7.  Uma vez a **do portal de administração do multi-factor Authentication** cargas, certifique-se no **utilizadores** separador.
 
 8.  Localize o utilizador na lista de utilizadores por pesquisar, filtrar ou ordenar.
 
@@ -205,11 +205,11 @@ Para verificar o estado de autenticação multifator de um utilizador, siga os p
 
 ### <a name="check-a-users-authentication-contact-info"></a>Verifique as informações de contacto de autenticação de um utilizador
 
-Para verificar a informação de contacto de autenticação de um utilizador utilizada para autenticação multifator, acesso condicional, proteção de identidade e de reposição de palavra-passe, siga os passos abaixo:
+Para verificar a informação de contacto de autenticação de um utilizador utilizada para autenticação multifator, acesso condicional, proteção de identidade e de reposição de palavra-passe, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -227,11 +227,11 @@ Para verificar a informação de contacto de autenticação de um utilizador uti
 
 ### <a name="check-a-users-group-memberships"></a>Verifique as associações de grupo do utilizador
 
-Para verificar as associações de grupo do utilizador, siga os passos abaixo:
+Para verificar as associações de grupo do utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -245,11 +245,11 @@ Para verificar as associações de grupo do utilizador, siga os passos abaixo:
 
 ### <a name="check-a-users-assigned-licenses"></a>Verifique as licenças atribuídas de um utilizador
 
-Para verificar as licenças atribuídas de um utilizador, siga os passos abaixo:
+Para verificar as licenças atribuídas de um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -263,11 +263,11 @@ Para verificar as licenças atribuídas de um utilizador, siga os passos abaixo:
 
 ### <a name="assign-a-user-a-license"></a>Atribuir uma licença de um utilizador 
 
-Para atribuir uma licença a um utilizador, siga os passos abaixo:
+Para atribuir uma licença a um utilizador, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -303,11 +303,11 @@ Acesso de aplicação pode ser bloqueado devido a um problema com um grupo que e
 
 ### <a name="check-a-groups-membership"></a>Verifique a associação a um grupo
 
-Para verificar a associação a um grupo, siga os passos abaixo:
+Para verificar a associação a um grupo, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -321,11 +321,11 @@ Para verificar a associação a um grupo, siga os passos abaixo:
 
 ### <a name="check-a-dynamic-groups-membership-criteria"></a>Verificar os critérios de associação de um grupo dinâmico 
 
-Para verificar os critérios de associação de um grupo dinâmico, siga os passos abaixo:
+Para verificar os critérios de associação de um grupo dinâmico, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -341,11 +341,11 @@ Para verificar os critérios de associação de um grupo dinâmico, siga os pass
 
 ### <a name="check-a-groups-assigned-licenses"></a>Verifique as licenças atribuídas de um grupo
 
-Para verificar as licenças atribuídas de um grupo, siga os passos abaixo:
+Para verificar as licenças atribuídas de um grupo, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -359,11 +359,11 @@ Para verificar as licenças atribuídas de um grupo, siga os passos abaixo:
 
 ### <a name="reprocess-a-groups-licenses"></a>Reprocessar licenças de um grupo
 
-Para reprocessar licenças atribuídas de um grupo, siga os passos abaixo:
+Para reprocessar licenças atribuídas de um grupo, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -384,11 +384,11 @@ Para reprocessar licenças atribuídas de um grupo, siga os passos abaixo:
 
 ### <a name="assign-a-group-a-license"></a>Atribuir uma licença de um grupo
 
-Para atribuir uma licença a um grupo, siga os passos abaixo:
+Para atribuir uma licença a um grupo, siga estes passos:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -419,9 +419,9 @@ Para atribuir uma licença a um grupo, siga os passos abaixo:
 
 Para verificar ou validar uma política de acesso condicional único:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -442,9 +442,9 @@ Para verificar ou validar uma política de acesso condicional único:
 
 Para verificar ou validar uma única aplicação atualmente configuradas na política de acesso condicional:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -474,9 +474,9 @@ Para verificar ou validar uma única aplicação atualmente configuradas na pol�
 
 Para verificar ou validar uma política de acesso condicional único:
 
-1.  Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior do menu de navegação esquerda principal.
+2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
 
 3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
 
@@ -514,16 +514,16 @@ Acesso de aplicação pode ser bloqueado porque não ocorreu a operação de con
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Executar ao nível do administrador consentimento para uma aplicação de inquilino único
 
--   Para **único inquilino aplicações** que pedir permissões (como as que estiver a desenvolver ou proprietário na sua organização), pode efetuar um **consentimento de nível administrativo** operação em nome de todos os utilizadores, iniciar sessão como um Administrador Global e clicando no **conceder permissões** na parte superior da parte a **registo da aplicação -&gt; todas as aplicações -&gt; seleciona uma aplicação -&gt; permissões obrigatórias** painel.
+-   Para **único inquilino aplicações** que pedir permissões (como as que estiver a desenvolver ou proprietário na sua organização), pode realizar uma **consentimento de nível administrativo** operação em nome de todos os os utilizadores, iniciar sessão como um Administrador Global e clicando no **conceder permissões** na parte superior da parte a **registo da aplicação -&gt; todas as aplicações -&gt; seleciona uma aplicação -&gt; As permissões necessárias** painel.
 
 -   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V1 ou V2**, pode impor esta consentimento ao nível do administrador para ocorrer ao seguir as instruções no **pedir as permissões de um administrador da directory** secção [utilizando o ponto final de consentimento de admin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Executar ao nível do administrador consentimento para uma aplicação multi-inquilino
 
--   Para **aplicações multi-inquilino** que permissões de pedido (como uma aplicação de terceiros ou desenvolvidas pela organização do Microsoft,), pode realizar uma **consentimento de nível administrativo** operação. Inicie sessão como um Administrador Global e clicar no **conceder permissões** botão sob o **aplicações da empresa -&gt; todas as aplicações -&gt; seleciona uma aplicação -&gt; permissões** painel (disponível em breve).
+-   Para **aplicações multi-inquilino** que permissões de pedido (como uma aplicação de terceiros ou desenvolvidas pela organização do Microsoft,), pode realizar uma **consentimento de nível administrativo** operação. Inicie sessão como um Administrador Global e clicar no **conceder permissões** botão sob o **aplicações da empresa -&gt; todas as aplicações -&gt; seleciona uma aplicação -&gt; permissões**  painel (disponível em breve).
 
 -   Também pode impor esta consentimento ao nível do administrador para ocorrer ao seguir as instruções no **pedir as permissões de um administrador da directory** secção [utilizando o ponto final de consentimento de admin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Utilizar o ponto final de consentimento de administração](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

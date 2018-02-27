@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para a base de dados do Azure Cosmos
 
@@ -174,7 +174,7 @@ Gostaríamos de desenhar atenção para alguns aspetos noteworthy o idioma de co
 * BD do cosmos só suporta strict documentos JSON. Isto significa que o sistema de tipo e expressões estão limitadas a lidar apenas com os tipos JSON. Consulte o [especificação JSON](http://www.json.org/) para obter mais detalhes.  
 * Uma coleção de BD do Cosmos é um contentor sem esquema de documentos JSON. As relações em entidades de dados dentro e entre documentos numa coleção implicitamente são capturadas pela contenção e não por chave primária e relações de chaves externas. Este é um aspeto importante vale apontar in light of a associa intra-documento abordada posteriormente neste artigo.
 
-## <a id="Indexing"></a>A indexação do cosmos DB
+## <a id="Indexing"></a> A indexação do cosmos DB
 Antes de obtemos para a sintaxe do SQL Server, é importante, explorar a estrutura de indexação do BD Azure Cosmos. 
 
 O objetivo dos índices da base de dados é servir consultas as várias formas e formulários com consumo de mínima de recursos (como a CPU e a entrada/saída) ao fornecer boa débito e latência baixa. Muitas vezes, a escolha do índice direito para consultar uma base de dados requer muito planeamento e a experimentação. Esta abordagem opção origina um desafio de bases de dados sem esquema em que os dados não está em conformidade com um esquema strict e medida que evolui rapidamente. 
@@ -203,7 +203,7 @@ O `FROM <from_specification>` cláusula é opcional, a menos que a origem é fil
 
 Como uma consulta `SELECT * FROM Families` indica que o conjunto completo de famílias é a origem ao longo do que a enumeração. Um identificador especial raiz pode ser utilizado para representar a coleção em vez de utilizar o nome da coleção. A lista seguinte contém as regras que são impostas por consulta:
 
-* A coleção pode ser um alias, tais como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o equivalente `Families`. `AS`é o identificador de uma palavra-chave opcional para alias.
+* A coleção pode ser um alias, tais como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o equivalente `Families`. `AS` é o identificador de uma palavra-chave opcional para alias.
 * Uma vez um alias, não é possível vincular a origem original. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválida uma vez que o identificador "Famílias" já não é possível resolver.
 * Todas as propriedades que têm de ser referenciados tem de ser totalmente qualificadas. Ausência de aderência do esquema strict, isto é imposto para evitar quaisquer enlaces ambíguas. Por conseguinte, `SELECT id FROM Families f` é sintaticamente inválida dado que a propriedade `id` não está vinculado.
 
@@ -365,7 +365,7 @@ A tabela seguinte mostra o resultado da comparações de igualdade na API do SQL
             <strong>Cadeia</strong>
          </td>
          <td valign="top">
-            <strong>Objeto</strong>
+            <strong>objeto</strong>
          </td>
          <td valign="top">
             <strong>Matriz</strong>
@@ -472,7 +472,7 @@ Não definido </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Objeto<strong>
+            <strong>objeto<strong>
          </td>
          <td valign="top">
 Não definido </td>
@@ -924,7 +924,7 @@ Também pode efetuar agregações em combinação com os filtros. Por exemplo, a
 
     [ 1 ]
 
-A tabela seguinte mostra a lista de funções de agregação suportadas na API do SQL Server. `SUM`e `AVG` são efetuadas através de valores numéricos, enquanto que `COUNT`, `MIN`, e `MAX` pode ser efetuada através de números, cadeias, em booleanos e valores nulos. 
+A tabela seguinte mostra a lista de funções de agregação suportadas na API do SQL Server. `SUM` e `AVG` são efetuadas através de valores numéricos, enquanto que `COUNT`, `MIN`, e `MAX` pode ser efetuada através de números, cadeias, em booleanos e valores nulos. 
 
 | Utilização | Descrição |
 |-------|-------------|
@@ -937,7 +937,7 @@ A tabela seguinte mostra a lista de funções de agregação suportadas na API d
 Os agregados também podem ser efetuados através de resultados de uma iteração de matriz. Para obter mais informações, consulte [iteração de matriz em consultas](#Iteration).
 
 > [!NOTE]
-> Ao utilizar o Explorador de consulta do portal do Azure, tenha em atenção que as consultas de agregação podem devolver os resultados parcialmente agregados através de uma página de consulta. Os SDKs produz um valor único cumulativo entre todas as páginas. 
+> Ao utilizar o Explorador de dados do portal do Azure, tenha em atenção que as consultas de agregação podem devolver os resultados parcialmente agregados através de uma página de consulta. Os SDKs produz um valor único cumulativo entre todas as páginas. 
 > 
 > Para executar consultas de agregação com o código, terá de SDK do .NET 1.12.0, .NET Core SDK 1.1.0 ou o SDK de Java 1.9.5 ou superior.    
 >
@@ -1205,7 +1205,7 @@ Este exemplo é uma extensão natural do exemplo anterior e efetua uma junção 
         }
     }
 
-`AndersenFamily`tem um subordinado que tenha um animal de estimação. Por isso, o produto cruzado gera uma linha (1\*1\*1) desta família. No entanto, WakefieldFamily tem dois subordinados, mas apenas um subordinado "Jesse" tem pets. Jesse tem dois pets apesar. Por conseguinte, o produto cruzado gera 1\*1\*2 = 2 linhas desta família.
+`AndersenFamily` tem um subordinado que tenha um animal de estimação. Por isso, o produto cruzado gera uma linha (1\*1\*1) desta família. No entanto, WakefieldFamily tem dois subordinados, mas apenas um subordinado "Jesse" tem pets. Jesse tem dois pets apesar. Por conseguinte, o produto cruzado gera 1\*1\*2 = 2 linhas desta família.
 
 No exemplo seguinte, há um filtro adicional na `pet`. Isto exclui todas as cadeias de identificação em que o nome de animal de estimação não é "Cópias sombra". Repare que estamos a conseguir criar cadeias de identificação de matrizes de filtro em qualquer um dos elementos de cadeia de identificação e qualquer combinação dos elementos do projeto. 
 
@@ -1784,7 +1784,7 @@ Eis uma lista de operadores LINQ suportadas no fornecedor LINQ incluídos com o 
 * **Onde**: filtros convertidos para o SQL Server onde e suportar tradução entre & &, | | e! para os operadores do SQL Server
 * **SelectMany**: permite unwinding das matrizes para a cláusula de associação do SQL Server. Pode ser utilizado para as expressões para filtrar em elementos de matriz de cadeia/aninhadas
 * **OrderBy e OrderByDescending**: traduz-se por ordem ascendente/descendente
-* **Contagem**, **soma**, **Min**, **máximo**, e **médio** operadores de agregação e os respetivos equivalentes de async  **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, e **AverageAsync**.
+* **Contagem**, **soma**, **Min**, **máximo**, e **médio** operadores de agregação e os respetivos equivalentes de async **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, e **AverageAsync**.
 * **CompareTo**: traduz para comparações de intervalo. Normalmente utilizado para cadeias de uma vez que não estiverem comparáveis no .NET
 * **Tirar**: traduz até ao topo de SQL para limitar os resultados de uma consulta
 * **Funções de bibliotecas**: suporta a conversão do. Abs, Acos, Asin do NET, Atan, limite, Cos Exp, piso, registo, Log10, Pow, Round, início de sessão, único, Sqrt, Tan, Truncate as funções incorporadas do SQL Server equivalente.
@@ -2212,7 +2212,7 @@ O exemplo seguinte mostra as associações, expressadas através de LINQ SelectM
 
 O cliente do .NET itera automaticamente através de todas as páginas dos resultados da consulta em blocos de foreach, conforme mostrado acima. As opções de consulta introduzidas na secção de REST API também estão disponíveis utilizando o .NET SDK do `FeedOptions` e `FeedResponse` classes no método CreateDocumentQuery. O número de páginas pode ser controlado através de `MaxItemCount` definição. 
 
-Explicitamente também pode controlar a paginação criando `IDocumentQueryable` utilizando o `IQueryable` objeto, em seguida, ao ler o` ResponseContinuationToken` valores e passou-los fazer uma cópia como `RequestContinuationToken` no `FeedOptions`. `EnableScanInQuery`pode ser definido para permitir análises quando a consulta não é suportada pela política de indexação configurada. Para coleções particionadas, pode utilizar `PartitionKey` para executar a consulta em relação a uma única partição (embora Cosmos DB automaticamente pode extrair esta do texto de consulta), e `EnableCrossPartitionQuery` para executar consultas que poderão ter de ser executada relativamente a várias partições. 
+Explicitamente também pode controlar a paginação criando `IDocumentQueryable` utilizando o `IQueryable` objeto, em seguida, ao ler o` ResponseContinuationToken` valores e passou-los fazer uma cópia como `RequestContinuationToken` no `FeedOptions`. `EnableScanInQuery` pode ser definido para permitir análises quando a consulta não é suportada pela política de indexação configurada. Para coleções particionadas, pode utilizar `PartitionKey` para executar a consulta em relação a uma única partição (embora Cosmos DB automaticamente pode extrair esta do texto de consulta), e `EnableCrossPartitionQuery` para executar consultas que poderão ter de ser executada relativamente a várias partições. 
 
 Consulte [amostras de .NET de BD do Azure Cosmos](https://github.com/Azure/azure-documentdb-net) para obter mais exemplos que contém consultas. 
 

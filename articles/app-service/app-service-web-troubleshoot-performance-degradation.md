@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Resolver problemas de desempenho de aplicações lenta web no App Service do Azure
 Este artigo ajuda-o a resolver problemas de desempenho de aplicações web lenta no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -58,7 +58,7 @@ Esta opção permite-lhe saber se a aplicação está a ter problemas. No painel
 
 Alguns das métricas que pode querer monitorizar da sua aplicação web
 
-* Memória média conjunto de trabalho
+* Média do conjunto de trabalho de memória
 * Tempo de resposta médio
 * Tempo de CPU
 * Conjunto de trabalho de memória
@@ -83,18 +83,14 @@ Para configurar, consulte [monitorizar aplicações no App Service do Azure](web
 Além disso, consulte [manter Sites do Azure Web a cópia de segurança e monitorização de pontos finais - com Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) para obter um vídeo sobre como monitorizar o ponto final.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Monitorização de desempenho de aplicações utilizando extensões
-Também pode monitorizar o desempenho de aplicações utilizando *site extensões*.
+Também pode monitorizar o desempenho da sua aplicação utilizando um *site extensão*.
 
 Cada aplicação web do app Service fornece um ponto final de gestão extensível que permite-lhe utilizar um conjunto potente das ferramentas de implementação como as extensões de site. As extensões incluem: 
 
 - Editores de código de origem, como [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gestão de recursos ligados, tais como uma base de dados MySQL ligada a uma aplicação web.
 
-[Azure Application Insights](/services/application-insights/) e [New Relic](/marketplace/partners/newrelic/newrelic/) são dois do desempenho de monitorização as extensões de site que estão disponíveis. Para utilizar New Relic, instale um agente no tempo de execução. Para utilizar o Azure Application Insights, reconstrua o seu código com um SDK e também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite-lhe escrever código para monitorizar a utilização e o desempenho da sua aplicação em mais detalhe.
-
-Para utilizar o Application Insights, consulte o artigo [monitorizar o desempenho em aplicações web](../application-insights/app-insights-web-monitor-performance.md).
-
-Para utilizar New Relic, consulte [novo Relic de gestão de desempenho de aplicações no Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) é um extensão de site que também está disponível de monitorização do desempenho. Para utilizar o Application Insights, reconstrua o seu código com um SDK. Também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite-lhe escrever código para monitorizar a utilização e o desempenho da sua aplicação em mais detalhe. Para obter mais informações, consulte [monitorizar o desempenho em aplicações web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/22/2018
 ms.author: brenduns
-ms.reviewer: anajod
-ms.openlocfilehash: 29e5443de4dc43efe6d536b0f8b9cfc6ad37a669
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: jeffgo
+ms.openlocfilehash: 6e6f9ca3b314ee2f58d8007e7ddc93ddd213e361
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Adicionar imagens de Linux a pilha do Azure
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure* 
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Pode implementar máquinas virtuais Linux no Azure pilha ao adicionar uma imagem baseado em Linux no Azure Marketplace pilha. É a forma mais fácil para adicionar uma imagem de Linux a pilha do Azure através da gestão do Marketplace.
+Pode implementar máquinas de virtuais (VMs) do Linux na pilha do Azure através da adição de uma imagem baseado em Linux no Azure Marketplace pilha. É a forma mais fácil para adicionar uma imagem de Linux a pilha do Azure através da gestão do Marketplace. Estas imagens tenham sido preparadas e testadas relativamente à compatibilidade com a pilha do Azure.
 
 ## <a name="marketplace-management"></a>Gestão do Marketplace
 
@@ -32,64 +32,48 @@ Para transferir as imagens de Linux no Azure Marketplace, utilize os procediment
 
 [Transferir itens do marketplace do Azure para Azure pilha](azure-stack-download-azure-marketplace-item.md).
 
-## <a name="download-an-image"></a>Transferir uma imagem
-
-Pode transferir e extrair imagens de Linux compatível com pilha do Azure com as seguintes ligações:
-
-
-   * [Bitnami](https://bitnami.com/azure-stack)
-   * [CentOS](http://olstacks.cloudapp.net/latest/)
-   * [CoreOS](https://stable.release.core-os.net/amd64-usr/current/coreos_production_azure_image.vhd.bz2)
-   * [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)
-   * [Ubuntu 14.04 LTS](https://partner-images.canonical.com/azure/azure_stack/) / [Ubuntu 16.04 LTS](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
-
-1. Extrair a imagem do VHD, se necessário e [adicionar a imagem para o mercado](azure-stack-add-vm-image.md). Certifique-se de que o `OSType` parâmetro está definido como `Linux`.
-2. Depois de adicionar a imagem do Marketplace, é criado um item do Marketplace e os utilizadores podem implementar uma máquina virtual Linux.
-
 ## <a name="prepare-your-own-image"></a>Preparar a sua própria imagem
 
 Preparar a sua própria imagem Linux utilizando um dos seguintes instruções:
-   
+
    * [Distribuições baseado em centOS](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [Oracle Linux](../virtual-machines/linux/oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [Red Hat Enterprise Linux](../virtual-machines/linux/redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [SLES & openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [Ubuntu](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 1. Transfira e instale o [agente Linux do Azure](https://github.com/Azure/WALinuxAgent/).
-   
-    O agente Linux do Azure versão 2.1.3 ou superior, é necessário para aprovisionar a VM do Linux na pilha do Azure. Muitas das distribuições listadas anteriormente já incluem esta versão do agente ou superior como um pacote na respetiva repositórios (normalmente designado `WALinuxAgent` ou `walinuxagent`). No entanto, se a versão do pacote de agente do Azure é inferior a 2.1.3 (por exemplo, 2.0.18 ou inferior), em seguida, tem de instalar o agente manualmente. É possível determinar a versão instalada do nome do pacote ou executando `/usr/sbin/waagent -version` na VM.
-   
+
+    O agente Linux do Azure versão 2.2.2 ou superior, é necessário para aprovisionar a VM do Linux na pilha do Azure e algumas versões não funcionam (2.2.12 e 2.2.13, para obter exemplos). Muitas das distribuições listadas anteriormente já incluem uma versão do agente (normalmente designado `WALinuxAgent` ou `walinuxagent`). Se criar uma imagem personalizada, tem de instalar o agente manualmente. É possível determinar a versão instalada do nome do pacote ou executando `/usr/sbin/waagent -version` na VM.
+
     Siga as instruções abaixo para instalar manualmente - o agente Linux do Azure
-   
+
    a. Em primeiro lugar, transfira o agente Linux do Azure mais recente do [GitHub](https://github.com/Azure/WALinuxAgent/releases), exemplo:
-     
-            # wget https://github.com/Azure/WALinuxAgent/archive/v2.2.16.tar.gz
+
+            # wget https://github.com/Azure/WALinuxAgent/archive/v2.2.21.tar.gz
    b. Descompacte o agente do Azure:
-     
-            # tar -vzxf v2.2.16.tar.gz
+
+            # tar -vzxf v2.2.21.tar.gz
    c. Instalar o python setuptools
-     
+
         **Debian / Ubuntu**
-     
+
             # sudo apt-get update
             # sudo apt-get install python-setuptools
-     
+
         **Ubuntu 16.04+**
-     
+
             # sudo apt-get install python3-setuptools
-     
+
         **RHEL / CentOS / Oracle Linux**
-     
+
             # sudo yum install python-setuptools
    d. Instale o agente do Azure:
-     
-            # cd WALinuxAgent-2.2.16
+
+            # cd WALinuxAgent-2.2.21
             # sudo python3 setup.py install --register-service
-     
+
      Os sistemas com o Python 2. x e Python 3 instalado do lado do lado a lado poderão ter de executar o seguinte comando:
-     
+
          sudo python3 setup.py install --register-service
      Para obter mais informações, consulte o agente Linux do Azure [Leia-me](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 2. [Adicionar a imagem para o mercado](azure-stack-add-vm-image.md). Certifique-se de que o `OSType` parâmetro está definido como `Linux`.
@@ -97,4 +81,3 @@ Preparar a sua própria imagem Linux utilizando um dos seguintes instruções:
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Descrição geral da oferta de serviços na pilha do Azure](azure-stack-offer-services-overview.md)
-

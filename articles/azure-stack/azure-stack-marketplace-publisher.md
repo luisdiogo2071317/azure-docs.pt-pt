@@ -3,8 +3,8 @@ title: Utilize o toolkit de Marketplace para criar e publicar itens do marketpla
 description: "Saiba como criar rapidamente os itens do marketplace com a publicação Toolkit"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Adicionar itens do marketplace utilizando a ferramenta de publicação
 Adicionar o conteúdo para o [Azure pilha Marketplace](azure-stack-marketplace.md) disponibiliza as suas soluções e inquilinos para a implementação.  O Toolkit de Marketplace cria ficheiros de Azure Marketplace pacotes (.azpkg) com base nos seus modelos do IaaS do Azure Resource Manager ou extensões de VM.  Também pode utilizar o Toolkit de Marketplace para publicar ficheiros .azpkg, criado com a ferramenta ou utilizar [manual](azure-stack-create-and-publish-marketplace-item.md) passos.  Este tópico orienta-o transferir a ferramenta, criar um item do marketplace com base num modelo de VM e, em seguida, publicar este item para a pilha do Azure Marketplace.     
@@ -72,7 +73,7 @@ Nesta secção, publicar o item do marketplace para a pilha do Azure Marketplace
     
     |Campo|Descrição|
     |-----|-----|
-    | Nome do serviço de administração | Conta de administrador de serviço.  Exemplo:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Nome do serviço de administração | Conta de administrador de serviço.  Exemplo:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Palavra-passe | Palavra-passe da conta de administrador de serviço. |
     | Ponto final de API | Ponto final do Gestor de recursos do Azure de pilha do Azure.  Exemplo: management.local.azurestack.external |
 2.  Clique em **publicar** e é apresentado o registo de publicação.
@@ -86,12 +87,12 @@ O Toolkit de Marketplace inclui um *solution.parameters.ps1* pode utilizar para 
 
 
 ## <a name="support-files"></a>Ficheiros de suporte
-| Descrição | Exemplo |
+| Descrição | Sample |
 | ----- | ----- |
-| ícone de PNG 40 x 40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | ícone de PNG 90 x 90 | ![](./media/azure-stack-marketplace-publisher/image2.png) |
 | ícone de PNG 115 x 115 | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| ícone de PNG 255 x 115 | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | 533 x 324 PNG miniatura | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Utilize o cliente Beeline com Apache Hive
 
@@ -29,9 +29,9 @@ Saiba como utilizar [Beeline](https://cwiki.apache.org/confluence/display/Hive/H
 
 Beeline for um cliente de ramo de registo que está incluído em nós principais do cluster do HDInsight. Beeline utiliza JDBC para ligar à HiveServer2, um serviço alojado num cluster do HDInsight. Também pode utilizar Beeline para aceder do Hive no HDInsight remotamente através da internet. Os exemplos seguintes fornecem as cadeias de ligação mais comuns utilizadas para estabelecer ligação ao HDInsight de Beeline:
 
-* __Utilizando Beeline a partir de uma ligação SSH para um nó headnode ou o Microsoft edge__:`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __Utilizar Beeline num cliente, a ligação ao HDInsight através de uma rede Virtual do Azure__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Utilizar Beeline num cliente, a ligação ao HDInsight através da internet pública__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+* __Utilizando Beeline a partir de uma ligação SSH para um nó headnode ou o Microsoft edge__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __Utilizar Beeline num cliente, a ligação ao HDInsight através de uma rede Virtual do Azure__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Utilizar Beeline num cliente, a ligação ao HDInsight através da internet pública__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > Substitua `admin` com a conta de início de sessão do cluster para o cluster.
@@ -44,7 +44,7 @@ Beeline for um cliente de ramo de registo que está incluído em nós principais
 
 ## <a id="prereq"></a>Pré-requisitos
 
-* Um Hadoop baseado em Linux num cluster do HDInsight.
+* Um Hadoop baseado em Linux no clusters do HDInsight versão 3.4 ou superior.
 
   > [!IMPORTANT]
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
@@ -53,7 +53,7 @@ Beeline for um cliente de ramo de registo que está incluído em nós principais
 
     Para obter mais informações sobre como utilizar o SSH, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Utilizar Beeline
+## <a id="beeline"></a>Executar uma consulta do Hive
 
 1. Ao iniciar Beeline, tem de fornecer uma cadeia de ligação de HiveServer2 no cluster do HDInsight:
 
@@ -116,25 +116,34 @@ Beeline for um cliente de ramo de registo que está incluído em nós principais
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     As declarações de efetuar as seguintes ações:
 
-    * `DROP TABLE`-Se a tabela existe, é eliminado.
+    * `DROP TABLE` -Se a tabela existe, é eliminado.
 
-    * `CREATE EXTERNAL TABLE`-Cria um **externo** tabela do Hive. As tabelas externas apenas armazenam a definição da tabela no ramo de registo. Os dados for deixados na localização original.
+    * `CREATE EXTERNAL TABLE` -Cria um **externo** tabela do Hive. As tabelas externas apenas armazenam a definição da tabela no ramo de registo. Os dados for deixados na localização original.
 
-    * `ROW FORMAT`-Como estão formatados corretamente os dados. Neste caso, os campos no registo de cada são separados por um espaço.
+    * `ROW FORMAT` -Como estão formatados corretamente os dados. Neste caso, os campos no registo de cada são separados por um espaço.
 
-    * `STORED AS TEXTFILE LOCATION`-Onde os dados são armazenados e o formato de ficheiro.
+    * `STORED AS TEXTFILE LOCATION` -Onde os dados são armazenados e o formato de ficheiro.
 
-    * `SELECT`-Seleciona uma contagem de todas as linhas onde coluna **t4** contém o valor **[erro]**. Esta consulta devolve um valor **3** porque existem três linhas que contêm este valor.
+    * `SELECT` -Seleciona uma contagem de todas as linhas onde coluna **t4** contém o valor **[erro]**. Esta consulta devolve um valor **3** porque existem três linhas que contêm este valor.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`-Hive tenta aplicar o esquema para todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de libertação da memória nos resultados, esta instrução diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive tenta aplicar o esquema para todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de libertação da memória nos resultados, esta instrução diz ao ramo de registo que iremos deverá devolver apenas dados de ficheiros que termina em. registo.
 
   > [!NOTE]
   > As tabelas externas devem ser utilizadas ao espera os dados subjacentes ser atualizados por uma origem externa. Por exemplo, um processo de carregamento de dados automática ou uma operação de MapReduce.
@@ -167,7 +176,7 @@ Beeline for um cliente de ramo de registo que está incluído em nós principais
 
 5. Para sair Beeline, utilize `!exit`.
 
-## <a id="file"></a>Utilize Beeline para executar um ficheiro de HiveQL
+### <a id="file"></a>Utilize Beeline para executar um ficheiro de HiveQL
 
 Utilize os seguintes passos para criar um ficheiro, em seguida, execute-o utilizando Beeline.
 
@@ -225,11 +234,11 @@ Utilize os seguintes passos para criar um ficheiro, em seguida, execute-o utiliz
 
 Se tiver Beeline instalado localmente e ligar através da internet pública, utilize os seguintes parâmetros:
 
-* __Cadeia de ligação__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
+* __Cadeia de ligação__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
-* __Nome de início de sessão do cluster__:`-n admin`
+* __Nome de início de sessão do cluster__: `-n admin`
 
-* __Palavra-passe de início de sessão do cluster__`-p 'password'`
+* __Palavra-passe de início de sessão do cluster__ `-p 'password'`
 
 Substitua o `clustername` na cadeia de ligação com o nome do cluster do HDInsight.
 
@@ -237,7 +246,7 @@ Substitua `admin` com o nome do início de sessão do cluster e substitua `passw
 
 Se tiver Beeline instalado localmente e ligar através de uma rede Virtual do Azure, utilize os seguintes parâmetros:
 
-* __Cadeia de ligação__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Cadeia de ligação__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
 Para localizar o nome de domínio completamente qualificado de um headnode, utilize as informações de [gerir HDInsight utilizando a API de REST do Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) documento.
 

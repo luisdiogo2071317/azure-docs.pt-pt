@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory prova do manual de comunicação social conceito: blocos modulares
 
@@ -256,7 +256,7 @@ Hora para concluído aproximada: 20 minutos
 | Publicar a aplicação no local no Azure AD como uma aplicação de Proxy de aplicações | [Publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md) |
 | Atribuir utilizadores de teste | [Publicar aplicações através do Proxy de aplicações do Azure AD: adicionar um utilizador de teste](application-proxy-publish-azure-portal.md#add-a-test-user) |
 | Opcionalmente, configure uma experiência único início de sessão para os seus utilizadores | [Forneça o início de sessão único com o Proxy de aplicações do Azure AD](application-proxy-sso-azure-portal.md) |
-| Testar a aplicação através do início de sessão portal de MyApps como utilizador atribuído | https://MyApps.microsoft.com |
+| Testar a aplicação através do início de sessão portal de MyApps como utilizador atribuído | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Considerações
 
@@ -289,7 +289,7 @@ Hora para concluído aproximada: 60 minutos
 | Criar regras de sincronização, de modo a que os objetos no Metaverso têm atributos necessários para cargas de trabalho | [Sincronização do Azure AD Connect: melhores práticas para alterar a configuração predefinida: alterações às regras de sincronização](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Sincronização do Azure AD Connect: Noções sobre o aprovisionamento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Sincronização do Azure AD Connect: Noções sobre expressões de aprovisionamento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Iniciar o ciclo de sincronização completa | [Sincronização do Azure AD Connect: programador: iniciar o programador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | Em caso de problemas de fazer a resolução de problemas | [Resolver problemas relacionados com um objeto que não está a sincronizar com o Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
-| Verificar, se LDAP utilizador pode iniciar sessão e aceder à aplicação | https://MyApps.microsoft.com |
+| Verificar, se LDAP utilizador pode iniciar sessão e aceder à aplicação | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Considerações
 
@@ -314,7 +314,7 @@ Hora para concluído aproximada: 10 minutos
 
 | Passo | Recursos |
 | --- | --- |
-| Identificar o grupo que tenha sido concedido acesso à aplicação e configure o proprietário de determinado grupo| [Gerir as definições para um grupo no Azure Active Directory](active-directory-groups-settings-azure-portal.md) |
+| Identificar o grupo que tenha sido concedido acesso à aplicação e configure o proprietário de determinado grupo| [Gerir as definições para um grupo no Azure Active Directory ](active-directory-groups-settings-azure-portal.md) |
 | Inicie sessão como o proprietário do grupo, consulte a associação a grupos no separador de grupos do painel de acesso | [Página de gestão de grupos do Active Directory do Azure](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Adicionar o técnico de informação que pretende testar |  |
 | Inicie sessão como o técnico de informação, confirme que o mosaico está disponível | [O que é o painel de acesso?](active-directory-saas-access-panel-introduction.md) |
@@ -340,7 +340,7 @@ Se a aplicação tiver ativado o aprovisionamento, poderá ter de aguardar algun
 | --- | --- |
 | Remova o utilizador do grupo da que aplicação é atribuída a | [Gerir a associação de grupo para os utilizadores no seu inquilino do Azure Active Directory](active-directory-groups-members-azure-portal.md) |
 | Aguarde alguns minutos para aprovisionamento automatizados. | [Automatizar o aprovisionamento de utilizadores de aplicações de SaaS no Azure AD: como funciona o trabalho de aprovisionamento automatizado?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
-| Numa sessão separada do browser, inicie sessão como o técnico de informação portal minhas aplicações e confirme que mosaico está em falta | http://MyApps.microsoft.com |
+| Numa sessão separada do browser, inicie sessão como o técnico de informação portal minhas aplicações e confirme que mosaico está em falta | http://myapps.microsoft.com |
 
 
 ### <a name="considerations"></a>Considerações
@@ -364,7 +364,7 @@ Hora para concluído aproximada: 10 minutos
 | --- | --- |
 | Aceda ao painel de aplicações da empresa no Portal de gestão do Azure AD | [Portal de gestão do Azure AD: As aplicações da empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
 | Configurar a aplicação de pré-requisitos com self-service | [Novidades na gestão de aplicações da empresa no Azure Active Directory: configurar o acesso de aplicação personalizada](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
-| Inicie sessão como o técnico de informação para a minha portal de aplicações | http://MyApps.microsoft.com |
+| Inicie sessão como o técnico de informação para a minha portal de aplicações | http://myapps.microsoft.com |
 | Tenha em atenção "+ Adicionar aplicação" botão op da página. Utilize-o para obter acesso à aplicação |  |
 
 ### <a name="considerations"></a>Considerações
@@ -391,7 +391,7 @@ Hora para concluído aproximada: 15 minutos
 | Navegue até ao Portal de gestão do Azure AD: reposição de palavra-passe | [Portal de gestão do Azure AD: Reposição de palavra-passe](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Determine a que política de reposição de palavra-passe. Para efeitos POC, pode utilizar chamada telefónica e Q & A. Recomenda-se para ativar o registo de ser necessário no início de sessão para o painel de acesso |  |
 | Terminar sessão e inicie sessão como um técnico de informação |  |
-| Fornecer os dados de reposição de palavra-passe Self-Service, como configurado por passo 2 | http://aka.MS/ssprsetup |
+| Fornecer os dados de reposição de palavra-passe Self-Service, como configurado por passo 2 | https://aka.ms/ssprsetup |
 | Feche o browser |  |
 | Começar o processo de início de sessão como o técnico de informação que utilizou no passo 4 |  |
 | Repor a palavra-passe | [Atualizar a sua própria palavra-passe: repor a minha palavra-passe](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Hora para concluído aproximada: 10 minutos
 | Aplicação SaaS já configurada |  |
 | Utilizadores de PoC já estão atribuídos à aplicação |  |
 | As credenciais para o utilizador POC estão disponíveis |  |
-| O utilizador POC está registado para MFA. Utilizar um telefone com boa receção | http://aka.MS/ssprsetup |
+| O utilizador POC está registado para MFA. Utilizar um telefone com boa receção | https://aka.ms/ssprsetup |
 | Dispositivo na rede interna. Endereço IP configurado no intervalo de endereços interno | Localizar o endereço ip: https://www.bing.com/search?q=what%27s+my+ip |
 | Dispositivo na rede externa (pode ser um telefone com a rede móvel da operadora) |  |
 
@@ -508,7 +508,7 @@ Hora para concluído aproximada: 20 minutos
 | Browser abrir tor | [Transferir Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Inicie sessão no https://myapps.microsoft.com com a conta de utilizador POC | [Azure Active Directory Identity Protection manual de comunicação social: simulando eventos de risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Aguarde 5 a 7 minutos |  |
-| Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel Identity Protection | https://aka.MS/aadipgetstarted |
+| Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel Identity Protection | https://aka.ms/aadipgetstarted |
 | Abra o painel de eventos de risco. Deverá ver uma entrada em "Inícios de sessão de endereços IP anónimos"  | [Azure Active Directory Identity Protection manual de comunicação social: simulando eventos de risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Considerações
@@ -532,8 +532,8 @@ Hora para concluído aproximada: 10 minutos
 
 | Passo | Recursos |
 | --- | --- |
-| Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel de Identity Protection | https://aka.MS/aadipgetstarted |
-| Ative uma política de início de sessão do risco da seguinte forma:<br/>-Atribuído a: utilizador POC<br/>-Condições: Início de sessão risco médio ou superior (início de sessão anónimo localização é considerado como um nível de risco média)<br/>-Controlos: Exigir a MFA | [Azure Active Directory Identity Protection manual de comunicação social: início de sessão risco](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Inicie sessão como um administrador global para https://portal.azure.com e abrir o painel de Identity Protection | https://aka.ms/aadipgetstarted |
+| Ative uma política de início de sessão do risco da seguinte forma:<br/>-Atribuído a: utilizador POC<br/>-Condições: Início de sessão risco médio ou superior (início de sessão anónimo localização é considerado como um nível de risco média)<br/>-Controlos: Exigir a MFA | [Azure Active Directory Identity Protection manual de comunicação social: início de sessão risco](active-directory-identityprotection-playbook.md) |
 | Browser abrir tor | [Transferir Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Inicie sessão no https://myapps.microsoft.com com a conta de utilizador de PoC |  |
 | Tenha em atenção o desafio MFA | [Início de sessão experiências com o Azure AD Identity Protection: recuperação de risco início de sessão](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
@@ -560,7 +560,7 @@ Aproximada do tempo para concluir: 20 minutos
 | --- | --- |
 | Ativar "Autenticação de certificados" no ADFS | [Configurar políticas de autenticação: Para configurar a autenticação principal global no Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
 | Opcional: Ative a autenticação de certificado no Azure AD para clientes do Exchange Active Sync | [Introdução à autenticação baseada em certificado no Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
-| Navegue para o painel de acesso e autenticar com o certificado de utilizador | https://MyApps.microsoft.com |
+| Navegue para o painel de acesso e autenticar com o certificado de utilizador | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Considerações
 

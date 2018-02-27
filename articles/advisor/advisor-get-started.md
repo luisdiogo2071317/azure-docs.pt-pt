@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: MT
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -26,9 +26,9 @@ Saiba como aceder Advisor através do portal do Azure, recomendações de obter 
 
 ## <a name="get-advisor-recommendations"></a>Receba recomendações do Assistente
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No painel esquerdo, clique em **Advisor**.  Se não vir Advisor no painel esquerdo, clique em **mais serviços**.  No painel de menu de serviço, em **monitorização e gestão**, clique em **Advisor**.
+2. No painel esquerdo, clique em **Advisor**.  Se não vir Advisor no painel esquerdo, clique em **todos os serviços**.  No painel de menu de serviço, em **monitorização e gestão**, clique em **Advisor**.
  É apresentado o dashboard do Advisor.
 
    ![Acesso do Azure Advisor no portal do Azure](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -128,7 +128,7 @@ Advisor permite-lhe transferir um resumo das suas recomendações.  Pode transfe
 
 A opção de transferência respeita a quaisquer filtros que aplicou ao dashboard do Advisor.  Se selecionar a opção de transferência quando estiver a visualizar uma categoria de recomendação específico ou a recomendação, o resumo transferido apenas inclui informações para que a categoria ou a recomendação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o Advisor, consulte:
 * [Introdução ao Advisor do Azure](advisor-overview.md)
