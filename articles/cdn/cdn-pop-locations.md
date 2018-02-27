@@ -39,7 +39,7 @@ Este artigo apresenta uma lista de localizações de ponto de presença (POP) at
 | Europa Austrais | Milão, Itália<br />Madrid, Espanha | Itália<br />Espanha |
 | África | Joanesburgo, África do Sul | |
 | Médio Oriente | Mascate, Omã<br />Fujirah, Dirham | Catar |
-| Ásia | RAE de Hong Kong<br />Bangalore, Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tóquio, Japão<br />Singapura<br />Seoul, Sul da Coreia<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Índia<br />Indonésia<br />Japão<br />Malásia<br />Filipinas<br />Singapura<br />Taiwan<br />Tailândia<br />Vietname |
+| Ásia | RAE de Hong Kong<br />Bengaluru (Bangalore), Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tóquio, Japão<br />Singapura<br />Seoul, Sul da Coreia<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Índia<br />Indonésia<br />Japão<br />Malásia<br />Filipinas<br />Singapura<br />Taiwan<br />Tailândia<br />Vietname |
 | Austrália e Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Austrália<br />Nova Zelândia |
 
 ## <a name="see-also"></a>Consultar Também
