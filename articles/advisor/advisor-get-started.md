@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -66,17 +66,17 @@ Pode filtrar recomendações para descer até que são mais importante para si. 
 
     ![Critérios de filtro de pesquisa do Advisor](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Snooze ou dispensar recomendações do Assistente
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Adiar ou dispensar recomendações do Assistente
 
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Navegue para a recomendação que pretende snooze ou ignorar.
+2. Navegue para a recomendação que pretende adiar ou ignorar.
 
 3. Clique na recomendação.
 
-4. Clique em **Snooze**. 
+4. Clique em **adiar**. 
 
-5. Especificar um período de tempo de suspensão ou selecionar **nunca** para dispensar a recomendação.
+5. Especifique um ' Adiar ' período de tempo, ou selecione **nunca** para dispensar a recomendação.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Excluir subscrições ou grupos de recursos do Advisor
 
