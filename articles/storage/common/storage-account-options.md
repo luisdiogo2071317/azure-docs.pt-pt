@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Opções de contas do Armazenamento do Azure
 
@@ -76,7 +76,7 @@ As contas de armazenamento de blobs suportam as mesmas funcionalidades de blob d
 A capacidade de atualizar as Contas de armazenamento de blobs para GPv2 estará disponível em breve.
 
 > [!NOTE]
-> As contas de armazenamento de Blobs suportam apenas blobs de blocos e blobs de acréscimo e não suportam blobs de páginas.
+> As contas do Blob Storage suportam apenas blobs de blocos e de acréscimo e não suportam blobs de páginas.
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -113,7 +113,7 @@ Todas as contas de armazenamento utilizam um modelo de preços para o armazename
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
-Nesta secção os seguintes cenários são demonstrados através do portal do Azure:
+Nesta secção, são demonstrados os seguintes cenários através do portal do Azure:
 
 * Como criar uma conta de armazenamento GPv2.
 * Como converter uma conta de Armazenamento de blobs ou GPv1 numa conta de armazenamento GPv2.
@@ -125,7 +125,7 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No menu Hub, selecione **Novo** > **Dados + Armazenamento** > **Conta do Storage**.
+2. No menu Hub, selecione **Criar um recurso** > **Dados + Armazenamento** > **Conta de armazenamento**.
 
 3. Introduza um nome para a conta do Storage.
 
@@ -159,7 +159,7 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Para navegar para a sua conta de armazenamento, selecione Todos os Recursos, em seguida, selecione a sua conta de armazenamento.
+2. Para navegar para a conta de armazenamento, selecione **Todos os recursos** e, em seguida, selecione a conta de armazenamento.
 
 3. Na secção Definições, clique em **Configuração**.
 
@@ -173,7 +173,7 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Para navegar para a sua conta de armazenamento, selecione Todos os Recursos, em seguida, selecione a sua conta de armazenamento.
+2. Para navegar para a conta de armazenamento, selecione **Todos os recursos** e, em seguida, selecione a conta de armazenamento.
 
 3. No painel Definições, clique em**Configuração** para ver e/ou alterar a configuração da conta.
 
@@ -185,7 +185,7 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Para navegar para o blob na conta de armazenamento, selecione Todos os Recursos, selecione a conta de armazenamento, selecione o contentor e, em seguida, selecione o blob.
+2. Para navegar para o blob na conta de armazenamento, selecione **Todos os recursos**, selecione a conta de armazenamento, selecione o contentor e, em seguida, selecione o blob.
 
 3. No painel de propriedades do Blob, clique no menu pendente **Camada de Acesso** para selecionar a camada de armazenamento **Frequente**, **Esporádica** ou **Arquivo**.
 
@@ -339,7 +339,7 @@ Os blobs na camada de armazenamento esporádico têm um nível de serviço (SLA)
 
 **Posso armazenar blobs de páginas e discos de máquinas virtuais em contas de armazenamento de Blobs?**
 
-Não. As contas de armazenamento de Blobs suportam apenas blobs de blocos e blobs de acréscimo e não suportam blobs de páginas. Os discos de Virtual Machines do Azure são apoiados por blobs de páginas e, como consequência, não é possível utilizar contas do Blob Storage para armazenar discos de máquinas virtuais. No entanto, é possível armazenar cópias de segurança dos discos de máquinas virtuais como blobs de blocos numa conta do Blob Storage. Esta é uma das razões para considerar a utilização de GPv2 em vez de contas de Armazenamento de blobs.
+Não. As contas do Blob Storage suportam apenas blobs de blocos e de acréscimo e não suportam blobs de páginas. Os discos de Virtual Machines do Azure são apoiados por blobs de páginas e, como consequência, não é possível utilizar contas do Blob Storage para armazenar discos de máquinas virtuais. No entanto, é possível armazenar cópias de segurança dos discos de máquinas virtuais como blobs de blocos numa conta do Blob Storage. Esta é uma das razões para considerar a utilização de GPv2 em vez de contas de Armazenamento de blobs.
 
 **Tenho de alterar as minhas aplicações existentes para utilizar as contas de armazenamento GPv2?**
 

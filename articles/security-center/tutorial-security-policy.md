@@ -9,17 +9,17 @@ editor:
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: 102e160b706ad8fb8ee12ae4cac8cda51b06a991
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: definir e avaliar as políticas de segurança
 O Centro de Segurança ajuda-o a manter a conformidade com os requisitos de segurança empresariais ou regulamentares mediante a utilização de políticas de segurança que definem a configuração pretendida para as suas cargas de trabalho. Depois de definir políticas para as suas subscrições do Azure e de as adaptar ao tipo de carga de trabalho ou à sensibilidade dos seus dados, o Centro de Segurança pode mostrar recomendações de segurança para os seus recursos de computação, rede, SQL e armazenamento e de aplicações. Neste tutorial, vai aprender a:
@@ -99,4 +99,4 @@ Neste tutorial, ficou a saber mais sobre a definição básica de políticas e a
 Avance para o próximo tutorial para saber como utilizar o Centro de Segurança para proteger os seus recursos.
 
 > [!div class="nextstepaction"]
-> [Protect your resources](tutorial-protect-resources.md) (Proteger os seus recursos)
+> [Proteger os seus recursos](tutorial-protect-resources.md)

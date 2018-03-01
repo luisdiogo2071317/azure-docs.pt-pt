@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script do CLI do Azure - escala um Cluster de ACS | Microsoft Docs
-description: Exemplo de Script do CLI do Azure - escala um Cluster de ACS
+title: Exemplo do Script da CLI do Azure - Dimensione um Cluster de ACS | Microsoft Docs
+description: Exemplo do Script da CLI do Azure - Dimensione um Cluster de ACS
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 14e9f9d85bc0c1428240f15831632eafe2a0f80e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: d12299d08fa989c0990ae45a41c638470e1075a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Dimensionar um Cluster do serviço de contentor do Azure
+# <a name="scale-an-azure-container-service-cluster"></a>Dimensionar um Cluster do Azure Container Service
 
-Este exemplo escalas e o serviço de contentor do Azure. 
+Este exemplo dimensiona o Azure Container Service. 
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -44,17 +44,17 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar a implementação. Cada item nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar a implementação. Cada item na tabela liga a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [escala de acs AZ](/cli/azure/acs#scale) | Dimensione um cluster de ACS. |
+| [az acs scale](/cli/azure/acs#az_acs_scale) | Dimensionar um cluster ACS. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos de script CLI de serviço de contentor do Azure adicionais podem ser encontrados no [documentação do serviço de contentor Azure](../cli-samples.md).
+Pode ver exemplos da CLI do Azure Container Service adicionais na [documentação do Azure Container Service](../cli-samples.md).
 

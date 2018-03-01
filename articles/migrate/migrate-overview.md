@@ -7,18 +7,15 @@ ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3269b865c4ef3c11a674d7b755faab2bbf5970e3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
-O serviço do Azure Migrate avalia as cargas de trabalho no local para migração para o Azure. O serviço avalia a adequabilidade de migração e o dimensionamento com base no desempenho e oferece estimativas de custos para executar as suas máquinas no local no Azure. Se estiver a considerar migrações lift-and-shift ou estiver nas primeiras etapas da migração, este serviço é para si. Após a avaliação, pode utilizar serviços como o Azure Site Recovery e o Azure Database Migration para migrar as máquinas para o Azure.
-
-> [!NOTE]
-> O Azure Migrate está atualmente em pré-visualização e suporta cargas de trabalho de produção.
+O serviço do Azure Migrate avalia as cargas de trabalho no local para migração para o Azure. O serviço avalia a adequabilidade de migração de máquinas no local para o Azure, o dimensionamento com base no desempenho e oferece estimativas de custos para executar as suas máquinas no local no Azure. Se estiver a considerar migrações lift-and-shift ou estiver nas primeiras etapas da migração, este serviço é para si. Após a avaliação, pode utilizar serviços como o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e o [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) para migrar as máquinas para o Azure.
 
 ## <a name="why-use-azure-migrate"></a>Porquê utilizar o Azure Migrate?
 
@@ -27,18 +24,17 @@ O Azure Migrate ajuda-o a:
 - **Avaliar a preparação do Azure**: avaliar se as suas máquinas no local são adequadas para execução no Azure. 
 - **Obter recomendações de tamanho**: obtenha recomendações de tamanho para as VMs do Azure, com base no histórico de desempenho das VMs no local. 
 - **Estimar custos mensais**: obtenha custos estimados para executar máquinas no local no Azure.  
-- **Migrar com confiança elevada**: visualize as dependências de máquinas no local para criar grupos de computadores que vai avaliar e migrar em conjunto. Pode ver com precisão as dependências de uma máquina específica ou de todas as máquinas de um grupo.
+- **Migrar com confiança elevada**: visualize as dependências de máquinas no local para criar grupos de computadores que vai avaliar e migrar em conjunto. 
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Atualmente, pode avaliar máquinas virtuais (VMs) do VMware no local para migração para VMs do Azure.
+- Atualmente, pode avaliar máquinas virtuais (VMs) do VMware no local apenas para migração para VMs do Azure. As VMs do VMware têm de ser geridas pelo vCenter Server (versão 5.5, 6.0 ou 6.5)
 
 > [!NOTE]
 > O suporte para o Hyper-V está nas previsões e será ativado brevemente. Até lá, recomendamos que utilize o [Planeador de Implementações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planear a migração de cargas de trabalho do Hyper-V. 
 
 - Pode detetar até 1000 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 400 VMs numa única avaliação. Se precisar de detetar ou avaliar mais máquinas, pode aumentar o número de deteções ou de avaliações. [Saiba mais](how-to-scale-assessment.md).
-- A VM que for avaliar tem de ser gerida por um vCenter Server, versão 5.5, 6.0 ou 6.5.
-- Só pode criar projetos do Azure Migrate na região E.U.A. Centro-Oeste. No entanto, esta limitação não afeta a possibilidade de planear a sua migração para outra localização de destino do Azure. A localização do projeto de migração é utilizada apenas para armazenar os metadados detetados a partir do ambiente no local.
+- Só pode criar um projeto do Azure Migrate na região E.U.A. Centro-Oeste ou Leste. No entanto, esta limitação não afeta a possibilidade de planear a sua migração para outra localização de destino do Azure. A localização do projeto de migração é utilizada apenas para armazenar os metadados detetados a partir do ambiente no local.
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
 
 ## <a name="what-do-i-need-to-pay-for"></a>O que vou pagar?
@@ -48,15 +44,16 @@ Saiba mais sobre os preços do Azure Migrate [aqui](https://azure.microsoft.com/
 
 ## <a name="whats-in-an-assessment"></a>Novidades nas avaliações
 
-Uma avaliação ajuda-o a identificar a adequabilidade do Azure de VMs no local, obter recomendações de tamanho adequado e estimativas de custo para executar as VMs no Azure. As avaliações têm por base as definições resumidas na tabela abaixo. Pode modificar estas propriedades no portal do Azure Migrate. 
+Uma avaliação ajuda-o a identificar a adequabilidade do Azure de VMs no local, obter recomendações de tamanho adequado e estimativas de custo para executar as VMs no Azure. As avaliações podem ser personalizadas com base nas necessidades, ao alterar as propriedades da avaliação. Seguem-se as propriedades que são consideradas durante a criação de uma avaliação. 
 
 **Propriedade** | **Detalhes**
 --- | ---
 **Localização de destino** | A localização do Azure para a qual pretende migrar. Por predefinição, a localização de destino está definida para E.U.A. Oeste 2. 
-**Redundância do armazenamento** | O tipo de armazenamento que as VMs do Azure vão utilizar após a migração. A predefinição é LRS.
-**Planos de preços** | A avaliação tem em conta se está inscrito no Software Assurance e se pode utilizar o [Benefício de Utilização Híbrida do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera que ofertas do Azure serão aplicáveis e permite-lhe indicar descontos (%) específicos de subscrições, que pode acumular relativamente à oferta. 
-**Escalão de preço** | Pode especificar o [escalão de preços (básico/standard)](../virtual-machines/windows/sizes-general.md) das VMs do Azure. Desta forma, pode migrar para uma família de VMs do Azure tendo em conta o facto de estar ou não num ambiente de produção. Por predefinição, é utilizado o escalão [standard](../virtual-machines/windows/sizes-general.md).
-**Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através de um mês do histórico, com um valor de percentil de 95%. Pode modificar esta definição.
+**Redundância do armazenamento** | O tipo de [redundância de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-redundancy) que as VMs do Azure vão utilizar após a migração. A predefinição é o Armazenamento Localmente Redundante (LRS). Tenha em atenção que o Azure Migrate suporta apenas avaliações baseadas em discos geridos e os discos geridos suportam apenas LRS, por conseguinte, a propriedade tem atualmente apenas a opção de LRS. 
+**Critérios de dimensionamento** | Os critérios a serem utilizados pelo Azure Migrate para encontrar VMs de tamanho adequado para o Azure. Pode fazer o dimensionamento com base no *histórico de desempenho* das VMs no local ou dimensionar as VMs *como no local* para o Azure, sem considerar o histórico de desempenho. O valor predefinido é baseado no dimensionamento do desempenho.
+**Planos de preços** | Para cálculos de custo, uma avaliação considera se tem garantia de software e é elegível para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera as [Ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que pode estar inscrito e permite-lhe indicar quaisquer descontos (%) específicos de subscrições, que pode acumular relativamente à oferta. 
+**Escalão de preço** | Pode especificar o [escalão de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) para as VMs de destino do Azure. Por exemplo, se estiver a planear a migração de um ambiente de produção, deve considerar o escalão Standard, que oferece baixa latência às VMs, mas pode ser mais dispendioso. Por outro lado, se tiver um ambiente de Dev/Test, deve considerar o escalão Básico que tem VMs com latência superior e custos reduzidos. Por predefinição, é utilizado o escalão [Standard](../virtual-machines/windows/sizes-general.md).
+**Histórico de desempenho** | Aplicável apenas se o critério de dimensionamento for baseado no desempenho. Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%. Pode modificar estes valores nas propriedades de avaliação. 
 **Fator de conforto** | O Azure Migrate considera uma memória intermédia (fator de conforto) durante a avaliação. Esta memória intermédia é aplicada em cima dos dados de utilização das VMs (CPU, memória, disco e rede). O fator de conforto dá conta de problemas como utilização sazonal, histórico de desempenho breve e prováveis aumentos na utilização futura.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização resulta, normalmente, numa VM de 2 núcleos. No entanto, com um fator de conforto de 2,0 x, o resultado é uma VM de 4 núcleos. A definição de conforto predefinida é 1,3x.
 
 

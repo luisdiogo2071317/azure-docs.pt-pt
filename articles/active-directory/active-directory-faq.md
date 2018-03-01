@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -29,7 +29,7 @@ Para obter mais informações, consulte [What is Azure Active Directory? (O que 
 ## <a name="access-azure-and-azure-active-directory"></a>Aceder ao Azure e Azure Active Directory
 **P: Por que motivo recebo “Não foram encontradas subscrições” ao tentar aceder ao Azure AD no portal do Azure?**
 
-**R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se tiver uma subscrição paga do Office 365 ou do Azure AD, aceda a [http://aka.ms/accessAAD](http://aka.ms/accessAAD) com apenas um passo único de ativação. Caso contrário, terá de ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) gratuita ou uma subscrição paga.
+**R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se tiver uma subscrição paga do Office 365 ou do Azure AD, aceda a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) com um passo único de ativação. Caso contrário, terá de ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) gratuita ou uma subscrição paga.
 
 Para obter mais informações, consulte:
 
@@ -130,7 +130,7 @@ Para os utilizadores do Office 365, o administrador pode repor a palavra-passe a
 Para contas do Azure AD, os administradores podem repor as palavras-passe através de um dos seguintes procedimentos:
 
 - [Repor contas no portal do Azure](active-directory-users-reset-password-azure-portal.md)
-- [Com o PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Utilizar o PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -

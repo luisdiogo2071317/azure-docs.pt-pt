@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -41,7 +41,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 > Ao criar uma conta do Batch, geralmente escolhe o modo **Serviço Batch** predefinido, no qual os conjuntos são aplicados em segundo plano nas subscrições geridas do Azure. No modo **subscrição de utilizador** alternativo, o qual já não é recomendado para a maioria dos cenários, as VMs do Batch e outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. Para criar uma conta do Batch no modo de subscrição de utilizador, também tem de registar a sua subscrição no Azure Batch e associar a conta ao Azure Key Vault.
 
 1. Inicie sessão no [Portal do Azure][azure_portal].
-2. Clique em **Novo** e pesquise **Serviço Batch** no Marketplace.
+2. Clique em **Criar um recurso** e pesquise **Serviço Batch** no Marketplace.
 
     ![Batch no Marketplace][marketplace_portal]
 3. Selecione **Serviço Batch**, clique em **Criar** e introduza as definições em **Nova conta do Batch** . Veja os detalhes seguintes.

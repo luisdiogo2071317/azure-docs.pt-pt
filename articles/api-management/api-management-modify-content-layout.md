@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o esquema das páginas no portal do programador na Gestão de API do Azure
 Existem três formas fundamentais de personalizar o portal do programador na Gestão de API do Azure:
@@ -35,39 +35,22 @@ O portal do programador baseia-se num sistema de gestão de conteúdos. O esquem
 
 Todos os widgets são editáveis. 
 * Os conteúdos principais específicos de cada página individual encontram-se no widget "Conteúdos". Editar uma página significa editar o conteúdo deste widget.
-* Todos os elementos de esquema de página estão contidos com os restantes widgets. As alterações feitas a estes widgets serão aplicadas a todas as páginas. Estes serão referidos como "widgets de esquema".
+* Todos os elementos de esquema de página estão contidos com os restantes widgets. As alterações feitas a estes widgets são aplicadas a todas as páginas. Estes são referidos como "widgets de esquema."
 
-Na edição diária de páginas, um indivíduo normalmente modifica apenas o widget Conteúdos, que terá conteúdo diferente para cada página individual.
+Na edição diária de páginas, um indivíduo modificaria frequentemente apenas o widget Conteúdos, que terá conteúdo diferente para cada página individual.
 
 ## <a name="modify-layout-widget"> </a>Modificar o conteúdo de um widget de esquema
 
-O conteúdo do portal do programador é modificado através do portal do publicador, que é acedido a partir do Portal do Azure. Para o alcançar, clique em **Portal do publicador** na barra de ferramentas de serviço da sua instância de Gestão de API.
+O portal do Programador está acessível a partir do Portal do Azure. 
 
-![Portal do publicador][api-management-management-console]
-
-Para editar o conteúdo desse widget, clique em **Widgets** no menu **Portal do Programador** à esquerda. Para este exemplo, vamos modificar o conteúdo do widget Cabeçalho. Selecione o widget **Cabeçalho** na lista.
-
-![Cabeçalho de widgets][api-management-widgets-header]
-
-O conteúdo do cabeçalho é editável a partir do campo **Corpo**. Altere o texto conforme pretendido e clique em **Guardar** na parte inferior da página.
+1. Clique em **Portal do Programador** na barra de ferramentas da sua instância de Gestão de API.
+2. Para editar os conteúdos dos widgets, clique no ícone composto por dois pincéis no menu do portal **Programador** à esquerda. 
+3. Para modificar os conteúdos do cabeçalho, desloque-se para a secção **Cabeçalho** na lista à esquerda.
+    
+    Os widgets são editáveis a partir dos campos.
+4. Assim que estiver pronto para publicar as alterações, clique em **Publicar** na parte inferior da página.
 
 Agora deve conseguir ver o novo cabeçalho em todas as páginas do portal do programador.
-
-> Para abrir o portal do programador a partir do portal do publicador, clique em **Portal do programador** na barra superior.
-> 
-> 
-
-## <a name="edit-page-contents"> </a>Editar o conteúdo de uma página
-
-Para ver a lista de todas as páginas de conteúdo existentes, clique em **Conteúdo** no menu **Portal do programador** no portal do publicador.
-
-![Gerir conteúdo][api-management-customization-manage-content]
-
-Clique na página **Bem-vindo** para editar o que é apresentado na home page do portal do programador. Efetue as alterações que pretender, pré-visualize-as se necessário e, em seguida, clique em **Publicar Agora** para que fiquem visíveis para todos os utilizadores.
-
-> A home page utiliza um esquema especial que permite apresentar uma faixa na parte superior. Esta faixa não é editável a partir da secção **Conteúdo**. Para editar esta faixa, clique em **Widgets** no menu **Portal do programador**, selecione **Home page** na lista pendente **Camada Atual** e, em seguida, abra o item **Faixa** na **Secção em destaque**. O conteúdo deste widget é editável, tal como qualquer outra página.
-> 
-> 
 
 ## <a name="next-steps"> </a>Passos seguintes
 * [Atualizar os estilos utilizados para elementos de página em todo o portal do programador][customize-styles]

@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer cópia de segurança de máquinas virtuais do Azure para cofres dos Serviços de Recuperação
 
@@ -50,9 +50,9 @@ Dependendo do número de máquinas virtuais que quer proteger, pode começar em 
 Utilize os passos seguintes para configurar a tarefa de criação da cópia de segurança a partir do painel de gestão da máquina virtual, no portal do Azure. Os seguintes passos aplicam-se apenas a máquinas virtuais no portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, clique em **Mais Serviços** e, na caixa de diálogo Filtro, escreva **Máquinas virtuais**. À medida que escreve, a lista de recursos filtra. Quando vir Máquinas Virtuais, selecione-as.
+2. No menu Hub, clique em **Todos os serviços** e, na caixa de diálogo Filtro, escreva **Máquinas virtuais**. À medida que escreve, a lista de recursos filtra. Quando vir Máquinas Virtuais, selecione-as.
 
-  ![No menu Hub, clique em Mais Serviços para abrir a caixa de diálogo de texto e escreva Máquinas virtuais.](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Captura de ecrã que mostra como navegar para máquinas virtuais de Todos os serviços](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   É apresentada a lista de máquinas virtuais (VMs) na subscrição.
 
@@ -131,7 +131,7 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena todas as c�
 Para criar um cofre dos Serviços de Recuperação:
 
 1. Se ainda não o fez, inicie sessão no [portal do Azure](https://portal.azure.com/) através da sua subscrição do Azure.
-2. No menu Hub, clique em **Mais Serviços** e, na caixa de diálogo Filtro, escreva **Serviços de Recuperação**. À medida que escreve, a lista de recursos filtra. Quando vir os cofres dos Serviços de Recuperação, clique nos mesmos.
+2. No menu Hub, clique em **Todos os serviços** e, na caixa de diálogo Filtro, escreva **Serviços de Recuperação**. À medida que escreve, a lista de recursos filtra. Quando vir os cofres dos Serviços de Recuperação, clique nos mesmos.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Para editar a definição de replicação de armazenamento:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selecione um objetivo da cópia de segurança, configure a política e defina os itens a proteger
 Antes de registar uma VM com um cofre, execute o processo de deteção para se certificar de que as novas máquinas virtuais que foram adicionadas à subscrição são identificadas. O processo consulta o Azure para obter a lista de máquinas virtuais na subscrição, juntamente com informações adicionais, tais como a região e o nome do serviço em nuvem. No portal do Azure, o cenário refere-se ao que vai introduzir no cofre dos Serviços de Recuperação. A política é a agenda da frequência e de quando os pontos de recuperação são obtidos. A política também inclui o período de retenção para os pontos de recuperação.
 
-1. Se já tiver um cofre dos serviços de recuperação aberto, avance para o passo 2. Caso contrário, no menu Hub, clique em **Mais Serviços** e, na lista de recursos, escreva **Serviços de Recuperação** e clique em **Cofres dos Serviços de Recuperação**.
+1. Se já tiver um cofre dos serviços de recuperação aberto, avance para o passo 2. Caso contrário, clique em **Todos os serviços**. Escreva **Serviços de Recuperação** e clique em **cofres dos Serviços de Recuperação**.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

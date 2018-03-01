@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do Azure Container Service (AKS)
 
@@ -51,7 +51,7 @@ Clique em **Guardar** e tome nota do valor de palavra-passe. A palavra-passe é 
 
 ## <a name="create-aks-cluster"></a>Criar um cluster do AKS
 
-Selecione **Novo** > **Contentores** > **Azure Container Service - AKS (pré-visualização)**.
+Selecione **Criar um recurso** > **Contentores** > **Azure Container Service - AKS (pré-visualização)**.
 
 Indique o nome do cluster, o prefixo de DNS, o nome do grupo de recursos, a localização e a versão do Kubernetes para o cluster. Tome nota do nome do cluster e do nome do grupo de recursos, uma vez que são necessários quando ligar ao cluster.
 

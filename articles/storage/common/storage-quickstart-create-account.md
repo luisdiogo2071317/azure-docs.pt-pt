@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
@@ -161,7 +161,7 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
-1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Mais Serviços**. Em seguida, desloque para baixo até **Armazenamento**e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
+1. No portal do Azure, expanda o menu do lado esquerdo para abrir o menu de serviços e escolha **Todos os Serviços**. Em seguida, desloque para baixo até **Armazenamento**e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
 2. Introduza um nome para a conta do Storage.
 3. Defina o **Tipo de conta** como **StorageV2 (armazenamento para fins gerais v2)**.
 4. Deixe o campo **Replicação** definido como **Armazenamento Localmente Redundante (LRS)**. Em alternativa, pode selecionar **Armazenamento com redundância de zona (Pré-visualização ZRS)**, **Armazenamento georredundante (GRS)** ou **Armazenamento georredundante com acesso de leitura (RA-GRS)**.

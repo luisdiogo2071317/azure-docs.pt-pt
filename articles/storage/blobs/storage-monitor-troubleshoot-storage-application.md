@@ -1,72 +1,69 @@
 ---
-title: "Monitorizar e resolver problemas de uma aplicação de armazenamento na nuvem no Azure | Microsoft Docs"
-description: "Utilize as ferramentas de diagnóstico, métricas e alertas para resolver problemas e monitorizar uma aplicação na nuvem."
+title: "Monitorizar e resolver problemas de uma aplicação de armazenamento na cloud no Azure | Microsoft Docs"
+description: "Utilize as ferramentas de diagnóstico, as métricas e os alertas para resolver problemas e monitorizar uma aplicação na cloud."
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: db88c331f79d83e0124519f8b6dbb34514b456dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorizar e resolver problemas de uma aplicação de armazenamento na nuvem
+# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorizar e resolver problemas de uma aplicação de armazenamento na cloud
 
-Este tutorial é parte de quatro e a parte final de uma série. Saiba como monitorizar e resolver problemas de uma aplicação de armazenamento na nuvem.
+Este tutorial é a quarta e última parte de uma série. Ficará a saber como monitorizar e resolver problemas de uma aplicação de armazenamento na cloud.
 
-Na parte quatro da série, saiba como:
+Na quarta parte da série, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ativar o registo e métricas
-> * Ativar alertas de erros de autorização
-> * Execute o tráfego de teste com os tokens SAS incorretos
-> * Transferir e analisar os registos
+> * Ativar o registo e as métricas
+> * Ativar os alertas de erros de autorização
+> * Executar o tráfego de teste com tokens SAS incorretos
+> * Transferir e analisar registos
 
-[Análise de armazenamento do Azure](../common/storage-analytics.md) fornece dados de registos e métricos para uma conta de armazenamento. Estes dados disponibilizam informações sobre o estado de funcionamento da sua conta de armazenamento. Antes de poder ser visibilidade na sua conta de armazenamento, terá de configurar a recolha de dados. Este processo envolve ativar o registo, configurar as métricas e ativar os alertas.
+A [Análise de armazenamento do Azure](../common/storage-analytics.md) proporciona dados de métricas e de registos para uma conta de armazenamento. Estes dados disponibilizam informações sobre o estado de funcionamento da conta de armazenamento. Para poder ter visibilidade na conta de armazenamento, terá de configurar a recolha de dados. Este processo envolve ativar o registo, configurar as métricas e ativar os alertas.
 
-Registo e as métricas das contas do storage são ativadas a partir de **diagnóstico** separador no portal do Azure. Existem dois tipos de métricas. **Agregação** métricas recolher percentagens de entrada/saída, disponibilidade, latência e êxito. Estas métricas são agregadas para o blob, fila, tabela e serviços de ficheiros. **Por API** recolhe o mesmo conjunto de métricas para cada operação de armazenamento na API do serviço de armazenamento do Azure. Registo de armazenamento permite-lhe detalhes do registo de pedidos com êxito ou falhados na sua conta de armazenamento. Estes registos permitem-lhe ver os detalhes de leitura, escrita e eliminação operações relativamente a tabelas do Azure, filas e blobs. Eles também permitem-lhe ver as razões para pedidos falhados como os tempos limite, limitação e erros de autorização.
+O registo e as métricas das contas de armazenamento são ativados no separador **Diagnóstico** do portal do Azure. Existem dois tipos de métricas. As métricas **Agregadas** recolhem percentagens de entrada/saída, disponibilidade, latência e êxito. Estas métricas são agregadas para o blob, a fila, a tabela e os serviços de ficheiros. **Por API** recolhe o mesmo conjunto de métricas para cada operação de armazenamento na API do serviço de Armazenamento do Azure. O registo de armazenamento permite-lhe registar detalhes de pedidos com êxito e de pedidos com falhas na conta de armazenamento. Estes registos permitem-lhe ver os detalhes de operações de leitura, de escrita e de eliminação relativamente a tabelas, filas e blobs do Azure. Também lhe permitem ver os motivos dos pedidos com falhas como erros de tempos limite, de limitação e de autorização.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com)
 
-## <a name="turn-on-logging-and-metrics"></a>Ativar o registo e métricas
+## <a name="turn-on-logging-and-metrics"></a>Ativar o registo e as métricas
 
-No menu à esquerda, selecione **grupos de recursos**, selecione **myResourceGroup**e, em seguida, selecione a sua conta de armazenamento na lista de recursos.
+No menu à esquerda, selecione **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione a conta de armazenamento na lista de recursos.
 
-Em **diagnóstico** definir **estado** para **no**. Certifique-se **Blob métricas agregadas**, **Blob por métricas de API**, e **Blob registos** estão ativadas.
+Em **Diagnóstico**, defina **Estado** como **Ativado**. Garanta que ativa **Métricas de agregação de blob**, **Métricas de blob por API** e **Registos de blob**.
 
-Quando terminar, clique em **guardar**
+Quando terminar, clique em **Guardar**
 
-![Painel de diagnóstico](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Painel Diagnóstico](media/storage-monitor-troubleshoot-storage-application/figure1.png)
 
 ## <a name="enable-alerts"></a>Ativar alertas
 
-Alertas fornecem uma forma dos administradores de e-mail ou acionar um webhook com base numa métrica de ser, um limiar. Neste exemplo, permitir um alerta para o `SASClientOtherError` métrica.
+Os alertas proporcionam uma forma de enviar um e-mail aos administradores ou de acionar um webhook com base numa métrica que viola um limiar. Neste exemplo, ativa um alerta para a métrica `SASClientOtherError`.
 
-### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navegue para a conta do storage no portal do Azure
+### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navegue até à conta de armazenamento no portal do Azure
 
-No menu à esquerda, selecione **grupos de recursos**, selecione **myResourceGroup**e, em seguida, selecione a sua conta de armazenamento na lista de recursos.
+No menu à esquerda, selecione **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione a conta de armazenamento na lista de recursos.
 
-Sob o **monitorização** secção, selecione **regras de alerta**.
+Na secção **Monitorização**, selecione **Regras de alerta**.
 
-Selecione **+ Adicionar alerta**, em **adicionar uma regra de alerta**, preencha as informações necessárias. Escolha `SASClientOtherError` do **métrica** pendente.
+Selecione **+ Adicionar alerta**, em **Adicionar uma regra de alerta**, e preencha as informações necessárias. Escolha `SASClientOtherError`, no menu pendente **Métrica**.
 
-![Painel de diagnóstico](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Painel Diagnóstico](media/storage-monitor-troubleshoot-storage-application/figure2.png)
 
 ## <a name="simulate-an-error"></a>Simular um erro
 
-Para simular um alerta válido, pode tentar pedir um blob inexistente da sua conta de armazenamento. Para fazer isto, substitua o `<incorrect-blob-name>` valor com um valor que não existe. Execute o seguinte exemplo de código algumas horas simular blob pedidos falhados.
+Para simular um alerta válido, pode tentar pedir um blob inexistente na conta de armazenamento. Para o fazer, substitua o valor `<incorrect-blob-name>` por um valor que não existe. Execute o seguinte exemplo de código algumas vezes para simular pedidos de blobs com falhas.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -81,49 +78,49 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
 ```
 
-A imagem seguinte é um alerta de exemplo que se baseia-se desativar a falha simulada executou com o exemplo anterior.
+A imagem seguinte é um alerta de exemplo que se baseia na falha simulada executada com o exemplo anterior.
 
  ![Alerta de exemplo](media/storage-monitor-troubleshoot-storage-application/alert.png)
 
 ## <a name="download-and-view-logs"></a>Transferir e ver registos
 
-Os registos de armazenamento armazenam dados de um conjunto de blobs num contentor do blob denominado **$logs** na sua conta de armazenamento. Este contentor não aparecer se lista todos os contentores de BLOBs na sua conta, mas pode ver o respetivo conteúdo se pode aceder diretamente à mesma.
+Os registos de armazenamento armazenam dados num conjunto de blobs num contentor do blobs denominado **$logs** na conta de armazenamento. Este contentor não aparecerá se listar todos os contentores de blobs na sua conta, mas poderá ver o conteúdo se aceder diretamente ao ele.
 
-Neste cenário, utilize [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) para interagir com a sua conta de armazenamento do Azure.
+Neste cenário, utilize o [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) para interagir com a conta de armazenamento do Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Transferir o Microsoft Message Analyzer
 
-Transferir [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) e instalar a aplicação.
+Transfira o [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) e instale a aplicação.
 
-Iniciar a aplicação e escolha **ficheiro** > **abra** > **de outras origens de ficheiro**.
+Inicie a aplicação e escolha **Ficheiro** > **Abrir** > **De Outras Origens de Ficheiros**.
 
-No **Seletor de ficheiros** caixa de diálogo, selecione **+ adicionar a ligação do Azure**. Introduza o **nome da conta de armazenamento** e **chave da conta** e clique em **OK**.
+Na caixa de diálogo **Seletor de Ficheiros**, selecione **+ Adicionar Ligação do Azure**. Introduza o **nome da conta de armazenamento** e a **chave da conta** e clique em **OK**.
 
-![Microsoft mensagem analisador - adicionar caixa de diálogo de ligação de armazenamento do Azure](media/storage-monitor-troubleshoot-storage-application/figure3.png)
+![Microsoft Message Analyzer – Caixa de Diálogo Adicionar Ligação ao Armazenamento do Azure](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-Assim que estiver ligado, expanda os contentores na árvore de armazenamento da vista para visualizar os blobs de registo. Selecione o início de sessão mais recente e clique em **OK**.
+Assim que estiver ligado, expanda os contentores na vista de árvore de armazenamento para visualizar os blobs de registo. Selecione o registo mais recente e clique em **OK**.
 
-![Microsoft mensagem analisador - adicionar caixa de diálogo de ligação de armazenamento do Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Microsoft Message Analyzer – Caixa de Diálogo Adicionar Ligação ao Armazenamento do Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-No **nova sessão** caixa de diálogo, clique em **iniciar** para ver o início de sessão.
+Na caixa de diálogo **Nova Sessão**, clique em **Iniciar** para ver o registo.
 
-Depois de abre o registo, pode ver os eventos de armazenamento. Como pode ver na imagem seguinte, Ocorreu uma `SASClientOtherError` acionada na conta de armazenamento. Para obter informações adicionais no registo de armazenamento, visite [análise de armazenamento](../common/storage-analytics.md).
+Depois de abrir o registo, pode ver os eventos de armazenamento. Como pode ver na imagem seguinte, foi acionado um `SASClientOtherError` na conta de armazenamento. Para obter informações adicionais sobre o registo de armazenamento, visite [Análise de Armazenamento](../common/storage-analytics.md).
 
-![Message de Microsoft Analyzer. o-visualização de eventos](media/storage-monitor-troubleshoot-storage-application/figure5.png)
+![Microsoft Message Analyzer – Ver eventos](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Explorador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) é outra ferramenta que pode ser utilizada para interagir com as contas de armazenamento, incluindo o **$logs** contentor e os registos estão contidos na mesma.
+O [Explorador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/) é outra ferramenta que serve para interagir com as contas de armazenamento, incluindo o contentor **$logs** e os registos nele contidos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Na parte de quatro e a parte final da série, aprendeu a monitorizar e resolver problemas com a sua conta do storage, tais como:
+Na quarta e última parte da série, aprendeu a monitorizar e a resolver problemas da conta de armazenamento, como:
 
 > [!div class="checklist"]
-> * Ativar o registo e métricas
-> * Ativar alertas de erros de autorização
-> * Execute o tráfego de teste com os tokens SAS incorretos
-> * Transferir e analisar os registos
+> * Ativar o registo e as métricas
+> * Ativar os alertas de erros de autorização
+> * Executar o tráfego de teste com tokens SAS incorretos
+> * Transferir e analisar registos
 
-Siga esta ligação para ver os exemplos de armazenamento pré-criadas.
+Siga esta ligação para ver os exemplos de armazenamento pré-criados.
 
 > [!div class="nextstepaction"]
 > [Exemplos de script de armazenamento do Azure](storage-samples-blobs-cli.md)

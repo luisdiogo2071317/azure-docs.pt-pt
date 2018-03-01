@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -47,7 +47,7 @@ Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma no
 
 
 1. Inicie sessão no [Portal do Azure][portal].
-2. Selecione **Novo** > **Ferramentas de programador** > **Application Insights**. O recurso inclui um ponto final para receber dados de telemetria, armazenamento para esses dados, relatórios guardados e configuração de dashboards, regras e alertas, entre outras coisas.
+2. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**. O recurso inclui um ponto final para receber dados de telemetria, armazenamento para esses dados, relatórios guardados e configuração de dashboards, regras e alertas, entre outras coisas.
 
   ![Criar um recurso do Application Insights](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

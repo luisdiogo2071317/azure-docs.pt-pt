@@ -1,0 +1,1 @@
+A aplicação de funções criada por este script utiliza a versão 1.x do [runtime das Funções do Azure](..\articles\azure-functions\functions-versions.md). Para saber como atualizar para a versão 2.x, que está em pré-visualização, veja [Selecionar uma versão com a CLI do Azure](..\articles\azure-functions\set-runtime-version.md#target-a-version-using-azure-cli). 

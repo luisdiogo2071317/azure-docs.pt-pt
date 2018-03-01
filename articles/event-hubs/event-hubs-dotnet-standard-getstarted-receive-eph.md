@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Começar a receber mensagens com o Anfitrião do Processador de Eventos em .NET Standard
 
@@ -42,7 +42,7 @@ O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.c
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure  
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
-2. No painel de navegação à esquerda do portal, clique em **Novo**, **Armazenamento** e em **Conta de Armazenamento**.  
+2. No painel de navegação à esquerda do portal, clique em **Criar um recurso**, **Armazenamento** e em **Conta de Armazenamento**.  
 3. Preencha os campos na janela da conta de armazenamento e, em seguida, clique em **Criar**.
 
     ![Criar conta de armazenamento][1]

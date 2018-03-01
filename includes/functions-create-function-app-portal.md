@@ -1,23 +1,23 @@
-1. Clique em de **novo** botão encontrado no canto superior esquerdo do portal do Azure, em seguida, selecione **computação** > **aplicação de função**. 
+1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure e, em seguida, selecione **Computação** > **Function App**. 
 
     ![Criar uma aplicação de função no portal do Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-2. Utilize as definições de aplicação de função especificado na tabela abaixo a imagem.
+2. Utilize as definições da aplicação Function App, conforme especificado na tabela abaixo da imagem.
 
-    ![Definir novas definições de aplicação de função](./media/functions-create-function-app-portal/function-app-create-flow2.png)
+    ![Definir novas definições da aplicação de funções](./media/functions-create-function-app-portal/function-app-create-flow2.png)
 
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome da aplicação**  | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Carateres válidos são `a-z`, `0-9`, e `-`.  | 
-    | **Subscrição** | A sua subscrição | A subscrição no qual esta nova aplicação de função é criada. | 
+    | **Nome da aplicação**  | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. | 
     | **[Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. | 
-    | **OS** | Windows | Sem servidor de alojamento está atualmente disponível apenas quando em execução no Windows. Para o alojamento de Linux, consulte [criar a sua primeira função em execução no Linux utilizando a CLI do Azure](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
-    | **[Plano de alojamento](../articles/azure-functions/functions-scale.md)** |   Plano de consumo | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No **Plano de Consumo** predefinido, os recursos são adicionados dinamicamente, conforme necessário por parte das suas funções. Neste [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) de alojamento, apenas paga a hora de executam as suas funções.   |
-    | **Localização** | Europa Ocidental | Escolha um [região](https://azure.microsoft.com/regions/) perto de si ou junto de outros serviços as suas funções aceder. |
+    | **OS** | Windows | O alojamento sem servidor está atualmente apenas disponível ao executar no Windows. Para alojamento do Linux, consulte [Criar a sua primeira função em execução no Linux com a CLI do Azure](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
+    | **[Plano de alojamento](../articles/azure-functions/functions-scale.md)** |   Plano de consumo | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No **Plano de Consumo** predefinido, os recursos são adicionados dinamicamente, conforme necessário por parte das suas funções. Neste alojamento [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), só paga pelo tempo de execução das suas funções.   |
+    | **Localização** | Europa Ocidental | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. |
     | **[Conta de armazenamento](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Nome globalmente exclusivo |  O nome da conta de armazenamento nova utilizada pela sua aplicação Function App. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta já existente. |
 
-1. Clique em **Criar** para aprovisionar e implementar a nova aplicação de função. Pode monitorizar o estado da implementação clicando no ícone de notificação no canto superior direito do portal. 
+1. Clique em **Criar** para aprovisionar e implementar a nova aplicação de função. Pode monitorizar o estado da implementação ao clicar no ícone de Notificação no canto superior direito do portal. 
 
-    ![Definir novas definições de aplicação de função](./media/functions-create-function-app-portal/function-app-create-notification.png)
+    ![Definir novas definições da aplicação de funções](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    Ao clicar em **aceda a recursos** leva-o para a nova aplicação de função.
+    Ao clicar em **Aceder ao recurso**, será encaminhado para a nova aplicação de funções.

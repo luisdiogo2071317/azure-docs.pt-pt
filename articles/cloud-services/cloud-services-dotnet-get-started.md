@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -116,7 +116,7 @@ Terá de efetuar os passos seguintes para executar a aplicação na nuvem:
 Um serviço em nuvem do Azure é o ambiente onde a aplicação irá ser executada.
 
 1. No browser, abra o [portal do Azure](https://portal.azure.com).
-2. Clique em **Novo > Computação > Serviço Cloud**.
+2. Clique em **Criar um recurso > Computação > Serviço Cloud**.
 
 3. Na caixa de entrada do nome DNS, introduza um prefixo de URL para o serviço cloud.
 
@@ -135,7 +135,7 @@ Um serviço em nuvem do Azure é o ambiente onde a aplicação irá ser executad
 ### <a name="create-an-azure-sql-database"></a>Criar uma SQL Database do Azure
 Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada na nuvem.
 
-1. No [portal do Azure](https://portal.azure.com), clique em **Nova > Bases de Dados > Base de Dados SQL**.
+1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso > Bases de Dados > Base de Dados SQL**.
 2. Na caixa **Nome da Base de Dados**, introduza *contosoads*.
 3. No **grupo de Recursos**, clique em **Utilizar existente** e selecione o grupo de recursos utilizado para o serviço cloud.
 4. Na imagem seguinte, clique em **Servidor - configurar definições obrigatórias** e **Criar um novo servidor**.
@@ -162,7 +162,7 @@ Uma conta do Storage do Azure fornece recursos para armazenar dados de fila e bl
 
 Numa aplicação real, normalmente criaria contas separadas para os dados da aplicação versus os dados de registo e contas separadas para os dados de teste versus os dados de produção. Para este tutorial, utilizará apenas uma conta.
 
-1. No [portal do Azure](https://portal.azure.com), clique em **Novo > Armazenamento > Conta de armazenamento - blob, ficheiro, tabela, fila**.
+1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso > Armazenamento > Conta de armazenamento - blob, ficheiro, tabela, fila**.
 2. Na caixa **Nome**, introduza um prefixo de URL.
 
     Este prefixo e o texto que vê por baixo da caixa será o URL exclusivo para a sua conta do Storage. Se o prefixo que introduzir já tiver sido utilizado por outra pessoa, terá de escolher um diferente.
