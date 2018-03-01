@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure itens do Marketplace disponíveis para a pilha do Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="virtual-machine-extensions"></a>Extensões da Máquina Virtual
-É recomendado para transferi-las sempre que existirem atualizações para as extensões de VM precisa. Extensões vem incluídas no produto, não serão atualizadas no processo normal de patch e atualização; Verifique para atualizações com frequência. Outras extensões só estão disponíveis através da gestão do Marketplace.
+Sempre que existirem atualizações para extensões de máquina virtual (VM) que utiliza, devem transferi-los. Extensões vem incluídas no produto não atualizar o processo normal de patch e atualização; por isso, verifique a existência de atualizações com frequência. Outras extensões só estão disponíveis através da gestão do Marketplace.
 
 |  | Nome do item | Descrição | Publicador | Tipo de SO |
 | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Imagens de Máquina Virtual da Microsoft e modelos de solução
 
-Pilha do Microsoft Azure suporta as seguintes máquinas virtuais do Azure Marketplace e modelos de solução. . Transfira quaisquer dependências em separado, conforme indicado. As aplicações, tais como o SQL Server e servidor do Machine Learning exigir licenciamento adequada, exceto onde marcadas como livres ou versão de avaliação.
+Pilha do Microsoft Azure suporta as seguintes máquinas virtuais do Azure Marketplace e modelos de solução. Transferir quaisquer dependências em separado, conforme indicado. As aplicações, tais como o SQL Server e servidor do Machine Learning exigir licenciamento adequada, exceto onde marcadas como livres ou versão de avaliação.
 
 |  | Nome do item | Descrição | Publicador |
 | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ Pilha do Microsoft Azure suporta as seguintes máquinas virtuais do Azure Market
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Versão gratuita express do SQL Server 2016 SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 para empresas no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Plataforma de base de dados para aplicações fundamentais inteligentes. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web no SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Plataforma de base de dados para aplicações fundamentais inteligentes. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning servidor 9.2.1 no Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning servidor 9.2.1 no Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Servidor 9.2.1 no Ubuntu 16.04 de aprendizagem da Microsoft ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning servidor 9.2.1 no Ubuntu 16.04. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Servidor 9.2.1 no CentOS Linux 7.2 de aprendizagem da Microsoft ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning servidor 9.2.1 no CentOS Linux 7.2. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning servidor 9.3.0 no Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft Machine Learning servidor 9.3.0 no Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Servidor 9.3.0 no Ubuntu 16.04 de aprendizagem da Microsoft ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning servidor 9.3.0 no Ubuntu 16.04. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Servidor 9.3.0 no CentOS Linux 7.2 de aprendizagem da Microsoft ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning servidor 9.3.0 no CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Distribuições do Linux

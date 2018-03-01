@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -29,7 +29,7 @@ Serviço de aplicações no Linux fornece suporte SSH para o contentor de aplica
 
 ![Pilhas de tempo de execução](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Também pode utilizar o SSH com as imagens de Docker personalizadas, incluindo o servidor SSH como parte da imagem e configurá-lo, tal como descrito neste tópico.
+Também pode utilizar o SSH com as imagens de Docker personalizadas, incluindo o servidor SSH como parte da imagem e configurá-lo, tal como descrito neste artigo.
 
 ## <a name="making-a-client-connection"></a>Efetuar uma ligação de cliente
 
@@ -65,7 +65,7 @@ Estes passos são apresentados no repositório de App Service do Azure como [um 
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Adicionar um [ `COPY` instrução](https://docs.docker.com/engine/reference/builder/#copy) para Dockerfile para copiar uma [sshd_config](http://man.openbsd.org/sshd_config) do ficheiro para o */etc/ssh/* diretório. O ficheiro de configuração deve ser baseado no nosso ficheiro sshd_config no repositório de GitHub do serviço de aplicações do Azure [aqui](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Adicionar um [ `COPY` instrução](https://docs.docker.com/engine/reference/builder/#copy) para Dockerfile para copiar uma [sshd_config](http://man.openbsd.org/sshd_config) do ficheiro para o */etc/ssh/* diretório. O ficheiro de configuração deve ser baseado no ficheiro sshd_config no repositório de GitHub do serviço de aplicações do Azure [aqui](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > O *sshd_config* ficheiros têm de incluir o seguinte procedimento ou a ligação falhar: 
@@ -82,26 +82,28 @@ Estes passos são apresentados no repositório de App Service do Azure como [um 
     EXPOSE 2222 80
     ```
 
-1. Certifique-se de que [iniciar o ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) através de um script de shell na */bin* diretório.
+1. Certifique-se iniciar o serviço SSH utilizando um script de shell (consulte exemplo em [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-O Dockerfile utiliza o [ `CMD` instrução](https://docs.docker.com/engine/reference/builder/#cmd) para executar o script.
+O Dockerfile utiliza o [ `ENTRYPOINT` instrução](https://docs.docker.com/engine/reference/builder/#entrypoint) para executar o script.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte as ligações seguintes para obter mais informações sobre a aplicação Web para contentores. Pode publicar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Pode publicar perguntas e problemas no [fórum do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+
+Para obter mais informações sobre a aplicação Web para contentores, consulte:
 
 * [Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores](quickstart-docker-go.md)
 * [Utilizar o .NET Core no Serviço de Aplicações do Azure no Linux](quickstart-dotnetcore.md)

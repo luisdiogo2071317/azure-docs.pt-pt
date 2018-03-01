@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: raynew
 ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Servidor físico à arquitetura de replicação do Azure
 
@@ -42,7 +42,7 @@ A seguinte tabela e o gráfico fornecem uma vista detalhada dos componentes util
     - As máquinas enviam dados de replicação para o servidor de processos na porta HTTPS 9443 entrada (podem ser modificadas).
     - O servidor de configuração orquestra a gestão da replicação com o Azure através da porta HTTPS 443 de saída.
     - O servidor de processos recebe os dados das máquinas de origem, otimiza-os, encripta-os e envia-os para o armazenamento do Azure através da porta 443 de saída.
-    - Se ativar a consistência multi VM, as máquinas do grupo de replicação comunicam entre si através da porta 20004. A consistência multi-VM é utilizada se agrupar várias máquinas em grupos de replicação que partilhem pontos de consistência de falhas e pontos de consistência de aplicação quando é efetuada a ativação pós-falha dos mesmos. Isto é útil se as máquinas estiverem a executar a mesma carga de trabalho e tiverem de ser consistentes.
+    - Se ativar a consistência multi-VM, as máquinas no grupo de replicação comunicam entre si pela porta 20004. A consistência multi-VM é utilizada se agrupar várias máquinas em grupos de replicação que partilhem pontos de consistência de falhas e pontos de consistência de aplicação quando é efetuada a ativação pós-falha dos mesmos. Isto é útil se as máquinas estiverem a executar a mesma carga de trabalho e tiverem de ser consistentes.
 4. O tráfego é replicado para pontos finais públicos do armazenamento do Azure, através da Internet. Em alternativa, pode utilizar o [peering público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) do Azure ExpressRoute. A replicação de tráfego através de uma rede de VPNs a partir de um site no local para o Azure não é suportada.
 
 

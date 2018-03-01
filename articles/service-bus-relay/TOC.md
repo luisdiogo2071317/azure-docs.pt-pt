@@ -1,3 +1,5 @@
+# [Documentação do Reencaminhamento do Service Bus](index.md)
+
 # Descrição geral
 ## [O que é o Reencaminhamento?](relay-what-is-it.md)
 ## [FAQ](relay-faq.md)

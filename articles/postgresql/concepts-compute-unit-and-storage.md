@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Explicar as unidades de computação na base de dados do Azure para PostgreSQL
 Este tópico explica o conceito de unidades de computação e o que acontece quando a carga de trabalho atinge o nível máximo de unidades de computação.
@@ -42,5 +42,5 @@ Se a carga de trabalho atingir os limites em unidades de computação ou aprovis
 
 Se a carga de trabalho atingir os limites no número de ligações máximos, são gerados erros explícitos. Para obter mais informações sobre limites de recursos, consulte [limitações na base de dados do Azure para PostgreSQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre os escalões de preços, consulte [base de dados do Azure para PostgreSQL escalões de preço](./concepts-service-tiers.md).

@@ -1,3 +1,5 @@
+# [Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais](index.md)
+
 # Descrição geral
 ## [O que são os conjuntos de dimensionamento de máquinas virtuais?](virtual-machine-scale-sets-overview.md)
 

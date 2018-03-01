@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Log Analytics para o Balanceador de Carga do Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de balanceadores de carga. Alguns destes registos podem ser acedidos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como o Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista abaixo.
 
 * **Registos de auditoria:** pode utilizar [registos de auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecida como registos operacionais) para ver todas as operações que está a ser submetidas para as subscrições do Azure e o respetivo estado. Os registos de auditoria são ativados por predefinição e podem ser visualizados no portal do Azure.
-* **Registos de eventos de alertas:** pode utilizar este registo para ver alertas rasied pelo balanceador de carga. O estado para o Balanceador de carga é recolhido a cada cinco minutos. Este registo só é escrito se é gerado um evento de alerta de Balanceador de carga.
+* **Registos de eventos de alertas:** pode utilizar este registo para ver os alertas gerados pelo balanceador de carga. O estado para o Balanceador de carga é recolhido a cada cinco minutos. Este registo só é escrito se é gerado um evento de alerta de Balanceador de carga.
 * **Os registos de pesquisa de estado de funcionamento:** pode utilizar este registo para ver os problemas detetados pela sua pesquisa de estado de funcionamento, como o número de instâncias do conjunto de back-end que não são receção de pedidos do Balanceador de carga devido a falhas de sonda de estado de funcionamento. Este registo é escrito quando existe uma alteração do Estado de sonda de estado de funcionamento.
 
 > [!IMPORTANT]
@@ -145,6 +145,6 @@ Terá de ligar à sua conta de armazenamento e obter as entradas de registo JSON
 * [Visualizar os registos de auditoria do Azure com Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogue.
 * [Ver e analisar os registos de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogue.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Compreender as sondas do balanceador de carga](load-balancer-custom-probe-overview.md)

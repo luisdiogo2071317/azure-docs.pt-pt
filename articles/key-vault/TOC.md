@@ -1,3 +1,5 @@
+# [Documentação do Cofre de Chaves](index.md)
+
 # Descrição geral
 ## [O que é o Cofre de Chaves?](key-vault-whatis.md)
 ## [Descrição geral do serviço](https://azure.microsoft.com/services/key-vault/)

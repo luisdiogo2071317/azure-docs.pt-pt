@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Utilizar Kafka do Apache Storm no HDInsight
 
@@ -172,7 +172,7 @@ Para obter mais informações sobre topologias Flux, consulte [https://storm.apa
     ```
 
     > [!IMPORTANT]
-    > O exemplo de Bash assume que `$CLUSTERNAME` contém o nome do cluster do HDInsight. Também parte do princípio que [jq](https://stedolan.github.io/jq/) está instalado. Quando lhe for pedido, introduza a palavra-passe para a conta de início de sessão do cluster.
+    > O exemplo de Bash assume que `$CLUSTERNAME` contém o nome do cluster do HDInsight. Também parte do princípio que [jq](https://stedolan.github.io/jq/) versão 1,5 ou superior está instalado. Quando lhe for pedido, introduza a palavra-passe para a conta de início de sessão do cluster.
 
     O valor devolvido é semelhante ao seguinte texto:
 
@@ -218,7 +218,7 @@ Para obter mais informações sobre topologias Flux, consulte [https://storm.apa
 4. Guardar o `dev.properties` de ficheiros e, em seguida, utilize o seguinte comando carregá-lo para o cluster do Storm:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Substitua **USERNAME** com o nome de utilizador do SSH para o cluster. Substitua **BASENAME** com o nome de base utilizado ao criar o cluster.
@@ -287,6 +287,9 @@ Para obter mais informações sobre topologias Flux, consulte [https://storm.apa
     Utilize Ctrl + c para terminar o script.
 
 ## <a name="start-the-reader"></a>Iniciar o leitor
+
+> [!NOTE]
+> Ao visualizar o leitor na IU do Storm, poderá ver um __spouts topologia lag erro__ secção. Neste exemplo, pode ignorar este erro.
 
 1. A partir de sessão SSH para o cluster do Storm, utilize o seguinte comando para iniciar a topologia de leitor:
 

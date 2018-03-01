@@ -11,10 +11,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Base de dados do Azure para PostgreSQL opções e desempenho: compreender o que está disponível em cada escalão de preço
 Quando cria uma base de dados do Azure para o servidor de PostgreSQL, decida três escolhas principais para configurar os recursos alocados para esse servidor. Estas opções afetam o desempenho e a escala do servidor.
@@ -78,7 +78,7 @@ Computação que unidades são uma medida de débito de processamento de CPU que
 | Servidor de máx. aprovisionado IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
 | Servidor de máx. aprovisionado IOPS por GB | Corrigido 3 IOPS por GB | Corrigido 3 IOPS por GB | Corrigido 3 IOPS por GB | Corrigido 3 IOPS por GB |
 
-\*Tamanho máximo de armazenamento de servidor refere-se ao tamanho máximo de armazenamento aprovisionada para o servidor.
+\* Tamanho máximo de armazenamento de servidor refere-se ao tamanho máximo de armazenamento aprovisionada para o servidor.
 
 ## <a name="storage"></a>Armazenamento 
 A configuração de armazenamento define a quantidade de capacidade de armazenamento disponível para uma base de dados do Azure para o servidor de PostgreSQL. O armazenamento utilizado pelo serviço inclui os ficheiros de base de dados, ficheiros temporários, registos de transações e os registos do servidor PostgreSQL. Considere o tamanho de armazenamento necessário para alojar as bases de dados e os requisitos de desempenho (IOPS), ao selecionar a configuração de armazenamento.

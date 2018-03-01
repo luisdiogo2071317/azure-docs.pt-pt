@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a3b83f0a5ed9638f3e9277d4a467b478961d3fc3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a3143703a946cadccf14d1675399c0848835d97c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problemas ao configurar e aprovisionar utilizadores para uma aplicação
 
@@ -31,5 +31,6 @@ ms.lasthandoff: 12/11/2017
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
   * [Não sei como configurar o aprovisionamento do utilizador numa aplicação da Galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Deparei-me com um problema ao configurar o aprovisionamento do utilizador numa aplicação da Galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-storage-limit/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Configurei o aprovisionamento na minha aplicação da Galeria do Azure AD, mas os utilizadores não estão a ser aprovisionados](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [O aprovisionamento da minha aplicação da Galeria do Azure AD está a funcionar, mas está a ser aprovisionado o conjunto errado de utilizadores](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

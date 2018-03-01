@@ -6,21 +6,21 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/25/2018
 ms.author: anoopkv
-ms.openlocfilehash: 3b09c11d76d5c88b904afa3c6d256bc475992339
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
-Implementar um servidor de configuração no local ao utilizar [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. As comunicações de coordenadas do servidor de configuração no local VMware e o Azure. Também gere a replicação de dados. Este artigo explica os passos necessários para implementar o servidor de configuração.
+Implementar um servidor de configuração no local ao utilizar [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. As comunicações de coordenadas do servidor de configuração no local VMware e o Azure. Também gere a replicação de dados. Este artigo explica os passos necessários para implementar o servidor de configuração quando está a replicar VMware VMs para o Azure. [Siga este artigo](site-recovery-set-up-physical-to-azure.md) se precisar de configurar um servidor de configuração para replicação do servidor físico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que implemente o servidor de configuração como uma VM de VMware altamente disponível. Para a replicação do servidor físico, pode configurar o servidor de configuração no computador físico. Requisitos mínimos de hardware estão resumidos na tabela seguinte.
+Recomendamos que implemente o servidor de configuração como uma VM de VMware altamente disponível. Requisitos mínimos de hardware estão resumidos na tabela seguinte.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -118,4 +118,4 @@ Se pretender adicionar uma NIC adicional para o servidor de configuração, adic
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Reveja os tutoriais sobre como configurar a recuperação após desastre de [VMs de VMware](tutorial-vmware-to-azure.md) e [servidores físicos](tutorial-physical-to-azure.md) para o Azure.
+Configure a recuperação de desastre do [VMs de VMware](tutorial-vmware-to-azure.md) para o Azure.

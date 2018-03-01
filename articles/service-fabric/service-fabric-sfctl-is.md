@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-is"></a>sfctl é
+# <a name="sfctl-is"></a>sfctl is
 Consultar e enviar comandos para o serviço de infraestrutura.
 
 ## <a name="commands"></a>Comandos
@@ -34,14 +34,14 @@ Consultar e enviar comandos para o serviço de infraestrutura.
 ## <a name="sfctl-is-command"></a>sfctl é comando
 Invoca um comando administrativo na instância do serviço de infraestrutura especificada.
 
-Para os clusters que tem uma ou mais instâncias do serviço de infraestrutura configurado, esta API fornece uma forma para enviar comandos específicos da infraestrutura para uma instância específica da infraestrutura de serviço. Os formatos de resposta correspondente e comandos disponíveis variam consoante a infraestrutura em que o cluster está em execução. Esta API suporta a plataforma de Service Fabric; não se destina a ser utilizado diretamente a partir do seu código. .
+Para os clusters que tem uma ou mais instâncias do serviço de infraestrutura configurado, esta API fornece uma forma para enviar comandos específicos da infraestrutura para uma instância específica da infraestrutura de serviço. Os formatos de resposta correspondente e comandos disponíveis variam consoante a infraestrutura em que o cluster está em execução. Esta API suporta a plataforma de Service Fabric; não se destina a ser utilizado diretamente a partir do seu código. 
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| -comando [necessário]| O texto do comando para ser invocado. O conteúdo do comando é específica da infraestrutura.  Predefinição: é o comando.|
-| --service-id     | A identidade do serviço de infraestrutura. Este é o nome completo do serviço infraestrutura sem o ' recursos de infraestrutura:' esquema de URI. Este parâmetro necessário apenas para os clusters que tem mais do que uma instância do serviço de infraestrutura está em execução.|
+| -comando [necessário]| O texto do comando para ser invocado. O conteúdo do comando é específica da infraestrutura. |
+| --service-id     | A identidade do serviço de infraestrutura. O ID é o nome completo do serviço infraestrutura sem o ' recursos de infraestrutura:' esquema de URI. Este parâmetro necessário apenas para os clusters que tem mais do que uma instância do serviço de infraestrutura está em execução.|
 | tempo limite – -t     | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -63,8 +63,8 @@ Para os clusters que tem uma ou mais instâncias do serviço de infraestrutura c
 
 |Argumento|Descrição|
 | --- | --- |
-| -comando [necessário]| O texto do comando para ser invocado. O conteúdo do comando é específica da infraestrutura.  Predefinição: se a consulta.|
-| --service-id     | A identidade do serviço de infraestrutura. Este é o nome completo do serviço infraestrutura sem o ' recursos de infraestrutura:' esquema de URI. Este parâmetro é necessário apenas para os clusters que tem mais do que uma instância do serviço de infraestrutura está em execução.|
+| -comando [necessário]| O texto do comando para ser invocado. O conteúdo do comando é específica da infraestrutura.|
+| --service-id     | A identidade do serviço de infraestrutura. O ID é o nome completo do serviço infraestrutura sem o ' recursos de infraestrutura:' esquema de URI. Este parâmetro é necessário apenas para os clusters que tem mais do que uma instância do serviço de infraestrutura está em execução.|
 | tempo limite – -t     | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global

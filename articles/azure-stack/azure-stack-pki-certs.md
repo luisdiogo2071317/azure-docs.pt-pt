@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 Pilha do Azure tem uma rede de infraestrutura público com externamente acessíveis endereços IP públicos atribuídos a um pequeno conjunto de serviços de pilha do Azure e, possivelmente, VMs inquilinas. São necessários certificados PKI com os nomes DNS adequados para estes pontos finais públicos de infraestrutura de pilha do Azure durante a implementação de pilha do Azure. Este artigo fornece informações sobre:
@@ -27,6 +27,7 @@ Pilha do Azure tem uma rede de infraestrutura público com externamente acessív
 - Os certificados são necessários para implementar a pilha do Azure
 - O processo de obtenção de certificados correspondentes essas especificações
 - Como preparar, validar e utilizar os certificados em questão durante a implementação
+
 > [!NOTE]
 > Durante a implementação tem de copiar certificados para a pasta de implementação que corresponda ao fornecedor de identidade que está a implementar contra (Azure AD ou AD FS). Se utilizar um certificado único para todos os pontos finais, tem de copiar esse ficheiro de certificado para cada pasta de implementação, conforme descrito nas tabelas abaixo. A estrutura da pasta é criada previamente na máquina virtual implementação e podem ser encontrada em: C:\CloudDeployment\Setup\Certificates. 
 

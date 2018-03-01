@@ -1,3 +1,5 @@
+# [Documentação do DNS](index.md)
+
 # Descrição geral
 
 ## [O que é o DNS do Azure?](dns-overview.md)

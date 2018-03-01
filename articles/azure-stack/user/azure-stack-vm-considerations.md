@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerações para máquinas virtuais na pilha do Azure
 
@@ -41,19 +41,25 @@ Máquinas virtuais são uma a pedido, dimensionáveis recursos informáticos dis
 |Conjuntos de dimensionamento de máquinas virtuais|Escala automática suportada|Não suportado dimensionamento automático.<br>Adicione mais instâncias a uma escala definida utilizando o portal, modelos do Resource Manager ou PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais
+Azure impõe limites de recursos de várias formas para evitar overconsumption de recursos (servidor local e o nível de serviço). Sem colocar alguns limites num consumo de inquilinos de recurso, a experiência de inquilino pode ser afetado e quando um vizinho inúteis overconsumes recursos. 
+- Para a saída de rede da VM, existem caps de largura de banda no local. Caps na pilha de Azure correspondem caps no Azure.  
+- Para recursos de armazenamento, a pilha do Azure implementa limites de IOPs de armazenamento para evitar overconsumption básico dos recursos por inquilinos para acesso de armazenamento. 
+- Para VMs com vários discos de dados anexado, o débito máximo de cada disco de dados individuais é 500 IOPS para HHDs e 2300 IOPS para SSDs.
 
-Pilha do Azure suporta os tamanhos seguintes:
+A tabela seguinte lista as VMs que são suportadas na pilha do Azure, juntamente com a respetiva configuração:
 
-| Tipo | Tamanho | Intervalo de tamanhos suportados |
-| --- | --- | --- |
-|Fins gerais |Básico A|A0 - A4|
-|Fins gerais |Um padrão|A0 - A7|
-|Fins gerais |Série D|D1 - D4|
-|Fins gerais |Série Dv2|D1_v2 - D5_v2|
-|Fins gerais |Série DS|DS1 - DS4|
-|Fins gerais |Série DSv2|DS1_v2 - DS5_v2|
-|Com otimização de memória|Série DS|DS11 - DS14|
-|Com otimização de memória |Série DSv2|DS11_v2 - DS14_v2|
+| Tipo           | Tamanho          | Intervalo de tamanhos suportados |
+| ---------------| ------------- | ------------------------ |
+|Fins gerais |Básico A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Fins gerais |Um padrão     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Fins gerais |Série D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Fins gerais |Série Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Fins gerais |Série DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Fins gerais |Série DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Com otimização de memória|Série D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Com otimização de memória|Série DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Com otimização de memória|Série Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Com otimização de memória|Série de série DSv2-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Tamanhos de máquina virtual e as quantidades de recursos associados são consistentes entre pilha do Azure e o Azure. Por exemplo, este consistência inclui a quantidade de memória, número de núcleos de e/tamanho do número de discos de dados que podem ser criadas. No entanto, o desempenho do mesmo tamanho VM na pilha do Azure depende as características subjacentes de um determinado ambiente de pilha do Azure.
 

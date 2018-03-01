@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950cb449b53f400f0f0f860caf5415bbb5212269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89066ba062c2b243136a03a52144fd99ae87eddc
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Adicionar ou atualizar parceiros nos contratos de empresa-empresa no seu fluxo de trabalho
 
 Os parceiros são entidades que participam na transações do empresa-empresa (B2B) e trocam mensagens entre si. Antes de poder criar parceiros que representam e outra organização estas transações, tem ambos partilhar informações que identificam e valida as mensagens enviadas por si. Depois de abordar estes detalhes e estiver pronto para começar a relação de negócio, pode criar parceiros na sua conta de integração para representar a ambos.
 
-## <a name="what-roles-do-partners-have-in-your-integration-account"></a>As funções às quais é necessário parceiros na sua conta de integração?
+## <a name="what-roles-do-partners-play-in-your-integration-account"></a>As funções às quais reproduzir parceiros na sua conta de integração?
 
 Para definir os detalhes sobre as mensagens trocadas entre parceiros, criar contratos entre essas parceiros. No entanto, antes de poder criar um contrato, tem de ter adicionado, pelo menos, dois parceiros à sua conta de integração. Organização deve fazer parte do contrato, como o **parceiro anfitrião**. O outro parceiro ou **parceiro convidado** representa a organização que trocas de mensagens com a sua organização. O parceiro de convidado pode ser outra empresa, ou até mesmo um departamento na sua própria organização.
 
@@ -33,61 +33,67 @@ Depois de adicionar estas parceiros, pode criar um contrato.
 
 Receber e enviar as definições são orientado por do ponto de vista do parceiro de alojado. Por exemplo, as definições de receção de um contrato de determinam como o parceiro alojado recebe mensagens enviadas a partir de um parceiro de convidado. Da mesma forma, as definições de envio no contrato indicam como o parceiro alojado envia mensagens para o parceiro de convidado.
 
-## <a name="how-to-create-a-partner"></a>Como criar um parceiro?
+## <a name="create-partner"></a>Criar parceiro
 
-1. No portal do Azure, selecione **procurar**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+2. No menu principal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza "integração" e, em seguida, selecione **contas de automatização**.
 
-2. Na caixa de filtro de pesquisa, introduza **integração**, em seguida, selecione **contas de automatização** na lista de resultados.
+   ![Localizar a conta de integração](./media/logic-apps-enterprise-integration-partners/account-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+3. Em **contas de automatização**, selecione a conta de integração em que pretende adicionar os seus parceiros.
 
-3. Selecione a conta de integração em que pretende adicionar os seus parceiros.
+   ![Selecione a conta de integração](./media/logic-apps-enterprise-integration-partners/account-2.png)
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+4. Escolha o **parceiros** mosaico.
 
-4. Selecione o **parceiros** mosaico.
+   ![Escolha "Parceiros"](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+5. Em **parceiros**, escolha **adicionar**.
 
-5. No painel de parceiros, escolha **adicionar**.
+   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+6. Introduza um nome para o seu parceiro, em seguida, selecione um **qualificador**. Introduza um **valor** para identificar os documentos que recebem as suas aplicações. Quando tiver terminado, escolha **OK**.
 
-6. Introduza um nome para o seu parceiro, em seguida, selecione um **qualificador**. Por fim, introduza um **valor** para ajudar a identificar os documentos que entrem nas suas aplicações.
+   ![Adicione os detalhes de parceiro](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+7. Escolha o **parceiros** mosaico novamente.
 
-7. Para ver o progresso para o processo de criação de parceiro, selecione o *sino* ícone de notificação.
+   ![Escolha o que mosaico "Parceiros"](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
+   O novo parceiro aparece agora. 
 
-8. Para confirmar que os parceiros novo foram adicionados com sucesso, selecione o **parceiros** mosaico.
+   ![Parceiro de nova vista](./media/logic-apps-enterprise-integration-partners/partner-6.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+## <a name="edit-partner"></a>Editar parceiro
 
-    Depois de selecionar o mosaico de parceiros, também verá parceiros adicionados recentemente no painel de parceiros.
+1. No [portal do Azure](https://portal.azure.com), localize e selecione a sua conta de integração. Escolha o **parceiros** mosaico.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+   ![Escolha o que mosaico "Parceiros"](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-## <a name="how-to-edit-existing-partners-in-your-integration-account"></a>Como editar parceiros existentes na sua conta de integração
+2. Em **parceiros**, selecione o parceiro que pretende editar.
 
-1. Selecione o **parceiros** mosaico.
-2. Depois de abre o painel de parceiros, selecione o parceiro que pretende editar.
-3. No **atualização parceiro** mosaico, efetue as alterações.
-4. Depois de terminar, escolha **guardar**, ou para cancelar as alterações, selecione **rejeitar**.
+   ![Selecione o parceiro a eliminar](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+3. Em **atualização parceiro**, efetue as alterações.
+Depois de terminar, escolha **guardar**. 
 
-## <a name="how-to-delete-a-partner"></a>Como eliminar um parceiro
+   ![Faça e guarde as alterações](./media/logic-apps-enterprise-integration-partners/edit-2.png)
 
-1. Selecione o **parceiros** mosaico.
-2. Depois do parceiro é aberto o painel, selecione o parceiro que pretende eliminar.
-3. Escolha **eliminar**.
+   Para cancelar as alterações, selecione **rejeitar**.
 
-    ![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+## <a name="delete-partner"></a>Eliminar parceiro
 
-## <a name="next-steps"></a>Passos seguintes
+1. No [portal do Azure](https://portal.azure.com), localize e selecione a sua conta de integração. Escolha o **parceiros** mosaico.
+
+   ![Escolha o que mosaico "Parceiros"](./media/logic-apps-enterprise-integration-partners/delete.png)
+
+2. Em **parceiros**, selecione o parceiro que pretende eliminar.
+Escolha **eliminar**.
+
+   ![Eliminar parceiro](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+
+## <a name="next-steps"></a>Passos Seguintes
+
 * [Saiba mais sobre contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração do enterprise")  
 

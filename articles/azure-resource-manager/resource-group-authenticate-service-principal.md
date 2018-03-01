@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 103e4ca5ffd6c9dfe5043af9d8f75763705eb939
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos
 
@@ -403,7 +403,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 > O token de acesso expira, de modo a utilizar um perfil guardado só funciona para, desde que o token é válido.
 >  
 
-Em alternativa, pode invocar as operações REST do PowerShell para iniciar sessão. Da resposta de autenticação, pode obter o token de acesso para utilização com outras operações. Para obter um exemplo de obter o token de acesso ao invocar as operações REST, consulte [gerar um Token de acesso](resource-manager-rest-api.md#generating-an-access-token).
+Em alternativa, pode invocar as operações REST do PowerShell para iniciar sessão. Da resposta de autenticação, pode obter o token de acesso para utilização com outras operações. Para obter um exemplo de obter o token de acesso ao invocar as operações REST, consulte [criar o pedido](/rest/api/#create-the-request).
 
 ## <a name="debug"></a>Depurar
 

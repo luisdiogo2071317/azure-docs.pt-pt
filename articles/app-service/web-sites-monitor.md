@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Como: monitorizar aplicações no App Service do Azure
 [Serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade de monitorização incorporada no [portal do Azure](https://portal.azure.com).
@@ -97,7 +97,7 @@ Para um **aplicação**, as métricas disponíveis são:
   * Contagem de pedidos, resultando num código de estado HTTP > = 500 mas < 600.
 * **Conjunto de trabalho de memória**
   * Montante actual de memória utilizada pela aplicação na MiBs.
-* **Pedidos**
+* **pedidos**
   * Número total de pedidos independentemente do seu código de estado HTTP resultante.
 
 Para um **plano do App Service**, as métricas disponíveis são:
@@ -143,7 +143,7 @@ Pode rever o estado dos diferentes **quotas** e **métricas** que afetam uma apl
 **Quotas** podem ser encontrados em Definições >**Quotas**. O UX permite-lhe rever: (1) o nome de quotas, (2) o intervalo de reposição, (3) o limite atual e o valor (4) atual.
 
 ![][metrics]
-**Métricas** pode ser acesso diretamente a partir da página de recursos. Também pode personalizar o gráfico por: (1) **clique** no mesmo e selecione (2) **editar gráfico**.
+**Métricas** pode ser acedido diretamente a partir da página de recursos. Também pode personalizar o gráfico por: (1) **clique** no mesmo e selecione (2) **editar gráfico**.
 Aqui pode alterar (3) **intervalo de tempo**, (4) **tipo de gráfico**e (5) **métricas** para apresentar.  
 
 Pode saber mais sobre as métricas aqui: [monitorizar métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

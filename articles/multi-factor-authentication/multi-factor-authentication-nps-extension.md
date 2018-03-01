@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8c3ceb8a455ea32ebbd1393aa2484b8b8c898ef8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee8b89ab93fd10129cbb0e0634c5c920a928f1c1
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a sua infraestrutura existente do NPS com multi-factor Authentication do Azure
 
@@ -63,7 +63,7 @@ Windows Server 2008 R2 SP1 ou posterior.
 Estas bibliotecas são instaladas automaticamente com a extensão.
 
 -   [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure módulo Active Directory para Windows PowerShell versão 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Microsoft Azure módulo Active Directory para Windows PowerShell versão 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 O Microsoft Azure Active Directory módulo para o Windows PowerShell está instalado, se ainda não estiver presente, através de um script de configuração executado como parte do processo de configuração. Não é necessário para instalar este módulo antecedência se não estiver já instalado.
 
@@ -191,7 +191,7 @@ Se tiver utilizadores que não estão registados para o MFA, pode determinar o q
 
 | Chave | Valor | Predefinição |
 | --- | ----- | ------- |
-| REQUIRE_USER_MATCH | VERDADEIRO/FALSO | Não definido (equivalentes como TRUE) |
+| REQUIRE_USER_MATCH | TRUE/FALSE | Não definido (equivalentes como TRUE) |
 
 O objetivo desta definição consiste em determinar o que fazer quando um utilizador não estiver inscrito para a MFA. Quando a chave não existe, não está definida ou é definido como VERDADEIRO e o utilizador não estiver inscrito e, em seguida, a extensão falha o desafio MFA. Quando a chave está definida como FALSE e o utilizador não estiver inscrito, o processo de autenticação continua sem efetuar o MFA. Se um utilizador estiver inscrito no MFA, têm de autenticar com a MFA, mesmo se REQUIRE_USER_MATCH estiver definido como FALSE.
 
@@ -243,7 +243,7 @@ Certifique-se de que o AD Connect está em execução e que o utilizador esteja 
 Certifique-se de que https://adnotifications.windowsazure.com está acessível a partir do servidor que executa a extensão NPS.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Configurar os IDs de alternativos para início de sessão ou configurar uma lista de exceções para IPs não deve efetuar a verificação de dois passos no [avançado de opções de configuração para a extensão NPS para o multi-factor Authentication](nps-extension-advanced-configuration.md)
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são os escalões de serviço do SQL Database do Azure?
 
@@ -35,8 +35,8 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 |SLA de Tempo de Atividade|99,99%|99,99%|99,99%|N/d enquanto em pré-visualização|
 |Retenção da cópia de segurança|7 dias|35 dias|35 dias|
 |CPU|Baixa|Baixa, média, alta|Média, alta|
-|Débito de e/s|Baixa  | Médio | Ordem de grandeza superior ao padrão|
-|Latência de e/s|Superior ao Premium|Superior ao Premium|Inferior ao básico e Standard|
+|Débito de e/s (aproximado) |2.5 IOPS por DTU  | 2.5 IOPS por DTU | 48 IOPS por DTU|
+|Latência de e/s (aproximada)|ms 5 (leitura), 10 ms (escrita)|ms 5 (leitura), 10 ms (escrita)|2 ms (leitura/escrita)|
 |A indexação Columnstore e OLTP na memória|N/A|N/A|Suportadas|
 |||||
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 8116ba82838cf0ee610c6dadada0d8bfe6106f34
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: cdb2bda0c3f7e73b115c2609c3f229c633093bdc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
 O Microsoft Azure é uma coleção crescente de serviços na cloud pública, incluindo análises, Máquinas Virtuais, bases de dados e capacidades móveis, Web, de rede e de armazenamento,&mdash;ideal para alojar as suas soluções.  O Microsoft Azure fornece uma plataforma informática dimensionável que lhe permite pagar apenas aquilo que utiliza, quando quer utilizar, sem que precise de investir em hardware no local.  O Azure está sempre pronto quando precisa de aumentar as suas soluções vertical e horizontalmente até atingir a dimensão de que necessita para satisfazer as necessidades dos seus clientes.
@@ -32,7 +32,7 @@ Os recursos do Microsoft Azure são distribuídos em várias regiões geográfic
 * [Regiões do Azure](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Disponibilidade
-O Azure anunciou um Contrato de Nível de Serviço líder da indústria de 99,9% para máquinas virtuais de instância única, desde que implemente a VM com armazenamento premium para todos os discos.  Para a sua implementação se qualificar para o Contrato de Nível de Serviço de VM de 99,95% standard, continua a ter de implementar duas ou mais VMs que executem a sua carga de trabalho num conjunto de disponibilidade. Um conjunto de disponibilidade garante que as suas VMs são distribuídas em vários domínios de falha nos datacenters do Azure, bem como implementadas em anfitriões com diferentes janelas de manutenção. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) completo explica a disponibilidade garantida do Azure em termos globais.
+O Azure anunciou um Contrato de Nível de Serviço líder da indústria de 99,9% para máquinas virtuais de instância única, desde que implemente a VM com armazenamento premium para todos os discos.  Para a sua implementação se qualificar para o Contrato de Nível de Serviço de VM de 99,95% standard, continua a ter de implementar duas ou mais VMs que executem a sua carga de trabalho num conjunto de disponibilidade. Um conjunto de disponibilidade garante que as suas VMs são distribuídas em vários domínios de falha nos datacenters do Azure, bem como implementadas em anfitriões com diferentes janelas de manutenção. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
 
 ## <a name="managed-disks"></a>Managed Disks
 

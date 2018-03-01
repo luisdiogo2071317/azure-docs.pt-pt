@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-node"></a>nó sfctl
+# <a name="sfctl-node"></a>sfctl node
 Gerir os nós que formam um cluster.
 
 ## <a name="commands"></a>Comandos
@@ -30,7 +30,7 @@ Gerir os nós que formam um cluster.
 |    desactivar       | Desative um nó de cluster do Service Fabric com a intenção de Desativação especificada.|
 |    ativar        | Ative um nó de cluster do Service Fabric, que está atualmente desativado.|
 |    estado de funcionamento        | Obtém o estado de funcionamento de um nó de Service Fabric.|
-|    informações          | Obtém a lista de nós no cluster de Service Fabric.|
+|    informações          | Obtém as informações sobre um nó específico no cluster de Service Fabric.|
 |    lista          | Obtém a lista de nós no cluster de Service Fabric.|
 |    carregar          | Obtém as informações de carga de um nó de Service Fabric.|
 |    remove-state  | Notifica o Service Fabric que o estado persistente num nó foi permanentemente removido ou perdido.|
@@ -50,7 +50,7 @@ Desative um nó de cluster do Service Fabric com a intenção de Desativação e
 |Argumento|Descrição|
 | --- | --- |
 | --nome do nó [necessário]| O nome do nó.|
-| --deactivation-intent | Descreve o motivo para desativar o nó ou intenção. Os valores possíveis são seguintes. -Pausa - indica que o nó deve ser colocado em pausa. O valor é 1. -Reinício - indica se a intenção é que o nó será reiniciado após um curto período de tempo. O valor é 2. -RemoveData - indica que a intenção é que o nó remover os dados. O valor é 3. .|
+| --deactivation-intent | Descreve o motivo para desativar o nó ou intenção. |
 | tempo limite – -t       | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -109,9 +109,9 @@ Obtém o estado de funcionamento de um nó de Service Fabric. Utilize EventsHeal
 | -verbose                | Aumente a verbosidade do registo. Utilize - a depuração para os registos de depuração completas.|
 
 ## <a name="sfctl-node-info"></a>informações do nó de sfctl
-Obtém a lista de nós no cluster de Service Fabric.
+Obtém as informações sobre um nó específico no cluster de Service Fabric.
 
-Obtém as informações sobre um nó específico no cluster de Service Fabric. A resposta inclui o nome, estado, ID, estado de funcionamento, tempo de atividade e outros detalhes sobre o nó.
+Obtém as informações sobre um nó específico no Cluster.The de recursos de infraestrutura do serviço de resposta incluir o nome, o estado, o id, o estado de funcionamento, o tempo de atividade e o outros detalhes sobre o nó.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -133,14 +133,14 @@ Obtém as informações sobre um nó específico no cluster de Service Fabric. A
 ## <a name="sfctl-node-list"></a>lista de nós sfctl
 Obtém a lista de nós no cluster de Service Fabric.
 
-O ponto final de nós devolve informações sobre os nós no Cluster do Service Fabric. A resposta inclui o nome, estado, ID, estado de funcionamento, tempo de atividade e outros detalhes sobre o nó.
+Obtém a lista de nós no cluster de Service Fabric. A resposta inclui o nome, o estado, o id, o estado de funcionamento, o tempo de atividade e o outros detalhes sobre o nó.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --continuation-token| O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta.      Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
-| --node-status-filter| Permite a filtragem de nós com base na NodeStatus. Apenas os nós que o valor do filtro especificado correspondentes são devolvidos. O valor do filtro pode ser um dos seguintes procedimentos. -predefinição - este valor de filtro corresponde a todos os nós excepts aqueles com o estado como desconhecido ou removidas. -todos os - este valor de filtro corresponde a todos os nós. Este filtro - se - valor corresponde a nós que estão operacionais. Este filtro - baixo - valor corresponde a nós que estão em baixo. -Ativar - este nós de correspondências de valor de filtro que estão a ser ativada com o estado de ativação. -a desativar - este nós de correspondências de valor de filtro que estão a ser desativada com o estado como desativar. -desativada - este nós de correspondências de valor de filtro que estão desativados. -desconhecido - corresponde a este valor de filtro nós cujo estado é desconhecido. Um nó estaria num Estado desconhecido se Service Fabric não tem informações autoritativas sobre esse nó. Isto pode acontecer se o sistema aprende de um nó no tempo de execução. -remover - este nós de correspondências de valor de filtro cujo estado é removido. Estes são os nós que são removidos do cluster utilizando a API de RemoveNodeState. .      Predefinição: predefinido.|
+| --node-status-filter| Permite a filtragem de nós com base na NodeStatus. Apenas os nós que o valor do filtro especificado correspondentes são devolvidos. O valor do filtro pode ser um dos seguintes procedimentos. Predefinição: predefinido.|
 | tempo limite – -t     | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -156,7 +156,7 @@ O ponto final de nós devolve informações sobre os nós no Cluster do Service 
 ## <a name="sfctl-node-load"></a>carga de nó sfctl
 Obtém as informações de carga de um nó de Service Fabric.
 
-Obtém as informações de carga de um nó de Service Fabric.
+Obtém as informações de carga de um nó de Service Fabric para todas as métricas que têm de carga ou a capacidade definido.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -203,7 +203,7 @@ Reinicia um nó de cluster do Service Fabric já foi iniciado.
 Inicia ou para um nó de cluster.
 
 Inicia ou para um nó de cluster.  Um nó de cluster é um processo, não a instância de SO em si.
-Para iniciar um nó, transmita "Start" para o parâmetro NodeTransitionType. Para parar um nó, transmita "Parar de" para o parâmetro NodeTransitionType. Esta API começa a operação - quando a API devolve que o nó poderá não terminar em transição ainda. Chame GetNodeTransitionProgress com o mesmo OperationId para obter o progresso da operação. .
+Para iniciar um nó, transmita "Start" para o parâmetro NodeTransitionType. Para parar um nó, transmita "Parar de" para o parâmetro NodeTransitionType. Esta API começa a operação - quando a API devolve que o nó poderá não terminar em transição ainda. Chame GetNodeTransitionProgress com o mesmo OperationId para obter o progresso da operação. 
 
 ### <a name="arguments"></a>Argumentos
 
@@ -211,7 +211,7 @@ Para iniciar um nó, transmita "Start" para o parâmetro NodeTransitionType. Par
 | --- | --- |
 | – id de instância de nó [necessário]| O ID de instância de nó do nó de destino. Isto pode ser determinado através da API de GetNodeInfo.|
 | --nome do nó [necessário]| O nome do nó.|
-| -tipo de transição de nó [necessário]| Indica o tipo de transição para executar.                       NodeTransitionType.Start inicia um nó de paragem.                       NodeTransitionType.Stop deixa de um nó que está a funcionar. -Inválido - reservado.  Não são transmitidas para a API. -Start - transição de um nó parado até. -Stop - transição de um nó se parado. .|
+| -tipo de transição de nó [necessário]| Indica o tipo de transição para executar.                       NodeTransitionType.Start inicia um nó de paragem.                       NodeTransitionType. Parar deixa de um nó que está a funcionar. |
 | – id de operação [necessário]| Um GUID que identifica uma chamada desta API.  Isto é transmitido para a API de GetProgress correspondente.|
 | --stop-duration-in-seconds [Required]| A duração, em segundos, para manter o nó parada.  O valor mínimo é 600, o número máximo é 14400. Após este período de tempo expira, o nó automaticamente volta a funcionar.|
 | tempo limite – -t                      | Tempo limite do servidor em segundos.  Predefinição: 60.|

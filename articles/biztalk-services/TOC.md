@@ -1,3 +1,5 @@
+# [Documentação dos Serviços BizTalk](index.md)
+
 # Descrição geral
 ## [Edições](biztalk-editions-feature-chart.md)
 

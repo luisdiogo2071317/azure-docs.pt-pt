@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-replica"></a>réplica sfctl
+# <a name="sfctl-replica"></a>sfctl replica
 Gerir as réplicas que pertencem a partições de serviço.
 
 ## <a name="commands"></a>Comandos
@@ -64,7 +64,7 @@ Obtém os detalhes da réplica implementada num nó de Service Fabric. As inform
 ## <a name="sfctl-replica-health"></a>o estado de funcionamento do sfctl réplica
 Obtém o estado de funcionamento de uma réplica de monitorização de estado do serviço do Service Fabric ou instância de serviço sem estado.
 
-Obtém o estado de funcionamento de uma réplica de Service Fabric. Utilize EventsHealthStateFilter para filtrar a recolha de eventos de estado de funcionamento comunicadas na réplica com base no estado de funcionamento. .
+Obtém o estado de funcionamento de uma réplica de Service Fabric. Utilize EventsHealthStateFilter para filtrar a recolha de eventos de estado de funcionamento comunicadas na réplica com base no estado de funcionamento.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -72,7 +72,7 @@ Obtém o estado de funcionamento de uma réplica de Service Fabric. Utilize Even
 | --- | --- |
 | – id de partição [necessário]| A identidade da partição.|
 | – id de réplica [necessário]| O identificador da réplica.|
-| --events-health-state-filter| Permite a filtragem na coleção de objetos de HealthEvent devolvido com base no estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destas valor obtido utilizando o operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, todos os eventos com o valor HealthState OK (2) e de aviso (4) são devolvidos. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
+| --events-health-state-filter| Permite a filtragem na coleção de objetos de HealthEvent devolvido com base no estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, todos os eventos com o valor HealthState OK (2) e de aviso (4) são devolvidos. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
 | tempo limite – -t             | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -82,13 +82,13 @@ Obtém o estado de funcionamento de uma réplica de Service Fabric. Utilize Even
 | --debug                  | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                | Mostra esta mensagem de ajuda e saída.|
 | --o de saída              | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
-| – consulta                  | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
+| – consulta                  | Cadeia de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | -verbose                | Aumente a verbosidade do registo. Utilize - a depuração para os registos de depuração completas.|
 
 ## <a name="sfctl-replica-info"></a>informações de réplica sfctl
 Obtém as informações sobre uma réplica de uma partição de Service Fabric.
 
-Os respons incluem o ID, função, o estado, estado de funcionamento, o nome do nó, tempo de atividade e outros detalhes sobre a réplica.
+A resposta inclui o id, função, o estado, estado de funcionamento, o nome do nó, tempo de atividade e outros detalhes sobre a réplica.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -96,7 +96,7 @@ Os respons incluem o ID, função, o estado, estado de funcionamento, o nome do 
 | --- | --- |
 | – id de partição [necessário]| A identidade da partição.|
 | – id de réplica [necessário]| O identificador da réplica.|
-| --continuation-token  | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
+| --continuation-token  | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
 | tempo limite – -t          | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
@@ -106,7 +106,7 @@ Os respons incluem o ID, função, o estado, estado de funcionamento, o nome do 
 | --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
-| – consulta               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
+| – consulta               | Cadeia de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | -verbose             | Aumente a verbosidade do registo. Utilize - a depuração para os registos de depuração completas.|
 
 ## <a name="sfctl-replica-list"></a>lista de réplicas sfctl

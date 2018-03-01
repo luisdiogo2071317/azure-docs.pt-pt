@@ -3,7 +3,7 @@ title: Implementar pacotes de SSIS no Azure | Microsoft Docs
 description: Este artigo explica como implementar pacotes de SSIS no integration runtime do Azure-SSIS fornecido pelo Azure Data Factory.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 2199808533619ed7d9ef8201363f0cef04b0f50f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: abdf09900c59081821467229f81141bea2d7c15c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Implementar pacotes de SQL Server Integration Services no Azure
 Este tutorial disponibiliza os passos para o aprovisionamento de um integration runtime (IR) Azure-SSIS no Azure Data Factory. Em seguida, pode utilizar o SQL Server Data Tools (SSDT) ou o SQL Server Management Studio (SSMS) para implementar pacotes de SQL Server Integration Services (SSIS) neste runtime no Azure. Neste tutorial, vai executar os seguintes passos:

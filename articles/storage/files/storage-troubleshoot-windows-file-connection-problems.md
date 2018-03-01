@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -164,6 +164,12 @@ Utilize uma das seguintes soluções:
 
 -   Monte a unidade da mesma conta de utilizador que contém a aplicação. Pode utilizar uma ferramenta como o PsExec.
 - Transmita o nome da conta de armazenamento e a chave de nome de utilizador e palavra-passe os parâmetros do net utilizam o comando.
+- Utilize o comando cmdkey para adicionar as credenciais no Gestor de credenciais. Execute este numa linha de comandos no contexto de conta de serviço, através de um início de sessão interativo ou através da utilização de runas.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Mapear a partilha diretamente sem utilizar uma letra de unidade mapeada. Algumas aplicações poderão não voltar a ligar para a letra de unidade corretamente, para que utilizar o caminho UNC completo pode estar mais fiável. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 Depois de seguir estas instruções, poderá receber a seguinte mensagem de erro quando executa a utilização de rede para a conta de serviço do sistema/rede: "erro de sistema 1312 foi excedido. Uma sessão de início de sessão especificado não existe. -Pode já ter foi terminada." Se isto ocorrer, certifique-se de que o nome de utilizador que é transmitida ao utilizar net inclui informações do domínio (por exemplo: "[nome da conta de armazenamento]. file.core.windows .net").
 
@@ -180,10 +186,10 @@ Para copiar um ficheiro através da rede, tem de desencriptá-lo primeiro. Utili
 
 - Utilize o **copiar /d** comando. Permite que os ficheiros encriptados seja guardada como ficheiros desencriptados no destino.
 - Defina a seguinte chave de registo:
-  - Caminho = HKLM\Software\Policies\Microsoft\Windows\System
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo de valor = DWORD
-  - Nome = CopyFileAllowDecryptedRemoteDestination
-  - Valor = 1
+  - Name = CopyFileAllowDecryptedRemoteDestination
+  - Value = 1
 
 Lembre-se de que a chave de registo a definição afeta todas as operações de cópia que são efetuadas para partilhas de rede.
 
