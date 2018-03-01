@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: d6cafc72f74dc0ec891591d3311f93ba1649f922
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e93544902d7ef435fb1b94e83700ae4fcd6f91f2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>Ligar a um servidor de Analysis Services do Azure
 
@@ -76,7 +76,7 @@ Utilize a conta do Windows com o processo atual.
 Com as versões mais antigas do Excel, os utilizadores podem ligar a um servidor de Analysis Services do Azure, utilizando um ficheiro de ligação de dados do Office (. odc). Para obter mais informações, consulte [criar um ficheiro de ligação de dados do Office (. odc)](analysis-services-odc.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Estabelecer ligação com o Excel](analysis-services-connect-excel.md)    
 [Estabelecer ligação com o Power BI](analysis-services-connect-pbi.md)   
 [Gerir o seu servidor](analysis-services-manage.md)   

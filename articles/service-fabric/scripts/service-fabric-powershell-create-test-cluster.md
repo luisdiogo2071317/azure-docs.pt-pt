@@ -1,6 +1,6 @@
 ---
-title: Script do PowerShell do Azure de exemplo - criar um cluster do Service Fabric | Microsoft Docs
-description: "Script do PowerShell do Azure de exemplo - criar um cluster do Service Fabric de teste de três nós."
+title: Exemplo do Script do Azure PowerShell - Criar um cluster do Service Fabric | Microsoft Docs
+description: "Exemplo do Script do Azure PowerShell - Crie um cluster de teste do Service Fabric com três nós."
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -12,22 +12,22 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 03348efa4ebdaed987df73756c6b57da0cc76fb5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: fd94a5dd9630cc65dedc180cdfd7aafea83c4866
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-three-node-test-service-fabric-cluster"></a>Criar um cluster do Service Fabric de teste de três nós
+# <a name="create-a-three-node-test-service-fabric-cluster"></a>Criar um cluster de teste do Service Fabric com três nós
 
-Este script de exemplo cria um cluster do Service Fabric de teste de três nós protegido por um certificado x. 509. A configuração de três nós do cluster é suportada para dev/test porque pode efetuar atualizações em segurança e continuam a vigorar após falhas de nó individual (desde que não acontecer em simultâneo). Cluster de produção requerem cinco ou mais nós, para que sejam resilientes a falhas em simultâneo.  
+Este script de exemplo cria um cluster de teste do Service Fabric com três nós protegido por um certificado X.509. A configuração do cluster de três nós é suportada para dev/test, uma vez que pode realizar atualizações em segurança e sobreviver a falhas de nó individual (desde que não aconteçam em simultâneo). O cluster de produção precisa de cinco ou mais nós, para que possa resistir a falhas em simultâneo.  
 
-O comando cria um certificado autoassinado e carrega-lo para um novo cofre de chaves, que é criado no mesmo grupo de recursos do cluster. O certificado é também copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou Linux que é executada nos nós do cluster.  Personalize os parâmetros conforme necessário.
+O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves que é criado no mesmo grupo de recursos do cluster. O certificado é também copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou Linux que é executada nos nós do cluster.  Personalize os parâmetros conforme necessário.
 
-Se necessário, instale o Azure PowerShell com a instrução foi encontrada no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma ligação com o Azure. 
+Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma ligação ao Azure. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -35,23 +35,23 @@ Se necessário, instale o Azure PowerShell com a instrução foi encontrada no [
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Depois de executar o script de exemplo, o seguinte comando pode ser utilizado para remover o grupo de recursos, cluster e todos os recursos relacionados.
+Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos, o cluster e todos os recursos relacionados.
 
 ```powershell
 $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Novo AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Cria um novo cluster de Service Fabric. |
+| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Cria um novo cluster do Service Fabric. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Amostras de Azure Powershell adicionais para o Azure Service Fabric podem ser encontradas no [exemplos do PowerShell do Azure](../service-fabric-powershell-samples.md).
+Pode ver os exemplos do Azure Powershell adicionais para o Azure Service Fabric em [Exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).

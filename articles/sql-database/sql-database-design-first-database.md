@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: d7c0ba8a8ac477e7e3175d590a6de13fb3f460cb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>Criar a sua primeira base de dados SQL do Azure
 
@@ -53,7 +53,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 Siga estes passos para criar uma base de dados SQL vazia. 
 
-1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Bases de Dados** na página **Novo** e selecione **Criar na Base de Dados SQL** em **Base de Dados SQL** na página **Novo**.
 

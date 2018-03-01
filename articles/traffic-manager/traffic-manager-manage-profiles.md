@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19f8f373fed8c7e9ab64f2fc9e34eba182af717
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerir um perfil no Traffic Manager do Azure
 
@@ -31,8 +31,8 @@ Pode utilizar o portal do Azure para criar um perfil do Gestor de Tráfego. Depo
 ### <a name="to-create-a-traffic-manager-profile"></a>Para criar um perfil do Gestor de Tráfego
 
 1. Num browser, inicie sessão no [portal do Azure](http://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
-2. No menu **Hub**, clique em **Novo** > **Rede** > **Ver todos**, clique no perfil do **Gestor de Tráfego** para abrir o painel **Criar Perfil do Gestor de Tráfego** e clique em **Criar**.
-3. No painel **Criar Perfil do Gestor de Tráfego**, preencha com o seguinte:
+2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
+4. No painel **Criar perfil do Gestor de Tráfego**, preencha o seguinte:
     1. Em **Nome**, indique um nome para o perfil. Este nome tem de ser exclusivo na zona trafficmanager.net e resultar no nome DNS <name>, trafficmanager.net, que é utilizado para aceder ao seu perfil do Gestor de Tráfego.
     2. Em **Método de encaminhamento**, selecione o método de encaminhamento **Prioridade**.
     3. Em **Subscrição**, selecione a subscrição na qual quer criar este perfil.
@@ -51,21 +51,23 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 2. O tráfego deixa de ser direcionado para os pontos finais através das definições de perfil do Gestor de Tráfego.
 3. Num browser, inicie sessão no [portal do Azure](http://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
-3. No painel **Perfil do Gestor de Tráfego**, clique em **Descrição Geral** e, no painel Descrição Geral, clique em **Desativar** e confirme que pretende desativar o perfil do Gestor de Tráfego.
+3. Clique em **Descrição geral** > **Desativar**.
+4. Confirme para desativar o perfil do Gestor de Tráfego.
 
 ### <a name="to-enable-a-profile"></a>Para ativar um perfil
 
 1. Num browser, inicie sessão no [portal do Azure](http://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
-3. No painel **Perfil do Gestor de Tráfego**, clique em **Descrição Geral** e, no painel Descrição Geral, clique em **Ativar**.
-5. Se estiver a utilizar um nome de domínio personalizado, crie um registo de recursos CNAME no seu servidor DNS da Internet, para que aponte para o nome de domínio do perfil do Gestor de Tráfego.
-6. O tráfego é direcionado para os pontos finais novamente.
+3. Clique em **Descrição geral** > **Ativar**.
+1. Se estiver a utilizar um nome de domínio personalizado, crie um registo de recursos CNAME no seu servidor DNS da Internet, para que aponte para o nome de domínio do perfil do Gestor de Tráfego.
+2. O tráfego é direcionado para os pontos finais novamente.
 
 ### <a name="to-delete-a-profile"></a>Para eliminar um perfil
 
 1. Certifique-se de que o registo de recursos DNS no servidor DNS de Internet já não utiliza um registo de recurso CNAME que aponta para o nome de domínio do perfil do Traffic Manager.
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
-3. No painel **Perfil do Gestor de Tráfego**, clique em **Descrição Geral** e, no painel Descrição Geral, clique em **Eliminar** e confirme que pretende eliminar o perfil do Gestor de Tráfego.
+3. Clique em **Descrição geral** > **Eliminar**.
+4. Confirme para eliminar o perfil do Gestor de Tráfego.
 
 ## <a name="next-steps"></a>Passos seguintes
 

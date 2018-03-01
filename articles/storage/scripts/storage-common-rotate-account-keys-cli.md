@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script CLI do Azure - chaves de acesso de conta de armazenamento rodar | Microsoft Docs
-description: Criar uma conta de armazenamento do Azure, em seguida, obter e Rodar chaves de acesso de conta.
+title: Exemplo do Script da CLI do Azure - Rodar chaves de acesso da conta de armazenamento | Microsoft Docs
+description: Crie uma conta de armazenamento do Azure e, em seguida, obtenha e rode as chaves de acesso da conta.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e Rodar chaves de acesso de conta
+# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e rodar as chaves de acesso da conta
 
-Este script cria uma conta de armazenamento do Azure, apresenta as chaves de acesso da conta de armazenamento novo e é renovada (roda) as chaves.
+Este script cria uma conta de Armazenamento do Azure, apresenta as novas chaves de acesso da conta de armazenamento e, em seguida, renova (roda) as chaves.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -41,19 +41,19 @@ Execute o seguinte comando para remover o grupo de recursos, a conta de armazena
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar a conta de armazenamento e obter e rodar as respetivas chaves de acesso. Cada item nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar a conta de armazenamento e obter e rodar as respetivas chaves de acesso. Cada item na tabela liga a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](/cli/azure/group#create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [criar conta de armazenamento AZ](/cli/azure/storage/account#create) | Cria uma conta de armazenamento do Azure no grupo de recursos especificado. |
-| [lista de chaves de conta de armazenamento AZ](/cli/azure/storage/account/keys#list) | Mostra as chaves de acesso da conta de armazenamento para a conta especificada. |
-| [chaves de conta de armazenamento AZ renovar](/cli/azure/storage/account/keys#renew) | A chave de acesso da conta de armazenamento primário ou secundário gera de novo. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de Armazenamento do Azure no grupo de recursos especificado. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Apresenta as chaves de acesso da conta de armazenamento especificada. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Regenera a chave de acesso da conta de armazenamento primária ou secundária. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure/overview).
 
-Exemplos de script do armazenamento adicional CLI podem ser encontrados no [amostras da CLI do Azure para o Blob storage do Azure](../blobs/storage-samples-blobs-cli.md).
+Pode ver exemplos do script da CLI de armazenamento nos [Exemplos da CLI do Azure para armazenamento de Blobs do Azure](../blobs/storage-samples-blobs-cli.md).

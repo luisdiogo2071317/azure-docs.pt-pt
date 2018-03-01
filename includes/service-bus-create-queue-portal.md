@@ -1,7 +1,7 @@
 Certifique-se que já criou um espaço de nomes do Service Bus, como mostrado [aqui][namespace-how-to].
 
 1. Inicie sessão no [Portal do Azure][azure-portal].
-2. No painel de navegação à esquerda do portal, clique em **Service Bus** (se não vir **Service Bus**, clique em **Mais serviços**).
+2. No painel de navegação à esquerda do portal, clique em **Service Bus** (se não vir **Service Bus**, clique em **Todos os serviços**).
 3. Clique no espaço de nomes no qual gostaria de criar a fila. Neste caso, é **sbnstest1**.
    
     ![Criar uma fila][createqueue1]

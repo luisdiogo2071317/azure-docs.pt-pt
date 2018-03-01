@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um ambiente de Serviço de Aplicações #
 
@@ -55,7 +55,7 @@ Existem algumas coisas que não é possível fazer quando utiliza um ASE de ILB:
 
 Para criar um ASE de ILB:
 
-1. No portal do Azure, selecione **Novo** > **Web + Móvel** > **Ambiente de Serviço de Aplicações**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web + Móvel** > **Ambiente de Serviço de Aplicações**.
 
 2. Selecione a sua subscrição.
 
@@ -106,7 +106,7 @@ Se definir **Tipo de VIP** como **Interno**, o nome do ASE não é utilizado no 
 
 Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação num ASE normalmente.
 
-1. No portal do Azure, selecione **Novo** > **Web + Móvel** > **Web** ou **Móvel** ou **Aplicação de API**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web + Móvel** > **Web** ou **Móvel** ou **Aplicação da API**.
 
 2. Introduza o nome da aplicação.
 
@@ -132,8 +132,8 @@ Depois de criar o ASE, o nome de domínio mostra o domínio que especificou. Um 
 
 O ASE de ILB precisa de um certificado SSL válido. Utilize autoridades de certificação internas, compre um certificado junto de um emissor externo ou utilize um certificado autoassinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado têm de ser configurados corretamente:
 
-* **Requerente**: este atributo tem de ser definido como *.your-root-domain-here.
-* **Nome Alternativo do Requerente**: este atributo tem de incluir **.your-root-domain-here* e **.scm.your-root-domain-here*. As ligações SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here*.
+* **Requerente**: este atributo tem de ser definido como \*.your-root-domain-here.
+* **Nome Alternativo do Requerente**: este atributo tem de incluir \**.your-root-domain-here* e \**.scm.your-root-domain-here*. As ligações SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here*.
 
 Converta/guarde o certificado SSL como um ficheiro .pfx. O ficheiro .pfx tem de incluir todos certificados intermédios e de raiz. Proteja-o com uma palavra-passe.
 
@@ -196,8 +196,8 @@ Quando utiliza as Funções do Azure num ASE de ILB, poderá receber uma mensage
 
 Quando utiliza um VIP Externo, o DNS é gerido pelo Azure. Qualquer aplicação criada no seu ASE é adicionada automaticamente ao DNS do Azure, que é um DNS público. Num ASE de ILB, tem de gerir o seu próprio DNS. Para um determinado domínio, tal como _contoso.net_, terá de criar registos A de DNS no seu DNS que apontem para o seu endereço de ILB para:
 
-- *.contoso.net
-- *.scm.contoso.net
+- \*.contoso.net
+- \*.scm.contoso.net
 
 Se o domínio do ASE de ILB for utilizado para várias coisas fora deste ASE, poderá ter de gerir o DNS por nome de aplicação. Este método é difícil porque tem de adicionar cada nome de aplicação nova ao DNS quando a criar. Por este motivo, recomendamos que utilize um domínio dedicado.
 

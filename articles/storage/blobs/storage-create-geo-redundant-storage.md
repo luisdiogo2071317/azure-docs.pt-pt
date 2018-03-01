@@ -2,32 +2,28 @@
 title: "Tornar os dados das aplicações altamente disponíveis no Azure | Microsoft Docs"
 description: "Utilize o armazenamento georredundante de acesso de leitura para tornar os dados das suas aplicações altamente disponíveis"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados das suas aplicações altamente disponíveis com o Armazenamento do Azure
 
 Este tutorial é a primeira parte de uma série, que mostra como tornar os dados das suas aplicações altamente disponíveis no Azure. Quando tiver terminado, terá uma aplicação de consola que carrega e obtém um blob para uma conta de armazenamento [geograficamente redundante de acesso de leitura](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS). O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação utiliza o padrão [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar. A aplicação muda para o ponto final secundário quando uma falha é simulada.
 
-Na primeira parte da série, saiba como:
+Na primeira parte da série, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola
@@ -64,7 +60,7 @@ Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar 
 
 Siga estes passos para criar uma conta de armazenamento georredundante com acesso de leitura:
 
-1. Selecione o botão **Novo**, no canto superior esquerdo do portal do Azure.
+1. Selecione o botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Armazenamento** na página **Novo** e selecione **Conta de armazenamento - blob, ficheiro, tabela, fila** em **Em Destaque**.
 3. Preencha o formulário da conta de armazenamento com as seguintes informações, conforme mostrado na imagem abaixo e selecione **Criar**:

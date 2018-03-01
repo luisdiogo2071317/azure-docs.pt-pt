@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"> </a>Utilizo os Serviços Móveis, como é que o App Service me vai ajudar?
 ## <a name="overview"></a>Descrição geral
@@ -28,7 +28,7 @@ O Serviço Móvel atual é seguro e continuará a receber suporte. No entanto, a
 * Novas funcionalidades de anfitrião, incluindo Tarefas Web, CNames personalizados, melhor monitorização
 * Integração com Gestor de Tráfego
 * Conectividade com os seus recursos no local e VPNs utilizando VNet, além das Ligações Híbridas
-* Monitorização, alertas e resolução de problemas da sua aplicação através da NewRelic ou AppInsights
+* Monitorização, alertas e resolução de problemas da aplicação com o AppInsights
 * Um espectro mais alargado dos preços e recursos subjacentes da computação
 * Escala automática, balanceamento de carga e monitorização do desempenho incorporados
 * Capacidades de teste, cópia de segurança, recuperação e teste durante produção incorporadas
@@ -54,7 +54,7 @@ O *App Service do Azure* oferece um suporte mais amplo e alargado para plataform
 Com os Mobile Services, todas as instâncias do código de back-end eram executadas em VMs de pequena dimensão. O *App Service do Azure* permite selecionar o tamanho das VMs a partir de um conjunto de opções mais completo. De igual forma, pode rapidamente aumentar vertical ou horizontalmente para lidar com qualquer carga de cliente a receber, com base em várias métricas de desempenho.
 
 ## <a name="be-in-the-know"></a>Estar na linha da frente
-Reaja a problemas em tempo real com a monitorização e os alertas para notificar automaticamente o utilizador e a sua equipa. Integre funcionalidades avançadas de análise e monitorização de aplicações da New Relic e AppInsights e obtenha informações sobre o desempenho da aplicação móvel. Com o *Serviço de Aplicações do Azure*, pode agora configurar alertas de segurança com base em diversas métricas de desempenho, tanto através de programas como pelo Portal do Azure.
+Reaja a problemas em tempo real com a monitorização e os alertas para notificar automaticamente o utilizador e a sua equipa. Integre funcionalidades avançadas de análise e monitorização de aplicações do AppInsights para obter informações sobre o desempenho da aplicação móvel. Com o *Serviço de Aplicações do Azure*, pode agora configurar alertas de segurança com base em diversas métricas de desempenho, tanto através de programas como pelo Portal do Azure.
 
 ## <a name="keep-your-assets-safe"></a>Manter os elementos seguros
 Crie automaticamente uma cópia de segurança do seu back-end e da sua base de dados. O seu código e os seus dados estão seguros contra desastres e podem ser facilmente restaurados, permitindo que continue a gerir o seu negócio com confiança.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0a6bcf78561ef4f57d788ef19e132d1a855b8c2a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -704,7 +704,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Clique em **Mais serviços**, pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados**. 
+2. Clique em **Todos os serviços**, pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados**. 
 
     ![Menu de fábricas de dados](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 

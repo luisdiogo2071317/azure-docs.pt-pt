@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5316add4b7806a03e777aee1757841ed866070
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introdução ao Azure Data Lake Analytics com o Portal do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -34,7 +34,7 @@ Antes de começar este tutorial, tem de ter uma **subscrição do Azure**. Consu
 Agora, irá criar em simultâneo uma conta do Data Lake Analytics e uma conta do Data Lake Store.  Este passo é simples e leva apenas cerca de 60 segundos para concluir.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique em **Novo** >  **Dados + Análise** > **Data Lake Analytics**.
+2. Clique em **Criar um recurso** >  **Dados + Análise** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens:
    * **Nome**: nome da conta do Data Lake Analytics (Apenas são permitidas letras minúsculas e números).
    * **Subscrição**: selecione a subscrição do Azure utilizada para a conta da Análise.
@@ -71,7 +71,7 @@ OUTPUT @a
 5. Caso a tarefa tenha falhado, consulte [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) (Monitorizar e resolver problemas de tarefas do Data Lake Analytics).
 6. Clique no separador **Saída** e, em seguida, clique em `data.csv`. 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 * Para começar a desenvolver aplicações U-SQL, consulte [Desenvolver scripts SQL-U, utilizando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

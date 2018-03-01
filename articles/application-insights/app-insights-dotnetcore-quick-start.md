@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -44,11 +44,11 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 O Application Insights pode recolher dados telemétricos de qualquer aplicação ligada à Internet, independentemente de estar a ser executado no local ou na cloud. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Selecione **Novo** > **Monitorização + Gestão** > **Application Insights**.
+1. Selecione **Criar um recurso** > **Monitorização + Gestão** > **Application Insights**.
 
    ![Adicionar um Recurso do Application Insights](./media/app-insights-dotnetcore-quick-start/0001-dc.png)
 
-    Será apresentada uma caixa de configuração. Utilize a tabela abaixo para preencher os campos de texto.
+    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
     | Definições        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|

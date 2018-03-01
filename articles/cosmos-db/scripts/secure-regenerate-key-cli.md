@@ -1,6 +1,6 @@
 ---
-title: A chave de conta do Azure CLI voltar a gerar a Script Azure Cosmos DB | Microsoft Docs
-description: Exemplo de Script CLI do Azure - voltar a gerar uma chave de conta de base de dados do Azure Cosmos
+title: Script da CLI do Azure - Regenerar chave da conta do Azure Cosmos DB | Microsoft Docs
+description: Exemplo do Script da CLI do Azure - Regenerar uma chave da conta do Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: b667aed1ecdf403654ab86b2b7601d5cbddaa725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a7bf6f5c8983a7281ccc0eb2fe38eb090a35c3bb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>Voltar a gerar uma chave de conta de base de dados do Azure Cosmos utilizando a CLI do Azure
+# <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>Regenerar uma chave da conta do Azure Cosmos DB com a CLI do Azure
 
-Este exemplo gera de novo qualquer tipo de chave de conta de base de dados do Azure Cosmos utilizando a CLI do Azure. 
+Este exemplo regenera qualquer tipo de chave da conta do Azure Cosmos DB com a CLI do Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,25 +36,25 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos e todos os recursos associados à mesma.
+Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](/cli/azure/group#create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [Criar AZ cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Atualiza uma conta de base de dados do Azure Cosmos. |
-| [voltar a gerar a chave de AZ cosmosdb](/cli/azure/cosmosdb/regenerate-key) | Chaves de conta de base de dados do Regeneratates Azure Cosmos. |
-| [eliminação do grupo de AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Atualiza uma conta do Azure Cosmos DB. |
+| [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regenera chaves da conta do Azure Cosmos DB. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos de script da CLI do Azure Cosmos DB adicionais podem ser encontrados no [documentação da CLI do Azure Cosmos DB](../cli-samples.md).
+Pode ver exemplos do script da CLI do Azure Cosmos DB adicionais na [documentação da CLI do Azure Cosmos DB](../cli-samples.md).

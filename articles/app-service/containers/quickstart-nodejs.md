@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0013b3b1e95d733191aeafcffcda078a352d034f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 33889e391d3060f08294f81b35f180c1318d9f4c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Node.js no Serviço de Aplicações do Azure no Linux
 
@@ -31,7 +31,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-Pode seguir os passos deste tutorial num computador Mac, Windows ou Linux.
+Pode seguir os passos deste tutorial num computador Mac, Windows ou Linux. Também pode acompanhar o procedimento com [o vídeo](#video) que aborda este artigo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -180,6 +180,10 @@ No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da
 O menu à esquerda fornece diferentes páginas para configurar a sua aplicação. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+## <a name="video"></a>Vídeo
+
+[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## <a name="next-steps"></a>Passos seguintes
 

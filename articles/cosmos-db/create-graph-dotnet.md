@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c7fff37e1b59fd90952826a1410a8dd8c6931e77
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 38869444d43a3fb5c37a222ef58d30fc607106aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: criar uma aplicação .NET Framework ou Core com a Graph API
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este guia de introdução demonstra como criar uma conta do Azure Cosmos DB, bases de dados e gráficos (contentores) com o portal do Azure. Depois, vai criar e executar uma aplicação de consola criada na [Graph API](graph-sdk-dotnet.md).  
+Este guia de introdução demonstra como criar uma conta do Azure Cosmos DB, bases de dados e gráficos (contentores) com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o controlador open-source [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,63 +45,98 @@ Se já tiver o Visual Studio 2017 instalado, certifique-se de que está instalad
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar uma aplicação do Graph API a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
+Vamos agora clonar uma aplicação do Graph API a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
 
-Este projeto de exemplo está a utilizar o formato do projeto .NET Core e foi configurado para direcionar os seguintes frameworks:
- - netcoreapp2.0
- - net461
-
-1. Abra uma janela de terminal do git, tal como git bash, e `cd` para um diretório de trabalho.  
+1. Abra uma janela de terminal do git, tal como git bash, e `cd` para o seu diretório de trabalho.  
 
 2. Execute o seguinte comando para clonar o repositório de exemplo. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
     ```
 
-3. Em seguida, abra o Visual Studio e o ficheiro da solução. 
+3. Em seguida, abra o Visual Studio e o ficheiro da solução.
+
+4. Restaure os pacotes NuGet no projeto. Isto deve incluir o controlador Gremlin.Net, bem como o pacote Newtonsoft.Json.
+
+5. Também pode instalar manualmente o controlador Gremlin.Net, versão 3.2.7, com o gestor de pacotes Nuget ou o [utilitário de linha de comandos do nuget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
+
+    ```bash
+    nuget install Gremlin.Net -Version 3.2.7
+    ```
 
 ## <a name="review-the-code"></a>Rever o código
 
 Vamos fazer uma breve revisão do que está a acontecer à aplicação. Abra o ficheiro Program.cs e verá que estas linhas de código criam os recursos do Azure Cosmos DB. 
 
-* O DocumentClient é inicializado. 
+* Defina os parâmetros de ligação com base na conta criada acima (Linha 19): 
 
     ```csharp
-    using (DocumentClient client = new DocumentClient(
-        new Uri(endpoint),
-        authKey,
-        new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
+    private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";
+    private static int port = 443;
+    private static string authKey = "your-authentication-key";
+    private static string database = "your-database";
+    private static string collection = "your-collection-or-graph";
     ```
 
-* É criada uma nova base de dados.
+* Os comandos Gremlin a executar estão listados num Dicionário (Linha 26):
 
     ```csharp
-    Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
-    ```
-
-* É criado um novo gráfico.
-
-    ```csharp
-    DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
-        UriFactory.CreateDatabaseUri("graphdb"),
-        new DocumentCollection { Id = "graph" },
-        new RequestOptions { OfferThroughput = 1000 });
-    ```
-* São executados uma série de passos do Gremlin com o método `CreateGremlinQuery`.
-
-    ```csharp
-    // The CreateGremlinQuery method extensions allow you to execute Gremlin queries and iterate
-    // results asychronously
-    IDocumentQuery<dynamic> query = client.CreateGremlinQuery<dynamic>(graph, "g.V().count()");
-    while (query.HasMoreResults)
+    private static Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
     {
-        foreach (dynamic result in await query.ExecuteNextAsync())
-        {
-            Console.WriteLine($"\t {JsonConvert.SerializeObject(result)}");
-        }
-    }
+        { "Cleanup",        "g.V().drop()" },
+        { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44)" },
+        { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39)" },
+        { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller')" },
+        { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield')" },
+        { "AddEdge 1",      "g.V('thomas').addE('knows').to(g.V('mary'))" },
+        { "AddEdge 2",      "g.V('thomas').addE('knows').to(g.V('ben'))" },
+        { "AddEdge 3",      "g.V('ben').addE('knows').to(g.V('robin'))" },
+        { "UpdateVertex",   "g.V('thomas').property('age', 44)" },
+        { "CountVertices",  "g.V().count()" },
+        { "Filter Range",   "g.V().hasLabel('person').has('age', gt(40))" },
+        { "Project",        "g.V().hasLabel('person').values('firstName')" },
+        { "Sort",           "g.V().hasLabel('person').order().by('firstName', decr)" },
+        { "Traverse",       "g.V('thomas').out('knows').hasLabel('person')" },
+        { "Traverse 2x",    "g.V('thomas').out('knows').hasLabel('person').out('knows').hasLabel('person')" },
+        { "Loop",           "g.V('thomas').repeat(out()).until(has('id', 'robin')).path()" },
+        { "DropEdge",       "g.V('thomas').outE('knows').where(inV().has('id', 'mary')).drop()" },
+        { "CountEdges",     "g.E().count()" },
+        { "DropVertex",     "g.V('thomas').drop()" },
+    };
+    ```
 
+
+* Crie um objeto de ligação `GremlinServer` com os parâmetros fornecidos acima (Linha 52):
+
+    ```csharp
+    var gremlinServer = new GremlinServer(hostname, port, enableSsl: true, 
+                                                    username: "/dbs/" + database + "/colls/" + collection, 
+                                                    password: authKey);
+    ```
+
+* Crie um novo objeto `GremlinClient` (Linha 56):
+
+    ```csharp
+    var gremlinClient = new GremlinClient(gremlinServer);
+    ```
+
+* Execute cada consulta do Gremlin com o objeto `GremlinClient` com uma tarefa assíncrona (Linha 63). Isto irá ler as consultas do Gremlin a partir do dicionário definido acima (Linha 26):
+
+    ```csharp
+    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
+    task.Wait();
+    ```
+
+* Obtenha o resultado e leia os valores que estão formatados como um dicionário, com a classe `JsonSerializer` a partir de Newtonsoft.Json:
+
+    ```csharp
+    foreach (var result in task.Result)
+    {
+        // The vertex results are formed as dictionaries with a nested dictionary for their properties
+        string output = JsonConvert.SerializeObject(result);
+        Console.WriteLine(String.Format("\tResult:\n\t{0}", output));
+    }
     ```
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
@@ -114,43 +149,41 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-dotnet/keys.png)
 
-2. No Visual Studio 2017, abra o ficheiro appsettings.json e cole o valor em `FILLME` no `endpoint`. 
+2. Em Program.cs, cole o valor sobre `your-endpoint` na variável `hostname` na linha 19. 
 
-    `"endpoint": "https://FILLME.documents.azure.com:443/",`
+    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
 
     O valor de ponto final deverá agora ter o seguinte aspeto:
 
-    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+    `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Copie o valor **CHAVE PRIMÁRIA** do portal, faça deste o valor da chave AuthKey no ficheiro App.config e, em seguida, guarde as alterações. 
+3. Copie o valor **CHAVE PRIMÁRIA** do portal e cole-o na variável `authkey`, substituindo o marcador de posição `"your-authentication-key"` na linha 21. 
 
-    `"authkey": "FILLME"`
+    `private static string authKey = "your-authentication-key";`
 
-4. Guarde o ficheiro appsettings.json. 
+4. Com as informações da base de dados criada acima, cole o nome da base de dados dentro da variável `database` na linha 22. 
+
+    `private static string database = "your-database";`
+
+5. Da mesma forma, com as informações da coleção criada acima, cole a coleção (que também é o nome do gráfico) dentro da variável `collection` na linha 23. 
+
+    `private static string collection = "your-collection-or-graph";`
+
+6. Guarde o ficheiro Program.cs. 
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 
-Antes de executar a aplicação, recomenda-se que atualize o pacote *Microsoft.Azure.Graphs* para a versão mais recente.
+Clique em CTRL + F5 para executar a aplicação. A aplicação irá imprimir os comandos de consulta Gremlin e os resultados na consola.
 
-1. No Visual Studio, clique com o botão direito do rato no projeto **GraphGetStarted** no **Explorador de Soluções** e clique em **Gerir Pacotes NuGet**. 
-
-2. No separador **Atualizações** do Gestor de Pacotes do NuGet, escreva *Microsoft.Azure.Graphs* e assinale a caixa **Inclui pré-lançamento**. 
-
-3. Na lista de resultados, atualize a biblioteca **Microsoft.Azure.Graphs** para a versão mais recente do pacote. Esta ação instala o pacote de biblioteca da extensão de gráficos do Azure Cosmos DB e todas as dependências do mesmo.
-
-    Se obtiver uma mensagem sobre a revisão das alterações para a solução, clique em **OK**. Se obtiver uma mensagem sobre a aceitação de licença, clique em **Aceito**.
-
-4. Clique em CTRL + F5 para executar a aplicação.
-
-   A janela de consola apresenta os vértices e as margens a adicionar ao gráfico. Quando o script tiver concluído, prima ENTER duas vezes para fechar a janela da consola.
+   A janela de consola apresenta os vértices e as margens a adicionar ao gráfico. Quando o script tiver concluído, prima ENTER para fechar a janela da consola.
 
 ## <a name="browse-using-the-data-explorer"></a>Utilizar o Data Explorer para pesquisar
 
 Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os dados do gráfico novo.
 
-1. No Data Explorer, a nova base de dados é apresentada no painel Gráficos. Expanda **graphdb**, **graphcoll** e, em seguida, clique em **Gráfico**.
+1. No Data Explorer, a nova base de dados é apresentada no painel Gráficos. Expanda a base de dados e os nós da coleção e, em seguida, clique em **Gráfico**.
 
 2. Clique no botão **Aplicar Filtro** para utilizar a consulta predefinida para ver todos os vértices no gráfico. Os dados gerados pela aplicação de exemplo são apresentados no painel Gráficos.
 

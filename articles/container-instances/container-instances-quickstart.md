@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4c7f48c993d66dd79538fd73ccaed1355c2e8cdd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d2d317d6c66aa0fb81779c3a8a192b6a50571d1f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o seu primeiro contentor no Azure Container Instances
 O Azure Container Instances facilita a criação e a gestão de contentores do Docker no Azure, sem ter de aprovisionar as máquinas virtuais ou adotar um serviço de nível mais elevado. Neste guia de introdução, cria um contentor no Azure e expõe-no na Internet com um endereço IP público. Esta operação é concluída com um único comando. Dentro de alguns segundos, verá isto no seu browser:
@@ -40,41 +40,32 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Para criar um contentor, pode fornecer um nome, uma imagem do Docker e um grupo de recursos do Azure ao comando [az container create][az-container-create]. Opcionalmente, pode expor o contentor na Internet com um endereço IP público. Neste início rápido, vai implementar um contentor que aloja uma pequena aplicação Web escrita em [Node.js][node-js].
+Para criar um contentor, pode fornecer um nome, uma imagem do Docker e um grupo de recursos do Azure ao comando [az container create][az-container-create]. Opcionalmente, pode expor o contentor na Internet ao especificar uma etiqueta de nome DNS. Neste início rápido, vai implementar um contentor que aloja uma pequena aplicação Web escrita em [Node.js][node-js].
+
+Execute o seguinte comando para iniciar a instância de um contentor. O valor `--dns-name-label` tem de ser exclusivo dentro da região do Azure na qual cria a instância, pelo que poderá precisar de modificar este valor para garantir a exclusividade.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 Dentro de alguns segundos, deve obter uma resposta ao seu pedido. Inicialmente, o contentor está no estado **A criar**, mas deverá ser iniciado ao fim de poucos segundos. Pode verificar o estado com o comando [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-Na parte inferior da saída, verá o estado de aprovisionamento do contentor e o respetivo endereço IP:
+Ao executar o comando, são apresentados o nome de domínio completamente qualificado (FQDN) e o estado de aprovisionamento do contentor:
 
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    },
-    "location:": "eastus",
-    "name": "mycontainer",
-    "osType": "Linux",
-    "provisioningState": "Succeeded"
-...
+```console
+$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+FQDN                               ProvisioningState
+---------------------------------  -------------------
+aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Quando o contentor passar para o estado **Bem-sucedido**, pode aceder ao mesmo no browser com o endereço IP fornecido.
+Quando o contentor passar para o estado **Bem-sucedido**, pode aceder ao mesmo no browser ao navegar para o seu FQDN:
 
-![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
+![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Extrair os registos de contentor
 

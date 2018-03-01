@@ -1,37 +1,37 @@
 ---
-title: "Cópia de segurança do Windows Server para o Azure | Microsoft Docs"
-description: "Este tutorial detalhes cópia de segurança de servidores do Windows no local para um cofre dos serviços de recuperação."
-services: back up
+title: "Cópia de Segurança do Windows Server para o Azure | Microsoft Docs"
+description: "Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação."
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
-keywords: "servidor do Windows efetuar cópias de segurança; criar cópias de segurança do windows server; cópia de segurança e recuperação após desastre"
+keywords: "cópia de segurança do windows server; cópia de segurança do windows server; cópia de segurança e recuperação após desastre"
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 0dbf3850c7fcccb1a02e70a19b498522a4ce0e79
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="back-up-windows-server-to-azure"></a>Faça uma Cópia de Segurança do Windows Server para o Azure
+# <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
 
-Pode utilizar o Backup do Azure para proteger o servidor do Windows de danos, ataques e desastres inesperados. Cópia de segurança do Azure fornece uma ferramenta simples conhecida como o agente de serviços de recuperação do Azure (MARS) da Microsoft. O agente MARS está instalado no servidor do Windows para proteger ficheiros e pastas e informações de configuração do servidor através do Estado do sistema do Windows Server. Este tutorial explica como pode utilizar o agente MARS fazer cópias de segurança do Windows Server para o Azure. Neste tutorial, ficará a saber como: 
+Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e desastres. O Azure Backup fornece uma ferramenta simples conhecida como o agente de Serviços de Recuperação do Microsoft Azure (MARS). O agente MARS está instalado no Windows Server para proteger ficheiros e pastas e informações de configuração do servidor através do Estado do Sistema do Windows Server. Este tutorial explica como pode utilizar o Agente MARS para efetuar cópias de segurança do Windows Server para o Azure. Neste tutorial, ficará a saber como: 
 
 
 > [!div class="checklist"]
-> * Transferir e configurar o agente MARS
-> * Configurar cópia de segurança vezes e a agenda de retenção para cópias de segurança do servidor
-> * Efetuar a cópia de segurança ad-hoc
+> * Transferir e configurar o Agente MARS
+> * Configurar horas de cópia de segurança e agenda de retenção para as cópias de segurança do servidor
+> * Efetuar uma cópia de segurança ad-hoc
 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -40,121 +40,121 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-Antes de fazer uma cópia de segurança do Windows Server, tem de criar um local para as cópias de segurança ou restaurar pontos, para ser armazenado. A [cofre dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md) é um contentor do Azure que armazena as cópias de segurança do seu servidor do Windows. Siga os passos abaixo para criar um cofre dos serviços de recuperação no portal do Azure. 
+Antes de fazer uma cópia de segurança do Windows Server, tem de criar um local para as cópias de segurança ou restaurar pontos, para serem armazenadas. O [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contentor do Azure que armazena as cópias de segurança do Windows Server. Siga os passos abaixo para criar um cofre dos Serviços de Recuperação no portal do Azure. 
 
-1. No menu da esquerda, selecione **todos os serviços** e na lista de serviços, escreva **dos serviços de recuperação**. Clique em **cofres dos serviços de recuperação**.
+1. No menu da esquerda, selecione **All services** (Todos os serviços) e, na lista de serviços, escreva **Recovery Services** (Serviços de Recuperação). Clique em **Cofres dos Serviços de Recuperação**.
 
-   ![Abra o Cofre dos serviços de recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![abrir o cofre dos Serviços de Recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar**.
 
-   ![fornecer informações para o Cofre de](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
+   ![fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  No **cofre dos serviços de recuperação** menu,
+3.  No menu do **cofre dos Serviços de Recuperação**,
 
-    - Tipo *myRecoveryServicesVault* no **nome**.
-    - A subscrição atual ID aparece no **subscrição**.
-    - Para **grupo de recursos**, selecione **utilizar existente** e escolha *myResourceGroup*. Se *myResourceGroup* não existe, selecione **criar novo** e tipo *myResourceGroup*. 
-    - Do **localização** menu pendente, escolha *Europa Ocidental*.
-    - Clique em **criar** para criar o seu Cofre de serviços de recuperação.
+    - escreva *myRecoveryServicesVault* em **Name** (Nome).
+    - O ID da subscrição atual aparece em **Subscription** (Subscrição).
+    - Em **Resource group** (Grupo de recursos), selecione **Use existing** (Utilizar existente) *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Create New** (Criar novo) e escreva *myResourceGroup*. 
+    - No menu pendente **Location** (Localização), escolha *West Europe* (Europa Ocidental).
+    - Clique em **Create** (Criar) para criar o cofre dos Serviços de Recuperação.
  
 Quando o cofre for criado, aparecerá na lista de cofres dos Serviços de Recuperação.
 
-## <a name="download-recovery-services-agent"></a>Transferir o agente dos serviços de recuperação
+## <a name="download-recovery-services-agent"></a>Transferir agente dos Serviços de Recuperação
 
-O agente de serviços de recuperação do Azure (MARS) da Microsoft cria uma associação entre o Windows Server e o seu Cofre de serviços de recuperação. O procedimento seguinte explica como transferir o agente ao servidor.
+O agente dos Serviços de Recuperação do Microsoft Azure (MARS) cria uma associação entre o Windows Server e o cofre de Serviços de Recuperação. O procedimento seguinte explica como transferir o agente para o servidor.
 
-1.  Na lista de cofres dos serviços de recuperação, selecione **myRecoveryServicesVault** para abrir o dashboard.
+1.  Na lista dos cofres dos Serviços de Recuperação, selecione **myRecoveryServicesVault** para abrir o dashboard do mesmo.
 
-   ![fornecer informações para o Cofre de](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
+   ![fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  No menu do dashboard do cofre, clique em **cópia de segurança**.
+2.  No menu do dashboard do cofre, clique em **Cópia de Segurança**.
 
-3.  No **objetivo de cópia de segurança** menu:
+3.  No menu **Objetivo de Cópia de Segurança**:
 
-    - para **onde está a carga de trabalho em execução?**, selecione**no local**, 
-    - para **que itens pretende cópia de segurança?**, selecione **ficheiros e pastas** e **estado do sistema** 
+    - para **Onde está a ser executada a carga de trabalho?**, selecione **No local**, 
+    - para **Pretende efetuar uma cópia de segurança?**, selecione **Ficheiros e pastas** e clique em **Estado do Sistema** 
 
-    ![fornecer informações para o Cofre de](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+    ![fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
     
-4.  Clique em **preparar infraestrutura** para abrir o **preparar a infraestrutura** menu.
-5.  No **preparar a infraestrutura** menu, clique em **Transferir agente para o Windows Server ou o cliente Windows** para transferir o *MARSAgentInstaller.exe*. 
+4.  Clique em **Preparar infraestrutura** para abrir o menu **Preparar a infraestrutura**.
+5.  No menu **Preparar infraestrutura**, clique em **Transferir Agente para o Windows Server ou um Cliente Windows** para transferir o *MARSAgentInstaller.exe*. 
 
     ![preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     O instalador abre um browser separado e transfere **MARSAgentInstaller.exe**.
  
-6.  Antes de executar o ficheiro transferido, clique em de **transferir** botão no painel preparar infraestrutura download e grave o **as credenciais do cofre** ficheiro. Este ficheiro é necessário para ligar o agente MARS com o Cofre de serviços de recuperação.
+6.  Antes de executar o ficheiro transferido, clique no botão **Transferir** no painel Preparar infraestrutura para transferir e gravar o ficheiro **Credenciais do Cofre**. Este ficheiro é necessário para ligar o Agente MARS com o Cofre dos Serviços de Recuperação.
 
     ![preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
-1. Localize e faça duplo clique de transferido **MARSagentinstaller.exe**.
-2. O **Assistente de configuração do agente de serviços do Microsoft Azure Recovery** aparece. À medida que avança o assistente, forneça as seguintes informações quando lhe for pedido e clique em **registar**.
-    - Localização da pasta de instalação e a cache.
-    - Informações do servidor proxy se utilizar um servidor proxy para estabelecer ligação à internet.
-    - Os nome e palavra-passe detalhes de utilizador se utilizar um proxy autenticado.
+1. Localize e faça duplo clique o **MARSagentinstaller.exe** transferido.
+2. O **Assistente de Configuração do Agente dos Serviços de Recuperação do Microsoft Azure** é apresentado. À medida que avança ao longo do assistente, forneça as seguintes informações quando lhe for pedido e clique em **Registar**.
+    - Localização para a pasta cache e da instalação.
+    - Informações do servidor proxy se utilizar um servidor proxy para estabelecer ligação à Internet.
+    - Os detalhes do seu nome de utilizador e palavra-passe se utilizar um proxy autenticado.
 
     ![preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
-3. No final do assistente, clique em **avançar para o registo** e forneça o **as credenciais do cofre** ficheiro transferido no procedimento anterior.
+3. No final do assistente, clique em **Avançar para o Registo** e forneça o ficheiro **Credenciais do Cofre** transferido no procedimento anterior.
  
-4. Quando solicitado, forneça uma frase de acesso de encriptação para encriptar as cópias de segurança do Windows Server. Guarde a frase de acesso numa localização segura, como a Microsoft não é possível recuperar o frase de acesso se se perder.
+4. Quando solicitado, forneça uma frase de acesso de encriptação para encriptar as cópias de segurança do Windows Server. Guarde a frase de acesso numa localização segura visto que a Microsoft não pode recuperar o frase de acesso se a perder.
 
 5. Clique em **Concluir**. 
 
-## <a name="configure-backup-and-retention"></a>Configurar a cópia de segurança e retenção
+## <a name="configure-backup-and-retention"></a>Configurar Cópia de Segurança e Retenção
 
-Utilize o agente dos serviços de recuperação do Microsoft Azure para agendar quando ocorrerem cópias de segurança para o Azure, no Windows Server. Execute os seguintes passos no servidor onde transferiu o agente.
+Utilize o agente dos Serviços de Recuperação do Microsoft Azure para agendar quando ocorrerem cópias de segurança do Azure no Windows Server. Execute os seguintes passos no servidor onde transferiu o agente.
 
 1. Abra o agente dos Serviços de Recuperação do Microsoft Azure. Pode encontrá-lo ao pesquisar na máquina por **Cópia de Segurança do Microsoft Azure**.
 
-2.  Na consola do agente dos serviços de recuperação, clique em **Agendar cópia de segurança** sob o **painel ações**.
+2.  Na consola do agente dos Serviços de Recuperação, clique em **Agendar Cópia de Segurança** no **Painel Ações**.
 
     ![preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. Clique em **seguinte** para navegar para o **selecionar itens para cópia segurança** página.
+3. Clique em **Seguinte** para navegar para a página **Selecionar Itens para Cópia Segurança**.
 
-4. Clique em **adicionar itens** e na caixa de diálogo que se abre, selecione **estado do sistema** e ficheiros ou pastas que pretende criar cópias de segurança. Em seguida, clique em **OK**.
+4. Clique em **Adicionar Itens** e na caixa de diálogo que se abre, selecione **Estado do Sistema** e os ficheiros ou pastas de que pretende criar cópias de segurança. Em seguida, clique em **OK**.
 
 5. Clique em **Seguinte**.
 
-6. No **Especificar agenda de cópia de segurança (estado do sistema)** página, especifique a hora do dia ou semana quando as cópias de segurança tem de ser acionado para o estado do sistema e clique em **seguinte** 
+6. Na página **Especificar Agendamento de Cópia de Segurança (Estado do Sistema)**, especifique a hora do dia ou semana nos quais as cópias de segurança devem ser acionados para o Estado do Sistema e clique em **Seguinte** 
 
-7.  No **selecionar política de retenção (estado do sistema)** página, selecione a política de retenção para a cópia de segurança para o estado do sistema e clique em **seguinte**
-8. Da mesma forma, selecione a política de agendamento e de retenção de cópia de segurança de ficheiros e pastas selecionados. 
-8.  No **escolha inicial cópia de segurança tipo** página, deixe a opção **automaticamente através da rede** selecionada e, em seguida, clique em **seguinte**.
-9.  No **confirmação** página, reveja as informações e, em seguida, clique em **concluir**.
+7.  Na página **Selecionar Política de Retenção (Estado do Sistema)** página, selecione a Política de Retenção para a cópia de segurança do Estado do Sistema e clique em **Seguinte**
+8. Da mesma forma, selecione o agendamento de cópia de segurança e a política de retenção de ficheiros e pastas selecionados. 
+8.  Na página **Escolher Tipo de Cópia de Segurança Inicial**, deixe a opção **Automaticamente através da rede** selecionada e, em seguida, clique em **Seguinte**.
+9.  Na página de **Confirmação**, reveja as informações e, em seguida, clique em **Concluir**.
 10. Depois de o assistente ter criado a agenda da cópia de segurança, clique em **Fechar**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Efetuar a cópia de segurança ad-hoc
+## <a name="perform-an-ad-hoc-back-up"></a>Efetuar uma cópia de segurança ad-hoc
 
-Tem de estabelecer a agenda quando executar tarefas de cópia de segurança. No entanto, não efetuou cópia de segurança do servidor. É uma prática de melhor de recuperação após desastre para executar uma cópia de segurança a pedido para se certificar de resiliência de dados para o servidor.
+Tem de estabelecer o agendamento quando forem executadas tarefas de cópia de segurança. No entanto, não terá efetuado cópia de segurança do servidor. É uma prática de melhor de recuperação após desastre executar uma cópia de segurança a pedido para se certificar da resiliência de dados para o servidor.
 
-1.  Na consola do agente dos serviços de recuperação do Microsoft Azure, clique em **cópia de segurança agora**.
+1.  Na consola do agente dos Serviços de Recuperação do Microsoft Azure, clique em **Efetuar Cópia de Segurança Agora**.
 
     ![preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2.  No **cópia de segurança agora** um assistente, selecione de **ficheiros e pastas** ou **estado do sistema** que pretende criar cópias de segurança e clique em **seguinte** 
-3. No **confirmação** , reveja as definições que o **cópia de segurança agora** utiliza o Assistente para fazer uma cópia de segurança do servidor. Em seguida, clique em **Efetuar Cópia de Segurança**.
-4.  Clique em **Fechar** para fechar o assistente. Se fechar o assistente antes do cópia de segurança de processo de conclusão, o assistente continua em execução em segundo plano.
-4.  Uma vez concluída a cópia de segurança inicial, **tarefa foi concluída** estado é apresentado no **tarefas** painel da consola de agente MARS.
+2.  No assistente **Efetuar Cópia de Segurança Agora**, selecione um de **Ficheiros e Pastas** ou **Estado do Sistema** que pretende efetuar cópias de segurança e clique em **Seguinte** 
+3. Na página de **Confirmação**, reveja as definições que o assistente **Efetuar Cópia de Segurança Agora** utiliza para efetuar uma cópia de segurança do servidor. Em seguida, clique em **Efetuar Cópia de Segurança**.
+4.  Clique em **Fechar** para fechar o assistente. Se fechar este assistente antes de o processo de cópia de segurança estar concluído, o assistente continua a ser executado em segundo plano.
+4.  Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluída** é apresentado no painel da consola do agente MARS **Tarefas**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial que utilizou o portal do Azure para: 
+Neste tutorial, utilizou o portal do Azure para: 
  
 > [!div class="checklist"] 
 > * Criar um cofre dos Serviços de Recuperação  
-> * Transferir o agente dos serviços de recuperação do Microsoft Azure 
+> * Transfira o agente dos Serviços de Recuperação do Microsoft Azure 
 > * Instalar o agente 
-> * Configurar a cópia de segurança para o Windows Server 
-> * Efetuar uma cópia de segurança a pedido 
+> * Configurar cópia de segurança do Windows Server 
+> * Executar uma cópia de segurança a pedido 
 
-Continue para o próximo tutorial recuperar ficheiros a partir do Azure para o Windows Server
+Continue para o próximo tutorial para recuperar ficheiros a partir do Azure para o Windows Server
 
 > [!div class="nextstepaction"] 
-> [Restaurar ficheiros a partir do Azure para o Windows Server](./tutorial-backup-restore-files-windows-server.md) 
+> [Restaurar ficheiros do Azure para o Windows Server](./tutorial-backup-restore-files-windows-server.md) 
 

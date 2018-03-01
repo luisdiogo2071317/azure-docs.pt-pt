@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Criar, consultar e filtrar índices do Azure Search no portal
 
@@ -43,10 +43,10 @@ Este tutorial parte do princípio de que existe uma [subscrição do Azure](http
 Se não pretender aprovisionar um serviço imediatamente, pode ver uma demonstração de 6 minutos dos passos deste tutorial a partir do terceiro minuto deste [vídeo de Descrição Geral do Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Encontrar o seu serviço
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o dashboard de serviço do seu serviço da Azure Search. Se não tiver afixado o mosaico do serviço ao dashboard, pode encontrar o seu serviço da seguinte forma: 
    
-   * Na barra de atalhos, clique em **Mais serviços**, na parte inferior do painel de navegação à esquerda.
+   * Na Barra de atalhos, clique em **Todos os serviços** no painel de navegação à esquerda.
    * Na caixa de pesquisa, escreva *pesquisa* para obter uma lista dos serviços de pesquisa da sua subscrição. O serviço deverá aparecer na lista. 
 
 ## <a name="check-for-space"></a>Verificar o espaço

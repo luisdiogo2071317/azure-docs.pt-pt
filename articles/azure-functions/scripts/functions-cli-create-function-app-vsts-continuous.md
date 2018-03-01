@@ -1,6 +1,6 @@
 ---
-title: "Criar uma função no Azure que é implementado a partir do Visual Studio Team Services | Microsoft Docs"
-description: "Criar uma aplicação de função e implementar o código de função do Visual Studio Team Services"
+title: "Criar uma função no Azure que é implementada a partir do Visual Studio Team Services | Microsoft Docs"
+description: "Criar uma Aplicação de Funções e implementar código de função a partir do Visual Studio Team Services"
 services: functions
 keywords: 
 author: syntaxc4
@@ -9,46 +9,50 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Criar uma função no Azure que é implementado a partir do Visual Studio Team Services
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Criar uma aplicação de funções e implementar código de função a partir do Visual Studio Team Services
 
-Este tópico mostra como utilizar as funções do Azure para criar um [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) através da aplicação de função a [plano de consumo](../functions-scale.md#consumption-plan). A aplicação de função, o que é um contentor para as suas funções, continuamente for implementada a partir de um repositório de serviços de equipa do Visual Studio (VSTS). Para concluir este tópico, tem de ter:
+Este tópico mostra como utilizar as Funções do Azure para criar uma aplicação de funções [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) através do [plano de consumo](../functions-scale.md#consumption-plan). A aplicação de funções, que é um contentor para as suas funções, é continuamente implementada a partir de um repositório do Visual Studio Team Services (VSTS). 
 
-* Um repositório VSTS que contém o projeto de aplicação de função e para o qual tem permissões administrativas.
-* A [token de acesso pessoal (TERESA)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) para aceder ao seu repositório VSTS.
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+Para concluir este tópico, tem de ter:
+
+* Um repositório do VSTS que contém o projeto da aplicação de funções e para o qual tem permissões administrativas.
+* Um [token de acesso pessoal (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) para aceder ao seu repositório do VSTS.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se em vez disso utilizar a CLI do Azure localmente, terá de instalar e utilizar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se, em vez disso, utilizar a CLI do Azure localmente, terá de instalar e utilizar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este exemplo cria uma aplicação de função do Azure e implementa o código de função do Visual Studio Team Services.
+Este exemplo cria uma Aplicação de Funções e implementa código de função a partir do Visual Studio Team Services.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, conta de armazenamento, aplicação de função e todos os recursos relacionados. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, uma conta de armazenamento, uma aplicação de funções e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [criar conta de armazenamento AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano de Serviço de Aplicações. |
-| [Criar AZ functionapp](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [configuração de controlo de origem do AZ serviço de aplicações web](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associa uma aplicação de função um Git ou Mercurial repositório. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano do Serviço de Aplicações. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associa uma aplicação de funções a um repositório do Git ou do Mercurial. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos de script CLI de funções do Azure adicionais podem ser encontrados no [documentação de funções do Azure](../functions-cli-samples.md).
+Pode ver exemplos do script da CLI das Funções do Azure adicionais na [Documentação das Funções do Azure](../functions-cli-samples.md).

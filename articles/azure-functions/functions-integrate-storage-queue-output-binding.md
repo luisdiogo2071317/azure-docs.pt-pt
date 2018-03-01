@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 07b864c72696fbcfc0119b978e2ab9a51307291a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a17897dc76b47f3fb7b6eb5076160faf6c5ae9c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
 
@@ -40,7 +40,7 @@ Para concluir este guia de início rápido:
 
 Nesta secção, utilize a IU do portal para adicionar um enlace de saída de armazenamento de filas à função que criou anteriormente. Este enlace irá possibilitar a escrita de código mínimo para criar uma mensagem numa fila. Não tem de escrever código para tarefas, tais como abrir uma ligação de armazenamento, criar uma fila ou obter uma referência para uma fila. O tempo de execução das Funções do Azure e o enlace de saída da fila tratam dessas tarefas por si.
 
-1. No portal do Azure, abra a página da aplicação de função da aplicação de função que criou em [Criar a primeira função a partir do portal do Azure](functions-create-first-azure-function.md). Para tal, selecione **Mais serviços > Aplicações de Funções** e, em seguida, selecione a aplicação de função.
+1. No portal do Azure, abra a página da aplicação de função da aplicação de função que criou em [Criar a primeira função a partir do portal do Azure](functions-create-first-azure-function.md). Para tal, selecione **Todos os serviços > Aplicações de Funções** e, em seguida, selecione a aplicação de funções.
 
 2. Selecione a função que criou no início rápido anterior.
 

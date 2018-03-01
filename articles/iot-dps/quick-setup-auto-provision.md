@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure
 
@@ -31,7 +31,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Internet das Coisas**, selecione **Hub IoT** e clique no botão **Criar**. 
 
@@ -44,9 +44,9 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Criar uma instância nova do Serviço Aprovisionamento de Dispositivos no Hub IoT
 
-1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do portal do Azure.
 
-2. *Procure no Marketplace* o **Serviço Aprovisionamento de Dispositivos**. Selecione **Serviço Aprovisionamento de Dispositivos do IoT** e clique no botão **Criar**. 
+2. *Procure no Marketplace* o **Serviço Aprovisionamento de Dispositivos**. Selecione **Serviço Aprovisionamento de Dispositivos no Hub IoT** e clique no botão **Criar**. 
 
 3. Dê um **nome** à sua instância do Serviço Aprovisionamento de Dispositivos. Selecione a subscrição que vai ser utilizada para esta instância e escolha um grupo de recursos novo ou já existente. Selecione a localização. Quando terminar, clique em **Criar**.
 

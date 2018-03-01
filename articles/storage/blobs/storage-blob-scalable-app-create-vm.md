@@ -1,30 +1,28 @@
 ---
-title: "Criar uma conta de armazenamento e de VM para uma aplicação dimensionável no Azure | Microsoft Docs"
-description: "Saiba como implementar uma VM para ser utilizada para executar uma aplicação escalável utilizando o armazenamento de Blobs do Azure"
+title: "Criar uma VM e uma conta de armazenamento para uma aplicação dimensionável no Azure | Microsoft Docs"
+description: "Saiba como implementar uma VM para servir para executar uma aplicação dimensionável através do armazenamento de blobs do Azure"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e a conta de armazenamento para uma aplicação dimensionável
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável
 
-Este tutorial faz parte de um de uma série. Este tutorial mostra que implementar uma aplicação que carrega e transferir grandes quantidades de dados aleatórios com uma conta de armazenamento do Azure. Quando tiver terminado, terá uma aplicação de consola em execução numa máquina virtual que carregar e transferir grandes quantidades de dados para uma conta de armazenamento.
+Este tutorial é a primeira parte de uma série. Este tutorial mostra como implementar uma aplicação que carrega e transfere grandes quantidades de dados aleatórios com uma conta de armazenamento do Azure. Quando tiver terminado, terá uma aplicação de consola em execução numa máquina virtual na qual carrega e transfere grandes quantidades de dados para uma conta de armazenamento.
 
-Na parte de uma série, saiba como:
+Na primeira parte da série, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma conta do Storage
@@ -47,9 +45,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>Criar uma conta do Storage
  
-O exemplo carrega 50 ficheiros grandes para um contentor de BLOBs numa conta do Storage do Azure. Uma conta do storage fornece um espaço de nomes exclusivo para armazenar e aceder aos seus objetos de dados de armazenamento do Azure. Criar uma conta de armazenamento no grupo de recursos que criou utilizando o [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) comando.
+O exemplo carrega 50 ficheiros grandes para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que criou através do comando [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
 
-O seguinte comando, substitua o seus próprios nome globalmente exclusivo para a conta de armazenamento de BLOBs onde vir o `<blob_storage_account>` marcador de posição.
+No comando seguinte, substitua o nome da conta de armazenamento de Blobs globalmente exclusivo onde vir o marcador de posição `<blob_storage_account>`.
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
@@ -102,19 +100,19 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 Write-host "Your public IP address is $($pip.IpAddress)"
 ```
 
-## <a name="deploy-configuration"></a>Configuração de implementação
+## <a name="deploy-configuration"></a>Implementar a configuração
 
-Para este tutorial, existem pré-requisitos que devem ser instalados na máquina virtual. A extensão de script personalizado é utilizada para executar um script do PowerShell que conclui as seguintes tarefas:
+Para este tutorial, existem pré-requisitos que têm de ser instalados na máquina virtual. A extensão de script personalizado serve para executar um script do PowerShell que conclui as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Instale .NET 2.0
-> * Instalação chocolatey
+> * Instalar o .NET core 2.0
+> * Instalar o chocolatey
 > * Instalar o GIT
-> * Clone o repositório de exemplo
-> * Restaurar os pacotes NuGet
-> * Cria 50 de 1 GB de ficheiros com dados aleatórios
+> * Clonar o repositório de exemplo
+> * Restaurar pacotes NuGet
+> * Criar 50 ficheiros de 1 GB com dados aleatórios
 
-Execute o seguinte cmdlet para finalizar a configuração da máquina virtual. Este passo demora 5-15 minutos a concluir.
+Execute o seguinte cmdlet para finalizar a configuração da máquina virtual. Este passo demora entre 5 a 15 minutos.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
@@ -126,16 +124,16 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Parte de uma série, aprendeu sobre como criar uma conta de armazenamento, implementar uma máquina virtual e configurar a máquina virtual com os pré-requisitos necessários, tais como:
+Na primeira parte da série, aprendeu como criar uma conta de armazenamento, implementar uma máquina virtual e configurar a máquina virtual com os pré-requisitos necessários, tais como:
 
 > [!div class="checklist"]
 > * Criar uma conta do Storage
 > * Criar uma máquina virtual
 > * Configurar uma extensão de script personalizado
 
-Avançar para a parte dois da série carregar grandes quantidades de dados para uma conta de armazenamento utilizando repetição exponencial e paralelismo.
+Avance para a segunda parte da série para carregar grandes quantidades de dados para uma conta de armazenamento através da repetição exponencial e do paralelismo.
 
 > [!div class="nextstepaction"]
-> [Carregar grandes quantidades de ficheiros grandes em paralelo com uma conta de armazenamento](storage-blob-scalable-app-upload-files.md)
+> [Carregar grandes quantidades de ficheiros grandes em paralelo para uma conta de armazenamento](storage-blob-scalable-app-upload-files.md)

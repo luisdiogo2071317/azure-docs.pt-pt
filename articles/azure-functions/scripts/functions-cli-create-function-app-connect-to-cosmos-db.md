@@ -1,6 +1,6 @@
 ---
-title: "Criar uma função do Azure que se liga a uma base de dados do Azure Cosmos | Microsoft Docs"
-description: "Script CLI do Azure de exemplo - criar uma função do Azure que se liga a uma base de dados do Cosmos do Azure"
+title: "Criar uma Função do Azure que se liga a um Azure Cosmos DB | Microsoft Docs"
+description: "Exemplo do Script da CLI do Azure - Criar uma Função do Azure que se liga a um Azure Cosmos DB"
 services: functions
 documentationcenter: functions
 author: ggailey777
@@ -13,55 +13,51 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/20/2017
+ms.date: 01/22/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7e9ccd26e7c066189576903c39be63a421d1da23
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: 2049de0adfd4be164cda69ca85782c528aeaf55c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar uma função do Azure que se liga a uma base de dados do Cosmos do Azure
+# <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar uma Função do Azure que se liga a um Azure Cosmos DB
 
-Este script de exemplo cria uma aplicação de função do Azure e se liga a uma base de dados do Azure Cosmos DB.
+Este script de exemplo das Funções do Azure cria uma aplicação de funções e liga a função a uma base de dados do Azure Cosmos DB. A definição da aplicação criada que contém a ligação pode ser utilizada com um [acionador ou enlace do Azure Cosmos DB](..\functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se utilizar a CLI localmente, certifique-se de que está a executar a CLI do Azure versão 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Se utilizar a CLI localmente, certifique-se de que a versão em execução é a 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este exemplo cria uma aplicação de função do Azure e adiciona uma chave de acesso e de ponto final do Cosmos DB para as definições de aplicação.
+Este exemplo cria uma aplicação de Funções do Azure e adiciona uma chave de acesso e um ponto final do Cosmos DB às definições da aplicação.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 
-## <a name="clean-up-deployment"></a>Limpar a implementação
-
-Depois de executar o script de exemplo, pode ser utilizado o comando de seguir para remover o grupo de recursos e todos os recursos relacionados.
-
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos: cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos: cada comando na tabela está ligado a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [início de sessão AZ](https://docs.microsoft.com/cli/azure/#login) | Inicie sessão no Azure. |
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com a localização |
-| [criar contas de armazenamento AZ](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta de armazenamento |
-| [Criar AZ functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar uma nova aplicação de função |
-| [Criar AZ cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Criar base de dados cosmosdb |
-| [eliminação do grupo de AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpeza |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Iniciar sessão no Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com localização |
+| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta do Storage |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar uma nova aplicação de funções |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Criar base de dados cosmosdb |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpeza |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos de script CLI de funções do Azure adicionais podem ser encontrados no [documentação de funções do Azure](../functions-cli-samples.md).
+Pode ver exemplos do script da CLI das Funções do Azure adicionais na [Documentação das Funções do Azure](../functions-cli-samples.md).
 
 
 

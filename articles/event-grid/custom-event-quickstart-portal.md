@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e encaminhar eventos personalizados com o portal do Azure e o Event Grid
 
@@ -43,7 +43,7 @@ Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num gru
 
 Um tópico fornece um ponto final definido pelo utilizador no qual publica os eventos. 
 
-1. Para criar um tópico no grupo de recursos, selecione **Mais serviços** e procure *Event Grid*. Selecione **Tópicos do Event Grid** nas opções disponíveis.
+1. Para criar um tópico no grupo de recursos, selecione **Todos os serviços** e procure *event grid*. Selecione **Tópicos do Event Grid** nas opções disponíveis.
 
    ![Criar um tópico do Event Grid](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Antes de subscrever o tópico, vamos criar o ponto final para a mensagem de even
 
 Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. 
 
-1. Para criar uma subscrição do Event Grid, selecione novamente **Mais Serviços** e procure *Event Grid*. Selecione **Subscrições do Event Grid** nas opções disponíveis.
+1. Para criar uma subscrição do Event Grid, selecione novamente **Todos os Serviços** e procure *event grid*. Selecione **Subscrições do Event Grid** nas opções disponíveis.
 
    ![Criar uma subscrição do Event Grid](./media/custom-event-quickstart-portal/create-subscription.png)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Criar e consultar um armazém de dados SQL do Azure no portal do Azure
 
@@ -41,7 +41,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 Siga estes passos para criar um armazém de dados SQL que contenha os dados de exemplo AdventureWorksDW. 
 
-1. Clique no botão **Novo** no canto superior esquerdo do portal do Azure.
+1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Bases de Dados** na página **Novo** e selecione **Armazém de Dados SQL** em **Destaques** na página **Novo**.
 

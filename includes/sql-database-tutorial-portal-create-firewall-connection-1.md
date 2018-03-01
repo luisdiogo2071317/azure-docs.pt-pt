@@ -2,17 +2,17 @@
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Criar uma base de dados do SQL Server em branco
+## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 
 É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](../articles/sql-database/sql-database-service-tiers.md). A base de dados é criada num [Grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e num [servidor lógico da Base de Dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
 
-Siga estes passos para criar uma base de dados do SQL Server em branco. 
+Siga estes passos para criar uma base de dados SQL vazia. 
 
-1. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Bases de Dados** na página **Novo** e selecione **Criar na Base de Dados SQL** em **Base de Dados SQL** na página **Novo**.
 
-   ![Criar base de dados vazio](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
+   ![create empty-database](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
 3. Preencha o formulário da Base de Dados SQL com as informações seguintes, conforme mostrado na imagem anterior:   
 
@@ -21,7 +21,7 @@ Siga estes passos para criar uma base de dados do SQL Server em branco.
    | **Nome da base de dados** | mySampleDatabase | Para nomes de bases de dados válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). | 
    | **Subscrição** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
-   | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados em branco. |
+   | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
 4. Clique em **Servidor** para criar e configurar um novo servidor para a nova base de dados. Preencha o **Novo formulário de servidor** com as seguintes informações: 
 
@@ -38,7 +38,7 @@ Siga estes passos para criar uma base de dados do SQL Server em branco.
 
 6. Clique em **Escalão de preço** para especificar a camada de serviço, o número de DTUs e a quantidade de armazenamento. Explore as opções para a quantidade de DTUs e de armazenamento que tem disponível para cada camada de serviço. 
 
-7. Para este tutorial, selecione o **padrão** camada de serviço e, em seguida, utilize o controlo de deslize para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
+7. Para este tutorial, selecione a camada de serviço **Standard** e, em seguida, utilize o controlo de deslize para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
 
    ![criar base de dados-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -47,14 +47,14 @@ Siga estes passos para criar uma base de dados do SQL Server em branco.
    > [!IMPORTANT]
    > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\*No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Canadá Central, Canadá leste, França Central, Central na Alemanha, este do Japão, Coreia Central, Sul centro dos EUA, East2 Sul Oriental,-nos , EUA oeste, E.U.A. us Virginia e na Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Canadá Central, Leste do Canadá, Centro de França, Alemanha Central, Leste do Japão, Coreia Central, E.U.A. Centro-Sul, Sudeste Asiático, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar o escalão de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 
-10. Selecione um **agrupamento** para a base de dados em branco (para este tutorial, utilize o valor predefinido). Para obter mais informações sobre agrupamentos, consulte [agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Selecione um **agrupamento** para a base de dados vazia (para este tutorial, utilize o valor predefinido). Para obter mais informações sobre agrupamentos, veja [Agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-11. Clique em **Criar** para aprovisionar a base de dados. Aprovisionamento demora sobre um minuto e um meio para concluir. 
+11. Clique em **Criar** para aprovisionar a base de dados. O aprovisionamento demora cerca de um minuto e meio a concluir. 
 
 12. Na barra de ferramentas, clique em **Notificações** para monitorizar o processo de implementação.
     
@@ -68,13 +68,13 @@ O serviço da Base de Dados SQL cria uma firewall ao nível do servidor, impedin
 > A Base de Dados SQL comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-1. Depois de concluída a implementação, clique em **Bases de dados SQL** no menu do lado esquerdo e, em seguida, clique em **mySampleDatabase** na página **Bases de dados SQL**. Abre a página de descrição geral da base de dados, que mostra o nome de servidor completamente qualificado (tais como **mynewserver20170824.database.windows.net**) e fornece opções para continuar a configuração. 
+1. Depois de concluída a implementação, clique em **Bases de dados SQL** no menu do lado esquerdo e, em seguida, clique em **mySampleDatabase** na página **Bases de dados SQL**. É aberta uma página de descrição geral para a base de dados que mostra o nome de servidor completamente qualificado (como **mynewserver20170824.database.windows.net**) e oferece opções para configuração adicional. 
 
 2. Copie este nome de servidor totalmente qualificado para utilizar para ligar ao seu servidor e às respetivas bases de dados nos seguintes guias de introdução. 
 
    ![nome do servidor](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Clique em **definir a firewall do servidor** na barra de ferramentas. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL. 
+3. Clique em **Definir firewall do servidor** na barra de ferramentas. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL. 
 
    ![regra de firewall do servidor](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 

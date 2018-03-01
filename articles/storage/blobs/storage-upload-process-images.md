@@ -3,22 +3,20 @@ title: Carregar dados de imagem na cloud com o Armazenamento do Azure | Microsof
 description: "Utilizar o armazenamento de blobs do Azure com uma aplicação Web para armazenar dados da aplicação"
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carregar dados de imagem na cloud com o Armazenamento do Azure
 
@@ -26,7 +24,7 @@ Este tutorial é a primeira parte de uma série. Este tutorial mostra como imple
 
 ![Vista do contentor de imagens](media/storage-upload-process-images/figure2.png)
 
-Na primeira parte da série, saiba como:
+Na primeira parte da série, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma conta do Storage
@@ -67,7 +65,7 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Criar contentores de armazenamento de blobs
  
-A aplicação utiliza dois contentores na conta de armazenamento de Blobs. Os contentores são semelhantes às pastas e são utilizados para armazenar blobs. O contentor de _imagens_ é para onde a aplicação carrega imagens com máxima resolução. Na última parte da série, uma aplicação de função do Azure carrega as miniaturas de imagem dimensionadas para o contentor de _miniaturas_. 
+A aplicação utiliza dois contentores na conta de armazenamento de Blobs. Os contentores são semelhantes às pastas e são utilizados para armazenar blobs. O contentor de _imagens_ é para onde a aplicação carrega imagens com máxima resolução. Numa secção mais adiante da série, uma aplicação de função do Azure carrega as miniaturas de imagem dimensionadas para o contentor de _miniaturas_. 
 
 Obtenha a chave da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Em seguida, utilize esta chave para criar dois contentores com o comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ No comando seguinte, `<blob_storage_account>` é o nome da conta de armazenament
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -200,7 +198,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). No menu à esquer
 
 Escolha um ficheiro com o seletor de ficheiros e selecione **Carregar**.
 
-Navegue novamente para a sua aplicação para verificar se a imagem carregada para o contentor de **miniaturas** está visível.
+Navegue novamente para a aplicação para verificar se a imagem carregada no contentor de **miniaturas** está visível.
 
 ![Vista do contentor de imagens](media/storage-upload-process-images/figure2.png)
 
