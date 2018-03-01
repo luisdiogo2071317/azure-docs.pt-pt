@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: rajanaki
 ms.openlocfilehash: d487c1fcf7fb6444c2b8489df839a6450715ae0a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-errors-reported-during-the-process-of-failback"></a>Resolver problemas de erros comunicados durante o processo de reativação pós-falha
 Reativação pós-falha essencialmente envolve dois passos principais. Um é para voltar a proteger máquinas virtuais do Azure no local, o segundo é realmente efetuar a reativação pós-falha a partir do Azure no local.

@@ -35,7 +35,7 @@ Seguem-se algumas das funcionalidades do Premium Storage:
 
 * **Discos de armazenamento Premium**
 
-    Armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. Armazenamento Premium suporta-série DS, série DSv2-série GS série, série Ls e série Fs VMs. Tem uma opção de sete tamanhos de discos: P4 (32GB), P6 (64GB), P10 (128GB), P20 (GB de 512), P30 (1024GB), P40 (GB de 2048), P50 (4095GB). P4 e tamanhos de disco P6 ainda só são suportados para discos geridos. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos de aplicação, poderá anexar um ou mais discos para a VM. Vamos descrever as especificações com maior detalhe em [metas de desempenho e escalabilidade do armazenamento Premium](#scalability-and-performance-targets).
+    Armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas. Armazenamento Premium suporta-série DS, série DSv2-série GS série, série Ls, série Fs e série Esv3 VMs. Tem uma opção de sete tamanhos de discos: P4 (32GB), P6 (64GB), P10 (128GB), P20 (GB de 512), P30 (1024GB), P40 (GB de 2048), P50 (4095GB). P4 e tamanhos de disco P6 ainda só são suportados para discos geridos. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos de aplicação, poderá anexar um ou mais discos para a VM. Vamos descrever as especificações com maior detalhe em [metas de desempenho e escalabilidade do armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de páginas Premium**
 
@@ -62,7 +62,7 @@ Seguem-se algumas das funcionalidades do Premium Storage:
 ## <a name="supported-vms"></a>VMs suportadas
 Armazenamento Premium suporta-série DS, série DSv2-série GS série, série Ls, série Fs e B-série VMs. Pode utilizar discos de armazenamento standard e premium com estes tipos VM. Não é possível utilizar discos de armazenamento premium com a série VM que não é Premium compatível com o armazenamento.
 
-Para obter informações sobre tipos VM e tamanhos do Azure para Windows, consulte [tamanhos de Windows VM](../articles/virtual-machines/windows/sizes.md). Para obter informações sobre os tamanhos no Azure e tipos VM Linux, consulte [tamanhos de VM com Linux](../articles/virtual-machines/linux/sizes.md).
+Para obter informações sobre os tipos e os tamanhos de VMs no Azure para Windows, veja [Windows VM sizes](../articles/virtual-machines/windows/sizes.md) (Tamanhos de VMs do Windows). Para obter informações sobre os tipos e os tamanhos de VMs no Azure para Linux, veja [Linux VM sizes](../articles/virtual-machines/linux/sizes.md) (Tamanhos de VMs do Linux).
 
 Estas são algumas das funcionalidades da-série DS, série DSv2-série GS-série, série Ls e série Fs VMs:
 
@@ -236,10 +236,10 @@ As seguintes distribuições de Linux tem foi validadas para Premium Storage do 
 
 | Distribuição | Versão | Kernel suportado | Detalhes |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-us-30GB |
-| Debian | 7, 8. x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioridade-v20150213 <br> SUSE-sles-12-v20150213 |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 necessário](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a nota na secção seguinte* |

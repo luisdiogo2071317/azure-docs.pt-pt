@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -145,15 +145,14 @@ Se a sincronização falhar num servidor:
 <a id="replica-not-ready"></a>**Falha de sincronização, com o erro: "0x80c8300f - a réplica não está pronta para efetuar a operação necessária"**  
 Este problema é esperado se criar um ponto final da nuvem e utilizar uma partilha de ficheiros do Azure que contém dados. Quando a tarefa de deteção de alteração estiver concluída em execução na partilha de ficheiros do Azure (pode demorar até 24 horas), a sincronização deve começar a funcionar corretamente.
 
-<a id="broken-sync-files"></a>**Resolver problemas de ficheiros individuais que não conseguem ser sincronizados**  
-Se os ficheiros individuais falharem a sincronizar:
-1. No Visualizador de eventos, reveja os registos de eventos operacionais e de diagnóstico, localizados em Services\Microsoft\FileSync\Agent e aplicações.
-2. Certifique-se de que não existem nenhum alças abertas no ficheiro.
 
     > [!NOTE]
-    > Sincronização de ficheiros do Azure periodicamente tira instantâneos VSS para sincronizar os ficheiros que tenham identificadores abertos.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Estamos atualmente não suportam a movimentação de recurso para outra subscrição ou, mover um Azure AD diferentes de inquilino.  Se a subscrição é movido para um inquilino diferente, a partilha de ficheiros do Azure torna-se inacessíveis para o nosso serviço com base na alteração de propriedade. Se o inquilino foi alterado, terá de eliminar os pontos finais de servidor e o ponto final da nuvem (consulte o artigo gestão de sincronização de grupo secção para obter instruções sobre como limpar a partilha de ficheiros do Azure para ser novamente utilizado) e recrie o grupo de sincronização.
+
+<a id="doesnt-have-enough-free-space"></a>**Este computador não tem suficiente espaço livre de erro**  
+Se o portal mostra o estado "este computador não tem espaço livre suficiente" o problema pode ser que inferior a 1 GB de espaço livre permaneça no volume.  Por exemplo, se existir um volume de 1,5 GB, sincronização só será possível utilizar .5GB se acessos este problema, volte expandir o tamanho do volume a ser utilizado para o ponto final do servidor.
 
 ## <a name="cloud-tiering"></a>Disposição em camadas na cloud 
 Existem dois caminhos para falhas na nuvem em camadas:

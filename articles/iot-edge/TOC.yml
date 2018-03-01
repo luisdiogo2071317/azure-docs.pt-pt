@@ -5,6 +5,7 @@
     - name: Acerca do Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Inícios rápidos
+  expanded: true
   items:
     - name: Implementar no Edge - Linux/Mac
       href: quickstart-linux.md

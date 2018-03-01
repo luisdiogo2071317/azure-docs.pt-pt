@@ -1,3 +1,5 @@
+# [Documentação da Faturação do Azure](index.md)
+
 # Introdução
 ## [Evitar custos inesperados](billing-getting-started.md)
 ## [Criar serviços incluídos na conta gratuita](billing-create-free-services-included-free-account.md)

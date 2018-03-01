@@ -1,3 +1,5 @@
+# [Documentação dos Serviços Cloud](index.md)
+
 # Descrição geral
 ## [O que é um Serviço Cloud?](cloud-services-choose-me.md)
 ## [Ficheiros de configuração do serviço cloud e empacotamento](cloud-services-model-and-package.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para o movimento de dados
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -122,7 +122,7 @@ Rede virtual é uma representação lógica da rede na nuvem. Pode ligar uma red
 
 A tabela seguinte resume a rede e recomendações de configuração de tempo de execução automática alojada integração com base em diferentes combinações de origem e de destino localizações para o movimento de dados de híbrida.
 
-| Origem      | Destino                              | Configuração da rede                    | Configuração de tempo de execução de integração                |
+| Origem      | Destino                              | Configuração da rede                    | Configuração do runtime de integração                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (ponto a site ou site a site) | O tempo de execução automática alojada integração pode ser instalado no local ou num Azure virtual machine (VM) na VNet |
 | Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (Peering privado)           | O tempo de execução automática alojada integração pode ser instalado no local ou numa VM do Azure na VNet |
@@ -150,8 +150,8 @@ A tabela seguinte fornece **porta de saída** e requisitos de domínio para o **
 | `*.servicebus.windows.net`    | 443, 80        | Necessário para o tempo de execução automática alojada integração para ligar aos serviços de movimento de dados no Data Factory |
 | `*.core.windows.net`          | 443            | Utilizada pelo runtime integração personalizada alojada para ligar à conta de armazenamento do Azure quando utiliza o [testado cópia](copy-activity-performance.md#staged-copy) funcionalidade. |
 | `*.frontend.clouddatahub.net` | 443            | Necessário pelo tempo de execução automática alojada integração para ligar ao serviço do Azure Data Factory. |
-| `*.database.windows.net`      | 1433           | (Opcional) necessárias quando o destino for SQL Database do Azure / do armazém de dados SQL do Azure. Utilize a funcionalidade de teste cópia para copiar dados para o Azure SQL da base de dados/Azure SQL Data Warehouse sem abrir a porta 1433. |
-| `*.azuredatalakestore.net`    | 443            | (Opcional) necessárias quando o destino é o Azure Data Lake store |
+| `*.database.windows.net`      | 1433           | (Opcional) necessário quando copiar de/para a base de dados SQL do Azure / do armazém de dados SQL do Azure. Utilize a funcionalidade de teste cópia para copiar dados para o Azure SQL da base de dados/Azure SQL Data Warehouse sem abrir a porta 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Opcional) necessário ao copiar de/para é o Azure Data Lake store |
 
 > [!NOTE] 
 > Poderá ter de gerir portas / domínios a listas brancas da firewall da empresa nível conforme exigido pelas origens de dados correspondentes. Esta tabela só utiliza a exemplos de SQL Database do Azure, o Azure SQL Data Warehouse, o Azure Data Lake Store.   

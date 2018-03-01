@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 87ed4015e06e0a05e628e8e356b835b9b886eb5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Compilar uma aplicação Web em Python e PostgreSQL no Azure
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma base de dados PostgreSQL no Azure
-> * Ligar uma aplicação do Python ao MySQL
+> * Ligar uma aplicação Python ao MySQL
 > * Implementar a aplicação no Azure
 > * Atualizar o modelo de dados e voltar a implementar a aplicação
 > * Gerir a aplicação no portal do Azure
@@ -86,7 +86,7 @@ cd flask-postgresql-app
 git revert modelChange --no-edit
 ```
 
-Este repositório de exemplo contém a aplicação [Flask](http://flask.pocoo.org/). 
+Este repositório de exemplo contém uma aplicação [Flask](http://flask.pocoo.org/). 
 
 ### <a name="run-the-application"></a>Executar a aplicação
 
@@ -191,7 +191,7 @@ A CLI do Azure confirma a criação da regra de firewall com o resultado semelha
 
 Criar um utilizador de base de dados com acesso a apenas uma base de dados. Utilize estas credenciais para evitar conceder o acesso total da aplicação ao servidor.
 
-Ligar à base de dados (é-lhe pedida a palavra-passe de administrador).
+Ligue à base de dados (é-lhe pedida a palavra-passe de administrador).
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
@@ -247,7 +247,7 @@ O repositório de Git já contém os seguintes ficheiros que precisa para execut
 
 ### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web

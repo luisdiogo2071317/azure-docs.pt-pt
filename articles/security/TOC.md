@@ -1,4 +1,3 @@
-
 # [Documentação da Segurança do Azure](index.md)
 # [Arquitetura e design](azure-security.md)
 ## [Deteção avançada de ameaças](azure-threat-detection.md)
@@ -110,9 +109,9 @@
 ### [Requisito 10 - monitorização](./blueprints/pci-dss-requirement-10-monitoring.md)
 ### [Requisito 11 - testes](./blueprints/pci-dss-requirement-11-testing.md)
 ### [Requisito 12 - política](./blueprints/pci-dss-requirement-12-policy.md)
-
 ## [UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ### [Descrição geral de princípios](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+## [Dados de estado de funcionamento HIPAA/HITRUST e AI](./blueprints/azure-health.md)
 
 # [Documentos técnicos](security-white-papers.md)
 # [Descrições gerais técnicas](security-overviews.md)
@@ -139,5 +138,4 @@
 #### [Validação de entradas](azure-security-threat-modeling-tool-input-validation.md)
 #### [Dados confidenciais](azure-security-threat-modeling-tool-sensitive-data.md)
 #### [Gestão de sessões](azure-security-threat-modeling-tool-session-management.md)
-
 

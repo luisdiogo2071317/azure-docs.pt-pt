@@ -1,3 +1,5 @@
+# [Documentação dos Hubs de Notificação](index.md)
+
 # Descrição geral
 ## [O que são os Hubs de Notificação do Azure](notification-hubs-push-notification-overview.md)
 # Introdução

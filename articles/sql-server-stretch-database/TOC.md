@@ -1,3 +1,5 @@
+# [Documentação do SQL Server Stretch Database](index.md)
+
 # Descrição geral
 ## [O que é a Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
 ## [Limitações e problemas de bloqueios](/sql/sql-server/stretch-database/limitations-for-stretch-database)

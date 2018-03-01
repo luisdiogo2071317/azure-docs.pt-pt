@@ -1,4 +1,4 @@
-- name: Serviço de Aplicações no Linux
+- name: Documentação do Serviço de Aplicações no Linux
   href: index.yml
 - name: Descrição geral
   items:
@@ -78,7 +78,7 @@
             - name: Implementar através da sincronização da cloud
               href: ../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
             - name: Implementar continuamente
-              href: ../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+              href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
             - name: Implementar a partir do Git local
               href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
             - name: Implementar com modelo
@@ -188,7 +188,7 @@
     - name: Cookbooks
       items:
         - name: Arquiteturas de Referência
-          href: ../../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: Scripts de Implementação
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Resolução de problemas

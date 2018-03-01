@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: abaad6514b24bd4bcc923d87a7b721cc80648c47
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Ligar IoT DevKit AZ3166 para o Azure IoT Suite para monitorização remota
 
 Neste tutorial, irá aprender a executar uma aplicação de exemplo no seu DevKit para enviar dados de sensor para o Azure IoT Suite.
+
+O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é uma placa de compatível de Arduino tudo-em-um com periféricos avançados e sensores. Pode desenvolver para o mesmo utilizando [extensão do Visual Studio Code para Arduino](https://aka.ms/arduino). E é fornecido com um crescer [catálogo projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) para ajudá-lo soluções de Internet das coisas (IoT) de protótipo tirar partido dos serviços do Microsoft Azure.
 
 ## <a name="what-you-need"></a>Do que precisa
 
@@ -122,3 +124,4 @@ Se tiver problemas, consulte [perguntas mais frequentes](https://microsoft.githu
 Agora que aprendeu como ligar um dispositivo DevKit para o Azure IoT Suite e visualizar os dados de sensor, Eis os passos sugeridos:
 
 * [Descrição geral do Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Ligue um dispositivo de MXChip IoT DevKit para a aplicação Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

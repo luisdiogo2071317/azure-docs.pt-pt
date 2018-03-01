@@ -16,16 +16,16 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Todos os tópicos para o serviço do Azure SQL Data Warehouse
 Este tópico apresenta uma lista de cada tópico que se aplica diretamente para o **SQL Data Warehouse** serviço do Azure. Pode procurar esta página Web para palavras-chave, utilizando **Ctrl + F**, para localizar os tópicos de interesse atual.
 
-## <a name="new"></a>novo
-| &nbsp; | Título | Descrição |
+## <a name="new"></a>Novo
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 1 |[Cópias de segurança do SQL Data Warehouse](sql-data-warehouse-backups.md) |Saiba mais sobre cópias de segurança do armazém de dados do SQL Server da base de dados incorporados que lhe permite restaurar um SQL Data Warehouse do Azure para um ponto de restauro ou uma região geográfica diferentes. |
 
@@ -38,7 +38,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 3 |[Restauro do SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |* * Posso restaurar um armazém de dados em pausa? * * para restaurar um armazém de dados que está em pausa, terá primeiro colocá-lo novamente online. Assim que o armazém de dados estiver novamente online, tem de pontos de restauro à sua escolha de sete dias. * * Restaurar para uma região georredundante * se estiver a utilizar o armazenamento georredundante, pode restaurar o armazém de dados para o seu centro de dados emparelhado numa região geográfica diferente. O armazém de dados é restaurado a partir da última cópia de segurança diária. * * Restaure linha cronológica * * pode restaurar uma base de dados para qualquer ponto de restauro nos últimos sete dias. Instantâneos de iniciar a cada quatro para oito horas e estão disponíveis para sete dias. Quando um instantâneo com mais de sete dias, expirar e o respetivo ponto de restauro já não está disponível. * * Restaure os custos * * os encargos de armazenamento para o armazém de dados restaurada é faturado a taxa de Premium Storage do Azure. Se colocar em pausa de um armazém de dados restaurada, são-lhe cobrados para armazenamento a taxa de Premium Storage do Azure. A vantagem de colocar em pausa não é que são encargos |2016-09-29 |
 
 ## <a name="get-started"></a>Introdução
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 4 |[Authentication to Azure SQL Data Warehouse (Autenticação no Azure SQL Data Warehouse)](sql-data-warehouse-authentication.md) |Authentication do Azure Active Directory (AAD) e o SQL Server para o Azure SQL Data Warehouse. |
 | 5 |[Melhores práticas do Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) |Recomendações e melhores práticas que deve saber quando desenvolve soluções para o Azure SQL Data Warehouse. Estas irão ajudá-lo a ser bem-sucedido. |
@@ -56,7 +56,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 17 |[Consultar o Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Consultar o SQL Data Warehouse com o Visual Studio. |
 
 ## <a name="develop"></a>Programar
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 18 |[Otimizar as transações do SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md) |Melhores práticas obter orientações sobre a escrita de atualizações de transação eficiente no Azure SQL Data Warehouse |
 | 19 |[Gestão de simultaneidade e carga de trabalho do armazém de dados do SQL Server](sql-data-warehouse-develop-concurrency.md) |Compreenda a gestão de simultaneidade e carga de trabalho no Azure SQL Data Warehouse para desenvolver soluções. |
@@ -73,7 +73,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 30 |[As decisões de conceção e técnicas de programação para o SQL Data Warehouse](sql-data-warehouse-overview-develop.md) |Conceitos de desenvolvimento, as decisões de conceção, recomendações e técnicas de programação para o SQL Data Warehouse. |
 
 ## <a name="manage"></a>Gerir
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 31 |[Gerir a capacidade de computação no Azure SQL Data Warehouse (descrição geral)](sql-data-warehouse-manage-compute-overview.md) |Desempenho ampliação capacidades no Azure SQL Data Warehouse. Aumentar horizontalmente ao ajustar as DWUs ou colocar em pausa e retomar a recursos de computação para reduzir os custos. |
 | 32 |[Gerir a capacidade de computação no Azure SQL Data Warehouse (portal do Azure)](sql-data-warehouse-manage-compute-portal.md) |Tarefas de portais do Azure para gerir poder de computação. Dimensionar os recursos de computação ao ajustar as DWUs. Ou, colocar em pausa e retomar a recursos de computação para reduzir os custos. |
@@ -89,7 +89,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 42 |[Restaurar um armazém de dados SQL do Azure (REST API)](sql-data-warehouse-restore-database-rest-api.md) |Tarefas da REST API para restaurar um Azure SQL Data Warehouse. |
 
 ## <a name="tables-and-indexes"></a>Tabelas e índices
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 43 |[Tipos de dados de tabelas no armazém de dados do SQL Server](sql-data-warehouse-tables-data-types.md) |Introdução aos tipos de dados de tabelas do Azure SQL Data Warehouse. |
 | 44 |[Distribuir a tabelas no armazém de dados do SQL Server](sql-data-warehouse-tables-distribute.md) |Introdução à distribuição de tabelas do Azure SQL Data Warehouse. |
@@ -100,7 +100,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 49 |[Tabelas temporárias no SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Introdução ao tabelas temporárias no Azure SQL Data Warehouse. |
 
 ## <a name="integrate"></a>Integrar
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 50 |[Utilize o Azure Data Factory com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Sugestões de utilização do Azure Data Factory (ADF) com o Azure SQL Data Warehouse para desenvolver soluções. |
 | 51 |[Utilização do Azure Machine Learning com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Tutorial para utilizar o Azure Machine Learning com o Azure SQL Data Warehouse para desenvolver soluções. |
@@ -109,7 +109,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 54 |[Tirar partido de outros serviços com o SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Ferramentas e parceiros com soluções que se integram com o SQL Data Warehouse. |
 
 ## <a name="load"></a>Carregar
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 55 |[Carregar dados do blob storage do Azure para o Azure SQL Data Warehouse (Azure Data Factory)](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md) |Saiba como carregar dados com o Azure Data Factory |
 | 56 |[Carregar dados do blob storage do Azure para o SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |Saiba como utilizar o PolyBase para carregar dados do blob storage do Azure para o SQL Data Warehouse. Carregar tabelas alguns dos dados públicos para o esquema do armazém de dados de revenda Contoso. |
@@ -123,7 +123,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 64 |[Carregar dados para o Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md) |Saiba os cenários comuns para dados de carregamento para o SQL Data Warehouse. Estes incluem utilizando o PolyBase, armazenamento de Blobs do Azure, ficheiros simples e o envio de disco. Também pode utilizar ferramentas de terceiros. |
 
 ## <a name="migrate"></a>Migrar
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 65 |[Migrar o seu código SQL ao SQL Data Warehouse](sql-data-warehouse-migrate-code.md) |Sugestões para migrar o código do SQL Server para o Azure SQL Data Warehouse para desenvolver soluções. |
 | 66 |[Migrar os dados](sql-data-warehouse-migrate-data.md) |Sugestões para migrar os dados para o Azure SQL Data Warehouse para desenvolver soluções. |
@@ -132,14 +132,14 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 69 |[Migre a sua solução para o SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Orientações de migração para colocar a sua solução de plataforma do Azure SQL Data Warehouse. |
 
 ## <a name="partners"></a>Parceiros
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 70 |[Parceiros do armazém de dados do SQL Server business intelligence](sql-data-warehouse-partner-business-intelligence.md) |Apresenta uma lista de parceiros de intelligence de negócios de terceiros com soluções que suportam o SQL Data Warehouse. |
 | 71 |[Parceiros de integração de dados do armazém de dados do SQL Server](sql-data-warehouse-partner-data-integration.md) |Apresenta uma lista de parceiros terceiros com soluções de integração de dados que suportam o Azure SQL Data Warehouse. |
 | 72 |[Parceiros de gestão de dados do armazém de dados do SQL Server](sql-data-warehouse-partner-data-management.md) |Apresenta uma lista de parceiros de gestão de dados de terceiros com soluções que suportam o SQL Data Warehouse. |
 
 ## <a name="reference"></a>Referência
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 73 |[Tópicos de referência para o SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Ligações de conteúdo de referência para o SQL Data Warehouse. |
 | 74 |[Cmdlets do PowerShell e APIs REST para o SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md) |Localize os principais cmdlets do PowerShell para o Azure SQL Data Warehouse, incluindo como colocar em pausa e retomar uma base de dados. |
@@ -148,7 +148,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 77 |[Vistas de sistema](sql-data-warehouse-reference-tsql-system-views.md) |As ligações ao sistema vistas conteúdo para o SQL Data Warehouse. |
 
 ## <a name="security"></a>Segurança
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 78 |[Suportem de clientes de nível inferior do armazém de dados do SQL Server - para máscara de dados de auditoria e dinâmicos](sql-data-warehouse-auditing-downlevel-clients.md) |Saiba mais sobre o suporte de clientes de nível inferior do armazém de dados do SQL Server para auditoria de dados |
 | 79 |[Auditoria no armazém de dados SQL do Azure](sql-data-warehouse-auditing-overview.md) |Introdução ao Azure SQL Data Warehouse de auditoria |
@@ -157,7 +157,7 @@ Esta secção lista os artigos que foram atualizados recentemente, em que a atua
 | 82 |[Proteger uma base de dados no armazém de dados do SQL Server](sql-data-warehouse-overview-manage-security.md) |Sugestões para proteger uma base de dados no Azure SQL Data Warehouse para desenvolver soluções. |
 
 ## <a name="miscellaneous"></a>Diversos
-| &nbsp; | Título | Descrição |
+| &nbsp; | Cargo | Descrição |
 | ---:|:--- |:--- |
 | 83 |[Instalar Visual Studio e SSDT para SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Instalar o Visual Studio e SQL Server Development Tools (SSDT) para o Azure SQL Data Warehouse |
 | 84 |[Migração para detalhes de armazenamento Premium](sql-data-warehouse-migrate-to-premium-storage.md) |Instruções para migrar um armazém de dados existente do SQL Server para o premium storage |

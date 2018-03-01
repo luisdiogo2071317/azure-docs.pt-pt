@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -152,11 +152,11 @@ Pode monitorizar a atividade de cópia executar na IU de "Autor e Monitor" da f�
 
 Para monitorizar visualmente a atividade de cópia executar, vá para a fábrica de dados -> **autor & Monitor** -> **separador Monitor**, verá uma lista de pipeline é executada com uma ligação de "Vista atividade estiver em execução" no  **Ações** coluna. 
 
-![Monitorizar o pipeline é executada](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+![Monitorizar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
 Clique para ver a lista de atividades esta execução de pipeline. No **ações** coluna tem ligações para a entrada da atividade de cópia, saída, erros (se falhar a execução da atividade cópia) e os detalhes.
 
-![Execuções de atividade do monitor](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+![Monitorização de execuções de atividade](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
 Clique em de "**detalhes**" ligação em **ações** para ver detalhes de execução da atividade de cópia e as características de desempenho. Mostra informações incluindo volume/linhas/copiados os ficheiros de dados de origem para sink, débito, os passos que realiza com duração correspondente e utilizado configurações para o seu cenário de cópia.
 

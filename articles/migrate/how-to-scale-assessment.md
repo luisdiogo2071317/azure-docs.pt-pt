@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d588dc6037b6295594301b577fe9df31d169a9e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar num ambiente VMware grande
 
@@ -84,7 +84,15 @@ Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
    Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
 
-    Para a versão de OVA 1.0.8.59
+    Para a versão de OVA 1.0.9.2
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+
+    Para a versão OVA 1.0.8.59
 
     **Algoritmo** | **Valor de hash**
     --- | ---
@@ -158,7 +166,7 @@ A tabela seguinte lista também os resultados da avaliação que vai ser afetado
 Para cada deteção que é necessário executar, execute o recoletor para detetar VMs no âmbito necessário. Após o outro, execute as deteções um. Não são suportadas em simultâneo deteções e cada deteção tem de ter um âmbito diferente.
 
 1. Na consola do vSphere Client, clique com o botão direito do rato na VM > **Abrir Consola**.
-2. Forneça o idioma, fuso horário e preferências de palavra-passe para a aplicação.
+2. Forneça as preferências de idioma, fuso horário e palavra-passe para a aplicação.
 3. No ambiente de trabalho, selecione o **executar recoletor** atalho.
 4. No recoletor migrar do Azure, abra **configurar pré-requisitos** e, em seguida:
 
@@ -168,7 +176,7 @@ Para cada deteção que é necessário executar, execute o recoletor para deteta
    
    b. Se a VM acede à internet através de um proxy, selecione **as definições de Proxy**e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação.
 
-   O recoletor verifica que o serviço do recoletor está em execução. O serviço está instalado por predefinição na VM do recoletor.
+   O recoletor verifica se o serviço do recoletor está em execução. O serviço está instalado por predefinição na VM do recoletor.
 
    c. Transfira e instale o VMware PowerCLI.
 

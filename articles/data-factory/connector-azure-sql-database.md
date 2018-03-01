@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e4d14f396b3a928975b671d10254cfbcc822a0d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a4d2ccb4b4ba27983537f26e66b5c279f427d466
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar os dados de ou para SQL Database do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,12 @@ Pode copiar dados de/para SQL Database do Azure para qualquer arquivo de dados s
 
 Especificamente, este conector de SQL Database do Azure suporta:
 
-- Cópia de dados utilizando a autenticação SQL.
+- Copiar dados utilizando **autenticação SQL**, e **autenticação de token de aplicação do Azure Active Directory** com o Principal de serviço ou a identidade de serviço geridas (MSI).
 - Como origem, a obtenção de dados através de consulta de SQL Server ou o procedimento armazenado.
 - Como sink, acrescentar dados para a tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
+
+> [!IMPORTANT]
+> Se copiar dados através de Runtime de integração do Azure, configure [Firewall de servidor de SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para [permitir que os serviços do Azure aceder ao servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se copiar os dados utilizando o tempo de execução do Self-hosted integração, configure a firewall do servidor SQL do Azure para permitir que o intervalo IP adequado, incluindo o IP do computador que é utilizada para ligar à SQL Database do Azure.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -52,13 +55,21 @@ As seguintes propriedades são suportadas para o serviço ligado de SQL Database
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **AzureSqlDatabase** | Sim |
-| connectionString |Especificar as informações necessárias para ligar à instância do SQL Database do Azure para a propriedade connectionString. Apenas autenticação básica é suportada. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
+| connectionString |Especificar as informações necessárias para ligar à instância do SQL Database do Azure para a propriedade connectionString. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
+| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim quando utilizar a autenticação do AAD com o Principal de serviço. |
+| servicePrincipalKey | Especifique a chave da aplicação. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim quando utilizar a autenticação do AAD com o Principal de serviço. |
+| inquilino | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim quando utilizar a autenticação do AAD com o Principal de serviço. |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
-> [!IMPORTANT]
-> Configurar [Firewall de base de dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) o servidor de base de dados para [permitir que os serviços do Azure aceder ao servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se estiver a copiar dados para a SQL Database do Azure a partir do Azure exteriores, incluindo a partir de origens de dados no local com o data factory personalizada alojada Runtime de integração, configurar o intervalo de endereços IP adequado para a máquina que está a enviar dados para o Azure SQL Base de dados.
+Para tipos de autenticação diferentes, consulte as secções seguintes na pré-requisitos e exemplos JSON respetivamente:
 
-**Exemplo:**
+- [Utilizando a autenticação SQL](#using-sql-authentication)
+- [Utilizar a autenticação de token de aplicação AAD - principal de serviço](#using-service-principal-authentication)
+- [Utilizando a autenticação de token do AAD aplicação - identidade de serviço geridas](#using-managed-service-identity-authentication)
+
+### <a name="using-sql-authentication"></a>Utilizando a autenticação SQL
+
+**Exemplo de serviço ligado através da autenticação do SQL Server:**
 
 ```json
 {
@@ -69,6 +80,113 @@ As seguintes propriedades são suportadas para o serviço ligado de SQL Database
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Utilizar a autenticação principal de serviço
+
+Para utilizar o serviço principal autenticação com base em AAD aplicação token, siga estes passos:
+
+1. **[Criar uma aplicação do Azure Active Directory a partir do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Anote o nome da aplicação e os valores seguintes que utilizar para definir o serviço ligado:
+
+    - ID da aplicação
+    - Chave da aplicação
+    - ID do inquilino
+
+2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD tem de ser um utilizador do AAD ou grupo AAD, mas não pode ser um principal de serviço. Este passo é realizado para que, num passo subsequente, pode utilizar uma identidade do AAD para criar um utilizador de base de dados contida para o serviço principal.
+
+3. **Criar um utilizador de base de dados contida para o principal de serviço**, estabelecendo ligação à base de dados de/para a qual pretende copiar os dados utilizando ferramentas como o SSMS, com um AAD identidade ter, pelo menos, ALTER qualquer permissão de utilizador e a executar o seguinte T-SQL. Saiba mais no utilizador de uma base de dados contida [aqui](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Conceder as permissões necessárias do principal de serviço** forma que normalmente para os utilizadores do SQL Server, por exemplo, executando abaixo:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. ADF, configure um serviço ligado de SQL Database do Azure.
+
+
+**Exemplo de serviço ligado através da autenticação principal de serviço:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Utilizando a autenticação de identidade de serviço geridas
+
+Uma fábrica de dados pode ser associada com um [identidade do serviço (MSI) gerido](data-factory-service-identity.md), que representa esta fábrica de dados específicos. Pode utilizar esta identidade de serviço para autenticação de SQL Database do Azure, o que permite que este designado fábrica de dados de acesso e de cópia de/para a base de dados.
+
+Para utilizar MSI baseado em autenticação de token do AAD aplicação, siga estes passos:
+
+1. **Crie um grupo no Azure AD e tornar a fábrica do MSI num membro do grupo**.
+
+    a. Determinar a identidade de serviço do data factory no portal do Azure. Aceda à fábrica de dados -> propriedades -> cópia o **ID do serviço de identidade**.
+
+    b. Instalar o [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo, início de sessão com `Connect-AzureAD` de comandos e execute os seguintes comandos para criar um grupo e adicionar a fábrica de dados MSI como membro.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD pode ser um utilizador do AAD ou grupo AAD. Se conceder o grupo com MSI uma função de administrador, ignore o passo 3 e 4 abaixo, o administrador iria têm acesso total à BD.
+
+3. **Criar um utilizador de base de dados contida para o grupo AAD**, estabelecendo ligação à base de dados de/para a qual pretende copiar os dados utilizando ferramentas como o SSMS, com um AAD identidade ter, pelo menos, ALTER qualquer permissão de utilizador e a executar o seguinte T-SQL. Saiba mais no utilizador de uma base de dados contida [aqui](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Conceder as permissões necessárias do grupo AAD** forma que normalmente para os utilizadores do SQL Server, por exemplo, executando abaixo:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. ADF, configure um serviço ligado de SQL Database do Azure.
+
+**Exemplo de serviço ligado através da autenticação de MSI:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {

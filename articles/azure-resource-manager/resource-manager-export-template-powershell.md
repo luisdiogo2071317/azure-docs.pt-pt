@@ -11,28 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6e36e12717eea61477f55d2d98c00bff31ec643
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exportar os modelos Azure Resource Manager com o PowerShell
 
 O Gestor de Recursos permite-lhe exportar um modelo do Gestor de Recursos a partir de recursos existentes na sua subscrição. Pode utilizar esse modelo gerado para saber mais sobre a sintaxe do modelo ou para automatizar a reimplementação da sua solução conforme necessário.
 
-É importante ter em conta que existem duas formas diferentes de exportar um modelo:
+É importante ter em atenção que existem duas formas diferentes de exportar um modelo:
 
-* Pode exportar o modelo que foi utilizado para uma implementação. O modelo exportado inclui todos os parâmetros e variáveis exatamente como apareciam no modelo original. Esta abordagem é útil se precisar de obter um modelo.
-* Pode exportar um modelo que representa o estado atual do grupo de recursos. O modelo exportado não é baseado em qualquer modelo utilizado para implementação. Em vez disso, cria um modelo que é um instantâneo do grupo de recursos. O modelo exportado tem muitos valores codificados e provavelmente não tantos parâmetros como normalmente seriam definidos. Esta abordagem é útil quando modificar o grupo de recursos. Agora, tem de capturar o grupo de recursos como modelo.
+* Pode exportar o **modelo utilizado para uma implementação**. O modelo exportado inclui todos os parâmetros e variáveis exatamente como apareciam no modelo original. Esta abordagem é útil se precisar de obter um modelo.
+* Pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em qualquer modelo utilizado para implementação. Em vez disso, cria um modelo que é um "instantâneo" ou "cópia de segurança" do grupo de recursos. O modelo exportado tem muitos valores codificados e provavelmente não tantos parâmetros como normalmente seriam definidos. Utilize esta opção para voltar a implementar recursos para o mesmo grupo de recursos. Para utilizar este modelo para outro grupo de recursos, poderá ter de significativamente modificá-lo.
 
-Este tópico mostra ambas as abordagens.
+Este artigo mostra ambas as abordagens.
 
 ## <a name="deploy-a-solution"></a>Implementar uma solução
 
-Para ilustrar ambas as abordagens para exportar um modelo, vamos começar por implementar uma solução para a sua subscrição. Se já tiver um grupo de recursos na sua subscrição que pretende exportar, tem de implementar esta solução. No entanto, o resto deste artigo refere-se para o modelo para esta solução. O script de exemplo implementa uma conta de armazenamento.
+Para ilustrar ambas as abordagens para exportar um modelo, vamos começar por implementar uma solução para a sua subscrição. Se já tiver um grupo de recursos na sua subscrição que pretende exportar, não tem de implementar esta solução. No entanto, o resto deste artigo refere-se para o modelo para esta solução. O script de exemplo implementa uma conta de armazenamento.
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
@@ -61,7 +61,7 @@ Abra o ficheiro e tenha em atenção que é o modelo exato utilizado para a impl
 
 ## <a name="export-resource-group-as-template"></a>Exportar grupo de recursos como modelo
 
-Em vez de obter um modelo do histórico de implementação, pode obter um modelo que representa o estado atual de um grupo de recursos utilizando o [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) comando. Utilize este comando quando foram efetuadas várias alterações para o grupo de recursos e nenhum modelo existente representa todas as alterações.
+Em vez de obter um modelo do histórico de implementação, pode obter um modelo que representa o estado atual de um grupo de recursos utilizando o [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) comando. Utilize este comando quando foram efetuadas várias alterações para o grupo de recursos e nenhum modelo existente representa todas as alterações. Destina-se como um instantâneo do grupo de recursos, pode utilizar para voltar para o mesmo grupo de recursos. Para utilizar o modelo exportado para outras soluções, significativamente tem de o modificar.
 
 ```powershell
 Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
@@ -217,7 +217,7 @@ Agora, o seu modelo tem este aspeto:
 
 Volte a implementar o modelo de modificação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter informações sobre como utilizar o portal para exportar um modelo, consulte [exportar um modelo Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
 * Para definir os parâmetros de modelo, consulte o artigo [criação de modelos](resource-group-authoring-templates.md#parameters).
 * Para sugestões sobre como resolver erros comuns de implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).

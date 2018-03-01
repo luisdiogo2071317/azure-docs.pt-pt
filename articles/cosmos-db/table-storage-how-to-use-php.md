@@ -14,18 +14,18 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 4965247d77e8a3a9f5dbaa2e70952993b4bdf4ff
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Como utilizar o serviço tabela de armazenamento do Azure ou a API de tabela do Cosmos BD do PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia mostra como efetuar cenários comuns utilizando o serviço de tabela de armazenamento do Azure e a API de tabela de base de dados do Azure Cosmos. Os exemplos são escritos no PHP e a utilização de [Azure SDK para PHP][download]. Os cenários abrangidos incluem **criar e eliminar uma tabela**, e **inserir, eliminar e consultar entidades numa tabela**. Para obter mais informações sobre o serviço de tabelas do Azure, consulte o [passos](#next-steps) secção.
+Este guia mostra como efetuar cenários comuns utilizando o serviço de tabela de armazenamento do Azure e a API de tabela de base de dados do Azure Cosmos. Os exemplos são escritos no PHP e a utilização de [biblioteca de clientes do PHP do Azure Storage tabela][download]. Os cenários abrangidos incluem **criar e eliminar uma tabela**, e **inserir, eliminar e consultar entidades numa tabela**. Para obter mais informações sobre o serviço de tabelas do Azure, consulte o [passos](#next-steps) secção.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 

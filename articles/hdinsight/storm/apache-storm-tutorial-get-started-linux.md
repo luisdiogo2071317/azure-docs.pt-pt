@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/28/2018
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introdução ao Apache Storm no HDInsight com os exemplos do storm-starter
 
@@ -43,7 +43,7 @@ O Apache Storm é um sistema de cálculo dimensionável, tolerante a falhas, dis
 
 Utilize os seguintes passos para criar um Storm num cluster HDInsight:
 
-1. No [portal do Azure](https://portal.azure.com), selecione **+ NOVO**, **Dados + Análise** e, em seguida, selecione **HDInsight**.
+1. No [portal do Azure](https://portal.azure.com), selecione **+ Criar um recurso**, **Dados + Análise** e, em seguida, selecione **HDInsight**.
 
     ![Criar um cluster HDInsight](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -65,8 +65,6 @@ Utilize os seguintes passos para criar um Storm num cluster HDInsight:
     * **Sistema operativo**: Linux
 
     * **Versão**: Storm 1.1.0 (HDI 3.6)
-
-    * **Escalão do Cluster**: Standard
 
    Por fim, utilize o botão **Selecionar** para guardar as definições.
 

@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 51318a6bb4f88759984531b005c65712b6817ec0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credenciais no Cofre de chaves do Azure
 
-Pode armazenar as credenciais de arquivos de dados de um [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md). O Azure Data Factory obtém as credenciais quando executar uma atividade que utiliza o arquivo de dados.
+Pode armazenar credenciais para os arquivos de dados e computações num [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md). O Azure Data Factory obtém as credenciais quando executar uma atividade que utiliza o armazenamento de dados/computação.
 
-Atualmente, a atividade de cópia com todos os tipos de conectores suportam esta funcionalidade - consulte a secção "Propriedades do serviço ligado" [cada tópico conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter mais detalhes. Suporte para outros tipos de atividade e computação serviço ligado ficará mais tarde.
+Atualmente, todos os tipos de atividade, exceto atividade personalizada suportam esta funcionalidade. Para configuração do conector especificamente, consulte a secção "Propriedades do serviço ligado" [cada tópico conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter mais detalhes.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory version1](v1/data-factory-introduction.md).

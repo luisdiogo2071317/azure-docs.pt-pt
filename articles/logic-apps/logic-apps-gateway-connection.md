@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Ligar às origens de dados no local a partir das logic apps com o gateway de dados no local
 
@@ -75,7 +75,7 @@ Depois de instalar o gateway num computador local, tem de criar o gateway de dad
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure"). Certifique-se ao utilizar o mesmo Azure trabalho ou escola endereço de correio eletrónico utilizado para instalar o gateway.
 
-2. No menu principal do Azure, escolha **crie um recurso** > **integração empresarial com** > **gateway de dados no local**:
+2. No menu principal do Azure, escolha **crie um recurso** > **integração empresarial com** > **gateway de dados no local**.
 
    ![Localizar "gateway de dados no local"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -107,9 +107,10 @@ Depois de instalar o gateway num computador local, tem de criar o gateway de dad
 
     ![Forneça detalhes para criar o gateway de dados no local](./media/logic-apps-gateway-connection/createblade.png)
 
-    Para encontrar ou ver o seu gateway de dados em qualquer altura, no menu principal do Azure, aceda a **mais serviços** > **integração empresarial com** > **Gateways de dados no local** .
+    Para localizar ou ver o seu gateway de dados em qualquer altura, no menu principal do Azure, escolha **todos os serviços**. 
+    Na caixa de pesquisa, introduza "no local gateways de dados", em seguida, escolha **Gateways de dados no local**.
 
-    ![Aceda a "Mais serviços", "Integração empresarial com o", "Gateways de dados no local"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Localizar "Gateways de dados no local"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

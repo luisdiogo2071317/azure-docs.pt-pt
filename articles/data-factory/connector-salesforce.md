@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar os dados de origem e de Salesforce através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - geralmente disponível](v1/data-factory-salesforce-connector.md)
+> * [Versão 1 - Disponibilidade geral](v1/data-factory-salesforce-connector.md)
 > * [Versão 2 - Pré-visualização](connector-salesforce.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de Salesforce. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
@@ -187,6 +187,7 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida **SalesforceSource**. | Sim |
 | consulta |Utilize a consulta personalizada para ler os dados. Pode utilizar uma consulta de SQL 92 ou [idioma de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta. Um exemplo é `select * from MyTable__c`. | Não (se for especificado "tableName" no conjunto de dados) |
+| readBehavior | Indica se deve consultar os registos existentes ou consultar todos os registos, incluindo aqueles eliminado. Se não for especificado, o comportamento predefinido é a primeira. <br>Valores permitidos: **consulta** (predefinição), **queryAll**.  | Não |
 
 > [!IMPORTANT]
 > A parte "__c" **nome API** é necessário para qualquer objeto personalizado.
@@ -292,8 +293,8 @@ Para consultar os registos eliminados recuperável do Salesforce Reciclagem, pod
 
 Quando especificar a consulta SOQL ou SQL Server, preste atenção a diferença de formato DateTime. Por exemplo:
 
-* **Exemplo SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Exemplo SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
+* **Exemplo SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Exemplo SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Tipo de dados de mapeamento para o Salesforce
 

@@ -1,3 +1,5 @@
+# [Documentação do Gateway de Aplicação](index.md)
+
 # Descrição geral
 ## [O que é o Gateway de Aplicação?](application-gateway-introduction.md)
 ## [FAQ do Gateway de Aplicação](application-gateway-faq.md)

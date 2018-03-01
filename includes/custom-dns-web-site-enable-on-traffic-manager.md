@@ -21,7 +21,7 @@ Se já não adicionou a aplicação web como um ponto final do Gestor de tráfeg
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Clique em **validar** para guardar a configuração de nome de domínio.
-6. Após clicar em **validar** Azure irá iniciar fluxo de trabalho de verificação de domínio. Isto irá verificar para a propriedade do domínio, bem como de êxito de disponibilidade e o relatório de nome de anfitrião ou de erro detalhadas com guidence prescritiva sobre como resolver o erro.    
+6. Após clicar em **validar** Azure irá iniciar fluxo de trabalho de verificação de domínio. Isto irá verificar para a propriedade do domínio, bem como de êxito de disponibilidade e o relatório de nome de anfitrião ou de erro detalhadas com orientação prescritiva sobre como resolver o erro.    
 7. Após a validação bem-sucedida **adicionar hostname** botão deixará de Active Directory e será capaz de atribuir o nome do anfitrião. Agora, navegue para o seu nome de domínio personalizado no browser. Deverá ver a execução de aplicação utilizando o seu nome de domínio personalizado. 
    
    Depois de concluída a configuração, o nome de domínio personalizado será listado no **nomes de domínio** secção da sua aplicação web.
