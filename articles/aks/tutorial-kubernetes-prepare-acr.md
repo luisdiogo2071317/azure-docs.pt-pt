@@ -9,11 +9,19 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: 0bef14a03c27feb07683f4805aa4264eb91eda6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/22/2018
+=======
 ms.openlocfilehash: b676898cca7e5c80d6ba872e76a9effdb852bfff
 ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+>>>>>>> d43cd15e98f34cd2db2cb0a0bd0c207fd537bfc9
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementar e utilizar o Azure Container Registry
 
