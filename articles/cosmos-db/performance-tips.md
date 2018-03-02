@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -97,7 +97,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
     Os SDKs do Azure Cosmos DB estão constantemente a ser melhorados para proporcionar o melhor desempenho. Consulte o [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) páginas para determinar o SDK mais recente e reveja melhoramentos.
 2. **Utilizar um cliente de base de dados do Azure Cosmos singleton para a duração da sua aplicação**
 
-    Instância de Efach DocumentClient é seguro para thread e efetua a gestão de ligações eficiente e endereço a colocação em cache quando funcionar no modo direto. Para permitir a gestão de ligações eficiente e melhor desempenho por DocumentClient, é recomendado utilizar uma única instância DocumentClient por AppDomain para a duração da aplicação.
+    Cada instância de DocumentClient é seguro para thread e efetua a gestão de ligações eficiente e endereço a colocação em cache quando funcionar no modo direto. Para permitir a gestão de ligações eficiente e melhor desempenho por DocumentClient, é recomendado utilizar uma única instância DocumentClient por AppDomain para a duração da aplicação.
 
    <a id="max-connection"></a>
 3. **Aumentar System.Net MaxConnections por anfitrião, ao utilizar o modo de Gateway**
