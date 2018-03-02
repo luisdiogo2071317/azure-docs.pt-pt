@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-partition"></a>partição de sfctl
+# <a name="sfctl-partition"></a>sfctl partition
 Consultar e gerir partições para qualquer serviço.
 
 ## <a name="commands"></a>Comandos
@@ -48,7 +48,7 @@ Consultar e gerir partições para qualquer serviço.
 Obtém o estado de funcionamento a partição de serviço recursos de infraestrutura especificada.
 
 Obtém as informações de estado de funcionamento da partição especificada. Utilize EventsHealthStateFilter para filtrar a recolha de eventos de estado de funcionamento comunicadas falhas no serviço, com base no estado de funcionamento.
-Utilize ReplicasHealthStateFilter para filtrar a coleção de objetos de ReplicaHealthState na partição. Se especificar uma partição que não existe no arquivo de estado de funcionamento, este cmdlet devolve um erro. .
+Utilize ReplicasHealthStateFilter para filtrar a coleção de objetos de ReplicaHealthState na partição. Se especificar uma partição que não existe no arquivo de estado de funcionamento, este cmdlet devolve um erro.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -101,7 +101,7 @@ Obtém a lista de partições de um serviço do Service Fabric. O s o ID de part
 
 |Argumento|Descrição|
 | --- | --- |
-| – id de serviço [necessário]| A identidade do serviço. Isto é, geralmente, o nome completo do serviço sem o ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome do serviço é "fabric://myapp/app1/svc1", a identidade de serviço será "myapp ~ app1 ~ svc1" 6.0 + e "myapp/app1/svc1" em versões anteriores.|
+| – id de serviço [necessário]| A identidade do serviço. Isto é, geralmente, o nome completo do serviço sem o ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome de serviço é "fabric: / myapp/app1/svc1", seria a identidade de serviço "myapp ~ app1 ~ svc1" 6.0 + e "myapp/app1/svc1" em versões anteriores.|
 | --continuation-token| O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados.         Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
 | tempo limite – -t        | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
@@ -162,7 +162,7 @@ Indica, para o cluster do Service Fabric, o que deve tentar recuperar uma parti�
 ## <a name="sfctl-partition-restart"></a>reinício de partição sfctl
 Esta API reinicia algumas ou todas as réplicas ou instâncias da partição especificada.
 
-Esta API é útil para testar a ativação pós-falha. Se utilizados para visar uma partição de serviço sem monitorização de estado, RestartPartitionMode tem de ser AllReplicasOrInstances. Chame a API de GetPartitionRestartProgress utilizando o mesmo OperationId para obter o progresso. .
+Esta API é útil para testar a ativação pós-falha. Se utilizados para visar uma partição de serviço sem monitorização de estado, RestartPartitionMode tem de ser AllReplicasOrInstances. Chame a API de GetPartitionRestartProgress utilizando o mesmo OperationId para obter o progresso.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -170,8 +170,8 @@ Esta API é útil para testar a ativação pós-falha. Se utilizados para visar 
 | --- | --- |
 | – id de operação [necessário]| Um GUID que identifica uma chamada desta API.  Isto é transmitido para a API de GetProgress correspondente.|
 | – id de partição [necessário]| A identidade da partição.|
-| -modo de partição de reinício [necessário]| -Inválido - reservado.  Não são transmitidas para a API. -AllReplicasOrInstances - todas as réplicas ou instâncias na partição são reiniciadas em simultâneo. -OnlyActiveSecondaries - apenas secundário réplicas são reiniciadas. .|
-| – id de serviço [necessário]| A identidade do serviço. Isto é, geralmente, o nome completo do serviço sem o ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome do serviço é "fabric://myapp/app1/svc1", a identidade de serviço será "myapp ~ app1 ~ svc1" 6.0 + e "myapp/app1/svc1" no v anterior ersions.|
+| -modo de partição de reinício [necessário]| Descreva as partições a reiniciar.|
+| – id de serviço [necessário]| A identidade do serviço. Isto é, geralmente, o nome completo do serviço sem o ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome de serviço é "fabric: / myapp/app1/svc1", seria a identidade de serviço "myapp ~ app1 ~ svc1" 6.0 + e "myapp/app1/svc1" no Provider anterior rsions.|
 | tempo limite – -t                    | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global

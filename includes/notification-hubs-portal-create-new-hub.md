@@ -2,7 +2,7 @@
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **Novo** > **Web + Móvel** > **Hub de Notificação**.
+2. Selecione **Criar um recurso** > **Web + Móvel** > **Hub de Notificação**.
    
       ![Portal do Azure – criar hubs de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

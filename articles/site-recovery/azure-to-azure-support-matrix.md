@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure
 
@@ -39,14 +39,14 @@ Este artigo resume os componentes e configurações suportadas para o Azure Site
 
 **Tipo de movimentação de recurso** | **Suportado / não suportado** | **Observações**  
 --- | --- | ---
-Mover o Cofre entre grupos de recursos | Não suportado |Não é possível mover o Cofre de serviços de recuperação em grupos de recursos.
+**Mover o Cofre entre grupos de recursos** | Não suportado |Não é possível mover o Cofre de serviços de recuperação em grupos de recursos.
 **Mover computação, armazenamento e de rede entre grupos de recursos** | Não suportado |Se mover uma máquina virtual (ou os respetivos componentes, tais como o armazenamento e de rede associados) depois de ativar a replicação, terá de desativar a replicação e ativar a replicação da máquina virtual novamente.
 
 
 
 ## <a name="support-for-deployment-models"></a>Suporte para modelos de implementação
 
-**Modelo de implementação** | **Suportado / não suportado** | **Observações**  
+**Deployment model** (Modelo de implementação) | **Suportado / não suportado** | **Observações**  
 --- | --- | ---
 **Clássico** | Suportadas | Apenas pode replicar uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina virtual do Gestor de recursos. Se implementar uma VM clássica sem uma rede virtual e diretamente a uma região do Azure, não é suportada.
 **Resource Manager** | Suportadas |
@@ -93,7 +93,7 @@ O abaixo suporte é aplicável a qualquer carga de trabalho em execução no sis
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel Ubuntu máquinas virtuais do Azure
 
-Versão | **Versão do serviço de mobilidade** | Versão de kernel |
+**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic para 3.13.0-121-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic para 3.13.0-125-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-83-generic |
@@ -153,8 +153,8 @@ Disco temporário | Sempre excluídos da replicação | Disco temporário foi ex
 Taxa de alteração de dados no disco | Máximo de 10 por disco para o Premium storage e 2 MBps por disco de armazenamento Standard | Se a taxa de alteração de média de dados no disco para além dos 10 (para Premium) e 2 MBps (para Standard) continuamente, a replicação não irá detetar cópias de segurança. No entanto, se for uma rajada ocasionais dados e a taxa de alteração de dados é maior que 10 (para Premium) e 2 MBps (para Standard) durante algum tempo e ficar, a replicação será acompanhar. Neste caso, poderá ver pontos de recuperação ligeiramente atrasado.
 Discos em contas de armazenamento standard | Suportadas |
 Discos em contas de armazenamento premium | Suportadas | Se uma VM tem discos distribuídos por contas do standard storage e premium, pode selecionar uma conta de armazenamento de destino diferente para cada disco garantir que têm a mesma configuração de armazenamento na região de destino
-Discos gerida padrão | Não suportado |  
-Discos Premium gerido | Não suportado |
+Discos gerida padrão | Suportados nas regiões do Azure na qual o Azure Site Recovery é suportado. Nuvens de Government não são atualmente suportadas.  |  
+Discos Premium gerido | Suportados nas regiões do Azure na qual o Azure Site Recovery é suportado. Nuvens de Government não são atualmente suportadas. |
 Espaços de armazenamento | Suportadas |         
 Encriptação de Inativos (SSE) | Suportadas | Para contas de armazenamento de cache e de destino, pode selecionar uma conta de armazenamento de SSE ativada.     
 Encriptação de disco do Azure (ADE) | Não suportado |

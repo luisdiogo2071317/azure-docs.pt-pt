@@ -1,6 +1,6 @@
 ---
-title: "Script CLI do Azure de exemplo - criar uma aplicação de função num plano do serviço de aplicações | Microsoft Docs"
-description: "Script CLI do Azure de exemplo - criar uma aplicação de função num plano do serviço de aplicações"
+title: "Exemplo do Script da CLI do Azure - Criar uma Aplicação de Funções num plano do Serviço de Aplicações | Microsoft Docs"
+description: "Exemplo do Script da CLI do Azure - Criar uma Aplicação de Funções num plano do Serviço de Aplicações"
 services: functions
 documentationcenter: functions
 author: syntaxc4
@@ -13,46 +13,48 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 04/11/2017
+ms.date: 10/22/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c7868dda1e00882a944ac61d838c8b8987d5e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: c035eabe966eed97ce8c1df1e4ffba327f07ccac
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-function-app-in-an-app-service-plan"></a>Criar uma aplicação de função num plano do serviço de aplicações
+# <a name="create-a-function-app-in-an-app-service-plan"></a>Criar uma Aplicação de Funções num plano do Serviço de Aplicações
 
-Este script de exemplo cria uma aplicação de função do Azure, que é um contentor para as suas funções. A aplicação de função é criada utilizando um plano de serviço aplicacional dedicado, o que significa que os recursos do servidor estão sempre ativos.
+Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. A aplicação de funções que é criada utiliza um plano do Serviço de Aplicações dedicado, o que significa que os recursos do servidor estão sempre ativos.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este script cria uma aplicação de função do Azure utilizando um dedicado [plano do App Service](../functions-scale.md#app-service-plan).
+Este script cria uma aplicação das Funções do Azure com o [plano do Serviço de Aplicações](../functions-scale.md#app-service-plan).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Cada comando nas ligações de tabela para a documentação específica do comando. Este script utiliza os seguintes comandos:
+Cada comando na tabela liga à documentação específica do comando. Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [criar conta de armazenamento AZ](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento do Azure. |
-| [Criar plano de serviço aplicacional AZ](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Cria um plano de serviço de aplicações. |
-| [Criar AZ functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Cria uma aplicação de função do Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Cria uma Conta de armazenamento do Azure. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Cria um plano do Serviço de Aplicações. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Cria uma Aplicação de funções do Azure. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos de script CLI de funções do Azure adicionais podem ser encontrados no [documentação de funções do Azure](../functions-cli-samples.md).
+Pode ver exemplos do script da CLI das Funções do Azure adicionais na [Documentação das Funções do Azure](../functions-cli-samples.md).

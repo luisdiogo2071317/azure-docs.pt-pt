@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
-ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrar VMs do Azure para outra região
 
@@ -75,7 +75,7 @@ Verifique se todos os certificados de raiz mais recentes estão presentes nas VM
 Crie o cofre em qualquer região, exceto na região de origem.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique em **Novo** > **Monitorização e Gestão** > **Backup e Site Recovery**.
+2. Clique em **Criar um recurso** > **Monitorização e Gestão** > **Backup e Site Recovery**.
 3. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 4. Crie um grupo de recursos **ContosoRG**.
 5. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

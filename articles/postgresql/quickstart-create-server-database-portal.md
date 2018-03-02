@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: de35254183798dd0aea32b63eb0689d33ae5b247
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Criar uma Base de Dados do Azure para o servidor PostgreSQL no portal do Azure
 
@@ -30,7 +30,7 @@ Abra o browser e aceda ao [portal do Azure](https://portal.azure.com/). Introduz
 É criada uma Base de Dados do Azure para o servidor PostgreSQL com um conjunto definido de [recursos de armazenamento e computação](./concepts-compute-unit-and-storage.md). O servidor é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
 Para criar uma Base de Dados do Azure para o servidor PostgreSQL, siga os passos abaixo:
-1. Selecione o botão (+) **Novo**, no canto superior esquerdo do portal.
+1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
 2. Selecione **Bases de Dados** > **Base de Dados do Azure para PostgreSQL**.
 

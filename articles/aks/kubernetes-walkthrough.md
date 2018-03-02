@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 03/20/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do Azure Container Service (AKS)
 
@@ -25,7 +25,7 @@ Este guia de introdução pressupõe um conhecimento básico dos conceitos do Ku
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este guia de introdução requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Se optar por instalar e usar a CLI localmente, este início rápido requer a execução da versão 2.0.27 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Ativar a pré-visualização do AKS para a sua subscrição do Azure
 Enquanto o AKS está em pré-visualização, a criação de novos clusters exige um sinalizador de funcionalidade na sua subscrição. Pode pedir esta funcionalidade para qualquer número de subscrições que pretende utilizar. Utilize o comando `az provider register` para registar o fornecedor do AKS:
@@ -209,18 +209,6 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Agora, pode navegar para o endereço IP externo para ver a aplicação Azure Vote.
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
-
-## <a name="open-kubernetes-dashboard"></a>Abrir o dashboard do Kubernetes
-
-O CLI do Azure pode também ser utilizado para configurar uma ligação do dashboard do Kubernetes. Para tal, utilize o comando [az aks browse][az-aks-browse].
-
-```azurecli-interactive
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-Após a execução, um browser é aberto no dashboard do Kubernetes.
-
-![Dashboard do Kubernetes](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
 
 ## <a name="delete-cluster"></a>Eliminar o cluster
 

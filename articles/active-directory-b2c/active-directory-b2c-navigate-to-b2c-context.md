@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c1fd08c52f33a062d06e0593cbbe00346bb44f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9b9f71d0c11aee238661d57fd2e5246f1bf0842
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Mudar para o inquilino do Azure AD B2C
 
@@ -32,12 +32,12 @@ Para navegar para o inquilino do Azure AD B2C, deve ter sessão iniciada no port
 1. Altere os inquilinos ao clicar no endereço de correio eletrónico ou na imagem no canto superior direito.
 1. Na lista `Directory` apresentada, selecione o inquilino do Azure AD B2C que pretende gerir.
 
-O Portal do Azure será atualizado.  Agora a sessão iniciada no Portal do Azure no contexto do inquilino do Azure AD B2C está iniciada.
+O portal do Azure é atualizado.  Agora a sessão iniciada no Portal do Azure no contexto do inquilino do Azure AD B2C está iniciada.
 
-## <a name="navigate-to-the-b2c-features-blade"></a>Navegar para o painel de funcionalidades do B2C
+## <a name="navigate-to-the-b2c-features-pane"></a>Navegar para o painel de funcionalidades do B2C
 
 1. Clique em **Procurar** na navegação do lado esquerdo.
-1. Clique em **> Mais serviços** e, em seguida, procure `Azure AD B2C` no painel de navegação à esquerda.  (Para afixar ao Startboard do lado esquerdo, clique na estrela à esquerda de Azure AD B2C)
+1. Clique em **Todos os serviços** e, em seguida, procure `Azure AD B2C` no painel de navegação à esquerda.  (Para afixar ao Startboard do lado esquerdo, clique na estrela à esquerda de Azure AD B2C)
 1. Clique em **Azure AD B2C** para aceder ao painel de funcionalidades B2C.
    
     ![Captura de ecrã da Procura do painel de funcionalidades do B2C](./media/active-directory-b2c-get-started/b2c-browse.png)

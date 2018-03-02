@@ -1,10 +1,11 @@
-- name: Aplicações geridas do Azure
+- name: Documentação das Aplicações Geridas do Azure
   href: index.yml
 - name: Descrição geral
   items:
     - name: Acerca das aplicações geridas
       href: overview.md
 - name: Inícios rápidos
+  expanded: true
   items:
     - name: Criar aplicação gerida
       href: managed-apps-quickstart-cli.md

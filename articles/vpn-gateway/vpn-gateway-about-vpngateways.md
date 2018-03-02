@@ -1,10 +1,10 @@
 ---
 title: "Descrição Geral do Gateway de VPN: Criar ligações VPN entre locais para redes virtuais do Azure | Microsoft Docs"
-description: "Esta Descrição Geral do Gateway de VPN explica as formas de ligar às redes virtuais do Azure através de uma ligação VPN pela Internet. Estão incluídos diagramas de configurações de ligação básicas."
+description: "Este artigo explica o que é um Gateway de VPN e mostra as formas de ligar às redes virtuais do Azure através de uma ligação VPN pela Internet. Estão incluídos diagramas de configurações de ligação básicas."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-vpn-gateway"></a>Acerca do VPN Gateway
 
@@ -27,15 +27,11 @@ Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego enc
 
 Cada rede virtual apenas pode ter um gateway de VPN. No entanto, pode criar várias ligações ao mesmo gateway de VPN. Um exemplo disto é uma configuração de ligação multilocal. Quando cria várias ligações para o mesmo gateway de VPN, todos os túneis de VPN, incluindo as VPNs Ponto a Site, partilham a largura de banda que está disponível para o gateway.
 
-### <a name="whatis"></a>O que é um gateway de rede virtual?
+## <a name="whatis"></a>O que é um gateway de rede virtual?
 
 Um gateway de rede virtual é composto por duas ou mais máquinas virtuais implementadas numa sub-rede específica denominada GatewaySubnet. As VMs localizadas no GatewaySubnet são criadas quando criar o gateway de rede virtual. As VMs do gateway de rede virtual são configuradas para conter tabelas de encaminhamento e serviços de gateway específicos do gateway. Não pode configurar diretamente as VMs que fazem parte do gateway de rede virtual e nunca deve implementar recursos adicionais no GatewaySubnet.
 
 Quando criar um gateway de rede virtual com o tipo de gateway 'Vpn', é criado um tipo específico de gateway de rede virtual que encripta o tráfego: um gateway de VPN. Um gateway de VPN pode demorar até 45 minutos a ser criado. Isto deve-se ao facto de as VMs do gateway de VPN estarem a ser implementadas no GatewaySubnet e configuradas com as definições que especificou. O SKU de Gateway que selecionar determina o poder de processamento das VMs.
-
-## <a name="gwsku"></a>SKUs de Gateway
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>Configurar um Gateway de VPN
 
@@ -52,6 +48,10 @@ Pode começar por criar e configurar recursos utilizando uma ferramenta de confi
 ### <a name="models"></a>Modelo de implementação
 
 Ao configurar um gateway de VPN, os passos seguidos dependem do modelo de implementação que utilizou para criar a rede virtual. Por exemplo, se tiver criado a VNet com o modelo de implementação clássica, utilize as diretrizes e as instruções do modelo de implementação clássica para criar e configurar as definições do gateway de VPN. Para mais informações sobre os modelos de implementação, consulte [Compreender o Gestor de Recursos e modelos de implementação clássicos](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="gwsku"></a>SKUs de Gateway
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>Diagramas de topologia de ligação
 

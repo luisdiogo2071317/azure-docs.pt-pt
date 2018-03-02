@@ -12,25 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 08b78f59dc758f12556f332546ccb6043bef2812
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-event-hubs"></a>O que são os Hubs de Eventos?
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de dados altamente dimensionável e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Com a possibilidade de oferecer [capacidades de publicação/subscrição](/biztalk/core/publish-and-subscribe-architecture) com baixa latência e em larga escala, os Hubs de Eventos servem de "rampa"para os macrodados.
-
-## <a name="why-use-event-hubs"></a>Por quê utilizar o Event Hubs?
-
-As capacidades de processamento de eventos e telemetria do Event Hubs são úteis sobretudo para:
-
-* Instrumentação de aplicações
-* Experiência de utilizador ou de processamento de fluxo de trabalho
-* Cenários Internet das Coisas (IoT)
 
 Por exemplo, os Hubs de Eventos incluem o controlo do comportamento em aplicações móveis, informações de tráfego de web farms, captura de eventos nos jogos de consola ou telemetria recolhida a partir de máquinas industriais, veículos ligados ou outros dispositivos.
 

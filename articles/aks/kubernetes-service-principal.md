@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Principais de serviço com o Azure Container Service (AKS)
 
@@ -26,7 +26,7 @@ Este artigo mostra as diferentes opções para configurar um principal de servi�
 
 Para criar um principal de serviço do Azure AD, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Se não tiver as permissões necessárias, poderá ter de pedir ao administrador do Azure AD ou da subscrição para atribuir as permissões necessárias ou pré-criar um principal de serviço para o cluster de Kubernetes.
 
-Precisa também da versão 2.0.21 da CLI do Azure ou posterior instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
+Precisa também da versão 2.0.27 da CLI do Azure ou posterior instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="create-sp-with-aks-cluster"></a>Criar o SP com o cluster do AKS
 
@@ -83,7 +83,6 @@ Quando utilizar principais de serviço do AKS e do Azure AD, tenha em atenção 
 * Quando especificar o principal de serviço **ID de Cliente**, pode utilizar o valor do `appId` (como mostrado neste artigo) ou o principal de serviço correspondente `name` (por exemplo, `https://www.contoso.org/example`).
 * Em VMs do nó e mestras no cluster de Kubernetes, as credenciais do principal de serviço são armazenadas no ficheiro `/etc/kubernetes/azure.json`.
 * Quando utilizar o comando `az aks create` para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro `~/.azure/acsServicePrincipal.json` na máquina utilizada para executar o comando.
-* Quando utiliza o comando `az aks create` para gerar automaticamente o principal de serviço, o principal de serviço também pode autenticar com um [Azure container registry][acr-intro] criado na mesma subscrição.
 * Ao eliminar um cluster do AKS que tenha sido criado pelo `az aks create`, o principal de serviço que foi criado automaticamente não é eliminado. Pode utilizar `az ad sp delete --id $clientID` para eliminá-lo.
 
 ## <a name="next-steps"></a>Passos seguintes

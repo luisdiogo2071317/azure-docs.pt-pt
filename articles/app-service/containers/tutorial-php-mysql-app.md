@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux
 
@@ -56,13 +56,13 @@ Neste passo, vai criar uma base de dados no seu servidor MySQL local para utiliz
 
 ### <a name="connect-to-local-mysql-server"></a>Ligar ao servidor MySQL local
 
-Numa janela do terminal, ligue ao seu servidor MySQL local. Pode utilizar esta janela do terminal para executar todos os comandos deste tutorial.
+Numa janela de terminal, ligue ao seu servidor MySQL local. Pode utilizar esta janela de terminal para executar todos os comandos deste tutorial.
 
 ```bash
 mysql -u root -p
 ```
 
-Se lhe for pedida uma palavra-passe, introduza a palavra-passe da conta `root`. Se não se lembrar da sua palavra-passe da conta de raiz, veja [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) (MySQL: como repor a palavra-passe de raiz).
+Se lhe for pedida uma palavra-passe, introduza a palavra-passe da conta `root`. Se não se lembrar da sua palavra-passe da conta de raiz, veja [MySQL: Como Repor a Palavra-passe de Raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Se o comando for executado com êxito, significa que o servidor MySQL está em execução. Se não, siga os [passos de pós-instalação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) para verificar se o servidor MySQL local é iniciado.
 
@@ -119,7 +119,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Para obter informações sobre como o Laravel utiliza o ficheiro _.env_, veja [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Configuração do Ambiente do Laravel).
+Para obter informações sobre como o Laravel utiliza o ficheiro _.env_, veja [Configuração do Ambiente do Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
 ### <a name="run-the-sample-locally"></a>Executar o exemplo localmente
 
@@ -196,7 +196,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Ligar ao servidor MySQL de produção localmente
 
-Na janela do terminal, ligue ao servidor MySQL no Azure. Utilize o valor que especificou anteriormente em _&lt;mysql_server_name >_.
+Na janela de terminal, ligue ao servidor MySQL no Azure. Utilize o valor que especificou anteriormente em _&lt;mysql_server_name >_.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
@@ -320,7 +320,7 @@ Neste passo, vai implementar a aplicação PHP ligada ao MySQL no Serviço de Ap
 A aplicação do Laravel é iniciada no diretório _/public_. A imagem PHP predefinida do Docker para o Serviço de Aplicações utiliza o Apache e não lhe permite personalizar `DocumentRoot` para o Laravel. No entanto, pode utilizar `.htaccess` para reescrever todos os pedidos para que apontem para _/public_ em vez do diretório de raiz. Na raiz do repositório, já é adicionado um `.htaccess` para este fim. Com o mesmo, a sua aplicação do Laravel está pronta para ser implementada.
 
 > [!NOTE] 
-> Se preferir não utilizar a reescrita _.htaccess_, pode implementar a aplicação do Laravel com uma [imagem do Docker personalizada](quickstart-custom-docker-image.md).
+> Se preferir não utilizar a reescrita _.htaccess_, pode implementar a aplicação do Laravel com uma [imagem do Docker personalizada](quickstart-docker-go.md).
 >
 >
 
@@ -409,13 +409,13 @@ remote: Running deployment command...
 ```
 
 > [!NOTE]
-> Poderá reparar que o processo de implementação instala pacotes do [Composer](https://getcomposer.org/) no fim. O Serviço de Aplicações não executa estas automatizações durante a implementação predefinida, pelo que este repositório de exemplo tem três ficheiros adicionais no diretório raiz para a permitir:
+> Poderá reparar que o processo de implementação instala pacotes do [Composer](https://getcomposer.org/) no fim. O Serviço de Aplicações não executa estas automatizações durante a implementação predefinida, pelo que este repositório de exemplo tem três ficheiros adicionais no diretório de raiz para a permitir:
 >
-> - `.deployment` - este ficheiro diz ao Serviço de Aplicações para executar `bash deploy.sh` como o script de implementação personalizado.
-> - `deploy.sh` - o script de implementação personalizado. Se revir o ficheiro, verá que executa `php composer.phar install` a seguir a `npm install`.
-> - `composer.phar` - o gestor de pacotes do Composer.
+> - `.deployment` – este ficheiro diz ao Serviço de Aplicações para executar `bash deploy.sh` como o script de implementação personalizado.
+> - `deploy.sh` – o script de implementação personalizado. Se revir o ficheiro, verá que executa `php composer.phar install` a seguir a `npm install`.
+> - `composer.phar` – o gestor de pacotes do Composer.
 >
-> Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git no Serviço de Aplicações. Para obter mais informações, veja [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) (Script de Implementação Personalizado).
+> Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git no Serviço de Aplicações. Para obter mais informações, veja [Script de Implementação Personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
 ### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
@@ -444,7 +444,7 @@ php artisan make:migration add_complete_column --table=tasks
 
 Este comando mostra-lhe o nome do ficheiro de migração que foi gerado. Localize o ficheiro em _database/migrations_ e abra-o.
 
-Substitua o método `up` pelo código seguinte:
+Substitua o método `up` pelo código abaixo:
 
 ```php
 public function up()
@@ -480,7 +480,7 @@ Com base na [convenção de nomenclatura do Laravel](https://laravel.com/docs/5.
 
 Abra o ficheiro *routes/web.php*. A aplicação define as respetivas rotas e a lógica de negócio aqui.
 
-No fim do ficheiro, adicione uma rota com o código seguinte:
+No fim do ficheiro, adicione uma rota com o código abaixo:
 
 ```php
 /**
@@ -509,13 +509,13 @@ Abra o ficheiro *resources/views/tasks.blade.php*. Localize o código de início
 
 O código anterior altera a cor da linha, dependendo de a tarefa estar concluída ou não.
 
-Na linha seguinte, tem o código seguinte:
+Na linha seguinte, tem o código abaixo:
 
 ```html
 <td class="table-text"><div>{{ $task->name }}</div></td>
 ```
 
-Substitua a linha anterior pelo código seguinte:
+Substitua a linha anterior pelo código abaixo:
 
 ```html
 <td>
@@ -530,7 +530,7 @@ Substitua a linha anterior pelo código seguinte:
 </td>
 ```
 
-O código anterior adiciona o botão “submeter” que referencia a rota que definiu anteriormente.
+O código anterior adiciona o botão Submeter que referencia a rota que definiu anteriormente.
 
 ### <a name="test-the-changes-locally"></a>Testar as alterações localmente
 
@@ -566,7 +566,7 @@ Quando `git push` estiver concluído, navegue para a aplicação Web do Azure e 
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-Se tiver adicionado tarefas, estas são retidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
+Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
 
 ## <a name="manage-the-azure-web-app"></a>Gerir a aplicação Web do Azure
 

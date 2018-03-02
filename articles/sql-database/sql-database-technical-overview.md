@@ -17,11 +17,11 @@ ms.date: 02/12/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: f1aff50a97114ea7e221b4461e375d763a161fa6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure? 
 
@@ -47,7 +47,7 @@ Com a Base de Dados SQL, as bases de dados estão isoladas umas das outras e sã
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste o desempenho e dimensione a capacidade sem períodos de indisponibilidade
 
-A Base de Dados SQL tem quatro escalões de serviço para suportar cargas de trabalho de bases de dados leves ou pesadas: Básica, Standard, e Premium. Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+A Base de Dados SQL tem três escalões de serviço para suportar cargas de trabalho de bases de dados leves ou pesadas: Básica, Standard, e Premium. Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
    ![dimensionamento](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

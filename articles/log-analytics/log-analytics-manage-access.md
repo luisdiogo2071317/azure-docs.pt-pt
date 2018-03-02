@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Gerir áreas de trabalho
 
@@ -34,7 +34,7 @@ Para criar uma área de trabalho, terá de:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de áreas de trabalho necessárias
 Uma área de trabalho é um recurso do Azure e é um contentor onde os dados são recolhidos, agregados, analisados e apresentados no portal do Azure.
 
-Pode ter múltiplas áreas de trabalho por subscrição do Azure e ter acesso a mais do que uma área de trabalho. Minimizar o número de áreas de trabalho permite-lhe consultar e correlacionar na maior parte dos dados, porque não é possível consultar em múltiplas áreas de trabalho. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
+Pode ter múltiplas áreas de trabalho por subscrição do Azure e ter acesso a mais do que uma área de trabalho. Anteriormente, conseguia apenas analisar os dados a partir da área de trabalho atual e este fator limitava a capacidade de consulta em várias áreas de trabalho definidas na subscrição. Agora pode [consultar em várias áreas de trabalho](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), o que proporciona uma vista dos dados em todo o sistema. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
 
 Atualmente, uma área de trabalho fornece:
 
@@ -61,11 +61,11 @@ Pode ver detalhes sobre a sua área de trabalho no portal do Azure.
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Ver informações da área de trabalho no portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Mais serviços** que se encontra no canto inferior esquerdo do portal do Azure.  Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **Log Analytics**.  
-    ![Hub do Azure](./media/log-analytics-manage-access/hub.png)  
-3. No painel de subscrições do Log Analytics, selecione uma área de trabalho.
-4. O painel da área de trabalho apresenta detalhes sobre a área de trabalho e ligações para informações adicionais.  
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Clique em **Ver todos os serviços**.  Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **Log Analytics**.  
+    ![Captura de ecrã que mostra o menu esquerdo do Azure](./media/log-analytics-manage-access/hub.png)  
+3. Na página de subscrições do Log Analytics, selecione uma área de trabalho.
+4. A página Área de trabalho apresenta detalhes sobre a área de trabalho e as ligações para informações adicionais.  
     ![detalhes da área de trabalho](./media/log-analytics-manage-access/workspace-details.png)  
 
 

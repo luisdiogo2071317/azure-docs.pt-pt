@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Resolver problemas e resolver problemas do dispositivo
 
@@ -58,6 +58,8 @@ Para confirmar o alarme, selecione o **alarme ocorrências** e escolha **Acknowl
 
 ![Confirmar os alarmes](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+Quando confirmar o alarme, o estado da ocorrência mudar para **confirmado**.
+
 Na lista, pode ver o **protótipo** responsável pela que despoletou o alarme temperatura do dispositivo:
 
 ![Lista os dispositivos a causar o alarme](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -82,9 +84,9 @@ Para ver os detalhes de uma tarefa específica ou chamada de método, escolha a 
 
 ![Ver detalhes da tarefa](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, iremos mostrou, como para:
+Neste tutorial, vimos como:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

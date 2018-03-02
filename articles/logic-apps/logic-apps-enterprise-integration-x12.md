@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Mensagens de Exchange X12 para a integração empresarial com logic apps
 
@@ -31,37 +31,34 @@ Antes de pode trocar X12 mensagens para o Azure Logic Apps, tem de criar um X12 
 
 Segue-se os itens que precisa de:
 
-* Um [conta integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) que já foi definida e associados à subscrição do Azure
+* Um [conta integração](logic-apps-enterprise-integration-create-integration-account.md) que já foi definida e associados à subscrição do Azure
 * Pelo menos dois [parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md) que são definidos na sua conta de integração e configurada com o X12 identificador em **identidades de negócio**    
-* Necessária [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) para carregar para o seu [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Necessária [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) que pode carregar à sua conta de integração
 
-Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md), [adicionar parceiros](logic-apps-enterprise-integration-partners.md)e tem um [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) que pretende utilizar, pode criar um X12 contrato seguindo estes passos.
+Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [adicionar parceiros](logic-apps-enterprise-integration-partners.md)e tem um [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) que pretende utilizar, pode criar um X12 contrato seguindo estes passos.
 
 ## <a name="create-an-x12-agreement"></a>Criar um X12 contrato
 
-1.  Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **todos os serviços**. 
+1. Inicie sessão no [portal do Azure](http://portal.azure.com "portal do Azure"). 
 
-    > [!TIP]
-    > Se não vir **todos os serviços**, poderá ter de expanda o menu primeiro. Na parte superior do menu fechado, selecione **Mostrar menu**.
+2. No menu principal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza "integração" e, em seguida, selecione **contas de automatização**.  
 
-    ![No menu à esquerda, selecione "Todos os serviços"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Localizar a conta de integração](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  Na caixa de pesquisa, escreva "integração" como o filtro. Na lista de resultados, selecione **contas de automatização**.  
+   > [!TIP]
+   > Se **todos os serviços** não aparecer, poderá ter de expanda o menu primeiro. Na parte superior do menu fechado, selecione **Mostrar menu**.
 
-    ![Filtrar por "integração", selecione "Contas de automatização"](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. Em **contas de automatização**, selecione a conta de integração em que pretende adicionar o contrato.
 
-3. No **contas de automatização** painel que abre, selecione a conta de integração em que pretende adicionar o contrato.
-Se não vir quaisquer contas de automatização, [criar um primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "tudo sobre contas de automatização").
-
-    ![Selecione onde criar o contrato de conta de integração](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Selecione onde criar o contrato de conta de integração](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Selecione **descrição geral**, em seguida, selecione o **contratos** mosaico. Se não tiver um mosaico de contratos, adicione primeiro o mosaico. 
 
-    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. No painel contratos que se abre, escolha **adicionar**.
+5. Em **contratos**, escolha **adicionar**.
 
-    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Em **adicionar**, introduza um **nome** para o contrato. Para o tipo de contrato, selecione **X12**. Selecione o **anfitrião parceiro**, **identidade do anfitrião**, **convidado parceiro**, e **identidade de convidado** para o contrato. Para obter mais detalhes de propriedade, consulte a tabela neste passo.
 
@@ -263,7 +260,7 @@ Que o conjunto de caracteres, pode introduzir um conjunto de delimitadores difer
 | Propriedade | Descrição |
 | --- | --- |
 | Caráter definido para ser utilizado |Para validar as propriedades, selecione o X12 conjunto de carateres. As opções são UTF8, Basic e expandidas. |
-| Esquema |Selecione um esquema a partir da lista pendente. Depois de concluir cada linha, é automaticamente adicionada uma nova linha. Para o esquema selecionado, selecione o conjunto de separadores que pretende utilizar, com base nas seguintes descrições de separador. |
+| Esquema |Selecione um esquema a partir da lista pendente. Depois de concluir cada linha, é automaticamente adicionada uma nova linha. Para o esquema selecionado, selecione o conjunto de separadores que pretende utilizar, com base nas descrições do separador abaixo. |
 | Tipo de Entrada |Selecione um tipo de entrada da lista pendente. |
 | Separador de Componente |Para separar os elementos de dados composto, introduza um único caráter. |
 | Separador do Elemento de Dados |Para separar os elementos de dados simples dentro de elementos de dados composto, introduza um único caráter. |
@@ -291,13 +288,13 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 
 ## <a name="find-your-created-agreement"></a>Encontrar o contrato criado
 
-1.  Depois de concluir a definição em todas as propriedades de contrato, o **adicionar** painel, escolha **OK** para concluir a criação do seu contrato e regressar ao painel de conta da integração.
+1.  Depois de concluir a definição em todas as propriedades de contrato, o **adicionar** página, escolha **OK** para concluir a criação do seu contrato e voltar à sua conta de integração.
 
     O contrato recém-adicionado agora aparece na sua **contratos** lista.
 
-2.  Também pode ver os contratos na descrição geral da sua integração conta. No painel da conta de integração, escolha **descrição geral**, em seguida, selecione o **contratos** mosaico.
+2.  Também pode ver os contratos na descrição geral da sua integração conta. No menu de conta a integração, escolha **descrição geral**, em seguida, selecione o **contratos** mosaico.
 
-    ![Escolha o que mosaico "Contratos" para ver todos os contratos](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>Ver o swagger
 Consulte o [swagger detalhes](/connectors/x12/). 

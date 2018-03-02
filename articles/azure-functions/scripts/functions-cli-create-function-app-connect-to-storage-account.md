@@ -1,6 +1,6 @@
 ---
-title: "Criar uma função do Azure que se liga a um Storage do Azure | Microsoft Docs"
-description: "Script CLI do Azure de exemplo - criar uma função do Azure que se liga a um Storage do Azure"
+title: "Criar uma Função do Azure que se liga ao Armazenamento do Azure | Microsoft Docs"
+description: "Exemplo do Script da CLI do Azure - Criar uma Função do Azure que se liga a um Armazenamento do Azure"
 services: functions
 documentationcenter: functions
 author: ggailey777
@@ -16,25 +16,27 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: b4dad0bba7a147f294c5d9ce3a1a1aa8e95058f3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Integrar a aplicação de função na conta do Storage do Azure
+# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Criar uma aplicação de funções que se liga a uma conta de Armazenamento do Azure
 
-Este script de exemplo cria uma aplicação de função e a conta de armazenamento.
+Este script de exemplo das Funções do Azure cria uma aplicação de funções e liga a função a uma conta de Armazenamento do Azure. A definição da aplicação criada que contém a ligação pode ser utilizada com um [[acionador ou enlace de armazenamento](..\functions-bindings-storage-blob.md). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se utilizar a CLI localmente, certifique-se de que está a executar a CLI do Azure versão 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Se utilizar a CLI localmente, certifique-se de que a versão em execução é a 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este exemplo cria uma aplicação de função do Azure e adiciona a cadeia de ligação de armazenamento para uma definição de aplicação.
+Este exemplo cria uma aplicação de Funções do Azure e adiciona a cadeia de ligação de armazenamento a uma definição da aplicação.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
@@ -45,20 +47,20 @@ Depois de executar o script de exemplo, execute o seguinte comando para remover 
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [início de sessão AZ](https://docs.microsoft.com/cli/azure/#login) | Inicie sessão no Azure. |
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com a localização |
-| [criar conta de armazenamento AZ](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta de armazenamento |
-| [Criar AZ functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar uma nova aplicação de função |
-| [eliminação do grupo de AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpeza |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Iniciar sessão no Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com localização |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta do Storage |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar uma nova aplicação de funções |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpeza |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos de script CLI de funções do Azure adicionais podem ser encontrados no [documentação de funções do Azure](../functions-cli-samples.md).
+Pode ver exemplos do script da CLI das Funções do Azure adicionais na [Documentação das Funções do Azure](../functions-cli-samples.md).

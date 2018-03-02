@@ -3,7 +3,7 @@ title: "Aprovisionar um runtime de integração do SSIS através do Azure Data F
 description: "Este artigo explica como criar um runtime de integração Azure-SSIS através do Azure Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: hero-article
 ms.date: 01/29/2018
-ms.author: spelluru
-ms.openlocfilehash: abb5fd4953709198f6071bbdd4a1dc86900f0183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 2e3e1fff385de87e69ea36d8ffec128f662f6e50
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Aprovisionar um runtime de integração Azure-SSIS através da IU do Azure Data Factory
 Este tutorial disponibiliza os passos para utilizar o portal do Azure para aprovisionar um integration runtime (IR) Azure-SSIS no Azure Data Factory. Em seguida, pode utilizar o SQL Server Data Tools ou o SQL Server Management Studio para implementar pacotes do SQL Server Integration Services (SSIS) neste runtime no Azure. Para obter informações concetuais sobre IRs Azure-SSIS, veja [Descrição geral do runtime de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -35,10 +35,14 @@ Neste tutorial, vai concluir os seguintes passos:
 ## <a name="prerequisites"></a>Pré-requisitos
 - **Subscrição do Azure**. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 - **Servidor da Base de Dados SQL do Azure**. Se ainda não tiver um servidor de base de dados, crie um no portal do Azure antes de começar. O Azure Data Factory cria o Catálogo de SSIS (base de dados SSISDB) neste servidor de base de dados. Recomendamos que crie o servidor de base de dados na mesma região do Azure que o integration runtime. Esta configuração permite que o runtime de integração escreva registos de execução na base de dados de SSISDB sem cruzamento entre regiões do Azure. 
-   - Confirme que a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor da base de dados. Para obter mais informações, veja [Proteger a base de dados SQL do Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Para ativar esta definição com o PowerShell, veja [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
-   - Adicione o endereço IP do computador cliente ou um intervalo de endereços IP que inclua o endereço IP do computador cliente à lista de endereços IP do cliente nas definições de firewall para o servidor da base de dados. Para obter mais informações, veja [Regras de firewall ao nível do servidor da Base de Dados SQL e ao nível da base de dados](../sql-database/sql-database-firewall-configure.md).
-   - Certifique-se de que o servidor da Base de Dados SQL do Azure não tem um Catálogo de SSIS (base de dados SSISDB). O aprovisionamento de um IR Azure-SSIS não suporta a utilização de um Catálogo de SSIS existente.
- 
+- Confirme que a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor da base de dados. Para obter mais informações, veja [Proteger a base de dados SQL do Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Para ativar esta definição com o PowerShell, veja [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+- Adicione o endereço IP do computador cliente ou um intervalo de endereços IP que inclua o endereço IP do computador cliente à lista de endereços IP do cliente nas definições de firewall para o servidor da base de dados. Para obter mais informações, veja [Regras de firewall ao nível do servidor da Base de Dados SQL e ao nível da base de dados](../sql-database/sql-database-firewall-configure.md).
+- Certifique-se de que o servidor da Base de Dados SQL do Azure não tem um Catálogo de SSIS (base de dados SSISDB). O aprovisionamento de um IR Azure-SSIS não suporta a utilização de um Catálogo de SSIS existente.
+
+> [!NOTE]
+> - Pode criar uma fábrica de dados da versão 2 nas seguintes regiões: E.U.A. Leste, E.U.A. Leste 2, Sudeste Asiático e Europa Ocidental. 
+> - Pode criar um IR do Azure-SSIS nas seguintes regiões: E.U.A. Leste, E.U.A. Leste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Leste da Austrália. 
+
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.

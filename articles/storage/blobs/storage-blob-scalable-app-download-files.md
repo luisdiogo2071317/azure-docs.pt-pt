@@ -1,30 +1,28 @@
 ---
-title: "Transferir grandes quantidades de dados aleatórios do armazenamento do Azure | Microsoft Docs"
-description: "Saiba como utilizar o Azure SDK para transferir grandes quantidades de dados aleatórios a partir de uma conta de armazenamento do Azure"
+title: "Transferir grandes quantidades de dados aleatórios do Armazenamento do Azure | Microsoft Docs"
+description: "Saiba como utilizar o Azure SDK para carregar grandes quantidades de dados aleatórios de uma conta de Armazenamento do Azure"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Transferir grandes quantidades de dados aleatórios a partir do armazenamento do Azure
+# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Transferir grandes quantidades de dados aleatórios do armazenamento do Azure
 
-Este tutorial é parte três de uma série. Este tutorial mostra como transferir grandes quantidades de dados do armazenamento do Azure.
+Este tutorial é a terceira parte de uma série. Este tutorial mostra como transferir grandes quantidades de dados do armazenamento do Azure.
 
-Na parte três da série, saiba como:
+Na terceira parte da série, ficará a saber como:
 
 > [!div class="checklist"]
 > * Atualizar a aplicação
@@ -33,11 +31,11 @@ Na parte três da série, saiba como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [carregar grandes quantidades de dados aleatórios em paralelo com armazenamento do Azure][previous-tutorial].
+Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Remoto na sua máquina virtual
+## <a name="remote-into-your-virtual-machine"></a>Aceder remotamente à máquina virtual
 
- Para criar uma sessão de ambiente de trabalho remoto com a máquina virtual, utilize o seguinte comando na sua máquina local. Substitua o endereço IP publicIPAddress da sua máquina virtual. Quando lhe for pedido, introduza as credenciais utilizadas ao criar a máquina virtual.
+ Utilize o seguinte comando na máquina virtual para criar uma sessão de ambiente de trabalho remoto com a máquina virtual. Substitua o endereço IP pelo publicIPAddress da máquina virtual. Quando lhe for pedido, introduza as credenciais utilizadas ao criar a máquina virtual.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -45,7 +43,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>Atualizar a aplicação
 
-O tutorial anterior, carregado apenas ficheiros à conta de armazenamento. Abra `D:\git\storage-dotnet-perf-scale-app\Program.cs` num editor de texto. Substitua o `Main` método com o exemplo seguinte. Comentários este exemplo fora da tarefa de carregamento e uncomments a tarefa de transferência e a tarefa para eliminar o conteúdo na conta de armazenamento, quando terminar.
+No tutorial anterior, apenas carregou ficheiros para a conta de armazenamento. Abra `D:\git\storage-dotnet-perf-scale-app\Program.cs` num editor de texto. Substitua o método `Main` pelo exemplo seguinte. Este exemplo comenta a tarefa de carregamento e anula os comentários da tarefa de transferência e da tarefa para eliminar o conteúdo na conta de armazenamento, quando terminar.
 
 ```csharp
 public static void Main(string[] args)
@@ -85,7 +83,7 @@ public static void Main(string[] args)
 }
 ```
 
-Depois da aplicação foi atualizada, terá de criar a aplicação novamente. Abra um `Command Prompt` e navegue para `D:\git\storage-dotnet-perf-scale-app`. Reconstruir a aplicação executando `dotnet build` como mostrado no exemplo seguinte:
+Depois de a aplicação ser atualizada, terá de criar a aplicação novamente. Abra uma `Command Prompt` e navegue até `D:\git\storage-dotnet-perf-scale-app`. Reconstrua a aplicação ao executar `dotnet build`, como mostrado no exemplo seguinte:
 
 ```
 dotnet build
@@ -93,23 +91,23 @@ dotnet build
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Agora que a aplicação foi reconstruída está na altura de executar a aplicação com o código atualizado. Se não já aberto, abra uma `Command Prompt` e navegue para `D:\git\storage-dotnet-perf-scale-app`.
+Agora que a aplicação foi reconstruída, está na altura de executar a aplicação com o código atualizado. Se ainda não estiver aberta, abra uma `Command Prompt` e navegue até `D:\git\storage-dotnet-perf-scale-app`.
 
-Tipo `dotnet run` para executar a aplicação.
+Escreva `dotnet run` para executar a aplicação.
 
 ```
 dotnet run
 ```
 
-A aplicação lê os contentores localizados na conta de armazenamento especificada no **storageconnectionstring**. -Itera através de blobs 10 a um tempo utilizando o [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) método nos contentores e transfere-os para o local do computador utilizando o [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) método.
-A tabela seguinte mostra o [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) que estão definidos para cada blob como é transferido.
+A aplicação lê os contentores localizados na conta de armazenamento especificada em **storageconnectionstring**. Itera através dos blobs, 10 de cada vez, com o método [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) nos contentores e transfere-os para o computador local através do método [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
+A tabela seguinte mostra as [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) que estão definidas para cada blob à medida que é transferido.
 
 |Propriedade|Valor|Descrição|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propriedade desativa a verificar o hash MD5 o conteúdo carregado. Desativar validação MD5 produz uma transferência mais rápida. Mas não confirma a integridade dos ficheiros a serem transferidos ou validade. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| falso| Esta propriedade determina se um hash MD5 é calculado e armazenado.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propriedade desativa a verificação do hash MD5 do conteúdo carregado. Desativar a validação MD5 permite uma transferência mais rápida. Mas não confirma a validade nem a integridade dos ficheiros que estão a ser transferidos. |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Esta propriedade determina se um hash MD5 é calculado e armazenado.   |
 
-O `DownloadFilesAsync` tarefa é mostrada no exemplo seguinte:
+A tarefa `DownloadFilesAsync` é mostrada no exemplo seguinte:
 
 ```csharp
 private static async Task DownloadFilesAsync()
@@ -195,7 +193,7 @@ private static async Task DownloadFilesAsync()
 
 ### <a name="validate-the-connections"></a>Validar as ligações
 
-Enquanto os ficheiros estão a ser transferidos, pode verificar o número de ligações em simultâneo à sua conta de armazenamento. Abra um `Command Prompt` e tipo `netstat -a | find /c "blob:https"`. Este comando apresenta o número de ligações que estão atualmente abertos com `netstat`. O exemplo seguinte mostra um resultado semelhante para ver quando executar o tutorial por si. Como pode ver do exemplo, ao longo 280 ligações tiverem sido abertas quando transferir os ficheiros aleatórios da conta do storage.
+Enquanto os ficheiros estão a ser transferidos, pode verificar o número de ligações em simultâneo para a sua conta de armazenamento. Abra uma `Command Prompt` e escreva `netstat -a | find /c "blob:https"`. Este comando apresenta o número de ligações que estão atualmente abertas com `netstat`. O exemplo seguinte mostra um resultado semelhante ao que vê quando executa o tutorial. Como pode ver no exemplo, foram abertas mais de 280 ligações ao transferir os ficheiros aleatórios da conta de armazenamento.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -204,17 +202,17 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Parte três da série, aprendeu sobre transferir grandes quantidades de dados aleatórios a partir de uma conta de armazenamento, tais como:
+Na terceira parte da série, aprendeu a transferir grandes quantidades de dados aleatórios para uma conta de armazenamento, como:
 
 > [!div class="checklist"]
 > * Executar a aplicação
 > * Validar o número de ligações
 
-Avançar para a parte quatro da série para verificar o débito e latência métricas no portal.
+Avance para a quarta parte da série para verificar as métricas de débito e latência no portal.
 
 > [!div class="nextstepaction"]
-> [Certifique-se de débito e latência métricas no portal](storage-blob-scalable-app-verify-metrics.md)
+> [Verificar as métricas de débito e latência no portal](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8a1e0b3e56dab5500d60b0610cddccaf095c8d97
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Governação de máquina virtual com a CLI do Azure
 
@@ -55,7 +55,7 @@ Para gerir soluções de máquina virtual, existem três funções específicas 
 
 Em vez de atribuir funções para utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que necessitam para efetuar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função para um âmbito. 
 
-O exemplo seguinte cria um grupo do Azure Active Directory com o nome *VMDemoContributors* com uma alcunha de correio de *vmDemoGroup*.
+O exemplo seguinte cria um grupo do Azure Active Directory com o nome *VMDemoContributors* com uma alcunha de correio de *vmDemoGroup*. A alcunha correio serve como um alias para o grupo.
 
 ```azurecli-interactive
 adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)

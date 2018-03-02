@@ -1,45 +1,42 @@
 ---
-title: "Proteger o acesso aos dados de uma aplicação na nuvem com o Storage do Azure | Microsoft Docs"
-description: "Utilize tokens SAS, encriptação e HTTPS para proteger os dados da sua aplicação na nuvem"
+title: "Proteger o acesso aos dados de uma aplicação na cloud com o Armazenamento do Azure | Microsoft Docs"
+description: "Utilizar tokens SAS, encriptação e HTTPS para proteger os dados da aplicação na cloud"
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Acesso seguro aos dados de uma aplicação na nuvem
+# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de uma aplicação na cloud
 
-Este tutorial é parte três de uma série. Saiba como proteger o acesso à conta de armazenamento. 
+Este tutorial é a terceira parte de uma série. Ficará a saber como proteger o acesso à conta de armazenamento. 
 
-Na parte três da série, saiba como:
+Na terceira parte da série, ficará a saber como:
 
 > [!div class="checklist"]
-> * Utilize SAS tokens para aceder a imagens em miniatura
-> * Ativar encriptação do lado do servidor
-> * Ativar o transporte HTTPS só
+> * Utilizar tokens SAS para aceder a imagens em miniatura
+> * Ativar a encriptação do lado do servidor
+> * Ativar o transporte apenas por HTTPS
 
-[Armazenamento de Blobs do Azure](../common/storage-introduction.md#blob-storage) fornece um serviço robusto para armazenar os ficheiros para aplicações. Este tutorial expande [tópico anterior] [ previous-tutorial] para mostrar como proteger o acesso à sua conta de armazenamento a partir de uma aplicação web. Quando tiver terminado, as imagens são encriptadas e a aplicação web utiliza os tokens SAS segurados para aceder às imagens em miniatura.
+O [Armazenamento de blobs do Azure](../common/storage-introduction.md#blob-storage) proporciona um serviço robusto para armazenar os ficheiros para as aplicações. Este tutorial expande [o tópico anterior][previous-tutorial] para mostrar como proteger o acesso à conta de armazenamento a partir de uma aplicação Web. Quando tiver terminado, as imagens são encriptadas e a aplicação Web utiliza os tokens SAS protegidos para aceder às imagens em miniatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [Automate redimensionamento carregado imagens com eventos grelha][previous-tutorial]. 
+Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [Automatizar o redimensionamento de imagens carregadas com o Event Grid][previous-tutorial]. 
 
-## <a name="set-container-public-access"></a>Acesso de público de contentor do conjunto
+## <a name="set-container-public-access"></a>Definir o acesso público ao contentor
 
-Nesta parte da série tutorial, os tokens SAS são utilizados para aceder ao miniaturas. Neste passo, configurou o acesso público o _thumbs_ contentor para `off`.
+Nesta parte da série de tutoriais, os tokens SAS servem para aceder às miniaturas. Neste passo, definiu o acesso público do contentor de _miniaturas_ como `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -51,13 +48,13 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 --public-access off
 ``` 
 
-## <a name="configure-sas-tokens-for-thumbnails"></a>Configurar os tokens SAS de miniaturas
+## <a name="configure-sas-tokens-for-thumbnails"></a>Configurar os tokens SAS para miniaturas
 
-Na parte de uma série neste tutorial, a aplicação web foi Mostrar imagens a partir de um contentor público. Nesta parte da série, utilize [assinatura de acesso seguro (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens para obter as imagens em miniatura. Os tokens SAS permitem-lhe fornecer acesso restrito a um contentor ou BLOBs com base em IP, o protocolo, o intervalo de tempo ou direitos permitidos.
+Na primeira parte desta série de tutoriais, a aplicação Web estava a mostrar imagens de um contentor público. Nesta parte da série, utilize os tokens [Assinatura de Acesso Partilhado (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) para obter as imagens em miniatura. Os tokens SAS permitem-lhe proporcionar acesso restrito a um contentor ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos.
 
-Neste exemplo, o repositório de código de origem utiliza a `sasTokens` ramo, que tem um exemplo de código atualizado. Elimine a implementação existente do GitHub com o [delete de origem de implementação de webapp az](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configurar a implementação de GitHub para a aplicação web com o [az webapp configuração da origem de implementação](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) comando.  
+Neste exemplo, o repositório de código fonte utiliza o ramo `sasTokens`, que tem um exemplo de código atualizado. Elimine a implementação do GitHub existente com [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config).  
 
-O comando seguinte, `<web-app>` é o nome da sua aplicação web.  
+No comando seguinte, `<web-app>` é o nome da aplicação Web.  
 
 ```azurecli-interactive 
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
@@ -67,7 +64,7 @@ az webapp deployment source config --name <web_app> \
 --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ``` 
 
-O `sasTokens` ramo do repositório atualizações a `StorageHelper.cs` ficheiro. Substitui o `GetThumbNailUrls` tarefa com o exemplo de código abaixo. A tarefa atualizada obtém a miniatura URLs, definindo um [SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet) para especificar a hora de início, hora de expiração e as permissões para o token SAS. Depois de implementar a aplicação web agora obtém miniaturas com um URL através de um token SAS. A tarefa de atualização é apresentada no exemplo seguinte:
+O ramo `sasTokens` do repositório atualiza o ficheiro `StorageHelper.cs`. Substitui a tarefa `GetThumbNailUrls` pelo exemplo de código abaixo. A tarefa atualizada obtém os URLs da miniatura ao definir uma [SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet) para especificar a hora de início, a hora de expiração e as permissões para o token SAS. Depois de implementada, a aplicação Web obtém as miniaturas com um URL através de um token SAS. A tarefa atualizada é mostrada no exemplo seguinte:
     
 ```csharp
 public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _storageConfig)
@@ -148,17 +145,17 @@ As seguintes classes, propriedades e métodos são utilizados na tarefa anterior
 
 ## <a name="server-side-encryption"></a>Encriptação do lado do servidor
 
-[Encriptação de serviço de armazenamento do Azure (SSE)](../common/storage-service-encryption.md) ajuda a proteger e a salvaguardar os seus dados. SSE encripta dados inativos, processamento de encriptação, desencriptação e gestão de chaves. Todos os dados são encriptados utilizando 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco de maior cifras disponíveis.
+A [Encriptação do Serviço de Armazenamento (SSE) do Azure](../common/storage-service-encryption.md) ajuda a proteger e a salvaguardar os seus dados. A SSE encripta os dados inativos, ao processar a encriptação, a desencriptação e a gestão de chaves. Todos os dados são encriptados através de uma [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das cifras em bloco mais fortes disponíveis.
 
-No seguinte exemplo ativar a encriptação para os blobs. Os blobs existentes criados antes de ativar a encriptação não estão encriptados. O `x-ms-server-encrypted` cabeçalho num pedido para um blob mostra o estado de encriptação do blob.
+No exemplo seguinte, ative a encriptação para os blobs. Os blobs existentes criados antes de ativar a encriptação não estão encriptados. O cabeçalho `x-ms-server-encrypted` num pedido para um blob mostra o estado de encriptação do blob.
 
 ```azurecli-interactive
 az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
 ```
 
-Carregue uma nova imagem para a aplicação web, agora que a encriptação está ativada.
+Carregue uma nova imagem para a aplicação Web, agora que a encriptação está ativada.
 
-Utilizar `curl` com o comutador `-I` para obter apenas os cabeçalhos, substitua os seus próprios valores para `<storage-account-name>`, `<container>`, e `<blob-name>`.  
+Utilize `curl` com o comutador `-I` para obter apenas os cabeçalhos, substitua os seus valores por `<storage-account-name>`, `<container>` e `<blob-name>`.  
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -173,7 +170,7 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
 ```
 
-Na resposta, tenha em atenção o `x-ms-server-encrypted` cabeçalho mostra `true`. Este cabeçalho identifica que os dados já estão encriptados com SSE.
+Na resposta, note que o cabeçalho `x-ms-server-encrypted` mostra `true`. Este cabeçalho identifica que os dados já estão encriptados com SSE.
 
 ```
 HTTP/1.1 200 OK
@@ -192,38 +189,38 @@ x-ms-server-encrypted: true
 Date: Mon, 11 Sep 2017 19:27:46 GMT
 ```
 
-## <a name="enable-https-only"></a>Permitir apenas HTTPS
+## <a name="enable-https-only"></a>Ativar apenas HTTPS
 
-Para garantir que os pedidos de dados de e para uma conta de armazenamento são seguros, pode limitar pedidos apenas para HTTPS. Atualize o protocolo necessário de conta de armazenamento utilizando o [atualização az da conta de armazenamento](/cli/azure/storage/account#az_storage_account_update) comando.
+Para garantir que os pedidos de dados de/para uma conta de armazenamento são seguros, pode limitar os pedidos apenas a HTTPS. Atualize o protocolo necessário da conta de armazenamento através do comando [az storage account update](/cli/azure/storage/account#az_storage_account_update).
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
 ```
 
-Testar a ligação utilizando `curl` utilizando o `HTTP` protocolo.
+Teste a ligação com `curl` através do protocolo `HTTP`.
 
 ```azurecli-interactive
 curl http://<storage-account-name>.blob.core.windows.net/<container>/<blob-name> -I
 ```
 
-Agora que a transferência segura não é necessária, receber a mensagem seguinte:
+Agora que a transferência segura é necessária, recebe a mensagem seguinte:
 
 ```
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Na parte três da série, aprendeu a proteger o acesso à conta de armazenamento, tais como:
+Na terceira parte da série, aprendeu a proteger o acesso à conta de armazenamento, como:
 
 > [!div class="checklist"]
-> * Utilize SAS tokens para aceder a imagens em miniatura
-> * Ativar encriptação do lado do servidor
-> * Ativar o transporte HTTPS só
+> * Utilizar tokens SAS para aceder a imagens em miniatura
+> * Ativar a encriptação do lado do servidor
+> * Ativar o transporte apenas por HTTPS
 
-Avançar para a parte quatro da série para saber como monitorizar e resolver problemas de uma aplicação de armazenamento na nuvem.
+Avance para a quarta parte da série para aprender a monitorizar e a resolver problemas de uma aplicação de armazenamento na cloud.
 
 > [!div class="nextstepaction"]
-> [Monitorizar e resolver problemas de armazenamento de aplicação na nuvem de aplicação](storage-monitor-troubleshoot-storage-application.md)
+> [Monitorizar e resolver problemas de armazenamento da aplicação na cloud](storage-monitor-troubleshoot-storage-application.md)
 
 [previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

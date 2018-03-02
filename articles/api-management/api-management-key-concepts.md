@@ -14,21 +14,15 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0410e0176d5c853e1110fe3460c7d9314e7fd397
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-api-management"></a>O que é a API Management?
 
 A Gestão de API (APIM) ajuda as organizações a publicar APIs para programadores externos, parceiros e internos, de modo a que estes possam explorar ao máximo o potencial dos seus dados e serviços. Um pouco por todo o lado, as empresas procuram expandir as suas operações como uma plataforma digital, criando novos canais, encontrando novos clientes e promovendo um envolvimento mais profundo com os clientes existentes. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. Pode utilizar a API Management do Azure para iniciar um programa de API totalmente funcional baseado em qualquer back-end.
-
-Veja o seguinte vídeo para obter uma descrição geral da API Management do Azure e saiba como utilizar a API Management para adicionar várias funcionalidades à sua API, incluindo controlo de acesso, limitação de taxa, monitorização, registo de eventos e colocação de respostas em cache, com o mínimo de trabalho da sua parte.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
-> 
-> 
 
 Este artigo apresenta uma descrição geral dos cenários comuns que envolvem a APIM.  Também fornece uma breve descrição geral dos componentes principais do sistema de APIM. O artigo, em seguida, apresenta uma descrição geral mais detalhada de cada componente.
 

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: c06270c75ae16ba516e71a5dde9db4a7277d7e38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 465e3d2c0c2b7c5d811441ede20adb9da2dbe847
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -90,7 +90,7 @@ Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Fer
 
 Veja as ligações seguintes para começar a utilizar o Serviço de Aplicações no Linux. Pode publicar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores](quickstart-custom-docker-image.md)
+* [Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores](quickstart-docker-go.md)
 * [Utilizar o .NET Core no Serviço de Aplicações do Azure no Linux](quickstart-dotnetcore.md)
 * [Utilizar o Ruby no Serviço de Aplicações do Azure no Linux](quickstart-ruby.md)
 * [FAQ sobre a Aplicação Web do Serviço de Aplicações do Azure para Contentores](app-service-linux-faq.md)

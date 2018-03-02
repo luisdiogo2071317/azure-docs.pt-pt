@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configure a recuperação de desastre no local em máquinas virtuais VMware ou servidores físicos para um site secundário
 
@@ -62,10 +62,10 @@ Instale as atualizações da seguinte forma:
 >Versão de atualização de ficheiros dos todos os componentes Scout não pode ser o mesmo no ficheiro. zip atualização. A versão mais antiga indicar que não há nenhuma alteração no componente de desde a atualização anterior para esta atualização.
 
 Transferir o [atualizar](https://aka.ms/asr-scout-update6) ficheiro. zip. O ficheiro contém os seguintes componentes: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.GZ
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - Bits de update4 UA para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Extraia os ficheiros. zip.
@@ -124,7 +124,7 @@ Atualização Scout 5 é uma atualização cumulativa. Contém todas as correç�
 - Se os servidores de origem, destino principal, configuração, processo e servidores de RX já estiver a executar a atualização 4, em seguida, aplique-apenas no servidor de destino mestre. 
 
 #### <a name="new-platform-support"></a>Novo suporte de plataforma
-* SUSE Linux Enterprise Server 11 4(SP4) do Service Pack
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
 * SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** é compactada com o pacote de Scout GA base (**InMage_Scout_Standard_8.0.1 GA.zip**). Transferir o pacote de GA no portal, conforme descrito em [criar um cofre](#create-a-vault).
 
 
@@ -165,7 +165,7 @@ Scout atualização 4 é uma atualização cumulativa. Inclui todas as correçõ
 
 * Encerramento melhorado de processamento para os seguintes sistemas operativos Linux e seja clonado, para evitar problemas de sincronização a indesejável:
     * Red Hat Enterprise Linux (RHEL) 6. x
-    * Oracle Linux (OL) 6. x
+    * Oracle Linux (OL) 6.x
 * Para Linux, todas as permissões de acesso de pasta no diretório de instalação de agente unificada agora estão limitadas apenas ao utilizador local.
 * No Windows, uma correção para um tempo limite problema ocorreu durante a emissão de marcadores de consistência distribuída comuns, no bastante carregado aplicações distribuídas como clusters SQL Server e o ponto de partilha.
 * Um registo relacionados com a correção no instalador de base do servidor de configuração.

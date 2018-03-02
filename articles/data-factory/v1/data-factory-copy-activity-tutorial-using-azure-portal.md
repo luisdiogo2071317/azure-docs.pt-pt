@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o portal do Azure para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Veja a seguir os passos que deve executar como parte deste tutorial:
 
 Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline pode conter uma atividade ou mais. Por exemplo, uma Atividade de Cópia para copiar dados de uma origem para um arquivo de dados de destino e uma Atividade do Ramo de Registo do HDInsight para executar um Script de Ramo de Registo para transformar dados de entrada em dados de saída do produto. Comecemos este passo com a criação da fábrica de dados.
 
-1. Depois de iniciar sessão no [portal do Azure](https://portal.azure.com/), clique em **Nova**, no menu da esquerda, clique em **Dados + Análises** e clique em **Data Factory**. 
+1. Depois de iniciar sessão no [portal do Azure](https://portal.azure.com/), clique em **Criar um recurso**, no menu da esquerda, clique em **Dados + Análises** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. No painel **Nova fábrica de dados**:

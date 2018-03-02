@@ -1,8 +1,11 @@
+# [Documentação dos Azure AD Domain Services](index.md)
+
 # Descrição geral
 ## [O que são os Serviços de Domínio do Azure AD?](active-directory-ds-overview.md)
 ## É o mais adequado para si?
 ### [Comparar com o Windows Server AD](active-directory-ds-comparison.md)
 ### [Comparar com a associação do Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
+## [Novidades](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Funcionalidades](active-directory-ds-features.md)
 ## [Cenários](active-directory-ds-scenarios.md)
 ## [Como funciona a sincronização](active-directory-ds-synchronization.md)
@@ -16,6 +19,7 @@
 ## [Tarefa 5: ativar a sincronização de palavras-passe](active-directory-ds-getting-started-password-sync.md)
 
 # Procedimento
+## [Verificar o estado de funcionamento de um domínio gerido](active-directory-ds-check-health.md)
 ## [Utilizar os Azure AD Domain Services nas subscrições do Azure CSP](active-directory-ds-csp.md)
 ## [Ativar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Aderir a um domínio gerido
@@ -28,7 +32,7 @@
 ## Administrar um domínio gerido
 ### [Administrar um domínio gerido](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar o DNS num domínio gerido](active-directory-ds-admin-guide-administer-dns.md)
-### [Verificar o estado de funcionamento do seu domínio](active-directory-ds-check-health.md)
+
 ### Configurar LDAP seguro para um domínio gerido
 #### [Tarefa 1: obter um certificado para o LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarefa 2: exportar o certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

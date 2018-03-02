@@ -1,64 +1,62 @@
 ---
-title: Exemplo de Script CLI do Azure - executar uma tarefa com o Batch | Microsoft Docs
-description: Exemplo de Script CLI do Azure - executar uma tarefa com o Batch
+title: Exemplo do Script da CLI do Azure - Executar um trabalho do Batch | Microsoft Docs
+description: Exemplo do Script do CLI do Azure - Executar um trabalho com o Batch
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
+author: dlepow
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: a782bed39720ac8f4b62b082dd43a2604faf1ca6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Tarefas em execução no Azure Batch com a CLI do Azure
+# <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemplo da CLI: Executar um trabalho e tarefas com o Azure Batch
 
-Este script cria uma tarefa de lote e adiciona uma série de tarefas ao trabalho. É também demonstra como monitorizar uma tarefa e as respetivas tarefas. Por fim, mostra como consultar o serviço de Batch de forma eficiente para obter informações sobre as tarefas do trabalho.
+Este script cria um trabalho do Batch e adiciona uma série de tarefas ao trabalho. Também demonstra como monitorizar um trabalho e as respetivas tarefas. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- Instalar a CLI do Azure utilizando as instruções fornecidas a [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), se ainda não o tiver feito.
-- Se ainda não tiver um, crie uma conta do Batch. Consulte [criar uma conta do Batch com a CLI do Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) para um script de exemplo que cria uma conta.
-- Configure uma aplicação para executar a partir de uma tarefa de início se ainda não o ainda feito. Consulte [adicionar as aplicações do Azure Batch com a CLI do Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application) para um script de exemplo que cria uma aplicação e carrega um pacote de aplicação para o Azure.
-- Configure um conjunto no qual a tarefa será executada. Consulte [conjuntos de gestão do Azure Batch com a CLI do Azure](https://docs.microsoft.com/azure/batch/batch-cli-sample-manage-pool) para um script de exemplo que cria um agrupamento com uma configuração de serviço em nuvem ou uma configuração de Máquina Virtual.
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="example-script"></a>Script de exemplo
 
-[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
-## <a name="clean-up-job"></a>Limpar a tarefa
+## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script de exemplo acima, execute o seguinte comando para remover a tarefa e as respetivas tarefas. Tenha em atenção que o conjunto precisam de ser eliminadas separadamente. Consulte [conjuntos de gestão do Azure Batch com a CLI do Azure](./batch-cli-sample-manage-pool.md) para obter mais informações sobre como criar e a eliminação de conjuntos.
+Execute o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
 
-```azurecli
-az batch job delete --job-id myjob
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar uma tarefa de lote e tarefas. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [início de sessão de conta de batch de AZ](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Autenticar face a uma conta do Batch.  |
-| [Criar trabalho do batch AZ](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Cria uma tarefa de lote.  |
-| [conjunto de trabalho do batch AZ](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Atualiza as propriedades de uma tarefa de lote.  |
-| [Mostrar de tarefa do batch AZ](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Obtém os detalhes de uma tarefa de lote especificado.  |
-| [Criar tarefa do batch AZ](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Adiciona uma tarefa para a tarefa de lote especificada.  |
-| [Mostrar de tarefa do batch AZ](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Obtém os detalhes de uma tarefa da tarefa de lote especificada.  |
-| [lista de tarefas de lote AZ](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_list) | Lista as tarefas associadas a tarefa especificada.  |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Batch. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica contra a conta do Batch especificada para obter mais interação da CLI.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | Cria um conjunto de nós de computação.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Cria um trabalho do Batch.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Adiciona uma tarefa ao trabalho do Batch especificado.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Atualiza as propriedades de um trabalho do Batch.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Obtém os detalhes de um trabalho do Batch especificado.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Obtém os detalhes de uma tarefa do trabalho do Batch especificado.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Exemplos de script de Batch CLI adicionais podem ser encontrados no [documentação da CLI do Azure Batch](../batch-cli-samples.md).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure/overview).

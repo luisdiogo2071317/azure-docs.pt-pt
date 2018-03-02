@@ -1,10 +1,10 @@
 ---
-title: Criar VM de SQL Server Windows no portal do Azure | Microsoft Docs
+title: Criar uma VM do SQL Server do Windows no portal | Microsoft Docs
 description: "Este tutorial mostra como criar uma máquina virtual do SQL Server 2017 do Windows no portal do Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Crie uma máquina virtual do SQL Server 2017 Windows no portal do Azure
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do SQL Server 2017 do Windows no portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 Estes passos do guia de introdução explicam a criação de uma máquina virtual de SQL Server com o portal do Azure.
 
+> [!TIP]
+> Este início rápido proporciona um caminho para aprovisionar e ligar a uma VM do SQL de forma rápida. Para obter mais informações sobre outras opções de aprovisionamento de VMs do SQL, veja o [Guia de aprovisionamento de VMs do SQL Server do Windows no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
+
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a id="select"></a> Selecionar uma imagem de VM do SQL Server
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) utilizando a sua conta.
 
-1. No Portal do Azure, clique em **Novo**. O portal abre a janela **Novo**.
+1. No portal do Azure, clique em **Criar um recurso**. 
 
 1. No campo de pesquisa, escreva **SQL Server 2017 Developer on Windows Server 2016** (SQL Server 2017 Developer no Windows Server 2016) e prima ENTER.
 

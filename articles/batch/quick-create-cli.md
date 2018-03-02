@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4a9235db7431b531864272d220006dbe8340924
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a CLI do Azure
 
@@ -30,7 +30,7 @@ Se optar por instalar e usar a CLI localmente, este início rápido requer a exe
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
-O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus2*.
+O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eualeste2*.
 
 ```azurecli-interactive 
 az group create \
@@ -64,7 +64,7 @@ az batch account create \
     --location eastus2
 ```
 
-Para criar e gerir conjuntos de computação e tarefas, tem de autenticar com o Batch. Inicie sessão na conta com o comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). Depois de iniciar sessão, os comandos `az batch` utilizam este contexto de conta.
+Para criar e gerir conjuntos e tarefas de computação, tem de autenticar com o Batch. Inicie sessão na conta com o comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). Depois de iniciar sessão, os comandos `az batch` utilizam este contexto de conta.
 
 ```azurecli-interactive 
 az batch account login \
@@ -96,7 +96,7 @@ Continue para os passos seguintes para criar tarefas enquanto o estado do conjun
 
 ## <a name="create-a-job"></a>Criar uma tarefa
 
-Agora que tem um conjunto, crie uma tarefa para ser executada no mesmo.  Uma tarefa do Batch é um grupo lógico para uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Crie uma tarefa do Batch através do comando [az batch job create](/cli/azure/batch/job#az_batch_job_create). O exemplo seguinte cria uma tarefa *myjob* no conjunto *mypool*. Inicialmente, o trabalho não tem tarefas.
+Agora que tem um conjunto, crie um trabalho para ser executado no mesmo.  Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Crie uma tarefa do Batch através do comando [az batch job create](/cli/azure/batch/job#az_batch_job_create). O exemplo seguinte cria uma tarefa *myjob* no conjunto *mypool*. Inicialmente, o trabalho não tem tarefas.
 
 ```azurecli-interactive 
 az batch job create \
@@ -116,7 +116,7 @@ do
    az batch task create \
     --task-id mytask$i \
     --job-id myjob \
-    --command-line "/bin/bash -c printenv | grep AZ_BATCH; sleep 90s"
+    --command-line "/bin/bash -c 'printenv | grep AZ_BATCH; sleep 90s'"
 done
 ```
 
@@ -205,8 +205,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, criou uma conta, um conjunto e uma tarefa do Batch. A tarefa executou tarefas de exemplo e viu os resultados em um dos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch. 
+Neste início rápido, criou uma conta, um conjunto e um trabalho do Batch. O trabalho executou tarefas de exemplo e viu os resultados num dos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch. 
 
 
 > [!div class="nextstepaction"]
-> [Tutoriais do Azure Batch](./tutorial-parallel-dotnet.md)
+> [Azure Batch tutorials](./tutorial-parallel-dotnet.md) (Tutoriais do Azure Batch)

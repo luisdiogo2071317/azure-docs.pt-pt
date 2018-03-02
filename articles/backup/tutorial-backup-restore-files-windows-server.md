@@ -1,83 +1,83 @@
 ---
-title: Recuperar ficheiros a partir do Azure para um servidor do Windows | Microsoft Docs
-description: "Este tutorial fornece detalhes sobre itens de recuperação a partir do Azure para um servidor do Windows."
+title: Recuperar ficheiros do Azure para um Servidor Windows | Microsoft Docs
+description: "Este tutorial apresenta detalhes sobre a recuperação de itens do Azure para um Servidor Windows."
 services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
-keywords: "criar cópias de segurança do servidor do Windows; restaurar ficheiros windows servidor; cópia de segurança e recuperação após desastre"
+keywords: "cópia de segurança do windows server; restaurar ficheiros do windows server; cópia de segurança e recuperação após desastre"
 ms.assetid: 
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: b5f77ec04ef6d267583a6dc6a4476f118a4d0f74
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar ficheiros a partir do Azure para um servidor do Windows
+# <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar ficheiros do Azure para um Servidor Windows
 
-Cópia de segurança do Azure permite a recuperação dos itens individuais de cópias de segurança do seu Windows Server. Recuperação de ficheiros individuais é útil se rapidamente deve restaurar os ficheiros que são eliminados acidentalmente. Este tutorial abrange como pode utilizar o agente do Microsoft Azure Recovery Services Agent (MARS) para recuperar os itens de cópias de segurança que já tiver efetuado no Azure. Neste tutorial, ficará a saber como:
+O Azure Backup permite a recuperação dos itens individuais de cópias de segurança do seu Windows Server. A recuperação de ficheiros individuais é útil se precisar de restaurar rapidamente os ficheiros que são eliminados acidentalmente. Este tutorial abrange a forma como pode utilizar o Agente dos Serviços de Recuperação do Microsoft Azure (MARS) para recuperar os itens de cópias de segurança que realizou no Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Iniciar a recuperação dos itens individuais 
+> * Iniciar recuperação de itens individuais 
 > * Selecione um ponto de recuperação 
 > * Restaurar itens a partir de um ponto de recuperação
 
-Este tutorial assume que já executou os passos para [cópia de segurança um Windows Server para o Azure](backup-configure-vault.md) e ter, pelo menos, uma cópia de segurança dos ficheiros do Windows Server no Azure.
+Este tutorial assume que já executou os passos para [Realizar a cópia de segurança um Servidor Windows para o Azure](backup-configure-vault.md) e tem, pelo menos, uma cópia de segurança dos ficheiros do Servidor Windows no Azure.
 
-## <a name="initiate-recovery-of-individual-items"></a>Iniciar a recuperação dos itens individuais
+## <a name="initiate-recovery-of-individual-items"></a>Iniciar recuperação de itens individuais
 
-Um Assistente de interface de utilizador útil com o nome de cópia de segurança do Microsoft Azure está instalado com o agente de serviços de recuperação do Azure (MARS) da Microsoft. O Assistente de cópia de segurança do Microsoft Azure funciona com o agente de serviços de recuperação do Azure (MARS) da Microsoft para obter dados de cópia de segurança a partir dos pontos de recuperação armazenados no Azure. Utilize o Assistente de cópia de segurança do Microsoft Azure para identificar os ficheiros ou pastas que pretende restaurar para o Windows Server. 
+Um assistente de interface de utilizador útil denominado Microsoft Azure Backup está instalado com o agente dos Serviços de Recuperação do Microsoft Azure (MARS). O assistente do Microsoft Azure Backup trabalha com o agente dos Serviços de Recuperação do Microsoft Azure (MARS) para obter dados de cópia de segurança a partir dos pontos de recuperação armazenados no Azure. Utilize o assistente do Microsoft Azure Backup para identificar os ficheiros ou pastas que pretende restaurar para o Windows Server. 
 
-1. Abra o **cópia de segurança do Microsoft Azure** snap-in. Pode encontrá-lo ao pesquisar na máquina por **Cópia de Segurança do Microsoft Azure**.
+1. Abra o snap-in **Microsoft Azure Backup**. Pode encontrá-lo ao pesquisar na máquina por **Cópia de Segurança do Microsoft Azure**.
 
     ![Cópia de segurança pendente](./media/tutorial-backup-restore-files-windows-server/mars.png)
 
-2. No assistente, clique em **recuperar dados** no **painel ações** da consola do agente para iniciar o **recuperar dados** assistente.
+2. No assistente, clique em **Recuperar Dados** no **Painel Ações** da consola do agente para iniciar o assistente **Recuperar Dados**.
 
     ![Cópia de segurança pendente](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. No **introdução** página, selecione **neste servidor (nome do servidor)** e clique em **seguinte**.
+3. Na página **Introdução**, selecione **Este servidor (nome do servidor)** e clique em **Seguinte**.
 
-4. No **selecionar modo de recuperação** página, selecione **ficheiros e pastas individuais** e, em seguida, clique em **seguinte** para iniciar o processo de seleção de ponto de recuperação.
+4. Na página **Selecionar Modo de Recuperação**, selecione **Ficheiros e pastas individuais** e, em seguida, clique em **Seguinte** para iniciar o processo de seleção do ponto de recuperação.
  
-5. No **data e selecione o Volume** página, selecione o volume que contém os ficheiros ou pastas que pretende restaurar e clique em **montar**. Selecione uma data e selecione uma hora no menu pendente que corresponde a um ponto de recuperação. As datas em **negrito** indicar a disponibilidade de, pelo menos, um ponto de recuperação nesse dia.
+5. Na página **Selecionar Volume e Data**, selecione o volume que contém os ficheiros ou pastas que pretende restaurar e clique em **Montar**. Selecione uma data e uma hora no menu pendente que corresponde a um ponto de recuperação. As datas em **negrito** indicam a disponibilidade de, pelo menos, um ponto de recuperação nesse dia.
 
     ![Cópia de segurança pendente](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
  
-    Ao clicar em **montar**, cópia de segurança do Azure faz com que o ponto de recuperação disponível como um disco. Procurar e recuperar ficheiros a partir do disco.
+    Ao clicar em **Montar**, o Azure Backup torna o ponto de recuperação disponível como um disco. Procure e recupere ficheiros a partir do disco.
 
 ## <a name="restore-items-from-a-recovery-point"></a>Restaurar itens a partir de um ponto de recuperação
 
-1. Assim que o volume de recuperação se encontra instalado, clique em **procurar** para abrir o Explorador do Windows e localizar os ficheiros e pastas que pretende recuperar. 
+1. Assim que o volume de recuperação se encontra montado, clique em **Procurar** para abrir o Explorador do Windows e encontre os ficheiros e pastas que pretende recuperar. 
 
     ![Cópia de segurança pendente](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
-    Pode abrir os ficheiros diretamente a partir do volume de recuperação e certifique-se os ficheiros.
+    Pode abrir os ficheiros diretamente a partir do volume de recuperação e verificá-los.
 
-2. No Explorador do Windows, copie os ficheiros de e/ou pastas que pretende restaurar e cole-os para qualquer localização pretendida no servidor.
+2. No Explorador do Windows, copie os ficheiros e/ou pastas que pretende restaurar e cole-os em qualquer localização pretendida no servidor.
 
     ![Cópia de segurança pendente](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. Quando tiver terminado de restauro de ficheiros e pastas, no **procurar e ficheiros de recuperação** página do **recuperar dados** assistente, clique em **Unmount**. 
+3. Quando tiver terminado o restauro dos ficheiros e/ou pastas, na página **Ficheiros de Recuperação e Navegação** do assistente **Recuperar Dados**, clique em **Desmontar**. 
 
     ![Cópia de segurança pendente](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  Clique em **Sim** para confirmar que pretende que o desmontar o volume.
+4.  Clique em **Sim** para confirmar que pretende desmontar o volume.
 
-    Depois do instantâneo é desmontado, **tarefa concluída** aparece no **tarefas** painel na consola do agente.
+    Assim que o instantâneo é desmontado, aparece **Tarefa Concluída** no painel **Tarefas** na consola do agente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Isto conclui os tutoriais na cópia de segurança e restaurar dados do Windows Server para o Azure. Para saber mais sobre o Backup do Azure, consulte o exemplo do PowerShell para efetuar cópia de segurança encriptado das máquinas virtuais.
+Isto conclui os tutoriais na cópia de segurança e restauração dos dados do Windows Server para o Azure. Para saber mais sobre o Azure Backup, veja o exemplo do PowerShell para realizar a cópia de segurança de máquinas virtuais encriptadas.
 
 > [!div class="nextstepaction"]
-> [Criar cópias de segurança encriptado VM](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
+> [Fazer cópia de segurança de VM encriptada](./scripts/backup-powershell-sample-backup-encrypted-vm.md)

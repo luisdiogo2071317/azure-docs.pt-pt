@@ -7,8 +7,10 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Configurar o aprovisionamento automático
+    - name: Configurar o aprovisionamento automático - Portal
       href: quick-setup-auto-provision.md
+    - name: Configurar o aprovisionamento automático - Modelo
+      href: quick-setup-auto-provision-rm.md
     - name: Criar dispositivo simulado
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Anular o aprovisionamento de dispositivos
       href: how-to-unprovision-devices.md
+    - name: Efetuar uma prova de posse dos certificados de AC X.509
+      href: how-to-verify-certificates.md
     - name: Utilizar o HSM com o SDK
       href: use-hsm-with-sdk.md
     - name: Controlar o acesso ao Serviço de Aprovisionamento
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Utilizar as ferramentas do SDK para programar
       href: how-to-use-sdk-tools.md
+    - name: Ligar ao MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Referência
   items:
     - name: REST

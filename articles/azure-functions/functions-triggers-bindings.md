@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
 
@@ -42,6 +42,50 @@ Quando desenvolver as funções utilizando o Visual Studio para criar uma biblio
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Para obter informações sobre os quais os enlaces estão na pré-visualização ou estão aprovados para utilização em produção, consulte [idiomas suportados](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Registar as extensões de enlace
+
+Versão 2 do tempo de execução das funções do Azure, tem explicitamente de registar o [enlace extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que utilizar na sua aplicação de função. 
+
+As extensões são fornecidas como pacotes NuGet, onde o nome do pacote normalmente começa com [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  A forma como instalar e registar as extensões de enlace depende de como desenvolver as suas funções: 
+
++ [Localmente em c# utilizando o Visual Studio ou o VS Code](#precompiled-functions-c)
++ [Localmente utilizando ferramentas de núcleos de funções do Azure](#local-development-azure-functions-core-tools)
++ [No portal do Azure](#azure-portal-development) 
+
+Existem um conjunto de núcleos de enlaces no versão 2. x que não são fornecidos como extensões. Não é necessário registar extensões para os seguintes acionadores e enlaces: HTTP, temporizador e armazenamento do Azure. 
+
+Para obter informações sobre como definir uma aplicação de função para utilizar a versão 2 do tempo de execução funções, consulte [como destino a versões de tempo de execução das funções do Azure](set-runtime-version.md). Versão 2 do tempo de execução de funções está atualmente em pré-visualização. 
+
+As versões do pacote apresentadas nesta secção são fornecidas apenas como exemplos. Verifique o [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) para determinar qual é a versão de uma determinada extensão são necessárias para as outras dependências na sua aplicação de função.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>C# desenvolvimento local utilizando o Visual Studio ou o VS Code 
+
+Quando utilizar o Visual Studio ou Visual Studio Code para desenvolver localmente as funções em c#, basta terá de adicionar o pacote NuGet para a extensão. 
+
++ **Visual Studio**: utilizar as ferramentas do Gestor de pacotes NuGet. O seguinte [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) comando instala a extensão de BD do Cosmos Azure a partir da consola do Gestor de pacotes:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: poderá instalar pacotes a partir da linha de comandos utilizando a [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando na .NET CLI, da seguinte forma:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Azure funções principais ferramentas de desenvolvimento local
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Desenvolvimento de portal do Azure
+
+Quando criar uma função ou adicionar um enlace a uma função existente, serão apresentadas quando a extensão para o enlace a ser adicionado ou acionador necessita de registo.   
+
+Depois de aparece um aviso para a extensão específica que está a ser instalada, clique em **instalar** para registar a extensão. Só é necessário instalar cada extensão de uma vez para uma aplicação de função especificada. 
+
+>[!Note] 
+>O processo de instalação no portal pode demorar até 10 minutos num plano de consumo.
 
 ## <a name="example-trigger-and-binding"></a>Acionador de exemplo e enlace
 
@@ -70,9 +114,9 @@ Eis um *function.json* ficheiros para este cenário.
 }
 ```
 
-O primeiro elemento no `bindings` matriz é o acionador de armazenamento de filas. O `type` e `direction` propriedades identificam o acionador. O `name` propriedade identifica o parâmetro de função que irão receber o conteúdo da mensagem de fila. O nome da fila para monitorizar está a ser `queueName`, e a cadeia de ligação tem a definição de aplicação identificada por `connection`.
+O primeiro elemento no `bindings` matriz é o acionador de armazenamento de filas. O `type` e `direction` propriedades identificam o acionador. O `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila para monitorizar está a ser `queueName`, e a cadeia de ligação tem a definição de aplicação identificada por `connection`.
 
-O elemento de segundo a `bindings` matriz é o Table Storage do Azure vínculo de saída. O `type` e `direction` propriedades identificam o enlace. O `name` propriedade especifica a forma como a função irá fornecer a nova linha de tabela, neste caso, utilizando o valor de retorno da função. O nome da tabela está a ser `tableName`, e a cadeia de ligação tem a definição de aplicação identificada por `connection`.
+O elemento de segundo a `bindings` matriz é o Table Storage do Azure vínculo de saída. O `type` e `direction` propriedades identificam o enlace. O `name` propriedade especifica a forma como a função fornece a nova linha de tabela, neste caso, utilizando a função devolve o valor. O nome da tabela está a ser `tableName`, e a cadeia de ligação tem a definição de aplicação identificada por `connection`.
 
 Para ver e editar o conteúdo do *function.json* no portal do Azure, clique em de **editor avançada** opção o **integrar** separador da sua função.
 

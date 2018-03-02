@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Melhores práticas do Azure SQL Data Warehouse
 Este artigo é uma coleção de muitas das melhores práticas que o irão ajudar a obter um desempenho otimizado do Azure SQL Data Warehouse.  Alguns dos conceitos neste artigo são básicos e fáceis de explicar, outros conceitos são mais avançados e apenas falamos por alto neste artigo.  O objetivo deste artigo é proporcionar alguma orientação básica e consciencialização de áreas de foco importantes ao criar o seu armazém de dados.  Cada secção apresenta um conceito e, em seguida, encaminha-o para artigos mais detalhados que abordam o conceito de forma mais aprofundada.
@@ -29,14 +29,8 @@ Se está a começar a utilizar o Azure SQL Data Warehouse, não deixe que este a
 Para carregar a documentação de orientação, veja [Guidance for loading data (Documentação de orientação para carregar dados)](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Reduzir os custos com a colocação em pausa e o dimensionamento
-Uma funcionalidade fundamental do SQL Data Warehouse é a capacidade de colocação em pausa quando não está a utilizá-lo, o que para a faturação de recursos de computação.  Outra funcionalidade importante é a capacidade de dimensionar os recursos.  A Colocação em Pausa e o Dimensionamento podem ser feitos através do Portal do Azure ou de comandos do PowerShell.  Familiarize-se com estas funcionalidades, uma vez que podem reduzir significativamente o custo do armazém de dados quando não está em utilização.  Se pretender que o armazém de dados esteja sempre acessível, deve considerar reduzir verticalmente para o tamanho mais pequeno, um DW100, em vez de colocar em pausa.
+Para obter mais informações sobre a redução de custos através da colocação em pausa e do dimensionamento, veja [Gerir a computação](sql-data-warehouse-manage-compute-overview.md). 
 
-Veja também [Pause compute resources][Pause compute resources] (Colocar recursos de computação em pausa), [Resume compute resources][Resume compute resources] (Retomar recursos de computação) e [Scale compute resources] (Dimensionar recursos de computação).
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Drenar transações antes de colocar em pausa ou dimensionar
-Ao colocar em pausa ou dimensionar o SQL Data Warehouse, em segundo plano, as consultas são canceladas quando iniciar o pedido de colocação em pausa ou dimensionamento.  Cancelar uma consulta SELECT simples é uma operação rápida e quase não tem impacto sobre o tempo que demora a colocar em pausa ou a dimensionar a sua instância.  No entanto, as consultas transacionais que modificam os seus dados ou a estrutura dos mesmos, podem não ser paradas rapidamente.  **As consultas transacionais, por definição, têm de ser concluídas na sua totalidade ou têm de reverter as alterações.**  A reversão do trabalho concluído por uma consulta transacional pode demorar tanto tempo, ou mais, como a alteração original que a consulta aplicou.  Por exemplo, se cancelar uma consulta que estava a eliminar linhas e que já estiva a ser executada há uma hora, o sistema pode demorar uma hora a inserir novamente as linhas que foram eliminadas.  Se colocar em pausa ou dimensionar enquanto as transações estiverem a decorrer, a colocação em pausa ou o dimensionamento podem demorar muito tempo, uma vez que a colocação em pausa e o dimensionamento têm de aguardar que a reversão esteja concluída para poderem continuar.
-
-Veja também [Understanding transactions][Understanding transactions] (Compreender as transações) e [Optimizing transactions][Optimizing transactions] (Otimizar as transações)
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
 Ao contrário do SQL Server, que deteta e cria ou atualiza automaticamente as estatísticas em colunas, o SQL Data Warehouse requer a manutenção manual das estatísticas.  Embora planeemos alterar esta situação no futuro, por agora, deve realizar a manutenção das estatísticas para garantir que os planos do SQL Data Warehouse são otimizados.  Os planos criados pelo otimizador só serão bons consoante as estatísticas disponíveis.  **Criar estatísticas de amostragem em cada coluna é uma forma fácil de começar com as estatísticas.**  É igualmente importante atualizar as estatísticas à medida que ocorrem alterações significativas nos seus dados.  Poderá realizar uma abordagem conservadora para atualizar as estatísticas diariamente ou após cada carregamento.  Há sempre uma relação entre o desempenho e o custo para criar e atualizar as estatísticas. Se achar que está a demorar demasiado tempo a manter todas as estatísticas, deve tentar ser mais seletivo sobre as colunas que têm estatísticas ou as colunas que precisam de atualização frequente.  Por exemplo, deve atualizar as colunas de data, onde podem ser adicionados diariamente novos valores. **Irá beneficiar mais com estatísticas em colunas envolvidas em associações, colunas utilizadas na cláusula WHERE e colunas que se encontram em GROUP BY.**

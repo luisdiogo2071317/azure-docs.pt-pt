@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Compreender os alertas de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a compreender os vários tipos de alertas de segurança e informações relacionadas que estão disponíveis no Centro de Segurança do Azure. Para obter mais informações sobre como gerir alertas e incidentes, veja [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Desativar e eliminar ficheiros de registo IIS**: este alerta indica que o ficheiro de registo IIS foi desativado e/ou eliminado, frequentemente utilizado pelos atacantes para tentar disfarçar os ataques.
 * **Eliminação de ficheiros suspeita**: este alerta indica eliminações de ficheiros suspeitas, que podem ser utilizadas por um atacante para remover uma prova dos binários maliciosos.
 * **Todas as cópias sombra do ficheiro foram eliminadas**: este alerta indica que as cópias sombra foram eliminadas.
-* **Um ficheiro de histórico foi limpo**: este alerta indica que o ficheiro de registo de histórico do comando foi limpo, que pode ser utilizado por um atacante disfarçar os rastos.
 * **Comandos de limpeza do ficheiro suspeito**: este alerta indica uma combinação de comandos systeminfo utilizada para executar a atividade de limpeza automática de pós-compromisso.  Enquanto o *systeminfo.exe* é uma ferramenta Windows legítima, executá-la duas vezes sucessivamente, seguida de um comando de eliminação da forma que ocorreu aqui é incomum.
 * **Criação de conta suspeita**: este alerta indica que foi criada uma conta com um semelhança elevada de uma conta com privilégios administrativos existente. Esta técnica pode ser utilizada por atacantes para criar uma conta de adesão sem ser detetado.
-* **Atividade de início de sessão suspeita**: este alerta indica uma atividade de início de sessão invulgar, que pode indicar um ataque de força bruta de Server Message Block (SMB). Se o recurso afetado age como um servidor IIS, este alerta pode dever-se à configuração da autenticação IIS específica que é legítima.
 * **Atividade de cópia sombra de volume suspeita**: este alerta indica a atividade de eliminação de cópia sombra de volumes no recurso. A Cópia Sombra de Volume (VSC) é um artefacto importante que armazena os instantâneos de dados. Esta atividade é normalmente associada a Ransowmare, mas também poderia ser legítima.
 * **Método de persistência de registo do Windows**: este alerta indica uma tentativa de manter um executável no registo do Windows. O software maligno, muitas vezes, utiliza esta técnica para continuam a vigorar após um arranque.
-* **Firewall do Windows desativada**: este alerta indica que uma firewall do Windows foi desativada.
 * **Nova regra de firewall suspeita**: este alerta indica que foi adicionada uma nova regra de Firewall através de *netsh.exe* para permitir tráfego de um executável numa localização suspeita.
-* **Novo utilizador adicionado ao grupo de administradores**: este alerta indica que foi adicionado um novo utilizador ao grupo do administrador local.
-* **Foi criado um novo serviço**: este alerta indica que foi criado um novo serviço.
 * **Execuções de XCOPY suspeitas**: este alerta indica uma série de execuções de XCOPY que podem assinalar que uma das suas máquinas foi comprometida e foi utilizada para propagar software maligno.
 * **Supressão de avisos legais apresentado aos utilizadores no início de sessão**: este alerta indica uma alteração à chave de registo que controla se é apresentado um aviso legal aos utilizadores quando iniciam sessão. Esta é uma atividade comum realizada pelos atacantes após terem comprometido um anfitrião.
 * **Combinação anómala de carateres maiúsculos e minúsculos detetados na linha de comandos**: este alerta indica que a utilização de uma combinação de carateres maiúsculos e minúsculos na linha de comandos, que é uma técnica utilizada pelos atacantes para ocultar maiúsculas e minúsculas ou regras de máquina com base em resumos de mensagens.
@@ -123,15 +118,10 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Alterações Set-ExecutionPolicy e WinRM suspeitas**: este alerta indica as alterações de configuração, que estão associadas à utilização de webshell de ChinaChopper maliciosa.
 * **Desativação de serviços críticos**: este alerta indica que o comando "net.exe stop" foi utilizado para parar serviços críticos como SharedAccess ou Centro de Segurança do Windows.
 * **Utilização suspeita de comutador de FTP-s**: este alerta indica a utilização do comutador "-s" de FTP, que pode ser utilizado por software maligno para ligar a um servidor remoto de FTP e transferir os binários maliciosos adicionais.
-* **Preparação para filtragem de documentos através da backdoor do IIS**: este alerta indica que os documentos estão a ser recolhidos e preparados para filtragem.
 * **Execução suspeita do comando VBScript.Encode**: este alerta indica que o comando *VBScript.Encode* foi executado, o qual codifica scripts para texto ilegível, tornando mais difícil para os utilizadores examinar o código.
 * **Alocação de objeto de HTTP de VBScript**: este alerta indica a criação de um ficheiro de VBScript utilizando a linha de comandos, que pode ser utilizado para transferir ficheiros maliciosos.
 * **Ataque de chaves temporárias**: este alerta indica que um atacante pode estar a subverter uma acessibilidade binária (por exemplo chaves temporária, teclado no ecrã, narrador) para fornecer acesso através da backdoor.
 * **Indicadores de ransomware Petya**: este alerta indica as técnicas associadas ao ransomware Petya que foram observadas.
-* **Um módulo de kernel foi carregado**: este alerta indica que foi carregado um módulo de kernel.
-* **Um módulo de kernel foi removido**: este alerta indica que foi removido um módulo de kernel.
-* **Início de sessão anómalo numa máquina**: este alerta indica que um utilizador iniciou sessão a partir de um endereço IP invulgar.
-* **Um ficheiro foi transferido e executado**: este alerta indica que um ficheiro foi transferido para a máquina, dado privilégios de execução e, em seguida, executado.
 * **Tentativa de desativar AMSI**: este alerta indica uma tentativa de desativar a interface de análise antimalware (AMSI), que desativa a deteção de antimalware.
 * **Indicadores de ransomware**: este alerta indica atividades suspeitas tradicionalmente associadas a ransomware de bloqueio de ecrã e encriptação.
 * **Ficheiro de saída de coleção de rastreio suspeito**: este alerta indica que um rastreio (por exemplo, de atividade de rede) foi recolhido e extraído para um tipo de ficheiro invulgar.
@@ -145,14 +135,8 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Construção de script PS dinâmico**: este alerta indica um script do PowerShell que está a ser construído dinamicamente. Os atacantes utilizam esta técnica para construir progressivamente um script para evadir os sistemas de IDS.
 * **Indicadores Metaploit**: este alerta indica atividade associada com o framework de Metasploit, que fornece uma variedade de ferramentas e capacidades de atacante.
 * **Atividade suspeita na conta**: este alerta indica uma tentativa de ligar a uma máquina através de uma conta que ficou comprometida recentemente.
-* **Possível acesso a tarefas de agendamento suspeito**: este alerta indica que foi executada uma tarefa de cron, que pode ser utilizada pelos atacantes para executar programas maliciosos de forma agendada.
-* **Possível acesso a ficheiro de histórico de comando suspeito**: este alerta indica acesso anormal ao ficheiro de histórico de comandos.
 * **Criação de contas**: este alerta indica uma criação de uma nova conta na máquina.
-* **Alteração da definição de bash**: este alerta indica um ficheiro de Perfil Bash foi acedido, que pode ser prova de que um atacante está a tentar executar programas maliciosos de forma agendada.
-* **Sequência suspeita de tentativas sudo falhadas**: este alerta indica uma sequência de comandos de sudo sem êxito, que é frequentemente observada em tentativas de força bruta e que tem como objetivo aumentar os privilégios de utilizadores não autorizados.
-* **Tentativas sudo com êxito suspeitas**: este alerta indica uma sequência tentativas sudo falhadas por uma tentativa sudo com êxito, que é frequentemente observada em tentativas de força bruta e que tem como objetivo aumentar os privilégios de utilizadores não autorizados.
-* **Foi adicionado um novo utilizador ao grupo sudoers**: este alerta indica que um utilizador foi adicionado ao grupo sudoers, o que permite que os membros do grupo executem comandos com privilégios elevados.
-* **Início de sessão de rede com credenciais de texto simples**: este alerta indica que foi observado um início de sessão de rede no qual a palavra-passe foi enviada através da rede num formato de texto não encriptado. Isto é comum para inícios de sessão a partir de um script ASP utilizando a ADVAPI ou quando um utilizador inicia sessão no IIS utilizando o modo de autenticação básica do IIS. A autenticação básica não é o método recomendado, a menos que esteja a ser moldado numa camada de encriptação, tal como o SSL (ou seja, ao utilizar apenas ligações de HTTPS).
+
 
 ### <a name="crash-analysis"></a>Análise de falhas
 
@@ -206,6 +190,8 @@ Se estiverem disponíveis informações adicionais, estas serão mostradas no In
 - Eventos de limpeza de registos
 - Dispositivo PNP ligado a partir de um dispositivo desconhecido
 - Alertas não acionáveis
+- Criação de nova conta
+- Ficheiro descodificado com a ferramenta certutil 
 
 ![Alerta de acesso invulgar](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

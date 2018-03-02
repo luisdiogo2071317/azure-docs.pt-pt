@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Controlar assíncronas operações do Azure
 Algumas operações de REST de Azure executam de forma assíncrona porque a operação não é possível concluir o mais rapidamente. Este tópico descreve como monitorizar o estado de operações assíncronas através de valores obtidos na resposta.  
@@ -32,16 +32,16 @@ Uma operação assíncrona inicialmente devolve um código de estado HTTP do:
 Quando a operação for concluída com êxito, devolverá uma:
 
 * 200 (OK)
-* 204 (nenhum conteúdo) 
+* 204 (No Content) 
 
 Consulte o [documentação da REST API](/rest/api/) para ver as respostas para a operação a que se encontram em execução. 
 
 ## <a name="monitor-status-of-operation"></a>Monitor de estado de funcionamento
 As operações REST assíncronas devolvem valores de cabeçalho, o que utilizar para determinar o estado da operação. Existem potencialmente três os valores de cabeçalho para examinar:
 
-* `Azure-AsyncOperation`-URL para verificar o estado da operação em curso. Se a operação devolve este valor, utilizá-lo (em vez de localização) sempre controlar o estado da operação.
-* `Location`-URL para determinar quando uma operação foi concluída. Utilize este valor apenas quando não é devolvido AsyncOperation do Azure.
-* `Retry-After`-O número de segundos a aguardar antes de a verificar o estado da operação assíncrona.
+* `Azure-AsyncOperation` -URL para verificar o estado da operação em curso. Se a operação devolve este valor, utilizá-lo (em vez de localização) sempre controlar o estado da operação.
+* `Location` -URL para determinar quando uma operação foi concluída. Utilize este valor apenas quando não é devolvido AsyncOperation do Azure.
+* `Retry-After` -O número de segundos a aguardar antes de a verificar o estado da operação assíncrona.
 
 No entanto, não cada operação assíncrona devolve todos estes valores. Por exemplo, terá de avaliar o valor do cabeçalho AsyncOperation do Azure para uma operação e o valor de cabeçalho de localização para outra operação. 
 
@@ -82,7 +82,7 @@ Apenas `status` é devolvido para todas as respostas. O objeto de erro é devolv
 As operações que criar, atualizarem ou eliminar (PUT, PATCHES, eliminação) um recurso normalmente devolver um `provisioningState` valor. Quando concluir uma operação, é devolvido um de três valores seguintes: 
 
 * Bem-sucedido
-* Falha
+* Com Falhas
 * Cancelado
 
 Todos os outros valores indicam que a operação ainda está em execução. O fornecedor de recursos pode devolver um valor personalizado que indica o estado. Por exemplo, poderá receber **aceites** quando o pedido é recebido e em execução.
@@ -191,8 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Se o pedido ainda está em execução, receberá um código de estado 202. Se o pedido tiver sido concluída, a receber um código de estado 200 e o corpo da resposta contém as propriedades da conta de armazenamento que foi criado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter documentação sobre cada operação REST, consulte [documentação da REST API](/rest/api/).
-* Para obter informações sobre a gestão de recursos através da API de REST do Resource Manager, consulte [utilizando a API de REST do Resource Manager](resource-manager-rest-api.md).
 * Para obter informações sobre a implementação de modelos através da API de REST do Resource Manager, consulte [implementar recursos com modelos do Resource Manager e a API de REST do Resource Manager](resource-group-template-deploy-rest.md).

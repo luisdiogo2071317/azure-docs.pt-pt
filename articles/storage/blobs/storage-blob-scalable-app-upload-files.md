@@ -1,30 +1,27 @@
 ---
-title: "Carregar grandes quantidades de dados aleatórios em paralelo com armazenamento do Azure | Microsoft Docs"
-description: "Saiba como utilizar o Azure SDK para carregar grandes quantidades de dados aleatórios em paralelo com uma conta de armazenamento do Azure"
+title: "Carregar grandes quantidades de dados aleatórios em paralelo para o Armazenamento do Azure | Microsoft Docs"
+description: "Saiba como utilizar o Azure SDK para carregar grandes quantidades de dados aleatórios em paralelo para uma conta de Armazenamento do Azure"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo com armazenamento do Azure
+# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure
 
-Este tutorial é parte dois de uma série. Este tutorial mostra que implementar uma aplicação que carrega grande quantidade de dados aleatórios para uma conta de armazenamento do Azure.
+Este tutorial é a segunda parte de uma série. Este tutorial mostra como implementar uma aplicação que carrega grandes quantidades de dados aleatórios para uma conta de armazenamento do Azure.
 
-Na parte dois da série, saiba como:
+Na segunda parte da série, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar a cadeia de ligação
@@ -32,17 +29,17 @@ Na parte dois da série, saiba como:
 > * Executar a aplicação
 > * Validar o número de ligações
 
-Armazenamento de Blobs do Azure fornece um serviço dimensionável para armazenar os dados. Para garantir a sua aplicação como performant quanto possível, uma compreensão sobre como funciona o blob storage é recomendada. Dados de conhecimento de limites para os blobs do Azure são importante, para obter mais informações sobre estes limites visitam: [metas de escalabilidade do armazenamento de BLOBs](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+O armazenamento de blobs do Azure proporciona um serviço dimensionável para armazenar os dados. Para garantir que a aplicação tem o melhor desempenho possível, recomenda-se uma compreensão sobre como funciona o armazenamento de blobs. O conhecimento dos limites dos blobs do Azure é importante. Para obter mais informações sobre estes limites, visite: [objetivos de escalabilidade do armazenamento de blobs](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Atribuição de nomes de partição](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) é outro fator importante ao conceber uma aplicação altamente realizar com blobs. Armazenamento do Azure utiliza um esquema de partições com base no intervalo para balanceamento de escala e a carga. Esta configuração significa que os ficheiros com as convenções de nomenclatura semelhantes ou prefixos Ir para a mesma partição. Esta lógica inclui o nome do contentor que os ficheiros estão a ser carregados para. Neste tutorial, utilize os ficheiros que tenham GUIDs para nomes como conteúdo gerado bem como aleatoriamente. Em seguida, são carregados cinco diferentes contentores com nomes aleatórios.
+A [nomenclatura de partições](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) é outro fator importante ao conceber uma aplicação de alto desempenho com os blobs. O armazenamento do Azure utiliza um esquema de partições com base no intervalo para o dimensionamento e o balanceamento de carga. Esta configuração significa que os ficheiros com as convenções de nomenclatura ou prefixos semelhantes vão para a mesma partição. Esta lógica inclui o nome do contentor para o qual os ficheiros estão a ser carregados. Neste tutorial, utilize os ficheiros que tenham GUIDs como nomes, bem como conteúdo gerado aleatoriamente. Em seguida, são carregados para cinco contentores com nomes aleatórios diferentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [criar uma máquina virtual e a conta de armazenamento para uma aplicação dimensionável][previous-tutorial].
+Para concluir este tutorial, tem de concluir o tutorial de armazenamento anterior: [Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Remoto na sua máquina virtual
+## <a name="remote-into-your-virtual-machine"></a>Aceder remotamente à máquina virtual
 
-Utilize o seguinte comando na sua máquina local para criar uma sessão de ambiente de trabalho remoto com a máquina virtual. Substitua o endereço IP publicIPAddress da sua máquina virtual. Quando lhe for pedido, introduza as credenciais utilizadas ao criar a máquina virtual.
+Utilize o seguinte comando no computador local para criar uma sessão de ambiente de trabalho remoto com a máquina virtual. Substitua o endereço IP pelo publicIPAddress da máquina virtual. Quando lhe for pedido, introduza as credenciais utilizadas ao criar a máquina virtual.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -50,36 +47,36 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Configurar a cadeia de ligação
 
-No portal do Azure, navegue até à sua conta de armazenamento. Selecione **chaves de acesso** em **definições** na sua conta de armazenamento. Copiar o **cadeia de ligação** partir da chave primária ou secundária. Inicie sessão máquina virtual que criou no tutorial anterior. Abra um **linha de comandos** como um administrador e execute o `setx` comando com o `/m` comutador, este comando guarda uma variável de ambiente de definição de máquina. A variável de ambiente não está disponível até que volte a carregar o **linha de comandos**. Substitua ** \<storageConnectionString\> ** no seguinte exemplo:
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Inicie sessão na máquina virtual criada no tutorial anterior. Abra uma **Linha de Comandos** como um administrador e execute o comando `setx` com o comutador `/m`, este comando guarda uma variável de ambiente de definição do computador. A variável de ambiente não está disponível enquanto não recarregar a **Linha de Comandos**. Substitua **\<storageConnectionString\>** no exemplo seguinte:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-Quando terminar, abra o outro **linha de comandos**, navegue para `D:\git\storage-dotnet-perf-scale-app` e tipo `dotnet build` para criar a aplicação.
+Quando terminar, abra outra **Linha de Comandos**, navegue até `D:\git\storage-dotnet-perf-scale-app` e escreva `dotnet build` para criar a aplicação.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Navegue para `D:\git\storage-dotnet-perf-scale-app`.
 
-Tipo `dotnet run` para executar a aplicação. Da primeira vez que executa `dotnet` preenche a cache do pacote local, para melhorar a velocidade de restauro e ativar o acesso offline. Este comando ocupa a um minuto para concluir e só ocorre uma vez.
+Escreva `dotnet run` para executar a aplicação. Da primeira vez que executar `dotnet`, preenche a cache do pacote local para melhorar a velocidade de restauro e ativar o acesso offline. Este comando demora cerca de um minuto e só ocorre uma vez.
 
 ```
 dotnet run
 ```
 
-A aplicação cria cinco contentores aleatoriamente nomeados e começa a carregar os ficheiros no diretório de transição para a conta de armazenamento. A aplicação define os threads mínimos para 100 e o [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) a 100 para garantir que é permitido um grande número de ligações simultâneas quando executar a aplicação.
+A aplicação cria cinco contentores aleatoriamente nomeados e começa a carregar os ficheiros no diretório faseado para a conta de armazenamento. A aplicação define os threads mínimos como 100 e o [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) como 100 para garantir que é permitido um grande número de ligações simultâneas quando executar a aplicação.
 
-Além de definir as definições de limite de thread e a ligação, o [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) para o [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) método estão configurados para utilizar o paralelismo e desativar a validação de hash MD5. Os ficheiros são carregados em blocos de 100 mb, esta configuração fornece um melhor desempenho, mas pode ser dispendiosa se utilizar uma execução poorly rede como se houver uma falha do bloco de 100 mb completo é repetida.
+Além de configurar as definições de threading e de ligação, as [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) do método [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) estão configuradas para utilizar o paralelismo e desativar a validação do hash MD5. Os ficheiros são carregados em blocos de 100 MB e esta configuração proporciona um melhor desempenho, mas poderá ser dispendiosa se utilizar uma rede com um desempenho fraco, uma vez que se houver uma falha, todo o bloco de 100 MB é repetido.
 
 |Propriedade|Valor|Descrição|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| A definição de quebras de blob em blocos ao carregar. Para mais elevado desempenho, este valor deve ser 8 vezes o número de núcleos. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propriedade desativa a verificar o hash MD5 o conteúdo carregado. Desativar validação MD5 produz uma transferência mais rápida. Mas não confirma a integridade dos ficheiros a serem transferidos ou validade.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| falso| Esta propriedade determina se um hash MD5 é calculado e armazenado com o ficheiro.   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| segundo 2 término com a repetição de máximo de 10 |Determina a política de repetição de pedidos. Falhas de ligação são repetidas, neste exemplo um [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) política está configurada com um término de segundo 2 e uma contagem de repetições máxima de 10. Esta definição é importante quando a aplicação obtém próximo atingir o [metas de escalabilidade do armazenamento de BLOBs](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| A definição divide o blob em blocos ao carregar. Para um desempenho mais elevado, este valor deve ser 8 vezes o número de núcleos. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propriedade desativa a verificação do hash MD5 do conteúdo carregado. Desativar a validação MD5 permite uma transferência mais rápida. Mas não confirma a validade nem a integridade dos ficheiros que estão a ser transferidos.   |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Esta propriedade determina se um hash MD5 é calculado e armazenado com o ficheiro.   |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Término de 2 segundos com máximo de 10 repetições |Determina a política de repetição dos pedidos. As falhas de ligação são repetidas, neste exemplo, uma política[ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) é configurada com um término de 2 segundos e uma contagem de repetições máxima de 10. Esta definição é importante quando a aplicação está próxima de atingir os [objetivos de escalabilidade do armazenamento de blobs](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
-O `UploadFilesAsync` tarefa é mostrada no exemplo seguinte:
+A tarefa `UploadFilesAsync` é mostrada no exemplo seguinte:
 
 ```csharp
 private static async Task UploadFilesAsync()
@@ -177,7 +174,7 @@ Upload has been completed in 142.0429536 seconds. Press any key to continue
 
 ### <a name="validate-the-connections"></a>Validar as ligações
 
-Enquanto os ficheiros estão a ser carregados, pode verificar o número de ligações em simultâneo à sua conta de armazenamento. Abra um **linha de comandos** e tipo `netstat -a | find /c "blob:https"`. Este comando apresenta o número de ligações que estão atualmente abertos com `netstat`. O exemplo seguinte mostra um resultado semelhante para ver quando executar o tutorial por si. Como pode ver do exemplo, 800 ligações tiverem sido abertas quando carregar os ficheiros aleatórios para a conta de armazenamento. Este valor é alterado em toda a executar o carregamento. Através do carregamento em segmentos de bloco parallel, a quantidade de tempo necessário para transferir o conteúdo é significativamente reduzida.
+Enquanto os ficheiros estão a ser carregados, pode verificar o número de ligações em simultâneo para a conta de armazenamento. Abra uma **Linha de Comandos** e escreva `netstat -a | find /c "blob:https"`. Este comando apresenta o número de ligações que estão atualmente abertas com `netstat`. O exemplo seguinte mostra um resultado semelhante ao que vê quando executa o tutorial. Como pode ver no exemplo, foram abertas 800 ligações ao carregar os ficheiros aleatórios para a conta de armazenamento. Este valor é alterado ao longo da execução do carregamento. Através do carregamento em segmentos de blocos em paralelo, o período de tempo que é preciso para transferir o conteúdo é significativamente reduzido.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -186,9 +183,9 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Parte dois da série, aprendeu sobre carregar grandes quantidades de dados aleatórios para uma conta de armazenamento em paralelo, tais como:
+Na segunda parte da série, aprendeu a carregar grandes quantidades de dados aleatórios para uma conta de armazenamento em paralelo, tais como:
 
 > [!div class="checklist"]
 > * Configurar a cadeia de ligação
@@ -196,9 +193,9 @@ Parte dois da série, aprendeu sobre carregar grandes quantidades de dados aleat
 > * Executar a aplicação
 > * Validar o número de ligações
 
-Avançar para três parte a série da transferir grandes quantidades de dados a partir de uma conta de armazenamento.
+Avance para a terceira parte da série para transferir grandes quantidades de dados a partir de uma conta de armazenamento.
 
 > [!div class="nextstepaction"]
-> [Carregar grandes quantidades de ficheiros grandes em paralelo com uma conta de armazenamento](storage-blob-scalable-app-download-files.md)
+> [Carregar grandes quantidades de ficheiros grandes em paralelo para uma conta de armazenamento](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

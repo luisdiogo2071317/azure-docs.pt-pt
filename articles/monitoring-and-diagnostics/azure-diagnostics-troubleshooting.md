@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](azure-diagnostics.md).
@@ -48,7 +48,7 @@ Seguem-se os caminhos para alguns registos importantes e os artefactos. Vamos re
 | Artefactos | Caminho |
 | --- | --- |
 | **Ficheiro de configuração de diagnósticos do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
-| **Ficheiros de registo** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Ficheiros de registo** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
 | **Arquivo local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
 | **Ficheiro de configuração do agente de monitorização** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Ficheiro de estado** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |

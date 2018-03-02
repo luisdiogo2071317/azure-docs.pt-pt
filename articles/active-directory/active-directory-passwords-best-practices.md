@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 0ab45043e2f75ff07a2a1a48e69507be185b56ab
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 063c92a006696afb998799c312515c79c19a48f4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
@@ -61,7 +61,7 @@ Muitos clientes consideram que a forma mais fácil de pôr os utilizadores a uti
 Muitos clientes optam por alojar uma página Web e criar uma entrada DNS de raiz, como https://passwords.contoso.com. Preenchem esta página com ligações para as informações seguintes:
 
 * [Portal para reposição de palavras-passe do Azure AD - https://aka.ms/sspr](https://aka.ms/sspr)
-* [Portal de registo da reposição de palavras-passe do Azure AD - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portal de registo da reposição de palavras-passe do Azure AD – https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Portal de alteração de palavras-passe do Azure AD - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Outras informações específicas da organização
 

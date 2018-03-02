@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Ligar HDInsight à sua rede no local
 
@@ -78,7 +78,7 @@ Para criar uma VM com Linux que utiliza o [vincular](https://www.isc.org/downloa
 
     ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Do __Noções básicas__ secção, introduza as seguintes informações:
+2. Na secção __Informações Básicas__, introduza as seguintes informações:
 
     * __Nome__: um nome amigável que identifica esta máquina virtual. Por exemplo, __DNSProxy__.
     * __Nome de utilizador__: O nome da conta do SSH.
@@ -332,7 +332,7 @@ Para ligar diretamente ao HDInsight através da rede virtual, utilize os seguint
     >
     > Por exemplo, apenas está ativo no nó principal de um Ambari cada vez. Se tentar aceder ao nó principal Ambari e devolve um erro 404, em seguida, estiver em execução no nó principal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre como utilizar o HDInsight numa rede virtual, consulte [expandir HDInsight ao utilizar redes virtuais do Azure](./hdinsight-extend-hadoop-virtual-network.md).
 

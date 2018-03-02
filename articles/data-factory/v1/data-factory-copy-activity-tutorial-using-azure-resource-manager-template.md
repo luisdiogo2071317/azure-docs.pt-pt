@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo do Azure Resource Manager para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ Crie um ficheiro JSON com o nome **ADFCopyTutorialARM Parameters.json** que cont
 ## <a name="monitor-pipeline"></a>Monitorizar o pipeline
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do Azure.
-2. Clique em **Fábricas de dados** no menu da esquerda (ou) clique em **Mais serviços** e clique em **Fábricas de dados** na categoria **INTELIGÊNCIA + ANÁLISE**.
+2. Clique em **Fábricas de dados** no menu da esquerda (ou) clique em **Todos os serviços** e clique em **Fábricas de dados** na categoria **INTELIGÊNCIA + ANÁLISE**.
    
     ![Menu de fábricas de dados](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. Na página **Fábricas de dados**, procure e encontre a sua fábrica de dados (AzureBlobToAzureSQLDatabaseDF). 

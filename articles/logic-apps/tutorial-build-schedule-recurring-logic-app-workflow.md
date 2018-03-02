@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verificar o tráfego com uma aplicação lógica baseada num agendador
 
@@ -53,7 +53,7 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
 
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
 
-1. No menu principal do Azure, escolha **Nova** > **Integração Empresarial** > **Aplicação Lógica**.
+1. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicação Lógica**.
 
    ![Criar uma aplicação lógica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
@@ -96,7 +96,7 @@ Em seguida, adicione o [acionador](../logic-apps/logic-apps-overview.md#logic-ap
    | ------- | ----- | ----------- | 
    | **Intervalo** | 1 | O número de intervalos de espera entre verificações | 
    | **Frequência** | Week (Semana) | A unidade de tempo a utilizar para a periodicidade | 
-   | **Time zone** (Fuso horário) | Nenhum | Aplica-se apenas se especificar uma hora de início. É útil para especificar um fuso horário não local. | 
+   | **Time zone** (Fuso horário) | Nenhuma | Aplica-se apenas se especificar uma hora de início. É útil para especificar um fuso horário não local. | 
    | **Start time** (Hora de início) | Nenhum | Atrasar a periodicidade até uma data e hora específicas. Para obter mais informações, veja [Schedule tasks and workflows that run regularly](../connectors/connectors-native-recurrence.md) (Agendar tarefas e fluxos de trabalho que são executados regularmente). | 
    | **On these days** (Nestes dias) | Monday,Tuesday,Wednesday,Thursday,Friday | Disponível apenas se **Frequency** (Frequência) estiver definida como "Week" | 
    | **At these hours** (A estas horas) | 7,8,9 | Disponível apenas se **Frequency** estiver definida como "Week" ou “Day”. Selecionar as horas do dia para executar esta periodicidade. Este exemplo é executado nas marcas das 7, 8 e 9 horas. | 
@@ -147,8 +147,8 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
    | **Optimize** | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o parâmetro "timeWithTraffic" | 
    | **Distance unit** | <*your-preference*> | A unidade de distância do percurso. Este artigo utiliza a unidade "Milha"  | 
    | **Travel mode** | Driving | O modo de deslocação para o percurso. Selecione o modo "Driving" | 
-   | **Transit Date-Time** | Nenhum | Aplica-se apenas ao modo de tráfego | 
-   | **Date-Time Type** | Nenhuma | Aplica-se apenas ao modo de tráfego | 
+   | **Transit Date-Time** | Nenhuma | Aplica-se apenas ao modo de tráfego | 
+   | **Date-Time Type** | Nenhum | Aplica-se apenas ao modo de tráfego | 
    |||| 
 
    Para obter mais informações sobre estes parâmetros, veja [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular um percurso).

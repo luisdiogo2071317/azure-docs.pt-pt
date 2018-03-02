@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Criar um balanceador de carga com acesso à Internet com o portal do Azure
 
@@ -57,7 +57,7 @@ Pode obter mais informações sobre os componentes do balanceador de carga com o
 > Este exemplo assume que tem uma rede virtual chamada **myVNet**. Consulte [criar rede virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) para o fazer. Assume também que existe uma sub-rede em **myVNet** denominada **LB-Subnet-BE** e duas VMs denominadas **web1** e **web2** respetivamente, no mesmo conjunto de disponibilidade denominado **myAvailSet** no **myVNet**. Consulte [esta ligação](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para criar VMs.
 
 1. Num browser, navegue para o Portal do Azure: [http://portal.azure.com](http://portal.azure.com) e inicie sessão com a sua conta do Azure.
-2. No canto superior esquerdo do ecrã, selecione **Novo** > **Rede** > **Balanceador de Carga.**
+2. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga.**
 3. No painel **Criar balanceador de carga**, escreva um nome para o balanceador de carga. Aqui é designado por **myLoadBalancer**.
 4. Em **Tipo**, selecione **Público**.
 5. Em **Endereço IP público**, crie um novo IP público denominado **myPublicIP**.

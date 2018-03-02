@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9cf32ed54b831d12b9e511ab70f017991f359a6
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b9e81bbff7c09f3bfb60fcdeda5cd3c8faf23adc
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de .NET do Cosmos BD do Azure para a API do SQL Server: transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/23/2018
 ## <a name="release-notes"></a>Notas de versão
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* Fixa intermitente SessionConsistency condição provável de antecipação.
+* Fixo erros que é atingido em determinadas condições race, o que resulta em intermitente "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" erros ao utilizar o nível de consistência de sessão.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 

@@ -1,82 +1,79 @@
 ---
-title: "Certifique-se de débito e latência métricas para uma conta do storage no portal do Azure | Microsoft Docs"
-description: "Saiba como verificar o débito e latência métricas para uma conta do storage no portal."
+title: "Verificar as métricas de débito e latência de uma conta de armazenamento no portal do Azure | Microsoft Docs"
+description: "Saiba como verificar as métricas de débito e latência de uma conta de armazenamento no portal."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Certifique-se de débito e latência métricas para uma conta de armazenamento
+# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de débito e latência de uma conta de armazenamento
 
-Este tutorial é parte de quatro e a parte final de uma série. Nos tutoriais anteriores, aprendeu a carregar e transferir larges quantidades de dados aleatórios a uma conta de armazenamento do Azure. Este tutorial mostra como pode utilizar as métricas para ver o débito e latência no portal do Azure.
+Este tutorial é a quarta e última parte de uma série. Nos tutoriais anteriores, aprendeu a carregar e a transferir grandes quantidades de dados aleatórios para uma conta de armazenamento do Azure. Este tutorial mostra como pode utilizar as métricas para ver o débito e a latência no portal do Azure.
 
-Na parte quatro da série, saiba como:
+Na quarta parte da série, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar gráficos no portal do Azure
 > * Verificar as métricas de débito e latência
 
-[As métricas do storage do Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utiliza o monitor do Azure para fornecer uma vista unificada para o desempenho e a disponibilidade da sua conta de armazenamento.
+As [métricas do armazenamento do Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utilizam o monitor do Azure para proporcionar uma vista unificada do desempenho e da disponibilidade da conta de armazenamento.
 
 ## <a name="configure-metrics"></a>Configurar as métricas
 
-Navegue para **métricas (pré-visualização)** em **definições** na sua conta de armazenamento.
+Navegue para **Métricas (pré-visualização)**, em **DEFINIÇÕES**, na conta de armazenamento.
 
-Escolha o Blob do **SUB serviço** pendente.
+Escolha Blob no menu pendente **SUBSERVIÇO**.
 
 Em **MÉTRICA**, selecione uma das métricas encontradas na tabela seguinte:
 
-As métricas seguintes dão-lhe uma ideia da latência e o débito da aplicação. As métricas que configura no portal do encontram-se em médias de 1 minuto. Se uma transação terminou no meio de um minuto dados minutos são halfed para a média. Na aplicação, as operações de carregamento e transferência foram excedeu o tempo limite e fornecido a saída da quantidade de tempo real, que demorou para carregar e transferir os ficheiros. Estas informações podem ser utilizadas em conjunto com as métricas de portais para compreender melhor débito.
+As métricas seguintes dão-lhe uma ideia da latência e do débito da aplicação. As métricas que configurar no portal encontram-se em médias de 1 minuto. Se uma transação tiver terminado a meio do minuto, os dados desse minuto contarão como metade para a média. Na aplicação, as operações de carregamento e transferência foram cronometradas e proporcionaram-lhe o resultado do tempo real que demorou a carregar e a transferir os ficheiros. Estas informações podem ser utilizadas em conjunto com as métricas do portal para compreender totalmente o débito.
 
 |Métrica|Definição|
 |---|---|
-|**Latência E2E de êxito**|A ponto-a-ponto latência média de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada com êxito. Este valor inclui o tempo de processamento necessário no armazenamento do Azure para o pedido de leitura, enviar a resposta e receber a confirmação da resposta.|
-|**Latência de servidor com êxito**|O tempo médio utilizado para processar um pedido com êxito pelo armazenamento do Azure. Este valor não inclui a latência de rede especificada no SuccessE2ELatency. |
-|**Transações**|O número de pedidos efetuados para um serviço de armazenamento ou a operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como os pedidos que produziu erros. No exemplo, o tamanho do bloco foi definido para 100 MB. Neste caso, cada bloco de 100 MB é considerado uma transação.|
-|**Entrada**|A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo em armazenamento do Azure, bem como entrada no Azure. |
-|**Saída**|A quantidade de dados de saída. Este número inclui a saída de um cliente externo em armazenamento do Azure, bem como saída no Azure. Consequentemente, este número não reflete saída sujeito a faturação. |
+|**Latência de E2E Com Êxito**|A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|
+|**Latência de Servidor Com Êxito**|O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. |
+|**Transações**|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. No exemplo, o tamanho do bloco foi definido como 100 MB. Neste caso, cada bloco de 100 MB é considerado uma transação.|
+|**Entrada**|A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. |
+|**Saída**|A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. |
 
-Selecione **últimas 24 horas (automático)** junto a **tempo**. Escolha **última hora** e **minuto** para **granularidade de tempo**, em seguida, clique em **aplicar**.
+Selecione **Últimas 24 horas (Automático)**, junto a **Tempo**. Escolha **Última hora** e **Minuto** para **Granularidade de tempo** e, em seguida, clique em **Aplicar**.
 
-![Métricas de conta do Storage](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
+![Métricas da conta de armazenamento](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
-Gráficos podem ter mais do que uma métrica atribuída, mas atribuir mais de uma métrica desativa a capacidade de grupo por dimensões.
+Os gráficos podem ter mais do que uma métrica atribuída, mas atribuir mais de uma métrica desativa a capacidade de agrupar por dimensões.
 
 ## <a name="dimensions"></a>Dimensões
 
-[As dimensões](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) são utilizados para ver mais aprofundada para os gráficos e obter informações mais detalhadas. Métricas diferentes tem dimensões diferentes. É uma dimensão de que está disponível a **nome API** dimensão. Esta dimensão quebras de fora do gráfico para cada chamada de API separada. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A imagem segunda mostra o mesmo gráfico mas com a API do nome de dimensão selecionada. Como pode ver, a cada transação está listada dar mais detalhes para o número de chamadas efetuadas pelo nome da API.
+As [dimensões](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) servem para ver mais aprofundadamente os gráficos e obter informações mais detalhadas. Métricas diferentes têm dimensões diferentes. Uma dimensão disponível é a dimensão **Nome da API**. Esta dimensão divide o gráfico em chamadas à API separadas. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A segunda imagem mostra o mesmo gráfico, mas com a dimensão do nome da API selecionada. Como pode ver, cada transação está listada para dar mais detalhes sobre o número de chamadas realizadas pelo nome da API.
 
-![Métricas de conta de armazenamento - transações sem uma dimensão](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
+![Métricas da conta de armazenamento – transações sem uma dimensão](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 
-![Métricas de conta de armazenamento - transações](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
+![Métricas da conta de armazenamento – transações](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a VM e clique em eliminar.
+Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos da VM e clique em Eliminar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Parte quatro da série, aprendeu sobre a visualização de métricas para a solução de exemplo, tais como:
+Na quarta parte da série, ficou a saber mais sobre a visualização de métricas para a solução de exemplo, tal como:
 
 > [!div class="checklist"]
 > * Configurar gráficos no portal do Azure
 > * Verificar as métricas de débito e latência
 
-Siga esta ligação para ver os exemplos de armazenamento pré-criadas.
+Siga esta ligação para ver os exemplos de armazenamento pré-criados.
 
 > [!div class="nextstepaction"]
 > [Exemplos de script de armazenamento do Azure](storage-samples-blobs-cli.md)

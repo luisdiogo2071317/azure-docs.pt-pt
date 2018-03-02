@@ -6,7 +6,7 @@ Para criar uma VNet no modelo de implementação do Gestor de Recursos com o Por
 >
 
 1. Num browser, navegue para o [Portal do Azure](http://portal.azure.com) e inicie sessão com a sua conta do Azure.
-2. Clique em **Novo**. No campo **Procurar no Marketplace**, escreva "rede virtual". Localize a **Rede virtual** na lista devolvida e clique para abrir a página **Rede Virtual**.
+2. Clique em **Criar um recurso**. No campo **Procurar no Marketplace**, escreva "rede virtual". Localize a **Rede virtual** na lista devolvida e clique para abrir a página **Rede Virtual**.
 3. Perto da parte inferior do painel Virtual Network, na página **Selecionar um modelo de implementação**, selecione **Resource Manager** e clique em **Criar**. É aberta a página "Criar rede virtual".
 
     ![Página Criar rede virtual](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Página Criar rede virtual")

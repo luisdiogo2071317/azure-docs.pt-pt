@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primeiras impressões: efetuar cópias de segurança de ficheiros e pastas na implementação do Resource Manager
 Este artigo explica como criar uma cópia de segurança dos ficheiros e pastas do Windows Server (ou computador Windows) para o Azure através de uma implementação do Resource Manager. É um tutorial que se destina a explicar as noções básicas. Se pretender começar a utilizar o Backup do Azure, está no sítio certo.
@@ -33,7 +33,7 @@ Para efetuar uma cópia de segurança de ficheiros e pastas, tem de criar um cof
 
 ### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre dos Serviços de Recuperação
 1. Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com/) através da sua subscrição do Azure.
-2. No menu Hub, clique em **Mais Serviços** e, na lista de recursos, escreva **Serviços de Recuperação** e clique em **cofres dos Serviços de Recuperação**.
+2. No menu Hub, clique em **Todos os serviços** e, na lista de recursos, escreva **Serviços de Recuperação** e clique em **cofres dos Serviços de Recuperação**.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

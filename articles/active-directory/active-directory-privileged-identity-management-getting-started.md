@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 11b5d1bc4e931ad902b623fe55e62097ae40d8ef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f51daabef7d1e02917869e4e6943b8ea28b56f5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Comece a utilizar o Azure AD Privileged Identity Management
 
@@ -33,7 +33,7 @@ Antes de utilizar o Azure AD Privileged Identity Management, terá de adicionar 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/) como administrador global do diretório.
 2. Se a organização tiver mais do que um diretório, selecione o nome de utilizador no canto superior direito do Portal do Azure. Selecione o diretório onde pretende utilizar o PIM.
-3. Selecione **Mais serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
+3. Selecione **Todos os serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
 4. Marque **Afixar ao dashboard** e, em seguida, clique em **Criar**. A aplicação Privileged Identity Management abre.
 
 Se for a primeira pessoa a utilizar o Azure AD Privileged Identity Management no diretório, são-lhe atribuídas automaticamente as funções **Administrador de segurança** e **Administrador de função com privilégios** no diretório. As atribuições de funções de diretório do Azure AD dos utilizadores só podem ser geridas por administradores de funções com privilégios. Além disso, pode optar por executar o [assistente de segurança](active-directory-privileged-identity-management-security-wizard.md) que o orienta ao longo da experiência inicial de deteção e atribuição.
