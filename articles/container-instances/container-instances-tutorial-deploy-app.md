@@ -6,6 +6,7 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
+<<<<<<< HEAD
 ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
@@ -14,6 +15,16 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+=======
+ms.date: 02/20/2018
+ms.author: seanmck
+ms.custom: mvc
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/22/2018
+>>>>>>> d43cd15e98f34cd2db2cb0a0bd0c207fd537bfc9
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implementar um contentor no Azure Container Instances
 
@@ -28,7 +39,11 @@ Neste tutorial:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+<<<<<<< HEAD
 Este tutorial requer a execução da versão 2.0.27 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
+=======
+Este tutorial requer a execução da versão 2.0.23 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
+>>>>>>> d43cd15e98f34cd2db2cb0a0bd0c207fd537bfc9
 
 Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker, localmente instalado. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 

@@ -14,11 +14,19 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
+<<<<<<< HEAD
 ms.openlocfilehash: bf771428505081cb60ca4417f87a4f6c2afbd25d
 ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+=======
+ms.openlocfilehash: 17f6c107ea1adfd4463ff4cc205fe11d111acb84
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/21/2018
+>>>>>>> d43cd15e98f34cd2db2cb0a0bd0c207fd537bfc9
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-overview"></a>Descrição Geral de integração do Azure Service Bus para o Azure Event Grid
 
@@ -83,7 +91,11 @@ O esquema para este Evento é o seguinte:
 
 ```JSON
 [{
+<<<<<<< HEAD
   "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+=======
+     "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+>>>>>>> d43cd15e98f34cd2db2cb0a0bd0c207fd537bfc9
   "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
   "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
