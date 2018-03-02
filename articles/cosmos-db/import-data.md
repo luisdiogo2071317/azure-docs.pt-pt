@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Do Azure Cosmos DB: Ferramenta de migração de dados
 
@@ -61,12 +61,12 @@ A ferramenta de migração de dados é uma solução de código aberto que impor
 Enquanto a ferramenta de importação inclui uma interface gráfica (dtui.exe), também pode ser controlada na linha de comandos (dt.exe). Na verdade, é uma opção para a saída do comando associado depois de configurar uma importação através da IU. Pode ser transformadas a tabela de origem de dados (por exemplo, SQL Server ou ficheiros CSV) que podem ser criadas relações hierárquicas (subdocuments) durante a importação. Manter a ler para saber mais sobre as opções de origem, linhas de comando para importar a partir de cada origem, as opções de destino e importação de visualizar os resultados de exemplo.
 
 ## <a id="Install"></a>Instalação
-O código de origem da ferramenta de migração está disponível no GitHub em [este repositório](https://github.com/azure/azure-documentdb-datamigrationtool) e está disponível a partir de uma versão de compilados [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Pode compilar a solução ou simplesmente transferir e extrair a versão compilada para um diretório à sua escolha. Em seguida, execute um:
+O código de origem da ferramenta de migração está disponível no GitHub em [este repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente, em seguida, execute um:
 
 * **Dtui.exe**: versão de interface gráfica da ferramenta
 * **DT.exe**: versão de linha de comandos da ferramenta
 
-## <a name="select-data-source"></a>Selecione a origem de dados
+## <a name="select-data-source"></a>Selecionar origem de dados
 
 Assim que instalou a ferramenta, está na altura de importar os seus dados. Que tipo de dados que pretende importar?
 
@@ -549,7 +549,7 @@ Em seguida, escolha se pretende registar todas, crítico, ou não existem mensag
    
     ![Opção de exportação de captura de ecrã do Azure Cosmos DB JSON](./media/import-data/newimport.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez as seguintes tarefas:
 
