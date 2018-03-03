@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar os conjuntos de dimensionamento de máquina virtual na pilha do Azure
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Conjuntos de dimensionamento de máquina virtual são um recurso de computação de pilha do Azure. Pode utilizá-los para implementar e gerir um conjunto de máquinas virtuais idênticas. Com todas as máquinas virtuais configurados da mesma, conjuntos de dimensionamento não necessitam de pré-aprovisionamento de máquinas virtuais. É mais fácil criar serviços em grande escala que macrocomputação, macrodados e de cargas de trabalho de destino.
 
-Este tópico orienta-o processo para disponibilizar conjuntos de dimensionamento no mercado de pilha do Azure. Depois de concluir este procedimento, os utilizadores podem adicionar conjuntos de dimensionamento de máquina virtual para as suas subscrições.
+Este artigo orienta-o processo para disponibilizar conjuntos de dimensionamento no mercado de pilha do Azure. Depois de concluir este procedimento, os utilizadores podem adicionar conjuntos de dimensionamento de máquina virtual para as suas subscrições.
 
 Conjuntos de dimensionamento de máquina virtual na pilha do Azure são como conjuntos de dimensionamento de máquina virtual no Azure. Para obter mais informações, consulte os vídeos seguintes:
 * [Mark Russinovich talks Azure Scale Sets (Mark Russinovich fala sobre os conjuntos de dimensionamento do Azure)](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Para remover uma máquina virtual item da Galeria de conjunto de dimensionamento
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> O item da Galeria não pode ser removido imediatamente. Poderá ter de atualizar o portal várias vezes antes de serem removidos do Marketplace.
+> O item da Galeria não pode ser removido imediatamente. Noite tem de atualizar o portal várias vezes antes do item mostra como removido do Marketplace.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

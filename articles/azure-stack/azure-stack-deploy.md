@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos da implementação do Azure Stack
 
@@ -58,7 +58,7 @@ Antes de implementar [Kit de desenvolvimento de pilha do Azure](azure-stack-poc.
 * SSD SAS + HDD SAS
 * NVMe
 
-\*Controladores RAID sem capacidade de pass-through não consegue reconhecer o tipo de suporte. Esses controladores irão marcar ambas as unidades HDD e SSD como Não Especificadas. Nesse caso, a SSD será utilizada como armazenamento persistente, em vez de dispositivos de colocação em cache. Por conseguinte, pode implementar o kit de desenvolvimento nesses SSDs.
+\* Controladores RAID sem capacidade de pass-through não consegue reconhecer o tipo de suporte. Esses controladores irão marcar ambas as unidades HDD e SSD como Não Especificadas. Nesse caso, a SSD será utilizada como armazenamento persistente, em vez de dispositivos de colocação em cache. Por conseguinte, pode implementar o kit de desenvolvimento nesses SSDs.
 
 **Exemplo de HBAs**: LSI 9207-8i, LSI-9300-8i ou LSI-9265-8i no modo Pass Through
 
@@ -122,9 +122,9 @@ Verifique se existe um servidor DHCP disponível na rede à qual liga o NIC. Se 
 ### <a name="internet-access"></a>Acesso à Internet
 Pilha do Azure requer acesso à Internet, diretamente ou através de um proxy transparente. Pilha do Azure não suporta a configuração de um proxy web para ativar o acesso à Internet. O IP do anfitrião e as novas IP atribuída à MAS-BGPNAT01 (pelo DHCP ou o IP estático) tem de ser capazes de aceder à Internet. As portas 80 e 443 são utilizadas em domínios graph.windows.net e login.microsoftonline.com.
 
+P: é possível executar ASDK numa VM do Azure? R: um número de A partir de hoje, não é oficialmente suportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Transferir o pacote de implementação de kit de desenvolvimento de pilha do Azure](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Implementar o kit de desenvolvimento de pilha do Azure](azure-stack-run-powershell-script.md)
-

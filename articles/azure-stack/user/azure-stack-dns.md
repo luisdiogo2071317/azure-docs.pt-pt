@@ -3,22 +3,21 @@ title: DNS na pilha do Azure | Microsoft Docs
 description: DNS no Azure Stack
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: byronr
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dns-in-azure-stack"></a>DNS no Azure Stack
 
@@ -68,11 +67,11 @@ As seguintes informações aplicam-se especificamente para DNS de pilha do Azure
 
 O DNS de pilha do Azure suporta utilizando tags de Azure Resource Manager em recursos de zona DNS. Não suporta etiquetas em conjuntos de registos de DNS, embora como alternativa 'metadata' é suportada no registo DNS define conforme explicado seguinte.
 
-**Metadados**
+**Metadata**
 
 Como alternativa para etiquetas do conjunto de registos, o DNS de pilha do Azure suporta anotar os conjuntos de registos com 'metadata'. Semelhante ao etiquetas, metadados permite-lhe associar pares nome-valor de cada conjunto de registos. Por exemplo, isto pode ser útil para registar o objetivo de cada conjunto de registos. Ao contrário das etiquetas, os metadados não podem ser utilizado para fornecer uma vista filtrada da sua fatura do Azure e não podem ser especificado numa política do Azure Resource Manager.
 
-**Etags são**
+**Etags**
 
 Suponhamos duas pessoas ou dois processos tentam modificar um registo DNS ao mesmo tempo. Qual delas wins? E o winner sabe que que tem substituído alterações criadas por outra pessoa?
 
@@ -85,7 +84,7 @@ A nível da API de REST de DNS do Azure pilha Etags são especificadas utilizand
 | Cabeçalho | Comportamento|
 |--------|---------|
 | Nenhuma   | PUT sempre é concluída com êxito (verificações de Etag)|
-| IF-match| PUT apenas for bem sucedida se o recurso existe e Etag corresponde|
+| If-match| PUT apenas for bem sucedida se o recurso existe e Etag corresponde|
 | IF-match *| PUT apenas for bem sucedida se o recurso existe|
 | IF-none-match *| PUT apenas for bem sucedida se o recurso não existe|
 
@@ -99,5 +98,5 @@ Os limites predefinidos seguintes aplicam-se ao utilizar o DNS de pilha do Azure
 | Conjuntos de registos por zona| 5000|
 | Registos por conjunto de registos| 20|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Introdução ao iDNS para pilha do Azure](azure-stack-understanding-dns.md)

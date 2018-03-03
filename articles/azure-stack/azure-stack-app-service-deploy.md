@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações a pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
@@ -70,7 +70,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações](media/azure-stack-app-service-deploy/image03.png)
 
-7. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado do servidor de ficheiros, por exemplo \\\appservicefileserver.local.cloudapp.azurestack.external\websites ou o endereço IP, por exemplo \\\10.0.0.1\websites.
+7. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado do servidor de ficheiros ou o endereço IP. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
 
     ![Instalador do serviço de aplicações](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações](media/azure-stack-app-service-deploy/image05.png)
 
-9. Para cada uma a três caixas de ficheiro de certificado, clique em **procurar** e navegue para o ficheiro de certificado adequado. Tem de fornecer a palavra-passe para cada certificado. Estes certificados são aqueles que criou no [passo de certificados necessários criar](azure-stack-app-service-deploy.md#create-the-required-certificates). Clique em **seguinte** após introduzir todas as informações.
+9. Para cada uma a três caixas de ficheiro de certificado, clique em **procurar** e navegue para o ficheiro de certificado adequado. Forneça a palavra-passe de cada certificado. Estes certificados são aqueles que criou no [passo de certificados necessários criar](azure-stack-app-service-deploy.md#create-the-required-certificates). Clique em **seguinte** após introduzir todas as informações.
 
     | Box | Exemplo de nome de ficheiro de certificado |
     | --- | --- |
@@ -99,7 +99,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Reveja as opções de SKU e a instância de função. As predefinições são preenchidas com o número mínimo de instância e o SKU mínimo para cada função numa implementação ASDK. É fornecido um resumo dos requisitos vCPU e memória para o ajudar a planear a implementação. Depois de efetuar as seleções, clique em **seguinte**.
+11. Reveja as opções de SKU e a instância de função. As predefinições preenchido com o número mínimo de instância e o SKU mínimo para cada função numa implementação ASDK. É fornecido um resumo dos requisitos vCPU e memória para o ajudar a planear a implementação. Depois de efetuar as seleções, clique em **seguinte**.
 
     > [!NOTE]
     > Para implementações de produção, seguir as orientações no [planeamento de capacidade de funções de servidor do App Service do Azure na pilha de Azure](azure-stack-app-service-capacity-planning.md).

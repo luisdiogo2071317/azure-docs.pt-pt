@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitetura de identidade para a pilha do Azure
 Antes de escolher um fornecedor de identidade para utilizar com a pilha do Azure, compreenda importantes diferenças entre as opções do Azure Active Directory (Azure AD) e o Active Directory Federated Services (AD FS). 
@@ -86,7 +86,7 @@ Com esta topologia:
 
   Para interagir com o AD, a Graph API requer credenciais de utilizador do AD, que têm permissão só de leitura do AD. 
   - AD FS incorporado baseia-se no Server 2016. 
-  - O AD FS e o AD devem basear-se no Server 2012 ou anterior. 
+  - O AD FS e o AD devem basear-se no Server 2012 ou posterior.  
   
   Entre o AD e o AD FS incorporado, interações não estão restringidas a OpenID Connect e podem utilizar qualquer protocolo mutuamente suportado.  
   - Contas de utilizador são criadas e geridas no seu local AD.

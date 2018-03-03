@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurar origens de implementação
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Serviço de aplicações na pilha do Azure suporta a pedido implementação de vários fornecedores de controlo de origem. Esta funcionalidade permite aos programadores de aplicações implementar direta a partir do respetivos repositórios de controlo de origem. Se quiser configurar o serviço de aplicações para ligar ao respetivos repositórios de utilizadores, um operador da nuvem tem primeiro de configurar a integração entre o serviço de aplicações na pilha do Azure e o fornecedor do controlo de origem.  
 
-Os fornecedores de controlo de origem suportada, além de local Git, são:
+Para além do local Git, são suportados os seguintes fornecedores de controlo de origem:
 
 * GitHub
 * BitBucket
@@ -56,7 +56,7 @@ Tem de ter uma conta GitHub para concluir esta tarefa. Pode querer utilizar uma 
 7.  Num novo separador do browser ou janela inicie sessão no Portal do Azure pilha Admin (https://adminportal.local.azurestack.external) como o administrador de serviço.
 8.  Navegue até à **fornecedores de recursos** e selecione o **Admin da aplicação do serviço de recurso fornecedor**.
 9. Clique em **configuração de controlo de origem**.
-10. Copie e cole o **Id de cliente** e **segredo do cliente** caixas de para a entrada correspondente para o GitHub.
+10. Copie e cole o **ID de cliente** e **segredo do cliente** caixas de para a entrada correspondente para o GitHub.
 11. Clique em **Guardar**.
 
 ## <a name="configure-bitbucket"></a>Configurar BitBucket
@@ -79,7 +79,7 @@ Tem de ter uma conta de BitBucket para concluir esta tarefa. Pode querer utiliza
 9.  Num novo separador do browser ou janela inicie sessão no Portal do Azure pilha Admin (https://adminportal.local.azurestack.external) como o administrador de serviço.
 10.  Navegue até à **fornecedores de recursos** e selecione o **Admin da aplicação do serviço de recurso fornecedor**.
 11. Clique em **configuração de controlo de origem**.
-12. Copie e cole o **chave** para o **Id de cliente** caixa de entrada e **segredo** para o **segredo do cliente** caixa de entrada para o BitBucket.
+12. Copie e cole o **chave** para o **ID de cliente** caixa de entrada e **segredo** para o **segredo do cliente** caixa de entrada para o BitBucket.
 13. Clique em **Guardar**.
 
 
@@ -94,7 +94,8 @@ Tem de ter uma Account Microsoft ligado a uma conta do OneDrive para concluir es
 2. Em **as minhas aplicações**, clique em **adicionar uma aplicação**.
 ![Aplicações do OneDrive][10]
 3. Introduza um **nome** para o novo registo de aplicação, introduza **do serviço de aplicações na pilha de Azure**e clique em **Criar aplicação**
-4. O ecrã seguinte lista as propriedades da nova aplicação. Registo de **Id da aplicação**. ![Propriedades da aplicação OneDrive][11]
+4. O ecrã seguinte lista as propriedades da nova aplicação. Registo de **ID da aplicação**.
+![Propriedades da aplicação OneDrive][11]
 5. Em **aplicação segredos**, clique em **gerar a nova palavra-passe**. Tome nota do **nova palavra-passe gerada**. Este é o seu segredo de aplicação e não é recuperável depois de clicar em **OK** nesta fase.
 6. Em **plataformas** clique **adicionar plataforma** e selecione **Web**.
 7. Introduza o **URI de redirecionamento**.  Numa implementação do Azure pilha predefinida, o URI de redirecionamento está a ser https://portal.local.azurestack.external/tokenauthorize formulário, se estiver a executar em substitui a um domínio diferente do domínio para azurestack.local ![aplicação OneDrive - adicionar Plataforma Web][12]
@@ -106,7 +107,7 @@ Tem de ter uma Account Microsoft ligado a uma conta do OneDrive para concluir es
 10.  Num novo separador do browser ou janela inicie sessão no Portal do Azure pilha Admin (https://adminportal.local.azurestack.external) como o administrador de serviço.
 11.  Navegue até à **fornecedores de recursos** e selecione o **Admin da aplicação do serviço de recurso fornecedor**.
 12. Clique em **configuração de controlo de origem**.
-13. Copie e cole o **Id da aplicação** para o **Id de cliente** caixa de entrada e **palavra-passe** para o **segredo do cliente** caixa de entrada para o OneDrive.
+13. Copie e cole o **ID da aplicação** para o **ID de cliente** caixa de entrada e **palavra-passe** para o **segredo do cliente** caixa de entrada para o OneDrive.
 14. Clique em **Guardar**.
 
 ## <a name="configure-dropbox"></a>Configurar o DropBox
@@ -130,7 +131,7 @@ Tem de ter uma Account Microsoft ligado a uma conta do OneDrive para concluir es
 9.  Num novo separador do browser ou janela inicie sessão no Portal do Azure pilha Admin (https://adminportal.local.azurestack.external) como o administrador de serviço.
 10.  Navegue até à **fornecedores de recursos** e selecione o **Admin da aplicação do serviço de recurso fornecedor**.
 11. Clique em **configuração de controlo de origem**.
-12. Copie e cole o **chave da aplicação** para o **Id de cliente** caixa de entrada e **segredo da aplicação** para o **segredo do cliente** caixa de entrada para a DropBox.
+12. Copie e cole o **chave da aplicação** para o **ID de cliente** caixa de entrada e **segredo da aplicação** para o **segredo do cliente** caixa de entrada para a DropBox.
 13. Clique em **Guardar**.
 
 

@@ -3,16 +3,17 @@ title: "Redes de pilha do Azure: Diferenças e as considerações"
 description: "Saiba mais sobre as diferenças e as considerações ao trabalhar com redes na pilha do Azure."
 services: azure-stack
 keywords: 
-author: ScottNapolitan
-ms.author: victorh
-ms.date: 9/25/2017
+author: mattbriggs
+manager: femila
+ms.author: mabrigg
+ms.date: 02/28/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações para redes de pilha do Azure
 
@@ -28,23 +29,23 @@ Este artigo fornece uma descrição geral das considerações de exclusivas para
 
 |Serviço | Funcionalidade | Azure (global) | Azure Stack |
 | --- | --- | --- | --- |
-| DNS | DNS de multi-inquilino | Suportado| Ainda não suportado|
-| |Registos DNS AAAA|Suportado|Não suportado|
+| DNS | DNS de multi-inquilino | Suportadas| Ainda não suportado|
+| |Registos DNS AAAA|Suportadas|Não suportado|
 | |Zonas DNS por subscrição|100 (predefinição)<br>Pode ser aumentado no pedido.|100|
 | |Conjuntos de registos DNS por zona|5000 (predefinição)<br>Pode ser aumentado no pedido.|5000|
 ||Servidores de nomes para a delegação de zona|Azure fornecem quatro servidores de nomes para cada zona de utilizador (inquilino) que é criada.|Pilha do Azure fornece dois servidores de nomes para cada zona de utilizador (inquilino) que é criada.|
 | Rede virtual|Peering de rede virtual|Ligar duas redes virtuais na mesma região através da rede principal do Azure.|Ainda não suportado|
 | |Endereços IPv6|Pode atribuir um endereço IPv6 como parte do [configuração de Interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|É apenas suportado o IPv4.|
-|Gateways de VPN|Gateway de VPN de ponto a Site|Suportado|Ainda não suportado|
-| |Gateway de Vnet a Vnet|Suportado|Ainda não suportado|
+|Gateways de VPN|Gateway de VPN de ponto a Site|Suportadas|Ainda não suportado|
+| |Gateway de Vnet a Vnet|Suportadas|Ainda não suportado|
 | |SKUs do VPN Gateway|Suporte para básico, GW1, GW2, GW3, padrão de elevado desempenho, Ultra-elevado desempenho. |Suporte para básico, Standard e SKUs de elevado desempenho.|
 |Load balancer|Endereços IP públicos do IPv6|Suporte para atribuir um endereço IP público IPv6 a um balanceador de carga.|É apenas suportado o IPv4.|
-|Observador de Rede|Capacidades de monitorização de rede de inquilino de observador de rede|Suportado|Ainda não suportado|
-|CDN|Perfis de rede de entrega de conteúdo|Suportado|Ainda não suportado|
-|Gateway de aplicação|Balanceamento de carga de 7 camadas|Suportado|Ainda não suportado|
-|Gestor de Tráfego|Encaminhar o tráfego de entrada para o desempenho da aplicação ideal e fiabilidade.|Suportado|Ainda não suportado|
-|ExpressRoute|Configure uma ligação privada rápida ao cloud services da Microsoft da sua infraestrutura ou de colocalização de instalações no local.|Suportado|Suporte para ligar a pilha do Azure para um circuito Expressroute.|
+|Observador de Rede|Capacidades de monitorização de rede de inquilino de observador de rede|Suportadas|Ainda não suportado|
+|CDN|Perfis de rede de entrega de conteúdo|Suportadas|Ainda não suportado|
+|Gateway de aplicação|Balanceamento de carga de 7 camadas|Suportadas|Ainda não suportado|
+|Gestor de Tráfego|Encaminhar o tráfego de entrada para o desempenho da aplicação ideal e fiabilidade.|Suportadas|Ainda não suportado|
+|ExpressRoute|Configure uma ligação privada rápida ao cloud services da Microsoft da sua infraestrutura ou de colocalização de instalações no local.|Suportadas|Suporte para ligar a pilha do Azure para um circuito Expressroute.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [DNS no Azure Stack](azure-stack-dns.md)

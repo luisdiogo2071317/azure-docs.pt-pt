@@ -3,31 +3,32 @@ title: "Azure pilha integração do Centro de dados - publicar pontos finais"
 description: Saiba como publicar pontos finais de pilha do Azure no seu centro de dados
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha integração do Centro de dados - publicar pontos finais
-Pilha do Azure configura vários endereços IP virtuais (VIP) para as respetivas funções de infraestrutura. Estes VIPs são atribuídos de conjunto de endereços IP público. Cada VIP está protegido com uma lista de controlo de acesso (ACL) na camada de rede definidas por software. As ACLs também são utilizadas em todos os comutadores físicos (TORs e BMC) para proteger ainda mais a solução. Uma entrada DNS é criada para cada ponto final na zona DNS externa que foi especificada no momento da implementação.
+Pilha do Azure configura endereços IP virtuais (VIPs) para as respetivas funções de infraestrutura. Estes VIPs são atribuídos de conjunto de endereços IP público. Cada VIP está protegido com uma lista de controlo de acesso (ACL) na camada de rede definidas por software. As ACLs também são utilizadas em todos os comutadores físicos (TORs e BMC) para proteger ainda mais a solução. Uma entrada DNS é criada para cada ponto final na zona DNS externa que especificado no momento da implementação.
 
 
 O diagrama da arquitetura seguinte mostra as camadas de rede diferente e ACLs:
 
-![Diagrama da arquitetura](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Imagem estrutural](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Portas e protocolos (entrada)
 
-Os VIPs de infraestrutura que são necessários para publicação do Azure pilha pontos finais para redes externas são listados abaixo. A lista mostra cada ponto final, a porta necessária e o protocolo. Pontos finais necessários para fornecedores de recursos adicionais, como o fornecedor de recursos do SQL e outros, são abordados na documentação de implementação do fornecedor de recursos específico.
+Um conjunto de infraestrutura VIPs são necessários para publicação do Azure pilha pontos finais para redes externas. O *ponto final (VIP)* tabela mostra cada ponto final, a porta necessária e o protocolo. Consulte a documentação de implementação do fornecedor de recursos específico para pontos finais que necessitam de fornecedores de recursos adicionais, tais como o fornecedor de recursos do SQL Server.
 
-A infra-estrutura interna VIPs não estão listadas porque não forem necessários para publicação pilha do Azure.
+Infra-estrutura interna que vips não estão listados porque não forem necessários para publicação pilha do Azure.
 
 > [!NOTE]
 > Utilizador VIPs são dinâmicos, definidas pelos próprios utilizadores com nenhum controlo pela operadora de rede de pilha do Azure.
@@ -70,4 +71,5 @@ Pilha do Azure suporta apenas servidores de proxy transparente. Numa implementa�
 
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 [Requisitos de PKI de pilha do Azure](azure-stack-pki-certs.md)
