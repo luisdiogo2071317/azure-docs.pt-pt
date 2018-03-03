@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f61743a7925c26767118dcb2d18799c26f880156
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 09a979d05757adab363d9ab0c48cad9ff3b529dd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="actor-timers-and-reminders"></a>Os temporizadores de ator e lembretes
 Atores podem agendar trabalho periódico em si próprios registando temporizadores ou lembretes. Este artigo mostra como utilizar os temporizadores e lembretes e explica as diferenças entre os mesmos.
@@ -146,8 +146,8 @@ protected override async Task OnActivateAsync()
     IActorReminder reminderRegistration = await this.RegisterReminderAsync(
         reminderName,
         BitConverter.GetBytes(amountInDollars),
-        TimeSpan.FromDays(3),
-        TimeSpan.FromDays(1));
+        TimeSpan.FromDays(3),    //The amount of time to delay before firing the reminder
+        TimeSpan.FromDays(1));    //The time interval between firing of reminders
 }
 ```
 
@@ -226,7 +226,7 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 
 Conforme mostrado acima, o `UnregisterReminderAsync`(c#) ou `unregisterReminderAsync`método (Java) aceita um `IActorReminder`(c#) ou `ActorReminder`interface (Java). O suporta de classe base ator um `GetReminder`(c#) ou `getReminder`método (Java) que pode ser utilizado para obter o `IActorReminder`(c#) ou `ActorReminder`interface (Java) mediante a transmissão no nome do lembrete. Este é conveniente porque o ator têm de manter o `IActorReminder`(c#) ou `ActorReminder`interface (Java) que foi devolvida a `RegisterReminder`(c#) ou `registerReminder`chamada de método (Java).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Saiba mais sobre eventos de Ator fiável e reentrancy:
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)

@@ -4,7 +4,7 @@ description: "Saiba como utilizar a CLI do Azure para determinar o publicador, o
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
@@ -13,31 +13,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/24/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c65ebbc8a61c13b96364dadde45bd4bca828e337
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Como localizar as imagens de VM com Linux no Azure Marketplace com a CLI do Azure
-Este tópico descreve como utilizar o 2.0 CLI do Azure para localizar as imagens VM no Azure Marketplace. Utilize estas informações para especificar uma imagem do Marketplace, quando criar uma VM com Linux.
+Este tópico descreve como utilizar o 2.0 CLI do Azure para localizar as imagens VM no Azure Marketplace. Utilize estas informações para especificar uma imagem do Marketplace, quando criar uma VM programaticamente com a CLI do AZURE, modelos do Resource Manager ou outras ferramentas.
 
 Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e são registados conta do Azure (`az login`).
 
-## <a name="terminology"></a>Terminologia
-
-Imagens do Marketplace são identificadas na CLI e outras ferramentas do Azure, de acordo com uma hierarquia:
-
-* **Publicador** -a organização que criou a imagem. Exemplo: canónico
-* **Oferecer** -um grupo de imagens relacionadas criado por um fabricante. Exemplo: Ubuntu Server
-* **SKU** – uma instância de uma oferta, tais como uma maior lançamento de distribuição. Exemplo: 16.04-LTS
-* **Versão** -o número de versão de uma imagem do SKU. Ao especificar a imagem, pode ser substituído com o número de versão "mais recente", que seleciona a versão mais recente da distribuição.
-
-Para especificar uma imagem do Marketplace, normalmente, utiliza a imagem *URN*. O URN combina estes valores, separados pelo caráter de dois pontos (:): *publicador*:*oferecem*:*Sku*:*versão*. 
-
+[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="list-popular-images"></a>Lista de imagens populares
 
@@ -47,7 +37,7 @@ Execute o [lista de imagens de vm az](/cli/azure/vm/image#az_vm_image_list) coma
 az vm image list --output table
 ```
 
-O resultado inclui o URN (o valor a *Urn* coluna), que utiliza para especificar a imagem. Quando criar uma VM com uma destas imagens do Marketplace populares, pode em alternativa especificar URN alias, tais como *UbuntuLTS*.
+O resultado inclui a imagem URN (o valor de *Urn* coluna). Quando criar uma VM com uma destas imagens do Marketplace populares, em alternativa pode especificar o *UrnAlias*, um formulário de shortened como *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -104,9 +94,9 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 
 Aplicar filtros semelhantes com o `--location`, `--publisher`, e `--sku` opções. Mesmo que pode efetuar correspondências parciais num filtro, por exemplo, procurar `--offer Deb` para localizar todas as imagens Debian.
 
-Se não especificar uma determinada localização com o `--location` opção, os valores para `westus` são devolvidos por predefinição. (Definido numa localização diferente da predefinição executando `az configure --defaults location=<location>`.)
+Se não especificar uma determinada localização com o `--location` opção, os valores para a localização predefinida são devolvidos. (Definido numa localização diferente da predefinição executando `az configure --defaults location=<location>`.)
 
-Por exemplo, o comando seguinte apresenta uma lista de todos os SKUs de 8 Debian no `westeurope`:
+Por exemplo, o comando seguinte apresenta uma lista de todos os SKUs de 8 Debian na localização Europa Ocidental:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -140,6 +130,7 @@ Outra forma de encontrar uma imagem numa localização está a ser executado o [
 2. Para um determinado publicador, liste as respetivas ofertas.
 3. Para uma determinada oferta, liste as respetivas SKUs.
 
+Em seguida, para um SKU selecionado, pode escolher uma versão para implementar.
 
 Por exemplo, o comando seguinte lista os editores de imagem na localização EUA oeste:
 
@@ -166,7 +157,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Utilize estas informações para localizar as ofertas de um fabricante específico. Por exemplo, se Canonical é um publicador de imagem na localização EUA oeste, encontrar as respetivas ofertas executando `azure vm image list-offers`. Passe a localização e o publicador como no exemplo seguinte:
+Utilize estas informações para localizar as ofertas de um fabricante específico. Por exemplo, se *Canonical* é um publicador de imagem na localização EUA oeste, encontrar as respetivas ofertas executando `azure vm image list-offers`. Passe a localização e o publicador como no exemplo seguinte:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -185,7 +176,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-Verá que a região EUA oeste, Canonical publica o **UbuntuServer** oferta no Azure. Mas que SKUs? Para obter esses valores, execute `azure vm image list-skus` e defina a localização e publicador e oferta que tenham detetados:
+Verá que a região EUA oeste, Canonical publica o *UbuntuServer* oferta no Azure. Mas que SKUs? Para obter esses valores, execute `azure vm image list-skus` e defina a localização e publicador e oferta que é detetado:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -219,7 +210,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-Por último, utilize o `az vm image list` comando para encontrar uma versão específica do SKU quiser, por exemplo, **16.04 LTS**:
+Por último, utilize o `az vm image list` comando para encontrar uma versão específica do SKU quiser, por exemplo, *16.04 LTS*:
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -256,5 +247,100 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
+
+Pode escolher agora precisamente a imagem que pretende utilizar, efetuando nota do valor URN. Passar este valor com o `--image` parâmetro ao criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. Lembre-se de que, opcionalmente, pode substituir o número de versão a URN por "mais recente". Esta versão é sempre a versão mais recente da imagem. 
+
+Se implementar uma VM com um modelo do Resource Manager, defina os parâmetros de imagem no individualmente a `imageReference` propriedades. Consulte o [referência ao modelo](/azure/templates/microsoft.compute/virtualmachines).
+
+[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+
+### <a name="view-plan-properties"></a>Ver propriedades do plano
+Para ver informações de plano de compra de uma imagem, execute o [mostrar de imagem de vm az](/cli/azure/image#az_image_show) comando. Se o `plan` propriedade na saída não é `null`, a imagem tem termos tem de aceitar antes da implementação programática.
+
+Por exemplo, a imagem de canónico Ubuntu Server 16.04 LTS não tem termos adicionais, porque o `plan` informações `null`:
+
+```azurecli
+az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+```
+
+Saída:
+
+```
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
+  "location": "westus",
+  "name": "16.04.201801260",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": null,
+  "tags": null
+}
+```
+
+Executar um comando semelhante para o certificado de RabbitMQ pela imagem Bitnami mostra o seguinte `plan` propriedades: `name`, `product`, e `publisher`. (Algumas imagens de ter também um `promotion code` propriedade.) Para implementar esta imagem, consulte as secções seguintes para aceitar os termos de licenciamento e ativar a implementação programática.
+
+```azurecli
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
+```
+Saída:
+
+```
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1801130730",
+  "location": "westus",
+  "name": "3.7.1801130730",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": {
+    "name": "rabbitmq",
+    "product": "rabbitmq",
+    "publisher": "bitnami"
+  },
+  "tags": null
+}
+```
+
+### <a name="accept-the-terms"></a>Aceitar os termos
+Para ver e aceitar os termos de licenciamento, utilize o [az vm imagem aceitar-termos](/cli/azure/vm/image?#az_vm_image_accept_terms) comando. Ao aceitar os termos, ativar a implementação programática na sua subscrição. Só tem de aceitar os termos de licenciamento, uma vez por subscrição para a imagem. Por exemplo:
+
+```azurecli
+az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
+``` 
+
+O resultado inclui um `licenseTextLink` para a licença de termos e indica que o valor de `accepted` é `true`:
+
+```
+{
+  "accepted": true,
+  "additionalProperties": {},
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.MarketplaceOrdering/offertypes/bitnami/offers/rabbitmq/plans/rabbitmq",
+  "licenseTextLink": "https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_BITNAMI%253a24RABBITMQ%253a24RABBITMQ%253a24IGRT7HHPIFOBV3IQYJHEN2O2FGUVXXZ3WUYIMEIVF3KCUNJ7GTVXNNM23I567GBMNDWRFOY4WXJPN5PUYXNKB2QLAKCHP4IE5GO3B2I.txt",
+  "name": "rabbitmq",
+  "plan": "rabbitmq",
+  "privacyPolicyLink": "https://bitnami.com/privacy",
+  "product": "rabbitmq",
+  "publisher": "bitnami",
+  "retrieveDatetime": "2018-02-22T04:06:28.7641907Z",
+  "signature": "WVIEA3LAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNKLNLWI",
+  "type": "Microsoft.MarketplaceOrdering/offertypes"
+}
+```
+
+### <a name="deploy-using-purchase-plan-parameters"></a>Implementar utilizando os parâmetros do plano de compra
+Depois de a aceitar os termos de licenciamento para a imagem, pode implementar uma VM na subscrição. Para implementar a imagem utilizando o `az vm create` comando, fornecer parâmetros para o plano de aquisições além para um URN para a imagem. Por exemplo, para implementar uma VM com o RabbitMQ certificadas pela imagem Bitnami:
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+
+```
+
+
+
 ## <a name="next-steps"></a>Passos Seguintes
-Pode escolher agora precisamente a imagem que pretende utilizar, efetuando nota do valor URN. Passar este valor com o `--image` parâmetro ao criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. Lembre-se de que, opcionalmente, pode substituir o número de versão a URN por "mais recente". Esta versão é sempre a versão mais recente da distribuição. Para criar rapidamente uma máquina virtual, utilizando as informações de URN, consulte [criar e gerir VMs com Linux com a CLI do Azure](tutorial-manage-vm.md).
+Para criar rapidamente uma máquina virtual, utilizando as informações de imagem, consulte [criar e gerir VMs com Linux com a CLI do Azure](tutorial-manage-vm.md).

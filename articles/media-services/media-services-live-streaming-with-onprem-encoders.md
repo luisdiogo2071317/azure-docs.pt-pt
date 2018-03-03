@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Em direto com codificadores no local que criar fluxos de transmissão múltipla transmissão em fluxo
 ## <a name="overview"></a>Descrição geral
@@ -171,15 +171,15 @@ Mesmo depois de parar e eliminar o programa, os utilizadores podem transmitir o 
 ## <a id="states"></a>Estados de canal e faturação
 Os valores possíveis para o estado atual de um canal incluem:
 
-* **Parado**: Este é o estado inicial do canal após a respetiva criação. Neste estado, as propriedades do canal podem ser atualizadas, mas não é permitida a transmissão em fluxo.
+* **Parado**: Este é o estado inicial do canal após a respetiva criação. Neste estado, as propriedades do canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
 * **Iniciar**: O canal está a ser iniciado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Se ocorrer um erro, o canal devolve para o **parado** estado.
 * **Executar**: O canal pode processar fluxos em direto.
 * **Parar**: O canal está a ser parado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
 * **Eliminar**: O canal está a ser eliminado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
 
-A tabela seguinte mostra como o canal Estados mapa para o modo de faturação.
+A tabela seguinte mostra como os estados de um canal mapeiam para o modo de faturação.
 
-| Estado do canal | Portais indicadores de IU | Foi cobrado? |
+| Estado do canal | Indicadores IU do portal | Foi cobrado? |
 | --- | --- | --- | --- |
 | **A iniciar** |**A iniciar** |Não (estado transitório) |
 | **Em execução** |**Pronto** (nenhum programas em execução)<p><p>ou<p>**Transmissão em fluxo** (pelo menos um programa em execução) |Sim |
@@ -193,7 +193,7 @@ A tabela seguinte demonstra normas suportadas para inserção captioning e ad fe
 | --- | --- |
 | CEA 708 e EIA 608 (708/608) |CEA 708 EIA 608, sendo captioning fechado normas para os Estados Unidos e Canadá.<p><p>Atualmente, captioning só é suportada se executadas no fluxo de entrada codificado. Tem de utilizar um codificador de multimédia em direto que pode inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Media Services. Media Services disponibilizam o conteúdo com inseridas legendas para os visualizadores autorizados. |
 | TTML dentro .ismt (transmissão em fluxo uniforme controla de texto) |Empacotamento dinâmico de serviços de suporte de dados permite que os seus clientes transmitir o conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou transmissão em fluxo uniforme. No entanto, se tiver de inserção MP4 fragmentado (transmissão em fluxo uniforme) com legendas dentro .ismt (transmissão em fluxo uniforme texto controla), pode fornecer o fluxo de transmissão em fluxo uniforme apenas a clientes. |
-| SCTE 35 |SCTE 35 é um sistema signaling digital que é utilizado para rectângulos inserção de publicidade. A jusante recetores utilizam o sinal para splice publicidade em fluxo para o tempo atribuído. É necessário enviar SCTE 35 como um registo disperso no fluxo de entrada.<p><p>Atualmente, o fluxo de entrada suportado apenas formatar esse ativada sinais de ad está fragmentada MP4 (transmissão em fluxo uniforme). A única suportada saída formato também é a transmissão em fluxo uniforme. |
+| SCTE-35 |SCTE 35 é um sistema signaling digital que é utilizado para rectângulos inserção de publicidade. A jusante recetores utilizam o sinal para splice publicidade em fluxo para o tempo atribuído. É necessário enviar SCTE 35 como um registo disperso no fluxo de entrada.<p><p>Atualmente, o fluxo de entrada suportado apenas formatar esse ativada sinais de ad está fragmentada MP4 (transmissão em fluxo uniforme). A única suportada saída formato também é a transmissão em fluxo uniforme. |
 
 ## <a id="considerations"></a>Considerações
 Quando estiver a utilizar um codificador em direto no local para enviar uma sequência de transmissão múltipla a um canal, aplicam as seguintes restrições:
@@ -209,6 +209,10 @@ Quando estiver a utilizar um codificador em direto no local para enviar uma sequ
 Seguem-se outras considerações relacionadas com a trabalhar com canais e componentes relacionados:
 
 * Sempre que reconfigurar o codificador em direto, chame o **repor** método no canal. Antes de repor o canal, terá de parar o programa. Depois de repor o canal, reinicie o programa.
+
+  > [!NOTE]
+  > Quando reiniciar o programa, tem de associar a um novo elemento e criar um novo localizador. 
+  
 * Um canal pode ser parado apenas quando está a ser o **executar** estado e todos os programas no canal foram parados.
 * Por predefinição, pode adicionar apenas cinco canais à sua conta de Media Services. Para obter mais informações, consulte [Quotas e limitações](media-services-quotas-and-limitations.md).
 * É-lhe faturado apenas quando o canal está no **executar** estado. Para obter mais informações, consulte o [canal Estados e faturação](media-services-live-streaming-with-onprem-encoders.md#states) secção.

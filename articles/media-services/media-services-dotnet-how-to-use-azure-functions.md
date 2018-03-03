@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver as funções do Azure com os Media Services
 
@@ -63,11 +63,11 @@ Assim que a sua aplicação de função é implementada, pode encontrá-lo entre
 2. Escolha o **c#** idioma e **processamento de dados** cenário.
 3. Escolha **BlobTrigger** modelo. Esta função é acionada sempre que um blob é carregado para o **entrada** contentor. O **entrada** nome é especificado no **caminho**, no próximo passo.
 
-    ![Ficheiros](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Depois de selecionar **BlobTrigger**, alguns controlos mais aparecem na página.
 
-    ![Ficheiros](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Clique em **Criar**. 
 
@@ -75,9 +75,9 @@ Assim que a sua aplicação de função é implementada, pode encontrá-lo entre
 
 A função do Azure está associada com ficheiros de código e outros ficheiros que são descritos nesta secção. Ao utilizar o portal do Azure para criar uma função, **function.json** e **run.csx** são criados por si. Terá de adicionar ou carregar um **project.json** ficheiro. O resto desta secção fornece uma breve explicação de cada ficheiro e mostra as respetivas definições.
 
-![Ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### <a name="functionjson"></a>Function.JSON
+### <a name="functionjson"></a>function.json
 
 O ficheiro de function.json define os enlaces de função e outras definições de configuração. O tempo de execução utiliza este ficheiro para determinar os eventos a monitorizar e como transmitir dados para e devolver dados de execução de função. Para obter mais informações, consulte [enlaces HTTP e webhook das funções do Azure](../azure-functions/functions-reference.md#function-code).
 
@@ -86,7 +86,7 @@ O ficheiro de function.json define os enlaces de função e outras definições 
 
 Substitua o conteúdo do ficheiro function.json existente pelo código seguinte:
 
-```
+```json
 {
   "bindings": [
     {
@@ -101,13 +101,13 @@ Substitua o conteúdo do ficheiro function.json existente pelo código seguinte:
 }
 ```
 
-### <a name="projectjson"></a>Project.JSON
+### <a name="projectjson"></a>project.json
 
 O ficheiro de project.json contém dependências. Eis um exemplo de **project.json** ficheiro que inclui os pacotes de Media Services do Azure .NET necessários do Nuget. Tenha em atenção que os números de versão alterar com atualizações mais recentes para os pacotes, pelo que deve confirmar as versões mais recentes. 
 
 Adicione a seguinte definição à project.json. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -123,7 +123,7 @@ Adicione a seguinte definição à project.json.
 
 ```
     
-### <a name="runcsx"></a>Run.csx
+### <a name="runcsx"></a>run.csx
 
 Este é o código c# para a sua função.  A função definida abaixo monitores um contentor de conta de armazenamento com o nome **entrada** (que é o que foi especificado no caminho) para os novos ficheiros MP4. Depois de um ficheiro é ignorado para o contentor de armazenamento, o acionador de blob executa a função.
     
@@ -136,7 +136,7 @@ No cenário de vida real, provavelmente pretende controlar o progresso da tarefa
 
 Substitua o conteúdo do ficheiro run.csx existente com o seguinte código: definir a função clique quando tiver terminado **guarde e execute**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"
@@ -339,7 +339,7 @@ Para testar a sua função, tem de carregar um ficheiro MP4 para o **entrada** c
 >[!NOTE]
 > Quando estiver a utilizar um acionador de blob um plano de consumo, podem existir até um atraso de 10 minutos processar novos blobs, depois de uma aplicação de função tornou-se inativo. Depois da aplicação de função está em execução, blobs são processados imediatamente. Para obter mais informações, consulte [do Blob storage acionadores e enlaces](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste momento, está pronto para começar a desenvolver uma aplicação dos Media Services. 
  

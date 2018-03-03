@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 7aa58b9a0fe4ca9e162722d277a951f8ac25013a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -26,6 +26,7 @@ ms.lasthandoff: 12/18/2017
 > * [Feed de alteração de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -39,7 +40,7 @@ ms.lasthandoff: 12/18/2017
 |**Transferência do SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentação da API**|[Alterar a documentação de referência da API de biblioteca de Feed de processador](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**Introdução**|[Introdução ao SDK .NET do processador de Feed de alteração](change-feed.md)|
-|**Arquitetura suportada atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [O Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Arquitetura suportada atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -80,6 +81,6 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

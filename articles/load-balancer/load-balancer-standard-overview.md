@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Descrição geral do padrão de Balanceador de carga do Azure (pré-visualização)
 
@@ -302,9 +302,11 @@ SKUs não são mutável. Siga os passos nesta secção para mover de um recurso 
 
 1. Crie um novo padrão recurso (Balanceador de carga e IPs públicos, conforme necessário). Recriar as regras e definições de pesquisa.
 
-2. Remova os recursos de SKU básico (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Lembre-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
+2. Criar um novo ou atualizar o NSG existente no NIC ou uma sub-rede para o tráfego com balanceamento de carga de lista branca, pesquisa, bem como qualquer outro tráfego de que pretende permitir.
 
-3. Anexe todas as instâncias VM para os novos recursos de Standard SKU.
+3. Remova os recursos de SKU básico (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Lembre-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
+
+4. Anexe todas as instâncias VM para os novos recursos de Standard SKU.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrar de padrão para o SKU básico
 
@@ -349,7 +351,7 @@ A tabela seguinte compara os limites e capacidades do Balanceador de carga bási
 |Cenários de zonas de disponibilidade | Apenas zonal | Zonal, com redundância de zona, balanceamento de carga entre zona |
 | Algoritmo de realizar o SNAT saído | Pedido | Preallocated |
 | Seleção de front-end de realizar o SNAT saída | Não configurável candidatos vários | Configuração opcional para reduzir candidatos |
-| Grupo de segurança de rede | Opcional numa sub-rede/NIC | Necessário |
+| Grupo de Segurança de Rede | Opcional numa sub-rede/NIC | Necessário |
 
 A tabela seguinte compara os limites e capacidades do IP público básico e padrão SKUs:
 
@@ -359,7 +361,7 @@ A tabela seguinte compara os limites e capacidades do IP público básico e padr
 | Mobilidade de IPs rápida | Não suportado | Disponível |
 | Disponibilidade de VIP | Não suportado | Disponível |
 | Contadores | Não suportado | Disponível |
-| Grupo de segurança de rede | Opcional no NIC | Necessário |
+| Grupo de Segurança de Rede | Opcional no NIC | Necessário |
 
 
 ## <a name="preview-sign-up"></a>Pré-visualização inscrição
@@ -464,6 +466,7 @@ As seguintes limitações aplicam-se no momento da pré-visualização e estão 
 - No contexto das zonas de disponibilidade, não é possível mover um endereço IP público zonal de uma zona para outro.
 - [Alertas de monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são suportados neste momento.
 - Portal ainda não suporta as regiões de pré-visualização expandido.  Utilize ferramentas de cliente como modelos, 2.0 do Azure CLI ou PowerShell como uma solução.
+- Operações de subscrição de movimentação não são suportadas.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

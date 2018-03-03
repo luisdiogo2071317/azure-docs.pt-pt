@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilize a análise de multimédia do Azure para converter o conteúdo de texto nos ficheiros de vídeos num texto digital
 ## <a name="overview"></a>Descrição geral
@@ -51,6 +51,7 @@ Configuração da tarefa (predefinição). Quando criar uma tarefa com **OCR de 
 
 #### <a name="json-preset-example"></a>Exemplo de configuração predefinida JSON
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Configuração da tarefa (predefinição). Quando criar uma tarefa com **OCR de 
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Exemplo de configuração predefinida XML
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Configuração da tarefa (predefinição). Quando criar uma tarefa com **OCR de 
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>Ficheiros de saída OCR
 O resultado do processador de multimédia OCR é um ficheiro JSON.
@@ -109,7 +114,7 @@ A saída contém os seguintes atributos:
 | Duração |comprimento de um fragmento de "ticks" |
 | intervalo |intervalo de cada evento dentro de fragmento indicado |
 | eventos |matriz contendo regiões |
-| Região |objeto que representa detetado palavras ou frases reconhecíveis |
+| região |objeto que representa detetado palavras ou frases reconhecíveis |
 | idioma |idioma do texto detetado numa região |
 | orientação |orientação do texto detetado numa região |
 | linhas |matriz de linhas de texto detetado numa região |
@@ -118,6 +123,7 @@ A saída contém os seguintes atributos:
 ### <a name="json-output-example"></a>Exemplo de saída JSON
 O seguinte exemplo de saída contém as informações gerais de vídeos e alguns fragmentos de vídeos. Todas as vídeo fragmento, contém cada região, o que é detetada pelo OCR pacote de gestão com o idioma e a orientação de texto. A região também contém todas as linhas de word nesta região com o texto da linha, posição da linha e cada palavra informações (conteúdo do word, posição e confiança) esta linha. Segue-se um exemplo e posso colocar alguns inline de comentários.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ O seguinte exemplo de saída contém as informações gerais de vídeos e alguns
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
@@ -185,7 +192,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

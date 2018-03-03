@@ -1,24 +1,24 @@
 ---
-title: "Noções sobre o custo de relatórios na gestão de custo do Azure | Microsoft Docs"
-description: "Este artigo ajuda-o a compreender a estrutura básica do Cloudyn relatórios e as funções."
+title: "Noções sobre o custo de relatórios de gestão na gestão de custo do Azure | Microsoft Docs"
+description: "Este artigo ajuda-o a compreender a estrutura básica do Cloudyn custo gestão relatórios e as funções."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Compreender os relatórios de custos
+# <a name="understanding-cost-management-reports"></a>Relatórios de gestão de custo de compreender
 
-Este artigo ajuda-o a compreender a estrutura básica do Cloudyn relatórios e as funções. A maioria dos relatórios de Cloudyn são intuitivas e tem um aspeto e funcionalidade uniforme. Depois de ler este artigo, estará pronto a utilizar todos os relatórios. Muitas funcionalidades padrão estão disponíveis ao longo de vários relatórios, permitindo-lhe navegar os relatórios com facilidade. Os relatórios são personalizáveis e pode selecionar a partir de várias opções para calcular e apresentar resultados.
+Este artigo ajuda-o a compreender a estrutura básica do Cloudyn custo gestão relatórios e as funções. A maioria dos relatórios de Cloudyn são intuitivas e tem um aspeto e funcionalidade uniforme. Depois de ler este artigo, estará pronto a utilizar todos os relatórios de gestão de custo. Muitas funcionalidades padrão estão disponíveis ao longo de vários relatórios, permitindo-lhe navegar os relatórios com facilidade. Os relatórios são personalizáveis e pode selecionar a partir de várias opções para calcular e apresentar resultados.
 
 ## <a name="report-fields-and-options"></a>Opções e campos do relatório
 
@@ -77,7 +77,7 @@ Cada área numerada na imagem anterior está descrita em detalhe nas seguintes i
      - Ambiente
      - Custo de código
 
-5. **Filtros**
+5. **filtros**
 
     Utilize único ou selecionar vários filtros para definir os intervalos para valores selecionados. Para definir um filtro, clique em **adicionar** e, em seguida, selecione as categorias de filtro e valores.
 
@@ -118,7 +118,7 @@ Cada área numerada na imagem anterior está descrita em detalhe nas seguintes i
 
     A opção de Mostrar/ocultar não tem qualquer efeito nos relatórios.
 
-12.   **Formatos de apresentação**
+12.   **formatos de apresentação**
 
     Utilize os formatos de apresentação para selecionar várias vistas de gráfico ou tabela.
 
@@ -131,6 +131,27 @@ Cada área numerada na imagem anterior está descrita em detalhe nas seguintes i
 14. **Ações**
 
     Utilize ações para guardar, exportar ou agendamento do relatório.
+
+## <a name="save-and-schedule-reports"></a>Guarde e agendar relatórios
+
+Depois de criar um relatório, pode guardá-lo para utilização futura. Relatórios guardados estão disponíveis no **ferramentas My** > **os meus relatórios**. Se efetuar alterações a um relatório existente e guardá-lo, o relatório é guardado como uma nova versão. Em alternativa, pode guardá-lo como um novo relatório.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Guardar um relatório para o portal de Cloudyn
+
+Quando estiver a visualizar quaisquer relatórios, clique em **ações** e, em seguida, selecione **guardar os meus relatórios**. Nome do relatório e, em seguida, adicione um os seus próprios URL ou utilize o URL criado automaticamente. Pode, opcionalmente, **partilhar** o relatório publicamente com outras pessoas na sua organização ou pode partilhá-lo para a entidade. Se não partilham o relatório, continua a ser um relatório pessoal e que apenas pode ver. Guarde o relatório.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Guardar um relatório para o fornecedor de armazenamento na nuvem
+
+Para poder guardar um relatório para o fornecedor de serviço em nuvem, tem de ter já configurado uma conta de armazenamento. Quando estiver a visualizar quaisquer relatórios, clique em **ações** e, em seguida, selecione **agendar relatórios**. Nome do relatório e, em seguida, adicione um os seus próprios URL ou utilize o URL criado automaticamente. Selecione **guardar para o armazenamento** e, em seguida, selecione a conta de armazenamento ou adicione um novo. Introduza um prefixo que obtém acrescentado ao nome do ficheiro de relatório. Selecione um formato de ficheiro CSV ou JSON e, em seguida, guarde o relatório.
+
+### <a name="schedule-a-report"></a>Agendar um relatório
+
+Pode executar relatórios em intervalos agendados e pode enviá-los para um destinatário lista ou uma nuvem de fornecedor armazenamento conta de serviço. Quando estiver a visualizar quaisquer relatórios, clique em **ações** e, em seguida, selecione **agendar relatórios**. Pode enviar o relatório por correio eletrónico e guardar a uma conta de armazenamento. Em **agenda**, selecione o intervalo (diária, semanal ou mensal). Para semanais e mensais, selecione o dia ou datas para entregar e selecione a hora. Guarde o relatório agendado. Se seleciona o formato de relatório do Excel, o relatório será enviado como anexo. Quando seleciona o formato de conteúdo de correio eletrónico, resultados de relatório que são apresentados no formato do gráfico são fornecidos como um gráfico.
+
+### <a name="export-a-report-as-a-csv-file"></a>Exportar um relatório como um ficheiro CSV
+
+Quando estiver a visualizar quaisquer relatórios, clique em **ações** e, em seguida, selecione **exportar todos os dados de relatório**. É apresentada uma janela de pop-up e será transferido um ficheiro CSV.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

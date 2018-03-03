@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 793dc7d4c06b18e01242726eff476253e3a3ea88
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f9108beba69e52398f16e2b9055c7a2f2d04f48
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um elemento com o codificador de multimédia Standard utilizando o .NET
 As tarefas de codificação são uma das operações de processamento mais comuns nos Serviços de Multimédia. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Quando codificar, pode utilizar o codificador de multimédia incorporada dos Media Services. Também pode utilizar um codificador fornecido por um parceiro de Media Services; codificadores de terceiros estão disponíveis através do Azure Marketplace. 
@@ -71,7 +71,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo 
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;
@@ -206,7 +206,7 @@ namespace MediaEncoderStandardSample
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Como gerar miniatura utilizando o codificador de multimédia Standard com .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [codificação descrição geral de serviços de suporte de dados](media-services-encode-asset.md)
 

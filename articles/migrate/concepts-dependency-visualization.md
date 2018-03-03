@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -34,6 +34,19 @@ Azure migrar utiliza o [mapa de serviço](../operations-management-suite/operati
 Para utilizar a visualização de dependência, terá de transferir e instalar agentes em cada máquina no local que pretende analisar.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>É necessário pagar para o mesmo?
+
+O Azure Migrate está disponível sem custos adicionais. Utilize as funcionalidades de visualização de dependência no Azure migrar necessitam de mapa de serviço. Durante a criação de um projeto migrar do Azure, Azure migrar irá criar automaticamente uma nova área de trabalho de análise de registos em seu nome.
+
+> [!NOTE]
+> A funcionalidade de visualização de dependência utiliza o mapa de serviço através de uma área de trabalho de análise de registos. Desde 28 de Fevereiro de 2018, com o anúncio de disponibilidade geral do Azure migrar, a funcionalidade está agora disponível, sem encargos adicionais. Terá de criar um novo projeto para tornar a utilização de área de trabalho de utilização livre. Áreas de trabalho existentes antes de availaibility geral são ainda chargable, por conseguinte, recomendamos que mover para um novo projeto.
+
+1. Utilização de qualquer soluções que não seja o mapa de serviço dentro desta área de trabalho de análise de registos resultará em encargos Log Analytics padrão. 
+2. Para suportar cenários de migração sem custos adicionais, a solução de mapa de serviço não será cobrado qualquer custo para o primeiro período de 180 dias da criação do projeto do Azure migrar, após o qual são aplicáveis tarifas padrão.
+3. Apenas a área de trabalho criada como parte da criação de projeto, será gratuita para utilização.
+
+Quando registar os agentes para a área de trabalho, utilize o ID e a chave fornecida pelo projeto na página de passos de agente de instalação. Não é possível utilizar uma área de trabalho existente e associá-lo com o projeto do Azure migrar.
+
+Quando o projeto do Azure migrar é eliminado, a área de trabalho não é eliminada, juntamente com o mesmo. Após a eliminação de projeto, a utilização de mapa de serviço não será gratuita e cada nó será cobrada de acordo com a camada paga da área de trabalho de análise de registos.
 
 Saiba mais sobre os preços do Azure Migrate [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 

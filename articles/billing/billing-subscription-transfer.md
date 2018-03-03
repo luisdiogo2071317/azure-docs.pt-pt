@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -29,7 +29,7 @@ Transferir a sua subscrição para outro utilizador no Centro de contas para alt
 
 > [!IMPORTANT]
 > 
-> Atualmente não suportamos das transferências de subscrições de avaliação gratuita ou [do Azure no Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscrições. Para obter uma solução, consulte [mover recursos para o novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md).
+> Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função no [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-what-is.md) são eliminados permanentemente o inquilino de origem e não são migradas para o inquilino de destino.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma subscrição do Azure
 
@@ -49,7 +49,12 @@ Transferir a sua subscrição para outro utilizador no Centro de contas para alt
    ![Separador de subscrições de conta do Azure](./media/billing-subscription-transfer/image1.png)
 1. Especifique o destinatário.
 
+   > [!IMPORTANT]
+   > 
+   > Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função no [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-what-is.md) são eliminados permanentemente o inquilino de origem e não são migradas para o inquilino de destino.
+
    ![Caixa de diálogo de subscrição de transferência](./media/billing-subscription-transfer/image2.PNG)
+
 1. O destinatário recebe automaticamente um e-mail com uma ligação de aceitação.
 
    ![E-mail de transferência de subscrição para o destinatário](./media/billing-subscription-transfer/image3.png)
@@ -80,27 +85,27 @@ O administrador de empresa pode transferir a propriedade das subscrições dentr
 
 ## <a name="whats-supported"></a>O que é suportado:
 
-Transferência de subscrição de gestão personalizada está disponível para o ofertas ou tipos de subscrição listados na seguinte tabela. Para transferir a outras subscrições, como [patrocínio](https://azure.microsoft.com/offers/ms-azr-0036p/) ou suportam esquemas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Transferência de subscrição de gestão personalizada está disponível para o ofertas ou tipos de subscrição listados na seguinte tabela. Atualmente não é possível transferir uma versão de avaliação gratuita ou [do Azure no Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscrições. Para obter uma solução, consulte [mover recursos para o novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md). Para transferir a outras subscrições, como [patrocínio](https://azure.microsoft.com/offers/ms-azr-0036p/) ou suportam esquemas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Nome da Oferta                                                                             | Número da oferta |
 |----------------------------------------------------------------------------------------|--------------|
-| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR - 0017P        |
-| [Rede de parceiro da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR - 0025P        |
-| [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR - 0062P        |
-| [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR - 0003P        |
-| [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR - 0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR - 0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR - 0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR - 0059P        |
-| [Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR - 0060P        |
+| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Rede de parceiro da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
 
-\*[Portal através de EA](#EA)
+\* [Através do portal EA](#EA)
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
 
-### <a name="whoisaa"></a>Quem é o administrador da conta da subscrição?
+### <a name="whoisaa"></a> Quem é o administrador da conta da subscrição?
 
 O administrador da conta é a pessoa que inscreveu no ou comprou a subscrição do Azure. Estão autorizados a aceder a [Centro de contas](https://account.azure.com/Subscriptions) e realizar várias tarefas de gestão, como criar subscrições, cancelar subscrições, altere a faturação de uma subscrição ou alterar o administrador de serviço. Se não tiver a certeza de que o administrador de conta é para uma subscrição, utilize os seguintes passos para descobrir.
 
@@ -112,7 +117,7 @@ O administrador da conta é a pessoa que inscreveu no ou comprou a subscrição 
 
 Todos os recursos, como VMs, discos e transferência de Web sites para o novo proprietário. No entanto, quaisquer [funções de administrador](billing-add-change-azure-subscription-administrator.md) e [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-configure.md) configurou as políticas não são transferidos em diretórios diferentes. Além disso, [registos de aplicação](../active-directory//develop/active-directory-integrating-applications.md) e outros serviços de inquilino específico não transferência ao longo.
 
-### <a id="no-button"></a>Por que motivo não vejo o botão "Transferir a subscrição"?
+### <a id="no-button"></a> Por que motivo não vejo o botão "Transferir a subscrição"?
 
 Infelizmente, transferência de subscrição de gestão personalizada não está disponível para o país ou a oferta. Para transferir a sua subscrição, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

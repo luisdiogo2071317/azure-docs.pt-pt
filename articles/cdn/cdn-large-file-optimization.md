@@ -1,5 +1,5 @@
 ---
-title: "Otimização de transferência de ficheiros grandes através da rede de entrega de conteúdo do Azure"
+title: "Otimização de transferência de ficheiros grandes através da CDN do Azure"
 description: "Otimização de transferências de ficheiros grandes explicado em profundidade"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Otimização de transferência de ficheiros grandes através da rede de entrega de conteúdo do Azure
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Otimização de transferência de ficheiros grandes através da CDN do Azure
 
 Tamanhos de ficheiro de conteúdo a entregar através da Internet continuam a crescer devido a funcionalidade avançada, gráficos melhorados e conteúdo multimédia formatado. Este crescimento é suscitada pelo departamento por vários fatores: penetração banda larga, maior dispositivos de armazenamento económico, ampla aumento de definição de alta vídeo e ligado à Internet dispositivos (IoT). Um mecanismo de entrega rápidos e eficientes para ficheiros grandes é essencial para garantir uma experiência de consumidor enjoyable e uniforme.
 
@@ -67,7 +67,7 @@ O CDN coloca em cache quaisquer segmentos como que está a ser recebidos. Todo o
 Otimização de ficheiros grandes utiliza tempos de expiração de colocação em cache predefinido diferente da entrega de web geral. -Distingue entre a colocação em cache positivos e negativos colocação em cache baseado em códigos de resposta HTTP. Se o servidor de origem Especifica um tempo de expiração através de uma cache-control ou expira cabeçalho na resposta, a CDN honra esse valor. Quando não especifica a origem e o ficheiro corresponde as condições de tipo e o tamanho para este tipo de otimização, a CDN utiliza os valores predefinidos para a otimização de ficheiros grandes. Caso contrário, a CDN utiliza as predefinições para a entrega de web geral.
 
 
-|    | Web geral | Otimização de ficheiros grandes 
+|    | Web geral | Otimização de ficheiro grande 
 --- | --- | --- 
 A colocação em cache: positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
 A colocação em cache: negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhuma | 1 segundo 
@@ -84,7 +84,7 @@ A tabela seguinte lista o conjunto de critérios para ser satisfeito para a otim
 
 Condição | Valores 
 --- | --- 
-Tipos de ficheiro suportados | 3G 2 3gp, asf, avi, bz2, dmg,. exe, f4v, flv, <br> GZ hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
+Tipos de ficheiro suportados | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Tamanho mínimo do ficheiro | 10 MB 
 Tamanho máximo do ficheiro | 150 GB 
 Características de servidor de origem | Tem de suportar pedidos de intervalo de bytes 

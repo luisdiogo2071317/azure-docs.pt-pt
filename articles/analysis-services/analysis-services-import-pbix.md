@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um ficheiro do Power BI Desktop
 
-Pode criar um novo modelo no Azure como ao importar um ficheiro de ficheiro (. pbix) do Power BI Desktop. Metadados do modelo, dados em cache e ligações de origem de dados são importadas. Relatórios e visualizações não foram importadas. Uma vez no seu servidor, é possível efetuar alterações de modelo, atualizar e voltar a importar o pbix através da funcionalidade de designer (pré-visualização) web no portal ou utilizando o SQL Server Management Studio (SSMS). Modelos importados não podem ser abertos ou exportados para o Visual Studio.
+Pode criar um novo modelo no Azure como ao importar um ficheiro de ficheiro (. pbix) do Power BI Desktop. Metadados do modelo, dados em cache e ligações de origem de dados são importadas. Relatórios e visualizações não foram importadas.
 
-> [!NOTE]
-> Se o seu modelo pbix liga-se a origens de dados no local, um [gateway no local](analysis-services-gateway.md) tem de ser configurado para o servidor.
+**Restrições**   
+- O modelo de pbix tem de ligar ao [origens de dados do Analysis Services suportadas](analysis-services-datasource.md) apenas. 
+- O modelo de pbix não pode ter direta ou ligações de DirectQuery. 
+- Se o modelo de pbix liga-se a origens de dados no local, um [gateway de dados no local](analysis-services-gateway.md) tem de ser configurado para o servidor de Analysis Services.
+- Importação poderá falhar se o modelo de dados pbix contém metadados que não é suportado no Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Para importar a partir de pbix
 

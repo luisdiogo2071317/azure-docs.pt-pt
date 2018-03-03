@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportar uma API alojado no Azure PowerApps e fluxo da Microsoft
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 Da mesma forma, os programadores que pretendem expor das respetivas APIs mais amplamente dentro de uma organização podem disponibilizar das respetivas APIs para construtores de aplicação e o fluxo. Este tópico mostra como exportar uma API criada com [das funções do Azure](../azure-functions/functions-overview.md) ou [App Service do Azure](../app-service/app-service-web-overview.md). A API exportada torna-se um *conetor personalizado*, que é utilizada no PowerApps e Flow Microsoft, tal como um conector incorporado.
 
 ## <a name="create-and-export-an-api-definition"></a>Criar e exportar uma definição de API
-Antes de exportar uma API, tem de descrever a API utilizando uma definição de OpenAPI (anteriormente conhecido como um [Swagger](http://swagger.io/) ficheiro). Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados. PowerApps e Microsoft Flow podem criar conectores personalizados para qualquer definição OpenAPI 2.0. Funções do Azure e o App Service do Azure têm suporte incorporado para criar, alojar e gerir definições de OpenAPI. Para obter mais informações, consulte [criar uma API RESTful nas Web Apps do Azure](../app-service/app-service-web-tutorial-rest-api.md).
+Antes de exportar uma API, tem de descrever a API utilizando uma definição de OpenAPI (anteriormente conhecido como um [Swagger](http://swagger.io/) ficheiro). Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados. PowerApps e Microsoft Flow podem criar conectores personalizados para qualquer definição OpenAPI 2.0. Funções do Azure e o App Service do Azure têm suporte incorporado para criar, alojar e gerir definições de OpenAPI. Para obter mais informações, consulte [alojar uma API RESTful com a CORS no App Service do Azure](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > Também pode criar conectores personalizados na PowerApps e IU de fluxo da Microsoft, sem utilizar uma definição de OpenAPI. Para obter mais informações, consulte [registar e utilizar um conetor personalizado (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) e [registar e utilizar um conetor personalizado (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -99,11 +99,11 @@ Agora que tenha exportado a definição da API, importe-o para criar um conetor 
 
 Para importar a definição da API para PowerApps e Microsoft Flow, siga estes passos:
 
-1. Aceda a [powerapps.com](https://web.powerapps.com) ou [flow.microsoft.com](https://flow.microsoft.com).
+1. Aceda a [powerapps.com](https://web.powerapps.com) ou a [flow.microsoft.com](https://flow.microsoft.com).
 
 2. No canto superior direito, clique no ícone de equipamento de, em seguida, clique em **conectores personalizada**.
 
-   ![Ícone de equipamento no serviço](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
+   ![Ícone de engrenagem no serviço](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
 3. Clique em **criar conector personalizado**, em seguida, clique em **importar uma definição de OpenAPI**.
 
@@ -132,7 +132,7 @@ Para importar a definição da API para PowerApps e Microsoft Flow, siga estes p
 Pode agora ligar para o conector personalizado no PowerApps e Flow Microsoft. Para obter mais informações sobre a criação de conectores no portais PowerApps e Flow Microsoft, consulte [registar o conector personalizado (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) e [registar o conector personalizado (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
 
 <a name="auth"></a>
-## <a name="specify-authentication-type"></a>Especifique o tipo de autenticação
+## <a name="specify-authentication-type"></a>Especificar o tipo de autenticação
 
 PowerApps e Flow Microsoft suportam uma coleção de fornecedores de identidade que fornecer autenticação para conectores personalizados. Se a sua API requer autenticação, certifique-se de que é capturado como uma _definição de segurança_ no seu documento OpenAPI, semelhante ao seguinte exemplo:
 

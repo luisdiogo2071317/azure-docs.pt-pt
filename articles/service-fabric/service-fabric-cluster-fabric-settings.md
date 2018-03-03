@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e política de atualização do Fabric
 Este documento indica como personalizar as várias definições de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o cluster do Service Fabric. Pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -31,7 +31,7 @@ Este documento indica como personalizar as várias definições de recursos de i
 Os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção.
 
 1. Aceda a https://resources.azure.com
-2. Navegue até à sua subscrição, expandindo **subscrições** -> **grupos de recursos** -> **Microsoft.ServiceFabric**  ->   **\<o nome do Cluster >**
+2. Navegue até à sua subscrição, expandindo **subscrições** -> **\<a subscrição >** -> **resourceGroups**  ->   **\<o grupo de recursos >** -> **fornecedores** -> **Microsoft.ServiceFabric**  ->  **clusters** -> **\<o nome do Cluster >**
 3. No canto superior direito, selecione **leitura/escrita.**
 4. Selecione **editar** e atualizar o `fabricSettings` elemento JSON e adicione um novo elemento de:
 
@@ -60,7 +60,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | DiskFullSafetySpaceInMB |Int, a predefinição é 1024 | Dinâmica |Espaço em disco restante em MB para proteger contra a utilização por DCA. |
 | ApplicationLogsFormatVersion |Int, a predefinição é 0 | Dinâmica |Formato de registo de versão para a aplicação. Os valores suportados são 0 e 1. Versão 1 inclui mais campos no registo de eventos ETW à versão 0. |
 | ClusterId |Cadeia | Dinâmica |O id exclusivo do cluster. Este é gerado quando o cluster for criado. |
-| Ativar telemetria |Booleana, a predefinição é verdadeiro | Dinâmica |Isto vai ativar ou desativar a telemetria. |
+| EnableTelemetry |Booleana, a predefinição é verdadeiro | Dinâmica |Isto vai ativar ou desativar a telemetria. |
 | EnableCircularTraceSession |Booleana, a predefinição é false | Estático |Sinalizador indica se devem ser utilizadas sessões de rastreio circular. |
 
 ### <a name="section-name-traceetw"></a>Nome de secção: Rastreio/Etw
@@ -80,7 +80,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 ### <a name="section-name-setup"></a>Secção nome: a configuração
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
-| A variável FabricDataRoot |Cadeia | Não Permitido |Diretório de raiz de dados do Service Fabric. Predefinido para o Azure é d:\svcfab |
+| FabricDataRoot |Cadeia | Não Permitido |Diretório de raiz de dados do Service Fabric. Predefinido para o Azure é d:\svcfab |
 | FabricLogRoot |Cadeia | Não Permitido |Diretório de raiz do registo de recursos de infraestrutura do serviço. Este é onde os registos de SF e rastreios são colocados. |
 | ServiceRunAsAccountName |Cadeia | Não Permitido |O nome da conta para executar o serviço de anfitrião de recursos de infraestrutura. |
 | SkipFirewallConfiguration |Booleana, a predefinição é false | Não Permitido |Especifica se as definições de firewall tem de ser definido pelo sistema ou não. Isto aplica-se apenas se estiver a utilizar a firewall do windows. Se estiver a utilizar firewalls de terceiros, em seguida, tem de abrir as portas para o sistema e as aplicações utilizem |
@@ -230,7 +230,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |MaxNamingServiceHealthReports | Int, a predefinição é 10 |Dinâmica|O número máximo de operações lentas que armazenam Naming service relatórios mau estado de funcionamento de uma só vez. Se for 0; todas as operações lentas são enviadas. |
 | MaxMessageSize |Int, a predefinição é 4\*1024\*1024 |Estático|O tamanho máximo de mensagem para a comunicação de nó de cliente ao utilizar a atribuição de nomes. LINHA ataques alleviation; valor predefinido é 4MB. |
 | MaxFileOperationTimeout |Tempo em segundos, a predefinição é 30 |Dinâmica|Especifique timespan em segundos. Tempo limite máximo permitido para a operação de serviço de arquivo de ficheiros. Especificar o tempo limite de pedidos serão rejeitados. |
-| Maxoperationtimeout da |Tempo em segundos, a predefinição é 600 |Dinâmica|Especifique timespan em segundos. Tempo limite máximo permitido para operações de cliente. Especificar o tempo limite de pedidos serão rejeitados. |
+| MaxOperationTimeout |Tempo em segundos, a predefinição é 600 |Dinâmica|Especifique timespan em segundos. Tempo limite máximo permitido para operações de cliente. Especificar o tempo limite de pedidos serão rejeitados. |
 | MaxClientConnections |Int, a predefinição é 1000 |Dinâmica|O máximo permitido de número de ligações de cliente por gateway. |
 | ServiceNotificationTimeout |Tempo em segundos, a predefinição é 30 |Dinâmica|Especifique timespan em segundos. O tempo limite utilizado quando a entrega de notificações de serviço para o cliente. |
 | MaxOutstandingNotificationsPerClient |Int, a predefinição é 1000 |Dinâmica|O número máximo de pendentes notificações antes de um registo de cliente é forçado a fechar o gateway. |
@@ -252,7 +252,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |RunAsAccountType|cadeia, a predefinição é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para os valores válidos de secção RunAs são "Utilizador_local/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia, a predefinição é "" |Dinâmica|Indica a palavra-passe da conta de RunAs. Isto apenas é necessário para o tipo de conta "DomainUser". |
 
-### <a name="section-name-runashttpgateway"></a>Secção nome: RunAs_HttpGateway
+### <a name="section-name-runashttpgateway"></a>Section Name: RunAs_HttpGateway
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 | RunAsAccountName |cadeia, a predefinição é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para a conta "DomainUser" ou "ManagedServiceAccount" tipo. Os valores válidos são "domínio \ utilizador" ou "user@domain". |
@@ -299,7 +299,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |GatewayX509CertificateFindValue | cadeia, a predefinição é "" |Dinâmica| Valor de filtro de pesquisa utilizado para localizar o certificado de gateway de aplicação de http. Este certificado é configurado no ponto final de https e também pode ser utilizado para verificar a identidade da aplicação se for necessário pelos serviços. FindValue é consultado primeiro; e se que não existe FindValueSecondary é pesquisado. |
 |GatewayX509CertificateFindValueSecondary | cadeia, a predefinição é "" |Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado de gateway de aplicação de http. Este certificado é configurado no ponto final de https e também pode ser utilizado para verificar a identidade da aplicação se for necessário pelos serviços. FindValue é consultado primeiro; e se que não existe FindValueSecondary é pesquisado.|
 |HttpRequestConnectTimeout|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(5)|Dinâmica|Especifique timespan em segundos.  Fornece o tempo limite de ligar para os pedidos de http que está a ser enviados do gateway de aplicação de http.  |
-|RemoveServiceResponseHeaders|cadeia, a predefinição é L "data; Servidor"|Estático|Vírgula semiestruturados / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo para o cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. revertidos Não substituir a data e o servidor |
+|RemoveServiceResponseHeaders|cadeia, a predefinição é L "data; Servidor"|Estático|Vírgula semiestruturados / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo para o cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. i.e Não substituir a data e o servidor |
 |ApplicationCertificateValidationPolicy|cadeia, a predefinição é L "None"|Estático| ApplicationCertificateValidationPolicy: Nenhum: não validar o certificado de servidor; concluída com êxito o pedido. ServiceCertificateThumbprints: Consulte a configuração ServiceCertificateThumbprints para obter a lista de valores separados por vírgulas de thumbprints dos certificados remotos que pode confiar do proxy inverso. ServiceCommonNameAndIssuer: Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de requerente dos certificados remotos que pode confiar do proxy inverso. |
 |ServiceCertificateThumbprints|cadeia, a predefinição é L""|Dinâmica| |
 |CrlCheckingFlag|uint, a predefinição é 0x40000000 |Dinâmica| Sinalizadores de validação da cadeia de certificados de aplicações/serviços; Por exemplo, 0x10000000 de verificação de CRL CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY definição a 0 Desativa a CRL a verificar se a obter uma lista completa de valores suportados é documentada dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx  |
@@ -337,7 +337,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |MaxPercentDeltaUnhealthyNodes|Int, a predefinição é 10|Estático|Política de avaliação do Estado de funcionamento de atualização do cluster: percentagem de máxima de nós de mau estado de funcionamento de diferenças permitido para o cluster ser bom estado de funcionamento |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|Int, a predefinição é 15|Estático|Política de avaliação do Estado de funcionamento de atualização do cluster: percentagem de máxima de diferenças de nós mau estado de funcionamento de um domínio de atualização permitido para o cluster ser bom estado de funcionamento |
 
-### <a name="section-name-faultanalysisservice"></a>Secção nome: FaultAnalysisService
+### <a name="section-name-faultanalysisservice"></a>Section Name: FaultAnalysisService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 | TargetReplicaSetSize |Int, a predefinição é 0 |Estático|NOT_PLATFORM_UNIX_START TargetReplicaSetSize para FaultAnalysisService. |
@@ -385,6 +385,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |CommonName2Ntlmx509StoreLocation|cadeia, a predefinição é L "LocalMachine"| Estático|A localização do arquivo do X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret quando utilizar a autenticação NTLM |
 |CommonName2Ntlmx509StoreName|cadeia, a predefinição é L "MY"|Estático| O nome de arquivo de X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret quando utilizar a autenticação NTLM |
 |CommonName2Ntlmx509CommonName|cadeia, a predefinição é L""|Estático|O nome comum do X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret quando utilizar a autenticação NTLM |
+|GenerateV1CommonNameAccount| booleana, a predefinição é verdadeiro|Estático|Especifica se pretende gerar uma conta com o algoritmo de geração de V1 de nome de utilizador. Começando com a versão 6.1; do Service Fabric uma conta com a geração de v2 é sempre criada. A conta de V1 é necessária para atualizações de/para versões que suportam a geração de V2 (antes da 6.1).|
 
 ### <a name="section-name-imagestoreservice"></a>Secção nome: ImageStoreService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
@@ -799,5 +800,5 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 ## <a name="next-steps"></a>Passos Seguintes
 Estes artigos para obter mais informações sobre a gestão de clusters de leitura:
 
-[Adicionar, rollover, remover certificados a partir do seu cluster do Azure](service-fabric-cluster-security-update-certs-azure.md) 
+[Adicionar, rollover, remover certificados a partir do seu cluster do Azure ](service-fabric-cluster-security-update-certs-azure.md) 
 

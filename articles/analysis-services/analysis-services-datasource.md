@@ -13,82 +13,95 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
-Servidores de Analysis Services do Azure suportam a ligar a origens de dados na nuvem e no local na sua organização. Origens de dados suportadas adicionais estão a ser adicionadas sempre. A verificar frequentemente. 
 
-Atualmente são suportadas as seguintes origens de dados:
+São apresentados as origens de dados e conectores apresentados no Assistente de importação no Visual Studio ou obter dados para o Azure Analysis Services e o SQL Server Analysis Services. No entanto, nem todas as origens de dados e conectores mostrados são suportados no Azure Analysis Services. Os tipos de origens de dados que pode ligar ao dependem em vários fatores, tais como modelo de nível de compatibilidade, os conectores de dados disponíveis, tipo de autenticação, fornecedores e suporte de gateway de dados no local. 
 
-| Nuvem  |
-|---|
-| Armazenamento de Blobs do Azure *  |
-| Base de Dados SQL do Azure  |
-| Armazém de dados do Azure |
+## <a name="azure-data-sources"></a>Origens de dados do Azure
 
+|Origem de dados  |Dentro da memória  |DirectQuery  |
+|---------|---------|---------|
+|Base de Dados SQL do Azure     |   Sim      |    Sim      |
+|Azure SQL Data Warehouse     |   Sim      |   Sim       |
+|Armazenamento de Blobs do Azure *     |   Sim       |    Não      |
+|Armazenamento de tabela do Azure *    |   Sim       |    Não      |
+|Azure Cosmos BD (Beta) *     |  Sim        |  Não        |
+|Azure Data Lake Store *     |   Sim       |    Não      |
+|Azure HDInsight HDFS *     |     Sim     |   Não       |
+|Azure HDInsight Spark (Beta) *     |   Sim       |   Não       |
+|Base de dados do Azure para MySQL (pré-visualização) *     |   Sim       |   Não      |
+|Base de dados do Azure para PostgreSQL (pré-visualização) *     | Sim         |  Não       |
+||||
 
-| Local  |   |   |   |
-|---|---|---|---|
-| Base de dados de acesso  | Pasta * | Base de dados Oracle  | Teradata Database |
-| Active Directory *  | Documento JSON *  | Base de dados Postgre SQL *  |Tabela XML * |
-| Analysis Services  | Linhas de binário *  | SAP HANA*  |
-| Analytics Platform System  | Base de Dados MySQL  | SAP Business Warehouse *  | |
-| Dynamics CRM*  | Feed de OData *  | SharePoint*  |
-| Livro do Excel  | Consulta ODBC  | SQL Database  |
-| Exchange*  | OLE DB  | Base de dados Sybase  |
+\* Modelos em tabela 1400 apenas.
 
-\* Modelos em tabela 1400 apenas. 
+**Fornecedor**   
+Na memória e modelos DirectQuery a ligar a origens de dados do Azure utilizam o .NET Framework Data Provider para o SQL Server.
 
-> [!IMPORTANT]
-> A ligar a origens de dados no local requer um [gateway de dados no local](analysis-services-gateway.md) instalado num computador no seu ambiente.
+## <a name="on-premises-data-sources"></a>Origens de dados no local
 
-## <a name="data-providers"></a>Fornecedores de dados
+A ligar no local origens de dados de e do Azure que o servidor requerem um gateway no local. Quando utilizar um gateway, fornecedores de 64 bits, são necessários.
 
-Modelos de dados no Azure Analysis Services podem necessitar de fornecedores de dados diferentes ao ligar a determinadas origens de dados. Em alguns casos, os modelos em tabela a ligar a origens de dados a utilizar fornecedores nativos, tais como o SQL Server Native Client (SQLNCLI11) podem devolver um erro.
+### <a name="in-memory-and-directquery"></a>Na memória e DirectQuery
 
-Para modelos de dados que se ligam aos dados de nuvem de origem, tais como a base de dados do Azure SQL, se utilizar fornecedores nativos que não sejam SQLOLEDB, poderá ver a mensagem de erro: **"O fornecedor 'SQLNCLI11.1' não está registado."** Ou, se tiver um modelo do DirectQuery a ligar a origens de dados no local, se utilizar fornecedores nativos poderá ver a mensagem de erro: **"Erro ao criar o conjunto de linhas OLE DB. Sintaxe incorreta perto de 'Limite' "**.
-
-Os fornecedores de origem de dados seguintes são suportados para dentro da memória ou modelos de dados de DirectQuery ao ligar a origens de dados na nuvem ou no local:
-
-### <a name="cloud"></a>Nuvem
-| **Origem de dados** | **Dentro da memória** | **DirectQuery** |
+|Origem de dados | Fornecedor de memória | Fornecedor de DirectQuery |
 |  --- | --- | --- |
-| Azure SQL Data Warehouse |Fornecedor de dados .NET framework para o SQL Server |Fornecedor de dados .NET framework para o SQL Server |
-| Base de Dados SQL do Azure |Fornecedor de dados .NET framework para o SQL Server |Fornecedor de dados .NET framework para o SQL Server | |
+| SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o .NET Framework Data Provider para o SQL Server | Fornecedor de dados .NET framework para o SQL Server |
+| SQL Server Data Warehouse |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o .NET Framework Data Provider para o SQL Server | Fornecedor de dados .NET framework para o SQL Server |
+| Oracle |Fornecedor Microsoft OLE DB para Oracle, Oracle Data Provider para .NET |Fornecedor de dados Oracle para .NET | |
+| Teradata |Fornecedor OLE DB para Teradata, o fornecedor de dados Teradata para .NET |Fornecedor de dados Teradata para .NET | |
+| | | |
 
-### <a name="on-premises-via-gateway"></a>No local (através do Gateway)
-|**Origem de dados** | **Dentro da memória** | **DirectQuery** |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |Fornecedor de dados .NET framework para o SQL Server |
-| SQL Server |Fornecedor Microsoft OLE DB para SQL Server |Fornecedor de dados .NET framework para o SQL Server | |
-| SQL Server |Fornecedor de dados .NET framework para o SQL Server |Fornecedor de dados .NET framework para o SQL Server | |
-| Oracle |Fornecedor Microsoft OLE DB para Oracle |Fornecedor de dados Oracle para .NET | |
-| Oracle |Fornecedor de dados Oracle para .NET |Fornecedor de dados Oracle para .NET | |
-| Teradata |Fornecedor OLE DB para Teradata |Fornecedor de dados Teradata para .NET | |
-| Teradata |Fornecedor de dados Teradata para .NET |Fornecedor de dados Teradata para .NET | |
-| Analytics Platform System |Fornecedor de dados .NET framework para o SQL Server |Fornecedor de dados .NET framework para o SQL Server | |
+### <a name="in-memory-only"></a>Dentro da memória apenas
 
-> [!NOTE]
-> Certifique-se de que os fornecedores de 64 bits estão instalados quando utilizar o gateway no local.
-> 
-> 
+|Origem de dados  |  
+|---------|---------|
+|Base de dados de acesso     |  
+|Active Directory *     |  
+|Analysis Services     |  
+|Analytics Platform System     |  
+|Dynamics CRM*     |  
+|Livro do Excel     |  
+|Exchange*     |  
+|Pasta *     | 
+|Documento JSON *     |  
+|Linhas de binário *     | 
+|Base de Dados MySQL     | 
+|Feed de OData *     |  
+|Consulta ODBC     | 
+|OLE DB     |   
+|Base de dados Postgre SQL *    | 
+|SAP HANA*    |  
+|SAP Business Warehouse *    |  
+|SharePoint*     |   
+|Base de dados Sybase     |  
+|Tabela XML *    |  
+|||
+ 
+\* Modelos em tabela 1400 apenas.
+
+## <a name="specifying-a-different-provider"></a>Especificar um fornecedor diferente
+
+Modelos de dados no Azure Analysis Services podem necessitar de fornecedores de dados diferentes ao ligar a determinadas origens de dados. Em alguns casos, os modelos em tabela a ligar a origens de dados a utilizar fornecedores nativos, tais como o SQL Server Native Client (SQLNCLI11) podem devolver um erro. Se utilizar fornecedores nativos que não sejam SQLOLEDB, poderá ver a mensagem de erro: **o fornecedor 'SQLNCLI11.1' não está registado**. Ou, se tiver um modelo do DirectQuery a ligar a origens de dados no local e utilizar fornecedores nativos, poderá ver a mensagem de erro: **erro ao criar o conjunto de linhas OLE DB. Sintaxe incorreta perto de 'Limite'**.
 
 Quando migrar um modelo de tabela do SQL Server Analysis Services no local ao Azure Analysis Services, poderá ser necessário alterar o fornecedor.
 
-**Para especificar um fornecedor de origem de dados**
+**Para especificar um fornecedor**
 
 1. No SSDT > **Explorador de modelo em tabela** > **origens de dados**, faça duplo clique uma ligação à origem de dados e, em seguida, clique em **editar a origem de dados**.
 2. No **editar ligação**, clique em **avançadas** para abrir a janela de propriedades avançadas.
 3. No **definir propriedades avançadas** > **fornecedores**, em seguida, selecione o fornecedor apropriado.
 
 ## <a name="impersonation"></a>Representação
-Em alguns casos, poderá ser necessário especificar uma conta de representação diferentes. Conta de representação pode ser especificada no SSDT ou SSMS.
+Em alguns casos, poderá ser necessário especificar uma conta de representação diferentes. Conta de representação pode ser especificada no Visual Studio (SSDT) ou o SSMS.
 
 Para origens de dados no local:
 
@@ -100,6 +113,6 @@ Para origens de dados de nuvem:
 * Se utilizar a autenticação de SQL, representação deve ser a conta de serviço.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se tiver de origens de dados no local, não se esqueça de instalar o [gateway no local](analysis-services-gateway.md).   
-Para saber mais sobre como gerir o servidor no SSDT ou SSMS, veja [gerir o seu servidor](analysis-services-manage.md).
+[Gateway no local](analysis-services-gateway.md)   
+[Gerir o seu servidor](analysis-services-manage.md)   
 

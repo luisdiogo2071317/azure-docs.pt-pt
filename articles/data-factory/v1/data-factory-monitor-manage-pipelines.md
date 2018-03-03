@@ -3,7 +3,7 @@ title: Monitorizar e gerir pipelines com o portal do Azure e o PowerShell | Micr
 description: "Saiba como utilizar o portal do Azure e o Azure PowerShell para monitorizar e gerir as fábricas de dados do Azure e os pipelines que criou."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b361ca67ebece9ba1ced1010835eb90586dd7359
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Esta secção também descreve como um setor de conjunto de dados passa a partir
 
    Deverá ver a home page da fábrica de dados.
 
-   ![Painel data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+   ![Painel Fábrica de dados](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Vista de diagrama de fábrica de dados
 O **diagrama** vista de uma fábrica de dados fornece um painel único de transparência para monitorizar e gerir a fábrica de dados e os respetivos recursos. Para ver o **diagrama** ver da fábrica de dados, clique em **diagrama** na home page da fábrica de dados.
@@ -134,7 +134,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>Pronto</td><td>-</td><td>O setor está pronto para consumo.</td>
 </tr>
 <tr>
-<td>Ignorada</td><td>Nenhuma</td><td>O setor não está a ser processado.</td>
+<td>Ignorada</td><td>Nenhum</td><td>O setor não está a ser processado.</td>
 </tr>
 <tr>
 <td>Nenhuma</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
@@ -368,7 +368,7 @@ A tabela seguinte fornece a lista de operações disponíveis e Estados (e subst
 
 | Nome da operação | Estado | Subestado |
 | --- | --- | --- |
-| RunStarted |Iniciado |A Iniciar |
+| RunStarted |Iniciado |A iniciar |
 | RunFinished |Não foi possível / foi concluída com êxito |FailedResourceAllocation<br/><br/>Bem-sucedido<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/>< cancelada<br/><br/>FailedValidation<br/><br/>Abandonado |
 | OnDemandClusterCreateStarted |Iniciado | |
 | OnDemandClusterCreateSuccessful |Bem-sucedido | |
@@ -624,7 +624,7 @@ Substitua *subscriptionId*, *resourceGroupName*, e *dataFactoryName* na amostra 
 * FailedRuns
 * SuccessfulRuns
 
-**Implementar o alerta**
+Implementar o alerta
 
 Para implementar o alerta, utilize o cmdlet PowerShell do Azure **New-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo seguinte:
 

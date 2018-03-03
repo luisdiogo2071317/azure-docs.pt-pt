@@ -3,7 +3,7 @@ title: "Fábrica de dados do Azure - referência de scripts JSON | Microsoft Doc
 description: Fornece os esquemas JSON para entidades do Data Factory.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9457e90f378cf7b30810ca9cadfcad139e91e2d4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -288,7 +288,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | tipo | tipo do conjunto de dados. Especifique um dos tipos suportados pelo Azure Data Factory (por exemplo: AzureBlob, AzureSqlTable). Consulte [ARQUIVOS de dados](#data-stores) secção para todos os arquivos de dados e os tipos de conjunto de dados suportados pela fábrica de dados. | 
 | estrutura | Esquema do conjunto de dados. Contém colunas, os respetivos tipos, etc. | Não |ND |
 | typeProperties | Propriedades correspondente ao tipo selecionado. Consulte [ARQUIVOS de dados](#data-stores) na secção tipos suportados e as respetivas propriedades. |Sim |ND |
-| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. |Não |falso |
+| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. |Não |false |
 | disponibilidade | Define a janela de processamento ou o modelo slicing para o conjunto de dados de produção. Para obter detalhes sobre o conjunto de dados repartir modelo, consulte [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
 | política |Define os critérios ou a condição que os setores de conjunto de dados tem de cumprir. <br/><br/>Para obter mais informações, consulte [política de conjunto de dados](#Policy) secção. |Não |ND |
 
@@ -298,7 +298,7 @@ Cada coluna no **estrutura** secção contém as seguintes propriedades:
 | --- | --- | --- |
 | nome |Nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |Não |
-| Cultura |.NET com base em idioma a ser utilizado quando o tipo for especificado, não sendo tipo .NET `Datetime` ou `Datetimeoffset`. Predefinição é `en-us`. |Não |
+| Cultura |.NET com base em idioma a ser utilizado quando o tipo for especificado, não sendo tipo .NET `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
 | formato |Formato de cadeia a ser utilizado quando o tipo for especificado, não sendo tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
 
 No exemplo seguinte, o conjunto de dados tem três colunas `slicetimestamp`, `projectname`, e `pageviews` e são do tipo: cadeia, cadeia e Decimal, respetivamente.
@@ -319,8 +319,8 @@ A tabela seguinte descreve as propriedades que pode utilizar o **disponibilidade
 | frequência |Especifica a unidade de tempo para produção de setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: minuto, hora, dia, semana, mês |Sim |ND |
 | intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina com que frequência o setor é produzido.<br/><br/>Se precisar do conjunto de dados segmentados numa base horária, defina <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Tenha em atenção</b>: Se especificar a frequência como minuto, recomendamos que defina o intervalo para não inferior a 15 |Sim |ND |
 | Estilo |Especifica se deve ser produzido do setor no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência é definida para o mês e estilo está definido como EndOfInterval, o setor é produzido no último dia do mês. Se o estilo for definido como StartOfInterval, o setor é produzido no primeiro dia do mês.<br/><br/>Se a frequência é definida para o dia e estilo está definido como EndOfInterval, o setor é produzido na última hora do dia.<br/><br/>Se a frequência é definida para a hora e estilo está definido como EndOfInterval, o setor é produzido no fim da hora. Por exemplo, para um setor para 1 PM – 2 PM período, o setor é produzido em 2 PM. |Não |EndOfInterval |
-| anchorDateTime |Define a posição na hora utilizado pelo programador para limites de setor de conjunto de dados de computação absoluta. <br/><br/><b>Tenha em atenção</b>: se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>hora a hora</b> (frequência: horas e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>a <b>minutos e segundos</b> partes do AnchorDateTime são ignoradas. |Não |01/01/0001 e |
-| deslocamento |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/><b>Tenha em atenção</b>: se forem especificadas anchorDateTime e desvio, o resultado é o shift combinada. |Não |ND |
+| anchorDateTime |Define a posição na hora utilizado pelo programador para limites de setor de conjunto de dados de computação absoluta. <br/><br/><b>Tenha em atenção</b>: se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>hora a hora</b> (frequência: horas e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>a <b>minutos e segundos</b> partes do AnchorDateTime são ignoradas. |Não |01/01/0001 |
+| offset |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/><b>Tenha em atenção</b>: se forem especificadas anchorDateTime e desvio, o resultado é o shift combinada. |Não |ND |
 
 A secção de disponibilidade seguinte especifica que o conjunto de dados de saída produzidos hora a hora (ou) entrada conjunto de dados está disponível por hora:
 
@@ -357,7 +357,7 @@ A menos que um conjunto de dados está a ser produzido pelo Azure Data Factory, 
 | Nome | Descrição | Necessário | Valor Predefinido |
 | --- | --- | --- | --- |
 | dataDelay |Tempo de atraso de verificação na disponibilidade dos dados externos para o setor especificado. Por exemplo, se os dados estão disponíveis numa base horária, a verificação para ver os dados externos estão disponíveis e o setor correspondente estiver pronta pode sofrer um atraso utilizando dataDelay.<br/><br/>Aplica-se apenas à hora presente.  Por exemplo, se for 1:00 PM agora e este valor é 10 minutos, a validação é iniciada à 1: as 22: 00.<br/><br/>Esta definição não afeta setores no passado (setores com a hora de fim do setor + dataDelay < agora) processados sem qualquer atrasos.<br/><br/>Tempo maior do que o 23:59, precisam de horas especificado utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar a 24 horas, não utilize 24:00:00; em alternativa, utilize 1.00:00:00. Se utilizar 24:00:00, esta é tratada como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
-| RetryInterval |O tempo de espera entre uma falha e a próxima repetir a tentativa. Se tentar falhar, repita seguinte é após retryInterval. <br/><br/>Se for 1:00 PM agora, vamos começar a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a tentativa seguinte ocorrerá é 1:00 + 1 min (duração) + 1 min (intervalo de repetição) = 1:02 PM. <br/><br/>Setores no passado, não há nenhum atraso. Nova tentativa ocorre imediatamente. |Não |00:01:00 (1 minuto) |
+| retryInterval |O tempo de espera entre uma falha e a próxima repetir a tentativa. Se tentar falhar, repita seguinte é após retryInterval. <br/><br/>Se for 1:00 PM agora, vamos começar a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a tentativa seguinte ocorrerá é 1:00 + 1 min (duração) + 1 min (intervalo de repetição) = 1:02 PM. <br/><br/>Setores no passado, não há nenhum atraso. Nova tentativa ocorre imediatamente. |Não |00:01:00 (1 minuto) |
 | retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se esta propriedade está definida para 10 minutos, a validação necessita de ser concluída dentro de 10 minutos. Se demora mais de 10 minutos para efetuar a validação, a repetir o tempo limite.<br/><br/>Se a todas as tentativas para a validação do tempo limite excedido, o setor está marcado como ServiceHost. |Não |00:10:00 (10 minutos) |
 | maximumRetry |Número de vezes para procurar a disponibilidade dos dados externos. O valor máximo permitido é 10. |Não |3 |
 
@@ -598,7 +598,7 @@ Para definir um Azure Data Lake Store serviço ligado, defina o tipo de serviço
 | servicePrincipalKey | Especifique a chave da aplicação. | Sim (para autenticação principal do serviço) |
 | inquilino | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim (para autenticação principal do serviço) |
 | Autorização | Clique em **autorizar** clique no botão no **Editor do Data Factory** e introduza as credenciais que atribui o URL de autorização gerado automaticamente a esta propriedade. | Sim (para autenticação de credenciais de utilizador)|
-| ID de sessão | Id de sessão OAuth da sessão de autorização do OAuth. Cada id de sessão é exclusivo e só pode ser utilizado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor do Data Factory. | Sim (para autenticação de credenciais de utilizador) |
+| sessionId | Id de sessão OAuth da sessão de autorização do OAuth. Cada id de sessão é exclusivo e só pode ser utilizado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor do Data Factory. | Sim (para autenticação de credenciais de utilizador) |
 
 #### <a name="example-using-service-principal-authentication"></a>Exemplo: utilizar a autenticação principal de serviço
 ```json
@@ -808,7 +808,7 @@ Para definir um conjunto de dados do Azure Cosmos DB, defina o **tipo** do conju
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
-| CollectionName |Nome da coleção de BD do Cosmos do Azure. |Sim |
+| collectionName |Nome da coleção de BD do Cosmos do Azure. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -837,7 +837,7 @@ Se estiver a copiar dados de uma base de dados do Cosmos do Azure, defina o **ti
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| consulta |Especifique a consulta para ler os dados. |Suportado pelo Azure Cosmos DB de cadeia de consulta. <br/><br/>Exemplo:`SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução de SQL que é executada:`select <columns defined in structure> from mycollection` |
+| consulta |Especifique a consulta para ler os dados. |Suportado pelo Azure Cosmos DB de cadeia de consulta. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução de SQL que é executada: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caráter especial para indicar que o documento está aninhado |Qualquer caráter. <br/><br/>BD do Cosmos do Azure é um arquivo de NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. O Azure Data Factory permite que o utilizador denota hierarquia através de nestingSeparator, que é "." nos exemplos acima. Com o separador, a atividade de cópia irá gerar o objeto "Name" com elementos três subordinados em primeiro lugar, média e o último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela. |Não |
 
 #### <a name="example"></a>Exemplo
@@ -883,8 +883,8 @@ Se estiver a copiar dados para a base de dados do Azure Cosmos, defina o **sink 
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nestingSeparator |É necessário um caráter especial no nome de coluna de origem para indicar que documentos aninhados. <br/><br/>Por exemplo acima: `Name.First` na saída tabela produz a seguinte estrutura JSON no documento de BD do Cosmos:<br/><br/>"Nome": {<br/>    "First": "João"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>Valor predefinido é `.` (ponto final). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>Valor predefinido é `.` (ponto final). |
-| WriteBatchSize |Número de pedidos paralelos ao serviço de base de dados do Azure Cosmos para criar documentos.<br/><br/>Pode otimizar o desempenho ao copiar dados do Azure Cosmos DB utilizando esta propriedade. Pode esperar um desempenho melhor quando aumenta writeBatchSize porque mais pedidos paralelos à base de dados do Azure Cosmos são enviados. No entanto, terá de evitar limitação que pode acionar a mensagem de erro: "taxa é grande pedido".<br/><br/>Limitação é decidida por um número de fatores, incluindo o tamanho de documentos, número de termos de documentos, a indexação de política de coleção de destino, etc. Para operações de cópia, pode utilizar uma coleção melhor (por exemplo, S3) para ter o maior débito disponível (2,500 pedidos unidades por segundo). |Número inteiro |Não (predefinição: 5) |
+| nestingSeparator |É necessário um caráter especial no nome de coluna de origem para indicar que documentos aninhados. <br/><br/>Por exemplo acima: `Name.First` na saída tabela produz a seguinte estrutura JSON no documento de BD do Cosmos:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>Valor predefinido é `.` (ponto final). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>Valor predefinido é `.` (ponto final). |
+| writeBatchSize |Número de pedidos paralelos ao serviço de base de dados do Azure Cosmos para criar documentos.<br/><br/>Pode otimizar o desempenho ao copiar dados do Azure Cosmos DB utilizando esta propriedade. Pode esperar um desempenho melhor quando aumenta writeBatchSize porque mais pedidos paralelos à base de dados do Azure Cosmos são enviados. No entanto, terá de evitar limitação que pode acionar a mensagem de erro: "taxa é grande pedido".<br/><br/>Limitação é decidida por um número de fatores, incluindo o tamanho de documentos, número de termos de documentos, a indexação de política de coleção de destino, etc. Para operações de cópia, pode utilizar uma coleção melhor (por exemplo, S3) para ter o maior débito disponível (2,500 pedidos unidades por segundo). |Número inteiro |Não (predefinição: 5) |
 | writeBatchTimeout |De tempo de espera para a operação seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
@@ -1048,7 +1048,7 @@ Se estiver a copiar dados para a SQL Database do Azure, defina o **sink do tipo*
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia para executar de forma a que os dados de um setor específico é limpa. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique um nome de coluna para a atividade de cópia preencher com o identificador de setor automaticamente gerado, o que é utilizado para limpar os dados de um setor específico quando voltar a executar. |Nome da coluna de uma coluna com o tipo de dados de binary(32). |Não |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado dados upserts (inserções/atualizações) para a tabela de destino. |Nome do procedimento armazenado. |Não |
@@ -1228,9 +1228,9 @@ Se estiver a copiar dados para o Azure SQL Data Warehouse, defina o **sink do ti
 | polyBaseSettings |Um grupo de propriedades que podem ser especificados quando o **allowPolybase** propriedade está definida como **verdadeiro**. |&nbsp; |Não |
 | rejectValue |Especifica o número ou a percentagem de linhas que pode ser rejeitada antes da consulta falha. <br/><br/>Saiba mais sobre as opções de rejeitar o PolyBase no **argumentos** secção [criar tabela externa (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tópico. |0 (predefinição), 1, 2,... |Não |
 | rejectType |Especifica se a opção de rejectValue é especificada como um valor literal ou uma percentagem. |Valor de percentagem (predefinição) |Não |
-| rejectSampleValue |Determina o número de linhas a obter antes do PolyBase recalcula a percentagem de linhas rejeitadas. |1, 2,... |Sim, se **rejectType** é **percentagem** |
+| rejectSampleValue |Determina o número de linhas a obter antes do PolyBase recalcula a percentagem de linhas rejeitadas. |1, 2, … |Sim, se **rejectType** é **percentagem** |
 | useTypeDefault |Especifica como processar os valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção de argumentos no [criar formato de ficheiro externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (predefinição) |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize |Número inteiro (número de linhas) |Não (predefinição: 10000) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
 
 #### <a name="example"></a>Exemplo
@@ -1481,7 +1481,7 @@ Se estiver a copiar dados do Table Storage do Azure, defina o **tipo de origem**
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta de tabela do Azure. Veja exemplos na secção seguinte: |Não. Quando um tableName for especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se um azureTableSourceQuery também está especificado, os registos da tabela que satisfaça a consulta são copiados para o destino. |
-| azureTableSourceIgnoreTableNotFound |Indica se swallow a exceção da tabela não existe. |VERDADEIRO<br/>FALSO |Não |
+| azureTableSourceIgnoreTableNotFound |Indica se swallow a exceção da tabela não existe. |VERDADEIRO<br/>FALSE |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1537,7 +1537,7 @@ Se estiver a copiar dados para o Table Storage do Azure, defina o **sink do tipo
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são utilizados como chaves de partição. Se não for especificado, AzureTableDefaultPartitionKeyValue é utilizado como a chave de partição. |Um nome de coluna. |Não |
 | azureTableRowKeyName |Especifique o nome da coluna cujos valores da coluna são utilizados como chave de linha. Se não for especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
 | azureTableInsertType |O modo de inserir os dados na tabela do Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com correspondentes chaves de partição e a linha tem os respetivos valores substituído ou intercaladas. <br/><br/>Para saber mais sobre como funcionam estas definições (intercalação e substitua), consulte [inserção ou entidade de intercalação](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [inserir ou substituir entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) tópicos. <br/><br> Esta definição aplica-se ao nível da linha, não o nível de tabela e nenhuma opção elimina as linhas na tabela de saída que não existem na entrada. |Intercalar (predefinição)<br/>Substituir |Não |
-| WriteBatchSize |Insere dados na tabela do Azure quando é atingido o writeBatchSize ou writeBatchTimeout. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
+| writeBatchSize |Insere dados na tabela do Azure quando é atingido o writeBatchSize ou writeBatchTimeout. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | writeBatchTimeout |Insere dados na tabela do Azure, quando é atingido o writeBatchSize ou writeBatchTimeout |TimeSpan<br/><br/>Exemplo: "00: 20:00" (20 minutos) |Não (seg 90 de valor predefinido para o tempo limite de predefinição do cliente armazenamento) |
 
 #### <a name="example"></a>Exemplo
@@ -1706,7 +1706,7 @@ Para definir um IBM DB2 serviço ligado, defina o **tipo** do serviço ligado pa
 | --- | --- | --- |
 | servidor |Nome do servidor DB2. |Sim |
 | base de dados |Nome da base de dados DB2. |Sim |
-| Esquema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
+| schema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2. Os valores possíveis são: anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. |Não |
@@ -1822,7 +1822,7 @@ Para definir um MySQL serviço ligado, defina o **tipo** do serviço ligado para
 | --- | --- | --- |
 | servidor |Nome do servidor MySQL. |Sim |
 | base de dados |Nome da base de dados MySQL. |Sim |
-| Esquema |Nome do esquema na base de dados. |Não |
+| schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou. |Sim |
@@ -2005,7 +2005,7 @@ Se estiver a copiar dados de uma base de dados Oracle, defina o **tipo de origem
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable` <br/><br/>Se não for especificado, a instrução de SQL que é executada:`select * from MyTable` |Não (se **tableName** de **dataset** especificado) |
+| oracleReaderQuery |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable` <br/><br/>Se não for especificado, a instrução de SQL que é executada: `select * from MyTable` |Não (se **tableName** de **dataset** especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2058,7 +2058,7 @@ Se estiver a copiar dados para am base de dados Oracle, defina o **sink do tipo*
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: 00:30:00 (30 minutos). |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 100) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 100) |
 | sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia para executar de forma a que os dados de um setor específico é limpa. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia preencher com o identificador de setor automaticamente gerado, o que é utilizado para limpar os dados de um setor específico quando voltar a executar. |Nome da coluna de uma coluna com o tipo de dados de binary(32). |Não |
 
@@ -2113,7 +2113,7 @@ Para definir um PostgreSQL serviço ligado, defina o **tipo** do serviço ligado
 | --- | --- | --- |
 | servidor |Nome do servidor PostgreSQL. |Sim |
 | base de dados |Nome da base de dados PostgreSQL. |Sim |
-| Esquema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
+| schema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. |Não |
@@ -2230,13 +2230,13 @@ Para definir um armazém de negócio de SAP (BW) serviço ligado, defina o **tip
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia | Sim
+servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número de decimal dois dígitos representado como uma cadeia. | Sim
-ID de cliente | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia. | Sim
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | cadeia | Sim
-palavra-passe | Palavra-passe para o utilizador. | cadeia | Sim
-gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
+clientId | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia. | Sim
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | string | Sim
+palavra-passe | Palavra-passe para o utilizador. | string | Sim
+gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | string | Sim
+encryptedCredential | A cadeia de credencial encriptada. | string | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -2340,12 +2340,12 @@ Para definir um SAP HANA serviço ligado, defina o **tipo** do serviço ligado p
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância de SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | cadeia | Sim
+servidor | Nome do servidor no qual reside a instância de SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | string | Sim
 authenticationType | Tipo de autenticação. | Cadeia. "Básico" ou "Windows" | Sim 
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | cadeia | Sim
-palavra-passe | Palavra-passe para o utilizador. | cadeia | Sim
-gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP HANA no local. | cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | string | Sim
+palavra-passe | Palavra-passe para o utilizador. | string | Sim
+gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP HANA no local. | string | Sim
+encryptedCredential | A cadeia de credencial encriptada. | string | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -2609,7 +2609,7 @@ Se estiver a copiar dados para uma base de dados do SQL Server, defina o **sink 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | sqlWriterCleanupScript |Especifique a consulta para a atividade de cópia executar de forma a que os dados de um setor específico é limpa. Para obter mais informações, consulte [repetibilidade](#repeatability-during-copy) secção. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia preencher com o identificador de setor automaticamente gerado, o que é utilizado para limpar os dados de um setor específico quando voltar a executar. Para obter mais informações, consulte [repetibilidade](#repeatability-during-copy) secção. |Nome da coluna de uma coluna com o tipo de dados de binary(32). |Não |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado dados upserts (inserções/atualizações) para a tabela de destino. |Nome do procedimento armazenado. |Não |
@@ -2671,7 +2671,7 @@ Para definir um Sybase serviço ligado, defina o **tipo** do serviço ligado par
 | --- | --- | --- |
 | servidor |Nome do servidor Sybase. |Sim |
 | base de dados |Nome da base de dados Sybase. |Sim |
-| Esquema |Nome do esquema na base de dados. |Não |
+| schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados Sybase. Os valores possíveis são: anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. |Não |
@@ -2976,7 +2976,7 @@ Se estiver a copiar dados de Cassandra, defina o **tipo de origem** da atividade
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | consulta |Utilize a consulta personalizada para ler os dados. |Consulta de SQL 92 ou consulta CQL. Consulte [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for tableName e keyspace no conjunto de dados estão definidos). |
-| consistencyLevel |O nível de consistência Especifica quantos réplicas tem de responder a um pedido de leitura antes da devolução de dados para a aplicação de cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer o pedido de leitura. |UM, DOIS, TRÊS, QUÓRUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [consistência dos dados de configuração](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter mais detalhes. |Não. Valor predefinido é um. |
+| consistencyLevel |O nível de consistência Especifica quantos réplicas tem de responder a um pedido de leitura antes da devolução de dados para a aplicação de cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer o pedido de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [consistência dos dados de configuração](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter mais detalhes. |Não. Valor predefinido é um. |
 
 #### <a name="example"></a>Exemplo
   
@@ -3036,7 +3036,7 @@ Para definir um MongoDB serviço ligado, defina o **tipo** do serviço ligado pa
 | o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |Palavra-passe para o utilizador. |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada a autenticação básica). predefinição: utiliza a conta de administrador e a base de dados especificada utilizando a propriedade databaseName. |
-| DatabaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
+| databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
 | gatewayName |Nome do gateway que acede ao arquivo de dados. |Sim |
 | encryptedCredential |Credencial encriptada pelo gateway. |Opcional |
 
@@ -3068,7 +3068,7 @@ Para definir um conjunto de dados de MongoDB, defina o **tipo** do conjunto de d
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| CollectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -3151,7 +3151,7 @@ Para definir um Amazon S3 serviço ligado, defina o **tipo** do serviço ligado 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |cadeia |Sim |
+| accessKeyID |ID da chave de acesso secreta. |string |Sim |
 | secretAccessKey |A chave de acesso secreta próprio. |Cadeia secreta encriptada |Sim |
 
 #### <a name="example"></a>Exemplo
@@ -3326,7 +3326,7 @@ Pode associar um sistema de ficheiros no local para um Azure data factory com o 
 | Cenário | Na definição de serviço ligado do anfitrião | folderPath na definição do conjunto de dados |
 | --- | --- | --- |
 | Pasta local no computador do Data Management Gateway: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\* |D:\\ \\ (para o Data Management Gateway 2.0 e versões posteriores) <br/><br/> localhost (para versões anteriores a 2.0 do Data Management Gateway) |. \\ \\ ou pasta\\\\subpasta (para o Data Management Gateway 2.0 e versões posteriores) <br/><br/>D:\\ \\ ou d:\\\\pasta\\\\subpasta (para a versão do gateway abaixo 2.0) |
-| Pasta partilhada remota: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\\\\\\\MyServer\\\\partilhar |. \\ \\ ou pasta\\\\subpasta |
+| Pasta partilhada remota: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\\\\\\\myserver\\\\share |. \\ \\ ou pasta\\\\subpasta |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: Utilizar o nome de utilizador e palavra-passe em texto simples
@@ -3370,7 +3370,7 @@ Para definir um conjunto de dados do sistema de ficheiros, defina o **tipo** do 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Especifica o Subcaminho para a pasta. Utilizar o caráter de escape ' \' para carateres especiais na cadeia. Consulte [exemplo ligado definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar esta propriedade com **partitionBy** ter pasta caminhos com base no setor início/fim tempos de data. |Sim |
-| fileName |Especifique o nome do ficheiro no **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não for especificado qualquer valor para esta propriedade, a tabela de pontos a todos os ficheiros na pasta.<br/><br/>Quando não for especificado o nome de ficheiro para um conjunto de dados de saída, é o nome do ficheiro gerado no seguinte formato: <br/><br/>`Data.<Guid>.txt`(Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileName |Especifique o nome do ficheiro no **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não for especificado qualquer valor para esta propriedade, a tabela de pontos a todos os ficheiros na pasta.<br/><br/>Quando não for especificado o nome de ficheiro para um conjunto de dados de saída, é o nome do ficheiro gerado no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro para ser utilizado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros. <br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (único caráter).<br/><br/>Exemplo 1: "fileFilter": "*. log"<br/>Exemplo 2: "fileFilter": 2016 - 1-?. txt"<br/><br/>Tenha em atenção que fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. |Não |
 | partitionedBy |Pode utilizar partitionedBy para especificar um folderPath/fileName dinâmico para dados de séries de tempo. Um exemplo é folderPath parametrizada para cada hora dos dados. |Não |
 | formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. |Não |
@@ -3636,7 +3636,7 @@ Para definir um conjunto de dados do FTP, defina o **tipo** do conjunto de dados
 | --- | --- | --- |
 | folderPath |Caminho de subchaves para a pasta. Utilize o caráter de escape ' \ ' para carateres especiais na cadeia. Consulte [exemplo ligado definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar esta propriedade com **partitionBy** ter pasta caminhos com base no setor início/fim tempos de data. |Sim 
 | fileName |Especifique o nome do ficheiro no **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não for especificado qualquer valor para esta propriedade, a tabela de pontos a todos os ficheiros na pasta.<br/><br/>Quando não for especificado o nome de ficheiro para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| fileFilter |Especifique um filtro para ser utilizado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (único caráter).<br/><br/>Exemplos 1:`"fileFilter": "*.log"`<br/>Exemplo 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
+| fileFilter |Especifique um filtro para ser utilizado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (único caráter).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro de dados de séries de tempo. Por exemplo, folderPath parametrizada para cada hora dos dados. |Não |
 | formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. |Não |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**; e níveis suportados são: **Optimal** e **mais rápido**. Para obter mais informações, consulte [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -3776,7 +3776,7 @@ Para definir um conjunto de dados do HDFS, defina o **tipo** do conjunto de dado
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| folderPath |Caminho para a pasta. Exemplo:`myfolder`<br/><br/>Utilize o caráter de escape ' \ ' para carateres especiais na cadeia. Por exemplo: para folder\subfolder, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Pode combinar esta propriedade com **partitionBy** ter pasta caminhos com base no setor início/fim tempos de data. |Sim |
+| folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilize o caráter de escape ' \ ' para carateres especiais na cadeia. Por exemplo: para folder\subfolder, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Pode combinar esta propriedade com **partitionBy** ter pasta caminhos com base no setor início/fim tempos de data. |Sim |
 | fileName |Especifique o nome do ficheiro no **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não for especificado qualquer valor para esta propriedade, a tabela de pontos a todos os ficheiros na pasta.<br/><br/>Quando não for especificado o nome de ficheiro para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro de dados de séries de tempo. Exemplo: folderPath parametrizada para cada hora dos dados. |Não |
 | formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. |Não |
@@ -3978,7 +3978,7 @@ Para definir um conjunto de dados SFTP, defina o **tipo** do conjunto de dados p
 | --- | --- | --- |
 | folderPath |Caminho de subchaves para a pasta. Utilize o caráter de escape ' \ ' para carateres especiais na cadeia. Consulte [exemplo ligado definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar esta propriedade com **partitionBy** ter pasta caminhos com base no setor início/fim tempos de data. |Sim |
 | fileName |Especifique o nome do ficheiro no **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não for especificado qualquer valor para esta propriedade, a tabela de pontos a todos os ficheiros na pasta.<br/><br/>Quando não for especificado o nome de ficheiro para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| fileFilter |Especifique um filtro para ser utilizado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (único caráter).<br/><br/>Exemplos 1:`"fileFilter": "*.log"`<br/>Exemplo 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
+| fileFilter |Especifique um filtro para ser utilizado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (único caráter).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro de dados de séries de tempo. Por exemplo, folderPath parametrizada para cada hora dos dados. |Não |
 | formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. |Não |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -4158,7 +4158,7 @@ Para definir um conjunto de dados HTTP, defina o **tipo** do conjunto de dados p
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | relativeUrl | Um URL relativo para o recurso que contém os dados. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. <br><br> Para construir o URL dinâmico, pode utilizar [funções de Data Factory e variáveis do sistema](data-factory-functions-variables.md), exemplo: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Não |
-| requestMethod | Método de HTTP. Valores permitidos são **obter** ou **POST**. | Não. Predefinição é `GET`. |
+| requestMethod | Método de HTTP. Valores permitidos são **obter** ou **POST**. | Não. A predefinição é `GET`. |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
 | RequestBody | Corpo do pedido de HTTP. | Não |
 | formato | Se pretender simplesmente **obter os dados do ponto final de HTTP como-é** sem análise-lo, ignore este definições do formato. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |

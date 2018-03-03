@@ -3,7 +3,7 @@ title: "Colaboração B2B do Active Directory Azure licenciamento orientações 
 description: "B2B de diretório Active Directory do Azure não necessita de colaboração paga licenças do Azure AD, mas pode também obter paga funcionalidades para os utilizadores convidados de B2B"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 08/09/2017
-ms.author: curtand
+ms.author: twooley
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.openlocfilehash: 664398eb71501ff450b785928992729f91740a19
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d4a739e5cb4dc4a6ccafac683fe913592f985ce2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Orientação de licenciamento de colaboração do Azure Active Directory B2B
 
@@ -69,7 +69,7 @@ Um utilizador de convidado B2B é aquele que está convidado a partir de uma org
 
       * A organização conglomerate não está a utilizar o Azure AD ou não tem as licenças adequadas: neste caso, siga a fórmula de 1:5, apresentada anteriormente neste documento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
 

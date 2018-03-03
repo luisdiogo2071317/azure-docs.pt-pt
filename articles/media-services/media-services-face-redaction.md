@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redact faces análise de multimédia do Azure
 ## <a name="overview"></a>Descrição geral
@@ -33,7 +33,7 @@ Para além de um modo totalmente automático, há um fluxo de trabalho da passag
 ### <a name="combined-mode"></a>Modo combinado
 Isto produz um mp4 redacted automaticamente sem qualquer manual de entrada.
 
-| Fase | Nome do Ficheiro | Notas |
+| Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
 | Recurso de entrada |foo.bar |Vídeo no formato WMV, MOV ou MP4 |
 | Configuração de entrada |Configuração de tarefa da configuração predefinida |{'version':'1.0 ', 'Opções': {'mode': 'combinado'}} |
@@ -48,15 +48,16 @@ Isto produz um mp4 redacted automaticamente sem qualquer manual de entrada.
 ### <a name="analyze-mode"></a>Analisar modo
 O **analisar** passagem do fluxo de trabalho de passagem de dois assume um vídeo de entrada e produz um ficheiro JSON das localizações de rostos em e jpg imagens de cada detetado enfrentam reside.
 
-| Fase | Nome do Ficheiro | Notas |
+| Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
 | Recurso de entrada |foo.bar |Vídeo no formato WMV, MPV ou MP4 |
 | Configuração de entrada |Configuração de tarefa da configuração predefinida |{'version':'1.0 ', 'Opções': {'mode': 'Analisar'}} |
-| Elemento de saída |foo_annotations.JSON |Dados de anotação de localizações de rostos no formato JSON. Isto pode ser editado pelo utilizador para modificar o diária esbater pessoal delimitadora caixas. Consulte o exemplo abaixo. |
+| Elemento de saída |foo_annotations.json |Dados de anotação de localizações de rostos no formato JSON. Isto pode ser editado pelo utilizador para modificar o diária esbater pessoal delimitadora caixas. Consulte o exemplo abaixo. |
 | Elemento de saída |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Um jpg cropped de cada detetado enfrentam, onde o número indica labelId do tipo de letra |
 
 #### <a name="output-example"></a>Exemplo de saída:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ O **analisar** passagem do fluxo de trabalho de passagem de dois assume um víde
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Redact modo
 A segundo passagem do fluxo de trabalho demora um grande número de entradas que tem de ser combinados um único recurso.
@@ -111,10 +113,10 @@ Isto inclui uma lista de IDs de blur, o vídeo original e as anotações JSON. E
 
 O resultado da passagem de analisar não inclui o vídeo original. O vídeo tem de ser carregada para o elemento de entrada para a tarefa de modo Redact e selecionada como ficheiro principal.
 
-| Fase | Nome do Ficheiro | Notas |
+| Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
 | Recurso de entrada |foo.bar |Vídeo no formato WMV, MPV ou MP4. Mesmo vídeo como no passo 1. |
-| Recurso de entrada |foo_annotations.JSON |ficheiro de metadados de anotações da primeira fase, com modificações opcionais. |
+| Recurso de entrada |foo_annotations.json |ficheiro de metadados de anotações da primeira fase, com modificações opcionais. |
 | Recurso de entrada |foo_IDList.txt (opcional) |Opcional nova linha separados por lista de IDs de redact de letra. Se deixado em branco, isto blurs faces todos os. |
 | Configuração de entrada |Configuração de tarefa da configuração predefinida |{'version':'1.0 ', 'Opções': {'mode': 'redact'}} |
 | Elemento de saída |foo_redacted.mp4 |Vídeo com diária esbater pessoal aplicadas com base em anotações |
@@ -138,11 +140,13 @@ Pode encontrar exemplos dos tipos blur abaixo.
 
 ### <a name="example-json"></a>JSON de exemplo:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
-#### <a name="low"></a>Baixo
+#### <a name="low"></a>Baixa
 
-![Baixo](./media/media-services-face-redaction/blur1.png)
+![Baixa](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
@@ -172,8 +176,16 @@ O seguinte programa mostra como:
 
 1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
 2. Crie uma tarefa com uma tarefa de redaction enfrentam baseada num ficheiro de configuração que contém a predefinição de json seguinte: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Transferir os ficheiros JSON de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -182,7 +194,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -350,7 +362,7 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

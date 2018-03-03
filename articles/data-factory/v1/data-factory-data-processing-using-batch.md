@@ -3,7 +3,7 @@ title: Processar os conjuntos de dados em grande escala utilizando o Data Factor
 description: Descreve como processar quantidades enormes de dados de um pipeline do Azure Data Factory utilizando o capacidade de lote do Azure de processamento de paralelo.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo através da utilização de fábrica de dados e de Batch
 > [!NOTE]
-> Este artigo aplica-se versão 1 do Azure Data Factory, que é geralmente disponível. Se utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [atividades personalizadas no Factory de dados versão 2](../transform-data-using-dotnet-custom-activity.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível. Se utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [atividades personalizadas no Factory de dados versão 2](../transform-data-using-dotnet-custom-activity.md).
 
 Este artigo descreve uma arquitetura de uma solução de exemplo que se move e processa os conjuntos de dados em grande escala de forma automática e agendada. Também fornece uma instruções ponto a ponto para implementar a solução utilizando o Data Factory e do Azure Batch.
 
@@ -130,7 +130,7 @@ Utilizar [6 de Explorador de armazenamento do Azure](https://azurestorageexplore
 
    ![Estrutura de pasta e subpasta](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`e `outputfolder` são pastas de nível superior no `mycontainer`. O `inputfolder` pasta com subpastas com carimbos de data / hora (AAAA-MM-DD-HH).
+   `Inputfolder` e `outputfolder` são pastas de nível superior no `mycontainer`. O `inputfolder` pasta com subpastas com carimbos de data / hora (AAAA-MM-DD-HH).
 
    Se utilizar o Explorador de armazenamento, no próximo passo, carregar ficheiros com os seguintes nomes: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`, e assim sucessivamente. Este passo cria automaticamente as pastas.
 
@@ -556,9 +556,9 @@ Os serviços ligados ligam os arquivos de dados ou serviços de computação a u
 
    ![Novo arquivo de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Substitua **nome da conta** com o nome da conta de armazenamento. Substitua **chave da conta** com a chave de acesso da conta de armazenamento. Para saber como obter a chave de acesso de armazenamento, consulte o artigo [ver, copiar e armazenamento voltar a gerar chaves de acesso](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter a chave de acesso de armazenamento, consulte o artigo [ver, copiar e armazenamento voltar a gerar chaves de acesso](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Selecione **implementar** na barra de comando para implementar o serviço ligado.
+4. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
    ![Implementação](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -593,7 +593,7 @@ Neste passo, vai criar um serviço ligado para a sua conta de Batch que é utili
    
    e. Especifique **StorageLinkedService** para o **linkedServiceName** propriedade. Este serviço ligado que criou no passo anterior. Este tipo de armazenamento é utilizado como uma área de transição para ficheiros e registos.
 
-3. Selecione **implementar** na barra de comando para implementar o serviço ligado.
+3. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
 #### <a name="step-3-create-datasets"></a>Passo 3: Criar conjuntos de dados
 Neste passo, vai criar conjuntos de dados para representar os dados de entrada e de saída.
@@ -665,7 +665,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 
     A hora de início de cada setor é representada pelo **SliceStart** variável de sistema no fragmento JSON anterior. Seguem-se as horas de início de cada setor.
 
-    | **Slice** | **Hora de início**          |
+    | **Slice** | **Start time** (Hora de início)          |
     |-----------|-------------------------|
     | 1         | 2015-11-16T**00**:00:00 |
     | 2         | 2015-11-16T**01**:00:00 |
@@ -675,7 +675,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 
     O **folderPath** é calculado utilizando a parte ano, mês, dia e hora a hora de início do setor (**SliceStart**). Eis como uma pasta de entrada está mapeada para um setor.
 
-    | **Slice** | **Hora de início**          | **Pasta de entrada**  |
+    | **Slice** | **Start time** (Hora de início)          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
@@ -722,7 +722,7 @@ Neste passo, crie outro conjunto de dados do tipo AzureBlob para representar os 
 
     Um ficheiro/blob de saída é gerado para cada setor de entrada. Eis como um ficheiro de saída é designado para cada setor. Todos os ficheiros de saída são gerados por uma pasta de saída, `mycontainer\\outputfolder`.
 
-    | **Slice** | **Hora de início**          | **Ficheiro de saída**       |
+    | **Slice** | **Start time** (Hora de início)          | **Ficheiro de saída**       |
     |-----------|-------------------------|-----------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
@@ -803,7 +803,7 @@ Neste passo, vai criar um pipeline com uma atividade, a atividade personalizada 
     - O **isPaused** propriedade está definida como false, por predefinição. O pipeline executa imediatamente neste exemplo, porque os setores de início no passado. Pode definir esta propriedade **verdadeiro** para colocar em pausa o pipeline e set-lo novamente para **falso** reiniciar.
     -   O **iniciar** e **final** vezes são, à excepção de cinco horas. Setores são produzidos de hora a hora, pelo que os cinco setores são produzidos pelo pipeline.
 
-3. Selecione **implementar** na barra de comandos para implementar o pipeline.
+3. Selecione **Implementar** na barra de comandos para implementar o pipeline.
 
 #### <a name="step-5-test-the-pipeline"></a>Passo 5: Testar o pipeline
 Neste passo, teste o pipeline, arrastando ficheiros para as pastas de entrada. Comece por testar o pipeline com um ficheiro para cada pasta de entrada.

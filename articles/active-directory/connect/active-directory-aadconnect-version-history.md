@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
-' Este artigo foi concebido para ajudar a manter um registo das versões que tenham sido publicadas e para compreender se tem de atualizar para a versão mais recente ou não.
+
+Este artigo foi concebido para ajudar a manter um registo das versões que tenham sido publicadas e para compreender se tem de atualizar para a versão mais recente ou não.
 
 Esta é uma lista de tópicos relacionados:
 
@@ -36,14 +37,12 @@ Permissões obrigatórias | Para as permissões necessárias para aplicar uma at
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-Estado: Lançado para selecionar os clientes
-
+Estado: Lançadas para selecionar esta versão está a ser atualmente distribuída para uma secção pequena e aleatória de inquilinos do AADConnect que tiver ativado a atualização automática de clientes. Iremos irá expandir este grupo de inquilinos nas próximas semanas até 100% dos nossos clientes de atualização automática receberam nesta versão. Depois disso será publicarmos a compilação para transferência geral na ligação de transferência acima - atualmente planeada para meados de Março de 2018.
 >[!NOTE]
 >Quando tiver concluído a atualização para esta nova versão, será automaticamente acionada uma sincronização completa e a importação completa para o conector do Azure AD e uma sincronização completa para o conector do AD. Uma vez que esta operação pode demorar algum tempo, dependendo do tamanho do seu ambiente do Azure AD Connect, certifique-se que seguiu os passos necessários para suportar isto ou espere até ter encontrado um momento conveniente para fazê-lo a atualizar.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Problemas fixos
-* Resolva a janela de temporização no fundo tarefas para filtragem de partição página quando
 * Corrija a janela de temporização tarefas em segundo plano para a página de filtragem de partição ao mudar para a página seguinte.
 
 * Corrigido um erro que provocou a violação de acesso durante a ação personalizada ConfigDB
@@ -59,7 +58,7 @@ Estado: Lançado para selecionar os clientes
 
 #### <a name="new-features-and-improvements"></a>Funcionalidades novas e melhoradas
 
-* Adicionar definições de privacidade para regulamento de proteção geral data (GDPR).  Para GDPR, são necessárias para indicar os tipos de dados de cliente que são partilhados com a Microsoft (telemetria, estado de funcionamento, etc.), tem ligações a documentação online detalhada e fornecem uma forma para os nossos clientes, para alterar as respetivas preferências.  Esta verificação-adiciona o seguinte:
+* Adicionar definições de privacidade para o Regulamento de proteção de dados gerais (GDPR).  Para GDPR, são necessárias para indicar os tipos de dados de cliente que são partilhados com a Microsoft (telemetria, estado de funcionamento, etc.), tem ligações a documentação online detalhada e fornecem uma forma para os nossos clientes, para alterar as respetivas preferências.  Esta verificação-adiciona o seguinte:
 
 
     - Partilha de dados e a notificação de privacidade no limpa instalar página EULA.

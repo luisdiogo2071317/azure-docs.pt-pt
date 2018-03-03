@@ -3,8 +3,8 @@ title: Substituir o comportamento HTTP utilizando o motor de regras do Azure CDN
 description: "O motor de regras permite-lhe personalizar como os pedidos de HTTP são processados pela CDN do Azure, tais como o fornecimento de determinados tipos de conteúdo a bloquear, definir uma política de colocação em cache e modificar os cabeçalhos de HTTP."
 services: cdn
 documentationcenter: 
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
@@ -12,32 +12,44 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/21/2018
 ms.author: mazha
-ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Substituir o comportamento HTTP utilizando o motor de regras da CDN do Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Descrição geral
-O motor de regras permite-lhe personalizar a forma como os pedidos de HTTP são processados, como o fornecimento de determinados tipos de conteúdo a bloquear, definir uma política de colocação em cache e modificar os cabeçalhos de HTTP.  Este tutorial demonstrar criar uma regra que irá alterar o comportamento da cache de elementos da CDN.  Há também conteúdo de vídeo disponível na "[Consulte também](#see-also)" secção.
+O motor de regras da CDN do Azure permite-lhe personalizar a forma como os pedidos de HTTP são processados. Por exemplo, a bloquear a entrega de determinados tipos de conteúdo, definir uma política de colocação em cache ou modificar um cabeçalho de HTTP. Este tutorial demonstra como criar uma regra que altera o comportamento de colocação em cache de elementos da CDN. Para obter mais informações sobre a sintaxe do motor de regras, consulte [regras da CDN do Azure motor referência](cdn-rules-engine-reference.md).
 
-   > [!TIP] 
-   > Para obter uma referência para a sintaxe em detalhe, consulte [regras motor referência](cdn-rules-engine-reference.md).
-   > 
+## <a name="access"></a>Access
+Para o motor de regras de acesso, tem de selecionar primeiro **gerir** da parte superior do **perfil da CDN** página para aceder à página de gestão CDN do Azure. Dependendo se o ponto final está otimizado para a aceleração de dinâmicas do site (DSA), em seguida, aceder o motor de regras com o conjunto de regras adequadas para o tipo de ponto final:
 
+- Pontos finais otimizados para entrega geral web ou outra otimização não DSA: 
+    
+    Selecione o **HTTP grande** separador, em seguida, selecione **motor de regras**.
+
+    ![Motor de regras para HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
+
+- Pontos finais otimizados para DSA: 
+    
+    Selecione o **ADN** separador, em seguida, selecione **motor de regras**. 
+    
+    ADN é um termo utilizado da Verizon para especificar o conteúdo DSA. Quaisquer regras criadas aqui são ignoradas por quaisquer pontos finais no seu perfil que não estão otimizados para DSA. 
+
+    ![Motor de regras para DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## <a name="tutorial"></a>Tutorial
-1. No painel de perfil da CDN, clique o **gerir** botão.
+1. Do **perfil da CDN** página, selecione **gerir**.
    
-    ![Botão de gerir do painel do perfil da CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Botão de gerir do perfil de CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     É aberto o portal de gestão do CDN.
-2. Clique em de **HTTP grande** separador, seguido de **motor de regras**.
+2. Selecione o **HTTP grande** separador, em seguida, selecione **motor de regras**.
    
     São apresentadas as opções para uma nova regra.
    
@@ -46,42 +58,42 @@ O motor de regras permite-lhe personalizar a forma como os pedidos de HTTP são 
    > [!IMPORTANT]
    > A ordem em que várias regras estão listadas afeta a forma como são processadas. Uma regra subsequente pode substituir as ações especificadas por uma regra de anterior.
    > 
-   > 
 3. Introduza um nome no **nome / descrição** caixa de texto.
-4. Identifique o tipo de pedidos que a regra será aplicada a.  Por predefinição, o **sempre** está selecionada condição de correspondência.  Irá utilizar **sempre** para este tutorial, por isso deixe que selecionou.
+4. Identifique o tipo de pedidos que se aplica a regra. Utilizar a condição de correspondência predefinido, **sempre**. 
    
-   ![Condição de correspondência CDN](./media/cdn-rules-engine/cdn-request-type.png)
-   
-   > [!TIP]
-   > Existem muitos tipos de correspondência de condições disponíveis na lista pendente.  Clicar no ícone azul informativo para a esquerda da condição correspondência explicar a condição selecionada atualmente em detalhe.
-   > 
-   >  Para obter a lista completa de expressões condicionais com detalhes, consulte [expressões condicionais do motor de regras](cdn-rules-engine-reference-match-conditions.md).
-   >  
-   > Para obter a lista completa das condições de correspondência em detalhe, consulte [condições de corresponder ao motor de regras](cdn-rules-engine-reference-match-conditions.md).
-   > 
-   > 
-5. Clique em de  **+**  junto a **funcionalidades** para adicionar uma nova funcionalidade.  Na lista pendente no lado esquerdo, selecione **idade de máxima de interno Force**.  Na caixa de texto que aparece, introduza **300**.  Deixe os valores predefinidos restantes.
-   
-   ![Funcionalidade CDN](./media/cdn-rules-engine/cdn-new-feature.png)
+   ![Condição de correspondência de regra de CDN](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!NOTE]
-   > Como com condições de correspondência, clicar no ícone informativo azul para a esquerda da nova funcionalidade apresentará detalhes sobre esta funcionalidade.  Em case de **idade de máxima de interno Force**, estamos a substituir o elemento **Cache-Control** e **expira** cabeçalhos para controlar quando o nó de extremidade CDN irá atualizar o recurso da origem.  Nosso exemplo de 300 segundos significa que o nó de extremidade da CDN serão colocados em cache o elemento para 5 minutos antes de atualizar o recurso de origem.
+   > Várias condições de correspondência estão disponíveis na lista pendente. Para obter informações sobre a correspondência atualmente selecionado condição, selecione o ícone azul informativo à esquerda.
    > 
-   > Para obter a lista completa das funcionalidades em detalhe, consulte [detalhes de funcionalidade do motor de regras](cdn-rules-engine-reference-features.md).
+   >  Para obter uma lista detalhada das expressões condicionais, consulte [regras motor expressões condicionais](cdn-rules-engine-reference-match-conditions.md).
+   >  
+   > Para obter uma lista detalhada dos termos de correspondência, consulte [regras condições de correspondência do motor](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-6. Clique em de **adicionar** botão para guardar a nova regra.  A nova regra agora está a aguardar aprovação. Quando for aprovado, o estado deixará de **XML pendente** para **XML Active Directory**.
+1. Para adicionar uma nova funcionalidade, selecione o  **+**  junto a **funcionalidades**.  Na lista pendente no lado esquerdo, selecione **idade de máxima de interno Force**.  Na caixa de texto que aparece, introduza **300**. Não altere os valores predefinidos restantes.
+   
+   ![Funcionalidade de regra CDN](./media/cdn-rules-engine/cdn-new-feature.png)
+   
+   > [!NOTE]
+   > Várias funcionalidades estão disponíveis na lista pendente. Para informações sobre a funcionalidade selecionada atualmente, selecione o ícone informativo azul à esquerda. 
+   >
+   > Para **idade de máxima de interno Force**, o elemento `Cache-Control` e `Expires` cabeçalhos são substituídos para controlar quando o nó de extremidade CDN atualiza o elemento da origem. Neste exemplo, o nó de extremidade CDN coloca em cache o elemento de 300 segundos ou 5 minutos, antes de que atualiza o elemento de origem.
+   > 
+   > Para obter uma lista detalhada das funcionalidades, consulte [regras motor funcionalidades](cdn-rules-engine-reference-features.md).
+   > 
+   > 
+1. Clique em de **adicionar** botão para guardar a nova regra.  A nova regra agora está a aguardar aprovação. Depois de tiver sido aprovado, o estado é alterado de **XML pendente** para **XML Active Directory**.
    
    > [!IMPORTANT]
    > Alterações de regras podem demorar até 90 minutos para propagar pela CDN.
    > 
    > 
 
-## <a name="see-also"></a>Consultar também
-* [Descrição geral da CDN do Azure](cdn-overview.md)
+## <a name="see-also"></a>Consulte também
+* [Descrição geral CDN do Azure](cdn-overview.md)
 * [Referência do motor de regras](cdn-rules-engine-reference.md)
 * [Condições de correspondência do motor de regras](cdn-rules-engine-reference-match-conditions.md)
-* [Expressões condicionais de motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
+* [Motor de regras de expressões condicionais](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funcionalidades do motor de regras](cdn-rules-engine-reference-features.md)
-* [Substituir o comportamento HTTP predefinido utilizando o motor de regras](cdn-rules-engine.md)
-* [Azure sextas: Poderosas novo as funcionalidades Azure CDN Premium](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
+* [Azure sextas: Nova premium funcionalidades poderosas CDN do Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)

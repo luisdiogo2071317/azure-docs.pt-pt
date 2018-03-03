@@ -3,9 +3,9 @@ title: "Assistente de cópia do Azure Data Factory | Microsoft Docs"
 description: "Saiba mais sobre como utilizar o Assistente de cópia de Azure do Data Factory para copiar dados de origens de dados suportadas para sinks."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d9f3fea0db5a08fc91d9e4dc525b48575c512634
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de cópia de Factory de dados do Azure
 > [!NOTE]
@@ -44,7 +44,7 @@ O assistente foi concebido com macrodados em mente desde o início, com suporte 
 ## <a name="automatic-data-preview"></a>Pré-visualização de dados automática
 Pode pré-visualizar a parte dos dados da origem de dados selecionada para validar se os dados são o que pretende copiar. Além disso, se a origem de dados num ficheiro de texto, o Assistente para copiar analisa o ficheiro de texto para saber os delimitadores de linha e coluna e esquema automaticamente.
 
-![Definições do formato de ficheiro](./media/data-factory-copy-wizard/file-format-settings.png)
+![Definições do formato do ficheiro](./media/data-factory-copy-wizard/file-format-settings.png)
 
 ## <a name="schema-capture-and-mapping"></a>Captura de esquema e mapeamento
 O esquema de dados de entrada pode não corresponder o esquema de dados de saída em alguns casos. Neste cenário, é necessário mapear colunas de esquema de origem para colunas de esquema de destino.

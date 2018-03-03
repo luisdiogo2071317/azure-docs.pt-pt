@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 Azure Service Fabric introduz um modelo de estado de funcionamento que fornece a avaliação de estado de funcionamento extensíveis, avançado e flexível e de relatórios. O modelo permite quase em tempo real de monitorização do Estado do cluster e os serviços em execução no mesmo. Além disso, pode facilmente obter informações de estado de funcionamento e corrigir problemas de potencial antes de serem cascade e causam falhas em grande escala. No modelo de típico, os serviços de enviar relatórios com base na respetiva vistas locais e que informações são agregadas para fornecer um geral do cluster ao nível do Vista.
 
 Componentes do Service Fabric utilizam este modelo de estado de funcionamento avançado para comunicar o respetivo estado atual. Pode utilizar o mesmo mecanismo para Estado de funcionamento do relatório das suas aplicações. Se investir no relatório de estado de funcionamento de alta qualidade que capture as condições personalizadas, pode detetar e corrigir problemas para a sua aplicação em execução muito mais facilmente.
 
-O vídeo seguinte do Microsoft Virtual Academy também descreve o modelo de estado de funcionamento de recursos de infraestrutura de serviço e como são utilizadas:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+O vídeo seguinte do Microsoft Virtual Academy também descreve o modelo de estado de funcionamento de recursos de infraestrutura de serviço e como são utilizadas: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -199,7 +199,7 @@ O [relatórios de estado de funcionamento](https://docs.microsoft.com/dotnet/api
 * **SourceId**. Uma cadeia que identifica exclusivamente o relatório do evento de estado de funcionamento.
 * **Identificador da entidade**. Identifica a entidade em que o relatório é aplicado. Difere consoante o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. nenhum.
+  * Cluster. Nenhum.
   * Nó. Nome do nó (cadeia).
   * aplicação. Nome da aplicação (URI). Representa o nome da instância de aplicação implementado no cluster.
   * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implementado no cluster.

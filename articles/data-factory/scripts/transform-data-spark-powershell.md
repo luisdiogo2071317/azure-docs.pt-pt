@@ -2,7 +2,7 @@
 title: "Dados de transformação de script do PowerShell na nuvem utilizando o Data Factory | Microsoft Docs"
 description: Este script do PowerShell transforma dados na nuvem, ao executar o programa de Spark num cluster do Azure HDInsight Spark.
 services: data-factory
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: spelluru
-ms.openlocfilehash: 195b7276346827479fbbe10dfaaaa9ed1d754967
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: shlo
+ms.openlocfilehash: f83d9d2e862f909d6eaa0c02ecac745909aab83a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script do PowerShell - transformação de dados na nuvem utilizando o Azure Data Factory
 
@@ -84,23 +84,23 @@ Para remover a fábrica de dados do grupo de recursos, execute o seguinte comand
 Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
 Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Novo-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [Conjunto AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2) | Criar uma fábrica de dados. |
-| [Conjunto AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2linkedservice) | Cria um serviço ligado no factory de dados. Um serviço ligado liga um arquivo de dados ou a computação uma fábrica de dados. |
-| [Conjunto AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactorv2ypipeline) | Cria um pipeline na fábrica de dados. Um pipeline contém uma ou mais atividades que executa uma operação de determinadas. Neste pipeline, uma atividade de spark transforma dados através da execução de um programa num cluster do Azure HDInsight Spark. |
-| [AzureRmDataFactoryV2Pipeline invocar](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2pipelinerun) | Cria uma execução para o pipeline. Por outras palavras, é executado o pipeline. |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2) | Criar uma fábrica de dados. |
+| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2linkedservice) | Cria um serviço ligado no factory de dados. Um serviço ligado liga um arquivo de dados ou a computação uma fábrica de dados. |
+| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactorv2ypipeline) | Cria um pipeline na fábrica de dados. Um pipeline contém uma ou mais atividades que executa uma operação de determinadas. Neste pipeline, uma atividade de spark transforma dados através da execução de um programa num cluster do Azure HDInsight Spark. |
+| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2pipelinerun) | Cria uma execução para o pipeline. Por outras palavras, é executado o pipeline. |
 | [Get-AzureRmDataFactoryV2ActivityRun](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2activityrun) | Obtém os detalhes sobre a execução da atividade (de execução da atividade) no pipeline. 
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o Azure PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
 Exemplos de script do PowerShell do Azure Data Factory adicionais podem ser encontrados no [exemplos do PowerShell do Azure Data Factory](../samples-powershell.md).

@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Cofre de chaves com o Java para armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -59,7 +59,7 @@ Durante a encriptação, a biblioteca de clientes irá gerar um Vetor de inicial
 > 
 > 
 
-Transferência de um blob encriptado envolve a obter o conteúdo da utilização de BLOBs de todo o  **transferir*/openInputStream** métodos conveniência. O CEK encapsulada e não encapsulada e utilizado juntamente com o IV (armazenada como metadados do blob neste caso) para devolver os dados desencriptados para os utilizadores.
+Transferência de um blob encriptado envolve a obter o conteúdo da utilização de BLOBs de todo o **transferência * / openInputStream** métodos conveniência. O CEK encapsulada e não encapsulada e utilizado juntamente com o IV (armazenada como metadados do blob neste caso) para devolver os dados desencriptados para os utilizadores.
 
 Transferência de um intervalo de arbitrário (**downloadRange*** métodos) no blob encriptado envolve ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados para desencriptá com êxito o intervalo pedido.  
 
@@ -99,6 +99,10 @@ Encriptação de dados de tabela funciona da seguinte forma:
 Em operações de lote, a mesma KEK irá ser utilizada em todas as linhas que operação em lote porque a biblioteca de clientes só permite um objeto de opções (e, por conseguinte, uma política/KEK) por operação em lote. No entanto, a biblioteca de clientes internamente gerará uma nova IV aleatória e CEK aleatório por linha no lote. Os utilizadores também podem optar por encriptar propriedades diferentes para cada operação no lote se definir este comportamento o Resolvedor de encriptação.
 
 ### <a name="queries"></a>Consultas
+> [!NOTE]
+> Porque as entidades são encriptadas, não é possível executar consultas que filtrar na propriedade encriptada.  Se tentar, os resultados estar incorretos, porque o serviço seria está a tentar comparar dados encriptados com dados não encriptados.
+> 
+>
 Para executar operações de consulta, tem de especificar uma resolução de chave que é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não pode ser resolvida para um fornecedor, a biblioteca de clientes irá gerar um erro. Para qualquer consulta que efetua projeções de lado do servidor, a biblioteca de clientes irá adicionar as propriedades de metadados de encriptação do especial (_ClientEncryptionMetadata1 e _ClientEncryptionMetadata2) por predefinição para as colunas selecionadas.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
@@ -247,7 +251,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ## <a name="encryption-and-performance"></a>Encriptação e de desempenho
 Tenha em atenção que encriptar os resultados de dados de armazenamento em overhead de desempenho adicionais. A chave de conteúdo e IV tem de ser gerado, o próprio conteúdo tem de estar encriptado e adicional meta-data tem de ser formatado e carregado. Esta sobrecarga irá variar consoante a quantidade de dados que está a ser encriptados. Recomendamos que os clientes sempre testar as aplicações de desempenho durante o desenvolvimento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Transferir o [biblioteca de clientes do Storage do Azure para o pacote Maven de Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Transferir o [biblioteca de clientes do Storage do Azure para Java o código de origem a partir do GitHub](https://github.com/Azure/azure-storage-java)   
 * Transferir a biblioteca do Azure chave de cofre Maven para pacotes de Java Maven:

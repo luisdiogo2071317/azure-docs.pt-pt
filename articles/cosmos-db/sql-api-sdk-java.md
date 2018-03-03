@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 979fcebd60d62c714a1c521013cf391ebf18a73c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 12/18/2017
 > * [Feed de alteração de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -36,6 +37,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+O SDK de Java de API do SQL Server suporta operações síncronas. Para obter suporte assíncrono, utilize o [SDK Java do SQL Server API Async](sql-api-sdk-async-java.md). 
 
 <table>
 
@@ -52,7 +55,7 @@ ms.lasthandoff: 12/18/2017
 <tr><td>**Tempo de execução mínimo suportado**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>Notas de Versão
+## <a name="release-notes"></a>Notas de versão
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Desempenho melhorado de serialização Json.
@@ -167,7 +170,7 @@ ms.lasthandoff: 12/18/2017
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
 
-## <a name="release--retirement-dates"></a>Datas de extinção & versão
+## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
 A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
 
 Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomendamos que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível.
@@ -219,6 +222,6 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
 

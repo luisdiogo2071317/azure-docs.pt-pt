@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Implementar e chamar APIs personalizadas a partir de lógica de fluxos de trabalho da aplicação
 
@@ -35,17 +35,17 @@ Antes de poder chamar a API personalizada a partir de uma aplicação lógica, i
 
 2. No menu aplicação que abre-se, em **API**, escolha **definição da API**. Definir o **localização de definição de API** para o URL para o ficheiro de swagger.json OpenAPI.
 
-   Normalmente, o URL for apresentada neste formato:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Normalmente, o URL for apresentada neste formato: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Ligar ao ficheiro de OpenAPI para a API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Em **API**, escolha **CORS**. Definir a política CORS para **permitido origens** para  **'*'** (permitir todos os).
+3. Em **API**, escolha **CORS**. Definir a política CORS para **permitido origens** para **' *'** (permitir todos os).
 
    Esta definição permite pedidos a partir do Designer de aplicação lógica.
 
    ![Permitir pedidos a partir do Designer de aplicação lógica à sua API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Para obter mais informações, consulte [criar uma API RESTful Node.js](../app-service/app-service-web-tutorial-rest-api.md).
+Para obter mais informações, consulte [alojar uma API RESTful com a CORS no App Service do Azure](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Chamar a API personalizada da lógica de fluxos de trabalho da aplicação
 
@@ -57,6 +57,6 @@ Depois de configurar as propriedades de definição de API e a CORS, a API perso
 
 *  Para chamar qualquer API, incluindo as APIs que não têm ou expor um documento de OpenAPI sempre pode criar um pedido com o [ação HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral do conetor personalizado](../logic-apps/custom-connector-overview.md)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicionar notificações push à aplicação xamarin. Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -152,6 +152,7 @@ Com o back-end configurado com FCM, pode adicionar componentes e códigos no cli
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -182,7 +183,7 @@ Com o back-end configurado com FCM, pode adicionar componentes e códigos no cli
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -202,7 +203,7 @@ Agora, está pronto teste notificações de push na aplicação em execução no
 ### <a name="test-push-notifications-in-your-android-app"></a>Notificações de push de teste na sua aplicação Android
 Os primeiros dois passos são necessários apenas quando estiver a testar um emulador.
 
-1. Certifique-se de que estão a implementar ou depuração num dispositivo virtual que tenha as APIs da Google definida como destino, conforme mostrado abaixo no Gestor de dispositivo Virtual Android.
+1. Certifique-se de que estão a implementar ou depuração num dispositivo ou emulador está configurado com serviços Google Play. Isto pode ser verificado, a verificação de que o **reproduzir** aplicações estão instaladas no dispositivo ou emulador.
 2. Adicionar uma conta do Google no dispositivo Android, clicando em **aplicações** > **definições** > **adicionar conta**. Em seguida, siga as instruções para adicionar uma conta do Google existente para o dispositivo ou para criar um novo.
 3. No Visual Studio ou no Xamarin Studio, clique com botão direito do **Droid** projeto e clique em **definir como projeto de arranque**.
 4. Clique em **executar** para compilar o projeto e iniciar a aplicação no seu dispositivo Android ou emulador.

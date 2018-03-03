@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Ficheiros Hyperlapse de multimédia com Hyperlapse de multimédia do Azure
 Hyperlapse de multimédia do Azure é um suporte de dados de processador (MP) que cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara.  O colateral baseado na nuvem para [Microsoft Research Pro de Hyperlapse ambiente de trabalho e móvel de Hyperlapse baseada no telefone](http://aka.ms/hyperlapse), Microsoft Hyperlapse de Media Services do Azure utiliza a grande escala do processamento do suporte de dados do Azure suporte de dados serviços plataforma horizontalmente dimensionar e parallelize em massa Hyperlapse de processamento.
@@ -47,7 +47,7 @@ Assim que o conteúdo estiver na sua conta de Media Services, terá de construir
 Segue-se um exemplo de um ficheiro de configuração compatível nos XML e JSON:
 
 **Predefinição XML:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -57,9 +57,10 @@ Segue-se um exemplo de um ficheiro de configuração compatível nos XML e JSON:
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **Predefinição JSON:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -73,8 +74,9 @@ Segue-se um exemplo de um ficheiro de configuração compatível nos XML e JSON:
             "Stabilize":false
         }
     }
+```
 
-### <a id="sample_code"></a>Hyperlapse Microsoft com o SDK .NET do AMS
+### <a id="sample_code"></a> Hyperlapse Microsoft com o SDK .NET do AMS
 O método seguinte carrega um ficheiro de suporte de dados como um recurso e cria uma tarefa com o processador de multimédia de Hyperlapse de suporte de dados do Azure.
 
 > [!NOTE]
@@ -85,6 +87,7 @@ O método seguinte carrega um ficheiro de suporte de dados como um recurso e cri
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -197,6 +200,7 @@ O método seguinte carrega um ficheiro de suporte de dados como um recurso e cri
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Tipos de ficheiro suportados
 * MP4

@@ -3,7 +3,7 @@ title: Criar clusters do Azure Service Fabric no Windows Server e do Linux | Mic
 description: "Clusters de Service Fabric executadas no servidor do Windows e Linux, que significa que poderá implementar e aplicações em qualquer local do anfitrião do Service Fabric pode executar o Windows Server ou Linux."
 services: service-fabric
 documentationcenter: .net
-author: Chackdan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
-ms.author: chackdan
-ms.openlocfilehash: e3cfad19e42af24edd68befd7b1eac8cef41a1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: dekapur
+ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Criar clusters de Service Fabric no Windows Server ou Linux
 Um cluster do Service Fabric do Azure é um conjunto de ligados à rede de máquinas virtuais ou físicos para o qual os micro-serviços são implementados e geridos. Um computador ou a VM que faz parte de um cluster é designado por um nó de cluster. Clusters podem dimensionar a milhares de nós. Se adicionar novos nós ao cluster, Service Fabric efetua novamente o balanceamento as réplicas de partição de serviço e as instâncias no aumento do número de nós. Em geral melhora o desempenho da aplicação e diminui a contenção de acesso à memória. Se não estão a ser utilizados nós no cluster de forma eficiente, pode reduzir o número de nós no cluster. Service Fabric novamente efetua novamente o balanceamento as réplicas de partição e as instâncias em que o menor número de nós para tornar uma melhor utilização de hardware em cada nó.
@@ -33,7 +33,12 @@ Conseguir criar clusters em máquinas virtuais em execução nesses sistemas ope
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04  
+* Windows Server 1709
+* Linux Ubuntu 16.04
+
+> [!NOTE]
+> Se decidir implementar o Service Fabric no Windows Server 1709, tenha em atenção que (1) não está a longo prazo manutenção ramo, pelo que poderá ter de mover as versões no futuro e (2) se implementar contentores, contentores incorporadas no Windows Server 2016 não funcionam no Windows Server  1709 e vice versa (tem de reconstrui-los para implementá-las).
+>
 
 ## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Criar autónoma do Service Fabric clusters no local ou com qualquer fornecedor de nuvem
 O Service Fabric fornece um pacote de instalação para que possa criar autónomo Service Fabric clusters no local ou em qualquer fornecedor de nuvem.
@@ -71,7 +76,7 @@ Service Fabric os clusters em execução no Azure fornece a opção vantagens re
 * **Diagnósticos:** no Azure, fornecemos integração com o diagnóstico do Azure e análise de registos.
 * **Dimensionamento automático:** para os clusters no Azure, podemos fornecer a funcionalidade de dimensionamento automático incorporada devido a conjuntos de dimensionamento de Máquina Virtual. No local e noutros ambientes de nuvem, é necessário que criar a sua própria funcionalidade ou escala manualmente utilizando as APIs que expõe os recursos de infraestrutura de serviço para o dimensionamento de clusters de dimensionamento automático.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Criar um cluster no VMs ou computadores que executam o Windows Server: [criação do cluster de Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Criar um cluster no VMs ou computadores que executam o Linux: [criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6b26261994bd1e64bf998cf3838ec9e52f844e54
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Cofre de chaves para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +65,7 @@ Durante a encriptação, a biblioteca de clientes irá gerar um Vetor de inicial
 > 
 > 
 
-Transferência de um blob encriptado envolve a obter o conteúdo da utilização de BLOBs de todo o **DownloadTo***/**BlobReadStream** métodos conveniência. O CEK encapsulada e não encapsulada e utilizado juntamente com o IV (armazenada como metadados do blob neste caso) para devolver os dados desencriptados para os utilizadores.
+Transferência de um blob encriptado envolve a obter o conteúdo da utilização de BLOBs de todo o **DownloadTo *** /**BlobReadStream * *: métodos conveniência. O CEK encapsulada e não encapsulada e utilizado juntamente com o IV (armazenada como metadados do blob neste caso) para devolver os dados desencriptados para os utilizadores.
 
 Transferência de um intervalo de arbitrário (**DownloadRange*** métodos) no blob encriptado envolve ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados para desencriptá com êxito o intervalo pedido.
 
@@ -103,6 +103,10 @@ Para as tabelas, além da política de encriptação, os utilizadores tem de esp
 Em operações de lote, a mesma KEK irá ser utilizada em todas as linhas que operação em lote porque a biblioteca de clientes só permite um objeto de opções (e, por conseguinte, uma política/KEK) por operação em lote. No entanto, a biblioteca de clientes internamente gerará uma nova IV aleatória e CEK aleatório por linha no lote. Os utilizadores também podem optar por encriptar propriedades diferentes para cada operação no lote se definir este comportamento o Resolvedor de encriptação.
 
 ### <a name="queries"></a>Consultas
+> [!NOTE]
+> Porque as entidades são encriptadas, não é possível executar consultas que filtrar na propriedade encriptada.  Se tentar, os resultados estar incorretos, porque o serviço seria está a tentar comparar dados encriptados com dados não encriptados.
+> 
+> 
 Para executar operações de consulta, tem de especificar uma resolução de chave que é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não pode ser resolvida para um fornecedor, a biblioteca de clientes irá gerar um erro. Para qualquer consulta que efetua projecções do lado do servidor, a biblioteca de clientes irá adicionar as propriedades de metadados de encriptação do especial (_ClientEncryptionMetadata1 e _ClientEncryptionMetadata2) por predefinição para as colunas selecionadas.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
@@ -241,7 +245,7 @@ Tal como mencionado acima, se a entidade implementa TableEntity, em seguida, as 
 ## <a name="encryption-and-performance"></a>Encriptação e de desempenho
 Tenha em atenção que encriptar os resultados de dados de armazenamento em overhead de desempenho adicionais. A chave de conteúdo e IV tem de ser gerado, o próprio conteúdo tem de estar encriptado e adicional meta-data tem de ser formatado e carregado. Esta sobrecarga irá variar consoante a quantidade de dados que está a ser encriptados. Recomendamos que os clientes sempre testar as aplicações de desempenho durante o desenvolvimento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Tutorial: Encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Cofre de chaves do Azure](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Transferir o [biblioteca de clientes do Storage do Azure para o pacote NuGet do .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Transferir o NuGet de Cofre de chaves do Azure [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), e [extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) pacotes  

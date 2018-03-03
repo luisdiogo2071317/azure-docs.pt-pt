@@ -13,6 +13,6 @@ Segredos, chaves de conta de armazenamento gerida e transações do cofre:
 | Todas as transações |2000 |
 |
 
-Consulte [Cofre de chaves do Azure limitação orientações](../key-vault/key-vault-ovw-throttling.md) para obter informações sobre como lidar com limitação quando estes limites são excedidos.
+Consulte [Cofre de chaves do Azure limitação orientações](../articles/key-vault/key-vault-ovw-throttling.md) para obter informações sobre como lidar com limitação quando estes limites são excedidos.
 
 <sup>1</sup> há um limite de toda a subscrição para todos os tipos de transação, o que é x 5 por limite de Cofre de chaves. Por exemplo, HSM - outras transações por subscrição estão limitadas a 5000 transações dentro de 10 segundos por subscrição.

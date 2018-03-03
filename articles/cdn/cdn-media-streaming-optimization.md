@@ -1,5 +1,5 @@
 ---
-title: "Suporte de dados de transmissão em fluxo otimização através da rede de entrega de conteúdo do Azure"
+title: "Suporte de dados de transmissão em fluxo otimização através da CDN do Azure"
 description: "Otimizar os ficheiros de multimédia de transmissão em fluxo para entrega uniforme"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c42f54a99a85377ebe4df6959237f906d37591b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Suporte de dados de transmissão em fluxo otimização através da rede de entrega de conteúdo do Azure 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>Suporte de dados de transmissão em fluxo otimização através da CDN do Azure 
  
 Aumento da utilização de vídeo de alta definição na Internet, que cria dificuldades para entrega eficiente de ficheiros grandes. Os clientes esperam uniforme reprodução de vídeo a pedido ou em direto a recursos de vídeos numa variedade de clientes e redes em todo o mundo. Um mecanismo de entrega rápidos e eficientes para suporte de dados de ficheiros de transmissão em fluxo é essencial para garantir uma experiência de consumidor enjoyable e uniforme.  
 
@@ -60,10 +60,10 @@ Se a rede de entrega de conteúdos do Azure da Akamai Deteta que o elemento é u
 O tempo de colocação em cache negativo abreviado é útil para a descarga de origem de quando número de utilizadores que pedem um fragmento que ainda não existe. Um exemplo é uma transmissão em fluxo em direto onde os pacotes não estão disponíveis da origem esse segundo. O intervalo já é a colocação em cache também ajuda a descarregar pedidos da origem porque a conteúdos de vídeo, normalmente, não se encontra modificado.
  
 
-|   | Entrega de web geral | Suporte de dados gerais de transmissão em fluxo | Suporte de dados de vídeo a pedido de transmissão em fluxo  
+|   | Entrega geral Web | Transmissão geral de multimédia | Suporte de dados de vídeo a pedido de transmissão em fluxo  
 --- | --- | --- | ---
 A colocação em cache: positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
-A colocação em cache: negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhuma | 1 segundo | 1 segundo
+A colocação em cache: negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo | 1 segundo
  
 ### <a name="deal-with-origin-failure"></a>Lidar com falha de origem  
 
@@ -77,12 +77,12 @@ Quando um ficheiro corresponde à lista de condições de tipo e o tamanho de fi
 
 A tabela seguinte lista o conjunto de critérios para ser satisfeito para otimização de transmissão em fluxo de suporte de dados: 
  
-Tipos de transmissão em fluxo suportados | Extensões de ficheiro  
+Tipos de transmissão em fluxo suportados | Extensões de ficheiros  
 --- | ---  
 Apple HLS | m3u8 m3u, m3ub, chave, ts, aac
 Adobe HDS | f4m f4x, drmmeta, arranque, f4f,<br>Estrutura de seg Frag URL <br> (regex de correspondência: ^(/.*)Seq(\d+)-Frag(\d+)
-TRAÇO | MPD, traço, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx webm, mp4a, m4a, isma
-Transmissão em fluxo uniforme | o manifesto /, QualityLevels/fragmentos /
+TRAÇO | mpd, dash, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+Transmissão em fluxo uniforme | /manifest/,/QualityLevels/Fragments/
   
 
  

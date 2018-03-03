@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
 
-O terceiro parte de uma regra é a funcionalidade. Uma funcionalidade define o tipo de ação que é aplicada ao tipo de pedido identificado por um conjunto de condições de correspondência.
+O terceiro parte de uma regra é a funcionalidade. Uma funcionalidade define o tipo de ação que é aplicada para o tipo de pedido identificado por um conjunto de condições de correspondência.
 
 ## <a name="access-features"></a>Funcionalidades de acesso
 
@@ -32,7 +32,7 @@ Estas funcionalidades são concebidas para controlar o acesso ao conteúdo.
 
 Nome | Objetivo
 -----|--------
-[Negar o acesso (403)](#deny-access-403) | Determina se a todos os pedidos são rejeitados com resposta 403 Proibido.
+[Deny Access (403)](#deny-access-403) | Determina se a todos os pedidos são rejeitados com resposta 403 Proibido.
 [Autenticação de token](#token-auth) | Determina se a autenticação baseada em tokens é aplicada a um pedido.
 [Código de recusa de token de autenticação](#token-auth-denial-code) | Determina o tipo de resposta é devolvida a um utilizador quando um pedido é negado devido a autenticação baseada em tokens.
 [Autenticação de token ignorar URL maiúsculas / minúsculas](#token-auth-ignore-url-case) | Determina se comparações de URL, efetuadas pela autenticação baseada em tokens são maiúsculas e minúsculas.
@@ -49,24 +49,24 @@ Nome | Objetivo
 [Limitação de largura de banda](#bandwidth-throttling) | Acelera a largura de banda para a resposta fornecida pelos servidores edge.
 [Ignorar a Cache](#bypass-cache) | Determina se o pedido deve ignorar a colocação em cache.
 [Tratamento de cabeçalho de Cache-Control](#cache-control-header-treatment) | Controla a geração de `Cache-Control` cabeçalhos pelo servidor edge quando a funcionalidade de idade de máxima externo está ativa.
-[Cadeia de consulta de chave da cache](#cache-key-query-string) | Determina se a chave de cache irá incluir ou excluir os parâmetros de cadeia de consulta associados a um pedido.
+[Cadeia de consulta de chave da cache](#cache-key-query-string) | Determina se a chave de cache inclui ou exclui os parâmetros de cadeia de consulta associados a um pedido.
 [Chave da cache reescrever](#cache-key-rewrite) | Reescreve chave da cache associado a um pedido.
 [Concluir o preenchimento da Cache](#complete-cache-fill) | Determina o que acontece quando um resultados de pedido numa falha de acerto na cache parciais num servidor edge.
-[Comprima os tipos de ficheiro](#compress-file-types) | Define os formatos de ficheiro que irão ser comprimidos no servidor.
+[Comprima os tipos de ficheiro](#compress-file-types) | Define os formatos de ficheiro para os ficheiros que são comprimidos no servidor.
 [Idade de máx. de interno predefinida](#default-internal-max-age) | Determina o intervalo de idade máxima de predefinido para o servidor edge a revalidação de cache do servidor de origem.
 [Tratamento de cabeçalho de expirar](#expires-header-treatment) | Controla a geração de `Expires` cabeçalhos por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
 [Externa de atribuição de idade máxima](#external-max-age) | Determina o intervalo de idade máxima de browser de modo a revalidação de cache do servidor edge.
 [Forçar interna de atribuição de idade máxima](#force-internal-max-age) | Determina o intervalo de idade máxima para o servidor edge revalidação de cache do servidor de origem.
 [Suporte de 264 (transferência progressiva HTTP)](#h264-support-http-progressive-download) | Determina os tipos de formatos de ficheiro 264 que podem ser utilizados para transmitir o conteúdo.
-[Pedido de Cache não honor](#honor-no-cache-request) | Determina se não-pedidos um cliente HTTP serão reencaminhados para o servidor de origem.
+[Pedido de Cache não honor](#honor-no-cache-request) | Determina se os pedidos de cache não de um cliente HTTP são reencaminhados para o servidor de origem.
 [Ignorar a Cache não de origem](#ignore-origin-no-cache) | Determina se a CDN ignora determinadas diretivas servidas a partir de um servidor de origem.
 [Ignorar intervalos Unsatisfiable](#ignore-unsatisfiable-ranges) | Determina a resposta que é devolvida aos clientes quando um pedido gera um código de estado 416 pedido intervalo não satisfatório.
 [Interna obsoleta máx.](#internal-max-stale) | Controlos quanto posterior à hora de expiração normal um recurso em cache pode ser fornecido de um servidor edge quando o servidor edge não consegue revalidate o elemento em cache com o servidor de origem.
 [Partilha de Cache parciais](#partial-cache-sharing) | Determina se um pedido pode gerar o conteúdo parcialmente em cache.
-[Prevalidate conteúdos em cache](#prevalidate-cached-content) | Determina se o conteúdo em cache vai ser elegível para revalidação antecipada antes do valor de TTL expire.
+[Prevalidate conteúdos em cache](#prevalidate-cached-content) | Determina se o conteúdo em cache é elegível para revalidação antecipada antes do valor de TTL expire.
 [Atualizar os ficheiros de Cache de Zero bytes](#refresh-zero-byte-cache-files) | Determina como o pedido de um cliente HTTP para um elemento de cache de 0 bytes é processado pelos servidores edge.
 [Códigos de estado colocáveis de conjunto](#set-cacheable-status-codes) | Define o conjunto de códigos de estado que podem resultar num conteúdos em cache.
-[Entrega de conteúdos obsoleta com o erro](#stale-content-delivery-on-error) | Determina se expirado os conteúdos em cache serão entregues quando ocorre um erro durante a revalidação de cache ou ao obter os conteúdos solicitados a partir do servidor de origem do cliente.
+[Entrega de conteúdos obsoleta com o erro](#stale-content-delivery-on-error) | Determina se expirou em cache o conteúdo é entregue quando ocorre um erro durante a revalidação de cache ou ao obter os conteúdos solicitados a partir do servidor de origem do cliente.
 [Obsoleta ao Revalidate](#stale-while-revalidate) | Melhora o desempenho ao permitir que os servidores edge servir de cliente obsoleto para o autor do pedido, enquanto a revalidação ocorre.
 
 ## <a name="comment-feature"></a>Funcionalidade de comentário
@@ -83,7 +83,7 @@ Estas funcionalidades são concebidas para adicionar, modificar ou eliminar os c
 
 Nome | Objetivo
 -----|--------
-[Cabeçalho de resposta de antiguidade](#age-response-header) | Determina se um cabeçalho de resposta de idade será incluído na resposta enviada para o autor do pedido.
+[Cabeçalho de resposta de antiguidade](#age-response-header) | Determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 [Cabeçalhos de resposta de Cache de depuração](#debug-cache-response-headers) | Determina se uma resposta pode incluir o cabeçalho de resposta EC-X-Debug, que fornece informações sobre a política de cache para o recurso pedido.
 [Modificar o cabeçalho de pedido de cliente](#modify-client-request-header) | Substitui, acrescenta ou elimina um cabeçalho de um pedido.
 [Modificar o cabeçalho de resposta do cliente](#modify-client-response-header) | Substitui, acrescenta ou elimina um cabeçalho de resposta.
@@ -96,8 +96,8 @@ Estas funcionalidades são concebidas para personalizar os dados armazenados nos
 
 Nome | Objetivo
 -----|--------
-[Campo de registo personalizado 1](#custom-log-field-1) | Determina o formato e o conteúdo que será atribuído para o campo de registo personalizado num ficheiro de registo não processados.
-[Cadeia de consulta de registo](#log-query-string) | Determina se uma cadeia de consulta será armazenada juntamente com o URL nos registos de acesso.
+[Campo de registo personalizado 1](#custom-log-field-1) | Determina o formato e o conteúdo que é atribuído para o campo de registo personalizado num ficheiro de registo não processados.
+[Cadeia de consulta de registo](#log-query-string) | Determina se uma cadeia de consulta é armazenada, juntamente com o URL nos registos de acesso.
 
 
 <!---
@@ -151,7 +151,7 @@ Estas funcionalidades são concebidas para controlar a forma como o CDN comunica
 Nome | Objetivo
 -----|--------
 [Máximo de pedidos de ligação Keep-Alive](#maximum-keep-alive-requests) | Define o número máximo de pedidos para uma ligação Keep-Alive antes de que está fechado.
-[Cabeçalhos especiais de proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de pedido de CDN específicos que serão reencaminhados de um servidor edge para um servidor de origem.
+[Cabeçalhos especiais de proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de pedido de CDN específicas que são reencaminhados a partir de um servidor edge para um servidor de origem.
 
 
 ## <a name="specialty-features"></a>Funcionalidades de specialty
@@ -195,14 +195,14 @@ Desativado | O cabeçalho de resposta de idade foi excluído da resposta enviada
 
 ---
 ### <a name="bandwidth-parameters"></a>Parâmetros de largura de banda
-**Objetivo:** determina se os parâmetros (por exemplo, ec_rate e ec_prebuf) de limitação de largura de banda estará ativa.
+**Objetivo:** determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) estão ativos.
 
-Parâmetros de limitação de largura de banda determinam se a velocidade de transferência de dados para o pedido do cliente será limitada a uma taxa personalizada.
+Parâmetros de limitação de largura de banda determinam se a velocidade de transferência de dados para o pedido de um cliente está limitado a uma taxa personalizada.
 
 Valor|Resultado
 --|--
 Ativado|Permite que os servidores edge que respeite pedidos de limitação de largura de banda.
-Desativado|Faz com que os servidores edge ignorar os parâmetros de limitação de largura de banda. Os conteúdos solicitados serão servido normalmente (ou seja, sem limitação de largura de banda).
+Desativado|Faz com que os servidores edge ignorar os parâmetros de limitação de largura de banda. O conteúdo pedido é servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento predefinido:** ativada.
  
@@ -269,7 +269,7 @@ Informações da chave:
 ### <a name="cacheable-request-body-size"></a>Tamanho do corpo do pedido colocáveis
 **Objetivo:** define o limiar para determinar se uma resposta POST pode ser colocadas em cache.
 
-Este limiar é determinado através da especificação de um tamanho do corpo do pedido máximo. Não serão possível em cache pedidos que contêm um grande corpo do pedido.
+Este limiar é determinado através da especificação de um tamanho do corpo do pedido máximo. Não estão em cache pedidos que contêm um grande corpo do pedido.
 
 Informações da chave:
 
@@ -296,7 +296,7 @@ A forma mais fácil para alcançar este tipo de configuração é colocar a idad
 Valor|Resultado
 --|--
 Substituir|Garante que as ações seguintes ocorrem:<br/> -Substitui o `Cache-Control` cabeçalho gerado pelo servidor de origem. <br/>-Adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo para a resposta.
-Pass-Through|Garante que o `Cache-Control` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Cache-Control` cabeçalho, estes passam por para o utilizador final. <br/> Se o servidor de origem não produz um `Cache-Control` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Cache-Control` cabeçalho.
+Pass Through|Garante que o `Cache-Control` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Cache-Control` cabeçalho, estes passam por para o utilizador final. <br/> Se o servidor de origem não produz um `Cache-Control` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Cache-Control` cabeçalho.
 Adicionar se estiverem em falta|Se um `Cache-Control` cabeçalho não foi recebido do servidor de origem, em seguida, esta opção adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os recursos estão atribuídos um `Cache-Control` cabeçalho.
 Remover| Esta opção garante que uma `Cache-Control` cabeçalho não está incluído com a resposta de cabeçalho. Se um `Cache-Control` já foi atribuído um cabeçalho, em seguida, este é removido da resposta de cabeçalho.
 
@@ -308,23 +308,23 @@ Remover| Esta opção garante que uma `Cache-Control` cabeçalho não está incl
 
 ---
 ### <a name="cache-key-query-string"></a>Cadeia de consulta de chave da cache
-**Objetivo:** determina se a chave de cache irá incluir ou excluir os parâmetros de cadeia de consulta associados a um pedido.
+**Objetivo:** determina se a chave de cache inclui ou exclui os parâmetros de cadeia de consulta associados a um pedido.
 
 Informações da chave:
 
-- Especifique um ou mais nomes de parâmetro de cadeia de consulta. Cada nome de parâmetro deve ser delimitado com um único espaço.
-- Esta funcionalidade determina se os parâmetros de cadeia de consulta irão ser incluídos ou excluídos da chave da cache. Para cada opção abaixo, são fornecidas informações adicionais.
+- Especifique um ou mais nomes de parâmetro de cadeia de consulta. Deliminate com um único espaço de nome de cada um dos parâmetros.
+- Esta funcionalidade determina se os parâmetros de cadeia de consulta são incluídos ou excluídos da chave da cache. São fornecidas informações adicionais para cada opção na seguinte tabela.
 
 Tipo|Descrição
 --|--
- Incluir|  Indica se cada parâmetro especificado deve ser incluído na chave de cache. Uma chave exclusiva de cache será gerada para cada pedido que contém um valor exclusivo para um parâmetro de cadeia de consulta definido nesta funcionalidade. 
- Incluir todos os  |Indica que será criada uma chave de cache exclusiva para cada pedido para um recurso que inclui uma cadeia de consulta exclusivo. Este tipo de configuração não é normalmente recomendado, uma vez que poderá provocar numa pequena percentagem de acertos na cache. Isto irá aumentar a carga no servidor de origem, uma vez que terá que processar mais pedidos. Esta configuração duplica o comportamento de colocação em cache conhecido como "exclusivo-cache" na página de colocação em cache de cadeia de consulta. 
- Excluir | Indica que apenas os parâmetros especificados serão excluídos da chave da cache. Todos os outros parâmetros de cadeia de consulta serão incluídos na chave da cache. 
- Excluir todos os  |Indica que todos os parâmetros de cadeia de consulta serão excluídos da chave da cache. Esta configuração duplica o predefinido comportamento, que é conhecido como "standard cache" na página de colocação em cache de cadeia de consulta a colocação em cache. 
+ Incluir|  Indica se cada parâmetro especificado deve ser incluído na chave de cache. Uma chave exclusiva de cache é gerada para cada pedido que contém um valor exclusivo para um parâmetro de cadeia de consulta definido nesta funcionalidade. 
+ Incluir todos os  |Indica que é criada uma chave de cache exclusiva para cada pedido para um recurso que inclui uma cadeia de consulta exclusivo. Este tipo de configuração não é normalmente recomendado porque que pode levar a numa pequena percentagem de acertos na cache. Um número reduzido de acertos na cache aumenta a carga no servidor de origem, porque tem servir mais pedidos. Esta configuração duplica o comportamento de colocação em cache conhecido como "exclusivo-cache" na página de colocação em cache de cadeia de consulta. 
+ Excluir | Indica que apenas o parâmetro especificado é excluído da chave da cache. Todos os outros parâmetros de cadeia de consulta estão incluídos na chave da cache. 
+ Excluir todos os  |Indica que todos os parâmetros de cadeia de consulta são excluídos da chave da cache. Esta configuração duplica o predefinido de "standard-cache" comportamento na página de colocação em cache de cadeia de consulta a colocação em cache.  
 
-Potência de motor de regras de HTTP permite-lhe personalizar a forma no qual está implementada o colocação em cache de cadeia de consulta. Por exemplo, pode especificar que a consulta colocação em cache apenas ser efetuada em determinadas localizações ou tipos de ficheiro.
+O motor de regras permite-lhe personalizar a forma no qual está implementada o colocação em cache de cadeia de consulta. Por exemplo, pode especificar que a colocação em cache de cadeia de consulta é executada apenas em determinadas localizações ou tipos de ficheiro.
 
-Se gostaria de duplicar a cadeia de consulta comportamento conhecido como "não-cache" na página de colocação em cache de cadeia de consulta a colocação em cache, terá de criar uma regra que contém uma condição de correspondência de carateres universais de consulta de URL e uma funcionalidade de ignorar a Cache. A condição de correspondência de consulta de URL com carateres universais deve ser definida como um asterisco (*).
+Para duplicar a cadeia de consulta "não-cache" comportamento na página de colocação em cache de cadeia de consulta a colocação em cache, crie uma regra que contém uma condição de correspondência de carateres universais de consulta de URL e uma funcionalidade de ignorar a Cache. Defina a condição de correspondência de carateres universais de consulta de URL para um asterisco (*).
 
 #### <a name="sample-scenarios"></a>Cenários de exemplo
 
@@ -383,13 +383,13 @@ Este tipo de configuração irá gerar a seguinte cadeia parâmetro cache-chave 
 ### <a name="cache-key-rewrite"></a>Chave da cache reescrever
 **Objetivo:** reescreve chave da cache associado a um pedido.
 
-Uma chave de cache é o caminho relativo que identifique um recurso para efeitos de colocação em cache. Por outras palavras, irão verificar os servidores para uma versão em cache de um recurso, de acordo com o caminho como definido pela respetiva chave de cache.
+Uma chave de cache é o caminho relativo que identifique um recurso para efeitos de colocação em cache. Por outras palavras, os servidores Verifique a existência de uma versão em cache de um recurso, de acordo com o caminho como definido pela respetiva chave de cache.
 
 Configure esta funcionalidade, definindo ambas as opções seguintes:
 
 Opção|Descrição
 --|--
-Caminho original| Defina o caminho relativo para os tipos de pedidos cuja chave de cache irá ser foi reescrita. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular.
+Caminho original| Defina o caminho relativo para os tipos de pedidos cuja chave de cache é foi reescrita. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular.
 Novo caminho|Defina o caminho relativo para a nova chave de cache. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular. Este caminho relativo que pode ser construído dinamicamente através da utilização de variáveis HTTP
 **Comportamento predefinido:** -chave um pedido da cache é determinado pelo URI do pedido.
 
@@ -398,7 +398,7 @@ Novo caminho|Defina o caminho relativo para a nova chave de cache. Pode ser defi
 </br>
 
 ---
-### <a name="comment"></a>Comentar
+### <a name="comment"></a>Comentário
 **Objetivo:** permite uma nota a adicionar dentro de uma regra.
 
 Uma utilização para esta funcionalidade é fornecer informações adicionais sobre o objetivo geral de uma regra ou o motivo pelo qual um determinado correspondem à condição funcionalidade foi adicionada à regra.
@@ -422,7 +422,7 @@ Uma falha de acerto na cache parciais descreve o estado de cache para um recurso
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
 --->
-Uma falha de acerto na cache parcial ocorre normalmente depois de um utilizador cancela uma transferência ou para recursos de que apenas são pedidos através de pedidos de intervalo HTTP. Esta funcionalidade é mais útil para grandes ativos onde os utilizadores serão não normalmente transferi-los do início ao fim (por exemplo, vídeos). Como consequência, esta funcionalidade está ativada por predefinição na plataforma grande de HTTP. Está desativada em todas as outras plataformas.
+Uma falha de acerto na cache parcial ocorre normalmente depois de um utilizador cancela uma transferência ou para recursos de que apenas são pedidos através de pedidos de intervalo HTTP. Esta funcionalidade é mais útil para grandes ativos que normalmente não são transferidos do início ao fim (por exemplo, vídeos). Como consequência, esta funcionalidade está ativada por predefinição na plataforma grande de HTTP. Está desativada em todas as outras plataformas.
 
 Manter a configuração predefinida para a plataforma de HTTP grande, porque esta reduz a carga no seu servidor de origem do cliente e aumenta a velocidade a que os seus clientes transferem o conteúdo.
 
@@ -431,7 +431,7 @@ Devido da forma na cache de que as definições são registadas, esta funcionali
 Valor|Resultado
 --|--
 Ativado|Restaura o comportamento predefinido. É o comportamento predefinido para forçar o servidor edge para iniciar a obtenção um fundo do elemento do servidor de origem. Após o qual, o elemento estarão disponíveis na cache local do servidor edge.
-Desativado|Impede que um servidor edge efetuar uma obtenção de fundo para o elemento. Isto significa que o pedido seguinte para esse recurso a que região fará com que um servidor edge para solicitá-la a partir do servidor de origem do cliente.
+Desativado|Impede que um servidor edge efetuar uma obtenção de fundo para o elemento. O resultado é que o pedido seguinte para esse recurso a que região faz com que um servidor edge solicitá-la a partir do servidor de origem do cliente.
 
 **Comportamento predefinido:** ativada.
 
@@ -441,24 +441,24 @@ Desativado|Impede que um servidor edge efetuar uma obtenção de fundo para o el
 
 ---
 ### <a name="compress-file-types"></a>Comprima os tipos de ficheiro
-**Objetivo:** define os formatos de ficheiro que irão ser comprimidos no servidor.
+**Objetivo:** define os formatos de ficheiro para os ficheiros que são comprimidos no servidor.
 
 Um formato de ficheiro pode ser especificado utilizando o respetivo tipo de suporte de Internet (por exemplo, Content-Type). Tipo de suporte de Internet é metadados independentes da plataforma que permite que os servidores identificar o formato de ficheiro de um recurso específico. É fornecida uma lista dos tipos de suportes de dados de Internet comuns abaixo.
 
 Tipo de suporte de Internet|Descrição
 --|--
 texto/plain|Ficheiros de texto simples
-texto/html| Ficheiros HTML
+text/html| Ficheiros HTML
 texto/css|Folhas de estilo em cascata (CSS)
-Application/x-javascript|Javascript
+application/x-javascript|Javascript
 aplicação/javascript|Javascript
 Informações da chave:
 
 - Especifique vários tipos de suportes de dados de Internet por delimiting cada um com um único espaço. 
-- Esta funcionalidade só irá comprimir ativos cujo tamanho é inferior a 1 MB. Maior ativos não serão comprimidos pelos servidores.
-- Determinados tipos de conteúdos, tais como imagens, vídeos e os recursos de suporte de dados de áudio (por exemplo, JPG, MP3, MP4, etc.), já são comprimidos. Compressão adicional nestes tipos de recursos não irá reduzir significativamente o tamanho de ficheiro. Por conseguinte, é recomendado que não ativar a compressão nestes tipos de recursos.
+- Esta funcionalidade só comprime ativos cujo tamanho é inferior a 1 MB. Maior ativos não são comprimidos pelos servidores.
+- Determinados tipos de conteúdos, tais como imagens, vídeos e os recursos de suporte de dados de áudio (por exemplo, JPG, MP3, MP4, etc.), já são comprimidos. Devido a compressão adicional nestes tipos de recursos não reduzir significativamente o tamanho de ficheiro, é recomendado que não ativar a compressão nos mesmos.
 - Carateres universais, tais como a série de asteriscos, não são suportadas.
-- Antes de adicionar esta funcionalidade a uma regra, certifique-se de que defina a opção de compressão desativado na página de compressão para a plataforma para os quais será aplicada esta regra.
+- Antes de adicionar esta funcionalidade a uma regra, certifique-se de que defina a opção de compressão desativado na página de compressão para a plataforma para a qual esta regra é aplicada.
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
 
@@ -470,22 +470,22 @@ Informações da chave:
 
 Este campo personalizado permite-lhe determinar os valores de cabeçalho de pedido e resposta são armazenados nos seus ficheiros de registo.
 
-Por predefinição, o campo de registo personalizado é designado por "x-ec_custom-1." No entanto, o nome deste campo pode ser personalizado a partir da página de definições de registo não processados.
+Por predefinição, o campo de registo personalizado é designado por "x-ec_custom-1." O nome deste campo pode ser personalizado da página de definições de registo não processados.
 
-A formatação que deve utilizar para especificar os cabeçalhos de pedido e resposta está definida abaixo.
+O formato para especificar os cabeçalhos de pedido e resposta é definido da seguinte forma:
 
 Tipo de cabeçalho|Formato|Exemplos
 -|-|-
-Cabeçalho de pedido|%{[RequestHeader]()}[i]() | % {Aceitar codificação} i <br/> {Referenciador} i <br/> % {Autorização} i
-Cabeçalho de Resposta|%{[ResponseHeader]()}[Nã]()| O % {idade} <br/> O % {content-Type} <br/> O % {cookie}
+Cabeçalho de pedido|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+Cabeçalho de Resposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informações da chave:
 
 - Um campo de registo personalizado pode conter qualquer combinação de campos de cabeçalho e texto simples.
-- Os carateres válidos para este campo incluem o seguinte: alfanuméricos (0-9, a-z e A-Z), travessões, vírgula, ponto e vírgula, apostrophes, vírgulas, períodos, carateres de sublinhado, sinais de igual, parênteses, parênteses Retos e espaços. O símbolo de percentagem e chavetas só são permitidas quando são utilizados para especificar um campo de cabeçalho.
+- Os carateres válidos para este campo são os seguintes: alfanuméricos (0-9, a-z e A-Z), travessões, vírgula, ponto e vírgula, apostrophes, vírgulas, períodos, carateres de sublinhado, sinais de igual, parênteses, parênteses Retos e espaços. O símbolo de percentagem e chavetas só são permitidas quando são utilizados para especificar um campo de cabeçalho.
 - A ortografia para cada campo de cabeçalho especificado tem de corresponder ao nome de cabeçalho de pedido/resposta pretendido.
-- Se pretende especificar vários cabeçalhos, em seguida, é recomendado que utilize um separador para indicar o cabeçalho de cada. Por exemplo, pode utilizar uma abreviatura para cada cabeçalho. Sintaxe de exemplo é fornecida abaixo.
-    - AE: % {aceitar codificação} i r: % {autorização} i Cionar: o % {Content-Type} 
+- Se pretender especificar vários cabeçalhos, utilize um separador para indicar o cabeçalho de cada. Por exemplo, pode utilizar uma abreviatura para cada cabeçalho:
+    - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
 
 **Valor predefinido:** -
 
@@ -495,7 +495,7 @@ Informações da chave:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Cabeçalhos de resposta de Cache de depuração
-**Objetivo:** determina se uma resposta pode incluir o cabeçalho de resposta de EC-X-Debug que fornece informações sobre a política de cache para o recurso pedido.
+**Objetivo:** determina se uma resposta pode incluir o cabeçalho de resposta EC-X-Debug, que fornece informações sobre a política de cache para o recurso pedido.
 
 Depurar a resposta de cache cabeçalhos serão incluídos na resposta quando ambos os procedimentos seguintes se verificarem:
 
@@ -537,7 +537,7 @@ Informações da chave:
 
 - Definir a unidade de tempo "Desligado" atribuirá um intervalo de idade máxima interno predefinido de 7 dias para pedidos que não tenham sido atribuídos uma indicação de idade máxima no respetivo `Cache-Control` ou `Expires` cabeçalho.
 - Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Limite 
+    - Edge 
     - CNAME
     - Literal de cabeçalho de pedido
     - Caráter universal de cabeçalho de pedido
@@ -578,7 +578,7 @@ A forma mais fácil para alcançar este tipo de configuração é colocar a idad
 Valor|Resultado
 --|--
 Substituir|Garante que as seguintes ações irão ocorrer:<br/>-Substitui o `Expires` cabeçalho gerado pelo servidor de origem.<br/>-Adiciona o `Expires` cabeçalho produzidos pela funcionalidade de idade de máxima externo para a resposta.
-Pass-Through|Garante que o `Expires` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Expires` cabeçalho, este irá percorrer para o utilizador final. <br/>Se o servidor de origem não produz um `Expires` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Expires` cabeçalho.
+Pass Through|Garante que o `Expires` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Expires` cabeçalho, este irá percorrer para o utilizador final. <br/>Se o servidor de origem não produz um `Expires` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Expires` cabeçalho.
 Adicionar se estiverem em falta| Se um `Expires` cabeçalho não foi recebido do servidor de origem, em seguida, esta opção adiciona o `Expires` cabeçalho produzidos pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os elementos serão atribuídos um `Expires` cabeçalho.
 Remover| Garante que uma `Expires` cabeçalho não está incluído com a resposta de cabeçalho. Se um `Expires` já foi atribuído um cabeçalho, em seguida, este é removido da resposta de cabeçalho.
 
@@ -641,7 +641,7 @@ Informações da chave:
 
 - Definir a unidade de tempo "Desligado" desativa esta funcionalidade. Um intervalo de idade máxima interno não será atribuído aos recursos de pedido. Se o cabeçalho original não contém instruções de colocação em cache, em seguida, o elemento irá ser colocados em cache, de acordo com a definição de Active Directory na funcionalidade de predefinida interno-idade máxima.
 - Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Limite 
+    - Edge 
     - CNAME
     - Literal de cabeçalho de pedido
     - Caráter universal de cabeçalho de pedido
@@ -706,7 +706,7 @@ Informações da chave:
 - O conjunto de códigos de estado válido para esta funcionalidade são: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 e 505.
 - Desative esta funcionalidade ao defini-la como um valor em branco.
 - Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Limite 
+    - Edge 
     - CNAME
     - Literal de cabeçalho de pedido
     - Caráter universal de cabeçalho de pedido
@@ -757,7 +757,7 @@ Informações da chave:
 
 - Definir a unidade de tempo "Desligado" irá desativar esta funcionalidade. Um recurso em cache não será servido que ultrapassem o tempo de expiração normal.
 - Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
-    - Limite 
+    - Edge 
     - CNAME
     - Literal de cabeçalho de pedido
     - Caráter universal de cabeçalho de pedido
@@ -834,7 +834,7 @@ Informações da chave:
     - anfitrião
     - através do
     - aviso
-    - x-reencaminhados-para
+    - x-forwarded-for
     - Todos os nomes de cabeçalho que começam por "x-ec" estão reservados.
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
@@ -867,16 +867,16 @@ Informações da chave:
     - cachE-Control
 - Eliminar um cabeçalho impede que sejam encaminhados para o autor do pedido.
 - Os seguintes cabeçalhos estão reservados e não podem ser modificados por esta funcionalidade:
-    - codificação aceitar
+    - accept-encoding
     - idade
     - ligação
-    - codificação de conteúdo
-    - comprimento do conteúdo
-    - intervalo de conteúdo
-    - Data
+    - content-encoding
+    - content-length
+    - content-range
+    - data
     - servidor
     - trailer
-    - codificação de transferência
+    - transfer-encoding
     - atualização
     - variar
     - através do
@@ -981,18 +981,18 @@ Informações da chave:
 
 A opção de nome de cabeçalho define o nome do cabeçalho do pedido personalizado onde o endereço IP do cliente está armazenado.
 
-Esta funcionalidade permite que um cliente endereços de servidor de origem para determinar o IP de cliente através de um cabeçalho de pedido personalizado. Se o pedido é servido a partir da cache, o servidor de origem não a ser informado de endereço IP do cliente. Por conseguinte, é recomendado que esta funcionalidade ser utilizada com ADN ou recursos que não irão ser colocados em cache.
+Esta funcionalidade permite que um cliente endereços de servidor de origem para determinar o IP de cliente através de um cabeçalho de pedido personalizado. Se o pedido é servido a partir da cache, o servidor de origem não a ser informado de endereço IP do cliente. Por conseguinte, é recomendado que esta funcionalidade ser utilizada com os recursos que não são colocadas em cache.
 
 Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum dos nomes dos seguintes:
 
 - Nomes de cabeçalho de pedido padrão. É possível encontrar uma lista de nomes de cabeçalho padrão no [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nomes de cabeçalho reservado:
-    - reencaminhado para
+    - forwarded-for
     - anfitrião
     - variar
     - através do
     - aviso
-    - x-reencaminhados-para
+    - x-forwarded-for
     - Todos os nomes de cabeçalho que começam por "x-ec" estão reservados.
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
@@ -1063,7 +1063,7 @@ Código de Resposta|Nome de resposta|Descrição
 307|Redirecionamento temporário|Este código de estado redireciona os utilizadores não autorizados para o URL especificado no cabeçalho de localização.
 401|Não autorizado|Combinar este código de estado com o cabeçalho de resposta WWW-Authenticate permite-lhe solicitar um utilizador para autenticação.
 403|Proibido|Esta é a mensagem de estado de proibido de 403 padrão que um utilizador não autorizado ao tentar aceder a conteúdo protegido.
-404|Ficheiro não encontrado|Este código de estado indica que o cliente HTTP foi capaz de comunicar com o servidor, mas o conteúdo solicitado não foi encontrado.
+404|Ficheiro Não Encontrado|Este código de estado indica que o cliente HTTP foi capaz de comunicar com o servidor, mas o conteúdo solicitado não foi encontrado.
 
 #### <a name="url-redirection"></a>URL de redirecionamento
 
@@ -1158,7 +1158,7 @@ Este exemplo demonstra como redirecionar o URL de CNAME que resolve para este UR
 
 Elegíveis pedidos serão redirecionado para este limite de base de URL de CNAME: http://cdn.mydomain.com/resources
 
-Redirecionamento este URL pode ser conseguido através da configuração seguinte:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Pontos de chave:**
 
@@ -1200,13 +1200,13 @@ Este exemplo demonstra como redirecionar o URL de CNAME que resolve para este UR
 
 Elegíveis pedidos serão redirecionado para este limite de base de URL de CNAME: http://MyOrigin.azureedge.net/resources/
 
-Redirecionamento este URL pode ser conseguido através da configuração seguinte:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Cenário de exemplo 2**
 
 Este exemplo demonstra como redirecionar um limite de URL de CNAME de UPPERCASE para minúsculas utilizando expressões regulares.
 
-Redirecionamento este URL pode ser conseguido através da configuração seguinte:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Pontos de chave:**
@@ -1247,9 +1247,9 @@ Esta funcionalidade inclui correspondentes aos critérios que devem ser satisfei
 
 </br>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Referência do motor de regras](cdn-rules-engine-reference.md)
-* [Expressões condicionais de motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
+* [Motor de regras de expressões condicionais](cdn-rules-engine-reference-conditional-expressions.md)
 * [Condições de correspondência do motor de regras](cdn-rules-engine-reference-match-conditions.md)
-* [Substituir o comportamento HTTP predefinido utilizando o motor de regras](cdn-rules-engine.md)
-* [Descrição geral da CDN do Azure](cdn-overview.md)
+* [Comportamento HTTP utilizando o motor de regras de substituição](cdn-rules-engine.md)
+* [Descrição geral CDN do Azure](cdn-overview.md)

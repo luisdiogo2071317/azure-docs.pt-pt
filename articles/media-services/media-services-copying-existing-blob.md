@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar os blobs existentes para um recurso de serviços de suporte de dados
 Este artigo mostra como copiar blobs a partir de uma conta de armazenamento para um novo através de recurso de serviços de suporte de dados do Azure (AMS) [extensões do SDK .NET do Azure suporte de dados de serviços](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -51,7 +51,7 @@ Pode seguir os passos neste artigo ou pode transferir uma amostra que contém o 
 1. Configurar o ambiente de desenvolvimento, conforme descrito em [desenvolvimento de Media Services com .NET](media-services-dotnet-how-to-use.md). 
 2. Adicione a secção appSettings ao ficheiro. config e atualize os valores com base nas suas contas dos Media Services, a conta de armazenamento de destino e o ID de recurso de origem.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ Pode seguir os passos neste artigo ou pode transferir uma amostra que contém o 
 
 O código seguinte utiliza extensões **IAsset.Copy** método para copiar todos os ficheiros no recurso de origem para o elemento de destino a utilizar uma extensão único.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Configurar o ambiente de desenvolvimento, conforme descrito em [desenvolvimento de Media Services com .NET](media-services-dotnet-how-to-use.md). 
 2. Adicione a secção appSettings ao ficheiro. config e atualize os valores com base nas suas contas do AMS origem armazenamento e de destino.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -187,9 +187,9 @@ namespace CopyExistingBlobsIntoAsset
 O código seguinte copia blobs a partir de uma conta de armazenamento para um elemento de Media Services. 
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, consulte [isto](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,7 +371,8 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora, pode codificar os elementos que carregar. Para obter mais informações, veja [Codificar elementos](media-services-portal-encode.md)
 

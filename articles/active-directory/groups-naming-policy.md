@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de atribuição de nomes de grupos do Office 365 no Azure Active Directory (pré-visualização)
 
@@ -100,7 +100,9 @@ Se lhe for pedido sobre aceder a um repositório não fidedigno, digite **Y**. P
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-No **iniciar sessão na sua conta** ecrã que se abre, introduza a conta de administrador e a palavra-passe para estabelecer a ligação ao seu serviço e selecione **sessão**.
+  No **iniciar sessão na sua conta** ecrã que se abre, introduza a conta de administrador e a palavra-passe para estabelecer a ligação ao seu serviço e selecione **sessão**.
+
+3. Siga os passos no [cmdlets do Azure Active Directory para configurar definições de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md) para criar definições de grupo para este inquilino.
 
 ### <a name="view-the-current-settings"></a>Ver as definições atuais
 
@@ -140,9 +142,9 @@ E já está. Tiver definido a política de atribuição de nomes e adicionado as
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exportar ou importar a lista de palavras bloqueadas personalizadas
 
-Para obter mais informações, consulte o artigo [cmdlets do Azure Active Directory para configurar definições de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
+Para obter mais informações, consulte o artigo [cmdlets do Azure Active Directory para configurar definições de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
-Eis um exemplo de script do PowerShell para exportar vários palavras bloqueadas:
+Eis um exemplo de um script do PowerShell para exportar vários palavras bloqueadas:
 
 ````
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
