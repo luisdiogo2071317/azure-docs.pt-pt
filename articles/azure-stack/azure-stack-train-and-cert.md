@@ -2,17 +2,18 @@
 title: "Formação de pilha do Azure e certificação"
 description: "Saiba mais sobre oportunidades de certificação de formação de pilha do Azure"
 services: azure-stack
-author: vhorne
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
+ms.date: 02/28/2018
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: 50e1a4f5aa1ba5ad901506407d30e04df7449719
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3ac1d83c4f40bd8bbd072486489b72de73084ade
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Formação de pilha do Azure e certificação
 
@@ -29,6 +30,6 @@ As oportunidades de formação e certificação seguintes estão disponíveis pa
 ## <a name="certification"></a>Certificação
 Certificações de pilha do Azure estão atualmente em desenvolvimento. Verifique novamente para as atualizações mais recentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Documentação de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/)

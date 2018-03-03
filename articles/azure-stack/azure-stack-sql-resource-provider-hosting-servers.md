@@ -3,21 +3,21 @@ title: SQL Server que aloja os servidores na pilha do Azure | Microsoft Docs
 description: "Como adicionar as instâncias do SQL Server para o aprovisionamento através do fornecedor de recursos do adaptador de SQL"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
-ms.author: JeffGo
-ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Adicionar servidores de alojamento para utilização pela placa do SQL Server
 
@@ -65,11 +65,11 @@ Para adicionar uma autónoma que aloja o servidor que já está aprovisionado, s
 
   O **SQL que aloja servidores** painel é onde pode ligar o fornecedor de recursos do servidor de SQL para instâncias reais do SQL Server que servem de back-end do fornecedor de recursos.
 
-  ![Servidores de alojamento](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+  ![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
 3. Preencha o formulário com os detalhes de ligação da sua instância do SQL Server.
 
-  ![Novo servidor de alojamento](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+  ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     Opcionalmente, pode incluir um nome de instância e um número de porta pode ser fornecido se a instância não está atribuída para a porta predefinida 1433.
 
@@ -130,7 +130,7 @@ Para adicionar servidores de alojamento SQL Always On, siga estes passos:
 
 4. Selecione esta caixa para ativar o suporte para instâncias do SQL sempre no grupo de disponibilidade.
 
-    ![Servidores de alojamento](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+    ![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Adicione a instância do SQL Always On para um SKU. Não é possível misturar servidores autónomos com Always On instâncias o SKU do mesmo. Que será determinada ao adicionar o primeiro servidor de alojamento. Tentativa de combinar tipos posteriormente resultará num erro.
 
@@ -163,6 +163,6 @@ Para modificar as definições, clique em **procurar** &gt; **recursos administr
 ![Atualizar a palavra-passe de administrador](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Adicionar bases de dados](azure-stack-sql-resource-provider-databases.md)

@@ -3,8 +3,8 @@ title: "Gerir as máquinas virtuais do Windows Azure Pack de pilha do Azure | Mi
 description: Saiba como gerir VMs do Windows Azure Pack (WAP) a partir do portal de utilizador na pilha do Azure.
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Gerir as máquinas virtuais do Windows Azure Pack de pilha do Azure
 
@@ -97,7 +97,7 @@ Para ativar o modo de cloud multi, tem de executar o script de adicionar AzurePa
 | -------- | ------------- | ------- |  
 | AzurePackClouds | URIs dos conectores do Windows Azure Pack. Estes URIs deve corresponder à portais de inquilino do Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Por predefinição, o valor da porta é 40005.) |  
 | AzureStackCloudName | Etiqueta para representar a nuvem do Azure pilha local.| "AzureStack" |
-| DisableMultiCloud | Um comutador para desativar o modo de vários cloud.| N/D |
+| DisableMultiCloud | Um comutador para desativar o modo de vários cloud.| N/A |
 | | |
 
 Pode executar o script de adicionar AzurePackConnector.ps1 imediatamente após a implementação, ou posterior. Para executar o script imediatamente após a implementação, utilize a mesma sessão do Windows PowerShell em que foi concluída a implementação da pilha do Azure. Caso contrário, pode abrir uma nova sessão do Windows PowerShell como administrador (iniciada sessão como conta de azurestackadmin).
@@ -128,7 +128,7 @@ Pode executar o script de adicionar AzurePackConnector.ps1 imediatamente após a
     * **AuthenticationIdentityProviderPartner**: contém o par de valor seguintes:
         * Token de autenticação, assinatura de certificado que tem a API de inquilino do Windows Azure Pack para confiar para aceitar as chamadas a partir da extensão de portal de pilha do Azure.
 
-        * O "Realm" associada com o certificado de assinatura. Por exemplo: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
+        * O "Realm" associada com o certificado de assinatura. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
 3.  Procure a pasta que contém os ficheiros de saída (\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput) e copie os ficheiros para o seu computador local. Os ficheiros terá um aspeto semelhantes a isto: AzurePack-06-27-15-50.txt.
 
@@ -163,11 +163,11 @@ Para esta versão de pré-visualização, utilize o conector do Windows Azure Pa
     ```
      d. Altere os diretórios para **c:\inetpub** e certifique-se de que os três novos sites estão instalados:
 
-       * Conector MgmtSvc
+       * MgmtSvc-Connector
 
-       * MgmtSvc ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-       * MgmtSvc ConnectorController
+       * MgmtSvc-ConnectorController
 
     e. Do mesmo **c:\temp\wapconnector\setup\scripts** pasta, execute o **configurar Certificates.ps1** script para instalar os certificados. Por predefinição, irá utilizar o mesmo certificado que está disponível para o site do Portal inquilino no Windows Azure Pack. Certifique-se de que este é um certificado válido (fidedigno pela máquina virtual do Azure pilha AzS-WASP01 e qualquer computador cliente que acede ao portal do Azure pilha). Caso contrário, a comunicação não funcionará. (Em alternativa, pode explicitamente passar um thumbprint de certificado como um parâmetro utilizando o parâmetro-Thumbprint.)
 
@@ -183,7 +183,7 @@ Para esta versão de pré-visualização, utilize o conector do Windows Azure Pa
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | O portal de inquilino do Windows Azure Pack FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | O FQDN de API do Windows Azure Pack inquilino. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | O portal de utilizador do Azure pilha FQDN. | Portal.local.azurestack.external |
+    | AzureStackPortalFQDN | O portal de utilizador do Azure pilha FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -277,5 +277,5 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. Para problemas conhecidos, consulte [resolução de problemas do Microsoft Azure pilha](azure-stack-troubleshooting.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Os portais de administrador e utilizador a utilizar na pilha do Azure](azure-stack-manage-portals.md)

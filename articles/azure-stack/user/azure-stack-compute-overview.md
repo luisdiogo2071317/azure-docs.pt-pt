@@ -2,16 +2,17 @@
 title: "Introdução às máquinas virtuais de pilha do Azure"
 description: "Saiba mais sobre as máquinas virtuais de pilha do Azure"
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às máquinas virtuais de pilha do Azure
 
@@ -94,7 +95,7 @@ Os recursos na tabela seguinte são utilizados pela VM e tem de existir ou ser c
 |Rede virtual|Sim|A VM tem de ser um membro de uma rede virtual.|
 |Endereço IP público|Não|A VM pode ter um endereço IP público atribuído para aceder ao mesmo remotamente.|
 |Interface de rede|Sim|A VM precisa da interface de rede para comunicar na rede.|
-|Discos dos dados|Não|A VM pode incluir discos de dados para expandir as capacidades de armazenamento.|
+|Discos de dados|Não|A VM pode incluir discos de dados para expandir as capacidades de armazenamento.|
 
 ## <a name="how-do-i-create-my-first-vm"></a>Como posso criar a minha primeira VM?
 
@@ -128,6 +129,6 @@ A tabela seguinte mostra algumas das formas como pode obter informações sobre 
 
 Pode utilizar o **Connect** botão no portal do Azure pilha para ligar à VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Considerações para máquinas virtuais na pilha do Azure](azure-stack-vm-considerations.md)
 
