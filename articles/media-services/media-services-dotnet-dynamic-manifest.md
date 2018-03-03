@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: dd7e332eb1c935ee70a617124bd4d86e160366c7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Criar Filtros com o SDK .NET dos Serviços de Multimédia do Azure
 > [!div class="op_single_selector"]
@@ -46,6 +46,7 @@ Quando criar os filtros, são utilizados os seguintes tipos:
 ## <a name="createupdatereaddelete-global-filters"></a>Criar/atualizar/leitura/eliminar filtros de global
 O código seguinte mostra como utilizar .NET para criar, atualizar, ler e eliminar os filtros de recurso.
 
+```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
     List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
@@ -70,11 +71,12 @@ O código seguinte mostra como utilizar .NET para criar, atualizar, ler e elimin
 
     // Delete
     filter.Delete();
-
+```
 
 ## <a name="createupdatereaddelete-asset-filters"></a>Filtros de recurso criar/atualizar/leitura/eliminar
 O código seguinte mostra como utilizar .NET para criar, atualizar, ler e eliminar os filtros de recurso.
 
+```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
@@ -100,7 +102,7 @@ O código seguinte mostra como utilizar .NET para criar, atualizar, ler e elimin
     // Delete
     filterUpdated.Delete();
 
-
+```
 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Criar URLs que utilizam filtros de transmissão em fluxo
@@ -131,6 +133,6 @@ Os exemplos seguintes mostram como adicionar filtros para os URLs de transmissã
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Descrição geral de manifestos dinâmica](media-services-dynamic-manifest-overview.md)
 

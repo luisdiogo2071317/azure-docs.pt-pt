@@ -3,7 +3,7 @@ title: "Grupos dinâmicos e de colaboração B2B do Azure Active Directory do | 
 description: "Mostra como utilizar grupos dinâmicos do Azure AD com colaboração B2B do Azure Active Directory do"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: d60b7f70332d6183a67003c1dceb96241fc6bae4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: cbb700e513947034a783c6b6574c8daddf96844b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e de colaboração B2B do Azure Active Directory do
 
@@ -45,7 +45,7 @@ Um grupo poderá aspeto:
 
 ![Regra de mostra onde o tipo de utilizador for igual a convidado](media/active-directory-b2b-dynamic-groups/only-guest-users.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
 

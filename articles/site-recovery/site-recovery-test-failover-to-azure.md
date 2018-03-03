@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Testar a ativação pós-falha para o Azure Site Recovery
 
@@ -29,8 +29,8 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
 
 
 1. No Site Recovery no portal do Azure, clique em **planos de recuperação** > *recoveryplan_name* > **ativação pós-falha de teste**.
-2. Selecione um **ponto de recuperação** ao qual pretende efetuar a ativação pós-falha. Pode utilizar uma das seguintes opções:
-    - **Mais recentes processados**: esta opção a ativação pós-falha todas as VMs no plano do ponto de recuperação mais recente, processados pelo Site Recovery. Para ver a para uma VM específica de pontos de recuperação mais recente, consulte **pontos de recuperação mais recente** nas definições de VM. Esta opção fornece um RTO baixa (objetivo de tempo de recuperação), porque nenhum tempo é gasto a processar dados não processados.
+2. Selecione um **ponto de recuperação** ao qual pretende efetuar a ativação pós-falha. Pode utilizar uma das opções seguintes:
+    - **Mais recentes processados**: esta opção a ativação pós-falha todas as VMs no plano do ponto de recuperação mais recente, processados pelo Site Recovery. Para ver a para uma VM específica de pontos de recuperação mais recente, consulte **pontos de recuperação mais recente** nas definições de VM. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
     - **Mais recente consistentes da aplicação**: esta opção a ativação pós-falha todas as VMs no plano para o ponto mais recente recuperação consistentes com aplicações processado pela recuperação de sites. Para ver a para uma VM específica de pontos de recuperação mais recente, consulte **pontos de recuperação mais recente** nas definições de VM. 
     - **Mais recente**: esta opção primeiro processa todos os dados que foi enviados para o serviço de recuperação de sites, criar um ponto de recuperação para cada VM antes de falhar ao longo ao mesmo. Esta opção fornece o RPO mais baixo (objetivo de ponto de recuperação), uma vez que a VM criadas após ativação pós-falha terá de todos os dados replicados no Site Recovery quando a ativação pós-falha foi acionada.
     - **Mais recente várias VMS processados**: esta opção está disponível para planos de recuperação com uma ou mais VMs que têm a consistência multi VM ativada. As VMs com a definição ativada com a ativação pós-falha do ponto de recuperação consistente de várias VMS mais recente. Outras VMs com a ativação pós-falha do ponto de recuperação de processamento mais recente.  
@@ -45,7 +45,7 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
 5. Controlar o progresso de ativação pós-falha no **tarefas** separador. Deve conseguir ver a máquina de réplica de teste no portal do Azure.
 6. Para iniciar uma ligação de RDP para a VM do Azure, terá de [adicionar um endereço IP público](https://aka.ms/addpublicip) na interface de rede de ativação pós-falha VM. 
 7. Quando tudo está a funcionar conforme esperado, clique em **ativação pós-falha de teste de limpeza**. Isto elimina as VMs que foram criadas durante a ativação pós-falha de teste.
-8. No **notas**, registar e guardar todas as observações associadas à ativação pós-falha de teste. 
+8. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste. 
 
 
 ![Ativação pós-falha de teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
@@ -81,7 +81,7 @@ Em todos os outros casos, não é necessário nenhum passo intermédio e ativaç
 Recomendamos que ativação pós-falha de teste, escolha uma rede que está isolada da rede do site de recuperação de produção específica no **computação e rede** definições para cada VM. Por predefinição, quando criar uma Azure virtual network, está isolada de outras redes. A rede de teste deve imitar a sua rede de produção:
 
 - A rede de teste deve ter o mesmo número de sub-redes que a sua rede de produção. Sub-redes devem ter os mesmos nomes.
-- A rede de teste deve utilizar o mesmo rangek de endereço IP.
+- A rede de teste deve utilizar o mesmo intervalo de endereços IP.
 - Atualizar o DNS da rede de teste com o endereço IP especificado para a VM com DNS **computação e rede** definições. Leitura [considerações de ativação pós-falha do Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obter mais detalhes.
 
 
@@ -89,7 +89,7 @@ Recomendamos que ativação pós-falha de teste, escolha uma rede que está isol
 
 Embora, recomendamos que utilize uma rede de teste separada da sua rede de produção, se pretender testar um exercício de recuperação após desastre na sua rede de produção, tenha em atenção o seguinte: 
 
-- Certifique-se de que a VM principal é encerrada ao executar a ativação pós-falha de teste. Não existe Otherewise será duas VMs com a mesma identidade, em execução na mesma rede, ao mesmo tempo. Isto pode levar a consequências inesperadas.
+- Certifique-se de que a VM principal é encerrada ao executar a ativação pós-falha de teste. Caso contrário, existirão duas VMs com a mesma identidade, em execução na mesma rede, ao mesmo tempo. Isto pode levar a consequências inesperadas.
 - As alterações às VMs criadas para ativação pós-falha de teste serão perdidas quando limpar a ativação pós-falha. Estas alterações não são replicadas para a VM principal.
 - Teste no seu ambiente de produção leva a um tempo de inatividade da sua aplicação de produção. Os utilizadores não devem utilizar as aplicações em execução em VMs quando a ativação pós-falha de teste está em curso.  
 
@@ -106,9 +106,9 @@ Se pretende ligar as VMs do Azure com RDP após a ativação pós-falha, siga os
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
 **VM do Azure com o Windows** | Máquina no local antes da ativação pós-falha | Para aceder à VM do Azure através da internet, ative o RDP e certifique-se de que as regras TCP e UDP estão adicionadas para **pública**, e que o RDP é permitido para todos os perfis de **Firewall do Windows**  >  **Aplicações permitidas**.<br/><br/> Para aceder à VM do Azure através de uma ligação site a site, ative o RDP na máquina e certifique-se de que o RDP é permitido no **Firewall do Windows** -> **aplicações e funcionalidades permitidas**, para **Domínio e privada** redes.<br/><br/>  Certifique-se de que o sistema operativo de política de SAN está definido como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que existem não existem atualizações pendentes do Windows na VM quando acione uma ativação pós-falha. Poderá iniciar a atualização do Windows quando efetuar a ativação pós-falha e não poderá iniciar sessão no VM até a conclusão da atualização. 
-**VM do Azure com o Windows** | VM do Azure após a ativação pós-falha |  [Adicionar um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada à porta RDP.<br/><br/> Verifique **diagnóstico de arranque** para verificar uma captura de ecrã da VM.<br/><br/> Se não conseguir ligar, verifique que a VM está em execução e reveja estes [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**VM do Azure com o Windows** | VM do Azure após a ativação pós-falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada à porta RDP.<br/><br/> Verifique **diagnóstico de arranque** para verificar uma captura de ecrã da VM.<br/><br/> Se não conseguir ligar, verifique que a VM está em execução e reveja estes [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **VM do Azure a executar Linux** | Máquina no local antes da ativação pós-falha | Certifique-se de que o serviço de Secure Shell na VM está definido para iniciar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
-**VM do Azure a executar Linux** | VM do Azure após a ativação pós-falha | As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada na porta SSH.<br/><br/> [Adicionar um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique **diagnóstico de arranque** para uma captura de ecrã da VM.<br/><br/>
+**VM do Azure a executar Linux** | VM do Azure após a ativação pós-falha | As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada na porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique **diagnóstico de arranque** para uma captura de ecrã da VM.<br/><br/>
 
 
 

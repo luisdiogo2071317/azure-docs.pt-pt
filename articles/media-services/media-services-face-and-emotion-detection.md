@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detetar enfrentam e emoções com a análise de multimédia do Azure
 ## <a name="overview"></a>Descrição geral
@@ -64,12 +64,14 @@ Enfrentam Detector utiliza técnicas de fragmentação (onde podem dividir os me
 ### <a name="task-configuration-preset"></a>Configuração da tarefa (predefinição)
 Quando criar uma tarefa com **Azure suporte de dados enfrentam Detector**, tem de especificar uma predefinição de configuração. A predefinição de configuração seguinte é apenas para a deteção de rostos em.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Descrições de atributo
 | Nome do atributo | Descrição |
@@ -79,6 +81,7 @@ Quando criar uma tarefa com **Azure suporte de dados enfrentam Detector**, tem d
 ### <a name="json-output"></a>Saída JSON
 O seguinte exemplo de saída JSON foi truncado.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ O seguinte exemplo de saída JSON foi truncado.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Deteção de emoções de entrada e saída de exemplo
 ### <a name="input-video"></a>Vídeo de entrada
@@ -133,6 +136,7 @@ O seguinte exemplo de saída JSON foi truncado.
 ### <a name="task-configuration-preset"></a>Configuração da tarefa (predefinição)
 Quando criar uma tarefa com **Azure suporte de dados enfrentam Detector**, tem de especificar uma predefinição de configuração. Especifica a predefinição de configuração seguintes para criar com base na deteção de emoções de JSON.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ Quando criar uma tarefa com **Azure suporte de dados enfrentam Detector**, tem d
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Descrições de atributo
@@ -161,6 +166,7 @@ Abaixo são recomendadas valores para as definições de janela e o intervalo de
 ### <a name="json-output"></a>Saída JSON
 JSON de saída para emoções agregada (truncada):
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ JSON de saída para emoções agregada (truncada):
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Limitações
 * Os formatos de vídeos de entrada suportados incluem MP4, MOV e WMV.
@@ -324,10 +331,12 @@ O seguinte programa mostra como:
 
 1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
 2. Crie uma tarefa com uma tarefa de deteção de rostos em baseado num ficheiro de configuração que contém a predefinição de json seguinte: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Transferir os ficheiros JSON de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -336,7 +345,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

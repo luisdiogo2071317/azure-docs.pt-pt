@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bd4cee783944b0c6e0efcb7ec63c5a72bd13cc8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 37fbe7fa3160d39e85614c3481061d5ce458b29a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e análise de registos
 O [Azure Application Insights](app-insights-overview.md) serviço utiliza um número de endereços IP. Poderá ter de conhecer estes endereços, se a aplicação que está a monitorizar estiver alojada atrás de uma firewall.
@@ -30,7 +30,7 @@ O [Azure Application Insights](app-insights-overview.md) serviço utiliza um nú
 ## <a name="outgoing-ports"></a>Portas de envio
 Terá de abrir algumas portas de envio na firewall do seu servidor para permitir que o Application Insights SDK e/ou o Monitor de estado enviar dados para o portal:
 
-| Objetivo | URL | IP | Portas |
+| Objetivo | do IdP | IP | Portas |
 | --- | --- | --- | --- |
 | Telemetria |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Transmissão de métricas em direto |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
@@ -39,7 +39,7 @@ Terá de abrir algumas portas de envio na firewall do seu servidor para permitir
 ## <a name="status-monitor"></a>Monitor de estado
 Configuração de Monitor do Estado - necessária apenas quando efetuar alterações.
 
-| Objetivo | URL | IP | Portas |
+| Objetivo | do IdP | IP | Portas |
 | --- | --- | --- | --- |
 | Configuração |`management.core.windows.net` | |`443` |
 | Configuração |`management.azure.com` | |`443` |
@@ -48,10 +48,10 @@ Configuração de Monitor do Estado - necessária apenas quando efetuar alteraç
 | Configuração |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuração |`auth.gfx.ms` | |`443` |
 | Configuração |`login.live.com` | |`443` |
-| Instalação |`packages.nuget.org` | |`443` |
+| Instalação |`packages.nuget.org` , `nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
-| Objetivo | URL | IP | Portas |
+| Objetivo | do IdP | IP | Portas |
 | --- | --- | --- | --- |
 | Dados de falhas |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 

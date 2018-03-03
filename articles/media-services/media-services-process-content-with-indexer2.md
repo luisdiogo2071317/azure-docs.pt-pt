@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>A indexação de ficheiros de suporte de dados pré-visualização do indexador 2 Media Services do Azure
 ## <a name="overview"></a>Descrição geral
@@ -56,6 +56,7 @@ Quando criar um indexação tarefas com **pré-visualização do Azure Media ind
 
 O seguinte JSON define os parâmetros disponíveis.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ O seguinte JSON define os parâmetros disponíveis.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Linguagens suportadas
 Pré-visualização de 2 do indexador de suporte de dados do Azure suporta reconhecimento de voz para texto para os seguintes idiomas (quando especificar o nome de idioma na configuração de tarefas, utilize o código de 4 carateres entre parênteses Retos, conforme mostrado abaixo):
@@ -96,20 +98,23 @@ O seguinte programa mostra como:
 
 1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
 2. Crie uma tarefa com uma tarefa de indexação com base num ficheiro de configuração que contém a predefinição de json seguinte:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Transfira os ficheiros de saída. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -118,7 +123,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

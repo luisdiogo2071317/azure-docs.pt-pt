@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 2/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f0a674daab177d71658c546fa4719892a33ed869
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c25a0171bd412050a7c94e9b077436cd1ebe893b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Entrada HTTPS no serviço de contentor do Azure (AKS)
 
 Um controlador de entrada é um fragmento de software que fornece proxy inverso, o encaminhamento de tráfego configurável e terminação de TLS para Kubernetes serviços. Recursos de entrada Kubernetes são utilizados para configurar as regras de entrada e as rotas para serviços Kubernetes individuais. Utilizar um controlador de entrada e regras de entrada, um único endereço externo pode ser utilizado para encaminhar o tráfego para vários serviços num Kubernetes cluster.
 
-Este documento explica como através de uma implementação de exemplo do [controlador de entrada NGIX] [ nginx-ingress] de um cluster do serviço de contentor do Azure (AKS). Além disso, o [KUBE LEGO] [ kube-lego] projeto é utilizado para gerar e configurar automaticamente [vamos encriptar] [ lets-encrypt] certificados. Por fim, várias aplicações são executadas no cluster AKS, cada um dos quais está acessível através de um único endereço.
+Este documento explica como através de uma implementação de exemplo do [controlador de entrada NGINX] [ nginx-ingress] de um cluster do serviço de contentor do Azure (AKS). Além disso, o [KUBE LEGO] [ kube-lego] projeto é utilizado para gerar e configurar automaticamente [vamos encriptar] [ lets-encrypt] certificados. Por fim, várias aplicações são executadas no cluster AKS, cada um dos quais está acessível através de um único endereço.
 
 ## <a name="install-an-ingress-controller"></a>Instalar um controlador de entrada
 
@@ -58,8 +58,8 @@ IP="52.224.125.195"
 DNSNAME="demo-aks-ingress"
 
 # Get resource group and public ip name
-RESOURCEGROUP=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
-PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name]" --output tsv)
+RESOURCEGROUP=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
+PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[name]" --output tsv)
 
 # Update public ip address with dns name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
@@ -68,7 +68,7 @@ az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --d
 Se for necessário, execute o seguinte comando para obter o FQDN. Atualize o valor do endereço IP com que o controlador de entrada.
 
 ```azurecli
-az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
+az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
 O controlador de entrada está agora acessível através do FQDN.

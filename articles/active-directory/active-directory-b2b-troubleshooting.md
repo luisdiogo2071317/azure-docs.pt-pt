@@ -3,7 +3,7 @@ title: "Resolução de problemas de colaboração B2B do Azure Active Directory 
 description: "Responsabilidade para problemas comuns com a colaboração B2B do Azure Active Directory do"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
-ms.openlocfilehash: 6773aeb6f8470bb8d35764d579681b4167e5175d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração B2B do Azure Active Directory do
 
@@ -70,7 +71,7 @@ Os utilizadores externos podem ser adicionados apenas aos grupos de "Segurança"
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Os meus utilizadores externos não recebeu uma mensagem de e-mail para resgatar
 
-O invitee deve verificar junto do respetivo filtro ISP ou spam para se certificar de que é permitido o seguinte endereço:Invites@microsoft.com
+O invitee deve verificar junto do respetivo filtro ISP ou spam para se certificar de que é permitido o seguinte endereço: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Posso tenha em atenção que a mensagem personalizada não obter incluída com mensagens convite por vezes
 
@@ -81,7 +82,7 @@ Para estar em conformidade com as leis de privacidade, os APIs não incluírem m
 
 Se este cenário é importante para si, pode suprimir os nosso e-mail de convite de API e enviá-lo através do mecanismo de e-mail da sua preferência. Consulte a legais counsel sua organização para se certificar de qualquer e-mail enviar que desta forma também estas estejam em conformidade com as leis de privacidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
 

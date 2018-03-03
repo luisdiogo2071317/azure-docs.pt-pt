@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detetar Motions com a análise de multimédia do Azure
 ## <a name="overview"></a>Descrição geral
 O **Detector de movimento de suporte de dados do Azure** processador de multimédia (MP) permite-lhe identificar eficientemente secções de interesse num vídeo longo e uneventful caso contrário. Deteção de movimento pode ser utilizada no filmagens de câmaras estático para identificar secções do vídeo onde ocorre o movimento. Gera um ficheiro JSON que contém um metadados com carimbos região e o delimitador onde o evento ocorreu.
 
-Esta tecnologia direcionado para os feeds de vídeo de segurança, é capaz de categorizar movimento eventos relevantes e falsos positivos, tais como sombras e alterações de lighting. Isto permite-lhe gerar alertas de segurança a partir de feeds da câmara sem ser spammed com eventos irrelevantes endless, ao conseguir extrair instantes de interesse de vídeos de vigilância extremamente longos.
+Esta tecnologia direcionado para os feeds de vídeo de segurança, é capaz de categorizar movimento eventos relevantes e falsos positivos, tais como sombras e alterações de lighting. Isto permite-lhe gerar alertas de segurança a partir de feeds da câmara sem ser spammed com eventos irrelevantes endless, ao conseguir extrair instantes de interesse de vídeos de vigilância longo.
 
 O **Detector de movimento de suporte de dados do Azure** MP está atualmente em pré-visualização.
 
@@ -40,13 +40,15 @@ Pode utilizar os seguintes parâmetros:
 
 | Nome | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
-| sensitivityLevel |Cadeia: 'baixa', 'Média', 'Alta' |Define o nível de sensibilidade em quais motions é comunicado. Ajuste esta opção para ajustar o número de falsos positivos. |'Média' |
-| frameSamplingValue |Número inteiro positivo |Define a frequência em que executa de algoritmo. cada intervalo de igual a 1, 2 significa cada 2nd moldura e assim sucessivamente. |1 |
+| sensitivityLevel |Cadeia: 'baixa', 'Média', 'Alta' |Define a sensibilidade nível no quais motions são reportados. Ajuste esta opção para ajustar o número de falsos positivos. |'Média' |
+| frameSamplingValue |Número inteiro positivo |Define a frequência em que executa de algoritmo. cada intervalo de igual a 1, 2 significa cada moldura segundo e assim sucessivamente. |1 |
 | detectLightChange |Booleano: 'true', 'false' |Define se leve alterações são reportadas nos resultados |'False' |
-| mergeTimeThreshold |Tempo de xs: Hh: mm:<br/>Exemplo: 00:00:03 |Especifica o intervalo de tempo entre os eventos de movimento onde 2 eventos serão combinados e reportados como 1. |00:00:00 |
-| detectionZones |Uma matriz de zonas de Deteção:<br/>-Deteção zona é uma matriz de 3 ou mais pontos<br/>-Ponto é um x e y coordenada de 0 a 1. |Descreve a lista das zonas de deteção poligonais na ser utilizado.<br/>Os resultados são reportados com as zonas como um ID, com o primeiro um que está a ser 'id': 0 |Única zona que abrange o intervalo completo. |
+| mergeTimeThreshold |Tempo de xs: Hh: mm:<br/>Exemplo: 00:00:03 |Especifica o intervalo de tempo entre os eventos de movimento onde 2 eventos são ser combinado e reportado como 1. |00:00:00 |
+| detectionZones |Uma matriz de zonas de Deteção:<br/>-Deteção zona é uma matriz de 3 ou mais pontos<br/>-Ponto é x e y coordenada de 0 a 1. |Descreve a lista das zonas de deteção poligonais na ser utilizado.<br/>Os resultados são reportados com as zonas como um ID, com o primeiro um que está a ser 'id': 0 |Única zona que abrange o intervalo completo. |
 
 ### <a name="json-example"></a>Exemplo JSON
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ Pode utilizar os seguintes parâmetros:
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Ficheiros de saída do movimento Detector
-Uma tarefa de deteção de movimento irá devolver um ficheiro JSON no elemento de saída, que descreve os alertas de movimento e a respetiva categorias, dentro de vídeo. O ficheiro irá conter informações sobre a hora e a duração de movimento detectada as vídeo.
+Uma tarefa de deteção de movimento devolve um ficheiro JSON no elemento de saída, que descreve os alertas de movimento e a respetiva categorias, dentro de vídeo. O ficheiro contém informações sobre a hora e a duração de movimento detectada as vídeo.
 
 A API de Detector movimento fornece indicadores assim que não existem objetos em movimento num vídeo em segundo plano fixo (por exemplo, um vigilância vídeo). O movimento Detector está preparado para reduzir alarmes false, tais como iluminação da e alterações de sombra de volumes. Limitações atuais dos algoritmos de incluem vídeos de visão as noites, por transparentes objetos e pequenos objetos.
 
@@ -107,8 +109,9 @@ A tabela seguinte descreve elementos do ficheiro de saída JSON.
 | Parênteses Retos] |Cada Reto representa um intervalo no evento. Foi detetado o Retos vazios para esse intervalo não significa que nenhum movimento. |
 | localizações |Esta nova entrada em eventos apresenta a localização onde ocorreu o movimento. Este é mais específico que as zonas de deteção. |
 
-Segue-se um exemplo de saída JSON
+O exemplo JSON seguinte mostra a saída:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Segue-se um exemplo de saída JSON
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Limitações
 * Os formatos de vídeos de entrada suportados incluem MP4, MOV e WMV.
 * Deteção de movimento está otimizada para vídeos estacionário em segundo plano. O algoritmo centra-se em reduzir alarmes false, tais como alterações lighting e sombras.
@@ -164,33 +167,36 @@ O seguinte programa mostra como:
 1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
 2. Crie uma tarefa com uma tarefa de deteção de movimento em vídeo baseada num ficheiro de configuração que contém a predefinição de json seguinte: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Transferir os ficheiros JSON de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -199,7 +205,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
-```
+```csharp
 
 using System;
 using System.Configuration;

@@ -1,183 +1,215 @@
 ---
-title: Criar uma rede virtual - Azure PowerShell | Microsoft Docs
-description: Saiba como criar uma rede virtual com o PowerShell.
+title: "Criar uma rede Virtual do Azure com várias sub-redes - PowerShell | Microsoft Docs"
+description: "Saiba como criar uma rede virtual com várias sub-redes através do PowerShell."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: a31f4f12-54ee-4339-b968-1a8097ca77d3
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 03/01/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: 
+ms.openlocfilehash: f550af298b37afa388b6fd860578863738510a5e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-using-powershell"></a>Criar uma rede virtual com o PowerShell
+# <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>Criar uma rede virtual com várias sub-redes através do PowerShell
 
-[!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
+Uma rede virtual permite que vários tipos de recursos do Azure comuniquem com a Internet e modo privado entre si. Criar várias sub-redes numa rede virtual permite-lhe segmentar a sua rede para que pode filtrar ou controlar o fluxo de tráfego entre sub-redes. Neste artigo, saiba como:
 
-O Azure tem dois modelos de implementação: a implementação do Azure Resource Manager e a implementação clássica. A Microsoft recomenda a criação de recursos com o modelo de implementação Resource Manager. Para saber mais sobre as diferenças entre os dois modelos, veja o artigo [Understand Azure deployment models (Compreender os modelos de implementação do Azure)](../azure-resource-manager/resource-manager-deployment-model.md).
- 
-Este artigo explica como criar uma VNet através do modelo de implementação do Resource Manager com o PowerShell. Também pode criar uma VNet através do Resource Manager com outras ferramentas ou criá-la através do modelo de implementação clássica, ao selecionar outra opção na lista seguinte:
+> [!div class="checklist"]
+> * Criar uma rede virtual
+> * Criar uma sub-rede
+> * Comunicação de rede entre as máquinas virtuais de teste
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
-> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-> * [CLI](virtual-networks-create-vnet-arm-cli.md)
-> * [Modelo](virtual-networks-create-vnet-arm-template-click.md)
-> * [Portal (Clássico)](virtual-networks-create-vnet-classic-pportal.md)
-> * [PowerShell (Clássico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-> * [CLI (Clássica)](virtual-networks-create-vnet-classic-cli.md)
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 3,6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure. 
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Para criar uma rede virtual com o PowerShell, execute os seguintes passos:
+Criar um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *EastUS* localização.
 
-1. Instalar e configurar o Azure PowerShell, seguindo os passos a [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) artigo.
+```azurepowershell-interactive
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+```
 
-2. Se necessário, crie um novo grupo de recursos, conforme mostrado abaixo. Para este cenário, crie um grupo de recursos denominado *TestRG*. Para obter mais informações sobre os grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+Crie uma rede virtual com [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). O exemplo seguinte cria uma rede virtual denominada *myVirtualNetwork* com o prefixo de endereço *10.0.0.0/16*.
 
-    ```powershell   
-    New-AzureRmResourceGroup -Name TestRG -Location centralus
-    ```
+```azurepowershell-interactive
+$virtualNetwork = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroup `
+  -Location EastUS `
+  -Name myVirtualNetwork `
+  -AddressPrefix 10.0.0.0/16
+```
 
-    Resultado esperado:
+O **AddressPrefix** é especificada em notação CIDR. O prefixo de endereço especificado inclui 10.0.0.0-10.0.255.254 de endereços IP.
 
-        ResourceGroupName : TestRG
-        Location          : centralus
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG    
-3. Crie uma nova VNet com o nome *TestVNet*:
+## <a name="create-a-subnet"></a>Criar uma sub-rede
 
-    ```powershell
-    New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
-    -AddressPrefix 192.168.0.0/16 -Location centralus
-    ```
+Uma sub-rede é criada ao primeiro criar uma configuração de sub-rede e, em seguida, atualizar a rede virtual com a configuração de sub-rede. Criar uma configuração de sub-rede com [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). O exemplo seguinte cria duas configurações de sub-rede para *pública* e *privada* sub-redes:
 
-    Resultado esperado:
+```azurepowershell-interactive
+$subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Public `
+  -AddressPrefix 10.0.0.0/24 `
+  -VirtualNetwork $virtualNetwork
 
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                   : W/"[Id]"
-        ProvisioningState          : Succeeded
-        Tags                       : 
-        AddressSpace               : {
-                                   "AddressPrefixes": [
-                                     "192.168.0.0/16"
-                                   ]
-                                  }
-        DhcpOptions                : {}
-        Subnets                    : []
-        VirtualNetworkPeerings     : []
-4. Armazene o objeto de rede virtual numa variável:
+$subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Private `
+  -AddressPrefix 10.0.1.0/24 `
+  -VirtualNetwork $virtualNetwork
+```
 
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-    ```
+O **AddressPrefix** especificado para uma sub-rede tem de estar dentro do prefixo de endereço definido para a rede virtual. Azure DHCP atribui endereços IP de um prefixo de endereço de sub-rede para recursos implementados numa sub-rede. Azure atribui apenas o 10.0.0.4-10.0.0.254 endereços a recursos implementados no **pública** sub-rede, porque o Azure reserva de quatro primeiras endereços (10.0.0.0-10.0.0.3 para a sub-rede, neste exemplo) e o último endereço ( 10.0.0.255 para a sub-rede, neste exemplo) em cada sub-rede.
 
-   > [!TIP]
-   > Pode combinar os passos 3 e 4 executando `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus`.
-   > 
+Escrever as configurações de sub-rede da rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), que cria as sub-redes na rede virtual:
 
-5. Adicione uma sub-rede à nova variável da VNet:
+```azurepowershell-interactive
+$virtualNetwork | Set-AzureRmVirtualNetwork
+```
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-    ```
+Antes de implementar redes virtuais do Azure e sub-redes para utilização em produção, recomendamos que lhe exaustivamente familiarizar-se com o espaço de endereços [considerações](virtual-network-manage-network.md#create-a-virtual-network) e [limites de rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Depois de recursos são implementados em sub-redes, algumas rede virtual e alterações de sub-rede, tal como alterar os intervalos de endereços, podem exigir a reimplementação de recursos do Azure existentes implementadas em sub-redes.
 
-    Resultado esperado:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {}
-        Subnets             : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24"
-                                  }
-                                ]
-        VirtualNetworkPeerings     : []
+## <a name="test-network-communication"></a>Comunicação de rede de teste
 
-6. Repita o passo 5 acima para cada sub-rede que pretende criar. O comando seguinte cria o *back-end* sub-rede para o cenário:
+Uma rede virtual permite que vários tipos de recursos do Azure comuniquem com a Internet e modo privado entre si. Um tipo de recurso que pode implementar numa rede virtual é uma máquina virtual. Crie duas máquinas virtuais na rede virtual para que possa testá comunicação de rede entre eles e a Internet num passo posterior. 
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-    ```
+### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-7. Embora crie sub-redes, elas atualmente só existem na variável local utilizada para obter a VNet que criou no passo 4 acima. Para guardar as alterações para o Azure, execute o seguinte comando:
+Criar uma máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma máquina virtual denominada *myVmWeb* no *pública* sub-rede do *myVirtualNetwork* rede virtual. O `-AsJob` opção cria a máquina virtual em segundo plano, para poder continuar para o passo seguinte. Quando lhe for pedido, introduza o nome de utilizador e palavra-passe que pretende iniciar sessão na máquina virtual com o.
 
-    ```powershell
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
-   
-    Resultado esperado:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {
-                                  "DnsServers": []
-                                }
-        Subnets               : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  },
-                                  {
-                                    "Name": "BackEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                                    "AddressPrefix": "192.168.2.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  }
-                                ]
-        VirtualNetworkPeerings : []
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Public" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmWeb" `
+    -AsJob
+```
+
+Azure automaticamente atribuído 10.0.0.4 como o endereço IP privado da máquina virtual, porque 10.0.0.4 é o primeiro endereço IP disponível na *pública* sub-rede. 
+
+Criar uma máquina virtual no *privada* sub-rede.
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Private" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmMgmt"
+```
+
+A máquina virtual demora alguns minutos a criar. Apesar de não na saída devolvida, Azure atribuído 10.0.1.4 como o endereço IP privado da máquina virtual, porque 10.0.1.4 é o primeiro endereço IP disponível na *privada* sub-rede de *myVirtualNetwork*. 
+
+Não continue com os restantes passos até que a máquina virtual está criada e PowerShell devolve um resultado.
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Comunicar entre máquinas virtuais e com a internet
+
+Pode ligar ao endereço IP público de uma máquina virtual a partir da Internet. Quando o Azure criado o *myVmMgmt* máquina virtual, um endereço IP público com o nome *myVmMgmt* também foi criada e atribuída à máquina virtual. Apesar de uma máquina virtual não é necessário ter um endereço IP público atribuído ao mesmo, o Azure atribui um endereço IP público para cada máquina virtual que cria, por predefinição. Para comunicar a partir da Internet para uma máquina virtual, um endereço IP público tem de ser atribuído à máquina virtual. Todas as máquinas virtuais podem comunicar saída com a Internet, quer tenha ou não está atribuído um endereço IP público para a máquina virtual. Para saber mais sobre ligações de Internet de saída no Azure, consulte o artigo [ligações de saída no Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+
+Utilize [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para devolver o endereço IP público de uma máquina virtual. O exemplo seguinte devolve o endereço IP público do *myVmMgmt* máquina virtual:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmMgmt `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remota com o *myVmMgmt* máquina virtual do seu computador local. Substitua `<publicIpAddress>` com o endereço IP devolvido do comando anterior.
+
+```
+mstsc /v:<publicIpAddress>
+```
+
+Um ficheiro de protocolo de ambiente de trabalho remoto (RDP) é criado, transferido para o computador e aberto. Introduza o nome de utilizador e palavra-passe que especificou ao criar a máquina virtual (poderá ter de selecionar **mais opções**, em seguida, **utilizar uma conta diferente**, para especificar as credenciais introduzidas quando a criar a máquina virtual) e, em seguida, clique em **OK**. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em **Sim** ou **Continuar** para continuar com a ligação. 
+
+Num passo posterior, ping é utilizado para comunicar com o *myVmMgmt* máquina virtual a partir de *myVmWeb* máquina virtual. Utiliza o ping ICMP, que é negado através da Firewall do Windows, por predefinição. Ative o ICMP através da firewall do Windows, introduzindo o seguinte comando numa linha de comandos:
+
+```
+netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+```
+
+Apesar de ping é utilizado neste artigo, permitir ICMP através da Firewall do Windows para implementações de produção não é recomendada.
+
+Por motivos de segurança, é comum para limitar o número de máquinas virtuais que podem ser ligados remotamente numa rede virtual. Neste tutorial, o *myVmMgmt* máquina virtual é utilizada para gerir o *myVmWeb* máquina virtual na rede virtual. Utilize o seguinte comando para ambiente de trabalho remoto para o *myVmWeb* máquina virtual a partir de *myVmMgmt* máquina virtual:
+
+``` 
+mstsc /v:myVmWeb
+```
+
+Para comunicar com o *myVmMgmt* máquina virtual a partir de *myVmWeb* máquina virtual, introduza o seguinte comando numa linha de comandos:
+
+```
+ping myvmmgmt
+```
+
+Poderá recebe um resultado semelhante ao seguinte exemplo de saída:
+    
+```
+Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+Ping statistics for 10.0.1.4:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+      
+Pode ver que o endereço do *myVmMgmt* máquina virtual é 10.0.1.4. 10.0.1.4 foi o primeiro endereço IP disponível no intervalo de endereços do *privada* sub-rede que implementou o *myVmMgmt* máquina virtual num passo anterior.  Verá que o nome de domínio completamente qualificado da máquina virtual é *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Embora o *dar5p44cif3ulfq00wxznl3i3f* parte do nome de domínio é diferente para a máquina virtual, o restante do nome de domínio são os mesmos. Por predefinição, todas as máquinas virtuais do Azure utilizam o serviço de DNS do Azure predefinido. Todas as máquinas virtuais dentro de uma rede virtual pode resolver os nomes de todas as outras máquinas virtuais na mesma rede virtual com o serviço DNS do Azure predefinido. Em vez de utilizar o serviço DNS predefinido do Azure, pode utilizar o seu próprio servidor DNS ou a capacidade de domínio privada do serviço DNS do Azure. Para obter mais informações, consulte [resolução de nomes utilizando o seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) ou [utilizando o DNS do Azure para domínios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Para instalar serviços de informação Internet (IIS) para o Windows Server no *myVmWeb* máquina virtual, introduza o comando seguinte a partir de uma sessão do PowerShell:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+Depois de concluída a instalação do IIS, desligue o *myVmWeb* sessões de ambiente de trabalho remoto, deixando-na *myVmMgmt* sessões de ambiente de trabalho remoto. Abra um browser e navegue para http://myvmweb. Consulte o página de boas-vindas do IIS.
+
+Desligar o *myVmMgmt* sessões de ambiente de trabalho remoto.
+
+Obter o endereço público Azure atribuído para o *myVmWeb* máquina virtual:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmWeb `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+No seu computador, navegue para o endereço IP público do *myVmWeb* máquina virtual. Falha ao tentar ver a página de boas-vindas do IIS do seu computador. A tentativa falhar porque quando as máquinas virtuais foram implementadas, o Azure criado um grupo de segurança de rede para cada máquina virtual, por predefinição. 
+
+Um grupo de segurança de rede contém regras de segurança que permitem ou negam o tráfego de rede de entrada e saída pela porta e endereço IP. O grupo de segurança de rede predefinido criado do Azure permite a comunicação através de todas as portas entre os recursos na mesma rede virtual. Para máquinas virtuais do Windows, o grupo de segurança de rede predefinido nega todo o tráfego de entrada da Internet através de todas as portas, aceite a porta TCP 3389 (RDP). Como consequência, por predefinição, também pode RDP diretamente para o *myVmWeb* máquina virtual a partir da Internet, apesar de não poderá porta 3389 aberto a um servidor web. Uma vez que a navegação na web comunica através da porta 80, falha de comunicação da Internet porque não há nenhuma regra num grupo de segurança de rede predefinido a permitir o tráfego através da porta 80.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não é necessário utilizar [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos nele contidos.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como ligar:
+Neste tutorial, aprendeu a implementar uma rede virtual com várias sub-redes. Também aprendeu que quando cria uma máquina virtual do Windows, o Azure cria uma interface de rede que liga à máquina virtual e cria um grupo de segurança de rede que permita que apenas o tráfego através da porta 3389, através da Internet. Avançar para o próximo tutorial para saber como filtrar o tráfego de rede a sub-redes, em vez de para máquinas virtuais individuais.
 
-- Uma máquina virtual (VM) a uma rede virtual ao ler o [criar uma VM do Windows](../virtual-machines/virtual-machines-windows-ps-create.md) artigo. Em vez de criar um VNet e uma sub-rede nos passos dos artigos, pode selecionar uma VNet e uma sub-rede existentes às quais ligar uma VM.
-- A rede virtual a outras redes virtuais, no artigo [Ligar VNets](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- A rede virtual a uma rede no local através de uma rede privada virtual (VPN) site a site ou de um circuito do ExpressRoute. Leia os artigos [Connect a VNet to an on-premises network using a site-to-site VPN (Ligar uma VNet a uma rede no local com uma VPN site a site)](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Link a VNet to an ExpressRoute circuit (Ligar uma VNet a um circuito do ExpressRoute)](../expressroute/expressroute-howto-linkvnet-arm.md) para saber como.
+> [!div class="nextstepaction"]
+> [Filtrar o tráfego de rede para sub-redes](./virtual-networks-create-nsg-arm-ps.md)

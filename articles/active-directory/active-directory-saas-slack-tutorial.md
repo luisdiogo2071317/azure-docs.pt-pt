@@ -4,20 +4,20 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Azure Active Directory com Slack
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-slack-tutorial/tutorial_slack_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.slack.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.slack.com`
 
-    b. No **identificador** caixa de texto, escreva o URL:`https://slack.com`
+    b. No **identificador** caixa de texto, escreva o URL: `https://slack.com`
 
     > [!NOTE] 
     > O valor não é real. Tem de atualizar o valor com o início de sessão real no URL. Contacte [equipa de suporte Slack](https://slack.com/help/contact) para obter o valor
@@ -121,14 +121,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     ![Configurar o início de sessão único](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Se o utilizador tiver **endereço de correio eletrónico** atribuídos utilizando o Office 365, em seguida, apenas será preenchido, caso contrário o **endereço de correio eletrónico** afirmação não irão aparecer no Token SAML.
+
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, selecione **user.mail** como **identificador de utilizador** e para cada linha mostrada na tabela abaixo, execute os seguintes passos:
     
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |
-    | first_name | User.givenName |
-    | last_name | User.Surname |
-    | User.Email | User.Mail |  
-    | User.Username | User.userPrincipalName |
+    | first_name | user.givenname |
+    | last_name | user.surname |
+    | User.Email | user.mail |  
+    | User.Username | user.userprincipalname |
 
     a. Clique em **atributo** para abrir **Editar atributo** diálogo caixa e execute os seguintes passos:
 
@@ -137,8 +140,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     a. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
     
     b. Do **valor** lista, selecione o valor do atributo apresentado para essa linha.
+
+    c. Deixe o **espaço de nomes** em branco.
     
-    c. Clique em **OK**
+    d. Clique em **OK**
 
 6. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

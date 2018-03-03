@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilizar Moderator de conteúdo do suporte de dados do Azure para detetar o conteúdo para adultos e racy possíveis
 
@@ -61,13 +61,13 @@ A saída JSON inclui os seguintes elementos:
 | start |A hora de início do primeiro evento na "ticks". |
 | Duração |O comprimento do fragmento, no "ticks". |
 | intervalo |O intervalo de cada entrada de evento dentro de fragmento, no "ticks". |
-| [eventos](#events-json-elements) |Cada evento representa uma clip e cada clip contém keyframes detetados e monitorizados dentro desse duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituído por 0 ou mais eventos que ocorreram neste ponto no tempo.|
+| [Eventos](#events-json-elements) |Cada evento representa uma clip e cada clip contém keyframes detetados e monitorizados dentro desse duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituído por 0 ou mais eventos que ocorreram neste ponto no tempo.|
 
 ### <a name="events-json-elements"></a>Elementos JSON de eventos
 
 |Elemento|Descrição|
 |---|---|
-| reviewRecommended | `true`ou `false` consoante esteja a **adultScore** ou **racyScore** exceder os limiares internos. |
+| reviewRecommended | `true` ou `false` consoante esteja a **adultScore** ou **racyScore** exceder os limiares internos. |
 | adultScore | Classificação de confiança para o conteúdo para adultos possíveis, numa escala de 0.00 para 0,99. |
 | racyScore | Classificação de confiança para conteúdo racy possíveis, numa escala de 0.00 para 0,99. |
 | índice | o índice da moldura numa escala de moldura primeiro para o último índice índice da moldura. |
@@ -90,6 +90,7 @@ O seguinte exemplo de código do .NET utiliza o SDK de Media Services .NET para 
 Consulte o [início rápido de vídeo Moderator conteúdo](../cognitive-services/Content-Moderator/video-moderation-api.md) para o código de origem completo e o projeto do Visual Studio.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Consulte o [início rápido de vídeo Moderator conteúdo](../cognitive-services
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Para obter o código de origem completo e o projeto do Visual Studio, consulte o [início rápido de vídeo Moderator conteúdo](../cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>Saída JSON
+### JSON output
 
-O seguinte exemplo de uma saída de conteúdo Moderator JSON foi truncado.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Localização de um keyframe em segundos = timestamp/escala temporal
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ O seguinte exemplo de uma saída de conteúdo Moderator JSON foi truncado.
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

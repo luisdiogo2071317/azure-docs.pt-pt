@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 88d80271e744d6f00afd1ff1c3df29180565b59e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cd429ed8252573f8e8c3ed11d6c841cba855b52
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
 Azure Service Fabric apresenta um [modelo de estado de funcionamento](service-fabric-health-introduction.md) concebido para sinalizador cluster mau estado de funcionamento e condições de aplicação no entidades específicas. O modelo de estado de funcionamento utiliza **Informadores de estado de funcionamento** (componentes de sistema e watchdogs). O objetivo é rápido e fácil de diagnóstico e de reparação. Os escritores de serviço tem de pensar compromisso sobre estado de funcionamento. Qualquer condição que pode afetar o estado de funcionamento deve ser comunicada, especialmente se pode ajudar a problemas de sinalizador próximo raiz. As informações de estado de funcionamento podem poupar tempo e esforço na depuração e investigação. Não é especialmente limpar a utilidade assim que o serviço está a funcionar à escala na nuvem (privada ou do Azure).
@@ -214,7 +214,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Enviar relatórios de estado de funcionamento com  **envio ServiceFabric*EntityType*HealthReport * *.
+Enviar relatórios de estado de funcionamento com **envio ServiceFabric*EntityType*HealthReport**.
 
 O exemplo seguinte mostra periódico de relatórios nos valores de CPU num nó. Os relatórios devem ser enviados a cada 30 segundos e têm um tempo TTL de dois minutos. Se expirarem, o relatório tem problemas, pelo que o nó é avaliado no erro. Quando a CPU está acima de um limiar, o relatório tem um Estado de funcionamento de aviso. Quando a CPU permanece acima de um limiar de mais do que o período de tempo configurado, é reportado como um erro. Caso contrário, o relatório envia um Estado de funcionamento de OK.
 

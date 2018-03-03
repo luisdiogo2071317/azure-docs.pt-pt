@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais do certificado para autenticação de aplicação
 
-Azure Active Directory permite uma aplicação a utilizar as suas próprias credenciais para autenticação, por exemplo, o fluxo de concessão de credenciais do OAuth 2.0 cliente e o fluxo em-nome-de.
+Azure Active Directory permite uma aplicação a utilizar as suas próprias credenciais para autenticação, por exemplo, o fluxo de concessão de credenciais do OAuth 2.0 cliente ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) e o fluxo em-nome-de ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Uma forma de credenciais que podem ser utilizados é uma asserção de JSON Web Token(JWT) assinada com um certificado que é proprietário da aplicação.
 
 ## <a name="format-of-the-assertion"></a>Formato da asserção
@@ -41,7 +41,7 @@ Para calcular a asserção, provavelmente pretende utilizar um dos muitos [JSON 
 
 | Parâmetro |  Remark |
 | --- | --- | --- |
-| `aud` | : Público-alvo  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token * * |
+| `aud` | : Público-alvo **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token** |
 | `exp` | Data de expiração: a data em que o token expira. A hora é representada como o número de segundos de 1 de Janeiro de 1970 (1970-01-01T0:0:0Z) UTC até que a hora a validade do token expira.|
 | `iss` | Emissor: deve ser o client_id (Id de aplicação do serviço de cliente) |
 | `jti` | GUID: o ID de JWT |

@@ -3,9 +3,9 @@ title: Invocar programas de Spark de Azure Data Factory | Microsoft Docs
 description: Saiba como invocar programas de Spark de um Azure data factory, utilizando a atividade de MapReduce.
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas de Spark do Azure Data Factory pipelines
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/23/2018
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se versão 1 do Azure Data Factory, que é geralmente disponível. Se utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados utilizando a atividade do Apache Spark no Data Factory versão 2](../transform-data-using-spark.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível. Se utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados utilizando a atividade do Apache Spark no Data Factory versão 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introdução
 A atividade de Spark é uma do [atividades de transformação de dados](data-factory-data-transformation-activities.md) suportada pela fábrica de dados. Esta atividade executa o programa de Spark especificado no cluster do Spark no Azure HDInsight. 
@@ -68,27 +68,27 @@ Para criar uma fábrica de dados, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **novo** > **dados + análise** > **fábrica de dados**.
+2. Selecione **Novo** > **Dados + Análise** > **Data Factory**.
 
 3. No **nova fábrica de dados** painel, em **nome**, introduza **SparkDF**.
 
    > [!IMPORTANT]
-   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se vir o erro "o nome da fábrica de dados SparkDF não está disponível", altere o nome do data factory. Por exemplo, utilize yournameSparkDFdate e criar a fábrica de dados novamente. Para obter mais informações sobre regras de nomenclatura, consulte [fábrica de dados: regras de nomenclatura](data-factory-naming-rules.md).
+   > O nome do Azure Data Factory deve ser globalmente exclusivo. Se vir o erro "o nome da fábrica de dados SparkDF não está disponível", altere o nome do data factory. Por exemplo, utilize yournameSparkDFdate e criar a fábrica de dados novamente. Para obter mais informações sobre regras de nomenclatura, veja [Data Factory: regras de nomenclatura](data-factory-naming-rules.md).
 
-4. Em **subscrição**, selecione a subscrição do Azure onde pretende que a fábrica de dados ser criada.
+4. Em **Subscrição**, selecione a subscrição do Azure onde pretende que seja criada a fábrica de dados.
 
 5. Selecione um grupo de recursos existente ou crie um grupo de recursos do Azure.
 
-6. Selecione o **afixar ao dashboard** caixa de verificação.
+6. Selecione a caixa de verificação **Afixar ao dashboard**.
 
 7. Selecione **Criar**.
 
    > [!IMPORTANT]
-   > Para criar instâncias do Data Factory, tem de ser um membro do [contribuinte da fábrica de dados](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) função ao nível do grupo de recursos/subscrição.
+   > Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) ao nível da subscrição/grupo de recursos.
 
 8. Verá a fábrica de dados enquanto está a ser criado no dashboard do portal do Azure.
 
-9. Depois de criar a fábrica de dados, consulte o **fábrica de dados** página, que mostra o conteúdo do data factory. Se não vir o **fábrica de dados** página, selecione o mosaico da fábrica de dados no dashboard.
+9. Depois de ter criado a fábrica de dados, é apresentada a página da **fábrica de dados** e o respetivo conteúdo. Se não vir o **fábrica de dados** página, selecione o mosaico da fábrica de dados no dashboard.
 
     ![Painel Data Factory](./media/data-factory-spark/data-factory-blade.png)
 
@@ -96,11 +96,11 @@ Para criar uma fábrica de dados, siga estes passos:
 Neste passo, vai criar dois serviços ligados. Um serviço de cluster do Spark contém ligações para a fábrica de dados e o outro serviço liga o armazenamento à fábrica de dados. 
 
 #### <a name="create-a-storage-linked-service"></a>Criar um serviço ligado ao Armazenamento
-Neste passo, ligar-se a conta de armazenamento à fábrica de dados. Um conjunto de dados a que criar num passo posterior nestas instruções refere-se a este serviço ligado. O serviço ligado do HDInsight que definem no próximo passo refere-se demasiado para este serviço ligado. 
+Neste passo, vai ligar a sua conta de armazenamento à fábrica de dados. Um conjunto de dados a que criar num passo posterior nestas instruções refere-se a este serviço ligado. O serviço ligado do HDInsight que definem no próximo passo refere-se demasiado para este serviço ligado. 
 
 1. No **fábrica de dados** painel, selecione **autor e implementar**. É apresentado o Editor do Data Factory.
 
-2. Selecione **novo arquivo de dados**e escolha **Storage do Azure**.
+2. Selecione **Novo arquivo de dados** e escolha **Armazenamento do Azure**.
 
    ![Novo arquivo de dados](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
@@ -108,9 +108,9 @@ Neste passo, ligar-se a conta de armazenamento à fábrica de dados. Um conjunto
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Substitua **nome da conta** e **chave da conta** com a chave de acesso e o nome da conta de armazenamento. Para saber como obter a chave de acesso de armazenamento, consulte como ver, copiar e voltar a gerar chaves de acesso de armazenamento no [gerir a sua conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+4. Substitua **nome da conta** e **chave da conta** com a chave de acesso e o nome da conta de armazenamento. Para saber como obter a sua chave de acesso ao armazenamento, veja como visualizar, copiar e regenerar chaves de acesso ao armazenamento em [Gerir a conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Para implementar o serviço ligado, selecione **implementar** na barra de comandos. Depois de implementar o serviço ligado com êxito, este desaparece na janela rascunho-1. Verá **AzureStorageLinkedService** na vista de árvore à esquerda.
+5. Para implementar o serviço ligado, selecione **implementar** na barra de comandos. Depois de o serviço ligado ser implementado com êxito, a janela Rascunho-1 desaparece. Verá **AzureStorageLinkedService** na vista de árvore à esquerda.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Criar um serviço ligado do HDInsight
 Neste passo, vai criar um serviço ligado do HDInsight para ligar o seu cluster do HDInsight Spark à fábrica de dados. O cluster do HDInsight é utilizado para executar o programa de Spark especificado na atividade Spark do pipeline neste exemplo. 
@@ -155,7 +155,7 @@ Neste passo, vai criar um serviço ligado do HDInsight para ligar o seu cluster 
 ### <a name="create-the-output-dataset"></a>Criar o conjunto de dados de saída
 O conjunto de dados de saída é o que pauta a agenda (hora a hora, diariamente). Por conseguinte, tem de especificar um conjunto de dados de saída para a atividade do Spark no pipeline, apesar da atividade não produzir qualquer saída. A especificação de um conjunto de dados de entrada para a atividade é opcional.
 
-1. No Editor de fábrica de dados, selecione **mais** > **novo conjunto de dados** > **Blob storage do Azure**.
+1. No Editor do Data Factory, selecione **Mais** > **Novo conjunto de dados** > **Armazenamento de Blobs do Azure**.
 
 2. Copie e cole o fragmento seguinte na janela Rascunho-1. O fragmento JSON define um conjunto de dados denominado **OutputDataset**. Além disso, especifica que os resultados são armazenados no contentor do blob denominado **adfspark** e na pasta denominada **pyFiles/saída**. Como mencionado anteriormente, este conjunto de dados é um conjunto de dados fictício. O programa de Spark neste exemplo não produzir qualquer saída. O **disponibilidade** secção especifica que o conjunto de dados de saída é produzido diariamente. 
 
@@ -184,9 +184,9 @@ O conjunto de dados de saída é o que pauta a agenda (hora a hora, diariamente)
 
 
 ### <a name="create-a-pipeline"></a>Criar um pipeline
-Neste passo, vai criar um pipeline com uma atividade HDInsightSpark. Atualmente, o conjunto de dados de saída é o que pauta a agenda, pelo que deve criar um conjunto de dados de saída, mesmo se a atividade não produzir qualquer saída. Se a atividade não incluir entradas, pode ignorar a criação do conjunto de dados de entrada. Por conseguinte, nenhum conjunto de dados de entrada é especificado neste exemplo.
+Neste passo, vai criar um pipeline com uma atividade HDInsightSpark. Atualmente, o conjunto de dados de saída é o que pauta a agenda, pelo que deve criar um conjunto de dados de saída, mesmo que a atividade não produza dados de saída. Se a atividade não incluir entradas, pode ignorar a criação do conjunto de dados de entrada. Por conseguinte, nenhum conjunto de dados de entrada é especificado neste exemplo.
 
-1. No Editor de fábrica de dados, selecione **mais** > **novo pipeline**.
+1. No Editor do Data Factory, selecione **Mais** > **Novo pipeline**.
 
 2. Substitua o script na janela rascunho-1 com o seguinte script:
 
@@ -350,7 +350,7 @@ Crie a seguinte estrutura de pasta no armazenamento de BLOBs referenciado pelo s
 | Caminho | Descrição | Necessário | Tipo |
 | ---- | ----------- | -------- | ---- |
 | . | O caminho da raiz da tarefa do Spark no serviço ligado de armazenamento. | Sim | Pasta |
-| &lt;definido pelo utilizador&gt; | O caminho que aponta para o ficheiro de entrada da tarefa de Spark. | Sim | Ficheiro |
+| &lt;Definido pelo utilizador &gt; | O caminho que aponta para o ficheiro de entrada da tarefa de Spark. | Sim | Ficheiro |
 | . / jars | Todos os ficheiros desta pasta são carregados e colocados a classpath Java do cluster. | Não | Pasta |
 | ./pyFiles | Todos os ficheiros desta pasta são carregados e colocados PYTHONPATH do cluster. | Não | Pasta |
 | . / ficheiros | Todos os ficheiros desta pasta são carregados e colocados no diretório de trabalho de executor. | Não | Pasta |

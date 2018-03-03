@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações da Shell de nuvem do Azure
 
@@ -54,11 +54,11 @@ Shell de nuvem destina-se em casos de utilização interativo. Como resultado, a
 
 ### <a name="user-permissions"></a>Permissões de utilizador
 
-As permissões estão definidas como regulares utilizadores sem acesso de sudo. Qualquer instalação fora da sua `$Home` ou `clouddrive` não é continuado diretório.
+As permissões estão definidas como regulares utilizadores sem acesso de sudo. Qualquer instalação fora da sua `$Home` não é continuado diretório.
 
 ### <a name="editing-bashrc"></a>Editar .bashrc
 
-Tome atenção quando editar .bashrc, se o fizer, pode provocar erros inesperados com Bash na Shell de nuvem.
+Tome atenção quando editar .bashrc, se o fizer, pode provocar erros inesperados na Shell de nuvem.
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 
@@ -68,7 +68,7 @@ PowerShell na Shell de nuvem do Azure (pré-visualização) pode demorar até 60
 
 ### <a name="no-home-directory-persistence"></a>No $Home persistência de diretório
 
-Os dados escritos `$Home` por qualquer aplicação (tais como: git, vim e outros) não sejam mantidas entre sessões do PowerShell. Para obter uma solução, [apresentada aqui](troubleshooting.md#powershell-resolutions).
+Os dados escritos `$Home` por qualquer aplicação (tais como: git, vim e outros) não sejam mantidas entre sessões do PowerShell. Para obter uma solução, [apresentada aqui](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro predefinido quando a criação do disco do Azure:
 

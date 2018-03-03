@@ -3,9 +3,9 @@ title: "Copiar facilmente os dados com o Assistente de cópia - Azure | Microsof
 description: "Saiba mais sobre como utilizar o Assistente de cópia do Data Factory para copiar dados de origens de dados suportadas para sinks."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8f618c6efd96fd74e88f56a378b9d73cfa47b8da
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover dados facilmente com o Assistente de cópia do Azure Data Factory
 > [!NOTE]
@@ -45,7 +45,7 @@ O assistente foi concebido com macrodados em mente desde o início. É simples e
 ## <a name="automatic-data-preview"></a>Pré-visualização de dados automática
 O Assistente para copiar permite-lhe rever parte dos dados da origem de dados selecionada para que possa validar se os dados é os dados adequados que pretende copiar. Além disso, se a origem de dados num ficheiro de texto, o Assistente para copiar analisa o ficheiro de texto para saber mais linha e coluna delimitadores e esquema automaticamente. 
 
-![Definições do formato de ficheiro](./media/data-factory-copy-wizard/file-format-settings.png)
+![Definições do formato do ficheiro](./media/data-factory-copy-wizard/file-format-settings.png)
 
 ## <a name="schema-capture-and-mapping"></a>Captura de esquema e mapeamento
 O esquema de dados de entrada pode não corresponder o esquema de dados de saída em alguns casos. Neste cenário, é necessário mapear colunas de esquema de origem para colunas de esquema de destino. 

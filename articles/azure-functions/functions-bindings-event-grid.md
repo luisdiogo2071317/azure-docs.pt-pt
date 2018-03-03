@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador de grelha de eventos para as funções do Azure
 
@@ -318,7 +318,7 @@ Utilizar uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](ht
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-O `functionName` parâmetro tem de ser o nome do método, não o nome especificado no `FunctionName` atributo. Por este motivo, se tiver várias funções num projeto, têm de ter nomes exclusivos de método (não todos os nomeado `Run`) para locais acionadores de grelha de evento de teste.
+O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
 
 As capturas de ecrã seguintes mostram os cabeçalhos e corpo no Postman do pedido:
 
@@ -379,7 +379,7 @@ Criar uma subscrição de grelha de eventos do tipo que pretende testar e atribu
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-O `functionName` parâmetro tem de ser o nome do método, não o nome especificado no `FunctionName` atributo. Por este motivo, se tiver várias funções num projeto, têm de ter nomes exclusivos de método (não todos os nomeado `Run`) para locais acionadores de grelha de evento de teste.
+O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
 
 Eis um exemplo utilizando a CLI do Azure:
 

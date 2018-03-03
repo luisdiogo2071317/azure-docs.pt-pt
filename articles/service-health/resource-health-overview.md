@@ -1,9 +1,9 @@
 ---
-title: "Descrição geral de estado de funcionamento de recursos do Azure | Microsoft Docs"
+title: "Descrição geral do Estado de funcionamento de recursos do Azure | Microsoft Docs"
 description: "Descrição geral do Estado de funcionamento de recursos do Azure"
 services: Resource health
 documentationcenter: 
-author: BernardoAMunoz
+author: shawntabrizi
 manager: 
 editor: 
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -13,89 +13,91 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
-ms.author: BernardoAMunoz
-ms.openlocfilehash: 9912911d6ed43a70a7a0f9316079d8f66d063f64
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: shawn.tabrizi
+ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-resource-health-overview"></a>Descrição geral do Estado de funcionamento de recursos do Azure
  
-O estado de funcionamento dos recursos ajuda-o a diagnosticar e a obter suporte quando um problema do Azure afeta os seus recursos. Este serviço informa-o do estado de funcionamento atual e antigo dos seus recursos e ajuda-o a mitigar problemas. O estado de funcionamento dos recursos fornece suporte técnico quando precisa de ajuda para resolver problemas relacionados com o serviço do Azure.
+Estado de funcionamento de recursos do Azure ajuda-o a diagnosticar e obter suporte, quando um problema de serviço do Azure afeta os seus recursos. Informa-o sobre o estado de funcionamento atual e anterior dos seus recursos. E fornece suporte técnico para ajudar a mitigar os problemas.
 
-Enquanto [Azure estado](https://status.azure.com) informa sobre problemas de serviço que afetam a um conjunto amplo de clientes do Azure, o estado de funcionamento do recurso disponibiliza um dashboard personalizado do Estado de funcionamento dos seus recursos. Estado de funcionamento de recursos mostra todas as vezes que os recursos foram disponíveis no passado devido a problemas de serviço do Azure, tornando-o simples de compreender se um SLA foi violado. 
+Enquanto [Azure estado](https://status.azure.com) informa sobre problemas de serviço que afetam um conjunto amplo de clientes do Azure, o estado de funcionamento do recurso dá-lhe um dashboard personalizado do Estado de funcionamento dos seus recursos. Estado de funcionamento de recursos mostra todas as vezes que os recursos foram disponíveis no passado devido a problemas de serviço do Azure. Em seguida, é simple de compreender se um SLA foi violado. 
 
-## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-a-resource-is-healthy-or-not"></a>O que é considerado um recurso e como funciona o estado de funcionamento do recurso decide se um recurso está em bom estado ou não?
-Um recurso é uma instância específica de um serviço do Azure, por exemplo: uma máquina virtual, uma aplicação web ou uma base de dados do SQL Server.
+## <a name="resource-definition-and-health-assessment"></a>Avaliação de estado de funcionamento e a definição do recurso
+Um recurso é uma instância específica de um serviço do Azure: por exemplo, uma máquina virtual, uma aplicação web ou uma base de dados do SQL Server.
 
-Estado de funcionamento do recurso depende sinais emitidos pelos diferentes serviços do Azure para avaliar se um recurso está em bom estado ou não. Se um recurso é mau estado de funcionamento, o estado de funcionamento do recurso analisa informações adicionais para determinar a origem do problema. Também identifica as ações a Microsoft está a demorar para corrigir o problema ou que ações pode tomar para resolver a causa do problema. 
+Estado de funcionamento do recurso depende sinais emitidos pelos diferentes serviços do Azure para avaliar se um recurso está em bom estado ou não. Se um recurso é mau estado de funcionamento, o estado de funcionamento do recurso analisa informações adicionais para determinar a origem do problema. Também identifica as ações que a Microsoft está a demorar para corrigir o problema ou as ações que pode tomar para resolver a causa do problema. 
 
-Reveja a lista completa dos tipos de recursos e verificações de estado de funcionamento [estado de funcionamento de recursos do Azure](resource-health-checks-resource-types.md) para obter detalhes adicionais sobre o modo como o estado de funcionamento é avaliado.
+Para obter detalhes adicionais sobre como o estado de funcionamento é avaliado, reveja a lista completa dos tipos de recursos e estado de funcionamento verifica [estado de funcionamento de recursos de Azure](resource-health-checks-resource-types.md).
 
-## <a name="health-status-provided-by-resource-health"></a>Estado de funcionamento fornecido pelo Estado de funcionamento de recursos
-O estado de funcionamento de um recurso é um dos seguintes Estados:
+## <a name="health-status"></a>Estado de funcionamento
+O estado de funcionamento de um recurso é apresentado como um dos seguintes Estados.
 
 ### <a name="available"></a>Disponível
-O serviço não detetada quaisquer eventos afetar o estado de funcionamento do recurso. Nos casos em que o recurso recuperou de um período de indisponibilidade não planeado durante as últimas 24 horas, ver o **recuperou recentemente** notificação.
+Um Estado de **disponível** significa que o serviço não detetada quaisquer eventos que afetam o estado de funcionamento do recurso. Nos casos em que o recurso recuperou de um período de indisponibilidade não planeado durante as últimas 24 horas, verá o **resolvido recentemente** notificação.
 
-![Máquina de virtual de disponibilidade de estado de funcionamento do recurso](./media/resource-health-overview/Available.png)
+![Estado de "Disponível" para uma máquina virtual com uma notificação "Resolvido recentemente"](./media/resource-health-overview/Available.png)
 
 ### <a name="unavailable"></a>Indisponível
-O serviço detetou uma plataforma em curso ou evento de plataforma não afetar o estado de funcionamento do recurso.
+Um Estado de **indisponível** significa que o serviço detetou uma plataforma em curso ou evento de plataforma não afeta o estado de funcionamento do recurso.
 
 #### <a name="platform-events"></a>Eventos de plataforma
-Estes eventos são acionados por vários componentes da infraestrutura do Azure. Incluem ações agendadas (por exemplo, a manutenção planeada) e incidentes inesperados (por exemplo, um reinício do anfitrião não planeada).
+Eventos de plataforma são acionados por vários componentes da infraestrutura do Azure. Incluem ações agendadas (por exemplo, a manutenção planeada) e incidentes inesperados (por exemplo, um reinício do anfitrião não planeada).
 
 Estado de funcionamento do recurso fornece detalhes adicionais sobre o evento e o processo de recuperação. Também permite-lhe contactar o suporte, mesmo se não tiver um Microsoft Active Directory suporta o contrato.
 
-![Máquina de virtual de indisponível de estado de funcionamento do recurso devido a evento de plataforma](./media/resource-health-overview/Unavailable.png)
+![Estado de "Não disponível" para uma máquina virtual devido a um evento de plataforma](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>Eventos de plataforma não
-Estes eventos são acionados por ações executadas pelos utilizadores. Por exemplo: parar uma máquina virtual ou atingir o número máximo de ligações a uma Cache de Redis.
+Eventos de plataforma não são acionados por ações dos utilizadores. Os exemplos são parar uma máquina virtual ou atingir o número máximo de ligações a uma cache de Redis.
 
-![Máquina de virtual de indisponível de estado de funcionamento do recurso devido a evento de plataforma não](./media/resource-health-overview/Unavailable_NonPlatform.png)
+![Estado de "Não disponível" para uma máquina virtual devido a um evento de plataforma não](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
 ### <a name="unknown"></a>Desconhecido
-Este estado de funcionamento indica que o estado de funcionamento do recurso não recebeu informações sobre este recurso durante mais de 10 minutos. Apesar deste Estado não é uma indicação definitiva o estado do recurso, é um ponto de dados importantes no processo de resolução de problemas:
-* Se o recurso está em execução conforme esperado, o estado do recurso será atualizado em disponível após alguns minutos.
-* Se ocorrerem problemas com o recurso, o estado de funcionamento desconhecido pode sugerir que o recurso é afetado por um evento na plataforma.
+O estado de funcionamento de **desconhecido** indica que o estado de funcionamento do recurso não recebeu informações sobre este recurso durante mais de 10 minutos. Embora este estado não é uma indicação definitiva o estado do recurso, é um ponto de dados importantes no processo de resolução de problemas.
 
-![Máquina virtual do Resource health desconhecido](./media/resource-health-overview/Unknown.png)
+Se o recurso está em execução conforme esperado, o estado do recurso será alterado para **disponível** após alguns minutos.
+
+Se estiver a ocorrer problemas com o recurso a **desconhecido** o estado de funcionamento pode sugerir que um evento na plataforma está a afetar o recurso.
+
+![Estado de "Desconhecido" para uma máquina virtual](./media/resource-health-overview/Unknown.png)
 
 ### <a name="degraded"></a>Degradado
-Este estado de funcionamento indica que o seu recurso detetou uma perda no desempenho, embora seja continuará disponível para utilização.
-Recursos diferentes têm os seus próprios critérios para quando que especificarem que um recurso está atualmente degradado.
+O estado de funcionamento de **Degraded** indica que o seu recurso detetou uma perda no desempenho, embora seja continuará disponível para utilização.
+Recursos diferentes têm os seus próprios critérios para quando especificar que um recurso está degradado.
 
-![Estado de funcionamento do recurso degradado máquina virtual](./media/resource-health-overview/degraded.png)
+![Estado de "Degraded" para uma máquina virtual](./media/resource-health-overview/degraded.png)
 
-## <a name="report-an-incorrect-status"></a>Comunicar um Estado incorreto
-Se em qualquer momento considerar o atual estado de funcionamento está incorreto, pode indique clicando **comunicar o estado de funcionamento incorreto**. Nos casos em que são afetados por um problema do Azure, Aconselhamo-lo para contactar o suporte do Estado de funcionamento do recurso. 
+## <a name="reporting-an-incorrect-status"></a>Um Estado incorreto de relatórios
+Se considerar que o atual estado de funcionamento está incorreto, pode indique selecionando **comunicar o estado de funcionamento incorreto**. Em casos onde um problema do Azure está a afetar a, Aconselhamo-lo para contactar o suporte do Estado de funcionamento do recurso. 
 
-![Estado de funcionamento de recursos comunicar o estado incorreto](./media/resource-health-overview/incorrect-status.png)
+![Caixa para submeter informações sobre um Estado incorreto](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>Informação histórica
-Pode aceder a 14 dias do histórico do Estado de funcionamento, clicando em **ver histórico de** no estado de funcionamento do recurso. 
+Pode aceder a 14 dias do histórico do Estado de funcionamento, selecionando **ver histórico de** no estado de funcionamento do recurso. 
 
-![Histórico de relatórios do Estado de funcionamento do recurso](./media/resource-health-overview/history-blade.png)
+![Lista de eventos de estado de funcionamento de recursos nas últimas duas semanas](./media/resource-health-overview/history-blade.png)
 
 ## <a name="getting-started"></a>Introdução
-Para abrir o estado de funcionamento de recursos para um recurso
-1.  Inicie sessão no portal do Azure.
-2.  Navegue para o recurso.
-3.  No menu de recursos localizado no lado esquerdo, clique em **estado de funcionamento do recurso**.
+Para abrir o estado de funcionamento de recursos para um recurso:
+1.  Inicie sessão no Portal do Azure.
+2.  Navegue até ao recurso.
+3.  No menu de recurso no painel esquerdo, selecione **estado de funcionamento do recurso**.
 
-![Abra o estado de funcionamento do recurso da vista de recursos](./media/resource-health-overview/from-resource-blade.png)
+![Estado de funcionamento de recursos de abertura da vista de recursos](./media/resource-health-overview/from-resource-blade.png)
 
-Pode também aceder ao estado de funcionamento do recurso clicando **todos os serviços**e escrever **estado de funcionamento do recurso** na caixa de texto de filtro para abrir o **ajuda + suporte** painel. Por fim, clique em [ **estado de funcionamento do recurso**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+Pode também aceder ao estado de funcionamento do recurso, selecionando **todos os serviços** e escrever **estado de funcionamento do recurso** na caixa de texto de filtro. No **ajuda + suporte** painel, selecione [estado de funcionamento do recurso](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
-![Abra o estado de funcionamento de recursos de todos os serviço](./media/resource-health-overview/FromOtherServices.png)
+![Estado de funcionamento de recursos de abertura de "Todos os serviços"](./media/resource-health-overview/FromOtherServices.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Consulte estes recursos para saber mais sobre o estado de funcionamento de recursos:
--  [Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure](resource-health-checks-resource-types.md)
--  [Perguntas mais frequentes sobre o estado de funcionamento de recursos do Azure](resource-health-faq.md)
+-  [Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos de Azure](resource-health-checks-resource-types.md)
+-  [Perguntas mais frequentes sobre o estado de funcionamento de recursos de Azure](resource-health-faq.md)
 
 
 

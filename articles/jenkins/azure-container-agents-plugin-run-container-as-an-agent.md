@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Criar um projeto no Azure utilizando o Jenkins e instâncias de contentor do Azure
 
@@ -233,7 +233,7 @@ Depois do plug-in de agentes de contentor do Azure é instalado, esta secção o
 
     - **Nome** -introduza `ACI-container`.
     - **As etiquetas** -introduza `ACI-container`.
-    - **Imagem de docker** -introduza`cloudbees/jnlp-slave-with-java-build-tools`
+    - **Imagem de docker** -introduza `cloudbees/jnlp-slave-with-java-build-tools`
 
     ![Definir as propriedades da imagem de instância de contentor do Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
@@ -318,8 +318,8 @@ Está na altura de criar o projeto! Esta secção explica como criar um projeto 
 ## <a name="clean-up-azure-resources"></a>Limpar os recursos do Azure
 
 Neste tutorial, vai criar recursos contidos em dois grupos de recursos do Azure: 
-    - `JenkinsResourceGroup`-Contém os recursos do Azure para o servidor de Jenkins.
-    - `JenkinsAciResourceGroup`-Contém os recursos do Azure para o agente de Jenkins.
+    - `JenkinsResourceGroup` -Contém os recursos do Azure para o servidor de Jenkins.
+    - `JenkinsAciResourceGroup` -Contém os recursos do Azure para o agente de Jenkins.
     
 Se já não precisar de utilizar qualquer um dos recursos num grupo de recursos do Azure, pode eliminar o grupo de recursos utilizando o `az group delete` comando da seguinte forma (substituir a &lt;resourceGroup > marcador de posição com o nome do grupo de recursos que pretende Elimine):
 

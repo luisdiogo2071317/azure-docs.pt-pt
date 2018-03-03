@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 47a4f6a56c1e5a47f70bb6d6ba2dd980346653ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 543d0ec5d0c94b793b1e825d44356039b366908a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados de HBase utilizando o Azure Data Factory 
 
@@ -45,7 +45,7 @@ As seguintes propriedades são suportadas para o serviço ligado do HBase:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **HBase** | Sim |
-| anfitrião | O endereço IP ou anfitrião nome do servidor do HBase. (ou seja, 192.168.222.160)  | Sim |
+| anfitrião | O endereço IP ou anfitrião nome do servidor do HBase. (i.e. 192.168.222.160, [clustername].azurehdinsight.net)  | Sim |
 | porta | A porta TCP que utiliza a instância do HBase para escutar ligações de cliente. O valor predefinido é 9090.  | Não |
 | httpPath | O URL parcial correspondente para o servidor de HBase. (ou seja, /gateway/sandbox/hbase/version)  | Não |
 | authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor do HBase. <br/>Valores permitidos são: **anónimo**, **básico** | Sim |
@@ -57,7 +57,7 @@ As seguintes propriedades são suportadas para o serviço ligado do HBase:
 | allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é falso.  | Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
-**Exemplo:**
+**Exemplo HDInsights HBase:**
 
 ```json
 {
@@ -65,9 +65,36 @@ As seguintes propriedades são suportadas para o serviço ligado do HBase:
     "properties": {
         "type": "HBase",
         "typeProperties": {
-            "host" : "<host>",
+            "host" : "<cluster name>.azurehdinsight.net",
+            "port" : "443",
+            "httpPath" : "<e.g. hbaserest>",
+            "authenticationType" : "Basic",
+            "username" : "<username>",
+            "password": {
+                 "type": "SecureString",
+                 "value": "<password>"
+            },
+            "enableSsl" : true
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo para o HBase genérico:**
+
+```json
+{
+    "name": "HBaseLinkedService",
+    "properties": {
+        "type": "HBase",
+        "typeProperties": {
+            "host" : "<host e.g. 192.168.222.160>",
             "port" : "<port>",
-            "httpPath" : "/gateway/sandbox/hbase/version",
+            "httpPath" : "<e.g. /gateway/sandbox/hbase/version>",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

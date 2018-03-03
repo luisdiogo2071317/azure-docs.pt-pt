@@ -3,7 +3,7 @@ title: Monitorizar e gerir pipelines de dados - Azure | Microsoft Docs
 description: "Saiba como utilizar a aplicação de monitorização e gestão para monitorizar e gerir as fábricas de dados do Azure e pipelines."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorizar e gerir pipelines do Azure Data Factory utilizando a aplicação de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -150,10 +150,10 @@ Na parte inferior da vista de diagrama, pode ver estes botões: Zoom no, Zoom sa
 
 ![Comandos de zoom da vista de diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-### <a name="activity-windows-list"></a>Lista de Windows de atividade
+### <a name="activity-windows-list"></a>Lista Janelas de Atividades
 A lista de atividade Windows na parte inferior do painel do meio apresenta todas as janelas de atividade para o conjunto de dados que selecionou no Explorador de recursos ou a vista de diagrama. Por predefinição, a lista está por ordem, o que significa que vê a janela de atividade mais recente na parte superior descendente.
 
-![Lista de Windows de atividade](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+![Lista Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
 Esta lista não são atualizados automaticamente, por isso, utilize o botão de atualização na barra de ferramentas para atualizá-lo manualmente.  
 
@@ -212,7 +212,7 @@ Windows atividade podem ser dos seguintes Estados:
 <td>Ignorada</td><td>-</td><td>A janela de atividade não foi processada.</td>
 </tr>
 <tr>
-<td>Nenhum</td><td>-</td><td>Uma janela de atividade existia com um Estado diferente, mas foi reposta.</td>
+<td>Nenhuma</td><td>-</td><td>Uma janela de atividade existia com um Estado diferente, mas foi reposta.</td>
 </tr>
 </table>
 
@@ -324,7 +324,7 @@ A tabela seguinte fornece a lista de eventos disponíveis e Estados (e substatus
 
 | Nome do evento | Estado | Subestado |
 | --- | --- | --- |
-| Introdução de execução da atividade |Iniciado |A Iniciar |
+| Introdução de execução da atividade |Iniciado |A iniciar |
 | Terminar de execução da atividade |Bem-sucedido |Bem-sucedido |
 | Terminar de execução da atividade |Com Falhas |Alocação de recursos falhou<br/><br/>Falha de execução<br/><br/>Tempo Limite Excedido<br/><br/>Validação falhada<br/><br/>Abandonado |
 | Cluster HDI a pedido criar introdução |Iniciado |-|

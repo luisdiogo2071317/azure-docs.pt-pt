@@ -6,13 +6,13 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar num ambiente VMware grande
+# <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
 Este artigo descreve como avaliar a grande número de máquinas virtuais no local (VMs) utilizando [Azure migrar](migrate-overview.md). Migrar do Azure avalia máquinas para verificar se estiverem adequados para a migração para o Azure. O serviço fornece estimativas de dimensionamento e custos para executar as máquinas no Azure.
 
@@ -30,15 +30,17 @@ Planear as deteções e avaliações com base nos limites dos seguintes:
 | **Entidade** | **Limite de máquina** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| Deteção  | 1,000              |
-| Avaliação | 400               |
+| Deteção  | 1,500              |
+| Avaliação | 1,500               |
 
-- Se tiver menos de 400 máquinas para detetar e avaliar, precisará de um único projeto e uma deteção único. Dependendo dos requisitos, pode avaliar todas as máquinas uma avaliação único ou divida as máquinas em avaliações de vários. 
-- Se tiver máquinas 400 para 1.000 para detetar, terá um único projeto com um único deteção. Mas precisa de vários avaliações para avaliar a estas máquinas, porque uma único avaliação pode conter até 400 máquinas.
-- Se tiver máquinas 1,001 para 1,500, terá um único projeto com dois deteções no mesmo.
-- Se tiver mais de 1.500 máquinas, terá de criar vários projetos e realizar várias deteções, de acordo com os seus requisitos. Por exemplo:
-    - Se tiver 3,000 máquinas, pode configurar dois projetos com deteções de duas ou três projetos com uma deteção único.
-    - Se tiver de 5000 máquinas, pode configurar quatro projetos: três com uma deteção de 1.500 máquinas e outra com uma deteção de 500 máquinas. Em alternativa, pode configurar cinco projetos com uma única Deteção em cada um deles. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Planear múltiplos deteções
 

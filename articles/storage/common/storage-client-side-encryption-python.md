@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Encriptação do lado do cliente com o Python de armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,6 +106,10 @@ Se um lote é criado como um Gestor de contexto através do método de batch() t
 Tenha em atenção que as entidades são encriptadas conforme estes forem inseridos em batch através da política de encriptação do batch (entidades não são encriptadas no momento da consolidar o lote através da política de encriptação do tableservice).
 
 ### <a name="queries"></a>Consultas
+> [!NOTE]
+> Porque as entidades são encriptadas, não é possível executar consultas que filtrar na propriedade encriptada.  Se tentar, os resultados estar incorretos, porque o serviço seria está a tentar comparar dados encriptados com dados não encriptados.
+> 
+>
 Para executar operações de consulta, tem de especificar uma resolução de chave que é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não pode ser resolvida para um fornecedor, a biblioteca de clientes irá gerar um erro. Para qualquer consulta que efetua projeções de lado do servidor, a biblioteca de clientes irá adicionar as propriedades de metadados de encriptação do especial (\_ClientEncryptionMetadata1 e \_ClientEncryptionMetadata2) por predefinição para as colunas selecionadas.
 
 > [!IMPORTANT]
@@ -238,6 +242,6 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="encryption-and-performance"></a>Encriptação e de desempenho
 Tenha em atenção que encriptar os resultados de dados de armazenamento em overhead de desempenho adicionais. A chave de conteúdo e IV tem de ser gerado, o próprio conteúdo tem de estar encriptado e metadados adicionais têm de ser formatado e carregados. Esta sobrecarga irá variar consoante a quantidade de dados que está a ser encriptados. Recomendamos que os clientes sempre testar as aplicações de desempenho durante o desenvolvimento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Transferir o [biblioteca de clientes do Storage do Azure para Java PyPi pacote](https://pypi.python.org/pypi/azure-storage)
 * Transferir o [código a partir do GitHub de origem da biblioteca de clientes do Storage do Azure para Python](https://github.com/Azure/azure-storage-python)

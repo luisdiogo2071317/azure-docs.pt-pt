@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 Agora disponível: BD do Azure do Cosmos [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner). Saiba mais em [estimar o débito tem](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Recomendamos que comece por ver o vídeo seguinte, onde Aravind Ramachandran exp
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificar a capacidade de unidade de pedido na base de dados do Azure Cosmos
 Ao iniciar uma nova coleção, a tabela ou o gráfico, especifique o número de unidades de pedido por segundo (RU por segundo) que pretende reservado. Com base no débito aprovisionado, base de dados do Azure Cosmos aloca partições físicas para alojar a sua coleção e divisões/rebalances dados em partições à medida que o que aumenta.
 
-Podem ser criadas Azure contentores de BD do Cosmos como fixo ou ilimitado. Os contentores de tamanho fixo têm um limite máximo de 10 GB e 10 000 de RU/s débito. Para criar um contentor ilimitado tem de especificar um débito mínimo de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/coleção/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
+Podem ser criadas Azure contentores de BD do Cosmos como fixo ou ilimitado. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor ilimitado tem de especificar um débito mínimo de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/coleção/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
 
 > [!NOTE]
 > Uma chave de partição é um limite de lógico e não um físico. Por conseguinte, não é necessário limitar o número de valores de chave de partição distintos. Na realidade é melhor ter distintos mais valores de chaves de partição que inferior, como base de dados do Azure Cosmos tem mais opções de balanceamento de carga.
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 Não há nenhum impacto sobre a disponibilidade do seu contentor quando altera o débito. Normalmente, o débito reservado nova é eficaz dentro de segundos na aplicação de débito de novo.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento de débito nas bases de dados globalmente distribuídas
+
+Quando ter replicado a base de dados para mais de uma região, base de dados do Azure Cosmos fornece isolamento de débito para se certificar de que a utilização de RU na região de um não afeta utilização RU noutra região. Por exemplo, se escrever dados para uma região e ler os dados do noutra região, RUs utilizados para efetuar a operação de escrita na região A não entram na direção oposta ao RUs utilizados para a operação de leitura na região que RUS B. não estão divididos em regiões no qual implementou. Cada região na qual a base de dados é replicado possui a quantidade total de RUs aprovisionado. Para obter mais informações sobre a replicação global, consulte [como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Considerações de unidade de pedido
 Quando a estimar o número de unidades de pedido para reservar para o contentor do Azure Cosmos DB, é importante considerar as seguintes variáveis em consideração:
@@ -209,7 +213,7 @@ Por exemplo:
 6. Calcule as unidades de pedido necessários indicadas o número estimado de operações que antecipa para ser executada a cada segundo.
 
 ## <a id="GetLastRequestStatistics"></a>Utilizar a API para o comando de GetLastRequestStatistics do MongoDB
-API para o MongoDB suporta um comando personalizado, *getLastRequestStatistics*, para obter a taxa de pedidos para operações especificadas.
+A API do MongoDB suporta um comando personalizado, *getLastRequestStatistics*, para obter a taxa de pedidos para operações especificadas.
 
 Por exemplo, na Shell do Mongo, execute a operação que pretende verificar a taxa de pedidos.
 ```
@@ -235,10 +239,10 @@ Com isto em mente, um método para estimar a quantidade de débito reservado exi
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Utilizar a API do MongoDB portal com base nas métricas
-A forma mais simples para obter uma estimativa boa de pedido de encargos de unidade para a API de base de dados de MongoDB consiste em utilizar o [portal do Azure](https://portal.azure.com) métricas. Com o *número de pedidos* e *pedido encargos* gráficos, pode obter uma estimativa do número de unidades de pedido cada operação está a consumir e unidades de pedido quantos consumirem relativo ao outro.
+## <a name="use-mongodb-api-portal-metrics"></a>Utilizar métricas de portais de API do MongoDB
+A forma mais simples para obter uma estimativa boa de pedido de encargos de unidade para a base de dados de MongoDB API consiste em utilizar o [portal do Azure](https://portal.azure.com) métricas. Com o *número de pedidos* e *pedido encargos* gráficos, pode obter uma estimativa do número de unidades de pedido cada operação está a consumir e unidades de pedido quantos consumirem relativo ao outro.
 
-![API de métricas de portais do MongoDB][6]
+![Métricas de portais de API do MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Um exemplo de estimativa de unidade de pedido
 Considere o seguinte documento de ~ 1 KB:
@@ -343,8 +347,8 @@ Se estiver a utilizar os SDK de cliente .NET e LINQ consultas, em seguida, na ma
 
 Se tiver mais do que um cliente cumulativamente e operativo acima a taxa de pedidos, o comportamento de repetição predefinido não poderá suffice e o cliente irá gerar um DocumentClientException com o código de estado 429 à aplicação. Em casos como esta, poderá considerar a processar o comportamento de repetição e lógica no registo de erros da sua aplicação rotinas de processamento ou aumentar o débito reservado para o contentor.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na API para MongoDB
-As aplicações que excedem as unidades de pedido aprovisionado para uma coleção serão limitadas até que a taxa de ignora abaixo do nível reservado. Quando ocorre uma limitação, o back-end preventivamente vai terminar o pedido com um *16500* código de erro - *demasiados pedidos*. Por predefinição, a API para o MongoDB seja automaticamente repetida até 10 vezes antes de o devolver um *demasiados pedidos* código de erro. Se está a receber muitas *demasiados pedidos* códigos de erro, poderá considerar o comportamento de repetição adicionar no rotinas de processamento de erros da aplicação ou [aumentar o débito reservado para a coleção](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na MongoDB API
+As aplicações que excedem as unidades de pedido aprovisionado para uma coleção serão limitadas até que a taxa de ignora abaixo do nível reservado. Quando ocorre uma limitação, o back-end preventivamente vai terminar o pedido com um *16500* código de erro - *demasiados pedidos*. Por predefinição, a API do MongoDB tenta automaticamente Repetir até 10 vezes antes de o devolver um *demasiados pedidos* código de erro. Se está a receber muitas *demasiados pedidos* códigos de erro, poderá considerar o comportamento de repetição adicionar no rotinas de processamento de erros da aplicação ou [aumentar o débito reservado para a coleção](set-throughput.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre débito reservado com bases de dados do Azure Cosmos DB, explore estes recursos:

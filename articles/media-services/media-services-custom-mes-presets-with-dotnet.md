@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3354b0122b9025c5da2fb55439620a56c6c985d9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Predefinições personalizar codificador de multimédia Standard
 
@@ -28,7 +28,7 @@ Este artigo mostra como realizar avançadas encoding com Media codificador padr�
 
 Este artigo mostra como personalizar uma predefinição, efetuando a [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinido e reduzir o número de camadas. O [predefinições personalizar codificador de multimédia Standard](media-services-advanced-encoding-with-mes.md) artigo demonstra predefinições personalizadas que podem ser utilizadas para efetuar tarefas de codificação avançadas.
 
-## <a id="customizing_presets"></a>Personalizar uma predefinição MES
+## <a id="customizing_presets"></a> Personalizar uma predefinição MES
 
 ### <a name="original-preset"></a>Predefinição original
 
@@ -38,7 +38,7 @@ Guardar o JSON definido no [H264 múltipla 720p](media-services-mes-preset-H264-
 
 Abra o **CustomPreset_JSON.json** do ficheiro e remover os primeiros três camadas da **H264Layers** para o ficheiro tem o seguinte aspeto.
 
-    
+```json 
     {  
       "Version": 1.0,  
       "Codecs": [  
@@ -107,7 +107,7 @@ Abra o **CustomPreset_JSON.json** do ficheiro e remover os primeiros três camad
         }  
       ]  
     }  
-    
+```
 
 ## <a id="encoding_with_dotnet"></a>Encoding com Media Services .NET SDK
 
@@ -132,7 +132,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -266,6 +266,6 @@ namespace CustomizeMESPresests
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Descrição geral de codificação de serviços de multimédia](media-services-encode-asset.md)
 

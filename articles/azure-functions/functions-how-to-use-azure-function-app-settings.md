@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de função no portal do Azure 
 
@@ -66,13 +66,13 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 ![O editor de serviço de aplicações](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>Definições da aplicação
+### <a name="settings">Definições da aplicação</a>
 
 | | |
 |-|-|
 | ![Definições de aplicação de aplicação de função.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | O serviço de aplicações **definições da aplicação** painel é onde pode configurar e gerir versões framework, depuração remota, as definições de aplicação e as cadeias de ligação. Quando integrar a sua aplicação de função com outros serviços de terceiros e do Azure, pode modificar essas definições aqui. Para eliminar uma definição, desloque-se para a direita e selecione o **X** ícone na extremidade direita da linha (não mostrada na imagem seguinte).
 
-![Configurar as definições da aplicação](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
+![Configurar definições da aplicação](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Consola do
 
@@ -82,11 +82,11 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 ![Consola de aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu"></a>Ferramentas Avançadas (Kudu)
+### <a name="kudu">Ferramentas Avançadas (Kudu)</a>
 
 | | |
 |-|-|
-| ![Aplicação de função Kudu no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | As ferramentas avançadas para o serviço de aplicações (também conhecido como Kudu) fornecem acesso a funcionalidades avançadas de administrativas da sua aplicação de função. Do Kudu, gerir as informações do sistema, as definições de aplicação, as variáveis de ambiente, as extensões de site, os cabeçalhos de HTTP e variáveis de servidor. Também pode iniciar **Kudu** ao navegar para o ponto final SCM para a sua aplicação de função, como`https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Aplicação de função Kudu no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | As ferramentas avançadas para o serviço de aplicações (também conhecido como Kudu) fornecem acesso a funcionalidades avançadas de administrativas da sua aplicação de função. Do Kudu, gerir as informações do sistema, as definições de aplicação, as variáveis de ambiente, as extensões de site, os cabeçalhos de HTTP e variáveis de servidor. Também pode iniciar **Kudu** ao navegar para o ponto final SCM para a sua aplicação de função, como `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Configurar o Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,11 +115,11 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 ![Configurar a autenticação para uma aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger"></a>Definição da API
+### <a name="swagger">Definição da API</a>
 
 | | |
 |-|-|
-| ![API de aplicação de função swagger de definição no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | As funções suporta Swagger para permitir que os clientes consumir mais facilmente as funções acionadas por HTTP. Para obter mais informações sobre como criar definições de API com Swagger, visite [introdução às API Apps e Swagger no Azure](../app-service/app-service-web-tutorial-rest-api.md). Também pode utilizar os Proxies de funções para definir uma único superfície de API para várias funções. Para obter mais informações, consulte [trabalhar com os Proxies de funções do Azure](functions-proxies.md). |
+| ![API de aplicação de função swagger de definição no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | As funções suporta Swagger para permitir que os clientes consumir mais facilmente as funções acionadas por HTTP. Para obter mais informações sobre como criar definições de API com Swagger, visite [alojar uma API RESTful com a CORS no App Service do Azure](../app-service/app-service-web-tutorial-rest-api.md). Também pode utilizar os Proxies de funções para definir uma único superfície de API para várias funções. Para obter mais informações, consulte [trabalhar com os Proxies de funções do Azure](functions-proxies.md). |
 
 ![Configurar a API da aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

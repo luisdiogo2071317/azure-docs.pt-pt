@@ -1,5 +1,5 @@
 ---
-title: "Monitorizar as funções do Azure"
+title: "Monitorizar as Funções do Azure"
 description: "Saiba como utilizar o Azure Application Insights com as funções do Azure para monitorizar a execução de função."
 services: functions
 author: tdykstra
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="monitor-azure-functions"></a>Monitorizar as funções do Azure
+# <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
 ## <a name="overview"></a>Descrição geral 
 
@@ -82,7 +82,7 @@ Para obter informações sobre como utilizar o Application Insights, consulte o 
 
 No [Explorador de métricas](../application-insights/app-insights-metrics-explorer.md), pode criar gráficos e alertas com base nas métricas, tais como o número de invocações de função, tempo de execução e a taxa de êxito.
 
-![Explorador de métricas](media/functions-monitoring/metrics-explorer.png)
+![Explorador de Métricas](media/functions-monitoring/metrics-explorer.png)
 
 No [falhas](../application-insights/app-insights-asp-net-exceptions.md) separador, pode criar gráficos e alertas com base nas falhas de função e o servidor de exceções. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas, a menos que implementar [telemetria personalizada](#custom-telemetry-in-c-functions) para dependências.
 
@@ -161,13 +161,13 @@ O registo de funções do Azure também inclui um *nível de registo* com cada r
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
-|Nenhum        | 6 |
+|Nenhuma        | 6 |
 
 Nível de registo `None` é explicada na secção seguinte. 
 
 ### <a name="configure-logging-in-hostjson"></a>Configurar o registo no host.json
 
-O *host.json* ficheiro configura quanto registo envia uma aplicação de função para o Application Insights. Para cada categoria, indica o nível de registo mínimo para enviar. Eis um exemplo:
+O *host.json* ficheiro configura quanto registo envia uma aplicação de função para o Application Insights. Para cada categoria, indica o nível de registo mínimo para enviar. Segue-se um exemplo:
 
 ```json
 {
@@ -243,7 +243,7 @@ Os registos de escritas pelo código da função têm a categoria "Função" e p
 
 ## <a name="configure-the-aggregator"></a>Configurar o agregador
 
-Conforme indicado na secção anterior, o tempo de execução agrega dados sobre execuções de função durante um período de tempo. O período predefinido é 30 segundos ou 1000 é executado, o que ocorrer primeiro. Pode configurar esta definição no *host.json* ficheiro.  Eis um exemplo:
+Conforme indicado na secção anterior, o tempo de execução agrega dados sobre execuções de função durante um período de tempo. O período predefinido é 30 segundos ou 1000 é executado, o que ocorrer primeiro. Pode configurar esta definição no *host.json* ficheiro.  Segue-se um exemplo:
 
 ```json
 {
@@ -256,7 +256,7 @@ Conforme indicado na secção anterior, o tempo de execução agrega dados sobre
 
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
-O Application Insights tem um [amostragem](../application-insights/app-insights-sampling.md) funcionalidade que pode protegê-lo contra produzir demasiados dados de telemetria, por vezes de pico de carga. Quando o número de itens de telemetria excede uma velocidade especificada, o Application Insights começa a aleatoriamente ignorar alguns dos itens de entrada. Pode configurar amostragem no *host.json*.  Eis um exemplo:
+O Application Insights tem um [amostragem](../application-insights/app-insights-sampling.md) funcionalidade que pode protegê-lo contra produzir demasiados dados de telemetria, por vezes de pico de carga. Quando o número de itens de telemetria excede uma velocidade especificada, o Application Insights começa a aleatoriamente ignorar alguns dos itens de entrada. Pode configurar amostragem no *host.json*.  Segue-se um exemplo:
 
 ```json
 {
@@ -354,6 +354,7 @@ Eis um exemplo de código c# que utiliza o [API de telemetria personalizada](../
 using System;
 using System.Net;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure.WebJobs;
 using System.Net.Http;
@@ -370,7 +371,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetry = 
+        private static TelemetryClient telemetryClient = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -391,35 +392,51 @@ namespace functionapp0915
 
             // Set name to query string or body data
             name = name ?? data?.name;
-
-            telemetry.Context.Operation.Id = context.InvocationId.ToString();
-            telemetry.Context.Operation.Name = "cs-http";
-            if (!String.IsNullOrEmpty(name))
-            {
-                telemetry.Context.User.Id = name;
-            }
-            telemetry.TrackEvent("Function called");
-            telemetry.TrackMetric("Test Metric", DateTime.Now.Millisecond);
-            telemetry.TrackDependency("Test Dependency", 
-                "swapi.co/api/planets/1/", 
-                start, DateTime.UtcNow - start, true);
-
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+            
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
                     "Please pass a name on the query string or in the request body")
                 : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
-    }
+        
+        // This correllates all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
 }
 ```
 
 Não chame `TrackRequest` ou `StartOperation<RequestTelemetry>`, porque irá ver pedidos de duplicação para uma invocação de função.  O tempo de execução de funções controla automaticamente pedidos.
 
-Definir `telemetry.Context.Operation.Id` para a invocação ID sempre que a sua função é iniciada. Isto torna possível correlacionar todos os itens de telemetria para uma invocação de função especificada.
-
-```cs
-telemetry.Context.Operation.Id = context.InvocationId.ToString();
-```
+Não defina `telemetryClient.Context.Operation.Id`. Esta é uma definição global e fará com que correllation incorreto quando muitas funções em execução em simultâneo. Em vez disso, crie uma nova instância de telemetria (`DependencyTelemetry`, `EventTelemetry`) e modificar o `Context` propriedade. Em seguida, passa a instância de telemetria para correspondente `Track` método no `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Isto garante que a telemetria tenha os detalhes de correllation correto para a invocação de função atual.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Telemetria personalizada nas funções de JavaScript
 
@@ -503,6 +520,10 @@ PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
 Para obter mais informações, consulte [como transmitir os registos](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+
+### <a name="viewing-log-files-locally"></a>Ver ficheiros de registo localmente
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

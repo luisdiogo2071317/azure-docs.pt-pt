@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: bc7d98851e8d84d7db8586138608220c838ca776
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure 
 
-Se tiver várias subscrições, pode organizá-los em contentores chamados "grupos de gestão" para o ajudar a gerir o acesso, políticas e conformidade nas suas subscrições. Estes contentores dão-lhe a gestão de nível empresarial em grande escala, independentemente do tipo de subscrições que poderá ser necessário.  
+Se tiver várias subscrições, pode organizá-los em contentores chamados "grupos de gestão" para o ajudar a gerir o acesso, políticas e conformidade nas suas subscrições. Grupos de gestão dão-lhe a gestão de nível empresarial em grande escala, independentemente do tipo de subscrições que poderá ser necessário.  
 
 A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) e procure **grupos de gestão** no **todos os serviços** secção. 
 
@@ -70,7 +70,7 @@ Enquanto qualquer [função incorporada do RBAC](../active-directory/role-based-
 Para obter mais informações sobre grupos de gestão, consulte: 
 - [Criar grupos de gestão para organizar os recursos do Azure](management-groups-create.md)
 - [Como alterar, eliminar ou gerir os grupos de gestão](management-groups-manage.md)
-- [Instalar o módulo Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Instalar o módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Reveja a especificação de API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
 - [Instale a extensão da CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

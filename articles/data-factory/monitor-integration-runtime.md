@@ -3,21 +3,21 @@ title: "Monitorizar a integração tempo de execução no Azure Data Factory | M
 description: "Saiba como monitorizar tipos diferentes de tempo de execução de integração no Azure Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: 
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
-ms.author: spelluru
-ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: douglasl
+ms.openlocfilehash: 74a4ad6438f9e66331f76e87d20d1eb8b29e8451
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um tempo de execução de integração no Azure Data Factory  
 **Tempo de execução de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer as diversas capacidades de integração de dados entre ambientes de rede diferentes. Existem três tipos de tempos de execução de integração oferecidos pelo Data Factory:
@@ -180,7 +180,7 @@ Tempo de execução de integração de SSIS do Azure é um cluster completamente
 
 | Estado | Descrição |
 | ------ | ----------- | 
-| A Iniciar | Este nó está a ser preparado. |
+| A iniciar | Este nó está a ser preparado. |
 | Disponível | Este nó está pronto para implementar/executar pacotes SSIS. |
 | Reciclagem | Este nó está a ser reparado/reiniciar. |
 | Indisponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que lhe foi possível resolver. |
@@ -190,9 +190,9 @@ Tempo de execução de integração de SSIS do Azure é um cluster completamente
 | Estado geral | Descrição | 
 | -------------- | ----------- | 
 | Inicial | Os nós do seu tempo de execução de integração do Azure SSIS não foram atribuídos/preparado. | 
-| A Iniciar | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser atribuída/preparado e faturação foi iniciado. |
+| A iniciar | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser atribuída/preparado e faturação foi iniciado. |
 | Iniciado | Os nós do seu tempo de execução de integração do Azure SSIS foram alocados/preparado e estas estão prontas para que possa implementar/executar pacotes SSIS. |
-| A Parar  | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser libertados. |
+| A parar  | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser libertados. |
 | Parada | Os nós do seu tempo de execução de integração do Azure SSIS foram lançados e faturação foi parado. |
 
 Consulte os artigos seguintes para saber mais sobre o tempo de execução do Azure-SSIS integração:

@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7748c3058cd2aca907e3bc564b2ad18090db28
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Como: fornecer um recurso por transferência
-Este tópico descreve as opções de entrega de recursos de suporte de dados carregados nos serviços de suporte de dados. Pode fornecer conteúdo de serviços de suporte de dados em vários cenários de aplicação. Pode transferir os recursos de suporte de dados ou aceder às mesmas através da utilização de um localizador. Pode enviar conteúdo de multimédia para outra aplicação ou para outro fornecedor de conteúdos. Para um melhor desempenho e escalabilidade, pode também de fornecer conteúdo utilizando uma rede de entrega de conteúdos (CDN).
+Este artigo aborda as opções de entrega de recursos de suporte de dados carregados nos serviços de suporte de dados. Pode fornecer conteúdo de serviços de suporte de dados em vários cenários de aplicação. Depois da codificação, transferir os recursos de suporte de dados gerado ou aceder às mesmas através da utilização de um localizador de transmissão em fluxo. Para um melhor desempenho e escalabilidade, pode também de fornecer conteúdo utilizando uma rede de entrega de conteúdos (CDN).
 
 Este exemplo mostra como transferir os recursos de suporte de dados dos serviços de suporte de dados para o seu computador local. O código de consulta de tarefas associadas à conta de Media Services ao ID da tarefa e acede a **OutputMediaAssets** coleção (que é o conjunto de um ou mais recursos de suporte de dados de saída que resulta da executar uma tarefa). Este exemplo mostra como transferir a recursos de suporte de dados de saída de uma tarefa, mas pode aplicar a mesma abordagem para transferir os outros recursos.
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Se estiver a utilizar sempre os mesmos dias / as permissões de acesso, por exemplo, políticas para os localizadores destinadas a permanecem no local durante muito tempo (carregamento não políticas), utilize o mesmo ID de política. Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -76,7 +77,7 @@ Este exemplo mostra como transferir os recursos de suporte de dados dos serviço
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
@@ -85,6 +86,6 @@ Este exemplo mostra como transferir os recursos de suporte de dados dos serviço
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Distribuir os conteúdos de transmissão em fluxo](media-services-deliver-streaming-content.md)
 

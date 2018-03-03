@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação de ponto a site do Azure
 
@@ -40,7 +40,9 @@ Este problema ocorre se o certificado de cliente está em falta **certificados -
 
 Para resolver este problema, siga estes passos:
 
-1. Certifique-se de que os seguintes certificados na localização correta:
+1. Abra o Gestor de certificados: clique em **iniciar**, tipo **gerir certificados de computador**e, em seguida, clique em **gerir certificados de computador** no resultado da pesquisa.
+
+2. Certifique-se de que os seguintes certificados na localização correta:
 
     | Certificado | Localização |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ Para resolver este problema, siga estes passos:
     | Azuregateway-*GUID*.cloudapp.net  | Autoridades de certificação de raiz User\Trusted atual|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Autoridades de certificação de raiz local Computer\Trusted|
 
-2. Aceda aos utilizadores\<UserName > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, manualmente instalar o certificado (ficheiro *.cer) no arquivo do computador e o utilizador.
+3. Aceda aos utilizadores\<UserName > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, manualmente instalar o certificado (ficheiro *.cer) no arquivo do computador e o utilizador.
 
 Para obter mais informações sobre como instalar o certificado de cliente, consulte [gerar e exportar certificados para ligações ponto a site](vpn-gateway-certificates-point-to-site.md).
 
@@ -335,7 +337,7 @@ Os controladores NIC está desatualizado.
 Atualize o controlador NIC:
 
 1. Clique em **iniciar**, tipo **Gestor de dispositivos**e selecione-o da lista de resultados. Se lhe for pedida uma palavra-passe de administrador ou confirmação, escreva a palavra-passe ou indique confirmação.
-2. No * * adaptadores de rede * * categorias, localizar o NIC que pretende atualizar.  
+2. No **adaptadores de rede** categorias, localizar o NIC que pretende atualizar.  
 3. Faça duplo clique o nome do dispositivo, selecione **controlador atualização**, selecione **procurar automaticamente o software de controladores atualizados**.
 4. Se o Windows não localizar um controlador de novo, pode tentar à procura de um Web site do fabricante do dispositivo e siga as instruções.
 5. Reinicie o computador e tente novamente a ligação.

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 515467fefe9b318900ed64979d950b0ab783fd4a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configurar políticas de entrega de elemento com o .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -26,19 +26,19 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Descrição geral
 Se planear recursos de entrega encriptado, um dos passos no fluxo de trabalho de entrega de conteúdos de Media Services está a configurar políticas de entrega de elementos. A política de entrega de elemento indica aos Media Services como pretende que os para o seu elemento a entregar: para o protocolo de transmissão em fluxo deve seu elemento ser dinamicamente compactado (por exemplo, MPEG DASH, HLS, transmissão em fluxo uniforme ou todos), pretende encriptar de forma dinâmica ou não o elemento e como (envelope ou encriptação comum).
 
-Este tópico aborda porquê e como criar e configurar políticas de entrega de elemento.
+Este artigo aborda porquê e como criar e configurar políticas de entrega de elemento.
 
 >[!NOTE]
->Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
+>Quando a sua conta do AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, que está no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
 >
 >Além disso, para poder utilizar o empacotamento dinâmico e a encriptação dinâmica seu elemento tem de conter um conjunto de MP4s de velocidade de transmissão adaptável ou ficheiros de transmissão em fluxo uniforme de velocidade de transmissão adaptável.
 
 
-Pode aplicar políticas diferentes para o mesmo elemento. Por exemplo, pode aplicar encriptação PlayReady para encriptação de transmissão em fluxo uniforme e AES Envelope para MPEG DASH e HLS. Quaisquer protocolos que não estão definidos numa política de entrega (por exemplo, adicionar uma única política que especifica apenas HLS como o protocolo) serão bloqueados da transmissão em fluxo. A exceção é quando não há qualquer política de entrega de elemento definida. Em seguida, todos os protocolos serão permitidos.
+Pode aplicar políticas diferentes para o mesmo elemento. Por exemplo, pode aplicar encriptação PlayReady para encriptação de transmissão em fluxo uniforme e AES Envelope para MPEG DASH e HLS. Quaisquer protocolos que não estão definidos numa política de entrega (por exemplo, adicionar uma única política que especifica apenas HLS como o protocolo) serão bloqueados da transmissão em fluxo. A exceção é se não tiver nenhuma política de entrega de elementos definida. Em seguida, todos os protocolos serão permitidos.
 
 Se pretender fornecer um recurso encriptados de armazenamento, é necessário configurar a política de entrega de elementos. Antes do elemento possa ser transmitido, o servidor de transmissão em fluxo remove a encriptação de armazenamento e fluxos de conteúdo através da política de entrega especificado. Por exemplo, para fornecer o seu elemento encriptado com a chave de encriptação do envelope Advanced Encryption Standard (AES), defina o tipo de política para **DynamicEnvelopeEncryption**. Para remover a encriptação de armazenamento e transmitir em fluxo o elemento na limpar, defina o tipo de política para **NoDynamicEncryption**. Veja a seguir exemplos mostram como configurar estes tipos de política.
 
-Dependendo de como configurar a política de entrega de elemento conseguiriam dinamicamente o pacote, dinamicamente encriptar e transmitir os seguintes protocolos de transmissão em fluxo: transmissão em fluxo uniforme, HLS, transmissão e MPEG DASH.
+Dependendo de como configurar a política de entrega de elemento, pode dinamicamente o pacote, encriptar e transmitir em fluxo os seguintes protocolos de transmissão em fluxo: transmissão em fluxo uniforme, HLS e MPEG DASH.
 
 A lista seguinte mostra os formatos que utilizar para transmitir em fluxo uniforme, HLS e travessão.
 
@@ -67,6 +67,7 @@ O seguinte **ConfigureClearAssetDeliveryPolicy** método especifica não aplicar
 
 Para informações sobre quais os valores que pode especificar quando criar um AssetDeliveryPolicy, consulte o [tipos utilizados quando se definem AssetDeliveryPolicy](#types) secção.
 
+```csharp
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
         IAssetDeliveryPolicy policy =
@@ -76,13 +77,14 @@ Para informações sobre quais os valores que pode especificar quando criar um A
         
         asset.DeliveryPolicies.Add(policy);
     }
-
+```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Política de entrega de elemento DynamicCommonEncryption
 
 O seguinte **CreateAssetDeliveryPolicy** método cria o **AssetDeliveryPolicy** que está configurado para aplicar a encriptação comum dinâmica (**DynamicCommonEncryption**) num protocolo de transmissão em fluxo uniforme (serão impedidos outros protocolos de transmissão em fluxo). O método aceita dois parâmetros: **Asset** (o recurso ao qual pretende aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do **CommonEncryption** tipo, para obter mais informações, consulte: [criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para informações sobre quais os valores que pode especificar quando criar um AssetDeliveryPolicy, consulte o [tipos utilizados quando se definem AssetDeliveryPolicy](#types) secção.
 
+```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
@@ -106,9 +108,11 @@ Para informações sobre quais os valores que pode especificar quando criar um A
             Console.WriteLine("Adding Asset Delivery Policy: " +
                 assetDeliveryPolicy.AssetDeliveryPolicyType);
      }
+```
 
 Também o Media Services do Azure permite-lhe adicionar encriptação Widevine. O exemplo seguinte demonstra PlayReady e Widevine a ser adicionado à política de entrega de elemento.
 
+```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
         // Get the PlayReady license service URL.
@@ -146,7 +150,7 @@ Também o Media Services do Azure permite-lhe adicionar encriptação Widevine. 
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
-
+```
 > [!NOTE]
 > Encriptar com Widevine, só será possível entregar DASH a utilizar. Certifique-se especificar DASH no protocolo de entrega de elemento.
 > 
@@ -157,6 +161,7 @@ O seguinte **CreateAssetDeliveryPolicy** método cria o **AssetDeliveryPolicy** 
 
 Para informações sobre quais os valores que pode especificar quando criar um AssetDeliveryPolicy, consulte o [tipos utilizados quando se definem AssetDeliveryPolicy](#types) secção.   
 
+```csharp
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
@@ -193,7 +198,7 @@ Para informações sobre quais os valores que pode especificar quando criar um A
         Console.WriteLine();
         Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
     }
-
+```
 
 ## <a id="types"></a>Tipos de utilizado quando se definem AssetDeliveryPolicy
 
@@ -201,6 +206,7 @@ Para informações sobre quais os valores que pode especificar quando criar um A
 
 A enumeração seguinte descreve os valores que pode definir para o protocolo de entrega de elemento.
 
+```csharp
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -231,11 +237,11 @@ A enumeração seguinte descreve os valores que pode definir para o protocolo de
         /// </summary>
         All = 0xFFFF
     }
-
+```
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
 A enumeração seguinte descreve os valores que pode definir para o tipo de política de entrega de elemento.  
-
+```csharp
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -264,11 +270,11 @@ A enumeração seguinte descreve os valores que pode definir para o tipo de pol�
         /// </summary>
         DynamicCommonEncryption
         }
-
+```
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
 A enumeração seguinte descreve os valores que pode utilizar para configurar o método de fornecimento da chave de conteúdo para o cliente.
-    
+  ```csharp  
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -296,11 +302,11 @@ A enumeração seguinte descreve os valores que pode utilizar para configurar o 
         Widevine = 3
 
     }
-
+```
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
 A enumeração seguinte descreve os valores que pode definir para configurar as chaves utilizadas para obter a configuração específicos para uma política de entrega de elemento.
-
+```csharp
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>
@@ -343,7 +349,7 @@ A enumeração seguinte descreve os valores que pode definir para configurar as 
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
+```
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

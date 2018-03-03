@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteger a sua HLS conteúdo com do FairPlay da Apple ou Microsoft PlayReady
 Media Services do Azure permite-lhe encriptar de forma dinâmica o conteúdo de HTTP Live Streaming (HLS), utilizando os seguintes formatos:  
@@ -64,10 +64,10 @@ Os seguintes procedimentos tem de ser definidos no lado de entrega de chave de M
         Ir para a pasta onde estão o certificado do FairPlay e outros ficheiros fornecidos pela Apple.
     2. Execute o comando seguinte a partir da linha de comandos. Isto converte o ficheiro. cer para um ficheiro. pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informar der-no FairPlay.cer-out do FairPlay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Execute o comando seguinte a partir da linha de comandos. Isto converte o ficheiro. pem para um ficheiro. pfx com a chave privada. A palavra-passe para o ficheiro. pfx, em seguida, é pedida pelo OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-exportar - out do FairPlay out.pfx-inkey privatekey.pem-do FairPlay out.pem - passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **Palavra-passe de aplicação Cert**: A palavra-passe para criar o ficheiro. pfx.
   * **ID de palavra-passe de aplicação Cert**: tem de carregar a palavra-passe, semelhante à forma como carregam outras chaves dos Media Services. Utilize o **ContentKeyType.FairPlayPfxPassword** valor de enumeração para obter o ID de serviços de suporte de dados Este é o que precisam de utilizar dentro da opção de política de entrega de chave.
   * **IV**: Este é um valor aleatório de 16 bytes. Tem de corresponder a iv na política de entrega de elemento. Gerar o iv e colocá-la em ambos os locais: a política de entrega de elemento e a opção de política de entrega de chave.
@@ -89,9 +89,9 @@ Os seguintes clientes suportam HLS com **AES-128 CBC** encriptação: Safari nos
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Configurar do FairPlay dinâmicos encriptação e a licença serviços de entrega
 Seguem-se passos gerais para proteger os seus elementos do FairPlay utilizando o serviço de entrega de licença de Media Services bem como através de encriptação dinâmica.
 
-1. Criar um elemento e carregar ficheiros para o elemento.
-2. Codificar o elemento que contém o ficheiro para o definir MP4 de velocidade de transmissão adaptável.
-3. Crie uma chave de conteúdo e associe-a com elemento codificado.  
+1. Crie um elemento e carregue ficheiros para o mesmo.
+2. Codifique o elemento que contém o ficheiro para o MP4 de velocidade de transmissão adaptável definido.
+3. Crie uma chave de conteúdo e associe-a ao elemento codificado.  
 4. Configure a política de autorização da chave de conteúdo. Especifique o seguinte:
 
    * O método de entrega (neste caso, do FairPlay).
@@ -146,8 +146,10 @@ Aplicam as seguintes considerações:
 1. Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 2. Adicione os elementos seguintes a **appSettings** definidos no ficheiro app.config:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Exemplo
 
@@ -156,11 +158,11 @@ O exemplo seguinte demonstra a capacidade de utilizar os Media Services para ent
 Substitua o código no seu ficheiro Program.cs com o código mostrado nesta secção.
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, consulte [isto](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Certifique-se de que atualiza as variáveis para apontar para as pastas onde se encontram os seus ficheiros de entrada.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
