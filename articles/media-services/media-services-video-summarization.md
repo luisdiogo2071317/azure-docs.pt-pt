@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Utilize as miniaturas de vídeo de multimédia do Azure para criar um resumo de vídeo
 ## <a name="overview"></a>Descrição geral
@@ -44,7 +44,11 @@ Seguem-se alguns exemplos de que o processador de multimédia as miniaturas de v
 ## <a name="task-configuration-preset"></a>Configuração da tarefa (predefinição)
 Quando criar uma tarefa de miniaturas de vídeo com **as miniaturas de vídeo de multimédia do Azure**, tem de especificar uma predefinição de configuração. O exemplo acima em miniatura foi criado com a seguinte configuração básica de JSON:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 Atualmente, pode alterar os seguintes parâmetros:
 
@@ -58,11 +62,12 @@ A tabela seguinte descreve a duração predefinida, quando **maxMotionThumbnailI
 
 |  |  |  |
 | --- | --- | --- | --- | --- |
-| Duração de vídeo |d < 3 mín. |3 min < d < 15 min. |
+| Duração de vídeo |d < 3 min |3 min < d < 15 min |
 | Duração em miniatura |seg de 15 (2-3 em segundo plano) |30 segundos (3-5 em segundo plano) |
 
 O seguinte JSON define os parâmetros disponíveis.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ O seguinte JSON define os parâmetros disponíveis.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
@@ -78,15 +84,18 @@ O seguinte programa mostra como:
 
 1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
 2. Cria uma tarefa com uma tarefa em miniatura vídeo baseada num ficheiro de configuração que contém a predefinição de json seguinte: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Transfere os ficheiros de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -95,6 +104,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Saída de miniaturas de vídeo
 [Saída de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
