@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planear a capacidade e o dimensionamento para replicação de VMware com o Azure Site Recovery
 
@@ -20,7 +20,7 @@ Utilize este artigo para descobrir o planeamento de capacidade e dimensionamento
 
 ## <a name="how-do-i-start-capacity-planning"></a>Como começar a planear a capacidade?
 
-Recolher informações sobre o ambiente de replicação ao executar o [Planeador de implementação do Azure Site Recovery](https://aka.ms/asr-deployment-planner-doc) para replicação de VMware. [Saiba mais](site-recovery-deployment-planner.md) sobre esta ferramenta. Irá recolher informações sobre compatíveis e incompatíveis VMs, discos por VM, e dados churn por disco. A ferramenta também abrange os requisitos de largura de banda de rede e a infraestrutura do Azure necessários para ativação pós-falha com êxito de replicação e teste.
+Recolher informações sobre o ambiente de replicação ao executar o [Planeador de implementação do Azure Site Recovery](https://aka.ms/asr-deployment-planner-doc) para replicação de VMware. [Saiba mais](site-recovery-deployment-planner.md) sobre esta ferramenta. Irá recolher informações sobre compatíveis e incompatíveis VMs, discos por VM, e dados churn por disco. A ferramenta também abarca os requisitos de largura de banda da rede e a infraestrutura do Azure necessários para uma replicação e ativação pós-falha de teste bem-sucedidas.
 
 ## <a name="capacity-considerations"></a>Considerações sobre a capacidade
 
@@ -85,7 +85,7 @@ Depois de utilizou o [a ferramenta de implementação Planner](site-recovery-dep
 2. No snap-in, clique em **Alterar Propriedades**.
 
     ![Captura de ecrã da MMC de cópia de segurança do Azure snap-in da opção para alterar as propriedades](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. No **limitação** separador, selecione **ativar a limitação para operações de cópia de segurança de utilização de largura de banda de internet**. Defina os limites para o trabalho e de descanso horas. Os intervalos válidos variam entre 512 Kbps e 102 Mbps por segundo.
+3. No **limitação** separador, selecione **ativar a limitação para operações de cópia de segurança de utilização de largura de banda de internet**. Defina os limites para o trabalho e de descanso horas. Intervalos válidos são entre 512 Kbps para 1023 Mbps por segundo.
 
     ![Caixa de diálogo de captura de ecrã de propriedades de cópia de segurança do Azure](./media/site-recovery-vmware-to-azure/throttle2.png)
 

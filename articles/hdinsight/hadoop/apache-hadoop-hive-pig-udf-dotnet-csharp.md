@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ad6ba7126b210ddc671026244c4c614d7010000
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Utilizar funções definidas pelo utilizador c# com o Hive e do Pig de transmissão em fluxo do Hadoop no HDInsight
 
@@ -49,7 +49,7 @@ Tanto o Hive e Pig pode passar dados em aplicações externas para processamento
 
 ## <a name="net-on-hdinsight"></a>.NET no HDInsight
 
-* __HDInsight baseado em Linux__ clusters com [Mono (https://mono-project.com)](https://mono-project.com) para executar aplicações de .NET. Versão mono 4.2.1 está incluído com o HDInsight versão 3.5.
+* __HDInsight baseado em Linux__ clusters com [Mono (https://mono-project.com)](https://mono-project.com) para executar aplicações de .NET. Versão mono 4.2.1 está incluído com o HDInsight versão 3.6.
 
     Para obter mais informações sobre Mono compatibilidade com versões do .NET Framework, consulte [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -260,7 +260,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste documento, aprendeu a utilizar uma aplicação .NET Framework do Hive e do Pig no HDInsight. Se gostaria de aprender a utilizar o Python com o Hive e Pig, consulte [utilizar Python com o Hive e Pig no HDInsight](python-udf-hdinsight.md).
 

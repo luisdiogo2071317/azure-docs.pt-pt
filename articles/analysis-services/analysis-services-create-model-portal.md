@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Criar um modelo no portal do Azure
 
@@ -27,15 +27,19 @@ A funcionalidade de designer (pré-visualização) de web do Azure Analysis Serv
 
 Tenha em mente, o estruturador de web está **pré-visualização**. Enquanto a nova funcionalidade está a ser adicionada sempre, na pré-visualização, funcionalidade é limitada. Para mais avançadas modelo desenvolvimento e testes, é melhor utilizar o Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="before-you-begin"></a>Antes de começar
 
 - Um servidor de Analysis Services do Azure, o escalão Standard ou programador. Novos modelos criados utilizando o estruturador de Web são DirectQuery, só suportada por estas camadas.
 - Uma SQL Database do Azure, o Azure SQL Data Warehouse ou o ficheiro do Power BI Desktop (. pbix) como uma origem de dados. Novos modelos criados a partir de suporte de ficheiros SQL Database do Azure, Azure SQL Data Warehouse, Oracle e Teradata Power BI Desktop origens de dados.
 - Uma conta do SQL Server e a palavra-passe para ligar a origens de dados SQL Database do Azure ou do Azure SQL Data Warehouse.
 
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
 ## <a name="to-create-a-new-tabular-model"></a>Para criar um novo modelo em tabela
 
-1. No seu servidor **descrição geral** painel > **Web designer**, clique em **abra**.
+1. No seu servidor **descrição geral** > **Web designer**, clique em **abra**.
 
     ![Criar um modelo no portal do Azure](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

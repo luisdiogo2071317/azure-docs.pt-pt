@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programador com OAuth 2.0 na API Management do Azure
 Suportam muitas APIs [OAuth 2.0](http://oauth.net/2/) para proteger a API e certifique-se de que apenas os utilizadores válidos têm acesso, e apenas podem aceder a recursos a que está a elegível. Para utilizar a consola de programador interativo da API Management do Azure com essas APIs, o serviço permite-lhe configurar a sua instância de serviço funcione com o OAuth 2.0 API ativada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"> </a>Pré-requisitos
 Este guia mostra-lhe como configurar a sua instância do serviço de gestão de API a utilizar a autorização do OAuth 2.0 para contas de programador, mas não mostrar-lhe como configurar um fornecedor de OAuth 2.0. A configuração para cada fornecedor de OAuth 2.0 é diferente, embora os passos são semelhantes e as necessárias peças de informações utilizadas na configuração de OAuth 2.0 na sua instância do serviço de API Management são os mesmos. Este tópico mostra exemplos que utilizam o Azure Active Directory como um fornecedor de OAuth 2.0.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Este guia mostra-lhe como configurar a sua instância do serviço de gestão de 
 > 
 > 
 
-## <a name="step1"></a>Configurar um servidor de autorização do OAuth 2.0 na API Management
+## <a name="step1"> </a>Configurar um servidor de autorização do OAuth 2.0 na API Management
 Para começar, clique em **Portal do editor** no Portal do Azure para o seu serviço de Gestão de API.
 
 ![Portal do publicador][api-management-management-console]
@@ -89,7 +89,7 @@ Se **tipos de concessão de códigos de autorização** está definido como **pa
 
 Assim que o formulário estiver concluído, clique em **guardar** para guardar a configuração de servidor de autorização de API Management OAuth 2.0. Depois da configuração do servidor é guardada, pode configurar as APIs utilizem esta configuração, conforme mostrado na secção seguinte.
 
-## <a name="step2"></a>Configurar uma API para utilizar a autorização de utilizador de OAuth 2.0
+## <a name="step2"> </a>Configurar uma API para utilizar a autorização de utilizador de OAuth 2.0
 Clique em **APIs** do **API Management** menu da esquerda, clique o nome da API pretendido, clique em **segurança**e, em seguida, selecione a caixa para **OAuth 2.0**.
 
 ![Autorização do utilizador][api-management-user-authorization]
@@ -98,7 +98,7 @@ Selecione o pretendido **servidor autorização** na lista pendente e clique em 
 
 ![Autorização do utilizador][api-management-user-authorization-save]
 
-## <a name="step3"></a>Testar a autorização de utilizador de OAuth 2.0 no Portal do Programador
+## <a name="step3"> </a>Testar a autorização de utilizador de OAuth 2.0 no Portal do Programador
 Depois de ter configurado o servidor de autorização do OAuth 2.0 e configurado a API a utilizar esse servidor, pode testá-lo ao aceder ao Portal do programador e chamar uma API.  Clique em **Portal do programador** no menu superior à direita.
 
 ![Portal do programador][api-management-developer-portal-menu]
@@ -131,12 +131,9 @@ Depois de ter iniciado sessão, o **cabeçalhos de pedido** são povoadas com um
 
 Nesta altura pode configurar os valores pretendidos para os restantes parâmetros e submeter o pedido. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como utilizar o OAuth 2.0 e a API Management, consulte o seguinte vídeo e associado [artigo](api-management-howto-protect-backend-with-aad.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

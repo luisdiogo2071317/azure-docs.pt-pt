@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Perguntas mais frequentes do reencaminhamento do Azure
 
@@ -76,14 +76,13 @@ Enviar uma mensagem para um reencaminhamento do Service Bus é tratado como um "
 Reencaminhamentos abertos utilizando o **netTCPRelay** enlace WCF tratar mensagens, mas não como as mensagens individuais, como um fluxo de dados que fluem através do sistema. Quando utiliza este enlace, apenas o remetente e o serviço de escuta tem visibilidade sobre os pacotes das mensagens individuais enviados e recebidos. Para reencaminha que utilizam o **netTCPRelay** enlace, todos os dados é tratado como uma transmissão em fluxo para calcular mensagens sujeito a faturação. Neste caso, o Service Bus calcula a quantidade total de dados enviado ou recebido através de cada reencaminhamento individuais numa base de 5 minutos. Em seguida, divide essa quantidade total de dados por 64 KB para determinar o número de mensagens Facturável para esse reencaminhamento durante esse período de tempo.
 
 ## <a name="quotas"></a>Quotas
-| Nome de quota | Âmbito | Tipo | Comportamento quando excedido | Valor |
-| --- | --- | --- | --- | --- |
-| Serviços de escuta em simultâneo num reencaminhamento |Entidade |Estático |Os pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código da chamada. |25 |
-| Serviços de escuta de reencaminhamento em simultâneo |Systemwide |Estático |Os pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código da chamada. |2,000 |
-| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Systemwide |Estático |- |5,000 |
-| Pontos finais de reencaminhamento por espaço de nomes de serviço |Systemwide |Estático |- |10,000 |
-| Tamanho da mensagem [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) reencaminha |Systemwide |Estático |Mensagens a receber que excedem destas quotas são rejeitadas e uma exceção é recebida pelo código da chamada. |64 KB |
-| Tamanho da mensagem [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) reencaminha |Systemwide |Estático |- |Ilimitado |
+| Nome de quota | Âmbito |  Notas | Valor |
+| --- | --- | --- | --- |
+| Serviços de escuta em simultâneo num reencaminhamento |Entidade |Os pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código da chamada. |25 |
+| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de Nomes |- |5.000 |
+| Pontos finais de reencaminhamento por espaço de nomes de serviço |Espaço de Nomes |- |10,000 |
+| Tamanho da mensagem [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) reencaminha |Espaço de Nomes |Mensagens a receber que excedem destas quotas são rejeitadas e uma exceção é recebida pelo código da chamada. |64 KB |
+| Tamanho da mensagem [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) reencaminha |Espaço de Nomes |Sem limite no tamanho da mensagem. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>A reencaminhamento tem quaisquer quotas de utilização?
 Por predefinição, a qualquer serviço de nuvem, o Microsoft define uma quota de utilização mensal agregado que é calculado em todas as subscrições de um cliente. Compreendemos que por vezes às suas necessidades poderão exceder estes limites. Pode contactar o serviço de cliente em qualquer altura, para que possa compreender as suas necessidades e ajustar estes limites adequadamente. As quotas de utilização de agregação para o Service Bus, são os seguintes:

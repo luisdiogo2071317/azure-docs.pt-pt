@@ -1,19 +1,19 @@
 ---
-title: Conceitos de elevada disponibilidade da base de dados do Azure para MySQL | Microsoft Docs
+title: Conceitos de elevada disponibilidade da base de dados do Azure para MySQL
 description: "Este tópico fornece informações de elevada disponibilidade, quando utilizar a base de dados do Azure para MySQL"
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/31/2017
-ms.openlocfilehash: 5b63a1ac666a14354b5b93f22722b624244a7aa2
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.date: 02/28/2018
+ms.openlocfilehash: 58f10f0a0938da5887d44959f65b9016dfa88f2c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de elevada disponibilidade da base de dados do Azure para MySQL
 A base de dados do Azure para o serviço de MySQL fornece um nível elevado de disponibilidade garantido. O contrato de nível de serviço de cópia de financially (SLA) é 99,99% após a disponibilidade geral. Praticamente nenhuma aplicação tempo quando utilizar este serviço.
@@ -33,5 +33,5 @@ Semelhante ao modelo de HA, quando uma base de dados do Azure para MySQL é esca
 
 Durante a operação de dimensionamento, ocorre uma interrupção para as ligações de base de dados. As aplicações de cliente estiver desligadas e abra as transações não consolidadas foram canceladas. Assim que a aplicação de cliente a ligação ou estabelece uma ligação nova, o gateway direciona a ligação à instância do tamanho recentemente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter uma descrição geral do serviço, consulte [base de dados do Azure para descrição geral de MySQL](overview.md)

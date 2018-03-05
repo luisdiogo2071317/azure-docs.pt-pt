@@ -1,19 +1,19 @@
 ---
-title: "Configurar alertas de métricas da base de dados do Azure para PostgreSQL no portal do Azure | Microsoft Docs"
+title: "Configurar alertas de métricas da base de dados do Azure para PostgreSQL no portal do Azure"
 description: "Este artigo descreve como configurar e alertas de métrica de acesso para a base de dados do Azure para PostgreSQL do portal do Azure."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 3a09be8131b57381eb470027a134109c116467ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utilizar o portal do Azure para configurar alertas nas métricas da base de dados do Azure para PostgreSQL 
 
@@ -49,7 +49,7 @@ Pode configurar e obter informações sobre regras de alertas com:
    |---------|---------|
    | Nome | Forneça um nome para a regra de alerta. Este valor é enviado no e-mail de notificação de alertas. |
    | Descrição | Forneça uma breve descrição da regra de alerta. Este valor é enviado no e-mail de notificação de alertas. |
-   | Alerta sobre | Escolha **métricas** para este tipo de alerta. |
+   | Alerta referente a | Escolha **métricas** para este tipo de alerta. |
    | Subscrição | Este campo é pré-preenchida com a subscrição que aloja a base de dados do Azure para PostgreSQL. |
    | Grupo de recursos | Este campo é pré-preenchida com o grupo de recursos da sua base de dados do Azure para PostgreSQL. |
    | Recurso | Este campo é pré-preenchida com o nome da base de dados do Azure para PostgreSQL. |
@@ -79,6 +79,6 @@ Assim que tiver criado um alerta, pode selecioná-lo e executar as seguintes aç
 * **Editar** ou **eliminar** a regra de alerta.
 * **Desativar** ou **ativar** o alerta, se pretender temporariamente interromper ou retomar a receção de notificações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [configurar webhooks alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Obter um [descrição geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e reativa.

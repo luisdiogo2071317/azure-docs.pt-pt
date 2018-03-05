@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dcc04e5bba28d0cb32e8633542ab8d3c125003ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados de serviços do Hadoop no HDInsight baseado em Linux
 
@@ -51,8 +51,8 @@ Em cada script, há uma exportação para  **\* \_OPTS**, que contém as opçõe
 
 Mapear e reduzir os processos são ligeiramente diferentes, como estas operações são um processo subordinado do serviço de MapReduce. Cada mapear ou reduzir o processo é executado num contentor subordinado e não existirem duas entradas que contêm as opções de JVM. Ambos contidas no **mapred site.xml**:
 
-* **mapreduce.Admin.Map.child.Java.opts**
-* **mapreduce.Admin.reduce.child.Java.opts**
+* **mapreduce.admin.map.child.java.opts**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
 > É recomendável utilizar Ambari para modificar os scripts e de definições de mapred site.xml, como o identificador do Ambari replicar as alterações em nós do cluster. Consulte o [utilizando Ambari](#using-ambari) secção para obter passos específicos.
@@ -63,7 +63,7 @@ A seguinte opção permite capturas de área dinâmica para dados quando ocorre 
 
     -XX:+HeapDumpOnOutOfMemoryError
 
-O  **+**  indica que esta opção está ativada. A predefinição está desativada.
+O  **+**  indica que esta opção está ativada. A predefinição é Desativado.
 
 > [!WARNING]
 > Capturas de área dinâmica para dados não estão ativadas para serviços do Hadoop no HDInsight por predefinição, como os ficheiros de informação podem ser elevados. Se a ativá-los para resolução de problemas, lembre-se de desativá-las depois de ter reproduzido o problema e recolhidos os ficheiros de informação.

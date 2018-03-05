@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integração do Azure Active Directory com Rollbar
 
@@ -108,15 +108,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Rollbar e os URLs únicos de informações de início de sessão](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
-    a. No **identificador** caixa de texto, escreva o URL:`https://saml.rollbar.com`
+    a. No **identificador** caixa de texto, escreva o URL: `https://saml.rollbar.com`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://rollbar.com/<accountname>/saml/sso/azure/`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio Rollbar e os URLs únicos de informações de início de sessão](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://rollbar.com/<accountname>/saml/login/azure/`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente Rollbar](mailto:support@rollbar.com) para obter estes valores. 
@@ -149,11 +149,14 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. Clique em **Guardar**.
 
-11. Depois do guardar de clicar no botão, o ecrã será semelhante. Execute os seguintes passos nesta secção:
+11. Depois do guardar de clicar no botão, o ecrã será como esta:
     
     ![Configuração](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Para concluir o passo seguinte, terá de adicionar primeiro si próprio como um utilizador para a aplicação de Rollbar no Azure.
+    a. Se pretende exigir todos os utilizadores autenticar através do Azure, em seguida, clique em **iniciar sessão através do seu fornecedor de identidade** novamente autenticar através do Azure.  
 
-    a. Selecione **necessitam de início de sessão através do fornecedor de identidade** caixa de verificação.
+    b.  Assim que estiver a devolvido para o ecrã, selecione o **necessitam de início de sessão através do fornecedor de identidade** caixa de verificação.
 
     b. Clique em **Guardar**.
 

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end utilizando o cliente de autenticação de certificado na API Management do Azure
 API Management fornece a capacidade para proteger o acesso ao serviço de back-end de uma API utilizando certificados de cliente. Este guia mostra como gerir certificados no portal do publicador API e como configurar uma API para utilizar um certificado para aceder ao seu serviço de back-end.
 
 Para obter informações sobre como gerir certificados utilizando a API de REST de gestão de API, consulte [entidade de certificado de API do REST de gestão do Azure API][Azure API Management REST API Certificate entity].
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"> </a>Pré-requisitos
 Este guia mostra como configurar a sua instância do serviço de API Management para utilizar a autenticação de certificado de cliente para aceder ao serviço de back-end de uma API. Antes de seguir os passos neste tópico, deve ter o serviço de back-end configurado para autenticação de certificados de cliente ([para configurar a autenticação de certificados de Web sites do Azure, consulte a este artigo][to configure certificate authentication in Azure WebSites refer to this article]), e têm acesso para o certificado e a palavra-passe para o certificado para carregar no portal do publicador da API Management.
 
-## <a name="step1"></a>Carregar um certificado de cliente
+## <a name="step1"> </a>Carregar um certificado de cliente
 Para começar, clique em **Portal do editor** no Portal do Azure para o seu serviço de Gestão de API. Isto leva-o para o portal do publicador da API Management.
 
 ![Portal do publicador da API][api-management-management-console]
@@ -66,7 +66,7 @@ Quando o certificado é carregado, aparecerá no **certificados de cliente** sep
 > 
 > 
 
-## <a name="step1a"></a>Eliminar um certificado de cliente
+## <a name="step1a"> </a>Eliminar um certificado de cliente
 Para eliminar um certificado, clique em **eliminar** junto do certificado pretendido.
 
 ![Eliminar Certificado][api-management-certificate-delete]
@@ -79,7 +79,7 @@ Se o certificado está a ser utilizado por uma API, um ecrã de aviso é apresen
 
 ![Confirmar eliminação][api-management-confirm-delete-policy]
 
-## <a name="step2"></a>Configurar uma API a utilizar um certificado de cliente para autenticação de gateway
+## <a name="step2"> </a>Configurar uma API a utilizar um certificado de cliente para autenticação de gateway
 Clique em **APIs** do **API Management** menu à esquerda, clique no nome da API pretendida e clique em de **segurança** separador.
 
 ![Segurança de API][api-management-api-security]
@@ -114,13 +114,6 @@ Se estiver a utilizar certificados autoassinados, terá de desativar a validaç�
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-## <a name="next-steps"></a>Passos seguintes
-Para mais informações sobre outras formas de proteger o seu serviço de back-end, tal como HTTP autenticação básica ou partilhado secreta, veja o vídeo seguinte.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

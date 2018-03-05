@@ -1,19 +1,19 @@
 ---
-title: "Ligar o App Service do Azure existente à base de dados do Azure para MySQL | Microsoft Docs"
+title: "Ligar o App Service do Azure existente à base de dados do Azure para MySQL"
 description: "Instruções sobre como corretamente ligar um serviço de aplicações do Azure existente à base de dados do Azure para o MySQL"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: d8b130876e5fa0f2b2322dff82013a409ff7d30e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Ligar um serviço de aplicações do Azure existente à base de dados do Azure para o servidor de MySQL
 Este tópico explica como ligar um serviço de aplicações do Azure existente na base de dados do Azure para o servidor de MySQL.
@@ -60,5 +60,5 @@ Embora o App service do Azure tenta manter os endereços IP constante ao longo d
 ## <a name="ssl-configuration"></a>Configuração de SSL
 Base de dados do Azure para MySQL tiver SSL ativado por predefinição. Se a aplicação não estiver a utilizar SSL para ligar à base de dados, terá de desativar o SSL no servidor de MySQL. Para obter mais informações sobre como configurar o SSL, consulte [utilizando o SSL com a base de dados do Azure para MySQL](howto-configure-ssl.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para mais informações sobre cadeias de ligação, consulte [cadeias de ligação](howto-connection-string.md).

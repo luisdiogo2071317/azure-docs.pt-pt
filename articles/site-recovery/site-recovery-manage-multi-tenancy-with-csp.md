@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Gerir vários inquilinos com o programa fornecedor de solução em nuvem (CSP)
 
@@ -83,7 +83,7 @@ Agora pode efetuar todas as operações de recuperação de sites para o inquili
 ## <a name="deploy-resources-to-the-tenant-subscription"></a>Implementar recursos para a subscrição de inquilino
 1. No portal do Azure, crie um grupo de recursos e, em seguida, implementar um cofre dos serviços de recuperação pelo processo normal.
 
-2. Transferir a chave de registo do cofre.
+2. Transfira a chave de registo do cofre.
 
 3. Registe o CS para o inquilino utilizando a chave de registo do cofre.
 
@@ -121,7 +121,7 @@ Parceiros também podem adicionar um novo utilizador à subscrição do inquilin
 
   O Azure Site Recovery tem também três [previamente definido funções de utilizador](site-recovery-role-based-linked-access-control.md) que podem ser utilizados para restringir mais níveis de acesso conforme necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
   [Saiba mais](site-recovery-role-based-linked-access-control.md) sobre o controlo de acesso baseado em funções para gerir implementações do Azure Site Recovery.
 
   [Gerir ambientes de VMware multi-inquilinos](site-recovery-multi-tenant-support-vmware-using-csp.md)

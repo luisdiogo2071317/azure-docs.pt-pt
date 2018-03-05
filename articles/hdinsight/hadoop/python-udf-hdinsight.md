@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Utilize Python funções definidas pelo utilizador (UDF) com o Hive e Pig no HDInsight
 
@@ -126,8 +126,8 @@ Um script de Python pode ser utilizado como um UDF do Pig através de `GENERATE`
 
 Para especificar o interpretador Python, utilize `register` quando referenciar o script de Python. Os exemplos seguintes registar scripts Pig como `myfuncs`:
 
-* **Para utilizar Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Para utilizar o C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Para utilizar Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Para utilizar o C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > Quando utilizar Jython, o caminho para o ficheiro pig_jython pode ser um caminho local ou um WASB: / / caminho. No entanto, ao utilizar o C Python, tem de referenciar um ficheiro no sistema de ficheiros local do nó que está a utilizar para submeter a tarefa Pig.
@@ -145,7 +145,7 @@ Eis o que faz este exemplo:
 
 1. A primeira linha carrega o ficheiro de dados de exemplo, `sample.log` para `LOGS`. Também define cada registo como um `chararray`.
 2. A linha seguinte filtra quaisquer valores nulos, o resultado da operação para o armazenamento `LOG`.
-3. Em seguida, itera sobre os registos no `LOG` e utiliza `GENERATE` para invocar a `create_structure` método contido no script de Python/Jython carregadas como `myfuncs`. `LINE`é utilizado para transmitir o registo atual para a função.
+3. Em seguida, itera sobre os registos no `LOG` e utiliza `GENERATE` para invocar a `create_structure` método contido no script de Python/Jython carregadas como `myfuncs`. `LINE` é utilizado para transmitir o registo atual para a função.
 4. Por fim, as saídas são capturar para STDOUT utilizando o `DUMP` comando. Este comando apresenta os resultados após a conclusão da operação.
 
 ### <a name="create-the-pigudfpy-file"></a>Criar o ficheiro pigudf.py
@@ -380,8 +380,8 @@ As informações de erro (STDERR) e o resultado da tarefa (STDOUT), também são
 
 | Para esta tarefa... | Observe estes ficheiros no contentor do blob |
 | --- | --- |
-| Hive |/ HivePython/stderr<p>/ HivePython/stdout |
-| Pig |/ PigPython/stderr<p>/ PigPython/stdout |
+| Hive |/HivePython/stderr<p>/HivePython/stdout |
+| Pig |/PigPython/stderr<p>/PigPython/stdout |
 
 ## <a name="next"></a>Passos seguintes
 

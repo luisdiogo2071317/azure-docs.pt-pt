@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuída a otimização de sintonização utilizando o Azure Machine Learning Workbench
 
@@ -39,19 +39,14 @@ Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algor
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguintes o [instalar e criar o guia de introdução](./quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que está a executar do Azure ML Workbench no Windows 10 ou MacOS com o motor de Docker instalada localmente. 
 * Para executar o cenário com um contentor de Docker remoto, aprovisionar a Máquina Virtual de ciência de dados do Ubuntu (DSVM), seguindo o [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 28 Gb de memória. D4 instâncias de máquinas virtuais têm essa capacidade. 
-* Para executar este cenário com um cluster do Spark, aprovisionar Azure HDInsight cluster seguindo estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Recomendamos ter, pelo menos, um cluster com:
-    - seis nós de trabalho
+* Para executar este cenário com um cluster do Spark, aprovisionar clusters do Spark HDInsight seguindo estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Recomenda-se ter um cluster com a seguinte configuração no cabeçalho e de trabalho nós:
+    - quatro nós de trabalho
     - oito núcleos
-    - 28 Gb de memória em nós de cabeçalho e de trabalho. D4 instâncias de máquinas virtuais têm essa capacidade.       
-    - Recomendamos a alteração dos parâmetros seguintes para maximizar o desempenho do cluster:
-        - spark.executor.instances
-        - spark.executor.cores
-        - spark.executor.Memory 
+    - 28 Gb de memória  
+      
+  D4 instâncias de máquinas virtuais têm essa capacidade. 
 
-Pode seguir estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na secção "predefinições do spark personalizado".
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Resolução de problemas**: subscrição do Azure o pode ter uma quota no número de núcleos que podem ser utilizadas. O portal do Azure permite a criação do cluster com o número total de núcleos exceder a quota. Para localizar a quota, aceda no portal do Azure para a secção de subscrições, clique na subscrição utilizada para implementar um cluster e, em seguida, clique em **utilização + quotas**. Normalmente, as quotas são definidas por região do Azure e pode optar por implementar o cluster do Spark numa região onde tem suficiente núcleos livres. 
 
 * Crie uma conta de armazenamento do Azure que é utilizada para armazenar o conjunto de dados. Siga o [instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento.
 
@@ -118,7 +113,7 @@ com o IP endereço, nome de utilizador e palavra-passe no DSVM. Endereço IP do 
 
 Para configurar o ambiente do Spark, execute na CLI
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 com o nome do cluster, o nome de utilizador do SSH do cluster e palavra-passe. O valor predefinido do nome de utilizador do SSH é `sshuser`, a menos que o alterado durante o aprovisionamento do cluster. O nome do cluster pode ser encontrado na secção de propriedades da sua página de cluster no portal do Azure:
 
@@ -126,14 +121,20 @@ com o nome do cluster, o nome de utilizador do SSH do cluster e palavra-passe. O
 
 Utilizamos o pacote de spark sklearn ter Spark como um ambiente de execução para a otimização de distribuídas de sintonização. Iremos modificou o ficheiro de spark_dependencies.yml para instalar este pacote quando é utilizado o ambiente de execução do Spark:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ na janela do CLI.
 Uma vez que o ambiente local é demasiado pequeno para computação que todos os conjuntos de funcionalidades, iremos mudar para DSVM remoto que tenha memória maior. A execução dentro DSVM é feita no interior do contentor de Docker que é gerido pelo AML Workbench. Com esta DSVM conseguem computação todas as funcionalidades e modelos de formação e otimizar de sintonização (consulte a secção seguinte). o ficheiro de singleVM.py tem a funcionalidade completa de cálculo e código de modelação. Na secção seguinte, mostramos como executar singleVM.py no DSVM remoto. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Otimização de sintonização utilizando DSVM remoto
-Utilizamos [xgboost](https://anaconda.org/conda-forge/xgboost) implementação [1] de aumento de gradação da árvore. Utilizamos [scikit-Saiba](http://scikit-learn.org/) pacote para otimizar xgboost de sintonização. Embora xgboost não faz parte de scikit-saiba pacote, implementa scikit-saiba API e, por conseguinte, podem ser utilizadas em conjunto com as funções do scikit de otimização de hyperparameter-saber mais. 
+Utilizamos [xgboost](https://anaconda.org/conda-forge/xgboost) implementação [1] de aumento de gradação da árvore. Também utilizamos [scikit-Saiba](http://scikit-learn.org/) pacote para otimizar xgboost de sintonização. Embora xgboost não faz parte de scikit-saiba pacote, implementa scikit-saiba API e, por conseguinte, podem ser utilizadas em conjunto com as funções do scikit de otimização de hyperparameter-saber mais. 
 
-Xgboost tem de oito sintonização:
+Xgboost tem oito de sintonização, descrita [aqui](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost tem de oito sintonização:
 * learning_rate
 * colsample\_by_level
 * subsample
-* objetivo uma descrição de sintonização estes pode ser encontrado em
-- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* objetivo  
+ 
 Inicialmente, iremos utilizar DSVM remoto e otimizar a partir de uma pequena grelha dos valores de candidatos de sintonização:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Esta grelha tem quatro combinações de valores de sintonização. Utilizamos 5-fold validação cruzada, 4, 5 = 20 do resultante é executado de xgboost. Para medir o desempenho dos modelos, utilizamos de métrica de perda de registo negativo. O código seguinte localiza os valores de sintonização da grelha que maximizar a perda de validados entre registo negativo. O código também utiliza estes valores para preparar o modelo final ao longo do conjunto de preparação completa:
+Esta grelha tem quatro combinações de valores de sintonização. Utilizamos 5-fold validação cruzada, resultando em 4, 5 = 20 executa de xgboost. Para medir o desempenho dos modelos, utilizamos de métrica de perda de registo negativo. O código seguinte localiza os valores de sintonização da grelha que maximizar a perda de validados entre registo negativo. O código também utiliza estes valores para preparar o modelo final ao longo do conjunto de preparação completa:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Utilizamos o cluster do Spark para ampliar a otimização de sintonização e ut
 
 Esta grelha tem 16 combinações de valores de sintonização. Uma vez que utilizamos 5-fold validação cruzada, iremos executar xgboost 16, 5 = 80 vezes.
 
-scikit-saiba pacote não tem um suporte nativo de otimização de sintonização utilizando o cluster do Spark. Felizmente, [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) pacote a partir da Databricks preenche neste intervalo. Este pacote fornece GridSearchCV função que tenha quase a mesma API como função GridSearchCV no scikit-saber mais. Para utilizar o spark sklearn e otimizar a utilização do Spark de sintonização é necessário ligar ao criar o contexto do Spark
+scikit-saiba pacote não tem um suporte nativo de otimização de sintonização utilizando o cluster do Spark. Felizmente, [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) pacote a partir da Databricks preenche neste intervalo. Este pacote fornece GridSearchCV função que tenha quase a mesma API como função GridSearchCV no scikit-saber mais. Para utilizar o spark sklearn e otimizar a utilização do Spark de sintonização temos de criar um contexto do Spark
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

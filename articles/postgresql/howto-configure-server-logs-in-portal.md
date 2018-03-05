@@ -1,19 +1,19 @@
 ---
-title: Configurar e os registos do servidor de acesso PostgreSQL no Portal do Azure | Microsoft Docs
+title: Configurar e registos do servidor de acesso para PostgreSQL no Portal do Azure
 description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para PostgreSQL do Portal do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e iniciar sessão no servidor de acesso no portal do Azure
 
@@ -36,19 +36,13 @@ Configure o acesso aos registos de consulta e registos de erros.
 
 4. Selecione o título **clique aqui para ativar os registos e configurar parâmetros de registo** para ver os parâmetros de servidor.
 
-5. Selecione o **mostrar mais** expander para ver uma lista dos parâmetros disponíveis expandida. 
-
-   Para obter mais informações sobre as definições de parâmetros, consulte a documentação de PostgreSQL no [relatório de erros e registo](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-
-   ![Pequena lista de parâmetros de registo. Clique em Mostrar mais para longa](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Altere os parâmetros que terá de ajustar. Todas as alterações efetuadas nesta sessão são realçadas na roxa.
+5. Altere os parâmetros que terá de ajustar. Todas as alterações efetuadas nesta sessão são realçadas na roxa.
 
    Assim que tiver alterado os parâmetros, pode clicar em **guardar**. Ou pode **rejeitar** as suas alterações. 
 
    ![Longa lista de parâmetros com as alterações para guardar ou eliminar](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Regressar à lista de registos, clicando a **botão Fechar** (X ícone) no **parâmetros do** página.
+6. Regressar à lista de registos, clicando a **botão Fechar** (X ícone) no **parâmetros do** página.
 
 ## <a name="view-list-and-download-logs"></a>Ver lista e transferir os registos
 Depois de inicia o registo, pode ver uma lista de registos disponíveis e transferir ficheiros de registo individuais no painel de registos do servidor. 

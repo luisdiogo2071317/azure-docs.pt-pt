@@ -1,20 +1,20 @@
 ---
-title: Configurar a conectividade SSL na base de dados do Azure para PostgreSQL | Microsoft Docs
+title: Configurar a conectividade SSL na base de dados do Azure para PostgreSQL
 description: "As instruções e informações para configurar a base de dados do Azure para PostgreSQL e aplicações associadas a corretamente utilizar ligações SSL."
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL na base de dados do Azure para PostgreSQL
 Base de dados do Azure para PostgreSQL prefers ligar as aplicações de cliente para o serviço de PostgreSQL utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -40,7 +40,7 @@ Pode confirmar a definição visualizando o **descrição geral** página para v
 Pode ativar ou desativar o **ssl imposição** utilizando o parâmetro `Enabled` ou `Disabled` valores respetivamente na CLI do Azure.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Certifique-se a aplicação ou estrutura suporta ligações SSL
@@ -116,11 +116,11 @@ O exemplo seguinte mostra como ligar com êxito ao servidor utilizando o utilit�
 
 Utilizar a interface de linha de comandos PostgreSQL, execute o seguinte comando:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 Se tiver êxito, receberá o seguinte resultado:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference
@@ -136,5 +136,5 @@ Configurar pgAdmin 4 para ligar em segurança através de SSL requer que defina 
 
 ![Captura de ecrã do modo SSL pgAdmin - ligação - requerem](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja as várias opções de conectividade de aplicação seguinte [bibliotecas de ligação para base de dados do Azure para PostgreSQL](concepts-connection-libraries.md).

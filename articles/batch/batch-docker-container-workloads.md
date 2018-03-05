@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentor do Azure batch
 
@@ -27,7 +27,7 @@ Este artigo pressupõe familiaridade com conceitos de contentor do Docker e como
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Versões do SDK: os SDKs do Batch suporte contentor imagens nas seguintes versões:
+* Versões do SDK: os SDKs do Batch suporte contentor imagens a partir das seguintes versões:
     * API de REST do batch versão 2017-09-01.6.0
     * SDK .NET do batch versão 8.0.0
     * SDK Python do batch versão 4.0
@@ -87,7 +87,7 @@ No código da aplicação, fornecem uma referência à imagem de VM para utiliza
 
     Para obter este ID de imagem do portal do Azure, abra **todos os recursos**, selecione a imagem personalizada e para o **descrição geral** secção do painel de imagem, copie o caminho no **ID de recurso**.
 
-* Se estiver a utilizar um [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) de imagem, forneça um grupo de parâmetros que descrevem a imagem: o tipo de oferta, publicador, SKU e versão da imagem, conforme indicado em [lista de imagens da máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Se estiver a utilizar um [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) de imagem, forneça um grupo de parâmetros que descrevem a imagem: o publicador, o tipo de oferta, SKU e versão da imagem, conforme indicado em [lista de imagens da máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma descrição geral aprofundada do Batch, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md).
+* Consulte também o [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit para facilitar a implementação de cargas de trabalho de contentor do Azure batch através de [receitas Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Para obter mais informações sobre como instalar e utilizar o Docker CE no Linux, consulte o [Docker](https://docs.docker.com/engine/installation/) documentação.
 

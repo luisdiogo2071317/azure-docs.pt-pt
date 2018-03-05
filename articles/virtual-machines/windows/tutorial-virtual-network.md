@@ -13,49 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/12/2017
+ms.date: 02/27/2018
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 21f2d586a4c468071bec55c65005b35baf323fe7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3a59d85ea19ba6670ffbb60aa9b764560a3567a0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Gerir redes virtuais do Azure e máquinas virtuais do Windows com o Azure PowerShell
 
-Máquinas virtuais do Azure utilizar redes do Azure para a comunicação de rede internos e externos. Este tutorial explica duas máquinas virtuais a implementar e configurar redes do Azure para estas VMs. Os exemplos neste tutorial partem do princípio de que as VMs estão a alojar uma aplicação web com um back-end da base de dados, no entanto, uma aplicação não está implementada no tutorial. Neste tutorial, ficará a saber como:
+As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial partem do princípio de que as VMs alojam uma aplicação Web com um back-end de base de dados. No entanto, não é implementada nenhuma aplicação no tutorial. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma rede virtual e sub-rede
+> * Criar uma rede virtual e uma sub-rede
 > * Crie um endereço IP público
 > * Criar uma VM de front-end
-> * Proteja o tráfego de rede
+> * Proteger o tráfego de rede
 > * Criar a VM de back-end
 
-Ao concluir este tutorial, pode ver estes recursos criados:
+
+
+Este tutorial requer AzureRM.Compute versão do módulo 4.3.1 ou posterior. Executar `Get-Module -ListAvailable AzureRM.Compute` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+
+## <a name="vm-networking-overview"></a>Descrição geral do funcionamento em rede de VMs
+
+As redes virtuais do Azure permitem ligações de rede seguras entre as máquinas virtuais, a Internet e outros serviços do Azure, como a Base de Dados SQL do Azure. As redes virtuais são divididas em segmentos lógicos, chamados sub-redes. As sub-redes são utilizadas para controlar o fluxo de rede e como limite de segurança. Ao implementar uma VM, incluem, geralmente, uma interface de rede virtual, que é ligada a uma sub-rede.
+
+Ao concluir este tutorial, pode ver estes recursos serem criados:
 
 ![Rede virtual com duas sub-redes](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet* -a rede virtual que as VMs utilizam para comunicar entre si e a internet.
-- *myFrontendSubnet* -a sub-rede no *myVNet* utilizado por recursos front-end.
-- *myPublicIPAddress* -o endereço IP público utilizado para acesso *myFrontendVM* da internet.
-- *myFrontentNic* -interface de rede utilizado pelo *myFrontendVM* para comunicar com *myBackendVM*.
-- *myFrontendVM* -VM o utilizada para comunicar entre a internet e *myBackendVM*.
-- *myBackendNSG* -o grupo de segurança de rede que controla a comunicação entre o *myFrontendVM* e *myBackendVM*.
-- *myBackendSubnet* -a sub-rede associada *myBackendNSG* e utilizados pelos recursos de back-end.
-- *myBackendNic* -interface de rede utilizado pelo *myBackendVM* para comunicar com *myFrontendVM*.
+- *myVNet* - a rede virtual que as VMs utilizam para comunicar entre si e com a Internet.
+- *myFrontendSubnet* - a sub-rede em *myVNet* que os recursos de front-end utilizam.
+- *myPublicIPAddress* - o endereço IP público utilizado para aceder a *myFrontendVM* a partir da Internet.
+- *myFrontentNic* - a interface de rede utilizada por *myFrontendVM* para comunicar com *myBackendVM*.
+- *myFrontendVM* - a VM utilizada para comunicar entre a Internet e *myBackendVM*.
+- *myBackendNSG* - o grupo de segurança de rede que controla a comunicação entre *myFrontendVM* e *myBackendVM*.
+- *myBackendSubnet* - a sub-rede associada a *myBackendNSG* e utilizada pelos recursos de back-end.
+- *myBackendNic* - a interface de rede utilizada por *myBackendVM* para comunicar com *myFrontendVM*.
 - *myBackendVM* -a VM que utiliza a porta 1433 para comunicar com *myFrontendVM*.
 
-Este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
 
-## <a name="vm-networking-overview"></a>Descrição geral de redes VM
+## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
 
-Redes virtuais do Azure permitem ligações de rede seguro entre máquinas virtuais, a internet e outros serviços do Azure, tais como a base de dados SQL do Azure. Redes virtuais são divididas em segmentos lógicos denominados sub-redes. Sub-redes são utilizadas para o fluxo de controlo de rede e, como um limite de segurança. Quando implementar uma VM, geralmente inclui uma interface de rede virtual, o que está ligada a uma sub-rede.
-
-## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e sub-rede
-
-Para este tutorial, é criada uma única rede virtual com duas sub-redes. Uma sub-rede do front-end para alojar uma aplicação web e uma sub-rede de back-end para o alojamento de um servidor de base de dados.
+Neste tutorial, é criada uma rede virtual individual com duas sub-redes. Uma sub-rede de front-end para alojar uma aplicação Web e uma sub-rede de back-end para alojar um servidor de bases de dados.
 
 Antes de poder criar uma rede virtual, crie um grupo de recursos utilizando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myRGNetwork* no *EastUS* localização:
 
@@ -94,13 +97,13 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $frontendSubnet, $backendSubnet
 ```
 
-Neste momento, uma rede foi criada e segmentada em duas sub-redes, um para serviços front-end e outra para serviços de back-end. Na secção seguinte, as máquinas virtuais são criadas e ligadas a estas sub-redes.
+Nesta fase, já está criada uma rede e segmentada em duas sub-redes, uma para os serviços de front-end e outra para os de back-end. Na secção seguinte, são criadas máquinas virtuais e ligadas a estas sub-redes.
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-Um endereço IP público permite que os recursos do Azure esteja acessível na internet. O método de atribuição do endereço IP público pode ser configurado como dinâmico ou estático. Por predefinição, um endereço IP público é dinamicamente atribuído. Endereços IP dinâmicos são lançados quando uma VM é desalocada. Este comportamento faz com que o endereço IP alterar durante qualquer operação que inclua uma Desalocação da VM.
+Os endereços IP públicos permitem que os recursos do Azure estejam acessíveis na Internet. O método de atribuição do endereço IP público pode ser configurado como dinâmico ou estático. Por predefinição, o endereço IP público é atribuído dinamicamente. Os endereços IP dinâmicos são libertados quando uma VM é desalocada. Este comportamento faz com que o endereço IP mude durante qualquer operação que inclua desalocar uma VM.
 
-O método de alocação pode ser definido como estático, que garante que o endereço IP permanecerá atribuído a uma VM, mesmo durante um Estado desalocado. Quando utilizar um endereço IP estaticamente atribuído, não é possível especificar o endereço IP de si próprio. Em vez disso, é atribuído partir de um conjunto de endereços disponíveis.
+O método de alocação pode ser definido como estático, o que garante que o endereço IP permanece atribuído a uma VM, mesmo durante o estado desalocado. Quando é utilizado um endereço IP atribuído estaticamente, não é possível especificar o próprio endereço IP. Em vez disso, é alocado partir de um conjunto de endereços disponíveis.
 
 Criar um endereço IP público com o nome *myPublicIPAddress* utilizando [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
@@ -122,7 +125,7 @@ Para uma VM comunicar numa rede virtual, necessita de uma interface de rede virt
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -Name myFrontendNic `
+  -Name myFrontend `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
 ```
@@ -133,53 +136,33 @@ Definir o nome de utilizador e palavra-passe necessária para a conta de adminis
 $cred = Get-Credential
 ```
 
-Criar as VMs com [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [conjunto AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [conjunto AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [AzureRmVMNetworkInterface adicionar](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), e [novo-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+Criar as VMs com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-$frontendVM = New-AzureRmVMConfig `
-    -VMName myFrontendVM `
-    -VMSize Standard_D1
-$frontendVM = Set-AzureRmVMOperatingSystem `
-    -VM $frontendVM `
-    -Windows `
-    -ComputerName myFrontendVM `
-    -Credential $cred `
-    -ProvisionVMAgent `
-    -EnableAutoUpdate
-$frontendVM = Set-AzureRmVMSourceImage `
-    -VM $frontendVM `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-$frontendVM = Set-AzureRmVMOSDisk `
-    -VM $frontendVM `
-    -Name myFrontendOSDisk `
-    -DiskSizeInGB 128 `
-    -CreateOption FromImage `
-    -Caching ReadWrite
-$frontendVM = Add-AzureRmVMNetworkInterface `
-    -VM $frontendVM `
-    -Id $frontendNic.Id
 New-AzureRmVM `
-    -ResourceGroupName myRGNetwork `
-    -Location EastUS `
-    -VM $frontendVM
+   -Credential $cred `
+   -Name myFrontend `
+   -PublicIpAddressName myPublicIPAddress `
+   -ResourceGroupName myRGNetwork `
+   -Location "EastUS" `
+   -Size Standard_D1 `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
-## <a name="secure-network-traffic"></a>Proteja o tráfego de rede
+## <a name="secure-network-traffic"></a>Proteger o tráfego de rede
 
-Os grupos de segurança de rede (NSG) contêm uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a Redes Virtuais do Azure (VNet). Os NSGs podem ser associados a sub-redes ou interfaces de rede individuais. Quando um NSG é associado uma interface de rede, aplica-se apenas a VM associada. Quando um NSG é associado a uma sub-rede, as regras são aplicadas a todos os recursos ligados à mesma.
+Os grupos de segurança de rede (NSG) contêm uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a Redes Virtuais do Azure (VNet). Os NSGs podem ser associados a sub-redes ou a interfaces de rede individuais. Quando um NSG é associado uma interface de rede, aplica apenas a VM associada. Quando um NSG é associado a uma sub-rede, as regras são aplicadas a todos os recursos ligados à mesma.
 
 ### <a name="network-security-group-rules"></a>Regras do grupo de segurança de rede
 
-Regras do NSG definem portas de rede durante o qual o tráfego é permitido ou negado. As regras podem incluir intervalos de endereços IP de origem e de destino para que o tráfego é controlado entre sistemas específicos ou sub-redes. Regras do NSG também incluem uma prioridade de (entre 1 — e 4096). As regras são avaliadas por ordem de prioridade. Uma regra com uma prioridade de 100 é avaliada antes de uma regra com prioridade 200.
+As regras do NSG definem as portas de rede através das quais o tráfego é permitido ou recusado. As regras podem incluir intervalos de endereços IP de origem e de destino, para que o tráfego seja controlado entre sistemas ou sub-redes específicos. As regras do NSG também incluem uma prioridade (entre 1 e 4096). As regras são avaliadas por ordem de prioridade. Uma regra com uma prioridade de 100 é avaliada antes de uma regra com prioridade de 200.
 
 Todos os NSGs contêm um conjunto de regras predefinidas. As regras predefinidas não podem ser eliminadas, mas como lhes é atribuída a prioridade mais baixa, podem ser substituídas pelas regras que criar.
 
-- **Rede virtual** - tráfego com origem e de fim numa rede virtual é permitido nas direções de entrada e saídas.
-- **Internet** - o tráfego de saída é permitido, mas o tráfego de entrada está bloqueado.
-- **O Balanceador de carga** -Balanceador de carga permitir do Azure sonde o estado de funcionamento das VMs e instâncias de função. Se não estiver a utilizar um conjunto com balanceamento de carga, pode substituir esta regra.
+- **Rede virtual** - o tráfego que tem origem e termina numa rede virtual é permitido nas direções de entrada e de saída.
+- **Internet** - o tráfego de saída é permitido, mas o tráfego de entrada é bloqueado.
+- **Balanceador de carga** - permitir que o balanceador de carga do Azure sonde o estado de funcionamento das VMs e das instâncias de função. Se não estiver a utilizar um conjunto com balanceamento de carga, pode substituir esta regra.
 
 ### <a name="create-network-security-groups"></a>Criar grupos de segurança de rede
 
@@ -264,7 +247,7 @@ Criar *myBackendNic*:
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -Name myBackendNic `
+  -Name myBackend `
   -SubnetId $vnet.Subnets[1].Id
 ```
 
@@ -274,51 +257,30 @@ Defina o nome de utilizador e palavra-passe necessária para a conta de administ
 $cred = Get-Credential
 ```
 
-Criar *myBackendVM*:
+Criar *myBackendVM*.
 
 ```azurepowershell-interactive
-$backendVM = New-AzureRmVMConfig `
-  -VMName myBackendVM `
-  -VMSize Standard_D1
-$backendVM = Set-AzureRmVMOperatingSystem `
-  -VM $backendVM `
-  -Windows `
-  -ComputerName myBackendVM `
-  -Credential $cred `
-  -ProvisionVMAgent `
-  -EnableAutoUpdate
-$backendVM = Set-AzureRmVMSourceImage `
-  -VM $backendVM `
-  -PublisherName MicrosoftSQLServer `
-  -Offer SQL2016SP1-WS2016 `
-  -Skus Enterprise `
-  -Version latest
-$backendVM = Set-AzureRmVMOSDisk `
-  -VM $backendVM `
-  -Name myBackendOSDisk `
-  -DiskSizeInGB 128 `
-  -CreateOption FromImage `
-  -Caching ReadWrite
-$backendVM = Add-AzureRmVMNetworkInterface `
-  -VM $backendVM `
-  -Id $backendNic.Id
 New-AzureRmVM `
-  -ResourceGroupName myRGNetwork `
-  -Location EastUS `
-  -VM $backendVM
+   -Credential $cred `
+   -Name myBackend `
+   -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
+   -ResourceGroupName myRGNetwork `
+   -Location "EastUS" `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
 A imagem que é utilizada com o SQL Server instalada, mas não é utilizada neste tutorial. Está incluído para lhe mostrar como pode configurar uma VM para processar o tráfego web e uma VM processe a gestão de base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, criou e redes do Azure como relacionados para máquinas virtuais protegidas. 
+Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. 
 
 > [!div class="checklist"]
-> * Criar uma rede virtual e sub-rede
+> * Criar uma rede virtual e uma sub-rede
 > * Crie um endereço IP público
 > * Criar uma VM de front-end
-> * Proteja o tráfego de rede
+> * Proteger o tráfego de rede
 > * Criar uma VM de back-end
 
 Avançar para o próximo tutorial para saber mais sobre a monitorização de proteger dados em máquinas virtuais utilizando cópia de segurança do Azure.

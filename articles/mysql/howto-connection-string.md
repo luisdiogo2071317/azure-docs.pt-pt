@@ -1,25 +1,25 @@
 ---
-title: "Ligar aplicações Azure base de dados MySQL | Microsoft Docs"
+title: "Ligar aplicações Azure base de dados MySQL"
 description: "Este documento apresenta as cadeias de ligação suportado atualmente para aplicações ligar à base de dados do Azure para MySQL, incluindo, ADO.NET (c#), JDBC, Node.js, ODBC, PHP, Python e Ruby."
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: c9fe0a892bd5e81d2b33987b6ca55ec753550a01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como ligar aplicações Azure base de dados MySQL
 Este tópico lista os tipos de cadeia de ligação que são suportados pela base de dados do Azure para MySQL, juntamente com os modelos e exemplos. Poderá ter diferentes parâmetros e definições na sua cadeia de ligação.
 
 - Para obter o certificado, consulte [como configurar o SSL](./howto-configure-ssl.md).
-- {your_host} = <servername>. mysql.database.azure.com
+- {your_host} = <servername>.mysql.database.azure.com
 - {your_user}@{servername} = corretamente o formato de ID de utilizador para autenticação.  Se utilizar apenas o ID de utilizador, a autenticação irá falhar.
 
 ## <a name="adonet"></a>ADO.NET
@@ -27,10 +27,10 @@ Este tópico lista os tipos de cadeia de ligação que são suportados pela base
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-Neste exemplo, o nome do servidor é `myserver4demo`, o nome de base de dados é `wpdb`, o nome de utilizador é `WPAdmin`, e a palavra-passe é `mypassword!2`. Como resultado, a cadeia de ligação deve ser:
+Neste exemplo, o nome do servidor é `mydemoserver`, o nome de base de dados é `wpdb`, o nome de utilizador é `WPAdmin`, e a palavra-passe é `mypassword!2`. Como resultado, a cadeia de ligação deve ser:
 
 ```ado.net
-Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
+Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## <a name="jdbc"></a>JDBC
@@ -68,5 +68,5 @@ No [portal do Azure](https://portal.azure.com), vá para a base de dados do Azur
 
 A cadeia fornece detalhes, tais como o controlador, o servidor e base de dados de outro parâmetros de ligação. Modificar estes exemplos para utilizar os seus parâmetros, tais como o nome de base de dados, palavra-passe e assim sucessivamente. Em seguida, pode utilizar esta cadeia para ligar ao servidor do seu código e aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre bibliotecas de ligação, consulte [conceitos - bibliotecas de ligação](./concepts-connection-libraries.md).

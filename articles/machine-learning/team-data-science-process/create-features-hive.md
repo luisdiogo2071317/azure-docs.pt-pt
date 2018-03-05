@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar as funcionalidades de dados num cluster de Hadoop através de consultas do Hive
 Este documento mostra como criar funcionalidades para os dados armazenados num cluster do Azure HDInsight Hadoop através de consultas do Hive. Estas consultas do Hive utilizam incorporados Hive User-Defined funções (UDFs), os scripts que são fornecidos.
@@ -93,14 +93,14 @@ Ramo de registo é fornecido com um conjunto de UDFs para processar os campos da
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Esta consulta do Hive parte do princípio de que o *&#60; campo datetime >* está no formato datetime predefinido.
+Esta consulta do Hive parte do princípio de que o  *<datetime field>*  está no formato datetime predefinido.
 
 Se um campo datetime não se encontra no formato predefinição, tem de converter o campo de datetime primeiro carimbo de hora do Unix e, em seguida, converter o carimbo de hora de Unix para uma cadeia de datetime está no formato predefinição. Quando a datetime no predefinido é formato, os utilizadores podem aplicar a datetime incorporada UDFs para extrair as funcionalidades.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Esta consulta, se o *&#60; campo datetime >* tem o padrão como *26/03/2015 04:12:39*, a *' &#60; padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testar, os utilizadores podem executar
+Esta consulta, se o  *<datetime field>*  tem o padrão como *26/03/2015 04:12:39*, a  *<pattern of the datetime field>'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testar, os utilizadores podem executar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -140,7 +140,7 @@ As equações matemática que calcular a distância entre duas coordenadas GPS p
 
 Uma lista completa de ramo de registo UDFs incorporados podem ser encontrados no **funções incorporadas** secção no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Tópicos de avançadas: parâmetros de otimizar ramo de registo para melhorar a velocidade de consulta
+## <a name="tuning"></a> Tópicos de avançadas: parâmetros de otimizar ramo de registo para melhorar a velocidade de consulta
 Os parâmetros predefinidos de cluster do ramo de registo poderão não ser adequados para as consultas do Hive e os dados que são de processamento de consultas. Esta secção descreve alguns parâmetros que os utilizadores podem otimizar para melhorar o desempenho das consultas do Hive. Os utilizadores necessitam adicionar o parâmetro de otimização de consultas antes das consultas de processamento de dados.
 
 1. **Espaço de área dinâmica para dados de Java**: para consultas que envolvem grandes conjuntos de dados de associação ou processar registos longos, **a ficar sem espaço de pilha** é um dos erros comuns. Este erro pode ser evitado, definir parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores pretendidos. Segue-se um exemplo:

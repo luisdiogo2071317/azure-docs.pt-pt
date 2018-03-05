@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Classes de recursos para a gestão de carga de trabalho
 Orientações para a utilização de classes de recursos para gerir o número de consultas em simultâneo que são executados em simultâneo e recursos para consultas no armazém de dados SQL do Azure de computação.
@@ -85,6 +85,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 A classe de recursos do administrador do serviço é fixo e não pode ser alterada.  O administrador de serviço é o utilizador criado durante o processo de aprovisionamento.
 
+> [!NOTE]
+> Os utilizadores ou grupos definidos como administrador do Active Directory também são administradores de serviços.
+>
+>
+
 ### <a name="default-resource-class"></a>Classe de recursos predefinidos
 Por predefinição, cada utilizador é membro da classe de recurso pequeno, **smallrc**. 
 
@@ -126,7 +131,7 @@ Removed as these two are not confirmed / supported under SQLDW
 É recomendável criar um utilizador que se dedica à execução de um tipo específico de consulta ou operações de carga. Em seguida, atribua esse utilizador uma classe de recursos permanente em vez de alterar a classe de recursos com frequência. Uma vez que as classes de recurso estático suportar maior controlo global da carga de trabalho sugerimos também utilizar essas primeiro antes de considerar as classes de recursos dinâmicos.
 
 ### <a name="resource-classes-for-load-users"></a>Classes de recursos para os utilizadores de carga
-`CREATE TABLE`índices columnstore utiliza em cluster por predefinição. A compressão de dados para um columnstore índice é uma operação de intensivos em termos de memória e pressão de memória pode reduzir a qualidade do índice. Por conseguinte, é mais provável exigir uma classe de recurso superior quando carregar os dados. Para garantir a cargas tem memória suficiente, pode criar um utilizador que está designado para executar cargas e atribua esse utilizador a uma classe de recurso superior.
+`CREATE TABLE` índices columnstore utiliza em cluster por predefinição. A compressão de dados para um columnstore índice é uma operação de intensivos em termos de memória e pressão de memória pode reduzir a qualidade do índice. Por conseguinte, é mais provável exigir uma classe de recurso superior quando carregar os dados. Para garantir a cargas tem memória suficiente, pode criar um utilizador que está designado para executar cargas e atribua esse utilizador a uma classe de recurso superior.
 
 A memória necessária para processar cargas de forma eficiente depende a natureza a tabela carregada e o tamanho dos dados. Para obter mais informações sobre os requisitos de memória, consulte [maximizando a qualidade de rowgroup](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -168,9 +173,9 @@ Eis o objetivo deste procedimento armazenado:
 ### <a name="usage-example"></a>Exemplo de utilização:
 Sintaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Ou forneça um parâmetro nulo para extrair o DWU atual da base de dados do armazém de dados ou forneça quaisquer DWU suportado no formato 'DW100'
-2. @SCHEMA_NAME:Forneça um nome de esquema da tabela
-3. @TABLE_NAME:Forneça um nome de tabela de interesse
+1. @DWU: Ou forneça um parâmetro nulo para extrair o DWU atual da base de dados do armazém de dados ou forneça quaisquer DWU suportado no formato 'DW100'
+2. @SCHEMA_NAME: Forneça um nome de esquema da tabela
+3. @TABLE_NAME: Forneça um nome de tabela de interesse
 
 Exemplos de executar este procedimento armazenado:  
 ```sql  
@@ -501,7 +506,7 @@ GO
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a gestão de utilizadores de base de dados e segurança, consulte [proteger uma base de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre como maiores classes de recurso podem melhorar a qualidade de índice columnstore em cluster, consulte [otimizações de memória para compressão columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->

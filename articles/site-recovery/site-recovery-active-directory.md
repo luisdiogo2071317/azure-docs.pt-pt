@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utilizar o Azure Site Recovery para proteger o Active Directory e DNS
 
@@ -80,7 +80,7 @@ A maioria das aplicações requerem a presença de um controlador de domínio ou
     ![Rede de teste do Azure](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Recuperação de site tenta criar máquinas virtuais de teste numa sub-rede com o mesmo nome e utilizando o mesmo endereço IP que é fornecido no **computação e rede** definições da máquina virtual. Se uma sub-rede com o mesmo nome não está disponível na rede virtual do Azure que é fornecida para ativação pós-falha de teste, a máquina virtual de teste é criada na sub-rede primeira por ordem alfabética. 
+    > Recuperação de site tenta criar máquinas virtuais de teste numa sub-rede com o mesmo nome e utilizando o mesmo endereço IP que é fornecido no **computação e rede** definições da máquina virtual. Se uma sub-rede com o mesmo nome não está disponível na rede virtual do Azure que é fornecida para ativação pós-falha de teste, a máquina virtual de teste é criada na sub-rede primeira por ordem alfabética.
     >
     > Se o endereço IP de destino faz parte da sub-rede selecionada, recuperação de Site tenta criar a máquina virtual de ativação pós-falha de teste utilizando o endereço IP de destino. Se o IP de destino não faz parte da sub-rede selecionada, as máquinas de ativação pós-falha de teste é criada utilizando o seguinte IP disponível na sub-rede selecionada.
     >
@@ -110,7 +110,7 @@ Começando com o Windows Server 2012, [proteções adicionais incorporadas no Ac
 
 Quando **VM-GenerationID** é reposta, o **InvocationID** também é possível repor o valor da base de dados do AD DS. Além disso, o conjunto de RID é rejeitado e SYSVOL está marcado como não autoritativo. Para obter mais informações, consulte [introdução à virtualização de serviços de domínio do Active Directory](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [em segurança virtualizar o DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Falha ao longo para o Azure poderá fazer com que **VM-GenerationID** repor. Repor **VM-GenerationID** aciona proteções adicionais quando as máquinas do controlador de domínio é iniciado no Azure. Isto pode resultar num *atraso significativo* no conseguir iniciar sessão na máquina de virtual do controlador de domínio. 
+Falha ao longo para o Azure poderá fazer com que **VM-GenerationID** repor. Repor **VM-GenerationID** aciona proteções adicionais quando as máquinas do controlador de domínio é iniciado no Azure. Isto pode resultar num *atraso significativo* no conseguir iniciar sessão na máquina de virtual do controlador de domínio.
 
 Como este controlador de domínio é utilizado apenas numa ativação pós-falha de teste, as proteções de Virtualização não são necessárias. Para se certificar de que o **VM-GenerationID** não altera o valor para a máquina de virtual do controlador de domínio, pode alterar o valor do DWORD seguinte para **4** no controlador de domínio no local:
 
@@ -165,20 +165,20 @@ Se as proteções de Virtualização são acionadas após uma ativação pós-fa
 Se forem satisfeitas as condições anteriores, é provável que o controlador de domínio está a funcionar corretamente. Se não for, conclua os seguintes passos:
 
 1. Efetue um restauro autoritativa do controlador de domínio. Mantenha as seguintes informações em mente:
-    * Apesar de não recomendamos [replicação FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), se utilizar replicação FRS, siga os passos para um restauro autoritativa. O processo é descrito em [utilizando a chave de registo BurFlags para reinicializar um serviço de replicação de ficheiros](https://support.microsoft.com/kb/290762). 
-    
+    * Apesar de não recomendamos [replicação FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), se utilizar replicação FRS, siga os passos para um restauro autoritativa. O processo é descrito em [utilizando a chave de registo BurFlags para reinicializar um serviço de replicação de ficheiros](https://support.microsoft.com/kb/290762).
+
         Para obter mais informações sobre BurFlags, consulte a mensagem de blogue [D2 e D4: o que são para?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Se utilizar a replicação de DFSR, conclua os passos para um restauro autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativo para SYSVOL replicado por DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556). 
-    
+    * Se utilizar a replicação de DFSR, conclua os passos para um restauro autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativo para SYSVOL replicado por DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
+
         Também pode utilizar as funções do PowerShell. Para obter mais informações, consulte [funções de PowerShell autoritativo/restauro não autoritativo de DFSR SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. Contornar o requisito de sincronização inicial, definindo a seguinte chave de registo como **0** no controlador de domínio no local. Se o DWORD não existir, pode criá-la sob o **parâmetros** nós. 
+2. Contornar o requisito de sincronização inicial, definindo a seguinte chave de registo como **0** no controlador de domínio no local. Se o DWORD não existir, pode criá-la sob o **parâmetros** nós.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Para obter mais informações, consulte [resolver 4013 de ID de evento de DNS: O servidor DNS não foi possível carregar AD integrado zonas DNS](https://support.microsoft.com/kb/2001093).
 
-3. Desative o requisito de que o servidor de catálogo global estar disponíveis para validar o início de sessão do utilizador. Para tal, no controlador de domínio no local, defina a seguinte chave de registo **1**. Se o DWORD não existir, pode criá-la sob o **Lsa** nós. 
+3. Desative o requisito de que o servidor de catálogo global estar disponíveis para validar o início de sessão do utilizador. Para tal, no controlador de domínio no local, defina a seguinte chave de registo **1**. Se o DWORD não existir, pode criá-la sob o **Lsa** nós.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

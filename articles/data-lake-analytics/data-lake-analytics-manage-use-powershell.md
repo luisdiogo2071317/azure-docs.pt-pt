@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -99,13 +99,13 @@ Obter informações sobre a uma conta.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Verificar a existência de uma conta de Data Lake Analytics específica. O cmdlet devolve um `True` ou `False`.
+Verificar a existência de uma conta de Data Lake Analytics específica. O cmdlet devolve um `$true` ou `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Verificar a existência de uma conta de Data Lake Store específica. O cmdlet devolve um `True` ou `False`.
+Verificar a existência de uma conta de Data Lake Store específica. O cmdlet devolve um `$true` ou `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -154,8 +154,6 @@ Remova uma regra de firewall.
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 Permitir que os endereços IP do Azure.
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>Submeter um ficheiro como um script U-SQL
 
 ```powershell
@@ -258,15 +255,13 @@ A saída inclui as tarefas atualmente em execução e as tarefas que foram concl
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>Lista as tarefas principais N
 
-### <a name="list-a-specific-number-of-jobs"></a>Lista de um número específico de tarefas
-
-Por predefinição, que a lista de tarefas é ordenada no envio de tempo. Por isso, as tarefas submetidas mais recentemente são apresentados primeiro. Por predefinição, a conta de ADLA o memorizou tarefas durante 180 dias, mas o cmdlet Ge AdlJob por predefinição devolve apenas o primeiro 500. Utilize o - parâmetro superior para listar um número específico de tarefas.
+Por predefinição, que a lista de tarefas é ordenada no envio de tempo. Por isso, as tarefas submetidas mais recentemente são apresentados primeiro. Por predefinição, a conta do ADLA memorizou tarefas durante 180 dias, mas o cmdlet Get-AdlJob por predefinição devolve apenas o primeiro 500. Utilize o - parâmetro superior para listar um número específico de tarefas.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Tarefas de lista com base no valor da propriedade de tarefa
 
@@ -295,9 +290,9 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 Utilize o `-Result` parâmetro para detetar se as tarefas terminadas foi concluída com êxito. Tem estes valores:
 
-* Foi cancelada
-* Falha
-* Nenhuma
+* Cancelado
+* Com Falhas
+* Nenhum
 * Bem-sucedido
 
 ``` powershell
@@ -307,7 +302,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 # List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
-
 
 O `-Submitter` parâmetro ajuda-o a identificar quem submetida uma tarefa.
 
@@ -338,7 +332,6 @@ Utilize o `Get-AdlJobPipeline` cmdlet para ver as informações de pipeline prev
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 
@@ -682,7 +675,7 @@ Guarde o seguinte texto como um `.json` de ficheiros e, em seguida, utilize o sc
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Introdução ao Data Lake Analytics com [portal do Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)
 * Gerir o Azure Data Lake Analytics com [portal do Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) 

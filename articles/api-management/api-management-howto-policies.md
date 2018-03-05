@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas de API Management do Azure
 
@@ -27,7 +27,7 @@ As políticas são aplicadas no interior do gateway que se encontra entre os con
 
 As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como o [controlar o fluxo] [ Control flow] e [definir variável] [ Set variable] políticas baseadas em expressões de política. Para obter mais informações, consulte [políticas avançadas] [ Advanced policies] e [expressões de política][Policy expressions].
 
-## <a name="sections"></a>Configuração da política de compreender
+## <a name="sections"> </a>Configuração da política de compreender
 
 A definição de política é um simple um documento XML que descreve uma sequência de declarações de entrada e saídas. O XML pode ser editado diretamente na janela de definição. É fornecida uma lista de instruções para a direita e instruções aplicáveis ao âmbito atual estiverem ativadas e realçadas.
 
@@ -60,7 +60,7 @@ A configuração está dividida em `inbound`, `backend`, `outbound`, e `on-error
 
 Se ocorrer um erro durante o processamento de um pedido, os restantes passos no `inbound`, `backend`, ou `outbound` secções são ignoradas e execução salta para as instruções no `on-error` secção. Colocando declarações de política no `on-error` secção pode rever o erro, utilizando o `context.LastError` propriedade, Inspecione e personalizar a resposta de erro utilizando o `set-body` política e configurar o que acontece se ocorrer um erro. Existem códigos de erro para obter os passos incorporados e de erros que possam ocorrer durante o processamento de declarações de política. Para obter mais informações, consulte [erros nas políticas de gestão de API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-## <a name="scopes"></a>Como configurar políticas
+## <a name="scopes"> </a>Como configurar políticas
 
 Para obter informações sobre como configurar políticas, consulte [definir ou editar políticas](set-edit-policies.md).
 
@@ -112,12 +112,6 @@ Para limitar os pedidos de entrada e aceitar apenas os partir de um endereço IP
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

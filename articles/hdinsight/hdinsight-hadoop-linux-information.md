@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -35,7 +35,7 @@ Muitos dos passos neste documento utilizam os seguintes utilitários, poderão t
 
 * [cURL](https://curl.haxx.se/) - utilizado para comunicar com serviços baseados na web
 * [jq](https://stedolan.github.io/jq/) - utilizado para analisar documentos JSON
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (pré-visualização) - utilizado para gerir remotamente serviços do Azure
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - utilizado para gerir remotamente serviços do Azure
 
 ## <a name="users"></a>Utilizadores
 
@@ -72,7 +72,7 @@ Este comando devolve um documento JSON que descrevem o serviço e, em seguida, j
     >
     > Para utilizar a funcionalidade completa da IU da web do Ambari, utilize um túnel SSH para o tráfego de web de proxy para o nó principal do cluster. Consulte [utilize túnel SSH para aceder à IU da web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** -https://&lt;clustername >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Autenticar com o utilizador de administrador do cluster e a palavra-passe.
@@ -100,7 +100,7 @@ Podem encontrar os ficheiros relacionados com o Hadoop em nós de cluster em `/u
 * **2.2.4.9-1**: O nome do diretório é a versão de plataforma de dados do Hortonworks utilizado pelo HDInsight. O número no seu cluster poderão ser diferente dos listados aqui.
 * **atual**: este diretório contém ligações para subdiretórios o **2.2.4.9-1** diretório. Este diretório existe para que não tenham de memorizar o número de versão.
 
-Dados de exemplo e ficheiros JAR podem ser encontrados no Hadoop sistema de ficheiros distribuído no `/example` e`/HdiSamples`
+Dados de exemplo e ficheiros JAR podem ser encontrados no Hadoop sistema de ficheiros distribuído no `/example` e `/HdiSamples`
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, o Storage do Azure e o arquivo Data Lake
 
@@ -151,11 +151,11 @@ Pode utilizar Ambari para obter a configuração de armazenamento predefinido pa
 
 Este comando devolve um valor semelhante para o URI seguinte:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`Se utilizar uma conta de armazenamento do Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` Se utilizar uma conta de armazenamento do Azure.
 
     O nome da conta é o nome da conta do Storage do Azure. O nome do contentor é o contentor de blob que é a raiz de armazenamento de cluster.
 
-* `adl://home`Se utilizar o Azure Data Lake Store. Para obter o nome do Data Lake Store, utilize a seguinte chamada REST:
+* `adl://home` Se utilizar o Azure Data Lake Store. Para obter o nome do Data Lake Store, utilize a seguinte chamada REST:
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
@@ -186,7 +186,7 @@ Se utilizar __Storage do Azure__, consulte as seguintes ligações para que pode
     * [Java](https://github.com/Azure/azure-sdk-for-java)
     * [Node.js](https://github.com/Azure/azure-sdk-for-node)
     * [PHP](https://github.com/Azure/azure-sdk-for-php)
-    * [python](https://github.com/Azure/azure-sdk-for-python)
+    * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [API REST de Armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
@@ -200,7 +200,7 @@ Se utilizar __Azure Data Lake Store__, consulte as seguintes ligações para que
 * [Ferramentas do Data Lake para Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
-* [python](../data-lake-store/data-lake-store-get-started-python.md)
+* [Python](../data-lake-store/data-lake-store-get-started-python.md)
 
 ## <a name="scaling"></a>Dimensionamento do cluster
 
@@ -275,7 +275,7 @@ Para utilizar uma versão diferente de um componente, carregue a versão que pre
 >
 > Componentes personalizados recebem suporte comercialmente razoável para ajudar a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Migrar do HDInsight baseado em Windows para baseado em Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Utilizar o Hive com o HDInsight](hadoop/hdinsight-use-hive.md)

@@ -1,19 +1,19 @@
 ---
-title: "Monitorização na base de dados do Azure para MySQL | Microsoft Docs"
+title: "Monitorização na base de dados do Azure para MySQL"
 description: "Este artigo descreve as métricas de monitorização e alertas da base de dados do Azure para MySQL, incluindo a CPU, os limites, armazenamento e estatísticas de ligação."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 9af447d54faa8ee96e4b79beb274b437eea57626
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na base de dados do Azure para MySQL
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que permitem determinar o comportamento de recursos que suportam o servidor de MySQL. 
@@ -42,9 +42,6 @@ Estas métricas estão disponíveis para a base de dados do Azure para o MySQL:
 |connections_failed|Totais de ligações com falhas|Contagem|O número de ligações com falhas ao servidor.|
 
 
-> [!NOTE]
-> Computação que unidade é composta de memória e CPU. A percentagem de unidade de computação é máxima (% de memória, cpu de %). Examine os gráficos de memória e cpu para identificar qual é a contribuir para alterações de percentagem de unidade de computação. Para obter mais informações, consulte [computação unidades](concepts-compute-unit-and-storage.md).
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para orientações passo a passo, consulte [como configurar alertas](howto-alert-on-metric.md). 
 - Para obter mais informações sobre como aceder e exportar com o portal do Azure, a REST API ou a CLI de métricas, consulte o [descrição geral do Azure métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

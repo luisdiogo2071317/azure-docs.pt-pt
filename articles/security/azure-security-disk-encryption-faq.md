@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Encriptação de disco do Azure FAQ
 
@@ -49,10 +49,11 @@ Este artigo fornece respostas às perguntas mais frequentes (FAQ) sobre a encrip
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Disco do SO e dados |
 | Ubuntu | 14.04.5-DAILY-LTS | Disco do SO e dados |
-| RHEL | 7.3 | Disco do SO e dados |
-| RHEL | 7.2 | Disco do SO e dados |
-| RHEL | 6.8 | Disco do SO e dados |
-| RHEL | 6.7 | Disco de dados |
+| RHEL | 7.4 | Disco de dados * |
+| RHEL | 7.3 | Disco de dados * |
+| RHEL | 7.2 | Disco de dados * |
+| RHEL | 6.8 | Disco de dados * |
+| RHEL | 6.7 | Disco de dados * |
 | CentOS | 7.3 | Disco do SO e dados |
 | CentOS | 7.2n | Disco do SO e dados |
 | CentOS | 6.8 | Disco do SO e dados |
@@ -67,6 +68,8 @@ Este artigo fornece respostas às perguntas mais frequentes (FAQ) sobre a encrip
 | SLES | HPC 12 | Disco de dados |
 | SLES | Priority:11-SP4 | Disco de dados |
 | SLES | 11 SP4 | Disco de dados |
+
+*__ADE é suportada para RHEL para o disco de dados. A implementação atual do ADE funcionar para o disco do SO, mas não é suportada atualmente jointly. Microsoft e Red Hat trabalhar para uma solução jointly suportada. No provisório, pode referenciar o documento técnico ADE para encriptação de disco de SO Linux [aqui](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **P:** como posso começar a utilizar o Azure Disk Encryption?
 

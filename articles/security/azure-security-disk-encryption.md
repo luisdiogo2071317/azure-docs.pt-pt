@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS
 Microsoft Azure é vivamente consolidada para assegurar a privacidade dos dados, soberania de dados e permite avançadas, para controlar o Azure alojadas dados através de uma variedade de tecnologias para encriptar, controlar e gerir chaves de encriptação, controlo & auditar o acesso aos dados. Isto proporciona aos clientes do Azure a flexibilidade para escolher a solução que melhor se adeque às suas necessidades de negócio. Neste documento, vamos apresenta-lhe uma nova solução de tecnologia "Do Azure Disk Encryption para o Windows e de Linux IaaS VM" para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. O documento fornece orientações detalhadas sobre como utilizar as funcionalidades de encriptação de disco do Azure, incluindo os cenários suportados e o utilizador experiências.
@@ -141,34 +141,7 @@ Antes de ativar o Azure Disk Encryption em VMs do IaaS do Azure para os cenário
 > [!NOTE]
 > Para o Windows Server 2008 R2, tem de ter o .NET Framework 4.5 instalados antes de ativar a encriptação no Azure. Pode instalá-lo do Windows Update ao instalar a atualização opcional o Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Encriptação de disco do Azure é suportada nos seguintes galeria do Azure com base em Linux server Distribuições e versões:
-
-| Distribuição de Linux | Versão | Tipo de volume suportado para a encriptação|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Disco do SO e dados |
-| Ubuntu | 14.04.5-DAILY-LTS | Disco do SO e dados |
-| Ubuntu | 12.10 | Disco de dados |
-| Ubuntu | 12.04 | Disco de dados |
-| RHEL | 7.4 | Disco do SO e dados |
-| RHEL | 7.3 | Disco do SO e dados |
-| RHEL | LVM 7.3 | Disco do SO e dados |
-| RHEL | 7.2 | Disco do SO e dados |
-| RHEL | 6.8 | Disco do SO e dados |
-| RHEL | 6.7 | Disco de dados |
-| CentOS | 7.3 | Disco do SO e dados |
-| CentOS | 7.2n | Disco do SO e dados |
-| CentOS | 6.8 | Disco do SO e dados |
-| CentOS | 7.1 | Disco de dados |
-| CentOS | 7.0 | Disco de dados |
-| CentOS | 6.7 | Disco de dados |
-| CentOS | 6.6 | Disco de dados |
-| CentOS | 6.5 | Disco de dados |
-| openSUSE | 13.2 | Disco de dados |
-| SLES | 12 SP1 | Disco de dados |
-| SLES | 12-SP1 (Premium) | Disco de dados |
-| SLES | HPC 12 | Disco de dados |
-| SLES | 11-SP4 (Premium) | Disco de dados |
-| SLES | 11 SP4 | Disco de dados |
+* Azure Disk Encryption é apenas suportada em específico Galeria Azure baseado em Linux server Distribuições e versões.  Para obter a lista de versões atualmente suportadas, consulte o [FAQ de encriptação de disco do Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Encriptação de disco do Azure requer que o Cofre de chaves e as VMs de residir na mesma região do Azure e subscrição.
 
@@ -792,7 +765,7 @@ Para o Windows Server 2008 R2, utilize o seguinte comando:
 
     ServerManagerCmd -install BitLockers
 
-#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Preparar o volume de SO para o BitLocker utilizando`bdehdcfg`
+#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Preparar o volume de SO para o BitLocker utilizando `bdehdcfg`
 Para comprimir a partição de SO e preparar a máquina para o BitLocker, execute o seguinte comando:
 
     bdehdcfg -target c: shrink -quiet
@@ -1285,9 +1258,6 @@ Ao anexar o disco do SO, passe `$KeyEncryptionKey` e `$secretUrl`. O URL foi ger
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
 
-## <a name="download-this-guide"></a>Transferir este guia
-Pode transferir este guia do [TechNet Gallery](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
-
-## <a name="for-more-information"></a>Para obter mais informações
+## <a name="for-more-information"></a>Para obter mais informações:
 [Explorar a encriptação de disco do Azure com o Azure PowerShell - parte 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
 [Explorar a encriptação de disco do Azure com o Azure PowerShell - parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)

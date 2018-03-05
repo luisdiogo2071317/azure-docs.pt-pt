@@ -1,19 +1,19 @@
 ---
-title: Os registos do servidor na base de dados do Azure para PostgreSQL | Microsoft Docs
-description: Gera registos de consulta e erro na base de dados do Azure para PostgreSQL.
+title: Os registos do servidor na base de dados do Azure para PostgreSQL
+description: "Este artigo descreve como base de dados do Azure para PostgreSQL gera registos de consulta e o erro e retenção de registo como está configurada."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 696af85cd5609171a719a7e77efbfcdeba0aaaaa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 02/28/2018
+ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Os registos do servidor na base de dados do Azure para PostgreSQL 
 Base de dados do Azure para PostgreSQL gera o erro de consulta e registos. No entanto, o acesso aos registos de transações não é suportado. Os registos de consulta e o erro podem ser utilizados para identificar, resolver problemas e reparar erros de configuração e o desempenho inferior ao ideal. Para obter mais informações, consulte [relatório de erros e registo](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
@@ -38,6 +38,6 @@ O **registo\_min\_mensagens** permite-lhe controlar que níveis de mensagens é 
 
 Para obter mais informações sobre estas definições, consulte [relatório de erros e registo](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) documentação. Para configurar particularmente base de dados do Azure para os parâmetros de servidor PostgreSQL, consulte [personalizar parâmetros de configuração de servidor utilizando a CLI do Azure](howto-configure-server-parameters-using-cli.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para aceder a registos utilizando a interface de linha de comandos da CLI do Azure, consulte o artigo [acesso e configurar os registos do servidor com a CLI do Azure](howto-configure-server-logs-using-cli.md).
 - Para obter mais informações sobre os parâmetros de servidor, consulte [personalizar parâmetros de configuração de servidor utilizando a CLI do Azure](howto-configure-server-parameters-using-cli.md).
