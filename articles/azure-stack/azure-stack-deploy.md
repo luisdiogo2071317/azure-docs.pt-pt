@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos da implementação do Azure Stack
 
 *Aplica-se a: Azure da pilha Kit de desenvolvimento*
 
-Antes de implementar [Kit de desenvolvimento de pilha do Azure](azure-stack-poc.md), certifique-se de que o computador cumpre os seguintes requisitos:
+Antes de implementar o [Kit de desenvolvimento de pilha do Azure (ASDK)](azure-stack-poc.md), certifique-se de que o computador de anfitrião do kit de desenvolvimento cumpre os requisitos descritos neste artigo.
 
+> [!NOTE]
+> O ASDK tem de ser instalado num computador anfitrião físico. Não é suportada a instalar o ASDK numa VM do Azure.
 
 ## <a name="hardware"></a>Hardware
 | Componente | Mínimo | Recomendado |
@@ -122,7 +124,6 @@ Verifique se existe um servidor DHCP disponível na rede à qual liga o NIC. Se 
 ### <a name="internet-access"></a>Acesso à Internet
 Pilha do Azure requer acesso à Internet, diretamente ou através de um proxy transparente. Pilha do Azure não suporta a configuração de um proxy web para ativar o acesso à Internet. O IP do anfitrião e as novas IP atribuída à MAS-BGPNAT01 (pelo DHCP ou o IP estático) tem de ser capazes de aceder à Internet. As portas 80 e 443 são utilizadas em domínios graph.windows.net e login.microsoftonline.com.
 
-P: é possível executar ASDK numa VM do Azure? R: um número de A partir de hoje, não é oficialmente suportado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Transferir o pacote de implementação de kit de desenvolvimento de pilha do Azure](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
