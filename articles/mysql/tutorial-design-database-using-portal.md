@@ -1,20 +1,20 @@
 ---
-title: Conceber a sua primeira Base de Dados do Azure para a base de dados MySQL - Portal do Azure | Microsoft Docs
+title: Criar a sua primeira base de dados de Base de Dados do Azure para MySQL - Portal do Azure
 description: "Este tutorial explica como criar e gerir a Base de Dados do Azure para o servidor MySQL e a base de dados através do Portal do Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: tutorial
-ms.date: 11/03/2017
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 76cccf9e2ce0a1e59b43646c43ac165d46dade4a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 272c1ba67fb1a907d739d23ce1d965f57c3a1074
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Conceber a sua primeira Base de Dados do Azure para a base de dados MySQL
 A Base de Dados do Azure para MySQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados MySQL de alta disponibilidade na cloud. No portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
@@ -37,31 +37,36 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
 É criada uma Base de Dados do Azure para o servidor MySQL com um conjunto definido de [recursos de armazenamento e computação](./concepts-compute-unit-and-storage.md). O servidor é criado dentro de um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Navegue para **Bases de Dados** > **Base de Dados do Azure para MySQL**. Se não encontrar o servidor MySQL na categoria **Bases de Dados**, clique em **Ver tudo**, para mostrar todos os serviços de bases de dados disponíveis. Também pode escrever **Base de Dados do Azure para MySQL** na caixa de pesquisa para encontrar rapidamente o serviço.
-![2-1 Navegar para o MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
+   
+   ![Navegar para o MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
 
-2. Clique no mosaico **Base de Dados do Azure para MySQL** e, em seguida, clique em **Criar**.
+2. Clique no mosaico **Base de Dados do Azure para MySQL** e, em seguida, clique em **Criar**. Preencha o formulário da Base de Dados do Azure para MySQL.
+   
+   ![Formulário de criação](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-Neste exemplo, preencha o formulário Base de Dados do Azure para MySQL com as informações seguintes:
+    **Definição** | **Valor sugerido** | **Descrição do campo** 
+    ---|---|---
+    Nome do servidor | Nome de servidor exclusivo | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. Por exemplo, mydemoserver. O nome de domínio *.mysql.database.azure.com* é acrescentado ao nome de servidor que indicar. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+    Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
+    Grupo de recursos | *myresourcegroup* | Forneça um novo nome do grupo de recursos ou um existente.    Grupo de recursos|*myresourcegroup*| Um nome de grupo de recursos novo ou um já existente na sua subscrição.
+    Selecionar origem | *Em branco* | Selecione *Em branco* para criar um novo servidor de raiz. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para MySQL existente).
+    Início de sessão de administrador do servidor | myadmin | Uma conta de início de sessão para utilizar quando ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
+    Palavra-passe | *A sua escolha* | Forneça uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
+    Confirmar palavra-passe | *A sua escolha*| Confirme a palavra-passe da conta de administrador.
+    Localização | *A região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
+    Versão | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
+    Escalão de preço | **Fins Gerais**, **Geração 4**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 4*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    
+   ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
-| **Definição** | **Valor sugerido** | **Descrição do Campo** |
-|---|---|---|
-| *Nome do servidor* | myserver4demo  | O nome do servidor deve ser globalmente exclusivo. |
-| *Subscrição* | mysubscription | Selecione a subscrição na lista pendente. |
-| *Grupo de recursos* | myResourceGroup | Crie um grupo de recursos ou utilize um existente. |
-| *Início de sessão de administrador do servidor* | myadmin | Configurar nome da conta de administrador. |
-| *Palavra-passe* |  | Defina uma palavra-passe forte para a conta de administrador. |
-| *Confirmar palavra-passe* |  | Confirme a palavra-passe da conta de administrador. |
-| *Localização* |  | Selecione uma região disponível. |
-| *Versão* | 5.7 | Escolha a versão mais recente. |
-| *Configurar o desempenho* | Básico, 50 unidades de computação, 50 GB  | Escolha **Escalão de preço**, **Unidades de Computação**, **Armazenamento (GB)** e clique em **OK**. |
-| *Afixar ao Dashboard* | Marcar | Recomendamos que marque esta caixa para encontrar facilmente o servidor posteriormente |
-Em seguida, clique em **Criar**. Num ou dois minutos, uma nova Base de Dados do Azure para o servidor MySQL estará em execução na cloud. Pode clicar no botão **Notificações** na barra de ferramentas para monitorizar o processo de implementação.
+3. Clique em **Criar**. Num ou dois minutos, uma nova Base de Dados do Azure para o servidor MySQL estará em execução na cloud. Pode clicar no botão **Notificações** na barra de ferramentas para monitorizar o processo de implementação.
 
 ## <a name="configure-firewall"></a>Configurar a firewall
 As Bases de Dados do Azure para MySQL estão protegidas por uma firewall. Por predefinição, todas as ligações ao servidor e as bases de dados dentro do servidor são rejeitadas. Antes de ligar à Base de Dados do Azure para MySQL pela primeira vez, configure a firewall para adicionar o endereço IP de rede público do computador do cliente (ou um intervalo de endereços IP).
 
 1. Clique no servidor acabado de criar e clique em **Segurança da ligação**.
-   ![3-1 Segurança da ligação](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
+   
+   ![Segurança da Ligação](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. Pode **Adicionar o Meu IP** ou configurar regras de firewall aqui. Não se esqueça de clicar em **Guardar** depois de criar a regras.
 Já pode ligar ao servidor através da ferramenta de linha de comandos mysql ou da ferramenta da GUI MySQL Workbench.
 
@@ -73,17 +78,17 @@ Obtenha o **Nome do servidor** completamente qualificado e o **Nome de início d
 
 1. No [portal do Azure](https://portal.azure.com/), clique em **Todos os recursos**, no menu do lado esquerdo, escreva o nome e pesquise a sua Base de Dados do Azure para o servidor MySQL. Selecione o nome do servidor para ver os detalhes.
 
-2. No cabeçalho Definições, clique em **Propriedades**. Aponte **NOME DO SERVIDOR** e **NOME DO INÍCIO DE SESSÃO DE ADMINISTRADOR DO SERVIDOR**. Pode clicar no botão Copiar, junto a cada campo, para copiar para a área de transferência.
-   ![4-2 propriedades do servidor](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
+2. Na página **Descrição geral**, aponte o **Nome do Servidor** e o **Nome do Início de Sessão de Administrador do Servidor**. Pode clicar no botão Copiar, junto a cada campo, para copiar para a área de transferência.
+   ![4-2 propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-Neste exemplo, o nome do servidor é *myserver4demo.mysql.database.azure.com* e o início de sessão de administrador do servidor é *myadmin@myserver4demo*.
+Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com* e o início de sessão de administrador do servidor é *myadmin@mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Ligar ao servidor com o mysql
 Utilize a [ferramenta de linha de comandos do mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para estabelecer uma ligação à base de dados do Azure para o servidor MySQL. Pode executar a ferramenta de linha de comandos do mysql a partir do Azure Cloud Shell no navegador ou a partir do seu computador com as ferramentas do mysql instaladas localmente. Para iniciar o Azure Cloud Shell, clique no botão `Try It` num bloco de código neste artigo ou visite o portal do Azure e clique no ícone `>_` da barra de ferramentas superior à direita. 
 
 Escreva o comando para estabelecer a ligação:
 ```azurecli-interactive
-mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
+mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Criar uma base de dados vazia
@@ -139,11 +144,11 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
 
 1. No portal do Azure, encontre a Base de Dados do Azure para MySQL. Na página **Descrição geral**, clique em **Restaurar** na barra de ferramentas. É aberta a página Restaurar.
 
-   ![10-1 restaurar uma base de dados](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
+   ![10-1 restaurar uma base de dados](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. Preencha o formulário **Restaurar** com as informações necessárias.
    
-   ![10-2 formulário de restauro](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
+   ![10-2 formulário de restauro](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **Ponto de restauro**: selecione um momento específico em que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
    - **Restaurar para novo servidor**: indique um novo nome de servidor para o qual pretende restaurar.
