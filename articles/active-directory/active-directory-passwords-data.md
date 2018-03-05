@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 929843825d19c003b5a97363a03ffdd3ae2a2f7d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementar sem necessidade de registo de utilizador final de reposição de palavra-passe
 
@@ -112,7 +112,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Utilizar o PowerShell versão 2
 
-Para começar, terá de [transferir e instalar o módulo do PowerShell versão 2 do Azure AD](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Depois de ter instalado, pode utilizar os passos que se seguem para configurar cada campo.
+Para começar, terá de [transferir e instalar o módulo do PowerShell versão 2 do Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Depois de ter instalado, pode utilizar os passos que se seguem para configurar cada campo.
 
 Para instalar rapidamente das versões recentes do PowerShell que suportam o módulo de instalação, execute os seguintes comandos. (A primeira linha verifica se o módulo já está instalado.)
 

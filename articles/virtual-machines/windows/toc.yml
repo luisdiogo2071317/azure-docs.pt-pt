@@ -100,6 +100,8 @@
           href: disk-scalability-targets.md
         - name: Cópia de Segurança e recuperação após desastre para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Resolver problemas dos VHD ligados
+          href: troubleshoot-vhds.md
     - name: Redes
       href: network-overview.md
     - name: Aplicações de dimensionamento automático

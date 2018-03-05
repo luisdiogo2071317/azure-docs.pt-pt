@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ativar alertas para o Azure Logic Apps
 
@@ -131,7 +131,7 @@ Para localizar e visualizar eventos na sua aplicação lógica, incluindo a acio
 
 5. Na caixa de pesquisa, especifique um campo que pretende localizar e prima **Enter**. Quando começar a escrever, OMS mostra-lhe correspondências possíveis e as operações que pode utilizar. 
 
-   Por exemplo, para localizar os eventos de 10 principais que tenham acontecido, introduza e selecionar esta consulta de pesquisa: **categoria = WorkflowRuntime | principais 10**
+   Por exemplo, para localizar os eventos de 10 principais que tenham acontecido, introduza e selecionar esta consulta de pesquisa: **procurar categoria = = "WorkflowRuntime" | limitar 10**
 
    ![Introduza a cadeia de procura](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

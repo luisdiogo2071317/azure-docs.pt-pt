@@ -1,19 +1,19 @@
 ---
-title: Migrar a base de dados MySQL utilizando captura e restauro na base de dados do Azure para MySQL | Microsoft Docs
+title: Migrar a base de dados MySQL utilizando captura e restauro na base de dados do Azure para MySQL
 description: "Este artigo explica duas formas comuns de cópia de segurança e restaurar bases de dados na base de dados do Azure para MySQL, utilizando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: e962fd65244ceebfc7544dc5a1d1956dad811fea
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar a base de dados MySQL à base de dados do Azure para utilizar a captura e restauro de MySQL
 Este artigo explica duas formas comuns de cópia de segurança e restaurar bases de dados na base de dados do Azure para MySQL
@@ -101,7 +101,7 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 Neste exemplo, restaure os dados na base de dados recentemente criado no destino da base de dados do Azure para o servidor de MySQL.
 ```bash
-$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
+$ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
 ## <a name="export-using-phpmyadmin"></a>Exportar utilizando PHPMyAdmin
@@ -122,5 +122,5 @@ Importar a base de dados é semelhante a exportar. Efetue as seguintes ações:
 - Utilize o **procurar** botão Localizar o ficheiro de base de dados. 
 - Clique em de **aceda** botão Exportar a cópia de segurança, execute os comandos SQL e voltar a criar a base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Ligar aplicações Azure base de dados MySQL](./howto-connection-string.md)

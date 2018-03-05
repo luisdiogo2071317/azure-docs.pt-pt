@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrar a partir de um cluster do HDInsight baseados em Windows para um cluster baseado em Linux
 
@@ -132,7 +132,7 @@ Recomendamos a utilização de certificado de chave pública, como é mais segur
 
 Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### <a name="cluster-customization"></a>Personalização de cluster
+### <a name="cluster-customization"></a>Personalização do cluster
 
 **Ações de script** utilizada com clusters baseados em Linux têm de ser escritos em scripts de Bash. Clusters baseados em Linux podem utilizar as ações de script durante ou após a criação do cluster. Para obter mais informações, consulte [HDInsight baseado em Linux personalizar com ações de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Script desenvolvimento de ações para o HDInsight baseado em Linux](hdinsight-hadoop-script-actions-linux.md).
 
@@ -152,7 +152,7 @@ Muitas das web UIs pode ter sido utilizada com o HDInsight baseado em Windows, t
 
 Para obter mais informações sobre como trabalhar com o Ambari, consulte os seguintes documentos:
 
-* [Web do Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Ambari Web](hdinsight-hadoop-manage-ambari.md)
 * [API de REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 ### <a name="ambari-alerts"></a>Alertas do Ambari
@@ -173,7 +173,7 @@ O sistema de ficheiros de cluster do Linux é disposto diferente clusters do HDI
 | Configuração |`/etc`. Por exemplo, `/etc/hadoop/conf/core-site.xml` |
 | Ficheiros de registo |`/var/logs` |
 | Plataforma de dados do Hortonworks (HDP) |`/usr/hdp`. Existem dois diretórios localizado aqui, que é a versão atual do HDP e `current`. O `current` diretório contém ligações simbólicas para ficheiros e diretórios localizados no diretório do número de versão. O `current` diretório é fornecida como uma forma conveniente de aceder a ficheiros HDP desde a alteração do número de versão como a HDP versão é atualizada. |
-| hadoop streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
+| hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 Em geral, se souber o nome do ficheiro, pode utilizar o seguinte comando numa sessão SSH para localizar o caminho do ficheiro:
 
@@ -201,10 +201,10 @@ O gráfico seguinte fornece orientações para migrar as cargas de trabalho do r
 | No baseado no Windows, posso utilizar... | No baseado em Linux... |
 | --- | --- |
 | **Editor do Hive** |[Vista Ambari Hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;`Para ativar o Tez |Tez é o motor de execução predefinidas para os clusters baseados em Linux, pelo que a declaração set já não é necessária. |
+| `set hive.execution.engine=tez;` Para ativar o Tez |Tez é o motor de execução predefinidas para os clusters baseados em Linux, pelo que a declaração set já não é necessária. |
 | Funções definidas pelo utilizador c# | Para obter informações sobre a validação de componentes do c# com o HDInsight baseado em Linux, consulte [soluções de .NET de migrar para o HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | Ficheiros CMD ou scripts no servidor invocado como parte de uma tarefa do Hive |Utilize scripts de Bash |
-| `hive`comando a partir do ambiente de trabalho remoto |Utilize [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) ou [do Hive a partir de uma sessão SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` comando a partir do ambiente de trabalho remoto |Utilize [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) ou [do Hive a partir de uma sessão SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -282,7 +282,7 @@ Se os scripts não contêm cadeias de carateres de CR incorporados, pode em mass
     hdfs dfs -put -f script.py wasb:///path/to/script.py
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * [Saiba como criar clusters do HDInsight baseado em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Utilizar o SSH para ligar para o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)

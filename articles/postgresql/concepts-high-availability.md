@@ -1,19 +1,19 @@
 ---
-title: Conceitos de elevada disponibilidade da base de dados do Azure para PostgreSQL | Microsoft Docs
-description: "Este tópico fornece informações de elevada disponibilidade, quando utilizar a base de dados do Azure para PostgreSQL"
+title: Conceitos de elevada disponibilidade da base de dados do Azure para PostgreSQL
+description: "Este artigo fornece informações de elevada disponibilidade, quando utilizar a base de dados do Azure para PostgreSQL."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 600896cf064770a5b294f874dc29081f0ce7d942
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 02/28/2018
+ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Conceitos de elevada disponibilidade da base de dados do Azure para PostgreSQL
 A base de dados do Azure para o serviço de PostgreSQL fornece um nível elevado de disponibilidade garantido. O contrato de nível de serviço de cópia de financially (SLA) é 99,99% após a disponibilidade geral. Praticamente nenhuma aplicação tempo quando utilizar este serviço.
@@ -33,5 +33,5 @@ Semelhante ao modelo de HA, quando uma base de dados do Azure para PostgreSQL é
 
 Durante a operação de dimensionamento, ocorre uma interrupção para as ligações de base de dados. As aplicações de cliente estiver desligadas e abra as transações não consolidadas foram canceladas. Assim que a aplicação de cliente a ligação ou estabelece uma ligação nova, o gateway direciona a ligação à instância do tamanho recentemente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter uma descrição geral do serviço, consulte [base de dados do Azure para PostgreSQL descrição-geral](overview.md)

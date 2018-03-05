@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: cb07f173a0ff669cc8fa56d1ba37a4a3df8d8753
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Utilizar c# com o MapReduce, transmissão em fluxo do Hadoop no HDInsight
 
@@ -33,7 +33,7 @@ Transmissão em fluxo do Hadoop é um utilitário que lhe permite executar as ta
 
 ## <a name="net-on-hdinsight"></a>.NET no HDInsight
 
-__HDInsight baseado em Linux__ clusters utilize [Mono (https://mono-project.com)](https://mono-project.com) para executar aplicações de .NET. Versão mono 4.2.1 está incluído com o HDInsight versão 3.5. Para obter mais informações sobre a versão do Mono incluído com o HDInsight, consulte [as versões de componentes do HDInsight](../hdinsight-component-versioning.md). Para utilizar uma versão específica do Mono, consulte o [instalação ou atualização Mono](../hdinsight-hadoop-install-mono.md) documento.
+__HDInsight baseado em Linux__ clusters utilize [Mono (https://mono-project.com)](https://mono-project.com) para executar aplicações de .NET. Versão mono 4.2.1 está incluído com o HDInsight versão 3.6. Para obter mais informações sobre a versão do Mono incluído com o HDInsight, consulte [as versões de componentes do HDInsight](../hdinsight-component-versioning.md). Para utilizar uma versão específica do Mono, consulte o [instalação ou atualização Mono](../hdinsight-hadoop-install-mono.md) documento.
 
 Para obter mais informações sobre Mono compatibilidade com versões do .NET Framework, consulte [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -238,7 +238,7 @@ Este script pede-lhe o nome de conta de início de sessão do cluster e a palavr
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre como utilizar o MapReduce com o HDInsight, consulte [utilizar de MapReduce com o HDInsight](hdinsight-use-mapreduce.md).
 

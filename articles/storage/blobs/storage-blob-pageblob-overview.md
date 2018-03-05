@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
-ms.openlocfilehash: 3834fea5961a9c69243bb8e852631585c26a103f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 56e8c4c9f7ab9b40a210f284960f959a437a4e20
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Funcionalidades exclusivas de Blobs de página do Azure
 
@@ -117,7 +117,7 @@ foreach (PageRange range in pageRanges)
 #### <a name="leasing-a-page-blob"></a>Leasing de um Blob de página
 A operação de concessão Blob estabelece e gere um bloqueio de um blob para escrita e operações de eliminação. Esta operação é útil em cenários onde um blob de página estiver a ser acedido a partir de vários clientes para garantir que apenas um cliente pode escrever para o blob de cada vez. Discos do Azure, por exemplo, utiliza este leasing mecanismo para garantir que o disco apenas é gerido por uma única VM. A duração do bloqueio pode ser 15 a 60 segundos, ou pode ser infinita. Consulte a documentação [aqui](/rest/api/storageservices/lease-blob) para obter mais detalhes.
 
-> Utilize a seguinte hiperligação para obter [exemplos de código](/resources/samples/?service=storage&term=blob&sort=0) para muitos outros cenários de aplicação. 
+> Utilize a seguinte hiperligação para obter [exemplos de código](/resources/samples/?service=storage&term=blob&sort=0 ) para muitos outros cenários de aplicação. 
 
 Para além das APIs REST avançadas, blobs de páginas também fornecem acesso partilhado, características de durabilidade e a segurança avançada. Abordaremos as vantagens em maior detalhe nos parágrafos seguintes. 
 

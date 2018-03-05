@@ -1,21 +1,21 @@
 ---
-title: Conceitos de servidor na base de dados do Azure para PostgreSQL | Microsoft Docs
-description: "Este tópico fornece considerações e diretrizes para configurar e gerir a base de dados do Azure para servidores de PostgreSQL."
+title: Conceitos de servidor na base de dados do Azure para PostgreSQL
+description: "Este artigo fornece considerações e diretrizes para configurar e gerir a base de dados do Azure para servidores de PostgreSQL."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/02/2017
-ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 02/28/2018
+ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Base de dados do Azure para servidores de PostgreSQL
+# <a name="azure-database-for-postgresql-servers"></a>Base de Dados Azure para servidores PostgreSQL
 Este artigo fornece considerações e diretrizes para trabalhar com a base de dados do Azure para servidores de PostgreSQL.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>O que é uma base de dados do Azure para o servidor de PostgreSQL?
@@ -33,7 +33,7 @@ Uma base de dados do Azure para o servidor de PostgreSQL:
 - Está disponível em múltiplas versões. Para obter mais informações, consulte [versões da base de dados PostgreSQL](concepts-supported-versions.md).
 - É extensível pelos utilizadores. Para obter mais informações, consulte [PostgreSQL extensões](concepts-extensions.md).
 
-Dentro de uma base de dados do Azure para o servidor de PostgreSQL, pode criar uma ou várias bases de dados. Pode optar por criar uma base de dados por servidor para utilizar todos os recursos ou criar várias bases de dados para partilhar os recursos. Os preços é estruturado por cada servidor, com base na configuração de armazenamento (GB), unidades de computação e escalão de preço. Para obter mais informações, consulte [escalões de preço](./concepts-service-tiers.md).
+Dentro de uma base de dados do Azure para o servidor de PostgreSQL, pode criar uma ou várias bases de dados. Pode optar por criar uma base de dados por servidor para utilizar todos os recursos ou criar várias bases de dados para partilhar os recursos. Os preços é estruturado por cada servidor, com base na configuração de armazenamento (GB), vCores e escalão de preço. Para obter mais informações, consulte [escalões de preço](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Como ligar e autenticar para uma base de dados do Azure para o servidor de PostgreSQL?
 Os seguintes elementos ajudam a garantir o acesso seguro à sua base de dados:
@@ -56,6 +56,6 @@ Como um serviço gerido para Postgres, os parâmetros configuráveis na base de 
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para obter uma descrição geral do serviço, consulte [base de dados do Azure para descrição geral de PostgreSQL](overview.md).
-- Para obter informações sobre recursos específico quotas e limitações com base na sua **camada de serviço**, consulte [escalões de serviço](concepts-service-tiers.md).
+- Para obter informações sobre recursos específico quotas e limitações com base na sua **camada de serviço**, consulte [escalões de serviço](concepts-pricing-tiers.md).
 - Para obter informações sobre a ligação ao serviço, consulte [bibliotecas de ligação para base de dados do Azure para PostgreSQL](concepts-connection-libraries.md).
 - Ver e editar os parâmetros de servidor através de [portal do Azure](howto-configure-server-parameters-using-portal.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).

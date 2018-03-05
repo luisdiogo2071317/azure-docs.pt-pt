@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -86,8 +86,8 @@ Cada conta de utilizador que tem de iniciar sessão Azure AD tem de ter um valor
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
 | Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Não são permitidos carateres |<ul> <li>Qualquer "@" caráter que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de período "." existentes imediatamente antes do "@" símbolo</li></ul> |
-| Restrições de comprimento |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Podem existir até 64 carateres antes do "@" símbolo</li><li>Podem existir até 48 carateres após o "@" símbolo</li></ul> |
+| Não são permitidos carateres |<ul> <li>Qualquer "\@ \" caráter que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de período "." existentes imediatamente antes do "\@ \" símbolo</li></ul> |
+| Restrições de comprimento |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Podem existir até 64 carateres antes do "\@ \" símbolo</li><li>Podem existir até 48 carateres após o "\@ \" símbolo</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de palavra-passe que só se aplicam a contas de utilizador de nuvem
 
@@ -96,7 +96,7 @@ A tabela seguinte descreve as definições de política de palavra-passe dispon�
 | Propriedade | Requisitos |
 | --- | --- |
 | Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Não são permitidos carateres |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes: não pode conter um caráter de ponto "." existentes imediatamente antes do "@" símbolo.</li></ul> |
+| Não são permitidos carateres |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes: não pode conter um caráter de ponto "." existentes imediatamente antes do "\@ \" símbolo.</li></ul> |
 | Restrições de palavra-passe |<ul><li>Um mínimo de 8 carateres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três fora de quatro das seguintes opções:<ul><li>Caracteres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração da palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável ao utilizar o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável ao utilizar o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
@@ -124,24 +124,24 @@ Para começar, terá de [transferir e instalar o módulo Azure AD PowerShell](ht
 1. Liga ao Windows PowerShell, utilizando as credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet utilizando o UPN (por exemplo,  *aprilr@contoso.onmicrosoft.com* ) ou o ID de utilizador do utilizador que pretende verificar:`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Para ver o **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet:`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet utilizando o UPN (por exemplo,  *aprilr@contoso.onmicrosoft.com* ) ou o ID de utilizador do utilizador que pretende verificar: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Para ver o **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### <a name="set-a-password-to-expire"></a>Definir uma palavra-passe a expirar
 
 1. Liga ao Windows PowerShell, utilizando as credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para definir a palavra-passe de um utilizador para que a palavra-passe expira, execute o seguinte cmdlet utilizando o UPN ou o ID de utilizador do utilizador:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Para definir as palavras-passe de todos os utilizadores na organização de modo a que expirarem, utilize o seguinte cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Para definir a palavra-passe de um utilizador para que a palavra-passe expira, execute o seguinte cmdlet utilizando o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * Para definir as palavras-passe de todos os utilizadores na organização de modo a que expirarem, utilize o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ### <a name="set-a-password-to-never-expire"></a>Definir uma palavra-passe nunca expira
 
 1. Liga ao Windows PowerShell, utilizando as credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para definir a palavra-passe de um utilizador para nunca expirar, execute o seguinte cmdlet utilizando o UPN ou o ID de utilizador do utilizador:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Para definir as palavras-passe de todos os utilizadores numa organização nunca expirem, execute o seguinte cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Para definir a palavra-passe de um utilizador para nunca expirar, execute o seguinte cmdlet utilizando o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * Para definir as palavras-passe de todos os utilizadores numa organização nunca expirem, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
    > As palavras-passe definida como `-PasswordNeverExpires $true` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e avance 90 dias, as palavras-passe expirarem. Com base no `pwdLastSet` atributo, se alterar a expiração para `-PasswordNeverExpires $false`, todas as palavras-passe que tenham um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciar sessão. Esta alteração pode afetar a um grande número de utilizadores. 

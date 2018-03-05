@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 273efe0bdef421d753ea51e01060d48351cbe6fc
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 532dd399d2d5fcbab616744dd02f4a95078cbb1b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Suporte de multi-inquilino no Azure Site Recovery para replicar máquinas virtuais VMware para o Azure através de CSP
 
@@ -115,17 +115,17 @@ A secção anterior descrito como configurar um ambiente de multi-inquilino para
 
 Como é mostrado no diagrama seguinte, a diferença da arquitetura numa solução de alojamento dedicada é que a infraestrutura de cada inquilino é definida para esse inquilino apenas. Uma vez que os inquilinos estão isolados através de vCenters separada, o fornecedor de alojamento ainda tem de seguir os passos CSP fornecidos para o alojamento partilhados e não precisa de preocupar com isolamento de inquilino. Configuração CSP permanece inalterada.
 
-![hsp arquitetura partilhado](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
 **Cenário de alojamento dedicado com vários vCenters**
 
 ### <a name="managed-service-solution"></a>Solução de serviço geridas
 
 Como é mostrado no diagrama seguinte, a diferença da arquitetura numa solução de serviço geridas é que a infraestrutura de cada inquilino também está separada fisicamente da infraestrutura dos outros inquilinos. Este cenário existe, normalmente, quando o inquilino é proprietário da infraestrutura e pretender que um fornecedor de solução para gerir a recuperação após desastre. Novamente, porque os inquilinos estão fisicamente isolados através de infraestruturas diferentes, as necessidades de parceiro a seguir os passos CSP fornecido para o alojamento partilhados, mas não precisa de preocupar com isolamento de inquilino. Aprovisionamento de CSP permanece inalterado.
 
-![hsp arquitetura partilhado](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Cenário de serviço com vários vCenters de geridos**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais](site-recovery-role-based-linked-access-control.md) sobre o controlo de acesso baseado em funções para gerir implementações do Azure Site Recovery.
 
 [Gerir vários inquilinos com CSP](site-recovery-manage-multi-tenancy-with-csp.md)

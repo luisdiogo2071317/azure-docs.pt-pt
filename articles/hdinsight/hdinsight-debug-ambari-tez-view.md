@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b565ef0f7672d1288e922e28551ad3f6ec5b6cb7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: bf34bc5a65c2beb55c7039868e4d90d83d28de51
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Utilizar vistas do Ambari para depurar tarefas Tez no HDInsight
 
@@ -104,7 +104,7 @@ Utilize os seguintes passos para executar uma consulta de Hive que utiliza Tez:
     * O __aplicação__ ligação apresenta informações sobre a aplicação de YARN para esta consulta. Aqui pode aceder a registos de aplicação YARN.
     * O __DAG__ ligação apresenta informações sobre o acíclicos direcionados para esta consulta. Aqui pode ver uma representação gráfica do DAG. Também pode encontrar informações nos vértices dentro do DAG.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Agora que aprendeu como utilizar a vista de Tez, saiba mais sobre [utilizando o Hive no HDInsight](hadoop/hdinsight-use-hive.md).
 

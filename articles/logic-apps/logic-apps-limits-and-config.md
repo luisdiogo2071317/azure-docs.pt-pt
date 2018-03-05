@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Configuração e os limites de aplicações lógicas
 
@@ -34,7 +34,7 @@ Estes limites aplicam-se um único pedido HTTP ou uma chamada de conector.
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Tempo limite do pedido | por 120 segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [até ciclo](logic-apps-loops-and-scopes.md) pode compensar conforme necessário |
+| Tempo limite do pedido | 120 Segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [até ciclo](logic-apps-loops-and-scopes.md) pode compensar conforme necessário |
 |||| 
 
 #### <a name="message-size"></a>Tamanho da mensagem
@@ -58,15 +58,22 @@ Estes limites aplicam-se um único pedido HTTP ou uma chamada de conector.
 
 Estes limites aplicam-se para uma aplicação lógica única de executar.
 
-| Nome | Limite | 
-| ---- | ----- | 
-| Duração de execução | 90 dias | 
-| Retenção de armazenamento | hora de início de 90 dias da execução | 
-| Intervalo de periodicidade mín. | 1 segundo </br>Para aplicações lógicas com um plano do App Service: 15 segundos | 
-| Intervalo de periodicidade máximo | dias de 500 | 
-||| 
+| Nome | Predefinição | Limite |
+| ---- | ------- | ----- |
+| Duração de execução   | 90 dias | 7 e 90 dias |
+| Retenção de armazenamento | hora de início de 90 dias da execução |  7 e 90 dias da hora de início da execução |
+||||
 
 Exceder os limites para a duração de execução ou de retenção de armazenamento no seu fluxo de processamento normal, [contacte a equipa de produto](mailto://logicappsemail@microsoft.com) para obter assistência com os seus requisitos.
+
+
+### <a name="recurrence-interval"></a>Intervalo de periodicidade
+
+| Nome | Limite |
+| ---- | ------- |
+| Intervalo de periodicidade mín. | 1 segundo </br>Para aplicações lógicas com um plano do App Service: 15 segundos |
+| Intervalo de periodicidade máximo | dias de 500 |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Criar ciclos e debatching limites
 
@@ -75,7 +82,7 @@ Estes limites aplicam-se para uma aplicação lógica única de executar.
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
 | ForEach itens | 100,000 | Pode utilizar o [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maior, conforme necessário. | 
-| Até iterações | 5,000 | | 
+| Até iterações | 5.000 | | 
 | Itens de SplitOn | 100,000 | | 
 | ForEach paralelismo | 50 | A predefinição é 20. <p>Para definir um nível específico de paralelismo num ciclo ForEach, defina o `runtimeConfiguration` propriedade no `foreach` ação. <p>Para executar sequencialmente um ciclo de ForEach, defina o `operationOptions` propriedade como "Sequencial" no `foreach` ação. | 
 |||| 
@@ -109,10 +116,10 @@ Estes limites aplicam-se a uma definição de aplicação lógica única.
 | Número de variáveis por fluxo de trabalho | 250 | | 
 | Carateres máx. por expressão | 8,192 | | 
 | Máx. `trackedProperties` tamanho em carateres | 16,000 | 
-| `action`/`trigger`limite de nome | 80 | | 
-| `description`limite de comprimento | 256 | | 
-| `parameters`limite | 50 | | 
-| `outputs`limite | 10 | | 
+| `action`/`trigger` limite de nome | 80 | | 
+| `description` limite de comprimento | 256 | | 
+| `parameters` Limite | 50 | | 
+| `outputs` Limite | 10 | | 
 |||| 
 
 <a name="custom-connector-limits"></a>

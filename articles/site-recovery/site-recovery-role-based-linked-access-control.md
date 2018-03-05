@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 3d561e3ebab886cd4976e5f1c2e8f2ddde3d6c14
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Utilizar o controlo de acesso baseado em funções para gerir implementações do Azure Site Recovery
 
@@ -45,7 +45,7 @@ Um utilizador tem as seguintes permissões de replicação de uma nova máquina 
 > [!IMPORTANT]
 >Certifique-se de que as permissões relevantes estão adicionadas por modelo de implementação (Gestor de recursos / clássico) utilizado para a implementação de recursos.
 
-| **Tipo de Recurso** | **Modelo de implementação** | Permissão |
+| **Tipo de Recurso** | **Modelo de implementação** | **Permissão** |
 | --- | --- | --- |
 | Computação | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |

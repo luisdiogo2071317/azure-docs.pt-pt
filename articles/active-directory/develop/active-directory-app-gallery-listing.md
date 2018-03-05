@@ -1,6 +1,6 @@
 ---
-title: "Listar a aplicação na Galeria de aplicações do Azure Active Directory"
-description: "Como listar uma aplicação que suporta o início de sessão único na galeria do Azure Active Directory | Microsoft Azure"
+title: "Listar a aplicação na Galeria de aplicações do Azure Active Directory | Microsoft Docs"
+description: "Como listar uma aplicação que suporta o início de sessão único na Galeria de aplicações do Azure Active Directory"
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
@@ -15,63 +15,65 @@ ms.workload: identity
 ms.date: 01/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: feb09aa8f8e22ad6fbda6a490d251c500bedf3ee
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 502fb555bd3b381c9be0ff04e210cc07f9bf6cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na Galeria de aplicações do Azure Active Directory
+# <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
 
-##  <a name="what-is-azure-ad-app-gallery"></a>O que é Galeria de aplicações do Azure AD?
+##  <a name="what-is-the-azure-ad-application-gallery"></a>O que é a Galeria de aplicações do Azure AD?
 
-Azure AD é um serviço de identidade baseado na nuvem. [Galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) é um arquivo comum, onde todos os conectores de aplicações são publicados para o início de sessão único e o aprovisionamento de utilizadores. Os nossos mútua clientes que estão a utilizar o Azure AD como fornecedor de identidade procure conectores de aplicações SaaS diferentes, que são publicados aqui. Administrador de TI adiciona o conector da Galeria de aplicações e configura e utilizá-lo para o início de sessão único e o aprovisionamento. AD do Azure suporta todos os protocolos de Federação principal como SAML 2.0, OpenID Connect, OAuth e WS-Fed para o início de sessão único. 
+Azure Active Directory (Azure AD) é um serviço de identidade baseada na nuvem. O [Galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) na loja de aplicações do Azure Marketplace, onde todos os conectores de aplicações são publicados para o início de sessão único e o aprovisionamento de utilizadores. Os clientes que utilizam o Azure AD como um fornecedor de identidade localizar os conectores de aplicações SaaS diferentes publicados aqui. Os administradores de TI adicionar conectores a partir da Galeria de aplicações e, em seguida, configurar e utilizarem os conectores para o início de sessão único e o aprovisionamento. AD do Azure suporta todos os protocolos de Federação principal para início de sessão, incluindo SAML 2.0, OpenID Connect, OAuth e WS-Fed. 
 
-## <a name="what-are-the-benefits-of-listing-the-application-in-the-gallery"></a>Quais são as vantagens de listagem aplicação na galeria do?
+## <a name="what-are-the-benefits-of-listing-an-application-in-the-gallery"></a>Quais são as vantagens de uma aplicação na Galeria de listagem?
 
-*  Fornece melhor único início de sessão experiência possível aos clientes.
+*  Os clientes localizar possíveis único início de sessão uma experiência otimizada.
 
-*  Configuração mínima e Simple da aplicação.
+*  A configuração da aplicação é simples e mínimo. 
 
-*  Os clientes podem procurar a aplicação e encontrá-lo na galeria. 
+*  Uma procura rápida localiza a aplicação na galeria.
 
-*  Qualquer cliente pode utilizar esta integração independentemente do Azure AD SKU gratuito, Basic ou Premium.
+*  Libertar, básico, e todos os clientes de Premium do Azure AD podem utilizar esta integração. 
 
-*  Pelo tutorial de configuração passo a passo para os clientes mútua.
+*  Os clientes mútua obter um tutorial passo a passo de configuração. 
 
-*  Ative o aprovisionamento de utilizador para a mesma aplicação se estiver a utilizar o SCIM.
+*  Os clientes que utilizam o SCIM podem utilizar o aprovisionamento para a mesma aplicação.
 
 
-##  <a name="what-are-the-pre-requisites"></a>Quais são os pré-requisitos?
+##  <a name="prerequisites-implement-federation-protocol"></a>Pré-requisitos: Protocolo de Federação de implementar
 
-Para listar uma aplicação na galeria do Azure AD, a aplicação primeiro tem de implementar um dos protocolos Federação suportados pelo Azure AD. Leia os termos e condições da Galeria de aplicações do Azure AD a partir daqui. Se estiver a utilizar: 
+Para listar uma aplicação na Galeria de aplicações do Azure AD, primeiro terá de implementar um dos seguintes protocolos de Federação suportados pelo Azure AD. Leia os termos e condições da Galeria de aplicações do Azure AD a partir daqui. 
 
-*   **OpenID Connect** - criar a aplicação multi-inquilino no Azure AD e implementar [framework de consentimento do Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) para a sua aplicação. Envie o pedido de início de sessão para o ponto final comum, para que qualquer cliente pode fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador do cliente com base no ID de inquilino e de UPN do utilizador foi recebido no token. Para integrar a aplicação com o Azure AD, pode seguir o [instruções de programador](active-directory-authentication-scenarios.md).
+*   **OpenID Connect**: criar a aplicação multi-inquilino no Azure AD e implementar o [framework de consentimento do Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) para a sua aplicação. Envie o pedido de início de sessão para um ponto final comum, para que qualquer cliente pode fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador com base no ID de inquilino e de UPN do utilizador foi recebido no token. Para integrar a aplicação com o Azure AD, siga o [instruções de programadores](active-directory-authentication-scenarios.md).
 
-*   **SAML 2.0 ou WS-Fed** – a aplicação deve ter uma capacidade de efetuar a integração de SAML/WS-Fed SSO no modo SP ou IDP. Qualquer aplicação que suporta SAML 2.0, pode ser integrado diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** ou **WS-Fed**: A aplicação tem de ter a capacidade para efetuar a integração de SAML/WS-Fed SSO no modo SP ou IDP. Se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
 
-*   **Palavra-passe SSO** – criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [baseada em palavra-passe de início de sessão](../active-directory-appssoaccess-whatis.md). Baseado em palavra-passe SSO, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe de aplicações web que não suporta a Federação de identidade. Também é útil para cenários em que várias os utilizadores precisam de partilhar uma única conta, tal como para contas de aplicação da sua organização de redes sociais. 
+*   **Palavra-passe SSO**: criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [baseada em palavra-passe de início de sessão](../active-directory-appssoaccess-whatis.md). Baseado em palavra-passe SSO, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe de aplicações web que não suporta a Federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, tal como para contas de aplicação da sua organização de redes sociais. 
 
-## <a name="process-for-submitting-the-request-in-the-portal"></a>Processo para submeter o pedido no portal
+## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
 
-Assim que tiver testado que a integração de aplicações funciona com o Azure AD, terá de enviar o pedido de acesso no nosso [aplicação rede Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se tiver uma conta do Office 365, pode utilizar que para iniciar sessão neste portal, caso contrário, utilize o seu ID da Microsoft (Live ID, Outlook, Hotmail etc.) para início de sessão. Consulte a seguinte página para solicitar o acesso. Forneça uma justificação de negócio na caixa de texto e clique em **pedir acesso**. A nossa equipa irá rever todos os detalhes e dão-lhe o acesso em conformidade. Depois disso, pode iniciar sessão no portal e submeter o pedido de detalhado para a aplicação.
+Depois de ter testado que a integração de aplicações funciona com o Azure AD, submeta o pedido de acesso no nosso [aplicação rede Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se tiver uma conta do Office 365, utilize-o para iniciar sessão neste portal. Caso contrário, utilizar a sua conta Microsoft (tais como o Outlook ou Hotmail) para iniciar sessão.
 
-Se enfrentam qualquer problema de acesso, contacte [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+Depois de iniciar sessão, é apresentada a página seguinte. Forneça uma justificação de negócio para que necessita de acesso na caixa de texto e, em seguida, selecione **pedir acesso**. A nossa equipa revê os detalhes e dá-lhe acesso em conformidade. Depois disso, pode iniciar sessão no portal e submeter o pedido de detalhado para a aplicação.
+
+Se tiver quaisquer problemas relativos ao acesso, contacte o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ![Pedido de acesso no SharePoint portal](./media/active-directory-app-gallery-listing/accessrequest.png)
 
 ## <a name="timelines"></a>Linhas cronológicas
     
-*   Processo de listagem SAML 2.0 ou a aplicação de WS-Fed para a galeria - **7 a 10 dias de negócio**
+A linha cronológica para o processo de listagem um SAML 2.0 ou a aplicação de WS-Fed na galeria é dias úteis de 7 a 10.
 
    ![Linha cronológica de listagem aplicação saml para a Galeria](./media/active-directory-app-gallery-listing/timeline.png)
 
-*   Processo de listagem OpenID Connect aplicação na galeria - **2 a 5 dias úteis**
+A linha cronológica para o processo de uma aplicação OpenID Connect na Galeria de listagem é 2 a 5 dias úteis.
 
    ![Linha cronológica de listagem aplicação saml para a Galeria](./media/active-directory-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalamentos de clientes
 
-Para qualquer Escalamentos de clientes, remova um e-mail para [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e vamos voltar para o utilizador ASAP.
+Para qualquer Escalamentos de clientes, enviar correio eletrónico para o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e irá respondermos logo que possível.
 

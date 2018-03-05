@@ -1,20 +1,20 @@
 ---
-title: "Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL | Microsoft Docs"
+title: "Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL"
 description: "Saiba como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL utilizando a CLI do Azure."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 7027669597b8c1989f7baac5c5f9d997b218750a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 69dfde7e54a271caabc6d0909565165fb219c7f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL utilizando a CLI do Azure
 
@@ -26,7 +26,6 @@ Para concluir este guia de procedimentos, tem de:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
- 
 
 > [!IMPORTANT]
 > Se instalar e utilizar a CLI do Azure localmente, este guia de procedimentos é necessário utilizar a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, a linha de comandos da CLI do Azure, introduza `az --version`. Para instalar ou atualizar, consulte o artigo [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
@@ -34,7 +33,7 @@ Para concluir este guia de procedimentos, tem de:
 ## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
 Quando utiliza a base de dados do Azure para PostgreSQL, o serviço de base de dados efetua automaticamente uma cópia de segurança do serviço de cada 5 minutos. 
 
-Para o escalão básico, estão disponíveis as cópias de segurança durante 7 dias. Para o escalão Standard, as cópias de segurança estão disponíveis para 35 dias. Para obter mais informações, consulte [base de dados do Azure para PostgreSQL escalões de preço](concepts-service-tiers.md).
+Para o escalão básico, estão disponíveis as cópias de segurança durante 7 dias. Para o escalão Standard, as cópias de segurança estão disponíveis para 35 dias. Para obter mais informações, consulte [base de dados do Azure para PostgreSQL escalões de preço](concepts-pricing-tiers.md).
 
 Com esta funcionalidade de cópia de segurança automática, pode restaurar o servidor e as respetivas bases de dados para uma data anterior ou o ponto no tempo.
 
@@ -48,16 +47,16 @@ Para restaurar o servidor, utilizar a CLI do Azure [restauro do servidor az post
 Para restaurar o servidor, na linha de comandos da CLI do Azure, introduza o seguinte comando:
 
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --server mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 O `az postgres server restore` comando requer os seguintes parâmetros:
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | grupo de recursos |  myResourceGroup |  O grupo de recursos onde o servidor de origem existe.  |
-| nome | restaurar o mypgserver | O nome do novo servidor que é criado pelo comando restore. |
-| restauro ponto no tempo | 2017-04-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora tem de ser dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato ISO8601 de data e hora. Por exemplo, pode utilizar o seus próprios fuso horário local, como `2017-04-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2017-04-13T13:59:00Z`. |
-| servidor de origem | mypgserver 20170401 | O nome ou ID do servidor de origem para restaurar a partir de. |
+| nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora tem de ser dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato ISO8601 de data e hora. Por exemplo, pode utilizar o seus próprios fuso horário local, como `2017-04-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2017-04-13T13:59:00Z`. |
+| servidor de origem | mydemoserver | O nome ou ID do servidor de origem para restaurar a partir de. |
 
 Quando restaurar um servidor para um ponto anterior no tempo, é criado um novo servidor. O servidor original e respetivas bases de dados a partir do ponto no tempo especificado são copiados para o novo servidor.
 
@@ -67,5 +66,5 @@ O `az postgres server restore` comando é síncrono. Depois do servidor é resta
 
 Depois de concluir o processo de restauro, localize o novo servidor e certifique-se de que a serem restaurados conforme esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Bibliotecas de ligação para base de dados do Azure para PostgreSQL](concepts-connection-libraries.md)

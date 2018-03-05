@@ -1,20 +1,20 @@
 ---
-title: "Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL | Microsoft Docs"
+title: "Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL"
 description: "Saiba como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL, utilizando a CLI do Azure."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL, utilizando a CLI do Azure
 
@@ -32,7 +32,7 @@ Para concluir este guia de procedimentos, tem de:
 ## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
 Quando utiliza a base de dados do Azure para MySQL, o serviço de base de dados efetua automaticamente uma cópia de segurança do serviço de cada 5 minutos. 
 
-Para o escalão básico, estão disponíveis as cópias de segurança durante 7 dias. Para o escalão Standard, as cópias de segurança estão disponíveis para 35 dias. Para obter mais informações, consulte [base de dados do Azure para MySQL escalões de preço](concepts-service-tiers.md).
+Para o escalão básico, estão disponíveis as cópias de segurança durante 7 dias. Para o escalão Standard, as cópias de segurança estão disponíveis para 35 dias. Para obter mais informações, consulte [base de dados do Azure para MySQL escalões de preço](concepts-pricing-tiers.md).
 
 Com esta funcionalidade de cópia de segurança automática, pode restaurar o servidor e as respetivas bases de dados para uma data anterior ou o ponto no tempo.
 
@@ -46,16 +46,16 @@ Para restaurar o servidor, utilizar a CLI do Azure [restauro do servidor az mysq
 Para restaurar o servidor, na linha de comandos da CLI do Azure, introduza o seguinte comando:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 O `az mysql server restore` comando requer os seguintes parâmetros:
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | grupo de recursos | myResourceGroup |  O grupo de recursos onde o servidor de origem existe.  |
-| nome | restaurar o MyServer | O nome do novo servidor que é criado pelo comando restore. |
-| restauro ponto no tempo | 2017-04-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora tem de ser dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato ISO8601 de data e hora. Por exemplo, pode utilizar o seus próprios fuso horário local, como `2017-04-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2017-04-13T13:59:00Z`. |
-| servidor de origem | myserver4demo | O nome ou ID do servidor de origem para restaurar a partir de. |
+| nome | myserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora tem de ser dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato ISO8601 de data e hora. Por exemplo, pode utilizar o seus próprios fuso horário local, como `2017-04-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2017-04-13T13:59:00Z`. |
+| servidor de origem | mydemoserver | O nome ou ID do servidor de origem para restaurar a partir de. |
 
 Quando restaurar um servidor para um ponto anterior no tempo, é criado um novo servidor. O servidor original e respetivas bases de dados a partir do ponto no tempo especificado são copiados para o novo servidor.
 
@@ -65,5 +65,5 @@ O `az mysql server restore` comando é síncrono. Depois do servidor é restaura
 
 Depois de concluir o processo de restauro, localize o novo servidor e certifique-se de que a serem restaurados conforme esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Bibliotecas de ligação para base de dados do Azure para MySQL](concepts-connection-libraries.md)

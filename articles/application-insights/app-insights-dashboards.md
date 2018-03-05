@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e Dashboards no portal do Application Insights
 Depois de ter [configurar o Application Insights no seu projeto](app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação aparecerá no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
@@ -117,7 +117,6 @@ O painel de descrição geral é o gateway para obter mais informações sobre a
 
 ### <a name="essentials-tab"></a>Separador Essentials
 * [Chave de instrumentação](app-insights-create-new-resource.md#copy-the-instrumentation-key) -identifica este recurso de aplicação.
-* Preços - tornar as funcionalidades caps de volume disponível e definida.
 
 ### <a name="app-navigation-bar"></a>Barra de navegação de aplicações
 ![Barra de navegação esquerdo](./media/app-insights-dashboards/app-left-nav-bar.png)
@@ -160,7 +159,7 @@ DEFINIÇÕES
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 |  |  |
 | --- | --- |

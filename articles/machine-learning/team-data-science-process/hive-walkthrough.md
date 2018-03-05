@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados de equipa em ação: utilização do Azure HDInsight Hadoop clusters
 Esta explicação passo a passo, utilizamos o [processo de ciência de dados de equipa (TDSP)](overview.md) num cenário de ponto a ponto. Utilizamos uma [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explore e os dados de funcionalidade engenheiro de publicamente disponível [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados e para os dados de exemplo para baixo. Para processar várias classes e binária classificação e tarefas preditiva de regressão, iremos criar modelos de dados com o Azure Machine Learning. 
@@ -104,10 +104,10 @@ Aqui, iremos descrevem como utilizar o AzCopy para transferir os ficheiros que c
 
 Nos seguintes comandos do AzCopy, substitua os seguintes parâmetros com os valores reais que especificou ao criar o cluster do Hadoop e unzipping os ficheiros de dados.
 
-* ***&#60; path_to_data_folder >*** o diretório (juntamente com o caminho) no seu computador que contém os ficheiros de dados deszipada.  
-* ***&#60; nome da conta de armazenamento de cluster do Hadoop >*** a conta de armazenamento associada cluster do HDInsight.
-* ***&#60; contentor predefinido do cluster de Hadoop >*** contentor predefinido utilizado pelo cluster. Tenha em atenção que o nome do contentor predefinido é, normalmente, o mesmo nome de cluster em si. Por exemplo, se o cluster é chamado "abc123.azurehdinsight.net", o contentor predefinido é abc123.
-* ***&#60; a chave de conta de armazenamento >*** a chave para a conta de armazenamento utilizada pelo cluster.
+* ***< Path_to_data_folder >*** o diretório (juntamente com o caminho) no seu computador que contém os ficheiros de dados deszipada.  
+* ***<storage account name of Hadoop cluster>*** A conta de armazenamento associada cluster do HDInsight.
+* ***<default container of Hadoop cluster>*** O contentor predefinido utilizado pelo cluster. Tenha em atenção que o nome do contentor predefinido é, normalmente, o mesmo nome de cluster em si. Por exemplo, se o cluster é chamado "abc123.azurehdinsight.net", o contentor predefinido é abc123.
+* ***<storage account key>*** A chave para a conta de armazenamento utilizada pelo cluster.
 
 A partir de uma linha de comandos ou janela do Windows PowerShell, execute os seguintes comandos do AzCopy dois.
 
@@ -561,7 +561,7 @@ Para ver os conteúdos de um determinado ficheiro, diga **000000\_0**, utilize d
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
 > [!WARNING]
-> `copyToLocal`pode ser muito lento para ficheiros grandes e não é recomendado para utilização com as mesmas.  
+> `copyToLocal` pode ser muito lento para ficheiros grandes e não é recomendado para utilização com as mesmas.  
 > 
 > 
 

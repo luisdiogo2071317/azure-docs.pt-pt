@@ -1,20 +1,20 @@
 ---
-title: Configurar e os registos do servidor de acesso PostgreSQL utilizando a CLI do Azure | Microsoft Docs
+title: Configurar e registos do servidor de acesso para PostgreSQL utilizando a CLI do Azure
 description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para PostgreSQL utilizando a linha de comandos da CLI do Azure.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: e12a8907b641b4591ed5ff9fdd5d8458eb75525e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configurar e os registos do servidor de acesso utilizando a CLI do Azure
 Pode transferir os registos de erros de servidor PostgreSQL utilizando a Interface de linha de comandos (CLI do Azure). No entanto, o acesso aos registos de transações não é suportado. 
@@ -35,17 +35,17 @@ Para obter mais informações, consulte [personalizar parâmetros de configuraç
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Registos de lista da base de dados do Azure para o servidor de PostgreSQL
 Para listar os ficheiros de registo disponível para o servidor, execute o [lista de registos do servidor de postgres az](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) comando.
 
-Pode listar os ficheiros de registo para o servidor **mypgserver 20170401.postgres.database.azure.com** no grupo de recursos **myresourcegroup**e direcioná-lo para um ficheiro de texto chamado **registo\_ficheiros\_list.txt.**
+Pode listar os ficheiros de registo para o servidor **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup**e direcioná-lo para um ficheiro de texto chamado **registo\_ ficheiros\_list.txt.**
 ```azurecli-interactive
-az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
+az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Transferir os registos do servidor, localmente
 O [az postgres-registos do servidor transferir](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) comando permite-lhe transferir ficheiros de registo individuais para o servidor. 
 
-Neste exemplo transfere o ficheiro de registo específicos para o servidor **mypgserver 20170401.postgres.database.azure.com** no grupo de recursos **myresourcegroup** ao seu ambiente local.
+Neste exemplo transfere o ficheiro de registo específicos para o servidor **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup** ao seu ambiente local.
 ```azurecli-interactive
-az postgres server-logs download --name 20170414-mypgserver-20170401-postgresql.log --resource-group myresourcegroup --server mypgserver-20170401
+az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para saber mais sobre os registos do servidor, consulte [registos do servidor na base de dados do Azure para PostgreSQL](concepts-server-logs.md)
 - Para obter mais informações sobre os parâmetros de servidor, consulte [personalizar parâmetros de configuração de servidor utilizando a CLI do Azure](howto-configure-server-parameters-using-cli.md)

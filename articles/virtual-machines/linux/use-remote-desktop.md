@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1aa75b87b01417b8864632b7a09539bd6be05d0b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar o ambiente de trabalho remoto para ligar a uma VM com Linux no Azure
 Máquinas de virtuais (VMs) com Linux no Azure, normalmente, são geridas na linha de comandos utilizando uma ligação secure shell (SSH). Quando são novos para Linux ou para cenários de resolução de problemas rápidos, a utilização de ambiente de trabalho remoto pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de trabalho ([xfce](https://www.xfce.org)) e o ambiente de trabalho remoto ([xrdp](http://www.xrdp.org)) para a VM com Linux utilizando o modelo de implementação Resource Manager.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo requer uma VM com Linux existente no Azure. Se precisar de criar uma VM, utilize um dos seguintes métodos:
+Este artigo requer Ubuntu 16.04 LTS VM existente no Azure. Se precisar de criar uma VM, utilize um dos seguintes métodos:
 
 - O [CLI do Azure 2.0](quick-create-cli.md)
 - O [portal do Azure](quick-create-portal.md)
@@ -34,7 +34,7 @@ Este artigo requer uma VM com Linux existente no Azure. Se precisar de criar uma
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar um ambiente de trabalho na sua VM do Linux
 A maioria das VMs com Linux no Azure não dispõe de um ambiente de trabalho instalado por predefinição. VMs com Linux normalmente são geridas através de ligações SSH em vez de um ambiente de trabalho. Existem vários ambientes de trabalho no Linux que pode escolher. Dependendo da sua escolha de ambiente de trabalho, este pode consumir um a 2 GB de espaço em disco e demorar 5 a 10 minutos para instalar e configurar todos os pacotes necessários.
 
-O exemplo seguinte instala o lightweight [xfce4](https://www.xfce.org/) ambiente de trabalho numa VM com Ubuntu. Os comandos para outras distribuições variam ligeiramente (utilizar `yum` para instalar no Red Hat Enterprise Linux e configurar adequado `selinux` regras ou utilize `zypper` para instalar no SUSE, por exemplo).
+O exemplo seguinte instala o lightweight [xfce4](https://www.xfce.org/) ambiente de trabalho numa VM com Ubuntu 16.04 LTS. Os comandos para outras distribuições variam ligeiramente (utilizar `yum` para instalar no Red Hat Enterprise Linux e configurar adequado `selinux` regras ou utilize `zypper` para instalar no SUSE, por exemplo).
 
 Primeiro, SSH para a VM. O exemplo seguinte estabelece ligação à VM com o nome *myvm.westus.cloudapp.azure.com* com o nome de utilizador de *azureuser*:
 

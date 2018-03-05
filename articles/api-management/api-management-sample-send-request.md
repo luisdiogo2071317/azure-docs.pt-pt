@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilizando os serviços externos do serviço de API Management do Azure
 As políticas disponíveis no serviço de API Management do Azure o podem fazer uma vasta gama de trabalho útil, consoante puramente o pedido de entrada, a saída de resposta e informações básicas de configuração. No entanto, a ser capazes de interagir com os serviços externos da gestão de API políticas abre-se muitas oportunidades mais.
@@ -282,11 +282,4 @@ Na configuração da operação de marcador de posição, pode configurar o recu
 
 ## <a name="summary"></a>Resumo
 Serviço de API Management do Azure fornece as políticas flexíveis que podem ser aplicadas seletivamente a tráfego HTTP e permite a composição dos serviços de back-end. Se pretender melhorar o gateway de API com as funções, a verificação, capacidades de validação de alerta ou criar novos recursos compostos com base nos vários serviços de back-end, o `send-request` e políticas relacionadas abrir um mundo de possibilidades.
-
-## <a name="watch-a-video-overview-of-these-policies"></a>Veja uma descrição geral do vídeo destas políticas
-Para mais informações sobre o [forma-pedido de envio-um](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [pedido de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), e [retorno resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) políticas abordadas neste artigo, veja o vídeo seguinte:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
-> 
-> 
 

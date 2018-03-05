@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Consumir os serviços web
 Depois de implementar um modelo como um serviço de web em tempo real, pode enviar os dados e obter predições a partir de uma variedade de plataformas e aplicações. O serviço de web em tempo real que expõe uma API REST para obter as predições. Pode enviar dados para o serviço web no formato único ou várias linha para obter um ou mais predições cada vez.
@@ -35,7 +35,7 @@ Pode listar os serviços implementados e imagens utilizando o comando da CLI do 
 Depois do serviço web tiver sido implementado com êxito, utilize o seguinte comando para obter o URL do serviço e outros detalhes para chamar o ponto final do serviço. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Este comando imprime enviados o URL do serviço, cabeçalhos de pedido necessários, swagger URL e dados de exemplo para chamar o serviço se o esquema de API do serviço foi fornecido o momento da implementação.
@@ -43,7 +43,7 @@ Este comando imprime enviados o URL do serviço, cabeçalhos de pedido necessár
 Pode testar o serviço diretamente a partir da CLI sem composição um pedido HTTP, introduzindo o comando da CLI de exemplo com os dados de entrada:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Obter a chave de API do serviço

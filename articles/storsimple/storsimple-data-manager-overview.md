@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Descrição geral da solução do Gestor de dados do StorSimple
 
@@ -56,9 +56,9 @@ O Gestor de dados do StorSimple está disponível nas seguintes 7 regiões:
 
 No entanto, o Gestor de dados do StorSimple pode ser utilizado para transformar dados nas regiões seguintes. 
 
-![Regiões disponíveis para os dados](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Regiões disponíveis para os dados](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-Este conjunto de é maior porque a implementação de recursos em qualquer uma das regiões do acima é capaz de chamar o processo de transformação no abaixo regiões. Por isso, desde que os dados residirem em qualquer uma das regiões do 26, pode transformar os dados a utilizar este serviço.
+Este conjunto de é maior porque a implementação de recursos em qualquer uma das regiões do acima é capaz de chamar o processo de transformação no abaixo regiões. Por isso, desde que os dados residirem em qualquer uma das regiões do 19, pode transformar os dados a utilizar este serviço.
 
 
 ## <a name="choosing-a-region"></a>Escolher uma região

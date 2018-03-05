@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutorial: Integração do Azure Active Directory com caixa
 
@@ -108,13 +108,12 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Caixa domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-box-tutorial/url3.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.box.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.box.com`
 
-    b. No **identificador** caixa de texto, escreva o URL:`box.net`
+    b. No **identificador** caixa de texto, escreva o URL: `box.net`
      
     > [!NOTE] 
     > Este valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obter este valor. 
-
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![A hiperligação de transferência do certificado](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. Para obter SSO configurado para a sua aplicação, contacte [equipa de suporte de cliente de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e forneça-los com o ficheiro XML transferido.
+6. Para obter SSO configurado para a sua aplicação, execute os passos no [definição de cópia de segurança SSO no seu próprio](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)
+
+> [!NOTE] 
+> Se não for possível ativar o início de sessão único definições para a sua conta de caixa, poderá ter de contactar [equipa de suporte de cliente de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e forneça-los com o ficheiro XML transferido.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

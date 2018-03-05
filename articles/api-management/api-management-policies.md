@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0d10096c004b50688ad5e6550bf248ceb5ef878
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta secção fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  
   
  As políticas são uma funcionalidade poderosa do sistema que permite ao publicador alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e limitação para restringir a quantidade de chamadas recebidas de um programador de taxa de chamadas. Muitas mais políticas estão disponíveis a box.  
   
- As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable), baseiam-se em expressões de política. Para obter mais informações, consulte [políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [expressões de política](api-management-policy-expressions.md).  
+ As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable), baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [Expressões de política](api-management-policy-expressions.md).  
   
-##  <a name="ProxyPolicies"></a>Políticas  
+##  <a name="ProxyPolicies"></a> políticas  
   
 -   [Políticas de restrição de acesso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [Cabeçalho HTTP de verificação](api-management-access-restriction-policies.md#CheckHTTPHeader) -impõe a existência de e/ou valor de um cabeçalho de HTTP.  
@@ -74,13 +74,9 @@ Esta secção fornece uma referência para as seguintes políticas de gestão de
     -   [URL de regravação](api-management-transformation-policies.md#RewriteURL) -converte um URL de pedido do respetivo formulário público para o formato esperado pelo serviço web.  
     -   [Transformação XML utilizando um XSLT](api-management-transformation-policies.md#XSLTransform) -aplica uma transformação XSL em XML no corpo do pedido ou resposta.  
 
-## <a name="video"></a>Vídeo
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações para trabalhar com as políticas, consulte:
 
 + [Políticas de gestão de API](api-management-howto-policies.md)

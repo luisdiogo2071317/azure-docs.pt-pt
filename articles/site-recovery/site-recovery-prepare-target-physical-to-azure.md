@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: f94d80b5c0f4f67ccf4172df22babfb364c57902
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 6704ddc24db8415051a6064bbde79a6fc527871a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="prepare-target-vmware-to-azure"></a>Preparar o destino (VMware para o Azure)
+# <a name="prepare-target-physical-to-azure"></a>Preparar o destino (físico para o Azure)
 > [!div class="op_single_selector"]
 > * [VMware para o Azure](./site-recovery-prepare-target-vmware-to-azure.md)
 > * [Físico para o Azure](./site-recovery-prepare-target-physical-to-azure.md)

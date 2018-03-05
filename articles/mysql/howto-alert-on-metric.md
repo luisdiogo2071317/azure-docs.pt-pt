@@ -1,19 +1,19 @@
 ---
-title: "Configurar alertas de métricas da base de dados do Azure para o MySQL no portal do Azure | Microsoft Docs"
+title: "Configurar alertas de métricas da base de dados do Azure para o MySQL no portal do Azure"
 description: "Este artigo descreve como configurar e alertas de métrica de acesso para a base de dados do Azure para MySQL do portal do Azure."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 5b4263e76f89ae27b9c9f317db3038def01e3e6b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utilizar o portal do Azure para configurar alertas nas métricas da base de dados do Azure para MySQL 
 
@@ -49,7 +49,7 @@ Pode configurar e obter informações sobre regras de alertas com:
    |---------|---------|
    | Nome | Forneça um nome para a regra de alerta. Este valor é enviado no e-mail de notificação de alertas. |
    | Descrição | Forneça uma breve descrição da regra de alerta. Este valor é enviado no e-mail de notificação de alertas. |
-   | Alerta sobre | Escolha **métricas** para este tipo de alerta. |
+   | Alerta referente a | Escolha **métricas** para este tipo de alerta. |
    | Subscrição | Este campo é pré-preenchida com a subscrição que aloja a base de dados do Azure para MySQL. |
    | Grupo de recursos | Este campo é pré-preenchida com o grupo de recursos da sua base de dados do Azure para MySQL. |
    | Recurso | Este campo é pré-preenchida com o nome da base de dados do Azure para MySQL. |
@@ -80,6 +80,6 @@ Assim que tiver criado um alerta, pode selecioná-lo e executar as seguintes aç
 * **Desativar** ou **ativar** o alerta, se pretender temporariamente interromper ou retomar a receção de notificações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [configurar webhooks alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Obter um [descrição geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e reativa.
