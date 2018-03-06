@@ -5,16 +5,16 @@ services: automation
 keywords: "inventário, automatização,alteração, controlo"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir que software está instalado nos seus computadores do Azure e não Azure
 
@@ -41,35 +41,17 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de alterações e Inventário
 
-Primeiro, tem de ativar o Controlo de alterações e Inventário para a VM para este tutorial. Se ativou anteriormente outra solução de automatização para uma VM, este passo não é necessário.
+Primeiro, tem de ativar o Controlo de alterações e Inventário para a VM para este tutorial. Se ativou anteriormente a solução de **Controlo de Alterações** para a VM, este passo não é necessário.
 
 1. No menu da esquerda, selecione **Máquinas virtuais** e selecione uma VM da lista
 2. No menu da esquerda, na secção **Operações**, clique em **Inventário**. É aberta a página **Ativar o Controlo de alterações e Inventário**.
 
-É executada uma validação para determinar se a solução Inventário está ativada para esta VM.
-A validação inclui a verificação da existência de uma área de trabalho do Log Analytics e da conta de Automatização ligada, e se a solução está na área de trabalho.
+![Faixa de configuração do carregamento de Inventário](./media/automation-tutorial-installed-software/enableinventory.png)
+
+Para ativar a solução, configure a localização, a área de trabalho e a conta de Automatização do Log Analytics a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
 A área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) serve para recolher dados gerados pelas funcionalidades e serviços, como o Inventário.
 A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
-
-O processo de validação também verifica se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho híbrida.
-Este agente serve para comunicar com a VM e obter informações sobre o software instalado.
-O processo de validação verifica ainda se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho de runbook híbrida de Automatização.
-
-Se estes pré-requisitos não forem cumpridos, é apresentada uma faixa que lhe dá a opção de ativar a solução.
-
-![Faixa de configuração do carregamento de Inventário](./media/automation-tutorial-installed-software/enableinventory.png)
-
-Para ativar a solução, clique na faixa.
-Se for detetada a falta de qualquer um dos pré-requisitos que se seguem após a validação, estes serão adicionados automaticamente:
-
-* Área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automatização](./automation-offering-get-started.md)
-* Uma [Função de trabalho de runbook híbrida](./automation-hybrid-runbook-worker.md) está ativada na VM
-
-É aberto o ecrã **Controlo de Alterações e Inventário**. Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
-
-![Janela para ativar a solução de controlo de alterações](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser.
 Após a ativação da solução, as informações sobre o software instalado e as alterações efetuadas na VM são transmitidas para o Log Analytics.
@@ -125,7 +107,7 @@ ConfigurationData
 | render table
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu como ver o inventário de software, como:
 
@@ -137,4 +119,4 @@ Neste tutorial, aprendeu como ver o inventário de software, como:
 Avance para a descrição geral da solução Controlo de alterações e Inventário para saber mais acerca dela.
 
 > [!div class="nextstepaction"]
-> [Solução Gestão de mudança e Inventário](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Solução Gestão de mudança e Inventário](automation-change-tracking.md)

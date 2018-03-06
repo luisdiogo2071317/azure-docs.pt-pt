@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4ac26c02e1893097c858380c07f520e6570fd3db
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ O Azure Service Fabric não é executado de forma nativa no Mac OS X. Para execu
 
 * De, pelo menos, 4 GB de RAM.
 * A versão mais recente do [Docker](https://www.docker.com/).
-* Aceda à [imagem de contentor onebox do Docker](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) do Service Fabric.
 
 >[!TIP]
 >
@@ -45,10 +44,10 @@ O Azure Service Fabric não é executado de forma nativa no Mac OS X. Para execu
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Criar um contentor local e configurar o Service Fabric
 Para configurar um contentor do Docker local e executar um cluster do Service Fabric no mesmo, realize os passos seguintes:
 
-1. Solicitar a imagem de contentor do onebox do Service Fabric a partir do repositório de hub do Docker:
+1. Extraia a imagem de contentor do onebox do Service Fabric a partir do repositório de hub do Docker. Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Hub do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Atualize a configuração do daemon do Docker no seu anfitrião com as seguintes definições e reinicie-o: 
@@ -71,14 +70,14 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
 3. Inicie uma instância do contentor do onebox do Service Fabric e utilize a imagem solicitada no primeiro passo:
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >Forneça um nome para a instância do contentor para poder processá-la de forma mais legível. 
     >
     >Se a aplicação estiver a escutar em determinadas portas, as portas têm de ser especificada através da utilização de etiquetas `-p` adicionais. Por exemplo, se a sua aplicação estiver em escuta na porta 8080, adicione a seguinte etiqueta `-p`:
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. Inicie sessão no contentor do Docker no modo SSH interativo:
@@ -160,7 +159,7 @@ Fornece um plug-in do Azure Service Fabric para o Eclipse Neon para o IDE Java. 
 O último passo consiste em instanciar o contentor com um caminho que é partilhado com o anfitrião. O plug-in requer este tipo de instanciação para trabalhar com o contentor do Docker no seu Mac. Por exemplo:
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 Os atributos são definidos do seguinte modo:

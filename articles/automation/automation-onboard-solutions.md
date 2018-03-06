@@ -1,6 +1,6 @@
 ---
-title: "Integrar atualizações e soluções de alterações para a automatização do Azure | Microsoft Docs"
-description: "Saiba como integrar atualizações e soluções de alterações para a automatização do Azure."
+title: "Carregar soluções de atualização e controlo de alterações para a Automatização do Azure | Microsoft Docs"
+description: "Saiba como carregar soluções de atualização e controlo de alterações para a Automatização do Azure."
 services: automation
 documentationcenter: 
 author: eamonoreilly
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Integrar atualizações e soluções de alterações para a automatização do Azure
+# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Carregar soluções de atualização e controlo de alterações para a Automatização do Azure
 
-Neste tutorial, saiba como soluções de atualização, controlo de alterações e inventário carregar automaticamente para as VMs da automatização do Azure:
+Neste tutorial, irá aprender a carregar automaticamente soluções de Atualização, Controlo de Alterações e Inventário para VMs para a Automatização do Azure:
 
 > [!div class="checklist"]
 > * Carregar uma VM do Azure
-> * Permitir soluções
+> * Ativar soluções
 > * Instalar e atualizar módulos
-> * Importar o runbook de integração
+> * Importar o runbook de inclusão
 > * Iniciar o runbook
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,111 +42,111 @@ Para concluir este tutorial, é necessário o seguinte:
 
 ## <a name="onboard-an-azure-vm"></a>Carregar uma VM do Azure
 
-Para carregar máquinas virtuais do Azure automaticamente, uma VM existente tem de ser integrado com o registo de alterações ou uma solução de gestão de atualizações. Neste passo, pode carregar uma máquina virtual com a gestão de atualizações e controlo de alterações.
+Existem várias formas de carregar máquinas. Pode carregar a solução [a partir de uma máquina virtual](automation-onboard-solutions-from-vm.md), [a partir da sua conta de Automatização](automation-onboard-solutions-from-automation-account.md) ou através do runbook. Este tutorial explica a ativação da Gestão de Atualizações através de um runbook. Para carregar Máquinas Virtuais do Azure à escala, é necessário carregar uma VM existente com a solução de Controlo de alterações ou Gestão de atualizações. Neste passo, vai carregar uma máquina virtual com Gestão de atualizações e Controlo de alterações.
 
-### <a name="enable-change-tracking-and-inventory"></a>Ativar o registo de alterações e inventário
+### <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
-A solução de controlo de alterações e de inventário fornece a capacidade de [controlar as alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) nas suas máquinas virtuais. Neste passo, ative a solução numa máquina virtual.
+A solução de Controlo de Alterações e Inventário fornece a capacidade de [controlar as alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) nas suas máquinas virtuais. Neste passo, vai ativar a solução numa máquina virtual.
 
-1. No menu à esquerda, selecione **as contas de automatização**e, em seguida, selecione a sua conta de automatização na lista.
-1. Selecione **inventário** em **gestão de configuração**.
-1. Selecione uma área de trabalho de análise de registos existente ou criar um novo. Clique em de **ativar** botão.
+1. No menu à esquerda, selecione **Contas de Automatização** e, em seguida, selecione a sua conta de automatização na lista.
+1. Selecione **Inventário** em **GESTÃO DE CONFIGURAÇÃO**.
+1. Selecione uma área de trabalho existente do Log Analytics ou crie uma nova. Clique no botão **Ativar**.
 
-![Integrar soluções de atualização](media/automation-onboard-solutions/inventory-onboard.png)
+![Carregar a solução de Atualização](media/automation-onboard-solutions/inventory-onboard.png)
 
-Quando o controlo e de inventário de solução integração notificação de alteração estiver concluída, clique em **gestão de atualizações** em **gestão de configuração**.
+Quando a notificação de inclusão da solução de controlo de alterações e inventário estiver concluída, clique em **Gestão de Atualizações**, em **GESTÃO DE CONFIGURAÇÃO**.
 
-### <a name="enable-update-management"></a>Ativar a gestão de atualização
+### <a name="enable-update-management"></a>Ativar a Gestão de Atualizações
 
-A solução de gestão de atualizações permite-lhe gerir as atualizações e correções de erros para as suas VMs do Windows Azure. Pode avaliar o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias, e reveja os resultados de implementação para verificar atualizações foram aplicados com êxito para a VM. Neste passo, ative a solução para a VM.
+A solução de Gestão de Atualizações permite gerir atualizações e correções para as VMs do Azure. Pode avaliar o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias e rever os resultados de implementação para verificar se as atualizações foram aplicadas com êxito à VM. Neste passo, vai ativar a solução para a sua VM.
 
-1. A partir da sua conta de automatização, selecione **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
-1. A área de trabalho de análise do registo selecionada é o mesmo espaço de trabalho utilizado no passo anterior. Clique em **ativar** integrar a solução de gestão de atualização.
+1. A partir da sua Conta de Automatização, selecione **Gestão de atualizações** em **GESTÃO DE ATUALIZAÇÕES**.
+1. A área de trabalho do Log Analytics selecionada é a mesma área de trabalho utilizado no passo anterior. Clique em **Ativar** para integrar a solução de Gestão de atualizações.
 
-![Integrar soluções de atualização](media/automation-onboard-solutions/update-onboard.png)
+![Carregar a solução de Atualização](media/automation-onboard-solutions/update-onboard.png)
 
-Enquanto está a ser instalada a solução de gestão de atualização, é apresentada uma faixa azul. Quando a solução é ativada selecione **alterações** em **gestão de configuração** para ir para o passo seguinte.
+Enquanto a solução de Gestão de atualizações está a ser instalada, é apresentada uma faixa azul. Quando a solução for ativada, selecione **Controlo de alterações**, em **GESTÃO DE CONFIGURAÇÃO**, para ir para o passo seguinte.
 
-### <a name="select-azure-vm-to-be-managed"></a>Selecione a VM do Azure para serem geridos
+### <a name="select-azure-vm-to-be-managed"></a>Selecionar a VM do Azure a gerir
 
-Agora que as soluções estão ativadas, pode adicionar uma VM do Azure para carregar a essas soluções.
+Agora que as soluções estão ativadas, pode adicionar uma VM do Azure para carregar para essas soluções.
 
-1. Da sua conta de automatização no **alterações** página, selecione **+ adicionar a VM do Azure** para adicionar a máquina virtual.
+1. A partir da sua Conta de Automatização, na página **Controlo de alterações**, selecione **+ Adicionar a VM do Azure** para adicionar a máquina virtual.
 
-1. Selecione a VM a partir da lista e selecione **ativar**. Esta ação permite a alteração tacking e a solução de inventário da máquina virtual.
+1. Selecione a VM na lista e selecione **Ativar**. Esta ação ativa a solução de Controlo de alterações e Inventário para a máquina virtual.
 
-   ![Ativar a solução de atualização para vm](media/automation-onboard-solutions/enable-change-tracking.png)
+   ![Ativar a solução de atualização para a VM](media/automation-onboard-solutions/enable-change-tracking.png)
 
-1. Quando a notificação de integração VM for concluído, no, selecione a conta de automatização **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
+1. Quando a notificação de inclusão da VM estiver concluída, a partir da sua Conta de Automatização, selecione **Gestão de atualizações** em **GESTÃO DE ATUALIZAÇÕES**.
 
-1. Selecione **+ adicionar a VM do Azure** para adicionar a máquina virtual.
+1. Selecione **+ Adicionar VM do Azure** para adicionar a máquina virtual.
 
-1. Selecione a VM a partir da lista e selecione **ativar**. Esta ação permite a solução de gestão de atualização para a máquina virtual.
+1. Selecione a VM na lista e selecione **Ativar**. Esta ação ativa a solução de Gestão de atualizações para a máquina virtual.
 
-   ![Ativar a solução de atualização para vm](media/automation-onboard-solutions/enable-update.png)
+   ![Ativar a solução de atualização para a VM](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Se não aguardar a outra solução concluir, quando ativar a seguinte solução recebe uma mensagem a indicar: *instalação de outra solução está em curso nisto ou outra máquina virtual. Quando concluir essa instalação no botão Ativar está ativado e podem pedir a instalação da solução nesta máquina virtual.*
+> Se não esperar pela conclusão da outra solução, quando ativar a solução seguinte, irá receber uma mensagem com a indicação: *Está em curso a instalação de outra solução nesta ou numa máquina virtual diferente. Assim que a instalação terminar, o botão Ativar será ativado e poderá pedir a instalação da solução nesta máquina virtual.*
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
-É necessário para atualizar para os módulos do Azure mais recentes e importar `AzureRM.OperationalInsights` para automatizar a solução de integração com êxito.
+É necessário fazer a atualização para os módulos mais recentes do Azure e importar `AzureRM.OperationalInsights` para automatizar a inclusão da solução com êxito.
 
-## <a name="update-azure-modules"></a>Atualizar os módulos do Azure
+## <a name="update-azure-modules"></a>Atualizar Módulos do Azure
 
-A partir da sua conta de automatização, selecione **módulos** em **recursos PARTILHADOS**. Selecione **atualizar módulos do Azure** para atualizar os módulos do Azure para a versão mais recente. Selecione **Sim** na linha de comandos para atualizar todos os módulos do Azure existentes para a versão mais recente.
+A partir da sua Conta de Automatização, selecione **Módulos** em **RECURSOS PARTILHADOS**. Selecione **Atualizar Módulos do Azure** para atualizar os módulos do Azure para a versão mais recente. Selecione **Sim** no pedido para atualizar todos os módulos do Azure existentes para a versão mais recente.
 
-![Módulos de atualização](media/automation-onboard-solutions/update-modules.png)
+![Atualizar módulos](media/automation-onboard-solutions/update-modules.png)
 
-### <a name="install-azurermoperationalinsights-module"></a>Instalar o módulo de AzureRM.OperationalInsights
+### <a name="install-azurermoperationalinsights-module"></a>Instalar o módulo AzureRM.OperationalInsights
 
-Do **módulos** página, selecione **procurar galeria** para abrir a galeria do módulo. Procurar AzureRM.OperationalInsights e importar este módulo para a conta de automatização.
+Na página **Módulos**, selecione **Procurar galeria** para abrir a galeria de módulos. Procure AzureRM.OperationalInsights e importe este módulo para a Conta de automatização.
 
-![Importe o módulo de OperationalInsights](media/automation-onboard-solutions/import-operational-insights-module.png)
+![Importar o módulo OperationalInsights](media/automation-onboard-solutions/import-operational-insights-module.png)
 
-## <a name="import-the-onboarding-runbook"></a>Importar o runbook de integração
+## <a name="import-the-onboarding-runbook"></a>Importar o runbook de inclusão
 
-1. A partir da sua conta de automatização, selecione em **Runbooks** sob o **AUTOMATIZAÇÃO de processos**.
-1. Selecione **procurar galeria**.
-1. Procurar **atualizar e registo de alterações**, clique o runbook e selecione **importação** no **Ver origem** página. Selecione **OK** para importar o runbook para a conta de automatização.
+1. A partir da sua Conta de Automatização, selecione **Runbooks** sob a **AUTOMATIZAÇÃO DE PROCESSOS**.
+1. Selecione **Procurar galeria**.
+1. Procure **atualização e controlo de alterações**, clique no runbook e selecione **Importar** na página **Ver Origem**. Selecione **OK** para importar o runbook para a Conta de automatização.
 
-  ![Importar o runbook de integração](media/automation-onboard-solutions/import-from-gallery.png)
+  ![Importar o runbook de inclusão](media/automation-onboard-solutions/import-from-gallery.png)
 
-1. No **Runbook** página, selecione **editar**, em seguida, selecione **publicar**. No **publicar o Runbook** caixa de diálogo, selecione **Sim** para publicar o runbook.
+1. Na página **Runbook**, selecione **Editar** e, em seguida, selecione **Publicar**. Na caixa de diálogo **Publicar Runbook**, selecione **Sim** para publicar o runbook.
 
 ## <a name="start-the-runbook"></a>Iniciar o runbook
 
-Tem de ter integrado o registo de alterações ou soluções de atualização para uma VM do Azure para iniciar este runbook. Requer uma máquina virtual existente e o grupo de recursos com o solução integrado de parâmetros.
+Tem de ter carregado as soluções de controlo de alterações ou atualização para uma VM do Azure para iniciar este runbook. Exige uma máquina virtual e um grupo de recursos existentes com a solução carregada para parâmetros.
 
-1. Abra o runbook MultipleSolution ativar.
+1. Abra o runbook Enable-MultipleSolution.
 
-   ![Vários runbooks de solução](media/automation-onboard-solutions/runbook-overview.png)
+   ![Vários runbooks de soluções](media/automation-onboard-solutions/runbook-overview.png)
 
 1. Clique no botão de início e introduza os seguintes valores de parâmetros.
 
-   * **VMNAME** -deixar em branco. O nome de VM existente para carregar a atualização ou a solução de registo de alterações. Por abandonar o fileparser este valor em branco, todas as VMs no grupo de recursos são integrado.
-   * **VMRESOURCEGROUP** -o nome do grupo de recursos para as VMs ser integrado.
-   * **SUBSCRIPTIONID** -deixar em branco. O ID de subscrição da nova VM para ser integrado. Se deixado em branco, é utilizada a subscrição da área de trabalho. Quando recebe um ID de subscrição diferente, a conta RunAs para esta conta de automatização deve ser adicionada também como um contribuinte para esta subscrição.
-   * **ALREADYONBOARDEDVM** -o nome da VM que foi manualmente integrado para atualizações ou ChangeTracking solução.
-   * **ALREADYONBOARDEDVMRESOURCEGROUP** -o nome do grupo de recursos que a VM seja um membro.
-   * **SOLUTIONTYPE** -introduza **atualizações** ou **ChangeTracking**
+   * **VMNAME** - Deixe em branco. O nome de uma VM existente a carregar para a solução de atualização ou controlo de alterações. Se deixar este valor em branco, todas as VMs no grupo de recursos são carregadas.
+   * **VMRESOURCEGROUP** - O nome do grupo de recursos para as VMs a carregar.
+   * **SUBSCRIPTIONID** - Deixe em branco. O ID de subscrição da nova VM a carregar. Se deixar em branco, é utilizada a subscrição da área de trabalho. Quando é indicado um ID de subscrição diferente, a conta RunAs para esta conta de automatização também deve ser adicionada como contribuidor para esta subscrição.
+   * **ALREADYONBOARDEDVM** - O nome da VM que foi carregada manualmente para a solução Atualizações ou Controlo de Alterações.
+   * **ALREADYONBOARDEDVMRESOURCEGROUP** - O nome do grupo de recursos do qual a VM é membro.
+   * **SOLUTIONTYPE** - Introduza **Updates** ou **ChangeTracking**
 
-   ![Ativar MultipleSolution parâmetros do runbook](media/automation-onboard-solutions/runbook-parameters.png)
+   ![Parâmetros do runbook Enable-MultipleSolution](media/automation-onboard-solutions/runbook-parameters.png)
 
 1. Selecione **OK** para iniciar a tarefa de runbook.
 1. Monitorize o progresso e os erros na página de tarefa de runbook.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Carregar uma máquina virtual do Azure manualmente.
 > * Instalar e atualizar os módulos do Azure necessários.
-> * Importe um runbook que onboards VMs do Azure.
-> * Inicie o runbook que onboards VMs do Azure automaticamente.
+> * Importar um runbook que carrega VMs do Azure.
+> * Iniciar o runbook que carrega VMs do Azure automaticamente.
 
-Siga esta ligação para obter mais informações sobre o agendamento de runbooks.
+Siga esta ligação para saber mais sobre o agendamento de runbooks.
 
 > [!div class="nextstepaction"]
-> [Agendamento runbooks](automation-schedules.md).
+> [Agendar runbooks](automation-schedules.md).

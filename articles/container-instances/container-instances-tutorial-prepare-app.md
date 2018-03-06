@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de instâncias de contentor do Azure – preparar a sua aplicação"
-description: "Azure instâncias de contentor tutorial parte 1 de 3 – Preparar uma aplicação para a implementação para instâncias de contentor do Azure"
+title: "Tutorial do Azure Container Instances - preparar a sua aplicação"
+description: "Tutorial do Azure Container Instances, parte 1 de 3 - preparar uma aplicação para implementação no Azure Container Instances"
 services: container-instances
 author: seanmck
 manager: timlt
@@ -9,38 +9,38 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 5012412ec642a04102836274caea253635376efb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Criar um contentor para implementação em Instâncias do Azure Container
 
-As Instâncias do Azure Container permitem implementar contentores do Docker na infraestrutura do Azure sem que seja necessário aprovisionar máquinas virtuais ou adotar serviços de nível superior. Neste tutorial, pode criar uma aplicação web pequeno Node.js e pacote-lo num contentor que pode ser executado utilizando as instâncias de contentor do Azure.
+As Instâncias do Azure Container permitem implementar contentores do Docker na infraestrutura do Azure sem que seja necessário aprovisionar máquinas virtuais ou adotar serviços de nível superior. Neste tutorial, vai compilar uma aplicação Web pequena em Node.js e compactá-la num contentor que pode ser executado com o Azure Container Instances.
 
-Neste artigo, parte uma série de:
+Neste artigo, a parte um da série, vai:
 
 > [!div class="checklist"]
-> * Clonar o código fonte da aplicação a partir do GitHub
-> * Criar uma imagem de contentor da origem da aplicação
-> * Testar a imagem num ambiente de Docker local
+> * Clonar o código-fonte da aplicação do GitHub
+> * Criar uma imagem de contentor a partir da origem de aplicação
+> * Testar a imagem num ambiente local do Docker
 
-Nos tutoriais subsequentes, carregue a imagem para um registo de contentor do Azure e, em seguida, implementá-la para instâncias de contentor do Azure.
+Nos tutoriais subsequentes, vai carregar a imagem para um registo do Azure Container Registry e, em seguida, vai implementá-la no Azure Container Instances.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial requer que está a executar a CLI do Azure versão 2.0.23 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI 2.0][azure-cli-install].
+Este tutorial requer a execução da versão 2.0.23 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
 
-Este tutorial assume uma compreensão básica do núcleo conceitos do Docker como contentores, imagens de contentor e basic `docker` comandos. Se for necessário, consulte [começar com o Docker] [ docker-get-started] para um manual de noções básicas do contentor.
+Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos básicos do `docker`. Se for necessário, veja a [Introdução ao Docker][docker-get-started] para obter um manual sobre as noções básicas dos contentores.
 
-Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker instalado localmente. Docker fornece pacotes que configurar facilmente Docker em qualquer [Mac][docker-mac], [Windows][docker-windows], ou [Linux] [ docker-linux] sistema.
+Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker, localmente instalado. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
-Shell de nuvem do Azure não inclui os componentes de Docker necessários para concluir cada passo neste tutorial. Tem de instalar o ambiente de desenvolvimento do CLI do Azure e Docker no seu computador local para concluir este tutorial.
+O Azure Cloud Shell não inclui os componentes do Docker necessários para concluir todos os passos deste tutorial. Tem de instalar o CLI do Azure e o ambiente de desenvolvimento do Docker no seu computador local para concluir este tutorial.
 
 ## <a name="get-application-code"></a>Obter o código da aplicação
 
-O exemplo neste tutorial inclui uma aplicação web simples incorporada [Node.js][nodejs]. A aplicação serve uma página HTML estática e tem este aspeto:
+O exemplo deste tutorial inclui uma aplicação Web simples criada em [Node.js][nodejs]. A aplicação serve uma página HTML estática e tem este aspeto:
 
 ![Tutorial de aplicação mostrada no browser][aci-tutorial-app]
 
@@ -52,24 +52,24 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>Criar a imagem do contentor
 
-O Dockerfile fornecido no repositório de exemplos mostra como é que o contentor é criado. Inicia a partir de um [oficial Node.js imagem] [ docker-hub-nodeimage] com base no [Linux Extreme][alpine-linux], uma distribuição pequena que é adequada para utilizar com o contentores. Depois, copia os ficheiros da aplicação para o contentor, instala as dependências com o Node Package Manager e, por fim, inicia a aplicação.
+O Dockerfile fornecido no repositório de exemplos mostra como é que o contentor é criado. Começa com uma [imagem Node.js oficial][docker-hub-nodeimage] baseada em [Alpine Linux][alpine-linux], uma pequena distribuição adequada para utilização com contentores. Depois, copia os ficheiros da aplicação para o contentor, instala as dependências com o Node Package Manager e, por fim, inicia a aplicação.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
 RUN mkdir -p /usr/src/app
-COPY ./app/* /usr/src/app/
+COPY ./app/ /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Utilize o [compilação docker] [ docker-build] comando para criar a imagem do contentor, marcação como *aci-tutorial-aplicação*:
+Utilize o comando [docker build][docker-build] para criar a imagem de contentor, identificando-a como *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-O resultado do [compilação docker] [ docker-build] comando é semelhante à seguinte (truncada para legibilidade):
+O resultado do comando [docker build][docker-build] é semelhante ao seguinte (truncado para legibilidade):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -90,7 +90,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Utilize o [imagens docker] [ docker-images] comando para ver a imagem incorporada:
+Utilize o comando [docker images][docker-images] para ver a imagem incorporada:
 
 ```bash
 docker images
@@ -115,14 +115,14 @@ Abra o browser em http://localhost:8080 para confirmar que o contentor está em 
 
 ![Executar a aplicação localmente no browser][aci-tutorial-app-local]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem de contentor que pode ser implementada em Instâncias do Azure Container. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
-> * Clonar a origem da aplicação a partir do GitHub
-> * Imagens de contentor criado a partir da origem de aplicação
-> * Testado localmente o contentor
+> * Clonou a origem da aplicação a partir do GitHub
+> * Criou imagens de contentor a partir da origem da aplicação
+> * Testou o contentor localmente
 
 Avance para o próximo tutorial para saber mais sobre o armazenamento das imagens de contentores em registos do Azure Container Registry.
 

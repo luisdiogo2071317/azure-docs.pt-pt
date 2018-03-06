@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 
@@ -70,51 +70,23 @@ v1beta1.storage.k8s.io               10
 
 O passo seguinte é instalar o [Open Service Broker for Azure][open-service-broker-azure], que inclui o catálogo dos serviços geridos pelo Azure. Exemplos de serviços do Azure disponíveis: Base de Dados do Azure para PostgreSQL, Cache de Redis do Azure, Base de Dados do Azure para MySQL, Azure Cosmos DB, Base de dados SQL do Azure, entre outros.
 
-Vamos começar por adicionar o repositório Helm do Open Service Broker for Azure:
+Comece por adicionar o repositório Helm do Open Service Broker for Azure:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Crie um [Principal de Serviço][create-service-principal] com o seguinte comando da CLI do Azure:
+Em seguida, utilize o seguinte script para criar um [Principal de Serviço][create-service-principal] e preencher várias variáveis. Estas variáveis são utilizadas durante a execução do gráfico Helm para instalar o mediador de serviço.
 
 ```azurecli-interactive
-az ad sp create-for-rbac
+SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
+AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
+AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
+AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
+AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-O resultado deve ser semelhante ao seguinte. Tome nota dos valores de `appId`, `password` e `tenant`, que irá utilizar no passo seguinte.
-
-```JSON
-{
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
-}
-```
-
-Defina as seguintes variáveis de ambiente com os valores anteriores:
-
-```azurecli-interactive
-AZURE_CLIENT_ID=<appId>
-AZURE_CLIENT_SECRET=<password>
-AZURE_TENANT_ID=<tenant>
-```
-
-Agora, obtenha o ID da sua subscrição do Azure:
-
-```azurecli-interactive
-az account show --query id --output tsv
-```
-
-Mais uma vez, defina as seguintes variáveis de ambiente com o valor anterior:
-
-```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
-```
-
-Agora que já preencheu estas variáveis de ambiente, execute o seguinte comando para instalar o Open Service Broker for Azure com o gráfico Helm:
+Agora que já preencheu estas variáveis de ambiente, execute o seguinte comando para instalar o mediador de serviço.
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \

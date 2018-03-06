@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer cópia de segurança de máquinas virtuais do Azure para cofres dos Serviços de Recuperação
 
@@ -239,7 +239,7 @@ Antes de registar uma VM com um cofre, execute o processo de deteção para se c
 
     ![Selecionar a carga de trabalho](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    A máquina virtual selecionada é validada. Se não conseguir ver as máquinas virtuais que pretende ver, verifique se existem na mesma localização do Azure que o cofre dos Serviços de Recuperação. A localização do cofre dos Serviços de Recuperação é apresentada no dashboard do cofre.
+    A máquina virtual selecionada é validada. Se não conseguir ver as máquinas virtuais que pretende, verifique se existem na mesma localização do Azure que o cofre dos Serviços de Recuperação e se não estão já a ser protegidas. A localização do cofre dos Serviços de Recuperação é apresentada no dashboard do cofre.
 
 6. Agora que definiu todas as definições do cofre, no painel Cópia de Segurança, clique em **Ativar Cópia de Segurança** para implementar a política no cofre e nas VMs. A implementação da política de cópias de segurança não cria o ponto de recuperação inicial da máquina virtual.
 

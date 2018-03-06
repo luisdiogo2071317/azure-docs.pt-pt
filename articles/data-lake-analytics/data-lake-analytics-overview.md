@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 8817b511d779029421491194b50120d51ec9dbad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d327a3c28e928550b361c07569df74060cfcac0d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Descrição geral do Microsoft Azure Data Lake Analytics
 ## <a name="what-is-azure-data-lake-analytics"></a>O que é o Azure Data Lake Analytics?
-O Azure Data Lake Analytics é um serviço de tarefa de análise no local para simplificar a análise de macrodados. Pode concentrar-se na escrita, execução e gestão de tarefas, em vez da infraestrutura distribuída em funcionamento. Em vez de implementar, configurar e otimizar hardware, escreve consultas para transformar os dados e extrair informações valiosas. O serviço de análise pode processar tarefas de qualquer dimensionamento instantaneamente definindo a quantidade de potência necessária. Apenas paga a tarefa quando estiver a ser executada, tornando-a económica. O serviço de análise suporta o Azure Active Directory permitindo-lhe gerir o acesso e as funções e está integrado no sistema de identidades no local. Também inclui U-SQL, uma linguagem que unifica os benefícios do SQL com o poder expressivo do código de utilizador. O runtime escalável distribuído de U-SQL permite-lhe analisar eficazmente os dados no arquivo e nos SQL Servers no Azure, Base de Dados SQL do Azure e Azure SQL Data Warehouse.
+O Azure Data Lake Analytics é um serviço de tarefa de análise no local que simplifica os macrodados. Em vez de implementar, configurar e otimizar hardware, escreve consultas para transformar os dados e extrair informações valiosas. O serviço de análise pode processar tarefas de qualquer dimensionamento instantaneamente definindo a quantidade de potência necessária. Apenas paga a tarefa quando estiver a ser executada, tornando-a económica. O suporte do serviço de análise inclui U-SQL, uma linguagem que unifica as vantagens do SQL com o poder do código imperativo. O U-SQL permite-lhe analisar os dados através do Data Lake Store, o SQL Server no Azure, a Base de Dados SQL do Azure e o Azure SQL Data Warehouse.
 
 ## <a name="key-capabilities"></a>Principais capacidades
 * **Dimensionamento dinâmico**
@@ -37,9 +37,11 @@ O Azure Data Lake Analytics é um serviço de tarefa de análise no local para s
 * **Integração total com os seus investimentos de TI**
   
     O Data Lake Analytics pode utilizar os investimentos de TI existentes para identidade, gestão, segurança e armazenamento de dados. Esta abordagem simplifica a governação de dados e facilita a expansão das aplicações de dados atuais. O Data Lake Analytics está integrada no Active Directory para gestão de utilizadores e permissões e é fornecida com monitorização e auditoria incorporadas.
+
 * **Económica e acessível**
   
-    O Data Lake Analytics é uma solução económica para executar cargas de trabalho de macrodados. Paga por tarefa quando os dados são processados. Não é necessário nenhum hardware, licenças ou contratos de suporte específicos do serviço. O sistema é aumentado ou reduzido verticalmente, de forma automática, à medida que a tarefa é iniciada e concluída, o que significa que nunca paga mais do que aquilo que precisa.
+    O Data Lake Analytics é uma solução económica para executar cargas de trabalho de macrodados. Paga por tarefa quando os dados são processados. Não é necessário nenhum hardware, licenças ou contratos de suporte específicos do serviço. O sistema é aumentado ou reduzido verticalmente, de forma automática, à medida que a tarefa é iniciada e concluída, o que significa que nunca paga mais do que aquilo que precisa. [Saiba mais sobre como controlar os custos e poupar dinheiro](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+    
 * **Funciona com todos os Dados do Azure**
   
     O Data Lake Analytics está otimizado para funcionar com o Azure Data Lake - oferecendo o nível mais elevado de desempenho, débito e paralelização das cargas de trabalho de macrodados.  O Data Lake Analytics também pode trabalhar com o armazenamento de Blobs do Azure e a Base de Dados SQL do Azure.
@@ -48,4 +50,4 @@ O Azure Data Lake Analytics é um serviço de tarefa de análise no local para s
  
   * Introdução ao Data Lake Analytics com [portal do Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
   * Efetue a gestão do Azure Data Lake Analytics com [portal do Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
-  * [Monitorizar e resolver problemas das tarefas de Azure Data Lake Analytics com o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) 
+  * [Como controlar os custos e poupar dinheiro com o Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

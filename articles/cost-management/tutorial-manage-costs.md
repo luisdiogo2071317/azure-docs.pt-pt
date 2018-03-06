@@ -1,22 +1,22 @@
 ---
-title: "Gerir os custos através do Azure Cost Management | Microsoft Docs"
-description: "Efetue a gestão dos custos com relatórios de alocação, análise de custos e estorno."
+title: Tutorial - gerir os custos com o Azure Cost Management | Microsoft Docs
+description: "Neste tutorial, saiba com efetuar a gestão dos custos com relatórios de alocação, análise de custos e estorno."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Gerir os custos através do Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: gerir os custos através do Azure Cost Management
 
 Pode gerir os custos e produzir relatórios de análise de custos no Azure Cost Management by Cloudyn ao alocar os custos com base em etiquetas. O processo de alocação de custos atribui os custos aos recursos de cloud consumidos. Os custos estão totalmente alocados quando todos os recursos estiverem categorizados com etiquetas. Após a alocação dos custos, pode fornecer análise de custos ou estorno aos seus utilizadores através de dashboards e relatórios. No entanto, muitos recursos podem não estar marcados quando começar a utilizar o Cost Management.
 
@@ -27,6 +27,13 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Utilizar etiquetas personalizadas para alocar custos.
 > * Criar relatórios de análise de custos e estorno.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Tem de ter uma conta do Azure.
+- Tem de ter um registo de avaliação ou uma subscrição paga do Azure Cost Management.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Utilizar etiquetas personalizadas para alocar custos
 
@@ -122,7 +129,7 @@ Neste tutorial, ficou a saber como:
 
 
 
-Para saber mais sobre como começar a utilizar o Cloudyn e as suas funcionalidades, avance para a documentação do Cloudyn.
+Avance para o próximo tutorial para saber mais sobre como controlar o acesso a dados.
 
 > [!div class="nextstepaction"]
-> [Documentação do Cloudyn](https://support.cloudyn.com/hc/)
+> [Control access to data](tutorial-user-access.md) (Controlar o acesso a dados)

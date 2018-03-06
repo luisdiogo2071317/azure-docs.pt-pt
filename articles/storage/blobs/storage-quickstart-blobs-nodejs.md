@@ -1,21 +1,21 @@
 ---
-title: "Guia de Introdução do Azure – Transferir objetos de/para o armazenamento de Blobs do Azure com Node.js | Microsoft Docs"
-description: Aprenda rapidamente a transferir objetos de/para o armazenamento de Blobs do Azure com Node.js
+title: "Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através de Node.js | Microsoft Docs"
+description: "Neste início rápido, crie uma conta de armazenamento e um contentor. Em seguida, utilize a biblioteca de clientes de armazenamento para Node.js, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor."
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: cshoe
+ms.openlocfilehash: ad0d4a2242aef99e0307f732175e0c50010580ce
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com Node.js
+# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Início Rápido: carregar, transferir e listar blobs através de Node.js
 
 Neste guia de introdução, vai aprender a utilizar o Node.js, para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure.
 

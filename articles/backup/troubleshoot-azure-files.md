@@ -10,11 +10,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: ce4e53b3fa839bfc2da6bedecca0b4f730a6adbe
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Resolução de problemas da cópia de segurança de Ficheiros do Azure
 
@@ -26,8 +26,14 @@ A cópia de segurança de Ficheiros do Azure está em Pré-visualização. Os se
 - Proteger Partilhas de ficheiros em Contas de Armazenamento que têm Redes Virtuais ativadas.
 - Fazer Cópias de segurança de Ficheiros do Azure através do PowerShell ou da CLI.
 
+### <a name="limitations"></a>Limitações
+- O #Scheduled-backup máximo por dia é 1.
+- O #On-Demand-backup máximo por dia é 4.
+- Utilize os bloqueios de recursos da Conta de Armazenamento para impedir a eliminação acidental de Cópias de Segurança do seu cofre dos Serviços de Recuperação.
+- Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de Pontos de Recuperação e/ou falhas de Restauro
+
 ## <a name="configuring-backup"></a>Configurar a Cópia de Segurança
-A tabela seguinte apresenta informação para a configuração da cópia de segurança.
+A tabela seguinte apresenta informações para a configuração da cópia de segurança:
 
 | Configurar a Cópia de Segurança | Sugestões de Solução ou Resolução |
 | ------------------ | ----------------------------- |
@@ -45,9 +51,9 @@ A tabela seguinte apresenta informação para a configuração da cópia de segu
 | -------------- | ----------------------------- |
 | A operação falhou uma vez que a Partilha de ficheiros não foi encontrada. | Verifique se a Partilha de ficheiros que procura proteger não foi eliminada.|
 | A conta de armazenamento não foi encontrada ou não é suportada. | <ul><li>Verifique se a conta de armazenamento existe no Grupo de Recursos e se não foi eliminada ou removida do Grupo de Recursos após a última validação. <li> Verifique se a Conta de armazenamento é suportada para a cópia de segurança da Partilha de ficheiros.|
-| Atingiu o limite máximo de instantâneos para esta partilha de ficheiros. Poderá realizar mais quando os antigos expirarem. | <ul><li> Este erro pode ocorrer quando cria várias cópias de segurança a pedido de um Ficheiro. <li> Há um limite de 200 instantâneos por Partilha de ficheiros, incluindo os realizados pelo Azure Backup. As cópias de segurança (ou instantâneos) agendadas mais antigas são limpas automaticamente. As cópias de segurança a pedido (ou instantâneos) têm de ser eliminadas, caso seja atingido o limite máximo.<li> Elimine as cópias de segurança a pedido (instantâneos de partilhas de Ficheiros do Azure) do portal de Ficheiros do Azure. **Nota**: perderá os pontos de recuperação se eliminar instantâneos criados pelo Azure Backup. |
+| Atingiu o limite máximo de instantâneos para esta partilha de ficheiros. Poderá realizar mais quando os antigos expirarem. | <ul><li> Este erro pode ocorrer quando cria várias cópias de segurança a pedido de um Ficheiro. <li> Há um limite de 200 instantâneos por Partilha de ficheiros, incluindo os realizados pelo Azure Backup. As cópias de segurança (ou instantâneos) agendadas mais antigas são limpas automaticamente. As cópias de segurança a pedido (ou instantâneos) têm de ser eliminadas, caso seja atingido o limite máximo.<li> Elimine as cópias de segurança a pedido (instantâneos de partilhas de Ficheiros do Azure) do portal de Ficheiros do Azure. **Nota**: perde os pontos de recuperação se eliminar instantâneos criados pelo Azure Backup. |
 | A cópia de segurança ou o restauro da partilha de ficheiros falhou devido à limitação do serviço de armazenamento. Tal poderá ocorrer porque o serviço de armazenamento está ocupado a processar outros pedidos para a conta de armazenamento em questão.| Repita a operação após algum tempo. |
-| Falha no restauro devido a Partilha de Ficheiros de Destino Não Encontrada. | <ul><li>Verifique se a Conta de Armazenamento selecionada existe e se a partilha de Ficheiros de Destino não foi eliminada. <li> Verifique de a Conta de Armazenamento é suportada para a cópia de segurança da Partilha de ficheiros. |
+| Falha no restauro devido a Partilha de Ficheiros de Destino Não Encontrada. | <ul><li>Verifique se a Conta de Armazenamento selecionada existe e se a partilha de Ficheiros de Destino não foi eliminada. <li> Verifique se a Conta de Armazenamento é suportada para a cópia de segurança da Partilha de ficheiros. |
 | De momento, o Azure Backup não é suportado para Ficheiros do Azure em Contas de Armazenamento com Redes Virtuais ativadas. | Desative as Redes Virtuais na Conta de Armazenamento para garantir operações de restauro ou cópias de segurança com êxito. |
 | As tarefas de Cópia de Segurança ou Restauro falharam porque a conta de armazenamento está no estado Bloqueado. | Remova o bloqueio da Conta de Armazenamento ou utilize o bloqueio de eliminação em vez do bloqueio de leitura e repita a operação. |
 | A recuperação falhou porque o número de ficheiros com falhas é superior ao limiar. | <ul><li> Os motivos das falhas de recuperação são apresentados num ficheiro (o caminho é indicado nos detalhes da Tarefa). Resolva as falhas e repita a operação de restauro apenas para os ficheiros com falhas. <li> Motivos comuns para as falhas do Restauro de ficheiros: <br/> - Verifique se os ficheiros com falhas não estão atualmente em utilização. <br/> - Existe um diretório com o mesmo nome do ficheiro com falhas no diretório principal. |

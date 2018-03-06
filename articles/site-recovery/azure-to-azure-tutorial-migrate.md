@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrar VMs do Azure para outra região
 
@@ -123,7 +124,8 @@ O Site Recovery obtém uma lista das VMs associadas à subscrição e o grupo de
 2. Em **Ativação pós-falha**, selecione **Mais recente**. A definição da chave de encriptação não é relevante para este cenário.
 3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 4. Certifique-se de que a VM do Azure é apresentada no Azure conforme esperado.
-5. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Esta ação termina o processo de migração e para a replicação para a VM.
+5. Em **Itens replicados**, clique com o botão direito do rato na VM > **Consolidar**. Isto conclui o processo de migração,
+6. Quando a consolidação terminar, clique em **Desativar Replicação**.  Isto para a replicação para a VM.
 
 
 

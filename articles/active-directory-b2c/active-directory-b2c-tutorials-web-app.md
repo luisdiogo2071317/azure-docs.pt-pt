@@ -1,6 +1,6 @@
 ---
 title: "Tutorial Utilizar o Azure Active Directory B2C para Autenticação de Utilizadores numa Aplicação Web ASP.NET"
-description: "Tutorial sobre como utilizar o Azure Active Directory B2C para início de sessão e inscrição de utilizadores numa aplicação Web ASP.NET."
+description: "Tutorial sobre como utilizar o Azure Active Directory B2C para fornecer início de sessão do utilizador para uma aplicação Web ASP.NET."
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticar utilizadores com o Azure Active Directory B2C numa aplicação Web ASP.NET
 
@@ -45,7 +45,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrado
 
 2. Nas definições do B2C, clique em **Aplicações** e, em seguida, clique em **Adicionar**.
 
-    Para registar a aplicação Web de exemplo no inquilino, utilize as seguintes definições.
+    Para registar a aplicação Web de exemplo no inquilino, utilize as seguintes definições:
 
     ![Adicionar uma nova aplicação](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -67,7 +67,7 @@ Anote o **ID de Cliente da Aplicação**. O ID identifica exclusivamente a aplic
 
 ### <a name="create-a-client-password"></a>Criar uma palavra-passe de cliente
 
-O Azure AD B2C utiliza a autorização de OAuth2 para [aplicações cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application). As aplicações Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e requerem um segredo do cliente (palavra-passe). O ID da aplicação cliente e segredo do cliente são utilizados quando a aplicação Web efetua a autenticação no Azure Active Directory. 
+O Azure AD B2C utiliza a autorização de OAuth2 para [aplicações cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application). As aplicações Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e requerem um segredo do cliente (palavra-passe). O ID da aplicação cliente e o segredo do cliente são utilizados quando a aplicação Web efetua a autenticação no Azure Active Directory. 
 
 1. Selecione a página Chaves para a aplicação Web registada e clique em **Gerar chave**.
 
@@ -147,7 +147,7 @@ A aplicação Web ASP.NET de exemplo é uma aplicação de lista de tarefas simp
 
 Existem dois projetos na solução de exemplo:
 
-**Aplicação de exemplo da aplicação Web (TaskWebApp):** aplicação Web para criar e editar uma lista de tarefas. A aplicação Web utiliza a política de **inscrição ou início de sessão** para inscrição ou início de sessão de utilizadores com um endereço de e-mail.
+**Aplicação de exemplo da aplicação Web (TaskWebApp):** aplicação Web para criar e editar uma lista de tarefas. A aplicação Web utiliza a política de **inscrição ou início de sessão** para inscrição ou início de sessão de utilizadores.
 
 **Aplicação de exemplo da API Web (TaskService):** API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
@@ -178,7 +178,7 @@ No Explorador de Soluções, clique com o botão direito do rato no projeto **Ta
 
 Prima **F5** para iniciar a aplicação Web. É iniciado o browser predefinido para o endereço do site local `https://localhost:44316/`. 
 
-A aplicação de exemplo suporta inscrição, início de sessão, edição de perfil e reposição de palavra-passe. Segue-se como um utilizador se inscreve para utilizar a aplicação com um endereço de e-mail. Pode experimentar os outros cenários.
+A aplicação de exemplo suporta inscrição, início de sessão, edição de perfil e reposição de palavra-passe. Este tutorial destaca como um utilizador se inscreve para utilizar a aplicação com um endereço de e-mail. Pode explorar outros cenários.
 
 ### <a name="sign-up-using-an-email-address"></a>Inscrever-se com um endereço de e-mail
 
@@ -205,4 +205,4 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros tutoria
 Neste tutorial, aprendeu a criar um inquilino do Azure AD B2C, criar políticas e atualizar a aplicação Web de exemplo para utilizar o inquilino do Azure AD B2C. Avance para o próximo tutorial para aprender a registar, configurar e chamar uma API Web ASP.NET protegida pelo inquilino do Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Utilizar o Azure Active Directory B2C para proteger uma API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)
+> [Tutorial: utilizar o Azure Active Directory B2C para proteger uma API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)
