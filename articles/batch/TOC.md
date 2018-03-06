@@ -42,12 +42,13 @@
 
 ## Criar e gerir agrupamentos
 ### [Nós de computação com dimensionamento automático](batch-automatic-scaling.md)
-### [VMs de computação intensiva](batch-pool-compute-intensive-sizes.md)
+### [Escolher um tamanho de VM para os nós de computação](batch-pool-vm-sizes.md)
 ### [Configurar o acesso aos nós de computação](pool-endpoint-configuration.md)
 ### [Criar um conjunto com uma imagem personalizada](batch-custom-images.md)
 ### [Criar um conjunto numa rede virtual](batch-virtual-network.md)
-### [Nós de computação do Linux](batch-linux-nodes.md)
-### [VMs de baixa prioridade](batch-low-pri-vms.md)
+### [Utilizar as VMs de computação intensiva](batch-pool-compute-intensive-sizes.md)
+### [Utilizar os nós de computação do Linux](batch-linux-nodes.md)
+### [Utilizar VMs de baixa prioridade](batch-low-pri-vms.md)
 
 ## Gerir trabalhos e tarefas
 ### [Tarefas de preparação e conclusão de trabalhos](batch-job-prep-release.md)

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único na
 
@@ -33,7 +33,7 @@ Com o seu SAML 2.0 está corretamente configurada perfil baseado em IdP, a Micro
 >- Clientes baseados na Web, tais como o Outlook Web Access e ao SharePoint Online
 - Os clientes de correio eletrónico avançada que utilizam autenticação básica e um método de acesso do Exchange suportado, tais como IMAP, POP, sincronização Active Directory, MAPI, etc. (o ponto final de protocolo de cliente avançado é necessário, implementado), incluindo:
     - Outlook 2013/Microsoft Outlook 2010/Outlook 2016, Apple iPhone (várias versões de iOS)
-    - Vários dispositivos Android da Google
+    - Various Google Android Devices
     - Windows Phone 7, Windows Phone 7.8 e Windows Phone 8.0
     - Cliente de correio do Windows 8 e Windows 8.1 cliente de correio
     - Cliente de correio do Windows 10
@@ -60,9 +60,9 @@ Dentro da mensagem de resposta de SAML o nó de assinatura contém informações
 2.  O algoritmo RSA sha1 tem de ser utilizado como o DigestMethod. Outros algoritmos de assinatura digital não são aceites.
    `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
 3.  Também pode iniciar o documento XML. 
-4.  O algoritmo de transformação tem de corresponder aos valores no seguinte exemplo:`<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+4.  O algoritmo de transformação tem de corresponder aos valores no seguinte exemplo:    `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  O algoritmo de ajusta ao SignatureMethod tem de corresponder ao seguinte exemplo:`<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9.  O algoritmo de ajusta ao SignatureMethod tem de corresponder ao seguinte exemplo:   `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Enlaces suportados
 Enlaces de transporte de estão relacionados com os parâmetros de comunicações que são necessários. Os requisitos seguintes aplicam-se como nos enlaces
@@ -78,7 +78,7 @@ Esta tabela mostra os requisitos de atributos específicos na mensagem de SAML 2
 | ----- | ----- |
 |NameID|O valor desta asserção tem de ser o mesmo que ImmutableID o utilizador do Azure AD. Pode ser até 64 carateres alfa numérico. Tem de estar codificados caracteres HTML não seguros, por exemplo um caráter "+" é apresentado como ".2B".|
 |IDPEmail|O nome Principal de utilizador (UPN) está listado na resposta SAML como um elemento com o nome IDPEmail este é UserPrincipalName (UPN o utilizador) no Azure AD/Office 365. O UPN está no formato de endereço de correio eletrónico. Valor UPN no Windows Office 365 (Azure Active Directory).|
-|Emissor|Isto é necessário ser um URI de fornecedor de identidade. Não deve reutilizar o emissor de mensagens de exemplo. Se tiver vários domínios de nível superior na sua inquilinos do Azure AD o emissor tem de corresponder a definição de URI especificada configurada por domínio.|
+|Emitente|Isto é necessário ser um URI de fornecedor de identidade. Não deve reutilizar o emissor de mensagens de exemplo. Se tiver vários domínios de nível superior na sua inquilinos do Azure AD o emissor tem de corresponder a definição de URI especificada configurada por domínio.|
 
 >[!IMPORTANT]
 >Azure AD atualmente suporta o seguinte formato de URI do NameID para SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid-formato: persistente.
@@ -176,7 +176,7 @@ O procedimento seguinte orienta-o através de conversão de um domínio padrão 
 
 
 1. Ligar ao seu diretório do Azure AD como um administrador de inquilino: MsolService ligar.
-2.  Configure o seu domínio do Office 365 pretendido para utilizar a Federação com SAML 2.0:`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  Configure o seu domínio do Office 365 pretendido para utilizar a Federação com SAML 2.0: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  Pode obter a cadeia de codificação base64 assinatura do certificado no seu ficheiro de metadados do IDP. Um exemplo de nesta localização foi fornecido, mas pode diferir ligeiramente com base na sua implementação.
 
@@ -200,7 +200,7 @@ Este procedimento mostra como adicionar um único utilizador para o Azure AD.
 
 
 1. Ligar ao seu diretório do Azure AD como um administrador de inquilino: MsolService ligar.
-2.  Crie um novo principal de utilizador:` New-MsolUser
+2.  Crie um novo principal de utilizador: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
         -DisplayName "Elwood Folk"
@@ -263,7 +263,7 @@ Para verificar que esse início de sessão está configurada corretamente, concl
 2.  Clique dentro da caixa de palavra-passe. Se o início de sessão único está configurada, a caixa de palavra-passe será sombreada, e verá a seguinte mensagem: "são agora necessárias para iniciar sessão em <your company>."
 3.  Clique em início de sessão em <your company> ligação. Se conseguir iniciar sessão, em seguida, o início de sessão único tiver sido configurado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 
 - [Gestão de serviços de Federação do Active Directory e personalização com o Azure AD Connect](active-directory-aadconnect-federation-management.md)
