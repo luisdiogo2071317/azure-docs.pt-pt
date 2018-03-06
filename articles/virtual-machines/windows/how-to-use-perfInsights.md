@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar PerfInsights 
 
@@ -90,9 +90,9 @@ Este cenário é executada uma captura de contador de desempenho especial, junta
 |              | Média de seg/leitura                 |
 |              | Média de seg/escrita                |
 | Tamanho de e/s      | Média Pedido de bytes/dados       |
-|              | Média Bytes/leitura               |
+|              | Média Bytes/Read               |
 |              | Média Bytes/escrita              |
-| Débito   | Bytes de dados/seg                |
+| Débito   | Data Bytes/sec                |
 |              | Bytes lidos/seg                |
 |              | Escrever Bytes/seg               |
 | Comprimento da fila | Média Comprimento da fila de leitura        |
@@ -159,7 +159,7 @@ Recolhe os seguintes contadores de desempenho:
 
 #### <a name="for-sql-server-instances"></a>Para instâncias do SQL Server
 - Gestor de servidor: memória intermédia \SQL, estatísticas de agrupamento \SQLServer:Resource e \SQLServer:SQL Statistics\
-- \SQLServer:Locks, \SQLServer:General, estatísticas
+- \SQLServer:Locks, \SQLServer:General, Statistics
 - Métodos de \SQLServer:Access
 
 #### <a name="for-azure-files"></a>Para ficheiros do Azure
@@ -336,7 +336,7 @@ O Diskspd é um armazenamento de carga e o desempenho do gerador de ferramenta d
 
 XPerf é uma ferramenta da linha de comandos para capturar rastreios a partir do Toolkit de desempenho do Windows. Para obter mais informações, consulte [Toolkit de desempenho do Windows – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode carregar registos de diagnóstico e de relatórios ao Microsoft Support para uma revisão mais aprofundada. O suporte poderá pedir que transmitir o resultado que é gerado pelo PerfInsights para ajudá-lo com o processo de resolução de problemas.
 

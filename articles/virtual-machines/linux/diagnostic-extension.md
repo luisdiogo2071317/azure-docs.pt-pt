@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilizar a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -189,8 +189,8 @@ Versão 3.0 da extensão de diagnóstico Linux suporta dois tipos de receptores:
 
 A entrada de "sasURL" contém o URL completo, incluindo o SAS token, para o Hub de eventos para o qual os dados devem ser publicados. LAD requer uma SAS uma política que permite o envio de nomenclatura de afirmação. Um exemplo:
 
-* Criar um espaço de nomes de Event Hubs chamado`contosohub`
-* Criar um Hub de eventos no espaço de nomes chamado`syslogmsgs`
+* Criar um espaço de nomes de Event Hubs chamado `contosohub`
+* Criar um Hub de eventos no espaço de nomes chamado `syslogmsgs`
 * Criar uma política de acesso partilhado no Hub de eventos com o nome `writer` que permite que a afirmação de envio
 
 Se tiver criado uma SAS boa até à meia-noite UTC em 1 de Janeiro de 2018, o valor de sasURL poderá ser:
@@ -323,9 +323,9 @@ displayName | A etiqueta (no idioma especificado pela definição de região ass
 
 O counterSpecifier é um identificador arbitrário. Os consumidores de métricas, como charting portal do Azure e alertas funcionalidade, utilize counterSpecifier como a "chave" que identifica uma métrica ou uma instância de uma métrica. Para `builtin` métricas, recomendamos que utilize valores counterSpecifier que começam com `/builtin/`. Se está a recolher uma instância específica de uma métrica, recomendamos que ligue o identificador da instância para o valor de counterSpecifier. Alguns exemplos:
 
-* `/builtin/Processor/PercentIdleTime`-Tempo inativo, Considerando todos os vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)`-Espaço para o sistema de ficheiros /mnt
-* `/builtin/Disk/FreeSpace`-Espaço Considerando todos os sistemas de ficheiros instalados montados
+* `/builtin/Processor/PercentIdleTime` -Tempo inativo, Considerando todos os vCPUs
+* `/builtin/Disk/FreeSpace(/mnt)` -Espaço para o sistema de ficheiros /mnt
+* `/builtin/Disk/FreeSpace` -Espaço Considerando todos os sistemas de ficheiros instalados montados
 
 Nem o LAD como o portal do Azure espera o valor de counterSpecifier para corresponder a qualquer padrão. Ser consistente na forma como pode construir valores de counterSpecifier.
 
@@ -386,7 +386,7 @@ Esta secção opcional controla a execução de arbitrários [OMI](https://githu
 
 Elemento | Valor
 ------- | -----
-Espaço de nomes | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for indicado, o valor predefinido é "raiz/scx", implementado pelo [fornecedores de plataforma do System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namespace | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for indicado, o valor predefinido é "raiz/scx", implementado pelo [fornecedores de plataforma do System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 consulta | A consulta OMI para ser executada.
 tabela | (opcional) A tabela de armazenamento do Azure, na conta do storage designada (consulte [protegidos definições](#protected-settings)).
 frequência | (opcional) O número de segundos entre a execução da consulta. Valor predefinido é de 300 (5 minutos) valor mínimo é de 15 segundos.
@@ -423,7 +423,7 @@ O fornecedor de métrica de builtin é uma origem de métricas mais interessante
 * Processador
 * Memória
 * Rede
-* Sistema de ficheiros
+* Filesystem
 * Disco
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métricas de Builtin para a classe de processador
@@ -433,7 +433,7 @@ A classe de processador de métricas fornece informações sobre a utilização 
 Contador | Significado
 ------- | -------
 PercentIdleTime | Percentagem de tempo durante o período de agregação que processadores foram a executar o ciclo de inatividade de kernel
-percentProcessorTime | Percentagem de tempo de execução de um thread não inativo
+PercentProcessorTime | Percentagem de tempo de execução de um thread não inativo
 PercentIOWaitTime | Percentagem de tempo a aguardar que as operações de e/s concluídas
 PercentInterruptTime | Percentagem de tempo de execução de hardware/software interrupções e DPCs (chamadas de procedimento diferidas)
 PercentUserTime | De tempo não inativo durante a janela de agregação, a percentagem de tempo despendido num utilizador mais com prioridade normal

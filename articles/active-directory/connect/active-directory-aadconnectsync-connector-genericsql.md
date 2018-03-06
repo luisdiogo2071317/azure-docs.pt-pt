@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
 ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica de conector do SQL Server genérica
 Este artigo descreve o conector do SQL Server genérico. O artigo aplica-se os seguintes produtos:
@@ -250,9 +250,9 @@ Faça o seguinte:
 
 * Se tiver a quantidade de dados, recomenda-se para implementar a paginação com os procedimentos armazenados.
 * Para obter o procedimento armazenado suporta paginação, terá de fornecer o índice de início e fim índice. Consulte: [paginação de forma eficiente através de grandes quantidades de dados](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndexe @EndIndex são substituídos durante a execução com o valor de tamanho de página respetivos configurado no **passo configurar** página. Por exemplo, quando o conector obtém a primeira página e o tamanho da página está definida 500, essa situação @StartIndex seria 1 e @EndIndex 500. Estes valores aumentam quando o conector obtém as páginas subsequentes e altere o @StartIndex & @EndIndex valor.
+* @StartIndex e @EndIndex são substituídos durante a execução com o valor de tamanho de página respetivos configurado no **passo configurar** página. Por exemplo, quando o conector obtém a primeira página e o tamanho da página está definida 500, essa situação @StartIndex seria 1 e @EndIndex 500. Estes valores aumentam quando o conector obtém as páginas subsequentes e altere o @StartIndex & @EndIndex valor.
 * Para executar o procedimento armazenado parametrizada, fornecer os parâmetros `[Name]:[Direction]:[Value]` formato. Introduza cada um dos parâmetros numa linha separada (utilize Ctrl + Enter para obter uma nova linha).
-* Conector do SQL Server genérico também suporta a operação de importação de servidores ligados no Microsoft SQL Server. Se a informações devem ser obtidas a partir de uma tabela no servidor ligado, tabela deve ser fornecida no formato:`[ServerName].[Database].[Schema].[TableName]`
+* Conector do SQL Server genérico também suporta a operação de importação de servidores ligados no Microsoft SQL Server. Se a informações devem ser obtidas a partir de uma tabela no servidor ligado, tabela deve ser fornecida no formato: `[ServerName].[Database].[Schema].[TableName]`
 * Conector genérico do SQL Server suporta apenas os objetos que tenham estrutura semelhante à (os alias nome e tipo de dados) entre executar passos de deteção de informações e o esquema. Se o objeto selecionado do esquema e as informações fornecidas no passo de execução for diferente, não é possível suportar este tipo de cenários de conector do SQL Server.
 
 **Consulta SQL**  
@@ -269,7 +269,7 @@ Faça o seguinte:
 Configuração da importação delta necessita de configuração mais comparada a importação completa.
 
 * Se escolher a abordagem de Acionador ou um instantâneo para controlar as alterações de delta, em seguida, forneça a tabela de histórico ou o instantâneo da base de dados no **nome de base de dados de tabela de histórico ou instantâneo** caixa.
-* Terá também de fornecer a condição de associação entre a tabela de histórico e a tabela principal, por exemplo`Employee.ID=History.EmployeeID`
+* Terá também de fornecer a condição de associação entre a tabela de histórico e a tabela principal, por exemplo `Employee.ID=History.EmployeeID`
 * Para controlar a transação na tabela principal da tabela de histórico, tem de fornecer o nome da coluna que contém as informações da operação (adicionar/atualizar/eliminar).
 * Se escolher a marca d'água para controlar as alterações de delta, em seguida, forneça o nome da coluna que contém as informações de operação em **nome da coluna marcar máximo**.
 * O **alterar o atributo de tipo** coluna é necessária para o tipo de alteração. Esta coluna mapeia uma alteração que ocorre na tabela primária ou de tabela de valor múltiplos para um tipo de alteração na vista de diferenças. Esta coluna pode conter o tipo de alteração de Modify_Attribute para alteração do nível de atributo ou um adicionar, modificar, ou eliminar alterar tipo para um tipo de alteração ao nível do objeto. Se for algo que o valor predefinido de adicionar, modificar, ou eliminar, em seguida, pode definir esses valores a utilizar esta opção.
@@ -306,7 +306,7 @@ Se escolher a opção de consulta SQL, exportação requer três diferentes cons
 * **Inserir consulta**: esta consulta executa se qualquer objeto é fornecido para o conector para inserção na respetiva tabela.
 * **Atualizar a consulta**: esta consulta executa se qualquer objeto é fornecido para o conector para atualização na respetiva tabela.
 * **Eliminar consulta**: esta consulta executa se qualquer objeto é fornecido para o conector para eliminação na tabela correspondentes.
-* Atributo selecionado o esquema utilizado como um valor de parâmetro para a consulta, por exemplo`Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
+* Atributo selecionado o esquema utilizado como um valor de parâmetro para a consulta, por exemplo `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 * Para obter informações sobre como ativar o registo resolver o conector, consulte o [como ativar o rastreio do ETW para conectores](http://go.microsoft.com/fwlink/?LinkId=335731).
