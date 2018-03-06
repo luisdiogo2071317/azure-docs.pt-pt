@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: d8f457569ef1e9dfe400266982596ab53ec4f10d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Pergunta frequentes sobre máquinas virtuais do Windows
 Este artigo aborda algumas perguntas comuns sobre máquinas virtuais do Windows criadas no Azure utilizando o modelo de implementação Resource Manager. Para a versão do Linux deste tópico, consulte [perguntas mais frequentes pergunta sobre máquinas virtuais do Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -78,7 +78,7 @@ Sim, isto é agora possível. A VM primeiro tem de ser parado desalocada. Em seg
 Sim. O nome do computador pode ter um máximo de 15 carateres de comprimento. Consulte [restrições e regras de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais informações em torno os recursos de atribuição de nomes.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Existem qualquer recurso requisitos de nome de grupo?
-Sim. O nome do grupo de recursos pode ter um máximo de 90 carateres de comprimento. Consulte [restrições e regras de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais informações sobre grupos de recursos.
+Sim. O nome do grupo de recursos pode ter um máximo de 90 carateres de comprimento. Consulte [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de utilizador ao criar uma VM?
 
@@ -88,27 +88,27 @@ Nomes de utilizador pode ter um máximo de 20 carateres de comprimento e não po
 Não são permitidos nomes de utilizador seguintes:
 <table>
     <tr>
-        <td style="text-align:center">Administrador </td><td style="text-align:center"> Admin </td><td style="text-align:center"> utilizador </td><td style="text-align:center"> User1</td>
+        <td style="text-align:center">Administrador </td><td style="text-align:center"> admin </td><td style="text-align:center"> Utilizador </td><td style="text-align:center"> User1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Teste </td><td style="text-align:center"> Utilizador2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+        <td style="text-align:center">teste </td><td style="text-align:center"> Utilizador2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
     </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> A</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
         <td style="text-align:center">cópia de segurança </td><td style="text-align:center"> Consola do </td><td style="text-align:center"> David </td><td style="text-align:center"> convidado</td>
     </tr>
     <tr>
-        <td style="text-align:center">João </td><td style="text-align:center"> Proprietário </td><td style="text-align:center"> raiz </td><td style="text-align:center"> servidor</td>
+        <td style="text-align:center">john </td><td style="text-align:center"> proprietário </td><td style="text-align:center"> raiz </td><td style="text-align:center"> servidor</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL Server </td><td style="text-align:center"> Suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> SYS</td>
+        <td style="text-align:center">sql </td><td style="text-align:center"> suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> SYS</td>
     </tr>
     <tr>
-        <td style="text-align:center">TEST2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 

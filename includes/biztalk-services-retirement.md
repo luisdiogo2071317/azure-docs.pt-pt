@@ -1,10 +1,27 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: biztalk-services
+author: MandiOhlinger
+ms.service: biztalk-services
+ms.topic: include
+ms.date: 11/09/2017
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: 81e053c8258d24177d5c7ea499595c4dd4a3b0f0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/05/2018
+---
 > [!IMPORTANT]
-> O Microsoft Azure BizTalk Services (MABS) está a ser desativado e substituído por aplicações de lógica do Azure. Se estiver a usar MABS, a opção [Mover dos Serviços BizTalk para aplicações lógicas](../articles/logic-apps/logic-apps-move-from-mabs.md) fornece algumas diretrizes sobre como mover suas soluções de integração para aplicações lógicas. 
+> Serviços de BizTalk do Azure (MABS) da Microsoft está a ser extintos e substituído com Azure Logic Apps.
+> Se utilizar atualmente MABS, rever este artigo para obter orientações sobre como migrar as suas soluções de integração para Logic Apps: [mover de BizTalk Services para aplicações lógicas](../articles/logic-apps/logic-apps-move-from-mabs.md) 
 > 
-> Se não estiver familiarizado com as aplicações lógicas, sugerimos que comece por aqui: 
+> Se estiver familiarizado com as Logic Apps, tente iniciar aqui: 
 > 
-> - [O que são as aplicações lógicas](../articles/logic-apps/logic-apps-what-are-logic-apps.md)  
+> * [O que é o Azure Logic Apps?](../articles/logic-apps/logic-apps-overview.md)  
 > 
-> - [Criar a sua primeira aplicação lógica](../articles/logic-apps/logic-apps-create-a-logic-app.md) ou começar rapidamente com um [modelo compilado previamente](../articles/logic-apps/logic-apps-use-logic-app-templates.md)  
+> * [Criar a sua primeira aplicação de lógica](../articles/logic-apps/quickstart-create-first-logic-app-workflow.md), ou começar rapidamente um [modelo pré-criadas](../articles/logic-apps/logic-apps-use-logic-app-templates.md).
 > 
-> - [Ver todos os conectores disponíveis](../articles/connectors/apis-list.md) pode usar numa aplicação lógica
+> * [Reveja todos os conectores](../articles/connectors/apis-list.md) que pode utilizar uma aplicação lógica.

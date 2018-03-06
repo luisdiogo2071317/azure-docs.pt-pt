@@ -4,19 +4,19 @@ description: "Este artigo descreve os passos para criar uma imagem de Docker par
 services: machine-learning
 author: chhavib
 ms.author: chhavib
-manager: neerajkh
+manager: hjerez
 editor: jasonwhowell
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 134971e4a663baefa4e1051f087038d3debcb969
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f7f9cbd34d84f89d6ce193daf79531617c97ddd3
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referência da API de conta de gestão do Machine Learning modelo do Azure
 
@@ -71,13 +71,13 @@ O passo de registo do modelo regista o seu modelo de Machine Learning com a cont
 
 | Método | URI de pedido |
 |------------|------------|
-| POST |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / modelos 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
 ### <a name="description"></a>Descrição
 Regista um modelo.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -97,13 +97,13 @@ Regista um modelo.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / modelos 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
 ### <a name="description"></a>Descrição
 Consulta a lista de modelos de uma conta. Pode filtrar a lista de resultados por etiqueta e o nome. Se nenhum filtro é transmitido, a consulta lista todos os modelos na conta. A lista devolvida é paginated e a contagem de itens em cada página é um parâmetro opcional.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -111,7 +111,7 @@ Consulta a lista de modelos de uma conta. Pode filtrar a lista de resultados por
 | versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
 | Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | nome | consulta | Nome do objeto. | Não | string |
-| Etiqueta | consulta | Etiqueta de modelo. | Não | string |
+| etiqueta | consulta | Etiqueta de modelo. | Não | string |
 | contagem | consulta | Número de itens para obter uma página de início. | Não | string |
 | $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | string |
 
@@ -125,14 +125,14 @@ Consulta a lista de modelos de uma conta. Pode filtrar a lista de resultados por
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /models/ {id}  
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models/{id}  
  |
 
 ### <a name="description"></a>Descrição
 Obtém um modelo por ID.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -152,25 +152,25 @@ Obtém um modelo por ID.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| POST |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / manifestos | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
 ### <a name="description"></a>Descrição
 Regista um manifesto com o modelo registado e todas as respetivas dependências.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
 | accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
 | versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
 | Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
-| manifestRequest | corpo | Payload que é utilizada para registar um manifesto. | Sim | [Manifesto](#manifest) |
+| manifestRequest | corpo | Payload que é utilizada para registar um manifesto. | Sim | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
-| 200 | Registo de manifesto foi concluída com êxito. | [Manifesto](#manifest) |
+| 200 | Registo de manifesto foi concluída com êxito. | [Manifest](#manifest) |
 | predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-manifests-in-an-account"></a>A lista de manifestos numa conta de consulta
@@ -178,13 +178,13 @@ Regista um manifesto com o modelo registado e todas as respetivas dependências.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / manifestos | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
 ### <a name="description"></a>Descrição
 Consulta a lista de manifestos numa conta. Pode filtrar a lista de resultados por ID de modelo e nome de manifesto. Se nenhum filtro é transmitido, a consulta lista todos os manifestos na conta. A lista devolvida é paginated e a contagem de itens em cada página é um parâmetro opcional.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -192,7 +192,7 @@ Consulta a lista de manifestos numa conta. Pode filtrar a lista de resultados po
 | versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
 | Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | modelId | consulta | ID de modelo. | Não | string |
-| ManifestName | consulta | Nome do manifesto. | Não | string |
+| manifestName | consulta | Nome do manifesto. | Não | string |
 | contagem | consulta | Número de itens para obter uma página de início. | Não | string |
 | $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | string |
 
@@ -207,13 +207,13 @@ Consulta a lista de manifestos numa conta. Pode filtrar a lista de resultados po
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /manifests/ {id} | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests/{id} | 
 
 ### <a name="description"></a>Descrição
 Obtém o manifesto por ID.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -225,7 +225,7 @@ Obtém o manifesto por ID.
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
-| 200 | Êxito. | [Manifesto](#manifest) |
+| 200 | Êxito. | [Manifest](#manifest) |
 | predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="create-an-image"></a>Criar uma imagem
@@ -233,13 +233,13 @@ Obtém o manifesto por ID.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| POST |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / imagens | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
 ### <a name="description"></a>Descrição
 Cria uma imagem como uma imagem de Docker no registo de contentor do Azure.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -259,21 +259,21 @@ Cria uma imagem como uma imagem de Docker no registo de contentor do Azure.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / imagens | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
 ### <a name="description"></a>Descrição
 Consulta a lista de imagens de uma conta. Pode filtrar a lista de resultados ao manifesto ID e nome. Se nenhum filtro é transmitido, a consulta lista todas as imagens na conta. A lista devolvida é paginated e a contagem de itens em cada página é um parâmetro opcional.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
 | accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
 | versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
 | Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
-| ManifestId | consulta | ID de manifesto. | Não | string |
-| ManifestName | consulta | Nome do manifesto. | Não | string |
+| manifestId | consulta | ID de manifesto. | Não | string |
+| manifestName | consulta | Nome do manifesto. | Não | string |
 | contagem | consulta | Número de itens para obter uma página de início. | Não | string |
 | $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | string |
 
@@ -288,13 +288,13 @@ Consulta a lista de imagens de uma conta. Pode filtrar a lista de resultados ao 
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /images/ {id} | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images/{id} | 
 
 ### <a name="description"></a>Descrição
 Obtém uma imagem por ID.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -306,7 +306,7 @@ Obtém uma imagem por ID.
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
-| 200 | Êxito. | [Imagem](#image) |
+| 200 | Êxito. | [Image](#image) |
 | predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 
@@ -315,13 +315,13 @@ Obtém uma imagem por ID.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| POST |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / serviços | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
 ### <a name="description"></a>Descrição
 Cria um serviço a partir de uma imagem.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -342,24 +342,24 @@ Cria um serviço a partir de uma imagem.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / serviços | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
 ### <a name="description"></a>Descrição
 Consulta a lista de serviços de uma conta. Pode filtrar a lista de resultados por nome/ID de modelo, manifesto/ID de nome, ID de imagem, nome do serviço ou ID de recurso de computação para Machine Learning. Se nenhum filtro é transmitido, a consulta lista todos os serviços na conta. A lista devolvida é paginated e a contagem de itens em cada página é um parâmetro opcional.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
 | accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
 | versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
 | Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
-| ServiceName | consulta | Nome do serviço. | Não | string |
+| serviceName | consulta | Nome do serviço. | Não | string |
 | modelId | consulta | Nome do modelo. | Não | string |
 | modelName | consulta | ID de modelo. | Não | string |
-| ManifestId | consulta | ID de manifesto. | Não | string |
-| ManifestName | consulta | Nome do manifesto. | Não | string |
+| manifestId | consulta | ID de manifesto. | Não | string |
+| manifestName | consulta | Nome do manifesto. | Não | string |
 | imageId | consulta | ID de imagem. | Não | string |
 | computeResourceId | consulta | ID de recurso de computação Machine Learning. | Não | string |
 | contagem | consulta | Número de itens para obter uma página de início. | Não | string |
@@ -376,13 +376,13 @@ Consulta a lista de serviços de uma conta. Pode filtrar a lista de resultados p
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### <a name="description"></a>Descrição
 Obtém um serviço por ID.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -402,13 +402,13 @@ Obtém um serviço por ID.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| PUT |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| COLOCAR |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### <a name="description"></a>Descrição
 As atualizações de serviço existente.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -430,13 +430,13 @@ As atualizações de serviço existente.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| DELETE |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| ELIMINAR |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### <a name="description"></a>Descrição
 Elimina um serviço.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -457,13 +457,13 @@ Elimina um serviço.
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / chaves | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
 ### <a name="description"></a>Descrição
 Obtém as chaves de serviço.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -476,20 +476,20 @@ Obtém as chaves de serviço.
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [AuthKeys](#authkeys)
-| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="regenerate-service-keys"></a>Voltar a gerar chaves de serviço
 
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| POST |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / chaves | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
 ### <a name="description"></a>Descrição
 Gera de novo chaves de serviço e devolve-os.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -503,20 +503,20 @@ Gera de novo chaves de serviço e devolve-os.
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [AuthKeys](#authkeys)
-| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="query-the-list-of-deployments-in-an-account"></a>A lista de implementações de uma conta de consulta
 
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /accounts/ /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} / implementações | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments | 
 
 ### <a name="description"></a>Descrição
 Consulta a lista de implementações de uma conta. Pode filtrar a lista de resultados por ID de serviço, que irá devolver apenas as implementações criadas para o serviço específico. Se nenhum filtro é transmitido, a consulta lista todas as implementações na conta.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -529,20 +529,20 @@ Consulta a lista de implementações de uma conta. Pode filtrar a lista de resul
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [DeploymentList](#deploymentlist) |
-| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-deployment-details"></a>Obter os detalhes da implementação
 
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /deployments/ {id} | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments/{id} | 
 
 ### <a name="description"></a>Descrição
 Obtém a implementação por ID.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -555,20 +555,20 @@ Obtém a implementação por ID.
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [Implementação](#deployment) |
-| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-operation-details"></a>Obter os detalhes de operação
 
 ### <a name="request"></a>Pedir
 | Método | URI de pedido |
 |------------|------------|
-| GET |  /API subscrições / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /operations/ {id} | 
+| INTRODUÇÃO |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/operations/{id} | 
 
 ### <a name="description"></a>Descrição
 Obtém o estado da operação assíncrona por ID de operação.
 
 ### <a name="parameters"></a>Parâmetros
-| Nome | Localizado em | Descrição | Necessário | Esquema
+| Nome | Localizado na | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
 | resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
@@ -581,7 +581,7 @@ Obtém o estado da operação assíncrona por ID de operação.
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [OperationStatus](#asyncoperationstatus) |
-| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 
 
@@ -595,10 +595,10 @@ O objeto de recurso que será necessária durante a criação de imagens do Dock
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**ID**  <br>*opcional*|ID de recurso.|string|
-|**mimeType**  <br>*opcional*|Tipo MIME de conteúdo de modelos. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
-|**Descompactar**  <br>*opcional*|Indica onde é necessário descompactar o conteúdo durante a criação de imagens do Docker.|booleano|
-|**URL**  <br>*opcional*|URL de localização do recurso.|string|
+|**id**  <br>*optional*|ID de recurso.|string|
+|**mimeType**  <br>*optional*|Tipo MIME de conteúdo de modelos. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**unpack**  <br>*optional*|Indica onde é necessário descompactar o conteúdo durante a criação de imagens do Docker.|boolean|
+|**url**  <br>*optional*|URL de localização do recurso.|string|
 
 
 <a name="asyncoperationstate"></a>
@@ -615,13 +615,13 @@ O estado da operação.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**createdTime**  <br>*opcional*  <br>*só de leitura*|Hora de criação de operação de assíncrona (UTC).|cadeia (data / hora)|
-|**endTime**  <br>*opcional*  <br>*só de leitura*|Hora de fim da operação assíncrona (UTC).|cadeia (data / hora)|
-|**erro**  <br>*opcional*||[ErrorResponse](#errorresponse)|
-|**ID**  <br>*opcional*|ID de operação assíncrona.|string|
-|**operationType**  <br>*opcional*|Tipo de operação assíncrona.|enumeração (imagem, Service)|
-|**resourceLocation**  <br>*opcional*|Recursos criados ou atualizados pela operação assíncrona.|string|
-|**Estado**  <br>*opcional*||[AsyncOperationState](#asyncoperationstate)|
+|**createdTime**  <br>*optional*  <br>*read-only*|Hora de criação de operação de assíncrona (UTC).|cadeia (data / hora)|
+|**endTime**  <br>*optional*  <br>*read-only*|Hora de fim da operação assíncrona (UTC).|cadeia (data / hora)|
+|**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
+|**id**  <br>*optional*|ID de operação assíncrona.|string|
+|**operationType**  <br>*optional*|Tipo de operação assíncrona.|enumeração (imagem, Service)|
+|**resourceLocation**  <br>*optional*|Recursos criados ou atualizados pela operação assíncrona.|string|
+|**state**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
 
 
 <a name="authkeys"></a>
@@ -631,8 +631,8 @@ As chaves de autenticação para um serviço.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**primaryKey**  <br>*opcional*|Chave primária.|string|
-|**secondaryKey**  <br>*opcional*|Chave secundária.|string|
+|**primaryKey**  <br>*optional*|Chave primária.|string|
+|**secondaryKey**  <br>*optional*|Chave secundária.|string|
 
 
 <a name="autoscaler"></a>
@@ -642,11 +642,11 @@ Definições para o autoscaler.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**autoscaleEnabled**  <br>*opcional*|Ativar ou desativar o autoscaler.|booleano|
-|**maxReplicas**  <br>*opcional*|Número máximo de réplicas pod até a dimensionar.  <br>**Valor mínimo**:`1`|inteiro|
-|**minReplicas**  <br>*opcional*|Número mínimo de réplicas pod Dimensionar para baixo para.  <br>**Valor mínimo**:`0`|inteiro|
-|**refreshPeriodInSeconds**  <br>*opcional*|Atualize o tempo para o acionador de dimensionamento automático.  <br>**Valor mínimo**:`1`|inteiro|
-|**targetUtilization**  <br>*opcional*|Percentagem de utilização que aciona o dimensionamento automático.  <br>**Valor mínimo**:`0`  <br>**O valor máximo**:`100`|inteiro|
+|**autoscaleEnabled**  <br>*optional*|Ativar ou desativar o autoscaler.|boolean|
+|**maxReplicas**  <br>*optional*|Número máximo de réplicas pod até a dimensionar.  <br>**Valor mínimo**: `1`|integer|
+|**minReplicas**  <br>*optional*|Número mínimo de réplicas pod Dimensionar para baixo para.  <br>**Valor mínimo**: `0`|integer|
+|**refreshPeriodInSeconds**  <br>*optional*|Atualize o tempo para o acionador de dimensionamento automático.  <br>**Valor mínimo**: `1`|integer|
+|**targetUtilization**  <br>*optional*|Percentagem de utilização que aciona o dimensionamento automático.  <br>**Valor mínimo**: `0`  <br>**O valor máximo**: `100`|integer|
 
 
 <a name="computeresource"></a>
@@ -656,8 +656,8 @@ O recurso de computação de Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**ID**  <br>*opcional*|ID de recurso.|string|
-|**tipo**  <br>*opcional*|Tipo de recurso.|enumeração (Cluster)|
+|**id**  <br>*optional*|ID de recurso.|string|
+|**type**  <br>*optional*|Tipo de recurso.|enumeração (Cluster)|
 
 
 <a name="containerresourcereservation"></a>
@@ -667,8 +667,8 @@ Configuração para reservar os recursos para um contentor no cluster.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**CPU**  <br>*opcional*|Especifica a reserva da CPU. Formato para Kubernetes: consulte [significado da CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|string|
-|**memória**  <br>*opcional*|Especifica a reserva de memória. Formato para Kubernetes: consulte [significado da memória](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|string|
+|**cpu**  <br>*optional*|Especifica a reserva da CPU. Formato para Kubernetes: consulte [significado da CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|string|
+|**memory**  <br>*optional*|Especifica a reserva de memória. Formato para Kubernetes: consulte [significado da memória](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|string|
 
 
 <a name="deployment"></a>
@@ -678,12 +678,12 @@ Uma instância de uma implementação do Azure Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**createdAt**  <br>*opcional*  <br>*só de leitura*|Hora de criação de implementação (UTC).|cadeia (data / hora)|
-|**expiredAt**  <br>*opcional*  <br>*só de leitura*|Implementação expirou hora (UTC).|cadeia (data / hora)|
-|**ID**  <br>*opcional*|ID de implementação.|string|
-|**imageId**  <br>*opcional*|ID de imagem associado esta implementação.|string|
-|**serviceName**  <br>*opcional*|Nome do serviço.|string|
-|**Estado**  <br>*opcional*|Estado da implementação atual.|string|
+|**createdAt**  <br>*optional*  <br>*read-only*|Hora de criação de implementação (UTC).|cadeia (data / hora)|
+|**expiredAt**  <br>*optional*  <br>*read-only*|Implementação expirou hora (UTC).|cadeia (data / hora)|
+|**id**  <br>*optional*|ID de implementação.|string|
+|**imageId**  <br>*optional*|ID de imagem associado esta implementação.|string|
+|**serviceName**  <br>*optional*|Nome do serviço.|string|
+|**status**  <br>*optional*|Estado da implementação atual.|string|
 
 
 <a name="deploymentlist"></a>
@@ -700,8 +700,8 @@ Detalhe do erro de serviço de gestão de modelo.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**código**  <br>*necessário*|Código de erro.|string|
-|**mensagem**  <br>*necessário*|Mensagem de erro.|string|
+|**code**  <br>*required*|Código de erro.|string|
+|**message**  <br>*required*|Mensagem de erro.|string|
 
 
 <a name="errorresponse"></a>
@@ -711,10 +711,10 @@ Um objeto de erro do serviço de gestão de modelo.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**código**  <br>*necessário*|Código de erro.|string|
-|**Detalhes**  <br>*opcional*|Matriz de objectos de detalhe do erro.|<[ErrorDetail](#errordetail)> matriz|
-|**mensagem**  <br>*necessário*|Mensagem de erro.|string|
-|**statusCode**  <br>*opcional*|Código de estado HTTP.|inteiro|
+|**code**  <br>*required*|Código de erro.|string|
+|**details**  <br>*optional*|Matriz de objectos de detalhe do erro.|<[ErrorDetail](#errordetail)> matriz|
+|**message**  <br>*required*|Mensagem de erro.|string|
+|**statusCode**  <br>*optional*|Código de estado HTTP.|integer|
 
 
 <a name="image"></a>
@@ -724,32 +724,32 @@ A imagem do Azure Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**computeResourceId**  <br>*opcional*|ID do ambiente criado no recurso de computação de Machine Learning.|string|
-|**createdTime**  <br>*opcional*|Hora de criação de imagens (UTC).|cadeia (data / hora)|
-|**creationState**  <br>*opcional*||[AsyncOperationState](#asyncoperationstate)|
-|**Descrição**  <br>*opcional*|Texto de descrição da imagem.|string|
-|**erro**  <br>*opcional*||[ErrorResponse](#errorresponse)|
-|**ID**  <br>*opcional*|ID de imagem.|string|
-|**imageBuildLogUri**  <br>*opcional*|URI dos registos carregados na compilação de imagem.|string|
-|**imageLocation**  <br>*opcional*|Cadeia de localização de registo de contentor do Azure para a imagem de criação.|string|
-|**imageType**  <br>*opcional*||[ImageType](#imagetype)|
-|**manifesto**  <br>*opcional*||[Manifesto](#manifest)|
-|**nome**  <br>*opcional*|Nome da imagem.|string|
-|**versão**  <br>*opcional*|Versão da imagem definido pelo serviço de gestão de modelo.|inteiro|
+|**computeResourceId**  <br>*optional*|ID do ambiente criado no recurso de computação de Machine Learning.|string|
+|**createdTime**  <br>*optional*|Hora de criação de imagens (UTC).|cadeia (data / hora)|
+|**creationState**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
+|**description**  <br>*optional*|Texto de descrição da imagem.|string|
+|**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
+|**id**  <br>*optional*|ID de imagem.|string|
+|**imageBuildLogUri**  <br>*optional*|URI dos registos carregados na compilação de imagem.|string|
+|**imageLocation**  <br>*optional*|Cadeia de localização de registo de contentor do Azure para a imagem de criação.|string|
+|**imageType**  <br>*optional*||[ImageType](#imagetype)|
+|**manifest**  <br>*optional*||[Manifest](#manifest)|
+|**name**  <br>*optional*|Nome da imagem.|string|
+|**version**  <br>*optional*|Versão da imagem definido pelo serviço de gestão de modelo.|integer|
 
 
 <a name="imagerequest"></a>
-### <a name="imagerequest"></a>imageRequest
+### <a name="imagerequest"></a>ImageRequest
 Um pedido para criar uma imagem do Azure Machine Learning.
 
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**computeResourceId**  <br>*necessário*|ID do ambiente criado no recurso de computação de Machine Learning.|string|
-|**Descrição**  <br>*opcional*|Texto de descrição da imagem.|string|
-|**imageType**  <br>*necessário*||[ImageType](#imagetype)|
-|**manifestId**  <br>*necessário*|ID do manifesto a partir da qual a imagem será criada.|string|
-|**nome**  <br>*necessário*|Nome da imagem.|string|
+|**computeResourceId**  <br>*required*|ID do ambiente criado no recurso de computação de Machine Learning.|string|
+|**description**  <br>*optional*|Texto de descrição da imagem.|string|
+|**imageType**  <br>*required*||[ImageType](#imagetype)|
+|**manifestId**  <br>*required*|ID do manifesto a partir da qual a imagem será criada.|string|
+|**name**  <br>*required*|Nome da imagem.|string|
 
 
 <a name="imagetype"></a>
@@ -766,17 +766,17 @@ O manifesto do Azure Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**ativos**  <br>*necessário*|Lista de recursos.|<[Asset](#asset)> matriz|
-|**createdTime**  <br>*opcional*  <br>*só de leitura*|Hora de criação de manifesto (UTC).|cadeia (data / hora)|
-|**Descrição**  <br>*opcional*|Manifesto do texto de descrição.|string|
-|**driverProgram**  <br>*necessário*|Programa de controlador do manifesto.|string|
-|**ID**  <br>*opcional*|ID de manifesto.|string|
-|**modelIds**  <br>*opcional*|Lista de IDs de modelo de modelos de registado. O pedido irá falhar se qualquer um dos modelos de incluídos não são registados.|<string>matriz|
-|**modelType**  <br>*opcional*|Especifica se os modelos já estão registados com o serviço de gestão de modelo.|enumeração (registada)|
-|**nome**  <br>*necessário*|Nome do manifesto.|string|
-|**targetRuntime**  <br>*necessário*||[TargetRuntime](#targetruntime)|
-|**versão**  <br>*opcional*  <br>*só de leitura*|Versão do manifesto atribuído pelo serviço de gestão de modelo.|inteiro|
-|**webserviceType**  <br>*opcional*|Especifica o tipo de serviço web que será criado a partir do manifesto pretendido.|enumeração (em tempo real)|
+|**assets**  <br>*required*|Lista de recursos.|<[Asset](#asset)> matriz|
+|**createdTime**  <br>*optional*  <br>*read-only*|Hora de criação de manifesto (UTC).|cadeia (data / hora)|
+|**description**  <br>*optional*|Manifesto do texto de descrição.|string|
+|**driverProgram**  <br>*required*|Programa de controlador do manifesto.|string|
+|**id**  <br>*optional*|ID de manifesto.|string|
+|**modelIds**  <br>*optional*|Lista de IDs de modelo de modelos de registado. O pedido irá falhar se qualquer um dos modelos de incluídos não são registados.|<string> Matriz|
+|**modelType**  <br>*optional*|Especifica se os modelos já estão registados com o serviço de gestão de modelo.|enumeração (registada)|
+|**name**  <br>*required*|Nome do manifesto.|string|
+|**targetRuntime**  <br>*required*||[TargetRuntime](#targetruntime)|
+|**version**  <br>*optional*  <br>*read-only*|Versão do manifesto atribuído pelo serviço de gestão de modelo.|integer|
+|**webserviceType**  <br>*optional*|Especifica o tipo de serviço web que será criado a partir do manifesto pretendido.|enumeração (em tempo real)|
 
 
 <a name="model"></a>
@@ -786,15 +786,15 @@ Uma instância de um modelo do Azure Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**createdAt**  <br>*opcional*  <br>*só de leitura*|Hora de criação de modelo (UTC).|cadeia (data / hora)|
-|**Descrição**  <br>*opcional*|Texto de descrição do modelo.|string|
-|**ID**  <br>*opcional*  <br>*só de leitura*|ID de modelo.|string|
-|**mimeType**  <br>*necessário*|Tipo MIME do conteúdo do modelo. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
-|**nome**  <br>*necessário*|Nome do modelo.|string|
-|**etiquetas**  <br>*opcional*|Lista de etiquetas de modelo.|<string>matriz|
-|**Descompactar**  <br>*opcional*|Indica se é necessário descompactar o modelo durante a criação de imagens do Docker.|booleano|
-|**URL**  <br>*necessário*|URL do modelo. Normalmente, vamos colocar um URL de assinatura de acesso partilhado aqui.|string|
-|**versão**  <br>*opcional*  <br>*só de leitura*|Versão de modelo atribuído pelo serviço de gestão de modelo.|inteiro|
+|**createdAt**  <br>*optional*  <br>*read-only*|Hora de criação de modelo (UTC).|cadeia (data / hora)|
+|**description**  <br>*optional*|Texto de descrição do modelo.|string|
+|**id**  <br>*optional*  <br>*read-only*|ID de modelo.|string|
+|**mimeType**  <br>*required*|Tipo MIME do conteúdo do modelo. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**name**  <br>*required*|Nome do modelo.|string|
+|**etiquetas**  <br>*optional*|Lista de etiquetas de modelo.|<string> Matriz|
+|**unpack**  <br>*optional*|Indica se é necessário descompactar o modelo durante a criação de imagens do Docker.|boolean|
+|**url**  <br>*required*|URL do modelo. Normalmente, vamos colocar um URL de assinatura de acesso partilhado aqui.|string|
+|**version**  <br>*optional*  <br>*read-only*|Versão de modelo atribuído pelo serviço de gestão de modelo.|integer|
 
 
 <a name="modeldatacollection"></a>
@@ -804,8 +804,8 @@ As informações de recolha de dados do modelo.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**eventHubEnabled**  <br>*opcional*|Ative um hub de eventos para um serviço.|booleano|
-|**storageEnabled**  <br>*opcional*|Ative o armazenamento para um serviço.|booleano|
+|**eventHubEnabled**  <br>*optional*|Ative um hub de eventos para um serviço.|boolean|
+|**storageEnabled**  <br>*optional*|Ative o armazenamento para um serviço.|boolean|
 
 
 <a name="paginatedimagelist"></a>
@@ -815,8 +815,8 @@ Uma lista paginated de imagens.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
-|**valor**  <br>*opcional*|Matriz de objetos de modelo.|<[Imagem](#image)> matriz|
+|**nextLink**  <br>*optional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
+|**value**  <br>*optional*|Matriz de objetos de modelo.|<[Imagem](#image)> matriz|
 
 
 <a name="paginatedmanifestlist"></a>
@@ -826,8 +826,8 @@ Uma lista paginated de manifestos.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
-|**valor**  <br>*opcional*|Matriz de objetos de manifesto.|<[Manifesto](#manifest)> matriz|
+|**nextLink**  <br>*optional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
+|**value**  <br>*optional*|Matriz de objetos de manifesto.|<[Manifesto](#manifest)> matriz|
 
 
 <a name="paginatedmodellist"></a>
@@ -837,8 +837,8 @@ Uma lista paginated de modelos.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
-|**valor**  <br>*opcional*|Matriz de objetos de modelo.|<[Modelo](#model)> matriz|
+|**nextLink**  <br>*optional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
+|**value**  <br>*optional*|Matriz de objetos de modelo.|<[Modelo](#model)> matriz|
 
 
 <a name="paginatedservicelist"></a>
@@ -848,8 +848,8 @@ Uma lista paginated de serviços.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
-|**valor**  <br>*opcional*|Matriz de objetos do serviço.|<[ServiceResponse](#serviceresponse)> matriz|
+|**nextLink**  <br>*optional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
+|**value**  <br>*optional*|Matriz de objetos do serviço.|<[ServiceResponse](#serviceresponse)> matriz|
 
 
 <a name="servicecreaterequest"></a>
@@ -859,15 +859,15 @@ Um pedido para criar um serviço.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*opcional*|Ative o application insights para um serviço.|booleano|
-|**autoScaler**  <br>*opcional*||[AutoScaler](#autoscaler)|
-|**computeResource**  <br>*necessário*||[ComputeResource](#computeresource)|
-|**containerResourceReservation**  <br>*opcional*||[ContainerResourceReservation](#containerresourcereservation)|
-|**dataCollection**  <br>*opcional*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*necessário*|Imagem ao criar o serviço.|string|
-|**maxConcurrentRequestsPerContainer**  <br>*opcional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**:`1`|inteiro|
-|**nome**  <br>*necessário*|Nome do serviço.|string|
-|**numReplicas**  <br>*opcional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**:`0`|inteiro|
+|**appInsightsEnabled**  <br>*optional*|Ative o application insights para um serviço.|boolean|
+|**autoScaler**  <br>*optional*||[AutoScaler](#autoscaler)|
+|**computeResource**  <br>*required*||[ComputeResource](#computeresource)|
+|**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
+|**imageId**  <br>*required*|Imagem ao criar o serviço.|string|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**: `1`|integer|
+|**name**  <br>*required*|Nome do serviço.|string|
+|**numReplicas**  <br>*optional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**: `0`|integer|
 
 
 <a name="serviceregeneratekeyrequest"></a>
@@ -877,7 +877,7 @@ Um pedido para voltar a gerar uma chave para um serviço.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**keyType**  <br>*opcional*|Especifica qual a chave para voltar a gerar.|enumeração (site primário, secundário)|
+|**keyType**  <br>*optional*|Especifica qual a chave para voltar a gerar.|enumeração (site primário, secundário)|
 
 
 <a name="serviceresponse"></a>
@@ -887,39 +887,39 @@ Estado detalhado do serviço.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**createdAt**  <br>*opcional*|Hora de criação de serviço (UTC).|cadeia (data / hora)|
-|**ID**  <br>*opcional*|ID do serviço.|string|
-|**imagem**  <br>*opcional*||[Imagem](#image)|
-|**manifesto**  <br>*opcional*||[Manifesto](#manifest)|
-|**modelos**  <br>*opcional*|Lista de modelos.|<[Modelo](#model)> matriz|
-|**nome**  <br>*opcional*|Nome do serviço.|string|
-|**scoringUri**  <br>*opcional*|URI para o serviço de classificação.|string|
-|**Estado**  <br>*opcional*||[AsyncOperationState](#asyncoperationstate)|
-|**updatedAt**  <br>*opcional*|Hora (UTC) da última atualização.|cadeia (data / hora)|
-|**appInsightsEnabled**  <br>*opcional*|Ative o application insights para um serviço.|booleano|
-|**autoScaler**  <br>*opcional*||[AutoScaler](#autoscaler)|
-|**computeResource**  <br>*necessário*||[ComputeResource](#computeresource)|
-|**containerResourceReservation**  <br>*opcional*||[ContainerResourceReservation](#containerresourcereservation)|
-|**dataCollection**  <br>*opcional*||[ModelDataCollection](#modeldatacollection)|
-|**maxConcurrentRequestsPerContainer**  <br>*opcional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**:`1`|inteiro|
-|**numReplicas**  <br>*opcional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**:`0`|inteiro|
-|**erro**  <br>*opcional*||[ErrorResponse](#errorresponse)|
+|**createdAt**  <br>*optional*|Hora de criação de serviço (UTC).|cadeia (data / hora)|
+|**ID**  <br>*optional*|ID do serviço.|string|
+|**image**  <br>*optional*||[Image](#image)|
+|**manifest**  <br>*optional*||[Manifest](#manifest)|
+|**modelos**  <br>*optional*|Lista de modelos.|<[Modelo](#model)> matriz|
+|**name**  <br>*optional*|Nome do serviço.|string|
+|**scoringUri**  <br>*optional*|URI para o serviço de classificação.|string|
+|**state**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
+|**updatedAt**  <br>*optional*|Hora (UTC) da última atualização.|cadeia (data / hora)|
+|**appInsightsEnabled**  <br>*optional*|Ative o application insights para um serviço.|boolean|
+|**autoScaler**  <br>*optional*||[AutoScaler](#autoscaler)|
+|**computeResource**  <br>*required*||[ComputeResource](#computeresource)|
+|**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**: `1`|integer|
+|**numReplicas**  <br>*optional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**: `0`|integer|
+|**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
 
 
 <a name="serviceupdaterequest"></a>
-### <a name="serviceupdaterequest"></a>serviceUpdateRequest
+### <a name="serviceupdaterequest"></a>ServiceUpdateRequest
 Um pedido para atualizar um serviço.
 
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*opcional*|Ative o application insights para um serviço.|booleano|
-|**autoScaler**  <br>*opcional*||[AutoScaler](#autoscaler)|
-|**containerResourceReservation**  <br>*opcional*||[ContainerResourceReservation](#containerresourcereservation)|
-|**dataCollection**  <br>*opcional*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*opcional*|Imagem ao criar o serviço.|string|
-|**maxConcurrentRequestsPerContainer**  <br>*opcional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**:`1`|inteiro|
-|**numReplicas**  <br>*opcional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**:`0`|inteiro|
+|**appInsightsEnabled**  <br>*optional*|Ative o application insights para um serviço.|boolean|
+|**autoScaler**  <br>*optional*||[AutoScaler](#autoscaler)|
+|**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
+|**imageId**  <br>*optional*|Imagem ao criar o serviço.|string|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**: `1`|integer|
+|**numReplicas**  <br>*optional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**: `0`|integer|
 
 
 <a name="targetruntime"></a>
@@ -929,6 +929,6 @@ O tipo de tempo de execução de destino.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**Propriedades**  <br>*necessário*||< cadeia, cadeia > mapa|
-|**runtimeType**  <br>*necessário*|Especifica o tempo de execução.|enumeração (SparkPython, Python)|
+|**Propriedades**  <br>*required*||< cadeia, cadeia > mapa|
+|**runtimeType**  <br>*required*|Especifica o tempo de execução.|enum (SparkPython, Python)|
 

@@ -4,7 +4,7 @@ description: "Saiba como interfaces de rede para adicionar ou remover as interfa
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 30e6950a976307023bd5232fa1c1f1342c1d012b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb21690865cd9384fe3d3c82e60f11e0fc64114c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Interfaces de rede para adicionar ou remover as interfaces de rede de máquinas virtuais
 
@@ -29,12 +29,12 @@ Se necessário para adicionar, alterar ou remover os endereços IP para uma inte
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de efetuar os passos em qualquer secção deste artigo, conclua as seguintes tarefas:
+Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
-- Iniciar sessão para o Azure [portal](https://portal.azure.com), CLI do Azure ou o Azure PowerShell com uma conta do Azure. Se ainda não tiver uma conta do Azure, inscreva-se um [avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, [instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que tem a versão mais recente dos cmdlets Azure PowerShell instaladas. Para obter ajuda para comandos do PowerShell, com exemplos, digite `get-help <command> -full`. 
-- Em alternativa, pode utilizar a Shell de nuvem do Azure. A Shell de nuvem do Azure é um livre PowerShell que pode executar diretamente no portal do Azure. Tem PowerShell pré-instalado e configurado para utilizar com a sua conta. Para utilizar esta opção, selecione a Shell de nuvem **> _** na parte superior da parte a [portal](https://portal.azure.com) e selecione o PowerShell no canto superior esquerdo.
-- Se utilizar comandos da CLI do Azure para concluir tarefas neste artigo, [instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que tem a versão mais recente da CLI do Azure instalados. Para obter ajuda para comandos da CLI, escreva `az <command> --help`. 
+- Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
+- Se utilizar o portal, Abra https://portal.azure.com e iniciar sessão com a sua conta do Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Executar `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Adicione as interfaces de rede existente para uma nova VM
 

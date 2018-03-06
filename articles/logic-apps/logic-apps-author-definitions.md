@@ -1,7 +1,7 @@
 ---
-title: Definir fluxos de trabalho com JSON - Azure Logic Apps | Microsoft Docs
-description: "Como escrever as definições de fluxo de trabalho no JSON para aplicações lógicas"
-author: jeffhollan
+title: "Criar definições da aplicação lógica com JSON - Azure Logic Apps | Microsoft Docs"
+description: "Adicionar parâmetros, processar cadeias, criar os mapas de parâmetro e obter dados com as funções de data"
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,197 +13,202 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 03/29/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 01/31/2018
+ms.author: LADocs; estfan
+ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Criar definições de fluxo de trabalho para aplicações lógicas utilizando JSON
+# <a name="build-on-your-logic-app-definition-with-json"></a>A definição da aplicação lógica com o JSON de compilação
 
-Pode criar definições de fluxo de trabalho para [Azure Logic Apps](logic-apps-overview.md) simples e declarativo linguagem de JSON. Se ainda não o fez, consulte primeiro [como criar a sua primeira aplicação lógica com o Designer de aplicação lógica](quickstart-create-first-logic-app-workflow.md). Além disso, consulte o [completa de referência para o idioma de definição de fluxo de trabalho](http://aka.ms/logicappsdocs).
+Para efetuar mais avançadas de tarefas com [Azure Logic Apps](../logic-apps/logic-apps-overview.md), pode utilizar a vista de código para editar a definição da aplicação lógica, que utiliza o idioma JSON simple e declarativo. Se ainda não o fez, consulte primeiro [como criar a sua primeira aplicação de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Além disso, consulte o [completa de referência para o idioma de definição de fluxo de trabalho](http://aka.ms/logicappsdocs).
 
-## <a name="repeat-steps-over-a-list"></a>Repita os passos através de uma lista
+> [!NOTE]
+> Algumas funcionalidades do Azure Logic Apps, como parâmetros, estão disponíveis apenas quando trabalha na vista de código para a definição da sua aplicação lógica. Os parâmetros permitem-lhe reutilizar os valores em toda a sua aplicação lógica. Por exemplo, se pretender utilizar o mesmo endereço de e-mail em várias ações, defina esse endereço de e-mail como um parâmetro.
 
-Para iterar através de uma matriz que tenha até 10 000 itens e efetuar uma ação para cada item, utilize o [foreach tipo](logic-apps-loops-and-scopes.md).
+## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Ver e editar a lógica definição da aplicação no JSON
 
-## <a name="handle-failures-if-something-goes-wrong"></a>Processar falhas se algo não bate
+1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure").
 
-Normalmente, o que pretende incluir uma *passo remediação* — algumas lógica que executa *se, e apenas se* um ou mais das suas chamadas de falha. Neste exemplo obtém dados de vários locais, mas se a chamada falhar, queremos publicar uma mensagem algures, pelo que iremos pode identificar que falha mais tarde:  
+2. No menu à esquerda, escolha **mais serviços**. Em **Integração Empresarial**, escolha **Aplicações Lógicas**. Selecione a sua aplicação lógica.
 
+3. Partir do menu aplicação lógica, sob **ferramentas de desenvolvimento**, escolha **vista de código de aplicação lógica**.
+
+   A janela de vista de código abre-se e mostra a definição da aplicação lógica.
+
+## <a name="parameters"></a>Parâmetros
+
+Os parâmetros permitem-lhe reutilizar os valores em toda a sua aplicação lógica e estão pronto para substituir os valores que podem ser alterados frequentemente. Por exemplo, se tiver um endereço de e-mail que pretende utilizar em vários locais, deve definir esse endereço de e-mail como um parâmetro. 
+
+Os parâmetros também são úteis quando é necessário substituir os parâmetros em ambientes diferentes, saiba mais sobre [parâmetros para a implementação](#deployment-parameters) e [API REST para a documentação do Azure Logic Apps](https://docs.microsoft.com/rest/api/logic).
+
+> [!NOTE]
+> Os parâmetros só estão disponíveis na vista de código.
+
+No [primeira aplicação de lógica de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md), criou um fluxo de trabalho que envia mensagens de correio eletrónico quando cronologia novo aparece no feed RSS de um Web site. URL do feed é codificado, pelo que este exemplo mostra como substituir o valor de consulta com um parâmetro de modo a que pode alterar o URL do feed mais facilmente.
+
+1. Na vista de código, localizar o `parameters : {}` de objeto e adicionar um `currentFeedUrl` objeto:
+
+   ``` json
+     "currentFeedUrl" : {
+      "type" : "string",
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+   }
+   ```
+
+2. No `When_a_feed-item_is_published` ação, localizar o `queries` secção e substitua o valor de consulta com `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+
+   **Before**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
+       }
+   },   
+   ```
+
+   **Após**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "#@{parameters('currentFeedUrl')}"
+       }
+   },   
+   ```
+
+   Para associar as duas ou mais cadeias, também pode utilizar o `concat` função. 
+   Por exemplo, `"@concat('#',parameters('currentFeedUrl'))"` funciona com o mesmo do exemplo anterior.
+
+3.  Quando tiver terminado, escolha **Save** (Guardar). 
+
+Agora pode alterar o RSS do Web site através da transmissão de um URL diferente através de feed de `currentFeedURL` objeto.
+
+<a name="deployment-parameters"></a>
+
+## <a name="deployment-parameters-for-different-environments"></a>Parâmetros de implementação para os diferentes ambientes
+
+Normalmente, os ciclos de vida de implementação tem ambientes de desenvolvimento, teste e produção. Por exemplo, poderá utilizar a mesma definição da aplicação lógica em todas as estes ambientes, mas utilizar bases de dados diferentes. Da mesma forma, pode querer utilizar a mesma definição em regiões diferentes para elevada disponibilidade, mas que cada instância da aplicação lógica para utilizar a base de dados nessa região. 
+
+> [!NOTE] 
+> Este cenário é diferente do demorar parâmetros *runtime* onde deve utilizar o `trigger()` funcionar em vez disso.
+
+Segue-se uma definição básica:
+
+``` json
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uri": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "request": {
+          "type": "request",
+          "kind": "http"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('uri')"
+            }
+        }
+    },
+    "outputs": {}
+}
 ```
+O real no `PUT` pedido para aplicações lógicas, pode fornecer o parâmetro `uri`. Cada ambiente, pode fornecer um valor diferente para o `connection` parâmetro. Porque já não existe um valor predefinido, o payload da aplicação lógica requer este parâmetro:
+
+``` json
+{
+    "properties": {},
+        "definition": {
+          /// Use the definition from above here
+        },
+        "parameters": {
+            "connection": {
+                "value": "https://my.connection.that.is.per.enviornment"
+            }
+        }
+    },
+    "location": "westus"
+}
+``` 
+
+Para obter mais informações, consulte o [API REST para a documentação do Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+
+## <a name="process-strings-with-functions"></a>Cadeias de processo com as funções
+
+As Logic Apps tem várias funções para trabalhar com cadeias. Por exemplo, suponha que pretende passar um nome de empresa a partir de uma ordem para outro sistema. No entanto, não tiver a certeza sobre o processamento adequado para a codificação de carateres. Foi possível efetuar a codificação base64 esta cadeia de mas, para evitar escapes no URL, pode substituir vários carateres em vez disso. Além disso, só precisa de uma subcadeia para o nome da empresa porque os primeiro cinco carateres não são utilizados. 
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "order": {
+      "defaultValue": {
+        "quantity": 10,
+        "id": "myorder1",
+        "companyName": "NAME=Contoso"
+      },
+      "type": "Object"
+    }
+  },
   "triggers": {
-    "Request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "postToErrorMessageQueue": {
-      "type": "ApiConnection",
-      "inputs": "...",
-      "runAfter": {
-        "readData": [
-          "Failed"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-Para especificar que `postToErrorMessageQueue` só é executada após `readData` tem `Failed`, utilize o `runAfter` propriedade, por exemplo, para especificar uma lista de valores possíveis, para que `runAfter` pode ser `["Succeeded", "Failed"]`.
-
-Por fim, porque este exemplo processa agora o erro, mas já não marcar a run as `Failed`. Porque adicionámos o passo para processar esta falha neste exemplo, tem de executar `Succeeded` apesar de um passo `Failed`.
-
-## <a name="execute-two-or-more-steps-in-parallel"></a>Executar passos de dois ou mais em paralelo
-
-Para executar várias ações em paralelo, o `runAfter` propriedade tem de ser equivalente ao tempo de execução. 
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "triggers": {
-    "Request": {
-      "kind": "http",
-      "type": "Request"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-Neste exemplo, ambos `branch1` e `branch2` estiver configurada para ser executada `readData`. Como resultado, ambos os ramos executam em paralelo. Timestamp para ambos os ramos é idêntico.
-
-![Paralelo](media/logic-apps-author-definitions/parallel.png)
-
-## <a name="join-two-parallel-branches"></a>Associar dois ramos paralelos
-
-Pode associar duas ações que estão configuradas serem executadas em paralelo adicionando itens para a `runAfter` propriedade do exemplo anterior.
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {}
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "join": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "branch1": [
-          "Succeeded"
-        ],
-        "branch2": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "parameters": {},
-  "triggers": {
-    "Request": {
+    "request": {
       "type": "Request",
-      "kind": "Http",
+      "kind": "Http"
+    }
+  },
+  "actions": {
+    "order": {
+      "type": "Http",
       "inputs": {
-        "schema": {}
+        "method": "GET",
+        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
-  "contentVersion": "1.0.0.0",
   "outputs": {}
 }
 ```
 
-![Paralelo](media/logic-apps-author-definitions/join.png)
+Estes passos descrevem como neste exemplo processa esta cadeia, trabalhar a partir do interior para exterior:
 
-## <a name="map-list-items-to-a-different-configuration"></a>Itens de lista de mapa para uma configuração diferente
-
-Em seguida, vamos supor que queremos obter conteúdo diferente com base no valor de uma propriedade. Podemos criar um mapa de valores para destinos como um parâmetro:  
-
+``` 
+"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
+
+1. Obter o [ `length()` ](../logic-apps/logic-apps-workflow-definition-language.md) para o nome da empresa, por isso, obter o número total de carateres.
+
+2. Para obter uma cadeia mais curta, subtrair `5`.
+
+3. Obter agora um [ `substring()` ](../logic-apps/logic-apps-workflow-definition-language.md). Iniciar no índice `5`e vá para o resto da cadeia.
+
+4. Converter este subcadeia para um [ `base64()` ](../logic-apps/logic-apps-workflow-definition-language.md) cadeia.
+
+5. Agora [ `replace()` ](../logic-apps/logic-apps-workflow-definition-language.md) todos os o `+` carateres com `-` carateres.
+
+6. Por fim, [ `replace()` ](../logic-apps/logic-apps-workflow-definition-language.md) todos os o `/` carateres com `_` carateres.
+
+## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mapear os itens de lista para valores de propriedade, em seguida, utilize o maps como parâmetros
+
+Para obter resultados diferentes com base em valor de uma propriedade, o pode criar um mapa que corresponda a cada valor de propriedade para um resultado, em seguida, utilizar que o mapa como um parâmetro. 
+
+Por exemplo, este fluxo de trabalho define algumas categorias como parâmetros e um mapa que corresponda nessas categorias com um URL específico. Em primeiro lugar, o fluxo de trabalho obtém uma lista dos artigos. Em seguida, o fluxo de trabalho utiliza o mapa para localizar o URL correspondente a categoria de cada artigo.
+
+*   O [ `intersection()` ](../logic-apps/logic-apps-workflow-definition-language.md) função verifica se a categoria corresponde a uma categoria de definido conhecida.
+
+*   Após obter uma categoria correspondente, o exemplo obtém o item de mapa utilizando parênteses Retos: `parameters[...]`
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -271,21 +276,29 @@ Em seguida, vamos supor que queremos obter conteúdo diferente com base no valor
 }
 ```
 
-Neste caso, vamos primeiro de obter uma lista dos artigos. Com base na categoria do que foi definida como um parâmetro, o segundo passo utiliza um mapa para procurar o URL para obter o conteúdo.
+## <a name="get-data-with-date-functions"></a>Obter dados com as funções de data
 
-Algumas vezes a ter em atenção aqui: 
+Para obter dados a partir de uma origem de dados que não suporta nativamente *acionadores*, pode utilizar data funciona para trabalhar com as horas e as datas em vez disso. Por exemplo, esta expressão localiza quanto passos este fluxo de trabalho estão a demorar, trabalhar a partir do interior para exterior:
 
-*   O [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) função verifica se a categoria corresponde a uma das categorias definidas conhecidas.
-
-*   Depois de obtemos a categoria, iremos pode solicitar o item de mapa utilizando parênteses Retos:`parameters[...]`
-
-## <a name="process-strings"></a>Cadeias de processo
-
-Pode utilizar várias funções para manipular cadeias. Por exemplo, suponha que temos uma cadeia que queremos para passar para um sistema, mas não são certeza sobre o processamento adequado para a codificação de carateres. Uma das alternativas consiste em base64 codificar esta cadeia. No entanto, para evitar escape num URL, vamos substituir alguns carateres. 
-
-Pretendemos também uma subcadeia de nome a ordem porque os primeiro cinco carateres não são utilizados.
-
+``` json
+"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
+
+1. Do `order` ação, a extrair o `startTime`. 
+2. Obter a hora atual com `utcNow()`.
+3. Subtrair um segundo:
+
+   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
+
+   Pode utilizar outras unidades de tempo, como `minutes` ou `hours`. 
+
+3. Agora, pode comparar estes dois valores. 
+
+   Se o primeiro valor é menor que o segundo valor, em seguida, mais do que um segundo foi efectuada com êxito uma vez que foi colocada a ordem.
+
+Para formatar datas, pode utilizar ao mesmo tempo cadeia. Por exemplo, para obter o RFC1123, utilize [ `utcnow('r')` ](../logic-apps/logic-apps-workflow-definition-language.md). Saiba mais sobre [data formatação](../logic-apps/logic-apps-workflow-definition-language.md).
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -293,58 +306,7 @@ Pretendemos também uma subcadeia de nome a ordem porque os primeiro cinco carat
     "order": {
       "defaultValue": {
         "quantity": 10,
-        "id": "myorder1",
-        "orderer": "NAME=Contoso"
-      },
-      "type": "Object"
-    }
-  },
-  "triggers": {
-    "request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "order": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-Trabalho do dentro para fora:
-
-1. Obter o [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) para o nome do orderer, por isso, vamos voltar o número total de carateres.
-
-2. Subtrair 5, uma vez que queremos uma cadeia mais curta.
-
-3. Na realidade, colocar o [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Iremos começar no índice `5` e aceda o resto da cadeia.
-
-4. Converter este subcadeia para um [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) cadeia.
-
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)todos os o `+` carateres com `-` carateres.
-
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)todos os o `/` carateres com `_` carateres.
-
-## <a name="work-with-date-times"></a>Trabalhar com as horas de data
-
-Data vezes pode ser útil, especialmente quando estiver a tentar solicitar dados de uma origem de dados que não suporta naturalmente *acionadores*. Também pode utilizar data vezes para encontrar demoram quanto vários passos.
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "order": {
-      "defaultValue": {
-        "quantity": 10,
-        "id": "myorder1"
+        "id": "myorder-id"
       },
       "type": "Object"
     }
@@ -386,67 +348,13 @@ Data vezes pode ser útil, especialmente quando estiver a tentar solicitar dados
 }
 ```
 
-Neste exemplo, extrair a `startTime` do passo anterior. Em seguida, vamos obter a hora atual e subtrair um segundo:
 
-[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
+## <a name="next-steps"></a>Passos Seguintes
 
-Pode utilizar outras unidades de tempo, como `minutes` ou `hours`. Por fim, vamos pode comparar estes dois valores. Se o primeiro valor é menor que o segundo valor, em seguida, mais do que um segundo foi efectuada com êxito uma vez que foi colocada a ordem.
-
-Para formatar datas, podemos utilizar ao mesmo tempo cadeia. Por exemplo, para obter o RFC1123, utilizamos [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Para saber mais sobre a formatação de data, consulte [linguagem de definição de fluxo de trabalho](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
-
-## <a name="deployment-parameters-for-different-environments"></a>Parâmetros de implementação para os diferentes ambientes
-
-Normalmente, ciclos de vida de implementação tem um ambiente de desenvolvimento, um ambiente de teste e ambiente de produção. Por exemplo, poderá utilizar a mesma definição em todos os estes ambientes, mas utilizar bases de dados diferentes. Da mesma forma, pode querer utilizar a mesma definição em regiões diferentes para elevada disponibilidade, mas que cada instância da aplicação lógica para comunicar com a base de dados nessa região.
-Este cenário é diferente do demorar parâmetros *runtime* onde em vez disso, deve utilizar o `trigger()` funcionar do exemplo anterior.
-
-Pode começar com uma definição básica com este exemplo:
-
-```
-{
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-
-O real no `PUT` pedido para aplicações lógicas, pode fornecer o parâmetro `uri`. Porque já não existe um valor predefinido, o payload da aplicação lógica requer este parâmetro:
-
-```
-{
-    "properties": {},
-        "definition": {
-          // Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-``` 
-
-Cada ambiente, pode fornecer um valor diferente para o `connection` parâmetro. 
-
-Para todas as opções que tem de criar e gerir as logic apps, consulte o [documentação da REST API](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
+* [Executar passos com base numa condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Executar passos com base nos valores diferentes (comutador instruções)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar e repita os passos (ciclos)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Executar ou merge passos paralelos (ramos)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Executar passos com base no estado da ação agrupada (âmbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* Saiba mais sobre o [esquema de linguagem de definição de fluxo de trabalho para o Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
+* Saiba mais sobre [ações de fluxo de trabalho e acionadores para Logic Apps do Azure](../logic-apps/logic-apps-workflow-actions-triggers.md)

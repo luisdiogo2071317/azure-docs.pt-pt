@@ -15,36 +15,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar ficheiros de configuração de cliente VPN para autenticação P2S RADIUS
 
-Para ligar a uma rede virtual através de ponto a Site, terá de configurar o dispositivo de cliente a partir do qual o que irá ligar. Pode criar ligações P2S VPN do Windows, Mac OSX e Linux dispositivos de cliente. Quando utilizar a autenticação RADIUS, existem várias opções de autenticação: autenticação de nome de utilizador/palavra-passe, autenticação de certificados, bem como outros tipos de autenticação. A configuração de cliente VPN é diferente para cada tipo de autenticação. Para configurar o cliente VPN, pode utilizar os ficheiros de configuração de cliente que contêm as definições necessárias. Este artigo ajuda-o a criar e instalar a configuração de cliente VPN para o tipo de autenticação RADIUS que pretende utilizar.
+Para ligar a uma rede virtual através de ponto a site (P2S), terá de configurar o dispositivo de cliente que irá ligar a partir de. Pode criar ligações P2S VPN do Windows, Mac OS X e dispositivos de cliente do Linux. 
+
+Quando estiver a utilizar a autenticação RADIUS, existem várias opções de autenticação: autenticação de nome de utilizador/palavra-passe, autenticação de certificados e outros tipos de autenticação. A configuração de cliente VPN é diferente para cada tipo de autenticação. Para configurar o cliente VPN, pode utilizar os ficheiros de configuração de cliente que contêm as definições necessárias. Este artigo ajuda-o a criar e instalar a configuração de cliente VPN para o tipo de autenticação RADIUS que pretende utilizar.
 
 O fluxo de trabalho de configuração para autenticação P2S RADIUS é o seguinte:
 
 1. [Configurar o gateway de VPN do Azure para a conetividade P2S](point-to-site-how-to-radius-ps.md).
 2. [Configurar o servidor RADIUS para autenticação](point-to-site-how-to-radius-ps.md#radius). 
-3. **Obter a configuração de cliente VPN para a opção de autenticação à sua escolha e utilizá-la para configurar o cliente VPN**. (Este artigo)
+3. **Obter a configuração de cliente VPN para a opção de autenticação à sua escolha e utilizá-la para configurar o cliente VPN** (Este artigo).
 4. [Concluir a configuração de P2S e ligar](point-to-site-how-to-radius-ps.md).
 
 >[!IMPORTANT]
->Se existirem quaisquer alterações à configuração de VPN de ponto a Site depois de gerar o perfil de configuração de cliente VPN, tais como o tipo de protocolo VPN ou o tipo de autenticação, tem de gerar e instalar uma nova configuração de cliente VPN nos seus dispositivos de utilizador.
+>Se existirem quaisquer alterações à configuração de VPN ponto a site depois de gerar o perfil de configuração de cliente VPN, tais como o tipo de protocolo VPN ou o tipo de autenticação, tem de gerar e instalar uma nova configuração de cliente VPN nos dispositivos dos utilizadores.
 >
 >
 
-Para utilizar as secções neste artigo, primeiro tem de decidir que tipo de autenticação que pretende utilizar: nome de utilizador/palavra-passe, certificado ou outros tipos de autenticação. Dentro de cada secção, existem passos para o Windows, Mac OS X e Linux (limitados passos disponíveis neste momento).
+Para utilizar as secções neste artigo, primeiro tem de decidir que tipo de autenticação que pretende utilizar: nome de utilizador/palavra-passe, certificado ou outros tipos de autenticação. Cada secção tem passos para o Windows, Mac OS X e Linux (limitados passos disponíveis neste momento).
 
 ## <a name="adeap"></a>Autenticação de nome de utilizador/palavra-passe
 
-Existem duas formas de configurar a autenticação de nome de utilizador/palavra-passe. Pode optar por configurar a autenticação a utilizar o AD ou se autentiquem sem utilizar o AD. Com o cenário, certifique-se de que todos os utilizadores ligados têm as credenciais de nome de utilizador/palavra-passe que podem ser autenticadas através de RADIUS.
+Pode configurar a autenticação de nome de utilizador/palavra-passe para utilizar o Active Directory ou utiliza o Active Directory. Com o cenário, certifique-se de que todos os utilizadores ligados têm as credenciais de nome de utilizador/palavra-passe que podem ser autenticadas através de RADIUS.
 
-* Quando configurar a autenticação de nome de utilizador/palavra-passe, pode criar apenas uma configuração para o protocolo de autenticação de nome de utilizador/palavra-passe do EAP-MSCHAPv2.
-* '-AuthenticationMethod' for 'EapMSChapv2'.
+Quando configurar a autenticação de nome de utilizador/palavra-passe, pode criar apenas uma configuração para o protocolo de autenticação de nome de utilizador/palavra-passe do EAP-MSCHAPv2. Nos comandos, `-AuthenticationMethod` é `EapMSChapv2`.
 
 ### <a name="usernamefiles"></a> 1. Gerar ficheiros de configuração de cliente VPN
 
@@ -54,13 +55,13 @@ Gere ficheiros de configuração de cliente VPN para utilizar com a autenticaç�
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-Executar o comando devolve uma ligação. Copie e cole a hiperligação para um web browser para transferir 'VpnClientConfiguration.zip'. Deszipe o ficheiro para ver as seguintes pastas: 
+Executar o comando devolve uma ligação. Copie e cole a hiperligação para um web browser para transferir **VpnClientConfiguration.zip**. Deszipe o ficheiro para ver as seguintes pastas: 
  
-* **WindowsAmd64** e **WindowsX86** -estas pastas contêm os pacotes de instalador do Windows de 64 bits e de 32 bits, respetivamente. 
-* **Genérico** -esta pasta contém informações gerais, utilizadas para criar a sua própria configuração de cliente VPN. Esta pasta não é necessária para configurações de autenticação de nome de utilizador/palavra-passe.
-* **Mac** -IKEv2 se foi configurada quando criou o gateway de rede virtual, verá uma pasta denominada 'Mac' que contém um **mobileconfig** ficheiro. Este ficheiro é utilizado para configurar os clientes Mac.
+* **WindowsAmd64** e **WindowsX86**: estas pastas contêm os pacotes de instalador do Windows de 64 bits e de 32 bits, respetivamente. 
+* **Genérico**: esta pasta contém informações gerais que utilizar para criar a sua própria configuração de cliente VPN. Não precisa desta pasta para configurações de autenticação de nome de utilizador/palavra-passe.
+* **Mac**: Se configurou IKEv2 quando criou o gateway de rede virtual, verá uma pasta denominada **Mac** que contenha um **mobileconfig** ficheiro. Utilizar este ficheiro para configurar os clientes Mac.
 
-Se já criou cliente os ficheiros de configuração, pode obtê-los utilizando o cmdlet 'Get-AzureRmVpnClientConfiguration'. No entanto, se efetuar alterações à sua configuração de P2S VPN, tal como o tipo de protocolo de VPN ou o tipo de autenticação, a configuração não atualiza automaticamente. Tem de executar o cmdlet 'New-AzureRmVpnClientConfiguration' para criar uma transferência de configuração de novo.
+Se já criou cliente os ficheiros de configuração, pode obtê-los utilizando o `Get-AzureRmVpnClientConfiguration` cmdlet. Mas, se efetuar alterações à sua configuração de P2S VPN, tal como o tipo de protocolo VPN ou o tipo de autenticação, a configuração não é atualizada automaticamente. Tem de executar o `New-AzureRmVpnClientConfiguration` cmdlet para criar uma transferência de configuração de novo.
 
 Para obter os ficheiros de configuração de cliente gerado anteriormente, utilize o seguinte comando:
 
@@ -78,13 +79,13 @@ Pode configurar os seguintes clientes VPN:
  
 #### <a name="adwincli"></a>Configuração do cliente VPN do Windows
 
-Pode utilizar o mesmo pacote de configuração de cliente VPN em cada computador cliente Windows, desde que a versão corresponde à arquitetura do cliente. Para obter a lista de sistemas operativos cliente que são suportados, consulte a secção ponto a Site a [FAQ](vpn-gateway-vpn-faq.md#P2S).
+Pode utilizar o mesmo pacote de configuração de cliente VPN em cada computador cliente Windows, desde que a versão corresponde à arquitetura do cliente. Para obter a lista de sistemas operativos cliente que são suportados, consulte o [FAQ](vpn-gateway-vpn-faq.md#P2S).
 
 Utilize os seguintes passos para configurar o cliente de VPN do Windows nativo para autenticação de certificados:
 
-1. Selecione os ficheiros de configuração de cliente VPN que correspondem à arquitetura do computador Windows. Para uma arquitetura de processador de 64 bits, selecione o pacote de instalador 'VpnClientSetupAmd64'. Para uma arquitetura de processador de 32 bits, selecione o pacote de instalador 'VpnClientSetupX86'. 
-2. Para instalar o pacote, faça duplo clique. Se vir um pop-up SmartScreen, clique em **Mais informações** e, em seguida, em **Executar mesmo assim**.
-3. No computador cliente, navegue para **Definições de Rede** e clique em **VPN**. A ligação VPN mostra o nome da rede virtual à qual se liga. 
+1. Selecione os ficheiros de configuração de cliente VPN que correspondem à arquitetura do computador Windows. Para uma arquitetura de processador de 64 bits, escolha o **VpnClientSetupAmd64** pacote do instalador. Para uma arquitetura de processador de 32 bits, escolha o **VpnClientSetupX86** pacote do instalador. 
+2. Para instalar o pacote, faça duplo clique. Se vir um pop-up do SmartScreen, selecione **obter mais informações** > **executar mesmo assim**.
+3. No computador cliente, navegue para **as definições de rede** e selecione **VPN**. A ligação VPN mostra o nome da rede virtual à qual se liga. 
 
 #### <a name="admaccli"></a>Configuração de cliente VPN de MAC (OS X)
 
@@ -92,70 +93,71 @@ Utilize os seguintes passos para configurar o cliente de VPN do Windows nativo p
 
 2. Localize o **mobileconfig** ficheiro no Mac.
 
-  ![Localize o ficheiro de mobilconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
-3. Faça duplo clique no perfil para instalá-lo, clique em **continuar**. O nome do perfil é igual ao nome da VNet.
+   ![Localização do ficheiro mobilconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+3. Faça duplo clique para instalá-lo e selecione o perfil de **continuar**. O nome do perfil é igual ao nome da sua rede virtual.
 
-  ![Instalar](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
-4. Clique em **continuar** para o remetente do perfil de confiança e prosseguir com a instalação.
+   ![Mensagem de instalação](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
+4. Selecione **continuar** para o remetente do perfil de confiança e prosseguir com a instalação.
 
-  ![continuar](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
-5. Durante a instalação do perfil, é-lhe dada a opção de especificar o nome de utilizador e palavra-passe utilizada para autenticação de VPN. Não é obrigatório para introduzir estas informações. Se for especificado, as informações são guardadas e utilizadas automaticamente quando iniciar uma ligação. Clique em **instalar** para continuar.
+   ![Mensagem de confirmação](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
+5. Durante a instalação do perfil, tem a opção para especificar o nome de utilizador e palavra-passe para autenticação de VPN. Não é obrigatório para introduzir estas informações. Se o fizer, as informações são guardadas e utilizadas automaticamente quando iniciar uma ligação. Selecione **instalar** para continuar.
 
-  ![settings](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-6. Introduza um nome de utilizador e palavra-passe para os privilégios necessários necessários para instalar o perfil no seu computador. Clique em **OK**.
+   ![Caixas de nome de utilizador e palavra-passe para VPN](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
+6. Introduza um nome de utilizador e palavra-passe para os privilégios necessários para instalar o perfil no seu computador. Selecione **OK**.
 
-  ![nome de utilizador e palavra-passe](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
-7. Depois de instalado, o perfil é visível no **perfis** caixa de diálogo. Esta caixa de diálogo também pode ser aberta mais tarde de **preferências do sistema**.
+   ![Caixas de nome de utilizador e palavra-passe para a instalação do perfil](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
+7. Depois do perfil é instalado, está visível no **perfis** caixa de diálogo. Pode também abrir esta caixa de diálogo mais tarde a partir do **preferências do sistema**.
 
-  ![preferências do sistema](./media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
+   ![Caixa de diálogo "Perfis"](./media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
 8. Para aceder a ligação VPN, abra o **rede** caixa de diálogo de **preferências do sistema**.
 
-  ![Rede](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
-9. A ligação VPN é apresentado como **IkeV2 VPN**. O nome pode ser alterado por atualizar o **mobileconfig** ficheiro.
+   ![Ícones de preferências do sistema](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
+9. A ligação VPN é apresentado como **IkeV2 VPN**. Pode alterar o nome, atualizando o **mobileconfig** ficheiro.
 
-  ![ligação](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
-10. Clique em **definições de autenticação**. Escolha **Username** na lista pendente e introduza as suas credenciais. Se introduziu as credenciais anteriormente, em seguida, **Username** automaticamente escolhida na lista pendente e o nome de utilizador e palavra-passe são pré-preenchidos. Clique em **OK** para guardar as definições. Isto leva-o novamente para a caixa de diálogo de rede.
+   ![Detalhes para a ligação VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
+10. Selecione **definições de autenticação**. Selecione **Username** na lista e introduza as suas credenciais. Se introduziu as credenciais anteriormente, em seguida, **Username** é automaticamente escolhida na lista e o nome de utilizador e palavra-passe é pré-preenchida. Selecione **OK** para guardar as definições.
 
-  ![autenticar](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
-11. Clique em **aplicar** para guardar as alterações. Para iniciar a ligação, clique em **Connect**.
+    ![Definições de autenticação](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+11. Volta a **rede** caixa de diálogo, selecione **aplicar** para guardar as alterações. Para iniciar a ligação, selecione **Connect**.
 
-#### <a name="adlinuxcli"></a>Configuração de cliente de VPN do Linux utilizando strongSwan
+#### <a name="adlinuxcli"></a>Configuração de cliente de VPN do Linux através do strongSwan
 
-As instruções seguintes foram criadas utilizando strongSwan 5.5.1 no Ubuntu 17.0.4. Ecrãs reais poderão ser diferentes dependendo da versão do Linux e strongSwan.
+As instruções seguintes foram criadas através de strongSwan 5.5.1 no Ubuntu 17.0.4. Ecrãs reais podem ser diferentes, dependendo da versão do Linux e strongSwan.
 
-1. Abra o **Terminal** instalar **strongSwan** e o Gestor de rede ao executar o comando no exemplo. Se receber um erro relacionado com o "libcharon-extra-plug-ins", substitua-o por "strongswan-Plug-in-eap-mschapv2".
+1. Abra o **Terminal** instalar **strongSwan** e o Gestor de rede ao executar o comando no exemplo. Se receber um erro relacionado com `libcharon-extra-plugins`, substitua-o com `strongswan-plugin-eap-mschapv2`.
 
-  ```Terminal
-  sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
-  ```
-2. Clique em de **Gestor de rede** ícone (cópia de segurança-seta/seta para baixo) e selecione **Editar ligações**.
+   ```Terminal
+   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   ```
+2. Selecione o **Gestor de rede** ícone (cópia de segurança-seta/seta para baixo) e selecione **Editar ligações**.
 
-  ![Editar ligação](./media/point-to-site-vpn-client-configuration-radius/EditConnection.png)
-3. Clique em de **adicionar** botão para criar uma nova ligação.
+   ![Seleção "Editar ligações" no Gestor de rede](./media/point-to-site-vpn-client-configuration-radius/EditConnection.png)
+3. Selecione o **adicionar** botão para criar uma nova ligação.
 
-  ![Adicionar ligação](./media/point-to-site-vpn-client-configuration-radius/AddConnection.png)
-4. Selecione **(strongswan) de IPsec/IKEv2** no menu pendente, em seguida, clique em **criar**. Pode mudar o nome da sua ligação neste passo.
+   ![Botão "Adicionar" para uma ligação](./media/point-to-site-vpn-client-configuration-radius/AddConnection.png)
+4. Selecione **(strongswan) de IPsec/IKEv2** no menu pendente e, em seguida, selecione **criar**. Pode mudar o nome da sua ligação neste passo.
 
-  ![Adicionar ikev2](./media/point-to-site-vpn-client-configuration-radius/AddIKEv2.png)
-5. Abra o **VpnSettings.xml** de ficheiros do **genérico** pasta dos ficheiros de configuração de cliente transferido. Localize a etiqueta chamada **VpnServer** e copie o nome, a partir "azuregateway" e termina com ". cloudapp.net".
+   ![Selecionar o tipo de ligação](./media/point-to-site-vpn-client-configuration-radius/AddIKEv2.png)
+5. Abra o **VpnSettings.xml** de ficheiros do **genérico** pasta dos ficheiros de configuração de cliente transferido. Localize a etiqueta chamada `VpnServer` e copie o nome, a partir `azuregateway` e terminando `.cloudapp.net`.
 
-  ![definições de VPN](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
-6. Cole este nome para o **endereço** campo a nova ligação de VPN no **Gateway** secção. Em seguida, clique no ícone de pasta no fim do **certificado** campo, navegue até à pasta genérica e selecione o **VpnServerRoot** ficheiro localizado não existe.
-7. Sob o **cliente** secção da ligação, escolha **EAP** para **autenticação**e introduza o nome de utilizador/palavra-passe. Poderá ter de selecionar o ícone de cadeado no lado direito para guardar estas informações. Em seguida, clique em **guardar**.
+   ![Conteúdo do ficheiro VpnSettings.xml](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
+6. Cole este nome para o **endereço** campo a nova ligação de VPN no **Gateway** secção. Em seguida, selecione o ícone de pasta no fim do **certificado** campo, navegue para o **genérico** pastas e selecione o **VpnServerRoot** ficheiro.
+7. No **cliente** secção da ligação, selecione **EAP** para **autenticação**e introduza o seu nome de utilizador e palavra-passe. Poderá ter de selecionar o ícone de cadeado no lado direito para guardar estas informações. Em seguida, selecione **Guardar**.
 
-  ![Editar definições de ligação](./media/point-to-site-vpn-client-configuration-radius/editconnectionsettings.png)
-8. Clique em de **Gestor de rede** ícone (cópia de segurança-seta/seta para baixo) e paire sobre **ligações VPN**. Verá a ligação de VPN que criou. Para iniciar a ligação, selecione-o para estabelecer a ligação.
+   ![Editar definições de ligação](./media/point-to-site-vpn-client-configuration-radius/editconnectionsettings.png)
+8. Selecione o **Gestor de rede** ícone (cópia de segurança-seta/seta para baixo) e paire sobre **ligações VPN**. Consulte a ligação de VPN que criou. Para iniciar a ligação, selecione-o.
 
-  ![ligar radius](./media/point-to-site-vpn-client-configuration-radius/ConnectRADIUS.png)
+   ![Ligação de "VPN Radius" no Gestor de rede](./media/point-to-site-vpn-client-configuration-radius/ConnectRADIUS.png)
 
 ## <a name="certeap"></a>Autenticação de certificados
  
-Pode criar ficheiros de configuração para autenticação de certificados RADIUS que utiliza o protocolo EAP-TLS de cliente VPN. Normalmente, um certificado emitido por empresarial é utilizado para autenticar um utilizador para VPN. Certifique-se de que todos os utilizadores de ligação tem um certificado instalado nos dispositivos dos utilizadores e de que o certificado pode ser validado pelo seu servidor RADIUS.
- 
-* '-AuthenticationMethod' for 'EapTls'.
-* Durante a autenticação de certificado, o cliente valida o servidor RADIUS ao validar o respetivo certificado. -RadiusRootCert é o ficheiro. cer que contém o certificado de raiz que é utilizado para validar o servidor RADIUS.
-* Cada dispositivo de cliente VPN requer um certificado de cliente instalado.
-* Por vezes, um dispositivo Windows tem vários certificados de cliente. Durante a autenticação, isto pode resultar numa caixa de diálogo de pop-up listar todos os certificados. O utilizador, em seguida, tem de escolher o certificado a utilizar. O certificado correto pode ser filtrado, especificando o certificado de raiz ao qual o certificado de cliente deve estar ligados. '-ClientRootCert' é o ficheiro. cer que contém o certificado de raiz. É um parâmetro opcional. Se o dispositivo a partir do qual pretende ligar-se tiver apenas um certificado de cliente, em seguida, este parâmetro não tem de ser especificado.
+Pode criar ficheiros de configuração para autenticação de certificados RADIUS que utiliza o protocolo EAP-TLS de cliente VPN. Normalmente, um certificado emitido por empresarial é utilizado para autenticar um utilizador para VPN. Certifique-se de que todos os utilizadores de ligação tem um certificado instalado nos respetivos dispositivos e de que o servidor RADIUS pode validar o certificado.
+
+Nos comandos, `-AuthenticationMethod` é `EapTls`. Durante a autenticação de certificado, o cliente valida o servidor RADIUS ao validar o respetivo certificado. `-RadiusRootCert` é o ficheiro. cer que contém o certificado de raiz que é utilizado para validar o servidor RADIUS.
+
+Cada dispositivo de cliente VPN requer um certificado de cliente instalado. Por vezes, um dispositivo Windows tem vários certificados de cliente. Durante a autenticação, isto pode resultar numa caixa de diálogo de pop-up que lista todos os certificados. O utilizador, em seguida, tem de escolher o certificado a utilizar. O certificado correto pode ser filtrado, especificando o certificado de raiz que o certificado de cliente deve estar ligados ao. 
+
+`-ClientRootCert` é o ficheiro. cer que contém o certificado de raiz. É um parâmetro opcional. Se o dispositivo que pretende ligar-se de que tem apenas um certificado de cliente, não tem de especificar este parâmetro.
 
 ### <a name="certfiles"></a>1. Gerar ficheiros de configuração de cliente VPN
 
@@ -165,12 +167,12 @@ Gere ficheiros de configuração de cliente VPN para utilizar com a autenticaç�
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
-Executar o comando devolve uma ligação. Copie e cole a hiperligação para um web browser para transferir 'VpnClientConfiguration.zip'. Deszipe o ficheiro para ver as seguintes pastas:
+Executar o comando devolve uma ligação. Copie e cole a hiperligação para um web browser para transferir VpnClientConfiguration.zip. Deszipe o ficheiro para ver as seguintes pastas:
 
-* **WindowsAmd64** e **WindowsX86** -estas pastas contêm os pacotes de instalador do Windows de 64 bits e de 32 bits, respetivamente. 
-* **GenericDevice** -esta pasta contém informações gerais, utilizadas para criar a sua própria configuração de cliente VPN.
+* **WindowsAmd64** e **WindowsX86**: estas pastas contêm os pacotes de instalador do Windows de 64 bits e de 32 bits, respetivamente. 
+* **GenericDevice**: esta pasta contém informações gerais que são utilizadas para criar a sua própria configuração de cliente VPN.
 
-Se já criou cliente os ficheiros de configuração, pode obtê-los utilizando o cmdlet 'Get-AzureRmVpnClientConfiguration'. No entanto, se efetuar alterações à sua configuração de P2S VPN, tal como o tipo de protocolo de VPN ou o tipo de autenticação, a configuração não atualiza automaticamente. Tem de executar o cmdlet 'New-AzureRmVpnClientConfiguration' para criar uma transferência de configuração de novo.
+Se já criou cliente os ficheiros de configuração, pode obtê-los utilizando o `Get-AzureRmVpnClientConfiguration` cmdlet. Mas, se efetuar alterações à sua configuração de P2S VPN, tal como o tipo de protocolo VPN ou o tipo de autenticação, a configuração não é atualizada automaticamente. Tem de executar o `New-AzureRmVpnClientConfiguration` cmdlet para criar uma transferência de configuração de novo.
 
 Para obter os ficheiros de configuração de cliente gerado anteriormente, utilize o seguinte comando:
 
@@ -188,70 +190,66 @@ Pode configurar os seguintes clientes VPN:
 
 #### <a name="certwincli"></a>Configuração do cliente VPN do Windows
 
-1. Selecione um pacote de configuração e instale-o no dispositivo cliente. Para uma arquitetura de processador de 64 bits, selecione o pacote de instalador 'VpnClientSetupAmd64'. Para uma arquitetura de processador de 32 bits, selecione o pacote de instalador 'VpnClientSetupX86'. Se vir um pop-up SmartScreen, clique em **Mais informações** e, em seguida, em **Executar mesmo assim**. Também pode guardar o pacote para instalar noutros computadores cliente.
-2. Cada cliente necessita de um certificado de cliente para autenticar. Instale o certificado de cliente. Para obter informações sobre certificados de cliente, consulte [certificados de cliente para ponto a Site](vpn-gateway-certificates-point-to-site.md). Para instalar um certificado que foi gerado, consulte [instalar um certificado em clientes Windows](point-to-site-how-to-vpn-client-install-azure-cert.md).
-3. No computador cliente, navegue para **Definições de Rede** e clique em **VPN**. A ligação VPN mostra o nome da rede virtual à qual se liga.
+1. Selecione um pacote de configuração e instale-o no dispositivo cliente. Para uma arquitetura de processador de 64 bits, escolha o **VpnClientSetupAmd64** pacote do instalador. Para uma arquitetura de processador de 32 bits, escolha o **VpnClientSetupX86** pacote do instalador. Se vir um pop-up do SmartScreen, selecione **obter mais informações** > **executar mesmo assim**. Também pode guardar o pacote para instalar noutros computadores cliente.
+2. Cada cliente necessita de um certificado de cliente para autenticação. Instale o certificado de cliente. Para obter informações sobre certificados de cliente, consulte [certificados de cliente para ponto a site](vpn-gateway-certificates-point-to-site.md). Para instalar um certificado que foi gerado, consulte [instalar um certificado em clientes Windows](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. No computador cliente, navegue para **as definições de rede** e selecione **VPN**. A ligação VPN mostra o nome da rede virtual à qual se liga.
 
 #### <a name="certmaccli"></a>Configuração de cliente VPN de MAC (OS X)
 
-Tem de criar um perfil separado para cada dispositivo de Mac liga ao Azure VNet. Isto acontece porque estes dispositivos necessitem do certificado de utilizador para autenticação de ser especificado no perfil. O **genérico** pasta tem todas as informações necessárias para criar um perfil.
+Tem de criar um perfil separado para cada dispositivo de Mac que liga à rede virtual do Azure. Isto acontece porque estes dispositivos necessitem do certificado de utilizador para autenticação de ser especificado no perfil. O **genérico** pasta tem todas as informações necessárias para criar um perfil:
 
-  * **VpnSettings.xml** contém definições importantes, tais como o tipo de túnel e o endereço do servidor.
-  * **VpnServerRoot.cer** contém o certificado de raiz necessário para validar o gateway VPN durante a configuração de ligação de P2S.
-  * **RadiusServerRoot.cer** contém o certificado de raiz necessário para validar o servidor RADIUS durante a autenticação.
+* **VpnSettings.xml** contém definições importantes, tais como o tipo de túnel e o endereço do servidor.
+* **VpnServerRoot.cer** contém o certificado de raiz necessárias para validar o gateway VPN durante a configuração de ligação de P2S.
+* **RadiusServerRoot.cer** contém o certificado de raiz necessárias para validar o servidor RADIUS durante a autenticação.
 
-Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para autenticação de certificados:
+Utilize os seguintes passos para configurar o cliente VPN nativo num Mac para autenticação de certificados:
 
-1. Importar o **VpnServerRoot** e **RadiusServerRoot** raiz certificados para o Mac. Isto pode ser feito ao copiar o ficheiro de ativação pós-falha para Mac e fazer duplo clique.  
-Clique em **adicionar** para importar.
+1. Importar o **VpnServerRoot** e **RadiusServerRoot** raiz certificados para o Mac. Copiar cada ficheiro para Mac, faça duplo clique e, em seguida, selecione **adicionar**.
 
-  *Add VpnServerRoot*
+   ![Adicionar o certificado de VpnServerRoot](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
 
-  ![Adicionar certificado](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
+   ![Adicionar o certificado de RadiusServerRoot](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
+2. Cada cliente necessita de um certificado de cliente para autenticação. Instale o certificado de cliente no dispositivo cliente.
+3. Abra o **rede** caixa de diálogo em **preferências de rede**. Selecione  **+**  para criar um novo perfil de ligação de cliente VPN para uma ligação de P2S para a rede virtual do Azure.
 
-  *Add RadiusServerRoot*
+   O **Interface** valor é **VPN**e o **tipo de VPN** valor é **IKEv2**. Especifique um nome para o perfil no **nome do serviço** caixa e, em seguida, selecione **criar** para criar o perfil de ligação de cliente VPN.
 
-  ![Adicionar certificado](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
-2. Cada cliente necessita de um certificado de cliente para autenticar. Instale o certificado de cliente no dispositivo cliente.
-3. Abra o **rede** diálogo em **preferências de rede** e clique em **'+'** para criar um novo perfil de ligação de cliente VPN para uma ligação de P2S para a VNet do Azure.
+   ![Informações de nome de interface e o serviço](./media/point-to-site-vpn-client-configuration-radius/network.png)
+4. No **genérico** pasta, do **VpnSettings.xml** ficheiro, copie o **VpnServer** valor da etiqueta. Cole este valor no **endereço do servidor** e **ID remoto** caixas do perfil. Deixe o **Local ID** caixa em branco.
 
-  O **Interface** valor é 'VPN' e **tipo de VPN** valor é 'IKEv2'. Especifique um nome para o perfil no **nome do serviço** campo, em seguida, clique em **criar** para criar o perfil de ligação de cliente VPN.
+   ![Informações do servidor](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
+5. Selecione **definições de autenticação**e selecione **certificado**. 
 
-  ![Rede](./media/point-to-site-vpn-client-configuration-radius/network.png)
-4. No **genérico** pasta, do **VpnSettings.xml** ficheiro, copie o **VpnServer** valor da etiqueta. Cole este valor no **endereço do servidor** e **ID remoto** campos do perfil. Deixe o **Local ID** campo vazio.
+   ![Definições de autenticação](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
+6. Clique em **selecione** para escolher o certificado que pretende utilizar para autenticação.
 
-  ![informações do servidor](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
-5. Clique em **definições de autenticação** e selecione **certificado**. 
+   ![Selecionar um certificado para autenticação](./media/point-to-site-vpn-client-configuration-radius/certificate.png)
+7. **Escolha uma identidade** apresenta uma lista de certificados para escolher. Selecione o certificado adequado e, em seguida, selecione **continuar**.
 
-  ![definições de autenticação](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
-6. Clique em **selecionar...** para escolher o certificado que pretende utilizar para autenticação.
+   ![Lista de "Escolher uma identidade"](./media/point-to-site-vpn-client-configuration-radius/identity.png)
+8. No **Local ID** caixa, especifique o nome do certificado (a partir do passo 6). Neste exemplo, tem **ikev2Client.com**. Em seguida, selecione o **aplicar** botão para guardar as alterações.
 
-  ![certificado](./media/point-to-site-vpn-client-configuration-radius/certificate.png)
-7. **Escolha uma identidade** apresenta uma lista de certificados para escolher. Selecione o certificado adequado, em seguida, clique em **continuar**.
-
-  ![identidade](./media/point-to-site-vpn-client-configuration-radius/identity.png)
-8. No **Local ID** campo, especifique o nome do certificado (a partir do passo 6). Neste exemplo, é "ikev2Client.com". Em seguida, clique em **aplicar** botão para guardar as alterações.
-
-  ![aplicar](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
-9. No **rede** caixa de diálogo, clique em **aplicar** para guardar todas as alterações. Em seguida, clique em **Connect** para iniciar a ligação P2S a VNet do Azure.
+   ![Caixa de "Local ID"](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
+9. No **rede** caixa de diálogo, selecione **aplicar** para guardar todas as alterações. Em seguida, selecione **Connect** para iniciar a ligação de P2S para a rede virtual do Azure.
 
 ## <a name="otherauth"></a>Trabalhar com outros tipos de autenticação ou protocolos
 
-Para utilizar um tipo de autenticação diferentes (por exemplo, o OTP) e não nome de utilizador/palavra-passe ou certificados ou para utilizar um protocolo de autenticação diferentes (tais como PEAP-MSCHAPv2, em vez de EAP-MSCHAPv2), tem de criar o seu próprio perfil de configuração de cliente VPN. Para criar o perfil, terá de informações como o endereço IP do gateway de rede virtual, tipo de túnel e rotas de divisão do túnel. Pode obter estas informações através dos seguintes passos:
+Para utilizar um tipo de autenticação diferentes (por exemplo, o OTP), ou para utilizar um protocolo de autenticação diferentes (tais como PEAP-MSCHAPv2 em vez de EAP-MSCHAPv2), tem de criar o seu próprio perfil de configuração de cliente VPN. Para criar o perfil, terá de informações como o endereço IP do gateway de rede virtual, tipo de túnel e rotas de divisão do túnel. Pode obter estas informações através dos seguintes passos:
 
-1. Utilize o cmdlet 'Get-AzureRmVpnClientConfiguration' para gerar a configuração de cliente VPN para EapMSChapv2. Para obter instruções, consulte [nesta secção](#ccradius) do artigo.
+1. Utilize o `Get-AzureRmVpnClientConfiguration` cmdlet para gerar a configuração de cliente VPN para EapMSChapv2. Para obter instruções, consulte [nesta secção](#ccradius) do artigo.
 
-2. Deszipe o ficheiro VpnClientConfiguration.zip e procure a pasta de GenenericDevice. Ignore as pastas que contêm os programas de instalação do Windows para arquiteturas de 64 bits e de 32 bits.
+2. Deszipe o ficheiro VpnClientConfiguration.zip e procure o **GenenericDevice** pasta. Ignore as pastas que contêm os programas de instalação do Windows para arquiteturas de 64 bits e de 32 bits.
  
-3. A pasta de GenenericDevice contém um ficheiro XML denominado VpnSettings. Este ficheiro contém todas as informações necessárias.
+3. O **GenenericDevice** pasta contém um ficheiro XML denominado **VpnSettings**. Este ficheiro contém todas as informações necessárias:
 
-  * VpnServer - FQDN do Gateway VPN do Azure. Este é o endereço que o cliente liga-se ao.
-  * VpnType - o tipo de túnel que utilizar para ligar.
-  * As rotas - as rotas que tem de configurar no seu perfil para que apenas a VNet do Azure vinculada tráfego é enviada através do túnel P2S.
-  * A pasta de GenenericDevice também contém um ficheiro. cer chamado 'VpnServerRoot'. Este ficheiro contém o certificado de raiz necessário para validar o Gateway de VPN do Azure durante a configuração de ligação de P2S. Instale o certificado em todos os dispositivos que irão ligar à VNet do Azure.
+   * **VpnServer**: FQDN do gateway de VPN do Azure. Este é o endereço que o cliente liga-se ao.
+   * **VpnType**: criar um túnel entre tipo que utilizar para ligar.
+   * **Rotas**: rotas que tem de configurar no seu perfil para que apenas o tráfego que está vinculado a rede virtual do Azure é enviado através do túnel P2S.
+   
+   O **GenenericDevice** pasta também contém um ficheiro. cer chamado **VpnServerRoot**. Este ficheiro contém o certificado de raiz necessárias para validar o gateway de VPN do Azure durante a configuração de ligação de P2S. Instale o certificado em todos os dispositivos que irão ligar à rede virtual do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Devolver o artigo para [concluir a configuração de P2S](point-to-site-how-to-radius-ps.md).
 
-Para informações de resolução de problemas de P2S, [ligações ponto a site de resolução de problemas do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Para P2S resolução de problemas de informações, consulte o artigo [ligações ponto a site de resolução de problemas do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

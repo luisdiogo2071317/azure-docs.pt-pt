@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 37fbe7fa3160d39e85614c3481061d5ce458b29a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e análise de registos
 O [Azure Application Insights](app-insights-overview.md) serviço utiliza um número de endereços IP. Poderá ter de conhecer estes endereços, se a aplicação que está a monitorizar estiver alojada atrás de uma firewall.
@@ -48,7 +48,7 @@ Configuração de Monitor do Estado - necessária apenas quando efetuar alteraç
 | Configuração |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuração |`auth.gfx.ms` | |`443` |
 | Configuração |`login.live.com` | |`443` |
-| Instalação |`packages.nuget.org` , `nuget.org` | |`443` |
+| Instalação |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | Objetivo | do IdP | IP | Portas |

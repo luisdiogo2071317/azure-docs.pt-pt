@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Código e teste das funções do Azure localmente
 
@@ -35,14 +35,6 @@ Se for um programador Visual Studio c#, as funções do Azure também [integra-s
 
 >[!NOTE]  
 > Antes de instalar uma das versões, tem [instalar NodeJS](https://docs.npmjs.com/getting-started/installing-node), que inclui npm. Para a versão 2. x das ferramentas, apenas Node.js 8.5 e versões posteriores são suportados. 
-
-### <a name="version-1x-runtime"></a>Tempo de execução do versão 1. x
-
-A versão das ferramentas original utiliza o tempo de execução de 1. x de funções. Esta versão utiliza o .NET Framework e só é suportada em computadores Windows. Utilize o seguinte comando para instalar as ferramentas de 1. x da versão:
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Tempo de execução do versão 2. x
 
@@ -69,6 +61,14 @@ Ao instalar no macOS e Linux, poderá ter de incluir o `unsafe-perm` sinalizador
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Tempo de execução do versão 1. x
+
+A versão das ferramentas original utiliza o tempo de execução de 1. x de funções. Esta versão utiliza o .NET Framework e só é suportada em computadores Windows. Utilize o seguinte comando para instalar as ferramentas de 1. x da versão:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Executar as ferramentas de núcleos de funções do Azure

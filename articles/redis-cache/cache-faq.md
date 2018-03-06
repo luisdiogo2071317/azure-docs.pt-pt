@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-redis-cache-faq"></a>FAQ da Cache de Redis do Azure
 Saiba as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure.
@@ -135,7 +135,7 @@ Esta tabela, iremos pode desenhar os conclusões seguintes:
 | Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB | Tamanho do valor de 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS) não SSL** |**Pedidos por segundo (RPS) SSL** |
-| C0 |250 MB |Partilhado |100 / 12.5 |15,000 |7,500 |
+| C0 |250 MB |Partilhado |100 / 12.5 |15,000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
@@ -246,9 +246,7 @@ Pode utilizar qualquer um dos comandos listados em [Redis comandos](http://redis
 * Também pode utilizar as ferramentas de linha de comandos do Redis. A utilizá-los, execute os seguintes passos:
 * Transferir o [Redis ferramentas da linha de comandos](https://github.com/MSOpenTech/redis/releases/).
 * Ligar ao utilizar a cache `redis-cli.exe`. Transmita o ponto final de cache utilizando que o -h mudar e a chave utilizando - a conforme mostrado no exemplo seguinte:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > As ferramentas de linha de comandos de Redis não funcionam com a porta SSL, mas pode utilizar um utilitário como `stunnel` ligar de forma segura as ferramentas para a porta SSL, seguindo as indicações de [anunciar ASP.NET sessão fornecedor de estado para a pré-visualização de Redis Versão](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogue.
@@ -270,7 +268,7 @@ Sim, para utilizar a Cache de Redis do Azure como uma cache de sessão do PHP, e
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Se a chave não é URL codificado, poderá receber uma excepção com uma mensagem como:`Failed to parse session.save_path`
+> Se a chave não é URL codificado, poderá receber uma excepção com uma mensagem como: `Failed to parse session.save_path`
 >
 >
 

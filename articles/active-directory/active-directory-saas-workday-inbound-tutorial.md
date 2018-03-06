@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -45,7 +45,7 @@ Os Workday utilizador Aprovisiona fluxos de trabalho suportados pelo serviço de
 
 * **Terminations empregado** - quando um empregado é terminado no Workday, a conta de utilizador é desativada automaticamente no Active Directory, Azure Active Directory e, opcionalmente, Office 365 e [outras aplicações de SaaS suportadas pelo Azure AD](active-directory-saas-app-provisioning.md).
 
-* **Empregado novamente hires** - quando um empregado é rehired no Workday, a conta antiga pode ser reativada ou novamente aprovisionada (dependendo da sua preferência) do Active Directory, Azure Active Directory e, opcionalmente, Office 365 automaticamente e [outras aplicações de SaaS suportadas pelo Azure AD](active-directory-saas-app-provisioning.md).
+* **Empregado novamente hires** - quando um empregado é rehired no Workday, a conta antiga pode ser reativada ou novamente aprovisionada (dependendo da sua preferência) do Active Directory, Azure Active Directory e, opcionalmente, para o Office 365 e automaticamente[outras aplicações de SaaS suportadas pelo Azure AD](active-directory-saas-app-provisioning.md).
 
 
 ## <a name="planning-your-solution"></a>Planeamento da solução
@@ -105,7 +105,7 @@ Para facilitar a estes fluxos de trabalho vários para vários sistemas de orige
 
 * **Workday para aprovisionamento do Active Directory** -conta aprovisionamento de utilizadores do Workday para uma única floresta do Active Directory facilita a esta aplicação. Se tiver várias florestas, pode adicionar uma instância desta aplicação na Galeria de aplicações do Azure AD para cada floresta do Active Directory, que terá de aprovisionar a.
 
-* **Workday para aprovisionamento do Azure AD** - enquanto o AAD Connect é a ferramenta que deve ser utilizada para sincronizar o Active Directory, os utilizadores ao Azure Active Directory, esta aplicação podem ser utilizados para facilitar o aprovisionamento de utilizadores apenas na nuvem do Workday para um único inquilino do Azure Active Directory.
+* **Workday para aprovisionamento do Azure AD** - enquanto o AAD Connect é a ferramenta que deve ser utilizada para sincronizar o Active Directory, os utilizadores ao Azure Active Directory, esta aplicação podem ser utilizados para facilitar o aprovisionamento de utilizadores apenas na nuvem do Workday para um único Azure Inquilino do Active Directory.
 
 * **Repetição de escrita do workday** -repetição de escrita de endereços de e-mail do utilizador do Azure Active Directory para Workday facilita a esta aplicação.
 
@@ -229,7 +229,7 @@ Siga estas instruções para configurar o aprovisionamento do Workday para cada 
 
 **Para configurar Workday aprovisionamento do Active Directory:**
 
-1.  Aceda a <https://portal.azure.com>
+1.  Ir para <https://portal.azure.com>
 
 2.  Na barra de navegação esquerdo, selecione **do Azure Active Directory**
 
@@ -245,7 +245,7 @@ Siga estas instruções para configurar o aprovisionamento do Workday para cada 
 
 8.  Concluir o **credenciais de administrador** secção da seguinte forma:
 
-   * **Nome de utilizador de Admin** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. **Deverá ter um aspeto semelhante ao seguinte:username@contoso4**
+   * **Nome de utilizador de Admin** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. **Deverá ter um aspeto semelhante ao seguinte: username@contoso4**
 
    * **Palavra-passe de administrador –** introduza a palavra-passe da conta de sistema de integração do Workday
 
@@ -352,8 +352,8 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 | **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Criar + atualizar |
 | **BusinessTitle**   |  título     |     |  Criar + atualizar |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "p",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([M])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",, "",), "contoso.com")**   | userPrincipalName     |     | Escrito no apenas a criar                                                   
-| **Comutador (\[Municipality\], "UO = padrão UO dos utilizadores, = utilizadores, UO = predefinido, UO = localizações, DC = contoso, DC = com", "Dallas", "UO = utilizadores padrão, UO = utilizadores, UO = Dallas, UO = localizações, DC = contoso, DC = com", "Austin", "UO = padrão UO dos utilizadores, = utilizadores, UO = Austin, UO = localizações, DC = contoso, DC = com", "Coimbra", "UO = utilizadores padrão, UO = utilizadores, UO = Seattle, UO = localizações, DC = contoso, DC = com", "Londres", "UO = utilizadores padrão UO = utilizadores, UO = Londres, UO = localizações, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Criar + atualizar |
+| **Associar ("@", substituir (substituir (substituir (substituir (substitua (substitua (substitua (substitua (substitua ((substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir (substituir ( Substituir (associar (".", [FirstName], [LastName]), "([Øø])", "oe",), "[Ææ]", "ae",), "([äãàâãåáąÄÃÀÂÃÅÁĄA])", "a",), "([B])", "b",), "([CçčćÇČĆ])", "c",), "([ďĎD])", "d",), "([ëèéêęěËÈÉÊĘĚE])", "e",), "([F])", "f",), "([G])" "g",), "([H])", "h",), "([ïîìíÏÎÌÍI])", "i",), "([J])", "j",), "([K])", "k",), "([ľłŁĽL])", "l",), "([M])", "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "p",),  "([ŘŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([M])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",, "",), "contoso.com")**   | userPrincipalName     |     | Escrito no apenas a criar                                                   
+| **Comutador (\[Municipality\], "UO = utilizadores padrão, UO = utilizadores, UO = predefinido, UO = localizações, DC = contoso, DC = com", "Dallas", "UO = utilizadores padrão, UO = utilizadores, UO = Dallas, UO = localizações, DC = contoso, DC = com", "Austin", "UO = padrão UO dos utilizadores, = Utilizadores, UO = Austin, UO = localizações, DC = contoso, DC = com ","Coimbra"," UO = utilizadores padrão, UO = utilizadores, UO = Seattle, UO = localizações, DC = contoso, DC = com ","Londres"," UO = utilizadores padrão, UO = utilizadores, UO = Londres, UO = localizações, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Criar + atualizar |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Parte 3: Configurar o agente de sincronização no local
 
@@ -500,7 +500,7 @@ As secções seguintes descrevem como configurar uma ligação entre Workday e o
 
 8.  Concluir o **credenciais de administrador** secção da seguinte forma:
 
-   * **Nome de utilizador de Admin** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deverá ter um aspeto semelhante ao seguinte:username@contoso4
+   * **Nome de utilizador de Admin** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deverá ter um aspeto semelhante ao seguinte: username@contoso4
 
    * **Palavra-passe de administrador –** introduza a palavra-passe da conta de sistema de integração do Workday
 
@@ -589,7 +589,7 @@ Siga estas instruções para configurar a repetição de escrita de endereços d
 
 **Para configurar Workday aprovisionamento do Active Directory:**
 
-1.  Aceda a <https://portal.azure.com>
+1.  Ir para <https://portal.azure.com>
 
 2.  Na barra de navegação esquerdo, selecione **do Azure Active Directory**
 
@@ -605,7 +605,7 @@ Siga estas instruções para configurar a repetição de escrita de endereços d
 
 8.  Concluir o **credenciais de administrador** secção da seguinte forma:
 
-   * **Nome de utilizador de Admin** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deverá ter um aspeto semelhante ao seguinte:username@contoso4
+   * **Nome de utilizador de Admin** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deverá ter um aspeto semelhante ao seguinte: username@contoso4
 
    * **Palavra-passe de administrador –** introduza a palavra-passe da conta de sistema de integração do Workday
 
@@ -743,7 +743,7 @@ Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-
 
 8. Para **tipo**, selecione o tipo que adequadamente corresponda ao seu atributo (**cadeia** é mais comum).
 
-9. Para **API expressão**, introduza a expressão XPath que copiou do Workday Studio. Exemplo:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+9. Para **API expressão**, introduza a expressão XPath que copiou do Workday Studio. Exemplo: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
 10. Selecione **adicionar atributo**.
 

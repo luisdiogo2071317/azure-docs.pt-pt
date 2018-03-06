@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -33,6 +33,8 @@ Se tiver um ambiente do Active Directory no local e que pretende associar os dis
 Antes de iniciar a configuração híbrida do Azure AD associado dispositivos no seu ambiente, deve ser familiarizar com os cenários suportados e as restrições.  
 
 Se estão a depender de [ferramenta de preparação do sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), certifique-se a criar imagens a partir de uma instalação do Windows que não foi ainda registado com o Azure AD.
+
+Todos os dispositivos associados a um domínio em execução de atualização de aniversário do Windows 10 e Windows Server 2016 registar automaticamente com o Azure AD no reinício de dispositivo ou utilizador iniciar sessão depois de concluir os passos de configuração mencionados abaixo. Se este comportamento de registo automática não é preferencial, ou se pretender uma implementação controlada, siga as instruções na secção de implementação de controlo e de implementação abaixo primeiro seletivamente ativar ou desativar a implementação automática antes de seguir outros passos de configuração.  
 
 Para melhorar a legibilidade das descrições, este tópico utiliza o termo seguinte: 
 
@@ -204,7 +206,7 @@ A definição de ajuda-o para verificar se os valores estão presentes ou se ter
 
 ### <a name="issue-account-type-claim"></a>Afirmações de tipo de conta do problema
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`**-Esta afirmação tem de conter um valor de **DJ**, que identifica o dispositivo como um computador associado ao domínio. No AD FS, pode adicionar uma regra de transformação de emissão que tem este aspeto:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** -Esta afirmação tem de conter um valor de **DJ**, que identifica o dispositivo como um computador associado ao domínio. No AD FS, pode adicionar uma regra de transformação de emissão que tem este aspeto:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -219,7 +221,7 @@ A definição de ajuda-o para verificar se os valores estão presentes ou se ter
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Emitir objectGUID do computador conta no local
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**-Esta afirmação tem de conter o **objectGUID** valor da conta de computador local. No AD FS, pode adicionar uma regra de transformação de emissão que tem este aspeto:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** -Esta afirmação tem de conter o **objectGUID** valor da conta de computador local. No AD FS, pode adicionar uma regra de transformação de emissão que tem este aspeto:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -241,7 +243,7 @@ A definição de ajuda-o para verificar se os valores estão presentes ou se ter
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Emitir Sidobjeto do computador conta no local
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**-Esta afirmação tem de conter o o **Sidobjeto** valor da conta de computador local. No AD FS, pode adicionar uma regra de transformação de emissão que tem este aspeto:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** -Esta afirmação tem de conter o o **Sidobjeto** valor da conta de computador local. No AD FS, pode adicionar uma regra de transformação de emissão que tem este aspeto:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -258,7 +260,7 @@ A definição de ajuda-o para verificar se os valores estão presentes ou se ter
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Emitir issuerID para computador quando múltiplos verificar nomes de domínio no Azure AD
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**-Esta afirmação tem de conter o Uniform Resource Identifier (URI) de qualquer um dos nomes de domínio verificado que estabelecer ligação com o serviço de Federação no local (AD FS ou terceiros 3rd) emissora o token. No AD FS, pode adicionar regras de transformação de emissão que aspeto dos abaixo por essa ordem específica depois dos acima. Tenha em atenção que uma regra para emitir explicitamente a regra para os utilizadores é necessária. Em regras abaixo, é adicionada uma regra primeiro identificar utilizador vs. a autenticação de computador.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** -Esta afirmação tem de conter o Uniform Resource Identifier (URI) de qualquer um dos nomes de domínio verificado que estabelecer ligação com o serviço de Federação no local (AD FS ou terceiros 3rd) emissora o token. No AD FS, pode adicionar regras de transformação de emissão que aspeto dos abaixo por essa ordem específica depois dos acima. Tenha em atenção que uma regra para emitir explicitamente a regra para os utilizadores é necessária. Em regras abaixo, é adicionada uma regra primeiro identificar utilizador vs. a autenticação de computador.
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -304,7 +306,7 @@ A definição de ajuda-o para verificar se os valores estão presentes ou se ter
 
 Na afirmação acima,
 
-- `<verified-domain-name>`é um marcador de posição que é necessário substituir com um dos seus nomes de domínio verificado no Azure AD. Por exemplo, valor = "http://contoso.com/adfs/services/trust/"
+- `<verified-domain-name>` é um marcador de posição que é necessário substituir com um dos seus nomes de domínio verificado no Azure AD. Por exemplo, valor = "http://contoso.com/adfs/services/trust/"
 
 
 
@@ -315,7 +317,7 @@ Para obter uma lista dos seus domínios verificados da empresa, pode utilizar o 
 
 ### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Emitir ImmutableID para computador quando existe uma para os utilizadores (por exemplo, início de sessão alternativo ID está definido)
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`**-Esta afirmação tem de conter um valor válido para computadores. No AD FS, pode criar uma regra de transformação de emissão da seguinte forma:
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** -Esta afirmação tem de conter um valor válido para computadores. No AD FS, pode criar uma regra de transformação de emissão da seguinte forma:
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -512,7 +514,7 @@ No AD FS, tem de adicionar uma regra de transformação de emissão que transmit
 2. Os objetos de confiança das entidades confiadoras plataforma de identidade do Microsoft Office 365 com o botão direito e, em seguida, selecione **editar regras de afirmação**.
 3. No **regras de transformação de emissão** separador, selecione **Adicionar regra**.
 4. No **regra de afirmação** lista de modelo, selecione **enviar afirmações utilizando uma regra personalizada**.
-5. Selecione **seguinte**.
+5. Selecione **Seguinte**.
 6. No **nome da regra de afirmação** caixa, escreva **regra de afirmação de método de autenticação**.
 7. No **regra de afirmação** caixa, escreva a seguinte regra:
 
@@ -566,7 +568,8 @@ Para controlar a implementação de computadores atuais do Windows, deve impleme
    > [!NOTE]
    > Este modelo de política de grupo foi alterado de versões anteriores da consola de gestão de política de grupo. Se estiver a utilizar uma versão anterior da consola, aceda a `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Selecione **ativado**e, em seguida, clique em **aplicar**.
+7. Selecione **ativado**e, em seguida, clique em **aplicar**. Tem de selecionar **desativado** se pretender que a política para bloquear dispositivos controlados por esta política de grupo automaticamente registo com o Azure AD.
+
 8. Clique em **OK**.
 9. Ligar o objeto de política de grupo para uma localização da sua preferência. Por exemplo, pode associá-lo a uma unidade organizacional específica. Também foi ligue-o a um grupo de segurança específicos de computadores que associar automaticamente com o Azure AD. Para configurar esta política de todos os computadores associados a domínios Windows 10 e Windows Server 2016 na sua organização, ligar o objeto de política de grupo ao domínio.
 

@@ -1,24 +1,8 @@
----
-title: Gerir certificados de um cluster do Service Fabric do Azure | Microsoft Docs
-description: Descreve como adicionar novos certificados, o certificado de rollover e remover o certificado de ou para um cluster do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+-Título: Gerir certificados de um cluster do Service Fabric do Azure | Descrição da Microsoft Docs: descreve como adicionar novos certificados, o certificado de rollover e remover o certificado de ou para um cluster do Service Fabric.
+serviços: documentationcenter de service fabric: autor .net: ChackDan manager: timlt editor: '
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendado que familiarizar-se com a forma como o Service Fabric utiliza certificados x. 509 e deve estar familiarizado com o [cenários de segurança do Cluster](service-fabric-cluster-security.md). Tem de compreender que um certificado de cluster e o que é utilizado para, antes de prosseguir.
@@ -49,6 +33,8 @@ Para remover um certificado secundário de que está a ser utilizada para segura
 Se a intenção é ao remover o certificado que está marcado como principal, em seguida, terá de trocar primeiro com secundário e, em seguida, eliminar secundário após a atualização foi concluída.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Adicionar um certificado secundário com o Resource Manager Powershell
+> [! ATUALIZAÇÃO] agora temos uma forma de melhor e mais fácil para adicionar um certificado secundário utilizando [adicionar AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). Não tem de seguir o resto dos passos nesta secção se utilizar AzureRmServiceFabricClusterCertificate adicionar.
+
 
 Estes passos partem do princípio de que está familiarizado com o funcionamento do Gestor de recursos e implementou a, pelo menos, um dos recursos de infraestrutura do serviço cluster com um modelo do Resource Manager e ter o modelo que utilizou para configurar o cluster à mão. Também é suposto que está familiarizado com JSON.
 
@@ -119,7 +105,7 @@ Se pretender **rollover cert**, em seguida, especifique o novo certificado como 
 ``` 
 
 
-**Passo 4:** efetuar alterações aos **todos os** o **Microsoft.Compute/virtualMachineScaleSets** definições de recursos - localizar o recurso de Microsoft.Compute/virtualMachineScaleSets definição. Desloque-se para "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
+**Passo 4:** efetuar alterações aos **todos os** o **Microsoft.Compute/virtualMachineScaleSets** definições de recursos - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Desloque-se para "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
 
 As definições de publicador de recursos de infraestrutura de serviço, deverá ver algo semelhante ao seguinte.
 
@@ -160,7 +146,7 @@ As propriedades devem agora ter este aspeto
 ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 
-**Passo 5:** efetuar alterações aos **todos os** o **Microsoft.Compute/virtualMachineScaleSets** definições de recursos - localizar o recurso de Microsoft.Compute/virtualMachineScaleSets definição. Desloque-se para "vaultCertificates":, em "OSProfile". deve ser algo semelhante.
+**Passo 5:** efetuar alterações aos **todos os** o **Microsoft.Compute/virtualMachineScaleSets** definições de recursos - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Desloque-se para "vaultCertificates":, em "OSProfile". deve ser algo semelhante.
 
 
 ![Json_Pub_Setting4][Json_Pub_Setting4]
@@ -297,7 +283,7 @@ Para remover um certificado secundário de que está a ser utilizada para segura
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estes artigos para obter mais informações sobre a gestão de clusters de leitura:
 
 * [Processo de atualização de Cluster do Service Fabric e as expectativas do utilizador](service-fabric-cluster-upgrade.md)

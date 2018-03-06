@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger as cópias de segurança de híbridas que utilizam a cópia de segurança do Azure
 Questões sobre problemas de segurança, como software maligno, ransomware e intrusões, estão aumentar. Estes problemas de segurança podem ser dispendiosos, em termos de dados e dinheiro. Para proteger contra estes ataques, a cópia de segurança do Azure agora fornece funcionalidades de segurança para ajudar a proteger as cópias de segurança híbrida. Este artigo abrange como ativar e utilizar estas funcionalidades, utilizando um agente de serviços de recuperação do Azure e o servidor de cópia de segurança do Azure. Estas funcionalidades incluem:
@@ -113,7 +113,7 @@ As funcionalidades de segurança mencionadas neste artigo fornecem mecanismos de
 | Alterar o frase de acesso |Segurança PIN introduzido está incorreta. (ID: 100130) Fornece o PIN de segurança correto para concluir esta operação. |**Causa:**<br/> Este erro é fornecido ao introduzir o PIN de segurança expirou ou era inválida ao efetuar a operação crítico (como alterar o frase de acesso). <br/>**Ação recomendada:**<br/> Para concluir a operação, tem de introduzir o PIN de segurança válido. Para obter o PIN, inicie sessão no portal do Azure e navegue para o Cofre dos serviços de recuperação > Definições > propriedades > gerar PIN de segurança. Utilize este PIN para alterar o frase de acesso. |
 | Alterar o frase de acesso |Falha na operação. ID: 120002 |**Causa:**<br/>Este erro é fornecido quando as definições de segurança estão ativadas, tentar alterar o frase de acesso e se a versão não suportada (versões válidas especificadas no primeiro nota deste artigo).<br/>**Ação recomendada:**<br/> Para alterar o frase de acesso, tem de atualizar primeiro o agente de cópia de segurança para a versão mínima 2.0.9052 mínimo, o servidor de cópia de segurança do Azure para atualização mínima 1, e/ou DPM UR12 de R2 de 2012 DPM mínimo ou DPM 2016 UR2 (transferência as ligações abaixo), em seguida, introduza o PIN de segurança válido. Para obter o PIN, inicie sessão no portal do Azure e navegue para o Cofre dos serviços de recuperação > Definições > propriedades > gerar PIN de segurança. Utilize este PIN para alterar o frase de acesso. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Cofre de serviços de recuperação do Azure](backup-azure-vms-first-look-arm.md) para ativar estas funcionalidades.
 * [Transferir o agente dos serviços de recuperação do Azure mais recente](http://aka.ms/azurebackup_agent) para ajudar a proteger computadores com o Windows e proteger os dados de cópia de segurança contra ataques.
 * [Transferir o servidor de cópia de segurança do Azure mais recente](https://aka.ms/latest_azurebackupserver) para ajudar a proteger cargas de trabalho e proteger os dados de cópia de segurança contra ataques.

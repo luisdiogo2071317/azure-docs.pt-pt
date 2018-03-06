@@ -7,7 +7,7 @@
 | Conjuntos por conta do Batch | 20 - 100 | 2500 |
 
 > [!NOTE]
-> Limites de predefinição variam consoante o tipo de subscrição que é utilizado para criar uma conta do Batch. Quotas de núcleos mostradas são para contas do Batch no modo de serviço do Batch.
+> Limites de predefinição variam consoante o tipo de subscrição que é utilizado para criar uma conta do Batch. Quotas de núcleos mostradas são para contas do Batch no modo de serviço do Batch. [Ver as quotas na sua conta do Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
 <sup>1</sup> o número de núcleos dedicados por conta do Batch pode ser aumentado, mas o número máximo é não especificado. Contacte o suporte do Azure para discutir as opções de aumento.
 

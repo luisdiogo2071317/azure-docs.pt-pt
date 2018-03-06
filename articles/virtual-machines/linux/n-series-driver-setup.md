@@ -13,32 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores de NVIDIA GPU em VMs de série N executar Linux
 
 Para tirar partido das funcionalidades GPU do Azure N série as VMs com Linux, instale controladores de gráficos NVIDIA suportados. Este artigo fornece os passos de configuração de controlador depois de implementar uma VM de série N. As informações de configuração do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-
 Para a série N VM especificações, as capacidades de armazenamento e detalhes do disco, consulte [tamanhos de VM de Linux GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-
-
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Instalar controladores CUDA de NC, NCv2 e ND VMs
+## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Instalar controladores CUDA para NC, NCv2, NCv3 e série ND VMs
 
-Seguem-se passos para instalar controladores NVIDIA em VMs de NC Linux do Toolkit de CUDA NVIDIA. 
+Seguem-se passos para instalar controladores NVIDIA a partir do Toolkit de CUDA NVIDIA em série N VMs. 
 
 Os programadores C e C++, opcionalmente, podem instalar o Toolkit de completo para criar aplicações acelerados de GPU. Para obter mais informações, consulte o [guia de instalação CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
 
 > [!NOTE]
 > Ligações de transferência do controlador CUDA fornecido aqui estão atualizadas no momento da publicação. Para os controladores mais recentes do CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site.
@@ -113,9 +109,9 @@ sudo reboot
 2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
  
   cd LISISO
  
@@ -152,16 +148,13 @@ sudo reboot
 
 5. Reiniciar a VM e continue para verificar a instalação.
 
-
 ### <a name="verify-driver-installation"></a>Certifique-se a instalação de controlador
-
 
 Para consultar o estado do dispositivo para a GPU, SSH para a VM e execute o [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador o utilitário da linha de comandos. 
 
 Se o controlador estiver instalado, verá um resultado semelhante ao seguinte. Tenha em atenção que **GPU Util** mostra 0%, a menos que estiver a executar uma carga de trabalho para a GPU na VM. A versão do controlador e detalhes GPU poderão ser diferentes das mostrado.
 
 ![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
-
 
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
@@ -180,9 +173,9 @@ Implemente VMs de série N com capacidade RDMA partir de uma imagem no Azure Mar
 > 
 
 
-## <a name="install-grid-drivers-for-nv-vms"></a>Instalar controladores de grelha para NV VMs
+## <a name="install-grid-drivers-for-nv-series-vms"></a>Instalar controladores de grelha para VMs NV série
 
-Para instalar controladores de grelha NVIDIA em NV VMs, faça uma ligação SSH para cada VM e siga os passos para a distribuição de Linux. 
+Para instalar controladores de grelha NVIDIA em série NV VMs, efetuar uma ligação SSH para cada VM e siga os passos para a distribuição de Linux. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -265,9 +258,9 @@ Para instalar controladores de grelha NVIDIA em NV VMs, faça uma ligação SSH 
 3. Reiniciar a VM, voltar a ligar e instalar os serviços de integração mais recentes do Linux para Hyper-v:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
 
   cd LISISO
 
@@ -348,7 +341,6 @@ Este ficheiro pode ser invocado como raiz no arranque através da criação de u
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 * Pode definir a utilizar o modo de persistência `nvidia-smi` , de modo a saída do comando é mais rápida quando precisar de cartões de consulta. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Tenha em atenção que se a VM é reiniciada, a definição de modo fica ausente. Pode sempre script a definição de modo a executar após o arranque.
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

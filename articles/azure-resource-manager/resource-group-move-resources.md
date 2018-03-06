@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -178,7 +178,7 @@ Discos geridos não suportam a movimentação. Esta restrição significa que v�
 * Instantâneos criados a partir de discos geridos
 * Conjuntos de disponibilidade com máquinas virtuais com discos geridos
 
-Não é possível mover máquinas virtuais criadas a partir dos recursos de mercado nas subscrições. Desaprovisionar a máquina virtual na subscrição atual e implementar novamente a nova subscrição.
+Não é possível mover máquinas virtuais criadas a partir dos recursos de mercado com planos ligados através de grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implementar novamente a nova subscrição.
 
 Máquinas virtuais com certificado armazenado no Cofre de chaves podem ser movidas para um novo grupo de recursos na mesma subscrição, mas não nas subscrições.
 
@@ -365,7 +365,7 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 Para mover para uma nova subscrição, forneça o `--destination-subscription-id` parâmetro.
 
-## <a name="use-rest-api"></a>Utilizar API REST
+## <a name="use-rest-api"></a>Utilizar a API REST
 
 Para mover recursos existentes para outro grupo de recursos ou subscrição, execute:
 

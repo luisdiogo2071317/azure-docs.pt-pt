@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utilize com capacidade RDMA ou preparados para a GPU instâncias em conjuntos do Batch
 
@@ -33,11 +33,11 @@ Este artigo fornece orientação e exemplos para utilizar alguns dos tamanhos es
 
 ## <a name="subscription-and-account-limits"></a>Subscrição e limites de conta
 
-* **Quotas e limites** - [quota de núcleos dedicado por conta do Batch](batch-quota-limit.md#resource-quotas) poderá limitar o número ou tipo de nós, pode adicionar a um conjunto do Batch. É mais provável alcançar uma quota ao escolher com capacidade RDMA, GPU-ativado ou outros tamanhos de VM especializados. Uma quota separada aplica-se a [VMs de prioridade baixa](batch-low-pri-vms.md), caso as utilize. 
+* **Quotas e limites** - [quota de núcleos por conta do Batch](batch-quota-limit.md#resource-quotas) pode limitar o número de nós de um tamanho específico, pode adicionar a um conjunto do Batch. É mais provável alcançar uma quota ao escolher com capacidade RDMA, GPU-ativado ou outros tamanhos de VM especializados. 
 
-  Além disso, a utilização de determinados famílias VM na sua conta do Batch, como NCv2 e ND, é restrito devido à capacidade limitada. Utilização destas famílias só está disponível ao pedir um aumento de quota da predefinição de 0 núcleos.  
+  Além disso, a utilização de determinados famílias VM na sua conta do Batch, como NCv2, NCv3 e ND, é restrita devido à capacidade limitada. Utilização destas famílias só está disponível ao pedir um aumento de quota da predefinição de 0 núcleos.  
 
-  Se precisar de pedir um aumento de quota, abra uma [pedido de suporte ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) , sem encargos.
+  Se for necessário, [pedir um aumento de quota](batch-quota-limit.md#increase-a-quota) , sem encargos.
 
 * **Disponibilidade de região** - intensivas de computação VMs podem não estar disponíveis nas regiões onde criar as contas do Batch. Para verificar se está disponível um tamanho, consulte o artigo [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
@@ -52,10 +52,10 @@ As capacidades RDMA e GPU dos tamanhos intensivas de computação só são supor
 | Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, ou<br/>Com base em centOS HPC<br/>(Do azure Marketplace) | Intel MPI 5 | Ativar a comunicação entre nós, desative a execução de tarefas simultâneas |
-| [NC, NCv2, ND série *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (variam consoante a série) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou 7.4, ou<br/>CentOS 7.3 ou 7.4<br/>(Do azure Marketplace) | Controladores NVIDIA CUDA Toolkit | N/A | 
-| [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, ou<br/>CentOS 7.3<br/>(Do azure Marketplace) | Controladores NVIDIA grelha | N/A |
+| [NC, NCv2, NCv3, ND série *](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (variam consoante a série) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou 7.4, ou<br/>CentOS 7.3 ou 7.4<br/>(Do azure Marketplace) | Controladores NVIDIA CUDA Toolkit | N/A | 
+| [Série NV](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, ou<br/>CentOS 7.3<br/>(Do azure Marketplace) | Controladores NVIDIA grelha | N/A |
 
-* Conectividade de RDMA em NC24r, NC24rs_v2 e ND24r VMs é suportada no Ubuntu 16.04 LTS (a partir do Azure Marketplace) com Intel MPI.
+* Pode necessitar de conectividade RDMA em série N com capacidade RDMA VMs [configuração adicional](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) que variam consoante a distribuição.
 
 
 
@@ -64,15 +64,15 @@ As capacidades RDMA e GPU dos tamanhos intensivas de computação só são supor
 | Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | 2016, do Windows Server 2012 R2, ou<br/>2012 (do azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Extensão da VM do Azure de HpcVMDrivers | Ativar a comunicação entre nós, desative a execução de tarefas simultâneas |
-| [NC, NCv2, ND série *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (variam consoante a série) | Windows Server 2016 ou <br/>2012 R2 (do Azure Marketplace) | Controladores NVIDIA Tesla ou controladores CUDA Toolkit| N/A | 
+| [NC, NCv2, NCv3, ND série *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (variam consoante a série) | Windows Server 2016 ou <br/>2012 R2 (do Azure Marketplace) | Controladores NVIDIA Tesla ou controladores CUDA Toolkit| N/A | 
 | [Série NV](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 ou<br/>2012 R2 (do Azure Marketplace) | Controladores NVIDIA grelha | N/A |
 
-* Conectividade de RDMA em NC24r, NC24rs_v2 e ND24rs VMs é suportada no Windows Server 2016 ou o Windows Server 2012 R2 (a partir do Azure Marketplace) com a extensão de HpcVMDrivers e Microsoft MPI ou Intel MPI.
+* Conectividade de RDMA em VMs de série N rdma e é suportada no Windows Server 2016 ou o Windows Server 2012 R2 (a partir do Azure Marketplace) com a extensão de HpcVMDrivers e Microsoft MPI ou Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Conjuntos de Windows - configuração de serviços Cloud
 
 > [!NOTE]
-> Série N tamanhos não são suportados em conjuntos do Batch com a configuração de serviços em nuvem.
+> Série N tamanhos não são suportados em conjuntos do Batch com a configuração de serviço em nuvem.
 >
 
 | Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
@@ -123,8 +123,8 @@ Para executar aplicações de Windows MPI num conjunto de nós de A8 do Azure, t
 
 Para executar aplicações de CUDA num conjunto de nós de NC do Linux, tem de instalar CUDA Toolkit 9.0 em nós. O Toolkit instala os controladores de NVIDIA Tesla GPU necessários. Seguem-se passos de exemplo para implementar uma imagem personalizada do Ubuntu 16.04 LTS com os controladores da GPU:
 
-1. Implemente a VM do Azure NC6 Ubuntu 16.04 LTS a executar. Por exemplo, crie a VM na região dos EUA Sul Central. Certifique-se de que criar a VM com um disco gerido.
-2. Siga os passos para ligar à VM e [instalar controladores CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
+1. Implemente uma VM do Azure de série de NC Ubuntu 16.04 LTS a executar. Por exemplo, crie a VM na região dos EUA Sul Central. Certifique-se de que criar a VM com um disco gerido.
+2. Siga os passos para ligar à VM e [instalar controladores CUDA](../virtual-machines/linux/n-series-driver-setup.md).
 3. Desaprovisionar o agente do Linux e, em seguida, [capturar a imagem de VM com Linux](../virtual-machines/linux/capture-image.md).
 4. Crie uma conta do Batch numa região que suporta VMs de NC.
 5. Utilizar as APIs do Batch ou o portal do Azure, criar um conjunto [utilizando a imagem personalizada](batch-custom-images.md) e com o número pretendido de nós e o dimensionamento. A tabela seguinte mostra as definições de agrupamento de exemplo para a imagem:
@@ -132,7 +132,7 @@ Para executar aplicações de CUDA num conjunto de nós de NC do Linux, tem de i
 | Definição | Valor |
 | ---- | ---- |
 | **Tipo de Imagem** | Imagem personalizada |
-| Imagem personalizada | Nome da imagem |
+| **Imagem personalizada** | Nome da imagem |
 | **SKU do agente de nó** | batch.node.ubuntu 16.04 |
 | **Tamanho de nó** | NC6 padrão |
 

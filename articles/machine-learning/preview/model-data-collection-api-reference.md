@@ -4,18 +4,18 @@ description: "Referência de API de recolha de dados do Machine Learning modelo 
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referência da API de recolha de dados do Machine Learning modelo do Azure
 
@@ -48,7 +48,7 @@ No ficheiro de classificação que está a ser utilizado para operationalization
 ## <a name="model-data-collector-instantiation"></a>Instanciação de recoletor de dados do modelo
 Instanciar uma nova instância de um ModelDataCollector:
 
-DC = ModelDataCollector (model_name, identificador = 'default' feature_names = None, model_management_account_id = 'desconhecido', webservice_name = 'desconhecido', model_id = 'desconhecido', model_version = 'desconhecido')
+dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
 Consulte os detalhes da classe e o parâmetro:
 
@@ -62,13 +62,13 @@ Consulte os detalhes da classe e o parâmetro:
 
 | Nome | Tipo | Descrição |
 |-------------|------------|-------------------------|
-| model_name | Cadeia | o nome do modelo de dados de que estão a ser recolhidos para |
-| Identificador | Cadeia | a localização no código que identifica a estes dados, ou seja 'RawInput' ou 'Predição' |
+| model_name | string | o nome do modelo de dados de que estão a ser recolhidos para |
+| Identificador | string | a localização no código que identifica a estes dados, ou seja 'RawInput' ou 'Predição' |
 | feature_names | lista de cadeias de | uma lista de nomes de funcionalidades que tornam-se o cabeçalho de csv quando fornecido |
-| model_management_account_id | Cadeia | o identificador para a conta de gestão de modelo onde este modelo é armazenado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| webservice_name | Cadeia | o nome do webservice ao qual este modelo está atualmente implementado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| model_id | Cadeia | O identificador exclusivo para este modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| model_version | Cadeia | o número de versão deste modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| model_management_account_id | string | o identificador para a conta de gestão de modelo onde este modelo é armazenado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| webservice_name | string | o nome do webservice ao qual este modelo está atualmente implementado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| model_id | string | O identificador exclusivo para este modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| model_version | string | o número de versão deste modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
 
 
 
@@ -93,5 +93,5 @@ Consulte os detalhes de método e o parâmetro:
 | Nome | Tipo | Descrição |
 |-------------|------------|-------------------------|
 | input_data | vários tipos | os dados a serem recolhidos (atualmente aceita a lista de tipos, numpy.array, pandas. DataFrame, pyspark.sql.DataFrame). Para tipos de dataframe, se existe um cabeçalho com nomes de funcionalidade, estas informações estão incluídas de destino de dados (sem necessidade de transmita explicitamente os nomes das funcionalidades no construtor ModelDataCollector) |
-| user_correlation_id | Cadeia | um id de correlação opcional, que pode ser fornecido pelo utilizador para correlacionar este predição |
+| user_correlation_id | string | um id de correlação opcional, que pode ser fornecido pelo utilizador para correlacionar este predição |
 

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gerir bases de dados no Azure SQL Data Warehouse
 O SQL Data Warehouse automatiza vários aspetos da gestão de bases de dados. Por exemplo, para aumentar o desempenho apenas terá de ajustar e paga para o nível adequado de recursos de computação e, em seguida, permita que o SQL Data Warehouse fazer todo o trabalho de ampliar e dimensionamento novamente.
@@ -34,13 +34,13 @@ Esta descrição geral inclui estes aspetos da gestão do armazém de dados do S
 * Melhores práticas do desempenho
 * Monitorização de consulta
 * Segurança
-* Cópia de segurança e restauro
+* Criar cópias de segurança e restauro
 
 ## <a name="management-tools"></a>Ferramentas de gestão
 Pode utilizar uma variedade de ferramentas para gerir bases de dados no armazém de dados do SQL Server. Como gerir bases de dados, irá desenvolver as preferências de ferramenta para cada tipo de tarefa que tem de efetuar.
 
 ### <a name="azure-portal"></a>Portal do Azure
-O [portal do Azure] [ Azure portal] é um portal baseado na web, onde pode criar, atualizar e eliminar as bases de dados-las e monitorizar os recursos de base de dados. Esta ferramenta é uma grande é se estiver a começar com o Azure, gerir um pequeno número de bases de dados, ou se precisa de fazer algo de rapidamente.
+O [portal do Azure] [ Azure portal] é um portal baseado na web, onde pode criar, atualizar e eliminar as bases de dados-las e monitorizar os recursos de base de dados. Esta ferramenta é excelente se de que está a começar com o Azure, gerir um pequeno número de dados do armazém de bases de dados ou precisa de fazer algo de rapidamente.
 
 Para começar a utilizar com o portal do Azure, consulte o artigo [criar um SQL Data Warehouse (portal do Azure)][Create a SQL Data Warehouse (Azure portal)].
 
@@ -59,7 +59,7 @@ DMVs são butter de and bread da gestão do armazém de dados do SQL Server. Qua
 
 Para começar a utilizar, consulte o artigo [ligar e consultar com sqlcmd][Connect and query with sqlcmd], e [criar uma base de dados (PowerShell)][Create a database (PowerShell)].
 
-## <a name="scale-compute"></a>Dimensionar a computação
+## <a name="scale-compute"></a>Dimensionar computação
 No SQL Data Warehouse, pode dimensionar rapidamente o desempenho out ou retroceder por aumente ou diminua a recursos de computação de CPU, memória e largura de banda de e/s. Para aumentar o desempenho, tudo o que precisa de fazer é ajustar o número de unidades do data warehouse (DWUs) que o SQL Data Warehouse atribui à base de dados. O SQL Data Warehouse rapidamente faz com que a alteração e processa todas as alterações para o hardware ou software subjacentes.
 
 Para obter mais informações sobre dimensionamento DWUs, consulte o artigo [Dimensionar desempenho].
@@ -84,10 +84,10 @@ Para manter um sistema seguro, tem de estar num alerta e proteger contra qualque
 
 Para saber mais sobre a gestão de segurança, aceda ao [descrição geral de segurança][Security overview].
 
-## <a name="backup-and-restore"></a>Cópia de segurança e restauro
-Ter backps fiável dos seus dados é uma parte essencial dos qualquer base de dados de produção. Armazém de dados do SQL Server mantém os seus dados seguros por automaticamente fazer cópias de segurança das bases de dados do Active Directory em intervalos regulares. Estas cópias de segurança permitem-lhe recuperar a partir de cenários em que tiver danificado os dados ou acidentalmente ignorados os dados ou a base de dados.  Para a agenda de cópia de segurança de dados, política de retenção e restaurar uma base de dados, consulte [restaurar a partir do instantâneo][Restore from snapshot].
+## <a name="back-up-and-restore"></a>Criar cópias de segurança e restauro
+Ter fiáveis cópias de segurança dos seus dados é uma parte essencial dos qualquer base de dados de produção. Armazém de dados do SQL Server mantém os seus dados seguros por automaticamente fazer cópias de segurança das bases de dados do Active Directory em intervalos regulares. Estas cópias de segurança permitem-lhe recuperar a partir de cenários em que tiver danificado os dados ou acidentalmente ignorados os dados ou a base de dados.  Para a agenda de cópia de segurança de dados, política de retenção e restaurar uma base de dados, consulte [restaurar a partir do instantâneo][Restore from snapshot].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Utilizando a estrutura de base de dados boa princípios tornarão mais fácil de gerir as bases de dados no armazém de dados do SQL Server. Para obter mais informações, aceda ao [descrição geral do desenvolvimento][Development overview].
 
 <!--Image references-->
@@ -100,10 +100,10 @@ Utilizando a estrutura de base de dados boa princípios tornarão mais fácil de
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Dimensionar desempenho]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Dimensionar desempenho]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

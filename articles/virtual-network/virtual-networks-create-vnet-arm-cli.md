@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: a4cb309a9fd07e842193b0ce4b023fab8c08e035
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: feb8fb218b8bde88ba7fbdc3419e32c9313c7885
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Criar uma rede virtual com várias sub-redes utilizando a CLI do Azure
 
@@ -126,6 +126,8 @@ A máquina virtual demora alguns minutos a criar. Depois da máquina virtual é 
 No exemplo de saída, verá que o **privateIpAddress** é *10.0.1.4*. Azure criado um [interface de rede](virtual-network-network-interface.md), ligado-lo para a máquina virtual, atribuído um endereço IP privado, a interface de rede e um **macAddress**. Azure DHCP automaticamente atribuído 10.0.1.4 à interface de rede porque é o primeiro endereço IP disponível na *privada* sub-rede. Os endereços IP e MAC privados permanecem atribuídos à interface de rede até que a interface de rede é eliminada. 
 
 Tome nota do **publicIpAddress**. Este endereço é utilizado para aceder a máquina virtual a partir da Internet num passo posterior. Apesar de uma máquina virtual não é necessário ter um endereço IP público atribuído ao mesmo, o Azure atribui um endereço IP público para cada máquina virtual que cria, por predefinição. Para comunicar a partir da Internet para uma máquina virtual, um endereço IP público tem de ser atribuído à máquina virtual. Todas as máquinas virtuais podem comunicar saída com a Internet, quer tenha ou não está atribuído um endereço IP público para a máquina virtual. Para saber mais sobre ligações de Internet de saída no Azure, consulte o artigo [ligações de saída no Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+As máquinas virtuais criadas neste artigo tem um [interface de rede](virtual-network-network-interface.md) com um endereço IP dinamicamente atribuído à interface de rede. Depois de implementar a VM, pode [adicionar vários endereços IP públicos e privados, ou alterar o método de atribuição de endereços IP para estático](virtual-network-network-interface-addresses.md#add-ip-addresses). Pode [adicionar interfaces de rede](virtual-network-network-interface-vm.md#vm-add-nic), até ao limite suportado pelo [tamanho da VM](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que selecionar quando criar uma máquina virtual. Também pode [ativar a virtualização de e/s de raiz única (SR-IOV)](create-vm-accelerated-networking-cli.md) para uma VM, mas apenas quando criar uma VM com um tamanho VM que suporta a capacidade.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Comunicar entre máquinas virtuais e com a internet
 

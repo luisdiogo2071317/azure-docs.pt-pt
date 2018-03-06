@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual (VM) do Linux é fácil fazer a partir da linha de comandos ou do portal. Este tutorial mostra como Certifique-se de que o configurou para otimizar o desempenho na plataforma Microsoft Azure. Este tópico utiliza uma VM do Ubuntu Server, mas também pode criar a máquina virtual do Linux utilizando [as suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -58,7 +58,7 @@ Nas imagens de nuvem Ubuntu, tem de utilizar init da nuvem para configurar a par
 
 Para imagens sem suporte de nuvem init, imagens VM implementadas a partir do Azure Marketplace tem um agente da VM com Linux integrado com o sistema operativo. Este agente permite que a VM interagir com vários serviços do Azure. Partindo do princípio de que implementou uma imagem de padrão do Azure Marketplace, terá de fazer o seguinte para configurar corretamente as definições de ficheiro de troca de Linux:
 
-Localize e modificar duas entradas no **/etc/waagent.conf** ficheiro. Controlarem a existência de um ficheiro de troca dedicado e o tamanho do ficheiro de troca. Os que procura para modificar os parâmetros são `ResourceDisk.EnableSwap=N` e`ResourceDisk.SwapSizeMB=0` 
+Localize e modificar duas entradas no **/etc/waagent.conf** ficheiro. Controlarem a existência de um ficheiro de troca dedicado e o tamanho do ficheiro de troca. Os que procura para modificar os parâmetros são `ResourceDisk.EnableSwap=N` e `ResourceDisk.SwapSizeMB=0` 
 
 Altere os parâmetros para as seguintes definições:
 
@@ -131,8 +131,7 @@ Lembre-se, tal como com todos os debates de otimização, terá de realizar test
 
 Algumas ligações útil para recursos adicionais: 
 
-* [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../windows/premium-storage.md)
-* [Guia de utilizador do agente Linux do Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Otimizar o desempenho de MySQL em VMs do Linux do Azure](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configurar Software RAID no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](premium-storage.md)
+* [Guia de utilizador do agente Linux do Azure](agent-user-guide.md)
+* [Otimizar o desempenho de MySQL em VMs do Linux do Azure](classic/optimize-mysql.md)
+* [Configurar Software RAID no Linux](configure-raid.md)

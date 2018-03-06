@@ -2,7 +2,7 @@
 title: "Limites e de configuração - Azure Logic Apps | Microsoft Docs"
 description: "Os limites de serviços e valores de configuração para o Azure Logic Apps"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
-ms.translationtype: HT
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Configuração e os limites de aplicações lógicas
 
@@ -28,13 +28,13 @@ Este artigo descreve os limites atuais e detalhes de configuração para o Azure
 
 ### <a name="http-request-limits"></a>Limites de pedidos HTTP
 
-Estes limites aplicam-se um único pedido HTTP ou uma chamada de conector.
+Seguem-se os limites para um único pedido HTTP ou uma chamada de conector:
 
 #### <a name="timeout"></a>Tempo Limite (excedido)
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Tempo limite do pedido | 120 Segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [até ciclo](logic-apps-loops-and-scopes.md) pode compensar conforme necessário |
+| Tempo limite do pedido | 120 Segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [até ciclo](logic-apps-control-flow-loops.md) pode compensar conforme necessário | 
 |||| 
 
 #### <a name="message-size"></a>Tamanho da mensagem
@@ -56,28 +56,21 @@ Estes limites aplicam-se um único pedido HTTP ou uma chamada de conector.
 
 ### <a name="run-duration-and-retention"></a>Duração de execução e retenção
 
-Estes limites aplicam-se para uma aplicação lógica única de executar.
+Seguem-se os limites para uma aplicação de lógica única executar:
 
-| Nome | Predefinição | Limite |
-| ---- | ------- | ----- |
-| Duração de execução   | 90 dias | 7 e 90 dias |
-| Retenção de armazenamento | hora de início de 90 dias da execução |  7 e 90 dias da hora de início da execução |
-||||
+| Nome | Limite | 
+| ---- | ----- | 
+| Duração de execução | 90 dias | 
+| Retenção de armazenamento | hora de início de 90 dias da execução | 
+| Intervalo de periodicidade mín. | 1 segundo </br>Para aplicações lógicas com um plano do App Service: 15 segundos | 
+| Intervalo de periodicidade máximo | dias de 500 | 
+||| 
 
-Exceder os limites para a duração de execução ou de retenção de armazenamento no seu fluxo de processamento normal, [contacte a equipa de produto](mailto://logicappsemail@microsoft.com) para obter assistência com os seus requisitos.
-
-
-### <a name="recurrence-interval"></a>Intervalo de periodicidade
-
-| Nome | Limite |
-| ---- | ------- |
-| Intervalo de periodicidade mín. | 1 segundo </br>Para aplicações lógicas com um plano do App Service: 15 segundos |
-| Intervalo de periodicidade máximo | dias de 500 |
-|||
+Exceder os limites para a duração de execução ou de retenção de armazenamento no seu fluxo de processamento normal, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
 ### <a name="looping-and-debatching-limits"></a>Criar ciclos e debatching limites
 
-Estes limites aplicam-se para uma aplicação lógica única de executar.
+Seguem-se os limites para uma aplicação de lógica única executar:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
@@ -89,22 +82,22 @@ Estes limites aplicam-se para uma aplicação lógica única de executar.
 
 ### <a name="throughput-limits"></a>Limites de débito
 
-Estes limites aplicam-se a um recurso de aplicação lógica única.
+Seguem-se os limites de uma instância de aplicação lógica única:
 
 | Nome | Limite | Notas | 
 | ----- | ----- | ----- | 
-| Execuções de ações por 5 minutos | 100,000 |<p>O limite pode ser aumentado para 300,000 ao executar uma aplicação lógica na `High Througput` modo. Modo débito elevado pode ser configurado através da definição de `operationOptions` propriedade`runtimeConfiguration` do recurso de fluxo de trabalho para `OptimizedForHighThroughput`. <p>Tenha em atenção de que modo débito elevado está em pré-visualização. Também uma carga de trabalho pode ser distribuída por várias aplicações conforme necessário. | 
+| Execuções de ações por 5 minutos | 100,000 | Para aumentar o limite para 300,000, pode executar uma aplicação lógica `High Througput` modo. Para configurar o modo de débito elevado, sob o `runtimeConfiguration` de recurso do fluxo de trabalho, defina o `operationOptions` propriedade para `OptimizedForHighThroughput`. <p>**Tenha em atenção**: modo débito elevado está em pré-visualização. Além disso, pode distribuir uma carga de trabalho por várias aplicações conforme necessário. | 
 | Chamadas de saída em simultâneo de ações | ~2,500 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
 | Ponto final de Runtime: entradas de chamadas em simultâneo |~1,000 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
 | Ponto final de Runtime: ler chamadas por 5 minutos  | 60,000 | Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
 | Ponto final de Runtime: invocar chamadas por 5 minutos| 45,000 |Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
 |||| 
 
-Exceda estes limites de processamento normal ou teste de carga de execução que poderão exceder estes limites [contacte a equipa de produto](mailto://logicappsemail@microsoft.com) para obter assistência com os seus requisitos.
+Exceda estes limites de processamento normal ou teste de carga de execução que poderão exceder estes limites [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
 ### <a name="logic-app-definition-limits"></a>Limites de definição de aplicação lógica
 
-Estes limites aplicam-se a uma definição de aplicação lógica única.
+Seguem-se os limites para uma definição de aplicação lógica única:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
@@ -136,7 +129,7 @@ Aplicam estes limites conectores personalizado que pode criar a partir de web AP
 
 ### <a name="integration-account-limits"></a>Limites de conta de integração
 
-Estes limites se aplicam a artefactos que pode adicionar a uma conta de integração.
+Seguem-se os limites para os artefactos que pode adicionar a uma conta de integração.
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
@@ -155,7 +148,7 @@ Estes limites aplicam-se ao número de artefactos que pode adicionar a uma conta
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Contratos | 10 | | 
-| Outros tipos de artefactos | 25 |Os tipos de artefacto incluem parceiros, esquemas, certificados e mapas. Cada tipo pode ter cópias de segurança para o número máximo de artefactos. | 
+| Outros tipos de artefactos | 25 | Os tipos de artefacto incluem parceiros, esquemas, certificados e mapas. Cada tipo pode ter cópias de segurança para o número máximo de artefactos. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>Escalão de preço padrão
@@ -167,7 +160,7 @@ Estes limites aplicam-se ao número de artefactos que pode adicionar a uma conta
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamanho da mensagem de protocolos de B2B (AS2, X12, EDIFACT)
 
-Estes limites aplicam-se para protocolos de B2B.
+Seguem-se os limites que se aplicam a protocolos B2B:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 

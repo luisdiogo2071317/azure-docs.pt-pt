@@ -13,26 +13,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/21/2017
+ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
-Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementado o Azure Resource Manager. Os passos apresentados nos procedimentos utilizam o portal do Azure.  
-
-O serviço de cópia de segurança do Azure tem dois tipos de cofres para proteger as suas VMs: cofres de cópia de segurança e os cofres dos serviços de recuperação. Um cofre de cópia de segurança ajuda a proteger as VMs implementadas através do modelo de implementação clássica. Um cofre dos serviços de recuperação ajuda a proteger *VMs implementadas clássico tanto implementadas no Resource Manager*. Tem de utilizar um cofre dos serviços de recuperação se pretender proteger uma VM implementadas no Resource Manager.
+Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementado o Azure Resource Manager. Os passos apresentados nos procedimentos utilizam o portal do Azure. Armazene os dados de cópia de segurança da máquina virtual num cofre dos serviços de recuperação. O Cofre retém os dados de cópia de segurança de máquinas virtuais clássicos e implementadas no Resource Manager.
 
 > [!NOTE]
 > O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Antes de poder proteger ou fazer uma cópia de segurança de uma máquina de virtual implementadas no Resource Manager, certifique-se de que estes pré-requisitos existem:
+Antes de proteger (ou cópia de segurança) uma máquina virtual implementadas no Resource Manager, certifique-se de que estes pré-requisitos existem:
 
-* Criar um cofre dos serviços de recuperação (ou identificar um cofre dos serviços de recuperação existente) *na mesma localização que a VM*.
+* Criar um cofre dos serviços de recuperação (ou identificar um cofre dos serviços de recuperação existente) *na mesma região que a VM*.
 * Selecionar um cenário, definir a política de cópia de segurança e definir os itens para proteger.
 * Verifique a instalação de um agente de VM na máquina virtual.
 * Verifique a conectividade de rede.
@@ -44,7 +42,7 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
  * **Linux**: cópia de segurança do Azure suporta [uma lista das distribuições Azure patrocina](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto CoreOS Linux. 
  
     > [!NOTE] 
-    > Outras bring-your-proprietário-as distribuições do Linux podem funcionar, desde que o agente VM está disponível na máquina virtual e suporte para o Python existe. No entanto, não podemos apoia esses distribuições para cópia de segurança.
+    > Outras bring-your-proprietário-as distribuições do Linux podem funcionar, desde que o agente VM está disponível na máquina virtual e suporte para o Python existe. No entanto, essas distribuições não são suportadas.
  * **Windows Server**: não são suportadas as versões mais antigas do que o Windows Server 2008 R2.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações ao fazer cópias de segurança e restauro de uma VM
@@ -54,16 +52,17 @@ Antes de preparar o seu ambiente, é necessário compreender estas limitações:
 * Não é suportada a cópia de segurança das máquinas virtuais com dados tamanhos de disco superiores 1,023 GB.
 
   > [!NOTE]
-  > Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com discos > 1TB. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com maior do que um discos de TB. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Não é suportada a cópia de segurança de máquinas virtuais com um endereço IP reservado e nenhum ponto final de definidos.
-* Não é suportada a cópia de segurança de VMs encriptadas através de apenas uma BitLocker chave de encriptação (BEK). Não é suportada a cópia de segurança de VMs com Linux encriptados através de encriptação de Linux Unified chave configuração (LUKS).
+* Não é suportada a cópia de segurança de VMs com Linux encriptados através de encriptação de Linux Unified chave configuração (LUKS).
 * Não recomendamos a cópia de segurança de VMs que contém a configuração de Volumes Partilhados de Cluster (CSV) ou servidor de ficheiros de escalamento horizontal. Necessitam que envolvem todas as VMs incluídas na configuração do cluster durante a uma tarefa de instantâneo. A consistência multi VM não suporta a cópia de segurança do Azure. 
 * Dados de cópia de segurança não incluem unidades de rede montado ligadas a uma VM.
 * A substituição de uma máquina virtual existente durante o restauro não é suportada. Se tentar restaurar a VM quando existe a VM, a operação de restauro irá falhar.
-* Não são suportados por várias regiões cópia de segurança e restauro.
-* Cópia de segurança e restauro de máquinas virtuais utilizando discos não geridos em contas de armazenamento com regras de rede aplicadas atualmente não é suportada. Ao configurar a cópia de segurança, certifique-se de que as definições de "Firewalls e redes virtuais" para a conta de armazenamento permitem o acesso a partir de "Todas as redes".
+* Por várias regiões criar cópias de segurança e restauro não são suportadas.
+* Cópia de segurança e restauro de máquinas virtuais utilizando discos não geridos em contas de armazenamento com regras de rede aplicadas, não é suportada. 
+* Durante a configuração anterior cópias de segurança, certifique-se de que o **Firewalls e redes virtuais** as definições de conta de armazenamento permitem o acesso a partir de todas as redes.
 * Pode criar cópias de segurança máquinas virtuais em todas as regiões públicas do Azure. (Consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões suportadas.) Se a região que procura não é suportada atualmente, não serão apresentados na lista pendente durante a criação do cofre.
 * Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração de várias DC é suportada apenas através do PowerShell. Para obter mais informações, consulte [restaurar um controlador de domínio do DC várias](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Máquinas virtuais que têm as seguintes configurações de rede especiais o restauro é suportado apenas através do PowerShell. VMs criadas através do fluxo de trabalho de restauro na IU não terá estas configurações de rede após a conclusão da operação de restauro. Para obter mais informações, consulte [restaurar VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -106,7 +105,7 @@ Para criar um cofre dos Serviços de Recuperação:
 Agora que criou o cofre, saiba como configurar a replicação de armazenamento.
 
 ## <a name="set-storage-replication"></a>Replicação de armazenamento do conjunto
-A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e localmente redundante. Por predefinição, o seu cofre tem um armazenamento georredundante. Deixe a opção definida para armazenamento georredundante se for a sua cópia de segurança primária. Escolha o armazenamento localmente redundante se pretender uma opção mais barata e com menos duração.
+A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e localmente redundante. Por predefinição, o seu cofre tem um armazenamento georredundante. Deixe a opção como armazenamento georredundante para a cópia de segurança primária. Se pretende uma opção mais barata que não é tão durável, escolha armazenamento localmente redundante.
 
 Para editar a definição de replicação de armazenamento:
 
@@ -126,9 +125,7 @@ Para editar a definição de replicação de armazenamento:
 Após escolher a opção de armazenamento para o cofre, está pronto para associar a VM com o cofre. Para começar a associação, detete e registe as máquinas virtuais do Azure.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selecione um objetivo de cópia de segurança, definir uma política e definir os itens para proteger
-Antes de registar uma VM com um cofre, execute o processo de deteção para se certificar de que as novas máquinas virtuais que foram adicionadas à subscrição são identificadas. O processo de consulta do Azure para obter a lista de máquinas virtuais na subscrição, juntamente com informações como o nome do serviço de nuvem e a região. 
-
-No portal do Azure, *cenário* refere-se ao irá colocar no cofre dos serviços de recuperação. *Política* é a agenda da frequência e quando são tirados pontos de recuperação. A política também inclui o período de retenção para os pontos de recuperação.
+Antes de registar uma máquina virtual com um cofre dos serviços de recuperação, execute o processo de deteção para identificar quaisquer novas máquinas virtuais adicionadas à subscrição. O processo de deteção de consulta do Azure para obter a lista de máquinas virtuais na subscrição. Se forem encontradas novas máquinas virtuais, o portal apresenta o nome de serviço de nuvem e a região associada. No portal do Azure, o *cenário* está a introduzir no cofre dos serviços de recuperação. *Política* é a agenda da frequência e quando são tirados pontos de recuperação. A política também inclui o período de retenção para os pontos de recuperação.
 
 1. Se já tiver um cofre dos Serviços de Recuperação aberto, avance para o passo 2. Se não tiver um cofre dos serviços de recuperação, abrir, abra o [portal do Azure](https://portal.azure.com/). No **Hub** menu, selecione **mais serviços**.
 
@@ -151,7 +148,7 @@ No portal do Azure, *cenário* refere-se ao irá colocar no cofre dos serviços 
 
    O **cópia de segurança** e **objetivo de cópia de segurança** painéis abrir.
 
-3. No **objetivo de cópia de segurança** painel, defina **onde está a carga de trabalho em execução?** para **Azure** e **que itens pretende cópia de segurança?** para  **Máquina virtual**. Em seguida, selecione **OK**.
+3. No **objetivo de cópia de segurança** painel, defina **onde está a carga de trabalho em execução?** como **Azure** e **que itens pretende cópia de segurança?** como  **Máquina virtual**. Em seguida, selecione **OK**.
 
    ![Painéis de cópia de segurança e o objetivo de cópia de segurança](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -170,7 +167,7 @@ No portal do Azure, *cenário* refere-se ao irá colocar no cofre dos serviços 
 
    ![Painel "Selecionar máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-   A máquina virtual selecionada é validada. Se não vir as máquinas virtuais que pretende ver, verifique se existe na mesma localização que o Cofre dos serviços de recuperação do Azure e já não estão protegidos no Cofre de outro. O dashboard do cofre mostra a localização do cofre dos serviços de recuperação.
+   A máquina virtual selecionada é validada. Se não vir esperadas máquinas virtuais, verifique que as máquinas virtuais estão na mesma região do Azure que o Cofre dos serviços de recuperação. Se ainda não vir as máquinas virtuais, certifique-se de que estes não já estão protegidos com o noutro cofre. O dashboard do cofre mostra a região onde existe o Cofre de serviços de recuperação.
 
 6. Agora que definiu todas as definições para o cofre, no **cópia de segurança** painel, selecione **ativar cópia de segurança**. Este passo implementa a política para o Cofre e as VMs. Este passo não cria o ponto de recuperação inicial da máquina virtual.
 

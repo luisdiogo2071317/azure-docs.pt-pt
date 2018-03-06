@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas mais frequentes sobre gestão de API do Azure
 Obter as respostas a perguntas comuns, padrões e melhores práticas para a API Management do Azure.
@@ -122,7 +122,7 @@ Pode obter o endereço (ou endereços IP, numa implementação de multirregião)
 Para saber como configurar um servidor de autorização do OAuth 2.0 com segurança serviços de Federação do Active Directory (AD FS), consulte [utilizando ADFS na API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>Que método de encaminhamento utilizar a API Management em implementações em várias localizações geográficas?
-API Management utiliza o [método de encaminhamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#priority) nas implementações em várias localizações geográficas. Tráfego de entrada é encaminhado para o gateway da API mais próximo. Se uma região ficar offline, o tráfego de entrada automaticamente é encaminhado para o gateway mais próximo seguinte. Saiba mais sobre os métodos de encaminhamento no [métodos de encaminhamento do Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+API Management utiliza o [método de encaminhamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance) nas implementações em várias localizações geográficas. Tráfego de entrada é encaminhado para o gateway da API mais próximo. Se uma região ficar offline, o tráfego de entrada automaticamente é encaminhado para o gateway mais próximo seguinte. Saiba mais sobre os métodos de encaminhamento no [métodos de encaminhamento do Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Pode utilizar um modelo Azure Resource Manager para criar uma instância de serviço de API Management?
 Sim. Consulte o [serviço de gestão de API do Azure](http://aka.ms/apimtemplate) modelos de início rápido.

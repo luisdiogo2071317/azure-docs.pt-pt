@@ -5,21 +5,21 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f93c74d0c2f66e6a5001289efca07f074e3d3c5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configurar o serviço de experimentação do Azure Machine Learning
 
 ## <a name="overview"></a>Descrição geral
-Serviço experimentação do Azure Machine Learning permite cientistas de dados executar as experimentações através da execução do Azure Machine Learning e executar as capacidades de gestão. Fornece uma arquitetura de experimentação seja ágil com iterações rápidas. Workbench de aprendizagem máquina do Azure permite-lhe começar com local é executado no seu computador e fornece um caminho mais fácil para aumentar verticalmente e horizontalmente a outros ambientes, como VMs de ciência de dados remota com uma GPU ou Clusters do HDInsight com o Spark.
+Serviço experimentação do Azure Machine Learning permite cientistas de dados executar as experimentações através da execução do Azure Machine Learning e executar as capacidades de gestão. Fornece uma arquitetura de experimentação seja ágil com iterações rápidas. Workbench de aprendizagem máquina do Azure permite-lhe começar com local é executado no seu computador e também um caminho mais fácil para aumentar verticalmente e horizontalmente a outros ambientes, como VMs de ciência de dados remota com uma GPU ou Clusters do HDInsight com o Spark.
 
 Experimentação de serviço foi concebido para fornecer execuções isoladas, reproduzível e consistentes das suas experimentações. Ajuda a gerir os destinos de computação, ambientes de execução, e execute as configurações. Ao utilizar a execução do Workbench do Azure Machine Learning e capacidades de gestão de execução, é possível mover facilmente entre ambientes diferentes. 
 
@@ -27,9 +27,10 @@ Pode executar um script de Python ou PySpark num projeto Workbench localmente ou
 
 Pode executar os scripts em: 
 
-* Ambiente do Python (3.5.2) no computador local instalado por Workbench.
+* Ambiente do Python (3.5.2) no computador local instalado por Workbench
 * Ambiente de Conda Python dentro de um contentor de Docker no computador local
-* Ambiente de Conda Python dentro de um contentor de Docker num computador remoto, Linux. Por exemplo, um [DSVM Ubuntu baseado no Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
+* Num ambiente Python que é proprietário e gerir num computador remoto, Linux
+* Ambiente de Conda Python dentro de um contentor de Docker num computador remoto, Linux. Por exemplo, uma [baseado no Ubuntu DSVM no Azure] (https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight para o Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) no Azure
 
 >[!IMPORTANT]
@@ -47,6 +48,7 @@ _anexar AZ ml computetarget_ comando na CLI permite-lhe criar um destino de comp
 Destinos de computação suportados são:
 * Ambiente do Python (3.5.2) local no seu computador instalada pelo Workbench.
 * Docker local no seu computador
+* Gerida pelo utilizador ambiente Python em VMs do Linux Ubuntu remoto. Por exemplo, um [DSVM Ubuntu baseado no Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Docker remoto em VMs do Linux Ubuntu. Por exemplo, um [DSVM Ubuntu baseado no Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight para o cluster do Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) no Azure
 
@@ -69,14 +71,14 @@ Conda é utilizado para gerir local Docker e remotas execuções de Docker, bem 
 ### <a name="run-configuration"></a>Execute a configuração
 Para além de ambiente de execução e de destino de computação, o Azure Machine Learning fornece uma estrutura para definir e alterar *executar configurações*. Execuções diferentes da sua experimentação poderão requerer configuração diferente como parte da experimentação iterativa. Poderá ser varrimento intervalos de parâmetro diferentes, utilizando as origens de dados diferentes e otimização de parâmetros de spark. O serviço de experimentação fornece uma estrutura para gerir configurações de execução.
 
-Em execução _az ml computetarget anexar_ comando produz dois ficheiros no seu **aml_config** pasta no seu projeto: um .compute e um .runconfig seguir esta Convenção: _< your_ computetarget_name > .compute_ e _< your_computetarget_name > .runconfig_. O ficheiro de .runconfig é automaticamente criado para sua comodidade, quando cria um destino de computação. Pode criar e gerir outras configurações de execução utilizando _az ml runconfigurations_ comando na CLI. Também pode criar e editá-los no seu sistema de ficheiros.
+Em execução _az ml computetarget anexar_ comando produz dois ficheiros no seu **aml_config** pasta no seu projeto: ".compute" e um ".runconfig" seguir esta Convenção: _< your_ computetarget_name > .compute_ e _< your_computetarget_name > .runconfig_. O ficheiro de .runconfig é automaticamente criado para sua comodidade, quando cria um destino de computação. Pode criar e gerir outras configurações de execução utilizando _az ml runconfigurations_ comando na CLI. Também pode criar e editá-los no seu sistema de ficheiros.
 
 Configuração de execução no Workbench também lhe permite especificar variáveis de ambiente. Pode especificar variáveis de ambiente e utilizá-los no seu código adicionando a seguinte secção no seu ficheiro .runconfig. 
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Estas variáveis de ambiente podem ser acedidos no seu código. Por exemplo, este fragmento de código phyton imprime a variável de ambiente com o nome "EXAMPLE_ENV_VAR1"
@@ -91,7 +93,7 @@ _**A figura seguinte mostra o fluxo de alto nível para experimentação inicial
 Nesta secção, iremos aprofundar os cenários de execução e obter informações sobre o Azure Machine Learning é executado experimentações, especificamente com uma experimentação localmente, numa VM remota e num Cluster do HDInsight. Esta secção é obter instruções sobre a partir de criação de um destino de computação para a execução das suas experimentações.
 
 >[!NOTE]
->Para o resto deste artigo estamos a utilizar os comandos da CLI (interface de linha de comandos) para mostrar os conceitos e as capacidades. Capacidades descritas aqui também podem ser utilizadas do Workbench.
+>Para o resto deste artigo, estamos a utilizar os comandos da CLI (interface de linha de comandos) para mostrar os conceitos e as capacidades. Capacidades descritas aqui também podem ser utilizadas do Workbench.
 
 ## <a name="launching-the-cli"></a>Iniciar a CLI
 Uma forma fácil de iniciar o CLI está a abrir um projeto no Workbench e navegar até **ficheiro--> Abra a linha de comandos**.
@@ -101,7 +103,7 @@ Uma forma fácil de iniciar o CLI está a abrir um projeto no Workbench e navega
 Este comando inicia uma janela de terminal, no qual pode introduzir comandos para executar scripts na pasta do projeto atual. Esta janela de terminal está configurada com o ambiente do Python 3.5.2, que é instalado por Workbench.
 
 >[!NOTE]
-> Quando executar qualquer _az ml_ comando na janela de comando, tem de ser autenticados no Azure. CLI utiliza uma cache de autenticação independentes, em seguida, a aplicação de ambiente de trabalho e, por isso, início de sessão em Workbench não significa que é autenticadas no seu ambiente CLI. Para autenticar, siga os passos abaixo. Token de autenticação é colocado em cache localmente durante um período de tempo para que apenas terá de repetir estes passos, quando o token expira. Quando o token expira ou se está a ver erros de autenticação, execute os seguintes comandos:
+> Quando executar qualquer _az ml_ comando na janela de comando, tem de ser autenticados no Azure. CLI utiliza uma cache de autenticação independentes, em seguida, a aplicação de ambiente de trabalho e, por isso, início de sessão em Workbench não significa que é autenticadas no seu ambiente CLI. Para autenticar, utilize o seguinte os passos. Token de autenticação é colocado em cache localmente durante um período de tempo para que apenas terá de repetir estes passos, quando o token expira. Quando o token expira ou se está a ver erros de autenticação, execute os seguintes comandos:
 
 ```
 # to authenticate 
@@ -124,7 +126,7 @@ $ az account show
 ## <a name="running-scripts-and-experiments"></a>Executar scripts e experimentações
 Com o Workbench, pode executar o Python e scripts PySpark sobre várias computação destinos utilizando o _experimentação de ml az submeter_ comando. Este comando necessita de uma definição de configuração de execução. 
 
-Workbench cria um ficheiro de .runconfig correspondente quando criar um destino de computação, mas pode criar configurações de execução adicionais utilizando _az ml runconfiguration criar_ comando. Pode editar manualmente os ficheiros de configuração de execução.
+Workbench cria um ficheiro de runconfig correspondente quando criar um destino de computação, mas pode criar configurações de execução adicionais utilizando _az ml runconfiguration criar_ comando. Pode editar manualmente os ficheiros de configuração de execução.
 
 Configurações de execução apareçam como parte da experimentação executar experiência no Workbench. 
 
@@ -213,16 +215,57 @@ O processo de construção de Docker para VMs remotos é exatamente o mesmo que 
 >[!TIP]
 >Se preferir evitar a latência introduzida ao criar a imagem de Docker para a sua primeira passagem, pode utilizar o seguinte comando para preparar o destino de computação antes de executar o script. preparar a experimentação de ml AZ remotedocker - c
 
-
 _**Descrição geral da execução de vm remota para um script de Python:**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## <a name="running-a-script-on-a-remote-vm-targeting-user-managed-environments"></a>Executar um script numa VM remota filtragem ambientes gerida pelo utilizador
+Serviço de experimentação também suporta a executar um script no ambiente do Python do utilizador dentro de uma máquina de virtual Ubuntu remota. Isto permite-lhe gerir o seu ambiente de execução e continuar a utilizar as capacidades do Azure Machine Learning. 
+
+Siga os passos seguintes para executar o script no seu próprio ambiente.
+* Prepare o ambiente do Python numa VM com Ubuntu remoto ou um DSVM instalar as suas dependências.
+* Instale os requisitos do Azure Machine Learning utilizando o seguinte comando.
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>Em alguns casos, poderá ter de executar este comando no modo de sudo, dependendo do seu privilégios. 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* Utilize o seguinte comando para criar a definição de destino de computação e a configuração de execução para execução gerida pelo utilizador no remotas execuções de VM.
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>Isto irá definir o parâmetro de "userManagedEnvironment" no ficheiro de configuração .compute como true.
+
+* Definir localização do seu tempo de execução do Python executável no seu ficheiro .compute. Deve fazer a referência para o caminho completo do seu python executável. 
+```
+pythonLocation: python3
+```
+
+Depois de configurar o destino de computação, pode utilizar o seguinte comando para executar o script.
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> Quando estiver a executar um DSVM, deve utilizar os seguintes comandos
+
+Se gostaria de executar diretamente no ambiente de global python do DSVM, execute este comando.
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Executar um script num cluster do HDInsight
 O HDInsight é uma plataforma para a análise de macrodados que suportam o Apache Spark popular. Workbench permite experimentação sobre macrodados com clusters do HDInsight Spark. 
 
 >[!NOTE]
->O cluster do HDInsight tem de utilizar BLOBs do Azure como o armazenamento principal. A utilização do armazenamento do Azure Data Lake ainda não é suportada.
+>O cluster do HDInsight tem de utilizar o Blob do Azure como armazenamento principal. A utilização do armazenamento do Azure Data Lake ainda não é suportada.
 
 Pode criar um destino de computação e execute a configuração para um cluster do Spark do HDInsight utilizando o seguinte comando:
 
@@ -279,6 +322,6 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 az ml experiment prepare -c remotevm
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Criar e instalar o Azure Machine Learning](quickstart-installation.md)
 * [Gestão de modelo](model-management-overview.md)

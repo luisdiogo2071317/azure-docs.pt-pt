@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 03/01/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.reviewer: calebb
+ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condições de localização do acesso condicional do Azure Active Directory 
 
@@ -120,9 +120,12 @@ Com esta opção, pode selecionar um ou mais localizações com nome. Para uma p
 
 Políticas de acesso condicional são avaliadas quando: 
 
-- Um utilizador inicia sessão inicialmente 
+- Inicialmente um utilizador inicia sessão a uma aplicação web de aplicação, móveis ou de ambiente de trabalho. 
 
-- O Azure AD emite um token para a aplicação em nuvem que foi definida a política de acesso condicional no. 
+- Uma aplicação móvel ou ambiente de trabalho que utiliza a autenticação moderna, utiliza um token de atualização para adquirir um novo token de acesso. Por predefinição, esta é uma vez uma hora. 
+
+Isto significa Mobile e aplicações de ambiente de trabalho que utilizam autenticação moderna, seria possível detetar uma alteração na localização dentro de uma hora de alterar a localização de rede. Para aplicações de ambiente de trabalho e móveis que não utilizam a autenticação moderna, é aplicada a política em cada pedido de token. A frequência do pedido pode variar com base na aplicação. Da mesma forma, para aplicações web, a política é aplicada no início de sessão inicial e é válida para a duração da sessão na aplicação web. Devido a diferenças na durações de sessão em todas as aplicações, o tempo entre a avaliação de política também irá variar. Sempre que a aplicação solicita um novo início de sessão no token, a política é aplicada.
+
 
 Por predefinição, o Azure AD emite um token de cada hora. Depois de mover fora da rede empresarial, dentro de uma hora a política é imposta para as aplicações que utilizam autenticação moderna.
 

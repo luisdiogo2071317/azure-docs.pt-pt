@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2017
+ms.date: 03/02/2018
 ms.author: sethm
-ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="event-hubs-features-overview"></a>Descrição geral dos Event Hubs funcionalidades
 
@@ -52,7 +52,7 @@ Não precisa de criar os nomes dos publicadores com antecedência, mas devem cor
 
 ## <a name="capture"></a>Captura
 
-[Captura de Hubs de eventos](event-hubs-capture-overview.md) permite-lhe capturar os dados de transmissão em fluxo em Event Hubs e guarde-o à sua escolha de uma conta de armazenamento de BLOBs, ou de uma conta de serviço do Azure Data Lake automaticamente. Pode ativar a captura do portal do Azure e especifique um tamanho mínimo e a janela de tempo para executar a captura. Utiliza a captura de Hubs de eventos, especifique as suas próprias conta do Blob Storage do Azure e um contentor ou uma conta de serviço do Azure Data Lake, que é utilizada para armazenar os dados capturados. Dados capturados são escritos no formato Apache Avro.
+[Captura de Hubs de eventos](event-hubs-capture-overview.md) permite-lhe capturar os dados de transmissão em fluxo em Event Hubs e guarde-o à sua escolha de uma conta de armazenamento de BLOBs, ou de uma conta de serviço do Azure Data Lake automaticamente. Pode ativar a captura do portal do Azure e especifique um tamanho mínimo e a janela de tempo para executar a captura. Utiliza a captura de Hubs de eventos, especifique as suas próprias conta do Blob Storage do Azure e um contentor ou uma conta de serviço do Azure Data Lake, um deles é utilizado para armazenar os dados capturados. Dados capturados são escritos no formato Apache Avro.
 
 ## <a name="partitions"></a>Partições
 
@@ -159,7 +159,7 @@ Recomendamos que equilibrar as unidades de débito e partições para alcançar 
 
 Para obter informações detalhadas sobre os preços dos Hubs de Eventos, veja [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:
 
