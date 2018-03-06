@@ -1,25 +1,21 @@
 ---
-title: "Início Rápido do Azure – Transferir objetos de/para o armazenamento de Blobs do Azure com .NET | Microsoft Docs"
-description: Aprenda rapidamente a transferir objetos de/para o armazenamento de Blobs do Azure com .NET
+title: "Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através do .NET | Microsoft Docs"
+description: "Neste início rápido, crie uma conta de armazenamento e um contentor. Em seguida, utilize a biblioteca de clientes de armazenamento para .NET, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5020f070a8eb9215f175fc3ff3a905cff28ce37f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com .NET
+# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Início Rápido: carregar, transferir e listar blobs através do .NET
 
 Neste início rápido, vai aprender a utilizar a biblioteca de cliente de .NET para o Armazenamento do Azure, para carregar, transferir e listar blobs de blocos num contentor.
 

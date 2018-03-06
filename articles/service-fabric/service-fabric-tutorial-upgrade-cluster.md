@@ -1,6 +1,6 @@
 ---
-title: "Atualize o tempo de execução do Service Fabric do Azure | Microsoft Docs"
-description: "Saiba como utilizar o PowerShell para atualizar o tempo de execução de um cluster do Service Fabric alojado no Azure."
+title: Atualizar o runtime do Azure Service Fabric | Microsoft Docs
+description: Neste tutorial, vai aprender a utilizar o PowerShell para atualizar o runtime de um cluster do Service Fabric alojado no Azure.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,44 +15,44 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Atualize o tempo de execução de um cluster do Service Fabric
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Tutorial: atualizar o runtime de um cluster do Service Fabric
 
-Este tutorial faz parte três de uma série e mostra-lhe como atualizar o tempo de execução do Service Fabric num cluster do Service Fabric do Azure. Esta parte do tutorial foi escrito para clusters de Service Fabric em execução no Azure e não se aplica ao autónomo Service Fabric clusters.
+Este tutorial é a parte três de uma série e mostra como atualizar o runtime do Service Fabric num cluster do Azure Service Fabric. Esta parte do tutorial foi escrita para clusters do Service Fabric em execução no Azure e não se aplica a clusters autónomos do Service Fabric.
 
 > [!WARNING]
-> Esta parte do tutorial requer o PowerShell. Suporte para atualizar o tempo de execução do cluster ainda não é suportado pelas ferramentas de CLI do Azure. Em alternativa, um cluster pode ser atualizado no portal. Para obter mais informações, consulte [atualizar um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
+> Esta parte do tutorial requer o PowerShell. As ferramentas de CLI do Azure ainda não suportam a atualização do runtime do cluster. Em alternativa, um cluster pode ser atualizado no portal. Para obter mais informações, veja [Atualizar um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
-Se o cluster já está a executar o tempo de execução mais recente do Service Fabric, não é necessário efetuar este passo. No entanto, este artigo pode ser utilizado para instalar qualquer tempo de execução suportado num cluster do Service Fabric do Azure.
+Se o cluster já estiver a executar o runtime mais recente do Service Fabric, não é necessário executar este passo. No entanto, este artigo pode ser utilizado para instalar qualquer runtime suportado num cluster do Azure Service Fabric.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ler a versão de cluster
-> * Definir a versão de cluster
+> * Ler a versão do cluster
+> * Definir a versão do cluster
 
-Este tutorial série, a saber como:
+Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
-> * Criar segura [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) no Azure através de um modelo
-> * [Um cluster de entrada ou saída de escala](service-fabric-tutorial-scale-cluster.md)
-> * Atualize o tempo de execução de um cluster
-> * [Implementar a gestão de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou um [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protegidos no Azure utilizando um modelo
+> * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
+> * Atualizar o runtime de um cluster
+> * [Implementar a Gestão de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial:
-- Se não tiver uma subscrição do Azure, crie um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Instalar o [Azure Powershell versão 4.1 ou superior do módulo](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Criar segura [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) no Azure
-- Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instalar [Visual Studio 2017](http://www.visualstudio.com) e **programação do Azure**, **desenvolvimento ASP.NET e web**, e **desenvolvimento de plataformas cruzadas .NET Core**cargas de trabalho.  Em seguida, configure um [ambiente de desenvolvimento de .NET](service-fabric-get-started.md).
-- Se implementar um cluster do Linux, configurar um ambiente de desenvolvimento Java no [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Instalar o [Service Fabric CLI](service-fabric-cli.md). 
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou a [CLI do Azure 2.0](/cli/azure/install-azure-cli).
+- Crie um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou um [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protegidos no Azure.
+- Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2017](http://www.visualstudio.com) e as cargas de trabalho **desenvolvimento no Azure**, **desenvolvimento em ASP.NET e na Web** e **desenvolvimento em várias plataformas .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
+- Se implementar um cluster do Linux, configure um ambiente de desenvolvimento Java no [Linux](service-fabric-get-started-linux.md) ou no [MacOS](service-fabric-get-started-mac.md).  Instale a [CLI do Service Fabric](service-fabric-cli.md). 
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão na sua conta do Azure selecione a sua subscrição antes de executar os comandos do Azure.
+Inicie sessão na sua conta do Azure, selecione a sua subscrição antes de executar os comandos do Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -60,32 +60,32 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="get-the-runtime-version"></a>Obter a versão de tempo de execução
+## <a name="get-the-runtime-version"></a>Obter a versão de runtime
 
-Depois de ligar para o Azure, selecionar a subscrição que contém o cluster do Service Fabric, pode obter a versão de tempo de execução do cluster.
+Depois de ter ligado ao Azure e selecionado a subscrição que contém o cluster do Service Fabric, pode obter a versão de runtime do cluster.
 
 ```powershell
 Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Em alternativa, apenas obter uma lista de todos os clusters na sua subscrição com o seguinte:
+Em alternativa, pode obter apenas uma lista de todos os clusters na sua subscrição com o seguinte:
 
 ```powershell
 Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
-Tenha em atenção o **ClusterCodeVersion** valor. Este valor será utilizado na secção seguinte.
+Tome nota do valor de **ClusterCodeVersion**. Este valor vai ser utilizado na secção seguinte.
 
-## <a name="upgrade-the-runtime"></a>O tempo de execução de atualização
+## <a name="upgrade-the-runtime"></a>Atualizar o runtime
 
-Utilize o valor do **ClusterCodeVersion** da secção anterior com a `Get-ServiceFabricRuntimeUpgradeVersion` cmdlet para identificar quais as versões disponíveis para atualizar para o. Este cmdlet só pode ser executado a partir de um computador ligado à internet. Por exemplo, se pretendesse ver quais as versões de runtime foi possível atualizar a partir da versão `5.7.198.9494`, utilize o seguinte comando:
+Utilize o valor de **ClusterCodeVersion** da secção anterior com o cmdlet `Get-ServiceFabricRuntimeUpgradeVersion` para descobrir que versões estão disponíveis para efetuar a atualização. Este cmdlet só pode ser executado a partir de um computador ligado à Internet. Por exemplo, se quiser ver para que versões de runtime pode atualizar a partir da versão `5.7.198.9494`, utilize o seguinte comando:
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 ```
 
-Com uma lista das versões, pode dizer o cluster de Service Fabric do Azure para atualizar para um tempo de execução mais recente. Por exemplo, se versão `6.0.219.9494` está disponível para atualizar para o, utilize o seguinte comando para atualizar o seu cluster.
+Com uma lista de versões, pode dizer ao cluster do Azure Service Fabric para atualizar para um runtime mais recente. Por exemplo, se versão `6.0.219.9494` estiver disponível para atualizar para a mesma, utilize o seguinte comando para atualizar o cluster.
 
 ```powershell
 Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
@@ -95,11 +95,11 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 ```
 
 > [!IMPORTANT]
-> A atualização de tempo de execução do cluster pode demorar muito tempo a concluir. PowerShell está bloqueado enquanto a atualização está em execução. Pode utilizar outra sessão de PowerShell para verificar o estado da atualização.
+> A atualização do runtime do cluster pode demorar muito tempo a concluir. O PowerShell está bloqueado enquanto a atualização está em execução. Pode utilizar outra sessão do PowerShell para verificar o estado da atualização.
 
-O estado da atualização pode ser monitorizado com o PowerShell ou o `sfctl` CLI.
+O estado da atualização pode ser monitorizado com o PowerShell ou a CLI `sfctl`.
 
-Primeiro liga ao cluster com o certificado SSL criado na primeira parte do tutorial. Utilize o `Connect-ServiceFabricCluster` cmdlet ou `sfctl cluster upgrade-status`.
+Em primeiro lugar, ligue ao cluster com o certificado SSL criado na primeira parte do tutorial. Utilize o cmdlet `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -117,7 +117,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Em seguida, utilize `Get-ServiceFabricClusterUpgrade` ou `sfctl cluster upgrade-status` para apresentar o estado. Algo semelhante ao seguinte resultado é apresentado.
+Em seguida, utilize `Get-ServiceFabricClusterUpgrade` ou `sfctl cluster upgrade-status` para apresentar o estado. É apresentado algo semelhante ao resultado seguinte.
 
 ```powershell
 Get-ServiceFabricClusterUpgrade
@@ -195,10 +195,10 @@ sfctl cluster upgrade-status
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Obter a versão do tempo de execução do cluster
-> * Atualize o tempo de execução do cluster
+> * Obter a versão do runtime do cluster
+> * Atualizar o runtime do cluster
 > * Monitorizar a atualização
 
-Em seguida, avançar para o tutorial seguinte para saber como implementar a gestão de API com um cluster do Service Fabric.
+Em seguida, avance para o tutorial seguinte para saber como implementar a Gestão de API com um cluster do Service Fabric.
 > [!div class="nextstepaction"]
-> [Implementar a gestão de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> [Implementar a Gestão de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)

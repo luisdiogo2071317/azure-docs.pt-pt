@@ -4,14 +4,14 @@ description: "Disponibiliza uma descrição geral do serviço do Azure Migrate."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -48,7 +48,7 @@ Uma avaliação ajuda-o a identificar a adequabilidade do Azure de VMs no local,
 
 **Propriedade** | **Detalhes**
 --- | ---
-**Localização de destino** | A localização do Azure para a qual pretende migrar. Por predefinição, a localização de destino está definida para E.U.A. Oeste 2. 
+**Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>Atualmente, o Azure Migrate suporta 30 regiões, incluindo Alemanha Central, Alemanha Nordeste, Ásia Oriental, Canadá Central, Coreia Central, Coreia do Sul, E.U.A Centro-Norte, E.U.A Leste, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Leste 2, E.U.A. Oeste, E.U.A. Oeste 2, EUA Centro-Oeste, Europa do Norte, Europa Ocidental, Índia Central, Índia Ocidental, Leste da Austrália, Leste da China, Leste do Canadá, Leste do Japão, Norte da China, Oeste do Japão, Oeste do Reino Unido, Sudeste Asiático, Sudeste da Austrália, Sul da Índia, Sul do Brasil e Sul do Reino Unido. Por predefinição, a localização de destino está definida para E.U.A. Oeste 2. 
 **Redundância do armazenamento** | O tipo de [redundância de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-redundancy) que as VMs do Azure vão utilizar após a migração. A predefinição é o Armazenamento Localmente Redundante (LRS). Tenha em atenção que o Azure Migrate suporta apenas avaliações baseadas em discos geridos e os discos geridos suportam apenas LRS, por conseguinte, a propriedade tem atualmente apenas a opção de LRS. 
 **Critérios de dimensionamento** | Os critérios a serem utilizados pelo Azure Migrate para encontrar VMs de tamanho adequado para o Azure. Pode fazer o dimensionamento com base no *histórico de desempenho* das VMs no local ou dimensionar as VMs *como no local* para o Azure, sem considerar o histórico de desempenho. O valor predefinido é baseado no dimensionamento do desempenho.
 **Planos de preços** | Para cálculos de custo, uma avaliação considera se tem garantia de software e é elegível para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera as [Ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que pode estar inscrito e permite-lhe indicar quaisquer descontos (%) específicos de subscrições, que pode acumular relativamente à oferta. 

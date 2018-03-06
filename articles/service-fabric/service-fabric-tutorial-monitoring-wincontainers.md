@@ -1,6 +1,6 @@
 ---
-title: "Monitorização e diagnóstico para contentores do Windows no Azure Service Fabric | Microsoft Docs"
-description: "Configurar a monitorização e diagnóstico para o contentor de Windows orquestradas no Service Fabric do Azure."
+title: "Monitorização e Diagnósticos para Contentores do Windows no Azure Service Fabric | Microsoft Docs"
+description: "Neste tutorial, vai configurar a monitorização e os diagnósticos para Contentores do Windows no Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,39 +15,39 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitorizar os contentores do Windows no Service Fabric com o OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Tutorial: Monitorizar contentores do Windows no Service Fabric com o OMS
 
-Isto faz parte três de um tutorial e explica-lhe configurar OMS para monitorizar os contentores de Windows orquestrados no Service Fabric.
+Esta é a terceira parte de um tutorial e orienta-o ao longo da configuração do OMS para monitorizar os seus contentores do Windows orquestrados no Service Fabric.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar o OMS para o cluster do Service Fabric
-> * Utilize uma área de trabalho do OMS para ver e consultar os registos de contentores e nós
-> * Configurar o agente do OMS para recolher contentor e métricas de nó
+> * Utilizar uma área de trabalho do OMS para ver e consultar os registos de contentores e nós
+> * Configurar o agente do OMS para recolher métricas de contentores e nós
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, deve:
-- Tem um cluster no Azure, ou [criar um com este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- [Implementar uma aplicação ao mesmo](service-fabric-host-app-in-a-container.md)
+Antes de começar este tutorial, tem de:
+- Tem um cluster no Azure ou [criar um com este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+- [Implementar uma aplicação contentorizada no mesmo](service-fabric-host-app-in-a-container.md)
 
-## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Configurar o OMS com o cluster no modelo do Resource Manager
+## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Configurar o OMS com o seu cluster no modelo do Resource Manager
 
-No caso que utilizou o [modelo fornecido](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) na primeira parte deste tutorial, deve incluir as seguintes adições a um modelo genérico do Service Fabric do Azure Resource Manager. No caso as maiúsculas e minúsculas que tem um cluster do seu próprio que pretender para estar configurada para monitorização de contentores com o OMS:
-* Efetue as seguintes alterações ao seu modelo do Resource Manager.
-* Implementar com o PowerShell para atualizar o cluster [implementar o modelo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). O Azure Resource Manager realiza a que o recurso existe, pelo que irá implementá-la como uma atualização.
+Caso tenha utilizado o [modelo disponibilizado](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) na primeira parte deste tutorial, o mesmo deveria incluir as adições seguintes aos modelos do Azure Resource Manager genéricos do Service Fabric. Se quiser configurar o seu próprio cluster para monitorizar contentores com o OMS:
+* Faça as alterações seguintes ao modelo do Resource Manager.
+* Implemente-o com o PowerShell para atualizar o cluster mediante a [implementação do modelo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). O Azure Resource Manager apercebe-se de que o recurso existe, pelo que o implementa como uma atualização.
 
-### <a name="adding-oms-to-your-cluster-template"></a>Adicionar OMS ao seu modelo de cluster
+### <a name="adding-oms-to-your-cluster-template"></a>Adicionar o OMS ao modelo do cluster
 
-Efetue as seguintes alterações no seu *Template*:
+Faça as alterações seguintes ao *template.json*:
 
-1. Adicionar a localização de área de trabalho do OMS e atribua o nome para o *parâmetros* secção:
+1. Adicione a localização e o nome da área de trabalho do OMS à secção *parameters*:
     
     ```json
     "omsWorkspacename": {
@@ -71,16 +71,16 @@ Efetue as seguintes alterações no seu *Template*:
     }
     ```
 
-    Para alterar o valor utilizado para a adicionar os mesmos parâmetros para o *template.parameters.json* e alterar os valores utilizados não existe.
+    Para alterar um dos dois valores utilizados, adicione os mesmos parâmetros ao *template.parameters.json* e altere os valores utilizados aí.
 
-2. Adicione o nome de solução e a solução para a sua *variáveis*: 
+2. Adicione o nome da solução e a solução a *variables*: 
     
     ```json
     "omsSolutionName": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
     "omsSolution": "ServiceFabric"
     ```
 
-3. Adicione o OMS Microsoft Monitoring Agent como uma extensão da máquina virtual. Localizar o recurso de conjuntos de dimensionamento de máquina virtual: *recursos* > *"apiVersion": "[variables('vmssApiVersion')]"*. Sob o *propriedades* > *virtualMachineProfile* > *extensionProfile* > *extensões*, adicione a seguinte descrição de extensão sob o *ServiceFabricNode* extensão: 
+3. Adicione o Microsoft Monitoring Agent do OMS como uma extensão da máquina virtual. Localize o recurso de conjuntos de dimensionamento de máquinas virtuais: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Em *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, adicione a descrição de extensão seguinte na extensão *ServiceFabricNode*: 
     
     ```json
     {
@@ -100,7 +100,7 @@ Efetue as seguintes alterações no seu *Template*:
     },
     ```
 
-4. Adicione a área de trabalho do OMS como um recurso individual. No *recursos*, após o dimensionamento da máquina virtual define recursos, adicione o seguinte:
+4. Adicione a área de trabalho do OMS como recurso individual. Em *resources*, a seguir ao recurso de conjuntos de dimensionamento de máquinas virtuais, adicione o seguinte:
     
     ```json
     {
@@ -180,52 +180,52 @@ Efetue as seguintes alterações no seu *Template*:
     },
     ```
 
-[Aqui](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) é um modelo de exemplo (parte utilizado num neste tutorial) que tem todas estas alterações que pode referenciar conforme necessário. Estas alterações irão adicionar uma área de trabalho de análise de registos do OMS para o grupo de recursos. A área de trabalho será configurada para recolher eventos de plataforma do Service Fabric das tabelas de armazenamento configuradas com o [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) agente. O agente do OMS (Microsoft Monitoring Agent) também foi adicionado a cada nó do cluster como uma extensão de máquina virtual - Isto significa que à medida que o cluster, o agente é automaticamente configurado em cada máquina e estabelecer ligação com ele cópias de segurança para o mesmo espaço de trabalho.
+Está disponível [aqui](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) um modelo de exemplo (utilizado na primeira parte do tutorial) que tem todas estas alterações e que pode consultar sempre que necessário. Estas alterações adicionarão uma área de trabalho do Log Analytics do OMS ao seu grupo de recursos. A área de trabalho será configurada para recolher eventos da plataforma do Service Fabric a partir das tabelas de armazenamento configuradas com o agente [Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md). O agente do OMS (Microsoft Monitoring Agent) também foi adicionado a cada nó do seu cluster como extensão de máquina virtual, o que significa que, à medida que dimensiona o cluster, o agente é configurado automaticamente em cada máquina e ligado à mesma área de trabalho.
 
-Implemente o modelo com as novas alterações para atualizar o cluster atual. Deverá ver os recursos do OMS no seu grupo de recursos quando este tiver sido concluída. Quando o cluster estiver pronto, implemente a aplicação ao mesmo. No próximo passo, vamos configurar os contentores de monitorização.
+Implemente o modelo com as alterações novas para atualizar o seu cluster atual. Deverá ver os recursos do OMS no seu grupo de recursos quando a implementação estiver concluída. Quando o cluster estiver pronto, implemente a aplicação contentorizada no mesmo. No próximo passo, vamos configurar a monitorização dos contentores.
 
-## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Adicionar a solução de monitorização do contentor à sua área de trabalho do OMS
+## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Adicionar a solução de Monitorização de Contentores à sua área de trabalho do OMS
 
-Para configurar a solução de contentor na sua área de trabalho, procure *solução de monitorização do contentor* e crie um recurso de contentores (sob a monitorização + gestão categoria).
+Para configurar a solução de Contentores na sua área de trabalho, procure *Solução de Monitorização de Contentores* e crie um recurso Contentores (na categoria Monitorização + Gestão).
 
-![Adicionar a solução de contentores](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
+![Adicionar a solução de Contentores](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Quando lhe for pedido para o *área de trabalho OMS*, selecione a área de trabalho que foi criada no seu grupo de recursos e clique em **criar**. Esta ação adiciona uma *solução de monitorização do contentor* à sua área de trabalho, automaticamente fará com que o agente do OMS implementado pelo modelo iniciar a recolha de estatísticas e registos de docker. 
+Quando lhe for pedida a *Área de Trabalho do OMS*, selecione a área que foi criada no seu grupo de recursos e clique em **Criar**. Esta ação adiciona uma *Solução de Monitorização de Contentores* à sua área de trabalho e faz com que o agente do OMS implementado pelo modelo comece a recolher automaticamente registos e estatísticas. 
 
-Navegue de volta para o *grupo de recursos*, onde agora, deverá ver a solução de monitorização adicionada recentemente. Se clicar no mesmo, a página de destino deve mostrar o número de imagens do contentor tem de ser executado. 
+Navegue de volta para o *grupo de recursos*, onde deverá ver agora a solução de monitorização acabada de adicionar. Se clicar na mesma, a página de destino deverá mostrar o número de imagens de contentor que tem em execução. 
 
-*Tenha em atenção que executou posso 5 instâncias do meu contentor da fabrikam da [parte dois](service-fabric-host-app-in-a-container.md) do tutorial*
+*Repare que executei cinco instâncias do contentor fabrikam da [segunda parte](service-fabric-host-app-in-a-container.md) do tutorial*
 
-![Página de destino de solução do contentor](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
+![Página de destino da solução de contentor](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Clicar no **solução de monitorização do contentor** leva-o a um dashboard mais detalhado, que lhe permite navegarem por vários painéis, bem como para executar consultas na análise de registos. 
+Clicar na **Solução de Monitorização de Contentores** leva-o para um dashboard mais detalhado, que lhe permite navegar por vários painéis, bem como executar consultas no Log Analytics. 
 
-*Tenha em atenção que, a partir de Setembro de 2017, a solução vai através de algumas atualizações - ignorar quaisquer erros que pode obter sobre eventos Kubernetes à medida que trabalha na integração orchestrators vários para a mesma solução.*
+*Tenha em conta que a solução vai sofrer algumas atualizações a partir de setembro de 2017; se receber erros sobre eventos do Kubernetes, ignore-os, pois estamos a trabalhar no sentido de integrar vários orquestradores na mesma solução.*
 
-Uma vez que o agente é diretriz dos registos de docker, assume como mostrar *stdout* e *stderr*. Se deslocar para a direita, verá o inventário de imagem do contentor, estado, métricas e consultas de exemplo que é possível executar para obter os dados mais úteis. 
+Uma vez que o agente recolhe registos do Docker, mostra *stdout* e *stderr* como predefinição. Se se deslocar para a direita, verá o inventário de imagens de contentor, o estado, métricas e consultas de exemplo que pode executar para obter dados mais úteis. 
 
-![Dashboard de solução do contentor](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
+![Dashboard da solução de Contentores](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Ao clicar em qualquer nestes painéis leva-o para a consulta de análise de registos que está a gerar o valor apresentado. Alterar a consulta para  *\**  para ver todos os diferentes tipos de registos que estão a ser captados. Aqui, pode consultar ou filtrar para um desempenho de contentor, os registos, ou ver eventos de plataforma do Service Fabric. Os agentes são constantemente também emitir um heartbeat a partir de cada nó, o que pode examinar para se certificar de que ainda a recolha de dados do todas as suas máquinas se a configuração do cluster é alterado.   
+Clicar em qualquer um destes painéis leva-o para a consulta do Log Analytics que está a gerar o valor apresentado. Altere a consulta para *\** de modo a ver todos os diferentes tipos de registos que estão a ser recolhidos. Aqui, pode consultar ou filtrar por desempenho do contentor ou por registos ou ver eventos da plataforma do Service Fabric. Os agentes também estão constantemente a emitir um heartbeat de cada nó e que pode ver para confirmar que ainda estão a ser recolhidos dados das suas máquinas, caso a configuração do seu cluster se altere.   
 
-![Consulta de contentor](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
+![Consulta do contentor](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Configurar o agente do OMS para recolher os contadores de desempenho
+## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Configurar o agente do OMS para recolher contadores de desempenho
 
-Outra vantagem de utilizar o agente do OMS é a capacidade de alterar os contadores de desempenho que pretende recolher através da experiência de IU do OMS, em vez de ter de configurar o agente de diagnóstico do Azure e não um Gestor de recursos de modelo baseado em atualização de cada vez. Para tal, clique em **Portal do OMS** na página de destino da sua solução de monitorização do contentor (ou recursos de infraestrutura do serviço).
+Outra vantagem da utilização do agente do OMS é a capacidade de alterar os contadores de desempenho que quer recolher através da experiência de IU do OMS em vez de ter de configurar o agente de diagnósticos do Azure e de fazer uma atualização baseada num modelo do Resource Manager de cada vez. Para tal, clique em **Portal do OMS** na página de destino da sua Solução de Monitorização de Contentores (ou do Service Fabric).
 
 ![Portal do OMS](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
 
-Isto irá demorar a sua área de trabalho no portal do OMS, onde pode ver as suas soluções, criar dashboards personalizados, bem como configurar o agente do OMS. 
-* Clique em de **roda roda dentada** no canto superior direito do ecrã para abrir o *definições* menu.
-* Clique em **origens ligadas** > **servidores Windows** para verificar que tem *5 Windows computadores ligados*.
-* Clique em **dados** > **contadores de desempenho do Windows** para procurar e adicionar novos contadores de desempenho. Aqui irá ver uma lista de recomendações da OMS para contadores de desempenho que foi recolher, bem como a opção para procurar outros contadores. Clique em **adicionar os contadores de desempenho selecionados** para começar a recolher as métricas sugeridas.
+Desta forma, é encaminhado para a sua área de trabalho no portal do OMS, onde pode ver as suas soluções, criar dashboards personalizados e configurar o agente do OMS. 
+* Clique na **roda dentada**, no canto superior direito do ecrã, para abrir o menu *Definições*.
+* Clique em **Connected Sources** (Origens Ligadas)  > **Windows Servers** (Servidores Windows) *5 Windows Computers Connected* (5 Computadores Windows Ligados).
+* Clique em **Data** (Dados) > **Windows Performance Counters** (Contadores de Desempenho do Windows) para procurar e adicionar contadores de desempenho novos. Aqui, verá uma lista de recomendações do OMS relativamente aos contadores de desempenho que pode recolher, bem como a opção para procurar outros contadores. Clique em **Add the selected performance counters** (Adicionar os contadores de desempenho selecionados) para começar a recolher as métricas sugeridas.
 
     ![Contadores de desempenho](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
 
-No portal do Azure, **atualizar** sua solução de monitorização do contentor nuns minutos e deve começar a ver *desempenho computador* dados provenientes de. Isto irá ajudar a compreender a forma como os recursos estão a ser utilizados. Também pode utilizar estas métricas para tomar decisões adequadas sobre dimensionar o seu cluster ou para confirmar se um cluster é balanceamento da carga conforme esperado.
+Novamente no portal do Azure, **atualize** a Solução de Monitorização de Contadores passados alguns minutos e, depois, deverá começar a receber dados de *Desempenho do Computador*. Isto ajuda a compreender de que forma é que os seus recursos estão a ser atualizados. Também pode utilizar estas métricas para tomar decisões adequadas relativamente ao dimensionamento do seu cluster ou para confirmar se um cluster está a balancear a sua carga conforme esperado.
 
-*Nota: Certifique-se que os filtros de hora estão definidos corretamente para que possa consumir estas métricas.* 
+*Nota: certifique-se de que os seus filtros de hora estão definidos corretamente para poder consumir estas métricas.* 
 
 ![Contadores de desempenho 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
@@ -236,12 +236,12 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Configurar o OMS para o cluster do Service Fabric
-> * Utilize uma área de trabalho do OMS para ver e consultar os registos de contentores e nós
-> * Configurar o agente do OMS para recolher contentor e métricas de nó
+> * Utilizar uma área de trabalho do OMS para ver e consultar os registos de contentores e nós
+> * Configurar o agente do OMS para recolher métricas de contentores e nós
 
-Agora que configurou a monitorização para a sua aplicação de, experimente o seguinte:
+Agora que configurou a monitorização para a sua aplicação contentorizada, experimente o seguinte:
 
-* Configure o OMS para um cluster do Linux, seguir passos semelhantes, conforme apresentado acima. Referência [este modelo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) para efetuar alterações no seu modelo do Resource Manager.
-* Configurar OMS configurar [automatizada alertas](../log-analytics/log-analytics-alerts.md) para ajudar a detetar e diagnósticos.
-* Explorar a lista de Service Fabric de [recomendado contadores de desempenho](service-fabric-diagnostics-event-generation-perf.md) configurar para os clusters.
-* Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos.
+* Configurar o OMS para um cluster do Linux, através de passos semelhantes aos anteriores. Veja [este modelo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) para fazer alterações ao seu modelo do Resource Manager.
+* Configurar o OMS para definir [alertas automáticos](../log-analytics/log-analytics-alerts.md) para ajudar na deteção e nos diagnósticos.
+* Explorar a lista de [contadores de desempenho recomendados](service-fabric-diagnostics-event-generation-perf.md) do Service Fabric a configurar para os seus clusters.
+* Familiarizar-se com as funcionalidades de [registos de pesquisas e consultas](../log-analytics/log-analytics-log-searches.md) que são oferecidas como parte do Log Analytics.

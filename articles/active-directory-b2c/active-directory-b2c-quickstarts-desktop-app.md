@@ -1,124 +1,111 @@
 ---
-title: "Unidade de teste de uma aplicação de ambiente de trabalho do Azure AD B2C | Microsoft Docs"
-description: "Unidade de teste a iniciar sessão, inscreva-se, editar o perfil e repor percursos de utilizador de palavra-passe utilizando o ambiente de teste do Azure AD B2C"
+title: "Testar uma aplicação de ambiente de trabalho ativada pelo Azure AD B2C"
+description: "Utilize o Início Rápido para experimentar uma aplicação de ambiente de trabalho ASP.NET de exemplo que utiliza o Azure Active Directory B2C para fornecer início de sessão do utilizador."
 services: active-directory-b2c
-documentationcenter: .net
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 86293627-26fb-4e96-a76b-f263f9a945bd
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
-ms.openlocfilehash: 51f5643f0bd975beb939c2d5a8853810fb609ec9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 2/13/2018
+ms.author: patricka
+ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="test-drive-a-desktop-application-configured-with-azure-ad-b2c"></a>Testar uma aplicação de ambiente de trabalho configurada com o Azure AD B2C
+# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Início Rápido: testar uma aplicação de ambiente de trabalho ativada pelo Azure AD B2C
 
-O Azure Active Directory B2C fornece gestão de identidades de nuvem para manter as suas aplicações, empresas, os clientes protegidos.  Este guia de introdução utiliza uma aplicação de ambiente de trabalho de Windows Presentation Foundation (WPF) de exemplo para demonstrar:
+O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud para manter as aplicações, as empresas e os clientes protegidos. O Azure AD B2C permite às aplicações efetuar a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos.
 
-* Utilizar o **inscrever-se ou iniciar sessão no** política para criar ou inicie sessão com um fornecedor de identidade de redes sociais ou uma conta local utilizando um endereço de correio eletrónico. 
-* **Chamar uma API** obter o nome a apresentar a partir de um Azure AD B2C, protegida por recurso.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
-    - **Desenvolvimento de ambiente de trabalho .NET**
-
-* Uma conta de redes social do Facebook, Google, Microsoft ou Twitter. Se não tiver uma conta de redes social, é necessário um endereço de correio eletrónico válido.
+Neste início rápido, vai utilizar uma aplicação de ambiente de trabalho do Windows Presentation Foundation (WPF) de exemplo, ativada pelo Azure AD B2C, para iniciar sessão através de um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento ASP.NET e Web**. 
+* Uma conta de rede social do Facebook, Google, Microsoft ou Twitter.
+
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transferir ou clonar a aplicação de exemplo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) a partir do GitHub.
+[Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
+```
 
 ## <a name="run-the-app-in-visual-studio"></a>Executar a aplicação no Visual Studio
 
-Na pasta de projeto de aplicação de exemplo, abra o `active-directory-b2c-wpf.sln` solução no Visual Studio. 
+Na pasta de projeto do exemplo de aplicação, abra a solução `active-directory-b2c-wpf.sln` no Visual Studio.
 
-Selecione **depurar > Iniciar depuração** para compilar e executar a aplicação. 
+Prima **F5** para depurar a aplicação.
 
 ## <a name="create-an-account"></a>Criar uma conta
 
-Clique em **sessão** para iniciar o **inscrever-se ou iniciar sessão no** fluxo de trabalho. Ao criar uma conta, pode utilizar uma conta do fornecedor de identidade sociais existente ou uma conta de e-mail.
+Clique em **Iniciar sessão** para iniciar o fluxo de trabalho **Inscrever-se ou Iniciar Sessão**, com base numa política do Azure AD B2C.
 
 ![Aplicação de exemplo](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-### <a name="sign-up-using-a-social-identity-provider"></a>Inscrever-se utilizando um fornecedor de identidade de redes sociais
+O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Neste início rápido, utilize uma conta de fornecedor de identidade de redes sociais do Facebook, Google, Microsoft ou Twitter. 
 
-Para inscrever-se utilizando um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar. Se preferir usar um endereço de e-mail, avance para o [inscrever-se utilizando um endereço de correio eletrónico](#sign-up-using-an-email-address) secção.
+### <a name="sign-up-using-a-social-identity-provider"></a>Inscrever-se através de um fornecedor de identidade de redes sociais
 
-![Fornecedor de sessão ou inscrever-se](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+O Azure AD B2C apresenta uma página de início de sessão personalizada para uma marca fictícia com o nome Wingtip Toys para a aplicação Web de exemplo. 
 
-Tem de autenticar (início de sessão) com a sua conta de redes social credenciais e autorizar a aplicação a ler as informações da sua conta de redes social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de redes social, como o nome e a localidade. 
+1. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar. 
 
-![Autenticar e autorizar utilizando uma conta de redes social](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
+    ![Fornecedor de Início de Sessão ou Inscrição](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-Os detalhes do perfil de conta nova são pré-preenchidos com informações da sua conta de redes social. Modificar os detalhes se assim o desejar e clique em **continuar**.
+    Efetue a autenticação (início de sessão) com as suas credenciais da rede social e autorize a aplicação a ler as informações da sua conta da rede social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
 
-![Detalhes da nova conta de perfil de inscrição](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
+2. Conclua o processo de início de sessão para o fornecedor de identidade. Por exemplo, se tiver escolhido o Twitter, introduza as suas credenciais do Twitter e clique em **Iniciar sessão**.
 
-Foi criada com êxito uma nova conta de utilizador do Azure AD B2C utiliza um fornecedor de identidade. Após o início de sessão, o token de acesso é apresentado no *informações do Token* caixa de texto. O token de acesso é utilizado quando aceder ao recurso de API.
+    ![Autenticar e autorizar através de uma conta de redes sociais](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
 
-![Token de autorização](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+    Os detalhes do perfil da nova conta são pré-preenchidos com as informações da sua conta da rede social. 
 
-Passo seguinte: [Ir para editar o perfil](#edit-your-profile) secção.
+3. Modifique os detalhes, se assim o desejar, e clique em **Continuar**. Os valores que introduzir são utilizados para o seu perfil de conta de utilizador do Azure AD B2C.
 
-### <a name="sign-up-using-an-email-address"></a>Inscrever-se utilizando um endereço de e-mail
+    ![Detalhes do perfil de inscrição da nova conta](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
 
-Se optar por não utilizar uma conta de redes social para fornecer autenticação, pode criar uma conta de utilizador do Azure AD B2C, utilizando um endereço de correio eletrónico válido. Uma conta de utilizador local do Azure AD B2C utiliza o Azure Active Directory como o fornecedor de identidade. Para utilizar o seu endereço de e-mail, clique em de **não tiver uma conta? Inscrever-se agora** ligação.
-
-![Sessão ou inscrever-se por e-mail](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-email-wpf.png)
-
-Introduza um endereço de correio eletrónico e clique em **enviar o código de verificação**. É necessário um endereço de e-mail válido para receber o código de verificação do Azure AD B2C.
-
-Introduza o código de verificação receber por e-mail e clique em **verificar código**.
-
-Adicionar informações do seu perfil e clique em **criar**.
-
-![Inscrever-se com a nova conta de correio eletrónico](media/active-directory-b2c-quickstarts-desktop-app/sign-up-new-account-profile-email-wpf.png)
-
-Foi criada com êxito uma nova conta de utilizador local do Azure AD B2C. Após o início de sessão, o token de acesso é apresentado no *informações do Token* caixa de texto. O token de acesso é utilizado quando aceder ao recurso de API.
-
-![Token de autorização](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+    Criou com êxito uma nova conta de utilizador do Azure AD B2C que utiliza um fornecedor de identidade. Após o início de sessão, o token de acesso é apresentado na caixa de texto *Informações do token*. O token de acesso é utilizado ao aceder ao recurso de API.
 
 ## <a name="edit-your-profile"></a>Editar o seu perfil
 
-O Azure Active Directory B2C fornece funcionalidades para permitir que os utilizadores atualizar os seus perfis. Clique em **Editar perfil** para editar o perfil que criou.
+O Azure Active Directory B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis.  O exemplo de aplicação Web utiliza uma política de edição de perfil do Azure AD B2C para o fluxo de trabalho. 
 
-![Editar perfil](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
+1. Clique em **Editar perfil** para editar o perfil que criou.
 
-Escolha o fornecedor de identidade associado à conta que criou. Por exemplo, se utilizou Twitter como o fornecedor de identidade quando criou a conta, escolha Twitter para modificar os detalhes do perfil associadas.
+    ![Editar perfil](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-![Escolha um fornecedor associado ao perfil para editar](media/active-directory-b2c-quickstarts-desktop-app/edit-account-choose-provider-wpf.png)
+2. Escolha o fornecedor de identidade associado à conta que criou. Por exemplo, se utilizou o Twitter como o fornecedor de identidade quando criou a conta, escolha o Twitter para modificar os detalhes associados ao perfil.
 
-Alterar o **nome a apresentar** ou **Cidade**. 
+3. Altere o **Nome a apresentar** ou a **Cidade** e clique em **Continuar**.
 
-![Atualizar perfil](media/active-directory-b2c-quickstarts-desktop-app/update-profile-wpf.png)
+    É apresentado um novo token de acesso na caixa de acesso *Informações do token*. Se pretender verificar as alterações ao seu perfil, copie e cole o token de acesso no descodificador de token https://jwt.ms.
 
-É apresentado um novo token de acesso no *informações do Token* caixa de texto. Se pretender verificar as alterações para o seu perfil, copie e cole o token de acesso a https://jwt.ms descodificador token.
+## <a name="access-a-protected-web-api-resource"></a>Aceder a um recurso protegido da API Web
 
-![Token de autorização](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+Clique em **Chamar API** para fazer um pedido ao recurso protegido pelo Azure AD B2C, https://fabrikamb2chello.azurewebsites.net/hello. 
 
-## <a name="access-a-resource"></a>Aceder a um recurso
+![Chamar a API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-Clique em **chamada API** efetuar um pedido para o Azure AD B2C, protegida https://fabrikamb2chello.azurewebsites.net/hello recursos. 
+A aplicação inclui o token de acesso do Azure AD no pedido ao recurso protegido de API Web. A API Web devolve o nome a apresentar contido no token de acesso.
 
-![Chamada de API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+Utilizou com êxito a conta de utilizador do Azure AD B2C para efetuar uma chamada autorizada para uma API Web protegida pelo Azure AD B2C.
 
-A aplicação inclui o token de acesso apresentado no *informações do Token* caixa de texto no pedido. A API envia o nome a apresentar contido no token de acesso.
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros inícios rápidos ou tutoriais do Azure AD B2C. Quando já não for necessário, pode [eliminar o inquilino do Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O passo seguinte é criar o seu inquilino do Azure AD B2C e configurar o exemplo a serem executados utilizando o seu inquilino. 
+O passo seguinte é criar o seu inquilino do Azure AD B2C e configurar o exemplo a executar com o seu inquilino. 
 
 > [!div class="nextstepaction"]
 > [Criar um inquilino do Azure Active Directory B2C no portal do Azure](active-directory-b2c-get-started.md)

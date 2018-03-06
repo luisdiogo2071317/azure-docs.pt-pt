@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: ac8a9f28881ff7d249a02976f310bf6a8283aeb6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="network-security"></a>Segurança da rede
 
@@ -149,7 +149,7 @@ Os grupos de segurança de aplicações estão disponíveis na versão de pré-v
 ## <a name="azure-platform-considerations"></a>Considerações sobre a plataforma do Azure
 
 - **IP Virtual do nó de anfitrião:** os serviços de infraestrutura básica, tais como DHCP, DNS e monitorização do estado de funcionamento, são fornecidos através dos endereços IP do anfitrião virtualizado 168.63.129.16 e 169.254.169.254. Estes endereços IP públicos pertencem à Microsoft e são os únicos endereços IP virtualizados utilizados em todas as regiões para este fim. O mapa de endereços para o endereço IP físico do computador servidor (nó de anfitrião) que está a alojar a máquina virtual. O nó de anfitrião funciona como o reencaminhamento DHCP, o resolvedor recursivo de DNS e a origem de sonda para a sonda de estado de funcionamento do balanceador de carga e a sonda de estado de funcionamento da máquina. A comunicação para estes endereços IP não é um ataque. Se bloquear o tráfego de ou para estes endereços IP, uma máquina virtual poderá não funcionar corretamente.
-- **Licenciamento (Serviço de Gestão de Chaves):** as imagens do Windows em execução nas máquinas virtuais têm de ser licenciadas. Para garantir o licenciamento, é enviado um pedido para os servidores de anfitrião do Key Management Service que processam estas consultas. O pedido é feito através da porta 1688 de saída.
+- **Licenciamento (Serviço de Gestão de Chaves):** as imagens do Windows em execução nas máquinas virtuais têm de ser licenciadas. Para garantir o licenciamento, é enviado um pedido para os servidores de anfitrião do Key Management Service que processam estas consultas. O pedido é feito através da porta 1688 de saída. Para implementações que utilizam a configuração de [rota predefinida 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), esta regra de plataforma será desativada.
 - **Máquinas virtuais em conjuntos com balanceamento de carga**: a porta de destino e o intervalo de endereços aplicados são provenientes do computador de origem, não do balanceador de carga. A porta de destino e o intervalo de endereços destinam-se ao computador de destino, não ao balanceador de carga.
 - **Instâncias de serviço do Azure**: as instâncias de vários serviços do Azure, como o HDInsight, os Ambientes de Serviço de Aplicações e os Conjuntos de Dimensionamento de Máquinas Virtuais, são implementados em sub-redes da rede virtual. Para obter uma lista completa dos serviços que pode implementar em redes virtuais, veja [Rede virtual para os serviços do Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Certifique-se de que se familiariza com os requisitos de portas de cada serviço antes de aplicar um grupo de segurança de rede à sub-rede na qual o recurso está implementado. Se negar portas de que os serviços precisam, estes não funcionarão corretamente.
 - **Enviar e-mails de saída**: a Microsoft recomenda que utilize serviços de reencaminhamento de SMTP autenticados (normalmente ligados através da porta TCP 587, mas, muitas vezes, também através de outras portas) para enviar e-mails a partir de Máquinas Virtuais do Azure. Os serviços de reencaminhamento de SMTP especializam-se na reputação do remetente, para minimizar a possibilidade de os fornecedores de e-mail de terceiros rejeitarem mensagens. Esses serviços de reencaminhamento de SMTP incluem, sem estarem limitados, o Exchange Online Protection e o SendGrid. A utilização dos serviços de reencaminhamento de SMTP não está de forma alguma restringida no Azure, independentemente do seu tipo de subscrição. 

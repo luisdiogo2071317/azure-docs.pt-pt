@@ -1,6 +1,6 @@
 ---
 title: "Integrar o Azure Service Fabric na Gestão de API | Microsoft Docs"
-description: "Saiba como começar a utilizar rapidamente a Gestão de API do Azure e o Azure Service Fabric."
+description: "Neste tutorial, saiba como começar a utilizar rapidamente a Gestão de API do Azure e o Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>Implementar a Gestão de API com o Service Fabric
+# <a name="tutorial-deploy-api-management-with-service-fabric"></a>Tutorial: implementar a Gestão de API com o Service Fabric
 Este tutorial é a quarta parte de uma série.  A implementação da Gestão de API do Azure no Service Fabric é um cenário avançado.  A Gestão de API é útil se tiver de publicar APIs com um conjunto avançado de regras de encaminhamento para os seus serviços de back-end do Service Fabric. Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. No Service Fabric, esse gateway pode ser qualquer serviço, sem estado, concebido para a entrada de tráfego, tal como uma aplicação ASP.NET Core, os Hubs de Eventos, o Hub IoT ou a Gestão de API do Azure. 
 
 Este tutorial mostra-lhe como configurar a [Gestão de API do Azure](../api-management/api-management-key-concepts.md) com o Service Fabric para encaminhar o tráfego para um serviço de back-end no Service Fabric.  Quando tiver terminado, terá implementado a Gestão de API numa VNET e configurado uma operação de API para enviar tráfego para serviços sem estado de back-end. Para saber mais sobre os cenários da Gestão de API do Azure com o Service Fabric, veja o artigo [Overview](service-fabric-api-management-overview.md) (Descrição Geral).

@@ -1,6 +1,6 @@
 ---
-title: "Centro de segurança do Azure guia de introdução - carregar os computadores do Windows para o Centro de segurança | Microsoft Docs"
-description: "Este guia de introdução mostra-lhe como aprovisionar o Microsoft Monitoring Agent num computador Windows."
+title: "Início Rápido do Centro de Segurança do Azure - Incluir os computadores Windows no Centro de Segurança | Microsoft Docs"
+description: "Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,84 +9,85 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 50cbbca9181d67bc41632a4650c76b9636a72356
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: Computadores com Windows carregar ao centro de segurança do Azure
-Depois de carregar as subscrições do Azure, pode ativar o Centro de segurança para os recursos a ser executados fora do Azure, de exemplo no local ou em outras nuvens, por o aprovisionamento do Microsoft Monitoring Agent.
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
+Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
 
-Este guia de introdução mostra como instalar o Microsoft Monitoring Agent num computador Windows.
+Este início rápido mostra-lhe como instalar o MMA num computador Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Tem de ser no escalão de preço padrão de centro de segurança antes de iniciar este guia de introdução. Consulte [Onboard a subscrição do Azure Security Center Standard](security-center-get-started.md) para obter instruções de atualização. Pode tentar padrão de centro de segurança sem custos para os primeira 60 dias.
+Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode experimentar o escalão Standard do Centro de Segurança sem custos durante os primeiros 60 dias.
 
-## <a name="add-new-windows-computer"></a>Adicionar novo computador com o Windows
+## <a name="add-new-windows-computer"></a>Adicionar novo computador Windows
 
 1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
-2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de segurança - descrição geral** abre.
+2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
 
- ![Descrição geral do Centro de segurança][2]
+ ![Descrição geral do Centro de Segurança][2]
 
-3. No menu principal do Centro de segurança, selecione **integração de segurança avançada**.
-4. Selecione **que pretende adicionar computadores não Azure**.
+3. No menu principal do Centro de Segurança, selecione **Inclusão de segurança avançada**.
+4. Selecione **Quer adicionar computadores que não pertencem ao Azure**.
 
-   ![Segurança carregar avançadas][3]
+   ![Incluir na segurança avançada][3]
 
-5. No **adicionar novos computadores não Azure**, é apresentada uma lista de áreas de trabalho as análise de registos. A lista inclui, se aplicável, a área de trabalho predefinido criada pelo centro de segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que pretende utilizar.
+5. Em **Adicionar novos computadores não Azure**, é apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que pretenda utilizar.
 
-    ![Adicionar o computador não do Azure][4]
+    ![Adicionar computador não pertencente ao Azure][4]
 
-  O **agente direta** painel abre-se com uma ligação para transferir o agente do Windows e chaves para o seu ID da área de trabalho utilizar na configuração do agente.
+  O painel **Agente Direto** abre-se, com uma ligação para transferir o agente do Windows e as chaves para o seu ID da área de trabalho a utilizar na configuração do agente.
 
-6.  Selecione o **transferir o agente do Windows** ligação aplicável ao seu tipo de processador do computador para transferir o ficheiro de configuração.
+6.  Selecione a ligação **Transferir o Agente do Windows** aplicável ao seu tipo de processador do computador para transferir o ficheiro de configuração.
 
-7.  À direita do **ID da área de trabalho**, selecione o ícone de copiar e colar o ID no bloco de notas.
+7.  À direita de **ID da Área de Trabalho**, selecione o ícone de copiar e cole o ID no Bloco de Notas.
 
-8.  À direita do **chave primária**, selecione o ícone de copiar e colar a chave no bloco de notas.
+8.  À direita de **Chave Primária**, selecione o ícone de copiar e cole a chave no Bloco de Notas.
 
 ## <a name="install-the-agent"></a>Instalar o agente
 Agora tem de instalar o ficheiro transferido no computador de destino.
 
-1. Copie o ficheiro para o computador de destino e execute a configuração.
-2. No **boas-vindas** página, selecione **seguinte**.
-3. No **termos de licenciamento** página, leia a licença e, em seguida, selecione **concordo**.
-4. No **pasta de destino** página, altere ou mantenha a pasta de instalação predefinida e, em seguida, selecione **seguinte**.
-5. No **opções de configuração do agente** página, escolha ligar o agente para análise de registos do Azure (OMS) e, em seguida, selecione **seguinte**.
-6. No **Log Analytics do Azure** página, cole o **ID da área de trabalho** e **chave da área de trabalho (chave primária)** que copiou no bloco de notas no procedimento anterior.
-7. Se o computador deve reportar uma área de trabalho de análise de registos na nuvem do Azure Government, selecione **Azure US Government** formulário a **nuvem do Azure** na lista pendente.  Se o computador tem de comunicar através de um servidor proxy para o serviço de análise de registos, selecione **avançadas** e forneça o URL e o número de porta do servidor proxy.
-8. Selecione **seguinte** depois de concluir a fornecer as definições de configuração necessárias.
+1. Copie o ficheiro para o computador de destino e Execute a Configuração.
+2. Na página **Bem-vindo**, selecione **Seguinte**.
+3. Na página **Termos de Licenciamento**, leia a licença e selecione **Aceito**.
+4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação predefinida e selecione **Seguinte**.
+5. Na página **Opções de Configuração do Agente**, escolha ligar o agente ao Azure Log Analytics (OMS) e selecione **Seguinte**.
+6. Na página **Azure Log Analytics**, cole o **ID da Área de Trabalho** e a **Chave da Área de Trabalho (Chave Primária)** que copiou para o Bloco de Notas no procedimento anterior.
+7. Caso o computador deva reportar a uma área de trabalho do Log Analytics na cloud do Azure Government, selecione **Azure US Government**, na lista pendente **Azure Cloud**.  Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, selecione **Avançadas** e forneça o URL e o número da porta do servidor proxy.
+8. Selecione **Seguinte**, depois de indicar as definições de configuração necessárias.
 
   ![Instalar o agente][5]
 
-9. No **pronto para instalar** página, reveja as suas opções e, em seguida, selecione **instalar**.
-10. No **configuração concluída com sucesso** página, selecione **concluir**
+9. Na página **Pronto para Instalar**, reveja as suas opções e selecione **Instalar**.
+10. Na página **Configuração concluída com êxito**, selecione **Concluir**
 
-Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Pode rever a configuração não existe e certifique-se de que o agente está ligado.
+Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Pode rever a configuração e confirmar que o agente está ligado.
 
-Para obter mais informações sobre como instalar e configurar o agente, consulte [computadores Windows ligar](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
+Para obter mais informações sobre como instalar e configurar o agente, veja [Ligar computadores Windows](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
 
-Agora pode monitorizar as VMs do Azure e não do Azure computadores num único local. Em **computação**, tem uma descrição geral de todas as VMs e computadores, juntamente com recomendações. Cada coluna representa um conjunto de recomendações. A cor representa da VM ou do computador atual estado de segurança dessa recomendação. Centro de segurança também apresenta qualquer deteções para estes computadores nos alertas de segurança.
+Agora, pode monitorizar as VMs do Azure e os computadores não pertencentes ao Azure num único local. Em **Computação**, tem uma descrição geral de todas as VMs e computadores, juntamente com recomendações. Cada coluna representa um conjunto de recomendações. A cor representa o estado de segurança atual da VM ou do computador para essa recomendação. O Centro de Segurança também apresenta quaisquer deteções destes computadores nos alertas de Segurança.
 
-  ![Painel de computação][6]
+  ![Painel Computação][6]
 
-Existem dois tipos de ícones representados no **computação** painel:
+Estão representados dois tipos de ícone no painel **Computação**:
 
-![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Computador não-Azure
+![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Computador não pertencente ao Azure
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) VM do Azure
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não é necessário, pode remover o agente do computador Windows.
+Quando já não for necessário, pode remover o agente do computador Windows.
 
 Para remover o agente:
 
@@ -94,11 +95,11 @@ Para remover o agente:
 2. Abra **Programas e Funcionalidades**.
 3. Em **Programas e Funcionalidades**, selecione **Microsoft Monitoring Agent** e clique em **Desinstalar**.
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste guia de introdução que aprovisionou o Microsoft Monitoring Agent num computador Windows. Para saber mais sobre como utilizar o Centro de segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
+## <a name="next-steps"></a>Passos seguintes
+Neste início rápido, aprovisionou o MMA num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Definir e avaliar as políticas de segurança](tutorial-security-policy.md)
+> [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

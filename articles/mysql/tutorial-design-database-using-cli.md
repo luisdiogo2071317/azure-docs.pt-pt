@@ -1,21 +1,21 @@
 ---
-title: Conceber a sua primeira Base de Dados do Azure para a base de dados MySQL - CLI do Azure | Microsoft Docs
+title: Conceber a sua primeira base de dados de Base de Dados do Azure para MySQL - CLI do Azure
 description: "Este tutorial explica como criar e gerir a Base de Dados do Azure para o servidor MySQL e a base de dados através da CLI 2.0 do Azure a partir da linha de comandos."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 5f323086ce66a504188c1834d20873a52a990311
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 779e6b48a20dd49967a189293ed37b07bc5e1cda
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Conceber a sua primeira Base de Dados do Azure para a base de dados MySQL
 
@@ -44,20 +44,27 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
 
-O exemplo seguinte cria um grupo de recursos com o nome `mycliresource` na localização `westus`.
+O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`.
 
 ```azurecli-interactive
-az group create --name mycliresource --location westus
+az group create --name myresourcegroup --location westus
 ```
-
+## <a name="add-the-extension"></a>Adicionar a extensão
+Adicione a extensão atualizada de gestão da Base de Dados do Azure para MySQL, com o comando seguinte:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL
 Crie uma Base de Dados do Azure para o servidor MySQL com o comando az mysql server create. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `mycliresource` com o nome `mycliserver`. O servidor tem um início de sessão de administrador com o nome `myadmin` e a palavra-passe `Password01!`. É criado com o escalão de desempenho **Básico** e com **50** unidades de computação partilhadas entre todas as bases de dados do servidor. Pode aumentar ou reduzir verticalmente a computação e o armazenamento, dependendo das necessidades da aplicação.
+O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um início de sessão de administrador com o nome `myadmin`. É para Fins Gerais, servidor de Gen 4 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
 
 ```azurecli-interactive
-az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
+> [!IMPORTANT]
+> O início de sessão e a palavra-passe de administrador de servidor que especificar aqui serão necessários para iniciar sessão no servidor e nas respetivas bases de dados mais tarde neste início rápido. Lembre-se ou grave estas informações para utilização posterior.
+
 
 ## <a name="configure-firewall-rule"></a>Configurar a regra de firewall
 Crie uma regra de firewall ao nível da Base de Dados do Azure para o servidor MySQL com o comando az mysql server firewall-rule create. A regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta de linha de comandos **mysql** ou o MySQL Workbench, se ligue ao seu servidor através da firewall do serviço Azure MySQL. 
@@ -65,14 +72,14 @@ Crie uma regra de firewall ao nível da Base de Dados do Azure para o servidor M
 O exemplo seguinte cria uma regra de firewall para um intervalo de endereços predefinidos. Este exemplo mostra o intervalo completo possível de endereços IP.
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIPs --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## <a name="get-the-connection-information"></a>Obter as informações da ligação
 
 Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informações de anfitrião.
 ```azurecli-interactive
-az mysql server show --resource-group mycliresource --name mycliserver
+az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin**.
@@ -80,30 +87,35 @@ O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **a
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mycliserver",
-  "resourceGroup": "mycliresource",
-  "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "MYSQLS2M50",
+  "name": "mydemoserver",
+  "resourceGroup": "myresourcegroup",
+ "sku": {
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforMySQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "5.7"
 }
 ```
 
 ## <a name="connect-to-the-server-using-mysql"></a>Ligar ao servidor com o mysql
 Utilize a [ferramenta de linha de comandos do mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para ligar à Base de Dados do Azure para o servidor MySQL. Neste exemplo, o comando é:
 ```cmd
-mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Criar uma base de dados vazia
@@ -118,7 +130,7 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Criar tabelas na base de dados
-Agora que sabe como ligar à Base de Dados do Azure para MySQL, conclua algumas tarefas básicas:
+Agora que sabe como ligar à Base de Dados do Azure para MySQL, conclua algumas tarefas básicas.
 
 Em primeiro lugar, crie uma tabela e carregue-a com alguns dados. Vamos criar uma tabela que armazena informações de inventário.
 ```sql
@@ -165,15 +177,25 @@ Para o restauro, precisa das seguintes informações:
 - Localização: não pode selecionar a região, por predefinição é igual ao servidor de origem
 
 ```azurecli-interactive
-az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
+az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
 ```
 
-Para restaurar o servidor e [restaurar para um momento específico](./howto-restore-server-portal.md) antes da tabela ter sido eliminada. Restaurar um servidor para outro ponto anterior no tempo cria um novo servidor duplicado como o servidor original a partir do ponto anterior no tempo que especificar, desde que esteja dentro do período de retenção da sua [camada de serviço](./concepts-service-tiers.md).
+O comando `az mysql server restore` precisa dos seguintes parâmetros:
+| Definição | Valor sugerido | Descrição  |
+| --- | --- | --- |
+| resource-group |  myResourceGroup |  O grupo de recursos no qual se encontra o servidor de origem.  |
+| nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Selecione um ponto anterior no tempo para o qual restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu fuso horário local, como `2017-04-13T05:59:00-08:00`, ou utilizar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
+| source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
 
-## <a name="next-steps"></a>Passos Seguintes
+Restaurar um servidor para um ponto anterior no tempo cria um novo servidor, copiado como o servidor original do ponto anterior no tempo que especificar. A localização e os valores do escalão de preço do servidor restaurado são os mesmos do servidor de origem.
+
+O comando é síncrono e irá regressar depois de o servidor ser restaurado. Depois de o restauro ser concluído, localize o novo servidor que foi criado. Certifique-se de que os dados foram restaurados conforme esperado.
+
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a:
 > [!div class="checklist"]
-> * Criar uma Base de Dados do Azure para MySQL
+> * Criar uma Base de Dados do Azure para o servidor MySQL
 > * Configurar a firewall do servidor
 > * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
 > * Carregar os dados de exemplo

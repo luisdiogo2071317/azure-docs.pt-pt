@@ -1,6 +1,6 @@
 ---
 title: "Agrupar e implementar uma aplicação de contentores do Service Fabric | Microsoft Docs"
-description: "Saiba como gerar uma definição de aplicação do Azure Service Fabric com o Yeoman e como agrupar a aplicação."
+description: "Neste tutorial, saiba como gerar uma definição de aplicação do Azure Service Fabric com o Yeoman e como compactar a aplicação."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Agrupar e implementar contentores como uma aplicação do Service Fabric
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Tutorial: compactar e implementar contentores como uma aplicação do Service Fabric
 
 Este tutorial é a segunda parte de uma série. Neste tutorial, é utilizada uma ferramenta de gerador de modelos (Yeoman) para gerar uma definição de aplicação do Service Fabric. Esta aplicação pode, depois, ser utilizada para implementar contentores no Service Fabric. Neste tutorial, ficará a saber como: 
 
@@ -222,7 +222,7 @@ Para implementar a aplicação num cluster no Azure, crie o seu próprio cluster
 
 Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Estes são executados pela equipa do Service Fabric, onde qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Party Cluster, [siga as instruções](http://aka.ms/tryservicefabric). 
 
-Para realizar operações de gestão no cluster de grupo seguro, pode utilizar o Service Fabric Explorer, a CLI ou o Powershell. De modo a utilizar o Service Fabric Explorer, tem de transferir o ficheiro PFX do site do Cluster de Grupo e importar o certificado para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Não há nenhuma palavra-passe para os certificados autoassinados do cluster de grupo. 
+Para realizar operações de gestão no cluster de grupo seguro, pode utilizar o Service Fabric Explorer, a CLI ou o PowerShell. De modo a utilizar o Service Fabric Explorer, tem de transferir o ficheiro PFX do site do Cluster de Grupo e importar o certificado para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Não há nenhuma palavra-passe para os certificados autoassinados do cluster de grupo. 
 
 Para realizar operações de gestão com o Powershell ou a CLI, vai precisar do PFX (Powershell) ou do PEM (CLI). Para converter o PFX num ficheiro PEM, execute o seguinte comando:  
 

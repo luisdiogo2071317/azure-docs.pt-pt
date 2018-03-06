@@ -1,21 +1,21 @@
 ---
-title: "Início Rápido do Azure – Transferir objetos de/para o armazenamento de Blobs do Azure com o Explorador de Armazenamento do Azure | Microsoft Docs"
-description: Aprenda rapidamente a transferir objetos de/para o armazenamento de Blobs do Azure com o Explorador de Armazenamento do Azure
+title: "Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através do Explorador de Armazenamento do Azure | Microsoft Docs"
+description: "Neste início rápido, utilize o Explorador de Armazenamento para criar uma conta de armazenamento e um contentor. Em seguida, utilize o Explorador de Armazenamento para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com o Explorador de Armazenamento do Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Início Rápido: carregar, transferir e listar blobs através do Explorador de Armazenamento
 
 O [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma interface de utilizador de plataforma utilizada para gerir o conteúdo das suas contas de armazenamento. Este guia fornece detalhes sobre a utilização do Explorador de Armazenamento do Azure para transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure.
 

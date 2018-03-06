@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5398605f98c9e115255057cfad0c4c2c2e14737c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 20f9be1a0274b40a684fe12207cf9fe1f33969c8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -387,6 +387,7 @@ Os contentores do Windows Server (modo de isolamento de processos) podem não se
 ```xml
 <ContainerHostPolicies> 
          <ImageOverrides> 
+           <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
@@ -406,6 +407,7 @@ A versão de compilação do Windows Server 2016 é 14393 e a da versão 1709 do
 
 Se o SO subjacente na VM for a compilação 16299 (versão 1709), o Service Fabric escolhe a imagem de contentor correspondente a essa versão do Windows Server.  Se também for fornecida uma imagem de contentor não identificada juntamente com as imagens de contentor identificadas no manifesto da aplicação, o Service Fabric trata-a como uma imagem que funciona em todas as versões. Recomenda-se identificar explicitamente as imagens de contentor.
 
+A imagem de contentor não marcada irá funcionar como uma substituição da imagem que fornece o ServiceManifest. Portanto, a imagem "myregistry.azurecr.io/samples/helloworldappDefault" irá substituir o ImageName "myregistry.azurecr.io/samples/helloworldapp" no ServiceManifest.
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemplo completo da aplicação do Service Fabric e dos manifestos do serviço
 Seguem-se os manifestos completos do serviço e da aplicação utilizados neste artigo.
@@ -430,6 +432,9 @@ Seguem-se os manifestos completos do serviço e da aplicação utilizados neste 
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
+        <!--Commands> dotnet, myproc.dll, 5 </Commands-->
+        <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->    

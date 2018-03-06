@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Criar uma função acionada por um webhook do GitHub
 
@@ -49,7 +49,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função.
 
-    ![Início rápido das funções no portal do Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+    ![Página de início rápido das funções no portal do Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
 2. No campo de pesquisa, escreva `github` e, em seguida, escolha o idioma pretendido para o modelo de acionador de webhook do GitHub. 
 
@@ -80,8 +80,8 @@ Em seguida, crie o webhook no repositório do GitHub.
 | Definição | Valor sugerido | Descrição |
 |---|---|---|
 | **URL do payload** | Valor copiado | Utilize o valor devolvido por **</> Obter ULR da função**. |
-| **Segredo**   | Valor copiado | Utilize o valor devolvido por **</> Obter segredo do GitHub**. |
 | **Tipo de Conteúdo** | application/json | A função espera um payload JSON. |
+| **Segredo**   | Valor copiado | Utilize o valor devolvido por **</> Obter segredo do GitHub**. |
 | Acionadores de eventos | Permitir selecionar eventos individuais | Só queremos acionar em eventos de comentários de problemas.  |
 | | Comentário de problema |  |
 
@@ -107,7 +107,7 @@ Agora, o webhook está configurado para acionar a função quando é adicionado 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Criou uma função que é executada quando é recebido um pedido de um webhook do GitHub.
+Criou uma função que é acionada quando é recebido um pedido de um webhook do GitHub.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
