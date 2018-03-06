@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f550af298b37afa388b6fd860578863738510a5e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 1453dca453aa045752ea2300b9d7039c1bdd6542
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>Criar uma rede virtual com várias sub-redes através do PowerShell
 
@@ -119,6 +119,8 @@ New-AzureRmVm `
 A máquina virtual demora alguns minutos a criar. Apesar de não na saída devolvida, Azure atribuído 10.0.1.4 como o endereço IP privado da máquina virtual, porque 10.0.1.4 é o primeiro endereço IP disponível na *privada* sub-rede de *myVirtualNetwork*. 
 
 Não continue com os restantes passos até que a máquina virtual está criada e PowerShell devolve um resultado.
+
+As máquinas virtuais criadas neste artigo tem um [interface de rede](virtual-network-network-interface.md) com um endereço IP dinamicamente atribuído à interface de rede. Depois de implementar a VM, pode [adicionar vários endereços IP públicos e privados, ou alterar o método de atribuição de endereços IP para estático](virtual-network-network-interface-addresses.md#add-ip-addresses). Pode [adicionar interfaces de rede](virtual-network-network-interface-vm.md#vm-add-nic), até ao limite suportado pelo [tamanho da VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que selecionar quando criar uma máquina virtual. Também pode [ativar a virtualização de e/s de raiz única (SR-IOV)](create-vm-accelerated-networking-powershell.md) para uma VM, mas apenas quando criar uma VM com um tamanho VM que suporta a capacidade.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Comunicar entre máquinas virtuais e com a internet
 

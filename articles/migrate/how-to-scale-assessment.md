@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -47,7 +47,7 @@ Planear as deteções e avaliações com base nos limites dos seguintes:
 Pode utilizar o mesmo recoletor migrar do Azure para efetuar várias deteções para projetos de um ou mais. Mantenha estas considerações de planeamento em mente:
  
 - Quando fizer uma deteção, utilizando o recoletor migrar do Azure, pode definir o âmbito de deteção para uma pasta do servidor vCenter, o Centro de dados, o cluster ou o anfitrião.
-- Para mais do que uma deteção, certifique-se no vCenter Server que as VMs que pretende detetar estão em pastas, centros de dados, clusters ou anfitriões que suportem a limitação de 1.000 máquinas.
+- Para mais do que uma deteção, certifique-se no vCenter Server que as VMs que pretende detetar estão em anfitriões que suportam a limitação de 1.500 máquinas, clusters, centros de dados ou pastas.
 - Recomendamos que para fins de avaliação, mantenha as máquinas com interdependencies no mesmo projeto e avaliação. No vCenter Server, certifique-se de que as máquinas dependentes estão na mesma pasta, Centro de dados ou cluster para a avaliação.
 
 
@@ -85,6 +85,14 @@ Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
 
    Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
+
+    Para a versão de OVA 1.0.9.5
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     Para a versão de OVA 1.0.9.2
 

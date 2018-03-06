@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c6cc4ba95f440f09f11a93927fd67873f8813e8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo aborda os passos para configurar os relatórios para cópia de segurança do Azure com o Cofre de serviços de recuperação e para aceder a estes relatórios através do Power BI. Depois de efetuar estes passos, pode ir diretamente para o Power BI para ver todos os relatórios, personalizar e criar relatórios. 
@@ -123,7 +123,7 @@ Depois de configurar a conta de armazenamento para os relatórios com o Cofre de
 
 2. **O que é a frequência de push de dados para a conta de armazenamento e o pacote de conteúdos de cópia de segurança do Azure no Power BI?**
 
-   Para os utilizadores de dia 0, seria demora cerca de 24 horas para enviar dados para a conta de armazenamento. Depois desta push inicial é compelete, os dados são atualizados com a seguinte frequência mostrada na imagem abaixo. 
+   Para os utilizadores de dia 0, seria demora cerca de 24 horas para enviar dados para a conta de armazenamento. Assim que esta push inicial estiver concluída, os dados são atualizados com a seguinte frequência mostrada na imagem abaixo. 
       * Dados relacionados com **tarefas, alertas, itens de cópia de segurança, cofres, servidores protegidos e políticas** é enviada para a conta de armazenamento de cliente como e quando é registado.
       * Dados relacionados com **armazenamento** é enviada para a conta de armazenamento do cliente a cada 24 horas.
    

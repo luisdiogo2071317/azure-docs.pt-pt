@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Agendar tarefas e fluxos de trabalho que execute regularmente com logic apps
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Criar e agendar tarefas regularmente em execução com Azure Logic Apps
 
 Para agendar tarefas, ações, cargas de trabalho ou os processos que são executados regularmente, pode criar um fluxo de trabalho de aplicação lógica que começa com o **agenda - periodicidade** [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts). Com este acionador, pode definir uma data e hora para iniciar a periodicidade e uma agenda de periodicidade para a execução de tarefas, tais como estes exemplos e muito mais:
 
@@ -34,8 +34,8 @@ Para agendar tarefas, ações, cargas de trabalho ou os processos que são execu
 
 Este acionador suporta muitos padrões, por exemplo:
 
-* Executar imediatamente e repetir a cada  *n*  número de segundos, minutos, horas, dias semanas ou meses.
-* Inicie num momento específico, em seguida, executar e repetir a cada  *n*  número de segundos, minutos, horas, dias, semanas ou meses.
+* Executar imediatamente e repetir a cada *n* número de segundos, minutos, horas, dias semanas ou meses.
+* Inicie num momento específico, em seguida, executar e repetir a cada *n* número de segundos, minutos, horas, dias, semanas ou meses.
 * Executar e repita num ou mais vezes por dia, por exemplo, cada 8 horas da Manhã e as 17:00:00.
 * Executar e repita todas as semanas, mas apenas para dias específicos, tais como Sábado e Domingo.
 * Executar e repita todas as semanas, mas apenas para dias específicos e o tempo, tais como segunda-feira através de sexta-feira, 8 horas da Manhã e as 17:00:00.
@@ -99,17 +99,17 @@ Pode configurar estas propriedades para o acionador de periodicidade.
 | Nome | Necessário | Nome da propriedade | Tipo | Descrição | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frequência** | Sim | frequência | Cadeia | A unidade de tempo para a periodicidade: **segundo**, **minuto**, **hora**, **dia**, **semana**, ou  **Mês** | 
-| **Interval** | Sim | intervalo | Número inteiro | Um número inteiro que descreve com que frequência o fluxo de trabalho é executada com base na frequência de. <p>O intervalo predefinido é 1. Seguem-se os intervalos de mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é de "Mês", em seguida, a periodicidade é a cada 6 meses. | 
-| **Fuso horário** | Não | timeZone | Cadeia | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [Desvio UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. | 
-| **Hora de início** | Não | startTime | Cadeia | Forneça uma hora de início neste formato: <p>AAAA-MM-ddTHH se Selecionou um fuso horário <p>-ou- <p>AAAA-MM-Aaaathh se não selecionar um fuso horário <p>Por isso, por exemplo, se quiser 18 de Setembro de 2017 às 2:00 PM, em seguida, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como a hora do Pacífico. Em alternativa, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** esta hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [Desvio UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, tem de adicionar a letra "Z" no final sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendas simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não acionados qualquer define à hora de início. [*Quais são as opções que pode a utilizar a data de início e a hora?*](#start-time) | 
-| **Nestes dias** | Não | weekDays | Cadeia ou matriz de cadeia | Se selecionar "Semanas", pode selecionar um ou mais dias em que pretende executar o fluxo de trabalho: **segunda-feira**, **Terça-feira**, **quarta-feira**, **Quinta-feira** , **Sexta-feira**, **Sábado**, e **Domingo** | 
-| **Nestas horas** | Não | hours | Um número inteiro ou matriz de número inteiro | Se selecionar "Dia" ou "Semanas", pode selecionar números inteiros de um ou mais entre 0 e 23 horas do dia em que pretende executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", receberá 10 AM, 12 PM e 2 PM como as marcas de hora. | 
-| **A estes minutos** | Não | minutes | Um número inteiro ou matriz de número inteiro | Se selecionar "Dia" ou "Semanas", pode selecionar números inteiros de um ou mais entre 0 e 59 minutos da hora em que pretende executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minuto e utilizando o exemplo anterior de horas do dia, receber 10:30 AM, 12:30 PM e 2:30 PM. | 
+| **Intervalo** | Sim | intervalo | Número inteiro | Um número inteiro que descreve com que frequência o fluxo de trabalho é executada com base na frequência de. <p>O intervalo predefinido é 1. Seguem-se os intervalos de mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é de "Mês", em seguida, a periodicidade é a cada 6 meses. | 
+| **Time zone** (Fuso horário) | Não | timeZone | Cadeia | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [Desvio UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. | 
+| **Start time** (Hora de início) | Não | startTime | Cadeia | Forneça uma hora de início neste formato: <p>AAAA-MM-ddTHH se Selecionou um fuso horário <p>-ou- <p>AAAA-MM-Aaaathh se não selecionar um fuso horário <p>Por isso, por exemplo, se quiser 18 de Setembro de 2017 às 2:00 PM, em seguida, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como a hora do Pacífico. Em alternativa, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** esta hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [Desvio UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, tem de adicionar a letra "Z" no final sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendas simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não acionados qualquer define à hora de início. [*Quais são as opções que pode a utilizar a data de início e a hora?*](#start-time) | 
+| **On these days** (Nestes dias) | Não | weekDays | Cadeia ou matriz de cadeia | Se selecionar "Semanas", pode selecionar um ou mais dias em que pretende executar o fluxo de trabalho: **segunda-feira**, **Terça-feira**, **quarta-feira**, **Quinta-feira** , **Sexta-feira**, **Sábado**, e **Domingo** | 
+| **At these hours** (A estas horas) | Não | hours | Um número inteiro ou matriz de número inteiro | Se selecionar "Dia" ou "Semanas", pode selecionar números inteiros de um ou mais entre 0 e 23 horas do dia em que pretende executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", receberá 10 AM, 12 PM e 2 PM como as marcas de hora. | 
+| **At these minutes** (A estes minutos) | Não | minutes | Um número inteiro ou matriz de número inteiro | Se selecionar "Dia" ou "Semanas", pode selecionar números inteiros de um ou mais entre 0 e 59 minutos da hora em que pretende executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minuto e utilizando o exemplo anterior de horas do dia, receber 10:30 AM, 12:30 PM e 2:30 PM. | 
 ||||| 
 
 ## <a name="json-example"></a>Exemplo JSON
 
-Segue-se uma definição de Acionador de periodicidade de exemplo:
+Eis um exemplo [definição do acionador de recorrência](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {
@@ -163,12 +163,12 @@ Segue-se uma definição de Acionador de periodicidade de exemplo:
 | Executar às 8:30 AM todos os dias (com a data e hora início) | 1 | Dia | *startDate*T08:30:00Z | {unavailable} | {none} | {none} | Esta agenda é iniciada a data de início especificada às 8:30 AM. | 
 | Executar às 8:30 AM e 4:30 PM todos os dias | 1 | Dia | {none} | {unavailable} | 8, 16 | 30 | | 
 | Executar às 8:30 AM, 8:45 AM, 4:30 PM e 4:45 PM todos os dias | 1 | Dia | {none} | {unavailable} | 8, 16 | 30, 45 | | 
-| Executar todos os sábados às 17: 00 (sem data de início e a hora) | 1 | Semana | {none} | "Sábado" | 17 | 00 | Esta agenda executa todos os sábados às 17:00:00. | 
-| Executar todos os sábados PM 5 (com a data e hora início) | 1 | Semana | *startDate*T17:00:00Z | "Sábado" | {none} | {none} | Esta agenda não comece *qualquer define* especificado ao iniciar a data e hora, neste caso, 9 de Setembro de 2017 nas 17:00:00. Recurrences futuras executam todos os sábados as 17:00:00. | 
-| Executar cada terça-feira, Quinta-feira, as 17: 00 | 1 | Semana | {none} | "Tuesday", "Thursday" | 17 | {none} | Esta agenda executa cada terça-feira e a quinta-feira, as 17:00:00. | 
-| Executada a cada hora durante o horário de trabalho | 1 | Semana | {none} | Selecione todos os dias, exceto Sábado e Domingo. | Selecione as horas do dia em que pretende. | Selecione qualquer minutos da hora em que pretende. | Por exemplo, se o seu horário de trabalho é 8 horas da Manhã para 5:00 PM, em seguida, selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se o seu horário de trabalho é 8:30 AM para 5:30 da Tarde, selecione as horas do dia "30" anteriores como minutos da hora. | 
-| Executar uma vez para cada dia no fim de semana | 1 | Semana | {none} | "Sábado", "Domingo" | Selecione as horas do dia em que pretende. | Selecione qualquer minutos da hora conforme apropriado. | Esta agenda executa todos os sábados e domingo no horário especificado. | 
-| Executar a cada 15 minutos bissemanais segundas apenas | 2 | Semana | {none} | "Segunda-feira" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta agenda de execução todos os outros segunda-feira na marca cada 15 minutos. | 
+| Executar todos os sábados às 17: 00 (sem data de início e a hora) | 1 | Week (Semana) | {none} | "Sábado" | 17 | 00 | Esta agenda executa todos os sábados às 17:00:00. | 
+| Executar todos os sábados PM 5 (com a data e hora início) | 1 | Week (Semana) | *startDate*T17:00:00Z | "Sábado" | {none} | {none} | Esta agenda não comece *qualquer define* especificado ao iniciar a data e hora, neste caso, 9 de Setembro de 2017 nas 17:00:00. Recurrences futuras executam todos os sábados as 17:00:00. | 
+| Executar cada terça-feira, Quinta-feira, as 17: 00 | 1 | Week (Semana) | {none} | "Tuesday", "Thursday" | 17 | {none} | Esta agenda executa cada terça-feira e a quinta-feira, as 17:00:00. | 
+| Executada a cada hora durante o horário de trabalho | 1 | Week (Semana) | {none} | Selecione todos os dias, exceto Sábado e Domingo. | Selecione as horas do dia em que pretende. | Selecione qualquer minutos da hora em que pretende. | Por exemplo, se o seu horário de trabalho é 8 horas da Manhã para 5:00 PM, em seguida, selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se o seu horário de trabalho é 8:30 AM para 5:30 da Tarde, selecione as horas do dia "30" anteriores como minutos da hora. | 
+| Executar uma vez para cada dia no fim de semana | 1 | Week (Semana) | {none} | "Sábado", "Domingo" | Selecione as horas do dia em que pretende. | Selecione qualquer minutos da hora conforme apropriado. | Esta agenda executa todos os sábados e domingo no horário especificado. | 
+| Executar a cada 15 minutos bissemanais segundas apenas | 2 | Week (Semana) | {none} | "Segunda-feira" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta agenda de execução todos os outros segunda-feira na marca cada 15 minutos. | 
 | Execute a cada hora para um dia por mês | 1 | Mês | {Ver nota} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {Ver nota} | Se não especificar uma data de início e a hora, utiliza esta agenda a data de criação e a hora. Para controlar os minutos para a agenda de periodicidade, especifique os minutos da hora, uma hora de início, ou utilizar a hora de criação. Por exemplo, se o início de tempo ou o tempo de criação de 8:25 AM, esta agenda é executada às 8:25 AM, 9:25 AM, 10:25 AM, e assim sucessivamente. | 
 ||||||||| 
 

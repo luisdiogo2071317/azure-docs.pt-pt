@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilizar o emulador de armazenamento do Azure para desenvolvimento e teste
 
@@ -43,6 +43,14 @@ O emulador do storage estabelece ligação ao SQL Server ou LocalDB através da 
 Existem algumas diferenças de funcionalidade entre o emulador de armazenamento e serviços de armazenamento do Azure. Para obter mais informações sobre estas diferenças, consulte o [diferenças entre o emulador do storage e o armazenamento do Azure](#differences-between-the-storage-emulator-and-azure-storage) secção neste artigo.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Iniciar e inicializar o emulador de armazenamento
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Executar o emulador do storage do Azure no Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>Utilizando o SDK
+
 Para iniciar o emulador do storage do Azure:
 1. Selecione o **iniciar** botão ou prima o **Windows** chave.
 1. Começa a escrever `Azure Storage Emulator`.
@@ -140,9 +148,9 @@ Por exemplo, o seguinte endereço poderá ser utilizado para aceder a um blob no
 
 Os pontos finais de serviço para o emulador do storage são:
 
-* Serviço blob:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Serviço fila:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Serviço tabela:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Serviço blob: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Serviço fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Serviço tabela: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>A conta secundária com RA-GRS de endereçamento
 A partir da versão 3.1, o emulador de armazenamento suporta a replicação georredundante de acesso de leitura (RA-GRS). Para recursos de armazenamento na nuvem e no emulador local, pode aceder à localização secundária ao acrescentar - secundário para o nome da conta. Por exemplo, o seguinte endereço poderá ser utilizado para aceder a um blob com secundária só de leitura no emulador do storage:
@@ -260,7 +268,7 @@ Não existem não existem diferenças específicas para o armazenamento de filas
 * A interface de utilizador gráfica do emulador de armazenamento foi preterida favor de uma interface de linha de comandos passível de ter scripts. Para obter detalhes sobre a interface de linha de comandos, consulte a referência de ferramenta de linha de comandos de emulador de armazenamento. A interface gráfica irá continuem a estar presentes na versão 3.0, mas só pode ser acedida quando o emulador de computação é instalado ao clicar no ícone de tabuleiro de sistema e selecionando mostrar IU do emulador de armazenamento.
 * Versão 2013-08-15 dos serviços de armazenamento do Azure agora é totalmente suportada. (Anteriormente nesta versão apenas era suportada pela versão 2.2.1 do emulador do Storage pré-visualização.)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Avaliar o emulador de armazenamento em diferentes plataformas, mantido por Comunidade open source para [Azurite](https://github.com/arafato/azurite). 
 * [Exemplos de armazenamento do Azure através do .NET](../storage-samples-dotnet.md) contém ligações para vários exemplos de código, pode utilizar quando desenvolver a sua aplicação.

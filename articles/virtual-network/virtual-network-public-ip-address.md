@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar um endereço IP público
 
@@ -31,19 +31,18 @@ Saiba mais sobre um endereço IP público e como criar, alterar e eliminar um. U
 
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
-- Reveja o [Azure limita](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artigo para saber mais sobre os limites de endereços IP públicos.
-- Inicie sessão para o Azure [portal](https://portal.azure.com), interface de linha de comandos (CLI) do Azure ou o Azure PowerShell com uma conta do Azure. Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, [instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que dispõe da versão mais recente dos mini-comandos de Azure PowerShell instaladas. Para obter ajuda para comandos do PowerShell, com exemplos, digite `get-help <command> -full`.
-- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, [instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que dispõe da versão mais recente da CLI do Azure instalados. Para obter ajuda para comandos da CLI, escreva `az <command> --help`. Em vez de instalar a CLI e respetivos pré-requisitos, pode utilizar a Shell de nuvem do Azure. O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. Tem a CLI do Azure pré-instalada e configurada para ser utilizada com a sua conta. Para utilizar a Shell de nuvem, clique na Shell de nuvem **> _** na parte superior da parte a [portal](https://portal.azure.com).
+- Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
+- Se utilizar o portal, Abra https://portal.azure.com e iniciar sessão com a sua conta do Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Executar `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
 Endereços IP públicos têm uma cobrança nominal. Para ver os preços, leia o [preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) página. 
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta que seja atribuídas (no mínimo) permissões para a função de contribuinte de rede para a sua subscrição. Leia o [funções incorporadas para controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artigo para obter mais informações sobre a atribuição de funções e permissões a contas.
-2. Na caixa que contém o texto *procurar recursos* na parte superior do portal do Azure, escreva *endereço ip público*. Quando **endereços IP públicos** é apresentado nos resultados da pesquisa, clique no mesmo.
-3. Clique em **+ adicionar** no **endereço IP público** painel que aparece.
-4. Introduza ou selecione os valores para as seguintes definições no **Criar endereço IP público** painel apresentado, clique em **criar**:
+1. Na caixa que contém o texto *procurar recursos* na parte superior do portal do Azure, escreva *endereço ip público*. Quando **endereços IP públicos** é apresentado nos resultados da pesquisa, clique no mesmo.
+2. Clique em **+ adicionar** no **endereço IP público** painel que aparece.
+3. Introduza ou selecione os valores para as seguintes definições no **Criar endereço IP público** painel apresentado, clique em **criar**:
 
     |Definição|Necessário?|Detalhes|
     |---|---|---|
@@ -73,10 +72,9 @@ Embora o portal fornece a opção para criar dois endereços recursos do IP púb
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Ver, alterar as definições ou eliminar um endereço IP público
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta que seja atribuídas (no mínimo) permissões para a função de contribuinte de rede para a sua subscrição. Leia o [funções incorporadas para controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artigo para obter mais informações sobre a atribuição de funções e permissões a contas.
-2. Na caixa que contém o texto *procurar recursos* na parte superior do portal do Azure, escreva *endereço ip público*. Quando **endereços IP públicos** é apresentado nos resultados da pesquisa, clique no mesmo.
-3. No **endereços IP públicos** painel apresentado, clique no nome do endereço IP público que pretende ver, alterar as definições ou eliminar.
-4. No painel que aparece para o endereço IP público, conclua uma das seguintes opções consoante se pretende ver, eliminar ou alterar o endereço IP público.
+1. Na caixa que contém o texto *procurar recursos* na parte superior do portal do Azure, escreva *endereço ip público*. Quando **endereços IP públicos** é apresentado nos resultados da pesquisa, clique no mesmo.
+2. No **endereços IP públicos** painel apresentado, clique no nome do endereço IP público que pretende ver, alterar as definições ou eliminar.
+3. No painel que aparece para o endereço IP público, conclua uma das seguintes opções consoante se pretende ver, eliminar ou alterar o endereço IP público.
     - **Vista**: O **descrição geral** secção do painel mostra as definições de chaves para o endereço IP público, como a interface de rede que está associado (se o endereço está associado a uma interface de rede). O portal não apresenta a versão do endereço (IPv4 ou IPv6). Para ver as informações de versão, utilize o comando do PowerShell ou a CLI para ver o endereço IP público. Se a versão do endereço IP for IPv6, o endereço atribuído não é apresentado no portal, PowerShell ou a CLI. 
     - **Eliminar**: para eliminar o endereço IP público, clique em **eliminar** no **descrição geral** secção do painel. Se o endereço está atualmente associado a uma configuração de IP, não pode ser eliminada. Se o endereço está atualmente associado uma configuração, clique em **desassocie** ao desassociar o endereço da configuração de IP.
     - **Alteração**: clique em **configuração**. Alterar as definições utilizando as informações no passo 4 do [criar um endereço IP público](#create-a-public-ip-address) secção deste artigo. Para alterar a atribuição de para um endereço IPv4 estático para dinâmica, primeiro tem de dissociá o endereço IPv4 público da configuração de IP que está associado. Em seguida, pode alterar o método de atribuição para dinâmica e clique em **associar** para associar o IP de endereço para a mesma configuração de IP, uma configuração diferente ou pode deixar desassociada. Ao desassociar a um endereço IP público, no **descrição geral** secção, clique em **desassocie**.
@@ -98,16 +96,12 @@ Embora o portal fornece a opção para criar dois endereços recursos do IP púb
 
 Antes de poder criar um endereço IP público do Standard SKU, primeiro tem de registar para a pré-visualização. Conclua os passos seguintes para se registar para a pré-visualização:
 
-1. Instalar e configurar o Azure [PowerShell](/powershell/azure/install-azurerm-ps).
-2. Execute o `Get-Module -ListAvailable AzureRM` comando para ver qual a versão do módulo AzureRM que instalou. Tem de ter a versão 4.4.0 ou superior instalado. Se não o fizer, pode instalar a versão mais recente do [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureRM).
-3. Inicie sessão no Azure com o `login-azurermaccount` comando.
-4. Introduza o seguinte comando para se registar para a pré-visualização:
+1. A partir do PowerShell, introduza o seguinte comando para se registar para a pré-visualização:
    
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
-
-5. Confirme que são registadas para a pré-visualização, introduzindo o seguinte comando:
+2. Confirme que são registadas para a pré-visualização, introduzindo o seguinte comando:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network

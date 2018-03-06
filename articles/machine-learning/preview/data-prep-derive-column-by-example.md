@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3eaf42f8d0bdad274ec92f5790fe79878500a1b2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Derivar coluna, transformação de exemplo
 
@@ -115,9 +115,9 @@ Número de exemplos que são necessários para este cenário: 3
 |LAUREL AVE & OAKDALE AVE;  HORSHAM; Estação 352; 2015-12-10 @ 16:46:48;|Horsham|
 |COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; Estação 336; 2015-12-10 @ 16:17:05;|Skippack|
 |Pa & antigo SUMNEYTOWN PIKE; principal  INFERIOR SALFORD; Estação 344; 2015-12-10 @ 16:51:42;|Salford inferior|
-|BLUEROUTE & PREPARAÇÃO I476 NB PARA CHEMICAL RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
-|RT202 PKWY & KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
-|BROOK RD & COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
+|BLUEROUTE &AMP; PREPARAÇÃO I476 NB PARA CHEMICAL RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
+|RT202 PKWY &AMP; KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
+|BROOK RD &AMP; COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
 
 ### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Manipulação de formato de data durante a extração de cadeia
 
@@ -127,10 +127,10 @@ Número de exemplos que são necessários para este cenário: 1
 |:-----|:-----|
 |MONTGOMERY AVE & WOODSIDE RD;  INFERIOR MERION; Estação 313; 2015-12-11 @ 04:11:35;|**12 de Novembro de 2015 4 AM**|
 |DREYCOTT LN & TIR LANCASTER AVE;  INFERIOR MERION; Estação 313; 2015-12-11 @ 01:29:52;|12 de Novembro de 2015 1: 00|
-|I LEVERING MILL RD & CONSHOHOCKEN ESTADO RD; INFERIOR MERION; 2015-12-11 @ 07:29:58;|12 de Novembro de 2015 7 AM|
+|I LEVERING MILL RD &AMP; CONSHOHOCKEN ESTADO RD; INFERIOR MERION; 2015-12-11 @ 07:29:58;|12 de Novembro de 2015 7 AM|
 |PENN VALLEY RD & MANOR RD;  INFERIOR MERION; Estação 313; 2015-12-10 @ 20:53:30;|12 de FPO de 2015 8 PM|
-|BELMONT AVE & OVERHILL RD; INFERIOR MERION; 2015-12-10 @ 23:02:27;|12 de FPO de 2015 23: 00|
-|W MONTGOMERY AVE & PENNSWOOD RD; INFERIOR MERION; 2015-12-10 @ 19:25:22;|12 de FPO de 2015 as 19: 00|
+|BELMONT AVE &AMP; OVERHILL RD; INFERIOR MERION; 2015-12-10 @ 23:02:27;|12 de FPO de 2015 23: 00|
+|W MONTGOMERY AVE &AMP; PENNSWOOD RD; INFERIOR MERION; 2015-12-10 @ 19:25:22;|12 de FPO de 2015 as 19: 00|
 |ROSEMONT AVE & fim de mensagens não;  INFERIOR MERION; Estação 313; 2015-12-10 @ 18:43:07;|12 de FPO de 2015 18: 00|
 |AVIGNON DR & fim de mensagens não; INFERIOR MERION; 2015-12-10 @ 20:01:29-estação: STA24;|12 de FPO de 2015 8 PM|
 
@@ -307,7 +307,7 @@ Estas partes da data foram extraídos utilizando transformações por exemplo di
 |28-Nov-2006 14:19:15|Ter.|28|Nov.|2006|14|19|15|
 |29-Apr-2031 04:59:45|Ter.|29|Abr.|2031|4|59|45|
 |29-Jan-2032 02:38:36|Qui.|29|Jan.|2032|2|38|36|
-|2028 de Maio de 11 15:31:52|Qui.|11|Mai|2028|15|31|52|
+|2028 de Maio de 11 15:31:52|Qui.|11|Maio|2028|15|31|52|
 |15-Jul-1977 12:45:39|Sex.|15|Jul.|1977|12|45|39|
 |27-Jan-2029 05:55:41|Sáb.|27|Jan.|2029|5|55|41|
 |Mar-03-2024 10:17:49|Dom.|3|Mar.|2024|10|17|49|

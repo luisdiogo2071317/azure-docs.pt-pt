@@ -141,7 +141,7 @@ Sim, pode escolher a ativação pós-falha para uma VM com discos geridos.
 
 **Existe qualquer impacto da migração em VMs do Azure protegidos pelo Azure Site Recovery (ASR) através de replicação do Azure para o Azure?**
 
-Sim. Proteção do Azure para o Azure de ASR não é suportada para VMs com discos geridos. Vai ser suportado pela extremidade de Q1 CY2018. 
+Sim. Atualmente, a proteção do Azure para o Azure ASR para VMs com discos geridos só está disponível como um serviço de pré-visualização pública.
 
 **Pode migrar VMs com discos não geridos que estão localizados em contas de armazenamento que estão ou que foram anteriormente encriptadas para discos geridos?**
 

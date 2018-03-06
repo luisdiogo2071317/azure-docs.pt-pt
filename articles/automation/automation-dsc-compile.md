@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 02/07/2017
+ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilar configurações de DSC de automatização do Azure
 
@@ -58,7 +58,7 @@ Pode utilizar [ `Start-AzureRmAutomationDscCompilationJob` ](/powershell/module/
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
 ```
 
-`Start-AzureRmAutomationDscCompilationJob`Devolve um objeto de tarefa de compilação que pode utilizar para monitorizar o estado. Em seguida, pode utilizar este objeto de tarefa de compilação com [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) para determinar o estado da tarefa de compilação e [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) para ver o respetivos fluxos (saída). O código de exemplo seguinte inicia compilação do **SampleConfig** configuração, tem de aguardar até ser concluída e, em seguida, apresenta os fluxos.
+`Start-AzureRmAutomationDscCompilationJob` Devolve um objeto de tarefa de compilação que pode utilizar para monitorizar o estado. Em seguida, pode utilizar este objeto de tarefa de compilação com [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) para determinar o estado da tarefa de compilação e [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) para ver o respetivos fluxos (saída). O código de exemplo seguinte inicia compilação do **SampleConfig** configuração, tem de aguardar até ser concluída e, em seguida, apresenta os fluxos.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
@@ -238,7 +238,7 @@ Referências de recurso são os mesmos nas configurações de DSC de automatiza�
 
 ### <a name="credential-assets"></a>Ativos de credenciais
 
-Enquanto as configurações de DSC na automatização do Azure podem referenciar ativos de credenciais utilizando **Get-AzureRmAutomationCredential**, ativos de credenciais podem também ser transmitidos através dos parâmetros, se assim o desejar. Se uma configuração assume um parâmetro de **PSCredential** escreva, em seguida, tem de transmitir o nome de cadeia de um recurso de credencial de automatização do Azure como valor do parâmetro, que, em vez de um objeto PSCredential. Nos bastidores, o recurso de credencial de automatização do Azure com esse nome é obtido e transmitido para a configuração.
+Enquanto as configurações de DSC na automatização do Azure podem referenciar ativos de credenciais utilizando **Get-AutomationPSCredential**, ativos de credenciais podem também ser transmitidos através dos parâmetros, se assim o desejar. Se uma configuração assume um parâmetro de **PSCredential** escreva, em seguida, tem de transmitir o nome de cadeia de um recurso de credencial de automatização do Azure como valor do parâmetro, que, em vez de um objeto PSCredential. Nos bastidores, o recurso de credencial de automatização do Azure com esse nome é obtido e transmitido para a configuração.
 
 Manter as credenciais seguras em configurações de nó (documentos de configuração do MOF) requer encriptar as credenciais no ficheiro MOF de configuração de nó. A automatização do Azure assume este passo adicional e encripta todo o ficheiro MOF. No entanto, atualmente tem indicar DSC do PowerShell é pode as credenciais ser debitado em texto simples durante a geração de MOF de configuração de nó, porque o PowerShell DSC não sabe que da automatização do Azure irá encriptar todo o ficheiro MOF após a respetiva geração através de uma tarefa de compilação.
 
@@ -249,7 +249,7 @@ O exemplo seguinte mostra uma configuração de DSC que utiliza um recurso de cr
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
+    $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {

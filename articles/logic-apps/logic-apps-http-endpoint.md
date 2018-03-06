@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, acionador, ou aninhar fluxos de trabalho com pontos finais HTTP nas logic apps
 
@@ -30,12 +30,12 @@ Para criar pontos finais de HTTP, pode adicionar estes acionadores para que as l
 
 * [Pedido](../connectors/connectors-native-reqres.md)
 
-* [Webhook de ligação de API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [Webhook de ligação de API](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [Webhook de HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Apesar de utilizam os nossos exemplos de **pedido** acionador, pode utilizar qualquer um dos acionadores HTTP listados e todos os princípios de forma idêntica aplicam para outros tipos de Acionador.
+   > Embora estes exemplos utilizam o **pedido** acionador, pode utilizar qualquer um dos acionadores HTTP listados e todos os princípios de forma idêntica aplicam para outros tipos de Acionador.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurar um ponto final HTTP para a sua aplicação lógica
 
@@ -94,7 +94,7 @@ Para criar um ponto final de HTTP, adicione um acionador que pode receber pedido
     }
     ```
 
-4.  Guarde a sua aplicação lógica. Em **POST de HTTP para este URL**, agora deve encontrar um URL de chamada de retorno gerado, tal como neste exemplo:
+4.  Guarde a aplicação lógica. Em **POST de HTTP para este URL**, agora deve encontrar um URL de chamada de retorno gerado, tal como neste exemplo:
 
     ![URL de chamada de retorno gerado para o ponto final](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
@@ -153,11 +153,11 @@ Quando pretender que o seu URL de ponto final HTTP para aceitar parâmetros, per
 
     ![Corpo de resposta com o parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
-6. Guarde a sua aplicação lógica. 
+6. Guarde a aplicação lógica. 
 
     O URL de ponto final HTTP inclui agora o caminho relativo, por exemplo: 
 
-    https & # 58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. Para testar o ponto final de HTTP, copie e cole o URL atualizado outra janela do browser, mas substitua `{customerID}` com `123456`, e prima Enter.
 
@@ -166,6 +166,7 @@ Quando pretender que o seu URL de ponto final HTTP para aceitar parâmetros, per
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens gerados a partir de esquemas JSON para a sua aplicação lógica
 
 Quando fornecer o esquema JSON na sua **pedido** acionador, o Designer de aplicação lógica gera tokens para propriedades que esquema. Em seguida, pode utilizar esses tokens para transmitir dados através do seu fluxo de trabalho de aplicação lógica.
@@ -206,6 +207,9 @@ Pode ser aninhado fluxos de trabalho na sua aplicação lógica adicionando outr
 
 Depois de criar o ponto final de HTTP, pode acionar a sua aplicação lógica através de um `POST` método para o URL completo. As Logic apps têm suporte incorporado para pontos finais de acesso direto.
 
+> [!NOTE] 
+> Para executar manualmente uma aplicação lógica em qualquer altura, na barra de ferramentas Designer de aplicação lógica ou de vista de código de aplicação lógica, escolha **executar**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Conteúdo de referência de um pedido recebido
 
 Se o tipo de conteúdo é `application/json`, pode referenciar propriedades do pedido a receber. Caso contrário, o conteúdo é tratado como uma única unidade binária, que pode passar para outras APIs. Para fazer referência a este conteúdo dentro do fluxo de trabalho, tem de converter esse conteúdo. Por exemplo, se passa `application/xml` conteúdo, pode utilizar `@xpath()` para extração um XPath, ou `@json()` para a conversão XML para JSON. Saiba mais sobre [trabalhar com os tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
@@ -234,7 +238,7 @@ Pode querer responder a pedidos de determinados que iniciar uma aplicação lóg
 
 ### <a name="construct-the-response"></a>Construir a resposta
 
-Pode incluir mais do que um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. No nosso exemplo de resposta, o cabeçalho Especifica que a resposta tem o tipo de conteúdo `application/json`. e o corpo contém `title` e `name`, consoante o esquema JSON anteriormente atualizado para incluir o **pedido** acionador.
+Pode incluir mais do que um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. A resposta de exemplo, o cabeçalho Especifica que a resposta tem o tipo de conteúdo `application/json`. e o corpo contém `title` e `name`, consoante o esquema JSON anteriormente atualizado para incluir o **pedido** acionador.
 
 ![Ação de resposta de HTTP][3]
 
@@ -243,8 +247,8 @@ As respostas têm estas propriedades:
 | Propriedade | Descrição |
 | --- | --- |
 | statusCode |Especifica o código de estado HTTP para responder ao pedido de entrada. Este código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, os códigos de estado de 3xx não são permitidos. |
-| Cabeçalhos |Define qualquer número de cabeçalhos para incluir na resposta. |
-| Corpo |Especifica um objeto de corpo pode ser uma cadeia, um objeto JSON ou mesmo binário conteúdo referenciado a partir de um passo anterior. |
+| cabeçalhos |Define qualquer número de cabeçalhos para incluir na resposta. |
+| corpo |Especifica um objeto de corpo pode ser uma cadeia, um objeto JSON ou mesmo binário conteúdo referenciado a partir de um passo anterior. |
 
 Eis o que o esquema JSON assemelha agora o **resposta** ação:
 
@@ -300,7 +304,7 @@ R: Eis um resumo sobre estas alterações:
 | Configurar a autenticação básica ou OAuth |através da gestão de API |
 | Configurar o método de HTTP |Em **Mostrar opções avançadas**, escolha um método HTTP |
 | Configurar o caminho relativo |Em **Mostrar opções avançadas**, adicione um caminho relativo |
-| O corpo de entrada através de referência`@triggerOutputs().body.Content` |Referência através da`@triggerOutputs().body` |
+| O corpo de entrada através de referência `@triggerOutputs().body.Content` |Referência através da `@triggerOutputs().body` |
 | **Enviar uma resposta HTTP** ação sobre o serviço de escuta de HTTP |Clique em **responder a pedidos de HTTP** (não existe nenhuma aplicação de API obrigatório) |
 
 ## <a name="get-help"></a>Obter ajuda
@@ -309,7 +313,7 @@ Para fazer perguntas, responder a perguntas e ver o que os outros utilizadores d
 
 Para ajudar a melhorar o Azure Logic Apps e os conectores, vote ou submeta ideais no [site de comentários dos utilizadores do Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar definições de aplicação lógica](./logic-apps-author-definitions.md)
 * [Lidar com erros e exceções](./logic-apps-exception-handling.md)

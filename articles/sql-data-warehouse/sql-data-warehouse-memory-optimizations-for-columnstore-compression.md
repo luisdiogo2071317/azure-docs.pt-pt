@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizar a forma de qualidade de rowgroup para columnstore
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 Tamanho DWU e a classe de recursos de utilizador em conjunto determinam a quantidade de memória está disponível para uma consulta do utilizador. Para aumentar a concessão de memória para uma consulta de carga, pode aumentar o número de DWUs ou aumentar a classe de recursos.
 
-- Para aumentar as DWUs, consulte [como aumentar o desempenho?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
+- Para aumentar as DWUs, consulte [como aumentar o desempenho?](quickstart-scale-compute-portal.md)
 - Para alterar a classe de recursos para uma consulta, consulte [alterar um exemplo de classe de recursos de utilizador](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Por exemplo, no DWU 100 um utilizador na classe de recurso smallrc pode utilizar a 100 MB de memória para cada distribuição. Para obter mais detalhes, consulte [simultaneidade no SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
@@ -150,7 +150,7 @@ Suponha que determine que tem de 700 MB de memória para obter os tamanhos de ro
 - A utilização de DWU 600 e largerc, a concessão de memória é 800 MB.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para ver mais formas de melhorar o desempenho do armazém de dados do SQL Server, consulte o [descrição geral do desempenho](sql-data-warehouse-overview-manage-user-queries.md).
 

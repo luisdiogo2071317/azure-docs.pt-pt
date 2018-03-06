@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com auditoria e rotação de ponto a ponto
 ## <a name="introduction"></a>Introdução
 Depois de criar o seu Cofre de chaves, poderá começar a utilizar esse cofre para armazenar as chaves e segredos. As aplicações já não é necessário manter as chaves ou segredos, mas em vez disso irá solicitá-los do Cofre de chaves conforme necessário. Isto permite-lhe atualizar as chaves e segredos sem afetar o comportamento da sua aplicação, o qual abre um leque de possibilidades em torno da sua chave e o segredo gestão.
+
+>[!IMPORTANT]
+> Os exemplos neste artigo são fornecidos para fins de ilustração. Estas não recomendações pretendem para utilização em produção. 
 
 Este artigo explica-se um exemplo de como utilizar o Cofre de chaves do Azure para armazenar um segredo, neste caso, uma chave de conta de armazenamento do Azure que é acedida por uma aplicação. -Também demonstra a implementação de uma agendada rotação dessa chave de conta de armazenamento. Por fim,-explica uma demonstração sobre como monitorizar os registos de auditoria do Cofre de chaves e um alerta para quando são efetuados os pedidos inesperados.
 

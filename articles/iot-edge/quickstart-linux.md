@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Início rápido: Implementar o módulo de limite de IoT primeiro num dispositivo Linux ou Mac – pré-visualização
 
@@ -70,22 +70,22 @@ Crie uma identidade de dispositivo para o seu dispositivo simulado para que este
 O tempo de execução do limite de IoT é implementado em todos os dispositivos de limite de IoT. É composto por dois módulos. Em primeiro lugar, o agente de limite de IoT facilita a implementação e monitorização de módulos no dispositivo de limite de IoT. Segundo, o hub IoT Edge gere as comunicações entre os módulos no dispositivo de limite de IoT e entre o dispositivo e o IoT Hub. 
 
 No computador onde irá executar o dispositivo de limite de IoT, transferi o script de controlo contorno de IoT:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure o tempo de execução com a cadeia de ligação do dispositivo de limite de IoT da secção anterior:
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Inicie o tempo de execução:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Docker para ver que o agente de limite de IoT está em execução como um módulo de verificação:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ Este guia de introdução, criou um novo dispositivo de limite de IoT e instalad
 
 Abra a linha de comandos no computador com o seu dispositivo simulado novamente. Confirme que o módulo implementado a partir da nuvem está em execução no seu dispositivo de limite de IoT:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 Ver as mensagens do módulo tempSensor, que está a ser enviadas para a nuvem:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 Também pode ver a telemetria que o dispositivo está a enviar ao utilizar o [ferramenta do Explorador do IoT Hub][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
+
+Se pretender remover o dispositivo simulado que criou, juntamente com os contentores de Docker que foram iniciados para cada módulo, utilize o seguinte comando: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 Quando já não necessita do IoT Hub que criou, pode utilizar o [delete de hub iot de az] [ lnk-delete] comando para remover o recurso e todos os dispositivos associados à mesma:
 

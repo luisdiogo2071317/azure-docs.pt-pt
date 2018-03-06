@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Com monitorização de estado singletons nas funções durável - exemplo de contador
+
+> [!NOTE]
+> Iremos são conversão este exemplo. Os fragmentos de código foram removidos e um novo artigo para uma nova amostra serão substituídas.
 
 Com monitorização de estado singletons são funções do orchestrator (potencialmente eternal) execução longa que podem armazenar o estado e ser invocadas e consultar por outras funções. Singletons com monitorização de estado são semelhantes de [modelo Ator](https://en.wikipedia.org/wiki/Actor_model) da informática distribuída.
 
@@ -55,11 +58,11 @@ As secções seguintes explicam o código que é utilizado para o desenvolviment
 
 O ficheiro function.json:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 O ficheiro run.csx:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>Pré-compilada c# 
 
@@ -67,7 +70,7 @@ As secções seguintes explicam o código que é utilizado para o desenvolviment
 
 Eis o código que implementa a função do orchestrator:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Explicação do código
 
@@ -150,7 +153,7 @@ Pode continuar a enviar novas operações para esta instância e observe a que o
 > [!WARNING]
 > No momento da escrita, não existe são conhecidos condições race quando chamar `ContinueAsNew` durante o processamento em simultâneo de mensagens, tais como pedidos de terminação ou eventos externos. Para informações mais recentes nestas condições race, consulte este [problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este exemplo foi demonstrado como processar [eventos externos](durable-functions-external-events.md) e implementar [eternal orchestrations](durable-functions-eternal-orchestrations.md) no [singletons com monitorização de estado](durable-functions-singletons.md). O exemplo seguinte mostra como utilizar eventos externos e [temporizadores duráveis](durable-functions-timers.md) para lidar com uma interação humana.
 

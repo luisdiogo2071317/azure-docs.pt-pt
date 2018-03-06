@@ -1,7 +1,22 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines-windows
+author: dlepow
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 506c2a4cf675a347dc4c45c9ccf8bce95de2f6fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/05/2018
+---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
-
-### <a name="nc-ncv2-and-nd-instances---nvidia-tesla-drivers"></a>Instâncias de NC, NCv2 e ND - NVIDIA Tesla controladores
+### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-tesla-drivers"></a>NC, NCv2, NCv3 e série ND - NVIDIA Tesla controladores
 
 | SO | Controlador |
 | -------- |------------- |
@@ -12,7 +27,7 @@
 > As ligações de transferência do controlador Tesla estão atualizadas no momento da publicação. Para os controladores mais recentes, visite o Web site da [NVIDIA](http://www.nvidia.com/).
 >
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>Instâncias de NV - controladores de GRID da NVIDIA
+### <a name="nv-series---nvidia-grid-drivers"></a>Série NV - NVIDIA grelha controladores
 
 | SO | Controlador |
 | -------- |------------- |
