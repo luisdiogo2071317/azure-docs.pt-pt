@@ -12,7 +12,7 @@ Gestor de pacotes Carthage é utilizado durante o período de pré-visualizaçã
 
 ## <a name="creating-your-application"></a>Criar a sua aplicação
 
-1.  Abra o Xcode e selecione`Create a new Xcode project`
+1.  Abra o Xcode e selecione `Create a new Xcode project`
 2.  Selecione `iOS`  >  `Single view Application` e clique em *seguinte*
 3.  Dê um nome de produto e clique em *seguinte*
 4.  Selecione uma pasta para criar a sua aplicação e clique em *criar*
@@ -42,10 +42,10 @@ carthage update
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Adicionar o framework MSAL à sua aplicação
 1.  No Xcode, abra o `General` separador
-2.  Vá para o `Linked Frameworks and Libraries` secção e clique em`+`
+2.  Vá para o `Linked Frameworks and Libraries` secção e clique em `+`
 3.  Selecione `Add other…`
 4.  Selecione: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` e clique em *abra*. Deverá ver `MSAL.framework` adicionado à lista.
-5.  Aceda a `Build Phases` separador e clique em `+` ícone, escolha`New Run Script Phase`
+5.  Aceda a `Build Phases` separador e clique em `+` ícone, escolha `New Run Script Phase`
 6.  Adicione o seguinte conteúdo para o *script área*:
 
 ```text
@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>Criar a IU da aplicação
 Um ficheiro de Main.storyboard automaticamente deverá ser criado como parte do seu modelo de projeto. Siga as instruções abaixo para criar a IU da aplicação:
 
-1.  Controlar + clique `Main.storyboard` trazer o menu de nível contextual das e, em seguida, clique em:`Open As` > `Source Code`
+1.  Controlar + clique `Main.storyboard` trazer o menu de nível contextual das e, em seguida, clique em: `Open As` > `Source Code`
 2.  Substitua o `<scenes>` nó com o código abaixo:
 
 ```xml

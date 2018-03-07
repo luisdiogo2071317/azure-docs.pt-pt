@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Criar uma rota definida pelo utilizador - portal do Azure
 
@@ -32,7 +32,7 @@ Neste tutorial, crie uma rede virtual com o público, privado e sub-redes da red
 
 ![Rotas definidas pelo utilizador](./media/create-user-defined-route/user-defined-routes.png)
 
-Este artigo fornece os passos para criar uma rota definida pelo utilizador através do modelo de implementação Resource Manager, que é o modelo de implementação, que recomendamos a utilização quando criar rotas definidas pelo utilizador. Se precisar de criar uma rota definida pelo utilizador (clássica), consulte [criar uma rota definida pelo utilizador (clássica)](virtual-network-create-udr-classic-ps.md). Se não estiver familiarizado com os modelos de implementação do Azure, consulte [modelos de implementação do Azure compreender](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para saber mais sobre as rotas definidas pelo utilizador, consulte o artigo [descrição geral de rotas definidas pelo utilizador](virtual-networks-udr-overview.md#user-defined).
+Este artigo fornece os passos para criar uma rota definida pelo utilizador através do modelo de implementação Resource Manager, que é o modelo de implementação, que recomendamos a utilização quando criar rotas definidas pelo utilizador. Se precisar de criar uma rota definida pelo utilizador (clássica), consulte [criar uma rota definida pelo utilizador (clássica)](virtual-network-create-udr-classic-ps.md). Se não estiver familiarizado com os modelos de implementação do Azure, consulte [modelos de implementação do Azure compreender](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para saber mais sobre as rotas definidas pelo utilizador, veja [Descrição geral das rotas definidas pelo utilizador](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Criar rotas e dispositivo de rede virtual
 
@@ -63,7 +63,7 @@ Este artigo fornece os passos para criar uma rota definida pelo utilizador atrav
 
         |Definição|Valor|
         |---|---|
-        |Nome|myVm Nva|
+        |Nome|myVm-Nva|
         |Nome de utilizador|azureuser|
         |Palavra-passe e Confirmar palavra-passe|Uma palavra-passe da sua escolha|
         |Subscrição|Selecione a sua subscrição|
@@ -82,7 +82,7 @@ Este artigo fornece os passos para criar uma rota definida pelo utilizador atrav
     - No **procurar recursos** na parte superior da página, introduza *myVm Nva*.
     - Clique em **myVm Nva** quando for apresentada nos resultados da pesquisa.
     - Clique em **redes** em **definições** no lado esquerdo.
-    - Clique no nome da interface de rede em **interfaces de rede myVm-Nva -**. O nome é **myvm nva***X*, onde *X* é um número atribuído pelo portal.
+    - Clique no nome da interface de rede em **interfaces de rede myVm-Nva -**. O nome é **myvm nva *** X*, onde *X* é um número atribuído pelo portal.
     - Clique em **configurações de IP** em **definições** para a interface de rede, conforme mostrado na imagem seguinte:
 
         ![Definições da interface de rede](./media/create-user-defined-route/network-interface-settings.png)
@@ -102,7 +102,7 @@ Este artigo fornece os passos para criar uma rota definida pelo utilizador atrav
 
         |Definição|Valor|
         |---|---|
-        |Nome|myRouteTable público|
+        |Nome|myRouteTable-Public|
         |Subscrição|Selecione a sua subscrição|
         |Grupo de recursos|Selecione **utilizar existente**, em seguida, selecione **myResourceGroup**|
         |Localização|EUA Leste|
@@ -327,7 +327,7 @@ Quando concluir este tutorial, pode querer eliminar os recursos que criou, para 
 2. No **myResourceGroup** painel, clique em de **eliminar** ícone.
 3. Para confirmar a eliminação no **tipo o nome de grupo de recursos** box, introduza **myResourceGroup**e, em seguida, clique em **eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Criar um [aplicação virtual de rede altamente disponível](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Os dispositivos de rede virtuais têm, muitas vezes, várias interfaces de rede e endereços IP atribuídos aos mesmos. Saiba como [adicionar interfaces de rede para uma máquina virtual existente](virtual-network-network-interface-vm.md#vm-add-nic) e [adicionar endereços IP para uma interface de rede existente](virtual-network-network-interface-addresses.md#add-ip-addresses). Apesar de todos os tamanhos de máquina virtual podem ter, pelo menos, duas interfaces de rede ligados aos mesmos, cada tamanho da máquina virtual suporta um número máximo de interfaces de rede. Para saber como várias interfaces de rede virtuais de cada computador tamanho suporta, consulte [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tamanhos de máquina virtual. 
