@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>OPC publicador para o limite de IoT do Azure
 
@@ -131,9 +131,9 @@ Para ver a utilização da aplicação concluída, utilize o `--help` opção da
 OpcPublisher.exe <applicationname> [<IoT Hubconnectionstring>] [<options>]
 ```
 
-`applicationname`é o nome de aplicação de OPC UA a utilizar. Este parâmetro é necessário. O nome da aplicação também é utilizado para registar o publicador no registo de dispositivos do IoT Hub.
+`applicationname` é o nome de aplicação de OPC UA a utilizar. Este parâmetro é necessário. O nome da aplicação também é utilizado para registar o publicador no registo de dispositivos do IoT Hub.
 
-`IoT Hubconnectionstring`é a cadeia de ligação do IoT Hub proprietário. Este parâmetro é opcional.
+`IoT Hubconnectionstring` é a cadeia de ligação do IoT Hub proprietário. Este parâmetro é opcional.
 
 São suportadas as seguintes opções:
 
@@ -468,6 +468,6 @@ Agora pode começar a depuração utilizando o seguinte comando na janela de com
 DebugAdapterHost.Launch /LaunchJson:"<path-to-the-launch.json-file-you-saved>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Sugestões de um passo seguinte é saber como [implementar um gateway no Windows ou Linux para a solução de fábrica ligado pré-configurada](iot-suite-connected-factory-gateway-deployment.md).
