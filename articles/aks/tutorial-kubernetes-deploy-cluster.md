@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do Azure Container Service (AKS)
 
@@ -49,59 +49,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 Ao fim de vários minutos, a implementação é concluída e devolve informações sobre a implementação do AKS no formato json.
-
-```azurecli
-{
-  "additionalProperties": {},
-  "agentPoolProfiles": [
-    {
-      "additionalProperties": {},
-      "count": 1,
-      "dnsPrefix": null,
-      "fqdn": null,
-      "name": "nodepool1",
-      "osDiskSizeGb": null,
-      "osType": "Linux",
-      "ports": null,
-      "storageProfile": "ManagedDisks",
-      "vmSize": "Standard_DS1_v2",
-      "vnetSubnetId": null
-    }
-    ...
-```
-
-## <a name="getting-information-about-your-cluster"></a>Obter informações sobre o cluster
-
-Depois de o cluster ter sido implementado, consegue utilizar o `az aks show` para consultar o seu cluster e obter informações importantes. Estes dados podem ser utilizados como um parâmetro quando executar operações mais complexas no seu cluster. Por exemplo, se pretender informações sobre o perfil do Linux em execução no seu cluster, pode executar o comando seguinte.
-
-```azurecli
-az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
-
-{
-  "additionalProperties": {},
-  "adminUsername": "azureuser",
-  "ssh": {
-    "additionalProperties": {},
-    "publicKeys": [
-      {
-        "additionalProperties": {},
-        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
-      }
-    ]
-  }
-}
-```
-
-Isto irá mostrar-lhe informações sobre o utilizador administrador e as chaves públicas SSH. Também pode executar consultas mais detalhadas, anexando as propriedades JSON à cadeia de consulta, conforme mostrado abaixo.
-
-```azurecli
-az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
-{
-  "name": "nodepool1",
-  "nodeCount": 1
-}
-```
-Isto pode ser útil para aceder rapidamente aos dados do cluster implementado. Leia mais informações sobre consultas JMESPath [aqui](http://jmespath.org/tutorial.html).
 
 ## <a name="install-the-kubectl-cli"></a>Instalar a CLI do kubectl
 
@@ -143,19 +90,19 @@ A autenticação tem de ser configurada entre o cluster AKS e registo ACR. Isto 
 Em primeiro lugar, obtenha o ID do principal de serviço configurado para o AKS. Atualize o nome do grupo de recursos e o nome do cluster AKS para corresponderem ao seu ambiente.
 
 ```azurecli
-$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
 Obtenha o id de recurso do registo ACR. Atualize o nome do registo para o nome do seu registo ACR e o grupo de recursos para o grupo de recursos onde está localizado o registo ACR.
 
 ```azurecli
-$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Crie a atribuição de função, que concede o acesso adequado.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
