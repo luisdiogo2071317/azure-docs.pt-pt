@@ -15,29 +15,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 2f2125e739b738847e03ce429d65801969611685
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb36f79d6af66dfaceb63730d59713ab9da7c89e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Idiomas suportados na máquina de Virtual de ciência de dados 
 
 A Máquina Virtual de ciência de dados (DSVM) inclui vários idiomas previamente concebidos e ferramentas de desenvolvimento para criar as suas aplicações AI. Aqui estão algumas do aqueles salientes. 
 
-## <a name="python"></a>Python
+## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 Edition)
+
+|    |           |
+| ------------- | ------------- |
+| Versões de idiomas suportados | 2.7 e 3.6 |
+| Edições de DSVM suportados      | Windows Server 2016     |
+| Como é mesmo configurado / instalado o DSVM?  | Dois global `conda` ambientes são criados. <br /> * `root` ambiente localizado em `/anaconda/` é Python 3.6. <br/> * `python2` ambiente localizado em `/anaconda/envs/python2`é Python 2.7       |
+| Ligações para amostras      | Notas do Jupyter de exemplo para o Python estão incluídas     |
+| Ferramentas relacionadas no DSVM      | PySpark, R, Julia      |
+
+> [!NOTE]
+> Windows Server 2016 criado antes de Março de 2018 contém Python 3.5 e Python 2.7. Python 2.7 será também a conda **raiz** ambiente e **py35** é o ambiente do Python 3.5. 
+
+### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?    
+
+* Executar numa linha de comandos
+
+Abra a linha de comandos e efetue o seguinte, dependendo da versão do Python que pretende executar. 
+
+```
+# To run Python 2.7
+activate python2
+python --version
+
+# To run Python 3.6
+activate 
+python --version
+
+```
+* Utilizar um IDE
+
+Utilize as ferramentas do Python para Visual Studio (PTVS) instaladas na edição Visual Studio Community. A configuração de ambiente só automaticamente em PTVS por predefinição é Python 3.6. 
+
+> [!NOTE]
+> Para apontar as PTVS para Python 2.7, terá de criar um ambiente personalizadas no PTVS. Para definir esta caminhos de ambiente a edição de Comunidade do Visual Studio, navegue até à **ferramentas** -> **ferramentas do Python** -> **ambientes do Python** e, em seguida, clique em **+ personalizada**. Em seguida, defina a localização para `c:\anaconda\envs\python2` e, em seguida, clique em _de deteção automática_. 
+
+* Utilizar no Jupyter
+
+Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Neste momento, pode escolher o tipo de kernel como _Python [Conda raiz]_ para Python 3.6 e _Python [Conda env:python2]_ para o ambiente do Python 2.7. 
+
+* Instalar pacotes de Python
+
+Os ambientes do Python predefinido no DSVM são global ambiente legível por todos os utilizadores. Mas apenas os administradores podem escrever / instalar pacotes global. Para instalar o pacote para o ambiente global, ativar para a raiz ou python2 ambiente utilizando o `activate` comando como administrador. Em seguida, pode utilizar o Gestor de pacotes como `conda` ou `pip` para instalar ou atualizar os pacotes. 
+
+## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux e edição do Windows Server 2012)
 
 |    |           |
 | ------------- | ------------- |
 | Versões de idiomas suportados | 2.7 e 3.5 |
-| Edições de DSVM suportados      | Linux, Windows     |
-| Como é mesmo configurado / instalado o DSVM?  | Dois global `conda` ambientes são criados. <br /> * `root`ambiente localizado em `/anaconda/` é Python 2.7. <br/> * `py35`ambiente localizado em `/anaconda/envs/py35`é Python 3.5       |
+| Edições de DSVM suportados      | Linux, Windows Server 2012    |
+| Como é mesmo configurado / instalado o DSVM?  | Dois global `conda` ambientes são criados. <br /> * `root` ambiente localizado em `/anaconda/` é Python 2.7. <br/> * `py35` ambiente localizado em `/anaconda/envs/py35`é Python 3.5       |
 | Ligações para amostras      | Notas do Jupyter de exemplo para o Python estão incluídas     |
-| Ferramentas relacionadas no DSVM      | PySpark, R, Leonor      |
+| Ferramentas relacionadas no DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?    
 
-**Windows**:
+**Linux**
+* Em execução no terminal
 
+Abra o terminal e efetue o seguinte, dependendo da versão do Python que pretende executar. 
+
+```
+# To run Python 2.7
+source activate 
+python --version
+
+# To run Python 3.5
+source activate py35
+python --version
+
+```
+* Utilizar um IDE
+
+Utilize PyCharm instalada na edição Visual Studio Community. 
+
+* Utilizar no Jupyter
+
+Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Neste momento, pode escolher o tipo de kernel como _Python [Conda raiz]_ para Python 2.7 e _Python [Conda env:py35]_ para o ambiente do Python 3.5. 
+
+* Instalar pacotes de Python
+
+Os ambientes do Python predefinido no DSVM são globais ambientes legíveis por todos os utilizadores. Mas apenas os administradores podem escrever / instalar pacotes global. Para instalar o pacote para o ambiente global, ativar para a raiz ou py35 ambiente utilizando o `source activate` comando como administrador ou um utilizador com permissão de sudo. Em seguida, pode utilizar um Gestor de pacote como `conda` ou `pip` para instalar ou atualizar os pacotes. 
+
+**Windows 2012**
 * Executar numa linha de comandos
 
 Abra a linha de comandos e efetue o seguinte, dependendo da versão do Python que pretende executar. 
@@ -66,44 +136,15 @@ Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Ne
 
 Os ambientes do Python predefinido no DSVM são global ambiente legível por todos os utilizadores. Mas apenas os administradores podem escrever / instalar pacotes global. Para instalar o pacote para o ambiente global, ativar para a raiz ou py35 ambiente utilizando o `activate` comando como administrador. Em seguida, pode utilizar o Gestor de pacotes como `conda` ou `pip` para instalar ou atualizar os pacotes. 
 
-
-**Linux**:
-
-* Em execução no terminal
-
-Abra o terminal e efetue o seguinte, dependendo da versão do Python que pretende executar. 
-
-```
-# To run Python 2.7
-source activate 
-python --version
-
-# To run Python 3.5
-source activate py35
-python --version
-
-```
-* Utilizar um IDE
-
-Utilize PyCharm instalada na edição Visual Studio Community. 
-
-* Utilizar no Jupyter
-
-Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Neste momento, pode escolher o tipo de kernel como _Python [Conda raiz]_ para Python 2.7 e _Python [Conda env:py35]_ para o ambiente do Python 3.5. 
-
-* Instalar pacotes de Python
-
-Os ambientes do Python predefinido no DSVM são globais ambientes legíveis por todos os utilizadores. Mas apenas os administradores podem escrever / instalar pacotes global. Para instalar o pacote para o ambiente global, ativar para a raiz ou py35 ambiente utilizando o `source activate` comando como administrador ou um utilizador com permissão de sudo. Em seguida, pode utilizar um Gestor de pacote como `conda` ou `pip` para instalar ou atualizar os pacotes. 
-
 ## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
 | Versões de idiomas suportados | Microsoft R abra 3 (100% compatível com CRAN R<br /> Edição do programador do Microsoft R Server 9.x (Enterprise dimensionável A pronta R plataforma)|
 | Edições de DSVM suportados      | Linux, Windows     |
-| Como é mesmo configurado / instalado o DSVM?  | Windows:`C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux:` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Como é mesmo configurado / instalado o DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Ligações para amostras      | Blocos de notas do Jupyter exemplo de R estão incluídos     |
-| Ferramentas relacionadas no DSVM      | Leonor SparkR, Python,      |
+| Ferramentas relacionadas no DSVM      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?    
 
 **Windows**:
@@ -147,9 +188,9 @@ R está instalado no DSVM num ambiente global legível por todos os utilizadores
 
 |    |           |
 | ------------- | ------------- |
-| Versões de idiomas suportados | 0.5 |
+| Versões de idiomas suportados | 0.6 |
 | Edições de DSVM suportados      | Linux, Windows     |
-| Como é mesmo configurado / instalado o DSVM?  | Windows: Uma instalação em`C:\JuliaPro-VERSION`<br /> Linux: Instalado`/opt/JuliaPro-VERSION`    |
+| Como é mesmo configurado / instalado o DSVM?  | Windows: Uma instalação em `C:\JuliaPro-VERSION`<br /> Linux: Instalado `/opt/JuliaPro-VERSION`    |
 | Ligações para amostras      | Notas do Jupyter de exemplo para Leonor estão incluídas     |
 | Ferramentas relacionadas no DSVM      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?    
@@ -165,7 +206,7 @@ Utilize `Juno` IDE Leonor instalado no DSVM e disponível como um atalho do ambi
 
 * Utilizar no Jupyter
 
-Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Neste momento, pode escolher o tipo de kernel como`Julia VERSION` 
+Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Neste momento, pode escolher o tipo de kernel como `Julia VERSION` 
 
 * Instalar pacotes de Leonor
 
@@ -182,7 +223,7 @@ Utilize `Juno` IDE Leonor instalado no DSVM e disponível como um atalho de menu
 
 * Utilizar no Jupyter
 
-Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Neste momento, pode escolher o tipo de kernel como`Julia VERSION` 
+Abra o Jupyter e clique em de `New` botão para criar um novo bloco de notas. Neste momento, pode escolher o tipo de kernel como `Julia VERSION` 
 
 * Instalar pacotes de Leonor
 

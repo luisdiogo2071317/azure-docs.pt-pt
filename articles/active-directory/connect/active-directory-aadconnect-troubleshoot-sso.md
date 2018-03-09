@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas do Azure Active Directory totalmente integrada Single Sign-On
 
 Este artigo ajuda-o a encontrar informações sobre problemas comuns sobre Azure Active Directory (Azure AD) totalmente integrada Single Sign-On (SSO totalmente integrado) de resolução de problemas.
 
-## <a name="known-problems"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
 - Em alguns casos, a ativação SSO totalmente integrada pode demorar até 30 minutos.
 - Se desativar e reativar o SSO totalmente integrado no seu inquilino, os utilizadores não receberão a experiência de início de sessão único até as respetivas permissões de Kerberos em cache, normalmente válidos para 10 horas, tem expirado.
 - Suporte de browser Edge não está disponível.
-- A partir de clientes do Office, especialmente cenários de computador partilhado, faz com que pede extra início de sessão de utilizadores. Os utilizadores tem de introduzir os nomes de utilizador com frequência, mas não as palavras-passe.
 - Se tiver êxito SSO totalmente integrada, o utilizador não tem a oportunidade de selecionar **manter a minha sessão iniciada**. Devido a este comportamento, cenários de mapeamento do OneDrive e do SharePoint não funcionam.
+- Os clientes do Office abaixo versão 16.0.8730.xxxx não suportam não interativo início de sessão com o SSO totalmente integrada. Esses clientes, os utilizadores tem de introduzir os nomes de utilizador, mas não as palavras-passe, início de sessão.
 - SSO totalmente integrada não funciona no modo privado de navegação no Firefox.
 - SSO totalmente integrada não funciona no Internet Explorer, quando o modo protegido avançado é ativado.
 - SSO totalmente integrada não funciona em browsers para dispositivos móveis em dispositivos iOS e Android.
 - Se estiver a sincronizar 30 ou mais florestas do Active Directory, não é possível ativar a SSO totalmente integrada através do Azure AD Connect. Como solução, pode [ativar manualmente](#manual-reset-of-azure-ad-seamless-sso) a funcionalidade no seu inquilino.
-- A adição de URLs do serviço do Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) para a zona de sites fidedignos, em vez de à zona Local intranet *bloqueia os utilizadores de início de sessão*.
+- Adicionar o URL do serviço do Azure AD (https://autologon.microsoftazuread-sso.com) para a zona de sites fidedignos, em vez de à zona Local intranet *bloqueia os utilizadores de início de sessão*.
+- Desativar a utilização do **RC4_HMAC_MD5** tipo de encriptação para Kerberos nas definições do Active Directory irá interromper a SSO totalmente integrada. No seu Editor de gestão de políticas de grupo ferramenta Certifique-se de que o valor de política para **RC4_HMAC_MD5** em **configuração do computador -> definições do Windows -> definições de segurança -> Políticas locais -> Opções de segurança - > "Segurança de rede: configurar os tipos de encriptação permitidos para Kerberos"** "Ativado".
 
-## <a name="check-the-status-of-the-feature"></a>Verificar o estado da funcionalidade
+## <a name="check-status-of-feature"></a>Verifique o estado da funcionalidade
 
 Certifique-se de que a funcionalidade de SSO totalmente integrado ainda é **ativado** no seu inquilino. Pode verificar o estado, acedendo ao **do Azure AD Connect** painel o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Active Directory do Azure: painel do Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+Clicar para ver todas as florestas do AD que foram ativadas para SSO totalmente integrada.
+
+![Centro de administração do Active Directory do Azure: painel SSO totalmente integrada](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivos da falha de início de sessão no Centro de administração do Azure Active Directory (necessita de uma licença de Premium)
 
@@ -70,7 +75,7 @@ Utilize a lista de verificação seguinte para resolver problemas de SSO totalme
 
 - Certifique-se de que a funcionalidade de SSO totalmente integrada está ativada no Azure AD Connect. Se não é possível ativar a funcionalidade (por exemplo, devido a uma porta bloqueada), certifique-se de que tem todas as [pré-requisitos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) no local.
 - Se tiver ativado o ambos [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado no seu inquilino, certifique-se de que o problema não com a associação do Azure AD. SSO de associação do Azure AD tem precedência sobre SSO totalmente integrada, se o dispositivo está registado com o Azure AD e associados a um domínio. Com o SSO de associação do Azure AD, o utilizador verá um mosaico de início de sessão no que diz "Ligado ao Windows".
-- Certifique-se de que os dois URLs do Azure AD (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net) são parte integrante das definições de zona de Intranet do utilizador.
+- Certifique-se de que o URL de AD do Azure (https://autologon.microsoftazuread-sso.com) é parte integrante das definições de zona de Intranet do utilizador.
 - Certifique-se de que o dispositivo da empresa está associado ao domínio do Active Directory.
 - Certifique-se de que o utilizador iniciar sessão num dispositivo através de uma conta de domínio do Active Directory.
 - Certifique-se de que a conta de utilizador numa floresta do Active Directory onde SSO totalmente integrado tiver sido configurada.

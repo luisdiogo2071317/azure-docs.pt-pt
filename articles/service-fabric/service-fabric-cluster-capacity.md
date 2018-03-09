@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, o planeamento de capacidade é um passo importante. Seguem-se alguns dos itens que terá de considerar como parte do processo.
 
 * O número de tipos de nó que do cluster tem de começar a utilizar
 * As propriedades de cada tipo de nó (tamanho, o servidor primário, a internet com número de VMs, etc.)
-* As características de durabilidade e fiabilidade do cluster
+* As características de fiabilidade e durabilidade do cluster
 
 Informe-por breves instantes Reveja cada um destes itens.
 
 ## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>O número de tipos de nó que do cluster tem de começar a utilizar
 Em primeiro lugar, tem de descobrir que o cluster que estiver a criar vai ser utilizado para e os tipos de aplicações estiver a planear implementar para este cluster. Se não estiver encriptado no objetivo do cluster, não são mais provável ainda está preparado para introduzir a processo de planeamento da capacidade.
 
-Estabelece o número de tipos de nó que do cluster tem de começar a.  Cada tipo de nó está mapeado para um conjunto de dimensionamento de Máquina Virtual. Cada tipo de nó, em seguida, pode ser escalado para cima ou para baixo de forma independente, têm conjuntos diferentes de portas abertas e pode ter as métricas de capacidade diferentes. Por isso, a decisão do número de tipos de nó essencialmente vem para baixo para as seguintes considerações:
+Estabelece o número de tipos de nó que do cluster tem de começar a.  Cada tipo de nó está mapeado para um conjunto de dimensionamento de Máquina Virtual. Cada tipo de nó pode então ser aumentado ou reduzido verticalmente de forma independente, pode ter conjuntos diferentes de portas abertas e ter métricas de capacidade diferente. Por isso, a decisão do número de tipos de nó essencialmente vem para baixo para as seguintes considerações:
 
 * A sua aplicação tem vários serviços e qualquer um deles tem de ser public ou para a internet? Aplicações típicas contém um serviço de front-end do gateway que recebe a entrada de um cliente e um ou mais back-end serviços que comunicam com os serviços front-end. Por isso, neste caso, pode ficar ter, pelo menos, dois tipos de nó.
 * Os serviços (que compõem a sua aplicação) dispõem de necessidades de infraestrutura diferentes, como maior RAM ou superiores ciclos da CPU? Por exemplo, vamos assuma que contém a aplicação que pretende implementar um serviço front-end e um serviço de back-end. Pode executar o serviço de front-end em VMs mais pequenas (tamanhos de VM, como D2) que tem portas abertas à internet.  O serviço de back-end, no entanto, é intensiva de cálculo e tem de executar em VMs maior (com tamanhos de VM, como D4, D6, D15) que não são internet enfrentam.
@@ -88,10 +88,11 @@ Obter para escolher o nível de durabilidade para cada um dos seus tipos de nó.
  
 1. As implementações para o conjunto de dimensionamento de Máquina Virtual e outros recursos relacionados do Azure) podem sofrer um atraso, podem tempo ou podem ser impedidas inteiramente por problemas no seu cluster ou ao nível da infraestrutura. 
 2. Aumenta o número de [eventos de ciclo de vida de réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (por exemplo, primárias trocas) devido a automatizada deactivations de nó durante as operações de infraestrutura do Azure.
+3. Demora nós fora de serviço para períodos de tempo durante as atualizações de software da plataforma do Azure ou a manutenção de hardware atividades estão a ocorrer. Poderá ver nós com o estado desativar/desativado durante estas atividades. Esta reduz temporariamente a capacidade do seu cluster, mas não deve afetar a disponibilidade do seu cluster ou aplicações.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recomendações sobre quando utilizar os níveis de durabilidade Silver ou Gold
 
-Utilizar Silver ou Gold durabilidade para todos os tipos de nó serviços com monitorização de estado de espera na escala de anfitrião (Reduza a contagem de instâncias VM) com frequência, e preferir que operações de implementação é atrasada favor simplificando estas operações de escala. Os cenários de escalamento horizontal (adicionar instâncias de VMs) desempenha à sua escolha do escalão de durabilidade, apenas escala-in.
+Utilizar Silver ou Gold durabilidade para todos os tipos de nó serviços com monitorização de estado de espera na escala de anfitrião (Reduza a contagem de instâncias VM) com frequência, e preferir que operações de implementação é atrasada e a capacidade para ser reduzido favor simplificando estes escala-in operações. Os cenários de escalamento horizontal (adicionar instâncias de VMs) desempenha à sua escolha do escalão de durabilidade, apenas escala-in.
 
 ### <a name="changing-durability-levels"></a>Alterar os níveis de durabilidade
 - Não podem ser alterada uma versão anterior tipos de nó com níveis de durabilidade de Silver ou Gold em para Bronze.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Ligação Microsoft Advanced Threat Analytics ao centro de segurança do Azure
 Este documento ajuda-o a configurar a integração entre o Microsoft Advanced Threat Analytics e o Centro de segurança do Azure.
@@ -52,7 +52,7 @@ Partindo do princípio que já tiver instalado o ATA, e a funcionar corretamente
 
 10. No **adicionar novo computador de não Azure** página, selecione a área de trabalho.
 
-    ![Não do Azure](./media/security-center-ata-integration/security-center-ata-integration-fig5.png)
+    ![Não Pertencente ao Azure](./media/security-center-ata-integration/security-center-ata-integration-fig5.png)
 
 11. No **agente direta** página, transfira o agente de Windows adequado e anota do **ID da área de trabalho** e **chave primária**.
 
@@ -61,9 +61,9 @@ Partindo do princípio que já tiver instalado o ATA, e a funcionar corretamente
 12. Instale este agente no ATA Center. Durante a instalação, certifique-se de que seleciona a opção **ligar o agente para análise de registos do Azure (OMS)**e forneça o *ID da área de trabalho*, e *chave primária* quando solicitado .
 
 
-Depois de concluir a instalação, a integração for concluída e será capaz de ver novos alertas enviadas do ATA para o Centro de segurança no **alertas de segurança** e **pesquisa**. A solução é apresentado no **soluções de segurança** página **ligado soluções**. 
+Depois de concluir a instalação, a integração for concluída e será capaz de ver novos alertas enviadas do ATA para o Centro de segurança no **pesquisa** resultado. A solução é apresentado no **soluções de segurança** página **ligado soluções**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste documento, aprendeu a ligar o Microsoft ATA ao centro de segurança. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
 * [Ligar o Azure Active Directory Identity Protection ao Centro de Segurança do Azure](security-center-aadip-integration.md)

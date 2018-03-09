@@ -8,14 +8,14 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Utilizar Ansible para gerir os inventários dinâmicos do Azure
-Ansible pode ser utilizado para solicitar informações de inventário a partir de várias origens (incluindo origens de nuvem, como o Azure) para um *inventário dinâmicas*. Neste artigo, utilize o [Shell de nuvem do Azure](./ansible-run-playbook-in-cloudshell.md) para configurar um inventário dinâmicas de Ansible do Azure na qual criar duas máquinas virtuais, uma tag dessas máquinas virtuais e instalar Nginx na máquina virtual marcada.
+Ansible pode ser utilizado para solicitar informações de inventário a partir de várias origens (incluindo origens de nuvem, como o Azure) para um *inventário dinâmicas*. Neste artigo, utilize o [Shell de nuvem do Azure](./ansible-run-playbook-in-cloudshell.md) para configurar um inventário dinâmicas de Ansible do Azure na qual criar duas máquinas virtuais, marcar uma dessas máquinas virtuais e instalar Nginx na máquina virtual marcada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,11 +59,11 @@ Pode [utilizar etiquetas para organizar os seus recursos do Azure](https://docs.
 Introduza o seguinte [etiquetas de recurso az](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) comando para marcar a máquina virtual `ansible-inventory-test-vm1` com a chave `nginx`:
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Gerar um inventário dinâmicas
-Depois de ter as máquinas virtuais definido (e marcado), está na altura de gerar o inventário dinâmicas. Ansible fornece um script de Python chamado [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) que gera um inventário dinâmicas dos seus recursos do Azure ao efetuar pedidos de API para o Azure Resource Manager. Os seguintes passos guiá-lo utilizando o `azure_rm.py` script para ligar a duas testar a máquina virtual do Azure:
+Depois de ter as máquinas virtuais definido (e marcado), está na altura de gerar o inventário dinâmicas. Ansible fornece um script de Python chamado [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) que gera um inventário dinâmicas dos seus recursos do Azure ao efetuar pedidos de API para o Azure Resource Manager. Os seguintes passos guiá-lo utilizando o `azure_rm.py` testar o script para ligar a duas máquinas virtuais do Azure:
 
 1. Utilize o GNU `wget` comando para obter o `azure_rm.py` script:
 

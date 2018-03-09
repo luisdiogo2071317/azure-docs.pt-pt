@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Afirmações mapeamento no Azure Active Directory (pré-visualização pública)
 
@@ -30,7 +30,7 @@ Esta funcionalidade é utilizada por administradores de inquilinos para personal
 - Escolher ou alterar a origem de dados emitidos nas afirmações específicas.
 
 >[!NOTE]
->Esta capacidade está atualmente em pré-visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. A funcionalidade está disponível em qualquer subscrição do Azure Active Directory (Azure AD) durante a pré-visualização pública. No entanto, quando a funcionalidade torna-se geralmente disponível, alguns aspetos da funcionalidade poderão necessitar de uma subscrição do Azure Active Directory premium.
+>Esta capacidade está atualmente em pré-visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. A funcionalidade está disponível em qualquer subscrição do Azure Active Directory (Azure AD) durante a pré-visualização pública. No entanto, quando a funcionalidade torna-se geralmente disponível, alguns aspetos da funcionalidade poderão necessitar de uma subscrição do Azure Active Directory premium. Esta funcionalidade suporta configurar políticas de mapeamento de afirmação para protocolos de WS-Fed, SAML, OAuth e o OpenID Connect.
 
 ## <a name="claims-mapping-policy-type"></a>Mapeamento de tipo de política de afirmações
 No Azure AD, uma **política** objeto representa um conjunto de regras impostas em aplicações individuais ou em todas as aplicações numa organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que, em seguida, são aplicadas a objetos aos quais estão atribuídos.
@@ -79,7 +79,7 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |azpacr|
 |c_hash|
 |ca_enf|
-|Cc|
+|cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -107,19 +107,19 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationInstant|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationMethod|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/Expiration|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/Expired|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/Name|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/NameIdentifier|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |iat|
 |identityprovider|
 |IDP|
 |in_corp|
 |instância|
-|IPADDR|
+|ipaddr|
 |isbrowserhostedapp|
 |ISS|
 |jwk|
@@ -132,7 +132,7 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|NBF|
+|nbf|
 |netbios_name|
 |nonce|
 |OID|
@@ -154,11 +154,11 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|recurso|
-|Função|
+|Recurso|
+|função|
 |funções|
 |Âmbito|
-|SCP|
+|scp|
 |SID|
 |Assinatura|
 |signin_state|
@@ -186,59 +186,59 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 #### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>Tabela 2: Security Assertion Markup Language (SAML) restringe o conjunto de afirmações
 |Tipo de afirmação (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/Expiration|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/Expired|
-|http://schemas.microsoft.com/Identity/Claims/accesstoken|
-|http://schemas.microsoft.com/Identity/Claims/openid2_id|
-|http://schemas.microsoft.com/Identity/Claims/identityprovider|
-|http://schemas.microsoft.com/Identity/Claims/objectidentifier|
-|http://schemas.microsoft.com/Identity/Claims/PUID|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/NameIdentifier [MR1] |
-|http://schemas.microsoft.com/Identity/Claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationInstant|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationMethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/Claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/Groups|
-|http://schemas.microsoft.com/Claims/Groups.Link|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/role|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/Claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/Claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/Claims/ismanaged|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.microsoft.com/identity/claims/accesstoken|
+|http://schemas.microsoft.com/identity/claims/openid2_id|
+|http://schemas.microsoft.com/identity/claims/identityprovider|
+|http://schemas.microsoft.com/identity/claims/objectidentifier|
+|http://schemas.microsoft.com/identity/claims/puid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier[MR1] |
+|http://schemas.microsoft.com/identity/claims/tenantid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
+|http://schemas.microsoft.com/claims/groups.link|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
+|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
+|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
+|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
 |http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/Claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/Identity/Claims/actor|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/Authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/SID|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/UPN|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/GroupSID|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/SPN|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/Identity/Claims/SCOPE|
+|http://schemas.microsoft.com/claims/authnmethodsreferences|
+|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
+|http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Mapeamento de propriedades da política de afirmações
 Utilize as propriedades de uma política de mapeamento para o controlo que afirmações são emitidas e, em que os dados de origem de afirmações. Se nenhuma política estiver definida, o sistema emite tokens que contém o conjunto de afirmações core, o conjunto de afirmações básico e quaisquer afirmações opcionais que a aplicação tiver optado por receber.
 
 ### <a name="include-basic-claim-set"></a>Incluir o conjunto de afirmações básico
 
-**Cadeia:** IncludeBasicClaimSet
+**String:** IncludeBasicClaimSet
 
 **Tipo de dados:** booleano (VERDADEIRO ou FALSO)
 
@@ -284,19 +284,19 @@ O elemento ID identifica cuja propriedade na origem fornece o valor para a afirm
 |-----|-----|-----|
 |Utilizador|Apelido|Nome de família|
 |Utilizador|givenName|Nome Próprio|
-|Utilizador|DisplayName|Nome a Apresentar|
+|Utilizador|displayname|Nome a Apresentar|
 |Utilizador|ObjectId|ObjectID|
 |Utilizador|capacidade de correio|Endereço de E-mail|
-|Utilizador|userPrincipalName|Nome do Principal de Utilizador|
+|Utilizador|userprincipalname|Nome do Principal de Utilizador|
 |Utilizador|Departamento|Departamento|
 |Utilizador|onpremisessamaccountname|No nome da conta de Sam local|
 |Utilizador|netbiosname|Nome NetBios|
 |Utilizador|dnsdomainname|Nome de domínio de DNS|
 |Utilizador|onpremisesecurityidentifier|Identificador de segurança no local|
 |Utilizador|companyname|Nome da Organização|
-|Utilizador|streetAddress|Morada|
+|Utilizador|streetaddress|Morada|
 |Utilizador|postalcode|Código Postal|
-|Utilizador|preferredlanguange|Idioma Preferencial|
+|Utilizador|preferredlanguange|Idioma preferencial|
 |Utilizador|onpremisesuserprincipalname|UPN no local|
 |Utilizador|mailNickname|Alcunha de correio|
 |Utilizador|extensionattribute1|Atributo de extensão 1|
@@ -321,7 +321,7 @@ O elemento ID identifica cuja propriedade na origem fornece o valor para a afirm
 |Utilizador|jobtitle|Cargo|
 |Utilizador|Campo IDdeEmpregado|ID do Empregado|
 |Utilizador|facsimiletelephonenumber|Número de telefone facsimile|
-|aplicação, recursos, público-alvo|DisplayName|Nome a Apresentar|
+|aplicação, recursos, público-alvo|displayname|Nome a Apresentar|
 |aplicação, recursos, público-alvo|objeto|ObjectID|
 |aplicação, recursos, público-alvo|etiquetas|Etiqueta de Principal de serviço|
 |Empresa|tenantcountry|País do inquilino|
@@ -381,7 +381,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. Es
 |Origem|ID|Descrição|
 |-----|-----|-----|
 |Utilizador|capacidade de correio|Endereço de E-mail|
-|Utilizador|userPrincipalName|Nome do Principal de Utilizador|
+|Utilizador|userprincipalname|Nome do Principal de Utilizador|
 |Utilizador|onpremisessamaccountname|No nome da conta de Sam local|
 |Utilizador|Campo IDdeEmpregado|ID do Empregado|
 |Utilizador|extensionattribute1|Atributo de extensão 1|

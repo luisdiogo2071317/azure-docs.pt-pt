@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 03/05/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a0dcb941db5038b7c904c9eaa8599c5a1dc6e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: ffa77e95387f3595d8ff69e89d29b7af5cf9c69d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizar o Azure para alojar e executar cenários de carga de trabalho SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -227,7 +227,7 @@ ms.lasthandoff: 01/03/2018
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (Matriz de disponibilidade de produto do SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -298,7 +298,7 @@ Ao escolher o Microsoft Azure como o parceiro de nuvem pronto SAP, conseguir exe
 
 Para além de cenários do SAP NetWeaver com o DBMS diferentes no Azure de alojamento, pode alojar diferentes outros cenários de carga de trabalho SAP, como o SAP BI no Azure. Pode encontrar documentação sobre implementações de SAP NetWeaver em máquinas virtuais nativo do Azure na secção "SAP NetWeaver em máquinas virtuais do Azure".
 
-O Azure tem nativo ofertas de Máquina Virtual do Azure que nunca estão a crescer num tamanho de recursos de CPU e memória para cobrir SAP a carga de trabalho tira partido do SAP HANA. Para obter mais informações sobre este tópico, procure os documentos na secção em Azure Virtual Machines do SAP HANA."
+O Azure tem nativo ofertas de Máquina Virtual do Azure que nunca estão a crescer num tamanho de recursos de CPU e memória para cobrir SAP a carga de trabalho tira partido do SAP HANA. Para obter mais informações sobre esta área, procure os documentos na secção em Azure Virtual Machines do SAP HANA."
 
 A exclusividade do Azure para SAP HANA é uma oferta exclusiva que define o Azure para além dos concorrência. Para poder ativar o alojamento mais recursos de CPU e memória SAP pedir o seu trabalho cenários que envolvem SAP HANA, o Azure oferece a utilização do cliente dedicada hardware bare-metal para fins de estiverem a executar implementações de SAP HANA que necessitam de até 20 TB (escalável 60 TB) de memória de S/4HANA ou outras cargas de trabalho de SAP HANA. Esta solução do Azure exclusiva de SAP HANA no Azure (instâncias de grande) permite-lhe executar SAP HANA no hardware dedicado bare-metal com o SAP aplicação camada ou carga de trabalho meio-ware maligno alojado no nativo máquinas virtuais do Azure. Esta solução é descrita em vários documentos na secção "SAP HANA no Azure (instâncias de grande)".   
 
@@ -310,7 +310,7 @@ Cenários de carga de trabalho SAP no Azure de alojamento também podem criar re
 ### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Descrição geral e arquitetura de SAP HANA no Azure (instâncias de grandes)
 Título: Descrição geral e arquitetura de SAP HANA no Azure (instâncias de grandes)
 
-Resumo: Esta arquitetura e o guia de implementação técnica fornece informações para ajudar a implementar SAP no SAP HANA novo no Azure (instâncias de grande) no Azure. Não se destina a ser um guia abrangente que abrangem configuração específica de soluções SAP, mas em vez disso útil informações na sua implementação inicial e as operações em curso. Não, deve substituir documentação SAP relacionadas com a instalação de SAP HANA (ou as notas de suporte de SAP muitos que abrangem o tópico). Isto dá-lhe uma descrição geral e fornece o detalhes adicionais sobre a instalação de SAP HANA no Azure (instâncias de grande).
+Resumo: Esta arquitetura e o guia de implementação técnica fornece informações para ajudar a implementar SAP no SAP HANA novo no Azure (instâncias de grande) no Azure. Não se destina a ser um guia abrangente que abrangem configuração específica de soluções SAP, mas em vez disso útil informações na sua implementação inicial e as operações em curso. Não, deve substituir documentação SAP relacionadas com a instalação de SAP HANA (ou as notas de suporte de SAP muitos que abrangem a área). Isto dá-lhe uma descrição geral e fornece o detalhes adicionais sobre a instalação de SAP HANA no Azure (instâncias de grande).
 
 Atualizada: De Outubro de 2017
 
@@ -337,7 +337,7 @@ Atualizadas: de 2017 de Julho
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Elevada disponibilidade e recuperação após desastre de SAP HANA no Azure (instâncias de grandes)
 Título: Elevada disponibilidade e recuperação após desastre de SAP HANA no Azure (instâncias de grandes)
 
-Resumo: Elevada disponibilidade (ed) e recuperação após desastre (DR) são muito importantes aspetos da sua SAP HANA fundamentais a ser executado no servidor (es) do Azure (instâncias de grande). -'S importação para trabalhar com o SAP, sua integrador de sistema e/ou Microsoft corretamente architect e implementar o direito de estratégia HA/DR para si. Considerações importantes sobre como o objetivo de ponto de recuperação (RPO) e recuperação tempo objetivo (RTO), específicos ao seu ambiente, tem de ser considerada.  Este documento explica as opções para ativar o nível preferencial de HA e DR.
+Resumo: Elevada disponibilidade (ed) e recuperação após desastre (DR) são aspetos importantes da sua SAP HANA fundamentais a ser executado no servidor (es) do Azure (instâncias de grande). -'S importação para trabalhar com o SAP, sua integrador de sistema e/ou Microsoft corretamente architect e implementar o direito de estratégia HA/DR para si. Considerações importantes sobre como o objetivo de ponto de recuperação (RPO) e recuperação tempo objetivo (RTO), específicos ao seu ambiente, tem de ser considerada.  Este documento explica as opções para ativar o nível preferencial de HA e DR.
 
 Atualizada: De Outubro de 2017
 

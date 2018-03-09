@@ -2,23 +2,17 @@
 title: "Ativação pós-falha na recuperação de Site | Microsoft Docs"
 description: "O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a ativação pós-falha para o Azure ou num datacenter secundário."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 03/05/2018
 ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="failover-in-site-recovery"></a>Reativação pós-falha na Recuperação de Sites
 Este artigo descreve como a ativação pós-falha máquinas de virtuais e físicos servidores protegidos pela recuperação de sites.
@@ -42,7 +36,7 @@ Este procedimento descreve como executar uma ativação pós-falha para um [plan
 ![Ativação pós-falha](./media/site-recovery-failover/Failover.png)
 
 1. Selecione **planos de recuperação** > *recoveryplan_name*. Clique em **ativação pós-falha**
-2. No **ativação pós-falha** ecrã, selecione um **ponto de recuperação** a ativação pós-falha. Pode utilizar uma das seguintes opções:
+2. No **ativação pós-falha** ecrã, selecione um **ponto de recuperação** a ativação pós-falha. Pode utilizar uma das opções seguintes:
     1.  **Mais recente** (predefinição): esta opção inicia a tarefa ao primeiro processar todos os dados que foi enviados para o serviço de recuperação de Site. Processamento de dados cria um ponto de recuperação para cada máquina virtual. Este ponto de recuperação é utilizado pela máquina virtual durante a ativação pós-falha. Esta opção fornece o RPO mais baixo (objetivo de ponto de recuperação) que a máquina virtual criada após ativação pós-falha tem todos os dados que foram replicada para o serviço de recuperação de Site quando a ativação pós-falha foi acionada.
     1.  **Mais recentes processados**: esta opção se falhar a todas as máquinas virtuais do plano de recuperação do ponto de recuperação mais recente que já tenha sido processada pelo serviço de recuperação de sites. Quando estão a fazer ativação pós-falha de teste de uma máquina virtual, o carimbo de hora do último ponto de recuperação processados também é apresentado. Se estão a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e observe **pontos de recuperação mais recente** mosaico para obter estas informações. Como não tempo é gasto a processar os dados não processados, esta opção fornece uma opção de ativação pós-falha baixa RTO (objetivo de tempo de recuperação).
     1.  **Mais recente consistentes da aplicação**: esta opção se falhar a todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente da aplicação que já tenha sido processado pelo serviço de recuperação de sites. Quando estão a fazer ativação pós-falha de teste de uma máquina virtual, o carimbo de hora do último consistentes da aplicação do ponto de recuperação também é apresentado. Se estão a fazer a ativação pós-falha de um plano de recuperação, pode ir para a máquina virtual individual e observe **pontos de recuperação mais recente** mosaico para obter estas informações.
@@ -65,9 +59,9 @@ Este procedimento descreve como executar uma ativação pós-falha para um [plan
     >
     >
 
-1. Pode seguir o progresso de ativação pós-falha no **tarefas** página. Mesmo se ocorrerem erros durante uma ativação pós-falha não planeada, o plano de recuperação é executada até estar concluída.
+1. Pode seguir o progresso da ativação pós-falha na página **Tarefas**. Mesmo se ocorrerem erros durante uma ativação pós-falha não planeada, o plano de recuperação é executada até estar concluída.
 1. Após a ativação pós-falha, valide a máquina virtual, o registo no mesmo. Se pretender mudar para outro ponto de recuperação da máquina virtual, em seguida, pode utilizar **alterar o ponto de recuperação** opção.
-1. Quando estiver satisfeito com a ativação pós-falha da máquina virtual, pode **consolidar** a ativação pós-falha. **Consolidação elimina todos os pontos de recuperação disponíveis com o serviço** e **alterar o ponto de recuperação** opção já não está disponível.
+1. Quando estiver satisfeito com a ativação pós-falha da máquina virtual, pode **Consolidar** a ativação pós-falha. **Consolidação elimina todos os pontos de recuperação disponíveis com o serviço** e **alterar o ponto de recuperação** opção já não está disponível.
 
 ## <a name="planned-failover"></a>Ativação pós-falha planeada
 Máquinas virtuais/servidores físicos protegidos através da recuperação de Site também suporte **a ativação pós-falha planeada**. Ativação pós-falha planeada é uma zero opção do dados perda ativação pós-falha. Quando é acionada uma ativação pós-falha planeada, primeiro as máquinas virtuais de origem são encerrar pendente, os dados mais recentes são sincronizados e, em seguida, é acionada uma ativação pós-falha.
@@ -126,8 +120,8 @@ Para manter a letra de unidade em máquinas virtuais após a ativação pós-fal
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!WARNING]
-> Depois de ter a executar a ativação pós-falha de máquinas virtuais e o Centro de dados no local está disponível, deve [ **Proteja** ](site-recovery-how-to-reprotect.md) fazer uma cópia de máquinas virtuais VMware para o Centro de dados no local.
+> Depois de ter a executar a ativação pós-falha de máquinas virtuais e o Centro de dados no local está disponível, deve [ **Proteja** ](vmware-azure-reprotect.md) fazer uma cópia de máquinas virtuais VMware para o Centro de dados no local.
 
-Utilize [ **a ativação pós-falha planeada** ](site-recovery-failback-from-azure-to-hyper-v.md) opção para **reativação pós-falha** máquinas de virtuais de Hyper-v no local a partir do Azure.
+Utilize [ **a ativação pós-falha planeada** ](hyper-v-azure-failback.md) opção para **reativação pós-falha** máquinas de virtuais de Hyper-v no local a partir do Azure.
 
 Se tiverem falhado através de Hyper-v máquina virtual para outro local Centro de dados gerido por um servidor VMM e o Centro de dados primária está disponível, em seguida, utilize **a replicação inversa** opção para iniciar a replicação para o Centro de dados principal.

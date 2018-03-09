@@ -1,6 +1,6 @@
 ---
 title: "Proteger os dados pessoais com funcionalidades de segurança de rede do Azure | Microsoft Docs"
-description: "Proteger os dados pessoais utilizar funcionalidades de segurança de rede do Azure"
+description: "Proteger os dados pessoais utilizar funcionalidades de segurança de rede do Azure. Isto pode ser utilizado para estar em conformidade com Regulamento de proteção de dados gerais (GDPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Proteger os dados pessoais com funcionalidades de segurança de rede: Gateway de aplicação do Azure e os grupos de segurança de rede
 
-Este artigo fornece informações e procedimentos que irão ajudar a utilizam grupos de segurança de rede e Gateway de aplicação do Azure para proteger os dados pessoais.
+Este artigo fornece informações e procedimentos que irão ajudar a utilizam grupos de segurança de rede e Gateway de aplicação do Azure para proteger os dados pessoais. Esta informação pode ser útil no seus esforços para estar em conformidade com Regulamento de proteção de dados gerais (GDPR).
 
 Um elemento importante de uma estratégia de segurança por várias camadas para proteger a privacidade dos dados pessoais é uma defesa contra exploits de vulnerabilidade comuns, tais como a injeção de SQL ou scripts entre sites. Manter o tráfego de rede indesejado fora do seu Azure rede virtual ajuda a proteger contra a potencial comprometimento de dados confidenciais, e Microsoft Azure fornece ferramentas para ajudar a proteger os seus dados contra atacantes.
 

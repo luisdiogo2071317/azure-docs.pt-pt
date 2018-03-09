@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: a6363fa380d0bab05d7500141cc6019d1d3f68b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca dos gateways de rede virtual para o ExpressRoute
 Um gateway de rede virtual é utilizado para enviar tráfego de rede entre redes virtuais do Azure e localizações no local. Quando configurar uma ligação ExpressRoute, tem de criar e configurar um gateway de rede virtual e uma ligação de gateway de rede virtual.
@@ -41,7 +41,7 @@ A tabela seguinte mostra os tipos de gateways e o débito agregado estimado. Est
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Débito de aplicação depende de vários fatores, tais como a latência de ponto a ponto e o número de fluxos de tráfego que abre a aplicação. Os números existentes na tabela representam o limite superior que theorectically de pode aplicação alcançar num ambiente ideal. 
+> Débito de aplicação depende de vários fatores, tais como a latência de ponto a ponto e o número de fluxos de tráfego que abre a aplicação. Os números existentes na tabela representam o limite superior de que a aplicação pode alcançar teoria num ambiente ideal. 
 > 
 >
 
@@ -53,6 +53,7 @@ Para obter recursos técnicos adicionais e requisitos de sintaxe específica qua
 | [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
 | [API REST](https://msdn.microsoft.com/library/jj154113.aspx) |[API REST](https://msdn.microsoft.com/library/mt163859.aspx) |
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte [descrição geral do ExpressRoute](expressroute-introduction.md) para obter mais informações sobre as configurações de ligação disponíveis. 
+## <a name="next-steps"></a>Passos Seguintes
+Consulte [descrição geral do ExpressRoute](expressroute-introduction.md) para obter mais informações sobre as configurações de ligação disponíveis.
 
+Consulte [criar um gateway de rede virtual para o ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) para obter mais informações sobre a criação de gateways do ExpressRoute.

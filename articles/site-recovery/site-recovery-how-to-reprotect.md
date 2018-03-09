@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Voltar a proteger a partir do Azure para um site no local
 
@@ -204,7 +204,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 4. Para **arquivo de dados**, selecione o arquivo de dados para o qual pretende recuperar o discos no local. Esta opção é utilizada quando a máquina virtual no local é eliminada e tem de criar novos discos. Esta opção é ignorada se os discos já existem, mas ainda tem de especificar um valor.
 5. Escolha a unidade de retenção.
 6. A política de reativação pós-falha é selecionada automaticamente.
-7. Clique em **OK** para começar a só. Uma tarefa começa a replicar a máquina virtual do Azure para o site no local. Pode controlar o progresso no **tarefas** separador.
+7. Clique em **OK** para começar a nova proteção. Um trabalho começa a replicar a máquina virtual do Azure para o site no local. Pode acompanhar o progresso no separador **Trabalhos**.
 
 Se pretender recuperar para uma localização alternativa (quando a máquina virtual no local é eliminada), selecione a unidade de retenção e arquivo de dados que estão configurados para o servidor de destino principal. Quando houver uma para o site no local, as máquinas virtuais de VMware no plano de proteção de reativação pós-falha utilizar o mesmo arquivo de dados como servidor de destino mestre. Uma nova máquina virtual, em seguida, é criada no vCenter.
 
@@ -214,10 +214,10 @@ Se pretender recuperar a máquina virtual no Azure para uma máquina virtual no 
 Também pode voltar a proteger no nível de um plano de recuperação. Um grupo de replicação pode proteger apenas através de um plano de recuperação. Quando voltar a proteger através da utilização de um plano de recuperação, tem de fornecer os valores para cada máquina protegida.
 
 > [!NOTE]
-> Utilize o mesmo servidor de destino mestre para voltar a proteger um grupo de replicação. Se utilizar um servidor de destino mestre diferente para voltar a proteger um grupo de replicação, o servidor não é possível fornecer um ponto de comuns no tempo.
+> Utilize o mesmo servidor de destino mestre para voltar a proteger um grupo de replicação. Se utilizar um servidor de destino mestre diferente para voltar a proteger um grupo de replicação, o servidor não pode fornecer um ponto no tempo comum.
 
 > [!NOTE]
-> As máquinas no local é desativada durante só. Isto ajuda a assegurar a consistência de dados durante a replicação. Não ative a máquina virtual após a conclusão da só.
+> As máquinas no local é desativada durante só. Desta forma, garante-se a consistência dos dados durante a replicação. Não ative a máquina virtual após a conclusão da só.
 
 Depois do que for bem sucedida, a máquina virtual entrará num estado protegido.
 

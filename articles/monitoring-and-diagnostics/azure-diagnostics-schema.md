@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Versões do esquema de configuração de extensão do Azure Diagnostics e o histórico
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões do esquema de configuração de extensão do Azure Diagnostics e o histórico
 Esta página de índices versões de esquema de extensão de diagnóstico do Azure vem incluído como parte do Microsoft Azure SDK.  
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Esta página de índices versões de esquema de extensão de diagnóstico do Azu
 > 
 > Esta página só é relevante se estiver a utilizar um destes serviços.
 
-A extensão de diagnóstico do Azure é utilizada com outros produtos de diagnóstico do Microsoft Azure Monitor, Application Insights e análise de registos. Para obter mais informações consulte [descrição geral de ferramentas de monitorização Microsoft](monitoring-overview.md).
+A extensão de diagnóstico do Azure é utilizada com outros produtos de diagnóstico do Microsoft Azure Monitor, Application Insights e análise de registos. Para obter mais informações, consulte [descrição geral de ferramentas de monitorização Microsoft](monitoring-overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Versões do Azure SDK e ao diagnóstico do gráfico de envio  
 
@@ -135,18 +135,18 @@ Adicionar o elemento sinks e a capacidade de enviar dados de diagnóstico para [
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Extensão do Azure SDK 2.6 e diagnóstico 1.3 
 Para projetos do serviço em nuvem no Visual Studio, as seguintes alterações foram efetuadas. (Estas alterações também se aplicam a versões posteriores do SDK do Azure.)
 
-* O emulador local agora suporta diagnóstico. Isto significa que pode recolher dados de diagnóstico e certifique-se de que a aplicação está a criar os rastreios direita enquanto estiver a desenvolver e testar no Visual Studio. A cadeia de ligação `UseDevelopmentStorage=true` permite a recolha de dados de diagnóstico enquanto estiver a executar o projeto de serviço em nuvem no Visual Studio, utilizando o emulador do storage do Azure. Todos os dados de diagnóstico são recolhidos na conta do storage (armazenamento de desenvolvimento).
+* O emulador local agora suporta diagnóstico. Esta alteração significa que pode recolher dados de diagnóstico e certifique-se de que a aplicação está a criar os rastreios direita enquanto estiver a desenvolver e testar no Visual Studio. A cadeia de ligação `UseDevelopmentStorage=true` permite a recolha de dados de diagnóstico enquanto estiver a executar o projeto de serviço em nuvem no Visual Studio, utilizando o emulador do storage do Azure. Todos os dados de diagnóstico são recolhidos na conta do storage (armazenamento de desenvolvimento).
 * A cadeia de ligação de conta de armazenamento de diagnóstico (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) é novamente armazenada no ficheiro de configuração (. cscfg) do serviço. No Azure SDK 2.5 a conta de armazenamento do diagnostics foi especificada no ficheiro diagnostics.wadcfgx.
 
 Existem algumas diferenças importantes entre como a cadeia de ligação trabalhado no Azure SDK 2.4 e anterior e como funciona no Azure SDK 2.6 e posterior.
 
-* No Azure SDK 2.4 e versões anteriores, a cadeia de ligação era utilizada como um tempo de execução pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os registos de diagnóstico.
-* No Azure SDK 2.6 ou posterior, a cadeia de ligação de diagnóstico é utilizada pelo Visual Studio para configurar a extensão de diagnóstico com as informações de conta de armazenamento adequado durante a publicação. A cadeia de ligação permite-lhe definir as contas de armazenamento diferentes para configurações de serviço diferente que o Visual Studio irá utilizar quando publicar. No entanto, porque o plug-in de diagnóstico já não está disponível (após o Azure SDK 2.5), o ficheiro. cscfg por si só não é possível ativar a extensão de diagnóstico. Tem de ativar a extensão em separado através de ferramentas, como o Visual Studio ou o PowerShell.
+* No Azure SDK 2.4 e versões anteriores, a cadeia de ligação era utilizada durante a execução pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os registos de diagnóstico.
+* No Azure SDK 2.6 ou posterior, o Visual Studio utiliza a cadeia de ligação de diagnóstico para configurar a extensão de diagnóstico com as informações de conta de armazenamento adequado durante a publicação. A cadeia de ligação permite-lhe definir as contas de armazenamento diferentes para configurações de serviço diferente que o Visual Studio irá utilizar quando publicar. No entanto, porque o plug-in de diagnóstico já não está disponível (após o Azure SDK 2.5), o ficheiro. cscfg por si só não é possível ativar a extensão de diagnóstico. Tem de ativar a extensão em separado através de ferramentas, como o Visual Studio ou o PowerShell.
 * Para simplificar o processo de configuração a extensão de diagnóstico com o PowerShell, o resultado de pacote do Visual Studio também contém a configuração pública XML para a extensão de diagnóstico para cada função. Visual Studio utiliza a cadeia de ligação de diagnóstico para preencher as informações de conta de armazenamento presentes na configuração pública. Os ficheiros de configuração pública são criados na pasta de extensões e seguem o padrão PaaSDiagnostics. <RoleName>. PubConfig.xml. Todas as implementações do PowerShell com base podem utilizar este padrão para mapear cada configuração para uma função.
 * A cadeia de ligação no ficheiro. cscfg também é utilizada pelo portal do Azure para aceder os dados de diagnóstico para pode aparecer no **monitorização** separador. A cadeia de ligação é necessária para configurar o serviço para mostrar dados de monitorização verbosos no portal.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrar projetos ao Azure SDK 2.6 ou posterior
-Quando migrar do Azure SDK 2.5 para o Azure SDK 2.6 ou posterior, se tiver uma conta de armazenamento do diagnostics especificada no ficheiro .wadcfgx, em seguida,-permanecerão não existe. Para tirar partido da flexibilidade de utilização de contas de armazenamento diferentes para configurações de armazenamento diferente, terá de adicionar manualmente a cadeia de ligação ao seu projeto. Se estiver a migrar um projeto do Azure SDK 2.4 ou anteriormente para o Azure SDK 2.6, as cadeias de ligação de diagnóstico são preservadas. No entanto,. tenha em atenção que as alterações na forma como cadeias de ligação são tratadas no Azure SDK 2.6 conforme especificado na secção anterior.
+Quando migrar do Azure SDK 2.5 para o Azure SDK 2.6 ou posterior, se tiver uma conta de armazenamento do diagnostics especificada no ficheiro .wadcfgx, em seguida,-permanecerão não existe. Para tirar partido da flexibilidade de utilização de contas de armazenamento diferentes para configurações de armazenamento diferente, terá de adicionar manualmente a cadeia de ligação ao seu projeto. Se estiver a migrar um projeto do Azure SDK 2.4 ou anteriormente para o Azure SDK 2.6, as cadeias de ligação de diagnóstico são preservadas. No entanto, tenha em atenção que as alterações na forma como cadeias de ligação são tratadas no Azure SDK 2.6 conforme especificado na secção anterior.
 
 #### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Como o Visual Studio determina a conta de armazenamento de diagnóstico
 * Se for especificada uma cadeia de ligação de diagnóstico num ficheiro. cscfg, o Visual Studio utiliza-o para configurar a extensão de diagnóstico ao publicar e ao gerar os ficheiros xml de configuração pública durante empacotamento.

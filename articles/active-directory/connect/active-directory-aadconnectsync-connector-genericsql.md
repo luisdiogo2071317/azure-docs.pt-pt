@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica de conector do SQL Server genérica
 Este artigo descreve o conector do SQL Server genérico. O artigo aplica-se os seguintes produtos:
@@ -152,7 +152,7 @@ A partir da atualização de Março de 2017 agora é uma opção para "*" quando
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- A partir de Maio de 2017 o "*" aka **qualquer opção** foi alterado para suportar a importar e exportar fluxo. Se quiser utilizar esta opção com múltiplos valor tabela/vista deve ter um atributo que contém o tipo de objeto.
+ A partir de Maio de 2017 o "\*" aka **qualquer opção** foi alterado para suportar a importar e exportar fluxo. Se quiser utilizar esta opção com múltiplos valor tabela/vista deve ter um atributo que contém o tipo de objeto.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

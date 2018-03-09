@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>Alterar tipo de unidade reservada
 > [!div class="op_single_selector"]
@@ -54,11 +54,10 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas, efe
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
 2. No **definições** janela, selecione **unidades reservadas de multimédia**.
    
-    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, utilize o **suporte de dados fornecido unidades** controlo de deslize.
+    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, utilize o **suporte de dados fornecido unidades** controlo de deslize na parte superior do ecrã.
    
-    Para alterar o **um tipo de unidade reservado**, prima S1, S2 ou S3.
+    Para alterar o **reservado um tipo de unidade**, clique em de **velocidade de unidades de processamento reservado** barra. Em seguida, selecione o escalão de preço é necessário: S1, S2 ou S3.
    
-    ![Página de processadores](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Prima o botão GUARDAR para guardar as alterações.
    
     As unidades novos reservadas são alocadas quando prime guardar.

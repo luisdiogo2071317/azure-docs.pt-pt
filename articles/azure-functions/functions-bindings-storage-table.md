@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabela do Azure para as funções do Azure
 
@@ -89,7 +89,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -354,8 +354,8 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**tableName** | **TableName** | O nome da tabela.| 
 |**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de tabela para leitura. Consulte o [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de tabela para leitura. Consulte o [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
-|**take** |**Tirar** | Opcional. O número máximo de entidades para ler em JavaScript. Consulte o [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
-|**filter** |**Filtro** | Opcional. Uma expressão de filtro de OData para a tabela de entrada em JavaScript. Consulte o [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
+|**take** |**tirar** | Opcional. O número máximo de entidades para ler em JavaScript. Consulte o [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
+|**filter** |**filtro** | Opcional. Uma expressão de filtro de OData para a tabela de entrada em JavaScript. Consulte o [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**connection** |**Ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -366,16 +366,14 @@ O enlace de entrada do Table storage suporta os seguintes cenários:
 
 * **Ler uma linha em c# ou script do c#**
 
-  Definir `partitionKey` e `rowKey`. Aceder os dados da tabela utilizando um parâmetro de método `T <paramName>`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T`Normalmente, é um tipo que implemente `ITableEntity` ou deriva de `TableEntity`. O `filter` e `take` propriedades não são utilizadas neste cenário. 
+  Definir `partitionKey` e `rowKey`. Aceder os dados da tabela utilizando um parâmetro de método `T <paramName>`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T` Normalmente, é um tipo que implemente `ITableEntity` ou deriva de `TableEntity`. O `filter` e `take` propriedades não são utilizadas neste cenário. 
 
 * **Ler uma ou mais linhas em c# ou script do c#**
 
-  Aceder os dados da tabela utilizando um parâmetro de método `IQueryable<T> <paramName>`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T`tem de ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity`. Pode utilizar `IQueryable` métodos de fazer qualquer filtragem necessário. O `partitionKey`, `rowKey`, `filter`, e `take` propriedades não são utilizadas neste cenário.  
+  Aceder os dados da tabela utilizando um parâmetro de método `IQueryable<T> <paramName>`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T` tem de ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity`. Pode utilizar `IQueryable` métodos de fazer qualquer filtragem necessário. O `partitionKey`, `rowKey`, `filter`, e `take` propriedades não são utilizadas neste cenário.  
 
 > [!NOTE]
-> `IQueryable`não funciona no .NET Core, pelo que não funcionará [funções v2 runtime](functions-versions.md).
-
-  Uma alternativa consiste em utilizar um `CloudTable paramName` parâmetro de método para ler a tabela utilizando o SDK de armazenamento do Azure.
+> `IQueryable` Não é suportado no [funções v2 runtime](functions-versions.md). Uma alternativa é [utilizar um parâmetro de método paramName CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de armazenamento do Azure.
 
 * **Ler uma ou mais linhas em JavaScript**
 
@@ -623,11 +621,11 @@ O armazenamento de tabelas de saída do enlace suporta os seguintes cenários:
 
 * **Escrever uma linha em qualquer idioma**
 
-  Em c# e c# script, aceder a entidade da tabela de saída utilizando um parâmetro de método como `out T paramName` ou a função de valor de retorno. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T`pode ser qualquer tipo serializável se a chave de partição e a chave de linha são fornecidos pelo *function.json* ficheiro ou o `Table` atributo. Caso contrário, `T` tem de ser um tipo que inclui `PartitionKey` e `RowKey` propriedades. Neste cenário, `T` , normalmente, implementa `ITableEntity` ou deriva de `TableEntity`, mas não tem.
+  Em c# e c# script, aceder a entidade da tabela de saída utilizando um parâmetro de método como `out T paramName` ou a função de valor de retorno. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T` pode ser qualquer tipo serializável se a chave de partição e a chave de linha são fornecidos pelo *function.json* ficheiro ou o `Table` atributo. Caso contrário, `T` tem de ser um tipo que inclui `PartitionKey` e `RowKey` propriedades. Neste cenário, `T` , normalmente, implementa `ITableEntity` ou deriva de `TableEntity`, mas não tem.
 
 * **Uma ou mais linhas de escrita em c# ou c#**
 
-  Em c# e c# script, aceder a entidade da tabela de saída através da utilização de um parâmetro de método `ICollector<T> paramName` ou `ICollectorAsync<T> paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T`Especifica o esquema das entidades que pretende adicionar. Normalmente, `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas não tem. A chave de partição e a linha de valores da chave *function.json* ou `Table` construtor de atributos não são utilizados neste cenário.
+  Em c# e c# script, aceder a entidade da tabela de saída através da utilização de um parâmetro de método `ICollector<T> paramName` ou `ICollectorAsync<T> paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T` Especifica o esquema das entidades que pretende adicionar. Normalmente, `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas não tem. A chave de partição e a linha de valores da chave *function.json* ou `Table` construtor de atributos não são utilizados neste cenário.
 
   Uma alternativa consiste em utilizar um `CloudTable paramName` parâmetro de método para escrever a tabela utilizando o SDK de armazenamento do Azure.
 

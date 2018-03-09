@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 01a2bb6d99776feec936315bc882c3097ce832d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Utilize o CLI 2.0 para criar uma aplicação AAD e configurá-lo para aceder à API de serviços de suporte de dados do Azure
 
@@ -30,7 +30,7 @@ Este tópico mostra como utilizar a CLI 2.0 para criar uma aplicação do Azure 
 
 ## <a name="use-the-azure-cloud-shell"></a>Utilizar a Shell de nuvem do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Inicie a Shell de nuvem a partir do painel de navegação superior do portal.
 
     ![Cloud Shell,](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
@@ -42,7 +42,7 @@ Para obter mais informações, consulte [descrição geral do Azure na nuvem She
 ```azurecli
 az login
 az ad sp create-for-rbac --name <appName> --password <strong password>
-az role assignment create -- assignee < user/app id> --role Contributor --scope <subscription/subscription id>
+az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
 Por exemplo:
@@ -63,6 +63,6 @@ Para obter mais informações, consulte [criar um Azure principal de serviço co
 
 Consulte também [Manage Role-Based o controlo de acesso com a interface de linha de comandos do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Introdução ao [carregar ficheiros para a conta](media-services-portal-upload-files.md).

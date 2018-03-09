@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6a5912117a475c7af028f01ea47a7042677992ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implementar o Kit de desenvolvimento de pilha do Azure
 
@@ -70,6 +70,7 @@ Antes de poder instalar o ASDK no computador anfitrião, o ambiente de ASDK tem 
 3. Execute o seguinte script para transferir o ficheiro de instalador de kit de desenvolvimento (asdk installer.ps1) da [repositório do GitHub de pilha do Azure ferramentas](https://github.com/Azure/AzureStack-Tools) para o **C:\AzureStack_Installer** pasta no seu computador do anfitrião de kit de desenvolvimento:
 
   ```powershell
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   # Variables
   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
   $LocalPath = 'C:\AzureStack_Installer'
@@ -226,8 +227,8 @@ Se o ambiente **não** ter DHCP activado, em seguida, tem de incluir os seguinte
 |DNSForwarder|Opcional|Um servidor DNS é criado como parte da implementação da pilha do Azure. Para permitir que os computadores dentro da solução para resolver nomes fora de carimbo, forneça o seu servidor DNS da infraestrutura existente. O servidor DNS no carimbo reencaminha os pedidos de resolução de nome desconhecido para este servidor.|
 |NatIPv4Address|Necessário para o suporte de NAT de DHCP|Define um endereço IP estático para MAS BGPNAT01. Só utilize este parâmetro se o DHCP não conseguir atribuir um endereço IP válido para aceder à Internet.|
 |NatIPv4Subnet|Necessário para o suporte de NAT de DHCP|Prefixo de sub-rede IP utilizado para DHCP através de suporte NAT. Só utilize este parâmetro se o DHCP não conseguir atribuir um endereço IP válido para aceder à Internet.|
-|PublicVlanId|Opcional|Define o ID de VLAN. Só utilize este parâmetro se o anfitrião e MAS BGPNAT01 tem de configurar o ID de VLAN para aceder à rede física (e a Internet). Por exemplo,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Volte a executar|Opcional|Utilize este sinalizador para executar novamente a implementação. Todas as entradas anterior é utilizada. Reintroduzir dados anteriormente fornecidos não são suportados porque vários valores exclusivos são gerados e utilizados para implementação.|
+|PublicVlanId|Opcional|Define o ID de VLAN. Só utilize este parâmetro se o anfitrião e MAS BGPNAT01 tem de configurar o ID de VLAN para aceder à rede física (e a Internet). For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
+|Voltar a executar|Opcional|Utilize este sinalizador para executar novamente a implementação. Todas as entradas anterior é utilizada. Reintroduzir dados anteriormente fornecidos não são suportados porque vários valores exclusivos são gerados e utilizados para implementação.|
 
 ## <a name="activate-the-administrator-and-tenant-portals"></a>Ativar os portais de administrador e de inquilino
 Depois de implementações que utilizam o Azure AD, tem de ativar ambas as os pilha do Azure administrador portais e de inquilino. Esta ativação permitir para dar o portal de pilha do Azure e o Azure Resource Manager, as permissões corretas (listadas na página de consentimento) para todos os utilizadores do diretório.
@@ -257,7 +258,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 5. No **antiguidade de palavra-passe máximo propriedades** caixa de diálogo, altere o **palavra-passe expira em** valor 180, em seguida, clique em **OK**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Ligar ao Azure Stack](azure-stack-connect-azure-stack.md)
 

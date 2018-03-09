@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a3328e8aa42876f48960f7ccd32a5c819435019
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Ativação pós-falha e falhar novamente físicas replicadas para o Azure
 
@@ -41,7 +41,7 @@ Verifique as propriedades do servidor e certifique-se de que está em conformida
 
 ## <a name="run-a-failover-to-azure"></a>Executar uma ativação pós-falha para o Azure
 
-1. No **definições** > **replicado itens** clique na máquina > **ativação pós-falha**.
+1. Em **Definições** > **Itens replicados**, clique no computador > **Ativação Pós-falha**.
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Pode utilizar uma das opções seguintes:
    - **Mais recente** (predefinição): esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
    - **Mais recentes processados**: esta opção a ativação pós-falha da máquina do ponto de recuperação mais recente, processados pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
@@ -62,7 +62,7 @@ O servidor de processos recebe dados da VM do Azure e envia-os para o site no lo
 
 - Para fins de teste, se tiver uma ligação do Azure ExpressRoute, pode utilizar o servidor de processos no local que é instalado automaticamente no servidor de configuração.
 - Se tiver uma ligação VPN ou se estiver a executar a reativação pós-falha num ambiente de produção, tem de configurar uma VM do Azure como um servidor de processos baseado no Azure para reativação pós-falha.
-- Siga as instruções em [neste artigo](site-recovery-vmware-setup-azure-ps-resource-manager.md) para configurar um servidor de processos no Azure.
+- Siga as instruções em [neste artigo](vmware-azure-set-up-process-server-azure.md) para configurar um servidor de processos no Azure.
 
 ## <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

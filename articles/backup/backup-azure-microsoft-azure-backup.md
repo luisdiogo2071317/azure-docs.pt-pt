@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparar a criação de cópias de segurança de cargas de trabalho com o Azure Backup Server
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Também pode proteger a infraestrutura como um cargas de trabalho do serviço (I
 
 Servidor do Backup do Azure herda muito a funcionalidade de cópia de segurança da carga de trabalho do Data Protection Manager (DPM). Ligações neste artigo, a documentação do DPM para explicar alguns da funcionalidade partilhada. Embora o servidor de cópia de segurança do Azure partilha muito a mesma funcionalidade que o DPM. Servidor de cópia de segurança do Azure não fazer cópias de segurança em banda, nem é feita a integração com o System Center.
 
-## <a name="1-choose-an-installation-platform"></a>1. Escolha uma plataforma de instalação
+## <a name="choose-an-installation-platform"></a>Escolha uma plataforma de instalação
 Para obter o servidor de cópia de segurança do Azure, cópias de segurança e em execução, o primeiro passo é configurar um servidor do Windows. O servidor pode ser no Azure ou no local.
 
 ### <a name="using-a-server-in-azure"></a>Utilizar um servidor no Azure
-Ao escolher um servidor para executar o servidor de cópia de segurança do Azure, recomenda-se que começar com uma imagem de galeria do Windows Server 2012 R2 Datacenter. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual no Azure, mesmo se nunca tiver utilizado o Azure. Os requisitos mínimos recomendados para a máquina virtual (VM) do servidor devem ser: A2 padrão com dois núcleos e 3.5 GB de RAM.
+Ao escolher um servidor para executar o servidor de cópia de segurança do Azure, recomenda-se que começar com uma imagem de galeria do Windows Server 2012 R2 Datacenter ou Datacenter do Windows Server 2016. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual no Azure, mesmo se nunca tiver utilizado o Azure. Os requisitos mínimos recomendados para a máquina virtual (VM) do servidor devem ser: A2 padrão com dois núcleos e 3.5 GB de RAM.
 
 Proteger cargas de trabalho com o servidor de cópia de segurança do Azure tem muitas nuances. O artigo [instalar o DPM como uma máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explica estes nuances. Antes de implementar a máquina, leia este artigo completamente.
 
@@ -75,7 +75,7 @@ Pode eliminar a duplicados do armazenamento do DPM utiliza a eliminação de dup
 
 Sempre associe o servidor de cópia de segurança do Azure a um domínio. Se planear mover o servidor a um domínio diferente, é recomendado que associe o servidor para o novo domínio antes de instalar o servidor de cópia de segurança do Azure. Mover uma máquina do servidor de cópia de segurança do Azure existente para um novo domínio após a conclusão da implementação *não suportado*.
 
-## <a name="2-recovery-services-vault"></a>2. Cofre dos Serviços de Recuperação
+## <a name="recovery-services-vault"></a>Cofre dos Serviços de Recuperação
 Quer enviar dados de cópia de segurança para o Azure ou mantenha-o localmente, o software tem de ser ligado ao Azure. Para ser mais específicos, a máquina do servidor de cópia de segurança do Azure tem de ser registado com um cofre de serviços de recuperação.
 
 Para criar um cofre dos serviços de recuperação:
@@ -112,7 +112,7 @@ Para editar a definição de replicação de armazenamento:
 
     Após escolher a opção de armazenamento para o cofre, está pronto para associar a VM com o cofre. Para começar a associação, detete e registe as máquinas virtuais do Azure.
 
-## <a name="3-software-package"></a>3. Pacote de software
+## <a name="software-package"></a>Pacote de software
 ### <a name="downloading-the-software-package"></a>Transferir o pacote de software
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Se já tiver um cofre de serviços de recuperação aberto, avance para o passo 3. Se não tiver um cofre dos Serviços de Recuperação aberto, mas está no portal do Azure, no menu Hub, clique em **Procurar**.
@@ -231,7 +231,7 @@ A primeira cópia de segurança é mantida no armazenamento ligado à máquina d
 >
 >
 
-## <a name="4-network-connectivity"></a>4. Conectividade de rede
+## <a name="network-connectivity"></a>Conectividade de rede
 Servidor de cópia de segurança do Azure necessita de conectividade para o serviço de cópia de segurança do Azure para o produto a funcionar com êxito. Para validar se o computador tem conectividade para o Azure, utilize o ```Get-DPMCloudConnection``` cmdlet na consola do PowerShell de servidor de cópia de segurança do Azure. Se a saída do cmdlet for TRUE, em seguida, existe a conectividade, caso contrário, há sem conectividade.
 
 Ao mesmo tempo, a subscrição do Azure tem de estar em bom estado de funcionamento. Para saber o estado da sua subscrição e geri-lo, inicie sessão para o [portal subscrição](https://account.windowsazure.com/Subscriptions).

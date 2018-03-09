@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 27918e1d0b335613ea578a815fb3ae00df73ebaa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -44,7 +44,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
     - **Nome**: O nome tem de ser exclusivo dentro da rede virtual.
     - **Intervalo de endereços**: O intervalo deve ser exclusivo num espaço de endereços da rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede na rede virtual. O espaço de endereços tem de ser especificado utilizando a notação de Classless entre domínios encaminhamento CIDR (). Por exemplo, numa rede virtual com endereço espaço 10.0.0.0/16, poderá definir um espaço de endereços da sub-rede do 10.0.0.0/24. O intervalo mais pequeno, que pode especificar é /29, que fornece oito endereços IP da sub-rede. O primeiro e último endereço em cada sub-rede para a conformidade de protocolo de reservas de Azure. Três endereços adicionais estão reservados para utilização do serviço do Azure. Como resultado, que define uma sub-rede com/29 resultados de intervalo três utilizáveis endereços de IP na sub-rede de endereços. Se planear ligar uma rede virtual para um gateway de VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereço específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços depois da sub-rede é adicionada, sob condições específicas. Para saber como alterar um intervalo de endereços da sub-rede, consulte [alterar definições da sub-rede](#change-subnet-settings).
     - **Grupo de segurança de rede**: pode associar zero ou uma rede grupo de segurança existente para uma sub-rede para filtrar o tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança de rede tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [como criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
-    - **Tabela de rotas**: pode associar zero ou uma existente tabela de rotas para uma sub-rede para controlar o encaminhamento de tráfego de rede a outras redes. A tabela de rota tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [encaminhamento Azure](virtual-networks-udr-overview.md) e [como criar uma tabela de rota](create-user-defined-route-portal.md)
+    - **Tabela de rotas**: pode associar zero ou uma existente tabela de rotas para uma sub-rede para controlar o encaminhamento de tráfego de rede a outras redes. A tabela de rota tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [encaminhamento Azure](virtual-networks-udr-overview.md) e [como criar uma tabela de rota](tutorial-create-route-table-portal.md)
     - **Pontos finais de serviço:** uma sub-rede pode ter zero ou vários pontos finais de serviço ativados para o mesmo. Para ativar um ponto final de serviço para um serviço, selecione o serviço ou serviços que pretende ativar pontos finais de serviço para a partir de **serviços** lista. Para remover um ponto final de serviço, anule a seleção de serviço que pretende remover o ponto final de serviço para. Para obter mais informações sobre pontos finais de serviço, consulte o artigo [descrição geral de pontos finais de serviço de rede Virtual](virtual-network-service-endpoints-overview.md). Depois de ativar um ponto final de serviço para um serviço, tem também de ativar o acesso de rede para a sub-rede para um recurso que criou com o serviço. Por exemplo, se ativar o ponto final de serviço para *Microsoft*, tem também de ativar acesso à rede para todas as contas de armazenamento do Azure que pretende conceder acesso à rede. Para obter detalhes sobre como ativar o acesso de rede para sub-redes ativado para um ponto final de serviço, consulte a documentação para o serviço individuais ativou o ponto final do serviço para.
 6. Para adicionar a sub-rede à rede virtual que selecionou, selecione **OK**.
 

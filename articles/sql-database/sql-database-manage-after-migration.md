@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na nuvem – gerir a sua base de dados SQL Database do Azure
 
@@ -44,7 +44,7 @@ Capacidades de recuperação de continuidade e desastre de negócio permitem-lhe
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Como criar e gerir cópias de segurança na base de dados SQL?
 Não criar cópias de segurança na BD SQL do Azure e que é porque não tem. Base de dados SQL automaticamente efetua cópias de segurança bases de dados para si, para que já não tem preocupar agendamento, a e gerir cópias de segurança. A plataforma demora uma cópia de segurança completa todas as semanas, cópia de segurança em poucas horas e um registo de cópia de segurança a cada 5 minutos para garantir a recuperação de desastre é eficiente e a mínimo de perda de dados diferencial. A primeira cópia de segurança completa ocorre assim que criar uma base de dados. Estas cópias de segurança estão disponíveis para si para um determinado período chamado "Período de retenção" e varia de acordo com a camada de desempenho que escolher.  Base de dados do SQL Server fornece-lhe a capacidade de restaurar para qualquer ponto no tempo nesta utilizando do período de retenção [ponto no tempo de recuperação (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Camada de desempenho|Período de retenção em dias|
+|Configurar desempenho|Período de retenção em dias|
 |---|:---:|
 |Básica|7|
 |Standard|35|
@@ -135,7 +135,7 @@ Na base de dados do SQL Server, por predefinição, os dados Inativos nos fichei
 |**Intervalo de encriptação**|Ponto a ponto|Dados em rest|
 |**Servidor de base de dados pode aceder a dados confidenciais**|Não|Sim, uma vez que a encriptação é para os dados Inativos|
 |**Operações de T-SQL permitidas**|Comparação de igualdade|Todos os área de superfície de T-SQL está disponível|
-|**Alterações de aplicação necessárias para utilizar a funcionalidade**|mínimo|Muito mínima|
+|**Alterações de aplicação necessárias para utilizar a funcionalidade**|Mínimo|Muito mínima|
 |**Granularidade de encriptação**|Nível de coluna|Nível de base de dados|
 ||||
 
@@ -168,7 +168,7 @@ O diagrama seguinte mostra as opções de armazenamento de chaves para as chaves
 O tráfego de rede entre a sua organização e a base de dados SQL, geralmente, seria obter encaminhado através da rede pública. No entanto, se optar por otimizar este caminho e torná-lo mais segura, pode ver no Expressroute. Essencialmente o expressroute permite-lhe expandir a sua rede empresarial para a plataforma do Azure através de uma ligação privada. Ao fazê-lo, não quer através da Internet pública. Utilizador também obtém uma maior segurança, fiabilidade e a otimização de encaminhamento que traduz para baixas latências de rede e muito mais rápidas velocidades que normalmente a experiência vai através da internet pública. Se estiver a planear sobre a transferência de um segmento significativo de dados entre a organização e o Azure, utilizar o Expressroute pode produzir benefícios de custos. Pode escolher entre três modelos de conetividade diferente para a ligação da sua organização para o Azure: 
 - [Localização conjunta do Exchange na nuvem](../expressroute/expressroute-connectivity-models.md#CloudExchange)
 - [Qualquer a qualquer](../expressroute/expressroute-connectivity-models.md#IPVPN)
-- [Ponto a ponto](../expressroute/expressroute-connectivity-models.md#Ethernet)
+- [Point-to-Point](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 Também o Expressroute permite-lhe impulsar 2x até o limite de largura de banda que adquirir sem encargos adicionais. Também é possível configurar cruzada conectividade região a utilizar o expressroute. Para ver uma lista de fornecedores de conectividade de ER, consulte: [Express parceiros de rota e localizações de Peering](../expressroute/expressroute-locations.md). Os artigos seguintes descrevem Express Route mais detalhadamente:
 - [Introdução no Expressroute](../expressroute/expressroute-introduction.md)
@@ -210,7 +210,7 @@ Na base de dados do SQL Server pode tirar partido dos insights inteligentes da p
 
 Neste gráfico, também pode configurar alertas por recurso. Estes alertas permitem-lhe responder às condições de recursos com uma mensagem de e-mail, escrever um ponto final HTTPS/HTTP ou efetuar uma ação. Consulte o [monitorização do desempenho de base de dados na base de dados do SQL Server](sql-database-single-database-monitor.md) para obter instruções detalhadas.
 
-- **Vistas de gestão dinâmica**: pode consultar o [sys.dm db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vista de gestão dinâmica para devolver o histórico de estatísticas de consumo de recursos de última hora e a [resource_stats ](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vista de catálogo de sistema para devolver o histórico para os últimos 14 dias.
+- **Vistas de gestão dinâmica**: pode consultar o [sys.dm db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vista de gestão dinâmica para devolver o histórico de estatísticas de consumo de recursos de última hora e a [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vista de catálogo de sistema para devolver o histórico para os últimos 14 dias.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md) permite-lhe ver um histórico das consultas de consumo de recursos principais e consultas de execução longa para uma base de dados específica. Pode identificar rapidamente consultas superiores através da utilização de recursos, a duração e a frequência de execução. Pode controlar as consultas e detetar regressão. Esta funcionalidade requer [arquivo de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) ser ativada e o Active Directory para a base de dados.
 
    ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
@@ -260,8 +260,8 @@ Base de dados do SQL Server utiliza algumas inteligentes técnicas que lhe permi
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Como devo sincronizar dados entre a base de dados SQL e SQL Server?
 Tem várias formas de alcançar isto: 
 - **[Sincronização de dados](sql-database-sync-data.md)**  – esta funcionalidade ajuda-o a sincronizar dados bidirecional entre várias bases de dados no local do SQL Server e base de dados SQL. Para sincronizar com bases de dados no local do SQL Server, terá de instalar e configurar o agente de sincronização num computador local, abra a porta de saída de TCP 1433.
-- **[Replicação de transações](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – com a replicação de transações que pode sincronizar os dados do local para a BD SQL do Azure com o local que está a ser o publicador e a BD SQL do Azure que está a ser o subscritor. Por agora, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os dados do local para o Azure SQL com o período de indisponibilidade mínimo, consulte: [replicação de transações de utilização](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – com a replicação de transações que pode sincronizar os dados do local para a BD SQL do Azure com o local que está a ser o publicador e a BD SQL do Azure que está a ser o subscritor. Por agora, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os dados do local para o Azure SQL com o período de indisponibilidade mínimo, consulte: [replicação de transações de utilização](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [base de dados SQL](sql-database-technical-overview.md).
 

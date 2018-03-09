@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são os escalões de serviço do SQL Database do Azure?
 
-[Base de dados SQL do Azure](sql-database-technical-overview.md) oferece **básico**, **padrão**, e **Premium** escalões de serviço para ambos [único bases de dados](sql-database-single-database-resources.md) e [conjuntos elásticos](sql-database-elastic-pool.md). Escalões de serviço são principalmente diferenciadas por um intervalo de nível de desempenho e opções de tamanho de armazenamento e preços.  Todos os escalões de serviço fornecem flexibilidade na alteração do tamanho de armazenamento e de nível de desempenho.  Bases de dados individuais e conjuntos elásticos são faturados por hora com base na camada de serviço, o nível de desempenho e o tamanho de armazenamento.   
+[Base de dados SQL do Azure](sql-database-technical-overview.md) oferece **básico**, **padrão**, e **Premium** escalões de serviço para ambos [único bases de dados](sql-database-single-database-resources.md) e [conjuntos elásticos](sql-database-elastic-pool.md). Base de dados do SQL Server oferece uma camada de serviços para fins gerais [da base de dados geridas por instância de SQL do Azure](sql-database-managed-instance.md#managed-instance-service-tier). Escalões de serviço são principalmente diferenciadas por um intervalo de nível de desempenho e opções de tamanho de armazenamento e preços.  Todos os escalões de serviço fornecem flexibilidade na alteração do tamanho de armazenamento e de nível de desempenho.  Bases de dados individuais e conjuntos elásticos são faturados por hora com base na camada de serviço, o nível de desempenho e o tamanho de armazenamento.   
+
+> [!IMPORTANT]
+> Instância de geridos de base de dados de SQL, atualmente em pré-visualização pública, oferece uma camada de serviços para fins gerais único. Para obter mais informações, consulte [da base de dados geridas por instância de SQL do Azure](sql-database-managed-instance.md). O resto deste artigo não é aplicável a instância geridos.
 
 ## <a name="choosing-a-service-tier"></a>Escolher uma camada de serviços
 
@@ -42,7 +45,7 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 
 ## <a name="performance-level-and-storage-size-limits"></a>Limites de tamanho de armazenamento e de nível de desempenho
 
-Níveis de desempenho são expressas em termos de unidades de transação de base de dados (DTUs) para bases de dados individuais e unidades de transação da base de dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs?](sql-database-what-is-a-dtu.md)
+Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs?](sql-database-what-is-a-dtu.md)
 
 ### <a name="single-databases"></a>Bases de dados individuais
 

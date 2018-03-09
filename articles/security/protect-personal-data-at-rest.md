@@ -1,6 +1,6 @@
 ---
 title: "Azure proteger os dados pessoais Inativos com encriptação | Microsoft Docs"
-description: "Este artigo é parte de uma série, ajudando-o a utilizar o Azure para proteger os dados pessoais"
+description: "Este artigo pode ser utilizado numa effforts para obedecer aos requisitos da indústria ou government como regulamento de proteção de dados gerais (GDPR)."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Tecnologias de encriptação do Azure: proteger os dados pessoais Inativos com encriptação
 
 Este artigo ajuda-o a compreender e utilizar tecnologias de encriptação do Azure para proteger dados inativos.
 
-É essencial como melhor prática para proteger os dados confidenciais ou pessoais e para cumprir os requisitos de privacidade de dados de conformidade e a encriptação de dados inativos.
-Encriptação de Inativos foi concebida para impedir que o atacante acedam a não encriptada dados, assegurando que os dados são encriptados quando no disco.
+É essencial como melhor prática para proteger os dados confidenciais ou pessoais e para cumprir os requisitos de privacidade de dados de conformidade e a encriptação de dados inativos. Encriptação de Inativos foi concebida para impedir que o atacante acedam a não encriptada dados, assegurando que os dados são encriptados quando no disco. As informações contidas neste artigo podem ser utilizadas para estar em conformidade com Regulamento de proteção de dados gerais (GDPR).
 
 ## <a name="scenario"></a>Cenário 
 
@@ -167,7 +166,7 @@ A empresa pode realizar o seu objetivo de encriptação de dados pessoais armaze
 
 Para proteger as chaves que são utilizadas para encriptar os dados no Azure, a empresa pode utilizar o Cofre de chaves do Azure. Isto simplifica o processo de gestão de chaves e permite à empresa a manter o controlo de teclas que acede e encripta os dados pessoais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Guia de resolução de problemas de encriptação de disco do Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 

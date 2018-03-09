@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurar e utilizar a análise de registos (OMS) com uma aplicação de SaaS de base de dados do SQL Azure multi-inquilino
 
@@ -132,7 +132,7 @@ No portal do OMS, pode explorar os dados de registo e a métrica na área de tra
 
 A monitorização e alertas na análise de registos e OMS baseada em consultas sobre os dados na área de trabalho, ao contrário de alertas definido em cada recurso no portal do Azure. Por basing alertas em consultas, pode definir um único alerta que se pareça através de todas as bases de dados, em vez de uma definição por base de dados. As consultas são apenas limitadas pelos dados disponíveis na área de trabalho.
 
-Para obter mais informações sobre a utilização do OMS para consultar e definir alertas, consulte, [trabalhar com regras de alertas na análise de registos](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Para obter mais informações sobre a utilização do OMS para consultar e definir alertas, consulte, [trabalhar com regras de alertas na análise de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 O Log Analytics da Base de Dados SQL é cobrado com base no volume de dados na área de trabalho. Neste tutorial, vai criar uma área de trabalho gratuita, que é limitado a 500 MB por dia. Assim que esse limite é atingido, os dados já não são adicionados à área de trabalho.
 

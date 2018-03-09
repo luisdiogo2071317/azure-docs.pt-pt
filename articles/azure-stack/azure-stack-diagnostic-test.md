@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Execute um teste de validação de pilha do Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/12/2018
  
 Pode validar o estado da pilha do Azure. Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsoft. Suporte pede-lhe para executar o teste AzureStack a partir do nó de gestão. O teste de validação isola a falha. Suporte, em seguida, pode analisar os registos de detalhado, focar-se na área de onde ocorreu o erro e trabalhar com a resolver o problema.
 
-## <a name="run-test-azurestack"></a>Executar o teste AzureStack
+## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
 Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsoft e, em seguida, execute **executar teste-AzureStack**.
 
@@ -35,8 +35,8 @@ Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsof
     1. O ponto final com privilégios de acesso. Para obter instruções, consulte [utilizando o ponto final com privilégios na pilha de Azure](azure-stack-privileged-endpoint.md). 
     2. Inicie sessão como **AzureStack\CloudAdmin** no anfitrião de gestão.
     3. Abra o PowerShell como um Administrador.
-    4. Execute:`Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
-    5. Execute:`Test-AzureStack`
+    4. Execute: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    5. Execute: `Test-AzureStack`
 4. Se os testes de relatório falhar, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet recolhe os registos de AzureStack de teste. Para mais informações sobre os registos de diagnóstico, consulte [ferramentas de diagnóstico do Azure pilha](azure-stack-diagnostics.md).
 5. Enviar o **SeedRing** registos para o suporte ao cliente de serviços da Microsoft. Suporte ao cliente de serviços da Microsoft funciona com a resolver o problema.
 
@@ -44,7 +44,7 @@ Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsof
 
 Esta secção contém uma descrição geral para o cmdlet de teste AzureStack e um resumo do relatório de validação.
 
-### <a name="test-azurestack"></a>Teste AzureStack
+### <a name="test-azurestack"></a>Test-AzureStack
 
 Valida o estado da pilha do Azure. O cmdlet reporta o estado do software e hardware de pilha do Azure. Equipa de suporte pode utilizar este relatório para reduzir o tempo para resolver casos do suporte de pilha do Azure.
 
@@ -61,11 +61,11 @@ Valida o estado da pilha do Azure. O cmdlet reporta o estado do software e hardw
 
 | Parâmetro               | Valor           | Necessário | Predefinição |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | Não       | FALSO   |
-| DoNotDeployTenantVm     | SwitchParameter | Não       | FALSO   |
+| ServiceAdminCredentials | PSCredential    | Não       | FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | Não       | FALSE   |
 | AdminCredential         | PSCredential    | Não       | ND      |
-| StorageConnectionString | Cadeia          | Não       | ND      |
-| Lista                    | SwitchParameter | Não       | FALSO   |
+<!-- | StorageConnectionString | Cadeia          | Não       | ND      | Não é suportada no 1802-->
+| Lista                    | SwitchParameter | Não       | FALSE   |
 | Ignorar                  | Cadeia          | Não       | ND      |
 | Incluir                 | Cadeia          | Não       | ND      |
 

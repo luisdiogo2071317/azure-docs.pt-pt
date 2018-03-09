@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Instruções de infraestrutura do Azure de exemplo para VMs do Windows
 Este artigo explica de conceção de uma infraestrutura de aplicação de exemplo. Iremos detalhe conceber uma infraestrutura para uma loja online simple que reúne as diretrizes e as decisões relativamente convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e Balanceadores de carga e a implementação, na verdade, as máquinas virtuais (VMs).
@@ -61,7 +61,7 @@ Todos os anteriores, siga estas convenções de nomenclatura:
 Adventure Works Cycles está a utilizar a subscrição do Enterprise, com o nome de subscrição de empresa do Adventure Works, para fornecer a faturação para esta carga de trabalho IT.
 
 ## <a name="storage"></a>Armazenamento
-Adventure Works Cycles determinar que utilizam discos gerida do Azure. Durante a criação de VMs, ambas as camadas de armazenamento disponível armazenamento são utilizadas:
+Adventure Works Cycles determinar que utilizam discos gerida do Azure. Durante a criação de VMs, ambas as camadas de armazenamento disponíveis são utilizadas:
 
 * **Armazenamento Standard** para os servidores web, servidores de aplicações e controladores de domínio e os respetivos discos de dados.
 * **Armazenamento Premium** para as VMs de SQL Server e os respetivos discos de dados.

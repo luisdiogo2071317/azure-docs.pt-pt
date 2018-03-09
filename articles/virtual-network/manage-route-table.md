@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f976832a857a35e9e0cea7a0eb731cb00492023f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rota
 
-Azure automaticamente encaminha o tráfego entre sub-redes do Azure, redes virtuais e redes no local. Se pretender alterar qualquer uma das predefinido do Azure encaminhamento, fazê-lo através da criação de uma tabela de rota. Se não estiver familiarizado com o encaminhamento do Azure, recomenda-se ao ler o [descrição geral de encaminhamento](virtual-networks-udr-overview.md) e concluir o [encaminhar o tráfego de rede com uma tabela de rota](create-user-defined-route-portal.md) tutorial, antes de concluir as tarefas neste artigo.
+Azure automaticamente encaminha o tráfego entre sub-redes do Azure, redes virtuais e redes no local. Se pretender alterar qualquer uma das predefinido do Azure encaminhamento, fazê-lo através da criação de uma tabela de rota. Se não estiver familiarizado com o encaminhamento do Azure, recomenda-se ao ler o [descrição geral de encaminhamento](virtual-networks-udr-overview.md) e concluir o [encaminhar o tráfego de rede com uma tabela de rota](tutorial-create-route-table-portal.md) tutorial, antes de concluir as tarefas neste artigo.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

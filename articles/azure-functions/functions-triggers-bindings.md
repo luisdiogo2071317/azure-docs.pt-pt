@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
 
@@ -53,7 +53,7 @@ As extensões são fornecidas como pacotes NuGet, onde o nome do pacote normalme
 + [Localmente utilizando ferramentas de núcleos de funções do Azure](#local-development-azure-functions-core-tools)
 + [No portal do Azure](#azure-portal-development) 
 
-Existem um conjunto de núcleos de enlaces no versão 2. x que não são fornecidos como extensões. Não é necessário registar extensões para os seguintes acionadores e enlaces: HTTP, temporizador e armazenamento do Azure. 
+Há um conjunto de núcleos de enlaces no versão 2. x que não são fornecidos como extensões. Não é necessário registar extensões para os seguintes acionadores e enlaces: HTTP, temporizador e armazenamento do Azure. 
 
 Para obter informações sobre como definir uma aplicação de função para utilizar a versão 2 do tempo de execução funções, consulte [como destino a versões de tempo de execução das funções do Azure](set-runtime-version.md). Versão 2 do tempo de execução de funções está atualmente em pré-visualização. 
 

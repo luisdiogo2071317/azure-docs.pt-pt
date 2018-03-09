@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestor de Tráfego do Azure com o Azure Site Recovery
 
@@ -49,11 +44,11 @@ Um caso de desastre, pode acionar a empresa A um [ativação pós-falha](site-re
 
 Dependendo dos requisitos de negócio, **empresa um** pode escolher um superior ou inferior [pesquisar frequência](../traffic-manager/traffic-manager-monitoring.md) para alternar entre no local para Azure um caso de desastre e certifique-se o período de indisponibilidade mínimo para os utilizadores.
 
-Quando está contido desastre, **empresa um** pode reativação pós-falha a partir do Azure ao seu ambiente no local ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) ou [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) utilizando o Azure Site Recovery. Agora, ao Gestor de tráfego Deteta que o **primário** ponto final está novamente em bom estado, utiliza automaticamente o **primário** ponto final no respetivos respostas DNS.
+Quando está contido desastre, **empresa um** pode reativação pós-falha a partir do Azure ao seu ambiente no local ([VMware](vmware-azure-failback.md) ou [Hyper-V](hyper-v-azure-failback.md)) utilizando o Azure Site Recovery. Agora, ao Gestor de tráfego Deteta que o **primário** ponto final está novamente em bom estado, utiliza automaticamente o **primário** ponto final no respetivos respostas DNS.
 
 ## <a name="on-premises-to-azure-migration"></a>No local para a migração do Azure
 
-Para além de recuperação após desastre do Azure Site Recovery também lhe permite [migrações para o Azure](site-recovery-migrate-to-azure.md). Utilizar as capacidades de ativação pós-falha do Azure Site Recovery teste poderosa, os clientes podem avaliar o desempenho da aplicação no Azure sem afetar o seu ambiente no local. E, quando estiverem prontos para migrar os clientes, pode escolher a migrar cargas de trabalho completos em conjunto ou optar por migrar e dimensionar gradualmente.
+Para além de recuperação após desastre do Azure Site Recovery também lhe permite [migrações para o Azure](migrate-overview.md). Utilizar as capacidades de ativação pós-falha do Azure Site Recovery teste poderosa, os clientes podem avaliar o desempenho da aplicação no Azure sem afetar o seu ambiente no local. E, quando estiverem prontos para migrar os clientes, pode escolher a migrar cargas de trabalho completos em conjunto ou optar por migrar e dimensionar gradualmente.
 
 Traffic Manager do Azure do [Weighted](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) método de encaminhamento pode ser utilizado para direcionar algumas partes do tráfego de entrada para o Azure ao instruir a maioria para o ambiente no local. Esta abordagem pode ajudá-lo a avaliar o desempenho do dimensionamento pode continuar a aumentar a ponderação atribuída para o Azure como migrar mais e muito mais das cargas de trabalho para o Azure.
 

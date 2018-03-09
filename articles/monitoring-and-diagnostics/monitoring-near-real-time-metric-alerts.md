@@ -12,58 +12,138 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
-ms.author: snmuvva
+ms.date: 02/26/2018
+ms.author: snmuvva, vinagara
 ms.custom: 
-ms.openlocfilehash: 6370f4596e6b20962c6de0dbcbd5f86c3b7777cc
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 3ffc96b19d4601756530d7f9dd959d05ef5fa000
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Quase em tempo real alertas métricas (pré-visualização)
 Monitor do Azure suporta um novo tipo de alerta chamado quase em tempo real alertas métricas (pré-visualização). Esta funcionalidade está atualmente em pré-visualização pública.
 
 Quase em tempo real métrica alertas diferem dos alertas de métricas regulares de algumas formas:
 
-- **Melhorado latência**: quase em tempo real métrica alertas podem monitorizar as alterações nos valores métricas com uma frequência tão pequena como 1 minuto.
+- **Melhorado latência**: quase em tempo real métrica alertas podem monitorizar as alterações nos valores métricas com uma frequência tão pequena como um minuto.
 - **Mais controlo sobre condições métricas**: pode definir regras de alerta rica em quase em tempo real alertas métricas. Os alertas suportam os valores máximo, mínimos, médios e totais de métricas de monitorização.
+- **Métricas de registos**: de dados de registo populares entra [Log Analytics](../log-analytics/log-analytics-overview.md), métricas pode ser extraídas no Monitor do Azure e ser alertadas em quase em tempo real base
 - **Combinar a monitorização de várias métricas**: quase em tempo real métrica alertas podem monitorizar as métricas de vários (atualmente, até duas métricas) com uma única regra. Um alerta é acionado se ambas as métricas infringir os respetivos limiares para o período de tempo especificado.
 - **Sistema de notificação modulares**: quase em tempo real métrica utilizam alertas [grupos ação](monitoring-action-groups.md). Pode utilizar grupos de ação para criar modulares ações. Pode reutilizar os grupos de ação para múltiplas regras de alerta.
 
 > [!NOTE]
-> A próxima funcionalidade alerta métrica em tempo real está atualmente em pré-visualização pública. A experiência de utilizador e a funcionalidade está sujeita a alterações.
+> O alerta de métrico near em tempo real está atualmente em pré-visualização pública. E métricas de funcionalidades de registos estão presentes no *limitado* pré-visualização pública. A experiência de utilizador e a funcionalidade está sujeita a alterações.
 >
 
-## <a name="resources-you-can-use-with-near-real-time-metric-alerts"></a>Pode utilizar com quase em tempo real alertas de métricas de recursos
-Eis a lista completa dos tipos de recursos que são suportados para quase em tempo real alertas métricas:
+## <a name="metrics-and-dimensions-supported"></a>Métricas e dimensões suportadas
+Quase em tempo real métrica alertas suportam alertas com base nas métricas que utilizam dimensões. Pode utilizar dimensões para a métrica para o nível adequado de filtro. Podem ser explorou e visualizadas a partir de todas as métricas suportadas juntamente com dimensões aplicáveis [ *Monitor do Azure - **métricas (pré-visualização)***](monitoring-metric-charts.md).
 
-* Microsoft.ApiManagement/service
-* Microsoft.Automation/automationAccounts
-* Microsoft.Batch/batchAccounts
-* Microsoft.Cache/Redis
-* Microsoft.Compute/virtualMachines
-* Microsoft.Compute/virtualMachineScaleSets
-* Microsoft.DataFactory/factories
-* Microsoft.DBforMySQL/servers
-* Microsoft.DBforPostgreSQL/servers
-* Microsoft.EventHub/namespaces
-* Microsoft.Logic/workflows
-* Microsoft.Network/applicationGateways
-* Microsoft.Network/publicipaddresses
-* Microsoft.Search/searchServices
-* Microsoft.ServiceBus/namespaces
-* Microsoft.Storage/storageAccounts
-* Microsoft.Storage/storageAccounts/services
-* Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.CognitiveServices/accounts
+Eis a lista completa das origens de métrica de monitor do Azure com base em que são suportados para quase em tempo real alertas métricas:
 
-## <a name="near-real-time-metric-alerts-for-metrics-that-use-dimensions"></a>Quase em tempo real alertas métricas com base nas métricas que utilizam dimensões
-Quase em tempo real métrica alertas suportam alertas com base nas métricas que utilizam dimensões. Pode utilizar dimensões para a métrica para o nível adequado de filtro. Quase em tempo real métrica alertas com base nas métricas que utilizam dimensões são suportadas para os seguintes tipos de recursos:
+|Nome da métricos/detalhes  |Dimensões suportadas  |
+|---------|---------|
+|Microsoft.ApiManagement/service     | Sim        |
+|Microsoft.Automation/automationAccounts     |     N/A    |
+|Microsoft.Automation/automationAccounts     |   N/A      |
+|Microsoft.Cache/Redis     |    N/A     |
+|Microsoft.Compute/virtualMachines     |    N/A     |
+|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |
+|Microsoft.DataFactory/factories     |   N/A      |
+|Microsoft.DBforMySQL/servers     |   N/A      |
+|Microsoft.DBforPostgreSQL/servers     |    N/A     |
+|Microsoft.EventHub/namespaces     |   N/A      |
+|Microsoft.Logic/workflows     |     N/A    |
+|Microsoft.Network/applicationGateways     |    N/A     |
+|Microsoft.Network/publicipaddresses     |  N/A       |
+|Microsoft.Search/searchServices     |   N/A      |
+|Microsoft.ServiceBus/namespaces     |  N/A       |
+|Microsoft.Storage/storageAccounts     |    Sim     |
+|Microsoft.Storage/storageAccounts/services     |     Sim    |
+|Microsoft.StreamAnalytics/streamingjobs     |  N/A       |
+|Microsoft.CognitiveServices/accounts     |    N/A     |
 
-* Microsoft.ApiManagement/service
-* Storage/storageaccounts (suportado apenas para contas do storage em regiões E.U.A.)
-* Microsoft.Storage/storageAccounts/services (suportado apenas para contas do storage em regiões E.U.A.)
+
+Métricas de registos, suporta atualmente os seguintes registos OMS populares:
+- [Contadores de desempenho](../log-analytics/https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-performance-counters.md) para máquinas Windows e Linux
+- Registos de heartbeat de máquinas
+- [Gestão de atualizações](../operations-management-suite/oms-solution-update-management.md) registos
+
+Eis a lista completa de OMS baseado no registo métricas as origens que são suportados para quase em tempo real alertas métricas:
+
+Nome da métricos/detalhes  |Dimensões suportadas  | Tipo de registo  |
+|---------|---------|---------|
+|Average_Avg. Disco seg/leitura     |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+| Average_Avg. Disco seg/escrita     |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+| Comprimento da fila de disco Average_Current   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+| Average_Disk leituras/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+| Average_Disk transferências/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+|   Average_ % de espaço livre    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+| MBytes de Average_Available     |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+| Bytes de % consolidada Average_ em utilização    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+| Average_Bytes recebidos/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+|  Average_Bytes enviados/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+|  Total de Average_Bytes/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+|  Average_ % de tempo do processador    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+|   Comprimento da fila Average_Processor    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Windows      |
+|   Average_ % de Inodes livres   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de espaço livre   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de Inodes utilizados  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de espaço utilizado   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Disk Bytes lidos/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Disk leituras/seg |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Disk transferências/seg |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Escrita de Average_Disk Bytes/seg   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Disk escritas/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Free Megabytes |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Logical Bytes de disco/seg |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de memória disponível |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de espaço de comutação disponível |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de memória utilizada  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de espaço de comutação utilizado  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    MBytes de memória Average_Available    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    MBytes de comutação Average_Available  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Page leituras/seg |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Page escritas/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Pages/sec  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Espaço de comutação em MBytes Average_Used |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    MBytes de memória Average_Used |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Bytes de Average_Total transmitidos    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Total Bytes recebidos   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Bytes de Average_Total    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Pacotes de Average_Total transmitidos  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Pacotes de Average_Total recebidos |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Total Rx erros    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Total Tx erros    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Total colisões   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Avg. Disco seg/leitura |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Avg. Disco seg/transferência |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Avg. Disco seg/escrita    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Physical Bytes de disco/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Pct de tempo privilegiado    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Tempo de utilizador Average_Pct  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Memória Average_Used kBytes |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Memória partilhada do Average_Virtual  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de tempo de DPC |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de tempo inativo    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de tempo de interrupção   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Tempo de espera de e/s % Average_ |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de tempo Nice    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de tempo privilegiado  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % de tempo do processador   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_ % tempo de utilizador    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Memória física Average_Free   |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Free espaço nos ficheiros de paginação |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Memória de Virtual Average_Free    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Processes  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Size armazenadas em ficheiros de paginação    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Uptime |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Users  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Heartbeat  |     Sim - computador, OSType, versão e SourceComputerId    |   Registos de heartbeat |
+|    Atualizar |     Sim - classificação do produto do computador, UpdateState, opcional & aprovado    |   Gestão de Atualizações |
+
+> [!NOTE]
+> Métrica específica e/ou dimensão só será apresentada se os dados para o mesmo existem num período escolhido
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Criar um alerta de métrico near em tempo real
 Atualmente, pode criar quase em tempo real alertas métricas apenas no portal do Azure. Suporte para configurar quase em tempo real alertas métricas utilizando o PowerShell, a interface de linha de comandos do Azure (CLI do Azure) e as APIs REST da Azure Monitor estará disponível brevemente.
@@ -77,46 +157,52 @@ Depois de criar um alerta de métrico near em tempo real, pode gerir o alerta, u
 
 ## <a name="payload-schema"></a>Esquema de payload
 
-A operação POST contém as seguinte payload JSON e o esquema para todos os quase em tempo real alertas métricas:
+A operação POST contém as seguinte payload JSON e o esquema para todos os quase em tempo real métricas alertas quando adequadamente configurado [grupo ação](monitoring-action-groups.md) é utilizado:
 
 ```json
-{
-    "WebhookName": "Alert1510875839452",
-    "RequestBody": {
-        "status": "Activated",
-        "context": {
-            "condition": {
-                "metricName": "Percentage CPU",
-                "metricUnit": "Percent",
-                "metricValue": "17.7654545454545",
-                "threshold": "1",
-                "windowSize": "10",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan"
+{"schemaId":"AzureMonitorMetricAlert","data":
+    {
+    "version": "2.0",
+    "status": "Activated",
+    "context": {
+    "timestamp": "2018-02-28T10:44:10.1714014Z",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
+    "name": "StorageCheck",
+    "description": "",
+    "conditionType": "SingleResourceMultipleMetricCriteria",
+    "condition": {
+      "windowSize": "PT5M",
+      "allOf": [
+        {
+          "metricName": "Transactions",
+          "dimensions": [
+            {
+              "name": "AccountResourceId",
+              "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
             },
-            "resourceName": "ContosoVM1",
-            "resourceType": "microsoft.compute/virtualmachines",
-            "resourceRegion": "westus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
-            "timestamp": "2017-11-16T23:54:03.9517451Z",
-            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
-            "name": "VMMetricAlert1",
-            "description": "A metric alert for the VM Win2012R2",
-            "conditionType": "Metric",
-            "subscriptionId": "00000000-0000-0000-0000-000000000000",
-            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
-            "resourceGroupName": "ContosoVM"
+            {
+              "name": "GeoType",
+              "value": "Primary"
+            }
+          ],
+          "operator": "GreaterThan",
+          "threshold": "0",
+          "timeAggregation": "PT5M",
+          "metricValue": 1.0
         },
+      ]
+    },
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "resourceGroupName": "Contoso",
+    "resourceName": "diag500",
+    "resourceType": "Microsoft.Storage/storageAccounts",
+    "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
+    "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+  },
         "properties": {
                 "key1": "value1",
                 "key2": "value2"
         }
-    },
-    "RequestHeader": {
-        "Connection": "Keep-Alive",
-        "Host": "s1events.azure-automation.net",
-        "User-Agent": "azure-insights/0.9",
-        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
     }
 }
 ```

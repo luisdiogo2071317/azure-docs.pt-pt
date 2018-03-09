@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -53,12 +53,12 @@ Pode analisar telemetria resultante execução de uma consulta:
 
 Na nota de vista de resultado que todos os itens de telemetria partilham raiz `operation_Id`. Quando chamada ajax efetuada a partir da página - novo id exclusivo `qJSXU` está atribuída a telemetria de dependência e id do pageView é utilizado como `operation_ParentId`. Por sua vez no pedido do servidor utiliza o id do ajax como `operation_ParentId`, etc.
 
-| ItemType   | nome                      | ID           | operation_ParentId | operation_Id |
+| itemType   | nome                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | As cotações página                |              | STYz               | STYz         |
 | dependência | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| Pedido    | GET Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
-| dependência | OBTER /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
+| Pedido    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| dependência | OBTER /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 Agora quando a chamada `GET /api/stock/value` efetuadas a um serviço externo que pretende conheçam a identidade do servidor. Para que possa definir `dependency.target` campo adequadamente. Quando o serviço externo não suporta a monitorização - `target` está definido como o nome de anfitrião do serviço como `stock-prices-api.com`. No entanto se esse serviço identifica-se por um predefinidos a devolver o cabeçalho HTTP - `target` contém a identidade de serviço que permite que o Application Insights criar o rastreio distribuído consultando a telemetria de que o serviço. 
 
@@ -66,8 +66,8 @@ Agora quando a chamada `GET /api/stock/value` efetuadas a um serviço externo qu
 
 Estamos a trabalhar proposta de RFC para o [correlação protocolo HTTP](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Este proposta define dois cabeçalhos:
 
-- `Request-Id`transportar o id exclusivo global da chamada
-- `Correlation-Context`-transportar a coleção de pares de valor de nome das propriedades do rastreio distribuída
+- `Request-Id` transportar o id exclusivo global da chamada
+- `Correlation-Context` -transportar a coleção de pares de valor de nome das propriedades do rastreio distribuída
 
 A norma também define duas esquemas de `Request-Id` geração - simples e hierárquica. Com o esquema simples, há um conhecidos `Id` chave definida para o `Correlation-Context` coleção.
 
@@ -77,11 +77,11 @@ Application Insights define o [extensão](https://github.com/lmolkova/correlatio
 
 [Abra o rastreio](http://opentracing.io/) e o Application Insights procura de modelos de dados 
 
-- `request`, `pageView` mapeia para **Span** com`span.kind = server`
-- `dependency`mapeia para **Span** com`span.kind = client`
-- `id`de um `request` e `dependency` mapeia para **Span.Id**
-- `operation_Id`mapeia para **TraceId**
-- `operation_ParentId`mapeia para **referência** do tipo`ChildOf`
+- `request`, `pageView` mapeia para **Span** com `span.kind = server`
+- `dependency` mapeia para **Span** com `span.kind = client`
+- `id` de um `request` e `dependency` mapeia para **Span.Id**
+- `operation_Id` mapeia para **TraceId**
+- `operation_ParentId` mapeia para **referência** do tipo `ChildOf`
 
 Consulte [modelo de dados](application-insights-data-model.md) para o modelo de tipos e os dados do Application Insights.
 
@@ -90,21 +90,21 @@ Consulte [especificação](https://github.com/opentracing/specification/blob/mas
 
 ## <a name="telemetry-correlation-in-net"></a>Correlação de telemetria no .NET
 
-Ao longo do tempo .NET definido várias formas para correlacionar os registos de telemetria e de diagnóstico. Não há `System.Diagnostics.CorrelationManager` que permite controlar [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource`e Windows ETW definir o método [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger`utiliza [âmbitos de registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). Transmissão WCF e Http cópias de segurança "atual" propagação de contexto.
+Ao longo do tempo .NET definido várias formas para correlacionar os registos de telemetria e de diagnóstico. Não há `System.Diagnostics.CorrelationManager` que permite controlar [LogicalOperationStack e ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` e Windows ETW definir o método [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` utiliza [âmbitos de registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). Transmissão WCF e Http cópias de segurança "atual" propagação de contexto.
 
-No entanto os métodos não ative o suporte de rastreio distribuída automática. `DiagnosticsSource`é uma forma para suportar automática cruzada correlação da máquina. Bibliotecas .NET suportam a origem de diagnóstico e permitem automáticas cruzada máquina propagação do contexto de correlação através de transporte, como http.
+No entanto os métodos não ative o suporte de rastreio distribuída automática. `DiagnosticsSource` é uma forma para suportar automática cruzada correlação da máquina. Bibliotecas .NET suportam a origem de diagnóstico e permitem automáticas cruzada máquina propagação do contexto de correlação através de transporte, como http.
 
 O [guia para atividades](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) na origem de diagnóstico explica as noções básicas de actividades de controlo. 
 
 Núcleo de ASP.NET 2.0 suporta a extração dos cabeçalhos de Http e iniciar a nova atividade. 
 
-`System.Net.HttpClient`versão inicial `<fill in>` suporta a inserção automática da correlação cabeçalhos de Http e a chamada de http como uma atividade de controlo.
+`System.Net.HttpClient` versão inicial `4.1.0` suporta a inserção automática da correlação cabeçalhos de Http e a chamada de http como uma atividade de controlo.
 
 Há um novo módulo de Http [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) para clássica ASP.NET. Este módulo implementa utilizando DiagnosticsSource de correlação de telemetria. Começa com base nos cabeçalhos de pedido de entrada de atividade. Também está correlacionada com a telemetria de diferentes fases do processamento do pedido. Mesmo para os casos quando cada fase do processamento do IIS é executado num threads gerir diferentes.
 
 Versão inicial do Application Insights SDK `2.4.0-beta1` utiliza DiagnosticsSource e a atividade para recolher telemetria e associá-lo com a atividade atual. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Grave a telemetria personalizada](app-insights-api-custom-events-metrics.md)
 - Carregar todos os componentes do seu serviço micro no Application Insights. Veja [plataformas suportadas](app-insights-platforms.md).

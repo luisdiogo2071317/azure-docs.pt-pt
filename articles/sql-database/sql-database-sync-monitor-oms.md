@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be1423026af633ab024980dc6b12b0977639ba3a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Monitor SQL de sincronização de dados (pré-visualização) com a análise de registos do OMS 
 
@@ -92,7 +92,7 @@ Para obter mais informações sobre como criar um runbook, consulte [o meu prime
 
     2.  Informações do grupo de sincronização.
 
-    3.  Informações do OMS. Encontrar estas informações no Portal do OMS | Definições | Origens ligadas. Para obter mais informações sobre o envio de dados para análise de registos, consulte [enviar dados para análise de registos com a API de Recoletor de dados de HTTP (pré-visualização pública)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informações do OMS. Encontrar estas informações no Portal do OMS | Definições | Origens ligadas. Para obter mais informações sobre o envio de dados para análise de registos, consulte [enviar dados para análise de registos com a API de Recoletor de dados de HTTP (pré-visualização)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Execute o runbook no painel de teste. Verifique para se certificar de que foi efetuada com êxito.
 

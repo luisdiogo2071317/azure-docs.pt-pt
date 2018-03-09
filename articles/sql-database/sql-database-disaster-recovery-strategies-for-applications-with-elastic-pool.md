@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastre para aplicações que utilizam conjuntos elásticos da base de dados SQL
 Ao longo dos anos podemos ter aprendidas que serviços em nuvem não são foolproof e ocorrem de incidentes catastrófica. Base de dados do SQL Server fornece várias capacidades para fornecer a continuidade de negócio da sua aplicação quando ocorrem estes incidentes. [Conjuntos elásticos](sql-database-elastic-pool.md) e bases de dados individuais suportam o mesmo tipo de funcionalidades de recuperação após desastre. Este artigo descreve várias estratégias de DR para conjuntos elásticos que tiram partido destas funcionalidades de continuidade empresarial da base de dados do SQL Server.
@@ -30,6 +30,9 @@ Este artigo utiliza o padrão de aplicação SaaS ISV canónico seguinte:
 <i>Uma aplicação web baseados na nuvem modernas Aprovisiona uma base de dados do SQL Server para cada utilizador final. O ISV tem muitos clientes e, por conseguinte, utiliza muitas bases de dados, conhecidos como bases de dados do inquilino. Porque as bases de dados do inquilino têm, normalmente, os padrões de atividade imprevisíveis, o ISV utiliza um conjunto elástico para tornar a base de dados custo muito previsível ao longo de períodos de tempo prolongados. O conjunto elástico também simplifica a gestão de desempenho quando picos de atividade do utilizador. Para além das bases de dados do inquilino a aplicação também utiliza várias bases de dados para gerir perfis de utilizador, segurança, recolher padrões de utilização etc. Disponibilidade de inquilinos individuais não afeta a disponibilidade da aplicação como todo. No entanto, a disponibilidade e o desempenho das bases de dados de gestão é essencial para a função da aplicação e se as bases de dados de gestão estão offline a aplicação completa está offline.</i>  
 
 Este artigo aborda as estratégias de DR que abrangem uma gama de cenários de aplicações de arranque confidenciais de custos para aqueles com requisitos de disponibilidade rigorosos.
+
+> [!NOTE]
+> Se estiver a utilizar agrupamentos e bases de dados Premium, pode efetuá-los resilientes às falhas regionais, convertendo-las à configuração de implementação redundante de zona (atualmente em pré-visualização). Consulte [basesdedadoszona redundante](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Custo arranque confidencial
 <i>Posso estou uma empresa de arranque e estou de custo extremamente confidencial.  Pretendo simplificar a implementação e gestão da aplicação e pode tiver um SLA limitado de clientes individuais. Mas quero garantir a aplicação como um todo nunca está offline.</i>
@@ -109,7 +112,7 @@ Quando a região primária é recuperada Azure *depois* restaurou a aplicação 
 A chave **beneficiar** desta estratégia é que fornece o SLA mais elevado para os clientes de pagar. Esta ação garante também que o novo avaliações estiverem desbloqueadas, assim que o conjunto de DR avaliação é criado. O **compromisso** é que esta configuração aumenta o custo total de bases de dados do inquilino, o custo do conjunto de DR secundário para paga clientes. Além disso, se o agrupamento de secundário não tem um tamanho diferente, os clientes de pagar experiência de desempenho inferior após a ativação pós-falha até que a atualização do agrupamento na região DR esteja concluída. 
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Cenário 3. Aplicação distribuída geograficamente com o serviço em camadas
-<i>Tenho uma aplicação SaaS madura com ofertas de serviço em camadas. Pretende oferecer um SLA muito agressiva aos meus clientes pagas e minimizar o risco de impacto quando ocorrem falhas porque interrupção breve mesmo pode causar insatisfação de cliente. É fundamental que os clientes de pagar sempre podem aceder aos respetivos dados. As avaliações são gratuitas e um SLA não é oferecido durante o período de avaliação.</i> 
+<i>Tenho uma aplicação SaaS madura com ofertas de serviço em camadas. Pretende oferecer um SLA muito agressiva aos meus clientes pagas e minimizar o risco de impacto quando ocorrem falhas porque interrupção breve mesmo pode causar insatisfação de cliente. É fundamental que os clientes de pagar sempre podem aceder aos respetivos dados. As avaliações são gratuitas e um SLA não é oferecido durante o período de avaliação. </i> 
 
 Para suportar este cenário, utilize três conjuntos elásticos separados. Aprovisione dois conjuntos de tamanho igual com elevada eDTUs por base de dados em duas regiões diferentes para conter inquilino as bases de dados os clientes paga. O terceiro conjunto que contém os inquilinos avaliação pode ter inferior eDTUs por base de dados e aprovisionamento de uma das duas regiões.
 
@@ -166,7 +169,7 @@ O principal **compromissos** são:
 ## <a name="summary"></a>Resumo
 Este artigo incida nas estratégias de recuperação de desastres para a camada de base de dados utilizado por uma aplicação de multi-inquilino de SaaS ISV. A estratégia de que escolher baseia-se nas necessidades da aplicação, tais como o modelo de negócio, o SLA pretende oferecer aos seus clientes, budget restrição etc. Cada estratégia descrita descreve as vantagens e compromisso, pelo que pode tomar uma decisão informada. Além disso, a aplicação específica provável inclui outros componentes do Azure. Assim, reveja as orientações de continuidade de negócio e orquestrar com a recuperação da camada de base de dados com os mesmos. Para saber mais sobre a gestão de recuperação de aplicações de base de dados no Azure, consulte [estruturar soluções de nuvem de recuperação após desastre](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre o SQL do Azure, base de dados automática de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
 * Para cenários e uma descrição geral de continuidade de negócio, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 * Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, consulte [restaurar uma base de dados de cópias de segurança iniciou o serviço](sql-database-recovery-using-backups.md).

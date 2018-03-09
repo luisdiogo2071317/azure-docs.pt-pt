@@ -13,19 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: d265c72cfc02710afb630f3b8258602c936d1ebc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do Gateway de VPN
 
 Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego encriptado entre a rede virtual e a sua localização no local através de uma ligação pública. Também pode utilizar um gateway de VPN para enviar tráfego entre redes virtuais em toda a estrutura principal do Azure.
 
 Uma ligação de gateway VPN baseia-se na configuração de vários recursos, cada um dos quais contém as definições configuráveis. As secções neste artigo abordam os recursos e as definições relacionadas com um gateway de VPN para uma rede virtual criado no modelo de implementação do Resource Manager. Pode encontrar descrições e diagramas de topologia para cada solução de ligação no [sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) artigo.
+
+>[!NOTE]
+> Os valores neste artigo aplicam-se a gateways de rede virtual que utilizam o GatewayType 'Vpn'. Esta é a razão pela qual estes são denominados gateways de VPN. Para os valores que se aplicam ao - GatewayType 'ExpressRoute', consulte [Gateways da Virtual Network para o ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Os valores para gateways do ExpressRoute não são os mesmos valores que utiliza para gateways de VPN.
+>
+>
 
 ## <a name="gwtype"></a>Tipos de gateway
 
@@ -120,7 +125,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Antes de criar um gateway de VPN, terá de criar uma sub-rede de gateway. A sub-rede do gateway contém os endereços IP que utilizam os serviços e VMs de gateway de rede virtual. Ao criar o gateway de rede virtual, VMs de gateway são implementadas para a sub-rede do gateway e configuradas com as definições do gateway VPN necessárias. Nunca deve implementar mais nada (por exemplo, VMs adicionais) para a sub-rede do gateway. A sub-rede do gateway tem de ser o nome "GatewaySubnet" para funcionar corretamente. A sub-rede do gateway de nomenclatura "GatewaySubnet" permite saber que se trata de sub-rede para implementar as VMs de gateway de rede virtual e os serviços do Azure.
 
-Quando cria a sub-rede do gateway, especifica o número de endereços IP que a sub-rede contém. Os endereços IP na sub-rede de gateway são atribuídos às VMs de gateway e os serviços de gateway. Algumas configurações exigem mais endereços IP que outros. Observe as instruções para a configuração que pretende criar e certifique-se de que a sub-rede do gateway que pretende criar cumpre os requisitos. Além disso, pode querer Certifique-se que à sub-rede do gateway contém endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora seja possível criar uma sub-rede do gateway tão pequena como/29, recomendamos que crie uma sub-rede de gateway de/28 ou superior (/ 28, / 27, /26 etc.). Dessa forma, se adicionar a funcionalidade no futuro, não terá de fechar as suas gateway, em seguida, elimine e recrie a sub-rede do gateway para permitir mais endereços IP.
+Quando cria a sub-rede do gateway, especifica o número de endereços IP que a sub-rede contém. Os endereços IP na sub-rede de gateway são atribuídos às VMs de gateway e os serviços de gateway. Algumas configurações requerem mais endereços IP do que outras. Observe as instruções para a configuração que pretende criar e certifique-se de que a sub-rede do gateway que pretende criar cumpre os requisitos. Além disso, pode querer Certifique-se que à sub-rede do gateway contém endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora seja possível criar uma sub-rede do gateway tão pequena como/29, recomendamos que crie uma sub-rede de gateway de/28 ou superior (/ 28, / 27, /26 etc.). Dessa forma, se adicionar a funcionalidade no futuro, não terá de fechar as suas gateway, em seguida, elimine e recrie a sub-rede do gateway para permitir mais endereços IP.
 
 O exemplo de Gestor de recursos do PowerShell seguinte mostra uma sub-rede de gateway com o nome GatewaySubnet. Pode ver que a notação CIDR Especifica/27, que permite obter endereços IP suficientes para a maioria das configurações de que existe atualmente.
 
@@ -155,6 +160,6 @@ Para obter recursos técnicos adicionais e requisitos de sintaxe específica qua
 | [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
 | Não suportado | [CLI do Azure](/cli/azure/network/vnet-gateway)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre configurações de ligação disponíveis, consulte [sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).

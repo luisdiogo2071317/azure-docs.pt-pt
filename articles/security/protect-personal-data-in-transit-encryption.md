@@ -1,6 +1,6 @@
 ---
 title: "Proteger dados pessoais em trânsito através de encriptação no Azure | Microsoft Docs"
-description: "Utilizar a encriptação no Azure para proteger os dados pessoais"
+description: "informações sobre a encriptação do Azure para proteger os dados pessoais poderá ser útil esforços para estar em conformidade com Regulamento de proteção de dados gerais (GDPR)."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Tecnologias de encriptação do Azure: proteger os dados pessoais em trânsito através da encriptação
 
-Este artigo irá ajudá-lo a compreender e utilizar tecnologias de encriptação do Azure para proteger os dados em trânsito. 
-
-Proteger a privacidade dos dados pessoais como que circula na rede é uma parte essencial de uma estratégia de segurança por várias camadas de defesa em profundidade. Encriptação em trânsito foi concebida para impedir que o atacante interceta as transmissões de conseguir ver ou utilizar os dados.
+Este artigo irá ajudá-lo a compreender e utilizar tecnologias de encriptação do Azure para proteger os dados em trânsito. Proteger a privacidade dos dados pessoais como que circula na rede é uma parte essencial de uma estratégia de segurança por várias camadas de defesa em profundidade. Encriptação em trânsito foi concebida para impedir que o atacante interceta as transmissões de conseguir ver ou utilizar os dados. As informações contidas neste artigo podem ser úteis esforços de uma organização para estar em conformidade com Regulamento de proteção de dados gerais (GDPR).
 
 ## <a name="scenario"></a>Cenário
 
@@ -185,7 +183,7 @@ Dados em trânsito são sempre encriptados no [Data Lake Store] (https://docs.mi
 
 A empresa pode realizar o seu objetivo de proteger os dados pessoais e a privacidade desses dados impor as ligações HTTPS ao Storage do Azure, utilizando assinaturas de acesso partilhado e ativar o Secure transferência necessário as contas de armazenamento. Pode também protegem os dados pessoais ao utilizar ligações de SMB 3.0 e implementar a encriptação do lado do cliente. Ligações de VPN de site para site da rede empresarial para a Azure virtual network e ligações de VPN ponto a site a utilizadores individuais, irão criar um túnel seguro através do qual os dados pessoais podem viajam com segurança. Práticas de encriptação de predefinida da Microsoft mais irão proteger a privacidade dos dados pessoais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Melhores práticas de segurança de dados do Azure e encriptação](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices)
 

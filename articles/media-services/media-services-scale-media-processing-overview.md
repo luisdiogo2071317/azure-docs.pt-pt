@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>Descrição geral do suporte de dados de processamento de dimensionamento
 Esta página fornece uma descrição geral de como e o motivo dimensionar o processamento de suporte de dados. 
@@ -44,8 +44,6 @@ A tabela seguinte ajuda-o a tomar a decisão ao escolher entre diferentes veloci
 
 * Unidades reservadas de trabalho para parallelizing todo o processamento de suporte de dados, incluindo a indexação tarefas utilizando o indexador de suporte de dados do Azure.  No entanto, ao contrário da codificação, os trabalhos de indexação não são processados mais depressa com unidades reservadas mais rápidas.
 * Se utilizar o agrupamento partilhado, ou seja, sem quaisquer unidades reservadas, em seguida, as tarefas de codificar têm o mesmo desempenho tal como acontece com S1 RUs. No entanto, não há nenhum limite superior ao momento em que as suas tarefas podem gastam num Estado em fila e, em qualquer momento, no máximo apenas uma tarefa estarão em execução.
-* Os seguintes centros de dados não oferecem o **S2** reservados de um tipo de unidade: sul do Brasil e oeste da Índia.
-* O Centro de dados seguintes não oferecem o **S3** reservados de um tipo de unidade: Índia Ocidental.
 
 ## <a name="billing"></a>Faturação
 

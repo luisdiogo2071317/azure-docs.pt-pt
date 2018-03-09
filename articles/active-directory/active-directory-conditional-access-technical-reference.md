@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -137,8 +137,11 @@ Esta definição funciona com todos os browsers. No entanto, para uma política 
 
 
 > [!NOTE]
-> Para obter suporte do Chrome, tem de utilizar o Windows 10 criadores Update (versão 1703) ou posterior.<br>
-> Pode instalar [esta extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+> Para obter suporte do Chrome no Windows 10 criadores Update (versão 1703) ou posterior, instale [esta extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
+> Para obter suporte do Chrome no Windows 8.1 e 7, crie a seguinte chave de registo no **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
+> Nome: 1<br>
+> Type: REG_SZ (String)<br>
+> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
 
 Estes browsers suportam a autenticação do dispositivo, permitindo ao dispositivo ser identificado e validado com uma política. A verificação de dispositivo falha se o browser está em execução no modo privado. 
 

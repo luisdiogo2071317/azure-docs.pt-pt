@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Função administrativa diferentes no Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -50,7 +50,7 @@ Privileged Identity Management permite-lhe atribuir utilizadores a funções de 
   > 
 * **Administrador de gestão de utilizador** repõe palavras-passe, monitoriza o estado de funcionamento do serviço e gere contas de utilizador, grupos de utilizadores e pedidos de serviço. O administrador de gestão de utilizador não é possível eliminar um administrador global, crie outras funções de administrador ou repor palavras-passe para faturação, globais e administradores de serviço.
 * **Administrador do Exchange** tenha acesso administrativo para o Exchange Online através do Centro de administração do Exchange (CA) e pode realizar quase qualquer tarefa no Exchange Online.
-* **Administrador do SharePoint** tenha acesso administrativo ao SharePoint Online através do Centro de administração do SharePoint Online e pode realizar quase qualquer tarefa no SharePoint Online.
+* **Administrador do SharePoint (pré-visualização)** tenha acesso administrativo ao SharePoint Online através do Centro de administração do SharePoint Online e pode realizar quase qualquer tarefa no SharePoint Online. Esta função está atualmente em pré-visualização. Os utilizadores elegíveis poderão ocorrerem atrasos utilizando esta função no SharePoint após a ativação no PIM.
 * **Skype para o administrador da empresa** tenha acesso administrativo ao Skype para empresas através do Skype para o Centro de administração de negócio e pode realizar quase todas as tarefas no Skype para empresas Online.
 
 Ler estes artigos para obter mais detalhes sobre [atribuir funções de administrador no Azure AD](active-directory-assign-admin-roles-azure-portal.md) e [atribuir funções de administrador no Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
@@ -89,6 +89,6 @@ Acesso a Serviços Online da Microsoft pode exigir que o utilizador também ser 
 8. Clique em de **atribuir** botão.  O utilizador pode agora iniciar sessão no Azure.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

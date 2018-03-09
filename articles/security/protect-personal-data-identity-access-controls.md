@@ -1,6 +1,6 @@
 ---
 title: Proteger os dados pessoais com controlos de identidades e acessos do Azure | Microsoft Docs
-description: Utilizar a identidade do Azure e acesso controla para o ajudar a proteger os seus dados pessoais
+description: "Identidade do Azure e acesso controla ajudar a proteger os dados pessoais e pode ser útil complying com Regulamento de proteção de dados gerais (GDPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e o multi-factor Authentication: proteger os dados pessoais com controlos de identidades e acessos
 
-Este artigo fornece informações e procedimentos que pode utilizar para proteger os dados pessoais utilizar os serviços e funcionalidades de segurança do Azure Active Directory e o multi-factor authentication.
+Este artigo fornece informações e procedimentos que pode utilizar para proteger os dados pessoais utilizar os serviços e funcionalidades de segurança do Azure Active Directory e o multi-factor authentication. As informações contidas neste artigo podem ser útil no seu esforços para estar em conformidade com Regulamento de proteção de dados gerais (GDPR).
 
 ## <a name="scenario"></a>Cenário
 
@@ -178,7 +178,7 @@ Para ativar a MFA do Azure com uma política de acesso condicional, efetue o seg
 
 Para informações sobre como configurar as definições da MFA do Azure para configurar alertas de fraude, crie uma omissão de uso individual, utilizar mensagens de voz personalizadas, configurar a colocação em cache, especifique os IPs fidedignos, criar palavras-passe de aplicação, ativar a memorizar MFA para dispositivos que os utilizadores de confiança, selecione métodos de verificação, consulte [configurar definições de autenticação de multi-factor do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Proteger o acesso privilegiado no Azure AD](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access)
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: juliako;mingfeiy
-ms.openlocfilehash: 515467fefe9b318900ed64979d950b0ab783fd4a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 03/05/2018
+ms.author: juliako
+ms.openlocfilehash: 8fe78d2d8cef1ee5484bcdcd83b00afe8e5b30ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configurar políticas de entrega de elemento com o .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -32,7 +32,6 @@ Este artigo aborda porquê e como criar e configurar políticas de entrega de el
 >Quando a sua conta do AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, que está no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
 >
 >Além disso, para poder utilizar o empacotamento dinâmico e a encriptação dinâmica seu elemento tem de conter um conjunto de MP4s de velocidade de transmissão adaptável ou ficheiros de transmissão em fluxo uniforme de velocidade de transmissão adaptável.
-
 
 Pode aplicar políticas diferentes para o mesmo elemento. Por exemplo, pode aplicar encriptação PlayReady para encriptação de transmissão em fluxo uniforme e AES Envelope para MPEG DASH e HLS. Quaisquer protocolos que não estão definidos numa política de entrega (por exemplo, adicionar uma única política que especifica apenas HLS como o protocolo) serão bloqueados da transmissão em fluxo. A exceção é se não tiver nenhuma política de entrega de elementos definida. Em seguida, todos os protocolos serão permitidos.
 
@@ -54,9 +53,8 @@ MPEG DASH
 
 {de transmissão em fluxo ponto final dos serviços de suporte de dados de nome de conta name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-
 ## <a name="considerations"></a>Considerações
-* Não é possível eliminar um AssetDeliveryPolicy associado um recurso enquanto existe um localizador OnDemand (transmissão em fluxo) para esse recurso. Recomenda-se remover a política do recurso antes de eliminar a política.
+* Antes de eliminar o AssetDeliveryPolicy, deve eliminar todos os localizadores de transmissão em fluxo associados com o elemento. Mais tarde pode criar novos localizadores de transmissão em fluxo, se assim o desejar, com um novo AssetDeliveryPolicy.
 * Um localizador de transmissão em fluxo não é possível criar um recurso encriptados de armazenamento quando não está definida nenhuma política de entrega de elemento.  Se o elemento não está encriptado de armazenamento, o sistema permitirá criar um localizador e transmitir em fluxo o elemento no limpar sem uma política de entrega de elemento.
 * Pode ter várias políticas de entrega de elemento associadas um único recurso mas só é possível especificar uma forma de lidar com uma determinada AssetDeliveryProtocol.  Que significa que o se tentar ligar duas políticas de entrega que especifique o protocolo de AssetDeliveryProtocol.SmoothStreaming resultará num erro porque o sistema não souber que aquela que pretende que se aplicam quando um cliente faz um pedido de transmissão em fluxo uniforme.
 * Se tiver um recurso com um localizador de transmissão em fluxo existente, não é possível ligar uma nova política para o elemento (pode desassociar uma política existente do elemento, ou atualizar uma política de entrega associada com o elemento).  Primeiro tem de remover o localizador de transmissão em fluxo, ajustar as políticas e, em seguida, voltar a criar o localizador de transmissão em fluxo.  Pode utilizar o mesmo locatorId ao recriar o localizador de transmissão em fluxo, mas deve assegurar que não irá causar problemas para os clientes, uma vez que pode ser colocado na cache por origem ou uma CDN a jusante.

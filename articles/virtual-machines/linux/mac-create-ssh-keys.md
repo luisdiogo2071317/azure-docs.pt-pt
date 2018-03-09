@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Como criar e utilizar um par de chaves públicas e privadas SSH para VMs do Linux no Azure
 Com um par de chaves SSH (secure shell), pode criar máquinas virtuais (VMs) no Azure que utilizam chaves SSH para autenticação e eliminar a necessidade de palavras-passe para iniciar sessão. Este artigo mostra-lhe como gerar e utilizar rapidamente um par de ficheiros de chaves públicas e privadas RSA versão 2 do protocolo SSH para VMs do Linux. Pode concluir estes passos com o Azure Cloud Shell, um anfitrião do macOS ou Linux ou um Subsistema do Windows para Linux. Para obter passos mais detalhados e exemplos adicionais, veja [passos detalhados para criar pares e certificados de chaves SSH](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
-Utilize o comando `ssh-keygen` para criar ficheiros de chaves públicas e privadas SSH criadas, por predefinição, no diretório `~/.ssh`, mas pode especificar uma localização diferente e uma frase de acesso adicional (uma palavra-passe para aceder ao ficheiro de chave privada), quando lhe for pedido. Execute o comando seguinte a partir de uma shell Bash e responda aos pedidos com as suas próprias informações.
+Utilize o `ssh-keygen` comando para criar públicos e privados ficheiros de chaves SSH que estão por predefinição criada no `~/.ssh` diretório. Pode especificar uma localização diferente e o frase de acesso adicional (uma palavra-passe para aceder ao ficheiro de chave privado) quando lhe for pedido. Se um par de chaves SSH existe na localização atual, serão substituídos.
 
 ```bash
 ssh-keygen -t rsa -b 2048

@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>A autenticação pass-through do Azure Active Directory: Bloqueio inteligente
 
 ## <a name="overview"></a>Descrição geral
 
-Azure Active Directory (Azure AD) protege contra ataques de palavra-passe de força bruta e impede que os utilizadores genuínos que está a ser bloqueado as aplicações do Office 365 e do SaaS. Esta capacidade, denominada *bloqueio inteligente*, é suportada quando utiliza a autenticação pass-through como método de início de sessão. Bloqueio inteligente está ativado por predefinição para todos os inquilinos e que protege continuamente as contas de utilizador.
+Azure Active Directory (Azure AD) protege contra ataques de palavra-passe de força bruta e impede que os utilizadores genuínos que está a ser bloqueado as aplicações do Office 365 e do SaaS. Esta capacidade, denominada *bloqueio inteligente*, é suportada quando utiliza a autenticação pass-through como método de início de sessão. Bloqueio inteligente está ativado por predefinição para todos os inquilinos, não apenas inquilinos através da autenticação pass-through, e que protege continuamente as contas de utilizador.
 
 Bloqueio inteligente mantém um registo dos tentativas de início de sessão falhadas. Depois de uma determinada *limiar de bloqueio*, este inicia um *duração do bloqueio*. Bloqueio inteligente rejeita todas as tentativas para iniciar sessão a partir do atacante durante o período de bloqueio. Se o ataque continua, subsequente falhada início de sessão tenta após a duração do bloqueio termina resultado no tempo durações de bloqueio.
 

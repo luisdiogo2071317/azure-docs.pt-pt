@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/01/2018
+ms.date: 03/05/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 34b38ff02d401e87be10f1f72cb2025b66317c9e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8614fa7a52c91419c66782f7434692228e6b18d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 GPU com otimização de VM são especializadas máquinas de virtuais disponíveis com único ou vários GPUs NVIDIA. Estes tamanhos foram concebidos para cargas de trabalho de computação intensiva, intensivas de gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
@@ -95,14 +95,16 @@ As máquinas virtuais de série ND são uma nova adição para a família GPU co
 
 ## <a name="nv-series"></a>Série NV
 
-A série NV é utiliza a tecnologia de [NVIDIA Tesla M60 ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs e NVIDIA grelha a tecnologia de ambiente de trabalho acelerados aplicações e ambientes de trabalho virtuais onde os clientes são capazes de visualizar os seus dados ou simulações. Os utilizadores têm capacidade para visualizar os seus fluxos de trabalho intensivas de gráficos nas instâncias do NV para obter a capacidade de gráficos superior e adicionalmente executar única precisão cargas de trabalho, tais como a codificação e composição. 
+As máquinas virtuais de série NV são utiliza a tecnologia de [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs e NVIDIA grelha a tecnologia de ambiente de trabalho acelerados aplicações e ambientes de trabalho virtuais onde os clientes são capazes de visualizar os seus dados ou simulações. Os utilizadores têm capacidade para visualizar os seus fluxos de trabalho intensivas de gráficos nas instâncias do NV para obter a capacidade de gráficos superior e adicionalmente executar única precisão cargas de trabalho, tais como a codificação e composição. 
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Discos de dados máximos | NICs máximos |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 |
+Cada GPU em instâncias de NV vem com uma licença de grelha. Esta licença dá-lhe a flexibilidade para utilizar uma instância de NV como uma estação de trabalho virtual para um único utilizador ou de 25 utilizadores simultâneos podem ligar para a VM para um cenário de aplicação virtual.
+
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Discos de dados máximos | NICs máximos | Estações de trabalho virtuais | Aplicações virtuais | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
 1 GPU = metade de uma placa M60.
 
-
+ 

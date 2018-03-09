@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory totalmente integrada Single Sign-On
 
@@ -51,6 +51,8 @@ SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash d
 - Início de sessão de nome de utilizador pode ser ambos o nome de utilizador de predefinição de no local (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`). Utilizam ambos trabalho casos porque utiliza o SSO totalmente integrado a `securityIdentifier` afirmação na permissão Kerberos para procurar o objeto de utilizador correspondente no Azure AD.
 - SSO totalmente integrada é uma funcionalidade oportunistas medida planeada. Se falhar por alguma razão, a experiência de início de sessão do utilizador fica novamente para o respetivo comportamento normal - revertidos, o utilizador tem de introduzir a palavra-passe na página de início de sessão.
 - Se uma aplicação reencaminha uma `domain_hint` (OpenID Connect) ou `whr` parâmetro (SAML) - identificar o seu inquilino, ou `login_hint` parâmetro - identificar o utilizador, no seu Azure AD início de sessão pedido, os utilizadores automaticamente iniciados sem-las introduzir os nomes de utilizador ou palavras-passe.
+- Terminar é suportada. Isto permite aos utilizadores escolher outra conta do Azure AD para iniciar sessão, em vez de a ser iniciada automaticamente sessão através de SSO totalmente integrado automaticamente.
+- Os clientes do Office 365 (16.0.8730.xxxx e acima) são suportados através de um fluxo não interativo.
 - Pode ser ativado através do Azure AD Connect.
 - É uma funcionalidade livre e não precisa de quaisquer edições pagas do Azure AD para utilizá-lo.
 - É suportada em clientes de baseada no browser da web e os clientes do Office que suportam [autenticação moderna](https://aka.ms/modernauthga) em plataformas e browsers com capacidade de autenticação Kerberos:

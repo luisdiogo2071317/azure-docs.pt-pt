@@ -6,30 +6,30 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reproteção efetuada a ativação pós-falha de VMs do Azure para a região primária
 
 
 >[!NOTE]
 >
-> Replicação de recuperação de site para as VMs do Azure está atualmente em pré-visualização.
+> A replicação do Site Recovery para VMs do Azure está atualmente em pré-visualização.
 
 
 
 Quando lhe [efetuar a ativação pós-falha](site-recovery-failover.md) VMs do Azure de uma região para a utilização de outro [do Azure Site Recovery](site-recovery-overview.md), o arranque de VMs de cópia de segurança na região secundária, num Estado não protegido. Se falhar novamente as VMs para a região primária, terá de fazer o seguinte:
 
-- Proteja as VMs na região secundária, para que possam iniciar a replicação para a região primária. 
+- Proteja as VMs na região secundária, de modo a que são iniciados replicar a região primária. 
 - Depois de concluir só e estiver a replicar as VMs, pode efetuá-los através da secundário, a região primária.
 
 > [!WARNING]
-> Se já [migrados](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) máquinas a partir de principal para a região secundária, mover a VM para outro grupo de recursos ou eliminado a VM do Azure, não é possível voltar a proteger a VM ou efetuar a pós-falha.
+> Se já [migrados](migrate-overview.md#what-do-we-mean-by-migration) máquinas a partir de principal para a região secundária, mover a VM para outro grupo de recursos ou eliminado a VM do Azure, não é possível voltar a proteger a VM ou efetuar a pós-falha.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

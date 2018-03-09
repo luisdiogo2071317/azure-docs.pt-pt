@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: unknown
-ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.reviewer: 
+ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>As principais funcionalidades e conceitos na pilha do Azure
 
@@ -91,6 +91,7 @@ Subscrições ajudam fornecedores organizar e aceder aos serviços e recursos de
 
 Para o administrador, uma subscrição do fornecedor predefinido é criada durante a implementação. Esta subscrição pode ser utilizada para gerir a pilha do Azure, implementar mais fornecedores de recursos e criar planos e as ofertas para os inquilinos. Não deve ser utilizada para executar aplicações e cargas de trabalho do cliente. 
 
+
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Ao utilizar o Azure Resource Manager, pode trabalhar com os recursos de infraestrutura de um modelo declarativo, com base no modelo.   Fornece uma única interface que pode utilizar para implementar e gerir os componentes da solução. Para informações completas e orientações, consulte o [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -127,6 +128,25 @@ O armazenamento de Filas do Azure fornece um serviço de mensagens na nuvem entr
 
 ### <a name="keyvault"></a>KeyVault
 O KeyVault RP fornece gestão e auditoria de segredos, tais como palavras-passe e certificados. Por exemplo, um inquilino pode utilizar o RP KeyVault para fornecer palavras-passe de administrador ou de chaves durante a implementação de VM.
+
+## <a name="high-availability-for-azure-stack"></a>Elevada disponibilidade para a pilha do Azure
+*Aplica-se a: Azure pilha 1802 ou versões superiores*
+
+Para alcançar a elevada disponibilidade de um sistemas de produção de várias VMS no Azure, VMs são colocadas num conjunto de disponibilidade que se propaga-las em vários domínios de falhas e domínios de atualização. Desta forma, [VMs implementadas em conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) estão fisicamente isoladas umas das outras num servidor separado bastidores para permitir para resiliência de falha, conforme mostrado no diagrama seguinte:
+
+  ![Disponibilidade elevada de pilha do Azure](media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Define a disponibilidade a na pilha do Azure
+Enquanto a infraestrutura da pilha de Azure já está sejam resiliente a falhas, a tecnologia subjacente (clustering de ativação pós-falha) ainda incorreu algum período de indisponibilidade para as VMs num servidor físico afetado se ocorrer uma falha de hardware. Pilha do Azure suporta ter um conjunto de disponibilidade com um máximo de três domínios de falhas para estar consistente com o Azure.
+
+- **Domínios de falha**. VMs colocadas num conjunto de disponibilidade será fisicamente isoladas umas das outras por propagando-se-los uniformemente quanto possível através de vários domínios de falhas (nós de pilha do Azure). Em caso de falha de hardware, as VMs do domínio de falhas com falhas irão ser reiniciadas noutros domínios de falhas, mas, se possível, mantidas em domínios de falhas separado de outras VMs no mesmo conjunto de disponibilidade. Quando o hardware volta a ficar online, irão ser reequilibradas VMs para manter a elevada disponibilidade. 
+ 
+- **Domínios de atualização**. Domínios de atualização são outro conceito do Azure que fornece elevada disponibilidade em conjuntos de disponibilidade. Um domínio de atualização é um grupo lógico de hardware subjacente, que pode são submetidos a manutenção em simultâneo. VMs localizadas no mesmo domínio de atualização serão reiniciadas em conjunto, durante a manutenção planeada. Como os inquilinos criar VMs dentro de um conjunto de disponibilidade, a plataforma do Azure automaticamente distribui VMs estes domínios de atualização. Pilha do Azure, as VMs estão em direto migrada através de outros anfitriões online no cluster antes do anfitrião subjacente é atualizado. Uma vez que não existe nenhum período de indisponibilidade do inquilino durante uma atualização do anfitrião, a funcionalidade do domínio de atualização na pilha do Azure existe apenas para compatibilidade de modelo com o Azure. 
+
+### <a name="upgrade-scenarios"></a>Cenários de atualização 
+As VMs em conjuntos de disponibilidade criados antes da versão de pilha do Azure 1802 recebem um número predefinido de domínios de falhas e de atualização (1 e 1, respetivamente). Para alcançar a elevada disponibilidade da para VMs nestes conjuntos de disponibilidade já existente, tem primeiro de eliminar as VMs existentes e, em seguida, volte a implementá-los para uma novo conjunto de disponibilidade com o número de domínio de falhas e de atualização correto, tal como descrito no [alteração o conjunto de disponibilidade para uma VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+Para conjuntos de dimensionamento VM, um conjunto de disponibilidade é criado internamente com um índice de falhas domínio e a atualização de domínio contagem predefinida (3 e 5 respetivamente). Qualquer VM Dimensionar conjuntos criados antes da atualização 1802 será colocada num conjunto de disponibilidade com o número de domínio de falhas e de atualização predefinido (1 e 1, respetivamente). Para atualizar estas instâncias de conjunto de dimensionamento VM para alcançar a propagação mais recente, ampliar os conjuntos de dimensionamento VM por número de instâncias que estavam presentes antes da atualização da 1802 e, em seguida, elimine as instâncias mais antigas dos conjuntos de dimensionamento de VM. 
 
 ## <a name="role-based-access-control-rbac"></a>Controlo de acesso (RBAC) baseado em funções
 Pode utilizar o RBAC para conceder acesso de sistema para que os utilizadores autorizados, grupos e serviços ao atribuir-lhes funções uma subscrição, o grupo de recursos ou o nível de recursos individuais. Cada função define o nível de acesso que um utilizador, grupo ou serviço tem sobre recursos de pilha do Microsoft Azure.

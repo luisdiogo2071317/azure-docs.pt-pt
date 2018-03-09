@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: entender a configuração predefinida
 Este artigo explica as regras de configuração de out-of-box. -Documentos as regras e como estas regras afetam a configuração. É também explica a configuração predefinida de sincronização do Azure AD Connect. O objetivo é que o leitor compreende a forma como o modelo de configuração com o nome de aprovisionamento declarativo, está a funcionar num exemplo do mundo real. Este artigo pressupõe que já tenha instalado e configurar a sincronização do Azure AD Connect utilizando o Assistente de instalação.
@@ -50,7 +50,7 @@ Os seguintes objetos de utilizador são **não** sincronizados para o Azure AD:
 * Não sincronize objetos que não funcionarão no Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Esta máscara de bits (& H21C07000) seriam filtrar os seguintes objetos:
-  * Pasta pública com capacidade de correio
+  * Pasta pública com capacidade de correio (na pré-visualização a partir da versão 1.1.524.0)
   * Caixa de correio Attendant do sistema
   * Caixa de correio de base de dados caixa de correio (caixa de correio do sistema)
   * Grupo de segurança universal (não se aplicam para um utilizador, mas encontra-se por motivos de legado)

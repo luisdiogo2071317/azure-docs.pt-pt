@@ -3,8 +3,8 @@ title: "Antes de implementar o serviço de aplicações na pilha do Azure | Micr
 description: "Passos para concluir antes de implementar o serviço de aplicações na pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: brenduns
-manager: femila
+author: apwestgarth
+manager: stefsch
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/02/2018
+ms.author: anwestg
+ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações na pilha do Azure
+
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 Antes de implementar o serviço de aplicações do Azure na pilha do Azure, tem de concluir os pré-requisitos neste artigo.
@@ -44,10 +44,18 @@ Antes de implementar o serviço de aplicações do Azure na pilha do Azure, tem 
 
 Atualmente não é possível ao App Service do Azure na pilha do Azure oferecem elevada disponibilidade porque a pilha do Azure implementa cargas de trabalho num único domínio de falhas.
 
-Para preparar o serviço de aplicações do Azure na pilha do Azure para elevada disponibilidade, implemente o servidor de ficheiros necessários e a instância do SQL Server numa configuração altamente disponível. Quando a pilha do Azure suporta vários domínios de falhas, iremos fornecem orientações sobre como ativar o serviço de aplicações do Azure na pilha do Azure numa configuração altamente disponível.
-
+Para preparar o serviço de aplicações do Azure na pilha do Azure para elevada disponibilidade, implemente o servidor de ficheiros necessários e a instância do SQL Server numa configuração altamente disponível. Quando a pilha do Azure suporta vários domínios de falhas, será fornecida orientação sobre como ativar o serviço de aplicações do Azure na pilha do Azure numa configuração altamente disponível.
 
 ## <a name="get-certificates"></a>Obter certificados
+
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificado de raiz do Gestor de recursos do Azure para a pilha do Azure
+
+Numa sessão do PowerShell em execução como azurestack\CloudAdmin numa máquina que pode alcançar o ponto final com privilégios no anfitrião de Kit de desenvolvimento de pilha do Azure ou sistema integrada de pilha do Azure, execute o script Get-AzureStackRootCert.ps1 da pasta onde extraiu os scripts de programa auxiliar. O script criar um certificado de raiz na mesma pasta que o script que necessita de serviço de aplicações para a criação de certificados.
+
+| Get-AzureStackRootCert.ps1 parameter | Obrigatório ou opcional | Valor predefinido | Descrição |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | Necessário | AzS-ERCS01 | Ponto final com privilégios |
+| CloudAdminCredential | Necessário | AzureStack\CloudAdmin | Credencial da conta de domínio para os administradores de nuvem de pilha do Azure |
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certificados necessários para o Kit de desenvolvimento de pilha do Azure
 
@@ -56,9 +64,9 @@ O script primeiro funciona com a autoridade de certificação de pilha do Azure 
 | Nome de ficheiro | Utilizar |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Certificado SSL do serviço de aplicações predefinido |
-| Api.appservice.local.azurestack.external.pfx | Certificado de SSL de API do serviço de aplicações |
+| api.appservice.local.azurestack.external.pfx | Certificado de SSL de API do serviço de aplicações |
 | ftp.appservice.local.azurestack.external.pfx | Certificado SSL de publicador do serviço de aplicações |
-| Sso.appservice.local.azurestack.external.pfx | Certificado de aplicação de identidade de serviço de aplicações |
+| sso.appservice.local.azurestack.external.pfx | Certificado de aplicação de identidade de serviço de aplicações |
 
 Executar o script no anfitrião do Kit de desenvolvimento de pilha do Azure e certifique-se de que está a executar o PowerShell como azurestack\CloudAdmin:
 
@@ -74,18 +82,19 @@ Executar o script no anfitrião do Kit de desenvolvimento de pilha do Azure e ce
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certificados necessários para uma implementação de produção do serviço de aplicações do Azure na pilha do Azure
 
-Operar o fornecedor de recursos na produção, tem de fornecer os seguintes quatro certificados.
+Operar o fornecedor de recursos na produção, tem de fornecer os seguintes quatro certificados:
 
 #### <a name="default-domain-certificate"></a>Certificado de domínio predefinido
 
 O certificado de domínio predefinido é colocado na função de Front-End. As aplicações de utilizador para pedidos de domínio de caráter universal ou predefinição App Service do Azure utilizam este certificado. O certificado também é utilizado para operações de controlo de origem (Kudu).
 
-O certificado tem de estar no formato. pfx e deve ser um certificado de caráter universal de dois requerente. Isto permite que um certificado para o domínio predefinido e o ponto final SCM para operações de controlo de origem.
+O certificado tem de estar no formato. pfx e deve ser um certificado de caráter universal de três requerente. Isto permite que um certificado para o domínio predefinido e o ponto final SCM para operações de controlo de origem.
 
 | Formato | Exemplo |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>Certificado da API
 
@@ -101,11 +110,12 @@ O certificado para a função de editor protege o tráfego FTPS para os propriet
 
 | Formato | Exemplo |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Certificado de identidade
 
 Permite que o certificado para a aplicação de identidade:
+
 - Integração entre o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) diretório, pilha do Azure e do serviço de aplicações para suportar a integração com o fornecedor de recursos de computação.
 - Único início de sessão cenários para ferramentas de programador avançadas no serviço de aplicações do Azure na pilha do Azure.
 
@@ -115,15 +125,15 @@ O certificado para a identidade tem de conter um assunto que corresponde ao form
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificado de raiz do Gestor de recursos do Azure para a pilha do Azure
+## <a name="virtual-network"></a>Rede Virtual
 
-Numa sessão do PowerShell em execução como azurestack\CloudAdmin, execute o script Get-AzureStackRootCert.ps1 da pasta onde extraiu os scripts de programa auxiliar. O script cria quatro certificados na mesma pasta que o script que necessita de serviço de aplicações para a criação de certificados.
+App Service do Azure na pilha do Azure permite-lhe implementar o fornecedor de recursos numa rede Virtual existente.  Isto permite a utilização de IPs interno para estabelecer ligação com o servidor de ficheiros e SQL server necessários para o serviço de aplicações do Azure na pilha do Azure.  A rede Virtual deve ser configurada com o intervalo de endereços e sub-redes seguintes antes de instalar o App Service do Azure na pilha do Azure:
 
-| Get-AzureStackRootCert.ps1 parameter | Obrigatório ou opcional | Valor predefinido | Descrição |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | Necessário | AzS-ERCS01 | Ponto final com privilégios |
-| CloudAdminCredential | Necessário | AzureStack\CloudAdmin | Credencial da conta de domínio para os administradores de nuvem de pilha do Azure |
+Rede virtual - /16
 
+Sub-redes
+
+ControllersSubnet /24 ManagementServersSubnet /24 FrontEndsSubnet /24 PublishersSubnet /24 WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Preparar o servidor de ficheiros
 
@@ -131,8 +141,11 @@ App Service do Azure requer a utilização de um servidor de ficheiros. Para imp
 
 Para apenas para implementações Kit de desenvolvimento de pilha do Azure, pode utilizar o [modelo de implementação Azure Resource Manager exemplo](https://aka.ms/appsvconmasdkfstemplate) para implementar um servidor de ficheiros de nó único configurado. O servidor de ficheiros de nó único será num grupo de trabalho.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Aprovisionar grupos e contas no Active Directory
+>[!IMPORTANT]
+> Se optar por implementar o serviço de aplicações numa rede Virtual existente, o servidor de ficheiros devem ser implementado para uma sub-rede separada do serviço de aplicações.
+>
 
+### <a name="provision-groups-and-accounts-in-active-directory"></a>Aprovisionar grupos e contas no Active Directory
 
 1. Crie os seguintes grupos de segurança global do Active Directory:
    - FileShareOwners
@@ -216,6 +229,7 @@ net localgroup Administrators FileShareOwners /add
 Execute os seguintes comandos numa linha de comandos elevada no servidor de ficheiros ou o nó de cluster de ativação pós-falha, o que é o proprietário atual do recurso de cluster. Substitua os valores na italics com valores que são específicos para o seu ambiente.
 
 #### <a name="active-directory"></a>Active Directory
+
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
@@ -228,6 +242,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Grupo de trabalho
+
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
@@ -250,15 +265,21 @@ Instância do SQL Server para o Azure App Service na pilha do Azure tem de ser a
 
 Para qualquer uma das funções do SQL Server, pode utilizar uma instância predefinida ou numa instância nomeada. Se utilizar uma instância nomeada, não se esqueça de iniciar o serviço do SQL Server Browser e abrir a porta 1434 manualmente.
 
+>[!IMPORTANT]
+> Se optar por implementar o serviço de aplicações numa rede Virtual existente do SQL Server devem ser implementado para uma sub-rede separada do serviço de aplicações e o servidor de ficheiros.
+>
+
 ## <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação do Azure Active Directory
 
 Configure um principal de serviço do Azure AD para suportar o seguinte:
-- Integração do conjunto de dimensionamento de máquina virtual em camadas de trabalho
-- SSO para as ferramentas de Programador de portal e avançadas das funções do Azure
+
+- Conjunto de dimensionamento de máquina virtual integração em camadas de trabalho.
+- SSO para as ferramentas de Programador de portal e avançadas das funções do Azure.
 
 Estes passos aplicam-se apenas a ambientes de pilha de Azure protegida por AD do Azure.
 
 Os administradores tem de configurar o SSO para:
+
 - Ative as ferramentas de programador avançadas no serviço de aplicações (Kudu).
 - Ative a utilização da experiência de portal das funções do Azure.
 
@@ -276,7 +297,8 @@ Siga estes passos.
 10. Selecione **registos de aplicação**.
 11. Procure o ID da aplicação devolvido como parte do passo 7. Uma aplicação de serviço de aplicações está listada.
 12. Selecione **aplicação** na lista.
-13. Selecione **as permissões necessárias** > **conceder permissões** > **Sim**.
+13. Clique em **definições**.
+14. Selecione **as permissões necessárias** > **conceder permissões** > **Sim**.
 
 | Create-AADIdentityApp.ps1  parameter | Obrigatório ou opcional | Valor predefinido | Descrição |
 | --- | --- | --- | --- |
@@ -290,10 +312,12 @@ Siga estes passos.
 ## <a name="create-an-active-directory-federation-services-application"></a>Criar uma aplicação de serviços de Federação do Active Directory
 
 Para ambientes de pilha do Azure protegidos pelo AD FS, tem de configurar um principal de serviço do AD FS para suportar o seguinte:
-- Integração do conjunto de dimensionamento de máquina virtual em camadas de trabalho
-- SSO para as ferramentas de Programador de portal e avançadas das funções do Azure
+
+- Conjunto de dimensionamento de máquina virtual integração em camadas de trabalho.
+- SSO para as ferramentas de Programador de portal e avançadas das funções do Azure.
 
 Os administradores tem de configurar o SSO para:
+
 - Configure um principal de serviço para a integração de conjunto de dimensionamento de máquina virtual em camadas de trabalho.
 - Ative as ferramentas de programador avançadas no serviço de aplicações (Kudu).
 - Ative a utilização da experiência de portal das funções do Azure.
@@ -303,9 +327,9 @@ Siga estes passos.
 1. Abra uma instância do PowerShell como azurestack\AzureStackAdmin.
 2. Vá para a localização dos scripts que transferiu e extraiu no [passo pré-requisitos](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Instale o PowerShell para a pilha do Azure](azure-stack-powershell-install.md).
-4.  Execute o **criar ADFSIdentityApp.ps1** script.
-5.  No **credencial** janela, introduza a sua conta de administrador de nuvem do AD FS e a palavra-passe. Selecione **OK**.
-6.  Forneça o caminho do ficheiro de certificado e a palavra-passe de certificado para o [certificado que criou anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado que criou para este passo por predefinição é **sso.appservice.local.azurestack.external.pfx**.
+4. Execute o **criar ADFSIdentityApp.ps1** script.
+5. No **credencial** janela, introduza a sua conta de administrador de nuvem do AD FS e a palavra-passe. Selecione **OK**.
+6. Forneça o caminho do ficheiro de certificado e a palavra-passe de certificado para o [certificado que criou anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado que criou para este passo por predefinição é **sso.appservice.local.azurestack.external.pfx**.
 
 | Create-ADFSIdentityApp.ps1  parameter | Obrigatório ou opcional | Valor predefinido | Descrição |
 | --- | --- | --- | --- |
@@ -314,7 +338,6 @@ Siga estes passos.
 | CloudAdminCredential | Necessário | Valor nulo | Credenciais de conta de domínio para os administradores de nuvem de pilha do Azure. Um exemplo é Azurestack\CloudAdmin. |
 | CertificateFilePath | Necessário | Valor nulo | Caminho do ficheiro PFX de certificado a aplicação de identidade. |
 | CertificatePassword | Necessário | Valor nulo | Palavra-passe que o ajuda a proteger a chave privada do certificado. |
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

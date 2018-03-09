@@ -2,17 +2,17 @@
 title: "Como procurar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização) | Microsoft Docs"
 description: "Saiba como procurar um endereço utilizando os serviços de com base da localização do Azure (pré-visualização) serviço de pesquisa"
 services: location-based-services
-keywords: "Não adicionar ou editar as palavras-chave sem consultadoria seu perito de SEO."
-author: philmea
-ms.author: philmea
+keywords: "Não adicione nem edite as palavras-chave sem consultar o perito em SEO."
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como localizar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização)
 O serviço de pesquisa é um conjunto de APIs concebidos para programadores procurar endereços, de locais, de pontos de interesse, listagens de empresas e outras informações geográficas RESTful. O serviço de pesquisa atribui um latitude/longitude para um endereço específico, Rua cruzada, funcionalidade geográfica ou ponto de interesse (POI). Os valores de latitude e longitude devolvidos pelas APIs do serviço de pesquisa podem ser utilizados como parâmetros outros do Azure com base os serviços de localização, tais como a rota e APIs de fluxo de tráfego.
@@ -40,7 +40,7 @@ A maioria das consultas de pesquisa predefinido para ' maxFuzzyLevel = 1' para o
 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorização | Sem autenticação |
 
@@ -92,7 +92,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://atlas.microsoft.com/search/address/json? |
     | Autorização | Sem autenticação |
 
@@ -132,7 +132,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://atlas.microsoft.com/search/address/reverse/json? |
     | Autorização | Sem autenticação |
     
@@ -200,7 +200,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Autorização | Sem autenticação |
     

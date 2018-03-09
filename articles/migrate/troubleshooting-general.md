@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -126,5 +126,23 @@ Para recolher o rastreio de eventos para o Windows, efetue o seguinte:
 7. Feche as ferramentas de programador.
  
 
+## <a name="vcenter-errors"></a>vCenter erros
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro interno de UnhandledException erro: System.IO.FileNotFoundException
+
+Este é um problema visto no Recoletor com versões inferiores à 1.0.9.5. Se tiver uma versão de Recoletor 1.0.9.2 ou versões de pré-GA como 1.0.8.59, irá sentir alguns este problema. Siga o [ligação fornecido aqui para os fóruns para uma resposta de detalhado](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Atualizar o Recoletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
+
+Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: não ocorreu nenhum ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
+
+Isto acontece quando o Recoletor não é possível resolver o nome do servidor vCenter especificado ou a porta speficified máquina está errado. Por predefinição, se a porta não for especificada, Recoletor irá tentar estabelecer ligação com o número da porta 443.
+
+1. Tente enviar um ping Servername.com da máquina do Recoletor.
+2. Se falhar o passo 1, tente estabelecer ligação com o servidor vCenter ao longo do endereço IP.
+3. Identifica o número de porta correta para ligar ao vCenter.
+4. Por fim, verifique se o servidor vCenter está a funcionar.
+ 
 

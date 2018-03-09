@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b1dbe96b9f522474cd2eeb2b63f3429f9ea4d8ed
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3c040f677aa25656148081d533e87cc55f1e22e7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Criar uma rede virtual com o portal do Azure
 
@@ -34,15 +34,13 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Selecione **+ novo** no canto superior esquerdo do portal do Azure.
-
+1. Selecione **+ criar um recurso** no canto superior, esquerda canto do portal do Azure.
 2. Selecione **redes**e, em seguida, selecione **rede Virtual**.
-
 3. Como é mostrado na imagem seguinte, introduza *myVirtualNetwork* para **nome**, *myResourceGroup* para **grupo de recursos**, selecione um  **Localização** e os seus **subscrição**, aceite as restantes predefinições e, em seguida, selecione **criar**. 
 
     ![Introduza as informações básicas sobre a sua rede virtual](./media/quick-create-portal/virtual-network.png)
 
-    O **espaço de endereços** é especificada em notação CIDR. Uma rede virtual contém zero ou mais sub-redes. A sub-rede de predefinição **intervalo de endereços** de 10.0.0.0/24 utiliza o intervalo de endereços completo da rede virtual, pelo que não é possível criar outra sub-rede dentro da rede virtual com o espaço de endereços da predefinição e o intervalo. O intervalo de endereços especificado inclui 10.0.0.0-10.0.0.254 de endereços IP. 10.0.0.4-10.0.0.254 só estão disponíveis no entanto, porque o Azure reserva-se os endereços de quatro primeiras (0-3) e o último endereço em cada sub-rede. Os endereços IP disponíveis são atribuídos aos recursos implementados dentro de uma rede virtual.
+    O **espaço de endereços** é especificada em notação CIDR. O endereço espaço 10.0.0.0/16 abrange 10.0.0.0-10.0.255.254. Uma rede virtual contém zero ou mais sub-redes. A sub-rede especificada **intervalo de endereços** inclui 10.0.0.0-10.0.0.255 de endereços IP. 10.0.0.4-10.0.0.254 só estão disponíveis no entanto, porque o Azure reserva-se os endereços de quatro primeiras (0-3) e o último endereço em cada sub-rede. Os endereços IP disponíveis são atribuídos aos recursos implementados dentro de uma rede virtual.
 
 ## <a name="test-network-communication"></a>Comunicação de rede de teste
 
@@ -50,24 +48,18 @@ Uma rede virtual permite que vários tipos de recursos do Azure em privado comun
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-1. Selecione o botão **Novo**, no canto superior esquerdo do portal do Azure.
-
+1. Selecione **+ criar um recurso** encontrado no canto superior, à esquerda do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
-
 3. Introduza as informações da máquina virtual mostradas na imagem que se segue. O **nome de utilizador** e **palavra-passe** introduzir são utilizadas para iniciar sessão máquina virtual num passo posterior. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Selecione o **subscrição**, optar por utilizar o existente *myResourceGroup* recursos de grupo e certifique-se de que o **localização** selecionada é a mesma localização que criou o rede virtual no. Quando terminar, selecione **OK**.
 
     ![Introduza as informações básicas sobre uma máquina virtual](./media/quick-create-portal/virtual-machine-basics.png)
-
 4. Selecione um tamanho da máquina virtual e, em seguida, selecione **selecione**. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Os tamanhos que são apresentados para podem ser diferentes do exemplo seguinte: 
 
     ![Selecione um tamanho de uma máquina virtual](./media/quick-create-portal/virtual-machine-size.png)
-
 5. Em **definições**, *myVirtualNetwork* já deve estar selecionada para **rede Virtual**, mas se não for, selecione **rede Virtual** , em seguida, selecione *myVirtualNetwork*. Deixe *predefinido* selecionado para **sub-rede**e, em seguida, selecione **OK**.
 
     ![Selecione uma rede virtual](./media/quick-create-portal/virtual-machine-network-settings.png)
-
 6. No **resumo** página, selecione **criar** para iniciar a implementação da máquina virtual. 
-
 7. A máquina virtual demora alguns minutos a criar. Após a criação, a máquina virtual está afixada ao dashboard do portal do Azure e o resumo de máquina virtual abre automaticamente. Selecione **redes**.
 
     ![Informações de rede de máquina virtual](./media/quick-create-portal/virtual-machine-networking.png)
@@ -75,9 +67,7 @@ Uma rede virtual permite que vários tipos de recursos do Azure em privado comun
     Verá que o **IP privado** endereço é *10.0.0.4*. No passo 5, em **definições**, selecionando o *myVirtualNetwork* rede virtual e aceite a sub-rede com o nome *predefinido* para **sub-rede**. Quando lhe [criada a rede virtual](#create-a-virtual-network), aceite o valor predefinido de 10.0.0.0/24 para a sub-rede **intervalo de endereços**. Servidor DHCP do Azure atribui o primeiro endereço disponível para a sub-rede que selecionar para a máquina virtual. Uma vez que o Azure reserva de quatro primeiras endereços (0-3) de cada sub-rede, 10.0.0.4 é o primeiro endereço IP disponível disponível para a sub-rede.
 
     O **IP público** endereço atribuído é diferente do endereço atribuído à máquina virtual. Azure atribui um endereço público, para o Internet encaminhável IP para cada máquina virtual, por predefinição. O endereço IP público é atribuído à máquina virtual de um [conjunto de endereços atribuídos a cada região do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Enquanto o Azure sabe qual o endereço IP público é atribuído a uma máquina virtual, o sistema operativo executado numa máquina virtual tem não conhecimento de qualquer endereço IP público atribuído.
-
 8. Concluir os passos 1 a 7 novamente, mas no passo 3, nome da máquina virtual *myVm2*. 
-
 9. Depois da máquina virtual é criada, selecione **redes**, uma vez que lhe no passo 7. Pode ver o **IP privado** endereço é *10.0.0.5*. Uma vez que o Azure anteriormente atribuído o primeiro endereço utilizável de *10.0.0.4* da sub-rede para o *myVm1* máquina virtual, que lhe atribuída *10.0.0.5* para o  *myVm2* máquina virtual, porque foi o seguinte endereço disponível na sub-rede.
 
 ### <a name="connect-to-a-virtual-machine"></a>Ligar a uma máquina virtual
@@ -85,9 +75,7 @@ Uma rede virtual permite que vários tipos de recursos do Azure em privado comun
 1. Ligar de forma remota a *myVm1* máquina virtual. Na parte superior do portal do Azure, introduza *myVm1*. Quando **myVm1** aparece nos resultados da pesquisa, selecionados-lo. Selecione o **Connect** botão.
 
     ![Descrição geral de máquina virtual](./media/quick-create-portal/virtual-machine-overview.png)
-
 2. Depois de selecionar o **Connect** botão, um ficheiro de protocolo de ambiente de trabalho remoto (RDP) é criado e será transferido para o seu computador.  
-
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Connect**. Introduza o nome de utilizador e palavra-passe que especificou ao criar a máquina virtual e, em seguida, selecione **OK**. Poderá receber um aviso de certificado durante o processo de início de sessão. Selecione **Sim** ou **continuar** para continuar com a ligação.
 
 ### <a name="validate-communication"></a>Validar a comunicação
@@ -122,11 +110,15 @@ Sair da sessão de ambiente de trabalho remota.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não é necessário, elimine o grupo de recursos e todos os respetivos conteúdos. Na parte superior do portal do Azure, introduza *myResourceGroup*. Quando **myResourceGroup** aparece nos resultados da pesquisa, selecionados-lo. Selecione **Eliminar**.
+Quando já não é necessário, elimine o grupo de recursos e todos os recursos que contém:
+
+1. Introduza *myResourceGroup* no **pesquisa** caixa na parte superior do portal. Quando vir **myResourceGroup** nos resultados da pesquisa, selecione-o.
+2. Selecione **Eliminar grupo de recursos**.
+3. Introduza *myResourceGroup* para **tipo o nome de grupo de recursos:** e selecione **eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, implementou uma predefinição a rede virtual com uma sub-rede. Para saber como criar uma rede virtual personalizada com várias sub-redes, avance para o tutorial para criar uma rede virtual personalizada.
 
 > [!div class="nextstepaction"]
-> [Criar uma rede virtual personalizada](virtual-networks-create-vnet-arm-pportal.md#portal)
+> [Criar uma rede virtual personalizada](virtual-networks-create-vnet-arm-pportal.md)

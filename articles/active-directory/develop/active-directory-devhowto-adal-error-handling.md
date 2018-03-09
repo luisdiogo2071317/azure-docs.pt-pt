@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 02/27/2017
 ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 082953eb860197d2188851f6c8be260797d6ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Erro ao processar as melhores práticas para os clientes do Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Não há um conjunto de erros gerados pelo sistema operativo, que podem necessit
 
 Fundamentalmente, existem dois cenários de AcquireTokenSilent erros:
 
-| Maiúsculas/Minúsculas | Descrição |
+| Caso | Descrição |
 |------|-------------|
 | **Caso 1**: erro é resolvível com um interativa início de sessão | Para erros causados por uma falta de tokens válidos, é necessário um pedido de interativo. Especificamente, a pesquisa de cache e um token de atualização inválido/expirado necessitam de uma chamada de AcquireToken para resolver.<br><br>Nestes casos, o utilizador final tem de ser-lhe pedido que inicie sessão. A aplicação pode optar por fazer um pedido de interativo imediatamente, após a interação do utilizador final (tais como a atingir um botão de início de sessão) ou posterior. A opção depende o comportamento pretendido da aplicação.<br><br>Consulte o código na secção seguinte para este cenário específico e os erros que diagnosticá-lo.|
 | **Cenário 2**: erro não é resolvível com um interativa início de sessão | Para a rede e erros de transitório/temporário ou outras falhas, executar um pedido de AcquireToken interativo não resolver o problema. Desnecessários interativa início de sessão pede também pode frustrar utilizadores finais. ADAL tenta automaticamente uma repetição único para a maioria dos erros AcquireTokenSilent falhas.<br><br>A aplicação de cliente também pode tentar uma repetição em algum momento posterior, mas quando e como fazê-lo está dependente o comportamento da aplicação e experiência do utilizador final pretendido. Por exemplo, a aplicação pode efetuar uma repetição AcquireTokenSilent após alguns minutos, ou em resposta a qualquer ação do utilizador final. Uma repetição imediata resultará na aplicação a ser limitada e não deve ser tentada.<br><br>Uma repetição subsequente falha com o mesmo erro não significa que o cliente deve fazer um pedido de interativo utilizando AcquireToken, não resolver o erro.<br><br>Consulte o código na secção seguinte para este cenário específico e os erros que diagnosticá-lo. |
@@ -479,6 +479,9 @@ Iremos compilou uma [exemplo completo](https://github.com/Azure-Samples/active-d
 
 ## <a name="error-and-logging-reference"></a>Registo de erros e de referência
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Registo de informações de identificação pessoais (PII) e informações de identificação organizacionais (OII)
+Por predefinição, o registo ADAL não capturar ou quaisquer PII ou OII de registo. A biblioteca permite que os programadores de aplicações ativar isto através de um setter na classe de registo. Ao ativar PII ou OII, a aplicação demora a responsabilidade de forma segura tratamento de dados altamente confidenciais e complying com quaisquer requisitos de regulamentação.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>Erros de biblioteca da ADAL
@@ -487,7 +490,7 @@ Para explorar os erros específicos ADAL, o código de origem no [repositório a
 
 #### <a name="guidance-for-error-logging-code"></a>Orientações para o código de registo de erro
 
-Alterações de registo da ADAL .NET consoante a plataforma que está a ser trabalhados. Consulte o [registo documentação](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) código sobre como ativar o registo.
+Alterações de registo da ADAL .NET consoante a plataforma que está a ser trabalhados. Consulte o [registo wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) código sobre como ativar o registo.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Para explorar os erros específicos ADAL, o código de origem no [repositório d
 
 #### <a name="operating-system-errors"></a>Erros de sistema operativo
 
-Erros de SO Android são expostos através de AuthenticationException na ADAL, serem identificáveis como "SERVER_INVALID_REQUEST" e podem ser mais granulares através de descrições de erro. As duas mensagens prominent que uma aplicação pode optar por mostrar a IU são:
+Erros de SO Android são expostos através de AuthenticationException na ADAL, serem identificáveis como "SERVER_INVALID_REQUEST" e podem ser mais granulares através de descrições de erro. 
 
-- Erros SSL 
-  - [Utilizador final está a utilizar o Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [Cadeia de certificados tem um certificado marcado como extra transferir (utilizador tem de contactar o administrador de TI)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - AC de raiz não é considerada fidedigna pelo dispositivo. Contacte o administrador de TI. 
-- Erros relacionados com de rede 
-  - [Problema potencialmente relacionado com a validação de certificado de SSL de rede](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), pode tentar uma repetição único
+Para obter uma lista completa de erros comuns e que passos deve para efetuar quando a sua aplicação ou os utilizadores finais encontrá-las, consulte o [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Orientações para o código de registo de erro
 
@@ -522,6 +520,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// PII or OII will NOT be logged
+Logger.getInstance().setEnablePII(false);
+
+
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";
 ```
@@ -536,7 +543,7 @@ Para explorar os erros específicos ADAL, o código de origem no [repositório a
 
 erros de iOS podem surgir durante o início de sessão quando os utilizadores utilizam vistas web e a natureza de autenticação. Isto pode dever-se a condições como erros SSL, tempos limite ou erros de rede:
 
-- Para a partilha de elegibilidade, inícios de sessão não são persistentes e cache aparece em branco. Pode resolver, adicionando a seguinte linha de código para a keychain:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- Para a partilha de elegibilidade, inícios de sessão não são persistentes e cache aparece em branco. Pode resolver, adicionando a seguinte linha de código para a keychain: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Para o conjunto de NsUrlDomain de erros, as alterações de ação dependendo da lógica de aplicação. Consulte o [documentação de referência NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) para instâncias específicas que podem ser processadas.
 - Consulte [ADAL problemas comuns de Obj-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) para a lista de erros comuns mantida pela equipa do ADAL Objective-C.
 

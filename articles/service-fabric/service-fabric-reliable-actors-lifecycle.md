@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d49afd9e5cfe80ddc2d919c76eaa0cb168280c15
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida de ator, recolha de lixo automática e manual delete
 Um ator está ativado na primeira vez que é efetuada uma chamada para qualquer um dos respetivos métodos. Um ator está desativada (libertação da memória recolhidos pelo tempo de execução de Atores) se não for utilizado para um período de tempo configurável. Um ator e o estado também podem ser eliminadas manualmente em qualquer altura.
@@ -48,7 +48,7 @@ Quando um ator está desativada, são lançadas as referências para o objeto de
 O que a conta como "a ser utilizada" para fins de Desativação e a recolha de lixo?
 
 * Receber uma chamada
-* `IRemindable.ReceiveReminderAsync`método que está a ser invocado (aplicável apenas se o ator utiliza lembretes)
+* `IRemindable.ReceiveReminderAsync` método que está a ser invocado (aplicável apenas se o ator utiliza lembretes)
 
 > [!NOTE]
 > Se o ator utiliza temporizadores e a chamada de retorno de temporizador é invocada, faz **não** contagem como "a ser utilizada".
@@ -144,13 +144,13 @@ Eliminar um ator tem os seguintes efeitos dependendo se pretende ou não está a
 
 Tenha em atenção que um ator não é possível chamar eliminar em si próprio a partir de um dos respectivos métodos de ator porque não é possível eliminar o ator ao executar dentro de um contexto de chamada de ator em que o tempo de execução tem de obter um bloqueio em torno da chamada de ator para impor o acesso single-threaded.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Os temporizadores de ator e lembretes](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)
 * [Monitorização de desempenho e diagnóstico de ator](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API de ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo do c#](https://github.com/Azure/servicefabric-samples)
+* [Código de exemplo do c#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

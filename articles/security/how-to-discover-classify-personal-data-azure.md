@@ -1,6 +1,6 @@
 ---
 title: Detetar, identificar e classificar os dados pessoais no Microsoft Azure | Microsoft Docs
-description: Saiba mais sobre a procurar, classificar, detetar e identificar os dados
+description: "a procurar, classificar, detetar e identificar os dados no Azure podem ajudá-lo a estar em conformidade com Regulamento de proteção de dados gerais (GDPR)"
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detetar, identificar e classificar os dados pessoais no Microsoft Azure
 
-Este artigo fornece orientação sobre como detetar, identificar e classificar os dados pessoais nas várias ferramentas do Azure e serviços, incluindo a utilização de base de dados SQL do Azure Active Directory do catálogo de dados do Azure, Power Query para clusters do Hadoop no HDInsight do Azure, Azure Proteção de informações da Azure Search, consultas e SQL Server para a base de dados do Azure Cosmos.
+Este artigo fornece orientação sobre como detetar, identificar e classificar os dados pessoais nas várias ferramentas do Azure e serviços, incluindo a utilização de base de dados SQL do Azure Active Directory do catálogo de dados do Azure, Power Query para clusters do Hadoop no HDInsight do Azure, Azure Proteção de informações da Azure Search, consultas e SQL Server para a base de dados do Azure Cosmos. Estas ferramentas e processos podem ser utilizados para estar em conformidade com Regulamento de proteção de dados gerais (GDPR)
 
 ## <a name="scenario-problem-statement-and-goal"></a>Cenário, declaração de problema e objetivos
 
@@ -114,7 +114,7 @@ Para saber como criar a base de dados desta forma, visite o [criar uma base de d
 >[!Note]
 Administradores de Windows tendem a utilizar o PowerShell, mas algumas delas preferem CLI do Azure.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Como procurar para os dados pessoais na base de dados do SQL no portal do Azure? * *
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Como procurar dados pessoais na base de dados do SQL Server no portal do Azure?
 
 Pode utilizar a ferramenta de editor de consulta incorporada dentro do portal do Azure para procurar dados pessoais. Irá iniciar sessão para a ferramenta utilizando o seu início de sessão de administrador de servidor SQL e a palavra-passe e, em seguida, introduza uma consulta.
 
@@ -136,7 +136,7 @@ Para obter mais informações sobre como consultar uma base de dados do SQL Serv
 
 Consulta SQL elástica (pré-visualização) permite-lhe efetuar entre bases de dados e várias consultas de base de dados e devolver um resultado único. O [descrição geral do tutorial](../sql-database/sql-database-elastic-query-overview.md) inclui uma descrição detalhada dos cenários e explica a diferença entre a criação de partições vertical e horizontal da base de dados. Criação de partições horizontais é chamada "fragmentação."
 
-  ![Criação de partições vertical](media/how-to-discover-classify-personal-data-azure/vertical-partition.png)
+  ![Criação de partições verticais](media/how-to-discover-classify-personal-data-azure/vertical-partition.png)
 
   ![criação de partições horizontais](media/how-to-discover-classify-personal-data-azure/horizontal.png)
 

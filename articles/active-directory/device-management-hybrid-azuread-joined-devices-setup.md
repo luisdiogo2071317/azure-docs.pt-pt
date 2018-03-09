@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -34,7 +34,7 @@ Antes de iniciar a configuração híbrida do Azure AD associado dispositivos no
 
 Se estão a depender de [ferramenta de preparação do sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), certifique-se a criar imagens a partir de uma instalação do Windows que não foi ainda registado com o Azure AD.
 
-Todos os dispositivos associados a um domínio em execução de atualização de aniversário do Windows 10 e Windows Server 2016 registar automaticamente com o Azure AD no reinício de dispositivo ou utilizador iniciar sessão depois de concluir os passos de configuração mencionados abaixo. Se este comportamento de registo automática não é preferencial, ou se pretender uma implementação controlada, siga as instruções na secção de implementação de controlo e de implementação abaixo primeiro seletivamente ativar ou desativar a implementação automática antes de seguir outros passos de configuração.  
+Todos os dispositivos associados a um domínio em execução de atualização de aniversário do Windows 10 e Windows Server 2016 registar automaticamente com o Azure AD no reinício de dispositivo ou utilizador iniciar sessão depois de concluir os passos de configuração mencionados abaixo. **Se este comportamento de registo automática não é preferencial ou se pretender uma implementação controlada**, siga as instruções na secção "Passo 4: controlo implementação e implementação" abaixo para se seletivamente ativar ou desativar a implementação automática antes Siga os passos de configuração.  
 
 Para melhorar a legibilidade das descrições, este tópico utiliza o termo seguinte: 
 
@@ -542,7 +542,7 @@ Quando tiver concluído os passos necessários, os dispositivos associados a um 
 
 ### <a name="remarks"></a>Observações
 
-- Pode utilizar um objeto de política de grupo para controlar a implementação do registo automático do Windows 10 e computadores associados a domínios do Windows Server 2016.
+- Pode utilizar um objeto de política de grupo para controlar a implementação do registo automático do Windows 10 e computadores associados a domínios do Windows Server 2016. **Se não pretender que estes dispositivos a registar automaticamente com o Azure AD ou se quiser controlar o registo**, em seguida, deve implementar a política de grupo em primeiro lugar, a desativar o registo automático todos estes dispositivos antes de iniciar com a configuração passos. Depois de terminar a configurar, e quando estiver pronto para testar, tem de implementar a política de grupo ativar o registo automático apenas os dispositivos de teste e, em seguida, para todos os outros dispositivos, como a escolha.
 
 - Windows 10 de Novembro de 2015 Update automaticamente associa com o Azure AD **apenas** se o objeto de política de grupo de implementação estiver definido.
 

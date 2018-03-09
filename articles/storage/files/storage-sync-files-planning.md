@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -85,14 +85,14 @@ Versões futuras do Windows Server serão adicionadas à medida que são lançad
 | Funcionalidade | Estado de suporte | Notas |
 |---------|----------------|-------|
 | Listas de controlo de acesso (ACLs) | Totalmente suportado | ACLs do Windows são mantidas através da sincronização de ficheiros do Azure e são impostas pelo Windows Server em pontos finais do servidor. ACLs do Windows não são (ainda) suportado pelo Azure ficheiros se os ficheiros são acedidos diretamente na nuvem. |
-| Ligações fixas | Ignorada | |
-| Ligações simbólicas | Ignorada | |
+| Ligações fixas | Ignorado | |
+| Ligações simbólicas | Ignorado | |
 | Os pontos de montagem | Parcialmente suportada | Pontos de montagem poderão ser a raiz de um ponto final do servidor, mas são ignorados se estes estão contidos no espaço de nomes de um ponto final do servidor. |
-| Junctions | Ignorada | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
-| Pontos de reanálise | Ignorada | |
+| Junctions | Ignorado | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
+| Pontos de reanálise | Ignorado | |
 | Compressão NTFS | Totalmente suportado | |
 | Ficheiros dispersos | Totalmente suportado | Sincronização de ficheiros dispersos (não são bloqueadas), mas que a sincronização na nuvem como um ficheiro completo. Se alterar o conteúdo do ficheiro na nuvem (ou noutro servidor), o ficheiro já não consta disperso quando a alteração é transferida. |
-| Fluxos de dados alternativos (anúncios) | Preservados, mas não sincronizado | |
+| Fluxos de dados alternativos (anúncios) | Preservados, mas não sincronizado | Por exemplo, as etiquetas de classificação criadas pela infraestrutura de classificação de ficheiros não são sincronizadas. Etiquetas de classificação existentes em ficheiros em cada um dos pontos finais do servidor são inalteradas à esquerda. |
 
 > [!Note]  
 > São suportados apenas os volumes NTFS. O reFS, FAT, FAT32 e outros sistemas de ficheiros não são suportados.
@@ -142,7 +142,7 @@ Como soluções de antivírus, soluções de cópia de segurança poderão causa
 Suporte para soluções de encriptação depende da forma como são implementados. Sincronização de ficheiros do Azure é conhecida para trabalhar com:
 
 - Encriptação BitLocker
-- Azure Rights Management Services (Azure RMS) (e legado Active Directory RMS)
+- Proteção de informações do Azure, Azure (Azure RMS), os serviços de gestão de direitos e do Active Directory RMS
 
 Sincronização de ficheiros do Azure é conhecida não trabalhar com:
 

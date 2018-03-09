@@ -1,5 +1,5 @@
 ---
-title: "Corresponder as condições para o motor de regras do Azure CDN | Microsoft Docs"
+title: "Condições de correspondência do motor de regras de CDN do Azure | Microsoft Docs"
 description: "Condições de correspondência do motor de regras de documentação de referência para a rede de entrega de conteúdos do Azure."
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Condições de correspondência para o motor de regras da CDN do Azure
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de corresponder ao motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições disponíveis de correspondência de rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
 
 A segunda parte de uma regra é a condição de correspondência. Uma condição de correspondência identifica tipos específicos de pedidos para o qual será efetuado um conjunto de funcionalidades.
@@ -321,26 +321,26 @@ A tabela seguinte lista as capacidades de WURFL e as respetivas variáveis para 
 
 Capacidade | Variável | Descrição | Valores de exemplo
 -----------|----------|-------------|----------------
-Nome de marca | % {wurfl_cap_brand_name} | Uma cadeia que indica o nome de marca do dispositivo. | Samsung
-SO do dispositivo | % {wurfl_cap_device_os} | Uma cadeia que indica o sistema operativo instalado no dispositivo. | IOS
-Versão do SO do Dispositivo | % {wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do sistema operativo instalado no dispositivo. | 1.0.1
-Orientação dupla | % {wurfl_cap_dual_orientation} | Um valor boleano que indica se o dispositivo suporta orientação dupla. | true
-HTML preferencial DTD | % {wurfl_cap_html_preferred_dtd} | Uma cadeia que indica documento preferencial definição o dispositivo móvel (DTD) para o conteúdo HTML. | nenhum<br/>xhtml_basic<br/>HTML5
-Imagem Inlining | % {wurfl_cap_image_inlining} | Um valor boleano que indica se o dispositivo suporta Base64 codificado imagens. | falso
-É Android | % {wurfl_vcap_is_android} | Um valor boleano que indica se o dispositivo utiliza o SO Android. | true
-É IOS | % {wurfl_vcap_is_ios} | Um valor boleano que indica se o dispositivo utiliza iOS. | falso
-É TV inteligente | % {wurfl_cap_is_smarttv} | Um valor boleano que indica se o dispositivo é um Televisor inteligente. | falso
-É Smartphone | % {wurfl_vcap_is_smartphone} | Um valor boleano que indica se o dispositivo é um smartphone. | true
-É Tablet | % {wurfl_cap_is_tablet} | Um valor boleano que indica se o dispositivo é um tablet. Esta descrição é independente de SO. | true
-É dispositivo sem fios | % {wurfl_cap_is_wireless_device} | Um valor boleano que indica se o dispositivo é considerado um dispositivo sem fios. | true
-Nome de marketing | % {wurfl_cap_marketing_name} | Uma cadeia que indica o nome do dispositivo de marketing. | Pearl blackBerry 8100
-Browser móvel | % {wurfl_cap_mobile_browser} | Uma cadeia que indica o browser que é utilizado para pedir conteúdo a partir do dispositivo. | Chrome
-Versão do Browser móveis | % {wurfl_cap_mobile_browser_version} | Uma cadeia que indica a versão do browser que é utilizado para pedir conteúdo a partir do dispositivo. | 31
-Nome do modelo | % {wurfl_cap_model_name} | Uma cadeia que indica o nome do modelo do dispositivo. | S3
-Transferência progressiva | % {wurfl_cap_progressive_download} | Um valor boleano que indica se o dispositivo suporta a reprodução de áudio e vídeo enquanto ainda está a ser transferido. | true
-Data da versão | % {wurfl_cap_release_date} | Uma cadeia que indica o ano e mês em que o dispositivo foi adicionado à base de dados WURFL.<br/><br/>Formato:`yyyy_mm` | 2013_december
-Altura de resolução | % {wurfl_cap_resolution_height} | Um número inteiro que indica a altura do dispositivo em pixels. | 768
-Largura de resolução | % {wurfl_cap_resolution_width} | Um número inteiro que indica a largura do dispositivo em pixéis. | 1024
+Nome de marca | %{wurfl_cap_brand_name} | Uma cadeia que indica o nome de marca do dispositivo. | Samsung
+SO do dispositivo | %{wurfl_cap_device_os} | Uma cadeia que indica o sistema operativo instalado no dispositivo. | IOS
+Versão do SO do Dispositivo | %{wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do sistema operativo instalado no dispositivo. | 1.0.1
+Orientação dupla | %{wurfl_cap_dual_orientation} | Um valor boleano que indica se o dispositivo suporta orientação dupla. | true
+HTML preferencial DTD | %{wurfl_cap_html_preferred_dtd} | Uma cadeia que indica documento preferencial definição o dispositivo móvel (DTD) para o conteúdo HTML. | nenhum<br/>xhtml_basic<br/>html5
+Imagem Inlining | %{wurfl_cap_image_inlining} | Um valor boleano que indica se o dispositivo suporta Base64 codificado imagens. | false
+Is Android | %{wurfl_vcap_is_android} | Um valor boleano que indica se o dispositivo utiliza o SO Android. | true
+Is IOS | %{wurfl_vcap_is_ios} | Um valor boleano que indica se o dispositivo utiliza iOS. | false
+É TV inteligente | %{wurfl_cap_is_smarttv} | Um valor boleano que indica se o dispositivo é um Televisor inteligente. | false
+É Smartphone | %{wurfl_vcap_is_smartphone} | Um valor boleano que indica se o dispositivo é um smartphone. | true
+É Tablet | %{wurfl_cap_is_tablet} | Um valor boleano que indica se o dispositivo é um tablet. Esta descrição é independente de SO. | true
+É dispositivo sem fios | %{wurfl_cap_is_wireless_device} | Um valor boleano que indica se o dispositivo é considerado um dispositivo sem fios. | true
+Nome de marketing | %{wurfl_cap_marketing_name} | Uma cadeia que indica o nome do dispositivo de marketing. | Pearl blackBerry 8100
+Browser móvel | %{wurfl_cap_mobile_browser} | Uma cadeia que indica o browser que é utilizado para pedir conteúdo a partir do dispositivo. | Chrome
+Versão do Browser móveis | %{wurfl_cap_mobile_browser_version} | Uma cadeia que indica a versão do browser que é utilizado para pedir conteúdo a partir do dispositivo. | 31
+Nome do modelo | %{wurfl_cap_model_name} | Uma cadeia que indica o nome do modelo do dispositivo. | s3
+Transferência progressiva | %{wurfl_cap_progressive_download} | Um valor boleano que indica se o dispositivo suporta a reprodução de áudio e vídeo enquanto ainda está a ser transferido. | true
+Data da versão | %{wurfl_cap_release_date} | Uma cadeia que indica o ano e mês em que o dispositivo foi adicionado à base de dados WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
+Altura de resolução | %{wurfl_cap_resolution_height} | Um número inteiro que indica a altura do dispositivo em pixels. | 768
+Largura de resolução | %{wurfl_cap_resolution_width} | Um número inteiro que indica a largura do dispositivo em pixéis. | 1024
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -466,12 +466,12 @@ Informações da chave:
 ---
 ### <a name="request-method"></a>Método de pedido
 A condição de correspondência do método de pedido é cumprida apenas quando são solicitados recursos através do método de pedido seleccionado. Os métodos de pedido disponíveis são:
-- GET
+- INTRODUÇÃO
 - CABEÇALHO 
 - POST 
 - OPÇÕES 
-- PUT 
-- DELETE 
+- COLOCAR 
+- ELIMINAR 
 - RASTREIO 
 - LIGAR 
 
@@ -590,10 +590,10 @@ A seguinte configuração de exemplo parte do princípio de que esta condição 
 Especificação de valor: asp aspx php html
 
 Esta condição de correspondência é preenchida quando localizar URLs que terminem com as seguintes extensões:
-- . asp
-- . aspx
+- .asp
+- .aspx
 - SH
-- *.HTML
+- .html
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -685,7 +685,7 @@ Informações da chave:
 
      - URL de CDN: http:\//wpc.0001.&lt; Domínio&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - URL de CNAME Edge: http:\//my.domain.com/path/asset.htm
+     - Edge CNAME URL: http:\//my.domain.com/path/asset.htm
 
    Informações adicionais:
     
@@ -754,10 +754,10 @@ As configurações de exemplo na seguinte tabela partem do princípio de que est
 Valor                   | Caminho relativo    | Resultado 
 ------------------------|----------------|-------
 */Test.HTML */test.php  | Raiz ou a origem | Este padrão é correspondido com pedidos para recursos com o nome "test.html" ou "test.php" em qualquer pasta.
-/ 80ABCD origem/texto / *   | Raiz           | Este padrão é correspondido quando o recurso solicitado cumpre os seguintes critérios: <br />--Tem de residir numa origem de cliente denominada "origem". <br />-O caminho relativo tem de começar com uma pasta denominada "text". Ou seja, o recurso pedido ou pode residir na pasta "text" ou uma das respetivas subpastas recursiva.
-*/CSS/*   */js /*          | Raiz ou a origem | Este padrão é correspondido por todos os CDN ou edge URLs de CNAME que contêm uma pasta css ou js.
+/80ABCD/origin/text/*   | Raiz           | Este padrão é correspondido quando o recurso solicitado cumpre os seguintes critérios: <br />--Tem de residir numa origem de cliente denominada "origem". <br />-O caminho relativo tem de começar com uma pasta denominada "text". Ou seja, o recurso pedido ou pode residir na pasta "text" ou uma das respetivas subpastas recursiva.
+*/css/* */js/*          | Raiz ou a origem | Este padrão é correspondido por todos os CDN ou edge URLs de CNAME que contêm uma pasta css ou js.
 *.jpg *.gif *.png       | Raiz ou a origem | Este padrão é correspondido por todos os URLs CNAME CDN ou o Microsoft edge terminando. jpg, GIF ou PNG. Uma maneira de especificar este padrão é com o [extensão de caminho de URL correspondem à condição](#url-path-extension).
-imagens / * / suporte de dados / *      | Origem         | Este padrão é correspondido pela CDN ou o Microsoft edge URLs de CNAME cujo caminho relativo começa com uma pasta "imagens" ou "suporte de dados". <br />-URL de CDN: http:\//wpc.0001.&lt; Domínio&gt;/800001/myorigin/images/sales/event1.png<br />-Limite CNAME URL de exemplo: http:\//cdn.mydomain.com/images/sales/event1.png
+imagens / * / suporte de dados / *      | Origem         | Este padrão é correspondido pela CDN ou o Microsoft edge URLs de CNAME cujo caminho relativo começa com uma pasta "imagens" ou "suporte de dados". <br />-URL de CDN: http:\//wpc.0001.&lt; Domínio&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -783,8 +783,8 @@ Informações da chave:
 
    Caráter | Codificação do URL
    ----------|---------
-   Espaço     | % 20
-   &         | % 25
+   Espaço     | %20
+   &         | %25
 
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
    - Concluir o preenchimento da Cache
@@ -819,8 +819,8 @@ Informações da chave:
 
        Caráter | Codificação do URL
        ----------|---------
-       Espaço     | % 20
-       &         | % 25
+       Espaço     | %20
+       &         | %25
 
 - Especificar vários valores de parâmetro de cadeia de consulta, delimiting cada um com um único espaço. Esta condição de correspondência é preenchida quando um pedido contém um das combinações de nome/valor especificado.
 
@@ -832,19 +832,19 @@ Informações da chave:
 
      - Os seguintes parâmetros de cadeia de consulta corresponde a esta configuração:
 
-       Parameter1 = ValueA
+       Parameter1=ValueA
     
-       Parameter1 = ValueB
+       Parameter1=ValueB
 
    - Exemplo 2:
 
      - Configuração: 
 
-        O valor % 20A valor % 20B
+        Value%20A Value%20B
 
      - Os seguintes parâmetros de cadeia de consulta corresponde a esta configuração:
 
-       Parameter1 = valor % 20A
+       Parameter1=Value%20A
 
        Parameter1 = valor % 20B
 
@@ -853,7 +853,7 @@ Informações da chave:
    Por exemplo, se utilizar a configuração no exemplo anterior, o parâmetro de nome/valor combinação "Parameter1 = ValueAdd" que não possam ser considerados uma correspondência. No entanto, se especificar um dos seguintes valores, corresponderá essa combinação nome/valor:
 
    - ValueA ValueB ValueAdd
-   - ValueA * ValueB
+   - ValueA* ValueB
 
 - Utilize o **ignorar caso** opção para controlar a sensibilidade de comparações de cadeias de consulta.
     
@@ -896,8 +896,8 @@ Informações da chave:
 
    Caráter | Codificação do URL | Valor
    ----------|--------------|------
-   Espaço     | % 20          | \%20
-   &         | % 25          | \%25
+   Espaço     | %20          | \%20
+   &         | %25          | \%25
 
    Tenha em atenção que tem de ser escape símbolos de percentagem.
 
@@ -938,8 +938,8 @@ Informações da chave:
 
      Caráter | Codificação do URL
      ----------|---------
-     Espaço     | % 20
-     &         | % 25
+     Espaço     | %20
+     &         | %25
 
 - Especificar vários valores, delimiting cada um com um único espaço.
 
@@ -961,8 +961,8 @@ O exemplo seguinte demonstra como esta opção funciona em situações específi
 
  Nome                 | Descrição
  ---------------------|------------
-utilizador = joe              | Este padrão é correspondido quando a cadeia de consulta para um URL pedido é "? utilizador = joe."
-\*utilizador =\* \*optout =\* | Este padrão é correspondido quando a consulta de URL de CDN contém o utilizador ou o parâmetro optout.
+user=joe              | Este padrão é correspondido quando a cadeia de consulta para um URL pedido é "? utilizador = joe."
+\*user=\* \*optout=\* | Este padrão é correspondido quando a consulta de URL de CDN contém o utilizador ou o parâmetro optout.
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 

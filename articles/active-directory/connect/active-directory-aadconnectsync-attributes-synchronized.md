@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -83,7 +83,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | givenName |X |X | | |
 | HomePhone |X |X | | |
 | informações |X |X |X |Atualmente, este atributo é consumido não para grupos. |
-| Iniciais |X |X | | |
+| iniciais |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -421,17 +421,17 @@ Estes atributos para **utilizador** estão além de outras aplicações que sele
 ## <a name="exchange-hybrid-writeback"></a>Repetição de escrita do Exchange híbrida
 Estes atributos são repetidos do AD do Azure Active Directory no local ao selecionar a opção para ativar **híbrida do Exchange**. Dependendo da versão do Exchange, poderão estar sincronizados menos atributos.
 
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Derivado cloudAnchor no Azure AD. Este atributo é novo no Exchange 2016 e AD do Windows Server 2016. |
-| msExchArchiveStatus |X | | |Arquivo online: Permite que os clientes Arquivar correio. |
-| msExchBlockedSendersHash |X | | |Filtragem: Escreve novamente no local de filtragem e os dados de remetente seguro e bloqueadas online dos clientes. |
-| msExchSafeRecipientsHash |X | | |Filtragem: Escreve novamente no local de filtragem e os dados de remetente seguro e bloqueadas online dos clientes. |
-| msExchSafeSendersHash |X | | |Filtragem: Escreve novamente no local de filtragem e os dados de remetente seguro e bloqueadas online dos clientes. |
-| msExchUCVoiceMailSettings |X | | |Ativar Unified Messaging (UM) - correio de voz Online: utilizadas pelo Microsoft Lync Server integração para indicar ao Lync Server no local que o utilizador tem o correio de voz nos serviços online. |
-| msExchUserHoldPolicies |X | | |Suspensão de litígio: Permite que os serviços de nuvem para determinar quais os utilizadores que estão em litígio conter. |
-| proxyAddresses |X |X |X |Apenas o x500 é inserido o endereço do Exchange Online. |
-| publicDelegates |X | | |Permite que uma caixa de correio do Exchange Online ser concedida SendOnBehalfTo direitos para os utilizadores com caixa de correio do Exchange no local. Requer o Azure AD Connect compilação 1.1.552.0 ou após. |
+| Nome de atributo (ligar IU) |Nome de atributo (AD no local) | Utilizador | Contacto | Grupo | Comentário |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivado cloudAnchor no Azure AD. Este atributo é novo no Exchange 2016 e AD do Windows Server 2016. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo online: Permite que os clientes Arquivar correio. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtragem: Escreve novamente no local de filtragem e os dados de remetente seguro e bloqueadas online dos clientes. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: Escreve novamente no local de filtragem e os dados de remetente seguro e bloqueadas online dos clientes. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: Escreve novamente no local de filtragem e os dados de remetente seguro e bloqueadas online dos clientes. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Ativar Unified Messaging (UM) - correio de voz Online: utilizadas pelo Microsoft Lync Server integração para indicar ao Lync Server no local que o utilizador tem o correio de voz nos serviços online. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Suspensão de litígio: Permite que os serviços de nuvem para determinar quais os utilizadores que estão em litígio conter. |
+| proxyAddresses| proxyAddresses |X |X |X |Apenas o x500 é inserido o endereço do Exchange Online. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Permite que uma caixa de correio do Exchange Online ser concedida SendOnBehalfTo direitos para os utilizadores com caixa de correio do Exchange no local. Requer o Azure AD Connect compilação 1.1.552.0 ou após. |
 
 ## <a name="exchange-mail-public-folder"></a>Pasta de público de correio do Exchange
 Estes atributos são sincronizados a partir do Active Directory no local ao Azure AD quando optar por ativar **pasta pública de correio eletrónico Exchange**.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Fluxo registos de diagnóstico do Azure para um hub de eventos
 **[Os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode transmissão em fluxo em tempo real para qualquer aplicação utilizando a opção "Exportar para os Event Hubs" incorporada no Portal ou ativar o ID da regra de autorização de Hub de eventos na definição de diagnóstico através do Azure Cmdlets do PowerShell ou do Azure CLI.
@@ -83,10 +83,10 @@ Após alguns instantes, a nova definição é apresentada na sua lista de defini
 Para ativar a transmissão em fluxo através de [Cmdlets do PowerShell do Azure](insights-powershell-samples.md), pode utilizar o `Set-AzureRmDiagnosticSetting` cmdlet com os seguintes parâmetros:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-O ID de regra de barramento de serviço é uma cadeia com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente não é possível selecionar um nome de hub de eventos específico com o PowerShell.
+O ID de regra de autorização de Hub de eventos é uma cadeia com este formato: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente não é possível selecionar um nome de hub de eventos específico com o PowerShell.
 
 ### <a name="via-azure-cli"></a>Através da CLI do Azure
 Para ativar a transmissão em fluxo através de [CLI do Azure](insights-cli-samples.md), pode utilizar o `insights diagnostic set` comando como esta:
@@ -95,7 +95,7 @@ Para ativar a transmissão em fluxo através de [CLI do Azure](insights-cli-samp
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Utilize o mesmo formato de ID de regra de barramento de serviço conforme explicado para o Cmdlet do PowerShell. Atualmente não é possível selecionar um nome de hub de eventos específico com a CLI do Azure.
+Utilize o mesmo formato de ID de regra de autorização de Hub de eventos, conforme explicado para o Cmdlet do PowerShell. Atualmente não é possível selecionar um nome de hub de eventos específico com a CLI do Azure.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como posso consumir os dados de registo dos Event Hubs?
 Segue-se dados de saída de exemplo de Hubs de eventos:

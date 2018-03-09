@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>A persistência de alterações e trabalhar com ficheiros grandes
 Com o serviço Azure Machine Learning experimentação, pode configurar uma variedade de destinos de execução. Alguns destinos são locais, como um computador local ou um contentor de Docker num computador local. Outros recursos são remotos, tais como um contentor de Docker num computador remoto ou um cluster do HDInsight. Para obter mais informações, consulte [descrição geral do Azure Machine Learning experimentação de serviço de execução](experimentation-service-configuration.md). 
@@ -194,6 +194,6 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 ## <a name="conclusion"></a>Conclusão
 Porque o Azure Machine Learning executa scripts ao copiar a pasta do projeto todo para o contexto de computação de destino, ter especial cuidado com ficheiros intermediário, saída e entrada grande. Transações de ficheiros grandes, pode utilizar a pasta de saídas especial, a pasta partilhada que está acessível através de `AZUREML_NATIVE_SHARE_DIRECTORY` variável de ambiente ou armazenamento durável externo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Reveja o [ficheiros de configuração de execução do Azure Machine Learning Workbench](experimentation-service-configuration-reference.md) artigo.
 - Consulte o [classificar Iris](tutorial-classifying-iris-part-1.md) projeto tutorial utiliza a pasta de saídas para manter um modelo preparado.

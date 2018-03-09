@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros de cópia de segurança da máquina virtual do Azure
 
 Cópia de segurança do Azure fornece a capacidade de restaurar [máquinas de virtuais (VMs) do Azure e os discos](./backup-azure-arm-restore-vms.md) de cópias de segurança de VM do Azure, também conhecido como restaurar pontos. Este artigo explica como recuperar ficheiros e pastas a partir de uma cópia de segurança de VM do Azure. Restaurar ficheiros e pastas só está disponível para VMs do Azure implementadas utilizando o modelo do Resource Manager e protegidos para um cofre de serviços de recuperação.
 
 > [!Note]
+> Esta funcionalidade está disponível para VMs do Azure implementadas utilizando o modelo do Resource Manager e protegidos para um cofre dos serviços de recuperação.
 > Não é suportada a recuperação de ficheiros a partir de uma cópia de segurança VM encriptada.
 >
 
@@ -154,7 +155,7 @@ O comando seguinte apresenta os detalhes sobre todos os discos raid.
 ```
 $ mdadm –detail –scan
 ```
- O disco RAID relevante é apresentado como`/dev/mdm/<RAID array name in the protected VM>`
+ O disco RAID relevante é apresentado como `/dev/mdm/<RAID array name in the protected VM>`
 
 Se o disco RAID tem volumes físicos, utilize o comando de montagem.
 ```

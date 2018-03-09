@@ -47,6 +47,8 @@
               href: azure-stack-vm-sizes.md
             - name: Gerir discos VM
               href: azure-stack-manage-vm-disks.md
+            - name: Proteger VMs
+              href: azure-stack-manage-vm-backup.md
         - name: Armazenamento
           items:
             - name: Descrição geral

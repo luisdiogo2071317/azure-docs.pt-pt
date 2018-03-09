@@ -3,8 +3,8 @@ title: "Gestão de região na pilha do Azure | Microsoft Docs"
 description: "Descrição geral da gestão de região na pilha do Azure."
 services: azure-stack
 documentationcenter: 
-author: efemmano
-manager: dsavage
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Gestão de região na pilha do Azure
 
@@ -41,19 +42,13 @@ Pilha do Azure tem um conjunto de capacidades de gestão de região disponíveis
 
 2. **Alertas**. Este mosaico apresenta uma lista de alertas de todo sistema e fornece detalhes sobre cada um dos alertas.
 
-3. **Atualizações**. Neste mosaico, pode ver a versão atual da sua infraestrutura de pilha do Azure.
+3. **Atualizações**. Neste mosaico, pode ver a versão atual da sua infraestrutura de pilha do Azure, as atualizações disponíveis e o histórico de atualização. Também pode atualizar o sistema integrado.
 
-4. **Fornecedores de recursos**. Fornecedores de recursos é o local para gerir a funcionalidade de inquilino oferecida pelos componentes necessários para executar a pilha do Azure. Cada fornecedor de recursos é fornecido com uma experiência administrativa. Esta experiência pode incluir alertas para o fornecedor específico, métricas e outras capacidades de gestão específicas para o fornecedor de recursos.
- 
-5. **Funções de infraestrutura**. As funções de infraestrutura são os componentes necessários para executar a pilha do Azure. São listadas apenas as funções de infraestrutura que dependem dos alertas. Ao clicar uma função, pode ver os alertas associados a função específica e as instâncias da função onde esta função está em execução. Embora a capacidade de iniciar, reiniciar, ou encerrar uma instância de função de infraestrutura, efetue **não** fazê-lo num ambiente de kit de desenvolvimento. Estas opções foram concebidas apenas para um ambiente com vários nós, onde existe mais do que uma instância de função por função de infraestrutura. Reinício de uma instância de função (especialmente AzS-Xrp01) no kit de desenvolvimento provoca instabilidade do sistema.
+4. **Fornecedores de recursos**. Fornecedores de recursos é o local para gerir a funcionalidade de utilizador fornecida pelos componentes necessários para executar a pilha do Azure. Cada fornecedor de recursos é fornecido com uma experiência administrativa. Esta experiência pode incluir alertas para o fornecedor específico, métricas e outras capacidades de gestão específicas para o fornecedor de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+5. **Funções de infraestrutura**. As funções de infraestrutura são os componentes necessários para executar a pilha do Azure. São listadas apenas as funções de infraestrutura que dependem dos alertas. Ao clicar uma função, pode ver os alertas associados a função específica e as instâncias da função onde esta função está em execução.
+
+## <a name="next-steps"></a>Passos Seguintes
 [Monitorizar o estado de funcionamento e alertas na pilha do Azure](azure-stack-monitor-health.md)
 
 [Gerir as atualizações na pilha do Azure](azure-stack-updates.md)
-
-
-
-
-
-

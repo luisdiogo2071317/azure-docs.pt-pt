@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada Single Sign-On: Perguntas mais frequentes
 
@@ -38,7 +38,16 @@ Não. SSO totalmente integrado só está disponível a instância mundial do Azu
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Que aplicações tirar partido das `domain_hint` ou `login_hint` capacidade de parâmetro do SSO totalmente integrado?
 
-Estamos no processo de compilar a lista de aplicações que enviar estes parâmetros e aqueles que não. Se tiver aplicações que está interessado em, indique a secção de comentários.
+Listadas abaixo é uma lista não exaustiva das aplicações que enviar estes parâmetros para o Azure AD e, por conseguinte, fornece aos utilizadores uma automática início de sessão experiência SSO totalmente integrado a utilizar:
+
+| Nome da aplicação | URL de aplicação a ser utilizada |
+| -- | -- |
+| Painel de acesso | myapps.microsoft.com/contoso.com |
+| Outlook na Web | outlook.office365.com/contoso.com |
+
+Na tabela acima, substitua "contoso.com" com o nome de domínio para obter os URLs de aplicação correta para o seu inquilino.
+
+Se tiver outras aplicações que está interessado em, indique a secção de comentários.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Suporta SSO totalmente integrado `Alternate ID` como o nome de utilizador, em vez de `userPrincipalName`?
 

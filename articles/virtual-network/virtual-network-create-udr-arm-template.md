@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Criar rotas definidas pelo utilizador (UDR) através de um modelo
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [CLI do Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [CLI do Azure](tutorial-create-route-table-cli.md)
 > * [Modelo](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Clássico)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Clássica)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Para associar o UDR para a sub-rede do front-end, tem de alterar a definição d
 
 Tenha em atenção o mesmo a ser efetuada para o NSG de back-end e a sub-rede de back-end no modelo.
 
-Terá também de se certificar de que o **FW1** VM tem o IP propriedade ativada numa NIC que será utilizado para receber e reencaminhar os pacotes de reencaminhamento. A secção abaixo mostra a definição de NIC para FW1 no ficheiro azuredeploy-nsg-udr.json, com base no cenário acima.
+Terá também de se certificar de que o **FW1** VM tem o IP propriedade ativada numa NIC que será utilizado para receber e reencaminhar os pacotes de reencaminhamento. A secção seguinte mostra a definição de NIC para FW1 no ficheiro azuredeploy-nsg-udr.json, com base no cenário.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ Terá também de se certificar de que o **FW1** VM tem o IP propriedade ativada 
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Implementar o modelo com a função clique para implementar
-O modelo de exemplo disponível no repositório público utiliza um ficheiro de parâmetros com os valores predefinidos utilizados para gerar o cenário descrito acima. Para implementar este modelo com a função clique para implementar, siga [esta ligação](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implementar no Azure**, substitua os valores de parâmetro predefinidos, se necessário, e siga as instruções apresentadas no portal.
+O modelo de exemplo disponível no repositório público utiliza um ficheiro de parâmetros que contém a predefinição de valores utilizados para gerar o cenário descrito anteriormente. Para implementar este modelo com a função clique para implementar, siga [esta ligação](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implementar no Azure**, substitua os valores de parâmetro predefinidos, se necessário, e siga as instruções apresentadas no portal.
 
 1. Se nunca tiver utilizado o Azure PowerShell, veja [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) e siga as instruções até ao fim para iniciar sessão no Azure e selecionar a sua subscrição.
 2. Execute o seguinte comando para criar um grupo de recursos:
@@ -173,7 +173,7 @@ O modelo de exemplo disponível no repositório público utiliza um ficheiro de 
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Implementar o modelo com a CLI do Azure
 
-Para implementar o modelo ARM com a CLI do Azure, execute os seguintes passos:
+Para implementar o modelo Azure Resource Manager utilizando a CLI do Azure, execute os seguintes passos:
 
 1. Se nunca tiver utilizado a CLI do Azure, veja [Install and Configure the Azure CLI (Instalar e Configurar a CLI do Azure)](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
 2. Execute o seguinte comando para mudar para o modo Resource Manager:
@@ -182,11 +182,11 @@ Para implementar o modelo ARM com a CLI do Azure, execute os seguintes passos:
     azure config mode arm
     ```
 
-    O resultado esperado para o comando acima é o seguinte:
+    Eis o resultado esperado para o comando anterior:
 
         info:    New mode is arm
 
-3. O seu browser, navegue para **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do ficheiro json e cole um novo ficheiro na sua computador. Para este cenário, seria possível copiar os valores abaixo para um ficheiro denominado **c:\udr\azuredeploy.parameters.json**.
+3. O seu browser, navegue para **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do ficheiro json e cole um novo ficheiro na sua computador. Para este cenário, copie os seguintes valores para um ficheiro denominado **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Para implementar o modelo ARM com a CLI do Azure, execute os seguintes passos:
         }
     ```
 
-4. Execute o seguinte comando para implementar a nova VNet, utilizando os ficheiros de modelo e os parâmetros que transferiu e alterou acima:
+4. Execute o seguinte comando para implementar a nova VNet, utilizando os ficheiros de modelo e os parâmetros que transferiu e alterou anteriormente:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ Para implementar o modelo ARM com a CLI do Azure, execute os seguintes passos:
             info:    group show command OK
 
 > [!TIP]
-> Se não vir todos os recursos, execute o `azure group deployment show` comando para garantir o estado de aprovisionamento da implementação é *Succeded*.
+> Se não vir todos os recursos, execute o `azure group deployment show` comando para garantir o estado de aprovisionamento da implementação é *com êxito*.
 > 

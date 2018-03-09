@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>O Azure Active Directory B2C: Criar e utilizar atributos personalizados num perfil personalizado Editar política
 
@@ -65,8 +65,8 @@ Propriedades da extensão existem apenas no contexto de uma aplicação registad
 1. Coloque uma marca de verificação nas permissões de aplicação: **leitura e escrita de dados de diretório**, e **guardar**
 1. Escolha **conceder permissões** e confirme **Sim**.
 1. Copie a sua área de transferência e guarde os seguintes identificadores de WebApp-GraphAPI-DirectoryExtensions > Definições > propriedades >
-*  **ID da aplicação** . Exemplo:`103ee0e6-f92d-4183-b576-8c3739027780`
-* **ID de objeto**. Exemplo:`80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **ID da aplicação** . Exemplo: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **ID de objeto**. Exemplo: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
@@ -96,7 +96,7 @@ Propriedades da extensão existem apenas no contexto de uma aplicação registad
 ```
 
 >[!NOTE]
->O <TechnicalProfile Id="AAD-Common"> é referido como "comuns", porque os respetivos elementos são incluídos no e reutilizados em todas as do Azure Active Directory TechnicalProfiles utilizando o elemento:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
+>O <TechnicalProfile Id="AAD-Common"> é referido como "comuns", porque os respetivos elementos são incluídos no e reutilizados em todas as do Azure Active Directory TechnicalProfiles utilizando o elemento: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
 >Quando escreve o TechnicalProfile pela primeira vez para a propriedade de extensão recentemente criado, pode deparar-se um erro de uso individual.  A propriedade de extensão é criada na primeira vez que é utilizado.  
@@ -152,7 +152,7 @@ Propriedades da extensão existem apenas no contexto de uma aplicação registad
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +162,7 @@ Propriedades da extensão existem apenas no contexto de uma aplicação registad
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -251,7 +251,7 @@ O token de id enviado novamente à sua aplicação inclui a nova propriedade de 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Adicione a nova afirmação aos fluxos para inícios de sessão de conta de redes sociais alterando o TechnicalProfiles listados abaixo. Estes dois TechnicalProfiles são utilizadas pelo inícios de sessão federado/social conta para escrever e ler os dados de utilizador utilizando o alternativeSecurityId como o localizador de objeto de utilizador.
 ```xml

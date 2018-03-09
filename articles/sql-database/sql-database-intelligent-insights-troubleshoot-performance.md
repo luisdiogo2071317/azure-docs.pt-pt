@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente
 
@@ -129,7 +129,7 @@ O registo de diagnóstico produz os detalhes de bloqueio que pode utilizar como 
 
 A forma mais simples e através de correção para atenuar o problema é a manter as transações curtas e para reduzir os requisitos de espaço de bloqueio das consultas mais dispendiosos. Pode dividir um lote grande de operações em operações mais pequenas. É boa prática reduzir os requisitos de espaço de bloqueio de consulta ao efetuar a consulta como eficiente possível. Reduza análises grande pois aumentar as possibilidades de impasses e afetar negativamente o desempenho de base de dados global. Para consultas identificadas que fazer com que o bloqueio de ficheiro, pode criar novos índices ou adicionar colunas para o índice existente para evitar as análises de tabela. 
 
-Para mais sugestões, consulte [como resolver problemas de bloqueios que são causados por Escalamento de bloqueio no SQL Server](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Para mais sugestões, consulte [como resolver problemas de bloqueios que são causados por Escalamento de bloqueio no SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
 ## <a name="increased-maxdop"></a>Aumento MAXDOP
 
@@ -289,7 +289,7 @@ As alterações de configuração de âmbito de base de dados podem ser definida
 
 O diagnóstico do registo saídas âmbito de base de dados de alterações de configuração efetuadas recentemente que causou a degradação do desempenho em comparação comparada o comportamento de carga de trabalho de sete dias anteriores. Pode reverter as alterações de configuração para os valores anteriores. Também pode otimizar valor por valor até que o nível de desempenho pretendido for atingido. Pode copiar os valores de configuração de âmbito de base de dados de uma base de dados semelhante com o desempenho satisfatório. Se não for possível resolver o desempenho, reverter para os valores de predefinição de base de dados do SQL Server predefinidos e tentar ajustar a partir desta linha de base.
 
-Para obter mais informações sobre a otimizar a configuração de âmbito de base de dados e a sintaxe de T-SQL na alteração da configuração, consulte [(Transact-SQL) de configuração de âmbito de base de dados de Alter](https://msdn.microsoft.com/en-us/library/mt629158.aspx).
+Para obter mais informações sobre a otimizar a configuração de âmbito de base de dados e a sintaxe de T-SQL na alteração da configuração, consulte [(Transact-SQL) de configuração de âmbito de base de dados de Alter](https://msdn.microsoft.com/library/mt629158.aspx).
 
 ## <a name="slow-client"></a>Cliente lenta
 
@@ -330,7 +330,7 @@ Acesso Insights inteligente através do portal do Azure acedendo a análise de S
 
 Insights inteligentes normalmente necessita de uma hora de tempo para executar a análise da causa raiz do problema de desempenho. Se não é possível localizar o problema no Insights inteligente e é fundamental para si, utilize o arquivo de consultas manualmente identificar a causa do problema de desempenho. (Normalmente, estes problemas são inferior a um horas depois.) Para obter mais informações, consulte [monitorizar o desempenho ao utilizar o arquivo de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba [Insights inteligente](sql-database-intelligent-insights.md) conceitos.
 - Utilize o [registo de diagnóstico de desempenho inteligente Insights SQL Database do Azure](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitor [SQL Database do Azure utilizando o Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

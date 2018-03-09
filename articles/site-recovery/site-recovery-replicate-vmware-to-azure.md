@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: asgang
 ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replicar as aplicações em execução em máquinas virtuais VMware para Azure
 
@@ -67,7 +67,7 @@ Quando replicar máquinas virtuais VMware:
 8. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure estabelecerão uma ligação quando se puserem em marcha após a ativação pós-falha. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. Se não tiver uma rede, terá de [criar um](#set-up-an-azure-network). Para criar uma rede utilizando o Gestor de recursos, clique em **criar nova**. Se pretender criar uma rede utilizando o modelo clássico, fazê-lo [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável e, em seguida, clique em **OK**.
 
     ![Ativar a definição de destino de replicação](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-9. No **máquinas virtuais** > **selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, clique em **OK**.
+9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, clique em **OK**.
 
     ![Ativar replicação selecione máquinas de virtuais](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. No **propriedades** > **configurar propriedades**, selecione a conta utilizada pelo servidor de processos para instalar automaticamente o serviço de mobilidade na máquina.  
@@ -75,7 +75,7 @@ Quando replicar máquinas virtuais VMware:
 
     ![Ativar replicação configurar propriedades](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-12. No **as definições de replicação** > **configurar as definições de replicação**, certifique-se de que a política de replicação correto está selecionada. Pode modificar as definições de política de replicação no **definições** > **políticas de replicação** > (nome da política) > **editar definições de**. As alterações que aplicar a uma política aplicam-se também a replicação e de novas máquinas.
+12. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada. Pode modificar as definições de política de replicação no **definições** > **políticas de replicação** > (nome da política) > **editar definições de**. As alterações que aplicar a uma política aplicam-se também a replicação e de novas máquinas.
 13. Ativar **a consistência Multi VM** se pretender recolher máquinas para um grupo de replicação. Especifique um nome para o grupo e, em seguida, clique em **OK**. 
 
     > [!NOTE]

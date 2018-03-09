@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu IoT hub, utilizando o protocolo MQTT
 
@@ -100,6 +100,8 @@ Se um dispositivo não é possível utilizar os SDKs do dispositivo, ainda pode 
 
 Para MQTT ligar e desligar pacotes, o IoT Hub emite um evento no **operações de monitorização** canal. Este evento tem informações adicionais que podem ajudar a resolver problemas de conectividade.
 
+A aplicação de dispositivo pode especificar um **será** mensagem no **CONNECT** pacotes. Deve utilizar a aplicação de dispositivo `devices/{device_id}/messages/events/{property_bag}` ou `devices/{device_id}/messages/events/{property_bag}` como o **será** para definir o nome do tópico **será** mensagens a reencaminhar como uma mensagem de telemetria. Neste caso, se a ligação de rede é fechada, mas a **desligar** pacote não foi anteriormente recebido do dispositivo, em seguida, envia o IoT Hub a **será** mensagem fornecida a **CONNECT** pacote para o canal de telemetria. O canal de telemetria pode ser ambos os **eventos** endpoint ou um ponto de final personalizado definidos pelo IoT Hub encaminhamento. A mensagem tem o **iothub MessageType** propriedade com um valor de **será** atribuída.
+
 ### <a name="tlsssl-configuration"></a>Configuração de TLS/SSL
 
 Para utilizar o MQTT protocolo diretamente, o cliente *tem* ligar através de TLS/SSL. As tentativas para ignorar este passo falharam com erros de ligação.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > Isto `{property_bag}` elemento utiliza a mesma codificação como para cadeias de consulta no protocolo HTTPS.
 
-Também pode utilizar a aplicação de dispositivo `devices/{device_id}/messages/events/{property_bag}` como o **será o nome do tópico** definir *será mensagens* a reencaminhar como uma mensagem de telemetria.
+Segue-se uma lista dos comportamentos de implementação específicos do IoT Hub:
 
 * IoT Hub não suporta mensagens QoS 2. Se uma aplicação de dispositivo publica uma mensagem com **QoS 2**, o IoT Hub fecha a ligação de rede.
 * IoT Hub não persiste manter mensagens. Se um dispositivo envia uma mensagem com o **manter** sinalizador definido como 1, o IoT Hub adiciona o **x-optar ativamente por participar-manter** propriedade de aplicação para a mensagem. Neste caso, em vez da mensagem de manter a persistência, o IoT Hub passa-a para a aplicação de back-end.

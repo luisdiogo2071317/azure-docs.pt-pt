@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ff27d557f221be61a7384f6aaf6e57cef5cebb81
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Criar uma rede virtual com a CLI do Azure
 
@@ -153,4 +153,4 @@ az group delete --name myResourceGroup --yes
 Neste artigo, implementou uma predefinição a rede virtual com uma sub-rede. Para saber como criar uma rede virtual personalizada com várias sub-redes, avance para o tutorial para criar uma rede virtual personalizada.
 
 > [!div class="nextstepaction"]
-> [Criar uma rede virtual personalizada](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [Criar uma rede virtual personalizada](virtual-networks-create-vnet-arm-cli.md)

@@ -2,18 +2,18 @@
 title: "Como gerir a sua conta com base dos serviços de localização do Azure e as chaves | Microsoft Docs"
 description: "Pode utilizar o portal do Azure para gerir a sua conta com base dos serviços de localização do Azure e gerir as chaves de acesso."
 services: location-based-services
-keywords: "Não adicionar ou editar as palavras-chave sem consultadoria seu perito de SEO."
-author: philmea
-ms.author: philmea
+keywords: "Não adicione nem edite as palavras-chave sem consultar o perito em SEO."
+author: kgremban
+ms.author: kgremban
 ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: b82ff3edc3515d9dce465c7a7ed6084a2bfe25c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ea7beae054157800ee404cf237772d0677574ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Como gerir a sua conta com base dos serviços de localização do Azure e as chaves
 
@@ -27,7 +27,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-new-account"></a>Criar uma conta nova
 
-1. Clique em **crie um recurso** no canto superior esquerdo do portal do Azure.
+1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 2. Procure e selecione **localização com base em serviços**, em seguida, clique em **criar**.
 

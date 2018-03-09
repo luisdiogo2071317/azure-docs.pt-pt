@@ -3,7 +3,7 @@ title: Gerir contas de armazenamento do Azure pilha | Microsoft Docs
 description: Saiba como localizar, gerir, recuperar e recuperar as contas de armazenamento de pilha do Azure
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
-ms.author: brenduns
+ms.date: 02/22/2018
+ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerir contas de armazenamento na pilha do Azure
 Saiba como gerir contas de armazenamento na pilha do Azure para localizar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio.
@@ -29,7 +29,7 @@ A lista de contas do storage na região pode ser visualizada na pilha do Azure p
 
 1. Num browser da Internet, navegue para https://adminportal.local.azurestack.external.
 2. Inicie sessão no portal de administração do Azure pilha como um operador da nuvem (utilizando as credenciais fornecidas durante a implementação)
-3. Encontrar no dashboard predefinido – o **gestão região** lista e clique em região pretende explorar. Por exemplo **(local**).
+3. Encontrar no dashboard predefinido – o **gestão região** lista e clique na região que pretende explorar, por exemplo **(local**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Selecione **armazenamento** do **fornecedores de recursos** lista.
@@ -53,13 +53,13 @@ Se estiver interessado numa conta do storage específico – pode **filtrar e ob
 **Para filtrar para contas:**
 
 1. Clique em **filtro** na parte superior do painel.
-2. No painel de filtro, permite-lhe especificar **nome da conta**, **ID de subscrição** ou **estado** para otimizar a lista de contas do storage a apresentar. Utilize-os conforme apropriado.
+2. No painel de filtro, permite-lhe especificar **nome da conta**, * * ID de subscrição, ou **estado** para otimizar a lista de contas do storage a apresentar. Utilize-os conforme apropriado.
 3. Clique em **atualização**. A lista deverá atualizar em conformidade.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. Para repor o filtro: clique em **filtro**, desmarque terminar as seleções e atualizar.
 
-Caixa de texto de pesquisa (na parte superior do painel de lista de contas de armazenamento) permite-lhe realce o texto seleccionado na lista de contas. Este é realmente útil caso quando o id de nome completo ou não está facilmente disponível.
+Caixa de texto de pesquisa (no topo do painel de lista de contas de armazenamento) permite-lhe realce o texto seleccionado na lista de contas. Pode utilizar este quando o ID de nome completo ou não está facilmente disponível.
 
 Pode utilizar aqui o texto livre para ajudar a localizar a conta que está interessado.
 
@@ -73,13 +73,13 @@ Depois de localizar as contas que está interessado visualização, pode clicar 
 ## <a name="recover-a-deleted-account"></a>Recuperar uma conta eliminada
 Pode ser uma situação em que precisar de recuperar de uma conta eliminada.
 
-Na pilha de Azure há uma forma muito simple para o fazer:
+Na pilha de Azure há uma forma simple para o fazer:
 
 1. Navegue para a lista de contas de armazenamento. Consulte [localizar uma conta de armazenamento](#find) neste tópico para obter mais informações.
 2. Localize essa conta específica na lista. Se pretender filtrar.
 3. Verifique o *estado* da conta. Deverá indicar **eliminado**.
-4. Clique na conta que abre o painel de detalhes de conta.
-5. Por cima deste painel, localize o **recuperar** botão e clique no mesmo.
+4. Clique na conta, que abre o painel de detalhes de conta.
+5. Por cima neste painel, localize o **recuperar** botão e clique no mesmo.
 6. Clique em **Sim** para confirmar.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
@@ -93,10 +93,10 @@ Na pilha de Azure há uma forma muito simple para o fazer:
 ### <a name="some-gotchas"></a>Some Gotchas
 * A conta eliminada mostra o estado como **fora de retenção**.
   
-  Isto significa que a conta eliminada excedeu o período de retenção e poderá não ser recuperável.
+  Fora de retenção significa que a conta eliminada excedeu o período de retenção e não pode ser recuperável.
 * A conta eliminada não for apresentada na lista de contas.
   
-  Isto pode significar que a conta eliminada já foi libertados. Neste caso este não pode ser recuperado. Consulte [recuperar a capacidade](#reclaim) neste tópico.
+  A conta não pode mostrar na lista de conta quando a conta eliminada já tiver sido recolhidos. Neste caso, este não pode ser recuperado. Consulte [recuperar a capacidade](#reclaim) neste tópico.
 
 ## <a name="set-the-retention-period"></a>Definir o período de retenção
 A definição de período de retenção permite um operador da nuvem especificar um período de tempo em dias (entre 0 e 9999 dias) durante o qual qualquer conta eliminada, potencialmente, pode ser recuperada. O período de retenção de predefinição está definido como 15 dias. Definir o valor para "0" significa que qualquer conta eliminada imediatamente está fora de retenção e marcado para recolha de lixo periódica.
@@ -142,13 +142,13 @@ Pode também utilizar o PowerShell para substituir explicitamente o período de 
 2. Execute o seguinte cmdlet:
 
 > [!NOTE]
-> Se executar este cmdlet pode eliminar permanentemente a conta e o respetivo conteúdo. Não é recuperável. Utilize esta opção com cuidado.
+> Se executar este cmdlet, poderá eliminar permanentemente a conta e o respetivo conteúdo. Não é recuperável. Utilize esta opção com cuidado.
 
 
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-Para obter mais detalhes, consulte [documentação do powershell de pilha do Azure.](https://msdn.microsoft.com/library/mt637964.aspx)
+Para obter mais informações, consulte [documentação do powershell de pilha do Azure.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
 ## <a name="migrate-a-container"></a>Migrar um contentor
@@ -187,7 +187,7 @@ Tem de utilizar o PowerShell para migrar os contentores.
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Iniciar a migração para um contentor, tenha em atenção de que esta é uma implementação de async, para que um possa cíclicas todos os contentores numa partilha e controlar o estado com o id da tarefa devolvido.
+6. Iniciar a migração para um contentor, tenha em atenção de que esta é uma implementação de async, para que um possa cíclicas todos os contentores numa partilha e controlar o estado com o ID de tarefa devolvido.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
@@ -197,7 +197,7 @@ Tem de utilizar o PowerShell para migrar os contentores.
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Verifique o estado da tarefa de migração pelo id da tarefa. Quando concluir a migração de contentor, MigrationStatus está definido como "Concluído".
+7. Verifique o estado da tarefa de migração por um ID de tarefa. Quando concluir a migração de contentor, MigrationStatus está definido como "Concluída".
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
@@ -209,7 +209,7 @@ Tem de utilizar o PowerShell para migrar os contentores.
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    Pode verificar o estado de cancelar a migração novamente:
+    Pode verificar que os Estados da migração Cancelar novamente:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir a análise de registo com modelos Azure Resource Manager
 Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho de análise de registos. Exemplos de tarefas que pode efetuar com modelos incluem:
@@ -31,7 +31,6 @@ Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resourc
 * Recolher contadores de desempenho de computadores com Linux e Windows
 * Recolher eventos do syslog nos computadores com Linux 
 * Recolher eventos de registos de eventos do Windows
-* Recolher registos de eventos personalizados
 * Adicionar o agente de análise do registo para uma máquina virtual do Azure
 * Configurar a análise de registos para dados do índice recolhidos através de diagnóstico do Azure
 
@@ -60,7 +59,6 @@ O exemplo de modelo seguinte ilustra como:
 7. Recolher eventos syslog de computadores com Linux
 8. Recolher eventos de erro e aviso do registo de eventos de computadores Windows
 9. Recolher contador de desempenho Memória \ Mbytes disponíveis a partir de computadores Windows
-10. Recolher um registo personalizado 
 11. Recolher registos de IIS e os registos de eventos do Windows escritos pelo diagnóstico do Azure para uma conta de armazenamento
 
 ```json
@@ -295,61 +293,6 @@ O exemplo de modelo seguinte ilustra como:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -464,7 +407,7 @@ O exemplo de modelo seguinte ilustra como:
 ### <a name="deploying-the-sample-template"></a>Implementar o modelo de exemplo
 Para implementar o modelo de exemplo:
 
-1. Guardar o exemplo anexado um ficheiro, por exemplo`azuredeploy.json` 
+1. Guardar o exemplo anexado um ficheiro, por exemplo `azuredeploy.json` 
 2. Editar o modelo para que a configuração que pretende
 3. Utilizar o PowerShell ou da linha de comandos para implementar o modelo
 
