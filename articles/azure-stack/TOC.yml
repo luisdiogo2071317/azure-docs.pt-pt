@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Notas de versão de sistemas integrados
           items:
+            - name: atualização 1802
+              href: azure-stack-update-1802.md
             - name: atualização 1712
               href: azure-stack-update-1712.md
             - name: atualização 1711
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: Gerir recursos de rede
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Gerir recursos de armazenamento
-          href: azure-stack-manage-storage-accounts.md
-        - name: Gerir a capacidade de armazenamento
-          href: azure-stack-manage-storage-shares.md
         - name: Gerir VMs do Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Iniciar e parar a pilha do Azure
           href: azure-stack-start-and-stop.md
+        - name: Gerir capacidade
+          items:
+            - name: Gerir recursos de armazenamento
+              href: azure-stack-manage-storage-accounts.md
+            - name: Gerir a capacidade de armazenamento
+              href: azure-stack-manage-storage-shares.md
+            - name: Gerir a capacidade de armazenamento físico para a pilha do Azure
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: Substituir hardware
           items:
             - name: Ações de nó
@@ -230,6 +236,10 @@
               href: azure-stack-app-service-deploy.md
             - name: Implementar o Serviço de Aplicações offline
               href: azure-stack-app-service-deploy-offline.md
+            - name: Atualize o fornecedor de recursos do serviço de aplicações
+              href: azure-stack-app-service-update.md
+            - name: Atualize o fornecedor de recursos do serviço de aplicações offline
+              href: azure-stack-app-service-update-offline.md
             - name: Adicionar mais funções de trabalho Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurar origens de implementação

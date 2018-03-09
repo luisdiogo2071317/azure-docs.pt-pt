@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão do Application Insights conector (pré-visualização)
 
@@ -64,7 +64,7 @@ Em aproximadamente 30 minutos, dados ficam disponíveis e o mosaico do Applicati
 Outros pontos a ter em mente:
 
 - Só pode associar aplicações do Application Insights para uma área de trabalho de análise de registos.
-- Só pode associar [recursos Standard ou Premium Application Insights](https://azure.microsoft.com/pricing/details/application-insights) à análise de registos. No entanto, pode utilizar o escalão gratuito de análise de registos.
+- Só pode associar [Basic ou Enterprise Application Insights recursos](https://azure.microsoft.com/pricing/details/application-insights) à análise de registos. No entanto, pode utilizar o escalão gratuito de análise de registos.
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
@@ -117,7 +117,7 @@ Quando clica em qualquer lugar a **exceções** painel, verá uma visualização
 
 ![Painel do Application Insights exceções](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Independentemente se clicar em algo um o **Application Insights conector** dashboard, dentro de **pesquisa** página próprio, qualquer consulta devolver dados do Application Insights mostram a aplicação Perspetiva de informações. Por exemplo, se estiver a ver dados do Application Insights, um **&#42;** consulta também apresenta o separador de perspetiva como a imagem seguinte:
+Independentemente se clicar em algo um o **Application Insights conector** dashboard, dentro de **pesquisa** página próprio, qualquer consulta devolver dados do Application Insights mostram a aplicação Perspetiva de informações. Por exemplo, se estiver a ver dados do Application Insights, um  **&#42;**  consulta também apresenta o separador de perspetiva como a imagem seguinte:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 

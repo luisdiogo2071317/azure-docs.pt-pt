@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -134,7 +134,50 @@ Gerado *function.json* ficheiro inclui um `configurationSource` propriedade que 
 }
 ```
 
-O *function.json* geração do ficheiro é realizada o pacote NuGet [Microsoft\.NET\.Sdk\.funções](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). O código de origem está disponível no repositório GitHub [azure\-funções\-vs\-criar\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Pacote Microsoft.NET.Sdk.Functions NuGet
+
+O *function.json* geração do ficheiro é realizada o pacote NuGet [Microsoft\.NET\.Sdk\.funções](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+O mesmo pacote é utilizado para versões de 1. x e 2 do tempo de execução de funções. O framework de destino é que um projeto de 1. x diferencia de a um projeto de 2. x. Seguem-se as partes relevantes do *. csproj* de destino de ficheiros, que mostra diferentes estruturas e o mesmo `Sdk` pacote:
+
+**As funções 1. x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Funciona 2. x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+Entre o `Sdk` as dependências de pacote são acionadores e enlaces. Um projeto de 1. x refere-se 1. x acionadores e enlaces porque os o .NET Framework de destino enquanto 2 acionadores e enlaces .NET Core de destino.
+
+O `Sdk` pacote também depende [newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json)e indiretamente no [Windowsazure](http://www.nuget.org/packages/WindowsAzure.Storage). Estas dependências Certifique-se de que o seu projeto utiliza as versões desses pacotes que funcionam com a versão de runtime de funções que os destinos de projeto. Por exemplo, `Newtonsoft.Json` tem versão 11 para .NET Framework 4.6.1, mas só é compatível com o tempo de execução de funções que vise o .NET Framework 4.6.1 `Newtonsoft.Json` 9.0.1. Para o seu código de função no projeto de que também tem de utilizar `Newtonsoft.Json` 9.0.1.
+
+O código de origem para `Microsoft.NET.Sdk.Functions` está disponível no repositório GitHub [azure\-funções\-vs\-criar\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### <a name="runtime-version"></a>Versão de runtime
+
+Visual Studio utiliza o [ferramentas de núcleos de funções do Azure](functions-run-local.md#install-the-azure-functions-core-tools) para executar os projetos de funções. As ferramentas de Core é uma interface de linha de comandos para o tempo de execução de funções.
+
+Se instalar as ferramentas de núcleos utilizando npm, que não afeta a versão de ferramentas principal utilizada pelo Visual Studio. Para a versão de runtime funções 1. x, o Visual Studio armazena versões principais ferramentas no *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* e utiliza a versão mais recente armazenada não existe. Para funções 2. x, as ferramentas de núcleos são incluídas no **das funções do Azure e ferramentas de trabalhos Web** extensão. Para o 1. x e 2. x, pode ver a versão que está a ser utilizada o resultado da consola ao executar um projeto de funções:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>Tipos suportados para enlaces
 

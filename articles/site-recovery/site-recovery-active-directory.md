@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utilizar o Azure Site Recovery para proteger o Active Directory e DNS
 
@@ -73,7 +73,7 @@ Para evitar o impacto nas cargas de trabalho de produção, a ativação pós-fa
 
 A maioria das aplicações requerem a presença de um controlador de domínio ou um servidor DNS. Por conseguinte, antes da aplicação a ativação pós-falha, terá de criar um controlador de domínio na rede isolada a ser utilizado para ativação pós-falha de teste. A forma mais fácil para o fazer consiste em utilizar a recuperação de sites para replicar uma máquina virtual que aloja um controlador de domínio ou DNS. Em seguida, execute uma ativação pós-falha de teste da máquina de virtual de controlador de domínio antes de executar uma ativação pós-falha do plano de recuperação para a aplicação. Eis como pode fazê-lo:
 
-1. Utilizar a recuperação de Site para [replicar](site-recovery-replicate-vmware-to-azure.md) a máquina virtual que aloja o controlador de domínio ou DNS.
+1. Utilizar a recuperação de Site para [replicar](vmware-azure-tutorial.md) a máquina virtual que aloja o controlador de domínio ou DNS.
 2. Crie uma rede isolada. Qualquer rede virtual que criar no Azure está isolada de outras redes por predefinição. Recomendamos que utilize o mesmo intervalo de endereços IP para esta rede que utiliza na sua rede de produção. Não conseguir ative a conetividade site a site nesta rede.
 3. Forneça um endereço de IP de DNS na rede isolada. Utilize o endereço IP que espera que a máquina virtual DNS para obter. Se estiver a replicar para o Azure, forneça o endereço IP para a máquina virtual que é utilizada na ativação pós-falha. Introduza o endereço IP, na máquina virtual replicada, no **computação e rede** definições, selecione o **IP de destino** definições.
 

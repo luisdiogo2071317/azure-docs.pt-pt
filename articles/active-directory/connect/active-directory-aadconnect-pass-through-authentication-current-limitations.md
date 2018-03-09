@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Do Azure autenticação do Active Directory pass-through: Limitações atuais
 
@@ -31,18 +31,18 @@ Os cenários seguintes são totalmente suportados:
 
 - Utilizador inícios de sessão para todas as aplicações baseadas no browser do web
 - Utilizador inícios de sessão para aplicações do Office que suportam [autenticação moderna](https://aka.ms/modernauthga): Office 2016 ou Office 2013 _com_ autenticação moderna
+- Utilizador inícios de sessão para clientes do Outlook utilizar protocolos de legado, como o Exchange ActiveSync, SMTP, POP e IMAP.
 - Utilizador inícios de sessão ao Skype para empresas que suporte a autenticação moderna, incluindo topologias Online e híbrida. Obter mais informações sobre topologias suportadas [aqui](https://technet.microsoft.com/library/mt803262.aspx).
 - Associações de domínio do Azure AD para dispositivos Windows 10
-- Suporte do Exchange ActiveSync
+- Palavras-passe de aplicação para o multi-factor Authentication.
 
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
 
 Os cenários seguintes são _não_ suportados:
 
-- Utilizador inícios de sessão para aplicações de cliente legados do Office: Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são encouraged para mudar para a autenticação moderna, se possível. Permite a autenticação moderna para o suporte de autenticação pass-through. Também o ajuda a proteger as contas de utilizador utilizando [acesso condicional](../active-directory-conditional-access-azure-portal.md) funcionalidades, tais como o Azure multi-factor Authentication.
+- Utilizador inícios de sessão para aplicações de cliente do Office legadas, excluindo o Outlook: Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são encouraged para mudar para a autenticação moderna, se possível. Permite a autenticação moderna para o suporte de autenticação pass-through. Também o ajuda a proteger as contas de utilizador utilizando [acesso condicional](../active-directory-conditional-access-azure-portal.md) funcionalidades, tais como o Azure multi-factor Authentication.
 - Utilizador inícios de sessão ao Skype para as aplicações de cliente de negócio _sem_ autenticação moderna.
 - Utilizador inícios de sessão para o PowerShell na versão 1.0. Recomendamos que utilize o PowerShell versão 2.0.
-- Palavras-passe de aplicação para o multi-factor Authentication.
 - Deteção de utilizadores com [fuga credenciais](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Serviços de domínio do Azure AD tem de sincronização de Hash de palavra-passe para ser ativada no inquilino. Por conseguinte, os inquilinos que utilizam a autenticação pass-through _apenas_ não funcionam para cenários que precisam de serviços de domínio do Azure AD.
 - A autenticação pass-through não está integrada [do Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
@@ -63,4 +63,3 @@ Ativar a sincronização de hash de palavra-passe dá-lhe a opção de autentica
 - [Descrição detalhada da segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): obter particularmente técnicas informações sobre a funcionalidade de autenticação pass-through.
 - [Azure SSO totalmente integrada de AD](active-directory-aadconnect-sso.md): saber mais sobre esta funcionalidade complementares.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum do Azure Active Directory para novos pedidos de funcionalidade de ficheiros.
-

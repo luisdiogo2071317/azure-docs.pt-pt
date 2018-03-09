@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como aprovisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
 Este guia fornece detalhes sobre as diferentes opções disponíveis quando cria uma máquina virtual do Windows SQL Server no portal do Azure. Este artigo abrange mais opções de configuração que o [início rápido da VM do SQL Server](quickstart-sql-vm-create-portal.md), que passa o mais um possível através de tarefa de aprovisionamento. 
 
 Utilize este guia para criar os seus próprios VM do SQL Server. Em alternativa, utilizá-lo como referência para as opções disponíveis no portal do Azure.
+
+> [!TIP]
+> Se tiver dúvidas sobre máquinas virtuais do SQL Server, consulte o [perguntas mais frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -34,7 +37,7 @@ Quando cria uma máquina virtual do SQL Server, pode selecionar uma das várias 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) utilizando a sua conta.
 
-1. No portal do Azure, clique em **crie um recurso**. O portal abre a janela **Novo**.
+1. No portal do Azure, clique em **Criar um recurso**. O portal abre a janela **Novo**.
 
 1. Na janela **Novo**, clique em **Computação** e, em seguida, clique em **Ver todos**.
 

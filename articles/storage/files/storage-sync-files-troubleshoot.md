@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -51,7 +51,7 @@ Reveja installer.log para determinar a causa da falha de instalação.
 Para resolver, transfira a função de PDC, para outro domínio controlador em execução do Windows Server 2012R2 ou mais recente, em seguida, instalar a sincronização.
 
 <a id="agent-installation-websitename-failure"></a>**Instalação do agente falhar com este erro: "Assistente do agente de sincronização de armazenamento terminou prematuramente"**  
-Este problema pode ocorrer se o nome do Web site predefinido do IIS é alterado. Para contornar este problema, mude o nome do Web site predefinido do IIS como "Default Web Site" e repita a instalação. O problema será resolvido numa atualização futura do agente. 
+Este problema pode ocorrer com agente de 1. x da versão e se o Web site do IIS predefinido nome é alterado. Para contornar este problema, utilize o nosso agente 2.0.11+.
 
 <a id="server-registration-missing"></a>**Servidor não está listado em servidores registados no portal do Azure**  
 Se um servidor não está listado em **registado servidores** para um serviço de sincronização de armazenamento:

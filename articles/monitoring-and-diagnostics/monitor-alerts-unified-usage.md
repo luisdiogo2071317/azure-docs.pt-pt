@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Criar, ver e gerir alertas utilizando o Monitor do Azure - alertas (pré-visualização)
 
@@ -71,7 +71,7 @@ Detalhadas seguinte é um guia passo a passo para utilizar alertas do Azure (pr�
 
     > [!NOTE]
 
-    > Novas funcionalidades de métricas introduzidas para alertar rápidos apenas são incluídas em tipos de sinal como métricas do serviço de plataforma
+    >  Todos os [quase em tempo real alertas](monitoring-near-real-time-metric-alerts.md) com capacidade de recursos estão listados com o serviço de monitor **plataforma** e assinalar o tipo como **métrica**
 
 6. *Alertas métricas*: após o sinal estiver selecionada, pode ser indicada lógica para alertas. Para referência, os dados históricos de sinal são apresentados com a opção para otimizar a janela de tempo utilizando **Mostrar histórico**, variando a partir do último seis horas a última semana. Com a visualização no local, **lógica alerta** podem ser selecionadas das opções apresentadas da condição, agregação e, finalmente, limiar. Como pré-visualização da lógica de fornecido, a condição é mostrada na visualização juntamente com o histórico de sinal, para indicar quando seria ter acionado o alerta. Especifique, finalmente, para que duração de tempo, alerta deve procurar a condição especificada, seleccionando o **período** opção juntamente com a frequência de alerta deve executar selecionando **frequência**.
 

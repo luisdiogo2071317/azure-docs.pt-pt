@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicar atualizações na pilha do Azure
 
@@ -67,14 +67,14 @@ O procedimento seguinte mostra como importar e instalar pacotes de atualização
  
     ![Mostra onde pretende carregar cada ficheiro de pacote](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repita os passos 6 e 7 para o *PackageName*. bin e ficheiros de Metadata.xml. 
+8. Repita os passos 6 e 7 para o *PackageName*. bin e ficheiros de Metadata.xml. Não importe o ficheiro Notice.txt suplementares se incluído.
 9. Quando terminar, pode rever as notificações (ícone de campainha no canto superior direito do portal). As notificações devem indicar que o carregamento foi concluída. 
 10. Navegue de volta para o mosaico de atualização no dashboard. O mosaico deve indicar que está disponível uma atualização. Clique no mosaico para rever o pacote de atualização adicionados recentemente.
 11. Para instalar a atualização, selecione o pacote que está marcado como **pronto** e um pacote com o botão direito e selecione **atualizar agora**, ou clique em de **atualizar agora** ação perto da parte superior .
 12. Ao clicar em Instalar pacote de atualização, pode ver o estado de **detalhes da execução da atualização** área. Aqui, também pode clicar em **transferir os registos completos** para transferir os ficheiros de registo.
 13. Quando a atualização estiver concluída, o mosaico de atualização mostra a versão atualizada da pilha do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerir as atualizações na descrição geral de pilha do Azure](azure-stack-updates.md)
 - [Pilha do Azure de política de manutenção](azure-stack-servicing-policy.md)

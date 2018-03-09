@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos de base de dados SQL do Azure
+
+> [!IMPORTANT]
+> Para os limites de recursos com base de dados geridas por instância de SQL do Azure, consulte [a instância de gerido da base de dados do SQL Server](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de dados individual: tamanhos de armazenamento e níveis de desempenho
 
@@ -79,7 +82,6 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 
 > [!NOTE]
 > Os limites de recursos de bases de dados individuais em conjuntos elásticos, geralmente, são iguais às bases de dados individuais fora conjuntos com base no DTUs e a camada de serviço. Por exemplo, os trabalhadores simultâneos máximas para uma base de dados de S2 é 120 workers. Por isso, os trabalhadores simultâneos máximas para uma base de dados num conjunto Standard também é 120 trabalhadores se o máximo de DTUS por base de dados no conjunto é 50 DTUs (que é equivalente ao S2).
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

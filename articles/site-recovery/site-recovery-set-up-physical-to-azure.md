@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: anoopkv
 ms.openlocfilehash: 6c29ac32cb868cfdd72479add551cece266a5f9d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurar o ambiente de origem (servidor físico para o Azure)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ A tabela seguinte lista o mínimos de hardware, software e requisitos de rede pa
   ![Configurar a origem](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. No **Adicionar servidor** painel, verifique se **servidor de configuração** aparece no **tipo de servidor**.
 4. Transfira o ficheiro de instalação de configuração do Unified Site Recovery.
-5. Transferir a chave de registo do cofre. Tem a chave de registo ao executar a configuração do Unified. A chave é válida durante cinco dias depois de gerá-la.
+5. Transfira a chave de registo do cofre. Tem a chave de registo ao executar a configuração do Unified. A chave é válida durante cinco dias depois de gerá-la.
 
     ![Configurar a origem](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
 6. No computador que está a utilizar como o servidor de configuração, execute **configuração de unificada do Azure Site Recovery** para instalar o servidor de configuração, o servidor de processos e o servidor de destino principal.

@@ -2,25 +2,20 @@
 title: "Reativação pós-falha no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma descrição geral dos vários tipos de reativação pós-falha e avisos para ser considerado ao falhar no local com o serviço do Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>Descrição geral da reativação pós-falha
+
 Depois de ter a pós-falha para o Azure, pode falhar novamente para o site no local. Existem dois tipos diferentes de reativação pós-falha que são possíveis com o Azure Site Recovery: 
 
 - A localização original 
@@ -55,5 +50,5 @@ Se a máquina virtual no local não existe antes de proteger novamente a máquin
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Siga os passos para efetuar o [operação de reativação pós-falha](site-recovery-how-to-failback-azure-to-vmware.md).
+Siga os passos para efetuar o [operação de reativação pós-falha](vmware-azure-failback.md).
 

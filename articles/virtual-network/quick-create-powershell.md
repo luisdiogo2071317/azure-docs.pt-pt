@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: dd8203763eb6abd19e2b3483636dc4d80f7effdf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 22fcdbda85f3ea336c3926e04d408935ed069c25
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Criar uma rede virtual com o PowerShell
 
@@ -169,4 +169,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 Neste artigo, implementou uma predefinição a rede virtual com uma sub-rede. Para saber como criar uma rede virtual personalizada com várias sub-redes, avance para o tutorial para criar uma rede virtual personalizada.
 
 > [!div class="nextstepaction"]
-> [Criar uma rede virtual personalizada](virtual-networks-create-vnet-arm-pportal.md#powershell)
+> [Criar uma rede virtual personalizada](virtual-networks-create-vnet-arm-ps.md)

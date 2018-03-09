@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporta chamadas REST, pode efetuar operações de atualização de dados assíncrona nos seus modelos em tabela do Analysis Services do Azure. Isto inclui a sincronização de réplicas de só de leitura para consulta Escalamento horizontal. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Todas as chamadas têm de ser autenticadas com um token do Azure Active Directory (OAuth 2) válido no cabeçalho de autorização e tem de cumprir os seguintes requisitos:
 
 - O token tem de ser um token de utilizador ou um principal de serviço de aplicações.
-- O utilizador ou a aplicação tem de ter permissões suficientes no servidor ou do modelo para efetuar a chamada de pedido. O nível de permissão é determinado pelas funções dentro do modelo ou do grupo de administrador no servidor.
 - O token tem de ter o público-alvo correto definido como `https://*.asazure.windows.net`.
+- O utilizador ou a aplicação tem de ter permissões suficientes no servidor ou do modelo para efetuar a chamada de pedido. O nível de permissão é determinado pelas funções dentro do modelo ou do grupo de administrador no servidor.
+
+    > [!IMPORTANT]
+    > Atualmente, **administração de servidor** são necessárias permissões de função.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

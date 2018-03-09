@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2018
+ms.date: 03/07/2018
 ms.author: rajanaki
-ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9c52ef47992474465111f106fc15779cadd825be
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte de recuperação de sites do Azure para replicar no local para Azure
 
@@ -82,7 +82,7 @@ A tabela seguinte resume o suporte do sistema de operativo replicadas em vários
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versões suportadas do kernel Ubuntu para VMware/servidores físicos
 
-**Versão** | **Versão do serviço de mobilidade** | Versão de kernel |
+**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic para 3.13.0-121-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic para 3.13.0-128-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-91-generic |
@@ -96,9 +96,8 @@ A tabela seguinte resume o suporte do sistema de operativo replicadas em vários
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Sistemas de ficheiro suportados e configurações de armazenamento de convidado no Linux (VMware/servidores físicos)
 
 São suportados os seguintes sistemas de ficheiros e software de configuração de armazenamento em servidores Linux em execução nos servidores de VMware ou física:
-* Sistemas de ficheiros: ext3 ext4, ReiserFS (Suse Linux Enterprise Server apenas), XFS
+* Sistemas de ficheiros: ext3 ext40, XFS
 * Gestor de volumes: LVM2
-* O software MultiPath i: mapeador de dispositivo
 
 Dispositivos de armazenamento Paravirtualized (exportados pelo paravirtualized controladores de dispositivos) não são suportados.<br/>
 Dispositivos de e/s de fila vários blocos não são suportados.<br/>
@@ -134,7 +133,7 @@ Vários NICs | Sim | Sim
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuração de rede de VM do Azure de efetuada a ativação pós-falha
 
-Redes do Azure | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
+**Redes do Azure** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Sim | Sim
 ILB | Sim | Sim
@@ -215,9 +214,9 @@ Managed disks | Sim | Sim<br/><br/>A reativação pós-falha no local na VM do A
 
 Pode implementar o Site Recovery para replicar máquinas virtuais e servidores físicos que executem qualquer sistema operativo que o Azure suporte. Estes incluem a maioria das versões do Windows e do Linux. No local as VMs que pretende replicar devem estar em conformidade com os seguintes requisitos do Azure ao replicar para o Azure.
 
-**Entidade** | Requisitos | **Detalhes**
+**Entidade** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operativo convidado | Hyper-V para replicação do Azure: recuperação de sites suporta todos os sistemas operativos que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para VMware e replicação do servidor físico: verificar o Windows e Linux [pré-requisitos](site-recovery-vmware-to-azure-classic.md) | Verificação de pré-requisitos irá falhar se não suportado.
+**Sistema operativo convidado** | Hyper-V para replicação do Azure: recuperação de sites suporta todos os sistemas operativos que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para VMware e replicação do servidor físico: verificar o Windows e Linux [pré-requisitos](site-recovery-vmware-to-azure-classic.md) | Verificação de pré-requisitos irá falhar se não suportado.
 **Arquitetura do sistema operativo convidado** | 64 bits | Verificação de pré-requisitos irá falhar se não suportado
 **Tamanho do disco do sistema operativo** | Até 2048 GB se estiver a replicar **VMs de VMware ou servidores físicos para o Azure**.<br/><br/>Até 2048 GB para **geração do Hyper-V 1** VMs.<br/><br/>Até 300 GB para **VMs de Hyper-V de geração 2**.  | Verificação de pré-requisitos irá falhar se não suportado
 **Contagem de discos do sistema operativo** | 1 | Verificação de pré-requisitos irá falhar se não suportado.

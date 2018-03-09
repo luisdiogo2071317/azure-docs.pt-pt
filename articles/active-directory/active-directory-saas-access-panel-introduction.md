@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -67,6 +67,9 @@ Quando são autenticados, pode interagir com as aplicações que o administrador
 ## <a name="web-browser-requirements"></a>Requisitos de Web browsers
 
 No mínimo, o painel de acesso necessita de um browser que suporte JavaScript e ativou CSS. Para iniciar sessão no aplicações através do baseada em palavra-passe-início de sessão único (SSO), tem de ter a extensão do painel de acesso instalada no seu browser. A extensão é transferida automaticamente quando seleciona uma aplicação que está configurada para SSO baseada em palavra-passe.
+
+O instalador é específica da arquitetura. Se clicar na hiperligação de transferência, apenas obter o instalador para a arquitetura de SO que estão atualmente em execução no. Se for um administrador de implementação de aplicação, certifique-se de que visite a ligação de transferência de um dispositivo de 64 bits e de 32 bits para obter ambos os programas de instalação.
+
 
 A extensão do painel de acesso está atualmente disponível para:
 - **Limite**: aniversário da edição do Windows 10 ou posterior. 

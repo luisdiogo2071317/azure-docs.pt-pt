@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3da41adfa0865c0741c61b5d15c3ef1741eb6118
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL Database cliente implementação técnicos práticos
 
@@ -33,8 +33,8 @@ ms.lasthandoff: 10/31/2017
 
 - [Quórum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): quórum duplica carga de trabalho de chave da base de dados ao reduzirem DTU por 70% com base de dados do SQL Server.
 
-- [Vação](https://customers.microsoft.com/en-US/story/quest): vação oferece respetivo Spotlight no serviço do SQL Server para empresas com um objetivo em mente: para dar a profissionais de base de dados melhor ferramentas disponíveis para proteger dados, mover os dados em torno e operações de base de dados de monitorização. Com Spotlight, utilizando o Microsoft Azure e SQL Database do Azure, os administradores de base de dados do SQL Server podem monitorizar, detetar, diagnosticar e fornecer uma forma de resolver problemas de desempenho no SQL Server, se de que está a sentado à frente da respetiva suportes técnicos ou estiver a trabalhar em casa.
+- [Vação](https://customers.microsoft.com/story/quest): vação oferece respetivo Spotlight no serviço do SQL Server para empresas com um objetivo em mente: para dar a profissionais de base de dados melhor ferramentas disponíveis para proteger dados, mover os dados em torno e operações de base de dados de monitorização. Com Spotlight, utilizando o Microsoft Azure e SQL Database do Azure, os administradores de base de dados do SQL Server podem monitorizar, detetar, diagnosticar e fornecer uma forma de resolver problemas de desempenho no SQL Server, se de que está a sentado à frente da respetiva suportes técnicos ou estiver a trabalhar em casa.
 
-- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): este caso prático breve realça as melhores práticas e lições aprendidas na 365 Dynamics para uma experiência da equipa de produto de operações da migração para o SQL Database do Azure para fornecer aos clientes com um Software completamente gerida como um oferta de serviço (SaaS). Utilizar a SQL Database do Azure, a 365 Dynamics para a equipa de operações foi capaz de gerir e operar o serviço com significativamente menor técnico e dimensionar facilmente com funcionalidades de capacidade de gestão out of box, tais como a base de dados automática as cópias de segurança, retenção de cópias de segurança da base de dados , funcionalidades de recuperação após desastre e disponibilidade elevadas. Isto, juntamente com a capacidade de bases de dados de aprovisionamento com a automatização trivial lent SQL Database do Azure para a ser uma plataforma excelente para colocado dos serviços em grande escala.
+- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): este caso prático breve realça as melhores práticas e lições aprendidas no Dynamics 365 para uma experiência da equipa de produto de operações da migração para o SQL Database do Azure para fornecer aos clientes com um Software completamente gerida como um oferta de serviço (SaaS). Utilizar a SQL Database do Azure, a 365 Dynamics para a equipa de operações foi capaz de gerir e operar o serviço com significativamente menor técnico e dimensionar facilmente com funcionalidades de capacidade de gestão out of box, tais como a base de dados automática as cópias de segurança, retenção de cópias de segurança da base de dados , funcionalidades de recuperação após desastre e disponibilidade elevadas. Isto, juntamente com a capacidade de bases de dados de aprovisionamento com a automatização trivial lent SQL Database do Azure para a ser uma plataforma excelente para colocado dos serviços em grande escala.
 
 - [Microsoft OneDrive e ao SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): este caso prático breve informa o bloco atrás de movimentação do Microsoft OneDrive e do SharePoint Online a SQL Database do Azure e descreve a forma como esta migração ativada gestão de capacidade elástica praticamente ilimitados ao reduzir significativamente a sobrecarga de infraestrutura e os custos operacional.

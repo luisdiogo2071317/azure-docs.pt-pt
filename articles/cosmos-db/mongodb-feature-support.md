@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte de APIS de MongoDB para a sintaxe e funcionalidades do MongoDB
 
@@ -235,7 +235,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 Nas consultas $regex, esquerda-ancorada expressões permitem a pesquisa do índice. No entanto, utilizar 'i' modificador (case-insensitivity) e estou ' modificador (múltiplas) faz com que a análise de coleção em todas as expressões.
 Quando for necessário para incluir '$' ou ' |', é melhor criar consultas de regex dois (ou mais). Por exemplo, dada a seguinte consulta original: ```find({x:{$regex: /^abc$/})```, tem de ser modificados da seguinte forma: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-A primeira parte irá utilizar o índice para restringir a pesquisa a esses documentos a partir ^ abc e a segunda parte irá estabeler correspondência exatas entradas. Barra do operador ' |' funciona como uma função "ou" - a consulta ```find({x:{$regex: /^abc|^def/})``` corresponde a whin documentos o campo 'x' tem um valor que comece com "abc" ou "def". Para utilizar o índice, é recomendado para interromper a consulta duas consultas diferentes associadas pelo operador ou $: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+A primeira parte irá utilizar o índice para restringir a pesquisa a esses documentos a partir ^ abc e a segunda parte irá estabeler correspondência exatas entradas. Barra do operador ' |' funciona como uma função "ou" - a consulta ```find({x:{$regex: /^abc|^def/})``` corresponda os documentos que campo 'x' tem valores que começam por "abc" ou "def". Para utilizar o índice, é recomendado para interromper a consulta duas consultas diferentes associadas pelo operador ou $: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Operadores de atualização
 

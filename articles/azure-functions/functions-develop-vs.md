@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Ferramentas de funções do Azure para Visual Studio  
 
@@ -46,20 +46,21 @@ Para criar e implementar funções, é também necessário:
 
 * Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, [livre contas](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) estão disponíveis.
 
-* Uma conta de armazenamento do Azure. Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Uma conta do Armazenamento do Azure. Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="create-an-azure-functions-project"></a>Criar um projeto de funções do Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
-## <a name="configure-the-project-for-local-development"></a>Configurar o projeto de desenvolvimento local
-
-Quando cria um novo projeto utilizando o modelo de funções do Azure, obtenha um vazio projeto c# que contém os seguintes ficheiros:
+O modelo de projeto cria um projeto de c#, instala o `Microsoft.NET.Sdk.Functions` pacote NuGet e define o framework de destino. Funciona destinos de 1. x do .NET Framework e funciona 2 destinos .NET padrão. O novo projeto contém os seguintes ficheiros:
 
 * **Host.JSON**: permite-lhe configurar o anfitrião de funções. Estas definições aplicam-se tanto ao executar localmente e no Azure. Para obter mais informações, consulte [host.json referência](functions-host-json.md).
     
 * **local.Settings.JSON**: mantém as definições utilizadas ao executar localmente a funções. Estas definições não são utilizadas pelo Azure, são utilizados pelo [ferramentas de núcleos de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar definições, tais como cadeias de ligação para outros serviços do Azure. Adicionar uma nova chave para o **valores** matriz para cada ligação de funções no seu projeto. Para obter mais informações, consulte [ficheiro de definições locais](functions-run-local.md#local-settings-file) o tópico de ferramentas de núcleos de funções do Azure.
+
+Para obter mais informações, consulte [projeto de biblioteca de classe de funções](functions-dotnet-class-library.md#functions-class-library-project).
+
+## <a name="configure-the-project-for-local-development"></a>Configurar o projeto de desenvolvimento local
 
 O tempo de execução de funções utiliza uma conta de armazenamento do Azure internamente. Para acionam todos os tipos diferentes de HTTP e webhooks, tem de definir o **Values.AzureWebJobsStorage** chave para uma cadeia de ligação de conta do Storage do Azure válida. 
 
@@ -147,5 +148,6 @@ Também pode gerir as definições da aplicação de uma das seguintes outras ma
 
 Para obter mais informações sobre as ferramentas de funções do Azure, consulte a secção perguntas comuns a [as ferramentas de 2017 do Visual Studio para as funções do Azure](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogue.
 
-Para saber mais sobre as ferramentas de núcleos de funções do Azure, consulte [código e testar as funções do Azure localmente](functions-run-local.md).  
+Para saber mais sobre as ferramentas de núcleos de funções do Azure, consulte [código e testar as funções do Azure localmente](functions-run-local.md).
+
 Para obter mais informações sobre como desenvolver funciona como bibliotecas de classe de .NET, consulte [referência para programadores do Azure funções c#](functions-dotnet-class-library.md). Este tópico também contém ligações para obter exemplos de como utilizar atributos para declarar vários tipos de enlaces suportadas funções do Azure.    

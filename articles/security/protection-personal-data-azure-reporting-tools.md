@@ -1,6 +1,6 @@
 ---
 title: "O documento de proteção de dados pessoais com o Azure, as ferramentas de relatórios | Microsoft Docs"
-description: "como utilizar os serviços de relatórios do Azure e as tecnologias para ajudar a proteger a privacidade dos dados pessoais."
+description: "Utilize o reporting services do Azure para proteger a privacidade dos dados pessoais no iniciativas para estar em conformidade com Regulamento de proteção de dados gerais (GDPR)."
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Proteção de documentos dos dados pessoais com o Azure, as ferramentas de relatórios
 
-Este artigo irá discutir como utilizar os serviços de relatórios do Azure e tecnologias para ajudar a proteger a privacidade dos dados pessoais.
-
+Este artigo irá discutir como utilizar os serviços de relatórios do Azure e tecnologias para ajudar a proteger a privacidade dos dados pessoais. Estas informações podem ser utilizadas para estar em conformidade com regulamentos da indústria ou government como regulamento de proteção de dados gerais (GDPR).
 ## <a name="scenario"></a>Cenário
 
 Uma empresa de grande cruise headquartered nos Estados Unidos, está a expandir as suas operações para oferecer itineraries no Mediterranean, Adriatic e Baltic seas, bem como o Isles território. Para ajudar a estes esforços, obteve várias linhas cruise mais pequenas com base em (Itália), na Alemanha, Dinamarca e o U.K.

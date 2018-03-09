@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Base de dados SQL do Azure deteção e a classificação
 Deteção de dados & classificação (atualmente em pré-visualização) fornece capacidades avançadas de incorporadas no Azure SQL Database para **detetar**, **classificar**, **etiquetas**  &  **proteger** os dados confidenciais nas suas bases de dados.
@@ -95,12 +95,12 @@ A classificação inclui dois atributos de metadados:
 
 Um aspeto importante do paradigma de proteção de informações é a capacidade para monitorizar o acesso a dados confidenciais.
 
-[Auditoria de base de dados SQL do Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) foi melhorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista as classificações de sensibilidade (etiquetas) dos dados reais que foi devolvidos por a consulta.
+[Auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) foi melhorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista as classificações de sensibilidade (etiquetas) dos dados reais que foi devolvidos por a consulta.
 
 ![Painel de navegação][11]
 
 ## <a id="subheading-4"></a>Passos seguintes
-Considere configurar [auditoria de base de dados SQL do Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) para monitorização e auditoria de acesso a dados confidenciais classificados.
+Considere configurar [auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorização e auditoria de acesso a dados confidenciais classificados.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

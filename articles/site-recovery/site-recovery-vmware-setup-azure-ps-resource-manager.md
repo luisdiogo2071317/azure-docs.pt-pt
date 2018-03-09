@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: anoopkv
 ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Gerir um servidor de processos em execução no Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
-> * [Clássico](./site-recovery-vmware-setup-azure-ps-classic.md)
+> * [Clássico ](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 Durante a reativação pós-falha, recomenda-se para implementar o servidor de processos no Azure se não houver latência elevada entre a rede Virtual do Azure e a sua rede no local. Este artigo descreve como pode configurar, configurar e gerir servidores de processos em execução no Azure.
 

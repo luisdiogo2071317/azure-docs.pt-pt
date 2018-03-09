@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;raymondl
-ms.openlocfilehash: 93e75a2864d9aef266b16f8dd7dcc3411b24864b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: raymondl
+ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Consumir um serviço web Azure Machine Learning utilizando um modelo de aplicação web
 
@@ -119,7 +119,7 @@ Os valores de entrada para um serviço de web de execução do batch podem ser p
 
 A aplicação web apresenta uma página com o estado da tarefa. Quando a tarefa estiver concluída, pode obter a localização dos resultados no Blob storage do Azure. Também tem a opção de transferir os resultados num ficheiro local.
 
-## <a name="for-more-information"></a>Para obter mais informações
+## <a name="for-more-information"></a>Para obter mais informações:
 Para saber mais sobre:
 
 * Criar uma experimentação de aprendizagem com Machine Learning Studio, consulte [criar a sua primeira experimentação no Azure Machine Learning Studio](create-experiment.md).

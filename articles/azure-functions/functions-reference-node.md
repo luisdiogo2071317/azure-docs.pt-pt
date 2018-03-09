@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia para programadores do JavaScript de funções do Azure
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -118,10 +118,10 @@ Permite-lhe escrever os registos de consola transmissão em fluxo no nível de r
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| **erro (_mensagem_)**   | Escreve o nível de erro registo ou inferior.   |
-| **avisar (_mensagem_)**    | Escreve o nível de aviso de registo ou inferior. |
-| **as informações (_mensagem_)**    | Escreve informações nível de registo, ou inferior.    |
-| **verboso (_mensagem_)** | Escreve o registo ao nível verboso.           |
+| **error(_message_)**   | Escreve o nível de erro registo ou inferior.   |
+| **warn(_message_)**    | Escreve o nível de aviso de registo ou inferior. |
+| **info(_message_)**    | Escreve informações nível de registo, ou inferior.    |
+| **verbose(_message_)** | Escreve o registo ao nível verboso.           |
 
 O exemplo seguinte escritas para a consola ao nível de rastreio do aviso:
 
@@ -208,12 +208,12 @@ O `request` objeto tem as seguintes propriedades:
 
 | Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _corpo_        | Um objeto que contém o corpo do pedido.               |
-| _cabeçalhos_     | Um objeto que contém os cabeçalhos do pedido.                   |
-| _método_      | O método HTTP do pedido.                                |
+| _body_        | Um objeto que contém o corpo do pedido.               |
+| _Cabeçalhos_     | Um objeto que contém os cabeçalhos do pedido.                   |
+| _Método_      | O método HTTP do pedido.                                |
 | _originalUrl_ | O URL do pedido.                                        |
-| _parâmetros_      | Um objeto que contém os parâmetros de encaminhamento do pedido. |
-| _consulta_       | Um objeto que contém os parâmetros de consulta.                  |
+| _params_      | Um objeto que contém os parâmetros de encaminhamento do pedido. |
+| _query_       | Um objeto que contém os parâmetros de consulta.                  |
 | _rawBody_     | O corpo da mensagem como uma cadeia.                           |
 
 
@@ -223,10 +223,10 @@ O `response` objeto tem as seguintes propriedades:
 
 | Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
-| _corpo_    | Um objeto que contém o corpo da resposta.         |
-| _cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
+| _body_    | Um objeto que contém o corpo da resposta.         |
+| _Cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
-| _Estado_  | O código de estado HTTP da resposta.                     |
+| _status_  | O código de estado HTTP da resposta.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Aceder a pedido e resposta 
 
@@ -265,7 +265,15 @@ Quando trabalha com os acionadores HTTP, pode aceder os objetos de pedido e resp
     ```  
 
 ## <a name="node-version-and-package-management"></a>Gestão de versão e o pacote de nó
-A versão do nó está bloqueada atualmente `6.5.0`. Iremos estiver a investigar adicionar suporte para versões mais e tornando configurável.
+
+A tabela seguinte mostra a versão do Node.js utilizada por cada versão do tempo de execução funções principais:
+
+| Versão de funções | Versão Node.js | 
+|---|---|
+| 1. x | 6.11.2 (bloqueada pelo runtime) |
+| 2. x  |> = 8.4.0 com LTS atual 8.9.4 recomendado. Definir a versão utilizando a WEBSITE_DEFAULT_NODE_VERSION [definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings).|
+
+Pode ver a versão atual que está a utilizar o tempo de execução por impressão `process.version` qualquer função.
 
 Os passos seguintes permitem incluir pacotes na sua aplicação de função: 
 
@@ -324,7 +332,7 @@ Quando cria uma aplicação de função que utiliza o plano do App Service, reco
 ### <a name="typescript-and-coffeescript-support"></a>Suporte typeScript e CoffeeScript
 Porque o suporte direto ainda não existe para compilar o automática TypeScript ou CoffeeScript através de tempo de execução, esse suporte tem de ser processada fora do tempo de execução, no momento da implementação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)

@@ -1,8 +1,24 @@
--Título: Gerir certificados de um cluster do Service Fabric do Azure | Descrição da Microsoft Docs: descreve como adicionar novos certificados, o certificado de rollover e remover o certificado de ou para um cluster do Service Fabric.
-serviços: documentationcenter de service fabric: autor .net: ChackDan manager: timlt editor: '
-
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
-
+---
+title: Gerir certificados de um cluster do Service Fabric do Azure | Microsoft Docs
+description: Descreve como adicionar novos certificados, o certificado de rollover e remover o certificado de ou para um cluster do Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/23/2018
+ms.author: chackdan
+ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendado que familiarizar-se com a forma como o Service Fabric utiliza certificados x. 509 e deve estar familiarizado com o [cenários de segurança do Cluster](service-fabric-cluster-security.md). Tem de compreender que um certificado de cluster e o que é utilizado para, antes de prosseguir.

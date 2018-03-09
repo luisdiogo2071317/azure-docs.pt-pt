@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar a computadores sem acesso à Internet através do Gateway do OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e análise de registos com o Gateway do OMS quando direta ligado ou computadores monitorizados do Operations Manager não têm acesso à Internet.  O Gateway do OMS, que é um proxy de reencaminhamento de HTTP que suporte o HTTP de túnel utilizando o comando HTTP ligar, pode recolher dados e envia-as à automatização do Azure e análise de registos em nome daqueles.  
@@ -82,7 +82,7 @@ O Gateway do OMS está disponível nos seguintes idiomas:
 O Gateway do OMS só suporta Transport Layer Security (TLS) 1.0, 1.1 e 1.2.  Não suporta Secure Sockets Layer (SSL).
 
 ### <a name="supported-number-of-agent-connections"></a>Número suportado de ligações de agente
-A seguinte tabela destaca o o número suportado de agentes a comunicar com um servidor de gateway.  Este suporte é baseado nos agentes carregar ~ 200KB de dados a cada 6 segundos. O volume de dados por agente testado é 2.7GB por dia.
+A tabela seguinte realça o número suportado de agentes a comunicar com um servidor de gateway.  Este suporte é baseado nos agentes carregar ~ 200KB de dados a cada 6 segundos. O volume de dados por agente testado é 2.7GB por dia.
 
 |Gateway |Approx. número de agentes suportados|  
 |--------|----------------------------------|  
@@ -252,7 +252,7 @@ Os cmdlets podem ajudar a concluir as tarefas que são necessárias para atualiz
 1. Instale o Gateway do OMS (MSI).
 2. Abra uma janela da consola do PowerShell.
 3. Para importar o módulo, escreva este comando: `Import-Module OMSGateway`
-4. Se nenhum erro no passo anterior, o módulo foi importado com êxito e os cmdlets podem ser utilizados. tipo `Get-Module OMSGateway`
+4. Se nenhum erro no passo anterior, o módulo foi importado com êxito e os cmdlets podem ser utilizados. Tipo `Get-Module OMSGateway`
 5. Depois de efetuar alterações ao utilizar os cmdlets, certifique-se de que reinicie o serviço de Gateway.
 
 Se obtiver um erro no passo 3, o módulo não foi importado. O erro pode ocorrer quando não consegue localizar o módulo PowerShell. Pode encontrá-lo no caminho de instalação do Gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
@@ -289,7 +289,7 @@ A tabela seguinte mostra os IDs de eventos e as descrições de eventos de regis
 | 103 |Foi recebido um comando HTTP ligar a partir do cliente |
 | 104 |Não um comando HTTP ligar |
 | 105 |Servidor de destino não está na lista permitida ou a porta de destino não é porta segura (443) <br> <br> Certifique-se de que o agente MMA no seu servidor de Gateway e os agentes de comunicar com o Gateway está ligado à mesma área de trabalho de análise de registos. |
-| 105 |Erro TcpConnection – certificado de cliente inválido: CN = Gateway <br><br> Certifique-se de que: <br>    <br> &#149; Está a utilizar um Gateway com o número de versão 1.0.395.0 ou superior. <br> &#149; O agente MMA no seu servidor de Gateway e os agentes de comunicar com o Gateway está ligado ao mesmo espaço de trabalho de análise de registos. |
+| 105 |Erro TcpConnection – certificado de cliente inválido: CN = Gateway <br><br> Certifique-se de que: <br>    <br> &#149;Está a utilizar um Gateway com o número de versão 1.0.395.0 ou superior. <br> &#149;O agente MMA no seu servidor de Gateway e os agentes de comunicar com o Gateway está ligado ao mesmo espaço de trabalho de análise de registos. |
 | 106 |O Gateway do OMS só suporta TLS 1.0, TLS 1.1 e 1.2.  Não suporta SSL. Para qualquer versão de protocolo do TLS/SSL não suportada, o OMS Gateway gera 106 de ID de evento.|
 | 107 |A sessão TLS foi verificada |
 

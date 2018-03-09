@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)
 Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa para a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS). Os registos de tarefa e fluxos de trabalho são visíveis no portal do Azure, ou com o PowerShell, para tarefas individuais e Isto permite-lhe efetuar as investigações simples. Agora com a análise de registos, pode:
@@ -69,7 +69,7 @@ Se precisar de localizar o *nome* da sua conta de automatização no portal do A
 
 Depois de executar este script, verá registos de análise de registos dentro de 10 minutos de novos JobLogs ou JobStreams que está a ser escrito.
 
-Para ver os registos, execute a consulta seguinte na pesquisa de registos de análise de registos:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Para ver os registos, execute a consulta seguinte na pesquisa de registos de análise de registos: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verifique a configuração
 Para confirmar a sua conta de automatização está a enviar os registos para a sua área de trabalho de análise de registos, verifique se o diagnóstico está corretamente configurado na conta de automatização utilizando o PowerShell seguinte:
@@ -104,7 +104,7 @@ Cria dois tipos de registos de análise de registos de diagnóstico da automatiz
 | ResourceId |Especifica o id de recurso de conta de automatização do Azure do runbook. |
 | SubscriptionId | A subscrição do Azure Id (GUID) para a conta de automatização. |
 | ResourceGroup | Nome do grupo de recursos para a conta de automatização. |
-| ResourceProvider | MICROSOFT. AUTOMATIZAÇÃO |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 
@@ -127,13 +127,13 @@ Cria dois tipos de registos de análise de registos de diagnóstico da automatiz
 | ResourceId |Especifica o id de recurso de conta de automatização do Azure do runbook. |
 | SubscriptionId | A subscrição do Azure Id (GUID) para a conta de automatização. |
 | ResourceGroup | Nome do grupo de recursos para a conta de automatização. |
-| ResourceProvider | MICROSOFT. AUTOMATIZAÇÃO |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Visualizar automatização registos de análise de registos
 Agora que tiver iniciado a enviar os registos da tarefa de automatização para análise de registos, vamos ver o que pode fazer com estes registos no interior de análise de registos.
 
-Para ver os registos, execute a seguinte consulta:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os registos, execute a seguinte consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envie um e-mail quando uma tarefa de runbook falha ou suspende
 Uma das principal cliente pede-lhe destina-se a capacidade de enviar um e-mail ou um texto quando algo não bate com uma tarefa de runbook.   
@@ -141,7 +141,7 @@ Uma das principal cliente pede-lhe destina-se a capacidade de enviar um e-mail o
 Para criar uma regra de alerta, pode começa por criar uma pesquisa de registo para os registos da tarefa de runbook que deve invocar o alerta. Clique em de **alerta** botão para criar e configurar a regra de alerta.
 
 1. Na página de descrição geral da análise do registo, clique em **pesquisa registo**.
-2. Criar uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` também pode agrupar pelo RunbookName utilizando:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Criar uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` também pode agrupar pelo RunbookName utilizando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se configurar os registos de mais do que uma conta de automatização ou a subscrição para a sua área de trabalho, pode agrupar os alertas por subscrição e conta de automatização. Nome da conta de automatização pode ser encontrado no campo de recurso na pesquisa de JobLogs.
 1. Para abrir o **Adicionar regra de alerta** ecrã, clique em **alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [alertas na análise de registos](../log-analytics/log-analytics-alerts.md#alert-rules).
@@ -170,7 +170,7 @@ Ao enviar os dados de estado e de fluxo da tarefa de automatização à análise
 
 Análise de registos dá-lhe maior visibilidade operacional para as tarefas de automatização e pode ajudar a incidentes de endereço mais rápidas.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações sobre como construir consultas de pesquisa diferentes e reveja os registos da tarefa de automatização com a análise de registos, consulte o artigo [pesquisas de registo na análise de registos](../log-analytics/log-analytics-log-searches.md).
 * Para compreender como criar e obter mensagens de erro e de saída a partir de runbooks, consulte [Runbook de saída e mensagens](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorizar tarefas de runbooks e outros detalhes técnicos, veja [Acompanhar uma tarefa de runbook](automation-runbook-execution.md).

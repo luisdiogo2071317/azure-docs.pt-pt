@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Criar uma rede virtual com várias sub-redes no portal do Azure
 
@@ -41,7 +41,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 1. Selecione **+ criar um recurso** no canto superior, esquerda canto do portal do Azure.
 2. Selecione **redes**e, em seguida, selecione **rede Virtual**.
-3. Como é mostrado na imagem seguinte, introduza *myVirtualNetwork* para **nome**, **myResourceGroup** para **grupo de recursos**, *Pública* para sub-rede **nome**, 10.0.0.0/24 para sub-rede **intervalo de endereços**, selecione um **localização** e os seus  **Subscrição**, aceite as restantes predefinições e, em seguida, selecione **criar**:
+3. Como é mostrado na imagem seguinte, introduza *myVirtualNetwork* para **nome**, *10.0.0.0/16* para **espaço de endereços**,  **myResourceGroup** para **grupo de recursos**, *pública* para sub-rede **nome**, 10.0.0.0/24 para sub-rede **deintervalodeendereços**, selecione um **localização** e os seus **subscrição**, aceite as restantes predefinições e, em seguida, selecione **criar**:
 
     ![Criar uma rede virtual](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
@@ -146,7 +146,7 @@ As máquinas virtuais criadas neste artigo tem um [interface de rede](virtual-ne
     Apesar de uma máquina virtual não é necessário ter um endereço IP público atribuído ao mesmo, o Azure atribui um endereço IP público para cada máquina virtual que cria, por predefinição. Para comunicar a partir da Internet para uma máquina virtual, um endereço IP público tem de ser atribuído à máquina virtual. Todas as máquinas virtuais podem comunicar saída com a Internet, quer tenha ou não está atribuído um endereço IP público para a máquina virtual. Para saber mais sobre ligações de Internet de saída no Azure, consulte o artigo [ligações de saída no Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 13. No seu computador, navegue para o endereço IP público do *myVmWeb* máquina virtual. Falha ao tentar ver a página de boas-vindas do IIS do seu computador. A tentativa falhar porque quando as máquinas virtuais foram implementadas, o Azure criado um grupo de segurança de rede para cada máquina virtual, por predefinição. 
 
-     Um grupo de segurança de rede contém regras de segurança que permitem ou negam o tráfego de rede de entrada e saída pela porta e endereço IP. O grupo de segurança de rede predefinido criado do Azure permite a comunicação através de todas as portas entre os recursos na mesma rede virtual. Para máquinas virtuais do Windows, o grupo de segurança de rede predefinido nega todo o tráfego de entrada da Internet através de todas as portas, aceite a porta TCP 3389 (RDP). Como consequência, por predefinição, também pode RDP diretamente para o *myVmWeb* máquina virtual a partir da Internet, apesar de não poderá porta 3389 aberto a um servidor web. Uma vez que a navegação na web comunica através da porta 80, falha de comunicação da Internet porque não há nenhuma regra num grupo de segurança de rede predefinido a permitir o tráfego através da porta 80.
+     Um grupo de segurança de rede contém regras de segurança que permitem ou negam o tráfego de rede de entrada e saída pela porta e endereço IP. O grupo de segurança de rede predefinido criado do Azure permite a comunicação através de todas as portas entre os recursos na mesma rede virtual. Para máquinas virtuais do Windows, o grupo de segurança de rede predefinido nega todo o tráfego de entrada da Internet através de todas as portas, exceto a porta TCP 3389 (RDP). Como consequência, por predefinição, também pode RDP diretamente para o *myVmWeb* máquina virtual a partir da Internet, apesar de não poderá porta 3389 aberto a um servidor web. Uma vez que a navegação na web comunica através da porta 80, falha de comunicação da Internet porque não há nenhuma regra num grupo de segurança de rede predefinido a permitir o tráfego através da porta 80.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

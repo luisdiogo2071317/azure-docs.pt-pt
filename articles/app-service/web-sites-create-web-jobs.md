@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 661bfadfe1094271ad2ab672ad3f755c0fd24f02
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com WebJobs no App Service do Azure
 
@@ -52,12 +52,12 @@ São suportados os seguintes tipos de ficheiro:
 * . cmd,. bat, .exe (utilizando o Windows cmd)
 * . ps1 (utilizando o PowerShell)
 * .SH (utilizando Bash)
-* SH (utilizando o PHP)
+* .php (using PHP)
 * . PY (com o Python)
 * . js (com o Node.js)
-* . JAR (utilizando Java)
+* .jar (using Java)
 
-## <a name="CreateContinuous"></a>Criar um WebJob contínuo
+## <a name="CreateContinuous"></a> Criar um WebJob contínuo
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -95,7 +95,7 @@ when making changes in one don't forget the other two.
 
     ![Parar um WebJob contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a>Criar um WebJob accionado manualmente
+## <a name="CreateOnDemand"></a> Criar um WebJob accionado manualmente
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -133,7 +133,7 @@ when making changes in one don't forget the other two.
    
     ![Executar WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado
+## <a name="CreateScheduledCRON"></a> Criar um WebJob agendado
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -172,11 +172,11 @@ when making changes in one don't forget the other two.
 
 A [expressão CRON](https://en.wikipedia.org/wiki/Cron) é composto de seis campos: `{second} {minute} {hour} {day} {month} {day of the week}`.  Eis alguns exemplos:
 
-* Cada 15 minutos:`0 */15 * * * *`
-* A cada hora (ou seja, sempre que o número de minutos é de 0):`0 0 * * * *` 
-* Hora a hora de 09: 00 para as 17: 00:`0 0 9-17 * * *` 
-* Às 9:30 AM todos os dias:`0 30 9 * * *`
-* Às 9:30 AM cada dia da semana:`0 30 9 * * 1-5`
+* Cada 15 minutos: `0 */15 * * * *`
+* A cada hora (ou seja, sempre que o número de minutos é de 0): `0 0 * * * *` 
+* Hora a hora de 09: 00 para as 17: 00: `0 0 9-17 * * *` 
+* Às 9:30 AM todos os dias: `0 30 9 * * *`
+* Às 9:30 AM cada dia da semana: `0 30 9 * * 1-5`
 
 Pode introduzir a expressão de CRON no portal ou incluem um `settings.job` ficheiro na raiz da sua WebJob *. zip* ficheiro, como no exemplo seguinte:
 
@@ -189,7 +189,7 @@ Pode introduzir a expressão de CRON no portal ou incluem um `settings.job` fich
 > [!NOTE]
 > Quando implementar um WebJob do Visual Studio, marcar a `settings.job` ficheiro propriedades como **copiar se for mais recente**.
 
-## <a name="ViewJobHistory"></a>Ver o histórico de tarefas
+## <a name="ViewJobHistory"></a> Ver o histórico de tarefas
 
 1. Selecione o trabalho Web que pretende ver histórico para e, em seguida, selecione o **registos** botão.
    
@@ -213,4 +213,4 @@ Pode introduzir a expressão de CRON no portal ou incluem um `settings.job` fich
    
 ## <a name="NextSteps"></a> Passos seguintes
 
-O SDK de WebJobs do Azure pode ser utilizado com WebJobs para simplificar a muitas tarefas de programação. Para obter mais informações, consulte [o que é o SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+O SDK de WebJobs do Azure pode ser utilizado com WebJobs para simplificar a muitas tarefas de programação. Para obter mais informações, consulte [o que é o SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) e [referência rápida do SDK de WebJobs](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).

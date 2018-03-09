@@ -3,7 +3,7 @@ title: Configurar o Azure AD Privileged Identity Management | Microsoft Docs
 description: "Um tópico que explica o que é o Azure AD Privileged Identity Management e como utilizar o PIM para melhorar a segurança de nuvem."
 services: active-directory
 documentationcenter: 
-author: barclayn
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,21 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
 Com o Azure Active Directory (AD) Privileged Identity Management, pode gerir, controlar e monitorizar o acesso dentro da sua organização. Isto inclui acesso a recursos no Azure AD, recursos do Azure (pré-visualização), e outros serviços Online da Microsoft, como do Office 365 ou o Microsoft Intune.
 
 > [!NOTE]
-> Privileged Identity Management está disponível para toda a organização quando licença os administradores de com a edição Premium P2 do Azure Active Directory. Para obter mais informações, consulte [Edições do Azure Active Directory](active-directory-editions.md).
+> Quando ativar o Privileged Identity Management para o seu inquilino, paga um P2 válido do Azure AD Premium ou Enterprise Mobility + E5 de segurança ou é necessária para cada utilizador que interage com ou recebe um benefício do serviço de licença de avaliação. Os exemplos incluem utilizadores/utilizadores > um grupo que são:
+>
+>- Atribuído à função de administrador com privilégios de função 
+>- Atribuído como elegível para outras funções de diretório geríveis através do PIM 
+>- Capacidade para rejeitar/aprovar pedidos no PIM 
+>- Atribuído a uma função de recursos do Azure com apenas na hora ou direto atribuições de (tempo com base)  
+>- Atribuído a uma revisão do acesso
+>
+>Para obter mais informações, consulte [Edições do Azure Active Directory](active-directory-editions.md).
 
 As organizações pretendem minimizar o número de pessoas que têm acesso para proteger informações ou recursos, porque o que reduz a possibilidade de um utilizador mal intencionado obter esse acesso ou um utilizador autorizado inadvertidamente afetar um recurso confidencial.  No entanto, os utilizadores têm de realizar operações privilegiadas no Azure AD, as aplicações do Azure, Office 365 ou SaaS. As organizações podem conceder acesso de com privilégios de utilizadores aos recursos do Azure como subscrições e o Azure AD. Há uma necessidade de supervisão para que os utilizadores estão a fazer com os respetivos privilégios de administrador. O Azure AD Privileged Identity Management ajuda a mitigar o risco de excessiva, desnecessários ou indevidamente direitos de acesso.
 
@@ -54,7 +62,7 @@ Pode começar a utilizar o Azure AD Privileged Identity Management no [portal do
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/) como administrador global do diretório.
 2. Se a organização tiver mais do que um diretório, selecione o nome de utilizador no canto superior direito do Portal do Azure. Selecione o diretório onde utilizará o Azure AD Privileged Identity Management.
-3. Selecione **todos os serviços** e utilize a caixa de texto de filtro para procurar **do Azure AD Privileged Identity Management**.
+3. Selecione **Todos os serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
 4. Marque **Afixar ao dashboard** e, em seguida, clique em **Criar**. A aplicação Privileged Identity Management abre.
 
 Se estiver a primeira pessoa a utilizar o Azure AD Privileged Identity Management no diretório e navegar para funções de diretório do Azure AD e navegar para funções de diretório do Azure AD, uma [Assistente de segurança](active-directory-privileged-identity-management-security-wizard.md) orienta-o inicial experiência de atribuição. Após a que fiquem automaticamente o primeiro **administrador de segurança** e **administrador com função privilegiada** do diretório.

@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e compressão codecs no Azure Data Factory
 
@@ -307,7 +307,7 @@ e quiser copiá-lo para uma tabela SQL do Azure no seguinte formato, ao simplifi
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`indica ao iterar e extrair dados de objetos com o mesmo padrão em **matriz** `orderlines`.
+- `jsonNodeReference` indica ao iterar e extrair dados de objetos com o mesmo padrão em **matriz** `orderlines`.
 - `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate`, e `city` estão sob o objecto raiz com o caminho JSON começadas `$.`, enquanto `order_pd` e `order_price` estão definidos com o caminho derivado o elemento de matriz sem `$.` .
 
 ```json
@@ -436,7 +436,7 @@ Se quiser analisar os ficheiros ORC ou escrever os dados em formato ORC, defina 
 ```
 
 > [!IMPORTANT]
-> Se não estiver a copiar ficheiros ORC **como estão** entre arquivos de dados no local e na cloud, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador de gateway. Um gateway de 64 bits requer um JRE de 64 bits e um gateway de 32 bits requer um JRE de 32 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605). Escolha a versão adequada.
+> Para copiar dado o poder pelo tempo de execução de integração de Self-hosted por exemplo, entre no local e nuvem armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o 8 JRE (ambiente de tempo de execução Java) no seu computador de resposta a incidentes. Uma resposta a incidentes 64 bits requer JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenha em atenção os seguintes pontos:
@@ -456,7 +456,7 @@ Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet,
 ```
 
 > [!IMPORTANT]
-> Se não estiver a copiar ficheiros Parquet **como estão** entre arquivos de dados no local e na cloud, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador de gateway. Um gateway de 64 bits requer um JRE de 64 bits e um gateway de 32 bits requer um JRE de 32 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605). Escolha a versão adequada.
+> Para copiar dado o poder pelo tempo de execução de integração de Self-hosted por exemplo, entre no local e nuvem armazena os dados, se não estiver a copiar ficheiros Parquet **como-é**, tem de instalar o 8 JRE (ambiente de tempo de execução Java) no seu computador de resposta a incidentes. Uma resposta a incidentes 64 bits requer JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenha em atenção os seguintes pontos:
@@ -512,7 +512,7 @@ O **compressão** secção tem duas propriedades:
 > [!NOTE]
 > Definições de compressão não são suportadas para os dados no **AvroFormat**, **OrcFormat**, ou **ParquetFormat**. Quando a leitura de ficheiros nestes formatos, fábrica de dados Deteta e utiliza o codec de compressão nos metadados. Ao escrever em ficheiros nestes formatos, o Data Factory escolhe o codec de compressão predefinido para esse formato. Por exemplo, ZLIB para OrcFormat e SNAPPY para ParquetFormat.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os artigos seguintes para os arquivos de dados de ficheiros suportados pelo Azure Data Factory:
 

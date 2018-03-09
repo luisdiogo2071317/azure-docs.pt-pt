@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Ligar HDInsight à sua rede no local
 
@@ -273,13 +273,13 @@ Pode utilizar grupos de segurança de rede (NSG) ou as rotas definidas pelo util
 
 > [!WARNING]
 > HDInsight necessita de acesso de entrada de endereços IP específicos na nuvem do Azure e acesso de saída sem restrições. Quando utilizar NSGs ou UDRs para controlar o tráfego, tem de efetuar os seguintes passos:
->
-> 1. Localize os endereços IP para a localização que contém a rede virtual. Para obter uma lista de IPs necessária por localização, consulte [endereços IP necessários](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Permitir o tráfego de entrada de endereços IP.
->
->    * __NSG__: permitir __entrada__ tráfego na porta __443__ do __Internet__.
->    * __UDR__: definir o __próximo salto__ tipo da rota a __Internet__.
+
+1. Localize os endereços IP para a localização que contém a rede virtual. Para obter uma lista de IPs necessária por localização, consulte [endereços IP necessários](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. Para os endereços IP identificados no passo 1, permitir tráfego de entrada do que IP endereços.
+
+   * Se estiver a utilizar __NSG__: permitir __entrada__ tráfego na porta __443__ para o IP endereços.
+   * Se estiver a utilizar __UDR__: definir o __próximo salto__ tipo da rota a __Internet__ para o IP endereços.
 
 Para obter um exemplo de utilização do Azure PowerShell ou a CLI do Azure para criar NSGs, consulte o [expandir HDInsight com redes virtuais do Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) documento.
 

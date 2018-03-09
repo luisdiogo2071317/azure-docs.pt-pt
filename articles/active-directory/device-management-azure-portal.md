@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestão de dispositivos no portal do Azure
 
@@ -112,6 +112,7 @@ Com ambas as opções, pode obter uma vista que:
 
 ![Todos os dispositivos](./media/device-management-azure-portal/51.png)
 
+Para alguns dispositivos iOS, os nomes de dispositivo que contém apostrophes potencialmente podem utilizar carateres diferentes que aspeto apostrophes. Para procurar esses dispositivos é ligeiramente tricky - se de que não existem resultados da pesquisa corretamente, certifique-se que a cadeia de pesquisa contém apóstrofe correspondente.
 
 ## <a name="device-management-tasks"></a>Tarefas de gestão de dispositivos
 
@@ -229,14 +230,14 @@ Para limitar os dados comunicados a um nível que funcione para si, pode filtrar
 - Tipo de recurso de atividade
 - Atividade
 - Intervalo de datas
-- Alvo
-- Iniciado pelo (Ator)
+- Destino
+- Iniciado por (Ator)
 
 Para além dos filtros, pode procurar entradas específicas.
 
 ![Registos de auditoria](./media/device-management-azure-portal/65.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução à gestão de dispositivos no Azure Active Directory](device-management-introduction.md)
 

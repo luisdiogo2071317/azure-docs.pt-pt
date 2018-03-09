@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Utilize as ferramentas do Azure Stream Analytics para o Visual Studio
 Ferramentas de Stream Analytics do Azure para Visual Studio agora são geralmente disponíveis. Estas ferramentas ativar uma experiência mais rica para os utilizadores de Stream Analytics resolver problemas, bem como escrever consultas complexas e até mesmo escrever consultas localmente. Também pode exportar uma tarefa de Stream Analytics para um projeto do Visual Studio.
 
 ## <a name="introduction"></a>Introdução
-Neste tutorial, irá aprender a utilizar as ferramentas de Stream Analytics para o Visual Studio para criar, criar, testar localmente, gerir e depurar as tarefas do Stream Analytics. 
+Neste tutorial, irá aprender a utilizar as ferramentas de Stream Analytics para o Visual Studio para criar, criar, testar localmente, gerir e depurar as tarefas do Stream Analytics. Depois de criar a tarefa, pode definir um processo de integração e a implementação contínuo para o Azure utilizando o pacote Nuget CI/CD, para saber mais informações consulte [ferramentas de Stream Analytics VS para configurar um pipeline de CI/CD](stream-analytics-tools-for-visual-studio-cicd.md) artigo.
 
 Depois de concluir este tutorial, será capaz de:
 
@@ -137,13 +137,13 @@ Para obter mais detalhes, leia sobre [tempo gestão](https://msdn.microsoft.com/
 
 Agora que tem de escrever a primeira consulta do Stream Analytics, testá-lo através da utilização de ficheiros de dados de exemplo localizados na pasta TollApp no seguinte caminho:
 
-**.. \TollApp\TollApp\Data**
+**..\TollApp\TollApp\Data**
 
 Esta pasta contém os seguintes ficheiros:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Pergunta: Número de veículos introduzir um booth de utilização
 No projeto, faça duplo clique em **Script.asaql** para abrir o script no editor. Cole o script na secção anterior do editor. O editor de consultas suporta IntelliSense, cores da sintaxe e um marcador de erro.
@@ -264,7 +264,7 @@ Existem duas formas pode exportar uma tarefa existente para um projeto.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar através da utilização do Azure Stream Analytics](stream-analytics-get-started.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

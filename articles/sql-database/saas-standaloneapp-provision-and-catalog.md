@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar e catálogo novos inquilinos utilizando a aplicação por inquilino padrão de SaaS
 
@@ -31,7 +31,7 @@ Este artigo tem duas partes principais:
     * O tutorial utiliza a aplicação de SaaS Wingtip bilhetes de exemplo, adaptada descrita para a aplicação autónoma por padrão de inquilino.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Aplicação autónoma por padrão de inquilino
-A aplicação autónoma por padrão de inquilino é uma das várias padrões para aplicações de SaaS multi-inquilino.  Neste padrão, uma aplicação autónoma é aprovisionada para cada inquilino. A aplicação é composto por componentes de nível de aplicação e uma base de dados do SQL Server.  Cada aplicação de inquilino pode ser implementada na subscrição do fornecedor.  Em alternativa, o Azure oferece uma [programa de aplicações geridas](https://docs.microsoft.com/en-us/azure/managed-applications/overview) em que uma aplicação pode ser implementada na subscrição do inquilino e gerida pelo fabricante em nome do inquilino. 
+A aplicação autónoma por padrão de inquilino é uma das várias padrões para aplicações de SaaS multi-inquilino.  Neste padrão, uma aplicação autónoma é aprovisionada para cada inquilino. A aplicação é composto por componentes de nível de aplicação e uma base de dados do SQL Server.  Cada aplicação de inquilino pode ser implementada na subscrição do fornecedor.  Em alternativa, o Azure oferece uma [programa de aplicações geridas](https://docs.microsoft.com/azure/managed-applications/overview) em que uma aplicação pode ser implementada na subscrição do inquilino e gerida pelo fabricante em nome do inquilino. 
 
    ![padrão de aplicação por inquilino](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Enquanto a aplicação e a base de dados de cada inquilino estão completamente 
 O catálogo de inquilino contém um mapeamento entre um identificador de inquilino e uma base de dados do inquilino, permitindo que um identificador que seja resolvido para um servidor e um nome de base de dados.  Na aplicação Wingtip SaaS, o identificador de inquilino é calculado como um hash do nome do inquilino, embora possam ser utilizados outros esquemas.  Enquanto o catálogo para gerir as ligações não precisam de aplicações autónomo, o catálogo pode ser utilizado para definir o âmbito outras ações para um conjunto de bases de dados do inquilino. Por exemplo, consulta elástico pode utilizar o catálogo para determinar o conjunto de bases de dados em que as consultas são distribuídas para os relatórios de inquilino em vários locais.
 
 ## <a name="elastic-database-client-library"></a>Biblioteca de Clientes da Base de Dados Elástica
-Aplicação de exemplo Wingtip, o catálogo é implementado por às funcionalidades de gestão de partições horizontais o [biblioteca de clientes de base de dados elásticas](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  A biblioteca ativa uma aplicação criar, gerir e utilize um mapa de partições horizontais que está armazenado numa base de dados. No exemplo Wingtip permissões, o catálogo é armazenado no *catálogo inquilino* base de dados.  O ID de partição horizontal mapeia uma chave de inquilino para o ID de partição horizontal (base de dados) no qual os dados de nesse inquilino são armazenados.  Gerir funções EDCL um *mapa de partições horizontais global* armazenados nas tabelas no *catálogo inquilino* base de dados e um *mapa de partições horizontais local* armazenados em cada partição horizontal.
+Aplicação de exemplo Wingtip, o catálogo é implementado por às funcionalidades de gestão de partições horizontais o [biblioteca de clientes de base de dados elásticas](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  A biblioteca ativa uma aplicação criar, gerir e utilize um mapa de partições horizontais que está armazenado numa base de dados. No exemplo Wingtip permissões, o catálogo é armazenado no *catálogo inquilino* base de dados.  O ID de partição horizontal mapeia uma chave de inquilino para o ID de partição horizontal (base de dados) no qual os dados de nesse inquilino são armazenados.  Gerir funções EDCL um *mapa de partições horizontais global* armazenados nas tabelas no *catálogo inquilino* base de dados e um *mapa de partições horizontais local* armazenados em cada partição horizontal.
 
 Funções EDCL podem ser chamadas a partir de aplicações ou scripts do PowerShell para criar e gerir as entradas no mapa de partições horizontais. Outras funções EDCL podem ser utilizadas para obter o conjunto de partições horizontais ou ligar à base de dados correta para fornecido chave de inquilino. 
     
@@ -69,7 +69,7 @@ No final deste tutorial, tem um conjunto de aplicações do inquilino autónoma,
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes: 
 * O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* As três aplicações de inquilino de exemplo são implementadas. Para implementar estas aplicações em menos de cinco minutos, consulte [implementar e explorar o padrão de aplicação autónoma do Wingtip bilhetes SaaS](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* As três aplicações de inquilino de exemplo são implementadas. Para implementar estas aplicações em menos de cinco minutos, consulte [implementar e explorar o padrão de aplicação autónoma do Wingtip bilhetes SaaS](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## <a name="provision-the-catalog"></a>Aprovisionar o catálogo
 Nesta tarefa, saiba como aprovisionar o catálogo utilizado para registar todas as bases de dados do inquilino. Irá: 
@@ -149,4 +149,4 @@ Neste tutorial, ficou a saber:
 > * Sobre os servidores e bases de dados que constituem a aplicação.
 > * Como eliminar os recursos de exemplo para parar a faturação relacionada.
 
-Pode explorar como o catálogo é utilizado para suportar vários cenários de inquilino entre utilizar a versão da base de dados por inquilino do [aplicação SaaS de bilhetes Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Pode explorar como o catálogo é utilizado para suportar vários cenários de inquilino entre utilizar a versão da base de dados por inquilino do [aplicação SaaS de bilhetes Wingtip](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

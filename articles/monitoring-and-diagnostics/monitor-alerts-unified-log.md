@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Registo de alertas no Monitor do Azure - alertas (pré-visualização)
-Este artigo fornece detalhes de regras de alerta como em projetos de consultas de análise nos alertas do Azure (pré-visualização) e descreve as diferenças entre os diferentes tipos de regras de alerta de registo.
+Este artigo fornece detalhes de regras de alerta como em projetos de consultas de análise nos alertas do Azure (pré-visualização) e descreve as diferenças entre os diferentes tipos de regras de alerta de registo. Para obter detalhes de alertas de métrica utilizando os registos, consulte [quase em Tempo Real métrica alertas](monitoring-near-real-time-metric-alerts.md)
 
 Atualmente alertas do Azure (pré-visualização), suporta registar alertas em consultas de [Log Analytics do Azure](../log-analytics/log-analytics-tutorial-viewdata.md) e [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,12 +40,12 @@ Em seguida, quando [criar um alerta de registo em alertas (pré-visualização)]
 
 ## <a name="log-alert-rules"></a>Regras de alerta de registo
 
-Os alertas são criados pelo alertas do Azure (pré-visualização) automaticamente executar consultas de registo em intervalos regulares.  Se os resultados da consulta registo corresponderem aos critérios específicos, em seguida, é criado um registo de alerta. A regra, em seguida, pode executar automaticamente uma ou mais ações para notificá-lo do alerta ou da invocação do outro processo, como o envio de dados para aplicações externas utilizando proativamente [webhook baseadas em json](monitor-alerts-unified-log-webhook.md)com [ação grupos](monitoring-action-groups.md). Diferentes tipos de regras de alerta utilizam lógica diferente para efetuar esta análise.
+Os alertas são criados através de alertas do Azure (pré-visualização) para executar consultas de registo automaticamente em intervalos regulares.  Se os resultados da consulta registo corresponderem aos critérios específicos, em seguida, é criado um registo de alerta. A regra, em seguida, pode executar automaticamente uma ou mais ações para notificá-lo do alerta ou da invocação do outro processo, como o envio de dados para aplicações externas utilizando proativamente [webhook baseadas em json](monitor-alerts-unified-log-webhook.md)com [ação grupos](monitoring-action-groups.md). Diferentes tipos de regras de alerta utilizam lógica diferente para efetuar esta análise.
 
 Regras de alerta são definidas pelos seguintes detalhes:
 
 - **Inicie sessão consulta**.  A consulta que é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta são utilizados para determinar se é criado um alerta.
-- **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta devolve apenas os registos que foram criados dentro deste intervalo da hora atual.  Janela de tempo pode ser qualquer valor entre 5 minutos e 1440 minutos ou 24 horas. Por exemplo, se a janela de tempo é definida como 60 minutos e a consulta é executada em 1:15 PM, é devolvido apenas os registos criados entre 12:15 PM e 1:15 PM.
+- **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta devolve apenas os registos que foram criados neste intervalo da hora atual.  Janela de tempo pode ser qualquer valor entre 5 minutos e 1440 minutos ou 24 horas. Por exemplo, se a janela de tempo é definida como 60 minutos e a consulta é executada em 1:15 PM, é devolvido apenas os registos criados entre 12:15 PM e 1:15 PM.
 - **Frequência**.  Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual ou menor do que a janela de tempo.  Se o valor é maior do que a janela de tempo, em seguida, o risco de registos que está a ser omitidos.<br>Por exemplo, considere uma janela de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta é executada em 1:00, devolve registos entre 12:30 e 1:00 PM.  Da próxima vez que executar a consulta é 2:00 quando devolvam registos entre 1:30 e 2:00.  Nunca deverá ser avaliados de quaisquer registos criados entre 1:00 e 1:30.
 - **Threshold**.  Os resultados da pesquisa de registo são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alertas.
 
@@ -75,7 +75,7 @@ Considere um cenário em que pretende saber quando a aplicação baseada na web 
 **Frequência de alerta:** cinco minutos<br>
 **Valor de limiar:** excelente que 0<br>
 
-Em seguida, alerta iria executar a consulta a cada 5 minutos, com 30 minutos de dados - procurar qualquer registo em que o código de resultado foi 500. Se for encontrado um até esse registo, este é acionado o alerta e o acionador de ação configurada.
+Em seguida, alerta iria executar a consulta a cada 5 minutos, com 30 minutos de dados - procurar qualquer registo em que o código de resultado foi 500. Se for encontrado um até esse registo, é acionado o alerta e aciona uma ação configurada.
 
 ## <a name="metric-measurement-alert-rules"></a>Regras de alerta de métrica de medida
 
@@ -96,7 +96,7 @@ Em seguida, alerta iria executar a consulta a cada 5 minutos, com 30 minutos de 
 
 **Intervalo**: define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se tiver especificado **cinco minutos**, seria possível criar um registo para cada instância do campo Grupo agregada em intervalos de 5 minutos durante a janela de tempo especificada para o alerta.
 > [!NOTE]
-> Função de Reciclagem tem de ser utilizada na consulta. Também se intervalos de tempo unequal são produzidos de janela de tempo através da utilização da função de reciclagem - alerta em vez disso, utilizará bin_at função em vez disso, para garantir que não há um ponto de fixo
+> Função de Reciclagem tem de ser utilizada na consulta. Como bin() pode resultar em intervalos de tempo unequal - alerta em vez disso, utilizará bin_at função com o momento adequado em runtime, para garantir resultados com um ponto de fixo
 
 **Limiar**: O limiar para regras de alerta de métrica de medida é definido por um valor de agregação e um número de violações.  Se qualquer ponto de dados na pesquisa de registo exceder este valor, tem considerado uma violação.  Se o número de falhas para qualquer objeto no resultado excede o valor especificado, é criado um alerta para esse objeto.
 

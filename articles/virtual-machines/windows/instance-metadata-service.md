@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -32,14 +32,14 @@ Serviço de metadados de instância do Azure é um ponto final de REST acessíve
 > Este serviço é **geralmente disponível** em todas as regiões do Azure.  Regularmente recebe atualizações para expor as novas informações sobre instâncias de máquina virtual. Esta página reflete o atualizados [categorias de dados](#instance-metadata-data-categories) disponíveis.
 
 ## <a name="service-availability"></a>Disponibilidade do serviço
-O serviço está disponível em todos os todos os geralmente disponível regiões do Azure. Nem todos os versão de API poderão estar disponíveis em todas as regiões do Azure.
+O serviço está disponível no geralmente disponíveis regiões do Azure. Nem todos os versão de API poderão estar disponíveis em todas as regiões do Azure.
 
 Regiões                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02, 2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Geralmente disponível | 2017-04-02
-[Azure China](https://www.azure.cn/)                                                           | Geralmente disponível | 2017-04-02
-[Datacenters do Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Geralmente disponível | 2017-04-02
+[Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02 2017-08-01, 2017-12-01(This version is not available in UK regions)
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Geralmente disponível | 2017-04-02,2017-08-01
+[Azure China](https://www.azure.cn/)                                                           | Geralmente disponível | 2017-04-02,2017-08-01
+[Datacenters do Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Geralmente disponível | 2017-04-02,2017-08-01
 
 Esta tabela é atualizada quando existirem atualizações de serviço e ou existem novas versões suportadas
 
@@ -48,7 +48,7 @@ Para experimentar o serviço de metadados de instância, crie uma VM a partir [d
 ## <a name="usage"></a>Utilização
 
 ### <a name="versioning"></a>Controlo de versões
-O serviço de metadados de instância é com a versão. As versões são obrigatórias e a versão atual do Global Azure é `2017-08-01`. Versões suportadas atuais são (2017-04-02, 2017-08-01)
+O serviço de metadados de instância é com a versão. As versões são obrigatórias e a versão atual do Global Azure é `2017-12-01`. Versões suportadas atuais são (2017-04-02, 2017-08-01,2017-12-01)
 
 > [!NOTE] 
 > Pré-visualização as versões anteriores dos eventos agendadas suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Pedido**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Resposta**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
 placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu dimensionamento da máquina virtual definido | 2017-08-01
+vmScaleSetName | [Nome da Máquina Virtual ScaleSet] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) do seu dimensionamento da máquina virtual definido | 2017-12-01
+zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
 subnet/address | Endereço de sub-rede da VM | 2017-04-02 
 subnet/prefix | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
 ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
 macAddress | Endereço mac VM | 2017-04-02 
-scheduledevents | Consulte [agendada eventos](scheduled-events.md) | 2017-03-01
+scheduledevents | Consulte [agendada eventos](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários de utilização  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Colocação de contentores, partições de dados com base em domínio de falhas/atualização 
 
 Alguns cenários, colocação das réplicas de dados diferentes é prime importância. Por exemplo, [colocação de réplica do HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) ou colocação contentor através de um [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) pode necessitar de conhecer a `platformFaultDomain` e `platformUpdateDomain` a VM está em execução no.
+Também pode tirar partido [disponibilidade zonas](../../availability-zones/az-overview.md) para as instâncias para estas decisões.
 Pode consultar estes dados diretamente através do serviço de metadados de instância.
 
 **Pedido**

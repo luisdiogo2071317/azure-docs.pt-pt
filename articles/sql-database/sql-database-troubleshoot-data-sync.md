@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Resolver problemas com a sincronização de dados do SQL Server (pré-visualização)
 
@@ -124,8 +124,8 @@ Muitos cenários poderão causar esta falha. Para determinar a causa desta falha
 
 Para determinar a causa da falha específica, gerar e consulte os registos do Windows Installer. Pode ativar o registo de uma linha de comandos. Por exemplo, se o ficheiro transferido do AgentServiceSetup.msi LocalAgentHost.msi, gerar e examinar os ficheiros de registo utilizando as seguintes linhas de comando:
 
--   Para instalações:`msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
--   Para desinstala:`msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Para instalações: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Para desinstala: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
 Também pode ativar o registo para todas as instalações de que são efetuadas pelo Windows Installer. O artigo da Base de dados de Conhecimento Microsoft [como ativar o registo do Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fornece uma solução de um clique para ativar o registo para o Windows Installer. Também fornece a localização dos registos.
 
@@ -135,7 +135,7 @@ Também pode ativar o registo para todas as instalações de que são efetuadas 
 
 Obter mensagens seguintes quando tenta utilizar o agente do cliente:
 
-"Falha na sincronização com a exceção Ocorreu um erro ao tentar anular a serialização do parâmetro www.microsoft.com/.../05:GetBatchInfoResult. Consulte a InnerException para obter mais detalhes."
+"Falha na sincronização com a exceção Ocorreu um erro ao tentar anular a serialização do parâmetro www.microsoft.com/.../05:GetBatchInfoResult. Consulte a InnerException para obter mais informações."
 
 "Mensagem de exceção interna: o tipo 'Microsoft.Synchronization.ChangeBatch' é um tipo de coleção inválido desde que não tem um construtor predefinido."
 
@@ -240,8 +240,8 @@ Antes de continuar, verifique as seguintes condições:
 -   O serviço do Windows de sincronização de dados do SQL Server (pré-visualização) está em execução.  
 -   A conta de serviço do serviço do Windows de pré-visualização de sincronização de dados do SQL Server (pré-visualização) tem acesso à rede.    
 -   O agente do cliente pode contactar o serviço de localizador. Certifique-se de que a seguinte chave de registo tem o valor https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   Num x86 computador:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   Num x64 computador:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+    -   Num x86 computador: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
+    -   Num x64 computador: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
 #### <a name="cause"></a>Causa
 
@@ -435,7 +435,7 @@ Não é possível eliminar um grupo de sincronização dentro de três minutos d
 
 Se restaurar uma base de dados perdido ou danificado a partir de uma cópia de segurança, poderá haver um nonconvergence dos dados nos grupos de sincronização a que pertence a base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a sincronização de dados do SQL Server (pré-visualização), consulte:
 
 -   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md)  

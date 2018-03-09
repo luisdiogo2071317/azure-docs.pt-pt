@@ -2,25 +2,19 @@
 title: "Replicar uma multicamadas de aplicação web baseada em IIS utilizando o Azure Site Recovery | Microsoft Docs"
 description: "Saiba como replicar máquinas virtuais IIS web farm utilizando o Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Replicar uma aplicação web de várias camadas, com base no IIS, utilizando a recuperação de sites
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replicar uma multicamadas de aplicação web baseada em IIS
 
 Software de aplicação é o motor de produtividade da empresa numa organização. Várias aplicações web podem servir diferentes fins numa organização. Algumas aplicações, como as aplicações utilizadas para processamento de folha de pagamentos, aplicações financeiras e direcionadas para o cliente de Web sites, podem ser fundamental para uma organização. Para evitar a perda de produtividade, é importante para a organização para que estas aplicações continuamente e funcional. Mais importante ainda, estas aplicações consistentemente disponíveis podem ajudar a evitar danos para a imagem da organização ou marca.
 
@@ -36,7 +30,7 @@ Este artigo descreve como proteger uma aplicação web com base nos serviços de
 
 Antes de começar, certifique-se de que sabe como efetuar as seguintes tarefas:
 
-* [Replicar uma máquina virtual para o Azure](site-recovery-vmware-to-azure.md)
+* [Replicar uma máquina virtual para o Azure](vmware-azure-tutorial.md)
 * [Estruturar uma rede de recuperação](site-recovery-network-design.md)
 * [Efetue uma ativação pós-falha de teste para o Azure](site-recovery-test-failover-to-azure.md)
 * [Efetue uma ativação pós-falha para o Azure](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|ND|Sim
 
 Para iniciar a replicação de todas as IIS web farm máquinas virtuais no Azure, siga as orientações no [ativação pós-falha de teste para o Azure no Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se estiver a utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual a tomar. Para definir o endereço IP, aceda a **computação e rede definições** > [**IP de destino**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Se estiver a utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual a tomar. Para definir o endereço IP, aceda a **computação e rede definições** > **IP de destino**.
 
 ![Captura de ecrã que mostra como definir o IP de destino no painel de computação de recuperação de Site e da rede](./media/site-recovery-active-directory/dns-target-ip.png)
 

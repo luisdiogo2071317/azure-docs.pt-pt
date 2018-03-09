@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por e-mail para a otimização automática
 
 Base de dados SQL recomendações de otimização são geradas pelo SQL Database do Azure [otimização automática](sql-database-automatic-tuning.md). Esta solução continuamente monitoriza e analisa as cargas de trabalho de fornecer de bases de dados SQL personalizada recomendações para cada base de dados individuais relacionados com a criação de índices, a eliminação de índice e a otimização de planos de execução da consulta de otimização.
 
-SQL Server da base de dados automática otimização recomendações podem ser visualizada no [portal do Azure](sql-database-advisor-portal.md), obtido com [REST API](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) chama ou através da utilização [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) comandos. Este artigo baseia-se utilizando um script do PowerShell para obter recomendações de otimização automáticas.
+SQL Server da base de dados automática otimização recomendações podem ser visualizada no [portal do Azure](sql-database-advisor-portal.md), obtido com [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) chama ou através da utilização [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) comandos. Este artigo baseia-se utilizando um script do PowerShell para obter recomendações de otimização automáticas.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizar as notificações por e-mail para recomendações de otimização automáticas
 
@@ -34,7 +34,7 @@ A seguinte solução automatiza o envio de notificações de correio eletrónico
 
 ## <a name="create-azure-automation-account"></a>Criar conta de automatização do Azure
 
-Para utilizar a automatização do Azure, o primeiro passo é criar uma conta de automatização e configurá-la com recursos do Azure a utilizar para a execução do script do PowerShell. Para saber mais sobre a automatização do Azure e as respetivas capacidades, consulte o artigo [introdução da automatização do Azure](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Para utilizar a automatização do Azure, o primeiro passo é criar uma conta de automatização e configurá-la com recursos do Azure a utilizar para a execução do script do PowerShell. Para saber mais sobre a automatização do Azure e as respetivas capacidades, consulte o artigo [introdução da automatização do Azure](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Siga estes passos para criar a conta de automatização do Azure através do método de selecionar e configurar a aplicação de automatização do Marketplace:
 
@@ -47,7 +47,7 @@ Siga estes passos para criar a conta de automatização do Azure através do mé
 
 - Uma vez no interior do painel de "Criar uma conta de automatização", clique em "**criar**"
 - Preencher as informações necessárias: introduza um nome para esta conta de automatização, selecione os recursos de ID e o Azure de subscrição do Azure a utilizar para a execução do script do PowerShell
-- Para o "**criar Azure conta Run As**" opção, selecione **Sim** para configurar o tipo de conta sob a qual PowerShell o script é executado com a ajuda da automatização do Azure. Para obter mais informações sobre tipos de conta, consulte o artigo [conta Run As](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)
+- Para o "**criar Azure conta Run As**" opção, selecione **Sim** para configurar o tipo de conta sob a qual PowerShell o script é executado com a ajuda da automatização do Azure. Para obter mais informações sobre tipos de conta, consulte o artigo [conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Concluir a criação da conta de automatização ao clicar no **criar**
 
 > [!TIP]
@@ -58,7 +58,7 @@ Se tiver várias subscrições do Azure para o qual gostaria de criar uma automa
 
 ## <a name="update-azure-automation-modules"></a>Atualizar módulos da automatização do Azure
 
-O script do PowerShell para obter automático otimizar a recomendação utiliza [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) e [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) comandos para que a atualização dos módulos do Azure para o versão 4 e posterior é necessária.
+O script do PowerShell para obter automático otimizar a recomendação utiliza [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) e [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) comandos para que a atualização dos módulos do Azure para o versão 4 e posterior é necessária.
 
 Siga estes passos para atualizar os módulos do Azure PowerShell:
 
@@ -195,7 +195,7 @@ Para concluir a solução, como o passo final, crie um fluxo de automatização 
 2. "**Da automatização do azure - saída da tarefa Get**" – utilizado para obter o resultado do script do PowerShell executado
 3. "**Office 365 Outlook – enviar um e-mail**" – utilizado para enviar correio eletrónico. Correio electrónico é enviados utilizando a conta do Office 365 do indivíduo criar o fluxo.
 
-Para saber mais sobre as funcionalidades do Microsoft Flow, consulte [introdução ao Microsoft Flow](https://docs.microsoft.com/en-us/flow/getting-started).
+Para saber mais sobre as funcionalidades do Microsoft Flow, consulte [introdução ao Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 Pré-requisitos para este passo é a inscrever-se [Microsoft Flow](https://flow.microsoft.com) conta e inicie sessão. Uma vez dentro da solução, siga estes passos para configurar um **novo fluxo**:
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Do Azure Cosmos DB: Ferramenta de migração de dados
 
@@ -477,7 +477,7 @@ Utilizar a política de indexação avançada opção, pode selecionar um fichei
 Os modelos de política, que a ferramenta fornece são:
 
 * A predefinição. Esta política é melhor quando estiver a efetuar consultas de igualdade em relação a cadeias e utilizar ORDER BY, intervalo e consultas de igualdade para números. Esta política tem uma tolerância de armazenamento de índice inferior ao intervalo.
-* Intervalo. Esta política é melhor que utilizar ORDER BY, intervalo e consultas de igualdade em ambos números e scripts. Esta política tem uma tolerância de armazenamento de índice mais alta que predefinido ou Hash.
+* Intervalo. Esta política é melhor quando estiver a utilizar ORDER BY, intervalo e consultas de igualdade em ambos números e scripts. Esta política tem uma tolerância de armazenamento de índice mais alta que predefinido ou Hash.
 
 ![Captura de ecrã do Cosmos DB indexação política Azure opções avançadas](./media/import-data/indexingpolicy2.png)
 

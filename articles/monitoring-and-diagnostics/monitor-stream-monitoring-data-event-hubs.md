@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure de fluxo monitorização dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -36,7 +36,18 @@ No seu ambiente do Azure, existem vários 'escalões' dos dados de monitorizaç�
 
 Dados a partir de qualquer camada podem ser enviados para um hub de eventos, onde podem ser solicitado para uma ferramenta de parceiro. As secções seguintes descrevem como configurar dados de cada escalão de transmissão em fluxo para um hub de eventos. Os passos partem do princípio de que já tem recursos na camada para ser monitorizada.
 
-Antes de começar, terá de [criar um hub de espaço de nomes e eventos de Event Hubs](../event-hubs/event-hubs-create.md). Este hub de espaço de nomes e o evento é o destino para todos os seus dados de monitorização.
+## <a name="set-up-an-event-hubs-namespace"></a>Configurar um espaço de nomes de Event Hubs
+
+Antes de começar, terá de [criar um hub de espaço de nomes e eventos de Event Hubs](../event-hubs/event-hubs-create.md). Este hub de espaço de nomes e o evento é o destino para todos os seus dados de monitorização. Um espaço de nomes de Event Hubs é um agrupamento lógico dos event hubs que partilham a mesma política de acesso, muito como um armazenamento conta tem os blobs individuais dentro dessa conta de armazenamento. Tenha em atenção alguns detalhes sobre o espaço de nomes de hubs de eventos e hubs de eventos que criar:
+* Recomendamos que utilize um espaço de nomes padrão dos Event Hubs.
+* Normalmente, apenas uma unidade de débito é necessária. Se precisar de aumentar verticalmente à medida que aumenta de utilização do registo, pode aumentar o número de unidades de débito para o espaço de nomes mais tarde sempre manualmente ou ativar inflation automática.
+* O número de unidades de débito permite-lhe aumentar a escala de débito para os hubs de eventos. O número de partições permite-lhe parallelize consumo entre vários consumidores. Uma única partição pode efetuar até 20MBps ou aproximadamente 20.000 mensagens por segundo. Consoante a ferramenta consumir os dados, poderá ou poderá não suportar o consumo de várias partições. Se não tiver a certeza sobre o número de partições para definir, recomendamos que comece com quatro partições.
+* Recomendamos que defina a retenção de mensagem no seu hub de eventos para 7 dias. Se a ferramenta de consumo ficar inativo durante mais do que um dia, isto garante que a ferramenta pode escolher em que parou (para eventos até de 7 dias).
+* Recomendamos que utilize o grupo de consumidores predefinido para o seu hub de eventos. Não é necessário criar outros grupos de consumidores ou utilizar um grupo de consumidores separada, a menos que planeia ter duas ferramentas diferentes consumir os mesmos dados do hub de eventos mesmo.
+* Para o registo de atividade do Azure, escolha um espaço de nomes de Event Hubs e Monitor do Azure cria um hub de eventos dentro desse espaço de nomes chamado 'insights-registos-operationallogs.' Para outros tipos de registo, pode optar por um hub de eventos existente (, permitindo-lhe reutilizar o mesmo hub de eventos de insights-registos-operationallogs) ou tem de criar um hub de eventos por categoria de registo de Monitor de Azure.
+* Normalmente, a porta 5671 e 5672 tem de ser aberta no computador consumir dados do hub de eventos.
+
+. Consulte também o [FAQ de Hubs de eventos do Azure](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como posso configurar dados de monitorização de plataforma do Azure para transmissão em fluxo para um hub de eventos?
 

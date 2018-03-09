@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar as recomendações de desempenho
 
@@ -52,7 +52,7 @@ Recomendações são ordenadas pelo respetivo impacto potencial no desempenho na
 > Tem de base de dados SQL do Azure monitorizar atividades, pelo menos, um dia para identificar algumas recomendações. A base de dados do SQL do Azure pode otimizar mais facilmente para padrões de consulta consistente que pode para aleatórios bursts spotty da atividade. Se as recomendações não estão atualmente disponíveis, o **recomendação de desempenho** página fornece uma mensagem explicar o motivo.
 > 
 
-Também pode ver o estado do histórico de operações. Selecione uma recomendação ou estado para ver mais detalhes.
+Também pode ver o estado do histórico de operações. Selecione uma recomendação ou estado para obter mais informações.
 
 Eis um exemplo de recomendação "Criar índice" no portal do Azure.
 
@@ -130,7 +130,7 @@ Aplicar a recomendação não poderá acontecer instantaneamente. O portal forne
 | A reverter |A recomendação foi aplicada, mas foi considerado vvalidação não performant e está a ser revertida automaticamente. |
 | Revertido |A recomendação foi revertida. |
 
-Clique uma recomendação de dentro do processo da lista para ver mais detalhes:
+Clique uma recomendação de dentro do processo da lista para obter mais informações:
 
 ![Recomendado índices](./media/sql-database-advisor-portal/operations.png)
 

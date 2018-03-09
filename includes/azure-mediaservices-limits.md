@@ -4,7 +4,7 @@
 | Recurso | Limite Predefinido | 
 | --- | --- | 
 | Contas dos Serviços de Multimédia do Azure (AMS) numa subscrição individual | 25 (fixo) |
-| Unidades Reservadas de Multimédia (RUs) por conta do AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Unidades Reservadas de Multimédia (RUs) por conta do AMS |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | Trabalhos por conta do AMS | 50,000<sup>(2)</sup> |
 | Tarefas em cadeia por trabalho | 30 (fixo) |
 | Elementos por conta do AMS | 1 000 000|
@@ -20,7 +20,7 @@
 | Políticas | 1,000,000<sup>(6)</sup> |
 | Tamanho dos ficheiros| Em alguns cenários, não há um limite no tamanho máximo de ficheiro suportado para processamento nos Media Services. <sup>7</sup> |
   
-<sup>1</sup> As RUs S3 não estão disponíveis na Índia Ocidental. Se alterar o tipo (por exemplo, a partir de S2 para S1), os limites de RU máximas são repostos.
+<sup>1</sup> se alterar o tipo (por exemplo, a partir de S2 para S1), os limites de RU máximas são repostos.
 
 <sup>2</sup> Este número inclui trabalhos em fila, concluídos, ativos e cancelados. Não inclui trabalhos eliminados. Pode utilizar **IJob.Delete** ou o pedido HTTP **DELETE** para eliminar os trabalhos antigos.
 

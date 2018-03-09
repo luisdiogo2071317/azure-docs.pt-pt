@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 75d2b370ed6118a30153a001a4b654d7212b56cd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalar o runtime de limite de IoT no Windows IoT Core - pré-visualização
 
@@ -30,7 +30,7 @@ Este artigo explica o tempo de execução de aprovisionamento num [MinnowBoard T
 1. Na consola do PowerShell, instale o tempo de execução do contentor: 
 
    ```powershell
-   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-0.0.0-dev.zip -o temp.zip
    Expand-Archive .\temp.zip $env:ProgramFiles -f
    Remove-Item .\temp.zip
    $env:Path += ";$env:programfiles\docker"
@@ -54,7 +54,7 @@ Este artigo explica o tempo de execução de aprovisionamento num [MinnowBoard T
 
 Poderá ver informativa saída da ferramenta de iotedgectl.exe verde na janela do PowerShell remota. Isto não necessariamente indicar erros. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem um dispositivo com o tempo de execução do limite do IoT, saiba como [implementar e monitorizar os módulos de limite de IoT à escala][lnk-deploy].
 

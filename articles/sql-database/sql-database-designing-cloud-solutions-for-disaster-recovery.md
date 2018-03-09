@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Conceber serviços de elevada disponibilidade utilizando a SQL Database do Azure
 
 Ao criar e implementar os serviços de elevada disponibilidade no SQL Database do Azure, utilize [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md) para fornecer maior resiliência às falhas regionais e de falhas catastrófica. Também permite uma recuperação rápida para as bases de dados secundárias. Este artigo foca-se nos padrões comuns da aplicação e descreve as vantagens e os compromissos de cada opção. Para obter informações sobre a georreplicação ativa com conjuntos elásticos, consulte [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Se estiver a utilizar agrupamentos e bases de dados Premium, pode efetuá-los resilientes às falhas regionais, convertendo-las à configuração de implementação redundante de zona (atualmente em pré-visualização). Consulte [basesdedadoszona redundante](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Utilizar duas regiões do Azure para a continuidade do negócio com o período de indisponibilidade mínimo
 Neste cenário, as aplicações têm as seguintes características: 
@@ -47,8 +50,7 @@ O diagrama seguinte mostra esta configuração antes de uma falha:
 Após uma falha na região primária, o serviço de base de dados SQL Deteta que a base de dados primária não está acessível e aciona uma ativação pós-falha para a região secundária com base nos parâmetros da política de ativação pós-falha automática (1). Consoante o SLA de aplicação, pode configurar um período de tolerância que controla o tempo entre a deteção da interrupção e a ativação pós-falha de si próprio. É possível que esse gestor de tráfego inicia a ativação pós-falha de ponto final antes do grupo de ativação pós-falha aciona a ativação pós-falha da base de dados. Nesse caso a aplicação web não é possível imediatamente restabeleça a ligação à base de dados. Mas os reconnections serão automaticamente bem-sucedidas, assim que concluir a ativação pós-falha da base de dados. Quando a região de falha é restaurada e novamente online, o principal anterior automaticamente a ligação como um novo secundário. O diagrama abaixo mostra a configuração após a ativação pós-falha.
  
 > [!NOTE]
-> Todas as transações consolidadas após a ativação pós-falha são perdidas durante o restabelecimento. Uma vez concluída a ativação pós-falha, a aplicação na região B é capaz de voltar a ligar e reinicie a processar os pedidos de utilizador. A aplicação web e a base de dados primária estão agora numa região B e permanecem localizadas conjuntamente. 
-n>
+> Todas as transações consolidadas após a ativação pós-falha são perdidas durante o restabelecimento. Uma vez concluída a ativação pós-falha, a aplicação na região B é capaz de voltar a ligar e reinicie a processar os pedidos de utilizador. A aplicação web e a base de dados primária estão agora numa região B e permanecem localizadas conjuntamente. n>
 
 ![Cenário 1. Configuração após a ativação pós-falha](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -160,7 +162,7 @@ A estratégia de recuperação de desastres nuvem específica pode combinar ou e
 ||Acesso de leitura e escrita = zero | Acesso de leitura e escrita = hora da deteção de falha + período de tolerância a perdas de dados |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para cenários e uma descrição geral de continuidade de negócio, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md)
 * Para saber mais sobre os grupos de replicação geográfica e ativação pós-falha, consulte [georreplicação ativa](sql-database-geo-replication-overview.md)  
 * Para obter informações sobre a georreplicação ativa com conjuntos elásticos, consulte [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

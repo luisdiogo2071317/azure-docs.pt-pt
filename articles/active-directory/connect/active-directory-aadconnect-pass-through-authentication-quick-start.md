@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Do Azure autenticação do Active Directory pass-through: Início rápido
 
@@ -116,22 +116,40 @@ Nesta fase, os utilizadores de todos os domínios geridos no seu inquilino podem
 
 ## <a name="step-5-ensure-high-availability"></a>Passo 5: Certifique-se de elevada disponibilidade
 
-Se planeia implementar autenticação pass-through num ambiente de produção, deve instalar um agente de autenticação de autónomo. Instalar este agente de autenticação de segundo num servidor _outros_ que a uma execução o Azure AD Connect e o agente de autenticação primeiro. Esta configuração fornece elevada disponibilidade para pedidos iniciar sessão. Siga estas instruções para implementar um agente de autenticação de autónomo:
+Se planeia implementar autenticação pass-through num ambiente de produção, deve instalar pelo menos autónomo mais um agente de autenticação. Instalar estes agentes de autenticação no servidor (es) _outros_ que a uma execução o Azure AD Connect. Esta configuração fornece elevada disponibilidade para pedidos de início de sessão do utilizador.
 
-1. Transferir a versão mais recente do agente de autenticação (versão 1.5.193.0 ou posterior). Iniciar sessão para o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com credenciais de administrador global do inquilino.
+Siga estas instruções para transferir o software do agente de autenticação:
+
+1. Para transferir a versão mais recente do agente de autenticação (versão 1.5.193.0 ou posterior), iniciar sessão para o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com credenciais de administrador global do inquilino.
 2. Selecione **do Azure Active Directory** no painel esquerdo.
 3. Selecione **do Azure AD Connect**, selecione **autenticação pass-through**e, em seguida, selecione **Transferir agente**.
 4. Selecione o **aceitar os termos & Transferir** botão.
-5. Instale a versão mais recente do agente de autenticação ao executar o executável que foi transferido no passo anterior. Forneça as credenciais de administrador global do seu inquilino quando lhe for pedido.
 
 ![Centro de administração do Active Directory do Azure: botão Transferir o agente de autenticação](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Centro de administração do Active Directory do Azure: painel Transferir agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Também pode transferir o [agente de autenticação do Azure Active Directory](https://aka.ms/getauthagent). Certifique-se que reveja e aceite o agente de autenticação [termos de serviço](https://aka.ms/authagenteula) _antes_ instale-o.
+>Pode transferir o software do agente de autenticação também diretamente [aqui](https://aka.ms/getauthagent). Rever e aceitar o agente de autenticação [termos de serviço](https://aka.ms/authagenteula) _antes_ instale-o.
 
-## <a name="next-steps"></a>Passos seguintes
+Existem duas formas de implementar um agente de autenticação de autónomo:
+
+Em primeiro lugar, pode fazê-la interativamente ao apenas que executa o agente de autenticação transferido executável e fornecer credenciais de administrador global do inquilino quando lhe for pedido.
+
+Segundo, pode criar e executar um script de implementação automática. Isto é útil quando pretender implementar múltiplos agentes de autenticação de uma só vez, ou instale agentes de autenticação nos servidores do Windows que não tem interface de utilizador ativado ou que não é possível aceder com o ambiente de trabalho remoto. Seguem-se as instruções sobre como utilizar esta abordagem:
+
+1. Execute o seguinte comando para instalar um agente de autenticação: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Pode registar o agente de autenticação no nosso serviço com o Windows PowerShell. Criar um objeto de credenciais do PowerShell `$cred` que contém um nome de utilizador de administrador global e a palavra-passe para o seu inquilino. Execute o seguinte comando, substituindo  *\<username\>*  e  *\<palavra-passe\>*:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Aceda a **agente C:\Program Files\Microsoft Azure AD Connect autenticação** e execute o seguinte script utilizando o `$cred` objeto que criou:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+## <a name="next-steps"></a>Passos Seguintes
 - [Bloqueio do smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saber que cenários são suportados com a autenticação pass-through e aqueles que não são.
 - [Descrição detalhada da Technical](active-directory-aadconnect-pass-through-authentication-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.

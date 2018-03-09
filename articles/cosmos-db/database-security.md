@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f6e05d410a8018f0a88a378e767f7a7e6fde6f0c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Segurança de base de dados do Cosmos BD do Azure
 
@@ -69,7 +69,7 @@ Vamos aprofundar para cada um em detalhe.
 |Autorização|BD do Cosmos do Azure utiliza o código de autenticação de mensagens com base em hash (HMAC) para autorização. <br><br>Cada pedido é colocado em hash com a chave secreta de conta e o hash codificado de base-64 subsequente é enviado com cada chamada à base de dados do Azure Cosmos. Para validar o pedido, o serviço de base de dados do Azure Cosmos utiliza a chave secreta correta e as propriedades para gerar um hash e compara o valor do pedido. Se os dois valores corresponderem, a operação está autorizada com êxito e o processamento do pedido, caso contrário, não existe uma falha de autorização e o pedido for rejeitado.<br><br>Pode utilizar tanto um [chave mestra](secure-access-to-data.md#master-keys), ou um [token de recurso](secure-access-to-data.md#resource-tokens) permitir o acesso detalhado a um recurso, tais como um documento.<br><br>Saiba mais em [proteger o acesso aos recursos da base de dados do Azure Cosmos](secure-access-to-data.md).|
 |Utilizadores e permissões|Utilizar o [chave mestra](#master-key) para a conta, pode criar recursos de utilizador e de recursos de permissão por base de dados. A [token de recurso](#resource-token) está associado uma permissão numa base de dados e determina se o utilizador tem acesso (leitura / escrita, só de leitura ou sem acesso) para um recurso de aplicação na base de dados. Recursos de aplicação incluem coleções, documentos, os anexos, procedimentos armazenados, acionadores e UDFs. O token de recurso, em seguida, é utilizado durante a autenticação para fornecer ou negar o acesso ao recurso.<br><br>Saiba mais em [proteger o acesso aos recursos da base de dados do Azure Cosmos](secure-access-to-data.md).|
 |Integração do Active Directory (RBAC)| Também pode fornecer acesso à conta de base de dados utilizando o controlo de acesso (IAM) no portal do Azure, conforme mostrado na captura de ecrã que se segue nesta tabela. IAM fornece controlo de acesso baseado em funções e integrado no Active Directory. Pode utilizar funções incorporadas ou funções personalizadas para indivíduos e grupos, conforme mostrado na imagem seguinte.|
-|Replicação global|BD do Azure do Cosmos oferece chave na mão distribuição global, que permite-lhe replicar os dados para qualquer um dos centros de dados de todo o mundo do Azure com o clique do botão para um. Replicação global permite-lhe dimensioná-las globalmente e fornecer acesso de latência baixa aos seus dados em todo o mundo.<br><br>No contexto de segurança, replicação global forma, assegura a proteção de dados contra falhas regionais.<br><br>Saiba mais em [distribuir dados globalmente](distribute-data-globally.md).|
+|Replicação global|BD do Azure do Cosmos oferece chave na mão distribuição global, que permite-lhe replicar os dados para qualquer um dos centros de dados de todo o mundo do Azure com o clique do botão para um. Replicação global permite-lhe dimensioná-las globalmente e fornecer acesso de latência baixa aos seus dados em todo o mundo.<br><br>No contexto de segurança, a replicação global garante proteção de dados contra falhas regionais.<br><br>Saiba mais em [distribuir dados globalmente](distribute-data-globally.md).|
 |Ativações pós-falha regional|Se ter replicado dados no Centro de dados mais do que uma, base de dados do Azure Cosmos automaticamente faz o sobre as operações de deve um centro de dados regionais fique offline. Pode criar uma lista prioritária de regiões de ativação pós-falha utilizando as regiões na qual os dados são replicados. <br><br>Saiba mais em [as ativações pós-falha Regional do BD Azure Cosmos](regional-failover.md).|
 |Replicação local|Mesmo dentro de um único centro de dados, base de dados do Azure Cosmos automaticamente replica os dados para elevada disponibilidade que lhe confere a escolha de [níveis de consistência](consistency-levels.md). Esta ação garante uma 99,99% [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas as contas de única região e todas as contas de multirregião com consistência de flexíveis e 99.999% de disponibilidade em todas as contas de multirregião base de dados de leitura.|
 |Cópias de segurança online automatizadas|Bases de dados de base de dados do Cosmos do Azure são uma cópia de segurança regularmente e armazenados num arquivo georedundant. <br><br>Saiba mais em [automática cópia de segurança online e de restauro com base de dados do Azure Cosmos](online-backup-and-restore.md).|
@@ -89,7 +89,7 @@ A seguinte captura de ecrã mostra a integração do Active Directory (RBAC) uti
 
 Captura de ecrã seguinte mostra como pode utilizar os registos de auditoria do registo e a atividade monitorizar a sua conta: ![atividade nos registos do Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais detalhes sobre o mestre de chaves e os tokens de recursos, consulte [proteger o acesso aos dados da base de dados do Azure Cosmos](secure-access-to-data.md).
 

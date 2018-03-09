@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cd3e2e471135242b52459abc231a0f3545e05e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Fluxo de registo de atividade do Azure para os Event Hubs
-O [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) pode transmissão em fluxo em tempo real para qualquer aplicação utilizando a opção "Exportação" incorporada no portal ou ativar o Id de regra de barramento de serviço num perfil de registo através de Cmdlets do PowerShell do Azure ou a CLI do Azure.
+O [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) pode transmissão em fluxo em tempo real para qualquer aplicação utilizando a opção "Exportação" incorporada no portal ou ativar o ID de regra de barramento de serviço num perfil de registo através do PowerShell do Azure Cmdlets ou Azure CLI.
 
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>O que pode fazer com o registo de atividade e Event Hubs
 Seguem-se apenas algumas formas poderá utilizar a capacidade de transmissão em fluxo para o registo de atividade:
@@ -30,20 +30,26 @@ Seguem-se apenas algumas formas poderá utilizar a capacidade de transmissão em
 * **Criar uma plataforma de registo e telemetria personalizada** – se já tiver uma plataforma de telemetria personalizada ou são apenas de pensar sobre como criar um, altamente dimensionável de publicação-subscrição natureza dos Event Hubs permite-lhe de forma flexível ingerir o registo de atividade. [Consulte o guia de Dan Rosanova para utilizar os Hubs de eventos no aqui uma plataforma de telemetria de escala global.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Ative a transmissão em fluxo de registo de atividade
-Pode ativar a transmissão em fluxo de registo de atividade através de programação ou através do portal. Qualquer forma, escolha um espaço de nomes de barramento de serviço e uma política de acesso partilhado para esse espaço de nomes e um Hub de eventos é criado nesse espaço de nomes quando ocorre o primeiro evento de registo de atividade de novo. Se não tiver um espaço de nomes de barramento de serviço, terá primeiro de criar um. Se anteriormente tiver transmissão em fluxo eventos de registo de atividade para este espaço de nomes de barramento de serviço, será reutilizado o Hub de eventos foi criado anteriormente. A política de acesso partilhado define as permissões que tenha o mecanismo de transmissão em fluxo. Hoje em dia, necessita de transmissão em fluxo para um Event Hubs **gerir**, **enviar**, e **escutar** permissões. Pode criar ou modificar as políticas de acesso de espaço de nomes do barramento de serviço partilhado no portal do Azure, no separador "Configurar" para o espaço de nomes de barramento de serviço. Para atualizar o perfil de registo de registo de atividade para incluir a transmissão em fluxo, o utilizador efetuar a alteração tem de ter a permissão de ListKey nessa regra de autorização de barramento de serviço.
+Pode ativar a transmissão em fluxo de registo de atividade através de programação ou através do portal. Qualquer forma, escolha um espaço de nomes de Event Hubs e uma política de acesso partilhado para esse espaço de nomes e um hub de eventos com o nome 'insights-registos-operationallogs' é criado nesse espaço de nomes quando ocorre o primeiro evento de registo de atividade de novo. Se não tiver um espaço de nomes de Event Hubs, terá primeiro de criar um. Se anteriormente tiver transmissão em fluxo eventos de registo de atividade para este espaço de nomes de Event Hubs, será reutilizado o hub de eventos foi criado anteriormente. A política de acesso partilhado define as permissões que tenha o mecanismo de transmissão em fluxo. Hoje em dia, necessita de transmissão em fluxo para um hub de eventos **gerir**, **enviar**, e **escutar** permissões. Pode criar ou modificar as políticas de acesso partilhado do espaço de nomes dos Event Hubs no portal do Azure, no separador "Configurar" para o espaço de nomes. Para atualizar o perfil de registo de registo de atividade para incluir a transmissão em fluxo, o utilizador efetuar a alteração tem de ter a permissão de ListKey dessa regra de autorização de hub de eventos.
 
-O service bus ou event hub espaço de nomes não tem de estar na mesma subscrição que a subscrição emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
+O espaço de nomes de Event Hubs não tem de estar na mesma subscrição que a subscrição emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
 ### <a name="via-azure-portal"></a>Através do portal do Azure
-1. Navegue para o **registo de atividade** painel através da opção os todos os serviços de pesquisa no lado esquerdo do portal.
+1. Navegue para o **registo de atividade** secção utilizando o todos os serviços de pesquisa no lado esquerdo do portal.
    
     ![Navegue até ao registo de atividade no portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Clique em de **exportar** botão na parte superior do painel de registo de atividade.
+2. Clique em de **exportar** botão na parte superior do registo de atividade. Tenha em atenção que as definições de filtro que tinha aplicada ao visualizar o registo de atividade na vista anterior não tem nenhum impacto nas suas definições de exportação – trata-se apenas para efeitos de filtragem veem ao procurar o registo de atividade no portal.
    
     ![Botão de exportação no portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
-3. No painel que aparece, pode selecionar as regiões para as quais gostaria de eventos de fluxo e o espaço de nomes de barramento de serviço, na qual gostaria de um Hub de eventos seja criado para estes eventos de transmissão em fluxo. Selecione **todas as regiões**.
+3. Na secção que aparece, selecione **todas as regiões**. Não selecione as regiões específicas.
    
-    ![Painel de registo de atividade de exportação](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+    ![Exportar Registos de Atividade](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+    
+    > [!WARNING]
+    > Selecione apenas 'Todas as regiões'. Caso contrário, irá perder eventos chaves que poderia ter caso contrário destinados a receber. Trata-se de que o registo de atividade é um registo (não regionais) global, pelo que a maior parte dos eventos não dispõe de uma região associada aos mesmos.
+    >
+    >
+    
 4. Clique em **guardar** para guardar estas definições. As definições são imediatamente aplicadas à sua subscrição.
 5. Se tiver várias subscrições, deve repetir esta ação e enviar todos os dados para o mesmo hub de eventos.
 

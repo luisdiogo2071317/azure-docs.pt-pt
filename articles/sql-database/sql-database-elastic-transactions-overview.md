@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4441cdef3bc97aab35451720753e437e24702fd9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
 Transações da base de dados elástica para Azure SQL Database (base de dados SQL) permitem-lhe executar transações que abrangem várias bases de dados na base de dados do SQL Server. Transações da base de dados elástica para a base de dados SQL estão disponíveis para aplicações de .NET através do ADO .NET e integrar com a utilização de experiência de programação familiar de [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. Para obter a biblioteca, consulte [.NET Framework 4.6.1 (instalador da Web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -133,9 +133,9 @@ Utilize vistas de gestão dinâmica (DMVs) na base de dados do SQL Server para o
 
 Estes DMVs são particularmente úteis:
 
-* **sys.dm\_tran\_Active Directory\_transações**: apresenta uma lista de transações atualmente ativas e o respetivo estado. A coluna UOW (unidade de trabalho), pode identificar as transações de diferentes subordinados que pertençam a mesma transação distribuída. Todas as transações na mesma transação distribuída transportem o mesmo valor UOW. Consulte o [documentação DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais detalhes.
-* **sys.dm\_tran\_base de dados\_transações**: fornece informações adicionais sobre transações, como o posicionamento da transação no registo. Consulte o [documentação DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais detalhes.
-* **sys.dm\_tran\_bloqueios**: fornece informações sobre as bloqueios que atualmente estão a ser retido por transações em curso. Consulte o [documentação DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais detalhes.
+* **sys.dm\_tran\_Active Directory\_transações**: apresenta uma lista de transações atualmente ativas e o respetivo estado. A coluna UOW (unidade de trabalho), pode identificar as transações de diferentes subordinados que pertençam a mesma transação distribuída. Todas as transações na mesma transação distribuída transportem o mesmo valor UOW. Consulte o [documentação DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais informações.
+* **sys.dm\_tran\_base de dados\_transações**: fornece informações adicionais sobre transações, como o posicionamento da transação no registo. Consulte o [documentação DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais informações.
+* **sys.dm\_tran\_bloqueios**: fornece informações sobre as bloqueios que atualmente estão a ser retido por transações em curso. Consulte o [documentação DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais informações.
 
 ## <a name="limitations"></a>Limitações
 As seguintes limitações aplicam-se atualmente para transações da base de dados elástica na base de dados do SQL Server:
@@ -144,7 +144,7 @@ As seguintes limitações aplicam-se atualmente para transações da base de dad
 * Transações de uma aplicação .NET apenas coordenado de cliente são suportadas. Suporte do lado do servidor para o T-SQL, tais como iniciar a transação distribuída é planeada, mas ainda não está disponível. 
 * Não são suportadas transações nos vários serviços do WCF. Por exemplo, tem um método do serviço WCF que executa uma transação. Envolvente a chamada dentro de um âmbito de transação falhará como um [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para perguntas sobre, contacte-no [fórum de base de dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de funcionalidades, adicioná-los para o [fórum de comentários da base de dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->

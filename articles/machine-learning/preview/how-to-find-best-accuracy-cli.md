@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
+ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Localizar é executado com o melhor exatidão e duração mais baixa
 Tendo em conta vários é executado, um caso de utilização é encontrar é executado com o melhor exatidão. Uma abordagem é utilizar a interface de linha de comandos (CLI) com um [JMESPath](http://jmespath.org/) consulta. Para obter mais informações sobre como utilizar JMESPath na CLI do Azure, consulte [JMESPath utilizar consultas com o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). No exemplo seguinte, é quatro executado é criados com valores de precisão de 0, 0.98, 1 e 1. Executa é filtradas se estão no intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` onde `Threshold = .03`.
@@ -58,7 +58,7 @@ Utilizar este valor de precisão máxima de `1` e um valor de limiar de `0.03`, 
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
 > [!NOTE]
-> Se pretender que uma verificação de limite superior strict, o formato de consulta é``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> Se pretender que uma verificação de limite superior strict, o formato de consulta é ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
 
 Se utilizar o PowerShell, o seguinte código utiliza variáveis locais para armazenar o limiar e a precisão máxima:
 ```powershell

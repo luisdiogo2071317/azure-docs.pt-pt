@@ -3,8 +3,8 @@ title: "Cobertura de tráfego na localização do Azure com base em serviços | 
 description: "Saiba mais sobre o tráfego de cobertura na localização do Azure com base em serviços"
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5bfda1cd211eb08f80527aa0116815023ff93931
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 251c736e0f607ffeea144639f437900eb337b6ea
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-location-based-services---traffic-coverage"></a>Localização do Azure com base em serviços - cobertura de tráfego
 
@@ -42,23 +42,23 @@ Serviços de com base de localização do Azure (LBS) fornece informações de t
 |Finlândia     |✓         |✓         |
 |+ Ilhas Åland      |✓         |✓         |
 |França     |✓         |✓         |
-|+ Monaco     |✓         |✓         |
+|+Monaco     |✓         |✓         |
 |Alemanha     |✓         |✓         |
 |Grécia     |✓         |✓         |
-|R.A.E. Hong Kong     |✓         |✓         |
+|RAE de Hong Kong     |✓         |✓         |
 |Hungria     |✓         |✓         |
 |Islândia     |         |✓         |
 |Indonésia     |✓         |✓         |
 |Irlanda (República das)     |✓         |✓         |
 |Israel     |         |✓         |
 |Itália     |✓         |✓        |
-|+ San Marino     |✓         |✓         |
+|+San Marino     |✓         |✓         |
 |Kuwait     |✓         |✓         |
 |Letónia     |         |✓         |
 |Lesoto     |✓         |✓         |
 |Lituânia     |         |✓         |
 |Luxemburgo     |✓         |✓         |
-|R.A.E. de Macau     |         |✓         |
+|RAE de Macau     |         |✓         |
 |Malásia     |✓         |✓         |
 |Malta     |✓         |✓         |
 |México     |✓         |✓         |
@@ -79,13 +79,13 @@ Serviços de com base de localização do Azure (LBS) fornece informações de t
 |Eslovénia     |✓         |✓         |
 |África do Sul     |✓         |✓         |
 |Espanha     |✓         |✓         |
-|+ Andorra     |✓         |✓         |
+|+Andorra     |✓         |✓         |
 |+ Balearic Ilhas     |✓         |✓         |
 |+ Canary Ilhas     |✓         |✓         |
-|+ Gibraltar     |✓         |✓         |
+|+Gibraltar     |✓         |✓         |
 |Suécia     |✓         |✓         |
 |Suíça     |✓         |✓        |
-|+ Liechtenstein      |✓         |✓         |
+|+Liechtenstein      |✓         |✓         |
 |Taiwan     |✓         |✓        |
 |Tailândia     |✓         |✓        |
 |Turquia     |✓         |✓         |

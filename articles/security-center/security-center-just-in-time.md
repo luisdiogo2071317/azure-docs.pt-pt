@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo (pré-visualização)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo
 
 Apenas na máquina virtual de tempo (VM), acesso pode ser utilizado para bloquear o tráfego de entrada para as VMs do Azure, reduzir a exposição a ataques, fornecendo acesso fácil para ligar a VMs, quando necessário.
 
 > [!NOTE]
-> O apenas na hora funcionalidade em pré-visualização e está disponível na camada padrão do Centro de segurança.  Consulte [preços](security-center-pricing.md) para saber mais acerca do Centro de segurança do escalões de preço.
+> O apenas tempo funcionalidade está disponível na camada padrão do Centro de segurança.  Consulte [preços](security-center-pricing.md) para saber mais acerca do Centro de segurança do escalões de preço.
 >
 >
 
@@ -33,7 +33,7 @@ Apenas na máquina virtual de tempo (VM), acesso pode ser utilizado para bloquea
 
 Força bruta de ataques geralmente as portas de gestão de destino como um meio para obter acesso a uma VM. Se tiver êxito, um atacante pode assumir o controlo sobre a VM e estabelecer a sua posição no ambiente.
 
-Uma forma para reduzir a exposição a um ataque de força bruta é para limitar a quantidade de tempo que uma porta está aberta. As portas de gestão não precisam de estar aberta permanente. Apenas têm de estar aberta enquanto estiverem ligados à VM, por exemplo, para efetuar tarefas de gestão ou manutenção. Quando apenas na hora estiver ativada, o Centro de segurança utiliza [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) regras (NSG), que restringem o acesso às portas de gestão, pelo que não pode ser visados pelos atacantes.
+Uma forma para reduzir a exposição a um ataque de força bruta é para limitar a quantidade de tempo que uma porta está aberta. As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando apenas na hora estiver ativada, o Centro de segurança utiliza [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) regras (NSG), que restringem o acesso às portas de gestão, pelo que não pode ser visados pelos atacantes.
 
 ![Apenas no cenário de tempo][1]
 
@@ -60,14 +60,14 @@ O **apenas acesso de VM de tempo** é aberta a janela.
 
 ![Apenas no tempo de acesso VM mosaico][10]
 
-**Apenas no acesso VM de tempo** fornece informações sobre o estado das suas VMs:
+O **Acesso à VM just-in-time** fornece informações sobre o estado das suas VMs:
 
-- **Configurado** -VMs que tenham sido configuradas para suportar apenas de acesso VM de tempo. Os dados apresentados é da última semana e incluem para cada VM, o número de pedidos aprovados, a data do último acesso e a hora e como último utilizador.
-- **Recomendado** -VMs que podem suportar apenas no acesso VM de tempo, mas não foram configuradas para. Recomendamos que ative apenas no controlo de acesso VM de tempo para estas VMs. Consulte [configurar uma política de acesso de tempo](#configuring-a-just-in-time-access-policy).
-- **Nenhuma recomendação** -razões que podem causar uma VM para não ser recomendado são:
-  - Falta o NSG - o apenas no tempo a solução requer um NSG a ser implementada.
-  - VMS clássicas - o Centro de segurança apenas do acesso VM de tempo atualmente suporta apenas as VMs implementadas através do Azure Resource Manager. Uma implementação clássica não é suportada pelo apenas na solução de tempo.
-  - Outros - uma VM está nesta categoria se a apenas no tempo solução está desativada na política de segurança da subscrição ou o grupo de recursos ou se a VM está em falta um IP público e não tem um NSG no local.
+- **Configurado** - VMs que foram configuradas para suportar o acesso à VM just-in-time. Os dados apresentados é da última semana e incluem para cada VM, o número de pedidos aprovados, a data do último acesso e a hora e como último utilizador.
+- **Recomendado** - VMs que conseguem suportar o acesso à VM just-in-time, mas não foram configuradas para tal. Recomendamos que ative apenas no controlo de acesso VM de tempo para estas VMs. Consulte [configurar uma política de acesso de tempo](#configuring-a-just-in-time-access-policy).
+- **Nenhuma recomendação** - As razões que podem fazer com que uma VM não seja recomendada são:
+  - NSG em falta - A solução just-in-time requer a existência de um NSG implementado.
+  - VM clássica - Atualmente, o acesso à VM just-in-time do Centro de Segurança suporta apenas VMs implementadas através do Azure Resource Manager. Uma implementação clássica não é suportada pelo apenas na solução de tempo.
+  - Outro - Uma VM está nesta categoria se a solução just-in-time estiver desativada na política de segurança da subscrição ou do grupo de recursos, ou se existir um IP público em falta na VM e não tiver um NSG implementado.
 
 ## <a name="configuring-a-just-in-time-access-policy"></a>Configurar uma política de acesso de tempo
 

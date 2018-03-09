@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Aplicação de recoletor
 
@@ -23,9 +23,23 @@ ms.lasthandoff: 03/02/2018
 
 Um Recoletor migrar do Azure é uma aplicação de lighweight que pode ser utilizada para detetar o seu ambiente do vCenter no local. Este dispositivo Deteta máquinas de VMware no local e envia os metadados sobre-los para o serviço Azure migrar.
 
-A aplicação do Recoletor é um OVF que pode transferir do projeto migrar do Azure. Para instanciar uma máquina virtual do VMware com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operativo do dispositivo de é Windows Server 2012 R2 (64 bits)
+A aplicação do Recoletor é um OVF que pode transferir do projeto migrar do Azure. Para instanciar uma máquina virtual do VMware com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operativo do dispositivo de é Windows Server 2012 R2 (64 bits).
 
 Pode criar o Recoletor seguindo os passos aqui - [como criar a VM de Recoletor](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Diagrama de comunicação de recoletor
+
+![Diagrama de comunicação de recoletor](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Componente      | Para comunicar com   | Porta necessária                            | Razão                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Recoletor      | Serviço do Azure Migrate | TCP 443                                  | Recoletor deverá conseguir comunicar com o serviço através da porta SSL 443 |
+| Recoletor      | vCenter Server        | Predefinição 443                             | Recoletor deverá conseguir comunicar com o servidor vCenter. Ligar ao vCenter no 443 por predefinição. Se o vCenter escuta numa porta diferente, essa porta deve estar disponível como porta de saída no recoletor |
+| Recoletor      | RDP|   | TCP 3389 | Para que possa ser capaz de RDP no computador do Recoletor |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Pré-requisitos do recoletor
@@ -158,6 +172,32 @@ A tabela seguinte lista os contadores de desempenho que são recolhidos e també
 O Recoletor só Deteta os dados da máquina e envia-ao projeto. O projeto poderá demorar mais tempo antes dos dados detetados são apresentados no portal e pode iniciar a criação de uma avaliação.
 
 Com base no número de máquinas virtuais no âmbito selecionado, que demora até 15 minutos para enviar os metadados estático para o projeto. Depois dos metadados estático estão disponível no portal, pode ver a lista de máquinas no portal e começar a criar grupos. Não é possível criar uma avaliação até que a tarefa de coleção é concluída e o projeto tem de processar os dados. Uma vez a tarefa de coleção foi concluída no Recoletor, pode demorar até uma hora para os dados de desempenho estar disponível no portal, com base no número de máquinas virtuais no âmbito selecionado.
+
+## <a name="how-to-upgrade-collector"></a>Como atualizar o Recoletor
+
+Pode atualizar o Recoletor para a versão mais recente sem a transferir o OVA novamente.
+
+1. Transferir a versão mais recente [pacote de atualização](https://aka.ms/migrate/col/latestupgrade).
+2. Certifique-se de que a correção transferida é segura, abra a janela de comandos de administrador e execute o seguinte comando para gerar o hash de ficheiro ZIP. O hash gerado deve corresponder com hash mencionado em relação a versão específica:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (exemplo de utilização c:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Copie o ficheiro zip para a Azure migração recoletor da máquina virtual (aplicação recoletor).
+4. Clique com o botão direito no ficheiro zip e selecione extrair todas.
+5. Clique com o botão direito no Setup.ps1 e selecionar executar com o PowerShell e siga as instruções no ecrã para instalar a atualização.
+
+### <a name="list-of-updates"></a>Lista de atualizações
+
+#### <a name="upgrade-to-version-1095"></a>Atualize para versão 1.0.9.5
+
+Para atualizar para transferências de versão 1.0.9.5 [pacote](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e2f988fd62753e1ebed702728dee7ede65c72c4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerir os recursos com o Azure PowerShell
 
-[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -30,7 +30,7 @@ Se optar por instalar e utilizar o PowerShell localmente, consulte [módulo Azur
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
-[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
 Neste artigo, aplicar todas as definições de gestão a um grupo de recursos para poder remover facilmente essas definições quando terminar.
 
@@ -45,7 +45,7 @@ Atualmente, o grupo de recursos está vazio.
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
 ### <a name="assign-a-role"></a>Atribuir uma função
 
@@ -73,7 +73,7 @@ Normalmente, pode repete o processo para **contribuinte de rede** e **contribuin
 
 ## <a name="azure-policies"></a>Políticas do Azure
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Aplicar políticas
 
@@ -131,7 +131,7 @@ Após a conclusão da sua implementação, pode aplicar as definições de gest�
 
 ## <a name="lock-resources"></a>Bloquear recursos
 
-[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
 ### <a name="lock-a-resource"></a>Um recurso de bloqueio
 
@@ -154,11 +154,11 @@ A máquina virtual só pode ser eliminada se especificamente a remover o bloquei
 
 ## <a name="tag-resources"></a>Etiqueta de recursos
 
-[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="tag-resources"></a>Etiqueta de recursos
 
-[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
 Para aplicar etiquetas a uma máquina virtual, utilize:
 

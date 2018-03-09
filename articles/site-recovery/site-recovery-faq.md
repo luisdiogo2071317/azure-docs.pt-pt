@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo inclui perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique-los no [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -106,8 +106,9 @@ Durante a replicação normal, os dados são replicados para o armazenamento do 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Pode automatizar os cenários de recuperação de sites com um SDK?
 Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente, suportado cenários para implementar a recuperação de sites com o PowerShell:
 
-* [Replicar VMs de Hyper-V em nuvens VMMs para o Gestor de recursos do Azure PowerShell](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Replicar VMs de Hyper-V sem o VMM para o Gestor de recursos do Azure PowerShell](site-recovery-deploy-with-powershell-resource-manager.md)
+* [Replicar VMs de Hyper-V em nuvens VMMs para o Gestor de recursos do Azure PowerShell](hyper-v-vmm-powershell-resource-manager.md)
+* [Replicar VMs de Hyper-V sem o VMM para o Gestor de recursos do Azure PowerShell](hyper-v-azure-powershell-resource-manager.md)
+* [Replicar VMware para o Azure com o Gestor de recursos do PowerShell](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Se eu replicar para o Azure qual o tipo de conta de armazenamento de que preciso?
 Necessita de uma conta de armazenamento LRS ou GRS. Recomendamos GRS para que os dados sejam resilientes se ocorrer uma falha regional ou se a região primária não pode ser recuperada. A conta tem de ser na mesma região que o cofre de Serviços de Recuperação. Armazenamento Premium é suportado para a VM de VMware, VM do Hyper-V e replicação do servidor físico, quando implementar a recuperação de sites no portal do Azure.
@@ -123,7 +124,7 @@ Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalida
 Tal não é suportado. Esta funcionalidade do pedido de [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Posso excluir discos específicos na replicação?
-Isto é suportado quando estiver [replicar VMware VMs e VMs de Hyper-V](site-recovery-exclude-disk.md) para o Azure, utilizando o portal do Azure.
+Isto é suportado quando replicar VMs de VMware e VMs de Hyper-V para o Azure, utilizando o portal do Azure.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Pode replicar máquinas virtuais com discos dinâmicos?
 Os discos dinâmicos são suportados quando replicar máquinas virtuais Hyper-V. Também são suportados quando replicar VMs de VMware e máquinas físicas para o Azure. O disco do sistema operativo tem de ser um disco básico.

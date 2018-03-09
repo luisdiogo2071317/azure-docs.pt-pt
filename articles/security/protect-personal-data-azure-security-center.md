@@ -1,6 +1,6 @@
 ---
 title: "Proteger os dados pessoais com o Centro de segurança do Azure | Microsoft Docs"
-description: "proteger os dados pessoais utilizando o Centro de segurança do Azure"
+description: "Utilize o Centro de segurança para proteger os dados pessoais. Isto pode ser utilizado esforços para estar em conformidade com Regulamento de proteção de dados gerais (GDPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Proteger os dados pessoais contra falhas e ataques: Centro de segurança do Azure
 
-Este artigo irá ajudá-lo a compreender como utilizar o Centro de segurança do Azure para proteger os dados pessoais contra falhas e ataques.
+Este artigo irá ajudá-lo a compreender como utilizar o Centro de segurança do Azure para proteger os dados pessoais contra falhas e ataques. As informações incluídas aqui irão ajudá-lo nos seus esforços para estar em conformidade com Regulamento de proteção de dados gerais (GDPR).
 
 ## <a name="scenario"></a>Cenário 
 
@@ -197,11 +197,11 @@ Se uma Máquina Virtual não tiver uma solução de avaliação de vulnerabilida
 
 Para obter mais instruções sobre como implementar uma solução de avaliação de vulnerabilidade, consulte [avaliação da vulnerabilidade no Centro de segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Guia de introdução do Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-- [Introdução ao centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Introdução ao Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 - [A integração de alertas do Centro de segurança do Azure com a integração de registos do Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)
 

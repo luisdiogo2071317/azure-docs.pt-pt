@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13ac12377887684143d32d08e4bd5de107183105
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Orientações gerais para trabalhar com Wingtip bilhetes de exemplo aplicações SaaS
 
@@ -28,9 +28,9 @@ Este artigo contém orientações gerais para executar as aplicações de SaaS d
 Conteúdo executável (scripts, dlls) pode estar bloqueado pelo Windows quando zip ficheiros são transferidos a partir de uma origem externa e extraiu. Quando extrair os scripts a partir de um ficheiro zip **siga os passos abaixo para desbloquear o ficheiro. zip antes de a extrair**. Isto garante que os scripts estão autorizados a executar.
 
 1. Navegue para o repositório do GitHub de SaaS de bilhetes Wingtip para o padrão de inquilinos de base de dados que pretende explorar: 
-    - [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-    - [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
-    - [WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
+    - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+    - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
+    - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Clique em **clonar ou transferir**.
 3. Clique em **transferir zip** e guarde o ficheiro.
 4. O ficheiro zip com o botão direito e selecione **propriedades**. O nome do ficheiro zip irá corresponder ao nome do repositório. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
@@ -86,8 +86,8 @@ A implementação foi inicialmente inquilinos e os servidores de base de dados S
 Para garantir uma ligação de demonstração com êxito, todos os servidores têm um [regra de firewall](sql-database-firewall-configure.md) permitir que todos os IPs através de.
 
 
-1. Abra *SSMS* e estabelecer ligação com aos inquilinos. O nome do servidor depende o padrão de inquilinos de base de dados que selecionou (consulte abaixo especificações):
-    - **Aplicação autónoma:** servidores de inquilinos individuais (ex. *contosoconcerthall -&lt;utilizador&gt;. database.windows.net*) 
+1. Abra *SSMS* e ligue-se aos inquilinos. O nome do servidor depende o padrão de inquilinos de base de dados que selecionou (consulte abaixo especificações):
+    - **Aplicação autónoma:** servidores de inquilinos individuais (ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Base de dados por inquilino:** *tenants1-dpt -&lt;utilizador&gt;. database.windows.net*
     - **Base de dados do multi-inquilino:** *tenants1-mt -&lt;utilizador&gt;. database.windows.net* 
 2. Clique em **Ligar** > **Motor de Base de Dados...**:
@@ -97,7 +97,7 @@ Para garantir uma ligação de demonstração com êxito, todos os servidores t�
 3. As credenciais de demonstração são: Início de sessão = *developer*, Palavra-passe = *P@ssword1*
 
     A imagem abaixo demonstra o início de sessão para o *base de dados por inquilino* padrão. 
-    ![ligação](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
     
    
 
@@ -115,7 +115,7 @@ A imagem abaixo demonstra o início de sessão para o *base de dados por inquili
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Implementar a aplicação de SaaS autónomo Wingtip bilhetes](saas-standaloneapp-get-started-deploy.md)
 - [Implementar Wingtip pedidos de suporte de SaaS base de dados por aplicação do inquilino](saas-dbpertenant-get-started-deploy.md)
 - [Implementar a aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino](saas-multitenantdb-get-started-deploy.md)

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Correção do sistema operativo Windows no seu cluster do Service Fabric
 
@@ -136,13 +136,15 @@ As atualizações automáticas do Windows podem originar perda de disponibilidad
 
 ## <a name="download-the-app-package"></a>Transferir o pacote de aplicação
 
-Transferir a aplicação a [transferir ligação](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Aplicação juntamente com os scripts de instalação pode ser transferida do [hiperligação do arquivo](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Aplicação em formato sfpkg pode ser transferida do [sfpkg ligação](https://go.microsoft.com/fwlink/?linkid=869567). Esta informação ser proveniente útil para [do Azure Resource Manager com implementação de aplicação base](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar a aplicação
 
 O comportamento da aplicação de orquestração patch pode ser configurado para satisfazer as suas necessidades. Substitua os valores predefinidos mediante a transmissão no parâmetro de aplicação durante a criação de aplicação ou atualização. Podem ser fornecidos parâmetros de aplicação, especificando `ApplicationParameter` para o `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication` cmdlets.
 
-|Parâmetro        |**Tipo**                          | **Detalhes**|
+|**Parâmetro**        |**Tipo**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |Longo                              | Número máximo de resultados do Windows Update, que devem ser colocados em cache. <br>Valor predefinido é 3000 partindo do princípio de: <br> -Número de nós é 20. <br> -O número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ter 10. <br> -Devem ser armazenados resultados durante os últimos três meses. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar as atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Windows Update está instalado um nó de cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update está instalado um domínio de atualização de cada vez. (No máximo, podem aceder todos os nós que pertencem a um domínio de atualização para o Windows Update.)
@@ -361,8 +363,12 @@ Um administrador tem intervene e determine o motivo pelo qual a aplicação ou o
 ### <a name="version-111"></a>Versão 1.1.1
 - Corrigido um erro no SetupEntryPoint de NodeAgentService que impediu a instalação do NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Versão 1.2.0 (mais recentes)
+### <a name="version-120"></a>Versão 1.2.0
 
 - Correções de erros em torno do sistema de reiniciar o fluxo de trabalho.
 - Correção de erro na criação de tarefas RM devido ao estado de funcionamento do que a verificação durante a preparação de tarefas de reparação não foi acontecer conforme esperado.
 - Alterar o modo de arranque de serviço do windows POANodeSvc da implementação como auto atrasado.
+
+### <a name="version-121-latest"></a>Versão 1.2.1 (mais recentes)
+
+- Correção de erro no fluxo de trabalho de dimensionamento pendente de cluster. Introduziu a lógica de recolha de lixo para tarefas de reparação POA que pertencem a nós inexistente.

@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 427660be92d3caf4c381cec65f49adce9808e50a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c7fcbd57021134631e9f10dcbb2d40e4c130af02
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação com a API Management do Azure de pedidos avançada
 A capacidade para limitar os pedidos recebidos é uma função de chave de API Management do Azure. Ou ao controlar a taxa de pedidos ou os dados/pedidos totais transferidos, gestão de API permite que os fornecedores de API proteger as respetivas APIs de abuso e criar o valor para diferentes camadas de produto de API.
 
-## <a name="product-based-throttling"></a>Limitação com base do produto
-Até à data, a limitação de velocidade capacidades foram limitadas a que está a ser confinadas a uma subscrição de produto específica (essencialmente uma chave), definida no portal do Azure. Isto é útil para o fornecedor de API aplicar limites no programadores que tenham efetuado a inscrição para utilizar a sua API, no entanto, é que não ajuda, por exemplo, no limitação individuais dos utilizadores finais da API. É possível que para o único utilizador da aplicação do programador para consumir a quota completa e, em seguida, impedem a outros clientes do programador capazes de utilizar a aplicação. Além disso, vários clientes que podem gerar um grande volume de pedidos poderão limitar o acesso a utilizadores ocasionais.
+## <a name="product-based-throttling"></a>Limitação com base no produto
+Até à data, a taxa de limitação capacidades foram limitadas a que está a ser confinadas a uma subscrição de produto específica, definida no portal do Azure. Isto é útil para o fornecedor de API aplicar limites no programadores que tenham efetuado a inscrição para utilizar a sua API, no entanto, é que não ajuda, por exemplo, no limitação individuais aos utilizadores finais da API. É possível que para o único utilizador da aplicação do programador para consumir a quota completa e, em seguida, impedem a outros clientes do programador capazes de utilizar a aplicação. Além disso, vários clientes que podem gerar um grande volume de pedidos poderão limitar o acesso a utilizadores ocasionais.
 
 ## <a name="custom-key-based-throttling"></a>Chave personalizada baseada em limitação
-A nova [taxa limite por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) políticas fornecem uma solução significativamente mais flexível para controlo de tráfego. Estas novas políticas permitem-lhe definir as expressões para identificar as chaves que serão utilizadas para controlar a utilização de tráfego. A forma como isto funciona easiest é ilustrado com um exemplo. 
+A nova [taxa limite por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) políticas fornecem uma solução mais flexível para controlo de tráfego. Estas novas políticas permitem-lhe definir as expressões para identificar as chaves que são utilizadas para controlar a utilização de tráfego. A forma como isto funciona easiest é ilustrado com um exemplo. 
 
 ## <a name="ip-address-throttling"></a>Limitação de endereço IP
 As seguintes políticas restringir a um endereço IP do cliente única para apenas 10 chamadas cada minuto, com um total de 1.000.000 chamadas e 10 000 quilobytes da largura de banda por mês. 
@@ -43,10 +43,10 @@ As seguintes políticas restringir a um endereço IP do cliente única para apen
           counter-key="@(context.Request.IpAddress)" />
 ```
 
-Se todos os clientes na Internet utilizado um endereço IP exclusivo, pode ser uma forma eficaz de limitação de utilização por utilizador. No entanto, é bastante provável que vários utilizadores, poderá partilhar um único endereço IP público devido a-lhes aceder à Internet através de um dispositivo NAT. Apesar de isto, APIs que permitem o acesso não autenticado o `IpAddress` poderá ser a melhor opção.
+Se todos os clientes na Internet utilizado um endereço IP exclusivo, pode ser uma forma eficaz de limitação de utilização por utilizador. No entanto, é provável que vários utilizadores partilham um único endereço IP público devido a-lhes aceder à Internet através de um dispositivo NAT. Apesar de isto, APIs que permitem o acesso não autenticado o `IpAddress` poderá ser a melhor opção.
 
 ## <a name="user-identity-throttling"></a>Limitação de identidade do utilizador
-Se um utilizador final é autenticado e uma chave de limitação pode ser gerada com base nas informações que identificam de forma que um utilizador.
+Se um utilizador final é autenticado, em seguida, uma chave de limitação pode ser gerada com base nas informações que identificam de forma que o utilizador.
 
 ```xml
 <rate-limit-by-key calls="10"
@@ -54,7 +54,7 @@ Se um utilizador final é autenticado e uma chave de limitação pode ser gerada
     counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
 ```
 
-Neste exemplo, extrair o cabeçalho de autorização, converta-a em `JWT` objeto e utilizar o assunto do token para identificar o utilizador e utilizá-lo como a taxa de limitação de chave. Se a identidade do utilizador é armazenada no `JWT` como uma das outras afirmações, em seguida, que o valor pode ser utilizado no seu lugar.
+Este exemplo mostra como extrair o cabeçalho de autorização, converta-a em `JWT` objeto e utilizar o assunto do token para identificar o utilizador e utilizá-lo como a taxa de limitação de chave. Se a identidade do utilizador é armazenada no `JWT` como uma das outras afirmações, em seguida, esse valor pode ser utilizado no seu lugar.
 
 ## <a name="combined-policies"></a>Políticas combinadas
 Apesar das novas políticas de limitação oferecem mais controlo que as políticas de limitação existentes, existe ainda está a combinar as capacidades de valor. Limitação pela chave de subscrição de produto ([limitar taxa de chamadas por subscrição](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [definir quota de utilização por subscrição](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)) é uma excelente forma de ativar monetizing de uma API por charging com base nos níveis de utilização. O controlo detalhado finer de conseguir limitar pelo utilizador é complementares e impede que o comportamento de um utilizador afetar negativamente a experiência de outro. 
@@ -68,18 +68,11 @@ Quando a chave de limitação é definida utilizando um [expressão de política
           counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
 ```
 
-Isto permite que a aplicação de cliente o programador escolher como pretende criar a taxa de limitação de chave. Com um pouco de ingenuity um programador de cliente foi possível criar as seus próprios camadas taxa pela alocação de conjuntos de chaves para os utilizadores e rodar a utilização de chave.
+Isto permite que a aplicação de cliente o programador escolher como pretende criar a taxa de limitação de chave. Os programadores de cliente foi possível criar as seus próprios camadas taxa pela alocação de conjuntos de chaves para os utilizadores e rodar a utilização de chave.
 
 ## <a name="summary"></a>Resumo
 Gestão de API do Azure fornece taxa e quota limitação para proteger e adicionar valor ao seu serviço de API. As novas políticas de limitação com regras de âmbito personalizadas permitem-lhe finer detalhado controlo sobre as políticas para ativar os seus clientes criar aplicações ainda mais. Os exemplos neste artigo demonstram a utilização destas políticas novas pela limitação de chaves com endereços IP do cliente, a identidade do utilizador e os valores de cliente gerado de taxa de fabrico. No entanto, existem muitas outras partes da mensagem que podem ser utilizados como agente de utilizador, fragmentos do caminho de URL, o tamanho da mensagem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Dê-nos seus comentários no Disqus thread para este tópico. Seria excelente ouvi sobre outros potenciais os valores da chave tem sido uma escolha lógica no seus cenários.
-
-## <a name="watch-a-video-overview-of-these-policies"></a>Veja uma descrição geral do vídeo destas políticas
-Para mais informações sobre o [taxa limite por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) abordadas neste artigo, as políticas, veja o vídeo seguinte.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Advanced-Request-Throttling-with-Azure-API-Management/player]
-> 
-> 
 

@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: raynew
-ms.openlocfilehash: 31754cd765c90b9e36d16dc766b0a3546e6fd93e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 10d7db60ef584632a45fd7cdc5877461fa45af03
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -22,14 +22,14 @@ Este artigo resume componentes suportados e as definições de recuperação ap�
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-Cenário | **Detalhes**
+**Cenário** | **Detalhes**
 --- | ---
 **VMs de VMware** | Pode efetuar a recuperação de desastre para o Azure para as VMs de VMware no local. Pode implementar este cenário no portal do Azure ou através do PowerShell.
 **Servidores físicos** | Pode efetuar a recuperação após desastre para o Azure para servidores físicos do Windows/Linux no local. Pode implementar este cenário no portal do Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização no local
 
-**Servidor** | Requisitos | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 **VMware** | o vCenter Server 6.5, 6.0, ou 5.5 ou vSphere 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.
 **Servidores físicos** | N/A
@@ -70,13 +70,13 @@ Sistema operativo da máquina (Linux) | Red Hat Enterprise Linux: 5.2 para 5.11,
 
 **Componente** | **Suportado**
 --- | ---
-sistemas de ficheiros | ext3, ext4, ReiserFS (Suse Linux Enterprise Server apenas), XFS
+sistemas de ficheiros | ext3, ext4, XFS
 Gestor de volumes | LVM2
-Software MultiPath | Mapeador de dispositivo
-Dispositivos de armazenamento Paravirtualized | Exportados pelo paravirtualized controladores de dispositivos não são suportados.
+Dispositivos de armazenamento Paravirtualized | Os dispositivos exportados por controladores paravirtualizados não são suportados.
 Dispositivos de e/s de fila multi bloco | Não suportado.
 Servidores físicos com o controlador de armazenamento HP CCISS | Não suportado.
 Diretórios | Estes diretórios (se configurar como separados partições /-sistemas de ficheiros) têm de estar todos no mesmo disco do SO no servidor de origem: / (raiz), /boot /usr, /usr/local, /var, /etc/hosts. </br></br> Se / volume (raiz) é um volume LVM, em seguida, tem de residir numa partição separada no mesmo disco e não pode ser um volume LVM /boot.<br/><br/>
+|Requisitos de espaço livre| 2 GB na partição /root <br/>250 MB na pasta de instalação
 XFSv5 | Funcionalidades de XFSv5 nos sistemas de ficheiros XFS, tais como a soma de verificação de metadados, são suportadas a partir da versão 9.10 do serviço de mobilidade e posterior. Utilize o utilitário de xfs_info para verificar o superblock XFS para a partição. Se ftype estiver definido como 1, em seguida, XFSv5 funcionalidades estão em utilização.
 
 
@@ -169,9 +169,9 @@ Managed disks | Sim
 
 VMs no local que replicam para o Azure tem de cumprir os requisitos de VM do Azure resumidos nesta tabela.
 
-**Componente** | Requisitos | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operativo convidado | Certifique-se [sistemas operativos suportados](#replicated machines). | A verificação de pré-requisitos falha se não suportado.
+**Sistema operativo convidado** | Certifique-se [sistemas operativos suportados](#replicated machines). | A verificação de pré-requisitos falha se não suportado.
 **Arquitetura do sistema operativo convidado** | 64 bits | A verificação de pré-requisitos falha se não suportado.
 **Tamanho do disco do sistema operativo** | Até 2.048 GB | A verificação de pré-requisitos falha se não suportado.
 **Contagem de discos do sistema operativo** | 1 | A verificação de pré-requisitos falha se não suportado.
@@ -198,7 +198,7 @@ Mover o armazenamento, rede, as VMs do Azure através de grupos de recursos<br/>
 **Nome** | **Descrição** | **versão mais recente** | **Detalhes**
 --- | --- | --- | --- | ---
 **Configuração de unificada de recuperação de sites do Azure** | Coordena a comunicação entre servidores do VMware no local e o Azure <br/><br/> Instalado nos servidores do VMware no local | 9.12.4653.1 (disponível a partir do portal) | [Funcionalidades e correções mais recentes](https://aka.ms/latest_asr_updates)
-Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site secundário/Azure<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | 9.12.4653.1 (disponível a partir do portal) | [Funcionalidades e correções mais recentes](https://aka.ms/latest_asr_updates)
+**Serviço de mobilidade** | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site secundário/Azure<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | 9.12.4653.1 (disponível a partir do portal) | [Funcionalidades e correções mais recentes](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

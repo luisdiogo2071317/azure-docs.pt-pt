@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/05/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc82b41554eff4e9cdefa1a3848a4a11c954d33c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 24873c685ee16520e6a8b8af9abeab84639613d7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de .NET do Cosmos BD do Azure para a API do SQL Server: transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -54,6 +54,12 @@ ms.lasthandoff: 03/02/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name12101210"></a><a name="1.21.0"/>1.21.0
+
+* Pacote NuGet único para o .NET Framework e .NET padrão. [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) pacote foi preterido. 
+* KeyNotFoundException fixo para cruzada ordem da partição por consultas nos casos extremos.
+* Erros fixo onde JsonPropery atributo na cláusula select para consultas LINQ não estava a ser cumprido.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Fixo erros que é atingido em determinadas condições race, o que resulta em intermitente "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" erros ao utilizar o nível de consistência de sessão.
@@ -290,7 +296,7 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
-| [1.20.2](#1.20.2) |21 de fevereiro de 2018 |--- |
+| [1.21.0](#1.21.0) |05 de Março de 2018 |--- |
 | [1.20.1](#1.20.1) |05 de Fevereiro de 2018 |--- |
 | [1.19.1](#1.19.1) |16 de novembro de 2017 |--- |
 | [1.19.0](#1.19.0) |10 de Novembro de 2017 |--- |

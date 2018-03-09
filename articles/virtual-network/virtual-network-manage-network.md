@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6daf69574d45eeb1c91508d082bd7294b6e40f70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6829ca9ad5ef76b6a96eed1f2cc461d32c0e51cf
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -41,7 +41,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Selecione **+ novo** > **redes** > **rede Virtual**.
+1. Selecione **+ criar um recurso** > **redes** > **rede Virtual**.
 2. Introduza ou selecione os valores para as seguintes definições e selecione **criar**:
     - **Nome**: O nome tem de ser exclusivo no [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que selecionar para criar a rede virtual. Não é possível alterar o nome depois da criação da rede virtual. Pode criar várias redes virtuais ao longo do tempo. Para sugestões de atribuição de nomes, consulte [convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Seguir uma convenção de nomenclatura pode ajudar a tornar mais fácil de gerir várias redes virtuais.
     - **Espaço de endereços**: O espaço de endereços para uma rede virtual é composto por um ou mais sem se sobreporem intervalos de endereços que estejam especificados na notação CIDR. O intervalo de endereços que define pode ser public ou private (RFC 1918). Se definir o intervalo de endereços como público ou privado, o intervalo de endereços é acessível apenas a partir de dentro da rede virtual, redes virtuais interligados e quaisquer redes no local que tiver estabelecido ligação à rede virtual. Não é possível adicionar os seguintes intervalos de endereços:
@@ -179,5 +179,5 @@ Para efetuar tarefas em redes virtuais, deve ser atribuída à conta para o [con
 
 - Para criar uma VM e, em seguida, ligue-o a uma rede virtual, consulte [criar uma rede virtual e ligar as VMs](quick-create-portal.md#create-virtual-machines).
 - Para filtrar o tráfego de rede entre sub-redes dentro de uma rede virtual, consulte [criar grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
-- Para o elemento de uma rede virtual a outra rede virtual, consulte o artigo [criar um peering de rede virtual](virtual-network-create-peering.md#portal).
+- Para o elemento de uma rede virtual a outra rede virtual, consulte o artigo [criar um peering de rede virtual](tutorial-connect-virtual-networks-portal.md).
 - Para saber mais sobre as opções para ligar uma rede virtual a uma rede no local, consulte [sobre o Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
