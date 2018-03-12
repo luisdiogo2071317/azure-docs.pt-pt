@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: cb9575cb7bb3d8d3f3a18a1f5577ff0330bda24c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar a pilha do Azure com o Azure
-Pode registar pilha do Azure com o Azure para transferir os itens do marketplace a partir do Azure e configurar dados de comércio relatórios de volta à Microsoft. Depois de registar pilha do Azure, a utilização é comunicada para comércio do Azure. Pode vê-lo sob a subscrição utilizada para o registo.
+Pode registar pilha do Azure com o Azure para transferir os itens do marketplace a partir do Azure e configurar dados de comércio relatórios de volta à Microsoft. Depois de registar pilha do Azure, a utilização é comunicada para comércio de Azure. Pode vê-lo sob a subscrição utilizada para o registo.
 
 > [!IMPORTANT]
 > O registo é obrigatório se escolher o modelo de faturação pay-como-utiliza. Caso contrário, será violar os termos de licenciamento da implementação da pilha de Azure conforme utilização caso contrário, não será reportada.

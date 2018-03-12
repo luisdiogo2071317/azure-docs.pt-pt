@@ -6,25 +6,25 @@ documentationcenter:
 author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Reportar dados de utilização de pilha do Azure para o Azure 
 
 Dados de utilização, também designado por dados de consumo representa a quantidade de recursos utilizados. 
 
-Azure sistemas de vários nós pilha que utilizem o modelo de faturação baseada em consumo devem reportar dados de utilização do Azure para fins de faturação.  Os operadores do Azure da pilha devem configurar as respetivas instâncias de pilha do Azure para dados de utilização de relatórios para o Azure.
+Azure sistemas de vários nós pilha que utilizem o modelo de faturação baseada no consumo devem reportar dados de utilização do Azure para fins de faturação.  Os operadores do Azure da pilha devem configurar as respetivas instâncias de pilha do Azure para dados de utilização de relatórios para o Azure.
 
 > [!NOTE]
 > Relatórios de dados de utilização é necessário para os pilha do Azure com vários nós utilizadores no modelo de pagamento-como-,-utilização de licenças. É opcional para os clientes que licença no modelo de capacidade (consulte o [como comprar o página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Para os utilizadores do Kit de desenvolvimento de pilha do Azure, operadores de pilha do Azure podem reportar dados de utilização e a funcionalidade de teste. No entanto, os utilizadores não serão cobrados por qualquer utilização que implicar. 
@@ -103,8 +103,9 @@ Os utilizadores podem ver os dados de utilização de pilha do Azure no ficheiro
 
 É sempre um delaybetween os dados de utilização comunicados pela utilização de pilha do Azure APIs e os dados de utilização comunicados pelo centro de contas do Azure... Este atraso é o tempo necessário para carregar dados de utilização de pilha do Azure para comércio do Azure. Devido a este atraso, utilização que ocorre pouco tempo antes de à meia-noite pode aparecer no Azure ao dia seguinte. Se utilizar o [APIs de utilização do Azure pilha](azure-stack-provider-resource-api.md)e comparar os resultados para a utilização comunicados no portal de faturação do Azure, pode ver uma diferença.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [API de utilização do fornecedor](azure-stack-provider-resource-api.md)  
 * [API de utilização do inquilino](azure-stack-tenant-resource-usage-api.md)
 * [FAQ de utilização](azure-stack-usage-related-faq.md)
+* [Gerir a utilização e faturação como um fornecedor de serviços Cloud](azure-stack-add-manage-billing-as-a-csp.md)
