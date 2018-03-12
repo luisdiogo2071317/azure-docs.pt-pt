@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9748ae5cc58c64412ab6e51e6cd502abc3505c51
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5a06ad5086a42bb00147e085227f3c71c357544e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um conjunto do Azure Batch numa rede virtual
 
@@ -32,7 +32,7 @@ Um conjunto do Azure Batch tem definições para permitir que nós de computaç�
 
 * **Autenticação**. Para utilizar uma VNet do Azure, a API do cliente do Batch tem de utilizar a autenticação do Azure Active Directory. O suporte do Azure Batch para o Azure AD está documentado em [Autenticar soluções de serviço do Batch com o Active Directory](batch-aad-auth.md). 
 
-* **Uma VNet do Azure**. Para preparar uma VNet com uma ou mais sub-redes seguinte com antecedência, pode utilizar o portal do Azure, Azure PowerShell, a Interface de linha de comandos (CLI do Azure) ou outros métodos. Para criar uma VNet com base no Azure Resource Manager, consulte [criar uma rede virtual com várias sub-redes](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Para criar uma VNet clássica, consulte [criar uma rede virtual (clássica) com várias sub-redes](../virtual-network/create-virtual-network-classic.md).
+* **Uma VNet do Azure**. Para preparar uma VNet com uma ou mais sub-redes seguinte com antecedência, pode utilizar o portal do Azure, Azure PowerShell, a Interface de linha de comandos (CLI do Azure) ou outros métodos. Para criar uma VNet com base no Azure Resource Manager, consulte [criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para criar uma VNet clássica, consulte [criar uma rede virtual (clássica) com várias sub-redes](../virtual-network/create-virtual-network-classic.md).
 
 ### <a name="vnet-requirements"></a>Requisitos de VNet
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]

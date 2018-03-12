@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Criar um padrão de Balanceador de público de carga com redundância de zona front-end utilizando a CLI do Azure
 
@@ -41,7 +41,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que 
 
 Antes de selecionar uma zona ou a opção com redundância de zona para o endereço IP público de front-end de Balanceador de carga, primeiro tem de concluir os passos em [registar-se para a pré-visualização de zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)e tem sessão iniciada numa conta do Azure com [início de sessão az](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
+Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e tem sessão iniciada numa conta do Azure com [início de sessão az](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -87,7 +87,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba como [criar um IP público numa zona de disponibilidade](../virtual-network/create-public-ip-availability-zone-cli.md)
+- Saiba como [criar um IP público numa zona de disponibilidade](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

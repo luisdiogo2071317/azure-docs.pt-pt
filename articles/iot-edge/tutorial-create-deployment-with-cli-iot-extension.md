@@ -11,15 +11,15 @@ ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
 ms.reviewer: kgremban
-ms.openlocfilehash: 1986c9881c09ffa480103e009dc42d18aad4e2aa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Implementar módulos para um dispositivo de limite de IoT utilizando a extensão de IoT para Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) é um open source entre a ferramenta de linha de comandos de plataforma para gerir recursos do Azure, tais como o limite de IoT. Azure CLI 2.0 está disponível no Windows, Linux e MacOS.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) é um open source entre a ferramenta de linha de comandos de plataforma para gerir recursos do Azure, tais como o limite de IoT. Azure CLI 2.0 está disponível no Windows, Linux e MacOS.
 
 2.0 do CLI do Azure permite-lhe gerir recursos, instâncias de serviço aprovisionamento de dispositivos e ligado hubs a Box do IoT Hub do Azure. A nova extensão de IoT otimiza Azure CLI 2.0 com funcionalidades como a gestão de dispositivos e a capacidade total do limite de IoT.
 

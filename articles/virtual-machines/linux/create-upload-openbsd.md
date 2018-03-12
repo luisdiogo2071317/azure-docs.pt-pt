@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e86c323ac97ccc0d2a3da47fe1b1a9b3e9d16d0a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD para o Azure
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema de operativo OpenBSD. Depois de carregá-lo, pode utilizá-lo como a sua própria imagem para criar uma máquina virtual (VM) no Azure através da CLI do Azure.
@@ -29,7 +29,7 @@ Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que cont
 Este artigo pressupõe que tem os seguintes itens:
 
 * **Uma subscrição do Azure** -se não tiver uma conta, pode criar um em apenas alguns minutos. Se tiver uma subscrição do MSDN, consulte [crédito do Azure mensal para subscritores do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, saiba como [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** -Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-azure-cli) instalado e registado sua conta do Azure com [início de sessão az](/cli/azure/#az_login).
+* **Azure CLI 2.0** -Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-azure-cli) instalado e registado sua conta do Azure com [início de sessão az](/cli/azure/reference-index#az_login).
 * **Sistema de operativo OpenBSD instalado num ficheiro. vhd** -tem de ser instalado um sistema de operativo OpenBSD suportado (6.1 versão) para um disco rígido virtual. Existem várias ferramentas para criar ficheiros. vhd. Por exemplo, pode utilizar uma solução de virtualização, tais como o Hyper-V para criar o ficheiro. vhd e instalar o sistema operativo. Para obter instruções sobre como instalar e utilizar o Hyper-V, consulte [instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,7 +102,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Criar recursos de armazenamento e carregar
-Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

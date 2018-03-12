@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual utilizando a CLI do Azure
 
@@ -35,13 +35,13 @@ Este artigo abrange o modelo de implementação do Resource Manager. Também pod
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Os comandos da CLI do Azure de exemplo seguintes esperam num ambiente simple existente. Se pretender executar os comandos, como são apresentados neste documento, criar primeiro o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-arm-cli.md).
+> Os comandos da CLI do Azure de exemplo seguintes esperam num ambiente simple existente. Se pretender executar os comandos, como são apresentados neste documento, criar primeiro o ambiente de teste descrito em [criar uma vnet](quick-create-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Especifique um endereço IP privado estático quando criar uma VM
 
 Para criar uma VM chamada *DNS01* no *front-end* sub-rede de uma VNet com o nome *TestVNet* com um IP privado estático de *192.168.1.101*, completa os seguintes passos:
 
-1. Se ainda não ainda, instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login). 
+1. Se ainda não ainda, instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login). 
 
 2. Criar um IP público para a VM com o [az público-ip da rede criar](/cli/azure/network/public-ip#az_network_public_ip_create) comando. A lista apresentada depois do resultado explica os parâmetros utilizados.
 

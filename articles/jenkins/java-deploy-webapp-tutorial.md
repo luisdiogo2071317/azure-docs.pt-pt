@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração contínua e implementação para o serviço de aplicações do Azure com Jenkins
 
@@ -36,8 +36,8 @@ Irá efetuar as seguintes tarefas neste tutorial:
 Para concluir este tutorial, precisa de:
 
 * [Jenkins](https://jenkins.io/) com ferramentas JDK e Maven configuradas. Se não tiver um sistema Jenkins, crie uma agora no Azure a partir de [modelo de solução Jenkins](/azure/jenkins/install-jenkins-solution-template).
-* A [GitHub](https://github.com) conta.
-* [Azure CLI 2.0](/cli/azure/overview), da sua linha de comandos local ou no [Shell de nuvem do Azure](/azure/cloud-shell/overview)
+* Uma conta do [GitHub](https://github.com).
+* [Azure CLI 2.0](/cli/azure), da sua linha de comandos local ou no [Shell de nuvem do Azure](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,7 +75,7 @@ Configurar Jenkins para receber [GitHub webhooks](https://developer.github.com/w
     ![Novo projeto de Jenkins Freestyle](media/jenkins-java-quickstart/jenkins_freestyle.png)
 2. Sob o **geral** secção, selecione **GitHub** projeto e introduza o URL do repositório escolhido como https://github.com/raisa/gs-spring-boot-docker
 3. Sob o **gestão de código de origem** secção, selecione **Git**, introduza o seu repositório forked `.git` URL como https://github.com/raisa/gs-spring-boot-docker.git
-4. Sob o **criar Acionadores** secção, selecione **acionador de rotina do GitHub para consulta GITscm**.
+4. Na secção **Criar Acionadores**, selecione **Acionador de hook do GitHub para consulta GITScm**.
 5. Sob o **criar** secção, selecione **Adicionar passo de compilação** e escolha **invocar destinos nível superior do Maven**. Introduza `package` no **objetivos** campo.
 6. Selecione **Guardar**. Pode testar a sua tarefa selecionando **compilar agora** da página de projeto.
 
@@ -180,7 +180,7 @@ Configurar Jenkins para receber [GitHub webhooks](https://developer.github.com/w
 3. Inicia uma nova compilação no Jenkins, é acionada pela consolidação de novo no `master` ramo do repositório. Depois de terminar, volte a carregar a aplicação no Azure.     
       ![Ver a sua aplicação implementada no Azure](media/jenkins-java-quickstart/hello_docker_world.png)
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Utilize as VMs do Azure como agentes de compilação](/azure/jenkins/jenkins-azure-vm-agents)
 - [Gerir os recursos nas tarefas e pipelines com a CLI do Azure](/azure/jenkins/execute-cli-jenkins-pipeline)

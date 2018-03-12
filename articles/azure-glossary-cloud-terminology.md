@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -28,14 +28,14 @@ O glossário do Microsoft Azure é um dicionário abreviado do terminologia de n
 * [Microsoft Azure e o Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -serviços de definições do Azure e os seus homólogos AWS.<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
 * [Termos de computação da nuvem](https://azure.microsoft.com/overview/cloud-computing-dictionary/) -termos de nuvem da indústria geral.
 
-## <a name="account"></a>Conta
+## <a name="account"></a>conta
 Uma conta que é utilizada para aceder e gerir uma subscrição do Azure. É frequentemente referido como uma conta do Azure embora uma conta pode ser qualquer um dos seguintes: um trabalho existente, escola, ou pessoais conta Microsoft, ou um nome de utilizador do Office 365 e palavra-passe. Também pode criar uma conta para gerir uma subscrição do Azure quando se inscreve no [avaliação gratuita](https://azure.microsoft.com).  
 Consulte [inscrever-se para uma subscrição do Azure com a sua conta Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [contas podem utilizar para iniciar sessão](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-## <a name="api-app"></a>Aplicação API
+## <a name="api-app"></a>Aplicação de API
 Outro nome para [aplicação do app Service](#app-service-app).
 
-## <a name="app-service-app"></a>Aplicação do app Service
+## <a name="app-service-app"></a>Aplicação do Serviço de Aplicações
 Os recursos de computação que [App Service do Azure](app-service/app-service-web-overview.md) fornece para alojar uma Web site ou aplicação web, web API, ou [back-end da aplicação móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicações do App Service também são referidas como *serviços aplicacionais*, *aplicações web*, *das API apps*, e *aplicações móveis*.
 
 ## <a name="availability-set"></a>conjunto de disponibilidade
@@ -46,9 +46,9 @@ Consulte [gerir a disponibilidade das Windows virtual machines](virtual-machines
 Um dos dois [modelos de implementação](resource-manager-deployment-model.md) utilizados para implementar os recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns serviços do Azure suportam apenas o modelo de implementação do Resource Manager, alguns suportam o modelo de implementação clássica e algumas de suportar. A documentação para cada serviço do Azure Especifica quais model(s) suportam.
 
 ## <a name="cli"></a>Interface de linha de comandos (CLI) do Azure
-Uma interface de linha de comandos que podem ser utilizada para gerir serviços do Azure a partir do Windows, macOS e Linux.  Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI. Consulte [CLI do Azure 2.0](/cli/azure/overview)
+Uma interface de linha de comandos que podem ser utilizada para gerir serviços do Azure a partir do Windows, macOS e Linux.  Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI. Consulte [CLI do Azure 2.0](/cli/azure)
 
-## <a name="powershell"></a>O Azure PowerShell
+## <a name="powershell"></a>Azure PowerShell
 Uma interface de linha de comandos para gerir os serviços do Azure através de uma linha de comandos a partir de Windows PCs. Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI.
 Consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 
@@ -105,11 +105,11 @@ Consulte [descrição geral do Azure Resource Manager](azure-resource-manager/re
 Um ficheiro JSON que forma declarativa define um ou mais recursos do Azure e que define dependências entre os recursos implementados. O modelo pode ser utilizado para implementar os recursos de forma consistente e repetida.  
 Consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md)
 
-## <a name="resource-provider"></a>Fornecedor de recursos
+## <a name="resource-provider"></a>fornecedor de recursos
 Um serviço que fornece os recursos que pode implementar e gerir através do Resource Manager. Cada fornecedor de recursos oferece operações para trabalhar com os recursos implementados. Fornecedores de recursos podem ser acedidos através do portal do Azure, Azure PowerShell e vários SDKs de programação.  
 Consulte [descrição geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>Função
+## <a name="role"></a>função
 Um meio para controlar o acesso que pode ser atribuído a utilizadores, grupos e serviços. As funções são capazes de realizar ações tais como criar, gerirem e ler nos recursos do Azure.  
 Consulte [RBAC: funções incorporadas](active-directory/role-based-access-built-in-roles.md)
 
@@ -117,7 +117,7 @@ Consulte [RBAC: funções incorporadas](active-directory/role-based-access-built
 O contrato que descreve os compromissos da Microsoft para o tempo de atividade e conectividade. Cada serviço do Azure tem um SLA específico.  
 Consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="sas"></a>assinatura de acesso partilhado (SAS)
+## <a name="sas"></a>Assinatura de acesso partilhado (SAS)
 Uma assinatura permite-lhe de conceder acesso limitado a um recurso, sem a chave de conta a exposição. Por exemplo, [Storage do Azure utiliza SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) para conceder acesso de cliente para objetos, tais como os blobs. [IoT Hub utiliza SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder permissão para enviar a telemetria de dispositivos.
 
 ## <a name="storage-account"></a>conta de armazenamento
@@ -128,7 +128,7 @@ Consulte [contas do storage do Azure sobre](storage/common/storage-create-storag
 Contrato de um cliente com a Microsoft permite-lhes obter serviços do Azure. O preço de subscrição e os termos relacionados são regidos pela oferta escolhida para a subscrição.
 Consulte [contrato de subscrição Online da Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/) e [subscrições do Azure como estão associadas ao Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
 
-## <a name="tag"></a>Etiqueta
+## <a name="tag"></a>etiqueta
 Um termo de indexação que lhe permite categorizar os recursos de acordo com os requisitos de gestão ou faturação. Quando tiver uma coleção complexa de recursos, pode utilizar etiquetas para visualizar esses elementos da forma que mais adequado. Por exemplo, pode etiquetar recursos que desempenham uma função semelhante na sua organização ou pertencem ao mesmo departamento.  
 Consulte [utilizar etiquetas para organizar os recursos do Azure](resource-group-using-tags.md)
 
@@ -136,7 +136,7 @@ Consulte [utilizar etiquetas para organizar os recursos do Azure](resource-group
 A coleção de máquinas virtuais num conjunto de disponibilidade que são atualizadas ao mesmo tempo. Máquinas virtuais no mesmo domínio de atualização são reiniciadas em conjunto durante a manutenção planeada. O Azure nunca reinicia mais de um domínio de atualização de cada vez. Também referido como um domínio de atualização.  
 Consulte [gerir a disponibilidade das Windows virtual machines](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [gerir a disponibilidade das máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vm"></a>máquina virtual
+## <a name="vm"></a>Máquina virtual
 A implementação de software de um computador físico que executa um sistema operativo. Várias máquinas virtuais podem ser executados em simultâneo o mesmo hardware. No Azure, estão disponíveis uma variedade de tamanhos de máquinas virtuais.  
 Consulte [documentação de Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -145,14 +145,14 @@ Um recurso que implementa comportamentos ou funcionalidades que ajudam a outros 
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
 Consulte [sobre extensões de máquina virtual e funcionalidades (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [sobre extensões de máquina virtual e funcionalidades (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vnet"></a>rede virtual
+## <a name="vnet"></a>Rede virtual
 Uma rede que fornece conectividade entre os recursos do Azure que seja isolado de todos os outros inquilinos do Azure. Um [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) permite-lhe estabelecer ligações entre redes virtuais e [entre uma rede virtual e uma rede no local](vpn-gateway/vpn-gateway-plan-design.md). Pode controlar totalmente os blocos de endereços IP, definições DNS, as políticas de segurança e as tabelas de rotas dentro de uma rede virtual.  
 Consulte [descrição geral da rede Virtual](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Aplicação Web
 Outro nome para [aplicação do serviço de aplicações](#app-service-app).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de recursos de nuvem](https://azure.microsoft.com/resources/)  

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Instalar a CLI do Azure 1.0
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > Este tópico descreve como instalar a CLI do Azure 1.0. Este CLI foi preterido e só deve ser utilizada para o suporte com o modelo de gestão de serviço do Azure (ASM) com o recursos "clássico".
-> Para implementações do Azure Resource Manager (ARM), utilize [Azure CLI 2.0](/cli/azure/overview).
+> Para implementações do Azure Resource Manager, utilize [Azure CLI 2.0](/cli/azure).
 
-Instale rapidamente a Interface de linha de comandos do Azure (CLI do Azure 1.0) para utilizar um conjunto de open source baseada na shell de comandos para criar e gerir recursos no Microsoft Azure. Tem várias opções para instalar estas ferramentas de plataforma no seu computador:
+Instale rapidamente a Interface de Linha de Comandos do Azure (Azure CLI 1.0) para utilizar um conjunto de comandos de código aberto baseados na shell para criar e gerir recursos no Microsoft Azure. Tem várias opções para instalar estas ferramentas de plataforma no seu computador:
 
 * **pacote npm** -execute npm (o Gestor de pacotes de JavaScript) para instalar o pacote mais recente da CLI do Azure 1.0 no seu SO ou a distribuição de Linux. Requer node.js e npm no seu computador.
 * **Instalador** -transferir um instalador para a instalação fácil no Mac ou o Windows.

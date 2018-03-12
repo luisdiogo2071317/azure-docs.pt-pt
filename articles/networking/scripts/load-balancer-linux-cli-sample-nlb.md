@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 6637958088305580f81090d32daa1d5d473a6194
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 810899c671ea141f45f7ce140c3f862f568a2f87
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Tráfego de balanceamento de carga para as VMs para elevada disponibilidade
 
@@ -41,13 +41,13 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, máquina virtual, conjunto de disponibilidade, o Balanceador de carga e todos os recursos relacionados. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, máquina virtual, conjunto de disponibilidade, o Balanceador de carga e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual do Azure e a sub-rede. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_create) | Cria um balanceador de carga do Azure. |
@@ -63,6 +63,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, máqu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
 Exemplos de script a CLI de redes do Azure adicionais podem ser encontrados no [redes do Azure documentação](../cli-samples.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b50e98fa7bfff75efe8c9b926838ea847f640651
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à máquina de Virtual de ciência de dados do Azure para Linux e Windows
 
@@ -89,7 +89,7 @@ As máquinas de ciência de dados tem muitas ciência de dados mais populares e 
 | SDKs para aceder ao Azure e dos serviços do Cortana Intelligence Suite | S | S |
 | **Movimento de dados e ferramentas de gestão** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Explorador de armazenamento do azure | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [CLI do Azure](https://docs.microsoft.com/cli/azure/overview) | S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [CLI do Azure](https://docs.microsoft.com/cli/azure) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* O azure Powershell | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Controlador FUSE de blob](https://github.com/Azure/azure-storage-fuse) | N | S |

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gerir a expiração do Blob storage do Azure numa rede de entrega de conteúdo do Azure
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Para atualizar o *CacheControl* propriedade de um blob com o Explorador de armaz
 ![Propriedades do Explorador de armazenamento do Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interface de Linha de Comandos do Azure
-Com o [Interface de linha de comandos do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), pode gerir recursos do blob do Azure na linha de comandos. Para configurar o cabeçalho de cache-control ao carregar um blob com a CLI do Azure, definir o *cacheControl* propriedade utilizando o `-p` mudar. O exemplo seguinte mostra como definir o valor de TTL para uma hora (3600 segundos):
+Com o [Interface de linha de comandos do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), pode gerir recursos do blob do Azure na linha de comandos. Para configurar o cabeçalho de cache-control ao carregar um blob com a CLI do Azure, definir o *cacheControl* propriedade utilizando o `-p` mudar. O exemplo seguinte mostra como definir o valor de TTL para uma hora (3600 segundos):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

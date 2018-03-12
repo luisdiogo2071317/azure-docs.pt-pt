@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual do Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza os valores predefinidos para criar os recursos de suporte necessários. Recursos como uma rede virtual, o endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecedência e, em seguida, adicionar as suas VMs aos mesmos. Este artigo orienta-o como criar uma VM e cada um dos recursos de suporte um por um.
 
-Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/#az_login).
+Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup*, *myVnet*, e *myVM*.
 
@@ -35,7 +35,7 @@ Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azu
 az group create --name myResourceGroup --location eastus
 ```
 
-Por predefinição, a saída de comandos da CLI do Azure é no JSON (JavaScript Object Notation). Para alterar a predefinição de saída a uma lista ou tabela, por exemplo, utilize [az configurar - saída](/cli/azure/#az_configure). Também pode adicionar `--output` para qualquer comando por um período de tempo de uma alteração no formato de saída. O exemplo seguinte mostra a saída JSON do `az group create` comando:
+Por predefinição, a saída de comandos da CLI do Azure é no JSON (JavaScript Object Notation). Para alterar a predefinição de saída a uma lista ou tabela, por exemplo, utilize [az configurar - saída](/cli/azure/reference-index#az_configure). Também pode adicionar `--output` para qualquer comando por um período de tempo de uma alteração no formato de saída. O exemplo seguinte mostra a saída JSON do `az group create` comando:
 
 ```json                       
 {
@@ -49,7 +49,7 @@ Por predefinição, a saída de comandos da CLI do Azure é no JSON (JavaScript 
 }
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e sub-rede
+## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
 Seguinte que cria uma rede virtual no Azure e uma sub-rede para o qual pode criar as suas VMs. Utilize [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create) para criar uma rede virtual denominada *myVnet* com o *192.168.0.0/16* prefixo de endereço. Adicionar uma sub-rede com o nome também *mySubnet* com o prefixo de endereço de *192.168.1.0/24*:
 
 ```azurecli
@@ -444,7 +444,7 @@ Domínios de atualização indicam grupos de máquinas virtuais e o hardware fí
 
 Azure distribui automaticamente VMs entre os domínios de falhas e de atualização quando colocá-las num conjunto de disponibilidade. Para obter mais informações, consulte [gerir a disponibilidade de VMs](manage-availability.md).
 
-Criar um conjunto de disponibilidade para a VM com [az vm conjunto de disponibilidade criar](/cli/azure/vm/availability-set#az_vm_availability_set_create). O exemplo seguinte cria um conjunto nomeado de disponibilidade *myAvailabilitySet*:
+Criar um conjunto de disponibilidade para a VM com [az vm conjunto de disponibilidade criar](/cli/azure/vm/availability-set#az_vm_availability_set_create). O exemplo seguinte cria um conjunto de disponibilidade designado *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -481,7 +481,7 @@ Criou os recursos de rede para suportar VMs acessível através da Internet. Ago
 
 Especifique uma chave SSH a utilizar para autenticação. Se não tiver um par de chaves públicas SSH, pode [criá-los](mac-create-ssh-keys.md) ou utilize o `--generate-ssh-keys` parâmetro para criá-los por si. Se já tiver um par de chaves, este parâmetro utiliza chaves existentes no `~/.ssh`.
 
-Criar a VM ao colocar todos os recursos e informações em conjunto com o [az vm criar](/cli/azure/vm#az_vm_create) comando. O exemplo seguinte cria uma VM chamada *myVM*:
+Criar a VM ao colocar todos os recursos e informações em conjunto com o [az vm criar](/cli/azure/vm#az_vm_create) comando. O exemplo seguinte cria uma VM com o nome *myVM*:
 
 ```azurecli
 az vm create \

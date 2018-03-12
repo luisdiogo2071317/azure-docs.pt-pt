@@ -2,23 +2,17 @@
 title: "Planear uma implementação de ficheiros do Azure | Microsoft Docs"
 description: "Saiba o que deve considerar quando planear uma implementação de ficheiros do Azure."
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através do protocolo SMB padrão da indústria. Porque os ficheiros do Azure é totalmente gerido, é muito mais fácil de implementar e gerir um servidor de ficheiros ou um dispositivo NAS implementar a política em cenários de produção. Este artigo aborda os tópicos a ter em consideração quando implementar uma partilha de ficheiros do Azure para utilização em produção dentro da sua organização.
@@ -45,7 +39,7 @@ ms.lasthandoff: 01/29/2018
 ## <a name="data-access-method"></a>Método de acesso de dados
 Ofertas de ficheiros do Azure dois, incorporados e convenientes de acesso a dados métodos que pode utilizar em separado ou em combinação entre si, para aceder aos seus dados:
 
-1. **Nuvem acesso direto**: partilha de ficheiros de Azure qualquer pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com o (Server Message Block padrão da indústria O protocolo SMB) ou através da API de REST do ficheiro. Com o SMB, leituras e escritas em ficheiros na partilha são efetuadas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, o SMB 2.1. Para montar no local, tal como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com encriptação). Para além do SMB, novas aplicações ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiro, que fornece uma interface de programação de aplicações fácil e escalável para o desenvolvimento de software.
+1. **Nuvem acesso direto**: partilha de ficheiros de Azure qualquer pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com a indústria padrão Server Message Block (SMB) protocolo ou através da API de REST do ficheiro. Com o SMB, leituras e escritas em ficheiros na partilha são efetuadas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, o SMB 2.1. Para montar no local, tal como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com encriptação). Para além do SMB, novas aplicações ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiro, que fornece uma interface de programação de aplicações fácil e escalável para o desenvolvimento de software.
 2. **Sincronização de ficheiros do Azure** (pré-visualização): com sincronização de ficheiros do Azure, partilhas podem ser replicadas para servidores Windows no local ou no Azure. Os utilizadores acederia a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados até que ponto ausente de um datacenter Azure, tal como um cenário de sucursal. Os dados podem ser replicados entre múltiplos pontos finais com o Windows Server, tal como entre várias sucursais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, para que todos os dados são continuarão acessíveis através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados é perfeitamente resgatar os quando aberto pelo utilizador.
 
 A tabela seguinte ilustra a forma como os seus utilizadores e aplicações podem aceder a partilha de ficheiros do Azure:
@@ -63,7 +57,7 @@ Ficheiros do Azure tem várias opções incorporadas para garantir a segurança 
     * Os clientes que suportam encriptação SMB 3.0 enviarem e recebem dados através de um canal encriptado.
     * Os clientes que não suportam o SMB 3.0, podem comunicar intra-Centro de dados através de SMB 2.1 ou SMB 3.0 sem encriptação. Tenha em atenção que os clientes não são permitidos para comunicar o Centro de dados inter-através de SMB 2.1 ou SMB 3.0 sem encriptação.
     * Os clientes podem comunicar através de REST de ficheiros com HTTP ou HTTPS.
-* Encriptação em rest ([encriptação do serviço de armazenamento do Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): estamos no processo de ativar a encriptação de serviço de armazenamento (SSE) a plataforma subjacente do Storage do Azure. Isto significa que a encriptação será ativada por predefinição para todas as contas de armazenamento. Se estiver a criar uma nova conta de armazenamento numa região com a encriptação em-rest predefinição, não têm de fazer nada para ativar. Dados em rest está encriptada com chaves completamente gerido. Encriptação em rest não aumentar os custos de armazenamento ou reduzir o desempenho. 
+* Encriptação em rest ([encriptação do serviço de armazenamento do Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): encriptação de serviço de armazenamento (SSE) está ativada por predefinição para todas as contas de armazenamento. Dados em rest está encriptada com chaves completamente gerido. Encriptação em rest não aumentar os custos de armazenamento ou reduzir o desempenho. 
 * Requisito opcional de dados encriptados em trânsito: quando selecionada, ficheiros do Azure rejeita o acesso os dados através de canais não encriptados. Especificamente, apenas HTTPS e SMB 3.0 com ligações de encriptação são permitidos. 
 
     > [!Important]  

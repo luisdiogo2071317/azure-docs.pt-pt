@@ -6,13 +6,13 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1a27dfd61850d9dfa1f232eacf7f09d66202cafe
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Criar um instantâneo de blob
 
@@ -31,8 +31,6 @@ Quando cria um instantâneo de um blob, propriedades do sistema do blob são cop
 Qualquer concessões associados com o blob base não afetam o instantâneo. Não é possível adquirir uma concessão num instantâneo.
 
 Um ficheiro VHD é utilizado para armazenar as informações atuais e o estado de um disco VM. Pode desligar um disco de dentro da VM ou encerre a VM e, em seguida, tirar um instantâneo do respetivo ficheiro VHD. Pode utilizar esse ficheiro de instantâneo mais tarde para obter o ficheiro VHD neste ponto no tempo e recrie a VM.
-
-Se a encriptação de serviço de armazenamento (SSE) está ativada para a conta do storage em que reside o blob, todos os instantâneos tomados desse blob serão encriptados inativos.
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 Exemplo de código seguinte mostra como criar um instantâneo, utilizando o [biblioteca de clientes do Storage do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Este exemplo Especifica metadados adicionais para o instantâneo quando é criado.

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: b279ec2358a860a71da25f0ffaea7462a80f8339
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 258c2a5bbce1f15c78690cb01dc9b66fef4bb8f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Carregar e criar uma VM com Linux a partir do disco personalizado com o 2.0 CLI do Azure
 Este artigo mostra como carregar um disco rígido virtual (VHD) para uma conta de armazenamento do Azure com o 2.0 CLI do Azure e criar VMs com Linux a partir deste disco personalizado. Também pode efetuar estes passos com a [CLI 1.0 do Azure](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esta funcionalidade permite-lhe instalar e configurar um distro Linux os seus requisitos e, em seguida, utilizar essa VHD para criar rapidamente máquinas de virtuais (VMs) do Azure.
@@ -29,11 +29,11 @@ Este tópico utiliza contas de armazenamento para os VHDs finais, mas também po
 ## <a name="quick-commands"></a>Comandos rápidos
 Se precisar de realizar rapidamente a tarefa, os seguintes detalhes de secção na base de comandos para carregar um VHD para o Azure. Mais informações e o contexto para cada passo é possível encontrar o resto do documento [Iniciar aqui](#requirements).
 
-Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
+Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes de parâmetros de exemplo incluídos `myResourceGroup`, `mystorageaccount`, e `mydisks`.
 
-Em primeiro lugar, crie um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos denominado `myResourceGroup` no `WestUs` localização:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos denominado `myResourceGroup` no `WestUs` localização:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -82,7 +82,7 @@ A conta de armazenamento de destino tem de ser o mesmo que em que o seu disco vi
 ## <a name="requirements"></a>Requisitos
 Para concluir os passos seguintes, tem de:
 
-* **Sistema de operativo Linux instalado num ficheiro. vhd** -instalar um [distribuição Linux aprovadas pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não aprovadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) para um disco virtual no VHD formato. Existem várias ferramentas para criar uma VM e os VHD:
+* **Sistema de operativo Linux instalado num ficheiro. vhd** -instalar um [distribuição Linux aprovadas pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não aprovadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) para um disco virtual no formato VHD . Existem várias ferramentas para criar uma VM e os VHD:
   * Instalar e configurar [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM](http://www.linux-kvm.org/page/RunningKVM), tendo cuidado para utilizar o VHD como o formato de imagem. Se necessário, pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) utilizando `qemu-img convert`.
   * Também pode utilizar o Hyper-V [no Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [no Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -95,7 +95,7 @@ Para concluir os passos seguintes, tem de:
   * Criar uma conta de armazenamento e um contentor para conter o disco personalizado e VMs criadas
   * Depois de criar as suas VMs, pode eliminar em segurança o disco
 
-Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
+Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes de parâmetros de exemplo incluídos `myResourceGroup`, `mystorageaccount`, e `mydisks`.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e9c6b85a439ba880c15ae16ab1cac093020430ba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o tempo de execução do Self-hosted integração
 O tempo de execução de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados entre ambientes de rede diferentes. Para obter detalhes sobre a resposta a incidentes, consulte [descrição geral de tempo de execução de integração](concepts-integration-runtime.md).
@@ -65,7 +65,7 @@ Eis um fluxo de dados de alto nível para o resumo dos passos para a cópia com 
 - Tempo de execução automática alojada integração tem de ser utilizado para suportar a integração de dados dentro da rede Virtual do Azure.
 - Tratar a origem de dados como uma origem de dados no local (que é protegido por uma firewall), mesmo quando utilize **ExpressRoute**. Utilize o tempo de execução automática alojada integração para estabelecer conectividade entre o serviço e a origem de dados.
 - Tem de utilizar o runtime de integração personalizada alojada, mesmo que esteja o arquivo de dados na nuvem num **máquina virtual IaaS do Azure**.
-- Tarefas poderão falhar num tempo de execução de integração Self-hosted instalado num servidor Windows na qual compatíveis com FIPS encriptação está ativada. Para contornar este problema, desative compatíveis com FIPS encriptação no servidor.
+- Tarefas poderão falhar num tempo de execução de integração Self-hosted instalado num servidor Windows na qual compatíveis com FIPS encriptação está ativada. Para contornar este problema, desative compatíveis com FIPS encriptação no servidor. Para desativar a encriptação compatíveis com FIPS, altere o valor de registo seguinte de 1 (ativado) para 0 (desativado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

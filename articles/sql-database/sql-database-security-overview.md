@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="securing-your-sql-database"></a>Proteger a sua Base de Dados SQL
 
@@ -31,7 +31,7 @@ Para obter uma descrição geral completa das funcionalidades de segurança disp
 ## <a name="protect-data"></a>Proteger os dados
 
 ### <a name="encryption"></a>Encriptação
-Base de dados SQL protege dados ao fornecer a encriptação dos dados em movimento com [Transport Layer Security](https://support.microsoft.com/kb/3135244), para dados Inativos com [encriptação transparente de dados](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)e para os dados em utilização com [ Sempre encriptado](https://msdn.microsoft.com/library/mt163865.aspx). 
+Base de dados SQL protege os seus dados ao fornecer a encriptação dos dados em movimento com [Transport Layer Security](https://support.microsoft.com/kb/3135244), para dados Inativos com [encriptação transparente de dados](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)e para os dados em utilização com [ Sempre encriptado](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Todas as ligações à Base de Dados SQL do Azure precisam de encriptação (SSL/TLS) em todos os momentos enquanto os dados se encontram "em trânsito" para e a partir da base de dados. Na cadeia de ligação da sua aplicação, tem de especificar parâmetros para encriptar a ligação e *não* para de confiar no certificado de servidor (isto é feito automaticamente se copiar a cadeia de ligação fora do portal do Azure), caso contrário, o ligação não verificar a identidade do servidor e é suscetível a ataques "man-in-the-middle". Para o controlador ADO.NET, por exemplo, estes parâmetros da cadeia de ligação são **Encrypt=True** e **TrustServerCertificate=False**. 

@@ -20,6 +20,10 @@
 ## [Backup e restauro](analysis-services-backup.md)
 ## [Atualizar com API REST](analysis-services-async-refresh.md)
 ## [Configurar o escalamento horizontal](analysis-services-scale-out.md)
+## Automatizar tarefas administrativas
+### [Criar o principal de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Criar principal de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)
 ## Gestão de servidores
 ### [Configurar um alias de nome de servidor](analysis-services-server-alias.md)
 ### [Gerir um servidor](analysis-services-manage.md)

@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Instalar um controlador de domínio do Active Directory de réplica numa rede virtual do Azure
 Este artigo descreve como instalar controladores de domínio adicional (DCs) a utilizar como réplica DCs de um domínio do Active Directory no local em máquinas de virtuais (VMs) do Azure numa rede virtual do Azure. Também pode [instalar uma floresta do Active Directory do Windows Server numa rede virtual do Azure](active-directory-new-forest-virtual-machine.md). Para instalar serviços de domínio do Active Directory (AD DS) numa rede virtual do Azure, consulte [diretrizes para implementar o Windows Server Active Directory em Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -62,7 +62,7 @@ Inicie sessão para uma VM e verifique se tem conectividade entre a site para si
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Reconfigurar o servidor DNS para a rede virtual
 1. Para obter uma lista de nomes de rede virtual, além de [portal do Azure](https://portal.azure.com), procure *redes virtuais*, em seguida, selecione **redes virtuais** para ver a lista. 
-2. Abra a rede virtual que pretende gerir, e, em seguida, [reconfigurar os endereços de IP do servidor DNS para a rede virtual](../virtual-network/virtual-network-manage-network.md#dns-servers) para utilizar os endereços IP estáticos atribuídos para a DC de réplica em vez dos endereços IP para servidores DNS no local.
+2. Abra a rede virtual que pretende gerir, e, em seguida, [reconfigurar os endereços de IP do servidor DNS para a rede virtual](../virtual-network/manage-virtual-network.md#change-dns-servers) para utilizar os endereços IP estáticos atribuídos para a DC de réplica em vez dos endereços IP para servidores DNS no local.
 3. Para se certificar de que todas as réplicas DC VMs na rede virtual estão configurados com para utilizar servidores DNS na rede virtual:
   1. Selecione **máquinas virtuais**.
   2. Selecione as VMs e, em seguida, selecione **reiniciar**. 

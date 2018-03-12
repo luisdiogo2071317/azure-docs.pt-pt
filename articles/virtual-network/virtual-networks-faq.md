@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -57,7 +57,7 @@ Pode utilizar as ferramentas seguintes para criar ou configurar uma VNet:
 Qualquer intervalo de endereços IP definidos no [RFC 1918](http://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Pode ter endereços IP públicos no meu VNets?
-Sim. Para mais informações sobre os intervalos de endereços IP públicos, consulte [criar uma rede virtual](virtual-network-manage-network.md#create-a-virtual-network). Endereços IP públicos não são diretamente acessíveis a partir da internet.
+Sim. Para mais informações sobre os intervalos de endereços IP públicos, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Endereços IP públicos não são diretamente acessíveis a partir da internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Existe um limite ao número de sub-redes na minha VNet?
 Sim. Consulte [Azure limita](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter mais detalhes. Espaços de endereços da sub-rede não se podem sobrepor um do outro.
@@ -218,6 +218,6 @@ Sim. Pode utilizar as APIs REST para VNets no [do Azure Resource Manager](/rest/
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe suporte de ferramentas para VNets?
 Sim. Saiba mais sobre como utilizar:
-- Portal do Azure para implementar as VNets através de [do Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) e [clássico](virtual-networks-create-vnet-classic-pportal.md) modelos de implementação.
+- Portal do Azure para implementar as VNets através de [do Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) e [clássico](virtual-networks-create-vnet-classic-pportal.md) modelos de implementação.
 - PowerShell para gerir as VNets implementadas através de [Resource Manager](/powershell/module/azurerm.network) e [clássico](/powershell/module/azure/?view=azuresmps-3.7.0) modelos de implementação.
 - A interface de linha de comandos do Azure (CLI) para implementar e gerir as VNets implementadas através de [Resource Manager](/cli/azure/network/vnet) e [clássico](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) modelos de implementação.  

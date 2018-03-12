@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Como encriptar discos virtuais de uma VM com Linux
 Para segurança avançada máquina virtual (VM) e conformidade, podem ser encriptadas discos virtuais e a própria VM. As VMs estão encriptadas com as chaves criptográficas que são protegidas um cofre de chaves do Azure. Pode controla estas chaves criptográficas e pode auditar a sua utilização. Este artigo fornece detalhes sobre como encriptar discos virtuais numa VM com Linux utilizando o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -27,7 +27,7 @@ Para segurança avançada máquina virtual (VM) e conformidade, podem ser encrip
 ## <a name="quick-commands"></a>Comandos rápidos
 Se precisar de realizar rapidamente a tarefa, os seguintes detalhes de secção na base de comandos para encriptar os discos virtuais na VM. Mais informações e o contexto para cada passo é possível encontrar o resto do documento [Iniciar aqui](#overview-of-disk-encryption).
 
-Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login). Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup*, *myKey*, e *myVM*.
+Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login). Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup*, *myKey*, e *myVM*.
 
 Em primeiro lugar, ativar o fornecedor do Cofre de chaves do Azure na sua subscrição do Azure com [o registo de fornecedor az](/cli/azure/provider#az_provider_register) e criar um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um nome de grupo de recursos *myResourceGroup* no *eastus* localização:
 
@@ -158,7 +158,7 @@ Para obter mais informações sobre cenários suportados e limitações, consult
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Criar Cofre de chaves do Azure e as chaves
-Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login). Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup*, *myKey*, e *myVM*.
+Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login). Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup*, *myKey*, e *myVM*.
 
 O primeiro passo é criar um cofre de chaves do Azure para armazenar as chaves criptográficas. O Cofre de chaves do Azure pode armazenar as chaves, os segredos ou palavras-passe que permitem-lhe implementá-los em segurança nos seus serviços e aplicações. Para a encriptação de disco virtual, pode utilizar o Cofre de chaves para armazenar uma chave criptográfica utilizada para encriptar ou desencriptar os discos virtuais.
 

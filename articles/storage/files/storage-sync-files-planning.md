@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -49,7 +49,7 @@ O agente de sincronização de ficheiros do Azure é um pacote transferível, qu
 Um ponto final do servidor representa uma localização específica num servidor registado, tais como uma pasta no volume do servidor. Vários pontos finais de servidor podem existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, `F:\sync1` e `F:\sync2`). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. Atualmente, não é possível criar um ponto final do servidor para a raiz de um volume (por exemplo `F:\` ou `C:\myvolume`, se está montado um volume como um ponto de montagem).
 
 > [!Note]  
-> Um ponto final do servidor pode ser localizado no volume de sistema do Windows. Nuvem em camadas não é suportado no volume do sistema.
+> São suportados apenas volumes não amovíveis.  Unidades mapeadas de uma partilha remota não são suportadas para um caminho de ponto final do servidor.  Além disso, um ponto final do servidor pode ser localizado no volume de sistema na nuvem através do Windows em camadas não é suportado no volume do sistema.
 
 Se adicionar uma localização do servidor que tenha um conjunto de ficheiros como um ponto final do servidor a um grupo de sincronização, esses ficheiros são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
 
@@ -85,11 +85,11 @@ Versões futuras do Windows Server serão adicionadas à medida que são lançad
 | Funcionalidade | Estado de suporte | Notas |
 |---------|----------------|-------|
 | Listas de controlo de acesso (ACLs) | Totalmente suportado | ACLs do Windows são mantidas através da sincronização de ficheiros do Azure e são impostas pelo Windows Server em pontos finais do servidor. ACLs do Windows não são (ainda) suportado pelo Azure ficheiros se os ficheiros são acedidos diretamente na nuvem. |
-| Ligações fixas | Ignorado | |
-| Ligações simbólicas | Ignorado | |
+| Ligações fixas | Ignorada | |
+| Ligações simbólicas | Ignorada | |
 | Os pontos de montagem | Parcialmente suportada | Pontos de montagem poderão ser a raiz de um ponto final do servidor, mas são ignorados se estes estão contidos no espaço de nomes de um ponto final do servidor. |
-| Junctions | Ignorado | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
-| Pontos de reanálise | Ignorado | |
+| Junctions | Ignorada | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
+| Pontos de reanálise | Ignorada | |
 | Compressão NTFS | Totalmente suportado | |
 | Ficheiros dispersos | Totalmente suportado | Sincronização de ficheiros dispersos (não são bloqueadas), mas que a sincronização na nuvem como um ficheiro completo. Se alterar o conteúdo do ficheiro na nuvem (ou noutro servidor), o ficheiro já não consta disperso quando a alteração é transferida. |
 | Fluxos de dados alternativos (anúncios) | Preservados, mas não sincronizado | Por exemplo, as etiquetas de classificação criadas pela infraestrutura de classificação de ficheiros não são sincronizadas. Etiquetas de classificação existentes em ficheiros em cada um dos pontos finais do servidor são inalteradas à esquerda. |

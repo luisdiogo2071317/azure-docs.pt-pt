@@ -14,14 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
 A equipa do Azure Active Directory atualiza regularmente o Azure AD Connect Health com novas funcionalidades e funções. Este artigo apresenta as versões e funcionalidades que tenham sido publicadas.
+
+## <a name="march-2018"></a>De 2018 Março
+**Atualização do agente:**
+
+*   Agente do Azure AD Connect Health para AD DS (versão 3.0.176.0)
+  1. Melhoramentos de disponibilidade do agente 
+  2. Correções de erros e melhoramentos gerais
+*   Agente do Azure AD Connect Health para AD FS (versão 3.0.176.0)
+  1. Melhoramentos de disponibilidade do agente 
+  2. Correções de erros e melhoramentos gerais
+* Agente do Azure AD Connect Health para sincronização (versão 3.0.176.0)
+  1. Melhoramentos de disponibilidade do agente 
+  2. Correções de erros e melhoramentos gerais
 
 ## <a name="december-2017"></a>Dezembro de 2017
 **Atualização do agente:**

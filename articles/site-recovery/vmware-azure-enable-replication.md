@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 472e44342fb1d5a0c432453bfcc2699c4d8b4cad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para as VMs de VMware
 
@@ -86,7 +86,7 @@ Quando replicar máquinas virtuais VMware:
 
 ## <a name="view-and-manage-vm-properties"></a>Ver e gerir propriedades da VM
 
-Em seguida, verifique as propriedades da máquina de origem. Lembre-se de que o nome de VM do Azure tem de estar em conformidade com [requisitos de máquina virtual do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Em seguida, verifique as propriedades da máquina de origem. Lembre-se de que o nome de VM do Azure tem de estar em conformidade com [requisitos de máquina virtual do Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Clique em **definições** > **replicado itens** > e, em seguida, selecione a máquina. O **Essentials** página mostra informações sobre as definições da máquina e de estado.
 2. Em **Propriedades**, pode ver as informações de replicação e de ativação pós-falha da VM.

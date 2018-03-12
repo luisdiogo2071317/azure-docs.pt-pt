@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 08906939ecc80999de94ad7e7141081f959fb6f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-and-jenkins"></a>O Azure e Jenkins
 
@@ -31,7 +31,7 @@ Anfitrião Jenkins no Azure para centralizar a automatização de compilação e
 - [Máquinas virtuais do Azure](/azure/virtual-machines/linux/overview). Consulte a nossa [tutorial](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) para criar uma instância de Jenkins numa VM.
 - Num Kubernetes cluster em execução em [serviço de contentor Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), consulte a nossa [procedimentos](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Monitorizar e gerir a sua implementação do Azure Jenkins utilizando [Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview)e [CLI do Azure] (/ cli / / descrição geral do azure).
+Monitorizar e gerir a sua implementação do Azure Jenkins utilizando [Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview)e o [CLI do Azure](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Dimensionar a automatização de compilação a pedido
 

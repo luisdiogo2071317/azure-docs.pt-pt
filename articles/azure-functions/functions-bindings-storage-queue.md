@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza o enlace. Os inquéritos de função a `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
+O exemplo seguinte mostra um acionador de fila enlace num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza o enlace. Os inquéritos de função a `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
 
 Eis o *function.json* ficheiro:
 
@@ -112,7 +112,7 @@ O [utilização](#trigger---usage) secção explica `myQueueItem`, que é design
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. Os inquéritos de função a `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
+O exemplo seguinte mostra um acionador de fila enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. Os inquéritos de função a `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
 
 Eis o *function.json* ficheiro:
 
@@ -223,9 +223,9 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="trigger---usage"></a>Acionador - utilização
  
-Em c# e c# script, aceder aos dados blob utilizando um parâmetro de método como `Stream paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
+Em c# e c# script, aceder aos dados mensagem utilizando um parâmetro de método como `string paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
 
-* POCO objeto - funções o tempo de execução deserializes um payload JSON para um objeto de POCO. 
+* Objeto - as funções de tempo de execução deserializes um payload JSON para uma instância de uma classe arbitrária definida no seu código. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Saída - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza o enlace. A função cria um item de fila com um payload POCO para cada pedido HTTP recebido.
+O exemplo seguinte mostra um acionador HTTP enlace num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza o enlace. A função cria um item de fila com um **CustomQueueMessage** payload de objeto para cada pedido HTTP recebido.
 
 Eis o *function.json* ficheiro:
 
@@ -353,17 +353,17 @@ Pode enviar mensagens de vários em simultâneo utilizando um `ICollector` ou `I
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Saída - exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função cria um item de fila para cada pedido HTTP recebido.
+O exemplo seguinte mostra um acionador HTTP enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função cria um item de fila para cada pedido HTTP recebido.
 
 Eis o *function.json* ficheiro:
 
@@ -459,7 +459,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
  
 Em c# e c# script, gravar uma mensagem de fila única utilizando um parâmetro de método como `out T paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. Pode utilizar o tipo de retorno do método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
-* Um POCO serializável como JSON
+* Um objeto serializável como JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

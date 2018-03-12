@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Utilizar relatórios do Cost Management
 
@@ -103,7 +103,7 @@ A imagem anterior mostra o custo amortized o custo de reserva APN ao longo do te
 
 Relatórios de análise de alocação de custo estão disponíveis depois de criar um modelo de custo utilizando 360 de alocação de custo. Cloudyn processa dados de custo/faturação e corresponde aos dados para os dados de utilização e etiqueta das suas contas de nuvem. Para fazer corresponder os dados, Cloudyn requer acesso aos seus dados de utilização. Contas que estão em falta credenciais, são identificados como recursos não categorizados.
 
-### <a name="cost-analysis-report"></a>Relatório de análise de custos
+### <a name="cost-analysis-report"></a>Relatório Análise de Custos
 
 O relatório de análise de custos fornece informações sobre o consumo de nuvem e de gastos durante um período de tempo selecionado. As políticas definidas no Gestor de atribuição de custo são utilizadas no relatório de análise de custos.
 
@@ -152,7 +152,7 @@ Utilize o relatório de custo ao longo do tempo para:
 3. Adicione grupos.
 4. Escolha um modelo de custo que criou anteriormente.
 5. Selecione os custos reais ou amortized os custos.
-6. Escolha se pretende aplicar regras de atribuição a vista não processada de vista de dados de faturação ou para recalculada custo pela vista Cloudyn.
+6. Escolha se pretende aplicar regras de atribuição a vista não processada de vista de dados de faturação ou a vista de custo de recalculada.
 
 Eis um exemplo do relatório.
 

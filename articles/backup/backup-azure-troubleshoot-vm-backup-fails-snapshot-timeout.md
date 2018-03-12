@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -30,9 +30,6 @@ Este artigo fornece os passos de resolução de problemas que podem ajudar a res
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente VM não consegue comunicar com o Backup do Azure
 
 Mensagem de erro: "Agente da VM não é possível comunicar com o Backup do Azure"
-
-> [!NOTE]
-> Se as cópias de segurança de VM do Linux do Azure falharam com este erro, a partir de 4 de Janeiro de 2018, execute o seguinte comando na VM e tente novamente as cópias de segurança:`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança, a cópia de segurança inicia a tarefa ao comunicar com o agente VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Quando um instantâneo não está activado, a cópia de segurança poderá falhar. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:
 
@@ -58,9 +55,8 @@ Mensagem de erro: "a operação de extensão de VMSnapshot falhou"
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Se o instantâneo não é acionado, poderão ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:  
 **Causa 1: [não é possível obter o estado de instantâneo ou não pode ser obtido um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 2: [a extensão de cópia de segurança não consegue atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
-**Causa 4: [o agente está instalado na VM, mas do responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 5: [o agente instalado na VM está desatualizado (para VMs com Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Causa 3: [o agente está instalado na VM, mas do responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 4: [o agente instalado na VM está desatualizado (para VMs com Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Cópia de segurança falha porque o agente VM está a responder
 
@@ -151,12 +147,12 @@ Mais relacionados com o agente relacionadas com a extensão de falhas de ou para
  > [!NOTE]
  > Iremos *vivamente recomendável* que Atualize o agente apenas através de um repositório de distribuição. Não é recomendada a transferir o código de agente diretamente a partir do GitHub e atualizá-la. Se o agente mais recente para a distribuição não suporte de distribuição disponíveis, contacte para obter instruções sobre como o instalar. Para verificar se o agente mais recente, vá para o [agente Linux do Windows Azure](https://github.com/Azure/WALinuxAgent/releases) página no repositório GitHub.
 
-2. Certifique-se de que o agente do Azure está em execução a VM, executando o seguinte comando:`ps -e`
+2. Certifique-se de que o agente do Azure está em execução a VM, executando o seguinte comando: `ps -e`
 
  Se o processo não está em execução, reinicie-o utilizando os seguintes comandos:
 
- * Para Ubuntu:`service walinuxagent start`
- * Para outras distribuições:`service waagent start`
+ * Para Ubuntu: `service walinuxagent start`
+ * Para outras distribuições: `service waagent start`
 
 3. [Configurar o agente de reinício automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Execute uma nova cópia de segurança de teste. Se a falha persistir, recolha os seguintes registos de VM:
@@ -168,7 +164,7 @@ Mais relacionados com o agente relacionadas com a extensão de falhas de ou para
 Se é necessário o registo verboso para waagent, siga estes passos:
 
 1. No ficheiro /etc/waagent.conf, localize a seguinte linha: **ativar registo verboso (y | n)**
-2. Alterar o **Logs.Verbose** valor a partir da  *n*  para *y*.
+2. Alterar o **Logs.Verbose** valor a partir da *n* para *y*.
 3. Guardar a alteração e, em seguida, reinicie waagent, efetuando os passos descritos anteriormente nesta secção.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Não é possível obter o estado de instantâneo ou não pode ser obtido um instantâneo
@@ -179,7 +175,6 @@ As seguintes condições poderão fazer com que a tarefa de instantâneo falhar:
 
 | Causa | Solução |
 | --- | --- |
-| A VM possui uma cópia de segurança do SQL Server configurada. | Por predefinição, a cópia de segurança VM executa um serviço de cópia de sombra de Volume (VSS) cópia de segurança completa em VMs do Windows. Em VMs que estejam a executar servidores baseados no SQL Server e no qual o SQL Server está configurada a cópia de segurança, poderão ocorrer atrasos de execução do instantâneo.<br><br>Se ocorrer uma falha de cópia de segurança devido a um problema de instantâneo, defina a seguinte chave de registo:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | O estado VM é comunicado incorretamente porque a VM seja encerrada no protocolo de ambiente de trabalho remoto (RDP). | Se desligar a VM com RDP, consulte o portal para determinar se o estado da VM está correto. Se não estiver correto, encerre a VM no portal utilizando o **encerramento** opção no dashboard VM. |
 | A VM não é possível obter o endereço do anfitrião ou de recursos de infraestrutura do DHCP. | DHCP deve ser ativado no computador convidado para a cópia de segurança de VM do IaaS funcione. Se a VM não é possível obter o endereço do anfitrião ou de recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, configurá-lo através da plataforma. A opção de DHCP dentro da VM deve ser ativada à esquerda. Para obter mais informações, consulte [definir um IP estático de privada interno](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Se não é possível carregar as extensões, a cópia de segurança falha porque
 
 #### <a name="solution"></a>Solução
 
-**Para os convidados do Windows:** Certifique-se de que o serviço de iaasvmprovider está ativado e tem um tipo de arranque de *automática*. Se o serviço não está configurado desta forma, ative o serviço determinar se a próxima cópia de segurança é concluída com êxito.
-
-**Para convidados de Linux:** Certifique-se de que a versão mais recente do VMSnapshot para Linux (a extensão utilizada pela cópia de segurança) é 1.0.91.0.<br>
-
-
-Se a extensão de cópia de segurança ainda não conseguir atualizar ou carregar, desinstale a extensão para forçar a extensão de VMSnapshot para recarregar. A tentativa de cópia de segurança seguinte reloads a extensão.
+Desinstale a extensão para forçar a extensão de VMSnapshot para recarregar. A tentativa de cópia de segurança seguinte reloads a extensão.
 
 Para desinstalar a extensão:
 
@@ -220,7 +210,7 @@ Para resolver o problema, execute os seguintes passos para remover a recolha de 
 4. Obter a coleção de ponto de restauro que corresponde à VM: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
-    Exemplo:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
 5. Elimine a coleção de ponto de restauro: <br>
     `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. A cópia de segurança agendada seguinte cria automaticamente uma coleção de ponto de restauro e novos pontos de restauro.

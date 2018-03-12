@@ -1,26 +1,20 @@
 ---
-title: "Gerir as interfaces de rede no Azure Site Recovery para no local para cenários do Azure | Microsoft Docs"
-description: "Descreve como gerir interfaces de rede no local para cenários do Azure com o Azure Site Recovery"
+title: "Gerir as interfaces de rede no Azure Site Recovery para no local para a replicação do Azure | Microsoft Docs"
+description: "Descreve como gerir interfaces de rede no local para a replicação do Azure com o Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a0d42608dc689e5f084f4ec91858531feeac8033
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Gerir as interfaces de rede de máquina virtual no local para cenários do Azure
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gerir as interfaces de rede de máquina virtual no local para a replicação do Azure
 
 Uma máquina virtual (VM) no Azure tem de ter, pelo menos, uma interface de rede ligada ao mesmo. Pode ter como muitas anexadas ao mesmo como o suporta de tamanho VM de interfaces de rede.
 

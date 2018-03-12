@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 6a581141a3d262416385d859d2f0e73228fe1734
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d74a273061912ea2bdcc39301ce9a727b07ade41
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>Migrar do SQL Server para instância gerida de base de dados SQL do Azure
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados de uma instância do SQL Server no local para a SQL Database do Azure. Neste tutorial, migra a **Adventureworks2012** base de dados de uma instância no local do SQL Server para uma base de dados do SQL do Azure utilizando o serviço de migração de base de dados do Azure.
@@ -33,7 +33,7 @@ Para concluir este tutorial, precisa de:
 - Criar uma VNET para o serviço de migração de base de dados do Azure utilizando o modelo de implementação Azure Resource Manager, que fornece a conectividade de site a site para os seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Saiba topologias de rede para migrações de base de dados geridas por instância de SQL do Azure utilizando o serviço de migração de base de dados do Azure](https://aka.ms/dmsnetworkformi).
 - Certifique-se de que a sua escolha de regras do Azure (VNET) rede segurança grupo de rede Virtual bloquear a comunicação seguinte portas 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego do Azure VNET NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
 - Configurar o [configurar a Firewall do Windows para acesso ao motor de base de dados de origem](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Abra a firewall do Windows para permitir que o serviço de migração de base de dados do Azure para aceder à origem de SQL Server.
+- Abra a Firewall do Windows para permitir que o serviço de migração de base de dados do Azure para aceder à origem de SQL Server.
 - Se estiver a utilizar uma aplicação de firewall à frente das bases de dados de origem, poderá ter de adicionar regras de firewall para permitir que o serviço de migração de base de dados do Azure para aceder a bases de dados de origem para migração, bem como os ficheiros através de porta SMB 445.
 - Criar uma instância de base de dados geridas por instância de SQL do Azure, seguindo o detalhe no artigo [criar uma instância de gerido da base de dados do Azure SQL no portal do Azure](https://aka.ms/sqldbmi).
 - Certifique-se de que os inícios de sessão utilizados para ligar a origem de SQL Server e instância geridos de destino são membros da função de servidor sysadmin.

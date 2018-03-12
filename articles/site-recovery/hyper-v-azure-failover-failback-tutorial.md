@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/8/2018
 ms.author: raynew
-ms.openlocfilehash: 7d2d99c2429a461307cbb9a276eb3b62d13718d2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7863feb29fbb04f643aa3b7e1984209f44cdbe9a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V replicado para o Azure
 
@@ -44,7 +44,7 @@ A ativação pós-falha e a reativação pós-falha têm quatro fases:
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
-Verifique as propriedades da VM e certifique-se de que a VM está em conformidade com [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Verifique as propriedades da VM e certifique-se de que a VM está em conformidade com [requisitos do Azure](hyper-v-azure-support-matrix.md#replicated-vms).
 
 1. No **itens protegidos**, clique em **itens replicados** >< VM-name >.
 

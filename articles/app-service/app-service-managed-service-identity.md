@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como utilizar a identidade de serviço geridas (pré-visualização pública) do Azure no serviço de aplicações e funções do Azure
 
@@ -56,7 +56,7 @@ Para configurar uma identidade de serviço gerida utilizando a CLI do Azure, ter
 
 Os passos seguintes irão guiá-lo através da criação de uma aplicação web e atribuição do mesmo uma identidade utilizando a CLI:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar a aplicação:
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/reference-index#az_login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar a aplicação:
 
     ```azurecli-interactive
     az login
@@ -126,13 +126,13 @@ Onde `<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedade 
 Uma aplicação pode utilizar a respetiva identidade para obter os tokens para outros recursos protegidos pelo AAD, como o Cofre de chaves do Azure. Estes tokens representam a aplicação de aceder o recursos e não a qualquer utilizador específico da aplicação. 
 
 > [!IMPORTANT]
-> Terá de configurar o recurso de destino para permitir o acesso da sua aplicação. Por exemplo, se pedir um token ao Cofre de chaves, terá de certificar-se de que adicionou uma política de acesso que inclui a identidade da aplicação. Caso contrário, as chamadas para o Cofre de chaves serão rejeitadas, mesmo que incluem o token. Para saber mais sobre os recursos que suportam tokens de identidade de serviço geridas, consulte [que suporte do Azure AD a autenticação de serviços do Azure](../active-directory/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Terá de configurar o recurso de destino para permitir o acesso da sua aplicação. Por exemplo, se pedir um token ao Cofre de chaves, terá de certificar-se de que adicionou uma política de acesso que inclui a identidade da aplicação. Caso contrário, as chamadas para o Cofre de chaves serão rejeitadas, mesmo que incluem o token. Para saber mais sobre os recursos que suportam tokens de identidade de serviço geridas, consulte [que suporte do Azure AD a autenticação de serviços do Azure](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
 
 Não há um protocolo REST simple para obter um token no serviço de aplicações e funções do Azure. Para aplicações de .NET, a biblioteca de Microsoft.Azure.Services.AppAuthentication fornece uma abstração relativamente este protocolo e suporta uma experiência de desenvolvimento local.
 
 ### <a name="asal"></a>Utilizar a biblioteca de Microsoft.Azure.Services.AppAuthentication para .NET
 
-Para aplicações de .NET e as funções, a forma mais simples para trabalhar com uma identidade de serviço geridas é através do pacote de Microsoft.Azure.Services.AppAuthentication. Esta biblioteca também permite-lhe testar o seu código localmente no computador de desenvolvimento, utilizando a sua conta de utilizador do Visual Studio, o [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), ou a autenticação integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte o [Microsoft.Azure.Services.AppAuthentication referência]. Esta secção mostra como começar com a biblioteca do seu código.
+Para aplicações de .NET e as funções, a forma mais simples para trabalhar com uma identidade de serviço geridas é através do pacote de Microsoft.Azure.Services.AppAuthentication. Esta biblioteca também permite-lhe testar o seu código localmente no computador de desenvolvimento, utilizando a sua conta de utilizador do Visual Studio, o [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ou a autenticação integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte o [Microsoft.Azure.Services.AppAuthentication referência]. Esta secção mostra como começar com a biblioteca do seu código.
 
 1. Adicione as referências a [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) pacotes de NuGet à sua aplicação.
 

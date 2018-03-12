@@ -58,13 +58,14 @@
 
 ## Resolução de problemas
 ### [Guia de resolução de problemas](stream-analytics-troubleshooting-guide.md)
+### [Problemas de resolução de problemas comuns](stream-analytics-common-troubleshooting-issues.md)
 ### [Painel do estado de funcionamento](stream-analytics-resource-health.md)
 ### [Diagrama e métricas das tarefas](stream-analytics-job-diagram-with-metrics.md)
 ### [Depuração SELECT INTO](stream-analytics-select-into.md)
 ### [Considerações de ordenação de eventos](stream-analytics-out-of-order-and-late-events.md)
 ### [Limites do leitor do hub de eventos](stream-analytics-event-hub-consumer-groups.md)
 ### [Registos de diagnóstico](stream-analytics-job-diagnostic-logs.md)
-### [Obter eventos com formato incorreto](stream-analytics-malformed-events.md)
+
 
 ## Automatizar
 ### [Utilizar o SDK de Gestão .NET](stream-analytics-dotnet-management-sdk.md)

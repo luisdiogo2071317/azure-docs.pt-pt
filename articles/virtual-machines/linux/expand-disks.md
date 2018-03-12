@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: ded90be3da52770a88dd1746fae2bd3584ba9280
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f717aca4f68811b5973fcee8791ac7db3a66e74a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Como expandir os discos rígidos virtuais numa VM com Linux com a CLI do Azure
 O tamanho de disco rígido virtual predefinido para o sistema operativo (SO) é, geralmente, 30 GB numa máquina virtual (VM) do Linux no Azure. Pode [adicionar discos de dados](add-disk.md) fornecer espaço de armazenamento adicional, mas também pode pretender expandir um disco de dados existente. Este artigo fornece detalhes sobre como expandir discos geridos para uma VM com Linux com o 2.0 CLI do Azure. Também pode expandir o disco de SO não gerido com o [CLI do Azure 1.0](expand-disks-nodejs.md).
@@ -27,7 +27,7 @@ O tamanho de disco rígido virtual predefinido para o sistema operativo (SO) é,
 > Certificar-se sempre de que a cópia de segurança os dados antes de executar disco redimensiona operações. Para obter mais informações, consulte [cópia de segurança VMs com Linux no Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Expandir disco gerido do Azure
-Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
+Certifique-se de que a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login).
 
 Este artigo requer uma VM existente no Azure pelo menos um disco de dados ligada e está preparado. Se ainda não tiver uma VM que pode utilizar, consulte [criar e preparar uma VM com discos de dados](tutorial-manage-disks.md#create-and-attach-disks).
 
@@ -40,7 +40,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo com os seu
     ```
 
     > [!NOTE]
-    > A VM tem de ser desalocada para expandir o disco rígido virtual. `az vm stop`não libertar os recursos de computação. Para libertar recursos de computação, utilize `az vm deallocate`.
+    > A VM tem de ser desalocada para expandir o disco rígido virtual. `az vm stop` não libertar os recursos de computação. Para libertar recursos de computação, utilize `az vm deallocate`.
 
 2. Ver uma lista de discos geridos num grupo de recursos com [lista de discos az](/cli/azure/disk#az_disk_list). O exemplo seguinte mostra uma lista de discos geridos no grupo de recursos com o nome *myResourceGroup*:
 
@@ -118,7 +118,7 @@ Para utilizar o disco expandido, precisa de expandir a partição e o sistema de
     End?  [107GB]? 215GB
     ```
 
-    d. Para sair, introduza:`quit`
+    d. Para sair, introduza: `quit`
 
 3. Partição redimensionado, verifique a consistência da partição com `e2fsck`:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de desempenho de rede para o ExpressRoute
 
@@ -102,10 +102,7 @@ Crie uma área de trabalho na subscrição com a ligação de VNets para circuit
 
 1. Vá para o **definições comuns** separador do **configuração de Monitor de desempenho de rede** página para o seu recurso. Clique no agente que corresponde ao processador do servidor a **instalar agentes de OMS** secção e transfira o ficheiro de configuração.
 
-  >[!NOTE]
-  >O agente tem de ser instalado num servidor do Windows (2008 SP1 ou posterior). Não é suportada a monitorização dos circuitos do ExpressRoute com o sistema operativo de ambiente de trabalho do Windows e com SO Linux. 
-  >
-  >
+ 
 2. Em seguida, copie o **ID da área de trabalho** e **chave primária** para bloco de notas.
 3. Do **configurar agentes OMS para a monitorização utilizando o protocolo TCP** secção, transfira o Script do Powershell. O script do PowerShell ajuda-o a abrir a porta de firewall relevantes para as transações de TCP.
 
@@ -114,6 +111,16 @@ Crie uma área de trabalho na subscrição com a ligação de VNets para circuit
 ### <a name="installagent"></a>2.2: instalar um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
 
 Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação ExpressRoute (ou seja, no local, as VNETs do Azure) para redundância. Utilize os seguintes passos para instalar agentes:
+  
+  >[!NOTE]
+  >O agente tem de ser instalado num servidor do Windows (2008 SP1 ou posterior). Não é suportada a monitorização dos circuitos do ExpressRoute com o sistema operativo de ambiente de trabalho do Windows e com SO Linux. 
+  >
+  >
+  
+  >[!NOTE]
+  >Agentes do SCOM poderão não conseguir detetar consistentemente se estes estão alojados no Azure.  Recomendamos que não utilize agentes SCOM as VNETs do Azure para monitorizar o ExpressRoute.
+  >
+  >
 
 1. Executar **configuração** para instalar o agente em cada servidor que pretende utilizar para a monitorização do ExpressRoute. O servidor que utiliza para a monitorização pode ser uma VM ou no local e tem de ter acesso à Internet. Terá de instalar pelo menos um agente no local e um agente em cada segmento de rede que pretende monitorizar no Azure.
 2. Na página **Bem-vindo**, clique em **Seguinte**.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 21db3c9d02c275ec8827062de5135631ed900da8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 00ae8e00d456d4660cadf645d4521173d254bbd7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-details-of-an-azure-redis-cache"></a>Obter os detalhes de uma Cache de Redis do Azure
 
@@ -31,17 +31,17 @@ Neste cenário, irá aprender a obter os detalhes de uma instância da Cache de 
 
 [!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis Cache")]
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para obter os detalhes de uma instância da Cache de Redis do Azure. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para obter os detalhes de uma instância da Cache de Redis do Azure. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Obter os detalhes de uma instância da Cache de Redis do Azure. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
 Exemplos de script CLI de Cache de Redis do Azure adicionais podem ser encontrados no [documentação de Cache de Redis do Azure](../cli-samples.md).

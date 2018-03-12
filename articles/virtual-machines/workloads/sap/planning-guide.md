@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -294,7 +294,7 @@ ms.lasthandoff: 02/01/2018
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
@@ -524,7 +524,7 @@ Obter mais informações sobre como utilizar os modelos do Resource Manager pode
 
 * [Implementar e gerir máquinas virtuais utilizando modelos Azure Resource Manager e a CLI do Azure] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Gerir máquinas virtuais utilizando o Azure Resource Manager e o PowerShell][virtual-machines-deploy-rmtemplates-powershell]
-* <https://Azure.microsoft.com/Documentation/Templates/>
+* <https://azure.microsoft.com/documentation/templates/>
 
 Outra funcionalidade interessante é a capacidade para criar imagens de máquinas virtuais, que lhe permite preparar determinados repositórios a partir da qual conseguir implementar rapidamente a instâncias de Máquina Virtual que satisfaçam os requisitos.
 
@@ -563,7 +563,7 @@ O armazenamento não persistentes é ligado diretamente às máquinas virtuais e
 > Em VMs do Linux, está montado como /mnt/resource ou /mnt. Consulte mais detalhes aqui:
 >
 > * [Como anexar um disco de dados para uma Máquina Virtual Linux][virtual-machines-linux-how-to-attach-disk]
-> * <https://Docs.microsoft.com/Azure/Storage/Storage-About-Disks-and-VHDs-Linux#Temporary-Disk>
+> * <https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux#temporary-disk>
 >
 >
 
@@ -597,10 +597,10 @@ Consulte também a tabela em cima deste artigo sobre as opções de redundância
 
 Obter mais informações sobre o Storage do Azure podem ser encontradas aqui:
 
-* <https://Azure.microsoft.com/Documentation/Services/Storage/>
-* <https://Azure.microsoft.com/Services/site-Recovery>
-* <https://Docs.microsoft.com/REST/API/storageservices/Understanding-Block-BLOBs--Append-BLOBs--and-Page-BLOBs>
-* <https://blogs.msdn.com/b/azuresecurity/Archive/2015/11/17/Azure-Disk-Encryption-for-Linux-and-Windows-virtual-Machines-Public-Preview.aspx>
+* <https://azure.microsoft.com/documentation/services/storage/>
+* <https://azure.microsoft.com/services/site-recovery>
+* <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
+* <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
 #### <a name="azure-standard-storage"></a>Armazenamento padrão do Azure
 Armazenamento padrão do Azure era do tipo de armazenamento disponível quando foi lançada IaaS do Azure. Ocorreram quotas IOPS impostas por um único disco. Latência teve não estava na mesma classe como dispositivos SAN/NAS normalmente implementados para sistemas SAP gama alta de classe alojada no local. Contudo, o armazenamento padrão do Azure foi tentativa suficiente para centenas de muitos sistemas SAP entretanto implementados no Azure.
@@ -619,7 +619,7 @@ Para essa finalidade, foram introduzidas alterações muitos dos quais são os d
 * Utilização de discos SSD em nós de armazenamento do Azure
 * Leitura de uma nova cache que é copiado por SSD local de um nó de computação do Azure
 
-Opposite to onde não mudou capacidades de armazenamento Standard depende do tamanho do disco (ou VHD), Premium Storage atualmente tem três categorias de outro disco, que são apresentadas neste artigo: <https://azure.microsoft.com/pricing/ detalhes / / não geridos-discos de armazenamento />
+Opposite to onde não mudou capacidades de armazenamento Standard depende do tamanho do disco (ou VHD), Premium Storage atualmente tem três categorias de outro disco, que são apresentadas neste artigo: <https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/>
 
 Verá que o débito/disco IOPS de disco e de disco estão dependentes na categoria do tamanho dos discos
 
@@ -661,7 +661,7 @@ Microsoft Azure fornece uma infraestrutura de rede, que permite o mapeamento de 
 * Conectividade entre instalações, entre a rede no local de um cliente e a rede do Azure
 * Cruzada região do Azure ou centro de dados conetividade entre sites do Azure
 
-Podem encontrar mais informações aqui: <https://azure.microsoft.com/documentation/services/virtual-network/>
+Aqui podem encontrar mais informações: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
 Existem muitos possibilidades diferentes para configurar o nome e a resolução IP no Azure. Neste documento, apenas na nuvem cenários dependem da predefinição de utilizar o DNS do Azure (contrariamente definir um próprio serviço DNS). Também é um novo serviço DNS do Azure, o que pode ser utilizado em vez de configurar o seu próprio servidor DNS. Podem encontrar mais informações no [neste artigo] [ virtual-networks-manage-dns-in-vnet] e no [nesta página](https://azure.microsoft.com/services/dns/).
 
@@ -676,8 +676,8 @@ Cada máquina Virtual no Azure tem de estar ligado a uma rede Virtual.
 
 Podem encontrar mais detalhes no [neste artigo] [ resource-groups-networking] e no [nesta página](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-[comment]: <> (Não foi TODO de MShermannd localizar um artigo que inclui o tópico OpenLDAP + ARM;)
-[comment]: <> (MSSedusch < https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
+[comment]: <> (Não foi TODO de MShermannd localizar um artigo que inclui o tópico OpenLDAP + ARM; )
+[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [!NOTE]
 > Por predefinição, depois de uma VM está implementada não é possível alterar a configuração de rede Virtual. As definições de TCP/IP tem de ser deixadas para o servidor DHCP do Azure. Comportamento predefinido é a atribuição de IP dinâmico.
@@ -734,14 +734,14 @@ O Microsoft Azure ExpressRoute permite a criação de ligações privadas entre 
 
 Encontrar mais detalhes sobre o ExpressRoute do Azure e ofertas aqui:
 
-* <https://Azure.microsoft.com/Documentation/Services/expressroute/>
-* <https://Azure.microsoft.com/pricing/details/expressroute/>
-* <https://Azure.microsoft.com/Documentation/articles/expressroute-FAQs/>
+* <https://azure.microsoft.com/documentation/services/expressroute/>
+* <https://azure.microsoft.com/pricing/details/expressroute/>
+* <https://azure.microsoft.com/documentation/articles/expressroute-faqs/>
 
 Expressroute permite várias subscrições do Azure através de um circuito do ExpressRoute, conforme documentado aqui
 
-* <https://Azure.microsoft.com/Documentation/articles/expressroute-howto-linkvnet-Arm/>
-* <https://Azure.microsoft.com/Documentation/articles/expressroute-howto-circuit-Arm/>
+* <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/>
+* <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>
 
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Imposição do túnel em caso de vários locais
 Para VMs a associar a domínios no local através do site para site, ponto a site ou ExpressRoute, tem de certificar-se de que as definições de proxy da Internet são obter implementadas para todos os utilizadores, bem como as VMs. Por predefinição, o software em execução nessas VMs ou utilizadores utilizando um browser para aceder à internet não passará através do proxy da empresa, mas seria ligar diretamente através do Azure para a internet. Mas, mesmo a definição de proxy não é uma solução de 100% para direcionar o tráfego através do proxy da empresa, uma vez que é responsabilidade do software e serviços para verificar se o proxy. Se não está a ser fazer que software em execução na VM ou um administrador manipula as definições, o tráfego à Internet pode ser detoured novamente diretamente através do Azure para a Internet.
@@ -810,7 +810,7 @@ O portal do Azure fornece funcionalidades básicas para implementar e configurar
 * VHDs de carregamento para o Azure
 * Copiar VMs
 
-[comment]: <> (MShermannd TODO o sobre a automatização de serviço para SAP VMs?)
+[comment]: <> (MShermannd TODO o sobre a automatização de serviço para SAP VMs? )
 [comment]: <> (MSSedusch de implementação do SO de várias VMs entretanto possíveis)
 [comment]: <> (Também MSSedusch qualquer tipo de automatização relativas a implementação não é possível com o portal do Azure. Tarefas, tais como a implementação de script de várias VMs não é possível através do portal do Azure.)
 
@@ -825,7 +825,7 @@ Experiência do cliente até ao momento foi que o PowerShell (PS) certamente é 
 
 Consulte o exemplo aqui: <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO descrevem novos comandos da CLI quando testado)
+[comment]: <> (MShermannd TODO descrevem novos comandos da CLI quando testado )
 Implementação da extensão de monitorização do Azure para SAP (consulte o capítulo [solução de monitorização do Azure para SAP] [ planning-guide-9.1] neste documento) só é possível através do PowerShell ou a CLI. Por conseguinte, é obrigatório para definir e configurar o PowerShell ou o CLI ao implementar ou administrar um sistema de SAP NetWeaver no Azure.  
 
 Como o Azure oferece uma funcionalidade mais, novos cmdlets de PS são vão ser adicionadas que necessita de uma atualização dos cmdlets. Por conseguinte faz sentido para verificar o site de transferir o Azure, pelo menos, uma vez mês <https://azure.microsoft.com/downloads/> para uma nova versão dos cmdlets. A nova versão é instalada por cima a versão mais antiga.
@@ -859,7 +859,7 @@ Devido às necessidades de correção específicos da sua versão do SO ou DBMS,
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Ver mais detalhes aqui: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> definições do Windows (por exemplo, o SID do Windows e o nome de anfitrião) tem de ser abstracted/generalizado na VM no local através de o comando sysprep.
+> Ver mais detalhes aqui: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> definições do Windows (por exemplo, o SID do Windows e o nome de anfitrião) tem de ser abstracted/generalizado na VM no local através de comandos do sysprep.
 >
 >
 > ![Linux][Logo_Linux] Linux
@@ -968,16 +968,16 @@ Neste caso, pretendemos carregar um VHD, com ou sem sistema operativo no mesmo e
 
 * Inicie sessão na sua subscrição com *Login-AzureRmAccount*
 * Definir a subscrição da sua contexto com *Set-AzureRmContext* e SubscriptionId de parâmetro ou SubscriptionName - consulte <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* Carregar o VHD com *adicionar AzureRmVhd* para uma conta de armazenamento do Azure - consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (Opcional) Criar um disco gerido a partir de VHD com *New-AzureRmDisk* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
-* Definir o disco de SO de uma nova configuração VM ao VHD ou disco geridos com *conjunto AzureRmVMOSDisk* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-* Criar uma nova VM a partir da configuração de VM com *New-AzureRmVM* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
-* Adicionar um disco de dados para uma nova VM com *adicionar AzureRmVMDataDisk* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
+* Carregar o VHD com *adicionar AzureRmVhd* para uma conta de armazenamento do Azure - consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
+* (Opcional) Criar um disco gerido a partir de VHD com *New-AzureRmDisk* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
+* Definir o disco de SO de uma nova configuração VM ao VHD ou disco geridos com *conjunto AzureRmVMOSDisk* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
+* Criar uma nova VM a partir da configuração de VM com *New-AzureRmVM* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
+* Adicionar um disco de dados para uma nova VM com *adicionar AzureRmVMDataDisk* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
 
 **CLI 2.0 do Azure**
 
 * Inicie sessão na sua subscrição com *início de sessão az*
-* Selecione a sua subscrição com *az conta set - subscrição`<subscription name or id`>*
+* Selecione a sua subscrição com *az conta set - subscrição `<subscription name or id`>*
 * Carregar o VHD com *carregamento de blob de armazenamento az* -consulte [utilizando a CLI do Azure com o Storage do Azure][storage-azure-cli]
 * (Opcional) Criar um disco gerido a partir de VHD com *criar disco de az* -Consulte https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Criar uma nova VM especificação carregado VHD ou disco geridos como disco de SO com *az vm criar* e o parâmetro *– anexar--disco do SO*
@@ -995,18 +995,18 @@ Para carregar uma VM existente ou VHD a partir da rede no local para utilizá-la
 * Utilize *sysprep* no Windows ou *waagent-deprovision* no Linux para generalizar o VM - consulte [referência técnica do Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar uma Máquina virtual Linux para utilizar como um modelo do Resource Manager] [ capture-image-linux-step-2-create-vm-image] para Linux
 * Inicie sessão na sua subscrição com *Login-AzureRmAccount*
 * Definir a subscrição da sua contexto com *Set-AzureRmContext* e SubscriptionId de parâmetro ou SubscriptionName - consulte <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
-* Carregar o VHD com *adicionar AzureRmVhd* para uma conta de armazenamento do Azure - consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (Opcional) Criar uma imagem de disco gerida a partir de VHD com *New-AzureRmImage* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
+* Carregar o VHD com *adicionar AzureRmVhd* para uma conta de armazenamento do Azure - consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
+* (Opcional) Criar uma imagem de disco gerida a partir de VHD com *New-AzureRmImage* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
 * Definir o disco de SO de uma nova configuração VM para o
-  * O VHD com *Set AzureRmVMOSDisk - SourceImageUri - CreateOption fromImage* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
-  * Gerido a imagem de disco *conjunto AzureRmVMSourceImage* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
-* Criar uma nova VM a partir da configuração de VM com *New-AzureRmVM* -consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
+  * O VHD com *Set AzureRmVMOSDisk - SourceImageUri - CreateOption fromImage* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
+  * Gerido a imagem de disco *conjunto AzureRmVMSourceImage* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
+* Criar uma nova VM a partir da configuração de VM com *New-AzureRmVM* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 
 **CLI 2.0 do Azure**
 
 * Utilize *sysprep* no Windows ou *waagent-deprovision* no Linux para generalizar o VM - consulte [referência técnica do Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar uma Máquina virtual Linux para utilizar como um modelo do Resource Manager] [ capture-image-linux-step-2-create-vm-image] para Linux
 * Inicie sessão na sua subscrição com *início de sessão az*
-* Selecione a sua subscrição com *az conta set - subscrição`<subscription name or id`>*
+* Selecione a sua subscrição com *az conta set - subscrição `<subscription name or id`>*
 * Carregar o VHD com *carregamento de blob de armazenamento az* -consulte [utilizando a CLI do Azure com o Storage do Azure][storage-azure-cli]
 * (Opcional) Criar uma imagem de disco gerida a partir de VHD com *criar imagem az* -Consulte https://docs.microsoft.com/cli/azure/image#az_image_create
 * Criar uma nova VM especificação VHD ou a imagem de disco gerido carregado como disco de SO com *az vm criar* e o parâmetro *– imagem*
@@ -1155,8 +1155,8 @@ Também pode copiar VHDs entre subscrições. Para obter mais informações, lei
 
 O fluxo básico de lógica de cmdlet PS tem o seguinte aspeto:
 
-* Criar um contexto de conta de armazenamento para o **origem** conta de armazenamento com *New-AzureStorageContext* -consulte <https://msdn.microsoft.com/library/dn806380.aspx>
-* Criar um contexto de conta de armazenamento para o **destino** conta de armazenamento com *New-AzureStorageContext* -consulte <https://msdn.microsoft.com/library/dn806380.aspx>
+* Criar um contexto de conta de armazenamento para o **origem** conta de armazenamento com *New-AzureStorageContext* -consulte o artigo <https://msdn.microsoft.com/library/dn806380.aspx>
+* Criar um contexto de conta de armazenamento para o **destino** conta de armazenamento com *New-AzureStorageContext* -consulte o artigo <https://msdn.microsoft.com/library/dn806380.aspx>
 * Inicie a cópia com o
 
 ```powershell
@@ -1200,7 +1200,7 @@ Idealmente, o processamento da estrutura de uma VM e os discos associados deve s
 
 ![Configuração de referência da VM do IaaS do Azure para SAP][planning-guide-figure-1300]
 
-[comment]: <> (MShermannd TODO descrevem a estrutura do Linux)
+[comment]: <> (MShermannd TODO descrevem a estrutura do Linux  )
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -1368,7 +1368,7 @@ O SAP GUI não ligar imediatamente para qualquer das instâncias do SAP (porta 3
 >
 >
 
-conforme documentado no [definições de segurança para o servidor de mensagem de SAP](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
+conforme documentado no [definições de segurança para o servidor de mensagem de SAP ](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
 ## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>Conceitos de implementação apenas de nuvem de instâncias SAP
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>VM única com SAP NetWeaver demonstração/formação cenário
@@ -1694,7 +1694,7 @@ Como:
 >
 > Seguem-se alguns exemplos de documentação sobre configurar impressoras de rede no Linux ou, incluindo um capítulo relativos à impressão no Linux. Que vá funcionar da mesma forma na VM com Linux do Azure, desde que a VM faz parte de uma VPN:
 >
-> * SLES <_Share_or_Windows_Share https://en.opensuse.org/SDB:Printing_via_SMB_ (Samba)>
+> * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
 > * RHEL ou Oracle Linux <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
 >
 >
@@ -1750,7 +1750,7 @@ Como:
 
 * Configurar um domínio de transporte em cada localização (no local e do Azure) utilizando a transação STMS <http://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
 * Ligue os domínios com uma ligação de domínio e confirme a ligação entre os dois domínios.
-  <http://help.SAP.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/Content.htm>
+  <http://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
 * Distribua a configuração para o sistema ligado.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>Tráfego RFC entre instâncias SAP localizado no Azure e no local (em vários locais)
@@ -1964,7 +1964,7 @@ A figura seguinte ilustrado a mesma horizontal utilizando discos geridos.
 
 ![Arquitetura de HA do SAP NetWeaver aplicações com o SQL Server em IaaS do Azure][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA no Linux
+##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA on Linux
 A arquitetura para SAP HA no Linux no Azure é basicamente o mesmo para Windows, tal como descrito acima. Consulte a nota SAP [1928533] para obter uma lista das soluções de elevada disponibilidade suportadas.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Utilizar o início automático para instâncias SAP
@@ -2000,7 +2000,7 @@ A cópia de segurança offline basicamente precisaria que um encerramento de VM 
 Para além de encerramento no portal do Azure um pode também fazê-lo através do Powershell ou o CLI conforme descrito aqui: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 Um restauro do Estado de que seria são compostos de que pretende eliminar a VM base, bem como os discos da base VM originais e montado discos, novamente copiar os discos guardados para o original conta de armazenamento ou grupo de recursos para discos geridos e, em seguida, voltar a implementar o sistema.
-Este artigo mostra um exemplo de como este processo no Powershell do script: <http://www.westerndevs.com/azure-snapshots/>
+Este artigo mostra um exemplo de como criar um script este processo no Powershell: <http://www.westerndevs.com/azure-snapshots/>
 
 Certifique-se instalar uma nova licença SAP, uma vez que a restaurar uma cópia de segurança VM, tal como descrito acima cria uma nova chave de hardware.
 
@@ -2014,7 +2014,7 @@ Outras VMs no sistema SAP podem ser feitas utilizando a funcionalidade de cópia
 >
 > ![Windows][Logo_Windows] Windows
 >
-> Teoria, as VMs que bases de dados de execução podem ser feitas de forma consistente, bem como se o sistema DBMS suporta o VSS do Windows (serviço de cópia sombra de volumes <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) como, por exemplo, SQL Server efetua.
+> Teoria, as VMs que bases de dados de execução podem ser feitas de forma consistente, bem como se o sistema DBMS suporta o VSS do Windows (serviço de cópia sombra de volumes <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) como, por exemplo, SQL servidor não.
 > No entanto, tenha em atenção de que com base em cópias de segurança de VM do Azure no momento restaura das bases de dados não são possíveis. Por conseguinte, recomenda-se efetuar cópias de segurança das bases de dados com a funcionalidade DBMS em vez de depender de cópia de segurança do Azure.
 >
 > Para se familiarizar com o Backup de Máquina Virtual do Azure, comece por aqui: <https://docs.microsoft.com/azure/backup/backup-azure-vms>.

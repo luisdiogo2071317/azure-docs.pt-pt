@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança da infraestrutura de pilha do Azure
 
@@ -31,8 +31,12 @@ Na pilha do Azure, existem duas camadas de postura de segurança que coexistir. 
 ## <a name="security-approach"></a>Abordagem de segurança
 Pilha do Azure foi concebida com uma postura de segurança para se Defender contra ameaças modernas e foi compilada para cumprir os requisitos das normas de conformidade principais. Como resultado, a postura de segurança da infraestrutura de pilha do Azure baseia-se em dois pillars:
 
- - **Partem do princípio de violação.** A partir do pressuposto de que o sistema já foi infringido, concentre-se no *detetar e limitar o impacto de violações* versus apenas tentar impedir ataques. 
- - **Protegido por predefinição.**  Uma vez que a infraestrutura é executado em hardware bem definido e software, *ativar, configurar e validar as funcionalidades de segurança* que restam para os clientes para implementar.
+ - **Partem do princípio de violação.**  
+A partir do pressuposto de que o sistema já foi infringido, concentre-se no *detetar e limitar o impacto de violações* versus apenas tentar impedir ataques. 
+ - **Protegido por predefinição.**  
+Uma vez que a infraestrutura é executado em hardware bem definido e software, iremos *ativar, configurar e validar todas as funcionalidades de segurança* por predefinição.
+
+
 
 Porque a pilha do Azure é fornecida como um sistema integrado, a postura de segurança da infraestrutura de pilha do Azure é definida pela Microsoft. Tal como no Azure, os inquilinos são responsáveis por definir a postura de segurança de cargas de trabalho respetivas inquilino. Este documento fornece dados de conhecimento básico sobre a postura de segurança da infraestrutura de pilha do Azure.
 

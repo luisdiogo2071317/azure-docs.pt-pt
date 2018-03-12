@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 9ce89f3aa84b7639b0367ba91304d97ae2754aba
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aa5fef6e8910a5b0b5fe89d5c8cfb141415d07a6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicações de várias camadas
 
@@ -43,13 +43,13 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name MyResourceGroup --yes
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma rede virtual e os grupos de segurança de rede. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, uma rede virtual e os grupos de segurança de rede. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual do Azure e a sub-rede do front-end. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria uma sub-rede de back-end. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Cria um endereço IP público para aceder a VM a partir da Internet. |
@@ -61,6 +61,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Exemplos de script CLI redes adicionais podem ser encontrados no [documentação de descrição geral de funcionamento em rede do Azure](../cli-samples.md)

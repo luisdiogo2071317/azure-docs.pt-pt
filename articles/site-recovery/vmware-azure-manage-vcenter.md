@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 21e1a7bee7bba2f410a2841505cb6a6f8673bac3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: be415340da09043eccd361b0168bb304d8904bef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-vmware-vcenter-servers"></a>Gerir servidores VMware vcenter Server 
 
-Este artigo aborda as várias operações de recuperação de sites que podem ser executadas no VMware vCenter. Certifique-se a [pré-requisitos](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)s antes de começar.
+Este artigo aborda as várias operações de recuperação de sites que podem ser executadas no VMware vCenter. Certifique-se a [pré-requisitos](vmware-physical-azure-support-matrix.md#replicated-machines) antes de começar.
 
 
 ## <a name="set-up-an-account-for-automatic-discovery"></a>Configure uma conta para a deteção automática

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurar uma rede virtual (clássica) utilizando um ficheiro de configuração de rede
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Pode utilizar o PowerShell ou a CLI do Azure para exportar um ficheiro de config
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Criar ou modificar um ficheiro de configuração de rede
 
-Um ficheiro de configuração de rede é um ficheiro XML (ao utilizar o PowerShell) ou um ficheiro json (ao utilizar a CLI do Azure). Pode editar o ficheiro em qualquer texto ou editor de XML/json. O [definições de esquema do ficheiro de configuração de rede](https://msdn.microsoft.com/library/azure/jj157100.aspx) artigo inclui os detalhes de todas as definições. Para obter explicações adicionais das definições, consulte [ver redes virtuais e definições](virtual-network-manage-network.md#view-vnet). As alterações efetuadas ao ficheiro:
+Um ficheiro de configuração de rede é um ficheiro XML (ao utilizar o PowerShell) ou um ficheiro json (ao utilizar a CLI do Azure). Pode editar o ficheiro em qualquer texto ou editor de XML/json. O [definições de esquema do ficheiro de configuração de rede](https://msdn.microsoft.com/library/azure/jj157100.aspx) artigo inclui os detalhes de todas as definições. Para obter explicações adicionais das definições, consulte [ver redes virtuais e definições](manage-virtual-network.md#view-virtual-networks-and-settings). As alterações efetuadas ao ficheiro:
 
 - Deve estar em conformidade com o esquema ou importar que o ficheiro de configuração de rede irá falhar.
 - Substituir as definições de rede existente para a sua subscrição, por isso, tenha muito cuidado quando efetuar alterações. Por exemplo, referencie os ficheiros de configuração de rede de exemplo que se seguem. Indicar o ficheiro original continha dois **VirtualNetworkSite** instâncias e foi alterado, conforme mostrado nos exemplos. Quando importar o ficheiro, o Azure elimina a rede virtual para o **VirtualNetworkSite** instância removido no ficheiro. Este cenário simplificado assume que não existem recursos foram na rede virtual, como se existirem, não foi possível eliminar a rede virtual e a importação falhará.

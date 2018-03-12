@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 1453dca453aa045752ea2300b9d7039c1bdd6542
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c90bdc9381bf98e5c1457e8e28f74105227d8f8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>Criar uma rede virtual com várias sub-redes através do PowerShell
 
@@ -81,7 +81,7 @@ Escrever as configurações de sub-rede da rede virtual com [Set-AzureRmVirtualN
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-Antes de implementar redes virtuais do Azure e sub-redes para utilização em produção, recomendamos que lhe exaustivamente familiarizar-se com o espaço de endereços [considerações](virtual-network-manage-network.md#create-a-virtual-network) e [limites de rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Depois de recursos são implementados em sub-redes, algumas rede virtual e alterações de sub-rede, tal como alterar os intervalos de endereços, podem exigir a reimplementação de recursos do Azure existentes implementadas em sub-redes.
+Antes de implementar redes virtuais do Azure e sub-redes para utilização em produção, recomenda-se que lhe exaustivamente familiarizar-se com o espaço de endereços [considerações](manage-virtual-network.md#create-a-virtual-network) e [limites de rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Depois de recursos são implementados em sub-redes, algumas rede virtual e alterações de sub-rede, tal como alterar os intervalos de endereços, podem exigir a reimplementação de recursos do Azure existentes implementadas em sub-redes.
 
 ## <a name="test-network-communication"></a>Comunicação de rede de teste
 

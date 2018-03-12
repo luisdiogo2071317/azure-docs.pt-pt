@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: c87455f43c6e580c52b3f772a1cbe0c1ac9c9f5b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fc84642050f4b7acfa2e3c5b4518135d6a97171
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como destino a versões de tempo de execução das funções do Azure
 
@@ -74,7 +74,7 @@ az functionapp config appsettings set --name <function_app> \
 ```
 Neste código, substitua `<function_app>` com o nome da sua aplicação de função. Substitua, também `<my_resource_group>` com o nome do grupo de recursos para a sua aplicação de função. Substitua `<version>` com uma versão válida do tempo de execução de 1. x ou `beta` para a versão 2.0. 
 
-Pode executar este comando a partir de [Shell de nuvem do Azure](../cloud-shell/overview.md) escolhendo **experimente** no exemplo de código anterior. Também pode utilizar o [localmente a CLI do Azure](/cli/azure/install-azure-cli) para executar este comando depois de executar [início de sessão az](/cli/azure#az_login) para iniciar sessão.
+Pode executar este comando a partir de [Shell de nuvem do Azure](../cloud-shell/overview.md) escolhendo **experimente** no exemplo de código anterior. Também pode utilizar o [localmente a CLI do Azure](/cli/azure/install-azure-cli) para executar este comando depois de executar [início de sessão az](/cli/azure/reference-index#az_login) para iniciar sessão.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

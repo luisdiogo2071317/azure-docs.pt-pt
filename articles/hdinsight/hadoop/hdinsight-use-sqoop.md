@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -96,9 +96,9 @@ Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados d
         
         |Nome|Valor|
         |----|-----|
-        | Nome de conta do storage predefinida | &lt;CluterName > armazenar |
-        | Nome de servidor de base de dados SQL do Azure | &lt;ClusterName > dbserver |
-        | Nome de base de dados SQL do Azure | &lt;ClusterName > base de dados |
+        | Nome de conta do storage predefinida | &lt;CluterName>store |
+        | Nome de servidor de base de dados SQL do Azure | &lt;ClusterName>dbserver |
+        | Nome de base de dados SQL do Azure | &lt;ClusterName>db |
      
 3. Selecione **concordo com os termos e condições indicadas acima**.
 4. Clique em **Comprar**. Verá um novo mosaico intitulado submeter a implementação para a implementação do modelo. A criação do cluster e da SQL Database demora cerca de 20 minutos.
@@ -118,7 +118,7 @@ Se optar por utilizar a base de dados SQL do Azure existente ou Microsoft SQL Se
   > 
   > 
   
-  * Para criar e configurar uma rede virtual, consulte [criar uma rede virtual com o portal do Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * Para criar e configurar uma rede virtual, consulte [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
     
     * Quando estiver a utilizar o SQL Server no seu centro de dados, tem de configurar a rede virtual como *site para site* ou *ponto a site*.
       

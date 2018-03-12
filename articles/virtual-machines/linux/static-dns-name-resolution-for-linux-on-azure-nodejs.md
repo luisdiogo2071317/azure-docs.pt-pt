@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73e780123f4582c9fa78975324e7904c85f87be
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Utilizar o DNS interno para resolução de nomes VM no Azure
 
@@ -94,7 +94,7 @@ azure group create myResourceGroup \
 
 ## <a name="create-the-vnet"></a>Criar a VNet
 
-O primeiro passo consiste em criar uma VNet para iniciar as VMs em.  A VNet contém uma sub-rede para esta instrução.  Para obter mais informações sobre as VNets do Azure, consulte [criar uma rede virtual, utilizando a CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+O primeiro passo consiste em criar uma VNet para iniciar as VMs em.  A VNet contém uma sub-rede para esta instrução.  Para obter mais informações sobre as VNets do Azure, consulte [criar uma rede virtual](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -180,6 +180,6 @@ azure vm create jenkins \
 
 Ao utilizar os sinalizadores da CLI para chamar recursos existentes, vamos dar instruções ao Azure para implementar a VM dentro da rede existente.  Para reiterate, depois de uma VNet e sub-rede tiverem sido implementados, pode ser deixados como estáticos ou permanentes recursos dentro da região do Azure.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Criar um ambiente personalizado para uma VM com Linux diretamente através dos comandos da CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma VM com Linux no Azure utilizando modelos](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

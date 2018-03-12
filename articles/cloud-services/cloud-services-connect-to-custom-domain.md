@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ligar a funções de serviços na nuvem do Azure como um controlador de domínio do AD alojado no Azure de personalizado
 Vamos primeiro configurar uma rede Virtual (VNet) no Azure. Em seguida, iremos adicionar um controlador de domínio do Active Directory (alojado uma Máquina Virtual no Azure) para a VNet. Em seguida, iremos irá adicionar funções de serviço existente na nuvem para a VNet criada previamente, em seguida, ligue-o para o controlador de domínio.
@@ -33,7 +33,7 @@ Siga este guia passo a passo e caso se depare com problemas, deixe-num comentár
 A rede que é referenciada pelo serviço em nuvem tem de ser um **rede virtual clássica**.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede Virtual
-Pode criar uma rede Virtual no Azure utilizando o portal do Azure ou PowerShell. Para este tutorial, iremos irá utilizar o PowerShell. Para criar uma rede Virtual com o portal do Azure, consulte [criar rede Virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Pode criar uma rede Virtual no Azure utilizando o portal do Azure ou PowerShell. Para este tutorial, é utilizado o PowerShell. Para criar uma rede virtual com o portal do Azure, consulte [criar uma rede virtual](../virtual-network/quick-create-portal.md). O artigo abrange a criação de uma rede virtual (Resource Manager), mas tem de criar uma rede virtual (clássica) para serviços em nuvem. Para tal, no portal, selecione **crie um recurso**, tipo *rede virtual* no **pesquisa** caixa e, em seguida, prima **Enter**. Nos resultados da pesquisa, em **tudo**, selecione **rede Virtual**. Em **selecionar um modelo de implementação**, selecione **clássico**, em seguida, selecione **criar**. Em seguida, pode seguir os passos no artigo.
 
 ```powershell
 #Create Virtual Network

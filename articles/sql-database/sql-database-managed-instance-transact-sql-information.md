@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 6ecb6600e5e1462cce9d49ecd9a4ed2e43e2c455
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -57,7 +57,7 @@ Para obter mais informações, consulte:
 ### <a name="backup"></a>Cópia de segurança 
 
 Instância gerida tem cópias de segurança automáticas e permite aos utilizadores criar base de dados completa `COPY_ONLY` cópias de segurança. Valor diferencial, registo e cópias de segurança de instantâneos de ficheiros não são suportadas.  
-- Instância gerida pode fazer cópias de segurança de uma base de dados apenas na conta de armazenamento de Blobs do Azure: 
+- Instância gerida pode fazer cópias de segurança uma base de dados apenas uma conta do Blob Storage do Azure: 
  - Apenas `BACKUP TO URL` é suportada 
  - `FILE`, `TAPE`, e os dispositivos de cópia de segurança não são suportados  
 - Maioria dos geral `WITH` opções são suportadas 
@@ -67,11 +67,11 @@ Instância gerida tem cópias de segurança automáticas e permite aos utilizado
  - Opções de registo específicos: `NORECOVERY`, `STANDBY`, e `NO_TRUNCATE` não são suportados 
  
 Limitações:  
-- Instância gerida pode fazer cópias de segurança uma base de dados para uma cópia de segurança com até 32 reparte, que é suficiente para as bases de dados até 4 TB.
-- Tamanho máximo de cópia de segurança stripe é 195 GB (tamanho do blob de página). Aumente o número de reparte no comando de cópia de segurança para distribuir tamanhos do stripe. 
+- Instância gerida pode fazer cópias de segurança uma base de dados para uma cópia de segurança com até 32 reparte, que é suficiente para as bases de dados até 4 TB se for utilizada a compressão de cópias de segurança.
+- Tamanho máximo de cópia de segurança stripe é 195 GB (tamanho do blob máximo). Aumente o número de reparte no comando de cópia de segurança para reduzir o tamanho do stripe individuais e permanecer neste limite. 
 
 > [!TIP]
-> Para contornar esta limitação no local, a cópia de segurança para `DISK` em vez de cópia de segurança `URL`, carregar o ficheiro de cópia de segurança para o blob, em seguida, restaurar. Restaure ficheiros maiores de suporte, porque é utilizado um tipo de blob diferente.  
+> Para contornar esta limitação no local, a cópia de segurança para `DISK` em vez de cópia de segurança `URL`, carregar o ficheiro de cópia de segurança para o blob, em seguida, restaurar. Restaure ficheiros maiores suporta porque é utilizado um tipo de blob diferente.  
 
 ### <a name="buffer-pool-extension"></a>Extensão do conjunto de memória intermédia 
  
@@ -136,9 +136,9 @@ Agrupamento de servidores for `SQL_Latin1_General_CP1_CI_AS` e não pode ser alt
  
 - Não são suportados vários ficheiros de registo. 
 - Objetos em memória não são suportados na camada de serviço de objetivo geral.  
-- Não há um limite de 280 ficheiros por cada instância implying 280 ficheiros máximas por base de dados. Ficheiros de registo e dados são calculados em relação a este limite.  
-- Base de dados não pode conter os grupos de ficheiros que contêm dados de fluxo do ficheiro.  Restauro falhará se contiver. bak `FILESTREAM` dados.  
-- Todos os ficheiros está colocado num disco separado do Azure Premium. E/s e débito dependem de tamanho de cada ficheiro individual. Consulte [desempenho de disco do Azure Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Não há um limite de 280 ficheiros por cada instância implying 280 ficheiros máximas por base de dados. Ficheiros de registo e dados são contados para este limite.  
+- Base de dados não pode conter os grupos de ficheiros que contém dados filestream.  Restauro falhará se contiver. bak `FILESTREAM` dados.  
+- Todos os ficheiros é colocados no armazenamento do Azure Premium. E/s e débito por ficheiro dependem do tamanho de cada ficheiro individual, da mesma forma tal como para os discos Premium Storage do Azure. Consulte [desempenho de disco do Azure Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### <a name="create-database-statement"></a>Instrução CREATE DATABASE
 
@@ -217,7 +217,7 @@ Na base de dados R e Python bibliotecas externas ainda não são suportadas. Con
 
 ### <a name="filestream-and-filetable"></a>FileStream e Filetable
 
-- Os dados de fluxo de ficheiros não são suportados. 
+- dados FileStream não são suportados. 
 - Base de dados não pode conter os grupos de ficheiros com `FILESTREAM` dados
 - `FILETABLE` Não é suportada
 - As tabelas não podem ter `FILESTREAM` tipos
@@ -237,7 +237,7 @@ Para obter mais informações, consulte [FILESTREAM](https://docs.microsoft.com/
 ### <a name="linked-servers"></a>Servidores ligados
  
 Servidores ligados na instância gerida suportam um número limitado de destinos: 
-- Suportado destinos: SQL Server, a instância de gerido da base de dados do SQL Server e SQL Server numa máquina virtual.
+- Suportado destinos: SQL Server, base de dados do SQL Server, instância geridos e SQL Server numa máquina virtual.
 - Não suportado destinos: ficheiros, Analysis Services e outros RDBMS.
 
 Operações
@@ -277,23 +277,23 @@ Replicação ainda não é suportada. Para obter informações sobre a replicaç
  - `FROM URL` (Armazenamento de Blobs do azure) é apenas suportada opção.
  - `FROM DISK`/`TAPE`/ dispositivos de cópia de segurança não é suportado.
  - Conjuntos de cópia de segurança não são suportados. 
-- `WITH` não são suportadas opções (nenhum valor diferencial, `STATS`, etc.)     
-- `ASYNC RESTORE` -Restauro continua, mesmo se as quebras de ligação de cliente. Se perder a uma ligação, pode verificar `sys.dm_operation_status` vista para o estado de uma operação de restauro (bem como para criar e LARGAR base de dados). Consulte [operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `WITH` não são suportadas opções (não `DIFFERENTIAL`, `STATS`, etc.)     
+- `ASYNC RESTORE` -Restauro continua, mesmo se as quebras de ligação de cliente. Se a ligação for removida, pode verificar `sys.dm_operation_status` vista para o estado de uma operação de restauro (bem como para criar e LARGAR base de dados). Consulte [operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
-As opções de base de dados seguinte conjunto/substituída e não não possível alterar mais tarde:  
+As seguintes opções de base de dados são o conjunto/substituída e não não possível alterar mais tarde:  
 - `NEW_BROKER` (se mediador não está ativado no ficheiro. bak)  
 - `ENABLE_BROKER` (se mediador não está ativado no ficheiro. bak)  
 - `AUTO_CLOSE=OFF` (se tiver uma base de dados no ficheiro. bak `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (se tiver uma base de dados no ficheiro. bak `SIMPLE` ou `BULK_LOGGED` modo de recuperação)
 - Grupo de ficheiros com otimização de memória é adicionado e chamado XTP se não estava no ficheiro. bak de origem  
-- Qualquer grupo de ficheiros com otimização de memória existente é mudado para XTP  
+- Qualquer grupo de ficheiros com otimização de memória é mudado para XTP  
 - `SINGLE_USER` e `RESTRICTED_USER` opções são convertidas em `MULTI_USER`   
 Limitações:  
 - `.BAK` não não possível restaurar os ficheiros que contêm vários conjuntos de cópias de segurança. 
 - `.BAK` não não possível restaurar os ficheiros que contém vários ficheiros de registo. 
 - Restauro falhará se contiver. bak `FILESTREAM` dados.
-- Atualmente não não possível restaurar cópias de segurança que contêm bases de dados com objetos do Active Directory dentro da memória OLTP.  
-- Atualmente não não possível restaurar cópias de segurança que contêm bases de dados em que, a determinada altura existiam de objetos em memória.   
+- Atualmente não não possível restaurar cópias de segurança que contêm bases de dados com objetos do Active Directory dentro da memória.  
+- Atualmente não não possível restaurar cópias de segurança que contêm bases de dados onde, a determinada altura objetos em memória existiam.   
 - Atualmente não não possível restaurar cópias de segurança que contêm bases de dados no modo só de leitura. Esta limitação será removida em breve.   
  
 Para obter informações sobre o restauro instruções, consulte [restaurar instruções](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
@@ -381,21 +381,21 @@ As seguintes variáveis, funções e vistas devolvem resultados diferentes:
 - `@@SERVICENAME` Devolve NULL, como não faz nenhuma sentido num ambiente gerido instância. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` é suportada. Devolve Nulo se o início de sessão do AAD não está a ser sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` Não é suportada. Devolve (temporário problema conhecido) de dados incorreto. Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
-- `GETDATE()` devolve sempre data no fuso horário UTC. Consulte [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
+- `GETDATE()` e outras funções de data/hora incorporada devolve sempre tempo fuso horário UTC. Consulte [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Limitações e problemas conhecidos
 
 ### <a name="tempdb-size"></a>Tamanho TEMPDB
 
-`tempdb` é dividido em 12 14 GB de tamanho de ficheiros com máx. por ficheiro. Não é possível alterar este tamanho máximo por ficheiro e não não possível adicionar novos ficheiros `tempdb`. Esta limitação será removida em breve. Algumas consultas podem devolver um erro se `tempdb` tem mais do que 168 GB.
+`tempdb` é dividido em 12 14 GB de tamanho de ficheiros com máx. por ficheiro. Não é possível alterar este tamanho máximo por ficheiro e não não possível adicionar novos ficheiros `tempdb`. Esta limitação será removida em breve. Algumas consultas podem devolver um erro se precisar de mais do que 168 GB `tempdb`.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Que excede o espaço de armazenamento com ficheiros de base de dados pequena
 
-Cada instância geridos segurança TB 35 reservou espaço de armazenamento e todos os ficheiros de base de dados é colocado na unidade de alocação de armazenamento de 128 GB. Bases de dados com muitos ficheiros pequenos podem ser colocados em unidades de 128 GB que, no total, excedem o limite de 35 TB. Neste caso, novas bases de dados não não possível criar ou tiverem sido restaurados, mesmo que o tamanho total de todas as bases de dados atingiu o limite de tamanho de instância. O erro devolvido não pode ser encriptado.
+Cada instância geridos segurança TB 35 reservou espaço de armazenamento e todos os ficheiros de base de dados inicialmente é colocado na unidade de alocação de armazenamento de 128 GB. Bases de dados com muitos ficheiros pequenos podem ser colocados em unidades de 128 GB que, no total, excedem o limite de 35 TB. Neste caso, novas bases de dados não não possível criar ou tiverem sido restaurados, mesmo que o tamanho total de todas as bases de dados atingiu o limite de tamanho de instância. O erro devolvido, caso em que poderá não ser encriptado.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Restaurar a configuração incorreta da chave SAS durante a base de dados
 
-`RESTORE DATABASE` Leituras de ficheiro. bak poderá ser constantemente tentar para ler o ficheiro. bak e o erro devolvido após longo período de tempo se assinatura de acesso partilhado no `CREDENTIAL` está incorreto. Execute RESTORE HEADERONLY antes de restaurar uma base de dados não se esqueça de que a chave SAS está correta.
+`RESTORE DATABASE` que lê o ficheiro. bak poderá ser constantemente repetir a tentativa de ler o ficheiro. bak e o erro devolvido após longo período de tempo se assinatura de acesso partilhado no `CREDENTIAL` está incorreto. Execute RESTORE HEADERONLY antes de restaurar uma base de dados não se esqueça de que a chave SAS está correta.
 Certifique-se de que remova à esquerda `?` partir da chave SAS gerada utilizando o portal do Azure.
 
 ### <a name="tooling"></a>As ferramentas

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou o VHD
 
@@ -37,7 +37,7 @@ Certifique-se de que cumpre os seguintes pré-requisitos:
 
 * Precisa de uma VM do Azure criado no modelo de implementação Resource Manager com discos geridos. Se ainda não criou uma VM com Linux, pode utilizar o [portal](quick-create-portal.md), a [CLI do Azure](quick-create-cli.md), ou [modelos do Resource Manager](create-ssh-secured-vm-from-template.md). Configure a VM conforme necessário. Por exemplo, [adicionar discos de dados](add-disk.md), aplicar atualizações e instalar aplicações. 
 
-* Terá também de ter a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e de ter sessão iniciada para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
+* Terá também de ter a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e de ter sessão iniciada para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -45,7 +45,7 @@ Para uma versão simplificada neste tópico, para fins de teste, avaliar ou a sa
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Passo 1: Retirar o aprovisionamento de VM
-Desaprovisionar a VM, com o agente da VM do Azure, para eliminar dados e ficheiros específicos do computador. Utilize o `waagent` comando com o *-deprovision + utilizador* parâmetro na sua origem de VM com Linux. Para obter mais informações, consulte o [guia de utilizador do agente Linux do Azure](../windows/agent-user-guide.md).
+Desaprovisionar a VM, com o agente da VM do Azure, para eliminar dados e ficheiros específicos do computador. Utilize o `waagent` comando com o *-deprovision + utilizador* parâmetro na sua origem de VM com Linux. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../windows/agent-user-guide.md).
 
 1. Ligar à VM com Linux utilizando um cliente de SSH.
 2. Na janela do SSH, escreva o seguinte comando:
@@ -143,4 +143,4 @@ Pode criar várias VMs a partir da imagem de VM de origem. Se precisar de efetua
 - Siga os passos novamente para desaprovisionar, desalocar, generalize e criar uma imagem.
 - Utilize esta nova imagem para implementações futuras. Se assim o desejar, elimine a imagem original.
 
-Para obter mais informações sobre gerir as VMs com a CLI, consulte [Azure CLI 2.0](/cli/azure/overview).
+Para obter mais informações sobre gerir as VMs com a CLI, consulte [Azure CLI 2.0](/cli/azure).

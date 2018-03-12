@@ -75,7 +75,7 @@ Os preços podem variar consoante o tipo de armazenamento e disponibilidade que 
 Veja [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre os preços para tipos de armazenamento e opções de disponibilidade diferentes.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs num centro de dados que permite ao Azure compreender como a aplicação é criada para fornecer redundância e disponibilidade. Recomendamos que dois ou mais VMs são criadas dentro de um conjunto para fornecer uma aplicação altamente disponível e para cumprir os de disponibilidade de [99,95% SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando uma única VM estiver a utilizar o [Armazenamento Premium do Azure](../articles/virtual-machines/windows/premium-storage.md), o SLA do Azure aplica-se para eventos de manutenção não planeada. 
+Um conjunto de disponibilidade é um agrupamento lógico de VMs num centro de dados que permite ao Azure compreender como a aplicação é criada para fornecer redundância e disponibilidade. Recomendamos que dois ou mais VMs são criadas dentro de um conjunto para fornecer uma aplicação altamente disponível e para cumprir os de disponibilidade de [99,95% SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Sem custos para o conjunto de disponibilidade em si, existe apenas paga para cada instância VM que criar. Quando uma única VM estiver a utilizar o [Armazenamento Premium do Azure](../articles/virtual-machines/windows/premium-storage.md), o SLA do Azure aplica-se para eventos de manutenção não planeada. 
 
 Um conjunto de disponibilidade é composto por dois agrupamentos adicionais que protegem contra falhas de hardware e permita que as atualizações possam ser aplicadas - falhas domínios (FDs) e domínios de atualização (UDs). Pode ler mais sobre como gerir a disponibilidade de [VMs do Linux](../articles/virtual-machines/linux/manage-availability.md) ou [VMs do Windows](../articles/virtual-machines/windows/manage-availability.md).
 
@@ -90,7 +90,7 @@ Para as VMs que utilizam os [Managed Disks do Azure](../articles/virtual-machine
 
 ## <a name="availability-zones"></a>Zonas de disponibilidade
 
-[Zonas de disponibilidade](../articles/availability-zones/az-overview.md) (pré-visualização), uma alternativa à disponibilidade define, expanda o nível de controlo tem de manter a disponibilidade das aplicações e dados nas suas VMs. Uma zona de disponibilidade é uma zona fisicamente separada dentro de uma região do Azure. Existem três zonas de disponibilidade por região do Azure suportada. Cada zona de disponibilidade tem um distintos origem, rede e arrefecimento de energia e são logicamente separados de outros zonas de disponibilidade na região do Azure. Por arquitetar as suas soluções para utilizar VMs replicadas em zonas, pode proteger as aplicações e dados da perda de um centro de dados. Se uma zona for comprometida, em seguida, replicadas aplicações e dados estão disponíveis de imediato noutra zona. 
+[Zonas de disponibilidade](../articles/availability-zones/az-overview.md) (pré-visualização), uma alternativa à disponibilidade define, expanda o nível de controlo tem de manter a disponibilidade das aplicações e dados nas suas VMs. Uma Zona de Disponibilidade é uma zona separada fisicamente numa região do Azure. Existem três zonas de disponibilidade por região do Azure suportada. Cada zona de disponibilidade tem um distintos origem, rede e arrefecimento de energia e são logicamente separados de outros zonas de disponibilidade na região do Azure. Por arquitetar as suas soluções para utilizar VMs replicadas em zonas, pode proteger as aplicações e dados da perda de um centro de dados. Se uma zona for comprometida, em seguida, replicadas aplicações e dados estão disponíveis de imediato noutra zona. 
 
 ![Zonas de disponibilidade](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
@@ -98,6 +98,6 @@ Para as VMs que utilizam os [Managed Disks do Azure](../articles/virtual-machine
 
 Saiba mais sobre a implementação de um [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) ou [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM com uma zona de disponibilidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode agora começar a utilizar estas funcionalidades de redundância e disponibilidade para criar o seu ambiente do Azure. Para informações relativas a melhores práticas, veja [Melhores Práticas de Disponibilidade do Azure](../articles/best-practices-availability-checklist.md).
 

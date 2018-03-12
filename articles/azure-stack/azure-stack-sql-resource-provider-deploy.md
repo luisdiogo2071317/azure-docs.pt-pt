@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 805e39dfdee3a23d4ddc196085be59788cee912a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados do SQL Server na pilha do Microsoft Azure
 
@@ -175,14 +175,17 @@ Pode especificar estes parâmetros na linha de comandos. Se não o fizer, ou se 
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Atualizar o adaptador de fornecedor de recursos do SQL Server (com vários nós apenas, compilações 1710 e posteriores)
-Um novo adaptador do fornecedor de recursos do SQL Server pode ser libertado ao compilações de pilha do Azure são atualizadas. Enquanto o adaptador existente continuarão a funcionar, recomendamos que a atualização para a compilação mais recente logo que possível. Atualizações tem de ser instaladas por ordem: não é possível ignorar versões (consulte a tabela acima).
+Um novo adaptador do fornecedor de recursos do SQL Server poderá ser lançado quando compilações de pilha do Azure são atualizadas. Enquanto o adaptador existente continua a funcionar, recomendamos que a atualização para a compilação mais recente logo que possível. Atualizações tem de ser instaladas por ordem: não é possível ignorar versões (consulte a tabela no passo 3 do [implementar o fornecedor de recursos](#deploy-the-resource-provider)).
 
-O processo de atualização é semelhante ao processo de instalação descrita anteriormente. Criar uma nova VM com o código mais recente do fornecedor de recursos. Além disso, migrar as definições para esta nova instância, incluindo a base de dados e as informações do servidor de alojamento. Também migrar o registo DNS necessário.
+Para atualizar do fornecedor de recursos que utiliza o *UpdateSQLProvider.ps1* script. O processo é semelhante ao processo utilizado para instalar um fornecedor de recursos, conforme descrito no [implementar o fornecedor de recursos](#deploy-the-resource-provider) secção deste artigo. O script está incluído com a transferência do fornecedor de recursos.
 
-Utilize o script de UpdateSQLProvider.ps1 com os mesmos argumentos que estamos descritos anteriormente. Também tem de fornecer o certificado aqui.
+O *UpdateSQLProvider.ps1* script cria uma nova VM com o código mais recente do fornecedor de recursos e migra as definições da VM antiga para a nova VM. As definições de migração incluem a base de dados e as informações do servidor de alojamento e o necessário registo DNS.
+
+O script requer a utilização dos mesmos argumentos que são descritos para o script de DeploySqlProvider.ps1. Forneça o certificado aqui, bem como. 
 
 Recomendamos que transfira a imagem do Windows Server 2016 Core mais recente da gestão do Marketplace. Se precisar de instalar uma atualização, é possível colocar um único. Pacote MSU no caminho local da dependência. Se mais do que um. Ficheiro MSU for encontrado, o script irá falhar.
 
+Segue-se um exemplo do *UpdateSQLProvider.ps1* script que pode executar a partir da linha de comandos do PowerShell. É necessário alterar as palavras-passe conforme necessário e informações da conta: 
 
 > [!NOTE]
 > O processo de atualização aplica-se apenas a sistemas integrados.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configurar endereços IP privados para uma máquina virtual com o PowerShell
 
@@ -32,7 +32,7 @@ O Azure tem dois modelos de implementação: a implementação do Azure Resource
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-O exemplo do PowerShell comandos abaixo esperam num ambiente simple já criado com base no cenário acima. Se pretender executar os comandos, como são apresentados neste documento, criar primeiro o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-arm-ps.md).
+O exemplo do PowerShell comandos abaixo esperam num ambiente simple já criado com base no cenário acima. Se pretender executar os comandos, como são apresentados neste documento, criar primeiro o ambiente de teste descrito em [criar uma rede virtual](quick-create-powershell.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Criar uma VM com um endereço IP privado estático
 Para criar uma VM chamada *DNS01* no *front-end* sub-rede de uma VNet com o nome *TestVNet* com um IP privado estático de *192.168.1.101*, siga os passos abaixo:
@@ -221,7 +221,7 @@ Se não souber o nome de NIC, pode ver uma lista de NICs dentro de um grupo de r
 Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [reservado de IP público](virtual-networks-reserved-public-ip.md) endereços.
 * Saiba mais sobre [instância ao nível do IP público (ILPIP)](virtual-networks-instance-level-public-ip.md) endereços.
 * Consulte o [reservado APIs REST do IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).

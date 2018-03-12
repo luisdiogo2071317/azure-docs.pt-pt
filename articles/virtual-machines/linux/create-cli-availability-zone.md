@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual Linux uma zona de disponibilidade com a CLI do Azure
 
@@ -28,7 +28,7 @@ Passos neste artigo, através de utilizar a CLI do Azure para criar uma VM com L
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/#az_login).
+Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/reference-index#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>Verificar a disponibilidade de SKU de VM
@@ -73,15 +73,15 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser v
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Criar uma máquina virtual com o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
+Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az_vm_create). 
 
-Ao criar uma máquina virtual, várias opções estão disponíveis, tais como a imagem do sistema operativo, as credenciais administrativas e dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com um nome de *myVM* Ubuntu Server a executar. A VM é criada na zona de disponibilidade *1*. Por predefinição, a VM é criada no *Standard_DS1_v2* tamanho. Este tamanho é suportado a pré-visualização de zonas de disponibilidade.
+Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. A VM é criada na zona de disponibilidade *1*. Por predefinição, a VM é criada no *Standard_DS1_v2* tamanho. Este tamanho é suportado a pré-visualização de zonas de disponibilidade.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-Pode demorar alguns minutos para criar a VM. Quando tiver sido criada a VM, a CLI do Azure produz informações sobre a VM. Tome nota do `zones` valor que indica a zona de disponibilidade no qual a VM está em execução. 
+A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a CLI do Azure produz informações sobre a VM. Tome nota do `zones` valor que indica a zona de disponibilidade no qual a VM está em execução. 
 
 ```azurecli-interactive 
 {
@@ -148,7 +148,7 @@ O resultado mostra que o endereço IP está na mesma zona de disponibilidade da 
 }
 ```
 
-Da mesma forma, certifique-se de que o disco gerido a VM está na zona de disponibilidade. Utilize o [mostrar de vm az](/cli/azure/vm#az_vm_show) comando para devolver o id de disco. Neste exemplo, o id de disco é armazenado numa variável que é utilizada num passo posterior. 
+Da mesma forma, certifique-se de que o disco gerido a VM está na zona de disponibilidade. Utilize o comando [az vm show](/cli/azure/vm#az_vm_show) para obter o id do disco. Neste exemplo, o id de disco é armazenado numa variável que é utilizada num passo posterior. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

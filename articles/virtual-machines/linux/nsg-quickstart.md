@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 91908b03522788d470fdb93121f620bfcdef9085
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f02e9d7c794217824bb2b0fa965d1d581ec94003
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e os pontos finais para uma VM com Linux com a CLI do Azure
 Abrir uma porta ou criar um ponto final, para uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou interface de rede VM. Colocar estes filtros que controlam o tráfego de entrada e saído, num grupo de segurança de rede ligado para o recurso que recebe o tráfego. Vamos utilizar um exemplo comum de tráfego da web na porta 80. Este artigo mostra como abrir uma porta para uma VM com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](nsg-quickstart-nodejs.md).
 
-Para criar um grupo de segurança de rede e regras que tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login).
+Para criar um grupo de segurança de rede e regras que tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup*, *myNetworkSecurityGroup*, e *myVnet*.
 

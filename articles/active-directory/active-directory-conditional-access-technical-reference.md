@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -136,12 +136,19 @@ Esta definição funciona com todos os browsers. No entanto, para uma política 
 | macOS                  | Chrome, Safari                      | ![Marcar][1] |
 
 
-> [!NOTE]
-> Para obter suporte do Chrome no Windows 10 criadores Update (versão 1703) ou posterior, instale [esta extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
-> Para obter suporte do Chrome no Windows 8.1 e 7, crie a seguinte chave de registo no **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
-> Nome: 1<br>
-> Type: REG_SZ (String)<br>
-> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
+
+#### <a name="chrome-support"></a>Suporte do Chrome
+
+Para Chrome suporte no **criadores de 10 do Windows Update (versão 1703)** ou posterior, instale [esta extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Para Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
+
+|    |    |
+|--- | ---|
+|Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Nome | 1 |
+|Tipo | REG_SZ (String) |
+|Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Estes browsers suportam a autenticação do dispositivo, permitindo ao dispositivo ser identificado e validado com uma política. A verificação de dispositivo falha se o browser está em execução no modo privado. 
 
@@ -186,6 +193,10 @@ Na sua política de acesso condicional, pode exigir que um acesso tentar as apli
 Esta definição aplica-se para as seguintes aplicações de cliente:
 
 
+- Browser gerido do Microsoft Intune
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

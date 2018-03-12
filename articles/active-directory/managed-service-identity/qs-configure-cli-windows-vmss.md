@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: a64733b1969e2deae665f7a5f24a6653b216d94d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Configurar uma máquina virtual gerida serviço de identidade (MSI) utilizando a CLI do Azure do conjunto de dimensionamento
 
@@ -43,7 +43,7 @@ Para executar os exemplos de script do CLI, tem três opções:
 
 Para criar um dimensionamento da máquina virtual ativado por MSI definir:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar o conjunto de dimensionamento de máquina virtual:
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/reference-index#az_login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar o conjunto de dimensionamento de máquina virtual:
 
    ```azurecli-interactive
    az login
@@ -65,7 +65,7 @@ Para criar um dimensionamento da máquina virtual ativado por MSI definir:
 
 Se precisar de ativar o MSI num conjunto de dimensionamento de máquina virtual do Azure existente:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/reference-index#az_login). Utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
 
    ```azurecli-interactive
    az login
@@ -81,7 +81,7 @@ Se precisar de ativar o MSI num conjunto de dimensionamento de máquina virtual 
 
 Se tiver um conjunto de dimensionamento de máquina virtual que já não necessita de um MSI:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/reference-index#az_login). Utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
 
    ```azurecli-interactive
    az login

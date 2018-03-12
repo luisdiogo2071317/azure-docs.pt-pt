@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes no App Service do Azure de teste
 <a name="Overview"></a>
 
-Ao implementar a aplicação web, a aplicação web no Linux, back-end móvel e aplicação de API para [do serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714), pode implementar para uma ranhura de implementação separadas em vez da ranhura de produção predefinido ao executar o **padrão** ou **Premium** modo de plano de serviço de aplicações. As ranhuras de implementação são aplicações realmente em direto com os seus próprios nomes de anfitrião. Elementos de conteúdo e as configurações de aplicação podem ser trocados entre duas ranhuras de implementação, incluindo a ranhura de produção. Implementar a aplicação para uma ranhura de implementação tem as seguintes vantagens:
+Ao implementar a aplicação web, a aplicação web no Linux, back-end móvel e aplicação de API para [do serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714), pode implementar para uma ranhura de implementação separadas em vez da ranhura de produção predefinido ao executar o **padrão** ou **Premium** escalão do plano de serviço de aplicações. As ranhuras de implementação são aplicações realmente em direto com os seus próprios nomes de anfitrião. Elementos de conteúdo e as configurações de aplicação podem ser trocados entre duas ranhuras de implementação, incluindo a ranhura de produção. Implementar a aplicação para uma ranhura de implementação tem as seguintes vantagens:
 
 * Pode validar alterações de aplicações numa ranhura de implementação de teste antes de troca-lo com a ranhura de produção.
 * Implementar uma aplicação para uma ranhura pela primeira vez e trocar-o em produção assegura que todas as instâncias da ranhura são preparadas antes de a ser alternados em produção. Isto elimina o período de indisponibilidade quando implementar a sua aplicação. O redirecionamento de tráfego é totalmente integrado e não existem pedidos são ignorados devido a operações de comutação. Este fluxo de trabalho completo pode ser automatizado configurando [automática comutação](#Auto-Swap) quando a validação de pré-troca de não é necessária.
 * Depois de uma troca a ranhura de aplicação previamente testada tem agora a aplicação de produção anterior. Se as alterações alternadas para a ranhura de produção não tem o aspeto esperado, pode efetuar a troca mesma imediatamente para obter o seu "último boa site conhecido" novamente.
 
-Cada modo de plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras suporta o modo da sua aplicação, consulte [preços do App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [preços do App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Quando a aplicação tiver várias ranhuras, não é possível alterar o modo.
+* Quando a aplicação tiver várias ranhuras, não é possível alterar a camada.
 * Dimensionamento não está disponível para ranhuras de não produção.
-* Gestão de recursos ligado não é suportada para as ranhuras de não produção. No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) apenas, pode evitar esta potencial impacto na ranhura de produção, movendo temporariamente a ranhura de produção não para um modo de plano de serviço de aplicações diferentes. Tenha em atenção antes de pode trocar entre os dois blocos, a ranhura de produção não novamente deve partilhar o mesmo modo com a ranhura de produção.
+* Gestão de recursos ligado não é suportada para as ranhuras de não produção. No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) apenas, pode evitar esta potencial impacto na ranhura de produção, movendo temporariamente a ranhura de produção não para um escalão do plano de serviço de aplicações diferentes. Tenha em atenção que a ranhura de produção não tem novamente partilha da mesma camada com a ranhura de produção antes de pode trocar entre os dois blocos.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Adicionar uma ranhura de implementação
-A aplicação deve estar em execução a **padrão** ou **Premium** modo por ordem para que possa ativar várias ranhuras de implementação.
+A aplicação deve estar em execução a **padrão** ou **Premium** camada por ordem para que possa ativar várias ranhuras de implementação.
 
 1. No [Portal do Azure](https://portal.azure.com/), abra a aplicação [painel de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Escolha o **ranhuras de implementação** opção, em seguida, clique em **adicionar ranhura**.
@@ -47,7 +47,7 @@ A aplicação deve estar em execução a **padrão** ou **Premium** modo por ord
     ![Adicionar uma nova ranhura de implementação][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Se a aplicação já está a não ser o **padrão** ou **Premium** modo, receberá uma mensagem a indicar os modos suportados para ativar a publicação de teste. Neste momento, tem a opção para selecionar **atualizar** e navegue para o **escala** separador da sua aplicação antes de continuar.
+   > Se a aplicação já está a não ser o **padrão** ou **Premium** camada, receberá uma mensagem a indicar os escalões suportados para ativar a publicação de teste. Neste momento, tem a opção para selecionar **atualizar** e navegue para o **escala** separador da sua aplicação antes de continuar.
    > 
    > 
 3. No **adicionar uma ranhura** painel, atribua a ranhura de um nome e optar por clonar a configuração de aplicação a partir de outro bloco de implementação existente. Clique na marca de verificação para continuar.

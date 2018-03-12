@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Utilizar a CLI do Azure no Windows
 
 A Interface de linha de comandos do Azure (CLI) fornece uma linha de comandos e o ambiente de script para criar e gerir recursos do Azure. A CLI do Azure está disponível para macOS, Linux e sistemas operativos Windows. Entre estes sistemas operativos, os comandos da CLI são idênticos, no entanto, a sintaxe de scripting específicos de sistema operativo pode ser diferente.
 
-Este documento fornece detalhes sobre as formas em que a CLI do Azure pode ser instalada e executada no Windows detalhes syntactical as considerações de e para cada. Para aprofundada CLI do Azure documentação, consulte [documentação da CLI do Azure]( https://docs.microsoft.com/cli/azure/overview).
+Este documento fornece detalhes sobre as formas em que a CLI do Azure pode ser instalada e executada no Windows detalhes syntactical as considerações de e para cada. Para aprofundada CLI do Azure documentação, consulte [documentação da CLI do Azure]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Subsistema Windows para Linux
 
@@ -35,7 +35,7 @@ Para utilizar a CLI do Azure no WSL, efetue o seguinte.
 
 |Tarefa | Instruções |
 |---|---|
-| Ativar WSL | [Instalar documentação WSL](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
+| Ativar WSL | [Instalar documentação WSL ](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Instalar a CLI do Azure |[Instalar a CLI no WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell
@@ -56,7 +56,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 Depois de concluído, um Bash será de início de sessão que é pré-carregado com as ferramentas da CLI do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 [Exemplo CLI para máquinas virtuais do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

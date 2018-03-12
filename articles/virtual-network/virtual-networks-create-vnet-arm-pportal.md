@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 898bdef779282d7312c76696f744b97ec2dfcded
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Criar uma rede virtual com várias sub-redes no portal do Azure
 
@@ -56,7 +56,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
      
 3. No **adicionar sub-rede** caixa que aparece, introduza *privada* para **nome**, introduza *10.0.1.0/24* para **deintervalodeendereços**e, em seguida, selecione **OK**.  Um intervalo de endereços de sub-rede não pode sobrepor-se com os intervalos de endereços de outras sub-redes dentro de uma rede virtual. 
 
-Antes de implementar redes virtuais do Azure e sub-redes para utilização em produção, recomendamos que lhe exaustivamente familiarizar-se com o espaço de endereços [considerações](virtual-network-manage-network.md#create-a-virtual-network) e [limites de rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Depois de recursos são implementados em sub-redes, algumas rede virtual e alterações de sub-rede, tal como alterar os intervalos de endereços, podem exigir a reimplementação de recursos do Azure existentes implementadas em sub-redes.
+Antes de implementar redes virtuais do Azure e sub-redes para utilização em produção, recomenda-se que lhe exaustivamente familiarizar-se com o espaço de endereços [considerações](manage-virtual-network.md#create-a-virtual-network) e [limites de rede virtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Depois de recursos são implementados em sub-redes, algumas rede virtual e alterações de sub-rede, tal como alterar os intervalos de endereços, podem exigir a reimplementação de recursos do Azure existentes implementadas em sub-redes.
 
 ## <a name="test-network-communication"></a>Comunicação de rede de teste
 

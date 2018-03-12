@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 44a02ac20a9e9e5fb7171d28e4852ab1a6e63881
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 87efa41ce74a0d571c8fd5f7a0ebfbd7bc6b626e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância geridos base de dados SQL do Azure
 
@@ -75,7 +75,7 @@ Mover instâncias do SQL Server, terá de planear cuidadosamente:
 
 Instância gerida é um serviço completamente gerido que lhe permite delegar algumas das atividades DBA regulares da plataforma, que estão incorporados no. Por conseguinte, alguns dados de nível de instância não tem de ser migradas, tais como tarefas de manutenção de cópias de segurança regulares ou sempre em configuração, como [elevada disponibilidade](sql-database-high-availability.md) está incorporada.
 
-Instância gerida suporta as seguintes várias opções de migração de base de dados:
+Instância gerida suporta as seguintes opções de migração de base de dados (atualmente estes são os métodos de migração suportados apenas):
 
 ### <a name="azure-database-migration-service"></a>Serviço de Migração de Bases de Dados do Azure
 

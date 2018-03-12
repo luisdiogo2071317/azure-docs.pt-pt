@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -31,6 +31,13 @@ Antes de vamos entrar na sua conta de base de dados do Azure Cosmos de monitoriz
 A imagem seguinte mostra os diferentes tipos de registos do Azure disponíveis.
 
 ![Diferentes tipos de registos do Azure](./media/logging/azurelogging.png)
+
+Na imagem acima, **recursos de computação** representam os recursos do Azure para o qual pode aceder ao sistema operativo convidado. Por exemplo, conjuntos de dimensionamento de Máquina Virtual de Virtual Machines do Azure, etc. do serviço de contentor do Azure são considerados como recursos de computação. Recursos geram registos de atividade, os registos de diagnóstico e os registos de aplicações de computação. Para obter mais informações, consulte o [monitorização do Azure – recursos de computação](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) artigo.
+
+**Recursos de computação não** recursos em que não é possível aceder ao sistema operativo subjacente e trabalhar diretamente com o recurso. Por exemplo, grupos de segurança, Logic Apps etc. **BD do cosmos** é um recurso de computação não. Pode ver os registos de recursos de computação não no registo de atividade ou ao ativar a opção de registos de diagnóstico no portal. Para obter mais informações, consulte o [monitorização do Azure – recursos de computação não](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) artigo.
+
+O registo de atividade regista as operações de um nível de subscrição para a base de dados do Cosmos, operações como ListKeys, escrever etc de DatabaseAccounts são registados. Os registos de diagnóstico fornecem registo mais granular e permite-lhe iniciar sessão DataPlaneRequests (criar, ler, consulta.. ) e MongoRequests.
+
 
 Para o nosso debate permite foco na atividade do Azure, Azure Diagnotic e métricas. Por isso, o que é a diferença entre estes três registos? 
 

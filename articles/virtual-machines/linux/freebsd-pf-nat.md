@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0bed776526e3e2f3ee4cdce596c591d0b8419030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Como utilizar o filtro de pacotes do FreeBSD para criar uma firewall segura no Azure
 Este artigo apresenta como implementar uma firewall NAT através Packer filtro do FreeBSD através do modelo Azure Resource Manager para o cenário comum de servidor web.
@@ -34,7 +34,7 @@ O modelo Azure Resource Manager configurar uma máquina virtual FreeBSD que efet
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Implementar através da CLI do Azure
-Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#az_login). Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um nome de grupo de recursos `myResourceGroup` no `West US` localização.
+Tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login). Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um nome de grupo de recursos `myResourceGroup` no `West US` localização.
 
 ```azurecli
 az group create --name myResourceGroup --location westus

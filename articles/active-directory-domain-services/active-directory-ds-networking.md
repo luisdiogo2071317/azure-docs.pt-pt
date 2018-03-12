@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações sobre o funcionamento em rede para serviços de domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma Azure virtual network
@@ -53,6 +53,7 @@ As seguintes diretrizes ajudam a selecionar uma rede virtual para utilizar com o
 * Não se aplicam os NSGs para a sub-rede dedicada para o seu domínio gerido. Se tem de aplicar NSGs para a sub-rede dedicada, certifique-se de **não bloquear as portas necessárias para o serviço e gerir o seu domínio**.
 * Restringe o número de endereços IP disponíveis na sub-rede dedicada para o seu domínio gerido excessivamente. Esta restrição impede que o serviço de disponibilizar dois controladores de domínio para o seu domínio gerido.
 * **Não ativar os serviços de domínio do Azure AD da sub-rede de gateway** da sua rede virtual.
+* Não bloqueiam o acesso de saída da sub-rede na qual o seu domínio gerido está ativado.
 
 > [!WARNING]
 > Quando associa um NSG com uma sub-rede na qual dos serviços de domínio do Azure AD é ativado, poderá interromper capacidade da Microsoft para o serviço e gerir o domínio. Além disso, a sincronização entre o seu inquilino do Azure AD e o seu domínio gerido é interrompida. **O SLA não é aplicável a implementações em que um NSG foi aplicado que blocos de serviços de domínio do Azure AD da atualização e gerir o seu domínio.**
@@ -89,6 +90,8 @@ As seguintes portas são necessárias para os serviços de domínio do Azure AD 
 * É utilizado para permitir um acesso LDAP seguro ao seu domínio gerido através da internet.
 * Abrir esta porta através do NSG é opcional. Abra a porta apenas se tiver acesso LDAP seguro através da internet ativada.
 * Pode restringir o acesso de entrada para esta porta para os endereços IP de origem do qual pretende ligar através de LDAP seguro.
+
+**Acesso de saída** serviços de domínio do AAD têm acesso de saída para vários outros serviços do Azure para gerir, a cópia de segurança e a monitorizar o seu domínio gerido. Não bloqueiam o acesso de saída da sub-rede dedicado em que o seu domínio gerido está ativado.
 
 
 ## <a name="network-security-groups"></a>Grupos de Segurança de Rede

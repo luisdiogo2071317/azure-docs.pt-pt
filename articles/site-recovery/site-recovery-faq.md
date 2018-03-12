@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo inclui perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique-los no [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -55,14 +55,14 @@ Se pretender replicar para um datacenter secundário, em seguida, VMs de Hyper-V
 Sim. Pode optar por replicar as VMs nos servidores de Hyper-V na nuvem VMM para o Azure ou pode replicar entre nuvens do VMM no mesmo servidor. Para no local para replicação no local, recomendamos que tem um servidor do VMM em sites primários e secundários.  
 
 ### <a name="what-physical-servers-can-i-protect"></a>Que servidores físicos posso proteger?
-Pode replicar servidores físicos a executar o Windows e Linux para o Azure ou para um site secundário. [Saiba mais sobre](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) requisitos do sistema operativo.  Os mesmos requisitos se aplica se está a replicar servidores físicos para o Azure ou para um site secundário.
+Pode replicar servidores físicos a executar o Windows e Linux para o Azure ou para um site secundário. Saiba mais sobre os requisitos para [replicação para o Azure](vmware-physical-azure-support-matrix.md#replicated-machines), e [replicação para um site secundário](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 Tenha em atenção que servidores físicos executarão como VMs no Azure se o servidor no local ficar inativo. Reativação pós-falha para um servidor físico no local não é atualmente suportada. Para uma máquina protegida como físico, pode apenas a reativação pós-falha para uma máquina virtual VMware.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>Quais as VMs VMware que posso proteger?
 
-Para proteger as VMs VMware precisará de um hipervisor vSphere e de máquinas virtuais que executem ferramentas do VMware. Recomendamos também que tenha um servidor VMware vCenter para gerir os hipervisores. [Saiba mais](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) sobre os requisitos exatos para replicar servidores VMware e VMs para o Azure ou para um site secundário.
+Para proteger as VMs VMware precisará de um hipervisor vSphere e de máquinas virtuais que executem ferramentas do VMware. Recomendamos também que tenha um servidor VMware vCenter para gerir os hipervisores. Saiba mais sobre os requisitos para [replicação para o Azure](vmware-physical-azure-support-matrix.md#replicated-machines), ou [replicação para um site secundário](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Posso gerir a recuperação após desastre para as minhas sucursais com a Recuperação de Sites?
@@ -93,7 +93,7 @@ O Azure Site Recovery replica os dados para uma conta de armazenamento do Azure,
 Sim, ExpressRoute pode ser utilizado para replicar máquinas virtuais no Azure. O Azure Site Recovery replica os dados para uma conta de armazenamento do Azure através de um ponto final público. Terá de configurar [peering público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) para utilizar o ExpressRoute para replicação de recuperação de sites. Depois das máquinas virtuais ter sido a ativação pós-falha para uma rede virtual do Azure possa aceder aos mesmos utilizando o [peering privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) configuração com a rede virtual do Azure.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Existem pré-requisitos para replicar máquinas virtuais para o Azure?
-Máquinas virtuais que pretende replicar para o Azure devem estar em conformidade com [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+[VMs de VMware](vmware-physical-azure-support-matrix.md#replicated-machines) e [VMs de Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) que pretende replicar para o Azure deve estar em conformidade com os requisitos do Azure.
 
 A conta de utilizador do Azure tem de ter determinados [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) para ativar a replicação de uma nova máquina virtual para o Azure.
 

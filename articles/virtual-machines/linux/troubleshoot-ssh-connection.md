@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de uma VM com Linux do Azure que falhe, erros de saída, ou é recusada ligações SSH
 Existem várias razões se encontrar erros de Secure Shell (SSH), falhas de ligação de SSH, ou SSH é recusou-se ao tentar ligar a uma máquina virtual (VM) do Linux. Este artigo ajuda-o a localizar e corrigir os problemas. Pode utilizar o portal do Azure, CLI do Azure ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -70,7 +70,7 @@ Para repor as credenciais de um utilizador existente, selecione `Reset SSH publi
 Também pode criar um utilizador com privilégios sudo na VM este menu. Introduza um novo nome de utilizador e palavra-passe associada ou chave SSH e, em seguida, clique em de **repor** botão.
 
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
-Se ainda não o fez, instale a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login).
+Se ainda não o fez, instale a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login).
 
 Se criar e carregar uma imagem de disco do Linux personalizada, certifique-se a [agente Linux do Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versão 2.0.5 ou posterior está instalado. Para VMs criadas com imagens Gallery, esta extensão de acesso já está instalado e configurado por si.
 

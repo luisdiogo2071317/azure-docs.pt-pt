@@ -40,6 +40,9 @@
 ### [Gestão de dispositivos com a extensão do IoT do Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Monitorização remota e notificações com Aplicações Lógicas](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
+## Utilizar o MXChip IoT DevKit
+### [Traduzir a mensagem de voz com Serviços Cognitivos do Azure](iot-hub-arduino-iot-devkit-az3166-translator.md)
+
 # Guias de procedimentos
 ## Planear
 ### [Comparar o Hub IoT e os Hubs de Eventos](iot-hub-compare-event-hubs.md)
