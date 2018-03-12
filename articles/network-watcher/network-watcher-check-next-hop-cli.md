@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 873bd0f8c98cfa67c77841df8aa53eb2b895cd54
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Saber que o tipo de próximo salto está a utilizar a capacidade de próximo salto na observador de rede do Azure a utilizar o Azure CLI 2.0
 
@@ -50,7 +50,7 @@ O cenário abordado neste artigo utiliza o salto seguinte, uma funcionalidade do
 
 Para obter o salto seguinte chamamos a `az network watcher show-next-hop` cmdlet. O cmdlet podemos transmitir o grupo de recursos do observador de rede, NetworkWatcher, a máquina virtual Id, endereço IP de origem e endereço IP de destino. Neste exemplo, endereço IP de destino é uma VM na outra rede virtual. Não há um gateway de rede virtual entre as duas redes virtuais.
 
-Se ainda não ainda, instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login). Em seguida, execute o seguinte comando:
+Se ainda não ainda, instalar e configurar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login). Em seguida, execute o seguinte comando:
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>
@@ -82,7 +82,7 @@ A lista seguinte mostra os valores de NextHopType atualmente disponíveis:
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* Nenhuma
+* Nenhum
 
 ## <a name="next-steps"></a>Passos Seguintes
 

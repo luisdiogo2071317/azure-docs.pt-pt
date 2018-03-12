@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="password-writeback-overview"></a>Descrição geral de repetição de escrita de palavras-passe
 
@@ -31,6 +31,7 @@ Repetição de escrita de palavras-passe fornece as seguintes funcionalidades:
 * **Fornece comentários zero atraso**: repetição de escrita de palavras-passe é uma operação síncrona. Os utilizadores são notificados imediatamente se a palavra-passe não cumpria a política ou não foi possível ser repor ou alterada por qualquer motivo.
 * **Reposições de palavra-passe de suporta para os utilizadores que utilizam serviços de Federação do Active Directory (AD FS) ou outras tecnologias de Federação**: com repetição de escrita de palavras-passe, desde que as contas de utilizador federado que são sincronizadas no seu inquilino do Azure AD, são capazes de gerir as respetivas palavras-passe no local do Active Directory na nuvem.
 * **Reposições de palavra-passe de suporta para os utilizadores que utilizam** [sincronização de hash de palavra-passe](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): quando o serviço de reposição de palavra-passe Deteta se uma conta de utilizador sincronizadas está ativada para sincronização de hash de palavra-passe, repomos no local ambas desta conta e palavra-passe da nuvem em simultâneo.
+* **Reposições de palavra-passe de suporta para os utilizadores que utilizam a autenticação pass-through**: com repetição de escrita de palavras-passe, desde que as contas de autenticação pass-through são sincronizadas para o inquilino do Azure AD, são capazes de gerir o seu Active Directory no local Diretório palavras-passe da nuvem.
 * **Alterações de palavra-passe de suporta do painel de acesso e do Office 365**: quando federado ou utilizadores de palavra-passe sincronizada são fornecidos para alterar as expirado ou não expirou palavras-passe, podemos repetição de escrita dessas palavras-passe para o seu ambiente do Active Directory local.
 * **Suporta a repetição de escrita de palavras-passe quando um administrador repõe-los a partir do portal do Azure**: sempre que um administrador repõe a palavra-passe de um utilizador no [portal do Azure](https://portal.azure.com), se estiver federado que o utilizador ou palavra-passe sincronizado, iremos definir a palavra-passe Seleciona o administrador do Active Directory local, bem como. Esta funcionalidade não é atualmente suportada no portal de administração do Office.
 * **Impõe as políticas de palavra-passe do Active Directory no local**: quando um utilizador repõe a palavra-passe, mas certifique-se de que cumpre a política do Active Directory no local antes que o consolidar a esse diretório. Esta revisão inclui a verificação do histórico, complexidade, idade, filtros de palavra-passe e outras restrições de palavra-passe que definiu no local Active Directory.
@@ -98,8 +99,8 @@ A conta especificada no utilitário do Azure AD Connect tem os seguintes itens d
 
 * **Repor palavra-passe** 
 * **Alterar palavra-passe** 
-* **Permissões de escrita** no`lockoutTime`  
-* **Permissões de escrita** no`pwdLastSet`
+* **Permissões de escrita** no `lockoutTime`  
+* **Permissões de escrita** no `pwdLastSet`
 * **Expandido direitos** no:
    * O objeto de raiz do *cada domínio* nessa floresta
    * As unidades organizacionais (UOs) de utilizador que pretende ser no âmbito da sspr

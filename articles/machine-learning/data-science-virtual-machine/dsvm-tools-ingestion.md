@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de ciência dados
 
@@ -35,7 +35,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Windows      |
 | Utilizações comuns      | Importar vários blobs storage do Azure para o Azure Data Lake Store.      |
 |  Como utilizar / executá-lo?    |   Abra uma linha de comandos, em seguida, escreva `adlcopy` para obter ajuda.    |
-| Ligações para amostras      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Ligações para amostras      | [Utilizar o AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Ferramentas relacionadas no DSVM      | AzCopy, linha de comandos do Azure     |
 
 ## <a name="azure-command-line"></a>Linha de comandos do Azure
@@ -46,7 +46,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Windows, Linux     |
 | Utilizações comuns      | Importar, exportar dados para e do armazenamento do Azure, o Azure Data Lake Store      |
 |  Como utilizar / executá-lo?    |   Abra uma linha de comandos, em seguida, escreva `az` para obter ajuda.    |
-| Ligações para amostras      | [Utilizar a CLI do Azure](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Ligações para amostras      | [Utilizar a CLI do Azure](https://docs.microsoft.com/cli/azure)     |
 | Ferramentas relacionadas no DSVM      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Linux      |
 | Utilizações comuns      | Leitura e escrita de blobs num contentor      |
 |  Como utilizar / executá-lo?    |   Executar _blobfuse_ num terminal.    |
-| Ligações para amostras      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Ligações para amostras      | [blobfuse no GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Ferramentas relacionadas no DSVM      | Linha de comandos do Azure      |
 
 

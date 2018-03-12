@@ -1,6 +1,6 @@
 ---
 title: "Guia de operadores de TI do Azure de introdução | Microsoft Docs"
-description: "Introdução ao guia de introdução para operadores de TI do Azure"
+description: "Guia de introdução para operadores de TI do Azure"
 services: 
 documentationcenter: 
 author: neilpeterson
@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à informática em nuvem e o Microsoft Azure
 
@@ -491,19 +491,19 @@ Existem várias opções para implementar uma rede virtual.
 
 **Portal**
 
-A implementação de uma rede virtual do Azure utilizando o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um web browser. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual a partir do portal, pode selecionar uma rede virtual existente ou crie um novo. Para obter mais informações, consulte [criar uma rede virtual com o portal do Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+A implementação de uma rede virtual do Azure utilizando o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um web browser. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual a partir do portal, pode selecionar uma rede virtual existente ou crie um novo. Para obter mais informações, consulte [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 Para além de implementar uma Azure virtual network do portal do Azure, pode implementar um modelo Azure Resource Manager no portal. Isto irá implementar e configurar todos os recursos, tal como definido no modelo, incluindo quaisquer recursos de rede virtual. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Implementar uma rede virtual do Azure utilizando o PowerShell permite a automatização da implementação concluída da conta de armazenamento. Para obter mais informações, consulte [criar uma rede virtual com o PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Implementar uma rede virtual do Azure utilizando o PowerShell permite a automatização da implementação concluída da conta de armazenamento. Para obter mais informações, consulte [criar uma rede virtual com o PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Para além de implementar recursos do Azure individualmente, pode utilizar o módulo Azure PowerShell para implementar um modelo Azure Resource Manager. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Interface de linha de comandos (CLI)**
 
-Tal como acontece com o módulo do PowerShell, a interface de linha de comandos do Azure fornece a automatização da implementação e pode ser utilizada em sistemas Windows, OS X ou Linux. Pode utilizar a CLI do Azure **criar rede vnet** comando para criar uma rede virtual. Para obter mais informações, consulte [criar uma rede virtual, utilizando a CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+Tal como acontece com o módulo do PowerShell, a interface de linha de comandos do Azure fornece a automatização da implementação e pode ser utilizada em sistemas Windows, OS X ou Linux. Pode utilizar a CLI do Azure **criar rede vnet** comando para criar uma rede virtual. Para obter mais informações, consulte [criar uma rede virtual, utilizando a CLI do Azure](../../virtual-network/quick-create-cli.md).
 
 Da mesma forma, pode utilizar a CLI do Azure para implementar um modelo Azure Resource Manager. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 
@@ -511,7 +511,7 @@ Da mesma forma, pode utilizar a CLI do Azure para implementar um modelo Azure Re
 
 Pode ajudar a proteger redes virtuais do Azure através da utilização de um grupo de segurança de rede. Os NSGs contêm uma lista de lista (ACL) de regras de controlo de acesso que permitem ou negam o tráfego de rede para as instâncias de VM numa rede virtual. Pode associar NSGs a sub-redes ou instâncias de VM individuais dentro dessa sub-rede. Quando associa um NSG uma sub-rede, as regras da ACL são aplicadas a todas as instâncias VM nessa sub-rede. Além disso, pode restringir mais o tráfego para uma VM individual ao associar um NSG diretamente com essa VM. Para obter mais informações, consulte [filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma VM do Windows](/virtual-machines/windows/quick-create-portal.md)
 - [Criar uma VM com Linux](../../virtual-machines/linux/quick-create-portal.md)

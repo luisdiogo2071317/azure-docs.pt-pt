@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ligar redes virtuais a partir de modelos de implementação diferentes, utilizando o portal
 
@@ -149,7 +149,7 @@ Nesta secção, vai criar o gateway de rede virtual e o gateway de rede local pa
 * Intervalo de endereços = 192.168.1.0/24 <br>
 
 
-Se não tiver uma VNet do Resource Manager e está a executar estes passos como um exercício, pode criar uma VNet utilizando [neste artigo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) e os valores de exemplo.
+Se não tiver uma VNet do Resource Manager e está a executar estes passos como um exercício, crie uma rede virtual com os passos em [criar uma rede virtual](../virtual-network/quick-create-portal.md), utilizando os valores de exemplo.
 
 ### <a name="2-create-a-gateway-subnet"></a>2. Criar uma sub-rede do gateway
 

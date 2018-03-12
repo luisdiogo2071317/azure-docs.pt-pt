@@ -3,15 +3,16 @@ title: "Matriz de suporte para replicação de Hyper-V do Azure | Microsoft Docs
 description: "Resume os requisitos de replicação de Hyper-V para o Azure com o Azure Site Recovery e componentes suportados"
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 58d54c1e0e6aa88878b45400b9211396f5d1b9d5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V para o Azure
 
@@ -29,7 +30,7 @@ Este artigo resume os componentes suportados e as definições de recuperação 
 
 ## <a name="on-premises-servers"></a>Servidores no local
 
-**Servidor** | Requisitos | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 **Hyper-V (em execução sem VMM)** | Windows Server 2016, Windows Server 2012 R2 com as atualizações mais recentes. | Quando configurar um site de Hyper-V no Site Recovery, mistura de anfitriões que executam o Windows Server 2016 e 2012 R2 não é suportada.<br/><br/> Para VMs localizadas num anfitrião com o Windows Server 2016, não é suportada a recuperação para uma localização alternativa.
 **Hyper-V (em execução com o VMM)** | O VMM 2016, O VMM 2012 R2 | Se for utilizado o VMM, os anfitriões do Windows Server 2016 deverão ser geridas no VMM 2016.<br/><br/> Atualmente não é suportada uma nuvens do VMM mistura de anfitriões de Hyper-V em execução no Windows Server 2016 e 2012 R2.<br/><br/> Ambientes que incluem uma atualização de um servidor VMM 2012 R2 existente para 2016 não são suportadas.
@@ -139,9 +140,9 @@ Managed disks | Sim, para ativação pós-falha<br/><br/> Reativação pós-falh
 
 VMs no local que replicam para o Azure tem de cumprir os requisitos de VM do Azure resumidos nesta tabela.
 
-**Componente** | Requisitos | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operativo convidado | Recuperação de sites suporta todos os sistemas operativos que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Verificação de pré-requisitos irá falhar se não suportado.
+**Sistema operativo convidado** | Recuperação de sites suporta todos os sistemas operativos que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Verificação de pré-requisitos irá falhar se não suportado.
 **Arquitetura do sistema operativo convidado** | 64 bits | Verificação de pré-requisitos irá falhar se não suportado.
 **Tamanho do disco do sistema operativo** | 2048 GB para as VMs de geração 1.<br/><br/> 300 GB para as VMs de geração 2.  | Verificação de pré-requisitos irá falhar se não suportado.
 **Contagem de discos do sistema operativo** | 1 | Verificação de pré-requisitos irá falhar se não suportado.

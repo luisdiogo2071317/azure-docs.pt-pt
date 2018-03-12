@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: maheshu
-ms.openlocfilehash: cd730d2224babe0c44d4c1d90106d44994536d29
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6ed797ca25161919ccf5e69be0073a67bfcef6d6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurar a delegação restringida de Kerberos (KCD) um domínio gerido
 Muitas aplicações devem ter acesso a recursos no contexto do utilizador. Active Directory suporta um mecanismo de delegação de Kerberos, que permite que este caso de utilização de chamada. Além disso, pode restringir a delegação para que podem ser acedidos apenas os recursos específicos no contexto do utilizador. Domínios geridos de serviços de domínio do AD do Azure são diferentes das tradicionais domínios do Active Directory, uma vez que seja mais segura estejam bloqueados para baixo.
@@ -28,7 +28,7 @@ Este artigo mostra como configurar a delegação restringida de Kerberos num dom
 ## <a name="kerberos-constrained-delegation-kcd"></a>Delegação restringida de Kerberos (KCD)
 A delegação de Kerberos permite a uma conta para representar outro principal de segurança (por exemplo, um utilizador) para aceder a recursos. Considere uma aplicação web que acede a uma API de web de back-end no contexto de um utilizador. Neste exemplo, a aplicação web (em execução no contexto de uma conta de serviço ou uma conta de computador /) representa o utilizador tem quando aceder ao recurso (web API de back-end). A delegação de Kerberos é inseguras, uma vez que não restringe os recursos que pode aceder a impersonating conta no contexto do utilizador.
 
-delegação restringida de sKerberos (KCD) restringe os serviços/recursos a que o servidor especificado pode agir em nome de um utilizador. KCD tradicional requer privilégios de administrador de domínio para configurar uma conta de domínio para um serviço e restringe a conta para um único domínio.
+Delegação restringida de Kerberos (KCD) restringe os serviços/recursos a que o servidor especificado pode agir em nome de um utilizador. KCD tradicional requer privilégios de administrador de domínio para configurar uma conta de domínio para um serviço e restringe a conta para um único domínio.
 
 KCD tradicional também tem alguns problemas associados. Sistemas operativos anteriores, se o administrador de domínio configurada com base na conta KCD para o serviço, o administrador de serviços não teve nenhuma forma útil de saber que serviços front-end delegados aos serviços de recurso detinham. E qualquer serviço front-end que poderia delegar a um serviço de recursos representado um ponto de ataque potencial. Se um servidor que alojava um serviço front-end fosse comprometido e configurado para delegar a serviços de recursos, os serviços de recursos também podiam ser comprometidos.
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Ativar o gerador de perfis do Application Insights para as VMs do Azure, recursos de infraestrutura de serviço e serviços em nuvem do Azure
 
@@ -46,8 +46,7 @@ Para ativar completamente o gerador de perfis, tem de alterar a configuração e
 
    ![Localização da chave de instrumentação](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Para concluir a configuração da instância do Application Insights para o gerador de perfis, conclua o procedimento descrito [ativar o gerador de perfis](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Não precisa de associar as aplicações web, porque os passos são específicos para o recurso de serviços de aplicações. Certifique-se de que o gerador de perfis está ativado no **configurar o gerador de perfis** painel.
+3. Para concluir a configuração da instância do Application Insights para o gerador de perfis, conclua o procedimento descrito [ativar o gerador de perfis. Não precisa de associar as aplicações web, porque os passos são específicos para o recurso de serviços de aplicações. Certifique-se de que o gerador de perfis está ativado no **configurar o gerador de perfis** painel.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurar o código fonte da aplicação
@@ -157,6 +156,8 @@ Para configurar o seu ambiente, efetue o seguinte:
 
       Para obter informações sobre como adicionar a extensão de diagnóstico para o modelo de implementação, consulte [monitorização de utilização e diagnóstico com modelos de VM do Windows e o Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Para máquinas virtuais uma alternativa para os passos de json com base acima é navegue no portal do Azure para **máquinas virtuais** > **definições de diagnóstico**  >   **Sinks** > Set enviar dados de diagnóstico para o Application Insights para **ativado** e selecione uma conta do Application Insights ou um ikey específico.
 
 ### <a name="azure-cloud-services"></a>Cloud Services do Azure
 
@@ -196,7 +197,7 @@ Para configurar o seu ambiente, efetue o seguinte:
 
 1. Implemente a definição de implementação do ambiente modificadas.  
 
-   Para aplicar as alterações, normalmente envolve uma implementação completa do modelo ou dos serviços cloud publicar através de cmdlets do PowerShell ou o Visual Studio.  
+   Para aplicar as alterações, normalmente, envolve uma implementação de modelo completo ou uma nuvem serviços com base publicar através de cmdlets do PowerShell ou o Visual Studio.  
 
    Segue-se uma abordagem alternativa de máquinas virtuais existentes que tocar apenas a extensão de diagnóstico do Azure:  
 

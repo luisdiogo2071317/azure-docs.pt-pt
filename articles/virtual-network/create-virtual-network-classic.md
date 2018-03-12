@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Criar uma rede virtual (clássica) com várias sub-redes
 
 > [!IMPORTANT]
-> O Azure tem dois [modelos de implementação diferentes](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criar e trabalhar com recursos: Resource Manager e clássico. Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação a maioria das redes virtuais novo através do [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) modelo de implementação.
+> O Azure tem dois [modelos de implementação diferentes](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criar e trabalhar com recursos: Resource Manager e clássico. Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação a maioria das redes virtuais novo através do [Resource Manager](quick-create-portal.md) modelo de implementação.
 
 Neste tutorial, saiba como criar uma básica rede virtual do Azure (clássica) que tenha sub-redes separadas públicas e privadas. Pode criar recursos do Azure, como máquinas virtuais e serviços em nuvem numa sub-rede. Recursos criados no redes virtuais (clássico) podem comunicar entre si e com os recursos nas outras redes ligadas a uma rede virtual.
 
-Saiba mais sobre todos os [rede virtual](virtual-network-manage-network.md) e [sub-rede](virtual-network-manage-subnet.md) definições.
+Saiba mais sobre todos os [rede virtual](manage-virtual-network.md) e [sub-rede](virtual-network-manage-subnet.md) definições.
 
 > [!WARNING]
 > Redes virtuais (clássicas) são imediatamente eliminados pelo Azure quando um [a subscrição está desativada](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Redes virtuais (clássica) são eliminados independentemente se recursos existem na rede virtual. Se ativar mais tarde voltar a subscrição, tem de ser recriados recursos que existiam na rede virtual.
@@ -161,7 +161,7 @@ Pode criar uma rede virtual (clássica) utilizando o [portal do Azure](#portal),
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre todas as definições de sub-rede e de rede virtual, consulte [gerir redes virtuais](virtual-network-manage-network.md) e [gerir sub-redes da rede virtual](virtual-network-manage-subnet.md). Tem várias opções para utilizar redes virtuais e sub-redes num ambiente de produção para satisfazer requisitos diferentes.
+- Para saber mais sobre todas as definições de sub-rede e de rede virtual, consulte [gerir redes virtuais](manage-virtual-network.md) e [gerir sub-redes da rede virtual](virtual-network-manage-subnet.md). Tem várias opções para utilizar redes virtuais e sub-redes num ambiente de produção para satisfazer requisitos diferentes.
 - Para filtrar o tráfego de sub-rede de entrada e saída, criar e aplicar [grupos de segurança de rede](virtual-networks-nsg.md) a sub-redes.
 - Criar um [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual e, em seguida, ligue-o a uma rede virtual existente.
 - Para ligar duas redes virtuais na mesma localização do Azure, criar um [peering de rede virtual](create-peering-different-deployment-models.md) entre as redes virtuais. Pode elemento uma rede virtual (Resource Manager) a uma rede virtual (clássica), mas não é possível criar um peering entre duas redes virtuais (clássica).

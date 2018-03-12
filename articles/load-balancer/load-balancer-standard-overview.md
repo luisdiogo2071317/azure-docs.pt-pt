@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Descrição geral do padrão de Balanceador de carga do Azure (pré-visualização)
 
@@ -327,7 +327,7 @@ SKUs não são mutável. Siga os passos nesta secção para mover de um recurso 
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Padrão de Balanceador de carga está atualmente disponível em todas as regiões de nuvem pública.
+Padrão de Balanceador de carga está atualmente disponível em todas as regiões de nuvem pública, exceto EUA oeste.
 
 >[!IMPORTANT]
 > Para um curto período de tempo, aceda para regiões fora do lançamento inicial regiões (EUA Leste 2, EUA Central, Europa do Norte, Central EUA oeste, Europa Ocidental, Sudeste asiático) requer o registo das funcionalidades adicionais de subscrição (AllowLBPreviewWave2 e AllowLBPreviewWave3).  [Siga estes passos](#additionalpreviewregions). . Execute todos eles, mesmo se tiver cópias de segurança para AllowLBPreview já.
@@ -467,6 +467,7 @@ As seguintes limitações aplicam-se no momento da pré-visualização e estão 
 - [Alertas de monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são suportados neste momento.
 - Portal ainda não suporta as regiões de pré-visualização expandido.  Utilize ferramentas de cliente como modelos, 2.0 do Azure CLI ou PowerShell como uma solução.
 - Operações de subscrição de movimentação não são suportadas.
+- Não está disponível nos EUA oeste.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

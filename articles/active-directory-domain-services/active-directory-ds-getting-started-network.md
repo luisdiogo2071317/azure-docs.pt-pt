@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
@@ -49,7 +49,7 @@ A próxima tarefa de configuração é criar uma Azure virtual network e uma sub
   > [!WARNING]
   > Certifique-se de que escolhe um espaço de endereços que está dentro do espaço de endereços IP privados. Endereços IP que proprietários que estejam no espaço de endereços públicos causar erros nos serviços de domínio do Azure AD.
 
-5. **Rede virtual existente:** se planear escolher uma rede virtual existente, [criar uma sub-rede dedicada através da extensão de redes virtuais](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)e, em seguida, escolha dessa sub-rede. Clique em **rede Virtual** para selecionar a rede virtual existente. Clique em **sub-rede** para escolher a sub-rede dedicada na sua rede virtual existente, no qual pretende ativar o novo domínio gerido. Clique em **OK** quando tiver terminado.
+5. **Rede virtual existente:** se planear escolher uma rede virtual existente, [criar uma sub-rede dedicada através da extensão de redes virtuais](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)e, em seguida, escolha dessa sub-rede. Clique em **rede Virtual** para selecionar a rede virtual existente. Clique em **sub-rede** para escolher a sub-rede dedicada na sua rede virtual existente, no qual pretende ativar o novo domínio gerido. Clique em **OK** quando tiver terminado.
 
     ![Escolha a sub-rede na rede virtual](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

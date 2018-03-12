@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fbdce5c244d733a2978d473f01c8d875cbeaa65e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorizar alertas de cópias de segurança de máquinas virtuais do Azure
 Os alertas são as respostas do serviço do que um limiar de evento foi alcançado ou ultrapassado. Saber quando o início de problemas pode ser fundamental para manter os custos de negócio para baixo. Normalmente, não ocorrerem os alertas com base numa agenda e por isso, é útil logo que possível saber depois de ocorrerem os alertas. Por exemplo, quando uma tarefa de cópia de segurança ou restauro falhar, um alerta ocorre dentro de cinco minutos da falha. No dashboard do cofre, o mosaico alertas de cópia de segurança apresenta os eventos críticos e de nível de aviso. Nas definições de alertas de cópia de segurança, pode ver todos os eventos. Mas, o que pode fazer se um alerta ocorre quando estiver a trabalhar num problema separado? Se não souber quando o alerta acontece, pode ser uma inconveniência secundária ou comprometer dados. Para garantir que as pessoas corretas sabem de um alerta - quando ocorrer, configure o serviço para enviar notificações de alerta por e-mail. Para obter mais informações sobre como configurar notificações por e-mail, consulte [configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>Como posso encontrar informações sobre os alertas?
-Para ver informações sobre o evento que acionou um alerta, tem de abrir o painel Alertas de cópia de segurança. Existem duas formas para abrir o painel Alertas de cópia de segurança: os alertas de cópia de segurança a partir de mosaico no dashboard do cofre, ou a partir do painel de alertas e os eventos.
+Para ver informações sobre o evento que acionou um alerta, tem de abrir a secção alertas de cópia de segurança. Existem duas formas para abrir a secção alertas de cópia de segurança: os alertas de cópia de segurança a partir de mosaico no dashboard do cofre ou a partir da secção de eventos e alertas.
 
 Para abrir o painel Alertas de cópia de segurança a partir do mosaico alertas de cópia de segurança:
 
@@ -32,16 +32,16 @@ Para abrir o painel Alertas de cópia de segurança a partir do mosaico alertas 
 
     ![Mosaico alertas de cópias de segurança](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
-Para abrir o painel de alertas de cópia de segurança a partir do painel de alertas e eventos:
+Para abrir o painel Alertas de cópia de segurança da secção de eventos e alertas:
 
 1. No dashboard do cofre, clique em **todas as definições**. ![Botão de todas as definições](./media/backup-azure-monitor-vms/all-settings-button.png)
 2. No **definições** painel, clique em **eventos e alertas**. ![Botão de eventos e alertas](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
 3. No **eventos e alertas** painel, clique em **alertas de cópia de segurança**. ![Botão de alertas de cópia de segurança](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    O **alertas de cópia de segurança** painel abre e apresenta os alertas filtrados.
+    O **alertas de cópia de segurança** secção abre e apresenta os alertas filtrados.
 
     ![Mosaico alertas de cópias de segurança](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
-4. Para ver informações detalhadas sobre um alerta específico, da lista de eventos, clique no alerta para abrir o respetivo **detalhes** painel.
+4. Para ver informações detalhadas sobre um alerta específico, da lista de eventos, clique no alerta para abrir o respetivo **detalhes** secção.
 
     ![Detalhe do Evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
@@ -56,10 +56,10 @@ Para configurar notificações por e-mail para alertas
 
     ![Menu de alertas de cópia de segurança](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
 
-    É aberto o painel Configurar notificações.
+    Abre a secção de notificações de configuração.
 
     ![Configurar o painel de notificações](./media/backup-azure-monitor-vms/configure-notifications.png)
-2. No painel de notificações de configurar, para notificações por E-Mail, clique em **no**.
+2. Na secção de notificações de configuração, para notificações por E-Mail, clique em **no**.
 
     Os destinatários e a gravidade caixas de diálogo tem uma estrela junto-lhes porque essas informações são necessárias. Fornecer, pelo menos, um endereço de e-mail e selecione, pelo menos, uma gravidade.
 3. No **destinatários (E-Mail)** caixa de diálogo, escreva os endereços de e-mail para que receber as notificações. Utilize o formato: username@domainname.com. Separe vários endereços de e-mail com um ponto e vírgula (;).
@@ -71,7 +71,7 @@ Para configurar notificações por e-mail para alertas
    | Nível de alerta | Alertas enviados |
    | --- | --- |
    | Crítico | Falha de cópia de segurança, falha de recuperação |
-   | Aviso | para as tarefas de cópia de segurança efetuada com êxito com avisos (ex: alguns escritores falharam ao criar um instantâneo) |
+   | Aviso | para as tarefas de cópia de segurança efetuada com êxito com avisos (por exemplo: alguns escritores falharam ao criar um instantâneo) |
    | Informativo | Atualmente, não existem alertas informativos estão disponíveis para cópia de segurança de VM do Azure |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Existem situações em que um e-mail não é enviado, mesmo que as notificações estejam configuradas?
@@ -82,135 +82,53 @@ Existem situações em que não é enviado um alerta, apesar das notificações 
 * Uma tarefa de cópia de segurança é acionada e, em seguida, falha e está em curso outra tarefa de cópia de segurança.
 * Inicia uma tarefa de cópia de segurança agendada para uma VM preparados no Gestor de recursos, mas já não existe a VM.
 
-## <a name="customize-your-view-of-events"></a>Personalizar a sua vista de eventos
-O **registos de auditoria** definição inclui um conjunto predefinido de filtros e as colunas que mostra informações de eventos operacionais. Pode personalizar a vista, por isso, que, à **eventos** abre painel, mostra as informações que pretende.
+## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Utilizar registos de atividade para obter notificações para cópias de segurança com êxito
 
-1. No [dashboard do cofre](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), procure e clique em **registos de auditoria** para abrir o **eventos** painel.
+Se pretender ser notificado quando as cópias de segurança foram bem sucedidas, pode utilizar alertas criadas a [registos de atividade](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) do cofre.
 
-    ![Registos de Auditoria](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+### <a name="login-into-azure-portal"></a>Início de sessão no portal do Azure
+Início de sessão no portal do Azure e avance para o Cofre dos serviços de recuperação do Azure relevante e clique na secção "Registo de atividade" nas propriedades.
 
-    O **eventos** é aberto um painel para os eventos operacionais, filtrados apenas para o Cofre atual.
+### <a name="identify-appropriate-log"></a>Identificar o registo adequado
 
-    ![Filtro de auditoria de registos](./media/backup-azure-monitor-vms/audit-logs-filter.png)
+Aplica os filtros mostrados na imagem seguinte para verificar se estão a receber os registos de atividade para cópias de segurança com êxito. Altere o período de tempo em conformidade para ver registos.
 
-    O painel mostra a lista de crítico, erro, aviso e eventos informativos que ocorreram da semana passada. O intervalo de tempo é um valor predefinido definido **filtro**. O **eventos** painel também mostra um gráfico de barras quando ocorrerem os eventos de controlo. Se não pretender ver o gráfico de barras, no **eventos** menu, clique em **ocultar gráfico** para alternar fora do gráfico. A vista predefinida de eventos mostra informações de operação, o nível, o estado, o recurso e o tempo. Para obter informações sobre a exposição de atributos de eventos adicionais, consulte a secção [expandir as informações de evento](backup-azure-monitor-vms.md#view-additional-event-attributes).
-2. Para obter informações adicionais sobre um evento operacional, no **operação** coluna, clique num evento operacional para abrir o painel. O painel contém informações detalhadas sobre os eventos. Eventos são agrupados pelo respetivo ID de correlação e uma lista dos eventos que ocorreram no intervalo de tempo.
+![Registos de Atividade](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
-    ![Detalhes de operação](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
-3. Para ver informações detalhadas sobre um determinado evento, na lista de eventos, clique no evento para abrir o respetivo **detalhes** painel.
+Pode clicar o segmento de "JSON" para obter mais detalhes e visualizá-lo ao copiar-colá-lo no editor de texto. Se deve apresentar os detalhes do cofre e o item que acionou o registo de atividade ou seja, o item de cópia de segurança.
 
-    ![Detalhe do Evento](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+Em seguida, clique em "Adicionar o alerta de registo de atividade" para gerar alertas para todos os registos deste tipo.
 
-    As informações de nível do evento são como detalhadas como obtém as informações. Se preferir ver neste muito informações sobre cada evento e pretende adicionar este muito detalhes para a **eventos** painel, consulte a secção [expandir as informações de evento](backup-azure-monitor-vms.md#view-additional-event-attributes).
+### <a name="add-activity-log-alert"></a>Adicionar o alerta de registo de atividade
 
-## <a name="customize-the-event-filter"></a>Personalizar o filtro de eventos
-Utilize o **filtro** para ajustar ou escolher as informações que é apresentado um painel específico. Para filtrar as informações de evento:
+Ao clicar em "Adicionar alerta de registo de atividade" irá mostrar-lhe um ecrã conforme mostrado abaixo
 
-1. No [dashboard do cofre](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), procure e clique em **registos de auditoria** para abrir o **eventos** painel.
+![Alerta do registo de atividade](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
+    
+A subscrição e o grupo de recursos são utilizados para armazenar o alerta. Os critérios serão preenchidas previamente. Certifique-se de que todos os valores são relevantes para o requisito.
 
-    ![Registos de Auditoria](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+Para cópias de segurança com êxito, o nível está assinalado como estado como "Com êxito" e "Informativa".
 
-    O **eventos** é aberto um painel para os eventos operacionais, filtrados apenas para o Cofre atual.
+Se selecionar um "recurso" acima, o alerta será gerado quando os registos de atividade são registados para esse recurso ou o cofre. Se pretender que a regra ser aplicáveis a todos os cofres, deixe "recursos" para estar em branco.
 
-    ![Filtro de auditoria de registos](./media/backup-azure-monitor-vms/audit-logs-filter.png)
-2. No **eventos** menu, clique em **filtro** para abrir o mesmo.
+### <a name="define-action-on-alert-firing"></a>Definir ação no alerta acionadas
 
-    ![Abra o painel de filtro](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. No **filtro** painel, ajuste o **nível**, **intervalo de tempo**, e **chamador** filtros. Os outros filtros não estão disponíveis, uma vez que tenham sido definidos para fornecer as informações atuais para o Cofre dos serviços de recuperação.
+Utilize o "grupo de ação" para definir a ação depois de gerar um alerta. Pode clicar em "Tipo de ação" para saber mais sobre as ações disponíveis esse e-mail/SMS/integração com ITSM etc.
 
-    ![Detalhes de consulta de registos de auditoria](./media/backup-azure-monitor-vms/filter-blade.png)
+![Grupo de ação de registo de atividade](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-    Pode especificar o **nível** do evento: crítico, erro, aviso ou informativos. Pode escolher qualquer combinação dos níveis de eventos, mas tem de ter, pelo menos, um nível selecionado. Alternar o nível de ligado ou desligado. O **intervalo de tempo** filtro permite-lhe especificar o período de tempo para capturar eventos. Se utilizar um intervalo de tempo personalizado, pode definir as horas de início e de fim.
-4. Assim que estiver pronto para os registos de operações, utilizando o filtro de consulta, clique em **atualização**. Apresentam os resultados de **eventos** painel.
 
-    ![Detalhes de operação](./media/backup-azure-monitor-vms/edited-list-of-events.png)
-
-### <a name="view-additional-event-attributes"></a>Ver eventos adicionais atributos
-Utilizar o **colunas** botão, pode ativar atributos de evento adicional a aparecer na lista no **eventos** painel. A lista predefinida de eventos apresenta informações para a operação, o nível, o estado, o recurso e o tempo. Para ativar atributos adicionais:
-
-1. No **eventos** painel, clique em **colunas**.
-
-    ![Abra colunas](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
-
-    O **escolher colunas** abre o painel.
-
-    ![Painel de colunas](./media/backup-azure-monitor-vms/columns-blade.png)
-2. Para selecionar o atributo, clique na caixa de verificação. Activa/desactiva a caixa de verificação do atributo e desativar.
-3. Clique em **repor** para repor a lista de atributos no **eventos** painel. Após a adição ou remoção de atributos na lista, utilize **repor** para ver a nova lista de atributos de eventos.
-4. Clique em **atualizar** atualizar os dados de eventos de atributos. A tabela seguinte fornece informações sobre cada atributo.
-
-| Nome da coluna | Descrição |
-| --- | --- |
-| Operação |O nome da operação |
-| Nível |O nível da operação, os valores podem ser: informativo, erro, aviso ou crítico |
-| Estado |Estado descritivo da operação |
-| Recurso |URL que identifica o recurso; Também conhecido como o ID de recurso |
-| Hora |Tempo, medido desde a hora atual, quando o evento ocorreu |
-| Autor da chamada |Quem ou o que chamado ou acionado o evento; pode ser o sistema ou um utilizador |
-| Carimbo de data/hora |A hora quando o evento foi activado |
-| Grupo de Recursos |O grupo de recursos associados |
-| Tipo de Recurso |O tipo de recurso interno utilizado pelo Resource Manager |
-| ID da subscrição |O ID de subscrição associado. |
-| Categoria |Categoria do evento |
-| ID de Correlação |ID de comuns de eventos relacionados |
-
-## <a name="use-powershell-to-customize-alerts"></a>Utilizar o PowerShell para personalizar alertas
-Pode obter notificações de alerta personalizadas para as tarefas no portal. Para obter estas tarefas, defina regras de alerta baseada no PowerShell nos eventos de registos operacionais. Utilize *PowerShell versão 1.3.0 ou posterior*.
-
-Para definir uma notificação para o alertar para falhas de cópia de segurança, utilize um comando como o script seguinte:
-
-```
-PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.RecoveryServices/recoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/Microsoft.RecoveryServices/vaults/trinadhVault -Actions $actionEmail
-```
-
-**ResourceId** : pode obter ResourceId a partir de registos de auditoria. O ResourceId é um URL fornecido na coluna recurso dos registos de operações.
-
-**OperationName** : OperationName está no formato "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" onde *EventName* pode ser:<br/>
-
-* Registar <br/>
-* Anular o Registo <br/>
-* ConfigureProtection <br/>
-* Cópia de segurança <br/>
-* Restauro <br/>
-* StopProtection <br/>
-* DeleteBackupData <br/>
-* CreateProtectionPolicy <br/>
-* DeleteProtectionPolicy <br/>
-* UpdateProtectionPolicy <br/>
-
-**Estado** : os valores suportados são iniciado, com êxito ou falha.
-
-**ResourceGroup** : Este é o grupo de recursos a que pertence o recurso. Pode adicionar a coluna de grupo de recursos para os registos gerados. Grupo de recursos é um dos tipos de informações de evento disponíveis.
-
-**Nome** : nome da regra de alerta.
-
-**CustomEmail** : Especifique o endereço de e-mail personalizadas para o qual pretende enviar uma notificação de alerta
-
-**SendToServiceOwners** : esta opção envia notificações de alerta para todos os administradores e coadministradores da subscrição. Podem ser utilizado em **New-AzureRmAlertRuleEmail** cmdlet
+Assim que clicar em OK, será gerado um alerta de registo de atividade e os registos de atividade subsequente registados para cópias de segurança com êxito serão acionados a ação, tal como definido no grupo de ação.
 
 ### <a name="limitations-on-alerts"></a>Limitações de alertas
 Alertas com base em eventos estão sujeitos às seguintes limitações:
 
 1. Alertas são acionados em todas as máquinas virtuais no cofre dos serviços de recuperação. Não é possível personalizar o alerta para um subconjunto de máquinas virtuais num cofre dos serviços de recuperação.
-2. Esta funcionalidade está em pré-visualização. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
-3. Os alertas são enviados a partir de "alerts-noreply@mail.windowsazure.com". Atualmente não é possível modificar o remetente do e-mail.
+2. Os alertas são enviados a partir de "alerts-noreply@mail.windowsazure.com". Atualmente não é possível modificar o remetente do e-mail.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Registos de eventos ativar excelente post-mortem e suporte para as operações de cópia de segurança de auditoria. Com sessão iniciadas as seguintes operações:
+Para obter informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, consulte [restaurar VMs do Azure](backup-azure-arm-restore-vms.md).
 
-* Registar
-* Anular o Registo
-* Configurar a proteção
-* Cópia de segurança (ambos agendadas, bem como a cópia de segurança a pedido)
-* Restauro
-* Interrompa a proteção
-* Eliminar dados de cópia de segurança
-* Adicionar política
-* Eliminar política
-* Atualizar política
-* Cancelar tarefa
+Se precisar de informações sobre a proteção de máquinas virtuais, consulte o artigo [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). 
 
-Para obter uma explicação abrangente de eventos, operações e os registos de auditoria em todos os serviços do Azure, consulte o artigo [ver eventos e registos de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md).
-
-Para obter informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, consulte [restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se precisar de informações sobre a proteção de máquinas virtuais, consulte o artigo [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gestão para cópias de segurança VM no artigo, [cópias de segurança do Azure de gerir máquinas virtuais](backup-azure-manage-vms.md).
+Saiba mais sobre as tarefas de gestão para cópias de segurança VM no artigo, [cópias de segurança do Azure de gerir máquinas virtuais](backup-azure-manage-vms.md).

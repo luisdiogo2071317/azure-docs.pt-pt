@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 44e1a7fe17515e23fcfd32c37c1ef4837ea8140c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Criar registo de atividade experiência de alertas com os novos alertas (pré-visualização)
 
@@ -79,7 +79,7 @@ Utilize o seguinte procedimento:
 
 3. **Em definir alertas condição,** forneça as seguintes informações e clique em **feito**.
 
-    - **Destino de alerta:** para ver e selecionar o destino para o novo alerta, utilize **filtrar por subscrição** / **filtrar por tipo de recurso** e selecione o recurso ou grupo de recursos do a lista apresentada.
+    - **Destino de alerta:** para ver e selecionar o destino para o novo alerta, utilize **filtrar por subscrição** / **filtrar por tipo de recurso** e selecione o recurso ou grupo de recursos do lista apresentada.
 
     > [!NOTE]
 
@@ -89,7 +89,7 @@ Utilize o seguinte procedimento:
 
      ![Selecione o destino](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Em * * critérios de destino, clique em **adicionar critérios** selecione o tipo de sinal como **registo de atividade**.
+    - Em **critérios de destino**, clique em **adicionar critérios** selecione o tipo de sinal como **registo de atividade**.
 
     - Selecione o sinal a partir da lista apresentada.
 

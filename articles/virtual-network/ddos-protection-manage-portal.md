@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir no portal do Azure do Azure DDoS proteção padrão
 
@@ -31,9 +31,9 @@ Saiba como ativar e desativar distribuída recusa de protection service (DDoS di
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Ativar o padrão de proteção DDoS - nova rede virtual
 
 1. Inicie sessão no portal do Azure em http://portal.azure.com. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-2. Clique em **crie um recurso** no canto superior esquerdo do portal do Azure.
+2. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 3. Selecione **redes**e, em seguida, selecione **rede Virtual**.
-4. Crie uma rede virtual com as definições que escolheu. Para obter mais informações sobre a criação de redes virtuais, consulte [criar uma rede virtual](virtual-networks-create-vnet-arm-pportal.md). Em **proteção DDoS**, clique em **ativado**e, em seguida, clique em **criar**. Se não vir **proteção DDoS**, uma causa provável é que a sua subscrição não está registada para a funcionalidade. Tem de concluir [registo](http://aka.ms/ddosprotection)e receber a notificação a indicar que a sua subscrição tiver sido ativada para a funcionalidade, antes de **proteção DDoS** aparece.
+4. Crie uma rede virtual com as definições que escolheu. Para obter mais informações sobre a criação de redes virtuais, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Em **proteção DDoS**, clique em **ativado**e, em seguida, clique em **criar**. Se não vir **proteção DDoS**, uma causa provável é que a sua subscrição não está registada para a funcionalidade. Tem de concluir [registo](http://aka.ms/ddosprotection)e receber a notificação a indicar que a sua subscrição tiver sido ativada para a funcionalidade, antes de **proteção DDoS** aparece.
 
     ![Criar a rede virtual](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 

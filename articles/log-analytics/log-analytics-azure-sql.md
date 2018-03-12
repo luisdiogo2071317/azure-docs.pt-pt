@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorizar a base de dados do SQL do Azure através da análise do SQL do Azure (pré-visualização) no Log Analytics
 
@@ -103,7 +103,7 @@ Clique em de **análise do Azure SQL** mosaico para abrir o dashboard de anális
 
 Selecionar qualquer uma dos mosaicos, abre-se de um relatório de desagregação em perspetiva específica. Depois de perspetiva estiver selecionada, é aberto o relatório de desagregação.
 
-![Tempos limite de análise SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Tempos limite de análise SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Cada perspetiva fornece resumos na subscrição, o servidor, o conjunto elástico e o nível de base de dados. Além disso, cada perspetiva mostra uma perspetiva específico para o relatório no lado direito. Selecionar a subscrição, o servidor, o conjunto ou base de dados da lista continua a desagregação.
 
@@ -148,13 +148,19 @@ Pode facilmente criar alertas com os dados provenientes de recursos de SQL Datab
 *DTU elevado na base de dados SQL do Azure*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *Elevada DTU num agrupamento elástico de bases de dados SQL do Azure*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 Pode utilizar estas consultas baseadas no alerta para o alertar limiares específicos para a SQL Database do Azure e conjuntos elásticos. Para configurar um alerta para a sua área de trabalho de análise de registos:
@@ -167,7 +173,7 @@ Pode utilizar estas consultas baseadas no alerta para o alertar limiares especí
 4. Execute uma das consultas de exemplo.
 5. No registo de pesquisa, clique em **alerta**.  
 ![criar o alerta na pesquisa](./media/log-analytics-azure-sql/create-alert01.png)
-6. No **Adicionar regra de alerta** página, configure as propriedades adequadas e os limiares específicos que pretende e, em seguida, clique em **guardar**.  
+6. No **Adicionar regra de alerta** página, configure as propriedades adequadas e os limiares específicos que pretende e, em seguida, clique em **guardar**. 
 ![Adicionar regra de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Passos Seguintes

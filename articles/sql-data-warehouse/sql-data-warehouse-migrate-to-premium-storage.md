@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1e216da55a4c425fe112215464cdedb59c8db585
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrar o seu armazém de dados para o premium storage
 O Azure SQL Data Warehouse recentemente adicionadas [armazenamento premium para previsão de desempenho superior][premium storage for greater performance predictability]. Os armazéns de dados existentes atualmente no armazenamento standard agora podem ser migrados para o premium storage. Pode tirar partido da migração automática, ou se preferir controlar quando migrar (que does envolve algum período de indisponibilidade), pode efetuar a migração por si.
@@ -31,13 +31,13 @@ Se tiver criado um armazém de dados antes das datas seguintes, está atualmente
 
 | **Região** | **Armazém de dados criado antes desta data** |
 |:--- |:--- |
-| Leste da Austrália |Armazenamento Premium ainda não está disponível |
+| Leste da Austrália |1 de Janeiro de 2018 |
 | Leste da China |1 de Novembro de 2016 |
 | China Norte |1 de Novembro de 2016 |
 | Alemanha Central |1 de Novembro de 2016 |
 | Alemanha Nordeste |1 de Novembro de 2016 |
-| Índia Ocidental |Armazenamento Premium ainda não está disponível |
-| Oeste do Japão |Armazenamento Premium ainda não está disponível |
+| Índia Ocidental |1 de Fevereiro de 2018 |
+| Oeste do Japão |1 de Fevereiro de 2018 |
 | EUA Centro-Norte |10 de Novembro de 2016 |
 
 ## <a name="automatic-migration-details"></a>Detalhes de migração automática
@@ -69,14 +69,14 @@ Migrações automáticas ocorrerem entre as 18:00:00 e 6:00:00 (hora local por r
 
 | **Região** | **Data de início estimado** | **Data de fim estimado** |
 |:--- |:--- |:--- |
-| Leste da Austrália |Não determinar ainda |Não determinar ainda |
-| Leste da China |9 de Janeiro de 2017 |13 de Janeiro de 2017 |
-| China Norte |9 de Janeiro de 2017 |13 de Janeiro de 2017 |
-| Alemanha Central |9 de Janeiro de 2017 |13 de Janeiro de 2017 |
-| Alemanha Nordeste |9 de Janeiro de 2017 |13 de Janeiro de 2017 |
-| Índia Ocidental |Não determinar ainda |Não determinar ainda |
-| Oeste do Japão |Não determinar ainda |Não determinar ainda |
-| EUA Centro-Norte |9 de Janeiro de 2017 |13 de Janeiro de 2017 |
+| Leste da Austrália |19 de Março de 2018 |20 de Março de 2018 |
+| Leste da China |Já migrado |Já migrado |
+| China Norte |Já migrado |Já migrado |
+| Alemanha Central |Já migrado |Já migrado |
+| Alemanha Nordeste |Já migrado |Já migrado |
+| Índia Ocidental |19 de Março de 2018 |20 de Março de 2018 |
+| Oeste do Japão |19 de Março de 2018 |20 de Março de 2018 |
+| EUA Centro-Norte |Já migrado |Já migrado |
 
 ## <a name="self-migration-to-premium-storage"></a>Migração automática para o premium storage
 Se quiser controlar quando o período de indisponibilidade irá ocorrer, pode utilizar os seguintes passos para migrar um armazém de dados existente no armazenamento standard para armazenamento premium. Se escolher esta opção, tem de concluir a migração automática antes de iniciar a migração automática nessa região. Isto garante que evitar quaisquer risco da migração automática, provocando um conflito (consulte o [agenda migração automática][automatic migration schedule]).
@@ -84,11 +84,14 @@ Se quiser controlar quando o período de indisponibilidade irá ocorrer, pode ut
 ### <a name="self-migration-instructions"></a>Instruções de migração automática
 Para migrar o armazém de dados por si, utilize a cópia de segurança e restaurar as funcionalidades. A parte do restauro da migração deverá demorar cerca de uma hora por com vários terabytes de armazenamento do armazém de dados. Se pretender manter o mesmo nome após a migração estiver concluída, siga o [passos para mudar o nome durante a migração][steps to rename during migration].
 
-1. [Colocar em pausa] [ Pause] o armazém de dados. Isto leva uma cópia de segurança automática.
+1. [Colocar em pausa] [ Pause] o armazém de dados. 
 2. [Restaurar] [ Restore] do seu instantâneo mais recente.
 3. Elimine o armazém de dados existente no armazenamento standard. **Se falhar efetuar este passo, será cobrada para ambos os armazéns de dados.**
 
 > [!NOTE]
+>
+> Ao restaurar o seu armazém de dados, certifique-se de que o ponto de restauro mais recente disponível ocorre após o armazém de dados foi colocada em pausa.
+>
 > As seguintes definições não passa como parte da migração:
 >
 > * Auditoria ao nível da base de dados tem de ser ativada novamente.
@@ -105,60 +108,13 @@ Neste exemplo, imagine que o armazém de dados existente no armazenamento standa
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [Colocar em pausa] [ Pause] "MyDW_BeforeMigration." Isto leva uma cópia de segurança automática.
+2. [Colocar em pausa] [ Pause] "MyDW_BeforeMigration." 
 3. [Restaurar] [ Restore] o mais recente do instantâneo de uma nova base de dados com o nome é utilizado para ser (por exemplo, "MyDW").
 4. Eliminar "MyDW_BeforeMigration." **Se falhar efetuar este passo, será cobrada para ambos os armazéns de dados.**
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Com a alteração para o premium storage, também tem um aumento do número de ficheiros de blob de base de dados numa arquitetura subjacente do seu armazém de dados. Para maximizar as vantagens de desempenho desta alteração, reconstrua os índices columnstore em cluster utilizando o seguinte script. O script funciona forçando alguns dos seus dados existentes para os blobs adicionais. Se não efetuar qualquer ação, os dados serão naturalmente redistribuir ao longo do tempo, como carregados mais dados para as tabelas.
-
-**Pré-requisitos:**
-
-- O armazém de dados deve ser executada com unidades de armazém de 1000 dados ou superior (consulte [poder de computação de escala][scale compute power]).
-- O utilizador executar o script deve ter o [mediumrc função] [ mediumrc role] ou superior. Para adicionar um utilizador a esta função, execute o seguinte: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
-
-````sql
--------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
-
---------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
-go
--------------------------------------------------------------------------------
--- Step 3: Clean up table created in Step 1
---------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
 
 Se tiver quaisquer problemas com o armazém de dados, [criar um pedido de suporte] [ create a support ticket] e referência "a migração para o armazenamento premium" como a causa.
 

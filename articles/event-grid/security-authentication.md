@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
@@ -63,7 +63,7 @@ Para provar a propriedade de ponto final, escreverá novamente o código de vali
 
 Pode proteger o ponto final de webhook ao adicionar parâmetros de consulta para o URL do webhook quando criar uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que pode utilizar o webhook para reconhecer o evento é proveniente de grelha de eventos com permissões válidas. Grelha de eventos irá incluir estes parâmetros de consulta em cada entrega de eventos para o webhook.
 
-Ao editar a subscrição de evento, os parâmetros de consulta não irão sejam apresentados ou devolvidos, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
+Ao editar a subscrição de evento, os parâmetros de consulta não irão sejam apresentados ou devolvidos, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest).
 
 Por fim, é importante ter em atenção que a grelha de eventos do Azure suporta apenas pontos finais de webhook HTTPS.
 

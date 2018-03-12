@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -104,7 +104,7 @@ Conclua as seguintes tarefas para preparar o ambiente de desenvolvimento para ad
 
 Quando criou a sua solução de monitorização remota em [www.azureiotsuite.com](https://www.azureiotsuite.com), escolha um nome de solução. O nome de solução torna-se o nome do grupo de recursos do Azure que contém os recursos implementados vários que a solução utiliza. Os comandos seguintes utilizam um grupo de recursos denominado **Contoso-01**, deve substituir **Contoso-01** com o nome do grupo de recursos.
 
-Os seguintes comandos a utilizar o `az` comando de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Pode instalar o 2.0 CLI do Azure no seu computador de desenvolvimento ou utilizar o [nuvem Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no [portal do Azure](http://portal.azure.com). O 2.0 CLI do Azure é pré-instaladas na Shell de nuvem.
+Os seguintes comandos a utilizar o `az` comando de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Pode instalar o 2.0 CLI do Azure no seu computador de desenvolvimento ou utilizar o [nuvem Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no [portal do Azure](http://portal.azure.com). O 2.0 CLI do Azure é pré-instaladas na Shell de nuvem.
 
 1. Para verificar o nome do grupo de recursos que contém os recursos de monitorização remotos, execute o seguinte comando:
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ligar a uma conta Amazon Web Services
 
@@ -100,4 +100,4 @@ Custo de gestão inicia a recolha de dados e para preencher relatórios. No enta
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre o Azure custo Management Cloudyn, avance para o [rever os custos de utilização e](tutorial-review-usage.md) tutorial para a gestão de custo.
+- Para obter mais informações sobre a gestão de custo do Azure, avance para o [rever os custos de utilização e](tutorial-review-usage.md) tutorial para a gestão de custo.

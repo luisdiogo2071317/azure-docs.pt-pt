@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Relatórios de gestão de custo de compreender
 
@@ -76,6 +76,49 @@ Cada área numerada na imagem anterior está descrita em detalhe nas seguintes i
      - Aplicação
      - Ambiente
      - Custo de código
+
+    Eis uma lista de grupos incorporados disponíveis em relatórios:
+
+    - **Tipo de custos**
+      - Selecione um tipo de custo ou vários tipos de custo, ou todos. Os tipos de custos incluem:
+        - Taxa de uso individual
+        - Suporte
+        - Custo de utilização
+    - **Cliente**
+        - Selecione um cliente específico, vários clientes, ou todos os clientes.
+    - **Nome da conta**
+        - O nome de conta ou a subscrição. No Azure, é o nome da subscrição do Azure.
+    - **Conta não**
+        - Selecione uma conta, várias contas ou todas as contas. No Azure, é GUID da subscrição do Azure.
+    - **Conta do principal**
+        - Selecione a conta do principal, várias contas ou selecione.
+    - **Serviço**
+        - Selecione um serviço, vários serviços, ou todos os serviços.
+    - **Fornecedor**
+        - O fornecedor de nuvem onde recursos e as despesas estão associadas.
+    - **Região**
+        - Região onde está alojado o recurso.
+    - **Zona de disponibilidade**
+        - Localizações do AWS isolados numa região.
+    - **Tipo de Recurso**
+        - O tipo de recurso em utilização.
+    - **Subtipo**
+        - Selecione o subtipo.
+    - **Operação**
+        - Selecione a operação ou **Mostrar tudo**.
+    - **Modelo de preços**
+        - Todos os compromisso
+        - Não compromisso
+        - Compromisso parcial
+        - A Pedido
+        - Reserva
+        - Lugar para cima
+    - **Tipo de encargos**
+        - Selecione o tipo de encargos negativos ou positivos ou ambos.
+    - **Tenancy**
+        - Se uma máquina está em execução como um computador dedicado.
+    -   **Tipo de utilização**
+          - Tipo de utilização pode ser taxas única ou taxas periódicas.
 
 5. **filtros**
 

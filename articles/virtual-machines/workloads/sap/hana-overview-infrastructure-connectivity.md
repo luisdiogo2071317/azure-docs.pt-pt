@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura de SAP HANA (instâncias de grandes dimensões) e a conectividade no Azure 
 
@@ -75,7 +75,7 @@ Por isso, vamos ver um pouco mais próximo para a criação da VNet do Azure par
 >[!Note]
 >A VNet do Azure para a instância de grande HANA deve ser criada utilizando o modelo de implementação Azure Resource Manager. O modelo de implementação do Azure mais antigo, habitualmente conhecido como modelo de implementação clássica, não é suportado com a solução de instância grande HANA.
 
-A VNet pode ser criada utilizando o portal do Azure, o PowerShell, o modelo do Azure ou a CLI do Azure (consulte [criar uma rede virtual com o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). No exemplo seguinte, vamos ver para uma VNet criada através do portal do Azure.
+A VNet pode ser criada utilizando o portal do Azure, o PowerShell, o modelo do Azure ou a CLI do Azure (consulte [criar uma rede virtual com o portal do Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). No exemplo seguinte, vamos ver para uma VNet criada através do portal do Azure.
 
 Se vamos ver para as definições de uma VNet do Azure através do portal do Azure, vamos ver para algumas das definições e os a inter-relação iremos lista intervalos de endereços IP diferentes. Como podemos são se fala sobre o **espaço de endereços**, significa o espaço de endereço que a VNet do Azure está autorizada a utilizar. Este espaço de endereços também é o intervalo de endereços que utiliza a VNet para propagação de rota BGP. Isto **espaço de endereços** podem ser vistos aqui:
 
@@ -250,7 +250,7 @@ Utilize o portal do Azure, PowerShell ou CLI adicionar mais IP endereços ou sub
 
 Neste caso, a recomendação está a adicionar o novo intervalo de endereços IP como novo intervalo para o espaço de endereços da VNet em vez de gerar um novo intervalo agregado. Em ambos os casos, tem de submeter esta alteração para a Microsoft para permitir a conetividade fora desse intervalo de endereços IP novo para as unidades de instância grande HANA no seu cliente. Pode abrir um pedido de suporte do Azure para obter o novo espaço de endereço VNet adicionado. Depois de receber a confirmação, execute os passos seguintes.
 
-Para criar uma sub-rede adicional a partir do portal do Azure, consulte o artigo [criar uma rede virtual com o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)e para criar a partir do PowerShell, consulte [criar uma rede virtual com o PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para criar uma sub-rede adicional a partir do portal do Azure, consulte o artigo [criar uma rede virtual com o portal do Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)e para criar a partir do PowerShell, consulte [criar uma rede virtual com o PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Adicionar VNets
 
@@ -277,15 +277,13 @@ Assim que o circuito nova é criado e o SAP HANA na configuração de gestão de
 
 Para remover uma sub-rede da VNet, pode ser utilizado ou o portal do Azure, PowerShell ou CLI. No caso o seu Azure VNet IP endereço intervalo/Azure espaço de endereços VNet era um intervalo de agregados, não há nenhum siga para a com a Microsoft. Exceto que a VNet é ainda propagar espaço de endereços de rota BGP que inclui a sub-rede eliminada. Se definido o IP de VNet do Azure endereço intervalo/Azure espaço de endereços VNet como vários intervalos de endereços IP que um foi atribuído à sua sub-rede eliminado, deve eliminar que fora do seu espaço de endereços VNet e, subsequentemente, informar SAP HANA na gestão de serviço do Azure para removê-lo de intervalos de SAP HANA no Azure (instâncias de grande) está autorizado a comunicar com.
 
-Enquanto existe ainda não está específico, dedicado Azure.com obter orientações sobre como remover sub-redes, o processo de remoção de sub-redes é a reversão do processo para adicioná-las. Consulte o artigo [criar uma rede virtual com o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre a criação de sub-redes.
+Para eliminar uma sub-rede, consulte [eliminar uma sub-rede](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) para obter mais informações sobre a criação de sub-redes.
 
 ## <a name="deleting-a-vnet"></a>Eliminar uma VNet
 
-Utilize o portal do Azure, PowerShell ou CLI aquando da eliminação de uma VNet. SAP HANA na gestão de serviço do Azure remove as autorizações existentes no SAP HANA no circuito de ExpressRoute do Azure (instâncias de grandes dimensões) e remova o IP de VNet do Azure endereço intervalo/Azure espaço de endereços VNet para a comunicação com instâncias de grande HANA.
+Para eliminar uma rede virtual, consulte [eliminar uma rede virtual](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA na gestão de serviço do Azure remove as autorizações existentes no SAP HANA no circuito de ExpressRoute do Azure (instâncias de grandes dimensões) e remova o IP de VNet do Azure endereço intervalo/Azure espaço de endereços VNet para a comunicação com instâncias de grande HANA.
 
 Assim que tiver sido removida a VNet, abra um pedido de suporte do Azure para fornecer os intervalos de espaço de endereços IP a serem removidos.
-
-Enquanto existe ainda não está específico, dedicado Azure.com obter orientações sobre como remover VNets, o processo para remover as VNets é a reversão do processo para adicioná-los, que é descrito acima. Consulte os artigos [criar uma rede virtual com o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [criar uma rede virtual com o PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre a criação de VNets.
 
 Certifique-se de que tudo está a ser removido, elimine os seguintes itens:
 

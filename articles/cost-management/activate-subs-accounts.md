@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar as subscrições do Azure e contas com a gestão de custo do Azure
 
@@ -76,7 +76,7 @@ Quando adiciona uma atualização da conta de uma subscrição, o acesso de gest
 
     Se não vir um símbolo de marca de verificação verde para uma ou mais subscrições, significa que não têm permissões para criar a aplicação de leitor (o CloudynCollector) para a subscrição. Um utilizador com permissões superiores para a subscrição tem de repetir este processo.
 
-Veja o [ligar para o Azure Resource Manager com o Azure custo Management Cloudyn](https://youtu.be/oCIwvfBB6kk) vídeo que explica o processo.
+Veja o [ligar para o Azure Resource Manager com o Azure custo Management](https://youtu.be/oCIwvfBB6kk) vídeo que explica o processo.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 

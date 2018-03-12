@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para as VMs de Hyper-V para um site secundário no local
 
@@ -33,9 +33,8 @@ Este artigo mostra-lhe como configurar a recuperação de desastres para um site
 Para concluir este cenário:
 
 - Reveja o [arquitetura do cenário e componentes](hyper-v-vmm-architecture.md).
-- Reveja os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
-- Certifique-se de que servidores do VMM e anfitriões Hyper-V estão em conformidade com [suportar requisitos](site-recovery-support-matrix-to-sec-site.md).
-- Verifique se as VMs que pretende replicar cumprem [replicado suporte máquina](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- Certifique-se de que servidores do VMM e anfitriões Hyper-V estão em conformidade com [suportar requisitos](hyper-v-vmm-secondary-support-matrix.md).
+- Verifique se as VMs que pretende replicar cumprem [replicado suporte máquina](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Prepare servidores VMM para o mapeamento da rede.
 
 ### <a name="prepare-for-network-mapping"></a>Preparar o mapeamento da rede
@@ -151,7 +150,7 @@ Antes de começar, certifique-se de que todos os anfitriões através da políti
 4. No **máquinas virtuais**, selecione as VMs que pretende proteger na lista.
 
 
-Pode controlar o progresso do **ativar proteção** ação no **tarefas** > **as tarefas de recuperação de Site**. Depois do **finalizar proteção** tarefa é concluída, a replicação inicial está concluída e a VM está preparada para ativação pós-falha.
+Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Depois do **finalizar proteção** tarefa é concluída, a replicação inicial está concluída e a VM está preparada para ativação pós-falha.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -4,7 +4,7 @@ description: "Saiba como planear e estruturar as redes virtuais no Azure com bas
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planear e estruturar as redes virtuais do Azure
-Criar uma VNet para experimentar fácil suficiente, mas possibilidades são, irá implementar várias VNets ao longo do tempo para suportar as necessidades de produção da sua organização. Com algum planeamento e conceção, poderá implementar as VNets e ligar os recursos que necessita de forma mais eficaz. Se não estiver familiarizado com as VNets, é recomendado que lhe [Saiba mais sobre as VNets](virtual-networks-overview.md) e [como implementar](virtual-networks-create-vnet-arm-pportal.md) um antes de continuar.
+Criar uma VNet para experimentar fácil suficiente, mas possibilidades são, irá implementar várias VNets ao longo do tempo para suportar as necessidades de produção da sua organização. Com algum planeamento e conceção, poderá implementar as VNets e ligar os recursos que necessita de forma mais eficaz. Se não estiver familiarizado com as VNets, é recomendado que lhe [Saiba mais sobre as VNets](virtual-networks-overview.md) e [como implementar](quick-create-portal.md) um antes de continuar.
 
 ## <a name="plan"></a>Planear
 Uma compreensão profunda sobre as subscrições do Azure, regiões e recursos de rede é essencial para êxito. Pode utilizar a lista de considerações abaixo como um ponto de partida. Assim que compreender as considerações, pode definir os requisitos para o design de rede.
@@ -60,10 +60,10 @@ As VNets contêm as seguintes propriedades.
 
 | Propriedade | Descrição | Restrições |
 | --- | --- | --- |
-| **nome** |Nome da VNet |Cadeia de até 80 carateres. Pode conter letras, números, caráter de sublinhado, pontos ou hífenes. Tem de começar com uma letra ou um número. Tem de terminar com uma letra, um número ou um caráter de sublinhado. Pode contém em maiúsculas ou letras minúsculas. |
+| **name** |Nome da VNet |Cadeia de até 80 carateres. Pode conter letras, números, caráter de sublinhado, pontos ou hífenes. Tem de começar com uma letra ou um número. Tem de terminar com uma letra, um número ou um caráter de sublinhado. Pode contém em maiúsculas ou letras minúsculas. |
 | **localização** |Localização do Azure (também referida como região). |Tem de ser uma das localizações do Azure válidas. |
 | **addressSpace** |Coleção de prefixos de endereços que compõem a VNet em notação CIDR. |Tem de ser uma matriz de blocos de endereços CIDR válidos, incluindo intervalos de endereços IP públicos. |
-| **sub-redes** |Coleção de sub-redes que compõem a VNet |consulte a tabela de propriedades da sub-rede abaixo. |
+| **subnets** |Coleção de sub-redes que compõem a VNet |consulte a tabela de propriedades da sub-rede abaixo. |
 | **dhcpOptions** |Objeto que contém uma propriedade necessária único com o nome **dnsServers**. | |
 | **dnsServers** |Matriz de servidores DNS utilizados pela VNet. Não se for especificado nenhum servidor, é utilizada a resolução do nome interno do Azure. |Tem de ser uma matriz de até 10 servidores DNS, por endereço IP. |
 
@@ -73,7 +73,7 @@ Sub-redes contêm as seguintes propriedades.
 
 | Propriedade | Descrição | Restrições |
 | --- | --- | --- |
-| **nome** |Nome da sub-rede |Cadeia de até 80 carateres. Pode conter letras, números, caráter de sublinhado, pontos ou hífenes. Tem de começar com uma letra ou um número. Tem de terminar com uma letra, um número ou um caráter de sublinhado. Pode contém em maiúsculas ou letras minúsculas. |
+| **name** |Nome da sub-rede |Cadeia de até 80 carateres. Pode conter letras, números, caráter de sublinhado, pontos ou hífenes. Tem de começar com uma letra ou um número. Tem de terminar com uma letra, um número ou um caráter de sublinhado. Pode contém em maiúsculas ou letras minúsculas. |
 | **localização** |Localização do Azure (também referida como região). |Tem de ser uma das localizações do Azure válidas. |
 | **addressPrefix** |Prefixo de endereço único que compõem a sub-rede na notação CIDR |Tem de ser um bloco CIDR único que faz parte de um dos espaços de endereços da VNet. |
 | **networkSecurityGroup** |NSG aplicado à sub-rede | |
@@ -112,10 +112,10 @@ A tabela abaixo mostra alguns padrões de conceção comuns para a utilização 
 
 | Cenário | Diagrama | Profissionais de TI | Contras |
 | --- | --- | --- | --- |
-| Subscrição único, duas VNets por aplicação |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Apenas uma subscrição para gerir. |Número máximo de VNets por região do Azure. Precisa de mais subscrições depois disso. Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
-| Uma subscrição por aplicação, duas VNets por aplicação |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Utiliza apenas duas VNets por subscrição. |Mais difícil de gerir quando existem demasiadas aplicações. |
-| Uma subscrição por unidade de negócio, duas VNets por aplicação. |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balancear entre o número de subscrições e as VNets. |Número máximo de VNets por unidade de negócio (subscrição). Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
-| Uma subscrição por unidade de negócio, duas VNets por grupo de aplicações. |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balancear entre o número de subscrições e as VNets. |Aplicações tem de ser isoladas através da utilização de sub-redes e NSGs. |
+| Subscrição único, duas VNets por aplicação |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Apenas uma subscrição para gerir. |Número máximo de VNets por região do Azure. Precisa de mais subscrições depois disso. Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
+| Uma subscrição por aplicação, duas VNets por aplicação |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Utiliza apenas duas VNets por subscrição. |Mais difícil de gerir quando existem demasiadas aplicações. |
+| Uma subscrição por unidade de negócio, duas VNets por aplicação. |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balancear entre o número de subscrições e as VNets. |Número máximo de VNets por unidade de negócio (subscrição). Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
+| Uma subscrição por unidade de negócio, duas VNets por grupo de aplicações. |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balancear entre o número de subscrições e as VNets. |Aplicações tem de ser isoladas através da utilização de sub-redes e NSGs. |
 
 ### <a name="number-of-subnets"></a>Número de sub-redes
 Deve considerar a várias sub-redes numa VNet nos seguintes cenários:
@@ -175,7 +175,7 @@ Deve começar a sua estrutura, planeamento, a resposta à pergunta no [definir r
     Sim. Uma vez que os utilizadores ligados a centros de dados no local tem de ser capazes de aceder às aplicações através de um túnel encriptado.
 4. Quantas VMs de IaaS necessita para a sua solução?
 
-    200 VMs de IaaS. App1, App2, App3 e App4 requerem 5 servidores web cada, 2 servidores aplicacionais cada e 2 servidores de base de dados. Este é um total de 9 VMs de IaaS por aplicação ou 36 VMs de IaaS. App5 e App6 necessitam de 5 servidores web e 2 servidores de base de dados. Este é um total de 7 VMs de IaaS por aplicação ou 14 VMs de IaaS. Por conseguinte, terá de 50 VMs de IaaS para todas as aplicações em cada região do Azure. Uma vez que é necessário utilizar 4 regiões, será 200 VMs de IaaS.
+    200 IaaS VMs. App1, App2, App3 e App4 requerem 5 servidores web cada, 2 servidores aplicacionais cada e 2 servidores de base de dados. Este é um total de 9 VMs de IaaS por aplicação ou 36 VMs de IaaS. App5 e App6 necessitam de 5 servidores web e 2 servidores de base de dados. Este é um total de 7 VMs de IaaS por aplicação ou 14 VMs de IaaS. Por conseguinte, terá de 50 VMs de IaaS para todas as aplicações em cada região do Azure. Uma vez que é necessário utilizar 4 regiões, será 200 VMs de IaaS.
 
     Também terá de fornecer os servidores DNS em cada VNet ou nos seus centros de dados no local para resolver o nome entre as VMs de IaaS do Azure e a sua rede no local.
 5. É necessário isolar o tráfego com base nos grupos de VMs (servidores de web ou seja, front-end e servidores de base de dados de back-end)?
@@ -202,7 +202,7 @@ Os seguintes requisitos estão relacionadas com as subscrições e as VNets:
 
 Com base nesses requisitos, precisa de uma subscrição para cada unidade de negócio. Dessa forma, consumo de recursos a partir de uma unidade de negócio não contabilizará limites para outras unidades de negócio. E uma vez que pretendem minimizar o número de VNets, deve considerar a utilização de **uma subscrição por unidade de negócio, duas VNets por grupo de aplicações** padrão, como mostrado abaixo.
 
-![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
 Terá também de especificar o espaço de endereços para cada VNet. Uma vez que terá de centros de conectividade entre os dados no local e regiões do Azure, o espaço de endereços utilizado para as VNets do Azure não é possível clash com a rede no local e o espaço de endereços utilizado por cada VNet não deve clash com outras VNets existentes. Pode utilizar os espaços de endereços na tabela abaixo para satisfazer estes requisitos.  
 
@@ -247,7 +247,7 @@ Os seguintes requisitos estão relacionadas com controlo de acesso:
 
 Com base nesses requisitos, pode adicionar utilizadores da equipa de rede incorporada **contribuinte de rede** função em cada subscrição; e criar uma função personalizada para os programadores da aplicação em cada subscrição conceder direitos Para adicionar VMs a sub-redes existentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Implementar uma rede virtual](virtual-networks-create-vnet-arm-template-click.md) com base no cenário.
 * Compreender como [o balanceamento de carga](../load-balancer/load-balancer-overview.md) VMs de IaaS e [Gerir encaminhamento por várias regiões do Azure](../traffic-manager/traffic-manager-overview.md).
 * Saiba mais sobre [NSGs e sobre como planear e estruturar](virtual-networks-nsg.md) uma solução NSG.

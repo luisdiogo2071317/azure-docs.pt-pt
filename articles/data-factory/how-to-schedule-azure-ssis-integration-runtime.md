@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS 
 Com um tempo de execução de integração do Azure SSIS (SQL Server Integration Services) (IR) tem um custo associado ao mesmo. Por conseguinte, que pretende executar a resposta a incidentes apenas quando precisar de executar os pacotes SSIS no Azure e pare-o quando não precisar dele. Pode utilizar a IU da fábrica de dados ou o Azure PowerShell para [manualmente iniciar ou parar uma resposta a incidentes SSIS Azure](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS (IR) através da utilização da automatização do Azure e do Azure Data Factory. Eis os passos de alto nível descritos neste artigo:
@@ -279,11 +279,6 @@ Depois de criar e testar o pipeline, pode criar um acionador de agenda e associa
     3. Para **corpo**, introduza `{"message":"hello world"}`. 
    
         ![Primeira atividade de Web - separador de definições](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. No **atividades** caixa de ferramentas, expanda **iteração & Conditionals**e arrastar largar o **aguarde** atividade para a superfície do designer de pipeline. No **geral** separador, altere o nome da atividade para **WaitFor30Minutes**. 
-5. Mudar para o **definições** separador o **propriedades** janela. Para **tempo em segundos de espera**, introduza **1800**. 
-6. Ligar o **Web** atividade e o **aguarde** atividade. Ligá-los, comece a arrastar na caixa de quadrado verde ligada para a atividade de Web para a atividade de espera. 
-
-    ![Ligar Web e de espera](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. Arrastar largar a atividade de procedimento armazenado do **geral** secção o **atividades** caixa de ferramentas. Definir o nome da atividade para **RunSSISPackage**. 
 6. Mudar para o **conta SQL** separador o **propriedades** janela. 
 7. Para **serviço ligado**, clique em **+ novo**.
@@ -296,7 +291,7 @@ Depois de criar e testar o pipeline, pode criar um acionador de agenda e associa
     5. Para **palavra-passe**, introduza a palavra-passe do utilizador. 
     6. Testar a ligação à base de dados clicando **Testar ligação** botão.
     7. Guarde o serviço ligado ao clicar no **guardar** botão.
-1. No **propriedades** janela, mude para o **procedimento armazenado** separador do **conta SQL** separador e efetuar os passos seguintes: 
+9. No **propriedades** janela, mude para o **procedimento armazenado** separador do **conta SQL** separador e efetuar os passos seguintes: 
 
     1. Para **nome de procedimento armazenado**, selecione **editar** opção e introduza **sp_executesql**. 
     2. Selecione **+ novo** no **armazenados parâmetros de procedimento** secção. 
@@ -307,12 +302,37 @@ Depois de criar e testar o pipeline, pode criar um acionador de agenda e associa
         Na consulta SQL, especifique os valores corretos para o **nome_da_pasta**, **project_name**, e **package_name** parâmetros. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Ligar o **aguarde** atividade para o **procedimento armazenado** atividade. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Ligar as atividades de espera e o procedimento armazenado](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Arrastar largar o **Web** para a direita da atividade de **procedimento armazenado** atividade. Definir o nome da atividade para **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Ligar o **Web** atividade para o **procedimento armazenado** atividade. 
+
+    ![Ligar atividades Web e o procedimento armazenado](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Arrastar largar outro **Web** para a direita da atividade de **procedimento armazenado** atividade. Definir o nome da atividade para **StopIR**. 
 12. Mudar para o **definições** separador o **propriedades** janela, e efetue as seguintes ações: 
 
     1. Para **URL**, cole o URL do webhook que deixa IR. de SSIS do Azure 

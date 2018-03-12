@@ -1,4 +1,4 @@
-| Recurso | Gratuito | Partilhado (Pré-visualização) | Básica | Standard | Premium (pré-visualização)</th> |
+| Recurso | Gratuito | Partilhado (Pré-visualização) | Básica | Standard | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [Aplicações Web, móveis ou API](https://azure.microsoft.com/services/app-service/) por [plano do App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Ilimitados<sup>2</sup> |Ilimitados<sup>2</sup> |Ilimitados<sup>2</sup> |
 | [As Logic apps](https://azure.microsoft.com/services/app-service/logic/) por [plano do App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 por núcleo |20 por núcleo |
@@ -8,7 +8,7 @@
 | Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
 | Tempo de CPU (5 min)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pague em padrão [taxas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitada, pay às taxas padrão |Ilimitada, pay às taxas padrão |
 | Tempo de CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pague em padrão [taxas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitada, pay às taxas padrão |Ilimitada, pay às taxas padrão |
-| Memória (1 hora) |1024 MB por plano do App Service |1024 MB por aplicação |N/D |N/D |N/D |
+| Memória (1 hora) |1024 MB por plano do App Service |1024 MB por aplicação |N/A |N/D |N/A |
 | Largura de Banda |165 MB |Ilimitado, [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicar |Ilimitada, são aplicáveis tarifas de transferência de dados |Ilimitada, são aplicáveis tarifas de transferência de dados |Ilimitada, são aplicáveis tarifas de transferência de dados |
 | Arquitetura da aplicação |32 bits |32 bits |32-bit/64 bits |32-bit/64 bits |32-bit/64 bits |
 | Web Sockets por instância<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |

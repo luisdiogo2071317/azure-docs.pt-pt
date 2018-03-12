@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Como configurar o suporte da Virtual Network para uma Cache de Redis do Azure Premium
 Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades, incluindo funcionalidades do escalão Premium, tais como clustering, persistência e suporte da virtual network e tamanho da cache. Uma VNet é uma rede privada na nuvem. Quando uma instância da Cache de Redis do Azure está configurada com uma VNet, não é acessível publicamente e só pode ser acedido a partir de máquinas virtuais e aplicações dentro da VNet. Este artigo descreve como configurar o suporte de rede virtual para uma instância de Cache de Redis do Azure premium.
@@ -38,7 +38,7 @@ Suporte da virtual Network (VNet) é configurado no **nova Cache de Redis** pain
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Assim que tiver selecionado um escalão de preços premium, pode configurar a integração de Redis VNet selecionando uma VNet que está na mesma subscrição e localização da cache. Para utilizar uma nova VNet, criá-lo primeiro ao seguir os passos em [criar uma rede virtual com o portal do Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou [criar uma rede virtual (clássica) utilizando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e, em seguida, volte à **nova Cache de Redis** painel para criar e configurar a cache de premium.
+Assim que tiver selecionado um escalão de preços premium, pode configurar a integração de Redis VNet selecionando uma VNet que está na mesma subscrição e localização da cache. Para utilizar uma nova VNet, criá-lo primeiro ao seguir os passos em [criar uma rede virtual com o portal do Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [criar uma rede virtual (clássica) utilizando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e, em seguida, volte à **nova Cache de Redis** painel para criar e configurar a cache de premium.
 
 Para configurar a VNet para a nova cache, clique em **rede Virtual** no **nova Cache de Redis** painel e selecione a VNet pretendida na lista pendente.
 

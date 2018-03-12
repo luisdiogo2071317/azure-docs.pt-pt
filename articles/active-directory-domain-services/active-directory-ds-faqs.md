@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Serviços de domínio do Azure Active Directory: Perguntas mais frequentes (FAQ)
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory Domain Services. Manter a verificação de volta para atualizações.
@@ -39,7 +39,7 @@ Atualmente não. Microsoft irá fornecer um mecanismo para migrar o seu domínio
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Pode ativar os serviços de domínio do Azure AD uma subscrição do Azure CSP (fornecedor de solução em nuvem)?
 Sim. Veja como pode permitir [serviços de domínio do Azure AD em subscrições do Azure CSP](active-directory-ds-csp.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Posso ativar os serviços de domínio do Azure AD no Azure federado diretório AD? Posso utilizar o AD FS para autenticar os utilizadores para acesso ao Office 365 e não a sincronizar os hashes de palavra-passe para o Azure AD. Pode ativar os serviços de domínio do Azure AD para este diretório?
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Posso ativar os serviços de domínio do Azure AD no Azure federado diretório AD? Não devo sincronizar os hashes de palavra-passe para o Azure AD. Pode ativar os serviços de domínio do Azure AD para este diretório?
 Não. Serviços de domínio do Azure AD tem acesso para os hashes de palavra-passe de contas de utilizador, para autenticar os utilizadores através de NTLM ou Kerberos. Num diretório federado, os hashes de palavra-passe não são armazenados no diretório do Azure AD. Por conseguinte, os serviços de domínio do Azure AD não funciona com essas diretórios do Azure AD.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Pode posso disponibilizar os serviços de domínio do Azure AD em várias redes virtuais na minha subscrição?
@@ -53,6 +53,9 @@ Sim. Consulte [como ativar o domínio do Azure AD para serviços com o PowerShel
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Pode adicionar controladores de domínio a um domínio gerido dos serviços de domínio do Azure AD?
 Não. O domínio fornecido pelos serviços de domínio do Azure AD é um domínio gerido. Não é necessário aprovisionar, configurar ou gerir os controladores de domínio para este domínio - estas atividades de gestão são fornecidas como um serviço pela Microsoft. Por conseguinte, não é possível adicionar controladores de domínio adicional (leitura / escrita ou só de leitura) para o domínio gerido.
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Os utilizadores convidados convidados para o meu diretório podem utilizar os serviços de domínio do Azure AD?
+Não. Os utilizadores convidados convidados ao seu diretório do Azure AD com o [do Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) convite processo são sycned no seu domínio gerido dos serviços de domínio do Azure AD. No entanto, as palavras-passe para estes utilizadores não são armazenadas no diretório do Azure AD. Por conseguinte, os serviços de domínio do Azure AD não tem nenhuma forma para sincronizar NTLM e Kerberos codifica para estes utilizadores no seu domínio gerido. Como resultado, esses utilizadores não é possível iniciar sessão no domínio gerido ou computadores de associação ao domínio gerido.
 
 ## <a name="administration-and-operations"></a>Administração e operações
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Posso ligar ao controlador de domínio para o meu domínio gerido utilizando o ambiente de trabalho remoto?
@@ -75,6 +78,9 @@ Não. O esquema é administrado pela Microsoft para o domínio gerido. Extensõe
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Pode modificar ou adicionar registos DNS no meu domínio gerido?
 Sim. Os membros do grupo 'AAD DC administradores' são concedidos privilégios de administrador de DNS, a modificar registos DNS no domínio gerido. Pode utilizarem a consola do Gestor de DNS num computador com o Windows Server associado ao domínio gerido, gerir o DNS. Para utilizar a consola do Gestor de DNS, instale 'Ferramentas do servidor DNS', que faz parte da funcionalidade 'Ferramentas de administração de servidor remoto' opcional no servidor. Obter mais informações sobre [utilitários para administrar, monitorização e resolução de problemas de DNS](https://technet.microsoft.com/library/cc753579.aspx) está disponível no TechNet.
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>O que é a política de duração de palavra-passe num domínio gerido?
+A predefinição de duração de palavra-passe num domínio do Azure AD domínio gerido dos serviços é de 90 dias. Esta duração de palavra-passe não está sincronizada com a duração de palavra-passe configurada no Azure AD. Por conseguinte, pode ter uma situação em que as de palavras-passe dos utilizadores expirarem no seu domínio gerido, mas ainda são válidas no Azure AD. Tais cenários, os utilizadores precisam alterar a palavra-passe no Azure AD e a nova palavra-passe serão sincronizados para o seu domínio gerido. Além disso, a 'palavra-passe-does-não-expire' e 'user-must-change-password-at-next-logon' atributos para contas de utilizador não estão sincronizados para o seu domínio gerido.
 
 ## <a name="billing-and-availability"></a>Disponibilidade e de faturação
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>É que um serviço pago dos serviços de domínio do Azure AD?

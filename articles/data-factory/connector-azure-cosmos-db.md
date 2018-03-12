@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados para ou da base de dados do Cosmos do Azure utilizando o Azure Data Factory
 
@@ -125,7 +125,7 @@ Para copiar dados da base de dados do Azure Cosmos, defina o tipo de origem na a
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **DocumentDbCollectionSource** |Sim |
-| consulta |Especifique a consulta de base de dados do Cosmos ler os dados.<br/><br/>Exemplo:`SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução de SQL que é executada:`select <columns defined in structure> from mycollection` |
+| consulta |Especifique a consulta de base de dados do Cosmos ler os dados.<br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução de SQL que é executada: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caráter especial para indicar que o documento está aninhado e como a flattern o resultado definido.<br/><br/>Por exemplo, se uma consulta de base de dados do Cosmos devolve um resultado aninhado `"Name": {"First": "John"}`, atividade de cópia irá identificar o nome da coluna como "Name.First" com o valor "João" quando o nestedSeparator ponto. |Não (predefinição é dot `.`) |
 
 **Exemplo:**
@@ -162,7 +162,7 @@ Para copiar dados da base de dados do Azure Cosmos, defina o tipo de origem na a
 
 ### <a name="azure-cosmos-db-as-sink"></a>BD do Azure do Cosmos como sink
 
-Para copiar dados da base de dados do Azure Cosmos, defina o tipo de sink na atividade de cópia para **DocumentDbCollectionSink**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados para a base de dados do Azure Cosmos, defina o tipo de sink na atividade de cópia para **DocumentDbCollectionSink**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |

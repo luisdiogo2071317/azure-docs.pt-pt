@@ -63,6 +63,10 @@
 ### [Compressão de ficheiros](cdn-troubleshoot-compression.md)
 
 # Referência
+##  [Referência do motor de regras](cdn-rules-engine-reference.md)
+### [Expressões condicionais do motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
+### [Condições de correspondência do motor de regras](cdn-rules-engine-reference-match-conditions.md)
+### [Funcionalidades do motor de regras](cdn-rules-engine-reference-features.md)
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -70,10 +74,6 @@
 ## [REST](/rest/api/cdn/)
 
 # Recursos
-##  [Referência do Motor de Regras](cdn-rules-engine-reference.md)
-### [Expressões condicionais do Motor de Regras](cdn-rules-engine-reference-conditional-expressions.md)
-### [Funcionalidades do Motor de Regras](cdn-rules-engine-reference-features.md)
-### [Condições de correspondência do Motor de Regras](cdn-rules-engine-reference-match-conditions.md)
 ## [Localizações POP da CDN do Azure](cdn-pop-locations.md)
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)

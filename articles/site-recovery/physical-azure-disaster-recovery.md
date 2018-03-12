@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configure a recuperação de desastre para o Azure para servidores físicos no local
 
@@ -32,8 +32,8 @@ Este tutorial mostra como configurar a recuperação após desastre de servidore
 Para concluir este tutorial:
 
 - Certifique-se de que compreende a [arquitetura e os componentes do cenário](physical-azure-architecture.md).
-- Reveja os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
-- Certifique-se de que estão em conformidade com os servidores que pretende replicar [requisitos de VM do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Reveja os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) de todos os componentes.
+- Certifique-se de que estão em conformidade com os servidores que pretende replicar [requisitos de VM do Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare o Azure. Precisa de uma subscrição do Azure, uma rede virtual do Azure e uma conta de armazenamento.
 - Prepare uma conta de instalação automática do serviço de mobilidade em cada servidor que pretende replicar.
 
@@ -171,7 +171,7 @@ Ative a replicação para cada servidor.
 8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede a todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. 
 9. No **máquinas físicas**e clique em **+ máquina física**. Especifique o nome e endereço IP. Selecione o sistema operativo da máquina que pretende replicar. Demora alguns minutos para que os servidores a ser detetados e listados. 
 10. No **propriedades** > **configurar propriedades**, selecione a conta que será utilizada pelo servidor de processos para instalar automaticamente o serviço de mobilidade na máquina.
-11. No **as definições de replicação** > **configurar as definições de replicação**, certifique-se de que a política de replicação correto está selecionada. 
+11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada. 
 12. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois da tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
 

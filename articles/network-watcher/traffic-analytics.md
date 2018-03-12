@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: c113bbe646a54813a2885b3a9087a0171220f271
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -46,9 +46,9 @@ Redes virtuais do Azure, tiver registos de fluxo NSG, que lhe fornecem informaç
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a análise de tráfego 
 
-Análise de tráfego examina os registos de fluxo NSG não processados e capturas de registos reduzidos por fluxos comuns entre o mesmo endereço IP de origem, o endereço IP de destino, a porta de destino e o protocolo de agregação. Por exemplo, 1 de anfitrião (endereço IP: 10.10.10.10) comunicar com o anfitrião 2 (endereço IP: 10.10.20.10), 100 vezes num período de 1 hora, utilizando a porta (por exemplo, 80) e protocolo (por exemplo, http). O registo reduzido tem uma entrada que o anfitrião 1 & anfitrião 2 comunicados 100 vezes num período de 1 hora, utilizando a porta *80* e protocolo *HTTP*, em vez de ter 100 entradas. Registos reduzidos são armazenados na área de trabalho de análise de registos e melhorados com informações de topologia, geografia e segurança. Os registos avançados mais são analisados derivar de análise. A imagem seguinte mostra o fluxo de dados:
+Análise de tráfego examina os registos de fluxo NSG não processados e capturas de registos reduzidos por fluxos comuns entre o mesmo endereço IP de origem, o endereço IP de destino, a porta de destino e o protocolo de agregação. Por exemplo, 1 de anfitrião (endereço IP: 10.10.10.10) comunicar com o anfitrião 2 (endereço IP: 10.10.20.10), 100 vezes num período de 1 hora, utilizando a porta (por exemplo, 80) e protocolo (por exemplo, http). O registo reduzido tem uma entrada que o anfitrião 1 & anfitrião 2 comunicados 100 vezes num período de 1 hora, utilizando a porta *80* e protocolo *HTTP*, em vez de ter 100 entradas. Registos reduzidos melhorados com geografia, segurança e informações de topologia e, em seguida, armazenados numa área de trabalho de análise de registos. A imagem seguinte mostra o fluxo de dados:
 
-![Como funciona a análise de tráfego](media/traffic-analytics/1.png)
+![Fluxo de dados para os registos de fluxo NSG processamento](media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
@@ -74,7 +74,7 @@ Antes de ativar o registo de fluxo NSG, tem de ter um grupo de segurança de red
 
 No lado esquerdo do portal do Azure, selecione **Monitor**, em seguida, **observador de rede**e, em seguida, selecione **registos de fluxo NSG**. Selecione o grupo de segurança de rede que pretende ativar um registo de fluxo NSG, conforme mostrado na imagem seguinte:
 
-![Selecione um NSG](media/traffic-analytics/2.png)
+![Seleção de NSGs que necessitam de ativação do registo de fluxo do NSG](media/traffic-analytics/selection-of-nsgs-that-require- enablement-of-nsg-flow-logging.png)
 
 Se tentar ativar a análise de tráfego para um NSG que está alojado em qualquer região que o [regiões suportadas](#supported-regions), receberá um erro "Não encontrada". 
 
@@ -110,7 +110,7 @@ Selecione as seguintes opções, conforme mostrado na imagem:
     A área de trabalho de análise de registos (OMS) que aloja a solução de análise de tráfego e os NSGs não tem de estar na mesma região. Por exemplo, pode ter o tráfego de análise numa área de trabalho na região Europa Ocidental, embora possa ter NSGs nos EUA leste e EUA oeste. Vários NSGs podem ser configurados no mesmo espaço de trabalho.
 6. Selecione **Guardar**.
 
-    ![Ativar a análise de tráfego](media/traffic-analytics/3.png)
+    ![Seleção de conta de armazenamento, a área de trabalho de análise de registos e a ativação de análise de tráfego](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 
 Repita os passos anteriores para outros os NSGs para o qual pretende ativar a análise de tráfego para. Dados de registos de fluxo são enviados para a área de trabalho, por isso, certifique-se de que o locais leis e regulamentos no seu país de permitem o armazenamento de dados na região onde a área de trabalho existe.
 
@@ -118,7 +118,7 @@ Repita os passos anteriores para outros os NSGs para o qual pretende ativar a an
 
 No lado esquerdo do portal, selecione **todos os serviços**, em seguida, introduza *Monitor* no **filtro** caixa. Quando **Monitor** aparece nos resultados da pesquisa, selecionados-lo. Para começar a explorar e as respetivas capacidades de análise de tráfego, selecione **observador de rede**, em seguida, **análise de tráfego (pré-visualização)**.
 
-![Análise de tráfego de vista](media/traffic-analytics/4.png)
+![Aceder ao dashboard a análise de tráfego](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
 O dashboard pode demorar até 30 minutos a aparecer na primeira vez, porque a análise de tráfego de primeiro tem agregar dados suficientes para o mesmo derivar insights significativos, antes de pode gerar relatórios.
 
@@ -140,11 +140,11 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
 
     Selecione **mais detalhes**, em **anfitriões com a maioria do tráfego**, conforme mostrado na imagem seguinte:
 
-    ![Ativar a análise de tráfego](media/traffic-analytics/5.png)
+    ![Dashboard que mostram o anfitrião com a maioria dos detalhes de tráfego](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
 - A imagem seguinte mostra o tempo tendências dos anfitriões talking cinco principais e os detalhes relacionados com o fluxo (permitidos – entrada/saída e negados - fluxos de entrada/saída) para uma VM:
 
-    ![](media/traffic-analytics/6.png)
+    ![Tendência de anfitrião falar com a maior parte da parte superior a cinco](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
 **Procurar**
 
@@ -156,11 +156,11 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
     - Estas aplicações são permitidas nesta rede?
     - As aplicações estão configuradas corretamente? Estes são utilizando o protocolo apropriado para comunicação? Selecione **mais detalhes** em **mais induzirem frequentes conversações**, como a mostrar na imagem seguinte:
 
-    ![](media/traffic-analytics/7.png)
+        ![Dashboard que mostram a conversação mais frequente](media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
 - A imagem seguinte mostra tendências de tempo para as conversações de cinco superiores e detalhes relacionados com o fluxo como e rejeições fluxos de entrada e saídos para um par de conversação:
 
-    ![](media/traffic-analytics/8.png)
+    ![Detalhes de conversação chatty primeiras cinco e tendência](media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
 **Procurar**
 
@@ -168,13 +168,13 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
     - Estas aplicações são permitidas nesta rede?
     - As aplicações estão configuradas corretamente? Estes são utilizando o protocolo apropriado para comunicação? Comportamento esperado é portas comuns, tais como 80 e 443. Para comunicação padrão, se são apresentadas as portas invulgares, poderá necessitam de uma alteração da configuração. Selecione **mais detalhes** em **principais protocolos de aplicação**, na imagem seguinte:
 
-    ![](media/traffic-analytics/9.png)
+        ![Dashboard que mostram os protocolos de aplicações principais](media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
 - O tempo de mostrar imagens seguintes tendências para os protocolos de L7 primeiras cinco e detalhes relacionados com o fluxo (por exemplo e rejeições fluxos) para um protocolo de L7:
 
-    ![](media/traffic-analytics/10.png)
+    ![Cinco superior camada 7 detalhes de protocolos e tendência](media/traffic-analytics/top five-layer-seven-protocols-details-and-trend.png)
 
-    ![](media/traffic-analytics/11.png)
+    ![Fluxo de detalhes para o protocolo de aplicação na pesquisa de registo](media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
 **Procurar**
 
@@ -184,11 +184,11 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
 - Os anfitriões mais conversing, através do gateway VPN, que são através da qual porta?
     - Neste padrão, é normal? Selecione **mais detalhes** em **principais, as ligações VPN ativas**, conforme mostrado na imagem seguinte:
 
-    ![](media/traffic-analytics/12.png)
+        ![Dashboard que mostram a superiores ligações VPN ativas](media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
 - A imagem seguinte mostra o tempo tendências de utilização da capacidade de um Gateway de VPN do Azure e os detalhes de relacionados com o fluxo de mensagens em fila (por exemplo, portas e de fluxos permitidos):
 
-    ![](media/traffic-analytics/13.png)
+    ![VPN gateway tendência e fluxo de detalhes de utilização](media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>Visualizar a distribuição de tráfego por geografia
 
@@ -200,17 +200,17 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
 
     Selecione **clique aqui para ver em direto geomap** em **distribuição de tráfego em todos os centros de dados do Azure**, conforme mostrado na imagem seguinte:
 
-    ![](media/traffic-analytics/14.png)
+  ![Distribuição de tráfego que mostram a dashboard](media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
 - O mapa de georreplicação mostra o Friso superior para a seleção de parâmetros, tais como centros de dados (ativar a análise de implementado/não-implementação/Active/Inactive/tráfego/análise de tráfego não ativado) e de países contribuir Benign/maliciosos o tráfego para o Active Directory implementação:
 
-    ![](media/traffic-analytics/15.png)
+    ![Vista do mapa Georreplicação que mostram a implementação do Active Directory](media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
 - O mapa de georreplicação mostra a distribuição de tráfego para um centro de dados de países e continentes comunicar ao mesmo no blue (tráfego benignas) e o cliente vermelho (tráfego malicioso) coloridos linhas:
 
-    ![](media/traffic-analytics/16.png)
+    ![Vista do mapa Georreplicação que mostram a distribuição de tráfego de países e continentes](media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
-    ![](media/traffic-analytics/17.png)
+    ![Fluxo de detalhes para a distribuição de tráfego na pesquisa de registo](media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualizar a distribuição de tráfego redes virtuais
 
@@ -222,14 +222,14 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
  
     Selecione **clique aqui para ver a topologia de tráfego da VNet** em **distribuição de rede Virtual**, conforme mostrado na imagem seguinte: 
 
-        ![](media/traffic-analytics/18.png)
+    ![Dashboard que mostram a distribuição de rede virtual](media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - A topologia de rede Virtual mostra o Friso superior para a seleção de parâmetros como de uma rede virtual (Inter a rede virtual ligações/Active/Inactive), ligações externas, fluxos de Active Directory e maliciosos fluxos da rede virtual.
 - A topologia de rede Virtual mostra a distribuição de tráfego para uma rede virtual relativamente fluxos (permitidos/bloqueado/entrada/saída/Benign/maliciosos), o protocolo de aplicação e grupos de segurança de rede, por exemplo:
 
-    ![](media/traffic-analytics/19.png)
+    ![Topologia de rede virtual que mostram detalhes de distribuição e o fluxo de tráfego](media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
 
-    ![](media/traffic-analytics/20.png)
+    ![Fluxo de detalhes para a distribuição de tráfego de rede virtual na pesquisa de registo](media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
 **Procurar**
 
@@ -239,7 +239,7 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
 - A topologia de sub-redes mostra o Friso superior para a seleção de parâmetros, tais como Active/Inactive sub-rede, ligações externas, Active Directory fluxos e maliciosos fluxos da sub-rede.
 - A topologia de sub-rede mostra a distribuição de tráfego para uma rede virtual relativamente fluxos (permitidos/bloqueado/entrada/saída/Benign/maliciosos), o protocolo de aplicação e os NSGs, por exemplo:
 
-    ![](media/traffic-analytics/21.png)
+    ![Topologia de sub-rede que mostram uma sub-rede de rede virtual relativamente fluxos a distribuição de tráfego](media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Ver as portas e as máquinas virtuais a receber tráfego através da internet
 
@@ -248,15 +248,15 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
 - As portas abertas são uma conversação através da internet?
     - Se encontram-se inesperado portas abertas, pode corrigir a configuração:
 
-        ![](media/traffic-analytics/22.png)
+        ![Dashboard que mostram portas receber e enviar o tráfego à internet](media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
-        ![](media/traffic-analytics/23.png)
+        ![Detalhes de portas de destino do Azure e anfitriões](media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
 **Procurar**
 
 Tem tráfego malicioso no seu ambiente? Onde está esta provenientes? Onde é destinado aos-lo?
 
-![](media/traffic-analytics/24.png)
+![Detalhes de fluxos de tráfego malicioso na pesquisa de registo](media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
 
 ### <a name="visualize-the-trends-in-nsg-rule-hits"></a>Visualizar tendências em pedidos de regras do NSG
@@ -266,10 +266,14 @@ Tem tráfego malicioso no seu ambiente? Onde está esta provenientes? Onde é de
 - A NSG/regra tem mais pedidos?
 - Quais são os principais pares de conversação de origem e de destino por NSG?
 
-    ![](media/traffic-analytics/25.png)
+    ![Dashboard que mostram o NSG estatísticas de pedidos com êxito](media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
 
 - O tempo de mostrar imagens seguintes tendências para pedidos de regras do NSG e detalhes de fluxo de origem de destino para um grupo de segurança de rede:
 
-    ![](media/traffic-analytics/26.png)
+    ![Tempo que mostram a fins de tendência para pedidos de regras do NSG e superiores regras do NSG](media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 
-    ![](media/traffic-analytics/27.png)
+    ![Detalhes de estatísticas na pesquisa de registo de regras de NSG superior](media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+
+Para obter respostas a perguntas mais frequentes, consulte [FAQ de análise do tráfego](traffic-analytics-faq.md).

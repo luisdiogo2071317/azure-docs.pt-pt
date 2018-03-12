@@ -1,23 +1,10 @@
 ---
-title: Centro de dados do Microsoft Azure Virtual | Microsoft Docs
-description: Aprenda a criar o seu centro de dados virtual no Azure
-services: networking
-author: tracsman
-manager: rossort
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
-ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+Título: "Microsoft Azure Virtual Centro de dados: A rede perspetiva" | Descrição Microsoft Docs: Aprenda a criar o seu centro de dados virtual nos serviços do Azure: rede autor: Gestor tracsman: rossort etiquetas: Gestor de recursos do azure
+
+ms.service: virtual-network ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 05/26/2017 ms.author: jonor
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Centro de dados Virtual do Microsoft Azure
+
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Datacenter Virtual do Microsoft Azure: Uma perspetiva de rede
 **Microsoft Azure**: agilizar, poupar dinheiro, integrar aplicações no local e dados
 
 ## <a name="overview"></a>Descrição geral
@@ -215,7 +202,7 @@ Normalmente, o Centro IT e equipas de segurança têm responsabilidade de defini
 
 O diagrama anterior mostra a imposição de dois perimeters com acesso à internet e uma rede no local, ambos residente no hub. Num hub único, a rede de perímetro à internet pode aumentar verticalmente para suportar grandes quantidades de LOBs, utilizando vários farms de Firewalls de aplicação Web (WAFs) e/ou as firewalls.
 
-[**Redes virtuais** ] [ VNet] hub baseia-se normalmente uma vnet com várias sub-redes para alojar o tipo de diferentes dos serviços de filtragem e inspecionar o tráfego de ou à internet através de NVAs, WAFs e Gateways de aplicação do Azure.
+[**Redes virtuais** ] [ VNet] hub baseia-se normalmente uma vnet com várias sub-redes para alojar o tipo de diferentes dos serviços de filtragem e inspecionar o tráfego de ou à internet através de NVAs, WAFs e do Azure Gateways de aplicação.
 
 [**UDR** ] [ UDR] utilizando UDR, os clientes podem implementar firewalls, IDS/IPS e outras aplicações virtuais e encaminhar o tráfego de rede através destas aplicações de segurança para a imposição de política de limite de segurança, auditoria e inspeção. UDRs podem ser criados no concentrador e spokes a realizar para garantir que o tráfego transits através da VMs personalizadas específicas, os dispositivos de rede Virtual e Balanceadores de carga utilizados pelo vDC. Para garantir que o tráfego gerado a partir de VMs residente no trânsito spoke para as aplicações virtuais corretas, uma UDR tem de ser definidas as sub-redes de spoke ao definir o endereço IP Front-end do Balanceador de carga interno como o next-hop. O Balanceador de carga interno distribui o tráfego interno para aplicações virtuais (conjunto de back-end de Balanceador de carga).
 
@@ -330,15 +317,15 @@ As seguintes funcionalidades foram abordadas neste documento. Clique nas hiperli
 | | | |
 |-|-|-|
 |Funcionalidades de rede|Balanceamento de Carga|Conectividade|
-|[Redes virtuais do Azure][VNet]</br>[Grupos de segurança de rede][NSG]</br>[Registos de NSG][NSGLog]</br>[Encaminhamento definido pelo utilizador][UDR]</br>[Dispositivos de rede Virtual][NVA]</br>[Endereços IP públicos][PIP]|[Balanceador de carga do Azure (L3)][ALB]</br>[Gateway de aplicação (L7)][AppGW]</br>[Firewall de aplicações Web][WAF]</br>[Traffic Manager do Azure][TM] |[O VNet Peering][VNetPeering]</br>[Rede privada virtual][VPN]</br>[ExpressRoute][ExR]
+|[Redes virtuais do Azure][VNet]</br>[Grupos de segurança de rede][NSG]</br>[NSG Logs][NSGLog]</br>[Encaminhamento definido pelo utilizador][UDR]</br>[Dispositivos de rede Virtual][NVA]</br>[Endereços IP públicos][PIP]|[Balanceador de carga do Azure (L3) ][ALB]</br>[Gateway de aplicação (L7) ][AppGW]</br>[Firewall de aplicações Web][WAF]</br>[Traffic Manager do Azure][TM] |[O VNet Peering][VNetPeering]</br>[Rede privada virtual][VPN]</br>[ExpressRoute][ExR]
 |Identidade</br>|Monitorização</br>|Melhores práticas</br>|
 |[Azure Active Directory][AAD]</br>[Autenticação Multifator][MFA]</br>[Controlos de acesso de Base de função][RBAC]</br>[Funções predefinidas do AAD][Roles] |[Registos de atividade][ActLog]</br>[Registos de diagnóstico][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Melhores práticas de redes de perímetro][DMZ]</br>[Gestão de subscrição][SubMgmt]</br>[Gestão de grupo de recursos][RGMgmt]</br>[Limites de subscrição do Azure][Limits] |
 |Outros serviços do Azure|
-|[Aplicações Web do Azure][WebApps]</br>[HDInsights (Hadoop)][HDI]</br>[Hubs de Eventos][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Hubs de Eventos][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
  - Explorar [VNet Peering][VNetPeering], a tecnologia de underpinning para estruturas de vDC hub- and -spoke
  - Implementar [AAD] [ AAD] para começar com [RBAC] [ RBAC] exploração
  - Desenvolver um modelo de gestão de subscrição e dos recursos e o RBAC para satisfazer os requisitos, a estrutura do modelo e as políticas da sua organização. Está a planear a atividade mais importante. Muito práticas, como planear reorganizations, fusões, novas linhas de produto, etc.
@@ -347,7 +334,7 @@ As seguintes funcionalidades foram abordadas neste documento. Clique nas hiperli
 [0]: ./media/networking-virtual-datacenter/redundant-equipment.png "exemplos de sobreposição de componente" 
 [1]: ./media/networking-virtual-datacenter/vdc-high-level.png "exemplo de nível superior de vDC hub- and -spoke"
 [2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "cluster dos hubs e spokes realizar"
-[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "spoke-para-spoke"
+[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Spoke-to-spoke"
 [4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "diagrama de nível de bloco de vDC"
 [5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "utilizadores, grupos, subscrições e projetos"
 [6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "diagrama da infraestrutura de alto nível"

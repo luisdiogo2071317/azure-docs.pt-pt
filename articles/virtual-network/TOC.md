@@ -27,7 +27,8 @@
 ### [Grupos de segurança de rede](virtual-networks-nsg.md)
 
 ## Implementação
-### [Redes virtuais](virtual-networks-create-vnet-arm-pportal.md)
+### Redes virtuais
+#### [Portal do Azure](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI do Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,27 +43,25 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [CLI do Azure 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Rotas definidas pelo utilizador
-#### [Portal do Azure](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [CLI do Azure](virtual-network-create-udr-arm-cli.md)
+### Tabelas de rotas
+#### [Portal do Azure](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [CLI do Azure](tutorial-create-route-table-cli.md)
 #### [Modelo](virtual-network-create-udr-arm-template.md)
 #### Clássica
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI do Azure](virtual-network-create-udr-classic-cli.md)
 
 ### Peering de rede virtual
-#### [Mesmo modelo de implementação - mesma subscrição](virtual-network-create-peering.md)
+#### Mesmo modelo de implementação - mesma subscrição
+##### [Portal do Azure](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [CLI do Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Mesmo modelo de implementação - subscrições diferentes](create-peering-different-subscriptions.md)
 #### [Diferentes modelos de implementação - mesma subscrição](create-peering-different-deployment-models.md)
 #### [Diferentes modelos de implementação - subscrições diferentes](create-peering-different-deployment-models-subscriptions.md)
 
 ### [Pontos finais do serviço de rede virtual](virtual-network-service-endpoints-configure.md)
-
-### Endereço IP público - zona de disponibilidade
-#### [Portal do Azure](create-public-ip-availability-zone-portal.md)
-#### [CLI do Azure](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Máquinas virtuais
 #### [Débito de rede de máquina virtual](virtual-machine-network-throughput.md)
@@ -147,7 +146,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Gerir
-### [Redes virtuais](virtual-network-manage-network.md)
+### [Redes virtuais](manage-virtual-network.md)
 #### [Sub-redes](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
 #### Clássica

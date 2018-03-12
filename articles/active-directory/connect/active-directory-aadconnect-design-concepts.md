@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>O Azure AD Connect: Conceitos de Design
 O objetivo deste tópico é descrever áreas que devem considerar durante a estrutura de implementação do Azure AD Connect. Este tópico é uma descrição profunda sobre algumas áreas e estes conceitos uma breve descrição, bem como outros tópicos.
@@ -42,7 +42,7 @@ O valor do atributo tem de seguir as seguintes regras:
 
 * Ter menos de 60 carateres de comprimento
   * Carateres que não estão a ser a-z, A-Z ou 0-9 são codificados e contabilizado como 3 carateres
-* Não contém um caráter especial: &#92;! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Não contém um caráter especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Deve ser globalmente exclusivo
 * Tem de ser uma cadeia, número inteiro ou binário
 * Não devem ser baseadas no nome do utilizador, estas alterações
@@ -178,7 +178,7 @@ Ao integrar o seu diretório no local com o Azure AD, é importante compreender 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Escolher o atributo para userPrincipalName
 Quando selecionar o atributo para fornecer deve certificar-se o valor de UPN a ser utilizado no Azure
 
-* Os valores de atributo está em conformidade com a sintaxe UPN (RFC 822), que deve ter o formatousername@domain
+* Os valores de atributo está em conformidade com a sintaxe UPN (RFC 822), que deve ter o formato username@domain
 * O sufixo nos valores corresponde a um dos domínios personalizados verificados no Azure AD
 
 As definições rápidas, a escolha assumida para o atributo é userPrincipalName. Se o atributo userPrincipalName não contém o valor que pretende que os utilizadores iniciar sessão no Azure, em seguida, tem de escolher **instalação personalizada**.
@@ -195,5 +195,5 @@ Leitura [adicionar o seu nome de domínio personalizado ao Azure Active Director
 
 O Azure AD Connect Deteta se estiver a executar num ambiente de domínio não encaminháveis internos e iria adequadamente avisá-lo de aceder diretamente com as definições rápidas. Se estão a funcionar num domínio não encaminháveis internos, em seguida, é provável que o UPN dos utilizadores têm também sufixos não encaminháveis internos. Por exemplo, se estiver a executar em contoso. local, o Azure AD Connect sugere que utilize definições personalizadas, em vez de utilizar definições expressas. Utilizar as definições personalizadas, é capazes de especificar o atributo que deve ser utilizado como o UPN para iniciar sessão no Azure depois dos utilizadores são sincronizados com o Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

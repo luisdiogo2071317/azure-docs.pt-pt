@@ -105,7 +105,7 @@ Transfira e instale o [SDK do Azure para .NET](http://azure.microsoft.com/downlo
 Siga as instruções apresentadas [neste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para realizar as seguintes tarefas: 
 
 1. **Crie uma aplicação no Azure Active Directory**. Crie uma aplicação no Azure Active Directory que represente a aplicação .NET que está a criar neste tutorial. Para o URL de início de sessão, pode fornecer um URL fictício conforme mostrado no artigo (`https://contoso.org/exampleapp`).
-2. Obtenha o **ID da aplicação** e a **chave de autenticação*** com base nas instruções da secção **Obter o ID da aplicação e a chave de autenticação** no artigo. Tome nota destes valores que irá utilizar posteriormente neste tutorial. 
+2. Obtenha o **ID da aplicação** e a **chave de autenticação**\*\* com base nas instruções da secção **Obter o ID da aplicação e a chave de autenticação** no artigo. Tome nota destes valores que irá utilizar posteriormente neste tutorial. 
 3. Obtenha o **ID do inquilino** com base nas instruções da secção **Obter ID do inquilino** no artigo. Tome nota deste valor. 
 4. Atribua a aplicação à função **Contribuidor** ao nível da subscrição para que a aplicação possa criar fábricas de dados na subscrição. Siga as instruções apresentadas na secção **Atribuir a aplicação a uma função** do artigo. 
 

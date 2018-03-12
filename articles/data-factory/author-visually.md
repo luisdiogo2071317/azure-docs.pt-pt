@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>A criação de Visual no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite-lhe visualmente cria e implementar os recursos para a fábrica de dados sem ter de escrever qualquer código. Pode arraste as actividades à tela pipeline, efetuar execuções do teste, iteratively, depurar e implementar e monitorizar a execução de pipeline. Existem duas abordagens para utilizar o UX para efetuar a criação de visual:
@@ -39,6 +39,9 @@ Quando utiliza o UX **criação tela** para criar diretamente com o serviço fá
 
 ## <a name="author-with-vsts-git-integration"></a>Autor com a integração de VSTS Git
 Criação visual com a integração de VSTS Git suporta o controlo de origem e de colaboração for work nos seus pipelines de fábrica de dados. Pode associar uma fábrica de dados com um repositório de VSTS Git conta para o controlo de origem, colaboração, controlo de versões e assim sucessivamente. Uma única conta de VSTS Git pode ter vários repositórios, mas um repositório de VSTS Git pode ser associado a fábrica de dados apenas um. Se não tiver uma conta VSTS ou repositório, siga [estas instruções](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) para criar os seus recursos.
+
+> [!NOTE]
+> Um pipeline de fábrica de dados não é possível aceder a ficheiros armazenados num repositório de VSTS Git. Como resultado, não é possível armazenar ficheiros que são utilizados por atividades do pipeline de fábrica de dados - por exemplo, ficheiros de dados e ficheiros de script - num repositório de VSTS Git.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurar um repositório de VSTS Git com o Azure Data Factory
 Pode configurar um repositório de VSTS GIT com uma fábrica de dados através de dois métodos.

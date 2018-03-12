@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 387f3095e8eebce3fa6c2f47ffc87995e65bfe2b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introdução ao Docker e Compose para definir e executar uma aplicação de contentor multi no Azure
 Com [Compose](http://github.com/docker/compose), utilizar um ficheiro de texto simples para definir uma aplicação consiste de vários contentores de Docker. Em seguida, rotação de cópia de segurança da aplicação num único comando que tudo para implementar o seu ambiente definido. Por exemplo, este artigo mostra como configurar rapidamente um blogue do WordPress com um base de dados do SQL de MariaDB numa VM com Ubuntu de back-end. Também pode utilizar Compose para configurar aplicações mais complexas.
@@ -32,7 +32,7 @@ Quando utiliza a extensão de VM de Docker, a VM é automaticamente configurada 
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Criar anfitrião Docker com o Azure CLI 2.0
-Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#az_login).
+Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login).
 
 Em primeiro lugar, crie um grupo de recursos para o seu ambiente de Docker com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
