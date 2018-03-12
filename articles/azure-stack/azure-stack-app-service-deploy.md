@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: b053d515949e71fcb5f1e520f6d3d5375cc27dcb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações a pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+
+> [!IMPORTANT]
+> Aplicar a atualização 1802 ao seu sistema de pilha do Azure integrado ou implementar o kit de desenvolvimento de pilha do Azure mais recente antes de implementar o serviço de aplicações do Azure.
+>
+>
 
 Como um operador de nuvem de pilha do Azure, pode conceder aos seus utilizadores a capacidade de criar aplicações API e web. Para tal, terá de adicionar primeiro o [fornecedor de recursos do serviço de aplicações](azure-stack-app-service-overview.md) para a implementação da pilha de Azure conforme descrito neste artigo. Depois de ter instalado o fornecedor de recursos do serviço de aplicações, pode incluí-la nas suas ofertas e planos. Os utilizadores, em seguida, podem subscrever para obter o serviço e começar a criar aplicações.
 

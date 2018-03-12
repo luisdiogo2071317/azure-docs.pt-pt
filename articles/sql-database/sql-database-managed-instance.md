@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 721e94f2848a219c999c6bc6e5bba1fc49afa799
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: HT
+ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -200,4 +200,4 @@ Gerido instância ativar administrador de sistema focar-se naquilo que realmente
 
 - Para funcionalidades e a lista de comparação, consulte [funcionalidades comuns do SQL Server](sql-database-features.md).
 - Para um tutorial que cria uma instância geridos e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância geridos](sql-database-managed-instance-tutorial-portal.md).
-- Para um tutorial, utilizando o serviço de migração de base de dados do Azure (DMS) para a migração, consulte [migração de instância geridos com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para um tutorial, utilizando o serviço de migração de base de dados do Azure (DMS) para a migração, consulte [migração instância geridos utilizando o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
