@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 52ec8afa693e6ac3c8c73f070f748a01116ec68f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>Criar a sua primeira base de dados SQL do Azure
 
@@ -55,7 +55,7 @@ Siga estes passos para criar uma base de dados SQL vazia.
 
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
-2. Selecione **Bases de Dados** na página **Novo** e selecione **Criar na Base de Dados SQL** em **Base de Dados SQL** na página **Novo**.
+2. Selecione **Bases de Dados** na página **Novo** e selecione **Criar** em **Base de Dados SQL** na página **Novo**.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -139,7 +139,7 @@ Pode agora ligar ao servidor da Base de Dados SQL e às respetivas bases de dado
 Obtenha o nome de servidor totalmente qualificado para o servidor da Base de Dados SQL do Azure no portal do Azure. Utilize o nome de servidor totalmente qualificado para ligar ao seu servidor com o SQL Server Management Studio.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bases de Dados SQL** a partir do menu do lado esquerdo e clique na sua base de dados na página **Bases de Dados SQL**. 
+2. Selecione **Bases de Dados SQL** no menu do lado esquerdo e clique na sua base de dados na página **Bases de Dados SQL**. 
 3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**.
 
    ![informações da ligação](./media/sql-database-get-started-portal/server-name.png)

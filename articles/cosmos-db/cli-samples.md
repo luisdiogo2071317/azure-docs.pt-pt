@@ -1,6 +1,6 @@
 ---
-title: Amostras da CLI do Azure para o Azure Cosmos DB | Microsoft Docs
-description: "Exemplos CLI do Azure - criar e gerir contas de Azure Cosmos DB, bases de dados, contentores, regiões e firewalls."
+title: Exemplos de CLI do Azure para o Azure Cosmos DB | Microsoft Docs
+description: "Exemplos de CLI do Azure – Criar e gerir contas, bases de dados, contentores, regiões e firewalls do Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 432ffc80d602a9e4eaf83fba15f0e6ebabd13603
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 75199225509554a96168eda7993f0340b75e5493
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para a base de dados do Azure Cosmos
+# <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para o Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-A tabela seguinte inclui ligações para scripts da CLI do Azure de exemplo para a base de dados do Azure Cosmos. Estão disponíveis nas páginas de referência para todos os comandos da CLI do Azure Cosmos DB o [Azure CLI 2.0 referência](https://docs.microsoft.com/cli/azure/cosmosdb).
+A tabela seguinte inclui ligações para scripts da CLI do Azure de exemplo para o Azure Cosmos DB. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência do Azure CLI 2.0](https://docs.microsoft.com/cli/azure/cosmosdb).
 
 | |  |
 |---|---|
-|**Criar conta de base de dados do Azure Cosmos, base de dados e contentores**||
-|[Criar uma conta de API do SQL Server](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma única conta de API de BD do Cosmos do Azure, base de dados e um contentor para utilização com a API do SQL Server. |
-| [Criar uma conta de API do MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma única API do Azure Cosmos DB MongoDB conta, base de dados e coleção. |
-|**Dimensionar Cosmos BD do Azure**||
-| [Débito do contentor de escala](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Altera o througput aprovisionado num contentor.|
-|[Replicar a conta de base de dados de base de dados do Azure Cosmos em várias regiões e configurar as prioridades de ativação pós-falha](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Globalmente replica os dados de conta em várias regiões, com uma prioridade de ativação pós-falha especificado.|
-|**Proteger Cosmos BD do Azure**||
-| [Obter chaves de conta](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém as chaves primária e secundária escrita principal e chaves primária e secundária só de leitura para a conta.|
-| [Obter a cadeia de ligação do MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém a cadeia de ligação para ligar a aplicação do MongoDB à sua conta de base de dados do Azure Cosmos.|
-|[Voltar a gerar chaves de conta](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|A chave mestra ou só de leitura para a conta de gera de novo.|
-|[Criar uma firewall](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma política de controlo de acesso IP entrada para limitar o acesso à conta de um conjunto de máquinas aprovado e/ou serviços em nuvem.|
-|**Elevada disponibilidade, a recuperação após desastre, a cópia de segurança e restauro**||
-|[Configurar a política de ativação pós-falha](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Define a prioridade de ativação pós-falha de cada região na qual a conta é replicada.|
-|**Ligar a base de dados do Azure Cosmos recursos**||
-|[Ligar uma aplicação web à base de dados do Azure Cosmos](../app-service/scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Criar e ligar uma base de dados de base de dados do Azure Cosmos e uma aplicação web do Azure.|
+|**Criar a conta, a base de dados e os contentores do Azure Cosmos DB**||
+|[Criar uma conta da API de SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cria a conta, a base de dados e o contentor de uma API de Azure Cosmos DB única para utilização com a API de SQL. |
+| [Criar uma conta da API de MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cria a conta, a base de dados e a coleção de uma API de MongoDB do Azure Cosmos DB única. |
+|**Dimensionar o Azure Cosmos DB**||
+| [Dimensionar o débito do contentor](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Altera o débito aprovisionado num contentor.|
+|[Replicar a conta de base de dados do Azure Cosmos DB em várias regiões e configurar prioridades de ativação pós-falha](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replica globalmente os dados da conta em várias regiões com uma prioridade de ativação pós-falha especificada.|
+|**Proteger o Azure Cosmos DB**||
+| [Obter chaves de contas](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém as chaves de escrita mestra primária e secundária, e as chaves só de leitura primária e secundária da conta.|
+| [Obter a cadeia de ligação do MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Obtém a cadeia de ligação para ligar a aplicação MongoDB à sua conta do Azure Cosmos DB.|
+|[Voltar a gerar chaves da conta](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Volta a gerar a chave mestra ou só de leitura da conta.|
+|[Criar uma firewall](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma política de controlo de acesso IP de entrada para limitar o acesso à conta a partir de um conjunto aprovado de computadores e/ou serviços cloud.|
+|**Elevada disponibilidade, recuperação após desastre, cópia de segurança e restauro**||
+|[Configurar política de ativação pós-falha](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Define a prioridade de ativação pós-falha de cada região em que a conta é replicada.|
+|**Ligar o Azure Cosmos DB a recursos**||
+|[Ligar uma aplicação Web ao Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Crie e ligue uma base de dados do Azure Cosmos DB e uma aplicação Web do Azure.|
 |||

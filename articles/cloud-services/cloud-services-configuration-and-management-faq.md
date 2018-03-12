@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
 ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -279,7 +279,7 @@ As definições do diário de alterações são não configuráveis, pelo que n�
 Pode ativar a extensão de Antimalware utilizando o script do PowerShell na tarefa de arranque. Siga os passos descritos nestes artigos para implementá-las: 
  
 - [Criar uma tarefa de arranque do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Conjunto AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 Para obter mais informações sobre cenários de implementação de Antimalware e como ativá-la a partir do portal, consulte [cenários de implementação de Antimalware](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 
@@ -297,7 +297,7 @@ Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o
 
 |Valor|Significado|
 ------|------
-|0|Não existem SNI|
+|0|No SNI|
 |1|SNI ativado |
 |2 |Não SNI enlace que utiliza o arquivo de certificados Central|
 |3|Armazenar o enlace de SNI que utiliza certificados Central |

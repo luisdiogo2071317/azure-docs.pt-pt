@@ -6,25 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-<<<<<<< HEAD
 ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 99bd03bf4c3ca2d7b1ced51ebfe8be669f271c1c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
-=======
-ms.date: 02/20/2018
-ms.author: seanmck
-ms.custom: mvc
-ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
->>>>>>> d43cd15e98f34cd2db2cb0a0bd0c207fd537bfc9
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implementar um contentor no Azure Container Instances
 
@@ -39,11 +28,7 @@ Neste tutorial:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-<<<<<<< HEAD
 Este tutorial requer a execução da versão 2.0.27 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
-=======
-Este tutorial requer a execução da versão 2.0.23 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
->>>>>>> d43cd15e98f34cd2db2cb0a0bd0c207fd537bfc9
 
 Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker, localmente instalado. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
@@ -65,7 +50,7 @@ Palavra-passe do registo de contentor:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Para implementar a imagem de contentor do registo de contentor com um pedido de recurso de 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos a com os dois comandos anteriores. Substitua `<acrName>` pelo nome do seu registo de contentor.
+A sua aplicação deverá ter sido [preparada com antecedência][prepare-app]; para implementar a imagem de contentor do registo de contentor com um pedido de recurso de 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando [az container create][az-container-create]. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos a com os dois comandos anteriores. Substitua `<acrName>` pelo nome do seu registo de contentor; também pode substituir `aci-tutorial-app` pelo nome que pretende dar à nova aplicação.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
@@ -138,6 +123,7 @@ Neste tutorial, concluiu o processo de implementação dos contentores no Azure 
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
+[az-container-create]: /cli/azure/container#az_container_create
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

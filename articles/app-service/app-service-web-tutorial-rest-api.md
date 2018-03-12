@@ -1,305 +1,210 @@
 ---
-title: "Aplicação API Node.js no Serviço de Aplicações do Azure | Microsoft Docs"
-description: "Saiba como criar uma API RESTful Node.js e implementá-la numa aplicação API no App Service do Azure."
+title: "API RESTful com CORS no Serviço de Aplicações do Azure | Microsoft Docs"
+description: "Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS."
 services: app-service\api
-documentationcenter: node
-author: bradygaster
-manager: erikre
+documentationcenter: dotnet
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service-api
+ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/13/2017
-ms.author: rachelap
+ms.date: 02/28/2018
+ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: MT
+ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Criar uma API RESTful Node.js e implementá-la numa aplicação API no Azure
+# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
-Este início rápido mostra como criar uma API REST, escrita com Node.js [Express](http://expressjs.com/), utilizando uma definição do [Swagger](http://swagger.io/) e implementando-a no Azure. Crie a aplicação através das ferramentas de linha de comando, configure os recursos com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e implemente a aplicação com o Git.  Quando tiver terminado, terá uma API de REST de amostra de trabalho em execução no Azure.
+O [Serviço de Aplicações do Azure](app-service-web-overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Além disso, o Serviço de Aplicações tem suporte incorporado para [Partilha de Recursos de Várias Origens (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para APIs RESTful. Este tutorial mostra como implementar uma aplicação API ASP.NET Core no Serviço de Aplicações com suporte para CORS. A aplicação é configurada com ferramentas de linha de comandos e implementada na aplicação através do Git. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+Neste tutorial, ficará a saber como:
 
-* [Git](https://git-scm.com/)
-* [ Node.js e NPM](https://nodejs.org/)
+> [!div class="checklist"]
+> * Criar recursos do Serviço de Aplicações com a CLI do Azure
+> * Implementar uma API RESTful no Azure com o Git
+> * Ativar o suporte para CORS no Serviço de Aplicações
+
+Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Para concluir este tutorial:
 
-## <a name="prepare-your-environment"></a>Preparar o ambiente
+* [Instale o Git](https://git-scm.com/).
+* [Instale o .NET Core](https://www.microsoft.com/net/core/).
 
-1. Numa janela do terminal, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
+## <a name="create-local-aspnet-core-app"></a>Criar uma aplicação .NET Core local
 
-    ```bash
-    git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
-    ```
+Neste passo, vai configurar o projeto ASP.NET Core local. O Serviço de Aplicações suporta o mesmo fluxo de trabalho para APIs escritas noutras linguagens.
 
-2. Mude para o diretório que contém o código de exemplo.
+### <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-    ```bash
-    cd app-service-api-node-contact-list
-    ```
+Na janela de terminal, `cd` num diretório de trabalho.  
 
-3. Instalar [Swaggerize](https://www.npmjs.com/package/swaggerize-express) no seu computador local. Swaggerize é uma ferramenta que gera código Node. js para a API REST de uma definição de Swagger.
-
-    ```bash
-    npm install -g yo
-    npm install -g generator-swaggerize
-    ```
-
-## <a name="generate-nodejs-code"></a>Gerar código Node. js 
-
-Esta secção do tutorial exemplifica o fluxo de trabalho de desenvolvimento de uma API na qual cria primeiro metadados Swagger e utiliza para estruturar (gerar automaticamente) o código do servidor para a API. 
-
-Altere o diretório para a pasta *iniciar*, em seguida, execute `yo swaggerize`. Swaggerize cria um projeto de Node. js para sua API da definição de Swagger na *api.json*.
+Execute o seguinte comando para clonar o repositório de exemplo. 
 
 ```bash
-cd start
-yo swaggerize --apiPath api.json --framework express
+git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Quando o Swaggerize pedir um nome de projeto, utilize *ContactList*.
-   
-   ```bash
-   Swaggerize Generator
-   Tell us a bit about your application
-   ? What would you like to call this project: ContactList
-   ? Your name: Francis Totten
-   ? Your github user name: fabfrank
-   ? Your email: frank@fabrikam.net
-   ```
-   
-## <a name="customize-the-project-code"></a>Personalizar o código do projeto
+Este repositório contém uma aplicação que é criada com base no tutorial [ASP.NET Core Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) (Páginas de ajuda da API Web ASP.NET Core mediante a utilização do Swagger). Utiliza um gerador do Swagger para servir a [IU do Swagger](https://swagger.io/swagger-ui/) e o ponto final JSON do Swagger.
 
-1. Copie a pasta *lib*para a pasta *ContactList* criada por `yo swaggerize` e mude para o diretório *ContactList*.
+### <a name="run-the-application"></a>Executar a aplicação
 
-    ```bash
-    cp -r lib ContactList/
-    cd ContactList
-    ```
+Execute os seguintes comandos para instalar os pacotes necessários, executar migrações de base de dados e iniciar a aplicação.
 
-2. Instalar os módulos `jsonpath` e `swaggerize-ui` NPM. 
+```bash
+cd dotnet-core-api
+dotnet restore
+dotnet run
+```
 
-    ```bash
-    npm install --save jsonpath swaggerize-ui
-    ```
+Navegue para `http://localhost:5000/swagger` num browser para reproduzir com a IU do Swagger.
 
-3. Substitua o código no ficheiro *handlers/contacts.js* pelo código seguinte. 
-    ```javascript
-    'use strict';
+![API ASP.NET Core em execução localmente](./media/app-service-web-tutorial-rest-api/local-run.png)
 
-    var repository = require('../lib/contactRepository');
+Navegue para `http://localhost:5000/api/todo` e veja uma lista de itens JSON ToDo
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.all())
-        }
-    };
-    ```
-    Este código utiliza os dados JSON armazenados no ficheiro *lib/contacts.json* que é servido pelo *lib/contactRepository.js*. O novo código *contacts.js* devolve todos os contactos no repositório como uma carga JSON. 
+Navegue para `http://localhost:5000` e experimente a aplicação de browser. Mais tarde, vai apontar a aplicação de browser para uma API remota no Serviço de Aplicações para testar a funcionalidade CORS. O código para a aplicação de browser está no diretório _wwwroot_ do repositório.
 
-4. Substitua o código no ficheiro **handlers/contacts/{id}.js** pelo código seguinte:
+Para parar o ASP.NET Core em qualquer altura, prima `Ctrl+C` no terminal.
 
-    ```javascript
-    'use strict';
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-    var repository = require('../../lib/contactRepository');
+## <a name="deploy-app-to-azure"></a>Implementar a aplicação no Azure
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.get(req.params['id']));
-        }    
-    };
-    ```
+Neste passo, vai implementar a aplicação .NET Core ligada à Base de Dados SQL no Serviço de Aplicações.
 
-    Esse código permite que use uma variável de caminho para devolver apenas o contacto com uma ID especificada.
+### <a name="configure-local-git-deployment"></a>Configurar a implementação do git local
 
-5. Substitua o código no **server.js** pelo código seguinte:
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-    ```javascript
-    'use strict';
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-    var port = process.env.PORT || 8000; 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-    var http = require('http');
-    var express = require('express');
-    var bodyParser = require('body-parser');
-    var swaggerize = require('swaggerize-express');
-    var swaggerUi = require('swaggerize-ui'); 
-    var path = require('path');
-    var fs = require("fs");
-    
-    fs.existsSync = fs.existsSync || require('path').existsSync;
+### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
-    var app = express();
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-    var server = http.createServer(app);
+### <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-    app.use(bodyParser.json());
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-    app.use(swaggerize({
-        api: path.resolve('./config/swagger.json'),
-        handlers: path.resolve('./handlers'),
-        docspath: '/swagger' 
-    }));
+### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
-    // change four
-    app.use('/docs', swaggerUi({
-        docs: '/swagger'  
-    }));
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-    server.listen(port, function () { 
-    });
-    ```   
+```bash
+Counting objects: 98, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (92/92), done.
+Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
+Total 98 (delta 8), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: .
+remote: Updating submodules.
+remote: Preparing deployment for commit id '0c497633b8'.
+remote: Generating deployment script.
+remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote: .
+remote: .
+remote: .
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-    Este código faz algumas pequenas alterações para deixá-lo a trabalhar com o serviço de aplicações do Azure e expõe uma interface web interativa para sua API.
+### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
 
-### <a name="test-the-api-locally"></a>Testar a API localmente
+Navegue para `http://<app_name>.azurewebsites.net/swagger` num browser experimente a IU do Swagger.
 
-1. Iniciar a aplicação de Node.js
-    ```bash
-    npm start
-    ```
-    
-2. Navegue até http://localhost:8000/contacts para exibir o JSON para toda a lista de contactos.
-   
-   ```json
-    {
-        "id": 1,
-        "name": "Barney Poland",
-        "email": "barney@contoso.com"
-    },
-    {
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    },
-    {
-        "id": 3,
-        "name": "Lora Riggs",
-        "email": "lora@contoso.com"
-    }
-   ```
+![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
-3. Navegue até http://localhost:8000/contacts/2 para exibir o contacto com um `id` de dois.
-   
-    ```json
-    { 
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    }
-    ```
+Navegue para `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` para ver o _swagger.json_ da API implementada.
 
-4. Teste a API com a interface da web de Swagger em interface at http://localhost:8000/docs.
-   
-    ![Interface da web swagger](media/app-service-web-tutorial-rest-api/swagger-ui.png)
+Navegue para `http://<app_name>.azurewebsites.net/api/todo` para ver a API implementada em funcionamento.
 
-## <a id="createapiapp"></a> Criar uma aplicação de API
+## <a name="add-cors-functionality"></a>Adicionar a funcionalidade CORS
 
-Nesta secção, pode utilizar a CLI 2.0 do Azure para criar os recursos para alojar a API do Azure App Service. 
+Em seguida, ative o suporte de CORS no Serviço de Aplicações para a sua API.
 
-1.  Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/?view=azure-cli-latest#az_login) e siga as instruções no ecrã.
+### <a name="test-cors-in-sample-app"></a>Testar CORS na aplicação de exemplo
 
-    ```azurecli-interactive
-    az login
-    ```
+No seu repositório local, abra _wwwroot/index.html_.
 
-2. Se tiver várias subscrições do Azure, altere a subscrição predefinida para a desejada.
+Na Linha 51, defina a variável `apiEndpoint` como o URL da API implementada (`http://<app_name>.azurewebsites.net`). Substitua _\<appname>_ pelo nome da sua aplicação no Serviço de Aplicações.
 
-    ````azurecli-interactive
-    az account set --subscription <name or id>
-    ````
+Na janela de terminal local, execute novamente a aplicação de exemplo.
 
-3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+```bash
+dotnet run
+```
 
-4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela de ferramentas de programador no browser (`Ctrl`+`Shift`+`i` no Chrome para o Windows) e inspecione o separador **Consola**. Deverá ver agora a mensagem de erro `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+![Erro CORS no cliente de browser](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
+Devido à falta de correspondência de domínio entre a aplicação de browser (`http://localhost:5000`) e o recurso remoto (`http://<app_name>.azurewebsites.net`) e o facto de a sua API no Serviço de Aplicações não estar a enviar o cabeçalho `Access-Control-Allow-Origin`, o browser impediu o carregamento de conteúdos de vários domínios na sua aplicação de browser.
 
-## <a name="deploy-the-api-with-git"></a>Implementar a API com Git
+Na produção, a aplicação de browser teria um URL público em vez do URL de localhost, mas a forma de ativar o CORS para um URL de localhost é igual à dos URLs públicos.
 
-Irá implementar o código para a aplicação API ao emitir consolidações para um repositório do Git no Azure App Service.
+### <a name="enable-cors"></a>Ativar o CORS 
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
-
-2. Inicializar um novo repositório no diretório *ContactList*. 
-
-    ```bash
-    git init .
-    ```
-
-3. Exclua o diretório *node_modules* criado pelo npm numa etapa anterior no tutorial do Git. Crie um novo ficheiro `.gitignore` no diretório atual e adicione o seguinte texto numa nova linha em qualquer lugar no ficheiro.
-
-    ```
-    node_modules/
-    ```
-    Confirme se a pasta `node_modules` está a ser ignorada com `git status`.
-    
-4. Adicione as seguintes linhas no `package.json`. O código que é gerado pelo Swaggerize não especifica uma versão para o motor Node.js. Sem a especificação de versão, o Azure utiliza a versão predefinida do `0.10.18`, que não é compatível com o código gerado.
-
-    ```javascript
-    "engines": {
-        "node": "~0.10.22"
-    },
-    ```
-
-5. Confirme as alterações ao repositório.
-    ```bash
-    git add .
-    git commit -m "initial version"
-    ```
-
-6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
- 
-## <a name="test-the-api--in-azure"></a>Testar a API no Azure
-
-1. Abra um browser em http://app_name.azurewebsites.net/contacts. Verá o mesmo JSON devolvido como quando fez a solicitação localmente no tutorial.
-
-   ```json
-   {
-       "id": 1,
-       "name": "Barney Poland",
-       "email": "barney@contoso.com"
-   },
-   {
-       "id": 2,
-       "name": "Lacy Barrera",
-       "email": "lacy@contoso.com"
-   },
-   {
-       "id": 3,
-       "name": "Lora Riggs",
-       "email": "lora@contoso.com"
-   }
-   ```
-
-2. Num browser, aceda ao ponto final `http://app_name.azurewebsites.net/docs` para experimentar a IU do Swagger enquanto é executada no Azure.
-
-    ![Ii do Swagger](media/app-service-web-tutorial-rest-api/swagger-azure-ui.png)
-
-    Agora pode implementar atualizações para a API de exemplo para o Azure simplesmente enviando confirmações para o repositório Git do Azure.
-
-## <a name="clean-up"></a>Limpeza
-
-Para remover todos os recursos criados por este Manual de Início Rápido, execute o seguinte comando da CLI do Azure:
+No Cloud Shell, ative CORS no URL do seu cliente com o comando [`az resource update`](/cli/azure/resource#az_resource_update). Substitua o marcador de posição _&lt;appname>_.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
-## <a name="next-step"></a>Passo seguinte 
+Pode definir mais de um URL do cliente em `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Também pode ativar todos os URLs do cliente com `"['*']"`.
+
+### <a name="test-cors-again"></a>Testar o CORS novamente
+
+Ative a aplicação de browser em `http://localhost:5000`. A mensagem de erro na janela **Consola** deixa de estar visível e pode ver os dados da API implementada e interagir com os mesmos. A API remota suporta agora CORS na sua aplicação de browser em execução no local. 
+
+![CORS bem-sucedido no cliente de browser](./media/app-service-web-tutorial-rest-api/cors-success.png)
+
+Parabéns! Está a executar uma API no Serviço de Aplicações do Azure com suporte para CORS.
+
+## <a name="app-service-cors-vs-your-cors"></a>CORS do Serviço de Aplicações vs. o seu CORS
+
+Pode utilizar os seus próprios utilitários CORS em vez do CORS do Serviço de Aplicações para uma maior flexibilidade. Por exemplo, poderá querer especificar diferentes origens permitidas para rotas ou métodos diferentes. Uma vez que o CORS do Serviço de Aplicações lhe permite especificar um conjunto de origens aceites para todas as rotas e métodos da API, poderá pretender utilizar o seu próprio código de CORS. Veja como é que o ASP.NET Core o faz em [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors) (Ativar Pedidos de Várias Origens [CORS]).
+
+> [!NOTE]
+> Não tente utilizar o CORS do Serviço de Aplicações o seu próprio código CORS em conjunto. Quando utilizados em conjunto, o CORS do Serviço de Aplicações tem precedência e o seu código não tem qualquer efeito.
+>
+>
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+<a name="next"></a>
+## <a name="next-steps"></a>Passos seguintes
+
+O que aprendeu:
+
+> [!div class="checklist"]
+> * Criar recursos do Serviço de Aplicações com a CLI do Azure
+> * Implementar uma API RESTful no Azure com o Git
+> * Ativar o suporte para CORS no Serviço de Aplicações
+
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
+
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS personalizado existente para as Aplicações Web do Azure](app-service-web-tutorial-custom-domain.md)
-

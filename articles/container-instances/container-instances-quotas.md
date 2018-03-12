@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/11/2018
+ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: baf93d4a2a4ba1e05bbf558d0c056fa3aa833fef
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quotas e disponibilidade das regiões do Azure Container Instances
 
@@ -28,10 +28,14 @@ O Azure Container Instances está disponível nas seguintes regiões com a CPU e
 
 | Localização | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
-| Europa Ocidental, E.U.A. Oeste, E.U.A. Leste, Sudeste Asiático | Linux | 4 | 14 |
-| Europa Ocidental, E.U.A. Oeste, E.U.A. Leste, Sudeste Asiático  | Windows | 4 | 14 |
+| Europa Ocidental, E.U.A. Oeste, E.U.A Leste | Linux | 4 | 14 |
+| Sudeste Asiático  | Linux | 1 | 1.5 |
+| Europa Ocidental, E.U.A. Oeste, E.U.A Leste | Windows | 4 | 14 |
+| Sudeste Asiático  | Windows | 2 | 3.5 |
 
 As instâncias de contentor criadas dentro destes limites de recursos estão sujeitas à disponibilidade numa região de implementação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar essa falha de implementação, experimente implementar instâncias com definições de memória e CPU inferior ou tente implementar mais tarde.
+
+Informe a equipa das regiões adicionais necessárias ou do aumento dos limites da CPU/memória em [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 Para obter mais informações sobre a resolução de problemas de implementação de instância de contentor, veja [Troubleshoot deployment issues with Azure Container Instances (Resolver problemas de implementação com o Azure Container Instances)](container-instances-troubleshooting.md).
 
