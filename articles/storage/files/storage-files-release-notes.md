@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9b6dfec6465482efcbf55d0441e44a0278f44a22
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync (pré-visualização) permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -30,11 +30,25 @@ O Azure File Sync suporta as seguintes versões:
 
 | Número de versão do agente | Data da versão | Suportado até |
 |----------------------|--------------|------------------|
+| 2.1.0.0 | 28-02-2018 | Versão atual |
 | 2.0.11.0 | 2018-02-08 | Versão atual |
 | 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2100"></a>Versão 2.1.0.0 do agente
+As notas de versão seguintes destinam-se à versão 2.1.0 do agente lançada a 28 de fevereiro de 2018. Estas são cumulativas em relação às notas de versão abaixo para a versão 2.0.11.0
+
+As alterações exclusivas desta atualização mensal incluem:
+- Melhoria no processamento da ativação pós-falha do cluster.
+- Melhoria no processamento de ficheiros em camadas de modo a ser mais fiável.
+- Permitir a instalação do agente em computadores do controlador de domínio adicionados a um ambiente de domínio 2008 R2.
+- Corrigir a geração excessiva de diagnósticos em servidores com muitos ficheiros.
+- Melhoria no processamento de erros relacionados com falhas de sessão.
+- Melhoria no processamento de erros relacionados com problemas de transferência de ficheiros.
+- Alterar o intervalo predefinido para a execução de camadas da cloud para uma hora, quando ativado no ponto final do servidor. 
+- Bloqueio temporário da mudança de recursos do Azure File Sync (Serviço de Sincronização de Armazenamento) para uma nova subscrição do Azure
 
 ## <a name="agent-version-20110"></a>Versão 2.0.11.0 do agente
 As notas de versão seguintes destinam-se à versão 2.0.11.0 do agente lançada a 9 de fevereiro de 2018. 

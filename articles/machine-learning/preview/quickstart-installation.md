@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 2/22/2018
-ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Início rápido: Instalar e começar a utilizar os serviços do Azure Machine Learning
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e de ciência de dados integrada e completa. Ajudam os cientistas de dados profissionais a preparar dados, desenvolver experimentações e implementar modelos à escala da cloud.
@@ -29,7 +29,9 @@ Este manual de início rápido mostra-lhe como:
 * Aceder à interface de linha de comandos (CLI)
 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Enquanto parte do portefólio do Microsoft Azure, os serviços do Azure Machine Learning requerem uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+Além disso, tem de ter permissões adequadas para criar recursos, tais como Grupos de Recursos, Máquinas Virtuais, entre outros. 
 
 <a name="prerequisites"></a>Pode instalar a aplicação Azure Machine Learning Workbench nos seguintes sistemas operativos:
 - Windows 10 ou Windows Server 2016
@@ -63,7 +65,7 @@ Utilize o portal do Azure para aprovisionar as contas do Azure Machine Learning:
    Localização | _A região mais próxima dos seus utilizadores_ | Escolha a localização que esteja mais próxima dos seus utilizadores e dos recursos de dados.
    Número de utilizadores | 2 | Introduza o número de utilizadores. Saiba como [o número de utilizadores influencia os preços](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Neste início rápido, só precisa de dois utilizadores. É possível adicionar ou remover utilizadores no portal do Azure, conforme necessário.
    Conta de armazenamento | _Nome exclusivo_ | Selecione **Criar nova** e indique um nome para criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). Em alternativa, selecione **Utilizar existente** e selecione a conta de armazenamento existente na lista pendente. A conta de armazenamento é necessária e é utilizada para armazenar artefactos de projetos e dados do histórico de execuções. 
-   Área de Trabalho para a conta de Experimentação | IrisGarden | Indique um nome para uma área de trabalho nesta conta. O nome deve ter entre 2 e 32 carateres. Deve incluir apenas carateres alfanuméricos e o caráter de travessão (–). Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.
+   Área de Trabalho para a conta de Experimentação | IrisGarden<br/>(nome utilizado nos tutoriais) | Indique um nome para uma área de trabalho nesta conta. O nome deve ter entre 2 e 32 carateres. Deve incluir apenas carateres alfanuméricos e o caráter de travessão (–). Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.
    Atribuir proprietário à área de trabalho | _A sua conta_ | Selecione a sua própria conta como o proprietário da área de trabalho.
    Criar conta de Gestão de Modelos | **selecionar** |Crie uma conta de Gestão de Modelos agora, para que este recurso esteja disponível quando quiser implementar e gerir os seus modelos como serviços Web em tempo real. <br/><br/>Embora seja opcional, recomendamos que crie a conta de Gestão de Modelos ao mesmo tempo que a conta de Experimentação.
    Nome da conta | _Nome exclusivo_ | Escolha um nome exclusivo que identifique a sua conta de Gestão de Modelos. Pode utilizar o seu nome ou o nome de um departamento ou projeto, aquele que melhor identifique a experimentação. O nome deve ter entre 2 e 32 carateres. Deve incluir apenas carateres alfanuméricos e o caráter de travessão (–). 

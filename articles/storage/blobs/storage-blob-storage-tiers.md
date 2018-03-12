@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivos
 
@@ -83,7 +83,7 @@ Quando um blob é movido para uma camada mais esporádica (frequente->esporádic
 
 Se mudar a camada da conta de frequente para esporádica, são-lhe cobradas operações de escrita (por 10 000) para todos os blobs que não tenham uma camada definida em contas GPv2 apenas. Estas cobranças não acontecem nas contas de Armazenamento de Blobs. Se mudar a conta GPv2 ou de Armazenamento de Blobs de esporádica para frequente, são-lhe cobradas as operações de escrita (por 10 000) e obtenção de dados (por GB). Podem também aplicar-se cobranças com deteções precoces para qualquer blob que seja retirado da camada esporádica ou de arquivo.
 
-### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Eliminação antecipada de acesso esporádico e arquivo (em vigor a partir de 1 de março de 2018)
+### <a name="cool-and-archive-early-deletion"></a>Eliminação precoce de blobs de acesso esporádico e de arquivo
 
 Para além dos custos por mês por GB, qualquer blob que seja movido para a camada esporádica (apenas contas GPv2) está sujeito a um período de 30 dias de eliminação precoce esporádica e qualquer blob que seja incluído na camada de arquivos está sujeito a um período de 180 dias de eliminação precoce de arquivos. Estes custos são rateados. Por exemplo, se um blob for movido para arquivo e, em seguida, for eliminado ou movido para a camada frequente após 45 dias, é-lhe cobrada uma tarifa de eliminação precoce equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo.
 
@@ -177,7 +177,7 @@ Cada blob é sempre faturado de acordo com a camada indicada pela propriedade **
 
 **Como posso saber se me vai ser faturada uma cobrança de eliminação precoce quando eliminar ou retirar um blob da camada esporádica ou de arquivo?**
 
-Qualquer blob que seja eliminado ou retirado da camada esporádica (contas GPv2 apenas) ou de arquivo antes de aí estar 30 dias e 180 dias, respetivamente, implica uma cobrança de eliminação precoce rateada (em vigor a partir de 1 de março de 2018). Para saber há quanto tempo é que um blob está na camada esporádica ou de arquivo, veja a respetiva propriedade **Access Tier Time** (Tempo na Camada de Acesso), que mostra um carimbo de data/hora da última alteração à camada. Veja a secção [Cool and archive early deletion](#cool-and-archive-early-deletion) (Eliminação precoce na camada esporádica e de arquivo) para obter mais detalhes.
+Qualquer blob que seja eliminado ou retirado da camada de acesso esporádico (contas GPv2 apenas) ou de arquivo antes de terem decorrido 30 e 180 dias, respetivamente, irá incorrer numa cobrança por eliminação precoce rateada. Para saber há quanto tempo é que um blob está na camada esporádica ou de arquivo, veja a respetiva propriedade **Access Tier Time** (Tempo na Camada de Acesso), que mostra um carimbo de data/hora da última alteração à camada. Veja a secção [Cool and archive early deletion](#cool-and-archive-early-deletion) (Eliminação precoce na camada esporádica e de arquivo) para obter mais detalhes.
 
 **Que ferramentas e SDKs do Azure suportam a atribuição de camadas ao nível do blob e o armazenamento de arquivo?**
 

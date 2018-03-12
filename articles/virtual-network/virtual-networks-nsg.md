@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrar o tráfego de rede com grupos de segurança de rede
 
@@ -66,7 +66,7 @@ A figura anterior mostra como as regras do NSG são processadas.
 Etiquetas predefinidas são identificadores fornecidos pelo sistema para abordar uma categoria de endereços IP. Pode utilizar etiquetas predefinidas nas propriedades **prefixo do endereço de origem** e **prefixo do endereço de destino** de qualquer regra. Existem três etiquetas predefinidas que pode utilizar:
 
 * **Rede Virtual** (Resource Manager) (**VIRTUAL_NETWORK** para clássica): esta etiqueta inclui o espaço de endereços da rede virtual (intervalos CIDR definidos no Azure), todos os espaços de endereços no local ligados e as VNets do Azure ligadas (redes locais).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** par clássica): esta etiqueta denota o balanceador de carga da infraestrutura do Azure. A etiqueta traduz-se num IP de datacenter do Azure onde as sondas de estado de funcionamento do Azure têm origem.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** par clássica): esta etiqueta denota o balanceador de carga da infraestrutura do Azure. A etiqueta traduz-se num IP de datacenter do Azure do qual provêm as pesquisas de estado de funcionamento do Balanceador de Carga do Azure.
 * **Internet** (Resource Manager) (**INTERNET** para clássica): esta etiqueta denota o espaço de endereços IP que está fora da rede virtual e acessível pela Internet pública. O intervalo inclui o [espaço de IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Regras predefinidas
@@ -75,7 +75,7 @@ Todos os NSGs contêm um conjunto de regras predefinidas. As regras predefinidas
 As regras predefinidas permitem e recusam o tráfego da seguinte forma:
 - **Rede virtual:** o tráfego que tem origem e termina numa rede virtual é permitido nas direções de entrada e de saída.
 - **Internet:** o tráfego de saída é permitido, mas o tráfego de entrada é bloqueado.
-- **Balanceador de carga:** permitir que o balanceador de carga do Azure sonde o estado de funcionamento das VMs e das instâncias de função. Se não estiver a utilizar um conjunto com balanceamento de carga, pode substituir esta regra.
+- **Balanceador de carga:** permitir que o Balanceador de Carga do Azure pesquise o estado de funcionamento das VMs e das instâncias de função. Se substituir esta regra, as pesquisas de estado de funcionamento do Balanceador de Carga do Azure irão falhar, o que pode afetar o seu serviço.
 
 **Regras predefinidas de entrada**
 
@@ -163,7 +163,8 @@ As atuais regras do NSG admitem apenas protocolos *TCP* ou *UDP*. Não existe um
 ### <a name="load-balancers"></a>Balanceadores de carga
 * Considere as regras de balanceamento de carga e de tradução de endereços de rede (NAT) para cada balanceador de carga utilizado por cada uma das suas cargas de trabalho. As regras NAT estão vinculadas a um conjunto de back-end que contém NICs (Resource Manager) ou a VMs/instâncias de função dos Serviços Cloud (clássica). Considere criar um NSG para cada conjunto de back-end, permitindo apenas tráfego mapeado através das regras implementadas nos balanceadores de carga. Criar um NSG para cada conjunto de back-end garante que o tráfego que vai diretamente para o mesmo (em vez de passar pelo balanceador de carga) também é filtrado.
 * Em implementações clássicas, o utilizador cria pontos finais que mapeiam portas num balanceador de carga para portas nas VMs ou instâncias de função. Também pode criar o seu próprio balanceador de carga individual destinado ao público através do Resource Manager. A porta de destino para o tráfego de entrada é a porta real na VM ou na instância de função, não a porta exposta por um balanceador de carga. A porta e o endereço de origem para a ligação à VM correspondem a uma porta e a um endereço no computador remoto na Internet e não à porta e ao endereço expostos pelo balanceador de carga.
-* Quando cria NSGs para filtrar o tráfego que vem de um balanceador de carga interno (ILB), a porta de origem e o intervalo de endereços aplicados são os do computador de origem, não do balanceador de carga. A porta de destino e o intervalo de endereços são os do computador de destino, não do balanceador de carga.
+* Quando cria NSGs para filtrar o tráfego que vem de um Balanceador de Carga do Azure, a porta de origem e o intervalo de endereços aplicados são os do computador de origem, e não do front-end do balanceador de carga. A porta de destino e o intervalo de endereços são os do computador de destino, e não do front-end do balanceador de carga.
+* Se bloquear a etiqueta AzureLoadBalancer, as pesquisas de estado de funcionamento do Balanceador de Carga do Azure irão falhar e o seu serviço pode ser afetado.
 
 ### <a name="other"></a>Outros
 * As listas de controlo de acesso baseadas em ponto final e os NSGs não são suportados na mesma instância de VM. Se pretender utilizar um NSG e ter uma ACL de ponto final já implementada, remova primeiro a ACL de ponto final. Para obter informações sobre como remover uma ACL de ponto final, veja o artigo [Manage endpoint ACLs](virtual-networks-acl-powershell.md) (Gerir ACLs de ponto final).
@@ -229,7 +230,7 @@ São criados os NSGs seguintes e associados a NICS nas VMS abaixo:
 | Allow-Inbound-HTTP-Internet | Permitir | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> O intervalo de endereços de origem para as regras anteriores é **Internet**, não o endereço IP virtual do Balanceador de carga. A porta de origem é *, não 500001. As regras NAT dos balanceadores de carga não são as mesmas que as regras de segurança dos NSGs. As regras de segurança dos NSGs estão sempre relacionadas com a origem original e o destino final do tráfego, **não** com o balanceador de carga entre os dois. 
+> O intervalo de endereços de origem para as regras anteriores é **Internet**, não o endereço IP virtual do Balanceador de carga. A porta de origem é *, não 500001. As regras NAT dos balanceadores de carga não são as mesmas que as regras de segurança dos NSGs. As regras de segurança dos NSGs estão sempre relacionadas com a origem original e o destino final do tráfego, **não** com o balanceador de carga entre os dois. O Balanceador de Carga do Azure preserva sempre o endereço IP de origem e a porta.
 > 
 > 
 

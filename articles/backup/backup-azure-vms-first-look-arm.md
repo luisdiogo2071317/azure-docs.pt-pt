@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6cd6e9ba575a0efe6e612a2185076d5a6c189525
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer cópia de segurança de máquinas virtuais do Azure para cofres dos Serviços de Recuperação
 
@@ -77,7 +77,7 @@ Utilize os passos seguintes para configurar a tarefa de criação da cópia de s
 
   ![Assistente para Ativar Cópia de Segurança](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  Se não existirem cofres dos Serviços de Recuperação ou quiser utilizar um novo, clique em **Criar novo** e indique o nome do cofre novo. É criado um cofre novo no mesmo grupo de recursos e na mesma localização que a máquina virtual. Se quiser criar um cofre dos Serviços de Recuperação com valores diferentes, veja a secção sobre como [criar cofres dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
+  Se não existirem cofres dos Serviços de Recuperação ou quiser utilizar um novo, clique em **Criar novo** e indique o nome do cofre novo. É criado um cofre novo no mesmo Grupo de Recursos e na mesma região que a máquina virtual. Se quiser criar um cofre dos Serviços de Recuperação com valores diferentes, veja a secção sobre como [criar cofres dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
 6. Para ver os detalhes da Política de cópias de segurança, clique em **Política de cópias de segurança**.
 
@@ -124,7 +124,7 @@ Para configurar a tarefa de cópia de segurança, execute os seguintes passos.
 Um cofre dos Serviços de Recuperação é uma entidade que armazena todas as cópias de segurança e os pontos de recuperação que foram criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém a política de cópia de segurança aplicada às VMs protegidas.
 
 > [!NOTE]
-> A criação de cópias de segurança de VMs é um processo local. Não pode efetuar a cópia de segurança de VMs de uma localização para um cofre dos Serviços de Recuperação noutra localização. Por isso, para cada localização do Azure com VMs para a cópia de segurança, tem de existir, pelo menos, um cofre dos Serviços de Recuperação nessa localização.
+> A criação de cópias de segurança de VMs é um processo local. Não pode fazer a cópia de segurança de VMs de uma região num cofre dos Serviços de Recuperação de outra região. Por isso, para cada região do Azure que tenha VMs para cópia de segurança, tem de existir, pelo menos, um cofre dos Serviços de Recuperação nessa região.
 >
 >
 
@@ -161,7 +161,7 @@ Para criar um cofre dos Serviços de Recuperação:
 7. Clique em **Localização** para selecionar a região geográfica do cofre. Esta escolha determina a região geográfica para onde os dados da cópia de segurança são enviados.
 
   > [!IMPORTANT]
-  > Se não tiver a certeza de qual é a localização em que se encontra a VM, feche a caixa de diálogo de criação do cofre e aceda à lista de Máquinas Virtuais no portal. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Crie o cofre na primeira localização antes de ir para a localização seguinte. Não é necessário especificar as contas de armazenamento utilizadas para armazenar os dados de cópia de segurança - o cofre dos Serviços de Recuperação e o serviço do Azure Backup processam automaticamente o armazenamento.
+  > Se não tiver a certeza relativamente à região em que se encontra a VM, feche a caixa de diálogo de criação do cofre e aceda à lista de Máquinas Virtuais no portal. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Crie o cofre na primeira região antes de ir para a região seguinte. Não é necessário especificar as contas de armazenamento utilizadas para armazenar os dados de cópia de segurança - o cofre dos Serviços de Recuperação e o serviço do Azure Backup processam automaticamente o armazenamento.
   >
 
 8. Na parte inferior do painel do cofre dos Serviços de Recuperação, clique em **Criar**.

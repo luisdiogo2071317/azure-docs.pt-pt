@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve as funcionalidades de sistema operativo comuns de linha de base que está disponível para todas as aplicações em execução no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui ficheiros, rede, o acesso ao registo e os registos de diagnóstico e eventos. 
@@ -79,7 +79,7 @@ O diretório de raiz contém conteúdo de uma aplicação e pode escrever códig
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Acesso à rede
-Código da aplicação pode utilizar TCP/IP e ligações para Internet acessíveis os pontos finais que expõem serviços externos de rede de protocolos UDP com base para se certificar de saída. As aplicações podem utilizar estes protocolos mesmos para ligar a serviços no Azure &#151; por exemplo, através do estabelecimento de ligações de HTTPS para a base de dados SQL.
+Código da aplicação pode utilizar TCP/IP e ligações para Internet acessíveis os pontos finais que expõem serviços externos de rede de protocolos UDP com base para se certificar de saída. As aplicações podem utilizar estes mesmos protocolos para se ligam aos serviços no Azure&#151;por exemplo, através do estabelecimento de ligações de HTTPS para a base de dados SQL.
 
 Também é uma funcionalidade limitada para aplicações estabelecer uma ligação de local loopback e tiverem uma aplicação escutar num socket que local loopback. Esta funcionalidade não existe principalmente para permitir que as aplicações que escutar sockets de local loopback como parte da respetiva funcionalidade. Tenha em atenção que cada aplicação vê uma ligação de loopback "privado"; Não é possível escutar App "A" para um socket de local loopback estabelecido pela aplicação "B".
 
