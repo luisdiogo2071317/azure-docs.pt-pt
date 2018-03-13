@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 888740b434292c2ccc36fc90e0a9baaec96e2033
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 55946915573f53bb7e1917d4705e6d8e74abf448
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -37,8 +37,6 @@ ms.lasthandoff: 03/08/2018
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-Este pacote foi preterido e substituído por Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
 
 <table>
 
@@ -61,12 +59,6 @@ Cosmos DB SDK .NET da Azure Core tem paridade de funcionalidades com a versão m
 
 > [!NOTE] 
 > O Azure Cosmos DB .NET Core SDK ainda não é compatível com aplicações da plataforma Universal do Windows (UWP). Se estiver interessado em .NET Core SDK que suportam aplicações UWP, enviar correio eletrónico para [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
-
-### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-
-* Este pacote foi preterido e substituído por Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
-* KeyNotFoundException fixo para cruzada ordem da partição por consultas nos casos extremos.
-* Erros fixo onde JsonPropery atributo na cláusula select para consultas LINQ não estava a ser cumprido.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
@@ -178,7 +170,6 @@ Se tiver perguntas relacionadas com este SDK, publicar [StackOverflow](http://st
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
-| [1.9.0](#1.9.0) |05 de Março de 2018 |--- |
 | [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |
 | [1.8.1](#1.8.1) |05 de Fevereiro de 2018 |--- |
 | [1.7.1](#1.7.1) |16 de novembro de 2017 |--- |

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/03/2017
+ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5a9efa6b807e933726104e7af315589ede5d9b74
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Erro de RequestDisallowedByPolicy com a política de recursos do Azure
 
@@ -25,7 +25,7 @@ Este artigo descreve a causa do erro RequestDisallowedByPolicy, também fornece 
 
 ## <a name="symptom"></a>Sintoma
 
-Quando tenta efetuar uma ação durante a implementação, poderá receber um **RequestDisallowedByPolicy** erro impede a conclusão da ação. O exemplo seguinte mostra o erro:
+Durante a implementação, poderá receber um **RequestDisallowedByPolicy** erro impede a criação dos recursos. O exemplo seguinte mostra o erro:
 
 ```json
 {
@@ -40,7 +40,7 @@ Quando tenta efetuar uma ação durante a implementação, poderá receber um **
 
 Para obter detalhes sobre a política que bloqueados a implementação, utilize um dos métodos seguinte:
 
-### <a name="method-1"></a>Método 1
+### <a name="powershell"></a>PowerShell
 
 No PowerShell, fornecer esse identificador de política, como o `Id` parâmetro para obter detalhes sobre a política que a implementação de bloqueado.
 
@@ -48,9 +48,9 @@ No PowerShell, fornecer esse identificador de política, como o `Id` parâmetro 
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="method-2"></a>Método 2 
+### <a name="azure-cli"></a>CLI do Azure
 
-No Azure CLI 2.0, forneça o nome da definição de política: 
+No Azure CLI 2.0, forneça o nome da definição de política:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Solução
 
-Para segurança ou a conformidade, o departamento de TI pode impor uma política de recurso que proíbe a criação de endereços IP públicos, grupos de segurança de rede, rotas definidas pelo utilizador ou as tabelas de rotas. A mensagem de erro no **sintomas** secção mostra uma política com o nome **regionPolicyDefinition**. A política pode ter um nome diferente.
-Para resolver este problema, trabalhar com o seu departamento de TI para rever as políticas de recursos e determinar como efetuar a ação pedida em conformidade com as políticas.
+Para segurança ou a conformidade, os administradores da subscrição podem atribuir políticas que limitam a forma como os recursos são implementados. Por exemplo, a subscrição pode ter uma política que impede a criação de rotas do IP público endereços, grupos de segurança de rede, definidas pelo utilizador ou tabelas de rotas. A mensagem de erro no **sintomas** secção mostra o nome da política.
+Para resolver este problema, reveja as políticas de recursos e determinar como implementar os recursos que estão em conformidade com as políticas.
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Descrição geral da política de recurso](resource-manager-policy.md)
-- [Atribuições de política do Vista através do portal](resource-manager-policy-portal.md)
+- [O que é a política do Azure?](../azure-policy/azure-policy-introduction.md)
+- [Criar e gerir políticas para impor a compatibilidade](../azure-policy/create-manage-policy.md)

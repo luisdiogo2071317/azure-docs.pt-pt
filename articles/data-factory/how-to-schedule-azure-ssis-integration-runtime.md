@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS 
 Com um tempo de execução de integração do Azure SSIS (SQL Server Integration Services) (IR) tem um custo associado ao mesmo. Por conseguinte, que pretende executar a resposta a incidentes apenas quando precisar de executar os pacotes SSIS no Azure e pare-o quando não precisar dele. Pode utilizar a IU da fábrica de dados ou o Azure PowerShell para [manualmente iniciar ou parar uma resposta a incidentes SSIS Azure](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS (IR) através da utilização da automatização do Azure e do Azure Data Factory. Eis os passos de alto nível descritos neste artigo:
@@ -25,7 +25,7 @@ Com um tempo de execução de integração do Azure SSIS (SQL Server Integration
 1. **Criar e testar um runbook de automatização do Azure.** Neste passo, cria um runbook do PowerShell com o script que inicia ou para um IR. SSIS do Azure Em seguida, testar o runbook em cenários de início e paragem e confirme que a resposta a incidentes inicia ou para. 
 2. **Crie duas agendas para o runbook.** Para a agenda primeiro, configure o runbook com início como a operação. Para a agenda segundo, configure o runbook com paragem de como a operação. Para ambas as agendas, especificar a cadência em que o runbook é executado. Por exemplo, poderá pretender agendar a uma primeira para ser executada às 8 AM todos os dias e um segundo para ser executada em 23: 00 uso corrente. Quando executa o runbook primeiro, começa a IR. de SSIS do Azure Quando o runbook segundo é executado, interrompe IR. de SSIS do Azure 
 3. **Criar dois webhooks para o runbook**, um para a operação de início e outra para a operação de paragem. Utilize os URLs destas webhooks quando configurar atividades web num pipeline fábrica de dados. 
-4. **Criar um pipeline do Data Factory**. O pipeline de que criar é constituída por quatro atividades. O primeiro **Web** atividade invoca o webhook primeiro iniciar IR. de SSIS do Azure O **aguarde** atividade aguarda 30 minutos (1800 segundos) para IR de SSIS do Azure iniciar. O **procedimento armazenado** atividade executa um script de SQL Server que é executado o pacote SSIS. O segundo **Web** deixa de atividade IR. de SSIS do Azure Para obter mais informações sobre como invocar um pacote de SSIS do pipeline fábrica de dados utilizando a atividade de procedimento armazenado, consulte [invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Em seguida, crie um acionador de agenda para agendar o pipeline para serem executados quando a cadência que especificar.
+4. **Criar um pipeline do Data Factory**. O pipeline de que criar é constituído por três atividades. O primeiro **Web** atividade invoca o webhook primeiro iniciar IR. de SSIS do Azure O **procedimento armazenado** atividade executa um script de SQL Server que é executado o pacote SSIS. O segundo **Web** deixa de atividade IR. de SSIS do Azure Para obter mais informações sobre como invocar um pacote de SSIS do pipeline fábrica de dados utilizando a atividade de procedimento armazenado, consulte [invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Em seguida, crie um acionador de agenda para agendar o pipeline para serem executados quando a cadência que especificar.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [pacotes SSIS invocar utilizando a atividade de procedimento armazenado na versão 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ Deve ter dois URLs, um para o **StartAzureSsisIR** webhook e outra para o **Stop
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Criar e agendar um pipeline do Data Factory que inicia/interrompe a resposta a incidentes
 Esta secção mostra como utilizar uma atividade de Web para invocar webhooks que criou na secção anterior.
 
-O pipeline de que criar é constituída por quatro atividades. 
+O pipeline de que criar é constituído por três atividades. 
 
 1. O primeiro **Web** atividade invoca o webhook primeiro iniciar IR. de SSIS do Azure 
-2. O **aguarde** atividade aguarda 30 minutos (1800 segundos) para IR de SSIS do Azure iniciar. 
-3. O **procedimento armazenado** atividade executa um script de SQL Server que é executado o pacote SSIS. O segundo **Web** deixa de atividade IR. de SSIS do Azure Para obter mais informações sobre como invocar um pacote de SSIS do pipeline fábrica de dados utilizando a atividade de procedimento armazenado, consulte [invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. O segundo **Web** atividade invoca o webhook para parar o IR. de SSIS do Azure 
+2. O **procedimento armazenado** atividade executa um script de SQL Server que é executado o pacote SSIS. O segundo **Web** deixa de atividade IR. de SSIS do Azure Para obter mais informações sobre como invocar um pacote de SSIS do pipeline fábrica de dados utilizando a atividade de procedimento armazenado, consulte [invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. O segundo **Web** atividade invoca o webhook para parar o IR. de SSIS do Azure 
 
 Depois de criar e testar o pipeline, pode criar um acionador de agenda e associa o pipeline. O acionador de agenda define uma agenda para o pipeline. Suponhamos, criar um acionador que esteja agendado para ser executada diariamente às 23: 00. O acionador é executado o pipeline em 23: 00 todos os dias. O pipeline inicia a resposta a incidentes SSIS do Azure, executa o pacote SSIS e, em seguida, interrompe IR. de SSIS do Azure 
 
@@ -392,7 +391,7 @@ Agora que o pipeline funciona conforme esperado, pode criar um acionador para se
 6. Para monitorizar a execução do acionador e execução de pipeline, utilize o **Monitor** separador no lado esquerdo. Para obter passos detalhados, consulte [monitorizar o pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Execuções de pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Para ver as execuções de atividade associadas com um pipeline executar, selecione a primeira ligação (**ver a atividade é executada**) no **ações** coluna. Consulte as execuções de quatro atividade associadas a cada atividade no pipeline (primeiro Web atividade, atividade de espera, a atividade de procedimento armazenado e a segunda atividade de Web). Para mudar novamente para ver a execução de pipeline, selecione **Pipelines** ligação na parte superior.
+7. Para ver as execuções de atividade associadas com um pipeline executar, selecione a primeira ligação (**ver a atividade é executada**) no **ações** coluna. Consulte as execuções de três atividade associadas a cada atividade no pipeline (primeiro Web atividade, a atividade de procedimento armazenado e a segunda atividade de Web). Para mudar novamente para ver a execução de pipeline, selecione **Pipelines** ligação na parte superior.
 
     ![Execuções de atividade](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. Também pode ver a execução do acionador selecionando **acionar executa** na lista de lista pendente junto a é o **Pipeline executa** na parte superior. 

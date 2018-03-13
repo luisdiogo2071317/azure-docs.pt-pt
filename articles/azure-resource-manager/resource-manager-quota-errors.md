@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolva os erros para quotas de recursos
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 As quotas são aplicadas por grupo de recursos, subscrições, contas e outros âmbitos. Por exemplo, a sua subscrição pode ser configurada para limitar o número de núcleos para uma região. Se tentar implementar uma máquina virtual com mais núcleos do que a quantidade permitido, receberá um erro a indicar que a quota foi excedida.
 Para informações sobre a quota completa, consulte [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Solução
+## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="solution-1"></a>Solução 1
+### <a name="azure-cli"></a>CLI do Azure
 
 Para a CLI do Azure, utilize o `az vm list-usage` comando para encontrar as quotas de máquina virtual.
 
@@ -73,7 +73,7 @@ Que devolve:
 ]
 ```
 
-### <a name="solution-2"></a>Solução 2
+### <a name="powershell"></a>PowerShell
 
 Para o PowerShell, utilize o **Get-AzureRmVMUsage** comando para encontrar as quotas de máquina virtual.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Solução 3
+## <a name="solution"></a>Solução
 
 Para pedir um aumento de quota, aceda ao portal do e um problema de suporte de ficheiros. No problema suporte, pedir um aumento da sua quota para a região na qual pretende implementar.
 

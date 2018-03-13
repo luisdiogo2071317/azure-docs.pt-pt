@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27be2b9a5f2b9aaf2d4464a6c927ec2a1694131a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -34,7 +34,7 @@ Esta secção resume as principais diferenças na sintaxe de T-SQL e o comportam
  - [CRIAR GRUPO DE DISPONIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
  - [GRUPO DE DISPONIBILIDADE DE ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
  - [GRUPO DE DISPONIBILIDADE DE LARGAR](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [Definir HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) cláusula da instrução ALTER DATABASE
+ - [Definir HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) cláusula o [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) declaração
 
 ### <a name="auditing"></a>Auditoria 
  
@@ -72,6 +72,8 @@ Limitações:
 
 > [!TIP]
 > Para contornar esta limitação no local, a cópia de segurança para `DISK` em vez de cópia de segurança `URL`, carregar o ficheiro de cópia de segurança para o blob, em seguida, restaurar. Restaure ficheiros maiores suporta porque é utilizado um tipo de blob diferente.  
+
+Para obter informações sobre cópias de segurança utilizando o T-SQL, consulte [cópia de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
 ### <a name="buffer-pool-extension"></a>Extensão do conjunto de memória intermédia 
  
@@ -367,7 +369,7 @@ Os seguintes não são suportados:
 - `EXTERNAL TABLE` 
 - `MEMORY_OPTIMIZED`  
 
-Para obter informações sobre como criar tabelas, consulte [instrução CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql).
+Para obter informações sobre como criar e alterar as tabelas, consulte [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
  
 ## <a name="Changes"></a> Alterações de comportamento 
  

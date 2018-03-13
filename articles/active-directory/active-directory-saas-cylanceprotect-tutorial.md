@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 312e8ee3b924fe76e770d8e24e4fc8221e31bffb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Tutorial: Integração do Azure Active Directory com CylancePROTECT
 
@@ -110,11 +110,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Região | Valor de URL |
     |----------|---------|
-    | Nordeste da Ásia-Pacífico (APNE1)| ` https://login-apne1.cylance.com`|
-    | Sudeste da Ásia-Pacífico (AU) | `https://login-au.cylance.com` |
-    | Europa Central (EUC1)|`https://login-euc1.cylance.com`|
-    | América do Norte|`https://login.cylance.com`|
-    | América do Sul (SAE1)|`https://login-sae1.cylance.com`|
+    | Nordeste da Ásia-Pacífico (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Sudeste da Ásia-Pacífico (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
+    | Europa Central (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | América do Norte|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | América do Sul (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     
     b. No **URL de resposta** caixa de texto, escreva o URL:
     

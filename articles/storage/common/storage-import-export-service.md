@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Storage do Azure
 Neste artigo, fornecemos instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure para transferir de forma segura grandes quantidades de dados para o Blob storage do Azure e ficheiros do Azure por envio unidades de disco para um centro de dados do Azure. Este serviço também pode ser utilizado para transferir dados do storage do Azure para unidades de disco rígido e são enviados para os sites no local. Dados a partir de uma única unidade de disco SATA interna podem ser importados o Blob storage do Azure ou os ficheiros do Azure. 
@@ -294,7 +294,7 @@ A tabela seguinte descreve os Estados de falha de unidade e as ações executada
 | N/A | Uma unidade que não faz parte de qualquer tarefa chega ao centro de dados como parte de outra tarefa. | A unidade será marcada como uma unidade adicional e será devolvida ao cliente quando a tarefa associada ao pacote original estiver concluída. |
 
 ### <a name="time-to-process-job"></a>Tempo até ao processo de trabalho
-A quantidade de tempo que demora a processar uma tarefa de importação/exportação varia dependendo de fatores diferentes, tais como o tempo de envio, tipo, tipo e tamanho dos dados que está a ser copiados e o tamanho dos discos fornecido da tarefa. O serviço de importação/exportação não tem um SLA mas depois dos discos são recebidos o serviço strives concluir a cópia dentro de 7 a 10 dias. Pode utilizar a API REST para controlar o progresso da tarefa mais detalhadamente. Há um parâmetro concluído percentagem na operação de lista de tarefas que lhe dá uma indicação de progresso de cópia. Entrar-nos se necessitar de uma estimativa para concluir uma tarefa de importação/exportação crítico de tempo.
+A quantidade de tempo que demora a processar uma tarefa de importação/exportação varia com base num número de fatores como a hora de envio, a carga no Centro de dados, o tipo de tarefa e o tamanho dos dados que está a ser copiados e número de discos numa tarefa. Serviço de importação/exportação não tem um SLA, mas o serviço strives concluir a cópia dentro de 7 a 10 dias após os discos são recebidos. Para além do estado publicado no Portal do Azure, as REST APIs pode ser utilizadas para controlar o progresso da tarefa. O parâmetro concluído percentagem na chamada à API de operação de lista de tarefas fornece o progresso de cópia de percentagem.
 
 ### <a name="pricing"></a>Preços
 **Taxa de processamento de unidade**

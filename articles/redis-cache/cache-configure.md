@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar a Cache de Redis do Azure
-Este tópico descreve como rever e atualizar a configuração das suas instâncias de Cache de Redis do Azure e abrange a configuração do servidor de Redis predefinido de instâncias de Cache de Redis do Azure.
+Este tópico descreve as configurações disponíveis para as instâncias de Cache de Redis do Azure. Este tópico também inclui a configuração do servidor de Redis predefinido de instâncias de Cache de Redis do Azure.
 
 > [!NOTE]
 > Para obter mais informações sobre configurar e utilizar as funcionalidades de cache premium, consulte [como configurar a persistência](cache-how-to-premium-persistence.md), [como configurar o clustering](cache-how-to-premium-clustering.md), e [como configurar o suporte da Virtual Network](cache-how-to-premium-vnet.md).
@@ -43,7 +43,7 @@ Pode ver e configurar as seguintes definições utilizando o **recursos Menu**.
 * [Etiquetas](#tags)
 * [Diagnosticar e resolver problemas](#diagnose-and-solve-problems)
 * [Definições](#settings)
-    * [Chaves de acesso](#access-keys)
+    * [chaves de acesso](#access-keys)
     * [Definições avançadas](#advanced-settings)
     * [O Advisor de Cache de redis](#redis-cache-advisor)
     * [Dimensionamento](#scale)
@@ -66,7 +66,7 @@ Pode ver e configurar as seguintes definições utilizando o **recursos Menu**.
     * [Diagnóstico](#diagnostics)
 * [Suporte e as definições de resolução de problemas](#support-amp-troubleshooting-settings)
     * [Estado de funcionamento de recursos](#resource-health)
-    * [Novo pedido de suporte](#new-support-request)
+    * [novo pedido de suporte](#new-support-request)
 
 
 ## <a name="overview"></a>Descrição geral
@@ -79,14 +79,14 @@ Clique em **registo de atividade** para ver as ações executadas na sua cache. 
 
 ### <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
-O **(IAM) do controlo de acesso** secção fornece suporte para o controlo de acesso baseado em funções (RBAC) no portal do Azure para ajudar as organizações que cumprem os requisitos de gestão de acesso simples e precisamente. Para obter mais informações, consulte [controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-configure.md).
+O **(IAM) do controlo de acesso** secção fornece suporte para o controlo de acesso baseado em funções (RBAC) no portal do Azure. Esta configuração ajuda as organizações a cumprir os requisitos de gestão de acesso simples e precisamente. Para obter mais informações, consulte [controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="tags"></a>Etiquetas
 
 O **etiquetas** secção ajuda a organizar os recursos. Para obter mais informações, consulte [utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
 
-### <a name="diagnose-and-solve-problems"></a>Diagnóstico e Resolução de Problemas
+### <a name="diagnose-and-solve-problems"></a>Diagnosticar e resolver problemas
 
 Clique em **diagnosticar e resolver problemas** devem ser fornecidas com estratégias e problemas comuns para resolvê-los.
 
@@ -95,7 +95,7 @@ Clique em **diagnosticar e resolver problemas** devem ser fornecidas com estrat�
 ## <a name="settings"></a>Definições
 O **definições** secção permite-lhe aceder e configure as seguintes definições para a sua cache.
 
-* [Chaves de acesso](#access-keys)
+* [chaves de acesso](#access-keys)
 * [Definições avançadas](#advanced-settings)
 * [O Advisor de Cache de redis](#redis-cache-advisor)
 * [Dimensionamento](#scale)
@@ -136,7 +136,7 @@ O **Maxmemory política**, **maxmemory-reservado**, e **reservados maxfragmentat
 
 **Política de Maxmemory** configura a política de expulsão para a cache e permite-lhe escolher entre as políticas de expulsão seguintes:
 
-* `volatile-lru`-Esta é a predefinição.
+* `volatile-lru` -Esta é a política de expulsão predefinida.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -145,11 +145,11 @@ O **Maxmemory política**, **maxmemory-reservado**, e **reservados maxfragmentat
 
 Para obter mais informações sobre `maxmemory` políticas, consulte [políticas de expulsão](http://redis.io/topics/lru-cache#eviction-policies).
 
-O **reservados maxmemory** definição configura a quantidade de memória em MB que está reservado para operações de cache não tais como replicação durante a ativação pós-falha. A definição deste valor permite-lhe ter uma experiência mais consistente de servidor Redis ao varia de acordo com a carga. Este valor deve ser definido como superior para cargas de trabalho que são pesado de escrita. Quando a memória é reservada para operações, está disponível para armazenamento de dados em cache.
+O **reservados maxmemory** definição configura a quantidade de memória em MB, que está reservado para operações de cache não, tais como replicação durante a ativação pós-falha. A definição deste valor permite-lhe ter uma experiência mais consistente de servidor Redis ao varia de acordo com a carga. Este valor deve ser definido como superior para cargas de trabalho que são pesado de escrita. Quando a memória é reservada para operações, está disponível para armazenamento de dados em cache.
 
-O **reservados maxfragmentationmemory** definição configura a quantidade de memória em MB que está reservado para acomodar a fragmentação de memória. A definição deste valor permite-lhe ter um servidor de Redis mais consistente experiência quando a cache está completa ou próximo completa e a fragmentação rácio também é elevado. Quando a memória é reservada para operações, está disponível para armazenamento de dados em cache.
+O **reservados maxfragmentationmemory** definição configura a quantidade de memória em MB que está reservado para acomodar a fragmentação de memória. A definição deste valor permite-lhe ter uma experiência mais consistente de servidor Redis quando a cache está completa ou próximo completa e a fragmentação rácio é elevado. Quando a memória é reservada para operações, está disponível para armazenamento de dados em cache.
 
-Um aspeto a ter em consideração quando escolher um novo valor de reserva de memória (**reservados maxmemory** ou **reservados maxfragmentationmemory**) é a forma como esta alteração pode afetar uma cache que já está em execução com grandes quantidades de dados no mesmo. Por exemplo, se que tenha uma cache de 53 GB com 49 GB de dados, em seguida, altere o valor de reserva para 8 GB, irá remover a memória máxima disponível para o sistema para baixo até 45 GB. Se qualquer um dos atual `used_memory` ou seu `used_memory_rss` valores são superiores ao novo limite de 45 GB, em seguida, o sistema tem de expulsar dados até que ambas `used_memory` e `used_memory_rss` são abaixo 45 GB. Expulsão pode aumentar a fragmentação de memória e carga do servidor. Para mais informações sobre as métricas de cache, tais como `used_memory` e `used_memory_rss`, consulte [as métricas disponíveis e relatórios intervalos](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Um aspeto a ter em consideração quando escolher um novo valor de reserva de memória (**reservados maxmemory** ou **reservados maxfragmentationmemory**) é a forma como esta alteração pode afetar uma cache que já está em execução com grandes quantidades de dados no mesmo. Por exemplo, se que tenha uma cache de 53 GB com 49 GB de dados, em seguida, altere o valor de reserva para 8 GB, esta alteração irá remover a memória máxima disponível para o sistema para baixo até 45 GB. Se qualquer um dos atual `used_memory` ou seu `used_memory_rss` valores são superiores ao novo limite de 45 GB, em seguida, o sistema tem de expulsar dados até que ambas `used_memory` e `used_memory_rss` são abaixo 45 GB. Expulsão pode aumentar a fragmentação de memória e carga do servidor. Para mais informações sobre as métricas de cache, tais como `used_memory` e `used_memory_rss`, consulte [as métricas disponíveis e relatórios intervalos](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > O **reservados maxmemory** e **reservados maxfragmentationmemory** definições só estão disponíveis para Standard e Premium coloca em cache.
@@ -269,11 +269,13 @@ O **rede Virtual** secção permite-lhe configurar as definições de rede virtu
 
 ### <a name="firewall"></a>Firewall
 
-Clique em **Firewall** para ver e configurar regras de firewall para a Cache de Redis do Azure Premium.
+Configuração de regras de firewall está disponível para todos os escalões de Cache de Redis do Azure.
+
+Clique em **Firewall** para ver e configurar regras de firewall para a cache.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
-Pode especificar as regras de firewall com um intervalo de endereços IP de início e de fim. Quando as regras de firewall estão configuradas, apenas as ligações de cliente de intervalos de endereços IP especificados podem ligar à cache. Quando uma regra de firewall é guardada há um pequeno atraso antes da regra está em vigor. Este atraso é, normalmente, menos de um minuto.
+Pode especificar as regras de firewall com um intervalo de endereços IP de início e de fim. Quando as regras de firewall estão configuradas, apenas as ligações de cliente de intervalos de endereços IP especificados podem ligar à cache. Quando uma regra de firewall é guardada, não há um pequeno atraso antes da regra está em vigor. Este atraso é, normalmente, menos de um minuto.
 
 > [!IMPORTANT]
 > Ligações a partir da monitorização de sistemas a Cache de Redis do Azure são sempre permitidas, mesmo se as regras de firewall estão configuradas.
@@ -365,7 +367,7 @@ As definições no **suporte + resolução de problemas** secção fornecer-lhe 
 ![Suporte e resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Estado de funcionamento de recursos](#resource-health)
-* [Novo pedido de suporte](#new-support-request)
+* [novo pedido de suporte](#new-support-request)
 
 ### <a name="resource-health"></a>Estado de funcionamento de recursos
 **Estado de funcionamento do recurso** monitoriza os seus recursos e indica o se estiver em execução conforme esperado. Para obter mais informações sobre o serviço de estado de funcionamento de recursos do Azure, consulte [descrição geral do Estado de funcionamento de recursos do Azure](../resource-health/resource-health-overview.md).
@@ -383,10 +385,10 @@ Clique em **novo pedido de suporte** para abrir um pedido de suporte para a sua 
 
 
 ## <a name="default-redis-server-configuration"></a>Configuração predefinida do servidor de Redis
-Novas instâncias de Cache de Redis do Azure estão configuradas com os seguintes valores de configuração predefinida de Redis.
+Novas instâncias de Cache de Redis do Azure estão configuradas com os seguintes valores de configuração de Redis predefinido:
 
 > [!NOTE]
-> Não não possível alterar as definições nesta secção utilizando o `StackExchange.Redis.IServer.ConfigSet` método. Se este método é denominado com um dos comandos nesta secção, é emitida uma exceção semelhante ao seguinte:  
+> Não não possível alterar as definições nesta secção utilizando o `StackExchange.Redis.IServer.ConfigSet` método. Se este método é denominado com um dos comandos nesta secção, é emitida uma exceção semelhante ao seguinte exemplo:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -397,10 +399,10 @@ Novas instâncias de Cache de Redis do Azure estão configuradas com os seguinte
 | Definição | Valor predefinido | Descrição |
 | --- | --- | --- |
 | `databases` |16 |O número predefinido de bases de dados é 16 mas também pode configurar um número diferente com base no escalão de preço. <sup>1</sup> a base de dados predefinida é a base de dados 0, pode selecionar uma base de por ligação utilizando outra `connection.GetDatabase(dbid)` onde `dbid` é um número entre `0` e `databases - 1`. |
-| `maxclients` |Depende o escalão de preço<sup>2</sup> |Este é o número máximo de clientes ligados permitido ao mesmo tempo. Assim que for atingido o limite de Redis fechar todas as novas ligações, devolvendo um erro de 'atingido o número máximo de clientes'. |
+| `maxclients` |Depende o escalão de preço<sup>2</sup> |Este valor é o número máximo de clientes ligados permitido ao mesmo tempo. Assim que for atingido o limite de Redis fechar todas as novas ligações, devolvendo um erro de 'atingido o número máximo de clientes'. |
 | `maxmemory-policy` |`volatile-lru` |Política de Maxmemory destina-se a definição como Redis seleciona que remova quando `maxmemory` (o tamanho da cache que selecionou quando criou a cache da oferta) foi atingido. Com a Cache de Redis do Azure é a predefinição `volatile-lru`, que remove as chaves com uma expiração definida utilizando um algoritmo LRU. Esta definição pode ser configurada no portal do Azure. Para obter mais informações, consulte [políticas memória](#memory-policies). |
 | `maxmemory-samples` |3 |Para guardar a memória, LRU e algoritmos TTL mínimo são approximated algoritmos em vez de algoritmos precisos. Por predefinição Redis três chaves verificações e escolhe que foi utilizado recentemente inferior. |
-| `lua-time-limit` |5,000 |Tempo de execução máxima de um script de Lua em milissegundos. Se o tempo de execução máximo for atingido, os registos de Redis que um script ainda está em execução após o tempo máximo permitido e começa a responder às consultas com um erro. |
+| `lua-time-limit` |5.000 |Tempo de execução máxima de um script de Lua em milissegundos. Se o tempo de execução máximo for atingido, os registos de Redis que um script ainda está em execução após o tempo máximo permitido e começa a responder às consultas com um erro. |
 | `lua-event-limit` |500 |Tamanho máximo da fila de eventos de script. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de memória intermédia de saída do cliente podem ser utilizados para forçar a interrupção de ligação de clientes que não são leitura de dados do servidor suficientemente rápido por algum motivo (um motivo comum é que um cliente Pub/Sub não pode consumir mensagens tão rápidas como publicador pode produzi-las). Para obter mais informações, consulte [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
@@ -495,7 +497,7 @@ Quando a cache de cluster utilizando a consola Redis com um premium, pode emitir
 
 ![Consola de redis](./media/cache-configure/redis-console-premium-cluster.png)
 
-Se tentar aceder a uma chave que esteja armazenada num partições horizontais diferente que o ID de partição horizontal ligado, receberá uma mensagem de erro semelhante a mensagem seguinte.
+Se tentar aceder a uma chave que esteja armazenada num partições horizontais diferente que o ID de partição horizontal ligado, receberá uma mensagem de erro semelhante a seguinte mensagem:
 
 ```
 shard1>get myKey

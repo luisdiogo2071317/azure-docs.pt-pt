@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Resolver problemas relacionados com funções de serviço em nuvem que não conseguem iniciar
 Seguem-se alguns problemas comuns e soluções relacionadas com a Cloud Services do Azure funções que não conseguem iniciar.
@@ -62,7 +62,7 @@ Assim que o serviço está implementada novamente, verá uma mensagem de erro co
 Pode utilizar o ambiente de trabalho remoto para aceder a função e ver informações de erro mais completas remotamente. Utilize os seguintes passos para ver os erros, utilizando o ambiente de trabalho remoto:
 
 1. Certifique-se de que o Azure SDK 1.3 ou posterior está instalado.
-2. Durante a implementação da solução utilizando o Visual Studio, optar por "Configurar ligações de ambiente de trabalho remoto". Para obter mais informações sobre como configurar a ligação de ambiente de trabalho remoto, consulte [utilizando o ambiente de trabalho remoto com as funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Durante a implementação da solução utilizando o Visual Studio, ative o ambiente de trabalho remoto. Para obter mais informações, consulte [ativar a ligação ao ambiente de trabalho remoto para uma função nos serviços de nuvem do Azure com o Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. No portal do Microsoft Azure, depois da instância mostra um Estado de **pronto**remoto para a instância. Para obter mais informações sobre como utilizar o ambiente de trabalho remoto com serviços em nuvem, consulte [remoto em instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Iniciar sessão para a máquina virtual, utilizando as credenciais que foram especificadas durante a configuração do ambiente de trabalho remoto.
 6. Abra uma janela de comando.
@@ -121,7 +121,7 @@ Para resolver DLL em falta e erros de assemblagem, siga estes passos:
 
 Depois de ter confirmado que todos os erros tem sido corrigidos, pode implementar o serviço sem verificar o **ativar IntelliTrace para funções de .NET 4** caixa de verificação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Ver mais [artigos de resolução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços em nuvem.
 
 Para saber como resolver problemas de função Serviço de nuvem, utilizando os dados de diagnóstico do computador PaaS do Azure, consulte [série de blogues de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

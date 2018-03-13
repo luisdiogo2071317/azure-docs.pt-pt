@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Aplicação de autenticação do Microsoft FAQ
 
@@ -28,6 +28,14 @@ Este artigo responde a questões recorrentes que recebemos sobre a aplicação M
 A aplicação Microsoft Authenticator substituído a aplicação Azure Authenticator, não sendo a aplicação recomendada quando utiliza o Azure multi-factor Authentication. A aplicação Authenticator da Microsoft está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Os dados que o autenticador armazenar no meu nome e como pode eliminar?
+
+Microsoft Authenticator armazena as informações de conta que criou quando adicionar uma conta. Quando utilizar a autenticação, um registo de diagnóstico é criado para fins de depuração e armazena dados útil em ajudar a Microsoft a diagnosticar problemas imprevistos. Pode aceder os dados de registo, abrindo **ajudar** > **enviar registos de** > **ver registos**.
+
+Pode eliminar os dados, eliminando o mosaico de conta. Este procedimento eliminará todas as informações de conta a ser utilizadas pela aplicação, incluindo os registos. 
+
+Para obter mais informações sobre como a Microsoft utiliza os dados, visite: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Quais são os códigos de na aplicação para? Por que motivo é o número keep contando?
 

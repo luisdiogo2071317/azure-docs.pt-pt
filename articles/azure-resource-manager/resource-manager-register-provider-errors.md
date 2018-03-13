@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolva os erros para o registo do fornecedor de recursos
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+A mensagem de erro deverá dar-lhe sugestões para as versões de API e localizações suportadas. Pode alterar o modelo para um dos valores sugeridos. A maioria dos fornecedores são registados automaticamente pelo portal do Azure ou a interface de linha de comandos que está a utilizar, mas não todos. Se não tiver utilizado um fornecedor de recursos específico antes, se pretender registar esse fornecedor.
+
 ## <a name="cause"></a>Causa
 
 Receber estes erros para um de três motivos:
@@ -48,11 +50,7 @@ Receber estes erros para um de três motivos:
 1. Versão de API não suportada para o tipo de recurso
 1. Não é suportada para o tipo de recurso de localização
 
-## <a name="solution"></a>Solução
-
-A mensagem de erro deverá dar-lhe sugestões para as versões de API e localizações suportadas. Pode alterar o modelo para um dos valores sugeridos. A maioria dos fornecedores são registados automaticamente pelo portal do Azure ou a interface de linha de comandos que está a utilizar, mas não todos. Se não tiver utilizado um fornecedor de recursos específico antes, se pretender registar esse fornecedor. Pode detetar informações sobre fornecedores de recursos através do PowerShell ou a CLI do Azure.
-
-### <a name="solution-1"></a>Solução 1
+## <a name="solution-1---powershell"></a>Solução 1 - PowerShell
 
 Para o PowerShell, utilize **Get-AzureRmResourceProvider** para ver o estado do registo.
 
@@ -78,9 +76,7 @@ Para obter as versões de API suportadas para um determinado tipo de recurso, ut
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Solução 2
-
-**CLI do Azure**
+## <a name="solution-2---azure-cli"></a>Solução 2 - CLI do Azure
 
 Para ver se o fornecedor está registado, utilize o `az provider list` comando.
 
@@ -100,7 +96,7 @@ Para ver as localizações suportadas e as versões de API para um tipo de recur
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Solução 3
+## <a name="solution-3---azure-portal"></a>Solução 3 - portal do Azure
 
 Pode ver o estado de registo e registar um espaço de nomes do fornecedor de recursos através do portal.
 

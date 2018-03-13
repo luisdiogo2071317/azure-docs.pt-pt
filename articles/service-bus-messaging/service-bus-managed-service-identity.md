@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>Identidade de serviço geridas (pré-visualização)
 
@@ -62,17 +62,17 @@ Identidade de serviço gerida da aplicação web tem agora acesso para o espaço
 
 ### <a name="run-the-app"></a>Executar a aplicação
 
-Agora, modifique a página predefinida da aplicação ASP.NET que criou. Também pode utilizar o código de aplicação web de [este repositório do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity). 
+Agora, modifique a página predefinida da aplicação ASP.NET que criou. Também pode utilizar o código de aplicação web de [este repositório do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
 
 A página de Default.aspx é a página de destino. O código pode ser encontrado no ficheiro default.aspx. O resultado é uma aplicação web mínima com alguns campos de entrada e com **enviar** e **receber** botões ligar ao Service Bus para enviar ou receber mensagens.
 
-Tenha em atenção o [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objecto foi inicializado. Em vez de utilizar o fornecedor de tokens de acesso partilhado Token (SAS), o código cria um fornecedor de tokens para a identidade de serviço geridas com o `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` chamada. Como tal, não existem nenhum segredos manter e utilizar. O fluxo do contexto de identidade de serviço geridas ao Service Bus e o handshake de autorização são processadas automaticamente pelo fornecedor de token, o que é um modelo mais simples que através da SAS.
+Tenha em atenção o [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objecto foi inicializado. Em vez de utilizar o fornecedor de tokens de acesso partilhado Token (SAS), o código cria um fornecedor de tokens para a identidade de serviço geridas com o `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` chamada. Como tal, não existem nenhum segredos manter e utilizar. O fluxo do contexto de identidade de serviço geridas ao Service Bus e o handshake de autorização são processadas automaticamente pelo fornecedor de token, o que é um modelo mais simples que através da SAS.
 
 Depois de efetuar estas alterações, publicar e executar a aplicação. É uma forma fácil de obter os dados de publicação corretos transferir e, em seguida, importar um perfil de publicação no Visual Studio:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-Para enviar ou receber mensagens, introduza o nome do espaço de nomes e o nome da entidade que criou, em seguida, clique em **enviar** ou **receber**. 
+Para enviar ou receber mensagens, introduza o nome do espaço de nomes e o nome da entidade que criou, em seguida, clique em **enviar** ou **receber**.
  
 Tenha em atenção que a identidade de serviço geridas só funciona no ambiente do Azure e apenas na implementação do serviço de aplicações em que esteja configurado. Note também que identidades de serviço geridas não funcionam com as ranhuras de implementação do serviço de aplicações neste momento.
 

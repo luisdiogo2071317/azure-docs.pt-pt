@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Descrição geral do Reliable Services
 Azure Service Fabric simplifica escrever e gerir serviços fiável sem monitorização de estado e com monitorização de estado. Este tópico abrange:
@@ -87,10 +87,6 @@ Um exemplo comum da forma como são utilizados serviços sem monitorização de 
 Um serviço com estado é aquele que tem de ter uma parte do estado mantido consistente e presente para que o serviço de função. Considere um serviço que constantemente calcula um média móvel dos últimos um valor com base nas actualizações recebe. Para tal, tem de ter o conjunto atual de pedidos de entrada tem de processo e a média atual. Qualquer serviço que obtém, processa e armazena informações num arquivo externo (por exemplo, um Azure blob ou tabela arquivo hoje) tem o estado monitorizado. Apenas mantém o estado no arquivo de estado externo.
 
 Maioria dos serviços hoje armazenar o respetivo estado externamente, uma vez que o arquivo de externo que fornece a fiabilidade, disponibilidade, escalabilidade e consistência para esse Estado. No Service Fabric, os serviços não são necessários para armazenar o respetivo estado externamente. Service Fabric encarrega-se parte destes requisitos para o código do serviço e o estado do serviço.
-
-> [!NOTE]
-> Suporte para monitorização de estado Reliable Services não está disponível no Linux ainda (para c# ou Java).
->
 
 Imaginemos que queremos escrever um serviço que processa as imagens. Para tal, o serviço aceita uma imagem e a série de conversões efetuar essa imagem. Este serviço devolve um serviço de escuta de comunicação (vamos Suponhamos é um end de WebAPI) que expõe uma API, como `ConvertImage(Image i, IList<Conversion> conversions)`. Quando recebe um pedido, o serviço armazena-a num `IReliableQueue`e devolve algumas id para o cliente, pode controlar o pedido.
 

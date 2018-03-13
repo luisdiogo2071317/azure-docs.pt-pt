@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilizar o sistema para a gestão de identidade entre domínios para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações
 
@@ -685,7 +685,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
 ## <a name="group-provisioning-and-de-provisioning"></a>Aprovisionamento de grupo e de aprovisionamento automatizados.
 A ilustração seguinte mostra as mensagens que Azure AcD envia a um serviço SCIM para gerir o ciclo de vida de um grupo num arquivo de identidade do outro.  Essas mensagens diferem das mensagens relativas aos utilizadores de três formas diferentes: 
 
-* O esquema de um recurso de grupo é identificado como http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* O esquema de um recurso de grupo é identificado como `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Pedidos para obter grupos de definir a que o atributo de membros é a serem excluídos qualquer recurso fornecido em resposta ao pedido.  
 * Pedidos para determinar se um atributo de referência tem um determinado valor são pedidos sobre o atributo de membros.  
 

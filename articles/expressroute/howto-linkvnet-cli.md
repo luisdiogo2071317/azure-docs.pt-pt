@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligar uma rede virtual para um circuito ExpressRoute com o CLI
 
@@ -36,7 +36,9 @@ Este artigo ajuda-o a ligar redes virtuais (VNets) para circuitos ExpressRoute d
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 
 * Tem a versão mais recente da interface de linha de comandos (CLI). Para obter mais informações, consulte [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
 * Tem de rever o [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
+
 * Deve ter um circuito ExpressRoute ativo. 
   * Siga as instruções para [criar um circuito ExpressRoute](howto-circuit-cli.md) e ter o circuito ativado pelo seu fornecedor de conectividade. 
   * Certifique-se de que tem o peering privado do Azure configurada para o seu circuito. Consulte o [configurar o encaminhamento](howto-routing-cli.md) artigo para obter instruções de encaminhamento. 
@@ -44,6 +46,8 @@ Este artigo ajuda-o a ligar redes virtuais (VNets) para circuitos ExpressRoute d
   * Certifique-se de que tem uma rede virtual e um gateway de rede virtual criada e totalmente aprovisionado. Siga as instruções para [configurar um gateway de rede virtual para o ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Certifique-se de utilizar `--gateway-type ExpressRoute`.
 
 * Pode ligar até 10 redes virtuais para um circuito do ExpressRoute standard. Todas as redes virtuais tem de ser na mesma região geopolítica quando utilizar um circuito do ExpressRoute standard. 
+
+* Pode ser associada uma única VNet para até quatro circuitos do ExpressRoute. Utilize o procedimento abaixo indicado para criar um novo objeto de ligação para cada circuito de ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos.
 
 * Se ativar o suplemento ExpressRoute premium, pode ligar uma rede virtual fora da região geopolítica do circuito ExpressRoute ou ligar um grande número de redes virtuais para o circuito do ExpressRoute. Para mais informações sobre o suplemento premium, consulte o [FAQ](expressroute-faqs.md).
 

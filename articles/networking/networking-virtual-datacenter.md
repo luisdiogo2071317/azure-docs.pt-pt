@@ -1,9 +1,22 @@
 ---
-Título: "Microsoft Azure Virtual Centro de dados: A rede perspetiva" | Descrição Microsoft Docs: Aprenda a criar o seu centro de dados virtual nos serviços do Azure: rede autor: Gestor tracsman: rossort etiquetas: Gestor de recursos do azure
-
-ms.service: virtual-network ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 05/26/2017 ms.author: jonor
+title: 'Datacenter Virtual do Microsoft Azure: Uma perspetiva de rede | Microsoft Docs'
+description: Aprenda a criar o seu centro de dados virtual no Azure
+services: networking
+author: tracsman
+manager: rossort
+tags: azure-resource-manager
+ms.service: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/26/2017
+ms.author: jonor
+ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/12/2018
 ---
-
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Datacenter Virtual do Microsoft Azure: Uma perspetiva de rede
 **Microsoft Azure**: agilizar, poupar dinheiro, integrar aplicações no local e dados
 

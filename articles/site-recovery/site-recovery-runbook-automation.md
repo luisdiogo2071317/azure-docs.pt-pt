@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de automatização do Azure para planos de recuperação
 Neste artigo, vamos descrever como o Azure Site Recovery se integra com a automatização do Azure para o ajudar a expandir os planos de recuperação. Planos de recuperação podem orquestrar a recuperação de VMs que estão protegidos com a recuperação de Site. Funcionam planos de recuperação para a replicação para uma nuvem secundária e para replicação no Azure. Planos de recuperação também ajudam a efetuar a recuperação **consistentemente exata**, **repetíveis**, e **automatizada**. Se a ativação pós-falha as suas VMs no Azure, a integração com a automatização do Azure expande os planos de recuperação. Pode utilizá-lo para executar runbooks, o que oferece tarefas de automatização de elevado desempenho.
@@ -193,7 +193,7 @@ Para cada plano de recuperação, crie variáveis independentes, de modo a que p
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Utilizar uma variável de complexas para armazenar mais informações
 
-Considere um cenário no qual pretende que um script único para ativar um IP público em VMs específicos. Outro cenário, poderá pretender aplicar NSGs diferentes em diferentes VMs (e não em todas as VMs). Pode efetuar um script que é reutilizável para qualquer plano de recuperação. Cada plano de recuperação pode ter um número de VMs de variável. Por exemplo, uma recuperação do SharePoint tem dois front-ends. Uma aplicação básica linha de negócio (LOB) tem apenas um front-end. Não é possível criar variáveis separadas para cada plano de recuperação. 
+Considere um cenário no qual pretende que um script único para ativar um IP público em VMs específicos. Outro cenário, poderá pretender aplicar NSGs diferentes em diferentes VMs (e não em todas as VMs). Pode efetuar um script que é reutilizável para qualquer plano de recuperação. Cada plano de recuperação pode ter um número de VMs de variável. Por exemplo, uma recuperação do SharePoint tem dois front-ends. Uma aplicação básica linha de negócio (LOB) tem apenas um front-end. Não é possível criar variáveis separadas para cada plano de recuperação.
 
 No exemplo seguinte, iremos utilizar uma novo técnica e criar um [complexas variável](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) nos ativos de conta de automatização do Azure. Fazê-lo especificando valores múltiplos. Tem de utilizar o Azure PowerShell para concluir os seguintes passos:
 

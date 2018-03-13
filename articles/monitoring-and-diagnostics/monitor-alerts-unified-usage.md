@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Criar, ver e gerir alertas utilizando o Monitor do Azure - alertas (pré-visualização)
 
@@ -65,7 +65,7 @@ Detalhadas seguinte é um guia passo a passo para utilizar alertas do Azure (pr�
 
     > Alertas unificadas (pré-visualização) também suporta a alertas de registo de atividade. [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Alertas métricas*: Certifique-se **tipo de recurso** é serviço de plataforma ou do monitor selecionado (diferente de *Log Analytics*), em seguida, uma vez adequado **recursos** é Clique em escolhida *feito* botão para devolver o alerta de criar. Em seguida utilize o **adicionar critérios** botão para escolher o sinal específico da lista de opções de sinal, respetivo serviço de monitorização e o tipo listados - que estão disponíveis para o recurso selecionado anteriormente.
+5. *Alertas métricas*: Certifique-se **tipo de recurso** está selecionada com o tipo de sinal como **métrica**, em seguida, uma vez adequado **recursos** é escolhido clique  *Feito* botão para devolver o alerta de criar. Em seguida utilize o **adicionar critérios** botão para escolher o sinal específico da lista de opções de sinal, respetivo serviço de monitorização e o tipo listados - que estão disponíveis para o recurso selecionado anteriormente.
 
     ![Selecionar um recurso](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -81,7 +81,7 @@ Detalhadas seguinte é um guia passo a passo para utilizar alertas do Azure (pr�
 
     ![Configurar o sinal lógica para a métrica multidimensional](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Registar alertas*: Certifique-se **tipo de recurso** é uma origem de análise como *Log Analytics* ou *Application Insights*, em seguida, uma vez adequado  **recurso** é escolhido, clique em *feito*. Em seguida utilize o **adicionar critérios** botão para ver a lista das opções de sinal disponíveis para o recurso e a lista de sinal **pesquisa de registo personalizado** opção para monitor de serviço como o registo de escolhida *registo Análise de* ou *Application Insights*.
+8. *Registar alertas*: Certifique-se **tipo de recurso** é uma origem de análise como *Log Analytics* ou *Application Insights* e assinalar o tipo como **registo** , em seguida, uma vez adequado **recursos** é escolhido, clique em *feito*. Em seguida utilize o **adicionar critérios** botão para ver a lista das opções de sinal disponíveis para o recurso e a lista de sinal **pesquisa de registo personalizado** opção para monitor de serviço como o registo de escolhida *registo Análise de* ou *Application Insights*.
 
    ![Selecione um recurso - pesquisa de registo personalizado](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Para **alertas de registo** alertas podem ser baseados em:
 
     Para **alertas de registo** algumas funcionalidades adicionais estão disponíveis para substituir as ações predefinidas:
 
-    - **Notificação por e-mail**: substituições assunto do e-mail, enviado através do grupo de ação. Não é possível modificar o corpo da mensagem.
-    - **Incluir payload Json personalizado**: substitui o webhook Json utilizado por grupos de ação e em vez disso, substitua o payload de predefinição um payload personalizado. Para obter mais informações sobre os formatos de webhook, consulte [ação do webhook para alertas de registo](monitor-alerts-unified-log-webhook.md)
+    - **Notificação por e-mail**: substitui *assunto do correio electrónico* no e-mail de enviada através do grupo de ação; se a ação de e-mail de um ou mais existe no grupo de ação de referida. Não é possível modificar o corpo da mensagem e este campo é **não** para endereço de correio eletrónico.
+    - **Incluir payload Json personalizado**: substitui o webhook JSON utilizado por grupos de ação; se existir um ou mais ação de webhook no grupo de ação referida. O utilizador pode specificy formato JSON para ser utilizado para todos os webhooks configurados num grupo de ação associadas; Para obter mais informações sobre os formatos de webhook, consulte [ação do webhook para alertas de registo](monitor-alerts-unified-log-webhook.md). Opção de Webhook de teste é fornecida para verificar o formato e processamento pelo destino utilizando o JSON de exemplo e esta opção como assinaladas como destinam-se apenas **testar** fins.
 
         ![Substituições de ação para alertas de registo](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
