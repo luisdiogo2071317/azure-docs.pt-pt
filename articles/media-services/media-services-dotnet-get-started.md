@@ -154,7 +154,7 @@ Nos Media Services, pode carregar (ou inserir) os seus ficheiros digitais num el
 
 O método **UploadFile** definido abaixo chama **CreateFromFile** (definido nas Extensões do SDK do .NET). **CreateFromFile** cria um novo elemento no qual o ficheiro de origem especificado é carregado.
 
-O método **CreateFromFile** recorre a **AssetCreationOptions** que permite especificar uma das seguintes opções de criação do elemento:
+O método **CreateFromFile** recorre a \*\*AssetCreationOptions que permite especificar uma das seguintes opções de criação do elemento:
 
 * **Nenhum** - Não é utilizada qualquer encriptação. Este é o valor predefinido. Tenha em atenção que, ao utilizar esta opção, o seu conteúdo não está protegido enquanto estiver em trânsito ou inativo no armazenamento.
   Se planear distribuir um MP4 utilizando uma transferência progressiva, utilize esta opção.
