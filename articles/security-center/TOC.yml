@@ -114,6 +114,12 @@
       items:
         - name: Soluções ligadas
           href: security-center-partner-solutions.md
+        - name: Soluções detetadas
+          href: 'security-center-partner-integration.md#discovered-solutions'
+        - name: Ligar soluções externas
+          href: quick-security-solutions.md
+        - name: Ligar Gateway de Aplicação
+          href: security-center-connect-application-gateway.md
         - name: Ligar ao Microsoft ATA
           href: security-center-ata-integration.md
         - name: Ligar ao Azure AD Identity Protection
