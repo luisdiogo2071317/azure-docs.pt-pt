@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory
 O Integration Runtime (IR) é a infraestrutura de computação que o Azure Data Factory utiliza para proporcionar as seguintes capacidades de integração de dados em diferentes ambientes de rede:
@@ -123,7 +123,7 @@ O diagrama seguinte mostra dois exemplos de atividades de cópia:
 ![Que runtime de integração utilizar](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Localização do runtime de integração
-É na localização do Data Factory que os metadados da fábrica de dados são armazenados e a partir de onde o acionamento do pipeline é iniciado. Atualmente, as localizações do Data Factory suportadas são E.U.A. Leste, E.U.A. Leste 2 e Europa Ocidental. No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação. Este comportamento é realizado através do runtime de integração disponível globalmente em várias regiões, para garantir a conformidade dos dados, a eficiência e custos de saída de rede reduzidos.
+É na localização do Data Factory que os metadados da fábrica de dados são armazenados e a partir de onde o acionamento do pipeline é iniciado. Atualmente, as localizações do Data Factory suportadas são E.U.A. Leste, E.U.A. Leste 2, Sudeste Asiático e Europa Ocidental. No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação. Este comportamento é realizado através do runtime de integração disponível globalmente em várias regiões, para garantir a conformidade dos dados, a eficiência e custos de saída de rede reduzidos.
 
 A localização do runtime de integração define a localização da respetiva computação de back-end e, essencialmente, a localização onde são realizados o movimento de dados, a distribuição de atividades e a execução de pacotes do SSIS. A localização do runtime de integração pode ser diferente da localização da fábrica de dados à qual pertence. O diagrama seguinte mostra as definições de localização do Data Factory e os respetivos runtimes de integração:
 
@@ -176,7 +176,7 @@ O runtime de integração autoalojado é registado logicamente no Data Factory e
 Quando é utilizado para realizar o movimento de dados, o runtime de integração autoalojado extrai dados da origem e escreve-os no destino.
 
 ### <a name="azure-ssis-ir"></a>Runtime de integração Azure-SSIS
-Selecionar a localização certa para o runtime de integração Azure-SSIS é fundamental para obter um elevado desempenho nos seus fluxos de trabalho extract-transform-load (ETL).  Estão disponíveis inicialmente duas localizações para pré-visualização (E.U.A. Leste e Europa do Norte).
+Selecionar a localização certa para o runtime de integração Azure-SSIS é fundamental para obter um elevado desempenho nos seus fluxos de trabalho extract-transform-load (ETL).  As seis localizações estão inicialmente disponíveis para pré-visualização (E.U.A. Leste, E.U.A. Leste 2, E.U.A. Central, Leste da Austrália, Europa do Norte e Europa Ocidental).
 
 - A localização do runtime de integração do Azure-SSIS não tem de ser a mesma da fábrica de dados, mas deve ser a mesma do seu próprio servidor Base de Dados SQL do Azure/Instância Gerida (pré-visualização privada) no qual o SSISDB vai ser alojado. Desta forma, o runtime de integração Azure-SSIS pode aceder facilmente ao SSISDB sem incorrer em tráfegos excessivos entre diferentes localizações.
 - Se não tiver um servidor Base de Dados SQL do Azure/Instância Gerida (pré-visualização privada) já existente para alojar o SSISDB, mas tiver origens/destinos de dados no local, deve criar um servidor Base de Dados SQL do Azure/Instância Gerida (pré-visualização privada) novo na mesma localização de uma VNet ligada à sua rede no local.  Assim, pode criar o runtime de integração Azure-SSIS com o servidor Base de Dados SQL do Azure/Instância Gerida (pré-visualização privada) novo e associando essa VNet, tudo na mesma localização, minimizando eficazmente os movimentos de dados em localizações diferentes.
