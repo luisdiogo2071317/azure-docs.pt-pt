@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: pratshar
-ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>Reativação pós-falha na Recuperação de Sites
 Este artigo descreve como a ativação pós-falha máquinas de virtuais e físicos servidores protegidos pela recuperação de sites.
@@ -90,18 +90,18 @@ Quando é acionada uma ativação pós-falha, envolve os seguintes passos:
 Em certos casos, a ativação pós-falha de máquinas virtuais requer um passo intermédio extra que normalmente demora cerca de 8 a 10 minutos a concluir. Nos seguintes casos, o tempo decorrido para a ativação pós-falha será maior do que o habitual:
 
 * Máquinas virtuais VMware com o serviço de mobilidade da versão mais antiga do que 9.8
-* Servidores físicos 
+* Servidores físicos
 * Máquinas virtuais Linux de VMware
 * Máquinas virtuais de Hyper-V protegidas como servidores físicos
-* Máquinas virtuais VMware onde seguintes controladores não estão presentes como controladores de arranque 
-    * storvsc 
-    * VMBus 
-    * storflt 
-    * intelide 
+* Máquinas virtuais VMware onde seguintes controladores não estão presentes como controladores de arranque
+    * storvsc
+    * VMBus
+    * storflt
+    * intelide
     * ATAPI
 * Máquinas virtuais VMware que não tenham o serviço DHCP ativado independentemente se estão a utilizar DHCP ou estático de endereços IP
 
-Em todos os outros casos, este passo intermédio não é necessário e o tempo decorrido para a ativação pós-falha é inferior. 
+Em todos os outros casos, este passo intermédio não é necessário e o tempo decorrido para a ativação pós-falha é inferior.
 
 
 
@@ -112,7 +112,7 @@ Poderá automatizar determinadas ações ao efetuar uma ativação pós-falha. P
 
 ## <a name="post-failover-considerations"></a>Considerações de ativação pós-falha de POST
 Após a ativação pós-falha, que pode querer considere as seguintes recomendações:
-### <a name="retaining-drive-letter-after-failover"></a>Letra de unidade de retenção após a ativação pós-falha 
+### <a name="retaining-drive-letter-after-failover"></a>Letra de unidade de retenção após a ativação pós-falha
 Para manter a letra de unidade em máquinas virtuais após a ativação pós-falha, pode definir o **SAN política** para a máquina virtual para **OnlineAll**. [Leia mais](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 

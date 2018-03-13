@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar a APIs de comunicação Reliable Services
 Azure Service Fabric, como uma plataforma é completamente agnóstico relativamente sobre a comunicação entre os serviços. Todas as pilhas e protocolos são aceitáveis, do UDP para HTTP. Está a funcionar para o Programador de serviço para escolher a forma como os serviços devem comunicar. A estrutura da aplicação Reliable Services fornece pilhas de comunicação incorporada, bem como as APIs que pode utilizar para criar os componentes de comunicação personalizado.
@@ -76,10 +76,13 @@ public class MyStatelessService extends StatelessService {
 
 Para os serviços com monitorização de estado:
 
-> [!NOTE]
-> Serviços fiáveis com monitorização de estado não são suportados ainda em Java.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService
@@ -236,7 +239,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`é o objeto que é utilizado para comunicar com o cluster do Service Fabric para várias operações de gestão no cluster. Isto é útil quando pretende mais controlo sobre como uma resolução de partição de serviço interage com o cluster. `FabricClient`efetua a colocação em cache internamente e é geralmente dispendioso criar, pelo que é importante reutilizar `FabricClient` instâncias quanto possíveis.
+`FabricClient` é o objeto que é utilizado para comunicar com o cluster do Service Fabric para várias operações de gestão no cluster. Isto é útil quando pretende mais controlo sobre como uma resolução de partição de serviço interage com o cluster. `FabricClient` efetua a colocação em cache internamente e é geralmente dispendioso criar, pelo que é importante reutilizar `FabricClient` instâncias quanto possíveis.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -267,7 +270,7 @@ Normalmente, o código de cliente necessário não funciona com o ServicePartiti
 ### <a name="communication-clients-and-factories"></a>Os clientes de comunicação e fábricas de
 A biblioteca de fábrica de comunicação implementa um padrão de repetição de processamento de falhas normal que facilita a repetir as ligações a pontos finais de serviço resolvido. A biblioteca de fábrica fornece o mecanismo de repetição enquanto está a fornecer os processadores de erro.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`Define a interface base implementada por uma fábrica do cliente de comunicação que produza os clientes que podem comunicar com um serviço do Service Fabric. A implementação do CommunicationClientFactory depende da pilha de comunicação utilizada pelo serviço do Service Fabric onde pretende comunicar o cliente. A API de serviços fiável fornece um `CommunicationClientFactoryBase<TCommunicationClient>`. Isto fornece uma implementação da CommunicationClientFactory interface base e executa tarefas que são comuns a todas as pilhas de comunicação. (Estas tarefas incluem a utilização de um ServicePartitionResolver para determinar o ponto final do serviço). Os clientes, normalmente, implementam classe abstrata CommunicationClientFactoryBase para processar lógica específica para a pilha de comunicação.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` Define a interface base implementada por uma fábrica do cliente de comunicação que produza os clientes que podem comunicar com um serviço do Service Fabric. A implementação do CommunicationClientFactory depende da pilha de comunicação utilizada pelo serviço do Service Fabric onde pretende comunicar o cliente. A API de serviços fiável fornece um `CommunicationClientFactoryBase<TCommunicationClient>`. Isto fornece uma implementação da CommunicationClientFactory interface base e executa tarefas que são comuns a todas as pilhas de comunicação. (Estas tarefas incluem a utilização de um ServicePartitionResolver para determinar o ponto final do serviço). Os clientes, normalmente, implementam classe abstrata CommunicationClientFactoryBase para processar lógica específica para a pilha de comunicação.
 
 O cliente de comunicação apenas recebe um endereço e utiliza-o para ligar a um serviço. O cliente pode utilizar qualquer protocolo que pretende.
 
@@ -426,7 +429,7 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [ASP.NET Core com Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [Chamadas de procedimento remoto com o sistema de interação remota Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Comunicação de WCF utilizando Reliable Services](service-fabric-reliable-services-communication-wcf.md)

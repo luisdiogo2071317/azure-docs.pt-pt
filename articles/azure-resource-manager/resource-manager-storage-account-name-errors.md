@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Resolva os erros para os nomes de conta do storage
 
@@ -48,16 +48,12 @@ Os nomes das contas de armazenamento tem de ter entre 3 e 24 carateres de compri
 
 ## <a name="solution"></a>Solução
 
-### <a name="solution-1"></a>Solução 1
-
 Certifique-se de que o nome de conta de armazenamento é exclusivo. Pode criar um nome exclusivo, concatenar a Convenção de nomenclatura com o resultado do [uniqueString](resource-group-template-functions-string.md#uniquestring) função.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>Solução 2
 
 Certifique-se de que o nome da sua conta de armazenamento não exceder 24 carateres. O [uniqueString](resource-group-template-functions-string.md#uniquestring) função devolve 13 carateres. Se concatenar um prefixo ou postfix para o **uniqueString** resultar, forneça um valor que é de 11 carateres ou menos.
 
@@ -73,7 +69,5 @@ Certifique-se de que o nome da sua conta de armazenamento não exceder 24 carate
     }
 }
 ```
-
-### <a name="solution-3"></a>Solução 3
 
 Certifique-se de que o nome da sua conta de armazenamento não inclui quaisquer letras maiúsculas ou carateres especiais.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0589f2efeaaafc35bcb9d869c391a0533fe6e502
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço em nuvem e como pacote-lo?
 Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)*, a configuração de serviço *(. cscfg)*e um pacote de serviço *(. cspkg)*. Tanto o **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrevem a estrutura do serviço em nuvem e como está configurada; coletivamente chamado o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir de **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. Azure cria um serviço em nuvem a partir de ambos os **ServicePackage.cspkg** e **ServiceConfig.cscfg**.
@@ -37,7 +37,7 @@ Assim que o serviço em nuvem está em execução no Azure, pode reconfigurá-la
 
 <a name="csdef"></a>
 
-## <a name="servicedefinitioncsdef"></a>Servicedefinition. Csdef
+## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 O **servicedefinition. Csdef** ficheiro Especifica as definições que são utilizadas pelo Azure para configurar um serviço em nuvem. O [esquema de definição de serviço do Azure (. csdef ficheiro)](https://msdn.microsoft.com/library/azure/ee758711.aspx) fornece o formato permitido para um ficheiro de definição de serviço. O exemplo seguinte mostra as definições que podem ser definidas para as funções da Web e de trabalho:
 
 ```xml
@@ -91,7 +91,7 @@ O **servicedefinition. Csdef** ficheiro Especifica as definições que são util
 
 Pode consultar o [esquema de definição de serviço](https://msdn.microsoft.com/library/azure/ee758711.aspx) para uma melhor compreensão do esquema XML utilizado aqui, no entanto, eis uma explicação mais rápida de alguns dos elementos:
 
-**Sites**  
+**sites**  
 Contém as definições para aplicações web ou de Web sites que estão alojadas em IIS7.
 
 **InputEndpoints**  
@@ -112,12 +112,12 @@ Contém as definições para os recursos de armazenamento local. Um recurso de a
 **Importa**  
 Contém as definições de módulos importados. Exemplo de código anterior mostra os módulos para ligação ao ambiente de trabalho remoto e ligar do Azure.
 
-**Arranque**  
+**Startup**  
 Contém tarefas que são executadas quando a função é iniciado. As tarefas são definidas num ficheiro executável ou. cmd.
 
 <a name="cscfg"></a>
 
-## <a name="serviceconfigurationcscfg"></a>Serviceconfiguration. Cscfg
+## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
 A configuração das definições do serviço em nuvem é determinada pelos valores no **serviceconfiguration. Cscfg** ficheiro. Especifique o número de instâncias que pretende implementar para cada função neste ficheiro. Os valores para as definições de configuração definida no ficheiro de definição de serviço são adicionados ao ficheiro de configuração de serviço. Os thumbprints para quaisquer certificados de gestão que estão associados com o serviço em nuvem também são adicionados ao ficheiro. O [esquema de configuração de serviço do Azure (. cscfg ficheiro)](https://msdn.microsoft.com/library/azure/ee758710.aspx) fornece o formato permitido para um ficheiro de configuração do serviço.
 
 O ficheiro de configuração de serviço não é compactado com a aplicação, mas é carregado para o Azure como um ficheiro separado e é utilizado para configurar o serviço em nuvem. Pode carregar um novo ficheiro de configuração de serviço sem voltar a implementar o serviço em nuvem. Os valores de configuração para o serviço em nuvem podem ser alterados enquanto o serviço em nuvem está em execução. O exemplo seguinte mostra as definições de configuração que podem ser definidas para as funções da Web e de trabalho:
@@ -142,7 +142,7 @@ O ficheiro de configuração de serviço não é compactado com a aplicação, m
 
 Pode consultar o [esquema de configuração do serviço](https://msdn.microsoft.com/library/azure/ee758710.aspx) para melhor compreender o esquema XML utilizado aqui, no entanto, eis uma explicação mais rápida dos elementos:
 
-**Instâncias**  
+**Instances**  
 Configura o número de instâncias para a função em execução. Para impedir que o seu serviço em nuvem potencialmente se tornar indisponível durante as atualizações, é recomendado que implementar mais do que uma instância do seu funções orientado para o web. Ao implementar mais do que uma instância, está a cumprir os as diretrizes no [Azure computação nível contrato serviço (SLA)](http://azure.microsoft.com/support/legal/sla/), que garante 99,95% conectividade externa para funções de acesso à Internet quando duas ou mais instâncias de função são implementadas para um serviço.
 
 **ConfigurationSettings**  
@@ -276,7 +276,7 @@ Em que as variáveis são definidas do seguinte modo:
 | \[PhysicalPath\] |Os diretórios físicos do conteúdo para cada caminho virtual definido no nó de site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do ficheiro binário para a função. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estou a criar um pacote de serviço de nuvem e pretender...
 
 * [Configurar o ambiente de trabalho remoto para uma instância de serviço em nuvem][remotedesktop]
@@ -291,7 +291,7 @@ Estou a utilizar o Visual Studio e pretender...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md

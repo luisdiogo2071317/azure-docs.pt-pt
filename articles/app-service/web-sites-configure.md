@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
 
@@ -58,7 +58,7 @@ Por motivos de técnicos, ativar a sua aplicação Java desativa as opções de 
 
 **Auto troca**. Se ativar troca automática para uma ranhura de implementação, serviço de aplicações será automaticamente de comutação a aplicação web em produção quando emitir uma atualização para essa ranhura. Para obter mais informações, consulte [implementar para a transição ranhuras para web apps no App Service do Azure](web-sites-staged-publishing.md).
 
-### <a name="debugging"></a>A depurar
+### <a name="debugging"></a>Depurar
 **Depuração remota**. Permite a depuração remota. Quando ativada, pode utilizar o depurador remoto no Visual Studio para ligar diretamente à sua aplicação web. Depuração remota permanecerá ativado para 48 horas. 
 
 ### <a name="app-settings"></a>Definições de aplicação
@@ -76,8 +76,8 @@ Para aplicações PHP, Python, Java e nó, estas definições estarão disponív
 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
-* Base de dados do SQL Server:`SQLAZURECONNSTR_`
-* Personalizado:`CUSTOMCONNSTR_`
+* Base de dados do SQL Server: `SQLAZURECONNSTR_`
+* Personalizado: `CUSTOMCONNSTR_`
 
 Por exemplo, se uma cadeia de ligação MySql foram denominada `connectionstring1`, teria de ser acedido através da variável de ambiente `MYSQLCONNSTR_connectionString1`.
 
@@ -129,12 +129,12 @@ O nome de utilizador FTP completo é "app\username" onde *aplicação* é o nome
 
 ## <a name="other-configuration-tasks"></a>Outras tarefas de configuração
 ### <a name="ssl"></a>SSL
-No modo básico ou padrão, pode carregar certificados SSL para um domínio personalizado. Para obter mais informações, consulte [ativar HTTPS para uma aplicação web]. 
+No modo básico ou padrão, pode carregar certificados SSL para um domínio personalizado. Para obter mais informações, consulte [ativar HTTPS para uma aplicação web](app-service-web-tutorial-custom-ssl.md). 
 
 Para ver os certificados carregados, clique em **todas as definições** > **domínios personalizados e SSL**.
 
 ### <a name="domain-names"></a>Nomes de domínio
-Adicione nomes de domínio personalizado da sua aplicação web. Para obter mais informações, veja [configurar um nome de domínio personalizado para uma aplicação web no App Service do Azure].
+Adicione nomes de domínio personalizado da sua aplicação web. Para obter mais informações, consulte [configurar um nome de domínio personalizado para uma aplicação web no App Service do Azure](app-service-web-tutorial-custom-domain.md).
 
 Para ver os nomes de domínio, clique em **todas as definições** > **domínios personalizados e SSL**.
 

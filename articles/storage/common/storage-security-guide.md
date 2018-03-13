@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: e365c1c8abb3799805e715945e8b74292995c5ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -214,7 +214,7 @@ Por exemplo, com os nosso URL acima, se o URL foi apontar para um ficheiro em ve
 * Uma SAS de nível de serviço pode ser utilizada para aceder a recursos específicos numa conta do storage. Alguns exemplos deste estão a obter uma lista de blobs num contentor, transferir um blob, atualizar uma entidade numa tabela, adicionando as mensagens a uma fila ou carregar um ficheiro para uma partilha de ficheiros.
 * Uma SAS de nível de conta pode ser utilizado para aceder a tudo o que pode ser utilizado um SAS de nível de serviço para. Além disso, deu opções para recursos que não são permitidas com uma SAS de nível de serviço, tais como a capacidade de criar contentores, tabelas, filas e partilhas de ficheiros. Também pode especificar o acesso a vários serviços de uma só vez. Por exemplo, pode dar alguém aceder aos blobs e os ficheiros na sua conta de armazenamento.
 
-#### <a name="creating-an-sas-uri"></a>Criar um URI de SAS
+#### <a name="creating-a-sas-uri"></a>Criar um URI de SAS
 1. Pode criar um URI a pedido, definir todos os parâmetros de consulta de cada vez.
 
    Esta abordagem é flexível, mas se tiver um conjunto lógico de parâmetros que são semelhantes a cada hora, através de uma política de acesso armazenada uma ideia mais precisa.
@@ -376,7 +376,7 @@ A encriptação do lado do cliente é mais carga no cliente e tem de ser uma con
 
 #### <a name="storage-service-encryption-sse"></a>Encriptação do serviço de armazenamento (SSE)
 
-SSE é gerida pelo armazenamento do Azure. SSE não fornece para garantir a segurança dos dados em trânsito, mas encriptar os dados que que é escritos no armazenamento do Azure. Não há nenhum impacto sobre o desempenho de SSE.
+SSE é gerida pelo armazenamento do Azure. SSE não fornece para garantir a segurança dos dados em trânsito, mas encriptar os dados que que é escritos no armazenamento do Azure. SSE não afeta o desempenho de armazenamento do Azure.
 
 Pode encriptar qualquer tipo de dados da conta de armazenamento utilizando SSE (blobs de blocos, blobs, os blobs de páginas, dados da tabela, fila dados e ficheiros de acréscimo).
 

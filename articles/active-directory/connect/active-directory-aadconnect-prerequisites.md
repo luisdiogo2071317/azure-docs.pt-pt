@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -31,6 +31,7 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
   * Também pode utilizar o [portal do Azure](https://portal.azure.com). Este portal não necessita de uma licença do Azure AD.
 * [Adicionar e verificar o domínio](../active-directory-domains-add-azure-portal.md) que pretende utilizar no Azure AD. Por exemplo, se planear utilizar contoso.com para os seus utilizadores, em seguida, certifique-se de que este domínio ter sido verificado e não apenas a utilizar o domínio predefinido de contoso.onmicrosoft.com.
 * Permite a um inquilino do Azure AD por objetos predefinidos 50k. Ao verificar o seu domínio, o limite é aumentado para objetos do 300 k. Se precisar de mais mesmo objetos no Azure AD, terá de abrir um incidente de suporte para que o limite de aumentar ainda mais. Se precisar de mais do que 500 objetos de k, em seguida, é necessário uma licença, tais como o Office 365, Azure AD Basic, Azure AD Premium, ou Enterprise Mobility e segurança.
+* ADSyncPrep é um módulo de script do PowerShell que fornece funções que são utilizadas para preparar o ambiente do Active Directory do Azure AD Connect.  ADSyncPrep requer o [v 1.1 Online ao Microsoft Azure AD PowerShell módulo](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Versão 2 não funcionará.  Será pode instalar o módulo utilizando o `Install-Module` cmdlet.  Para obter mais informações consulte a hiperligação fornecida.
 
 ### <a name="prepare-your-on-premises-data"></a>Prepare os seus dados no local
 * Utilize [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros, tais como os duplicados e formatação problemas no seu diretório antes de sincronizar com o Azure AD e o Office 365.

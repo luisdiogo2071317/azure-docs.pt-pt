@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: 
-ms.openlocfilehash: 3ffc96b19d4601756530d7f9dd959d05ef5fa000
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Quase em tempo real alertas métricas (pré-visualização)
 Monitor do Azure suporta um novo tipo de alerta chamado quase em tempo real alertas métricas (pré-visualização). Esta funcionalidade está atualmente em pré-visualização pública.
@@ -37,7 +37,7 @@ Quase em tempo real métrica alertas diferem dos alertas de métricas regulares 
 >
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas e dimensões suportadas
-Quase em tempo real métrica alertas suportam alertas com base nas métricas que utilizam dimensões. Pode utilizar dimensões para a métrica para o nível adequado de filtro. Podem ser explorou e visualizadas a partir de todas as métricas suportadas juntamente com dimensões aplicáveis [ *Monitor do Azure - **métricas (pré-visualização)***](monitoring-metric-charts.md).
+Quase em tempo real métrica alertas suportam alertas com base nas métricas que utilizam dimensões. Pode utilizar dimensões para a métrica para o nível adequado de filtro. Podem ser explorou e visualizadas a partir de todas as métricas suportadas juntamente com dimensões aplicáveis [Azure Monitor - Explorador de métricas (pré-visualização)](monitoring-metric-charts.md).
 
 Eis a lista completa das origens de métrica de monitor do Azure com base em que são suportados para quase em tempo real alertas métricas:
 
@@ -65,7 +65,7 @@ Eis a lista completa das origens de métrica de monitor do Azure com base em que
 
 
 Métricas de registos, suporta atualmente os seguintes registos OMS populares:
-- [Contadores de desempenho](../log-analytics/https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-performance-counters.md) para máquinas Windows e Linux
+- [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) para máquinas Windows e Linux
 - Registos de heartbeat de máquinas
 - [Gestão de atualizações](../operations-management-suite/oms-solution-update-management.md) registos
 

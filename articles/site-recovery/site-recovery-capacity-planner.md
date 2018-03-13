@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planear a capacidade para proteger as VMs de Hyper-V com a recuperação de Site
 
-Uma nova versão avançada do [Planeador de implementação do Azure Site Recovery para o Hyper-V para implementação do Azure](site-recovery-hyper-v-deployment-planner.md) está agora disponível. Substitui a ferramenta antiga. Utilize a ferramenta de novo para o planeamento da implementação. A ferramenta fornece as seguintes diretrizes:
+Uma nova versão avançada do [Planeador de implementação do Azure Site Recovery para o Hyper-V para implementação do Azure](site-recovery-hyper-v-deployment-planner.md) está agora disponível. Substitui a ferramenta antiga. Utilize a ferramenta de novo para o planeamento da implementação.
+A ferramenta fornece as seguintes diretrizes:
 
 * Avaliação de elegibilidade da VM, com base no número de discos, tamanho do disco, IOPS, volume de alterações e alguns características VM
 * Tem de largura de banda de rede versus avaliação RPO
@@ -45,7 +46,7 @@ Pode executar a ferramenta em dois modos:
 
 * Recolha informações sobre o ambiente, incluindo VMs, discos por VM, de armazenamento por disco.
 * Identifica a taxa de alteração (renovação) diária para os dados replicados. Transferir o [ferramenta o planeamento de capacidade do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obter a taxa de alteração. [Saiba mais](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre esta ferramenta. Recomendamos que esta ferramenta é executada através de uma semana para capturar médias.
-   
+
 
 ## <a name="run-the-quick-planner"></a>Executar o planeador rápido
 1. Transfira e abra [Planeador de capacidade de recuperação de Site](http://aka.ms/asr-capacity-planner-excel). Terá de executar macros. Quando lhe for pedido, efetue seleções ativar editar e o conteúdo.
@@ -58,7 +59,7 @@ Pode executar a ferramenta em dois modos:
 
    a. No **selecione o seu cenário**, escolha **Hyper-V para o Azure** ou **VMware/físico para o Azure**.
 
-   b. No **alterações dos dados diários médios taxa (%)**, introduza as informações que recolher utilizando o [ferramenta o planeamento de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou [Planeador de implementação de recuperação de Site](./site-recovery-deployment-planner.md). 
+   b. No **alterações dos dados diários médios taxa (%)**, introduza as informações que recolher utilizando o [ferramenta o planeamento de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou [Planeador de implementação de recuperação de Site](./site-recovery-deployment-planner.md).
 
    c. O **compressão** definição não é utilizada quando replicar VMs Hyper-V para o Azure. Para compressão, utilize uma aplicação de terceiros, tais como Riverbed.
 
@@ -147,7 +148,7 @@ Depois de todas as informações são introduzidas, selecione **submeter dados �
 ### <a name="submit-data-in-capacity-planner"></a>Submissão de dados no Planeador de capacidade
 1. Ao abrir o **Capacity Planner** folha de cálculo, é preenchido com base nas definições que especificou. A palavra "Carga de trabalho" aparece no **origem de entradas de Infra** célula para mostrar que a entrada é o **qualificação da carga de trabalho** folha de cálculo.
 
-2. Se pretender efetuar alterações, tem de modificar o **qualificação da carga de trabalho** folha de cálculo. Em seguida, selecione **submeter dados à ferramenta planner** novamente. 
+2. Se pretender efetuar alterações, tem de modificar o **qualificação da carga de trabalho** folha de cálculo. Em seguida, selecione **submeter dados à ferramenta planner** novamente.
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 

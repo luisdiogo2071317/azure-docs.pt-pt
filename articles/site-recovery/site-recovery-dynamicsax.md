@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar uma aplicação com várias camadas do Dynamics AX através da utilização do Azure Site Recovery
 
@@ -57,13 +57,13 @@ Para fins de criação deste artigo, vamos utilizar máquinas virtuais VMware co
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Ativar a recuperação de desastre da aplicação Dynamics AX utilizando a recuperação de Site
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger a sua aplicação Dynamics AX
-Para ativar a replicação de aplicação completa e a recuperação, cada componente do Dynamics AX têm de ser protegida. 
+Para ativar a replicação de aplicação completa e a recuperação, cada componente do Dynamics AX têm de ser protegida.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configurar a replicação do Active Directory e DNS
 
 Do Active Directory é necessário no site de recuperação após desastre para a aplicação Dynamics AX para a função. Recomendamos as seguintes opções de dois com base na complexidade do ambiente de no local do cliente.
 
-**Opção 1**
+**opção 1**
 
 O cliente tem um pequeno número de aplicações e um único controlador de domínio para todo o site no local e planos efetuar a ativação pós-falha de todo o local em conjunto. Recomendamos que utilize replicação de recuperação de sites para replicar a máquina de controlador de domínio para um site secundário (aplicável para cenários de site a site e site para o Azure).
 
@@ -87,7 +87,7 @@ O instantâneo seguinte mostra o estado de proteção de VMs de componente de Dy
 
 ![Itens protegidos](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-### <a name="4-configure-networking"></a>4. Configurar o funcionamento em rede
+### <a name="4-configure-networking"></a>4. Configurar rede
 **Processamento da VM e as definições de rede**
 
 Para o cliente de Dynamics AX e VMs de servidor do objeto de aplicação, configure definições de rede na recuperação de Site para que as redes VM obterem ligadas à rede de recuperação após desastre direita após a ativação pós-falha. Certifique-se de que a rede de recuperação de desastres para estas camadas é encaminhável para a camada SQL.
@@ -137,7 +137,7 @@ Adicione um script (através da automatização do Azure) após o grupo de VM de
 
 ### <a name="perform-a-test-failover"></a>Execute uma ativação pós-falha de teste
 
-Para mais informações específicas do Active Directory durante a ativação pós-falha de teste, consulte o guia complementar de "Solução de recuperação de desastre do Active Directory". 
+Para mais informações específicas do Active Directory durante a ativação pós-falha de teste, consulte o guia complementar de "Solução de recuperação de desastre do Active Directory".
 
 Para obter mais informações específicas do SQL Server durante a ativação pós-falha de teste, consulte [replicar aplicações com o SQL Server e o Azure Site Recovery](site-recovery-sql.md).
 
@@ -189,5 +189,5 @@ Para mais informações sobre como fazer uma reativação pós-falha, consulte [
 ## <a name="summary"></a>Resumo
 Utilizando a recuperação de Site, pode criar um plano de recuperação após desastre automatizado completa para a sua aplicação Dynamics AX. Em caso de uma interrupção, pode iniciar a ativação pós-falha em segundos a partir de qualquer lugar e obter a aplicação em execução em minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre como proteger cargas de trabalho empresariais com a recuperação de Site, consulte [que cargas de trabalho posso proteger?](site-recovery-workload.md).

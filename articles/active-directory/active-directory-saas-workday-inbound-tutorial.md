@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -768,12 +768,27 @@ Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-
 
 * Um problema com os registos de auditoria não são apresentados no inquilinos do Azure AD, localizados na União Europeia anterior foi resolvido. No entanto, a configuração do agente adicionais é necessária para inquilinos do Azure AD no EU. Para obter mais informações, consulte [parte 3: configurar o agente de sincronização no local](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>Conformidade GDPR
 
-## <a name="additional-resources"></a>Recursos adicionais
-* [Tutorial: Configurar o início de sessão entre Workday e o Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR impõe regras em empresas, agências governamentais, não lucros e outras organizações que ofereçam bens e serviços a pessoas no EU ou que recolher e analisam dados associados ao residentes de EU. 
+
+O serviço de aprovisionamento do Azure AD é GDPR em conformidade, juntamente com o resto das funcionalidades e serviços da Microsoft. Para saber mais sobre o bloco GDPR da Microsoft, consulte o [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+No entanto, uma vez que a solução de aprovisionamento do Workday para o Active Directory requer um agente de sincronização para ser instalada num servidor associado a um domínio, existem alguns eventos, terá de monitorizar também permanecer GDPR em conformidade.
+ 
+O agente cria registos no **registo de eventos do Windows**, que pode conter informações de identificação pessoal.
+
+Existem duas formas das manter GDPR em conformidade:
+
+1. Mediante pedido, extrair dados para uma pessoa e remover dados dessa pessoa dos registos de eventos do Windows. 
+2. Manter a retenção de registos de eventos do Windows tenham origem a partir do processo de AADSyncAgent em 48 horas
+
+Para obter informações sobre como configurar a retenção de dados para os registos de eventos do Windows, consulte o [as definições de registos de eventos](https://technet.microsoft.com/en-us/library/cc952132.aspx). Para obter informações gerais sobre o registo de eventos do Windows, consulte [neste artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre o aprovisionamento de atividade](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Saiba como configurar o início de sessão entre Workday e o Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Saiba como integrar a outras aplicações de SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
+

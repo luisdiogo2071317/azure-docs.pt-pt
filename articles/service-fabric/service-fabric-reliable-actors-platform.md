@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os Reliable Actors utilizam a plataforma Service Fabric
 Este artigo explica como funcionam os Reliable Actors na plataforma do Azure Service Fabric. Chamado Reliable Actors executadas uma arquitetura que está alojada numa implementação de um serviço fiável com monitorização de estado a *serviço de atores*. O serviço de atores contém todos os componentes necessários para gerir o ciclo de vida e a mensagem de emissão para os atores:
@@ -41,9 +41,6 @@ No Reliable Services, o seu serviço herda o `StatefulService` classe. Esta clas
 * Cópia de segurança do serviço e de restauro.
 * Partilhado funcionalidade para todos os atores, por exemplo, um disjuntor automático.
 * Chamadas de procedimento remoto do serviço de atores em si e em cada ator individuais.
-
-> [!NOTE]
-> Serviços com monitorização de estado não são atualmente suportados em Java/Linux.
 
 ### <a name="using-the-actor-service"></a>Utilizar o serviço de atores
 Instâncias de ator ter acesso ao serviço de atores em que estejam a ser executados. Através do serviço de atores, instâncias de ator programaticamente podem obter o contexto de serviço. O contexto de serviço tem o ID de partição, o nome do serviço, o nome da aplicação e outras informações específicas da plataforma do Service Fabric:
@@ -347,7 +344,7 @@ Serviços de atores são particionado com monitorização de estado. Cada parti�
 Reliable Services podem ser criados com esquemas de partição diferentes e os intervalos de chaves de partição. O serviço de atores utiliza o esquema de partições Int64 com o intervalo de chave Int64 completo para mapear atores para partições.
 
 ### <a name="actor-id"></a>ID de actor
-Cada ator que é criado no serviço tem um ID exclusivo associado, representado pelo `ActorId` classe. `ActorId`é um valor de ID opaco que pode ser utilizado para distribuição uniform de atores entre as partições de serviço através da geração de IDs aleatórios:
+Cada ator que é criado no serviço tem um ID exclusivo associado, representado pelo `ActorId` classe. `ActorId` é um valor de ID opaco que pode ser utilizado para distribuição uniform de atores entre as partições de serviço através da geração de IDs aleatórios:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -401,7 +398,7 @@ Este passo certifica-se de que proxy de Ator está a utilizar o sistema de inter
     [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Gestão do Estado de ator](service-fabric-reliable-actors-state-management.md)
 * [Coleção de ciclo de vida e libertação da memória de ator](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API de atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas mais frequentes sobre Azure Active Directory Connect
 
@@ -57,7 +57,7 @@ Não, do Azure AD Connect não suporta florestas/domínios de no local onde o no
 **P: puro IPv6 ambiente é suportado?**  
 Não, do Azure AD Connect não suporta puro ambiente IPv6.
 
-## <a name="federation"></a>Federação
+## <a name="federation"></a>de Federação
 **P: o que posso fazer se receber uma mensagem de e-mail que perguntar-me para renovar certificado meu do Office 365**  
 Utilize as orientações que está destacada no [renovar certificados](active-directory-aadconnect-o365-certs.md) tópico sobre como renovar o certificado.
 
@@ -78,7 +78,7 @@ Consulte estes artigos:
 Também pode configurar o Azure AD para permitir que o motor de sincronização atualizar o userPrincipalName conforme descrito em [funcionalidades do serviço de sincronização do Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
 **P: é, suportado para correspondência de forma recuperável AD grupo/contacte objetos com objetos existentes do grupo/contacte do Azure AD no local?**  
-Não, isto não é atualmente suportado.
+Sim, esta será baseada no /proxyaddress.  Correspondência de forma recuperável não é suportada para os grupos que não estão ativadas para correio.
 
 **P: é, suportado para definir manualmente ImmutableId atributo em objetos existentes do Azure AD grupo/contacte rígido corresponder ao que no local objetos de AD grupo/contacto?**  
 Não, isto não é atualmente suportado.

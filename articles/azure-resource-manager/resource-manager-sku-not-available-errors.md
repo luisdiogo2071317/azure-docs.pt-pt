@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolver erros de SKU não está disponível
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Recebe este erro quando o recurso SKU que selecionou (por exemplo, o tamanho da VM) não está disponível para a localização que selecionou.
 
-## <a name="solution"></a>Solução
+## <a name="solution-1---powershell"></a>Solução 1 - PowerShell
 
-Para resolver este problema, tem de determinar quais os SKUs estão disponíveis numa região. Pode utilizar o PowerShell, o portal ou de uma operação REST para localizar SKUs disponíveis.
-
-### <a name="solution-1"></a>Solução 1
-
-Utilize o [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) comando do PowerShell. Filtre os resultados por localização. Tem de ter a versão mais recente do PowerShell para este comando.
+Para determinar qual SKUs estão disponíveis numa região, utilize o [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) comando. Filtre os resultados por localização. Tem de ter a versão mais recente do PowerShell para este comando.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Solução 2
+## <a name="solution-2---azure-cli"></a>Solução 2 - CLI do Azure
 
-Utilizar a CLI do Azure, o `az vm list-skus` comando. Em seguida, pode utilizar `grep` ou um utilitário semelhante para filtrar os resultados.
+Para determinar qual SKUs estão disponíveis numa região, utilize o `az vm list-skus` comando. Em seguida, pode utilizar `grep` ou um utilitário semelhante para filtrar os resultados.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Solução 3
+## <a name="solution-3---azure-portal"></a>Solução 3 - portal do Azure
 
-Utilize o [portal](https://portal.azure.com). Inicie sessão no portal e adicione um recurso através da interface. Como definir os valores, consulte os SKUs disponíveis para esse recurso. Não é necessário concluir a implementação.
+Para determinar qual SKUs estão disponíveis numa região, utilize o [portal](https://portal.azure.com). Inicie sessão no portal e adicione um recurso através da interface. Como definir os valores, consulte os SKUs disponíveis para esse recurso. Não é necessário concluir a implementação.
 
 ![SKUs disponíveis](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Solução 4
+## <a name="solution-4---rest"></a>Solução 4 - REST
 
-Utilize a API REST para máquinas virtuais. Envie o pedido seguinte:
+Para determinar qual SKUs estão disponíveis numa região, utilize a API REST para máquinas virtuais. Envie o pedido seguinte:
 
 ```HTTP 
 GET

@@ -4,13 +4,13 @@ description: "Este artigo fornece uma descrição geral da arquitetura de utiliz
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: e8a5f4fad75ea6211e96ba216c8b506306dcfa34
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a8af2ee4a32925603d24aee2403ab504a0ca05a8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Servidor físico à arquitetura de replicação do Azure
 
@@ -27,7 +27,7 @@ A seguinte tabela e o gráfico fornecem uma vista detalhada dos componentes util
 **Servidor de configuração** | Um único local máquina física ou VM do VMware for implementada para executar todas as instalações de componentes da recuperação de Site. A VM é executado o servidor de configuração, o servidor de processos e o servidor de destino principal. | O servidor de configuração coordena as comunicações entre o local e o Azure, e gere a replicação de dados.
  **Servidor de processos**:  | Instalado por predefinição, juntamente com o servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com a colocação em cache, compressão e encriptação, e envia-os para o armazenamento do Azure.<br/><br/> O servidor de processos também instala o serviço de mobilidade em servidores que pretende replicar.<br/><br/> À medida que cresça a implementação, pode adicionar servidores de processos adicionais, em separado para processar maiores volumes de tráfego de replicação.
  **Servidor de destino mestre** | Instalado por predefinição, juntamente com o servidor de configuração. | Processa dados de replicação durante a reativação pós-falha a partir do Azure.<br/><br/> Para grandes implementações, pode adicionar um servidor de destino mestre adicionais, em separado para reativação pós-falha.
-**Replicadas de servidores** | O serviço de mobilidade está instalado em cada servidor que replica. | Recomendamos a que permitir a instalação automática do servidor de processos. Em alternativa pode instalar manualmente o serviço ou utilize um método de implementação automática, tais como o System Center Configuration Manager. 
+**Replicadas de servidores** | O serviço de mobilidade está instalado em cada servidor que replica. | Recomendamos a que permitir a instalação automática do servidor de processos. Em alternativa pode instalar manualmente o serviço ou utilize um método de implementação automática, tais como o System Center Configuration Manager.
 
 **Físico à arquitetura do Azure**
 
