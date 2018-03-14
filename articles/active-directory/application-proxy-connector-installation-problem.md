@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Instalar o conector de agente de Proxy de aplicações do problema
 
@@ -54,7 +54,7 @@ Quando a instalação de um conector falhar, a causa raiz é normalmente uma das
 
 **Para resolver o problema:**
 
-1.  Certifique-se de que a máquina suporta TLS1.2 – versões de todas as janelas após 2012 R2 devem suportar TLS 1.2. Se a máquina de conector está a partir de uma versão do 2012 R2 ou versões anteriores, certifique-se de que o KBs seguintes estão instalados na máquina: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Certifique-se de que a máquina suporta TLS1.2 – versões de todas as janelas após 2012 R2 devem suportar TLS 1.2. Se a máquina de conector for de uma versão do 2012 R2 ou versões anteriores, certifique-se de que o KBs seguintes estão instalados no computador: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Contacte o administrador de rede e peça verificar que o proxy de back-end e de firewall não bloqueia SHA512 para tráfego de saída.
 

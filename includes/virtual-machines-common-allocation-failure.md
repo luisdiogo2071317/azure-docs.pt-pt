@@ -20,7 +20,7 @@ Estes passos podem ajudar a resolver várias falhas de atribuição de máquinas
 
 ## <a name="background-information"></a>Informações gerais
 ### <a name="how-allocation-works"></a>Como funciona a alocação
-Os servidores nos centros de dados do Azure são divididos em partições em clusters. Normalmente, um pedido de atribuição é tentado em vários clusters, mas é possível que determinadas restrições do pedido de alocação forçar a plataforma do Azure, tente o pedido em apenas um cluster. Neste artigo, iremos irá consultar este como "afixado para um cluster." Diagrama 1 abaixo ilustra o caso de uma alocação normal, que é tentada em vários clusters. Diagrama 2 ilustra o caso de uma alocação que tenha afixado ao Cluster 2 uma vez que é onde está alojado o conjunto de CS_1 do serviço de nuvem ou de disponibilidade existente.
+Os servidores nos datacenters do Azure são divididos em partições em clusters. Normalmente, é tentado um pedido de alocação em vários clusters, mas é possível que determinadas restrições do pedido de alocação forcem a plataforma do Azure para tentar o pedido em apenas um cluster. Neste artigo, iremos irá consultar este como "afixado para um cluster." Diagrama 1 abaixo ilustra o caso de uma alocação normal, que é tentada em vários clusters. Diagrama 2 ilustra o caso de uma alocação que tenha afixado ao Cluster 2 uma vez que é onde está alojado o conjunto de CS_1 do serviço de nuvem ou de disponibilidade existente.
 ![Diagrama de atribuição](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>Por que motivo ocorrem falhas de atribuição
@@ -53,7 +53,7 @@ Diagrama 5 abaixo apresenta taxonomia dos cenários de atribuição (afixado).
 > 
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Cenário de alocação: Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço em nuvem existente
-Erro
+**Erro**
 
 Upgrade_VMSizeNotSupported ou GeneralError
 
@@ -68,7 +68,7 @@ Se o erro é Upgrade_VMSizeNotSupported *, experimente um tamanho VM diferente. 
 Se o erro GeneralError *, é provável que o tipo de recurso (por exemplo, um determinado tamanho da VM) é suportado pelo cluster, mas o cluster não tem recursos gratuitos neste momento. É semelhante ao cenário acima, adicione o recurso de computação pretendido através da criação de um novo serviço de nuvem (tenha em atenção que o novo serviço de nuvem tem de utilizar um VIP diferente) e utilizar uma rede virtual regional para ligar os seus serviços em nuvem.
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Cenário de alocação: reinício parcialmente parada (desalocadas) VMs
-Erro
+**Erro**
 
 GeneralError *
 
@@ -84,7 +84,7 @@ Se é aceitável para utilizar um VIP diferente, eliminar as VMs paradas (desalo
 * Se o serviço em nuvem existente não utiliza uma rede virtual regional, crie uma nova rede virtual para o novo serviço de nuvem e, em seguida, [ligar a sua rede virtual existente para a nova rede virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Ver mais informações sobre [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Cenário de alocação: reinício totalmente parada (desalocadas) VMs
-Erro
+**Erro**
 
 GeneralError *
 
@@ -97,7 +97,7 @@ Meios de Desalocação completo que deixaram (desalocado) todas as VMs de um ser
 Se é aceitável para utilizar um VIP diferente, elimine as originais paradas (desalocadas) as VMs (, mas manter os discos associados) e eliminar o serviço de nuvem correspondente (os recursos de computação associado já foram lançados quando é parada (desalocada) as VMs). Crie um novo serviço em nuvem para adicionar as VMs novamente.
 
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Cenário de alocação: implementações de teste/produção (plataforma como serviço apenas)
-Erro
+**Erro**
 
 New_General * ou New_VMSizeNotSupported *
 
@@ -110,7 +110,7 @@ A implementação de teste e a implementação de produção de um serviço em n
 Elimine a primeira implementação e o serviço em nuvem original e reimplemente o serviço de nuvem. Esta ação pode encaminhado para a primeira implementação de um cluster tem recursos livres suficientes para se ajustar ambas as implementações ou num cluster que suporta os tamanhos VM que pediu.
 
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Cenário de alocação: grupo de afinidade (proximidade VM/serviço)
-Erro
+**Erro**
 
 New_General * ou New_VMSizeNotSupported *
 
@@ -123,7 +123,7 @@ Nenhuma computação recursos atribuídos a um grupo de afinidade está associad
 Se um grupo de afinidade não é necessário, não utilize um grupo de afinidade ou agrupar os recursos de computação em vários grupos de afinidade.
 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Cenário de alocação: baseado em grupo de afinidade de rede virtual
-Erro
+**Erro**
 
 New_General * ou New_VMSizeNotSupported *
 
@@ -149,7 +149,7 @@ Quando receber um erro de alocação, consulte o artigo se qualquer um dos cená
 Em geral, desde que o erro indica "não é suportado o tamanho da VM pedido", pode sempre voltar a tentar num momento posterior, como recursos suficientes podem ter sido libertados do cluster para acomodar o seu pedido. Se o problema que o tamanho da VM pedido não é suportado, veja a seguir para soluções.
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Cenário de alocação: Redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade existente
-Erro
+**Erro**
 
 Upgrade_VMSizeNotSupported * ou GeneralError *
 
@@ -164,7 +164,7 @@ Se o erro é Upgrade_VMSizeNotSupported *, experimente um tamanho VM diferente. 
 Se o erro GeneralError *, é provável que o tipo de recurso (por exemplo, um determinado tamanho da VM) é suportado pelo cluster, mas o cluster não tem recursos gratuitos neste momento. Se a VM pode fazer parte de um conjunto de disponibilidade diferente, crie uma nova VM numa conjunto (na mesma região) de disponibilidade diferente. Esta nova VM, em seguida, pode ser adicionada à mesma rede virtual.  
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Cenário de alocação: reinício parcialmente parada (desalocadas) VMs
-Erro
+**Erro**
 
 GeneralError *
 
@@ -177,7 +177,7 @@ Desalocação parcial significa que parada (desalocada) uma ou mais, mas não to
 Pare todas as VMs no conjunto antes de reiniciar o primeiro de disponibilidade. Isto irá garantir que é executada uma nova tentativa de atribuição e que um novo cluster pode ser selecionado que tenha capacidade disponível.
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Cenário de alocação: reinício totalmente parada (desalocada)
-Erro
+**Erro**
 
 GeneralError *
 

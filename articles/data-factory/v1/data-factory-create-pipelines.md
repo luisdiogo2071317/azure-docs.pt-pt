@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,7 +102,7 @@ Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura
 | end | Data-hora de fim para o pipeline. Se for especificado tem de estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline de forma indefinida, especifique 9999-09-09 como o valor para a propriedade end. <br/><br/> Um pipeline está ativo apenas entre a hora de início e a hora de fim. Não foi executada antes da data de início ou após a hora de fim. Se o pipeline está em pausa, não ser executada independentemente da respetiva hora de início e de fim. Para um pipeline executar, que deve não ser pausado. Consulte [agendamento e execução](data-factory-scheduling-and-execution.md) para compreender como funciona o agendamento e execução no Azure Data Factory. |Não <br/><br/>Se especificar um valor para a propriedade de início, tem de especificar o valor da propriedade end.<br/><br/>Consulte as notas para o **iniciar** propriedade. |
 | isPaused | Se definido como true, o pipeline não é executado. Trata-se no Estado em pausa. Valor predefinido = false. Pode utilizar esta propriedade para ativar ou desativar um pipeline. |Não |
 | pipelineMode | O método de agendamento é executado para o pipeline. Valores permitidos são: agendada (predefinição), onetime.<br/><br/>'Agendada' indica que o pipeline é executado num intervalo de tempo especificado, de acordo com o período ativo (hora de início e fim). 'Onetime' indica que o pipeline é executado apenas uma vez. Pipelines onetime depois de criado não podem ser modificado/atualizar atualmente. Consulte [Onetime pipeline](#onetime-pipeline) para obter detalhes sobre a definição onetime. |Não |
-| expirationTime | Duração de tempo após a criação para o qual o [pipeline Monouso](#onetime-pipeline) é válido e deve permanecer aprovisionado. Se não tem nenhum Active Directory, falha, ou pendentes é executado, o pipeline é automaticamente uma vez eliminada atingir o tempo de expiração. O valor predefinido:`"expirationTime": "3.00:00:00"`|Não |
+| expirationTime | Duração de tempo após a criação para o qual o [pipeline Monouso](#onetime-pipeline) é válido e deve permanecer aprovisionado. Se não tem nenhum Active Directory, falha, ou pendentes é executado, o pipeline é automaticamente uma vez eliminada atingir o tempo de expiração. O valor predefinido: `"expirationTime": "3.00:00:00"`|Não |
 | Conjuntos de dados |Lista de conjuntos de dados a ser utilizada por atividades definidas no pipeline. Esta propriedade pode ser utilizada para definir os conjuntos de dados que são específicas neste pipeline e não definido no factory de dados. Conjuntos de dados definidos no âmbito deste pipeline só podem ser utilizados por este pipeline e não podem ser partilhados. Consulte [âmbito conjuntos de dados](data-factory-create-datasets.md#scoped-datasets) para obter mais detalhes. |Não |
 
 ## <a name="activity-json"></a>JSON da Atividade
