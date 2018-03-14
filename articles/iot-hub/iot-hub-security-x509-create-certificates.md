@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts do PowerShell para gerir os certificados x. 509 assinado para AC
 
@@ -279,7 +279,7 @@ Em seguida, execute `New-CADevice "<yourTestDevice>"` na janela do PowerShell, u
 
 ## <a name="clean-up-certificates"></a>Limpar certificados
 
-Na sua barra de início ou **definições** aplicação, procure e selecione **gerir certificados de computador**. Remover quaisquer certificados emitidos pela **Azure IoT AC TestOnly***. Estes certificados devem existir em três seguintes localizações: 
+Na sua barra de início ou **definições** aplicação, procure e selecione **gerir certificados de computador**. Remover quaisquer certificados emitidos pela * * do Azure IoT AC TestOnly ***. Estes certificados devem existir em três seguintes localizações: 
 
 * Certificados - Computador Local > pessoal > certificados
 * Certificados - Computador Local > autoridades de certificação de raiz fidedigna > certificados

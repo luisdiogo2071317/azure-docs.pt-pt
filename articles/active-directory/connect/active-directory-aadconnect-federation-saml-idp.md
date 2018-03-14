@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único na
 
@@ -45,8 +45,8 @@ Este tópico contém os requisitos detalhados na mensagem de formatação que o 
 
 É recomendado que certifique-se o fornecedor de identidade de SAML 2.0 mensagens de saída ser tão semelhante aos rastreios de exemplo fornecidos quanto possível. Além disso, utilize os valores de atributo específico do fornecido metadados do Azure AD sempre que possível. Quando estiver satisfeito com as mensagens de saída, pode testar com o analisador de conectividade da Microsoft, conforme descrito abaixo.
 
-Os metadados do Azure AD podem ser transferido a partir deste URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-Para os clientes na China utilizando a instância de China específicos do Office 365, o seguinte ponto final da Federação deve ser utilizado: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+Os metadados do Azure AD podem ser transferido a partir deste URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Para os clientes na China utilizando a instância de China específicos do Office 365, o seguinte ponto final da Federação deve ser utilizado: [ https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml ](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Requisitos do protocolo SAML
 Esta secção detalhes como os pares de mensagem de pedido e resposta são colocados em conjunto em ordem para ajudar a formatar as mensagens corretamente.
@@ -182,12 +182,12 @@ O procedimento seguinte orienta-o através de conversão de um domínio padrão 
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Para mais informações sobre "Set-MsolDomainAuthentication", consulte: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
+Para obter mais informações sobre "Set-MsolDomainAuthentication", consulte: [ http://technet.microsoft.com/library/dn194112.aspx ](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Tem de executar a utilizar "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" apenas se configurar uma extensão ECP para o fornecedor de identidade. Dependem de clientes do Exchange Online, excluindo o Outlook Web aplicação (OWA), um pedido POST baseada em ponto final de Active Directory. Se o seu SAML 2.0 STS implementa um ponto final ativo semelhante à implementação de ECP do Shibboleth de um ponto final ativo poderá ser possível para estes clientes avançados interagir com o serviço de Exchange Online.
 
-Assim que tiver sido configurada a Federação pode voltar a mudar para "não federada" (ou "gerido"), no entanto, esta alteração executa até duas horas a concluir e necessita de atribuir novas palavras-passe aleatórias para o início de sessão baseado na nuvem a cada utilizador. Mudar para "gerido" poderá ser necessário em alguns cenários para repor um erro nas definições. Para mais informações sobre a conversão de domínio, consulte: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Assim que tiver sido configurada a Federação pode voltar a mudar para "não federada" (ou "gerido"), no entanto, esta alteração executa até duas horas a concluir e necessita de atribuir novas palavras-passe aleatórias para o início de sessão baseado na nuvem a cada utilizador. Mudar para "gerido" poderá ser necessário em alguns cenários para repor um erro nas definições. Para mais informações sobre a conversão de domínio, consulte: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Aprovisionar principais de utilizador para o Azure AD / Office 365
 Antes de pode autenticar os utilizadores do Office 365, terá de aprovisionar do Azure AD com os principais de utilizador que correspondem a asserção na afirmação SAML 2.0. Se destes principais de utilizador não são conhecidos para o Azure AD com antecedência, em seguida, estes não podem ser utilizados para o início de sessão federado. O Azure AD Connect ou o Windows PowerShell pode ser utilizado para aprovisionar principais de utilizador.
@@ -242,7 +242,7 @@ Microsoft forneceu uma ferramenta que pode utilizar para testar o seu fornecedor
 
 
 
-1. Transferir o analisador de conectividade, [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
+1. Transferir o analisador de conectividade, [ https://testconnectivity.microsoft.com/?tabid=Client ](https://testconnectivity.microsoft.com/?tabid=Client).
 2.  Clique em instalar agora para começar a transferir e instalar a ferramenta.
 3.  Selecione "Posso não é possível configurar a Federação com o Office 365, Azure ou outros serviços que utilizam o Azure Active Directory".
 4.  Depois da ferramenta é transferida e em execução, verá a janela de diagnóstico de conectividade. A ferramenta que irá seguir teste a ligação de Federação.

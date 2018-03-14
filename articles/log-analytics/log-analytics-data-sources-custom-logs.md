@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados na análise de registos
 A origem de dados de registos personalizados na análise de registos permite-lhe recolher eventos de ficheiros de texto em computadores Windows e Linux. Muitas aplicações regista informações nos ficheiros de texto em vez dos serviços de registo padrão, tais como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo de início de sessão para os campos individuais utilizando o [campos personalizados](log-analytics-custom-fields.md) funcionalidade de análise de registos.
@@ -72,10 +72,10 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar os dife
 
 | Descrição | Caminho |
 |:--- |:--- |
-| Todos os ficheiros na *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*. txt |
-| Todos os ficheiros na *C:\Logs* com um nome começado com uma extensão. txt no agente do Windows e o registo |C:\Logs\log\*. txt |
+| Todos os ficheiros na *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*.txt |
+| Todos os ficheiros na *C:\Logs* com um nome começado com uma extensão. txt no agente do Windows e o registo |C:\Logs\log\*.txt |
 | Todos os ficheiros na */var/log/audit* com extensão. txt no agente do Linux |/var/log/audit/*.txt |
-| Todos os ficheiros na */var/log/audit* com um nome começado com uma extensão. txt no agente Linux e o registo |/var/log/audit/log\*. txt |
+| Todos os ficheiros na */var/log/audit* com um nome começado com uma extensão. txt no agente Linux e o registo |/var/log/audit/log\*.txt |
 
 1. Selecione Windows ou Linux para especificar qual o formato de caminho que está a adicionar.
 2. Escreva o caminho e clique em de  **+**  botão.
@@ -133,7 +133,7 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registo que obter 
 | Consulta | Descrição |
 |:--- |:--- |
 | MyApp_CL |Todos os eventos de personalizadas MyApp_CL com o nome do registo. |
-| MyApp_CL &#124; onde Severity_CF = = "erro" |Todos os eventos de personalizadas MyApp_CL com nome de registo com um valor de *erro* num campo personalizado denominado *Severity_CF*. |
+| MyApp_CL &#124; where Severity_CF=="error" |Todos os eventos de personalizadas MyApp_CL com nome de registo com um valor de *erro* num campo personalizado denominado *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Instruções de exemplo da adição de um registo personalizado
