@@ -17,10 +17,10 @@ ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
 ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -155,5 +155,5 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>Atualizar uma aplicação com um período de indisponibilidade mínimo
 Por vezes, uma aplicação deve ser colocada offline devido a manutenção planeada, tais como uma atualização da aplicação. [Gerir as atualizações de aplicações](sql-database-manage-application-rolling-upgrade.md) descreve como utilizar a georreplicação ativa para permitir atualizações graduais da sua aplicação de nuvem para minimizar o período de indisponibilidade durante as atualizações e forneça um caminho de recuperação se algo não bate certo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para um debate das considerações de estrutura de aplicações para bases de dados autónomas e conjuntos elásticos, veja [Estruturar uma aplicação para recuperação após desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação após desastre do Conjunto Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

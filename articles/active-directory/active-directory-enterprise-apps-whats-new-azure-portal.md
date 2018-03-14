@@ -16,10 +16,10 @@ ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
 ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novidades na gestão de aplicações da empresa no Azure Active Directory 
 
@@ -151,7 +151,7 @@ Depois de acrescentar muitas aplicações novas, talvez que pretende permitir qu
 
 Esperamos, como a utilização a melhor experiência do Azure AD. Manter os comentários provenientes! Publique os seus comentários e ideias para melhoria no **Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Iremos estiver entusiasmados sobre como criar conteúdo novo frio diariamente e utilize a orientações sobre a forma e definir o que devemos criar a seguir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais detalhes, consulte [gerir aplicações com o Azure Active Directory](active-directory-enable-sso-scenario.md).
 

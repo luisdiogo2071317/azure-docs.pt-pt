@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerações da chave: utilizar os serviços ou na criação de aplicações para a pilha do Azure
 
@@ -49,7 +49,7 @@ A tabela seguinte descreve as diferenças de alto nível entre pilha do Azure e 
 | Quem poderá contactar para obter suporte? | Microsoft | Para um sistema integrado, contacte o operador de pilha do Azure (no seu fornecedor de serviço ou organização) para o suporte.<br><br>Para obter suporte do Azure pilha Development Kit, visite o [fóruns do Microsoft](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Porque o kit de desenvolvimento é um ambiente de avaliação, não há nenhum oficial de suporte oferecida através da Microsoft ao cliente suportar (CSS).
 | Serviços disponíveis | Ver a lista de [produtos Azure](https://azure.microsoft.com/services/?b=17.04b). Serviços disponíveis variam consoante a região do Azure. | Pilha do Azure suporta um subconjunto de serviços do Azure. Serviços reais irão variar em que o fornecedor de serviço ou organização escolhe oferecer.
 | Azure Resource Manager endpoint * | https://management.azure.com | Para um sistema de pilha do Azure integrado, utilize o ponto final que o operador de pilha do Azure fornecido.<br><br>Para o kit de desenvolvimento, utilize: https://management.local.azurestack.external
-| Portal URL * | [https://portal.Azure.com](https://portal.azure.com) | Para um sistema de pilha do Azure integrado, avance para o URL que o operador de pilha do Azure fornecido.<br><br>Para o kit de desenvolvimento, utilize: https://portal.local.azurestack.external
+| Portal URL * | [https://portal.azure.com](https://portal.azure.com) | Para um sistema de pilha do Azure integrado, avance para o URL que o operador de pilha do Azure fornecido.<br><br>Para o kit de desenvolvimento, utilize: https://portal.local.azurestack.external
 | Região | Pode selecionar qual região que pretende implementar. | Para um sistema de pilha do Azure integrado, utilize a região que está disponível no seu sistema.<br><br>Para o kit de desenvolvimento, região será sempre **local**.
 | Grupos de recursos | Um grupo de recursos pode abranger regiões. | Para sistemas integrados e o kit de desenvolvimento, há apenas uma região.
 |Espaços de nomes suportados, tipos de recursos e versões de API | A versão mais recente (ou versões anteriores que ainda não foram preteridas). | Pilha do Azure suporta versões específicas. Consulte a secção "Requisitos de versão" deste artigo.
@@ -86,7 +86,7 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 Exemplo de saída (truncado): ![exemplo da saída do comando Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter informações mais detalhadas sobre as diferenças um nível de serviço, consulte:
 

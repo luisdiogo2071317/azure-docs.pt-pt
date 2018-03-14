@@ -17,7 +17,7 @@ ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
 ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -654,7 +654,7 @@ Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-
 
 1. Transfira e instale [Workday Studio](https://community.workday.com/studio-download). Precisa de uma conta de Comunidade do Workday para o instalador de acesso.
 
-2. Transferir o ficheiro do Workday Human_Resources WDSL a partir deste URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Transfira o ficheiro de Workday Human_Resources WDSL a partir deste URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Inicie o Studio do Workday.
 
