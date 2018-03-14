@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | tipo |tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
 | estrutura |Esquema do conjunto de dados.<br/><br/>Para obter mais informações, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
 | typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
-| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como verdadeiro. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |falso |
+| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como verdadeiro. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
 | disponibilidade | Define a janela de processamento (por exemplo, hora ou diária) ou o modelo slicing para o conjunto de dados de produção. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada um setor de dados. Se a disponibilidade de um conjunto de dados de saída está definida como diariamente (frequência - dia, o intervalo de-1), um setor é produzido diariamente. <br/><br/>Para obter mais informações, consulte [disponibilidade do conjunto de dados](#Availability). <br/><br/>Para obter detalhes sobre o conjunto de dados repartir modelo, consulte o [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
 | política |Define os critérios ou a condição que os setores de conjunto de dados tem de cumprir. <br/><br/>Para obter mais informações, consulte o [política de conjunto de dados](#Policy) secção. |Não |ND |
 
@@ -145,7 +145,7 @@ Como pode ver, o serviço ligado define como ligar a uma base de dados do SQL Se
 > A menos que um conjunto de dados está a ser produzido pelo pipeline, deverá ser marcado como **externo**. Esta definição aplica-se, geralmente, entradas da primeira atividade num pipeline.   
 
 
-## <a name="Type"></a>Tipo de conjunto de dados
+## <a name="Type"></a> Tipo de conjunto de dados
 O tipo do conjunto de dados depende do arquivo de dados que utiliza. Consulte a tabela seguinte para obter uma lista dos arquivos de dados suportada pela fábrica de dados. Clique num arquivo de dados para saber como criar um serviço ligado e um conjunto de dados para este arquivo de dados.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
