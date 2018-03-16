@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 137e5d726aaedb405852c786b909b51110df1a50
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b922790d51c7028c37bb5863d43e99e19790488c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gerir a capacidade de memória física para a pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas*
 
-Para aumentar a capacidade de memória total disponível para a pilha do Azure, pode adicionar memória adicional. Na pilha do Azure o servidor físico é também referido como um *nó de unidade de escala*. Todos os nós de unidade de escala que sejam membros de uma unidade de escala único tem de ter a mesma quantidade de memória.
+Para aumentar a capacidade de memória total disponível para a pilha do Azure, pode adicionar memória adicional. Na pilha do Azure o servidor físico é também referido como um *nó de unidade de escala*. Todos os nós de unidade de escala que são membros de uma unidade de escala único tem de ter a mesma quantidade de memória.
 
 > [!note]  
 > Antes de continuar, consulte a documentação do fabricante de hardware para ver se uma memória atualiza que o fabricante suporta uma física de uma atualização de memória. O contrato de suporte de fornecedor de hardware do OEM pode exigir que o fornecedor de executar a colocação de bastidor de servidor físico e a atualização de firmware do dispositivo.

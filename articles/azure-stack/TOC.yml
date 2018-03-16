@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Antes de começar
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Como redistribuir o serviço de aplicações do Azure na pilha do Azure em vários domínios de falhas
+              href: azure-stack-app-service-fault-domain-update.md
             - name: Implementar um fornecedor de recursos do Serviço de Aplicações
               href: azure-stack-app-service-deploy.md
             - name: Implementar o Serviço de Aplicações offline
               href: azure-stack-app-service-deploy-offline.md
+            - name: Atualização do serviço de aplicações
+              href: azure-stack-app-service-update.md
+            - name: Atualização do serviço de aplicações Offline
+              href: azure-stack-app-service-update-offline.md
             - name: Adicionar mais funções de trabalho Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurar origens de implementação
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Um notas de versão de atualização do serviço de aplicações
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Povoar o marketplace
           items:
             - name: Descrição geral do Marketplace
