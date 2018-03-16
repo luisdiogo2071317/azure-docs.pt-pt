@@ -215,7 +215,7 @@ func host start
 | **`--nodeDebugPort -n`** | A porta para o depurador do nó utilizar. : Um valor predefinido De launch.json ou 5858. |
 | **`--debugLevel -d`** | O nível de rastreio de consola (desativado, verboso, info, warning ou error). Predefinição: as informações.|
 | **`--timeout -t`** | O tempo limite para o anfitrião de funções iniciar, em segundos. Predefinição: 20 segundos.|
-| **`--useHttps`** | Vincular ao https://localhost: {porta}, em vez de para http://localhost: {porta}. Por predefinição, esta opção cria um certificado fidedigno no computador.|
+| **`--useHttps`** | Vincular ao https://localhost:{porta}, em vez de para http://localhost:{porta}. Por predefinição, esta opção cria um certificado fidedigno no computador.|
 | **`--pause-on-error`** | Colocar em pausa para a entrada adicional antes de sair do processo. Útil quando iniciar ferramentas de núcleos de funções do Azure a partir de um ambiente de desenvolvimento integrado (IDE).|
 
 Quando o anfitrião de funções é iniciado, produz as funções acionadas por URL de HTTP:
