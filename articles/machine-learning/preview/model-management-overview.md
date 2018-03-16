@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestão de Modelos do Azure Machine Learning
 
@@ -99,27 +99,27 @@ O fluxo de trabalho completo que descrevem estes conceitos é capturado na figur
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) 
-- São suportados os tipos de dados? Pode passar NumPy matrizes diretamente como entrada para o serviço web?
+- **São suportados os tipos de dados? Pode passar NumPy matrizes diretamente como entrada para o serviço web?**
 
    Se está a fornecer o ficheiro de esquema que foi criado utilizando generate_schema SDK, em seguida, pode passar NumPy e/ou Pandas DF. Também pode passar quaisquer entradas de serializáveis JSON. Pode passar imagem como binária codificada cadeia bem.
 
-- O serviço web suportam várias entradas ou analisar entradas diferentes? 
+- **O serviço web suportam várias entradas ou analisar entradas diferentes?**
 
    Sim, pode demorar várias entradas empacotadas num pedido JSON como um dicionário. Cada entrada iria corresponder a uma chave de dicionário exclusivo único.
 
-- A chamada ativada por um pedido para o web service uma chamada de bloqueio ou uma chamada assíncrona
+- **A chamada ativada por um pedido para o web service uma chamada de bloqueio ou uma chamada assíncrona**
 
    Se o serviço foi criado utilizando a opção de em tempo real como parte da CLI ou API, é uma chamada para bloquear/síncronas. É esperado para ser rápido em tempo real. Apesar do lado do cliente que pode chamá-la utilizando async HTTP biblioteca para evitar bloquear o thread de cliente.
 
-- O número de pedidos de serviço web em simultâneo processa o?
+- **O número de pedidos de serviço web em simultâneo processa o?**
 
    Depende da escala de serviço web e de cluster. Pode ampliar o serviço x 100 das réplicas e, em seguida, pode processar vários pedidos em simultâneo. Também pode configurar o pedido simultâneo máximo pela réplica para aumentar o débito de serviço.
 
-- O número de pedidos pode o serviço web em fila?
+- **O número de pedidos pode o serviço web em fila?**
 
    É configurável. Por predefinição, está definido para 10 ~ por única réplica, mas pode aumentar/diminui-lo aos seus requisitos de aplicação. Normalmente, aumentar a o número de pedidos colocados na fila aumenta o débito de serviço, mas efetua a worse latências em percentiles superiores. Para manter as latências consistente, poderá pretender definir a colocação em fila para um valor baixo (1-5) e aumentar o número de réplicas para processar o débito. Também pode ativar o dimensionamento automático para que o número de réplicas ajustar automaticamente com base na carga. 
 
-- Do mesmo computador ou cluster pode ser utilizado para vários pontos finais do serviço web?
+- **Do mesmo computador ou cluster pode ser utilizado para vários pontos finais do serviço web?**
 
    Com certeza. Pode executar 100 x de pontos finais / no mesmo cluster. 
 

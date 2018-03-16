@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconhecimento de entidade biomedical utilizando o modelo de processo de ciência de dados de equipa (TDSP)
 
-Extração de entidade é subtarefa de extração de informações (também conhecido como [reconhecimento denominado entidade (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), segmentação de entidade e identificação de entidade). O objetivo deste cenário do mundo real é para realçar como utilizar o Azure Machine Learning Workbench para resolver uma tarefa de processamento de linguagem Natural (NLP) complicadas, tais como a extração de entidade a partir de texto não estruturado:
+Extração de entidade é subtarefa de extração de informações (também conhecido como [reconhecimento denominado entidade (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entidade segmentação e identificação de entidade). O objetivo deste cenário do mundo real é para realçar como utilizar o Azure Machine Learning Workbench para resolver uma tarefa de processamento de linguagem Natural (NLP) complicadas, tais como a extração de entidade a partir de texto não estruturado:
 
 1. A forma como para preparar uma palavra neuronal embeddings modelo no corpus texto de cerca de 18 milhões PubMed abstracts utilizando [Spark Word2Vec implementação](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. Como criar um modelo de rede neuronal periódica de memória de curto prazo longo (LSTM) avançada para extração de entidade num preparados para a GPU dados ciência de Máquina Virtual do Azure (GPU DS VM) no Azure.
@@ -32,13 +32,13 @@ Extração de entidade é subtarefa de extração de informações (também conh
 
 4. Demonstrar as seguintes capacidades dentro do Workbench do Azure Machine Learning:
 
-    * Instanciação das [estrutura do processo de ciência de dados de equipa (TDSP) e modelos](how-to-use-tdsp-in-azure-ml.md).
+    * Instanciação das [estrutura do processo de ciência de dados de equipa (TDSP) e modelos](how-to-use-tdsp-in-azure-ml.md)
     * Gestão automática das dependências de projeto, incluindo a transferência e a instalação
-    * Execução de scripts Python no differetn ambientes de computação.
-    * Execute o histórico de controlo para Python scripts.
-    * Execução de tarefas do Spark remoto de computação contexto utilizando clusters do HDInsight Spark 2.1.
-    * Execução de tarefas numa remoto GPU VMs no Azure.
-    * Fácil operationalization learning profunda modelos como serviços web em serviços de contentor do Azure (ACS).
+    * Execução de scripts Python nos ambientes de computação diferentes
+    * Execute o histórico de controlo para Python scripts
+    * Execução de tarefas do Spark remoto de computação contextos utilizando clusters do HDInsight Spark 2.1
+    * Execução de tarefas numa remoto GPU VMs no Azure
+    * Fácil operationalization learning profunda modelos como serviços web em serviços de contentor do Azure (ACS)
 
 ## <a name="use-case-overview"></a>Descrição geral de cenário de utilização
 Reconhecimento biomedical entidade com o nome é um passo crítico para tarefas NLP biomedical complexas tais como: 
@@ -79,7 +79,7 @@ Iremos transferir primeiro os dados abstratos MEDLINE não processados do [MEDLI
 
 ### <a name="2-lstm-model-training-data"></a>2. Dados de preparação do modelo LSTM
 
-O modelo de extração de entidade neuronal foi preparado e avaliado em publiclly conjuntos de dados disponíveis. Para obter uma descrição detalhada sobre estes conjuntos de dados, foi consulte as seguintes origens:
+O modelo de extração de entidade neuronal foi preparado e avaliado em conjuntos de dados publicamente disponíveis. Para obter uma descrição detalhada sobre estes conjuntos de dados, foi consulte as seguintes origens:
  * [Tarefa de reconhecimento de entidade bio no BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR corpus de tarefas](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 – tarefas 9.1 (Drug reconhecimento)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -106,7 +106,7 @@ Segue-se a ligação para o repositório do GitHub público do cenário do mundo
 
 ### <a name="python-packages"></a>Pacotes de Python
 
-Todas as dependências necessárias são definidas no ficheiro aml_config/conda_dependencies.yml sob a pasta do projeto de cenário. As dependências definidas neste ficheiro serão aprovisionadas automaticamente para execuções contra docker, VM e HDI destinos de cluster. Para obter detalhes sobre o formato de ficheiro Conda ambiente, consulte [aqui](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+Todas as dependências necessárias são definidas no ficheiro aml_config/conda_dependencies.yml sob a pasta do projeto de cenário. As dependências definidas neste ficheiro são automaticamente aprovisionadas para execuções contra docker, VM e HDI destinos de cluster. Para obter detalhes sobre o formato de ficheiro Conda ambiente, consulte [aqui](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -139,14 +139,14 @@ O corpus MEDLINE em bruto tem um total de milhões de 27 abstracts onde os artig
 * processar previamente os o texto abstrato incluindo dividir o frase, atomização e normalização maiúsculas.
 * excluir artigos onde abstrato campo está vazio ou tem texto abreviado 
 * criar o vocabulário word a partir de abstracts a formação
-* preparar o word incorporar neuronal modelo. Para obter mais detalhes, consulte [ligação de código do GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) para começar a utilizar.
+* preparar o word incorporar neuronal modelo. Para obter mais informações, consulte [ligação de código do GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) para começar a utilizar.
 
 
 Depois de analisar os ficheiros XML, dados, tem o seguinte formato: 
 
 ![Exemplo de dados](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-O modelo de extração de entidade neuronal foi preparado e avaliado em publiclly conjuntos de dados disponíveis. Para obter uma descrição detalhada sobre estes conjuntos de dados, foi consulte as seguintes origens:
+O modelo de extração de entidade neuronal foi preparado e avaliado em conjuntos de dados publicamente disponíveis. Para obter uma descrição detalhada sobre estes conjuntos de dados, foi consulte as seguintes origens:
  * [Tarefa de reconhecimento de entidade bio no BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR corpus de tarefas](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 – tarefas 9.1 (Drug reconhecimento)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -188,7 +188,7 @@ Como é mostrado na figura seguinte, a visualização de t-SNE fornece separaç�
 
 * Visualização com t-SNE
 
-![t SNE](./media/scenario-tdsp-biomedical-recognition/tsne.png)
+![t-SNE](./media/scenario-tdsp-biomedical-recognition/tsne.png)
 
 * Pontos de mais próximo da "Cancer" (são todos os subtipos de Cancer)
 
@@ -198,13 +198,13 @@ Como é mostrado na figura seguinte, a visualização de t-SNE fornece separaç�
 
 Consulte [preparar extrator de entidade neuronal](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md).
 
-A arquitetura de rede neuronal feed direta afecta um problema que tratar cada entrada e de saída como independentes de outras entradas e saídas. Esta arquitetura não é possível modelo sequência de sequência de tarefas etiquetas, tais como a conversão de máquina e de extração de entidade. Modelos de rede neuronal periódica ultrapassar o problema como pode passam informações calculadas até agora para o próximo nó. Esta propriedade é chamada ter memória na rede, uma vez que é possível utilizar as informações anteriormente calculadas, conforme mostrado na figura seguinte:
+A arquitetura de rede neuronal feed direta diminuirá um problema que tratar cada entrada e de saída como independentes de outras entradas e saídas. Esta arquitetura não é possível modelo sequência de sequência de tarefas etiquetas, tais como a conversão de máquina e de extração de entidade. Modelos de rede neuronal periódica ultrapassar o problema como pode passam informações calculadas até agora para o próximo nó. Esta propriedade é chamada ter memória na rede, uma vez que é possível utilizar as informações anteriormente calculadas, conforme mostrado na figura seguinte:
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
 
 RNNs clássica, na verdade, sofrem do [Vanishing gradação problema](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) devido a que não são capazes de utilizar todas as informações que possam tem vistos anteriormente. O problema fica evidente apenas quando é necessária uma grande quantidade de contexto para efetuar uma predição. Mas modelos como LSTM não sofrem desse um problema, na verdade que foram concebidos para não se esqueça de dependências de longo prazo. Ao contrário de vanilla RNNs que tenham uma única rede neuronal, os LSTMs têm as interações entre as redes neurais quatro para cada célula. Para obter uma explicação detalhada do funcionamento LSTM, consulte [este post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/).
 
-![LSTM célula](./media/scenario-tdsp-biomedical-recognition/lstm-cell.png)
+![LSTM Cell](./media/scenario-tdsp-biomedical-recognition/lstm-cell.png)
 
 Vamos tentar juntar nossa própria baseada no LSTM periódica a rede neuronal e tente ao extrair os tipos de entidade como drug, disease e sintoma menciona suportadas do PubMed dados. O primeiro passo é obter uma grande quantidade de dados com nome e como que poderia ter adivinhado, que não é fácil! A maioria dos dados médicas contém muitas informações confidenciais sobre a pessoa e, por conseguinte, não estão disponível publicamente. Iremos dependem de uma combinação de duas diferentes conjuntos de dados que estão disponíveis publicamente. O primeiro conjunto de dados é de Semeval 2013 – tarefas 9.1 (Drug reconhecimento) e o outro é da tarefa de BioCreative V CDR. Iremos está a combinar e automaticamente a etiquetagem estes dois conjuntos de dados, pelo que pode detetar drugs e diseases de textos médicas e avaliar a nossa embeddings word. Para obter detalhes de implementação, consulte [ligação de código do GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation).
 
@@ -244,7 +244,7 @@ Vamos efetuar a avaliação de embeddings o word nos outros conjuntos de dados d
 ![Comparação do modelo de 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### <a name="tensorflow-versus-cntk"></a>TensorFlow versus CNTK
-O modelo comunicado são preparados com Keras TensorFlow como back-end. Keras com back-end CNTK não suporta "inversa" momento que este trabalho foi concluído. Por conseguinte, com vista à, comparação, iremos preparado um modelo LSTM unidirecional com o back-end CNTK e comparado com um modelo LSTM unidirecional com back-end de TensorFlow. Instalar CNTK 2.0 para Keras de [aqui](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
+Todos os modelos comunicados são preparados com Keras TensorFlow como back-end. Keras com back-end CNTK não suporta "inversa" momento que este trabalho foi concluído. Por conseguinte, com vista à, comparação, iremos preparado um modelo LSTM unidirecional com o back-end CNTK e comparado com um modelo LSTM unidirecional com back-end de TensorFlow. Instalar CNTK 2.0 para Keras de [aqui](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Comparação do modelo de 6](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -266,7 +266,7 @@ Iremos correu sobre os detalhes da forma como foi possível preparar um modelo d
 
 * Tomas Mikolov, Kai Chen, Greg Corrado e Jeffrey Dean. 2013a. Estimativa eficiente das representações palavra no espaço de vetor. No Proceedings de ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado e Jorge Dean. 2013b. Representações distribuídas palavras e expressões e as respetivas compositionality. No Proceedings de NIPS páginas 3111 – 3119.
-* Billy Chiu, Gamal Crichton, Anna Korhonen e Sampo Pyysalo. 2016. [Como preparar boa palavra Embeddings para Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), Proceedings do Workshop 15 de processamento de linguagem Natural Biomedical, páginas 166 – 174.
+* Billy Chiu, Gamal Crichton, Anna Korhonen e Sampo Pyysalo. 2016. [Como preparar boa palavra Embeddings para Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), Proceedings do décimo quinto Workshop no processamento de linguagem Natural Biomedical, páginas 166 – 174.
 * [Representações vetor palavras](https://www.tensorflow.org/tutorials/word2vec)
 * [Redes Neurais periódica](https://www.tensorflow.org/tutorials/recurrent)
 * [Problemas encontrados com o Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

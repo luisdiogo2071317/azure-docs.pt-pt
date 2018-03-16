@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e guia de resolução de problemas 
 Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte da utilização da aplicação do Azure Machine Learning Workbench. 
@@ -23,7 +23,7 @@ Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte
 Ao comunicar com a equipa de suporte, é importante incluir o número de compilação da aplicação Workbench. No Windows, pode descobrir o número de compilação, clicando no **ajudar** menu e escolha **sobre o Azure ML Workbench**. No macOS, pode clicar no **do Azure ML Workbench** menu e escolha **sobre o Azure ML Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Fórum MSDN do Machine Learning
-Temos um fórum MSDN que pode publicar perguntas. A equipa de produto monitoriza ativamente o Fórum. Fórum do URL é [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+Temos um fórum MSDN que pode publicar perguntas. A equipa de produto monitoriza ativamente o Fórum. Fórum do URL é [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Recolher informações de diagnóstico
 Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. Aqui é onde os ficheiros de registo em direto:
@@ -99,8 +99,8 @@ Pode já instalou a atualização. Mas o atalho afixado ainda está a apontar pa
 
 ### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Instalou o Workbench através da ligação "instalar o Workbench do Azure ML" num DSVM do Windows
 Infelizmente, não há nenhuma garantia fácil neste. Terá de efetuar os seguintes passos para remover o bits instalado e transferir o instalador mais recente para o Workbench termos instalar: 
-   - remover a pasta`C:\Users\<Username>\AppData\Local\amlworkbench`
-   - Remova o script`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remover a pasta `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - Remova o script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - remover o atalho de ambiente de trabalho que inicia o script acima
    - Transferir o instalador https://aka.ms/azureml-wb-msi e volte a instalar.
 
@@ -203,11 +203,14 @@ Também pode adicionar um disco de dados e configurar o motor de Docker para uti
 Ou, pode expandir o disco do SO e não tem de touch de configuração do motor de Docker. Eis [como pode expandir o disco de SO](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM
@@ -233,7 +236,7 @@ Geralmente, não precisa de efetuar este procedimento. Mas, no caso de tem de ap
   - Em seguida, pode transferir e executar um dos seguintes scripts:
     - [Script de linha de comandos do Windows](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
     - [Script do Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Poderá ter de executar `Set-ExecutionPolicy Unrestricted` numa janela do PowerShell elevada de privilégio antes de poder executar o script.)
-- No macOS:
+- On macOS:
   - Acabou de transferir e executar o [macOS bash script de shell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
 
 

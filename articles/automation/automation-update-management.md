@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6b8aa174f7c25f04393de9dd32718a5078cba4ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -160,7 +160,7 @@ Clique em de **gestão de atualizações** na sua conta de automatização para 
 
 Esta vista fornece informações sobre as máquinas, em falta atualizações, implementações de atualização e implementações de atualização agendada.
 
-Pode executar uma pesquisa de registo que devolve informações da máquina, atualização ou implementação ao selecionar o item na lista. Esta ação abre o **pesquisa registo** página com uma consulta para o item selecionado.
+Pode executar uma pesquisa de registo que devolve informações do computador, a atualização ou a implementação, selecionando o item na lista. Esta ação abre o **pesquisa registo** página com uma consulta para o item selecionado.
 
 ## <a name="installing-updates"></a>Instalar as atualizações
 
@@ -207,12 +207,12 @@ A tabela seguinte fornece pesquisas de registo de exemplo para registos de atual
 
 | Consulta | Descrição |
 | --- | --- |
-|Atualizar<br>&#124; onde UpdateState = = "Necessária" e opcionais = = false<br>&#124; Computador título, KBID, classificação, PublishedDate do projeto |Todos os computadores com atualizações em falta<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Atualizar<br>&#124; onde UpdateState = = "Necessária" e opcionais = = false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; Computador título, KBID, produto, PublishedDate do projeto |Atualizações em falta num computador específico (substitua pelo nome do seu computador)|
-| Evento<br>&#124; onde EventLevelName = = "error" e o computador no ((atualização &#124; onde (classificação = = "Atualizações de segurança" e classificação = = "Atualizações críticas")<br>&#124; onde UpdateState = = "Necessária" e opcionais = = false <br>&#124; distinct Computer)) |Eventos de erro de computadores que têm atualizações críticas ou de segurança necessárias em falta |
-| Atualizar<br>&#124; onde UpdateState = = "Necessária" e opcionais = = false<br>&#124; Título distinto |Atualizações em falta distintas em todos os computadores | 
+|Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124;Computador título, KBID, classificação, PublishedDate do projeto |Todos os computadores com atualizações em falta<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" |
+| Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124;Computador título, KBID, produto, PublishedDate do projeto |Atualizações em falta num computador específico (substitua pelo nome do seu computador)|
+| Evento<br>&#124;onde EventLevelName = = "error" e o computador no ((atualização &#124; onde (classificação = = "Atualizações de segurança" e classificação = = "Atualizações críticas")<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false <br>&#124; distinct Computer)) |Eventos de erro de computadores que têm atualizações críticas ou de segurança necessárias em falta |
+| Atualizar<br>&#124;onde UpdateState = = "Necessária" e opcionais = = false<br>&#124;Título distinto |Atualizações em falta distintas em todos os computadores | 
 | UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computadores com atualizações que falharam na execução de atualização<br>Adicione um dos seguintes para limitar o sistema operativo:<br>OSType = "Windows"<br>OSType == "Linux" | 
-| Atualizar<br>&#124; where OSType == "Linux"<br>&#124; onde UpdateState! = "Não necessárias" e (classificação = = "Atualizações críticas" ou classificação = = "Atualizações de segurança")<br>&#124; summarize AggregatedValue = count() by Computer |Lista de todos os computadores Linux, que tem disponível uma atualização do pacote, que aborda vulnerabilidade críticas ou de segurança | 
+| Atualizar<br>&#124; where OSType == "Linux"<br>&#124;onde UpdateState! = "Não necessárias" e (classificação = = "Atualizações críticas" ou classificação = = "Atualizações de segurança")<br>&#124; summarize AggregatedValue = count() by Computer |Lista de todos os computadores Linux, que tem disponível uma atualização do pacote, que aborda vulnerabilidade críticas ou de segurança | 
 | UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Computadores que foram atualizados nesta execução de atualizações (substitua o valor pelo nome da sua Implementação de Atualizações) | 
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrar no System Center Configuration Manager

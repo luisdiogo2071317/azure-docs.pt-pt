@@ -2,23 +2,18 @@
 title: Consulta em bases de dados de nuvem com o esquema diferentes | Microsoft Docs
 description: "como configurar a base de dados entre consultas através de partições verticais"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mlandzic
-ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2ded9ee4938e02715b1149ce5375e855519cea9f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar em bases de dados de nuvem com diferentes esquemas (pré-visualização)
 ![Consultar em tabelas de bases de dados diferentes][1]
@@ -179,7 +174,7 @@ Pode utilizar regulares cadeias de ligação do SQL Server para ligar as ferrame
 * Certifique-se de que a base de dados do ponto final de consulta elástico foi indicado acesso à base de dados remoto ao permitir o acesso para serviços do Azure na sua configuração de firewall da BD do SQL. Certifique-se também de que a credencial fornecida na definição de origem de dados externas pode iniciar com êxito na base de dados remoto e tem as permissões para aceder à tabela remota.  
 * Consulta elástica funciona melhor para consultas onde a maioria da computação pode ser feita nas bases de dados remotas. Normalmente, obter o melhor desempenho de consulta com os predicados de filtro seletiva que pode ser avaliado nas bases de dados remotas ou associações que podem ser efetuadas completamente na base de dados remota. Outros padrões de consulta poderão ter de carregar grandes quantidades de dados a partir da base de dados remota e podem efetuar mal. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma descrição geral da consulta elástica, consulte [descrição geral de consulta elástico](sql-database-elastic-query-overview.md).
 * Para um tutorial de criação de partições vertical, consulte [introdução à consulta de base de dados em vários locais (criação de partições vertical)](sql-database-elastic-query-getting-started-vertical.md).

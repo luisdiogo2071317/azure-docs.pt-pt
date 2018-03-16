@@ -104,7 +104,7 @@ Para obter entidades utilizando um filtro personalizado, utilize **Get-AzureStor
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Esta consulta obtém um registo.
@@ -118,7 +118,7 @@ Esta consulta obtém um registo.
 
 ### <a name="updating-entities"></a>Atualizar entidades 
 
-Existem três passos para atualizar entidades. Em primeiro lugar, obter a entidade para ser alterada. Segundo, efetue a alteração. Terceira, consolidar a alteração utilizando **atualização AzureStorageTableRow**.
+Existem três passos para atualizar entidades. Em primeiro lugar, obter a entidade para alterar. Segundo, efetue a alteração. Terceira, consolidar a alteração utilizando **atualização AzureStorageTableRow**.
 
 Atualizar a entidade com o nome de utilizador = 'Jessie' com o nome de utilizador = 'Jessie2'. Este exemplo mostra também outra forma de criar um filtro personalizado utilizando tipos de .NET. 
 
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Eliminar todas as entidades na tabela 
 
-Para eliminar todas as entidades na tabela, pode obter os resultados do pipe para o cmdlet remove. 
+Para eliminar todas as entidades na tabela, obtê-los e encaminhar os resultados para o cmdlet remove. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

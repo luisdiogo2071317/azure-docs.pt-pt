@@ -3,8 +3,8 @@ title: "Obter pré-aprovados através do programa de certificados do Microsoft A
 description: "Saiba mais sobre o programa para parceiros do Microsoft Azure certificado e a obtenção de propor a imagem de máquina virtual, o modelo de solução, o serviço de programador ou o serviço de dados no Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 tags: 
 ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 6db5c8dc6aba4246b3672cf7931a266b26ad11db
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obter pré-aprovados através do programa de certificados do Microsoft Azure
-Este artigo fornece instruções sobre como tornar-se certificadas do Microsoft Azure para que possam publicar a sua solução no Azure Marketplace e se qualificam para vantagens de marketing. Para obter uma descrição detalhada do programa de certificados do Microsoft Azure e respetivos benefícios, visite [http://azure.com/certified](http://azure.com/certified).
+Este artigo fornece instruções sobre como tornar-se certificadas do Microsoft Azure para que possam publicar a sua solução no Azure Marketplace e se qualificam para vantagens de marketing. Para obter uma descrição detalhada do programa de certificados do Microsoft Azure e respetivos benefícios, visite [ http://azure.com/certified ](http://azure.com/certified).
 
 > [!IMPORTANT]
 > A certificação do Azure só é aplicável se pretender criar uma máquina virtual ou um modelo de solução para o Azure Marketplace.
@@ -39,5 +39,5 @@ Este artigo fornece instruções sobre como tornar-se certificadas do Microsoft 
 ## <a name="next-step"></a>Passo seguinte
 Depois de ter recebido a pré-aprovação de o programa de certificados do Microsoft Azure, pode avançar para [registar a sua conta Microsoft como um vendedor Microsoft](marketplace-publishing-accounts-creation-registration.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)

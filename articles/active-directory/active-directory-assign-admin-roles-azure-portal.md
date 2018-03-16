@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -61,9 +61,9 @@ Estão disponíveis as seguintes funções de administrador:
   >
   >
 
-* **Convidados Inviter**: os utilizadores nesta função podem gerir convites para de utilizador do Azure Active Directory B2B convidado quando a definição de utilizador "Membros podem convidar" está definida como não. Mais informações sobre a colaboração B2B em [pré-visualização de colaboração sobre o Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Não inclui quaisquer outras permissões.
+* **Convidados Inviter**: os utilizadores nesta função podem gerir convites para de utilizador do Azure Active Directory B2B convidado quando a definição de utilizador "Membros podem convidar" está definida como não. Mais informações sobre a colaboração B2B em [colaboração sobre o Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Não inclui quaisquer outras permissões.
 
-* **O administrador de proteção de informações (pré-visualização)**: os utilizadores com esta função de direitos de utilizador apenas no serviço do Azure Information Protection. Estes não são concedidos direitos de utilizador no Centro de proteção de identidade, Privileged Identity Management, Monitor Office 365 serviço de estado de funcionamento, ou segurança do Office 365 e o Centro de conformidade. Pode configurar as etiquetas para a política do Azure Information Protection, gerir modelos de proteção e ative a proteção.
+* **Administrador de proteção de informações**: os utilizadores com esta função de direitos de utilizador apenas no serviço do Azure Information Protection. Estes não são concedidos direitos de utilizador no Centro de proteção de identidade, Privileged Identity Management, Monitor Office 365 serviço de estado de funcionamento, ou segurança do Office 365 e o Centro de conformidade. Pode configurar as etiquetas para a política do Azure Information Protection, gerir modelos de proteção e ative a proteção.
 
 * **Administrador de serviço do Intune**: os utilizadores com esta função permissões global no Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos para associar a política, bem como criar e gerir grupos.
 
@@ -127,7 +127,7 @@ Estão disponíveis as seguintes funções de administrador:
 | --- | --- |
 | <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Alterar as palavras-passe para os utilizadores e de outros administradores de suporte técnico apenas</p>|<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver relatórios</p>|
 
-### <a name="information-protection-administrator-preview"></a>Administrador de proteção de informações (pré-visualização)
+### <a name="information-protection-administrator"></a>Administrador de proteção de informações
 No | Pode fazê-lo
 -------- | ---------
 Azure Information Protection | <li>Configurar as definições e de etiquetas nas políticas de âmbito e global<li>Configurar e gerir modelos de proteção<li>Ativar ou desativar proteção-

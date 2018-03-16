@@ -3,7 +3,7 @@ title: Adicione o conector de base de dados Oracle nas suas Logic Apps do Azure 
 description: "Utilizar o conector de base de dados Oracle numa aplicação lógica"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Começar a utilizar o conector de base de dados Oracle
 
@@ -28,7 +28,7 @@ Utilizar o conector de base de dados Oracle, criar organizacionais fluxos de tra
 * Crie o fluxo de trabalho ao adicionar um novo cliente para uma base de dados de clientes ou atualizar uma ordem numa base de dados ordens.
 * Utilize ações para obter uma linha de dados, insira uma nova linha e até mesmo eliminar. Por exemplo, quando é criado um registo no Dynamics CRM Online (um acionador), em seguida, inserir uma linha numa base de dados Oracle (uma ação). 
 
-Este tópico mostra como utilizar o conector de base de dados Oracle numa aplicação lógica.
+Este artigo mostra como utilizar o conector de base de dados Oracle numa aplicação lógica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Este tópico mostra como utilizar o conector de base de dados Oracle numa aplica
   [64-bit ODAC 12c versão 4 (12.1.0.2.4) para Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Se o cliente Oracle não estiver instalado, ocorre um erro ao tentar criar ou utilizar a ligação. Consulte os erros comuns deste tópico.
+    > Se o cliente Oracle não estiver instalado, ocorre um erro ao tentar criar ou utilizar a ligação. Consulte os erros comuns neste artigo.
 
 
 ## <a name="add-the-connector"></a>Adicione o conector
@@ -104,7 +104,7 @@ Este tópico mostra como utilizar o conector de base de dados Oracle numa aplica
 
 **Mitigação**: Certifique-se de que o gateway está em execução na máquina no local onde a instalou e que possa estabelecer ligação à internet.  Recomendamos que não instale o gateway num computador que pode ser desativada ou em suspensão. Também pode reiniciar o serviço de gateway de dados no local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: O fornecedor utilizado foi preterido: ' System.Data.OracleClient requer Oracle versão do software de cliente 8.1.7 ou superior.'. Visite [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o fornecedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: O fornecedor utilizado foi preterido: ' System.Data.OracleClient requer Oracle versão do software de cliente 8.1.7 ou superior.'. Consulte [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o fornecedor oficial.
 
 **Causa**: cliente Oracle o SDK não está instalado na máquina onde o gateway de dados no local está em execução.  
 
@@ -130,8 +130,8 @@ Ver todos os acionadores e ações definidas no swagger e consulte também os li
 
 O [fórum de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) um excelente local para colocar perguntas, responda às perguntas e ver que outros utilizadores Logic Apps estão a fazer. 
 
-Pode ajudar a melhorar as Logic Apps e conectores ao voto e submeter as suas ideias em [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Pode ajudar a melhorar as Logic Apps e conectores ao voto e submeter as suas ideias em [ http://aka.ms/logicapps-wish ](http://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)e explorar os conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)e explorar os conectores disponíveis em Logic Apps no [lista APIs](apis-list.md).

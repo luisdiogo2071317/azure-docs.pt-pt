@@ -1,6 +1,6 @@
 ---
-title: "Com o nome localizações no Azure Active Directory | Microsoft Docs"
-description: "Saiba o que com o nome localizações são e como configurá-las."
+title: "Configurar localizações nomeadas no Azure Active Directory | Microsoft Docs"
+description: "Saiba como configurar localizações com nome."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Localizações nomeadas no Azure Active Directory
+# <a name="configure-named-locations-in-azure-active-directory"></a>Configurar localizações nomeadas no Azure Active Directory
 
 Com nomeado localizações, pode Etiquetar fidedignos intervalos de endereços IP na sua organização. Azure Active Directory utiliza localizações chamadas no contexto de:
 
@@ -89,22 +89,14 @@ Pode aceder à página de configuração da localização nomeado no **seguranç
 
 
 
-## <a name="what-you-should-know"></a>O que deve conhecer
-
-**Em massa atualizações**: ao criar ou atualizar localizações com nome, para as atualizações em massa, pode carregar ou transferir um ficheiro CSV com os intervalos de IP. Um carregamento adiciona os intervalos de IP no ficheiro de lista em vez de substituir a lista.
-
-![As ligações de carregamento e transferência](./media/active-directory-named-locations/09.png)
-
-
-**Limitações**: pode definir um máximo de 60 localizações com nome, com um intervalo IP atribuído a cada um deles. Se tiver apenas uma localização com nome configurada, pode definir até 500 intervalos IP para o mesmo.
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre:
+Para obter mais informações, consulte:
 
-- **Eventos de risco**, consulte [eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+- [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- **Acesso condicional**, consulte [de acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- [Condições de localização do acesso condicional do Azure Active Directory](active-directory-conditional-access-locations.md)
 
-- **Relatórios de inícios de sessão arriscados**, consulte [relatório arriscados inícios de sessão no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- [Relatório de risco inícios de sessão no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

@@ -3,24 +3,18 @@ title: "Monitorizar o desempenho de muitas bases de dados SQL do Azure numa apli
 description: "Monitorizar e gerir o desempenho de bases de dados SQL do Azure e agrupamentos numa aplicação SaaS multi-inquilino"
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e agrupamentos numa aplicação SaaS multi-inquilino
 
@@ -134,7 +128,7 @@ Definir um alerta no conjunto que aciona no \>75% de utilização da seguinte fo
 1. Defina os seguintes valores:
    * **Métrica = percentagem de eDTU**
    * **Condição = superior a**
-   * **Limiar = 75**
+   * **Threshold = 75**
    * **Período = nos últimos 30 minutos**
 1. Adicione um endereço de e-mail para o *administrador adicionais email(s)* caixa e clique em **OK**.
 
@@ -181,7 +175,7 @@ Como alternativa ao aumento vertical do conjunto, crie um segundo conjunto e mov
     1. Clique em **adicionar bases de dados** para ver uma lista de bases de dados no servidor que pode ser adicionado a *Pool2*.
     1. Selecione qualquer 10 bases de dados para mover estes para o novo agrupamento e, em seguida, clique em **selecione**. Se tiver sido a executar o gerador de carga, o serviço já sabe que o seu perfil de desempenho necessita de um conjunto maior do que o tamanho predefinido da eDTU 50 e recomenda a começar com uma definição de eDTU 100.
 
-    ![Recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+    ![recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
     1. Para este tutorial, deixe a predefinição com 50 eDTUs e clique em **selecione** novamente.
     1. Selecione **OK** para criar o novo agrupamento e para mover as bases de dados selecionadas para a mesma.
@@ -232,7 +226,7 @@ Quando a utilização agregada de inquilinos segue padrões de utilização prev
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficará a saber como:
 

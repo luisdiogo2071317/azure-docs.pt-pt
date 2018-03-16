@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7f3a0a1a22e14f12b86474dd5b1985029074444e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Perfil ASP.NET Core as aplicações Web de Linux do Azure, com o gerador de perfis do Application Insights
 
@@ -144,5 +144,7 @@ Irá ver o resultado semelhante ao seguinte:
 
     ![Rastreios de vista](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="report-issues-to-project-github-repository"></a>Problemas de relatório para o repositório de Github do projeto
+## <a name="next-steps"></a>Próximos Passos
+Se estiver a utilizar contentores personalizadas alojadas pelos serviços de aplicação, siga as instruções do [ ativar o serviço de gerador de perfis de aplicação de ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para ativar o gerador de perfis do App Insights
+
 Se tiver quaisquer problemas ou sugestões, comunique ao nosso repositório do github: [AspNetCore de gerador de perfis de ApplicationInsights: problemas](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com Confluence SAML SSO pela Microsoft
 
@@ -125,11 +125,11 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     ![Configurar o início de sessão único](./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<domain:port>/`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain:port>/`
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. A porta é opcional se for um URL com nome. Estes valores são recebidos durante a configuração de Confluence Plug-in do, que é explicada mais tarde no tutorial.
@@ -200,6 +200,8 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     i. Clique em **guardar** botão para guardar as definições.
 
+    > [!NOTE]
+    > Para obter mais informações sobre a instalação e a resolução de problemas, visite [guia de administração do conector do MS Confluence SSO](ms-confluence-jira-plugin-adminguide.md) e também existir [FAQ](ms-confluence-jira-plugin-faq.md) para a assistência
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

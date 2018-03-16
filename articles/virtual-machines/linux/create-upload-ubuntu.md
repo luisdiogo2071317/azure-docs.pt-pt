@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2f4983f918eccd2ae1adb4ec2c88133465f47e07
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4c49cbefafe71646ba08dd049baf50ff04463fdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Imagens de nuvem Ubuntu oficiais
-Ubuntu agora publica oficial do Azure VHDs para transferência em [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Se precisar de criar a sua própria imagem Ubuntu especializada para o Azure, em vez disso que utilize o procedimento manual abaixo se recomenda para começar a utilizar estas conhecido trabalhar VHDs e personalizar conforme necessário. As versões mais recentes de imagem sempre podem ser encontradas nas seguintes localizações:
+Ubuntu agora publica oficial do Azure VHDs para transferência em [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Se precisar de criar a sua própria imagem Ubuntu especializada para o Azure, em vez disso que utilize o procedimento manual abaixo se recomenda para começar a utilizar estas conhecido trabalhar VHDs e personalizar conforme necessário. As versões mais recentes de imagem sempre podem ser encontradas nas seguintes localizações:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
@@ -40,11 +40,11 @@ Este artigo pressupõe que já tem instalado um sistema de operativo Ubuntu Linu
 * O formato VHDX não é suportado no Azure, apenas **fixo VHD**.  Pode converter o disco para o formato VHD utilizando o Gestor de Hyper-V ou o cmdlet convert-vhd.
 * Ao instalar o sistema Linux é recomendado que utilize partições padrão em vez de LVM (muitas vezes, a predefinição para instalações muitos). Evitará LVM nome entra em conflito com VMs Clonadas, particularmente se um disco de SO alguma vez precisar de ser ligado a outra VM para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser utilizado em discos de dados se preferencial.
 * Não configure uma partição de comutação no disco do SO. O agente Linux pode ser configurado para criar um ficheiro de comutação no disco de recursos temporário.  Podem encontrar mais informações sobre esta nos passos abaixo.
-* Todos os VHDs têm de ter tamanhos que estão em múltiplos de 1 MB.
+* Todos os VHDs no Azure tem de ter um tamanho virtual alinhado com 1MB. Ao converter de um disco não processado para o VHD tem de se certificar de que o tamanho do disco não processados é um múltiplo de 1MB antes de conversão. Consulte [Linux instalação notas](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ## <a name="manual-steps"></a>Passos manuais
 > [!NOTE]
-> Antes de tentar criar a sua imagem personalizada do Ubuntu para o Azure, considere utilizar as imagens previamente concebidas e testadas do [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) em vez disso.
+> Antes de tentar criar a sua imagem personalizada do Ubuntu para o Azure, considere utilizar as imagens previamente concebidas e testadas do [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) em vez disso.
 > 
 > 
 

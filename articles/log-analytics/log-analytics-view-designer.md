@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas utilizando o estruturador de vistas do Log Analytics
 Ao utilizar o estruturador de vistas no [Log Analytics do Azure](log-analytics-overview.md), pode criar uma variedade de vistas personalizadas no portal do Azure que pode ajudar a visualizar dados da sua área de trabalho de análise de registos. Este artigo apresenta uma descrição geral do estruturador de vistas e procedimentos para criar e editar vistas personalizadas.
@@ -28,8 +28,6 @@ Para obter mais informações sobre o estruturador de vistas, consulte:
 * [Mosaico referência](log-analytics-view-designer-tiles.md): Fornece um guia de referência para as definições para todos os mosaicos disponíveis no seu vistas personalizadas.
 * [Referência de parte de visualização](log-analytics-view-designer-parts.md): Fornece um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas.
 
->[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), consultas em todas as vistas têm de ser escritas [novo idioma de consulta](https://go.microsoft.com/fwlink/?linkid=856078). Todas as vistas que foram criadas para a área de trabalho foi atualizada são convertidas automaticamente.
 
 ## <a name="concepts"></a>Conceitos
 As vistas são apresentadas no **descrição geral** página da sua área de trabalho de análise de registos no portal do Azure. Os mosaicos em cada vista personalizada são apresentados por ordem alfabética, e os mosaicos para as soluções estão instalados mesmo espaço de trabalho.

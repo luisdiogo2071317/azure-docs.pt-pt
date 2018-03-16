@@ -2,23 +2,18 @@
 title: "Deteção - base de dados SQL do Azure de ameaças | Microsoft Docs"
 description: "A Deteção de Ameaças deteta atividades de base de dados anómalas, indicando potenciais ameaças de segurança para a base de dados."
 services: sql-database
-documentationcenter: 
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>Deteção de ameaças de base de dados do SQL Server
 
@@ -33,7 +28,7 @@ Por exemplo, a injeção de SQL é uma dos problemas comuns de segurança de apl
 A deteção de ameaças do SQL Server integra-se de alertas com [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), e, em cada servidor de base de dados do SQL Server protegido é faturado o mesmo preço como o escalão padrão de centro de segurança do Azure, no $15/nó/mês, onde cada protegidas base de dados SQL servidor é contabilizado como um nó.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurar a deteção de ameaças para a base de dados no portal do Azure
-1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
 2. Navegue para a página de configuração da base de dados SQL Server que pretende monitorizar. Na página de definições, selecione **a deteção de ameaças e auditoria**. 
     ![Painel de navegação][1]
 3. No **a deteção de ameaças e auditoria** página de configuração, ative **ON** auditoria, que apresentam as definições de deteção de ameaças.

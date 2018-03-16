@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integração do Azure Active Directory com revisão limpar
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Limpar o domínio de revisão e URLs único informações de início de sessão](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<customer name>.clearreview.com/sso/metadata`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<customer>.clearreview.com/sso/acs/`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<customer name>.clearreview.com/sso/acs/`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
@@ -119,31 +119,36 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte de revisão limpar](https://clearreview.com/contact/) para obter estes valores.
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão real, o identificador e o URL de resposta. Contacte [equipa de suporte de revisão limpar](https://clearreview.com/contact/) para obter estes valores.
 
-5. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+5. Aplicação de revisão limpar esperam que o valor do identificador de utilizador exclusivo na afirmação de identificador de nome. Deve mapear o valor do identificador de utilizador para **user.mail**.
+
+    ![A secção de atributo](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![A hiperligação de transferência do certificado](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Clique em **guardar** botão.
+7. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. No **eliminar a revisão configuração** secção, clique em **configurar limpar revisão** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+8. No **eliminar a revisão configuração** secção, clique em **configurar limpar revisão** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
     ![Limpar a configuração de revisão](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Para configurar o início de sessão único em **revisão limpar** lado, abra o **revisão limpar** portal com credenciais de administrador.
+9. Para configurar o início de sessão único em **revisão limpar** lado, abra o **revisão limpar** portal com credenciais de administrador.
 
-9. Selecione **Admin** do painel de navegação esquerdo.
+10. Selecione **Admin** do painel de navegação esquerdo.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. Selecione **alteração** na parte inferior da página.
+11. Selecione **alteração** na parte inferior da página.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Execute os seguintes passos **as definições de início de sessão único** página
+12. Execute os seguintes passos **as definições de início de sessão único** página
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. Abra o certificado transferido no bloco de notas e cole o conteúdo a **certificado x. 509** caixa de texto.   
 
-12. Clique em **Guardar**.
+13. Clique em **Guardar**.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -253,4 +258,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

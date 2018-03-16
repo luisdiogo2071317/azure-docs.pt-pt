@@ -3,8 +3,8 @@ title: "Pré-requisitos técnicos para criar uma imagem de máquina virtual para
 description: "Compreenda os requisitos para criar e implementar uma imagem de máquina virtual no Azure Marketplace para outras pessoas para comprar."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: cf1f061c28dd0c106823d34ad39aac5e577c8b41
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace
 Leia o processo cuidadosamente antes de começar e compreenda o onde e por que motivo é efetuado cada passo. Quanto possível, deve preparar as informações da sua empresa e outros dados, descarregar as ferramentas necessárias, e/ou criar os componentes de técnicos antes de iniciar o processo de criação de oferta. Estes itens devem ser encriptados de rever este artigo.  
@@ -29,7 +29,7 @@ Deve ter os seguintes itens prontos antes de iniciar o processo:
 * Consoante o sistema operativo que está a filtrar, instale o [cmdlets Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) ou [ferramenta de interface de linha de comandos do Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) do [transferências do Azure](https://azure.microsoft.com/downloads/) página.
 * Instale o Explorador de armazenamento do Azure a partir de CodePlex.
 * Transferir e instalar a ferramenta de teste de certificação para o certificado do Azure:
-  * [http://go.microsoft.com/fwlink/?LinkId=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Precisa de um computador baseado no Windows para executar a ferramenta de certificação. Se não tiver um computador baseado em Windows disponível, pode executar a ferramenta com uma VM baseada em Windows no Azure.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Precisa de um computador baseado no Windows para executar a ferramenta de certificação. Se não tiver um computador baseado em Windows disponível, pode executar a ferramenta com uma VM baseada em Windows no Azure.
 
 ## <a name="platforms-supported"></a>Plataformas suportadas
 Pode desenvolver as VMs baseadas no Azure no Windows ou Linux. Alguns elementos do processo de publicação - por exemplo, criar um Azure compatível com disco rígido virtual (VHD) – Utilize diferentes ferramentas e os passos, dependendo do sistema operativo que está a utilizar:  

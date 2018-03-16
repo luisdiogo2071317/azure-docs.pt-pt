@@ -3,7 +3,7 @@ title: Adicione o conector do Outlook do Office 365 nas suas Logic Apps | Micros
 description: "Crie aplicações lógicas com o conector do Office 365 para permitir a interação com o Office 365. Por exemplo: criar, editar e atualizar itens de calendário e os contactos."
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Começar a utilizar o conector do Outlook do Office 365
 O conector do Outlook do Office 365 permite a interação com o Outlook no Office 365. Utilize este conector para criar, editar, contactos e itens de calendário, atualização e também obter, enviar e responder ao e-mail.
@@ -30,7 +30,7 @@ Com o Outlook do Office 365, pode:
 * Utilize acionadores para iniciar o fluxo de trabalho quando existe um novo e-mail, quando um item de calendário é atualizado e muito mais.
 * Utilize ações para enviar uma mensagem de e-mail, crie um novo evento de calendário e muito mais. Por exemplo, quando existe um novo objeto no Salesforce (um acionador), envie um e-mail para o Office 365 Outlook (uma ação). 
 
-Este tópico mostra-lhe como utilizar o conector do Outlook do Office 365 numa aplicação lógica e também apresenta uma lista de acionadores e ações.
+Este artigo mostra-lhe como utilizar o conector do Outlook do Office 365 numa aplicação lógica e também apresenta uma lista de acionadores e ações.
 
 > [!NOTE]
 > Esta versão do artigo aplica-se a disponibilidade de aplicações lógicas geral (DG).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: f80de47f8e9ba326fc224a8bc09f8029b5afd1ca
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 38885caacfb98f76627854a782aa56d8a609aad9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Serviços de domínio do Azure AD - configuração de resolução de problemas LDAP seguro
 
@@ -58,7 +58,7 @@ Quando o LDAP seguro está ativado, recomendamos que crie regras adicionais para
 
 *O certificado LDAP seguro para o domínio gerido irá expirar no XX.*
 
-**Remediação:**
+**Resolução:**
 
 Criar um novo certificado LDAP seguro, seguindo os passos descritos no [configurar LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md) artigo.
 

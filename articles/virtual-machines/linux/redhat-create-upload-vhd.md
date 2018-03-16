@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
 Neste artigo, irá aprender como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para utilização no Azure. As versões do RHEL que são abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores para preparação que são abordados neste artigo são Hyper-V, com base em kernel a máquina virtual (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa de acesso à nuvem do Red Hat, consulte [Web site de acesso à nuvem do Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [RHEL em execução no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -38,7 +38,7 @@ Esta secção assume que já obteve um ficheiro ISO a partir do site do Red Hat 
 * É necessário suporte de kernel para montar a sistemas de ficheiros de formato de disco Universal (UDF). No primeiro arranque no Azure, o suporte de dados formatado UDF, que está ligado para o convidado passa a configuração de aprovisionamento para a máquina virtual Linux. O agente Linux do Azure tem de ser capaz de montar o sistema de ficheiros UDF ler a configuração e aprovisionar a máquina virtual.
 * Versões do Linux kernel anteriores ao 2.6.37 não suportam acesso não uniforme memória (NUMA) no Hyper-V com maior tamanhos de máquina virtual. Isto emitir principalmente impactos distribuições mais antigas que utilizam o montante kernel do Red Hat 2.6.32 e foi corrigido em RHEL 6.6 (kernel-2.6.32-504). Sistemas que executam kernels personalizados que são mais antigos do que 2.6.37 ou baseado em RHEL kernels que são mais antigas do que 2.6.32-504 tem de definir o `numa=off` de arranque parâmetro da linha de comandos de kernel grub.conf. Para obter mais informações, consulte Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Configure uma partição de comutação em disco do sistema operativo. O agente Linux pode ser configurado para criar um ficheiro de comutação no disco de recursos temporário.  Podem encontrar mais informações sobre esta nos passos seguintes.
-* Todos os VHDs têm de ter tamanhos que estão em múltiplos de 1 MB.
+* Todos os VHDs no Azure tem de ter um tamanho virtual alinhado com 1MB. Ao converter de um disco não processado para o VHD tem de se certificar de que o tamanho do disco não processados é um múltiplo de 1MB antes de conversão. É possível encontrar mais detalhes nos passos abaixo. Consulte também [Linux instalação notas](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina virtual do RHEL 6 a partir do Gestor de Hyper-V
 
@@ -344,7 +344,7 @@ Esta secção assume que já obteve um ficheiro ISO a partir do site do Red Hat 
 19. Converta a imagem de qcow2 para o formato do VHD.
 
 > [!NOTE]
-> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -493,7 +493,7 @@ Esta secção assume que já obteve um ficheiro ISO a partir do site do Red Hat 
 19. Converta a imagem de qcow2 para o formato do VHD.
 
 > [!NOTE]
-> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -620,7 +620,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 15. Encerre a máquina virtual e converter o ficheiro VMDK num ficheiro. vhd.
 
 > [!NOTE]
-> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -734,7 +734,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 14. Encerre a máquina virtual e converter o ficheiro VMDK para o formato do VHD.
 
 > [!NOTE]
-> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -896,7 +896,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
     c.  Defina o BIOS para arrancar a partir do CD.
 
-5. Inicia a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
+5. Inicie a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
 
 6. Introduza `inst.ks=<the location of the kickstart file>` no fim das opções de arranque e prima **Enter**.
 
@@ -921,7 +921,7 @@ Reconstrua initramfs:
 
 Para obter mais detalhes, consulte as informações [reconstruir initramfs](https://access.redhat.com/solutions/1958).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora, está pronto a utilizar o seu disco rígido virtual do Red Hat Enterprise Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, consulte [criar uma VM com Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 
 Para obter mais detalhes sobre os hipervisores que são certificados para serem executadas Red Hat Enterprise Linux, consulte [o Web site do Red Hat](https://access.redhat.com/certified-hypervisors).

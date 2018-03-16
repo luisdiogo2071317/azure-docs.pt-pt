@@ -3,22 +3,18 @@ title: "Relatórios em bases de dados de nuvem de escalamento horizontal | Micro
 description: "como configurar elásticas consultas através de partições horizontais"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ec47a10fcfcb3ef52810ba2b3da9599b65db375a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios em bases de dados de nuvem de escalamento horizontal (pré-visualização)
 ![Consultar em partições horizontais][1]
@@ -191,7 +187,7 @@ Utilizar regulares cadeias de ligação do SQL Server para ligar a sua aplicaç�
 * Consulta elástica atualmente não efetuar a eliminação de partições horizontais quando predicados sobre a chave de fragmentação permitiria-lo em segurança excluir determinadas shards de processamento.
 * Consulta elástica funciona melhor para consultas onde é possível efetuar a maioria a computação os shards. Obter, normalmente, o melhor desempenho de consulta com os predicados de filtro seletiva que pode ser avaliado no shards ou associações através de chaves de criação de partições que podem ser executadas de forma a partição alinhada em todas as partições horizontais. Outros padrões de consulta poderão ter de carregar grandes quantidades de dados das shards ao nó principal e podem efetuar mal
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma descrição geral da consulta elástica, consulte [descrição geral de consulta elástico](sql-database-elastic-query-overview.md).
 * Para um tutorial de criação de partições vertical, consulte [introdução à consulta de base de dados em vários locais (criação de partições vertical)](sql-database-elastic-query-getting-started-vertical.md).

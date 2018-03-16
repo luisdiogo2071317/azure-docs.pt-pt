@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar a Cache de Redis do Azure
 Este tópico descreve as configurações disponíveis para as instâncias de Cache de Redis do Azure. Este tópico também inclui a configuração do servidor de Redis predefinido de instâncias de Cache de Redis do Azure.
@@ -280,8 +280,6 @@ Pode especificar as regras de firewall com um intervalo de endereços IP de iní
 > [!IMPORTANT]
 > Ligações a partir da monitorização de sistemas a Cache de Redis do Azure são sempre permitidas, mesmo se as regras de firewall estão configuradas.
 > 
-> Regras de firewall só estão disponíveis para caches de escalão Premium.
-> 
 > 
 
 ### <a name="properties"></a>Propriedades
@@ -404,7 +402,7 @@ Novas instâncias de Cache de Redis do Azure estão configuradas com os seguinte
 | `maxmemory-samples` |3 |Para guardar a memória, LRU e algoritmos TTL mínimo são approximated algoritmos em vez de algoritmos precisos. Por predefinição Redis três chaves verificações e escolhe que foi utilizado recentemente inferior. |
 | `lua-time-limit` |5.000 |Tempo de execução máxima de um script de Lua em milissegundos. Se o tempo de execução máximo for atingido, os registos de Redis que um script ainda está em execução após o tempo máximo permitido e começa a responder às consultas com um erro. |
 | `lua-event-limit` |500 |Tamanho máximo da fila de eventos de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de memória intermédia de saída do cliente podem ser utilizados para forçar a interrupção de ligação de clientes que não são leitura de dados do servidor suficientemente rápido por algum motivo (um motivo comum é que um cliente Pub/Sub não pode consumir mensagens tão rápidas como publicador pode produzi-las). Para obter mais informações, consulte [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de memória intermédia de saída do cliente podem ser utilizados para forçar a interrupção de ligação de clientes que não são leitura de dados do servidor suficientemente rápido por algum motivo (um motivo comum é que um cliente Pub/Sub não pode consumir mensagens tão rápidas como publicador pode produzi-las). Para mais informações, consulte [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>o limite de `databases` é diferente para cada Cache de Redis do Azure escalão de preço e pode ser definido durante a criação da cache. Se não `databases` definição for especificada durante a criação da cache, a predefinição é de 16.
@@ -471,14 +469,14 @@ Para mais informações sobre bases de dados, consulte [quais são as bases de d
 > 
 > 
 
-Para obter mais informações sobre os comandos de Redis, consulte [http://redis.io/commands](http://redis.io/commands).
+Para obter mais informações sobre os comandos de Redis, consulte [ http://redis.io/commands ](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Consola de redis
 Pode emitir comandos em segurança para as instâncias de Cache de Redis do Azure utilizando o **consola Redis**, que está disponível no portal do Azure para todos os escalões de cache.
 
 > [!IMPORTANT]
 > - A consola Redis não funciona com [VNET](cache-how-to-premium-vnet.md). Quando a cache faz parte de uma VNET, apenas os clientes na VNET podem aceder à cache. Uma vez consola Redis é executado no seu browser local, o que está fora da VNET, não é possível ligar à sua cache.
-> - Nem todos os comandos de Redis são suportados na Cache de Redis do Azure. Para obter uma lista de comandos de Redis que se encontram desativados para a Cache de Redis do Azure, consulte o artigo anterior [Redis comandos não suportados na Cache de Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache) secção. Para obter mais informações sobre os comandos de Redis, consulte [http://redis.io/commands](http://redis.io/commands).
+> - Nem todos os comandos de Redis são suportados na Cache de Redis do Azure. Para obter uma lista de comandos de Redis que se encontram desativados para a Cache de Redis do Azure, consulte o artigo anterior [Redis comandos não suportados na Cache de Redis do Azure](#redis-commands-not-supported-in-azure-redis-cache) secção. Para obter mais informações sobre os comandos de Redis, consulte [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

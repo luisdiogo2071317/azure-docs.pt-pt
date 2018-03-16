@@ -2,31 +2,25 @@
 title: Importar um ficheiro BACPAC para criar uma base de dados SQL do Azure | Microsoft Docs
 description: Crie uma base de dados do SQL Server newAzure ao importar um ficheiro BACPAC.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.workload: Active
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importar um ficheiro BACPAC para uma nova SQL Database do Azure
 
 Quando é necessário importar uma base de dados de arquivo ou quando a migrar de outra plataforma, pode importar o esquema de base de dados e dos dados de um [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) ficheiro. Um ficheiro BACPAC é um ficheiro ZIP com uma extensão BACPAC que contém os metadados e dados a partir de uma base de dados do SQL Server. Um ficheiro BACPAC pode ser importado a partir do blob storage do Azure (apenas armazenamento standard) ou a partir do armazenamento local numa localização no local. Para maximizar a velocidade de importação, recomendamos que especifique um nível mais elevado serviço camada e o desempenho, tais como um P6 e, em seguida, aumentar pendente, conforme adequado, após a importação for concluída com êxito. Além disso, o nível de compatibilidade de base de dados após a importação baseia-se no nível de compatibilidade da base de dados de origem. 
 
 > [!IMPORTANT] 
-> Depois de migrar a base de dados para a SQL Database do Azure, pode optar por utilizar a base de dados ao respetivo nível de compatibilidade atual (nível 100 para a base de dados AdventureWorks2008R2) ou com um nível superior. Para obter mais informações sobre as implicações e as opções para o funcionamento uma base de dados a um nível de compatibilidade específicos, consulte [nível de compatibilidade de base de dados ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Consulte também [configuração de um âmbito de base de dados de falha de ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) para obter informações sobre definições de nível de base de dados adicionais relacionados com níveis de compatibilidade.   >
+> Depois de migrar a base de dados para a SQL Database do Azure, pode optar por utilizar a base de dados ao respetivo nível de compatibilidade atual (nível 100 para a base de dados AdventureWorks2008R2) ou com um nível superior. Para obter mais informações sobre as implicações e as opções para o funcionamento de uma base de dados a um nível de compatibilidade específico, veja [ALTERAR Nível de Compatibilidade de BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Veja também [ALTERAR CONFIGURAÇÃO DO ÂMBITO DA BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) para obter informações sobre as definições adicionais do nível da base de dados relacionadas com os níveis de compatibilidade.   >
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>Importar de um ficheiro BACPAC através do portal do Azure
 

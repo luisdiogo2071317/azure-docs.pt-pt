@@ -4,7 +4,7 @@ description: "Utilizar dados de referência numa consulta do Stream Analytics"
 keywords: "tabela de referência, os dados de referência"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 438ec565f3c6e06ab7ec92cf1bbfbdde88f99b6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Utilizar as tabelas de dados ou de pesquisa de referência num fluxo de entrada do Stream Analytics
 Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto de dados finito que é estático ou abrandamento alterar natureza, utilizada para efetuar uma pesquisa de ou para correlacionar com o fluxo de dados. Para tornar a utilização de dados de referência na sua tarefa do Azure Stream Analytics, normalmente, utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. Do Stream Analytics utiliza o Blob storage do Azure como a camada de armazenamento para dados de referência e com a referência do Azure Data Factory dados podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para utilização como dados de referência, [qualquer número de baseado na nuvem e arquivos de dados no local](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definido na configuração de entrada) por ordem de data/hora especificada no nome do blob ascendente. - **Apenas** suporta a adicionar ao fim da sequência com uma data/hora **maior** à especificada pela última blob na sequência.
@@ -67,7 +67,7 @@ Para configurar os dados de referência, terá primeiro de criar uma entrada que
 </tr>
 <tr>
 <td>Formato de serialização de eventos</td>
-<td>Para se certificar de que as suas consultas funcionam do modo esperado, o Stream Analytics precisa de saber qual o formato de serialização está a utilizar para fluxos de dados recebidos. Para dados de referência, os formatos suportados são CSV e JSON.</td>
+<td>Para se certificar de que as suas consultas funcionam do modo esperado, o Stream Analytics precisa de saber que formato de serialização está a utilizar para os fluxos de dados recebidos. Para dados de referência, os formatos suportados são CSV e JSON.</td>
 </tr>
 <tr>
 <td>Encoding</td>
@@ -95,7 +95,7 @@ Se os dados de referência for um conjunto de dados de alteração lenta, em seg
 ## <a name="tips-on-refreshing-your-reference-data"></a>Sugestões sobre como atualizar os dados de referência
 1. Substituir blobs de dados de referência não irá causar Stream Analytics recarregar o blob e, em alguns casos, pode fazer com que a tarefa falhar. A forma recomendada para alterar os dados de referência está a adicionar um novo blob com o mesmo padrão de contentor e o caminho definido na entrada de tarefa e utilizar uma data/hora **maior** à especificada pela última blob na sequência.
 2. Os blobs de dados de referência são **não** ordenada por hora do blob da "Última modificação", mas apenas pela hora e data especificada no blob nome utilizando {date} e {time} substituições.
-3. Em ocasiões, alguns, uma tarefa tem de voltar atrás no tempo, por conseguinte blobs de dados de referência não tem de ser alterados ou eliminados.
+3. Para evitar ter de número elevado de lista de blobs, considere eliminar blobs muito antigos para o qual processamento já não será efetuado. Tenha em atenção que poderá ir ASA tem Reprocessar uma pequena quantidade em alguns cenários, como um reinício.
 
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

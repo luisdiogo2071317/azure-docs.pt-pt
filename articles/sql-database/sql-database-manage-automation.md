@@ -2,24 +2,18 @@
 title: "Gerir bases de dados do SQL do Azure através da automatização do Azure | Microsoft Docs"
 description: "Saiba mais sobre como o serviço de automatização do Azure pode ser utilizado para gerir bases de dados SQL do Azure à escala."
 services: sql-database, automation
-documentationcenter: 
-author: jodoglevy
-manager: jhubbard
-editor: monicar
-ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
-ms.author: jhubbard
-ms.openlocfilehash: c5f7e6da09c6ca8ddc6cc3ddcbcf7c5b53116e26
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 0174b2b1dd5942e17ea60c2dce624c87fd1289c8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerir bases de dados do SQL do Azure através da automatização do Azure
 Este guia apresenta-lhe o serviço de automatização do Azure e como podem ser utilizada para simplificar a gestão das bases de dados SQL do Azure.
@@ -43,7 +37,7 @@ O [Galeria de runbooks de automatização do Azure](https://azure.microsoft.com/
 * [Truncar uma tabela SQL, se a sua base de dados se aproxima o tamanho máximo](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
 * [Índice de tabelas numa base de dados SQL do Azure se estes são muito fragmentados](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu as noções básicas de automatização do Azure e como pode ser utilizado para gerir bases de dados SQL do Azure, siga estas ligações para saber mais sobre a automatização do Azure.
 
 * [Descrição geral da automatização do Azure](../automation/automation-intro.md)

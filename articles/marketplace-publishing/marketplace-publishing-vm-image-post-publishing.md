@@ -3,8 +3,8 @@ title: "Gerir a imagem de máquina virtual no Azure Marketplace | Microsoft Docs
 description: "Guia de detalhado sobre como gerir a imagem de máquina virtual no Azure Marketplace após a publicação inicial"
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin;
+ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de produção de pós-implementação para ofertas de máquina virtual no Azure Marketplace
 Este artigo explica como pode atualizar uma oferta de máquinas de virtuais em direto no Azure Marketplace. Orienta-o durante o processo de adicionar um ou mais SKUs de novo a uma oferta existente. É também orienta-o processo de remoção de uma oferta de máquinas de virtuais em direto ou o SKU do Marketplace.
@@ -27,13 +27,13 @@ Depois de uma oferta/SKU é testado no [portal do Azure](http://portal.azure.com
 
 * **Oferecer identificador**: portal na publicação, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens da VM** > **oferecem identificador**.
 * **Identificador de SKU**: portal na publicação, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicionar um SKU**.
-* **Espaço de nomes do publicador**: portal na publicação, aceda a **máquinas virtuais** > **instruções** > **informe-nos sobre a sua empresa** (localizado em "Passo 2 registar a sua empresa") > **espaço de nomes do publicador** > **espaço de nomes**.
+* **Espaço de nomes do publicador**: portal na publicação, aceda a **máquinas virtuais** > **instruções** > **informe-nos sobre a sua empresa**(localizado em "Passo 2 registar a sua empresa") > **espaço de nomes do publicador** > **espaço de nomes**.
 
 Depois de oferta/SKU está listado no [Marketplace](http://azure.microsoft.com/marketplace), não é possível alterar as caixas de texto seguinte:
 
 * **Oferecer identificador**: portal na publicação, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens da VM** > **oferecem identificador**.
 * **Identificador de SKU**: portal na publicação, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicionar um SKU**.
-* **Espaço de nomes do publicador**: portal na publicação, aceda a **máquinas virtuais** > **instruções** > **informe-nos sobre a sua empresa** (localizado em "Registar passo 2") **espaço de nomes do publicador** > **espaço de nomes**.
+* **Espaço de nomes do publicador**: portal na publicação, aceda a **máquinas virtuais** > **instruções** > **informe-nos sobre a sua empresa**(localizado em "Registar passo 2") **espaço de nomes do publicador** > **espaço de nomes**.
 * **Portas**: portal na publicação, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens da VM** > **abrir portas**.
 * **Alteração de SKU(s) listadas de preço**
 * **Alteração de modelo de faturação do SKU(s) listadas**
@@ -328,7 +328,7 @@ Para reverter a definição de visibilidade de um SKU listado para o valor de pr
     ![Visibilidade](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
 5. Depois de terminar com as alterações, clique em **solicitar aprovação para PUSH para produção** republicar a oferta no Marketplace.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução Get: Publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Compreender a relatórios de dividendos](marketplace-publishing-report-payout.md)
 * [Alterar a sua incentivo de revendedor a partir do fornecedor de solução em nuvem](marketplace-publishing-csp-incentive.md)

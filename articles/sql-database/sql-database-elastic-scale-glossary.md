@@ -3,23 +3,18 @@ title: "Glossário de ferramentas de base de dados elástico | Microsoft Docs"
 description: "Explicação dos termos utilizados para ferramentas de base de dados elástica"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: a23a4e81-6706-452d-afc1-a550e5e47af9
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: db8ce257479888db63758e681393c0244af01ce7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 75abd818b29c78a4ae7499741904637e8ed6798c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas de base de dados elástico
 Os termos seguintes são definidos para o [ferramentas de base de dados elástica](sql-database-elastic-scale-introduction.md), uma funcionalidade da SQL Database do Azure. As ferramentas são utilizadas para gerir [mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md)e incluir o [biblioteca de clientes](sql-database-elastic-database-client-library.md), a [ferramenta de intercalação de divisão](sql-database-elastic-scale-overview-split-and-merge.md), [conjuntos elásticos](sql-database-elastic-pool.md), e [consultas](sql-database-elastic-query-overview.md). 
@@ -68,7 +63,7 @@ Eis uma representação de **em partição horizontal** bases de dados único e 
 
 **Gestor de mapa de partições horizontais**: um arquivo de dados e de objeto de gestão que contém aos mapas precedentes de partições horizontais, localizações de partições horizontais e mapeamentos para um ou mais conjuntos de partições horizontais.
 
-![Mapeamentos de][2]
+![Mapeamentos][2]
 
 ## <a name="verbs"></a>Verbos
 **Dimensionamento horizontal**: O ato de dimensionamento de saída (ou em) numa coleção de partições horizontais adicionando ou removendo partições horizontais para um mapa de partições horizontais, conforme mostrado abaixo.

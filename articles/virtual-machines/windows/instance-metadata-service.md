@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -36,7 +36,7 @@ O serviço está disponível no geralmente disponíveis regiões do Azure. Nem t
 
 Regiões                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02 2017-08-01, 2017-12-01(This version is not available in UK regions)
+[Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Geralmente disponível | 2017-04-02,2017-08-01
 [Azure China](https://www.azure.cn/)                                                           | Geralmente disponível | 2017-04-02,2017-08-01
 [Datacenters do Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Geralmente disponível | 2017-04-02,2017-08-01
@@ -414,6 +414,6 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
    ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [eventos agendada](scheduled-events.md)

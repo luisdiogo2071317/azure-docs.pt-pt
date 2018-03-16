@@ -3,7 +3,7 @@ title: Utilizar o conector de Slack nas suas Azure logic apps | Microsoft Docs
 description: Ligar-se ao Slack nas suas logic apps
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Começar a utilizar o conector Slack
-O Slack é uma ferramenta de comunicação em equipa que concentra todas as comunicações da sua equipa num único local, pesquisável de forma instantânea e disponível esteja onde estiver. 
+Slack é uma ferramenta de comunicação de equipa, que reúne todas as suas comunicações equipa num colocar, de forma instantânea pesquisáveis e disponível onde quer que esteja. 
 
 Começar através da criação de uma aplicação lógica agora; consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -31,9 +31,9 @@ Para utilizar o conector Slack, tem primeiro de criar um **ligação** , em segu
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Token |Sim |Fornecer Credenciais do Slack |
+| Certificado de |Sim |Fornecer Credenciais do Slack |
 
-Siga estes passos para iniciar sessão no Slack e concluir a configuração de Slack **ligação** na sua aplicação lógica:
+Inicie sessão no Slack utilizando os seguintes passos e concluir a configuração de Slack **ligação** na sua aplicação lógica:
 
 1. Selecione **periodicidade**
 2. Selecione um **frequência** e introduza um **intervalo**
@@ -47,9 +47,9 @@ Siga estes passos para iniciar sessão no Slack e concluir a configuração de S
    ![Configurar Slack][3]  
 8. Será redirecionado para a página de início de sessão da sua organização. **Autorizar** Slack para interagir com a sua aplicação lógica:      
    ![Configurar Slack][5] 
-9. Depois de concluída a autorização irá ser redirecionados para a sua aplicação lógica para concluí-la ao configurar o **Slack - obter todas as mensagens** secção. Adicione outros acionadores e ações que precisa.  
+9. Depois de concluída a autorização, está a ser redirecionado para a sua aplicação lógica para concluí-la ao configurar o **Slack - obter todas as mensagens** secção. Adicione outros acionadores e ações que precisa.  
    ![Configurar Slack][6]
-10. Guarde o trabalho selecionando **guardar** na barra de menus acima.
+10. Guarde o trabalho selecionando **guardar** no menu (direção ao topo).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

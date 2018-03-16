@@ -2,24 +2,18 @@
 title: "Descrição geral de referência de base de dados SQL do Azure"
 description: "Este tópico descreve o Benchmark de base de dados SQL do Azure utilizado para medir o desempenho da SQL Database do Azure."
 services: sql-database
-documentationcenter: na
 author: jan-eng
 manager: jhubbard
-editor: monicar
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: fb8a5f205ddc143dc47349829048f46f88963d05
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Descrição geral de referência de base de dados SQL do Azure
 ## <a name="overview"></a>Descrição geral
@@ -101,7 +95,7 @@ A tabela abaixo mostra o número de utilizadores que efetivamente constante para
 | Camada de serviço (nível de desempenho) | Utilizadores | Tamanho da Base de Dados |
 | --- | --- | --- |
 | Básica |5 |720 MB |
-| Padrão (S0) |10 |1 GB |
+| Standard (S0) |10 |1 GB |
 | Padrão (S1) |20 |2.1 GB |
 | Padrão (S2) |50 |7.1 GB |
 | Premium (P1) |100 |14 GB |

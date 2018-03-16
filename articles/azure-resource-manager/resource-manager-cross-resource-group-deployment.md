@@ -11,24 +11,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90cb87b3fe94b7b3b0eba1b261d29a1c8f4348d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementar recursos do Azure em mais do que uma subscrição ou grupo de recursos
 
 Normalmente, implementa todos os recursos no seu modelo para um único [grupo de recursos](resource-group-overview.md). No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em grupos de recursos diferente ou subscrições. Por exemplo, poderá implementar a máquina virtual de cópia de segurança do Azure Site Recovery para um grupo de recursos separada e uma localização. O Resource Manager permite-lhe utilizar modelos aninhados para o destino subscrições e grupos de recursos que a subscrição e o grupo de recursos utilizados para o modelo de principal.
 
 > [!NOTE]
-> Pode implementar em grupos de recursos apenas cinco numa única implementação.
+> Pode implementar em grupos de recursos apenas cinco numa única implementação. Normalmente, esta limitação significa que pode implementar um grupo de recursos especificado para o modelo de principal e até quatro grupos de recursos em implementações aninhadas ou ligados. No entanto, se o modelo de principal contém apenas os modelos de aninhada ou ligados e implementar não próprio quaisquer recursos, em seguida, pode incluir até cinco grupos de recursos em implementações aninhadas ou ligadas.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Especifique um grupo de recursos e subscrição
 
 Para um outro recurso de destino, utilize um modelo aninhado ou ligado. O `Microsoft.Resources/deployments` tipo de recurso fornece parâmetros para `subscriptionId` e `resourceGroup`. Estas propriedades permitem-lhe especificar um grupo de recursos e subscrição diferente para a implementação aninhada. Todos os grupos de recursos tem de existir antes de executar a implementação. Se não especificar o grupo de recursos ou um ID de subscrição, a subscrição e grupo de recursos do modelo principal é utilizada.
+
+A conta que utiliza para implementar o modelo tem de ter permissões para implementar o ID de subscrição especificada. Se a subscrição especificada de um inquilino do Azure Active Directory diferentes, deve [adicionar os utilizadores convidados a partir de outro diretório](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
 Para especificar um grupo de recursos diferente e uma subscrição, utilize:
 
@@ -175,7 +177,7 @@ Os modelos seguintes demonstram várias implementações do grupo de recursos. S
 
 Para o PowerShell, para implementar duas contas de armazenamento em dois grupos de recursos no **mesma subscrição**, utilize:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -192,7 +194,7 @@ New-AzureRmResourceGroupDeployment `
 
 Para o PowerShell, para implementar duas contas de armazenamento para **duas subscrições**, utilize:
 
-```powershell
+```azurepowershell-interactive
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
@@ -216,7 +218,7 @@ New-AzureRmResourceGroupDeployment `
 
 Para o PowerShell, para testar como as **objeto do grupo de recursos** é resolvido para o modelo de principal, inline modelo e modelo ligado, de utilização:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
 New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
 New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
@@ -224,6 +226,37 @@ New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
+```
+
+No exemplo anterior, ambos **parentRG** e **inlineRG** resolver para **parentGroup**. **linkedRG** é resolvido para **linkedGroup**. O resultado do exemplo anterior é:
+
+```powershell
+ Name             Type                       Value
+ ===============  =========================  ==========
+ parentRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ inlineRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ linkedRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+                                               "name": "linkedGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure
@@ -276,6 +309,48 @@ az group deployment create \
   --name ExampleDeployment \
   --resource-group parentGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
+```
+
+No exemplo anterior, ambos **parentRG** e **inlineRG** resolver para **parentGroup**. **linkedRG** é resolvido para **linkedGroup**. O resultado do exemplo anterior é:
+
+```azurecli
+...
+"outputs": {
+  "inlineRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "linkedRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+      "location": "southcentralus",
+      "name": "linkedGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "parentRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "southcentralus",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  }
+},
+...
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

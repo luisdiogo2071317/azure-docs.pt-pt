@@ -3,7 +3,7 @@ title: Adicione o conector do SQL Database do Azure nas suas Logic Apps | Micros
 description: "Descrição geral do conector do SQL Database do Azure com os parâmetros de REST API"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Começar a utilizar o conector do SQL Database do Azure
 Utilizar o conector do SQL Database do Azure, crie fluxos de trabalho para a sua organização que gerem dados no seu tabelas. 
@@ -29,7 +29,7 @@ Base de dados SQL, pode:
 * Crie o fluxo de trabalho ao adicionar um novo cliente para uma base de dados de clientes ou atualizar uma ordem numa base de dados ordens.
 * Utilize ações para obter uma linha de dados, insira uma nova linha e até mesmo eliminar. Por exemplo, quando é criado um registo no Dynamics CRM Online (um acionador), insira uma linha numa SQL Database do Azure (uma ação). 
 
-Este tópico mostra-lhe como utilizar o conector de base de dados SQL numa aplicação lógica e também lista as ações.
+Este artigo mostra-lhe como utilizar o conector de base de dados SQL numa aplicação lógica e também lista as ações.
 
 Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -54,11 +54,11 @@ Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa 
 3. Na caixa de texto, escreva "sql" para obter uma lista de todas as ações disponíveis.
    
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. No nosso exemplo, escolha **do SQL Server - Get linha**. Se já existe uma ligação, em seguida, selecione o **nome da tabela** da lista pendente lista e introduza o **ID de linha** pretender regressar.
+4. Neste exemplo, escolha **do SQL Server - Get linha**. Se já existe uma ligação, em seguida, selecione o **nome da tabela** da lista pendente lista e introduza o **ID de linha** pretender regressar.
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    Se lhe for pedido para obter as informações de ligação, em seguida, introduza os detalhes para criar a ligação. [Criar a ligação](connectors-create-api-sqlazure.md#create-the-connection) neste tópico descreve estas propriedades. 
+    Se lhe for pedido para obter as informações de ligação, em seguida, introduza os detalhes para criar a ligação. [Criar a ligação](connectors-create-api-sqlazure.md#create-the-connection) este artigo descreve estas propriedades. 
    
    > [!NOTE]
    > Neste exemplo, iremos devolver uma linha de uma tabela. Para ver os dados nesta linha, adicione outra ação que cria um ficheiro com os campos da tabela. Por exemplo, adicione uma ação de OneDrive que utiliza os campos FirstName e LastName para criar um novo ficheiro na conta de armazenamento na nuvem. 
@@ -71,5 +71,5 @@ Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no [lista APIs](apis-list.md).
 

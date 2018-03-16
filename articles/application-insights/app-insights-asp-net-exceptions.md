@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas suas aplicações web com o Application Insights
 Exceções na sua aplicação web em direto são reportadas pelo [Application Insights](app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos no cliente e no servidor, para que pode Diagnostique rapidamente as causas.
@@ -102,7 +102,7 @@ Detalhes do pedido não incluem os dados enviados para a sua aplicação numa ch
 
 ![Explorar](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="exceptions"></a>Capturar exceções e dados de diagnóstico relacionados
+## <a name="exceptions"></a> Capturar exceções e dados de diagnóstico relacionados
 Em primeiro lugar, não verá no portal de todas as exceções que causam falhas na sua aplicação. Irá ver quaisquer exceções de browser (se estiver a utilizar o [JavaScript SDK](app-insights-javascript.md) nas suas páginas web). Mas a maioria das exceções de servidor são detectadas pelo IIS e tem de escrever um bit de código para vê-los.
 
 Pode:
@@ -113,8 +113,7 @@ Pode:
 ## <a name="reporting-exceptions-explicitly"></a>Relatórios exceções explicitamente
 É a forma mais simples para inserir uma chamada para trackexception () no processador de excepções.
 
-JavaScript
-
+```javascript
     try
     { ...
     }
@@ -124,9 +123,9 @@ JavaScript
         {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
+```
 
-C#
-
+```csharp
     var telemetry = new TelemetryClient();
     ...
     try
@@ -144,9 +143,9 @@ C#
        // Send the exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
+```
 
-VB
-
+```VB
     Dim telemetry = New TelemetryClient
     ...
     Try
@@ -162,6 +161,7 @@ VB
       ' Send the exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
+```
 
 Os parâmetros e valores de propriedades são opcionais, mas são úteis para [filtragem e adicionar](app-insights-diagnostic-search.md) informações adicionais. Por exemplo, se tiver uma aplicação que pode executar vários jogos, foi possível localizar todos os relatórios de exceção relacionados com um jogo específico. Pode adicionar tantos itens como pretender para cada dicionário.
 
@@ -175,8 +175,7 @@ Para formulários web, o módulo de HTTP poderão ser recolher as exceções qua
 
 Mas, se tiver de redirecionamentos de Active Directory, adicione as seguintes linhas para a função de Application_Error no asax. (Adicionar um ficheiro global. asax se ainda não tiver um.)
 
-*C#*
-
+```csharp
     void Application_Error(object sender, EventArgs e)
     {
       if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
@@ -186,11 +185,28 @@ Mas, se tiver de redirecionamentos de Active Directory, adicione as seguintes li
          ai.TrackException(Server.GetLastError());
       }
     }
-
+```
 
 ## <a name="mvc"></a>MVC
+Começando com o Application Insights Web SDK versão 2.6 (beta3 e posterior), exceções do Application Insights recolhe não processada emitidas nos métodos de 5 + controladores do MVC automaticamente. Se anteriormente tiver adicionado um processador personalizado para controlar essas exceções (conforme descrito nos seguintes exemplos), pode remover-a para impedir duplo controlo de exceções.
+
+Existem um número de cenários que não é possível processar os filtros de excepção. Por exemplo:
+
+* Exceções acionadas a partir de construtores de controlador.
+* Exceções acionadas a partir de processadores de mensagem.
+* Exceções emitidas durante o encaminhamento.
+* Exceções emitidas durante a serialização de conteúdo de resposta.
+* Ocorreu uma excepção durante o arranque de aplicação.
+* Excepção emitida no tarefas em segundo plano.
+
+Todas as exceções *processado* por aplicação ainda têm de ser monitorizados manualmente. Exceções não processadas provenientes de controladores normalmente resultam numa resposta de "Erro de servidor interno" 500. Se esses resposta manualmente é construída como resultado de exceções processadas (ou sem exceção de todo) é controlado na telemetria de pedido correspondente com `ResultCode` 500, no entanto Application Insights SDK não é possível controlar a exceção correspondente.
+
+### <a name="prior-versions-support"></a>Suporte de versões anteriores
+Se utilizar MVC 4 (e versões anteriores) do Application Insights Web SDK 2.5 (e versões anteriores), consulte os seguintes exemplos para controlar as exceções.
+
 Se o [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuração é `Off`, em seguida, as exceções estarão disponíveis para o [módulo de HTTP](https://msdn.microsoft.com/library/ms178468.aspx) para recolher. No entanto, se for `RemoteOnly` (predefinição), ou `On`, em seguida, a exceção será limpa e não está disponível para o Application Insights recolher automaticamente. Pode corrigir através da substituição de [System.Web.Mvc.HandleErrorAttribute classe](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)e aplicar a classe substituída, conforme mostrado para as diferentes versões MVC abaixo ([origem do github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
+```csharp
     using System;
     using System.Web.Mvc;
     using Microsoft.ApplicationInsights;
@@ -215,22 +231,26 @@ Se o [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configura�
         }
       }
     }
+```
 
 #### <a name="mvc-2"></a>MVC 2
 Substitua o atributo HandleError o novo atributo nos controladores.
 
+```csharp
     namespace MVC2App.Controllers
     {
        [AiHandleError]
        public class HomeController : Controller
        {
     ...
+```
 
-[Exemplo](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[exemplo](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registar `AiHandleErrorAttribute` como um filtro global em Global.asax.cs:
 
+```csharp
     public class MyMvcApplication : System.Web.HttpApplication
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -238,12 +258,14 @@ Registar `AiHandleErrorAttribute` como um filtro global em Global.asax.cs:
          filters.Add(new AiHandleErrorAttribute());
       }
      ...
+```
 
-[Exemplo](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[exemplo](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Register AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
 
+```csharp
     public class FilterConfig
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -252,12 +274,31 @@ Register AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
         filters.Add(new AiHandleErrorAttribute());
       }
     }
+```
 
-[Exemplo](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[exemplo](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## <a name="web-api-1x"></a>Web API 1. x
-Substitua System.Web.Http.Filters.ExceptionFilterAttribute:
+## <a name="web-api"></a>API Web
+Começando com o Application Insights Web SDK versão 2.6 (beta3 e posterior), o Application Insights recolhe não processadas as exceções acionadas nos métodos de controlador automaticamente para o end WebAPI 2 +. Se anteriormente tiver adicionado um processador personalizado para controlar essas exceções (conforme descrito nos seguintes exemplos), pode remover-a para impedir duplo controlo de exceções.
 
+Existem um número de cenários que não é possível processar os filtros de excepção. Por exemplo:
+
+* Exceções acionadas a partir de construtores de controlador.
+* Exceções acionadas a partir de processadores de mensagem.
+* Exceções emitidas durante o encaminhamento.
+* Exceções emitidas durante a serialização de conteúdo de resposta.
+* Ocorreu uma excepção durante o arranque de aplicação.
+* Excepção emitida no tarefas em segundo plano.
+
+Todas as exceções *processado* por aplicação ainda têm de ser monitorizados manualmente. Exceções não processadas provenientes de controladores normalmente resultam numa resposta de "Erro de servidor interno" 500. Se esses resposta manualmente é construída como resultado de exceções processadas (ou sem exceção de todo) é controlado numa telemetria de pedido correspondente com `ResultCode` 500, no entanto Application Insights SDK não é possível controlar a exceção correspondente.
+
+### <a name="prior-versions-support"></a>Suporte de versões anteriores
+Se utilizar end WebAPI 1 (e versões anteriores) do Application Insights Web SDK 2.5 (e versões anteriores), consulte os seguintes exemplos para controlar as exceções.
+
+#### <a name="web-api-1x"></a>Web API 1. x
+Override System.Web.Http.Filters.ExceptionFilterAttribute:
+
+```csharp
     using System.Web.Http.Filters;
     using Microsoft.ApplicationInsights;
 
@@ -276,9 +317,11 @@ Substitua System.Web.Http.Filters.ExceptionFilterAttribute:
         }
       }
     }
+```
 
 Foi possível adicionar este atributo substituído aos controladores específicos, ou adicione-o para a configuração do filtro global na classe WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using WebApi1.x.App_Start;
 
@@ -298,19 +341,14 @@ Foi possível adicionar este atributo substituído aos controladores específico
         }
       }
     }
+```
 
-[Exemplo](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[exemplo](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Existem um número de cenários que não é possível processar os filtros de excepção. Por exemplo:
-
-* Exceções acionadas a partir de construtores de controlador.
-* Exceções acionadas a partir de processadores de mensagem.
-* Exceções emitidas durante o encaminhamento.
-* Exceções emitidas durante a serialização de conteúdo de resposta.
-
-## <a name="web-api-2x"></a>Web API 2. x
+#### <a name="web-api-2x"></a>Web API 2. x
 Adicione uma implementação do IExceptionLogger:
 
+```csharp
     using System.Web.Http.ExceptionHandling;
     using Microsoft.ApplicationInsights;
 
@@ -329,9 +367,11 @@ Adicione uma implementação do IExceptionLogger:
         }
       }
     }
+```
 
 Adicione este para os serviços no WebApiConfig:
 
+```csharp
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
     using ProductsAppPureWebAPI.App_Start;
@@ -355,9 +395,10 @@ Adicione este para os serviços no WebApiConfig:
             config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
-  }
+     }
+```
 
-[Exemplo](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[exemplo](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Como alternativas, foi:
 
@@ -367,6 +408,7 @@ Como alternativas, foi:
 ## <a name="wcf"></a>WCF
 Adicione uma classe que expande o atributo e implementa o IErrorHandler e o IServiceBehavior.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -416,7 +458,7 @@ Adicione uma classe que expande o atributo e implementa o IErrorHandler e o ISer
       }
     }
 
-Adicione o atributo para as implementações de serviço:
+Add the attribute to the service implementations:
 
     namespace WcfService4
     {
@@ -424,8 +466,9 @@ Adicione o atributo para as implementações de serviço:
         public class Service1 : IService1
         {
          ...
+```
 
-[Exemplo](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[exemplo](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Contadores de desempenho de exceção
 Se tiver [instalado o agente do Application Insights](app-insights-monitor-performance-live-website-now.md) no seu servidor, pode obter um gráfico da taxa de exceções, medido pela .NET. Isto inclui as exceções de .NET processadas e não processadas.

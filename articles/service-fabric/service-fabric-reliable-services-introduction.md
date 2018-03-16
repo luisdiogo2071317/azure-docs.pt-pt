@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Descrição geral do Reliable Services
 Azure Service Fabric simplifica escrever e gerir serviços fiável sem monitorização de estado e com monitorização de estado. Este tópico abrange:
@@ -34,7 +34,7 @@ O Service Fabric gere a duração de serviços, a partir de aprovisionamento e i
 ## <a name="what-are-reliable-services"></a>Quais são Reliable Services?
 Reliable Services dá-lhe um modelo de programação simple, poderoso, nível superior para o ajudar a express, o que é importante para a aplicação. Com os serviços fiável de modelo de programação, obter:
 
-* Acesso para o resto dos recursos de infraestrutura do serviço de APIs de programação. Ao contrário dos serviços do Service Fabric modelada como [convidado executáveis](service-fabric-deploy-existing-app.md), obter Reliable Services para utilizar o resto das APIs de recursos de infraestrutura de serviço diretamente. Isto permite que os serviços:
+* Acesso para o resto dos recursos de infraestrutura do serviço de APIs de programação. Ao contrário dos serviços do Service Fabric modelada como [convidado executáveis](service-fabric-guest-executables-introduction.md), obter Reliable Services para utilizar o resto das APIs de recursos de infraestrutura de serviço diretamente. Isto permite que os serviços:
   * consultar o sistema
   * Estado de funcionamento do relatório sobre entidades no cluster
   * receber notificações sobre as alterações de configuração e code

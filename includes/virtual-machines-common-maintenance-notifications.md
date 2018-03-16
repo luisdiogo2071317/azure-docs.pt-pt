@@ -1,4 +1,19 @@
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: zivraf
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: zivr
+ms.custom: include file
+ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>VMs de vista agendadas para manutenção no portal
 
 Assim que estiver agendada uma onda de manutenção planeada e as notificações são enviadas, pode observar a lista de máquinas virtuais que são afetadas por wave a manutenção futura. 
@@ -17,10 +32,10 @@ Pode utilizar o portal do Azure e procure VMs agendadas para manutenção.
       
       | Valor | Descrição |
       |-------|-------------|
-      | Começar agora | A VM está na janela de manutenção de self-service que permite-lhe iniciar a manutenção por si. Consulte abaixo sobre como iniciar manutenção a VM | 
-      | Agendado | A VM está agendada para manutenção sem qualquer opção para que possa iniciar manutenção. Pode saber da janela de manutenção, selecionando a janela de Auto-agendada nesta vista ou clicando na VM | 
-      | Concluído | Iniciou com êxito e concluída a manutenção no VM. | 
-      | Ignorado| Selecionou a iniciar manutenção sem sucesso. Não será possível utilizar a opção manutenção do self-service. A VM tem de ser reiniciado pelo Azure durante a fase de manutenção agendada. | 
+      | Começar agora | A VM está na janela de manutenção self-service que lhe permite iniciar a manutenção por si. Consulte abaixo sobre como iniciar manutenção a VM | 
+      | Agendadas | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode saber da janela de manutenção, selecionando a janela de Auto-agendada nesta vista ou clicando na VM | 
+      | Concluída | Iniciou com êxito e concluída a manutenção no VM. | 
+      | Ignorada| Selecionou para iniciar a manutenção sem sucesso. Não será possível utilizar a opção manutenção do self-service. A VM tem de ser reiniciado pelo Azure durante a fase de manutenção agendada. | 
 
    **Manutenção profissional para Active Directory** -mostra a janela de tempo quando Self-pode iniciar manutenção nas suas VMs.
    

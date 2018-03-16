@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d05d816b43e04c2c2e88cab33b8e4c623ab9185
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e04de7cb3fad1ba651d0ce21be7f244a89753c1a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiar dados de ServiceNow utilizando o Azure Data Factory
 
@@ -112,7 +112,7 @@ Para copiar dados de ServiceNow, defina o tipo de origem na atividade de cópia 
 Quando especificar o esquema e a coluna para ServiceNow na consulta, tenha em atenção o seguinte:
 
 - **Esquema:** especificar o esquema como `Actual` ou `Display` na consulta de ServiceNow, pode examiná-lo como o parâmetro de `sysparm_display_value` como VERDADEIRO ou falso quando chamar [ServiceNow restful APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Coluna:** o nome da coluna para o valor real em `Actual` scehma é `[columne name]_value`, enquanto para o valor de apresentação em `Display` esquema é `[columne name]_display_value`. Tenha em atenção o nome da coluna tem de mapear para o esquema que está a ser utilizado na consulta.
+- **Coluna:** o nome da coluna para o valor real em `Actual` esquema é `[columne name]_value`, enquanto para o valor de apresentação em `Display` esquema é `[columne name]_display_value`. Tenha em atenção o nome da coluna tem de mapear para o esquema que está a ser utilizado na consulta.
 
 **Consulta de exemplo:** 
  `SELECT col_value FROM Actual.alm_asset` ou `SELECT col_display_value FROM Display.alm_asset`

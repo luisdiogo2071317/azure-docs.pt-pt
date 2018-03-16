@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao Table Storage do Azure através do .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,10 +83,10 @@ Todos os exemplos de código deste tutorial podem ser adicionados ao método `Ma
 Pode utilizar a biblioteca de tabela do Azure CosmosDB qualquer tipo de aplicações .NET, incluindo uma aplicação de web ou serviço de nuvem do Azure e aplicações de ambiente de trabalho e dispositivos móveis. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
-Existem três pacotes que tem de referenciar no seu projeto para concluir este tutorial:
+Existem três pacotes recomendadas, que tem de referenciar no seu projeto para concluir este tutorial:
 
-* [Biblioteca comum do armazenamento do Azure para .NET (8.6.0-preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
-* [Biblioteca de tabela CosmosDB do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento de tabelas do Azure ou a conta de API de tabela de base de dados do Azure Cosmos.
+* [Biblioteca comum do Storage do Azure para .NET (pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [Biblioteca do Microsoft Azure Cosmos DB de tabela para o .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento de tabelas do Azure ou a conta de API de tabela de base de dados do Azure Cosmos.
 * [Biblioteca do Gestor de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação estiver a ser executada.
 
 Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
@@ -100,6 +100,11 @@ Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
 > As dependências ODataLib na biblioteca comum de armazenamento para .NET são resolvidas através de pacotes ODataLib disponíveis no NuGet, não a partir do WCF Data Services. As bibliotecas ODataLib podem ser transferidas diretamente ou referenciadas pelo seu projeto de código através do NuGet. Os pacotes ODataLib específicos utilizados da Biblioteca de Clientes de Armazenamento são [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) e [Spatial](http://nuget.org/packages/System.Spatial/). Embora estas bibliotecas sejam utilizadas pelas classes de armazenamento de tabelas do Azure, são dependências necessárias para a programação com a biblioteca comum de armazenamento.
 > 
 > 
+
+> [!TIP]
+> Os programadores já familiares Table Storage do Azure podem ter sido utilizada a [Windowsazure](https://www.nuget.org/packages/WindowsAzure.Storage/) pacote no passado. Recomenda-se que todas as novas aplicações de tabela, utilize o [Biblioteca comum do Storage do Azure](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) e [biblioteca de tabela de base de dados do Azure Cosmos](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table); no entanto, o pacote de Windowsazure ainda é suportado. Se utilizar a biblioteca de Windowsazure, incluir Microsoft.WindowsAzure.Storage.Table na sua ao utilizar as instruções.
+>
+>
 
 ### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
 Tem duas opções de ambiente para executar os exemplos neste guia:

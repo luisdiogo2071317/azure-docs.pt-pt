@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 03/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores de NVIDIA GPU em VMs de série N executar Linux
 
@@ -106,12 +106,12 @@ sudo reboot
   
   sudo reboot
 
-2. Install the latest Linux Integration Services for Hyper-V.
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
  
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
  
   cd LISISO
  
@@ -158,7 +158,7 @@ Se o controlador estiver instalado, verá um resultado semelhante ao seguinte. T
 
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
-Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, tais como NC24r implementadas no mesmo conjunto de disponibilidade. A rede RDMA suporta tráfego da Interface de passagem de mensagens (MPI) para aplicações em execução com Intel MPI 5. x ou uma versão posterior. Siga a requisitos adicionais:
+Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, tais como NC24r implementadas no mesmo conjunto de disponibilidade ou conjunto de dimensionamento VM. A rede RDMA suporta tráfego da Interface de passagem de mensagens (MPI) para aplicações em execução com Intel MPI 5. x ou uma versão posterior. Siga a requisitos adicionais:
 
 ### <a name="distributions"></a>Distribuições
 
@@ -255,12 +255,12 @@ Para instalar controladores de grelha NVIDIA em série NV VMs, efetuar uma liga�
   blacklist lbm-nouveau
   ```
  
-3. Reiniciar a VM, voltar a ligar e instalar os serviços de integração mais recentes do Linux para Hyper-v:
+3. Reiniciar a VM, voltar a ligar e instalar a versão mais recente [serviços de integração do Linux para Hyper-V e o Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
 
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
 
   cd LISISO
 
@@ -342,6 +342,6 @@ Este ficheiro pode ser invocado como raiz no arranque através da criação de u
 
 * Pode definir a utilizar o modo de persistência `nvidia-smi` , de modo a saída do comando é mais rápida quando precisar de cartões de consulta. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Tenha em atenção que se a VM é reiniciada, a definição de modo fica ausente. Pode sempre script a definição de modo a executar após o arranque.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para capturar uma imagem de VM com Linux com os controladores NVIDIA instaladas, consulte [como generalize e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

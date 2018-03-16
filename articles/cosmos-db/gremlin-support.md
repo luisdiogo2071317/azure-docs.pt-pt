@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b32838dfaf83ea3acfb7125322bb99124370bd8e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráfico do Cosmos Gremlin de BD do Azure
 BD do Azure do Cosmos suporta [do Apache Tinkerpop](http://tinkerpop.apache.org) idioma transversal, da graph [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API de gráfico para criar entidades do gráfico e efetuar operações de consulta do gráfico. Pode utilizar o idioma de Gremlin para criar entidades do gráfico (vértices e contornos), modifique propriedades dentro desses entidades, executar consultas e traversals e eliminar entidades. 
@@ -82,10 +82,10 @@ A tabela seguinte lista as funcionalidades de TinkerPop que são implementadas p
 | --- | --- | --- |
 | Funcionalidades de gráfico | Fornece a persistência e ConcurrentAccess. Foi concebido para suportar transações | Métodos de computador podem ser implementados através do conector do Spark. |
 | Funcionalidades de variável | Suporta booleano, número inteiro, Byte, faça duplo, Float, Integer, longa, cadeia | Suporta tipos primitivos, é compatível com tipos complexos através do modelo de dados |
-| Funcionalidades de vértice | Suporta RemoveVertices MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Suporta a criar, modificar e eliminar vértices |
-| Funcionalidades de propriedade de vértice | StringIds UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de vértice |
-| Funcionalidades de limite | AddEges RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Suporta a criar, modificar e eliminar contornos |
-| Funcionalidades de propriedade de limite | Propriedades, BooleanValues ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de limite |
+| Funcionalidades de vértice | Supports RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Suporta a criar, modificar e eliminar vértices |
+| Funcionalidades de propriedade de vértice | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de vértice |
+| Funcionalidades de limite | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Suporta a criar, modificar e eliminar contornos |
+| Funcionalidades de propriedade de limite | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de limite |
 
 ## <a name="gremlin-wire-format-graphson"></a>Formato de wire gremlin: GraphSON
 
@@ -167,13 +167,13 @@ Agora vamos ver os passos de Gremlin suportados pelo Azure Cosmos DB. Para uma r
 
 | Passo | Descrição | Documentação de TinkerPop 3.2 | Notas |
 | --- | --- | --- | --- |
-| `addE` | Adiciona uma extremidade entre duas vértices | [passo addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | Adiciona um vértice ao gráfico | [passo addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `addE` | Adiciona uma extremidade entre duas vértices | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
+| `addV` | Adiciona um vértice ao gráfico | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
 | `and` | Garante que todos os traversals devolvem um valor | [e passo](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Modulator um passo para atribuir uma variável para o resultado de um passo | [como passo](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | Um modulator passo utilizado com `group` e`order` | [por passo](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
+| `by` | Um modulator passo utilizado com `group` e `order` | [por passo](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Devolve o primeiro transversal que devolve um resultado | [Unir passo](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | Devolve um valor constante. Utilizado com`coalesce`| [passo constante](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
+| `constant` | Devolve um valor constante. Utilizado com `coalesce`| [passo constante](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
 | `count` | Devolve a contagem da transversal | [passo de contagem](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
 | `dedup` | Devolve os valores com os duplicados removidos | [passo de eliminação de duplicados](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
 | `drop` | Ignora os valores (vértice/edge) | [remover passo](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |

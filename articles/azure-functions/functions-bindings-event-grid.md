@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador de grelha de eventos para as funções do Azure
 
@@ -37,11 +37,11 @@ Se preferir, pode utilizar um acionador HTTP para processar eventos de grelha de
 
 O acionador de grelha de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet. Código de origem para o pacote está a ser o [eventgrid-extensão de azure-funções](https://github.com/Azure/azure-functions-eventgrid-extension) repositório do GitHub.
 
-O pacote é utilizado para [desenvolvimento biblioteca classe c#](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) e [funciona o registo de extensão de enlace v2](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -348,7 +348,7 @@ Quando tiver terminado de teste, pode utilizar a mesma subscrição para produç
 
 ### <a name="create-a-requestbin-endpoint"></a>Criar um ponto final RequestBin
 
-RequestBin é uma ferramenta open-source que aceita os pedidos HTTP e mostra-lhe o corpo do pedido. O URL de http://requestb.in obtém um tratamento especial através da grelha de eventos do Azure. Para facilitar a testar, grelha de eventos envia eventos para o URL de RequestBin sem necessidade de uma resposta a pedidos de validação de subscrição correta. Duas outras ferramentas de testes recebem o tratamento mesmo: http://webhookinbox.com e http://hookbin.com.
+RequestBin é uma ferramenta open-source que aceita os pedidos HTTP e mostra-lhe o corpo do pedido. O http://requestb.in URL obtém um tratamento especial através da grelha de eventos do Azure. Para facilitar a testar, grelha de eventos envia eventos para o URL de RequestBin sem necessidade de uma resposta a pedidos de validação de subscrição correta. Duas outras ferramentas de testes recebem o tratamento mesmo: http://webhookinbox.com e http://hookbin.com.
 
 RequestBin não se destina a utilização de débito elevado. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
 

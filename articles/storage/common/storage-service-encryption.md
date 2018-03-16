@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do Serviço de Armazenamento do Azure para Dados Inativos
 
@@ -62,17 +62,13 @@ R: encriptação do serviço de armazenamento está ativada por predefinição n
 
 R: não há sem custos adicionais.
 
-**P: quem gere as chaves de encriptação?**
-
-R: Microsoft gere as chaves.
-
 **P: Posso utilizar o meus próprio chaves de encriptação?**
 
-R: neste momento, não.
+R: Sim, pode utilizar as suas próprias chaves de encriptação. Para obter mais informações, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](storage-service-encryption-customer-managed-keys.md).
 
 **P: posso revogar o acesso às chaves de encriptação?**
 
-R: neste momento, não. Microsoft totalmente gere as chaves.
+R: Sim, se lhe [utilizar as suas próprias chaves de encriptação](storage-service-encryption-customer-managed-keys.md) no Cofre de chaves do Azure.
 
 **P: está ativada por predefinição de encriptação do serviço de armazenamento, quando criar uma conta de armazenamento?**
 

@@ -2,24 +2,18 @@
 title: Copiar uma base de dados SQL do Azure | Microsoft Docs
 description: "Crie uma forma consistente cópia da base de dados SQL do Azure existente no mesmo servidor ou um servidor diferente."
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.date: 06/15/2017
 ms.author: carlrab
-ms.workload: On Demand
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 7999c52a81165a9f8efb2f1302d04c9cb851faca
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c4a3836cfd0bbbb8d26a42af2980deab5f9d7681
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-an-azure-sql-database"></a>Copiar uma base de dados SQL do Azure
 
@@ -105,7 +99,7 @@ Todos os utilizadores na base de dados nova mantém as permissões que tinham na
 
 Para saber mais sobre a gestão de utilizadores e os inícios de sessão quando copiar uma base de dados para um servidor lógico diferente, consulte [como gerir a segurança de base de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter informações sobre os inícios de sessão, consulte [gerir inícios de sessão](sql-database-manage-logins.md) e [como gerir a segurança de base de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 * Para exportar uma base de dados, consulte [exportar a base de dados para um BACPAC](sql-database-export.md).

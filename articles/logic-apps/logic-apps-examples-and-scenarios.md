@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Comuns cenários, exemplos, tutoriais e instruções para Azure Logic Apps
 
@@ -81,7 +81,7 @@ As Logic apps incluem capacidades avançadas de fluxo de controlo avançadas, co
 
 Totalmente pode desenvolver e implementar aplicações lógicas com o Visual Studio, os Visual Studio Team Services, ou quaisquer outros controlo de origem e ferramentas de compilação automatizada. Para suportar a implementação para fluxos de trabalho e ligações dependentes num modelo de recursos, as logic apps utilizam modelos de implementação de recursos do Azure. Ferramentas do Visual Studio geram automaticamente estes modelos, que pode der entrada do controlo de origem para o controlo de versões.
 
-* [Criar e implementar as logic apps a partir do Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Criar e implementar aplicações lógicas com o Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Ativar monitorização, registo e alertas para logic apps existentes](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Criar um modelo de implementação automatizada](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Pode aceder, converta e transformar vários tipos de conteúdo utilizando as mui
 
 * [Como expressões de fluxo de trabalho funcionam em aplicações lógicas](../logic-apps/logic-apps-author-definitions.md)
 * [Processar tipos de conteúdo JSON não](../logic-apps/logic-apps-content-type.md), como `application/xml`, `application/octet-stream`, e `multipart/formdata`
-* [Referência: Linguagem de definição de fluxo de trabalho de aplicações lógicas do Azure](http://aka.ms/logicappsdocs)
+* [Esquema de linguagem de definição de fluxo de trabalho para o Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Outras capacidades e integrações
 

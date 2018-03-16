@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9524ffde4a588d3ac029bc8a3df91726082e157d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar os servidores de Hyper-V no local para a recuperação de desastre para o Azure
 
@@ -28,25 +28,16 @@ Este é o segundo tutorial da série. Certifique-se de que [configurou os compon
 
 
 
-## <a name="review-server-requirements"></a>Reveja os requisitos de servidor
+## <a name="review-requirements-and-prerequisites"></a>Rever requisitos e pré-requisitos
 
-Certifique-se de anfitriões Hyper-V cumpram os seguintes requisitos. Se estiver a gerir os anfitriões em nuvens do System Center Virtual Machine Manager (VMM), certifique-se os requisitos do VMM.
+Certifique-se de anfitriões de Hyper-V e VMs cumprir os requisitos.
 
+1. [Certifique-se](hyper-v-azure-support-matrix.md#on-premises-servers) requisitos de servidor no local.
+2. [Verifique os requisitos](hyper-v-azure-support-matrix.md#replicated-vms) para as VMs de Hyper-V que pretende replicar para o Azure.
+3. Verifique o anfitrião Hyper-V [rede](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); e o anfitrião e o convidado [armazenamento](hyper-v-azure-support-matrix.md#hyper-v-host-storage) para anfitriões de Hyper-V no local.
+4. Verifique o que é suportado para [redes do Azure](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [armazenamento](hyper-v-azure-support-matrix.md#azure-storage), e [computação](hyper-v-azure-support-matrix.md#azure-compute-features), após a ativação pós-falha.
+5. As suas VMs no local replicar para o Azure tem de cumprir [requisitos de VM do Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
-**Componente** | **Hyper-V gerida pelo VMM** | **Hyper-V sem o VMM**
---- | --- | ---
-**Sistema operativo anfitrião de Hyper-V** | Windows Server 2016, 2012 R2 | ND
-**VMM** | VMM 2012, VMM 2012 R2 | ND
-
-
-## <a name="review-hyper-v-vm-requirements"></a>Reveja os requisitos de VM de Hyper-V
-
-Certifique-se de que a VM está em conformidade com os requisitos de resumidos na tabela.
-
-**Requisito de VM** | **Detalhes**
---- | ---
-Sistema operativo convidado | Qualquer SO convidado [suportado pelo Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Requisitos do Azure** | No local VMs de Hyper-V têm de cumprir requirements(site-recovery-support-matrix-to-azure.md) de VM do Azure.
 
 ## <a name="prepare-vmm-optional"></a>Preparar o VMM (opcional)
 
@@ -82,13 +73,14 @@ Prepare VMM mapeamento da rede da seguinte forma:
 
 Durante um cenário de ativação pós-falha poderá ligar à sua rede replicada no local.
 
-Para ligar às VMs do Windows via RDP após a ativação pós-falha, faça o seguinte:
+Para ligar a VMs do Windows com RDP após a ativação pós-falha, permitir o acesso da seguinte forma:
 
 1. Para aceder através da Internet, ative o protocolo RDP na VM local antes da ativação pós-falha. Certifique-se de que são adicionadas regras de TCP e UDP para o perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.
 2. Para aceder através da rede de VPNs, ative o protocolo RDP na máquina local. O protocolo RDP deve estar permitido em **Firewall do Windows** -> **Aplicações e funcionalidades permitidas** para redes de **Domínio e Privadas**.
    Verifique se a política de SAN do sistema operativo está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). Não devem haver atualizações do Windows pendentes na VM quando aciona uma ativação pós-falha. Se houverem, só poderá iniciar sessão na máquina virtual depois de a atualização estar concluída.
 3. Na VM do Azure do Windows após a ativação pós-falha, consulte o **Diagnóstico de arranque**  para ver uma captura de ecrã da VM. Se não conseguir ligar-se, verifique se a VM está em execução e reveja estas [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+Após a ativação pós-falha, pode aceder a VMs do Azure utilizando o mesmo endereço IP que a VM replicada no local ou um endereço IP diferente. [Saiba mais](concepts-on-premises-to-azure-networking.md) sobre como configurar endereços IP de ativação pós-falha.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

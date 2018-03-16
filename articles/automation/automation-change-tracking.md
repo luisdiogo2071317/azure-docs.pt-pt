@@ -2,32 +2,28 @@
 title: "Controlar as alterações com a automatização do Azure | Microsoft Docs"
 description: "A solução de controlo de alterações ajuda-o a identificar o software e as alterações de serviço do Windows que ocorrem no seu ambiente."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fcee2956d2d33133c5d1a5bf367643a2095cad71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações de software no seu ambiente com a solução de controlo de alterações
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
 Este artigo ajuda-o a utilizar a solução de controlo de alterações para identificar facilmente as alterações no seu ambiente. A solução controla as alterações ao software do Windows e Linux, os ficheiros do Windows e Linux, chaves de registo do Windows, serviços do Windows e Linux daemons. Identificar as alterações de configuração pode ajudar a identificar problemas operacionais.
 
 As alterações ao software instalado, os serviços do Windows, registo do Windows e de ficheiros e aplicações daemons do Linux em servidores monitorizados são enviadas para o serviço de análise de registos na nuvem para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados. Ao utilizar as informações no dashboard do controlo de alterações, pode facilmente ver as alterações efetuadas na sua infraestrutura de servidor.
 
-## <a name="enable-change-tracking-and-inventory"></a>Ativar o registo de alterações e inventário
+## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
 
 Para começar a controlar as alterações, tem de ativar a solução de controlo de alterações e de inventário para a sua conta de automatização.
@@ -53,16 +49,16 @@ Utilize os seguintes passos para configurar o controlo de ficheiro em computador
 |Propriedade  |Descrição  |
 |---------|---------|
 |Ativado     | Determina se a definição é aplicada.        |
-|Nome do item     | Nome amigável do ficheiro a ser monitorizados.        |
+|Nome do Item     | Nome amigável do ficheiro a ser monitorizados.        |
 |Grupo     | Um nome de grupo para agrupar logicamente os ficheiros.        |
-|Introduza o caminho     | O caminho para verificar se o ficheiro. Por exemplo: "/etc/*.conf"       |
-|Tipo de caminho     | Tipo de item para ser controlados valores possíveis são de ficheiros e diretórios.        |
-|Recursão     | Determina se recursão é utilizada durante a pesquisa para o item ser monitorizados.        |
-|Utilize o Sudo     | Esta definição determina se o sudo é utilizado quando a verificação do item.         |
-|Ligações     | Esta definição determina como simbólicas resolvidas quando atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados.<br>**Siga** - segue-se as ligações simbólicas durante recursão e também inclui os ficheiros/diretórios referenciados.<br>**Gerir** - segue-se as ligações simbólicas e permite a alteração de conteúdo devolvido.     |
+|Introduzir o Caminho     | O caminho para verificar se o ficheiro. Por exemplo: "/etc/*.conf"       |
+|Tipo de Caminho     | Tipo de item para ser controlados valores possíveis são de ficheiros e diretórios.        |
+|Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
+|Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
+|Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados.<br>**Siga** - segue-se as ligações simbólicas durante recursão e também inclui os ficheiros/diretórios referenciados.<br>**Gerir** - segue-se as ligações simbólicas e permite a alteração de conteúdo devolvido.     |
 
 > [!NOTE]
-> A opção de ligações de "Gerir" não é recomendada. Obtenção de conteúdo do ficheiro não é suportada.
+> A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
 
 ### <a name="configure-windows-files-to-track"></a>Configurar ficheiros do Windows para controlar
 
@@ -75,9 +71,9 @@ Utilize os seguintes passos para configurar ficheiros de registo em computadores
 |Propriedade  |Descrição  |
 |---------|---------|
 |Ativado     | Determina se a definição é aplicada.        |
-|Nome do item     | Nome amigável do ficheiro a ser monitorizados.        |
+|Nome do Item     | Nome amigável do ficheiro a ser monitorizados.        |
 |Grupo     | Um nome de grupo para agrupar logicamente os ficheiros.        |
-|Introduza o caminho     | O caminho para verificar o ficheiro por exemplo: "c:\temp\myfile.txt"       |
+|Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\myfile.txt"       |
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configurar as chaves de registo do Windows para controlar
 
@@ -90,9 +86,9 @@ Utilize os seguintes passos para configurar o controlo de chave de registo em co
 |Propriedade  |Descrição  |
 |---------|---------|
 |Ativado     | Determina se a definição é aplicada.        |
-|Nome do item     | Nome amigável do ficheiro a ser monitorizados.        |
+|Nome do Item     | Nome amigável do ficheiro a ser monitorizados.        |
 |Grupo     | Um nome de grupo para agrupar logicamente os ficheiros.        |
-|Chave de registo do Windows   | O caminho para verificar se o ficheiro. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common arranque"      |
+|Chave do Registo do Windows   | O caminho para verificar se o ficheiro. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common arranque"      |
 
 ## <a name="limitations"></a>Limitações
 
@@ -195,8 +191,8 @@ A tabela seguinte fornece pesquisas de registo de exemplo para alterar registos 
 
 |Consulta  |Descrição  |
 |---------|---------|
-|ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; resumir arg_max(TimeGenerated, *) por SoftwareName, o computador         | Mostra os registos de inventário mais recentes dos serviços do Windows que foi definido como Auto, mas foram reportados como a ser parado<br>Os resultados estão limitados para o registo mais recente do que SoftwareName e de computador      |
-|ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; ordem pelo TimeGenerated desc|Mostra os registos de alteração de software removido|
+|ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124;resumir arg_max(TimeGenerated, *) por SoftwareName, o computador         | Mostra os registos de inventário mais recentes dos serviços do Windows que foi definido como Auto, mas foram reportados como a ser parado<br>Os resultados estão limitados para o registo mais recente do que SoftwareName e de computador      |
+|ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124;ordem pelo TimeGenerated desc|Mostra os registos de alteração de software removido|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

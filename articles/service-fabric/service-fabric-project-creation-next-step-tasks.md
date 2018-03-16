@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>A aplicação de Service Fabric e os passos seguintes
 Foi criada a sua aplicação de Service Fabric do Azure. Este artigo descreve tutoriais para experimentar, makeup do seu projeto, algumas informações mais que poderá estar interessado no e potenciais próximos passos.
@@ -55,7 +55,7 @@ O projeto de aplicação é composta por:
 
 
 ## <a name="learn-more-about-the-programming-models"></a>Saiba mais sobre os modelos de programação
-Recursos de infraestrutura de serviço oferece várias formas para escrever e gerir os seus serviços.  Eis o descrição geral e informações conceptuais [sem monitorização de estado e com monitorização de estado Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [contentores](service-fabric-containers-overview.md), [executáveis de convidado ](service-fabric-deploy-existing-app.md), e [sem monitorização de estado e com monitorização de estado dos serviços de ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
+Recursos de infraestrutura de serviço oferece várias formas para escrever e gerir os seus serviços.  Eis o descrição geral e informações conceptuais [sem monitorização de estado e com monitorização de estado Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [contentores](service-fabric-containers-overview.md), [executáveis de convidado ](service-fabric-guest-executables-introduction.md), e [sem monitorização de estado e com monitorização de estado dos serviços de ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="learn-about-service-communication"></a>Saiba mais sobre a comunicação de serviço
 Uma aplicação de Service Fabric é composta por diferentes serviços, onde cada serviço executa uma tarefa de especializado. Estes serviços podem comunicar entre si e pode existir aplicações de cliente fora do cluster, que ligar a e comunicam com serviços. Saiba como [comunicação com o operador and entre os serviços de multimédia](service-fabric-connect-and-communicate-with-services.md) no Service Fabric. 
@@ -68,7 +68,7 @@ A aplicação pode conter informações confidenciais, tais como cadeias de liga
 ## <a name="learn-about-the-application-lifecycle"></a>Saiba mais sobre o ciclo de vida de aplicação
 Com outras plataformas, uma aplicação de Service Fabric normalmente realiza as seguintes fases: estrutura, desenvolvimento, teste, implementação, a atualização, manutenção e remoção. [Este artigo](service-fabric-application-lifecycle.md) fornece uma descrição geral de APIs e como são utilizados pelas funções de diferentes durante as fases do ciclo de vida de aplicação de Service Fabric.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Criar um cluster do Windows no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Visualizar o cluster, incluindo aplicações implementadas e o esquema físico, com [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Versão e atualizar os serviços](service-fabric-application-upgrade-tutorial.md)

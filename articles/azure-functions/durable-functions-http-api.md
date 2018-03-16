@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01e85290f00dc70323a16056ca8e73bfba72c975
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -28,7 +28,8 @@ A extensão de tarefa durável expõe um conjunto de APIs de HTTP que podem ser 
 * Envie um evento para uma instância de orquestração de espera.
 * Termine uma instância de orquestração em execução.
 
-Cada um destas APIs de HTTP são as operações de webhook que são processadas diretamente pela extensão de tarefa durável. Não são específicas para qualquer função na aplicação de função.
+
+Cada um destas APIs de HTTP é uma operação de webhook que é processada diretamente pela extensão de tarefa durável. Não são específicas para qualquer função na aplicação de função.
 
 > [!NOTE]
 > Estas operações também podem ser invocadas diretamente utilizando as APIs de gestão de instância no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. Para obter mais informações, consulte [instância gestão](durable-functions-instance-management.md).
@@ -78,7 +79,7 @@ A resposta HTTP que foi mencionada anteriormente foi concebida para ajudar a imp
 Este protocolo permite que a coordenação de processos de execução longa com clientes externos ou serviços que suportam um ponto final de HTTP de consulta e seguir o `Location` cabeçalho. As peças fundamentais já estão incorporadas nas APIs de HTTP de funções durável.
 
 > [!NOTE]
-> Por predefinição, todas as ações baseado em HTTP fornecida pelo [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) suportam o padrão de operação assíncrona padrão. Isto torna possível incorporar uma função durável de longa execução como parte de um fluxo de trabalho Logic Apps. Obter mais detalhes sobre as Logic Apps suportem para padrões HTTP assíncronos podem ser encontrados no [documentação de ações de acionadores de fluxo de trabalho do Azure Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Por predefinição, todas as ações baseado em HTTP fornecida pelo [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) suportam o padrão de operação assíncrona padrão. Esta capacidade torna possível incorporar uma função durável de longa execução como parte de um fluxo de trabalho Logic Apps. Obter mais detalhes sobre as Logic Apps suportem para padrões HTTP assíncronos podem ser encontrados no [documentação de ações de acionadores de fluxo de trabalho do Azure Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>Referência da API de HTTP
 
@@ -86,12 +87,14 @@ Todos os APIs de HTTP implementado por tomar a extensão os seguintes parâmetro
 
 | Parâmetro  | Tipo de parâmetro  | Descrição |
 |------------|-----------------|-------------|
-| instanceId | URL             | O ID da instância de orquestração. |
+| instanceId | do IdP             | O ID da instância de orquestração. |
 | taskHub    | Cadeia de consulta    | O nome do [hub tarefas](durable-functions-task-hubs.md). Se não for especificado, é assumido o nome de hub de tarefas da aplicação de função atual. |
 | ligação | Cadeia de consulta    | O **nome** da cadeia de ligação para a conta de armazenamento. Se não for especificado, é assumida a cadeia de ligação predefinido para a aplicação de função. |
 | systemKey  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
+| showHistory| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução de orquestração será incluído no payload de resposta.| 
+| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a atividade produz serão incluídos no histórico de execução de orquestração.| 
 
-`systemKey`é uma chave de autorização gerada automaticamente pelo anfitrião das funções do Azure. Conceda acesso para a extensão de tarefa durável APIs especificamente e podem ser gerido da mesma forma que [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). A forma mais simples para detetar o `systemKey` valor é utilizando o `CreateCheckStatusResponse` API mencionado anteriormente.
+`systemKey` é uma chave de autorização gerada automaticamente pelo anfitrião das funções do Azure. Conceda acesso para a extensão de tarefa durável APIs especificamente e podem ser gerido da mesma forma que [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). A forma mais simples para detetar o `systemKey` valor é utilizando o `CreateCheckStatusResponse` API mencionado anteriormente.
 
 As secções seguintes alguns cobrir específicos APIs de HTTP suportada pela extensão e fornecem exemplos de como pode ser utilizados.
 
@@ -110,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 O formato de funções 2.0 tem as mesmas parâmetros, mas tem um prefixo de URL ligeiramente diferente:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Resposta
@@ -122,29 +125,68 @@ GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskH
 * **HTTP 400 (pedido incorreto)**: A instância especificada falhou ou foi terminada.
 * **HTTP 404 (não for encontrado)**: A instância especificada não existe ou não iniciado em execução.
 
-O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON com os seguintes campos.
+O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON com os seguintes campos:
 
 | Campo           | Tipo de dados | Descrição |
 |-----------------|-----------|-------------|
-| runtimeStatus   | Cadeia    | O estado do tempo de execução da instância. Os valores incluem *executar*, *pendente*, *falha*, *cancelado*, *Terminated*, *Concluída*. |
+| runtimeStatus   | string    | O estado do tempo de execução da instância. Os valores incluem *executar*, *pendente*, *falha*, *cancelado*, *Terminated*, *Concluída*. |
 | Entrada           | JSON      | Os dados JSON utilizados para inicializar a instância. |
-| Saída          | JSON      | A saída JSON da instância. Este campo é `null` se a instância não é um estado concluído. |
-| createdTime     | Cadeia    | A hora em que foi criada a instância. Utiliza ISO 8601 expandido notação. |
-| LastUpdatedTime | Cadeia    | A hora em que a instância persistente pela última vez. Utiliza ISO 8601 expandido notação. |
+| saída          | JSON      | A saída JSON da instância. Este campo é `null` se a instância não é um estado concluído. |
+| createdTime     | string    | A hora em que foi criada a instância. Utiliza ISO 8601 expandido notação. |
+| lastUpdatedTime | string    | A hora em que a instância persistente pela última vez. Utiliza ISO 8601 expandido notação. |
+| historyEvents   | JSON      | Uma matriz JSON que contém o histórico de execução de orquestração. Este campo é `null` , a menos que o `showHistory` parâmetro de cadeia de consulta está definido como `true`.  | 
 
-Eis um exemplo de respostas o payload (formatado para legibilidade):
+Eis um payload de resposta de exemplo, incluindo os orchestration execução histórico e a atividade saídas (formatadas para legibilidade):
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -168,12 +210,12 @@ O formato de funções 2.0 tem as mesmas parâmetros, mas tem um prefixo de URL 
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Os parâmetros para esta API incluem o conjunto predefinido mencionado anteriormente, bem como os seguintes parâmetros exclusivos do pedido.
+Pedir os parâmetros para esta API incluem o conjunto predefinido mencionado anteriormente, bem como os seguintes parâmetros exclusivos:
 
 | Campo       | Tipo de parâmetro  | TType de dados | Descrição |
 |-------------|-----------------|-----------|-------------|
-| EventName   | URL             | Cadeia    | O nome do evento que a instância de orquestração de destino está a aguardar no. |
-| {conteúdo}   | Conteúdo do pedido | JSON      | O payload de evento formatada em JSON. |
+| eventName   | do IdP             | string    | O nome do evento que a instância de orquestração de destino está a aguardar no. |
+| {content}   | Conteúdo do pedido | JSON      | O payload de evento formatada em JSON. |
 
 #### <a name="response"></a>Resposta
 
@@ -216,9 +258,9 @@ DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/te
 
 O pedido parâmetros para esta API incluem o conjunto predefinido mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo       | Tipo de parâmetro  | Tipo de dados | Descrição |
+| Campo       | Tipo de parâmetro  | Tipo de Dados | Descrição |
 |-------------|-----------------|-----------|-------------|
-| Razão      | Cadeia de consulta    | Cadeia    | Opcional. O motivo para terminar a instância de orquestração. |
+| reason      | Cadeia de consulta    | string    | Opcional. O motivo para terminar a instância de orquestração. |
 
 #### <a name="response"></a>Resposta
 
@@ -236,7 +278,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52b
 
 As respostas para esta API não contém qualquer conteúdo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saber como lidar com erros](durable-functions-error-handling.md)

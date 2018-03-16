@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Serviço de recursos de infraestrutura e de contentores
 > [!NOTE]
@@ -26,11 +26,11 @@ ms.lasthandoff: 01/13/2018
 >   
 
 > [!NOTE]
-> Versão 6.1 do Service Fabric tem suporte de pré-visualização para o Windows Server versão 1709. Funcionamento em rede aberto e o serviço de DNS do serviço de recursos de infraestrutura não funcionam com o Windows Server versão 1709. 
+> A versão 6.1 do Service Fabric tem suporte de pré-visualização para a versão 1709 do Windows Server. O funcionamento em rede aberta e o Serviço DNS do Service Fabric não funcionam com a versão 1709 do Windows Server. 
 > 
 
 ## <a name="introduction"></a>Introdução
-Azure Service Fabric é uma [orchestrator](service-fabric-cluster-resource-manager-introduction.md) dos serviços de um cluster de máquinas, com anos de utilização e a otimização de grande escala para serviços Microsoft. Os serviços podem ser desenvolvidos de várias maneiras de utilizar o [modelos de programação do Service Fabric](service-fabric-choose-framework.md) para implementar [convidado executáveis](service-fabric-deploy-existing-app.md). Por predefinição, o Service Fabric implementa e ativa estes serviços como processos. Processos de fornecem o ativação mais rápida e mais alta densidade utilização de recursos num cluster. Serviço de recursos de infraestrutura também pode implementar serviços nas imagens de contentor. Importante ainda, pode combinar os serviços de processos e serviços nos contentores na mesma aplicação.   
+Azure Service Fabric é uma [orchestrator](service-fabric-cluster-resource-manager-introduction.md) dos serviços de um cluster de máquinas, com anos de utilização e a otimização de grande escala para serviços Microsoft. Os serviços podem ser desenvolvidos de várias maneiras de utilizar o [modelos de programação do Service Fabric](service-fabric-choose-framework.md) para implementar [convidado executáveis](service-fabric-guest-executables-introduction.md). Por predefinição, o Service Fabric implementa e ativa estes serviços como processos. Processos de fornecem o ativação mais rápida e mais alta densidade utilização de recursos num cluster. Serviço de recursos de infraestrutura também pode implementar serviços nas imagens de contentor. Importante ainda, pode combinar os serviços de processos e serviços nos contentores na mesma aplicação.   
 
 ## <a name="what-are-containers"></a>Quais são contentores?
 Contentores são encapsulados, individualmente implementáveis componentes que são executados como instâncias isoladas no mesmo kernel para tirar partido de Virtualização que fornece um sistema operativo. Assim, cada aplicação e respetivos bibliotecas de tempo de execução, dependências e do sistema executam dentro de um contentor com acesso total, privado para a vista de contentor próprio isolada das construções de sistema operativo. Juntamente com a portabilidade, este nível de isolamento de segurança e de recursos é a vantagem principal para utilizar contentores com o Service Fabric, caso contrário, que executa serviços em processos.
@@ -72,7 +72,7 @@ Seguem-se exemplos típicos onde um contentor é uma boa opção:
 ## <a name="service-fabric-support-for-containers"></a>Suporte de Service Fabric para contentores
 Serviço de recursos de infraestrutura suporta a implementação de contentores de Docker em contentores de Linux e Windows Server no Windows Server 2016, juntamente com suporte para o modo de isolamento de Hyper-V. 
 
-No Service Fabric [modelo de aplicação](service-fabric-application-model.md), um contentor representa um anfitrião de aplicações no serviço várias réplicas são colocadas. Service Fabric pode executar quaisquer contentores, e o cenário é semelhante a [cenário executável convidado](service-fabric-deploy-existing-app.md), onde o pacote uma aplicação existente no interior de um contentor. Este cenário é o caso de utilização comuns para contentores, e os exemplos incluem a executar uma aplicação de escrita em qualquer idioma ou estruturas, mas não a utilizar os modelos de programação do Service Fabric incorporados.
+No Service Fabric [modelo de aplicação](service-fabric-application-model.md), um contentor representa um anfitrião de aplicações no serviço várias réplicas são colocadas. Service Fabric pode executar quaisquer contentores, e o cenário é semelhante a [cenário executável convidado](service-fabric-guest-executables-introduction.md), onde o pacote uma aplicação existente no interior de um contentor. Este cenário é o caso de utilização comuns para contentores, e os exemplos incluem a executar uma aplicação de escrita em qualquer idioma ou estruturas, mas não a utilizar os modelos de programação do Service Fabric incorporados.
 
 Além disso, pode executar [serviços do Service Fabric no interior de contentores](service-fabric-services-inside-containers.md) bem. Suporte para os serviços do Service Fabric em execução no interior de contentores está actualmente limitado e irá ser melhorado em versões futuras.
 

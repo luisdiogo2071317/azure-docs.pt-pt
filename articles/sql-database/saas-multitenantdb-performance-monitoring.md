@@ -3,24 +3,18 @@ title: "Monitorizar o desempenho de um a multi-inquilino SQL database do Azure n
 description: "Monitorizar e gerir o desempenho da multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino"
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino
 
@@ -158,7 +152,7 @@ O modelo de multi-inquilino em partição horizontal permite-lhe escolher se pre
 Se já aprovisionado um novo inquilino na sua própria base de dados, ignore os próximos passos.
 
 1. No **ISE do PowerShell**, abra... \\Learning módulos\\ProvisionTenants\\*demonstração ProvisionTenants.ps1*. 
-1. Modificar **$TenantName = "Salix Salsa"** e **$VenueType = "dance"**
+1. Modify **$TenantName = "Salix Salsa"** and **$VenueType  = "dance"**
 1. Definir **$Scenario** = **2**, _aprovisionar um inquilino na nova base de dados do inquilino único_
 1. Prima **F5** para executar o script.
 
@@ -172,7 +166,7 @@ Neste exercício simula o efeito da Salix Salsa experienciar uma elevada carga q
 
 1. Abra a... \\ *Demonstração PerformanceMonitoringAndManagement.ps1* script.
 1. Definir **$DemoScenario = 5**, _gerar uma carga normal plus uma elevada carga num único inquilino (aprox 90 DTU)._
-1. Definir **$SingleTenantName = Salix Salsa**
+1. Set **$SingleTenantName = Salix Salsa**
 1. Execute o script com **F5**.
 
 Aceda ao portal e navegue para **salixsalsa** > **descrição geral** para ver os gráficos de monitorização. 
@@ -187,7 +181,7 @@ Porque o dimensionamento é uma tarefa facilmente chamado através de gestão de
 
 Em que a utilização de agregação inquilino segue padrões de utilização previsíveis, pode utilizar o automatização do Azure para dimensionar uma base de dados cima e baixo com base numa agenda. Por exemplo, dimensionar uma base de dados para baixo após 18: 00 e cópia de segurança novamente antes de 6: 00 em dias da semana quando sabe que existe uma redução no requisitos de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficará a saber como:
 

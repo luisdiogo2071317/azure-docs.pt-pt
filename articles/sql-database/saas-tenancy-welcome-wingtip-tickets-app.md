@@ -3,23 +3,18 @@ title: "Bem-vindo à aplicação Wingtips - base de dados SQL do Azure | Microso
 description: "Saiba mais sobre modelos de inquilinos de base de dados e sobre a aplicação de Wingtips SaaS de exemplo, para a base de dados do Azure SQL Server no ambiente de nuvem."
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: billgib
 manager: craigg
-editor: MightyPen
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: bb69a03333ed9dcdba1456d053c0080be5ba4d10
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>A aplicação de Wingtip bilhetes SaaS
 

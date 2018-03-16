@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para os mosaicos do estruturador de vistas na análise de registos
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis no seu vistas personalizadas.
@@ -28,8 +28,6 @@ Para obter mais informações sobre o estruturador de vistas, consulte:
 * [Ver Designer](log-analytics-view-designer.md): fornece uma descrição geral do estruturador de vistas e procedimentos para criar e editar vistas personalizadas.
 * [Referência de parte de visualização](log-analytics-view-designer-parts.md): Fornece um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas.
 
-> [!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), as consultas em todas as vistas têm de ser escritas [novo idioma de consulta](https://go.microsoft.com/fwlink/?linkid=856078). Todas as vistas que foram criadas antes da atualização de área de trabalho são convertidas automaticamente.
 
 Os mosaicos do estruturador de vistas disponíveis são descritos na tabela seguinte:  
 
@@ -53,7 +51,7 @@ O **número** mosaico mostra ambas a contagem de registos a partir de uma consul
 |:--- |:--- |
 | Nome |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
-| Mosaico | |
+| **Mosaico** | |
 | Legenda |O texto que é apresentado sob o valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem de registos que são devolvidos pela consulta. |
 | **Avançadas** |**> Verificação de-fluxo de dados** |

@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 12/14/2017
+ms.date: 3/14/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Carregar dados do Azure Data Lake Store para o SQL Data Warehouse
 Este documento dá-lhe um todos os passos que necessários para carregar dados do Azure Data Lake Store (ADLS) para o armazém de dados do SQL Server utilizando o PolyBase.
-Enquanto é capaz de executar consultas ad hoc através dos dados armazenados no ADLS utilizando as tabelas externas, como melhor prática sugerimos que importar os dados para o armazém de dados do SQL Server.
+Enquanto é capaz de executar consultas ad hoc através dos dados armazenados no ADLS utilizando as tabelas externas, sugerimos que importar os dados para o armazém de dados do SQL Server para um melhor desempenho.
 
 Este tutorial ficará a saber como:
 
-1. Crie objetos de base de dados externo para carregar a partir do Azure Data Lake Store.
+1. Crie objetos de base de dados necessários para carregar a partir do Azure Data Lake Store.
 2. Ligar a um diretório do Azure Data Lake Store.
 3. Carregar dados para o Azure SQL Data Warehouse.
 
@@ -42,14 +42,14 @@ Para executar este tutorial, precisa de:
 
 * SQL Server Management Studio ou o SQL Server Data Tools para transferir o SSMS e ligar consulte [SSMS de consulta](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Um Azure SQL Data Warehouse, para criar um siga: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision _
+* Um Azure SQL Data Warehouse, para criar um siga: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
 * Um Azure Data Lake Store, criar um siga: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Criar uma credencial
 Para aceder ao Azure Data Lake Store, terá de criar uma chave mestra de base de dados para encriptar o segredo da credencial utilizado no próximo passo.
-Em seguida, criar uma credencial com âmbito de base de dados, que armazena as credenciais de principal de serviço de multimédia no AAD. Os dos que utilizou o PolyBase para ligar ao armazenamento de Blobs do Windows Azure, tenha em atenção que a sintaxe de credencial diferente.
+Em seguida, criar uma credencial de um âmbito de base de dados, que armazena as credenciais de principal de serviço de multimédia no AAD. Os dos que utilizou o PolyBase para ligar ao armazenamento de Blobs do Windows Azure, tenha em atenção que a sintaxe de credencial diferente.
 Para ligar ao Azure Data Lake Store, terá **primeiro** criar uma aplicação do Azure Active Directory, crie uma chave de acesso e conceder o acesso de aplicação para o recurso do Azure Data Lake. As instruções para efetuar estes passos estão localizadas [aqui](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
@@ -82,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Criar a origem de dados externas
-Utilize esta opção [criar origem de dados externa] [ CREATE EXTERNAL DATA SOURCE] comando para armazenar a localização dos dados. Para localizar o URI de ADL no portal do Azure, navegue para o Azure Data Lake Store e, em seguida, observar o painel Essentials.
+Utilize esta opção [criar origem de dados externa] [ CREATE EXTERNAL DATA SOURCE] comando para armazenar a localização dos dados. 
 
 ```sql
 -- C: Create an external data source
@@ -99,8 +99,8 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>Configurar o formato de dados
-Para importar os dados de ADLS, tem de especificar o formato de ficheiro externo. Este comando tem opções de formato específico para descrever os seus dados.
-Observe a nossa documentação de T-SQL para obter uma lista completa de [criar formato de ficheiro externo][CREATE EXTERNAL FILE FORMAT]
+Para importar os dados de ADLS, tem de especificar o formato de ficheiro externo. Este objeto define a forma como os ficheiros são escritos no ADLS.
+Para obter a lista completa, observe a nossa documentação de T-SQL [criar formato de ficheiro externo][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
 -- D: Create an external file format
@@ -157,7 +157,7 @@ Se uma linha não corresponde a definição de esquema, a linha é rejeitada da 
 
 As opções de REJECT_TYPE e REJECT_VALUE permitem-lhe definir o número de linhas ou que percentagem dos dados tem de estar presente na tabela final. Durante o carregamento, se o valor de rejeitar for atingido, a carga de falha. A causa mais comum de linhas rejeitadas é um erro de correspondência de definição de esquema. Por exemplo, se uma coluna incorretamente é dado o esquema de int quando os dados no ficheiro são uma cadeia, cada linha irão falhar ao carregar.
 
- Azure Data Lake store utiliza o controlo de acesso baseado em ' (RBAC) da função para controlar o acesso aos dados. Isto significa que o Principal de serviço tem de ter permissões de leitura para os diretórios definidos no parâmetro de localização e para os subordinados do diretório final e ficheiros. Isto permite que o PolyBase autenticar e carregar os dados de leitura. 
+ Azure Data Lake store utiliza o controlo de acesso baseado em ' (RBAC) da função para controlar o acesso aos dados. Isto significa que o Principal de serviço tem de ter permissões de leitura para os diretórios definidos no parâmetro de localização e para os subordinados do diretório final e ficheiros. Isto permite que o PolyBase autenticar e carregar os dados. 
 
 ## <a name="load-the-data"></a>Carregar os dados
 Para carregar dados de utilização do Azure Data Lake Store o [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrução. 
@@ -200,8 +200,8 @@ O exemplo seguinte é um ponto de partida para criar estatísticas. Cria estatí
 ## <a name="achievement-unlocked"></a>Achievement desbloqueado!
 Carregou com êxito dados para o Azure SQL Data Warehouse. Excelente trabalho!
 
-## <a name="next-steps"></a>Passos Seguintes
-Carregamento de dados é o primeiro passo para desenvolver uma solução de armazém de dados do armazém de dados do SQL Server a utilizar. Consulte a nossa recursos de desenvolvimento no [tabelas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) e [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+## <a name="next-steps"></a>Próximos Passos
+Carregamento de dados é o primeiro passo para desenvolver uma solução de armazém de dados do armazém de dados do SQL Server a utilizar. Consulte a nossa recursos de desenvolvimento no [tabelas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) e [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops).
 
 
 <!--Image references-->

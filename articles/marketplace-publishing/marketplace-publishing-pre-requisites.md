@@ -3,8 +3,8 @@ title: "Não técnicos pré-requisitos para criar uma oferta para o Azure Market
 description: Compreenda os requisitos para criar e implementar uma oferta no Azure Marketplace para outras pessoas para comprar.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5c30e62bf345843fe83b3f17b728e1a937d19ce3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Pré-requisitos gerais para criar uma oferta para o Azure Marketplace
 Compreenda os pré-requisitos gerais, negócio processo-centrado em que são necessárias para avançar com o processo de criação da oferta.
@@ -73,12 +73,12 @@ Esta é a subscrição que irá utilizar para criar as imagens VM e entregar atr
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois dos pré-requisitos não técnicos estiverem concluídos, em seguida é a oferta pré-requisitos técnicos específicos. Clique na ligação para o artigo para o tipo de oferta respetivos que gostaria de criar para o Azure Marketplace.
 
 * [VM técnicas pré-requisitos](marketplace-publishing-vm-image-creation-prerequisites.md)
 * [Solução modelo técnicas pré-requisitos](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 

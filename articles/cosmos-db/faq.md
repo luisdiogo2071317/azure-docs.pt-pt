@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -211,6 +211,7 @@ Existem algumas diferenças de comportamento utilizadores provenientes da Table 
 * Não é atualmente suportado CORS
 * Os nomes de tabela no armazenamento de Azure Table não são maiúsculas e minúsculas, mas estão na API de tabela de base de dados do Azure Cosmos
 * Alguns dos formatos de internos da BD do Cosmos do Azure para obter informações de codificação, como binários campos, atualmente não estão como eficientes como um poderá gostar. Por conseguinte, isto pode provocar limitações inesperadas no tamanho dos dados. Por exemplo, atualmente um não foi possível utilizar a completa 1 Meg de uma entidade de tabela para armazenar dados binários porque a codificação aumenta o tamanho dos dados.
+* Nome de propriedade de entidade "Id" atualmente não suportado
 
 Em termos da API REST, existem várias opções de pontos finais/consulta que não são suportadas pelo Azure Cosmos DB tabela API de:
 | Método de REST | Opção de consulta/ponto final de REST | Doc URLs | Explicação |
@@ -282,7 +283,7 @@ Sim, pode ligar ao criar duas instâncias separadas do CloudTableClient, cada ap
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Como posso migrar uma aplicação de armazenamento de tabelas do Azure existente esta oferta?
 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) e [ferramenta de migração de dados do Azure Cosmos DB](import-data.md) são ambas suportada.
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Como é expansão de tamanho de armazenamento feito para este serviço se, por exemplo, iniciar com  *n*  GB de dados e os meus dados irá aumentar 1 TB ao longo do tempo? 
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Como é expansão de tamanho de armazenamento feito para este serviço se, por exemplo, iniciar com *n* GB de dados e os meus dados irá aumentar 1 TB ao longo do tempo? 
 BD do Azure do Cosmos foi concebida para fornecer armazenamento ilimitado através da utilização de dimensionamento horizontal. O serviço pode monitorizar e aumentar eficazmente o seu armazenamento. 
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>Como monitorizar a oferta de API de tabela?
@@ -377,7 +378,7 @@ Do .NET SDK podem ser submetido no ficheiro App. config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>BD do Azure do Cosmos como uma plataforma parece ter muita das capacidades, tal como a ordenação, os agregados, hierarquia e outras funcionalidades. Será possível adicionar estas capacidades para a API de tabela? 
-A API de tabela fornece a mesma funcionalidade de consulta que o Table storage do Azure. BD do Azure do Cosmos também suporta a ordenação, os agregados, geoespacial consulta, hierarquia e uma vasta gama de funções incorporadas. Podemos irá fornecer funcionalidades adicionais na API tabela numa atualização futura do serviço. Para obter mais informações, consulte [as consultas SQL](sql-api-sql-query.md).
+A API de tabela fornece a mesma funcionalidade de consulta que o Table storage do Azure. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. Podemos irá fornecer funcionalidades adicionais na API tabela numa atualização futura do serviço. Para obter mais informações, consulte [as consultas SQL](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando posso alterar TableThroughput para a API de tabela?
 Deve alterar TableThroughput quando qualquer uma das seguintes condições aplicam-se:

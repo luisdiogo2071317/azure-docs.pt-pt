@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -36,8 +36,19 @@ Permissões obrigatórias | Para as permissões necessárias para aplicar uma at
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+Estado: Lançadas para selecionar esta versão está a ser atualmente distribuída para uma seleção de pequena e aleatória de inquilinos do AADConnect que tiver ativado a atualização automática de clientes. Iremos irá expandir este grupo de inquilinos nas próximas semanas até 100% dos nossos clientes de atualização automática receberam nesta versão. Depois disso será publicarmos a compilação para transferência geral da ligação de transferência acima.
+>[!NOTE]
+>Quando tiver concluído a atualização para esta nova versão, será automaticamente acionada uma sincronização completa e a importação completa para o conector do Azure AD e uma sincronização completa para o conector do AD. Uma vez que esta operação pode demorar algum tempo, dependendo do tamanho do seu ambiente do Azure AD Connect, certifique-se de que seguiu os passos necessários para suportar isto ou espere até ter encontrado um momento conveniente para fazê-lo a atualizar.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas fixos
+
+* Cmdlet do Set-ADSyncAutoUpgrade anteriormente bloqueariam Autoupgrade se o estado de atualização automática está definido como suspenso. Isto é agora alterado pelo que não bloqueia AutoUpgrade das compilações futuras.
+
 ## <a name="117490"></a>1.1.749.0
-Estado: Lançadas para selecionar esta versão está a ser atualmente distribuída para uma secção pequena e aleatória de inquilinos do AADConnect que tiver ativado a atualização automática de clientes. Iremos irá expandir este grupo de inquilinos nas próximas semanas até 100% dos nossos clientes de atualização automática receberam nesta versão. Depois disso será publicarmos a compilação para transferência geral na ligação de transferência acima - atualmente planeada para meados de Março de 2018.
+Estado: Lançado para selecionar os clientes
+
 >[!NOTE]
 >Quando tiver concluído a atualização para esta nova versão, será automaticamente acionada uma sincronização completa e a importação completa para o conector do Azure AD e uma sincronização completa para o conector do AD. Uma vez que esta operação pode demorar algum tempo, dependendo do tamanho do seu ambiente do Azure AD Connect, certifique-se que seguiu os passos necessários para suportar isto ou espere até ter encontrado um momento conveniente para fazê-lo a atualizar.
 
@@ -45,15 +56,15 @@ Estado: Lançadas para selecionar esta versão está a ser atualmente distribuí
 #### <a name="fixed-issues"></a>Problemas fixos
 * Corrija a janela de temporização tarefas em segundo plano para a página de filtragem de partição ao mudar para a página seguinte.
 
-* Corrigido um erro que provocou a violação de acesso durante a ação personalizada ConfigDB
+* Corrigido um erro que provocou a violação de acesso durante a ação personalizada ConfigDB.
 
 * Corrigido um erro ao recuperar a partir de tempo limite de ligação do SQL Server.
 
-* Corrigido um erro em que os certificados com carateres universais de SAN falharam uma verificação de pré-requisitos
+* Corrigido um erro em que os certificados com carateres universais de SAN falharam uma verificação de pré-requisitos.
 
 * Corrigido um erro que faz com que miiserver.exe para falhas durante a exportação de um conector do Azure AD.
 
-* Corrigido um erro registado que tentativa de palavra-passe incorreta no DC ao executar o Assistente do Azure AD Connect para alterar a configuração
+* Fixo de erros que tentativa de palavra-passe incorreta com sessão iniciada no DC ao executar o Assistente do Azure AD Connect para alterar a configuração.
 
 
 #### <a name="new-features-and-improvements"></a>Funcionalidades novas e melhoradas
@@ -223,7 +234,7 @@ Estado: 19 de Outubro de 2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 >[!NOTE]
-> Nota: O serviço de sincronização tem uma interface WMI que permite-lhe desenvolver o suas próprias programador personalizado. Esta interface despromovido e será removida do futuras versões do Azure AD Connect vem incluído após 30 de Junho de 2018. Os clientes que pretendem personalizar agenda de sincronização devem utilizar o [incorporado programador (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Nota: O serviço de sincronização tem uma interface WMI que permite-lhe desenvolver o suas próprias programador personalizado. Esta interface despromovido e será removida do futuras versões do Azure AD Connect vem incluído após 30 de Junho de 2018. Os clientes que pretendem personalizar agenda de sincronização devem utilizar o [Programador incorporada (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problemas fixos
 * Quando o Assistente do Azure AD Connect cria a conta do conector do AD necessária para sincronizar as alterações do Active Directory no local, este não corretamente atribuir a conta a permissão necessária para ler PublicFolder objetos. Este problema afeta instalação rápida e instalação personalizada. Esta alteração corrige o problema.
@@ -787,7 +798,7 @@ Data da versão: Fevereiro de 2016
 
 * [A atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) funcionalidade para clientes de definições rápidas.
 * Suporte para o administrador global utilizando o Azure multi-factor Authentication e Privileged Identity Management no Assistente de instalação.
-  * Terá de permitir que o proxy permitir o tráfego para https://secure.aadcdn.microsoftonline-p.com também se utilizar o multi-factor Authentication.
+  * É necessário permitir que o proxy permitir o tráfego para https://secure.aadcdn.microsoftonline-p.com se utilizar o multi-factor Authentication.
   * Tem de adicionar https://secure.aadcdn.microsoftonline-p.com à sua lista de sites fidedignos para autenticação Multifator funcionar corretamente.
 * Permita a alteração do método de início de sessão do utilizador após a instalação inicial.
 * Permitir [domínio e a UO filtragem](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) no Assistente de instalação. Isto também permite que a ligação para todas as florestas onde nem todos os domínios estão disponíveis.

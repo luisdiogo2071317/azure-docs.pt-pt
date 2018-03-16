@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b06144e6ad3df1626022edd856e14d6c47494336
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para Distribuições Não Apoiadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -50,7 +50,7 @@ O resto deste artigo foca-se no orientações gerais para executar a distribuiç
 * É necessário suporte de kernel para montar a sistemas de ficheiros UDF. No primeiro arranque no Azure a configuração de aprovisionamento é transmitida para a VM com Linux através de multimédia formatado UDF ligada para o convidado. O agente Linux do Azure tem de ser capaz de montar o sistema de ficheiros UDF ler a configuração e aprovisionar a VM.
 * Versões de kernel do Linux abaixo 2.6.37 não suportam no Hyper-V com tamanhos de VM maiores. Isto emitir principalmente impactos distribuições mais antigas utilizando o montante kernel do Red Hat 2.6.32 e foi corrigido em RHEL 6.6 (kernel-2.6.32-504). Sistemas com kernels personalizados anteriores 2.6.37 ou baseado em RHEL kernels mais antigos que 2.6.32-504 tem de definir o parâmetro de arranque `numa=off` no kernel da linha de comandos no grub.conf. Para obter mais informações consulte Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Não configure uma partição de comutação no disco do SO. O agente Linux pode ser configurado para criar um ficheiro de comutação no disco de recursos temporário.  Podem encontrar mais informações sobre esta nos passos abaixo.
-* Todos os VHDs têm de ter tamanhos que estão em múltiplos de 1 MB.
+* Todos os VHDs no Azure tem de ter um tamanho virtual alinhado com 1MB. Ao converter de um disco não processado para o VHD tem de se certificar de que o tamanho do disco não processados é um múltiplo de 1MB antes de conversão. Nos passos abaixo, podem encontrar mais informações.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Instalar módulos de kernel sem Hyper-V
 Azure é executado num hipervisor Hyper-V, Linux requer a determinados módulos de kernel para executar no Azure. Se tiver uma VM que foi criada fora do Hyper-V, os programas de instalação do Linux não podem incluir os controladores para o Hyper-V no disco de RAM inicial (initrd ou initramfs), a menos que Deteta que está a ser executado num ambiente Hyper-V. Quando utilizar um sistema de Virtualização diferente (ou seja, Virtualbox KVM, etc.) para preparar a imagem do Linux, poderá ter de reconstruir o initrd para garantir que, pelo menos, o `hv_vmbus` e `hv_storvsc` módulos de kernel estão disponíveis em disco de RAM inicial.  Este é um problema conhecido, pelo menos, em sistemas com base na distribuição de Red Hat a montante.
@@ -75,7 +75,7 @@ Imagens VHD no Azure tem de ter um tamanho virtual alinhado com 1MB.  Normalment
 Para resolver isto pode redimensionar a VM utilizando a consola de Gestor de Hyper-V ou o [redimensionamento VHD](http://technet.microsoft.com/library/hh848535.aspx) cmdlet do Powershell.  Se não estiver a executar num ambiente Windows, em seguida, é recomendado utilizar qemu img converter (se necessário) e redimensionar o VHD.
 
 > [!NOTE]
-> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
 > 
 > 
 

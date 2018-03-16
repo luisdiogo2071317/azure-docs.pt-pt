@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento para uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para estes, tem de escrever uma expressão de tipo de script que permite-lhe transformar dados dos utilizadores em formatos mais aceitáveis para a aplicação SaaS.
@@ -62,7 +62,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **source** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
-| **inputFormat** |Necessário |Cadeia |Formato esperado do valor de origem. Para formatos suportados, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Necessário |Cadeia |Formato esperado do valor de origem. Para formatos suportados, consulte [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Necessário |Cadeia |Formato da data de saída. |
 
 - - -
@@ -91,8 +91,8 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **source** |Necessário |Cadeia |Normalmente, o nome do atributo. |
-| **start** |Necessário |inteiro |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
-| **length** |Necessário |inteiro |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
+| **start** |Necessário |integer |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
+| **length** |Necessário |integer |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
 
 - - -
 ### <a name="not"></a>não
@@ -108,7 +108,7 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 
 - - -
 ### <a name="replace"></a>Substituir
-**Função:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Função:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrição:**<br>
 Substitui os valores dentro de uma cadeia. Este funciona de forma diferente consoante os parâmetros fornecidos:
@@ -119,13 +119,13 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 * Quando **oldValue** e **modelo** são fornecidos:
   
   * Substitui todas as ocorrências do **oldValue** no **modelo** com o **origem** valor
-* Quando **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue** são fornecidos:
+* Quando **regexPattern**, **regexGroupName**, **replacementValue** são fornecidos:
   
   * Substitui todos os valores correspondentes oldValueRegexPattern na cadeia de origem com replacementValue
-* Quando **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** são fornecidos:
+* Quando **regexPattern**, **regexGroupName**, **replacementPropertyName** são fornecidos:
   
-  * Se **origem** tem um valor, **origem** é devolvido
-  * Se **origem** não tem nenhum valor, utiliza **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair a propriedade com o valor de substituição  **replacementPropertyName**. Valor de substituição é devolvido como resultado
+  * Se **origem** não tem um valor, **origem** é devolvido
+  * Se **origem** tem um valor, utiliza **regexPattern** e **regexGroupName** para extrair a propriedade com o valor de substituição **replacementPropertyName** . Valor de substituição é devolvido como resultado
 
 **Parâmetros:**<br> 
 
@@ -213,6 +213,17 @@ Tem de gerar um utilizador alias, efetuando os primeiros 3 letras do nome própr
 * **INPUT** (givenName): "John"
 * **ENTRADA** (apelido): "Silva"
 * **SAÍDA**: "JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Remover diacritics de uma cadeia e converter em minúsculas
+Terá de remover os carateres especiais de uma cadeia e converter carateres em maiúsculas de minúsculas.
+
+**Expressão:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Entrada/saída de exemplo:** <br>
+
+* **INPUT** (givenName): "Zoë"
+* **SAÍDA**: "zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia com um formato de determinados
 Pretende enviar datas a uma aplicação SaaS num formato de determinadas. <br>

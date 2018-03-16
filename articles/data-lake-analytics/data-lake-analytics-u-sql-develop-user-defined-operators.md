@@ -3,8 +3,8 @@ title: Desenvolver operadores definido pelo utilizador U-SQL (UDOs) | Microsoft 
 description: 'Saiba como desenvolver operadores definido pelo utilizador a ser utilizada e reutilizada em tarefas de Data Lake Analytics. '
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: kfile
 editor: cgronlun
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saveenr
+ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definido pelo utilizador U-SQL (UDOs)
 Saiba como desenvolver operadores definido pelo utilizador para processar os dados numa tarefa U-SQL.
@@ -129,6 +129,6 @@ Para obter instruções sobre como desenvolver para fins gerais assemblagens U-S
 1. De **Explorador de servidores**, expanda **Azure**, expanda **Data Lake Analytics**, expanda a sua conta do Data Lake Analytics, expanda **contas do Storage**, faça duplo clique o armazenamento de predefinido e, em seguida, clique em **Explorer**.
 2. Expanda amostras, expanda saídas e, em seguida, faça duplo clique em **Drivers.csv**.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Expandir as expressões de U-SQL com o código de utilizador](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [Utilizar as ferramentas do Data Lake para Visual Studio para desenvolver aplicações U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

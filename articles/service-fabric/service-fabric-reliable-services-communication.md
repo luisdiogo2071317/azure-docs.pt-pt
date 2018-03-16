@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar a APIs de comunicação Reliable Services
 Azure Service Fabric, como uma plataforma é completamente agnóstico relativamente sobre a comunicação entre os serviços. Todas as pilhas e protocolos são aceitáveis, do UDP para HTTP. Está a funcionar para o Programador de serviço para escolher a forma como os serviços devem comunicar. A estrutura da aplicação Reliable Services fornece pilhas de comunicação incorporada, bem como as APIs que pode utilizar para criar os componentes de comunicação personalizado.
@@ -54,7 +54,7 @@ Em seguida, pode adicionar a implementação de serviço de escuta de comunicaç
 Para serviços sem monitorização de estado:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ Para os serviços com monitorização de estado:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -275,7 +275,7 @@ A biblioteca de fábrica de comunicação implementa um padrão de repetição d
 O cliente de comunicação apenas recebe um endereço e utiliza-o para ligar a um serviço. O cliente pode utilizar qualquer protocolo que pretende.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

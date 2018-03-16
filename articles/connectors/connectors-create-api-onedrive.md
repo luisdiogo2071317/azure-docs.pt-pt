@@ -3,7 +3,7 @@ title: Adicione o conector do OneDrive nas suas Logic Apps | Microsoft Docs
 description: "Descrição geral do conector do OneDrive com parâmetros de REST API"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Começar a utilizar o conector do OneDrive
 Ligar para o OneDrive para gerir os seus ficheiros, incluindo carregar, obter, eliminar ficheiros e muito mais. 
@@ -30,7 +30,7 @@ Com o OneDrive, pode:
 * Utilize acionadores para iniciar o fluxo de trabalho quando um ficheiro é criado ou atualizado no seu OneDrive.
 * Utilize ações para criar um ficheiro, eliminar um ficheiro e muito mais. Por exemplo, quando é recebido um novo e-mail do Office 365 com um anexo (um acionador), crie um novo ficheiro no OneDrive (uma ação).
 
-Este tópico mostra-lhe como utilizar o conector do OneDrive numa aplicação lógica e também apresenta uma lista de acionadores e ações.
+Este artigo mostra-lhe como utilizar o conector do OneDrive numa aplicação lógica e também apresenta uma lista de acionadores e ações.
 
 Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalh
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Se lhe for pedido para iniciar sessão, em seguida, introduza o início de sessão nos detalhes para criar a ligação. [Criar a ligação](connectors-create-api-onedrive.md#create-the-connection) este tópico lista os passos. 
+    Se lhe for pedido para iniciar sessão, em seguida, introduza o início de sessão nos detalhes para criar a ligação. [Criar a ligação](connectors-create-api-onedrive.md#create-the-connection) este artigo apresenta os passos. 
    
    > [!NOTE]
    > Neste exemplo, a aplicação lógica é executado quando um ficheiro na pasta que escolher é atualizado. Para ver os resultados deste acionador, adicione outra ação que envia-lhe uma mensagem de e-mail. Por exemplo, adicionar o Office 365 Outlook *enviar um e-mail* ação e-mails quando um ficheiro é atualizado. 
@@ -76,7 +76,7 @@ Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa 
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    Se lhe for pedido para obter as informações de ligação, em seguida, introduza os detalhes para criar a ligação. [Criar a ligação](connectors-create-api-onedrive.md#create-the-connection) neste tópico descreve estas propriedades. 
+    Se lhe for pedido para obter as informações de ligação, em seguida, introduza os detalhes para criar a ligação. [Criar a ligação](connectors-create-api-onedrive.md#create-the-connection) este artigo descreve estas propriedades. 
    
    > [!NOTE]
    > Neste exemplo, vamos criar um novo ficheiro numa pasta OneDrive. Pode utilizar o resultado de Acionador de outro para criar o ficheiro do OneDrive. Por exemplo, adicionar o Office 365 Outlook *quando chega um novo e-mail* acionador. Em seguida, adicione o OneDrive *criar ficheiro* ação que utiliza os anexos e o tipo de conteúdo campos dentro de um ForEach para criar o novo ficheiro no OneDrive. 

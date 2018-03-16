@@ -1,4 +1,19 @@
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 3652e26bb775ae6ac1897bea529e7ae69d77cdbd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/16/2018
+---
 Otimização de memória oferta de tamanhos VM numa proporção de memória a CPU elevada que são ótimos para servidores de base de dados relacional, caches médias e grandes e análise de memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
 * M-série oferece a maior vCPU contagem (até 128 vCPUs) e a maior memória (TiB até 3.8) de qualquer VM na nuvem.  É ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.

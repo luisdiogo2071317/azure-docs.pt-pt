@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/14/2018
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2c0c3597999e80af86f079385653d94ddfcab245
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dbb5e9e8f9accd618599010ab2bbb4a8760e534f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-cosmos-db"></a>Utilize um utilizador atribuído geridos serviço de identidade (MSI) numa VM com Linux para aceder à base de dados do Azure Cosmos 
 
@@ -45,7 +45,7 @@ Para executar os exemplos de script CLI neste tutorial, tem duas opções:
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual Linux num novo grupo de recursos
 
@@ -158,10 +158,10 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
 3. Em seguida, é-lhe pedido que introduza no seu **palavra-passe** adicionado ao criar o **VM com Linux**. Deve, em seguida, ser sessão com êxito.  
 4. Utilize o CURL para obter acesso token para o Azure Resource Manager.  
 
-    O CURL pedido e resposta para o token de acesso é abaixo.  Substitua <CLIENT ID> com o clientId o valor do seu utilizador atribuído MSI:
+    O CURL pedido e resposta para o token de acesso é abaixo.  Substitua <CLIENT ID> com o clientId o valor do seu utilizador atribuído MSI: 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

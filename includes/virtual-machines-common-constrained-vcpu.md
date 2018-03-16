@@ -1,5 +1,19 @@
-
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 0b6846a68806354a58516fcbc87913815af87343
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/16/2018
+---
 Algumas cargas de trabalho de base de dados, como o SQL Server ou Oracle requerem elevada da memória, armazenamento e largura de banda de e/s, mas não uma contagem de núcleos elevada. Muitas cargas de trabalho de base de dados não são intensivas em CPU. O Azure disponibiliza determinados tamanhos de VM em que pode restringir o número de vCPU VM para reduzir o custo de licenciamento de software, mantendo a mesma memória, armazenamento e largura de banda de e/s.
 
 A contagem de vCPU pode estar limitada a meio de um ou de um trimestre do tamanho da VM original. Estes novos tamanhos VM tem um sufixo que especifica o número de vCPUs Active Directory para os tornar mais fácil para o identificar.

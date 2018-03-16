@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Criar uma aplicação sem servidor no Visual Studio com Logic Apps e funções
 
@@ -83,10 +83,10 @@ O modelo de implementação implementa quaisquer funções do Azure que estão i
 
 Se utilizar o JavaScript, Python, F #, Bash, Batch ou PowerShell, siga o [os passos na CLI de funções](../azure-functions/functions-run-local.md) para criar um projeto.  Se desenvolver uma função em c#, pode utilizar um [biblioteca de classes do c#](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) na solução atual para a função do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba como criar um dashboard de redes social sem servidor](logic-apps-scenario-social-serverless.md)
-* [Gerir uma aplicação lógica a partir do Explorador de nuvem do Visual Studio](logic-apps-manage-from-vs.md)
+* [Gerir uma aplicação lógica a partir do Explorador de nuvem do Visual Studio](manage-logic-apps-with-visual-studio.md)
 * [Linguagem de definição de fluxo de trabalho de aplicação lógica](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

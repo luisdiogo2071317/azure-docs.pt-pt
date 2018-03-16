@@ -4,7 +4,7 @@ description: "Ao utilizar o estruturador de vistas da análise de registos, pode
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 6fd19cce955e1f06c9b6f5a9ef5d85d9fd63c1c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para as partes de visualização do estruturador de vistas na análise de registos
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados da sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas.
@@ -28,21 +28,19 @@ Para obter mais informações sobre o estruturador de vistas, consulte:
 * [Ver Designer](log-analytics-view-designer.md): fornece uma descrição geral do estruturador de vistas e procedimentos para criar e editar vistas personalizadas.
 * [Mosaico referência](log-analytics-view-designer-tiles.md): fornece uma referência para as definições para cada mosaico disponível no seu vistas personalizadas.
 
->[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), as consultas em todas as vistas têm de ser escritas [novo idioma de consulta](https://go.microsoft.com/fwlink/?linkid=856078). Todas as vistas que foram criadas antes da atualização de área de trabalho são convertidas automaticamente.
 
 Os tipos de mosaico do estruturador de vistas disponíveis são descritos na tabela seguinte:
 
 | Tipo de vista | Descrição |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Mostra uma lista de consultas de pesquisa de registo. Pode selecionar cada consulta para ver os respetivos resultados. |
-| [Número e a lista](#number-amp-list-part) |O cabeçalho apresenta um número único que mostra uma contagem de registos por uma consulta de pesquisa de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
-| [Dois números e lista](#two-numbers-amp-list-part) |O cabeçalho apresenta dois números que mostrem contagens de registos de consultas de pesquisa de registo separados. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
-| [Anel e lista](#donut-amp-list-part) |O cabeçalho apresenta um número único que resume uma coluna de valor de uma consulta de registo. O anel graficamente apresenta resultados dos registos de três principais. |
-| [Duas linhas cronológicas e lista](#two-timelines-amp-list-part) |O cabeçalho apresenta os resultados das duas consultas de registo ao longo do tempo como gráficos de colunas, com uma chamada que apresenta um número único que resume uma coluna de valor de uma consulta de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
+| [Número e a lista](#number-and-list-part) |O cabeçalho apresenta um número único que mostra uma contagem de registos por uma consulta de pesquisa de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
+| [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho apresenta dois números que mostrem contagens de registos de consultas de pesquisa de registo separados. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
+| [Anel e lista](#donut-and-list-part) |O cabeçalho apresenta um número único que resume uma coluna de valor de uma consulta de registo. O anel graficamente apresenta resultados dos registos de três principais. |
+| [Duas linhas cronológicas e lista](#two-timelines-and-list-part) |O cabeçalho apresenta os resultados das duas consultas de registo ao longo do tempo como gráficos de colunas, com uma chamada que apresenta um número único que resume uma coluna de valor de uma consulta de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
 | [Informações](#information-part) |Apresenta o cabeçalho de texto estático e uma ligação opcional. A lista apresenta um ou mais itens com um título estático e texto. |
-| [Gráfico de linhas, chamada e lista](#line-chart-callout-amp-list-part) |O cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta de registo ao longo do tempo e uma chamada com um valor resumido. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
-| [Gráfico de linhas e de lista](#line-chart-amp-list-part) |O cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta de registo ao longo do tempo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
+| [Gráfico de linhas, chamada e lista](#line-chart-callout-and-list-part) |O cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta de registo ao longo do tempo e uma chamada com um valor resumido. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
+| [Gráfico de linhas e de lista](#line-chart-and-list-part) |O cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta de registo ao longo do tempo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo. |
 | [Pilha da peça de gráficos de linha](#stack-of-line-charts-part) |Apresenta os três separado gráficos, com várias séries por uma consulta de registo ao longo do tempo. |
 
 As secções seguintes descrevem os tipos de mosaico e as respetivas propriedades em detalhe.
@@ -78,13 +76,14 @@ O cabeçalho apresenta um número único que mostra uma contagem de registos por
 | **Title** (Título) | |
 | Legenda |O texto que é apresentado na parte superior do cabeçalho. |
 | Consulta |A consulta para o cabeçalho. É apresentada a contagem de registos que são devolvidos pela consulta. |
+| Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **List** | |
 | Consulta |A consulta para a lista. São apresentadas as primeiras duas propriedades dos registos primeiro dez nos resultados da. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Barras são criadas automaticamente que são baseadas no valor da coluna numérica relativo.<br><br>Utilize o `Sort` comando da consulta para ordenar os registos na lista. Para executar a consulta e devolver todos os registos, pode selecionar **ver todos os**. |
 | Ocultar gráfico |Selecione esta hiperligação para desativar o gráfico no lado direito da coluna numérica. |
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Cor |A cor de barras ou sparklines. |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
-| Consulta de navegação |A consulta para ser executada quando selecciona um item na lista. Para obter mais informações, consulte [definições comuns](#navigation-query). |
+| Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **List** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
@@ -103,6 +102,8 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 | Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| **Navegação de título** | |
+| Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Title** (Título) | |
 | Legenda |O texto que é apresentado na parte superior do cabeçalho. |
 | Consulta |A consulta para o cabeçalho. É apresentada a contagem de registos que são devolvidos pela consulta. |
@@ -113,7 +114,7 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 | Cor |A cor de barras ou sparklines. |
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
-| Consulta de navegação |A consulta para ser executada quando selecciona um item na lista. Para obter mais informações, consulte [definições comuns](#navigation-query). |
+| Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **List** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
@@ -137,6 +138,7 @@ O cabeçalho apresenta um número único que resume uma coluna de valor de uma c
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
 | **anel** | |
 | Consulta |A consulta para o anel. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. |
+| Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **anel** |**> Center** |
 | Texto |O texto que é apresentado sob o valor de anel. |
 | Operação |A operação para efetuar a propriedade de valor para resumi-lo como um valor único.<ul><li>Soma: Adiciona os valores de todos os registos.</li><li>Percentagem: O rácio dos registos devolvido pelos valores na **resultar valores utilizados na operação de center** para o total de registos na consulta.</li></ul> |
@@ -153,7 +155,7 @@ O cabeçalho apresenta um número único que resume uma coluna de valor de uma c
 | Cor |A cor de barras ou sparklines. |
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
-| Consulta de navegação |A consulta para ser executada quando selecciona um item na lista. Para obter mais informações, consulte [definições comuns](#navigation-query). |
+| Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **List** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
@@ -172,6 +174,8 @@ O cabeçalho apresenta os resultados das duas consultas de registo ao longo do t
 | Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| **Navegação de título** | |
+| Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Primeiro gráfico<br>segundo gráfico** | |
 | Legenda |O texto que é apresentado em chamada para a série primeiro. |
 | Cor |A cor a utilizar para as colunas da série. |
@@ -183,7 +187,7 @@ O cabeçalho apresenta os resultados das duas consultas de registo ao longo do t
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Cor |A cor de barras ou sparklines. |
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
-| Consulta de navegação |A consulta para ser executada quando selecciona um item na lista. Para obter mais informações, consulte [definições comuns](#navigation-query). |
+| Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **List** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
@@ -228,6 +232,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui o *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
+| Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Gráfico de linhas** |**> Chamada** |
 | Título da chamada |O texto que é apresentado acima o valor da chamada. |
 | Nome da série |Valor da propriedade para a série a utilizar para o valor da chamada. Se não for fornecido nenhum série, todos os registos da consulta são utilizados. |
@@ -243,7 +248,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Cor |A cor de barras ou sparklines. |
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
-| Consulta de navegação |A consulta para ser executada quando selecciona um item na lista. Para obter mais informações, consulte [definições comuns](#navigation-query). |
+| Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **List** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
@@ -267,6 +272,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui o *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
+| Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Gráfico de linhas** |**> Eixo y** |
 | Utilizar escala logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devem ser devolvidos pela consulta. Estas informações são utilizadas para apresentar gráfico rótulos que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos do *unidade atual* escreva para a *converter* tipo. |
@@ -278,7 +284,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Cor |A cor de barras ou sparklines. |
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
-| Consulta de navegação |A consulta para ser executada quando selecciona um item na lista. Para obter mais informações, consulte [definições comuns](#navigation-query). |
+| Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **List** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
@@ -301,6 +307,7 @@ A pilha do gráfico de linhas apresenta os três separado gráficos, com várias
 | Subtítulo |O texto que é apresentado sob o título na parte superior do gráfico. |
 | **Gráfico 1<br>gráfico 2<br>gráfico 3** |**Gráfico de linhas** |
 | Consulta |A consulta para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui o *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
+| Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Chart** |**> Eixo y** |
 | Utilizar escala logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devem ser devolvidos pela consulta. Estas informações são utilizadas para apresentar gráfico rótulos que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos do *unidade atual* escreva para a *converter* tipo. |
@@ -314,10 +321,18 @@ O separador de nome e valor é o delimitador de caráter a utilizar para analisa
 
 Por exemplo, considere uma propriedade denominada *localização* que incluídos como valores *Redmond edifício 41* e *Bellevue edifício 12*. Pode especificar um travessão (-) para o separador de nome e valor e *cidade edifício* para o nome. Esta abordagem analisa a cada valor em duas propriedades chamadas *Cidade* e *edifício*.
 
-### <a name="navigation-query"></a>Consulta de navegação
-A consulta de navegação é a consulta para ser executada quando selecciona um item na lista. Utilize *{item selecionado}* para incluir a sintaxe para o item que o utilizador selecionado.
+### <a name="click-through-navigation"></a>Clique em-através da navegação
+Clique em através da navegação define que ação será tomada quando clica num cabeçalho ou uma lista item numa vista.  Se esta ação irá abrir uma consulta a [portal de registo de pesquisa](log-analytics-log-search-portals.md#log-search) ou inicie outra vista.
 
-Por exemplo, se a consulta tem uma coluna chamada *computador* e a consulta de navegação *{item selecionado}*, uma consulta, tais como *computador = "MyComputer"* é executado quando seleciona um computador. Se a consulta de navegação é *tipo = eventos {item selecionado}*, a consulta *tipo = evento computador = "MyComputer"* é executado.
+A tabela seguinte descreve as definições de navegação clique-through.
+
+| Definição           | Descrição |
+|:--|:--|
+| Pesquisa de registo (automático) | Pesquisa de registo para ser executada quando selecciona um item de cabeçalho.  Este é a mesmo pesquisa de registo, o item com base no.
+| Pesquisa de Registos        | Pesquisa de registo para ser executada quando selecciona um item numa lista.  Escreva a consulta para o **consulta navegação** caixa.   Utilize *{item selecionado}* para incluir a sintaxe para o item que o utilizador selecionado.  Por exemplo, se a consulta tem uma coluna chamada *computador* e a consulta de navegação *{item selecionado}*, uma consulta, tais como *computador = "MyComputer"* é executado quando seleciona um computador. Se a consulta de navegação é *tipo = eventos {item selecionado}*, a consulta *tipo = evento computador = "MyComputer"* é executado. |
+| Vista              | Vista abrir ao selecionar um item de cabeçalho ou de um item numa lista.  Selecione o nome de uma vista na sua área de trabalho a **nome da vista** caixa. |
+
+
 
 ### <a name="sparklines"></a>Sparklines
 Um gráfico sparkline é um gráfico de linhas pequenas que ilustra o valor de uma entrada da lista ao longo do tempo. Para visualização as partes com uma lista, pode selecionar se pretende apresentar uma barra horizontal, que indica o valor relativo de uma coluna numérica ou um gráfico sparkline, que indica o valor ao longo do tempo.

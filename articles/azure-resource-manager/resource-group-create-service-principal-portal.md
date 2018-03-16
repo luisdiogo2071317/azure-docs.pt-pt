@@ -11,31 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 504fbc20f11243ccd825eb69171cd0893782e611
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c2b8498b2d32e2c3c7ed5dca3295ae6a98fa2676
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utilize o portal para criar uma aplicação Azure Active Directory e um principal de serviço que pode aceder a recursos
 
-Quando tiver uma aplicação que necessita para aceder ou modificar recursos, tem de configurar uma aplicação do Azure Active Directory (AD) e atribuir as permissões necessárias para a mesma. Esta abordagem é preferível executar a aplicação com as suas próprias credenciais porque:
-
-* Pode atribuir permissões para a identidade de aplicação que sejam diferentes a suas própria permissões. Normalmente, estas permissões são restritos exatamente o que a aplicação tem de fazer.
-* Não é necessário que alterar credenciais da aplicação, se alterar as suas responsabilidades. 
-* Pode utilizar um certificado para automatizar a autenticação ao executar um script automático.
+Quando tiver de código que precisa de aceder ou modificar recursos, tem de configurar uma aplicação do Azure Active Directory (AD). Atribuir as permissões necessárias para a aplicação AD. Esta abordagem é preferível executar a aplicação com as suas próprias credenciais, porque pode atribuir permissões para a identidade de aplicação que sejam diferentes a suas própria permissões. Normalmente, estas permissões são restritos exatamente o que a aplicação tem de fazer.
 
 Este artigo mostra como efetuar os passos através do portal. Concentra-se uma aplicação do inquilino único onde a aplicação foi concebida para ser executada dentro da organização apenas um. Normalmente utiliza aplicações de inquilino único para aplicações de linha de negócio que são executadas dentro da sua organização.
+
+> [!IMPORTANT]
+> Em vez de criar um principal de serviço, considere utilizar identidade de serviço gerida do Azure AD para a identidade da aplicação. Azure AD MSI é uma funcionalidade de pré-visualização pública do Azure Active Directory simplifica a criação de uma identidade para o código. Se o seu código é executado num serviço que suporta o Azure AD MSI e acede a recursos que suportam a autenticação do Azure Active Directory, Azure AD MSI é uma opção melhor para si. Para saber mais sobre o Azure AD MSI, incluindo os serviços atualmente o suporta, consulte [identidade de serviço geridas para recursos do Azure](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
 Para concluir este artigo, tem de ter permissões suficientes para registar uma aplicação com o seu inquilino do Azure AD e atribuir a aplicação a uma função na sua subscrição do Azure. Vamos certificar-se de que tem as permissões corretas para efetuar esses passos.
 
 ### <a name="check-azure-active-directory-permissions"></a>Verifique as permissões do Azure Active Directory
-
-1. Inicie sessão na sua conta do Azure através de [portal do Azure](https://portal.azure.com).
 
 1. Selecione **do Azure Active Directory**.
 
@@ -49,21 +46,9 @@ Para concluir este artigo, tem de ter permissões suficientes para registar uma 
 
    ![registos de aplicação de vista](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Se os registos de aplicação definição estiver definida como **não**, apenas os utilizadores administradores podem registar aplicações. Verifique se a sua conta é um administrador de inquilino do Azure AD. Selecione **descrição geral** e **localizar um utilizador** de tarefas rápidas.
+1. Se os registos de aplicação definição estiver definida como **não**, apenas os utilizadores administradores podem registar aplicações. Verifique se a sua conta é um administrador de inquilino do Azure AD. Selecione **descrição geral** e observe as informações do utilizador. Se a sua conta está atribuída à função de utilizador, mas a definição de registo de aplicação (a partir do passo anterior) está limitada a utilizadores de administração, peça ao seu administrador para qualquer lhe atribuir a uma função de administrador ou permitir que os utilizadores registar as aplicações.
 
-   ![Localizar utilizador](./media/resource-group-create-service-principal-portal/find-user.png)
-
-1. Pesquisa para a sua conta e selecioná-lo quando a encontrá-lo.
-
-   ![utilizador de pesquisa](./media/resource-group-create-service-principal-portal/show-user.png)
-
-1. Para a sua conta, selecione **função de diretório**.
-
-   ![função de diretório](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-
-1. Ver a sua função de diretório atribuído no Azure AD. Se a sua conta está atribuída à função de utilizador, mas a definição de registo de aplicação (a partir dos passos anteriores) está limitada a utilizadores de administração, peça ao seu administrador para qualquer lhe atribuir a uma função de administrador ou permitir que os utilizadores registar as aplicações.
-
-   ![função de vista](./media/resource-group-create-service-principal-portal/view-role.png)
+   ![Localizar utilizador](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Verifique as permissões de subscrição do Azure
 
@@ -71,23 +56,17 @@ Na sua subscrição do Azure, a conta tem de ter `Microsoft.Authorization/*/Writ
 
 Para verificar as permissões de subscrição:
 
-1. Se não já pretender na sua conta do Azure AD dos passos anteriores, selecione **do Azure Active Directory** no painel esquerdo.
+1. Selecione a sua conta no canto superior direito e selecione **as minhas permissões**.
 
-1. Localize a conta do Azure AD. Selecione **descrição geral** e **localizar um utilizador** de tarefas rápidas.
+   ![Selecione as permissões de utilizador](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-   ![Localizar utilizador](./media/resource-group-create-service-principal-portal/find-user.png)
+1. Na lista pendente, selecione a subscrição. Selecione **clique aqui para ver o acesso completo os detalhes para esta subscrição**.
 
-1. Pesquisa para a sua conta e selecioná-lo quando a encontrá-lo.
+   ![Localizar utilizador](./media/resource-group-create-service-principal-portal/view-details.png)
 
-   ![utilizador de pesquisa](./media/resource-group-create-service-principal-portal/show-user.png)
+1. Ver as funções atribuídas e determinar se tem permissões adequadas para atribuir uma aplicação AD a uma função. Caso contrário, peça ao seu administrador de subscrição para adicioná-lo à função de administrador de acesso de utilizador. Na imagem seguinte, o utilizador está atribuído à função de proprietário, o que significa que o utilizador tem permissões adequadas.
 
-1. Selecione **recursos do Azure**.
-
-   ![Selecione recursos](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
-
-1. Ver as funções atribuídas e determinar se tem permissões adequadas para atribuir uma aplicação AD a uma função. Caso contrário, peça ao seu administrador de subscrição para adicioná-lo à função de administrador de acesso de utilizador. Na imagem seguinte, o utilizador está atribuído à função de proprietário para duas subscrições, que significa que o utilizador tem permissões adequadas.
-
-   ![Mostrar permissões](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
+   ![Mostrar permissões](./media/resource-group-create-service-principal-portal/view-user-role.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação do Azure Active Directory
 
@@ -104,7 +83,7 @@ Para verificar as permissões de subscrição:
 
    ![Adicionar aplicação](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Forneça um nome e o URL para a aplicação. Selecione **aplicação Web / API** para o tipo de aplicação que pretende criar. Não é possível criar as credenciais para um **nativo** aplicação; por conseguinte, esse tipo não funciona para uma aplicação automatizada. Depois de definir os valores, selecione **criar**.
+1. Forneça um nome e o URL para a aplicação. Selecione **aplicação Web / API** para o tipo de aplicação que pretende criar. Não é possível criar as credenciais para um [aplicação nativa](../active-directory/active-directory-application-proxy-native-client.md); por conseguinte, se o tipo não funcionam para uma aplicação automatizada. Depois de definir os valores, selecione **criar**.
 
    ![aplicação de nome](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -121,6 +100,10 @@ Quando programaticamente iniciar sessão, terá do ID para a sua aplicação e u
 1. Copiar o **ID da aplicação** e armazená-las no código da aplicação. Alguns [aplicações de exemplo](#log-in-as-the-application) fazer referência a este valor como o ID de cliente.
 
    ![ID de cliente](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+
+1. Para gerar uma chave de autenticação, selecione **definições**.
+
+   ![Selecione as definições](./media/resource-group-create-service-principal-portal/select-settings.png)
 
 1. Para gerar uma chave de autenticação, selecione **chaves**.
 
@@ -181,19 +164,6 @@ Pode definir o âmbito ao nível da subscrição, do grupo de recursos ou do rec
    ![Procure a aplicação](./media/resource-group-create-service-principal-portal/search-app.png)
 
 1. Selecione **guardar** para concluir a atribuição de função. Verá a aplicação na lista de utilizadores atribuídos a uma função para esse âmbito.
-
-## <a name="log-in-as-the-application"></a>Inicie sessão como a aplicação
-
-A aplicação está agora definida no Azure Active Directory. Tem um ID e a chave a utilizar para iniciar sessão como a aplicação. A aplicação é atribuída a uma função que concede-lhe determinadas ações que pode realizar. Para informações sobre como iniciar sessão como a aplicação através de plataformas diferentes, consulte:
-
-* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [CLI do Azure](resource-group-authenticate-service-principal-cli.md)
-* [REST](/rest/api/#create-the-request)
-* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
-* [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.js](/javascript/azure/node-sdk-azure-authenticate-principal?view=azure-node-latest)
-* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
-* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para configurar uma aplicação multi-inquilino, consulte [guia para programadores para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).

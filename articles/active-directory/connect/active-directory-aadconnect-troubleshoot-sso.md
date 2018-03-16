@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas do Azure Active Directory totalmente integrada Single Sign-On
 
@@ -34,6 +34,7 @@ Este artigo ajuda-o a encontrar informações sobre problemas comuns sobre Azure
 - SSO totalmente integrada não funciona no modo privado de navegação no Firefox.
 - SSO totalmente integrada não funciona no Internet Explorer, quando o modo protegido avançado é ativado.
 - SSO totalmente integrada não funciona em browsers para dispositivos móveis em dispositivos iOS e Android.
+- Se um utilizador faz parte de demasiados grupos no Active Directory, permissão de Kerberos do utilizador será provavelmente demasiado grande para processar e Isto fará com que SSO totalmente integrado a falhar. Pedidos de HTTPS do AD do Azure podem ter cabeçalhos com um tamanho máximo de 16 KB; Permissões de Kerberos têm de ser muito menor do que esse número para acomodar outros objetos do Azure AD, como os cookies. É a nossa recomendação para reduzir as associações de grupo do utilizador e tente novamente.
 - Se estiver a sincronizar 30 ou mais florestas do Active Directory, não é possível ativar a SSO totalmente integrada através do Azure AD Connect. Como solução, pode [ativar manualmente](#manual-reset-of-azure-ad-seamless-sso) a funcionalidade no seu inquilino.
 - Adicionar o URL do serviço do Azure AD (https://autologon.microsoftazuread-sso.com) para a zona de sites fidedignos, em vez de à zona Local intranet *bloqueia os utilizadores de início de sessão*.
 - Desativar a utilização do **RC4_HMAC_MD5** tipo de encriptação para Kerberos nas definições do Active Directory irá interromper a SSO totalmente integrada. No seu Editor de gestão de políticas de grupo ferramenta Certifique-se de que o valor de política para **RC4_HMAC_MD5** em **configuração do computador -> definições do Windows -> definições de segurança -> Políticas locais -> Opções de segurança - > "Segurança de rede: configurar os tipos de encriptação permitidos para Kerberos"** "Ativado".
@@ -75,7 +76,7 @@ Utilize a lista de verificação seguinte para resolver problemas de SSO totalme
 
 - Certifique-se de que a funcionalidade de SSO totalmente integrada está ativada no Azure AD Connect. Se não é possível ativar a funcionalidade (por exemplo, devido a uma porta bloqueada), certifique-se de que tem todas as [pré-requisitos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) no local.
 - Se tiver ativado o ambos [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado no seu inquilino, certifique-se de que o problema não com a associação do Azure AD. SSO de associação do Azure AD tem precedência sobre SSO totalmente integrada, se o dispositivo está registado com o Azure AD e associados a um domínio. Com o SSO de associação do Azure AD, o utilizador verá um mosaico de início de sessão no que diz "Ligado ao Windows".
-- Certifique-se de que o URL de AD do Azure (https://autologon.microsoftazuread-sso.com) é parte integrante das definições de zona de Intranet do utilizador.
+- Certifique-se de que o URL do Azure AD (https://autologon.microsoftazuread-sso.com) é parte integrante das definições de zona de Intranet do utilizador.
 - Certifique-se de que o dispositivo da empresa está associado ao domínio do Active Directory.
 - Certifique-se de que o utilizador iniciar sessão num dispositivo através de uma conta de domínio do Active Directory.
 - Certifique-se de que a conta de utilizador numa floresta do Active Directory onde SSO totalmente integrado tiver sido configurada.

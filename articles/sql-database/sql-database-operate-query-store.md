@@ -1,26 +1,19 @@
 ---
 title: Utilizar o arquivo de consultas na base de dados SQL do Azure
 description: Saiba como funciona o arquivo de consultas na base de dados do Azure SQL
-keywords: 
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: sqldb-performance
-ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c3780f6efe87437742af7c1b8f6a3e6d0ee243
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Utilizar o arquivo de consultas na base de dados SQL do Azure
 O arquivo de consultas no Azure é uma funcionalidade de base de dados completamente gerido que continuamente recolhe e apresenta informações detalhadas de históricos sobre todas as consultas. Pode pensar sobre o arquivo de consultas como semelhante a dados gravador um avião que significativamente simplifica o desempenho das consultas de resolução de problemas para a nuvem e os clientes no local. Este artigo explica os aspetos específicos de operativo arquivo de consultas no Azure. Com esta consulta previamente recolhidos dados, pode rapidamente diagnosticar e resolver problemas de desempenho e, por conseguinte, demora mais tempo a concentrar-se na sua empresa. 
@@ -52,7 +45,7 @@ Esta secção descreve as predefinições de configuração ideal que foram conc
 
 Se pretender manter as definições personalizadas, utilize [ALTER DATABASE com opções de arquivo de consultas](https://msdn.microsoft.com/library/bb522682.aspx) ao reverter a configuração para o estado anterior. Veja [melhores práticas com o arquivo de consultas](https://msdn.microsoft.com/library/mt604821.aspx) para saber como top escolheu parâmetros de configuração ideal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Informações de desempenho de base de dados do SQL Server](sql-database-performance.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais

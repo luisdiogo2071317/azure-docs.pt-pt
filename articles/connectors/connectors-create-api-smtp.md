@@ -3,7 +3,7 @@ title: Conector de SMTP no Azure Logic Apps | Microsoft Docs
 description: "Crie aplicações lógicas com o App service do Azure. Ligar ao SMTP para enviar correio eletrónico."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Começar a utilizar o conector de SMTP
 Ligar ao SMTP para enviar correio eletrónico.
@@ -37,13 +37,13 @@ Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de 
 ## <a name="use-an-smtp-trigger"></a>Utilizar um acionador de SMTP
 Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Neste exemplo, porque SMTP não tem um acionador próprios, iremos utilizar o **Salesforce - quando é criado um objecto** acionador. Este acionador ativa quando é criado um novo objeto no Salesforce. Para o nosso exemplo, iremos definir-forma a que sempre que é criado um novo fabrico no Salesforce, um *enviar correio eletrónico* ação ocorre através do conector SMTP com uma notificação de fabrico de novo a ser criada.
+Neste exemplo, o SMTP não tem um acionador próprios. Por isso, utilize o **Salesforce - quando é criado um objecto** acionador. Este acionador ativa quando é criado um novo objeto no Salesforce. Neste exemplo, este tem configurá-lo para que sempre que é criado um novo fabrico no Salesforce, um *enviar correio eletrónico* ação ocorre através do conector de SMTP com uma notificação de fabrico de novo a ser criada.
 
 1. Introduza *salesforce* na caixa de pesquisa no designer de aplicações lógicas, em seguida, selecione o **Salesforce - quando é criado um objecto** acionador.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. O **quando é criado um objecto** controlo é apresentado.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Selecione o **tipo de objeto** , em seguida, selecione *levar* da lista de objetos. Neste passo, é com a indicação de que está a criar um acionador que irá notificar a sua aplicação lógica sempre que é criado um novo fabrico no Salesforce.  
+3. Selecione o **tipo de objeto** , em seguida, selecione *levar* da lista de objetos. Neste passo, está a criar um acionador que notifica a sua aplicação lógica sempre que é criado um novo fabrico no Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. O acionador foi criado.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ Neste exemplo, porque SMTP não tem um acionador próprios, iremos utilizar o **
 ## <a name="use-an-smtp-action"></a>Utilizar uma ação de SMTP
 Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Agora que o acionador foi adicionado, siga estes passos para adicionar uma ação de SMTP que irá ocorrer quando é criado um novo fabrico no Salesforce.
+Agora que foi adicionado o acionador, utilize os seguintes passos para adicionar uma ação de SMTP que ocorre quando é criado um novo fabrico no Salesforce.
 
 1. Selecione **+ novo passo** para adicionar a ação que gostaria de tomar quando é criada uma antecedência de novo.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

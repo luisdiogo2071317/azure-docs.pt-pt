@@ -2,24 +2,18 @@
 title: Aumentar horizontalmente com a SQL Database do Azure | Microsoft Docs
 description: "Software como um programadores de serviço (SaaS) pode facilmente criar bases de dados elásticas, dimensionáveis na nuvem utilizando estas ferramentas"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: a99607a0a57087c313d1718ff0b77af3637e1fa9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 784f244f64464c92f1b04ce0523e8850f66b8383
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentar horizontalmente com a Base de Dados SQL do Azure
 Pode ampliar facilmente bases de dados SQL do Azure utilizando o **bases de dados elásticas** ferramentas. Estas ferramentas e funcionalidades permitem-lhe utilizar os recursos de base de dados de **SQL Database do Azure** para criar soluções para cargas de trabalho transacionais e especialmente Software como aplicações de serviço (SaaS). Funcionalidades de base de dados elásticas são compostas pelo:
@@ -88,7 +82,7 @@ Outros cenários do pacote de vários inquilinos em conjunto para bases de dados
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Mover dados a partir de vários inquilinos único bases de dados
 Ao criar uma aplicação SaaS, é normal para oferecer potenciais clientes que uma versão de avaliação do software. Neste caso, é económica para utilizar uma base de dados do multi-inquilino de dados. No entanto, quando um prospect torna-se um cliente, uma base de dados único inquilino é melhor uma vez que fornece um melhor desempenho. Se o cliente tinha criado dados durante o período de avaliação, utilize o [ferramenta de intercalação de divisão](sql-database-elastic-scale-overview-split-and-merge.md) para mover os dados de multi-inquilino para a nova base de dados único inquilino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para uma aplicação de exemplo que demonstra a biblioteca de clientes, consulte [começar a utilizar as ferramentas de base de dados elástica](sql-database-elastic-scale-get-started.md).
 
 Para converter as bases de dados existentes para utilizar as ferramentas, consulte [Migrar bases de dados existentes para aumentar horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md).

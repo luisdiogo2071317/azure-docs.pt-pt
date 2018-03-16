@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso de aplicações com a pilha do Azure
 
@@ -51,14 +51,14 @@ Nesta secção, vai criar uma aplicação (principal de serviço) no Azure AD qu
 Criou um principal de serviço para a sua aplicação.
 
 ### <a name="get-credentials"></a>Obter credenciais
-Quando programaticamente iniciar sessão, utilize o ID para a sua aplicação e uma chave de autenticação. Para obter esses valores, utilize os seguintes passos:
+Quando programaticamente iniciar sessão, utilize o ID da aplicação e para uma aplicação Web / API, uma chave de autenticação. Para obter esses valores, utilize os seguintes passos:
 
 1. De **registos de aplicação** no Active Directory, selecione a aplicação.
 
 2. Copiar o **ID da aplicação** e armazená-las no código da aplicação. As aplicações no [aplicações de exemplo](#sample-applications) secção fazer referência a este valor como o ID de cliente.
 
      ![id de cliente](./media/azure-stack-create-service-principal/image12.png)
-3. Para gerar uma chave de autenticação, selecione **chaves**.
+3. Para gerar uma chave de autenticação para uma aplicação Web / API, selecione **definições** > **chaves**. 
 
 4. Forneça uma descrição da chave e um período de tempo para a chave. Quando terminar, selecione **guardar**.
 

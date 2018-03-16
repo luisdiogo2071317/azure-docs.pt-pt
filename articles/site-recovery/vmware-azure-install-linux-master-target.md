@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar um servidor de destino principal do Linux
 Após a ativação pós-falha de máquinas virtuais no Azure, pode efetuar a cópia as máquinas virtuais para o site no local. Para falhar novamente, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino principal no local para receber o tráfego. 
@@ -41,7 +41,7 @@ Publique comentários ou perguntas no final deste artigo ou no [fórum de servi�
 
 Crie o destino principal de acordo com as seguintes diretrizes de dimensionamento:
 - **RAM**: 6 GB ou mais
-- **Tamanho do disco de SO**: 100 GB ou mais (para instalar CentOS6.6)
+- **Tamanho do disco de SO**: 100 GB ou mais (para instalar o SO)
 - **Tamanho de disco adicional para a unidade de retenção**: 1 TB
 - **Núcleos de CPU**: 4 núcleos ou mais
 
@@ -112,24 +112,31 @@ Manter um ficheiro Ubuntu 16.04.2 mínimo 64-bit ISO na unidade de DVD e iniciar
 
 1.  Selecione **Sim** ao escrever alterações para o disco e, em seguida, selecione **Enter**.
 
-1.  A seleção de proxy de configurar, selecione a opção predefinida, selecione **continuar**e, em seguida, selecione **Enter**.
+    ![Selecione a opção predefinida](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Selecione a opção predefinida](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  A seleção de proxy de configurar, selecione a opção predefinida, selecione **continuar**e, em seguida, selecione **Enter**.
+     
+     ![Selecione como gerir atualizações](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Selecione **sem as atualizações automáticas** opção na seleção para a gestão de atualizações no seu sistema e, em seguida, selecione **Enter**.
 
-     ![Selecione como gerir atualizações](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Selecione como gerir atualizações](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Porque o servidor de destino principal do Azure Site Recovery requer uma versão muito específica do Ubuntu, terá de se certificar de que as atualizações estão desativadas para a máquina virtual de kernel. Se estes estiverem ativadas, em seguida, quaisquer atualizações regulares fazer com que o servidor de destino mestre para avaria. Certifique-se de que seleciona o **sem as atualizações automáticas** opção.
 
 1.  Selecione as opções predefinidas. Se pretender openSSH para estabelecer a ligação SSH, selecione o **OpenSSH servidor** opção e, em seguida, selecione **continuar**.
 
-    ![Selecione o software](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Selecione o software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. No selction para instalar o carregador de arranque GRUB, selecione **Sim**e, em seguida, selecione **Enter**.
+     
+    ![Instalador de arranque GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Selecione o dispositivo adequado para a instalação do carregador de arranque (preferencialmente, **/dev/sda**) e, em seguida, selecione **Enter**.
+     
+    ![Selecione dispositivos adequada](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Selecione **continuar**e, em seguida, selecione **Enter** para concluir a instalação.
 
@@ -154,7 +161,7 @@ Para obter o ID para cada disco de rígido SCSI numa máquina virtual Linux, o *
 
 4. No painel esquerdo, selecione **avançadas** > **geral**e, em seguida, selecione o **parâmetros de configuração** botão na parte inferior direita do ecrã.
 
-    ![Separador Opções](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Parâmetro de configuração aberta](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     O **parâmetros de configuração** opção não está disponível quando a máquina está em execução. Para tornar este separador ativa, encerre a máquina virtual.
 
@@ -168,7 +175,7 @@ Para obter o ID para cada disco de rígido SCSI numa máquina virtual Linux, o *
 
     - A coluna de nome, adicionar **disco. EnableUUID**e, em seguida, defina o valor **verdadeiro**.
 
-    ![A verificar se o disco. EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![A verificar se o disco. EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Desativar as atualizações de kernel
 
@@ -244,7 +251,7 @@ Utilize os seguintes passos para criar um disco de retenção:
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Criar um sistema de ficheiros na unidade](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Criar um sistema de ficheiros na unidade](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Depois de criar o sistema de ficheiros, Monte o disco de retenção.
 
@@ -252,7 +259,6 @@ Utilize os seguintes passos para criar um disco de retenção:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Montar o disco de retenção](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Criar o **fstab** entrada para montar a unidade de retenção, sempre que o sistema é iniciado.
     

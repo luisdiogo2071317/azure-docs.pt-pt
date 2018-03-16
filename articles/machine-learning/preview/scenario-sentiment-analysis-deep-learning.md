@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análise de dados de sentimento com profunda Learning com o Azure Machine Learning
 
@@ -37,7 +37,7 @@ Siga esta ligação para o repositório do GitHub público:
 
 Explosão de dados e a proliferação de dispositivos móveis foi criada com muitas oportunidades para os clientes expressar as respetivas feelings e attitudes sobre todos e quaisquer dados em qualquer altura. Este opinião ou "sentimento", muitas vezes, é gerado através de redes sociais canais sob a forma de revisões, chats, partilha, likes, tweets, etc. O sentimento pode ser valiosas para as empresas que querem melhorar os produtos e serviços, tomar decisões mais informadas e melhor promove as marcas.
 
-Para obter o valor da análise de dados de sentimento, as empresas tem de ter a capacidade de mine vasta arquivos de dados não estruturados de redes sociais para conhecimentos acionáveis. Neste exemplo, iremos irá desenvolver modelos learning avançada para efetuar análise de dados de sentimento do revisões de filmes com AMLWorkbench
+Para obter o valor da análise de dados de sentimento, as empresas tem de ter a capacidade de mine vasta arquivos de dados não estruturados de redes sociais para conhecimentos acionáveis. Neste exemplo, vamos desenvolver modelos learning avançada para efetuar análise de dados de sentimento do revisões de filmes com AMLWorkbench
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ A ordem dos Hands-on laboratórios para realizar a solução é o seguinte:
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>Conclusão
 

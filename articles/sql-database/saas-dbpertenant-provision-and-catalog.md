@@ -3,24 +3,18 @@ title: "Aprovisionar novos inquilinos numa aplicação multi-inquilino que utili
 description: "Saiba como aprovisionar e novos inquilinos na aplicação de SaaS SQL Database do Azure multi-inquilino de catálogo"
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como aprovisionar novos inquilinos e registe-os no catálogo
 
@@ -99,8 +93,8 @@ Execução do script de rastreio utilizando a **depurar** opções de menu - **F
 
 Seguem-não se passos a seguir explicitamente, mas a obter uma explicação sobre o fluxo de trabalho, siga os passos durante a depuração do script:
 
-1. Módulo **Importar o SubscriptionManagement.psm1**, que contém as funções para iniciar sessão no Azure e selecionar a subscrição do Azure com a qual está a trabalhar.
 1. Módulo **Importar o CatalogAndDatabaseManagement.psm1**, que fornece um catálogo e uma abstração de nível de inquilino sobre as funções de [Gestão de Partições Horizontais](sql-database-elastic-scale-shard-map-management.md). Este módulo encapsula muito o padrão de catálogo e é, explorar.
+1. Módulo **Importar o SubscriptionManagement.psm1**, que contém as funções para iniciar sessão no Azure e selecionar a subscrição do Azure com a qual está a trabalhar.
 1. **Obter os detalhes de configuração**. Avance para o Get-configuração (F11) e ver como a configuração de aplicação é especificada. Os nomes de recursos e outros valores específicos da aplicação são definidas aqui, mas não alterar estes valores até que o se familiarizar com os scripts.
 1. **Obter o objeto de catálogo**. Avance para o Get-catálogo, que composes e devolve um objeto de catálogo que é utilizado no script de nível mais elevado.  Esta função utiliza funções de gestão de partições horizontais que são importadas a partir **AzureShardManagement.psm1**. O objeto do catálogo é composto pelos seguintes elementos:
    * $catalogServerFullyQualifiedName é construído de acordo com o padrão stem plus o seu nome de utilizador: _catálogo -\<utilizador\>. database.windows .net_.

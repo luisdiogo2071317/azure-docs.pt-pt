@@ -1,26 +1,19 @@
 ---
 title: "Armazenar cópias de segurança de SQL Database do Azure para até 10 anos | Microsoft Docs"
 description: "Saiba como o SQL Database do Azure suporta armazenar cópias de segurança de até 10 anos."
-keywords: 
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar cópias de segurança de SQL Database do Azure para até 10 anos
 Muitas aplicações terem regulamentação, conformidade ou de outras empresas fins que necessitam que sejam manter cópias de segurança da base de dados para além dos dias 7-35 fornecidas pelo SQL Database do Azure [cópias de segurança automáticas](sql-database-automated-backups.md). Ao utilizar a funcionalidade de cópia de segurança de retenção de longo prazo, pode armazenar as cópias de segurança de base de dados do SQL Server num cofre do Azure Recovery Services para até 10 anos. Pode armazenar até 1000 bases de dados por cofre. Em seguida, pode selecionar qualquer cópia de segurança no cofre para restaurá-lo como uma nova base de dados.
@@ -164,5 +157,5 @@ Uma vez que não fazer cópias de segurança em réplicas, atualmente não é ef
 * Quando ocorre uma ativação pós-falha e a base de dados torna-se uma base de dados primária, iremos efetuar um completo cópia de segurança, que é carregado para o cofre.
 * Existe um custo extra para o cliente para configurar a retenção de cópias de segurança de longa duração numa base de dados secundária.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Porque as cópias de segurança da base de dados proteger os dados de danos acidentais ou eliminação, se estiver a uma parte essencial dos quaisquer continuidade do negócio e a estratégia de recuperação após desastre. Para saber mais sobre as outras soluções de continuidade do negócio da base de dados do SQL Server, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).

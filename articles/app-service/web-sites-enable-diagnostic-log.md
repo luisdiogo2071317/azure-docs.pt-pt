@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para web apps no App Service do Azure
 ## <a name="overview"></a>Descrição geral
@@ -88,7 +88,7 @@ Enquanto todos os três localizações de armazenamento fornecem as mesmas infor
 >
 >
 
-## <a name="download"></a>Como: transferir os registos
+## <a name="download"></a> Como: transferir os registos
 Informações de diagnóstico armazenadas para o sistema de ficheiros de aplicação web podem ser acedidas diretamente a utilizar FTP. Também pode ser transferido como um arquivo Zip com o Azure PowerShell ou a Interface de linha de comandos do Azure.
 
 A estrutura de diretórios que os registos são armazenados no é o seguinte:
@@ -97,7 +97,7 @@ A estrutura de diretórios que os registos são armazenados no é o seguinte:
 * **Falha de rastreios de pedido** -/ LogFiles/W3SVC # # # /. Esta pasta contém um ficheiro XSL e um ou mais ficheiros XML. Certifique-se de que transfira o ficheiro XSL no mesmo diretório como o XML ficheiros porque o ficheiro XSL fornece a funcionalidade para formatação e filtrar o conteúdo os ficheiros XML, quando são visualizados no Internet Explorer.
 * **Os registos de erros de detalhado** -/LogFiles/DetailedErrors /. Esta pasta contém um ou mais ficheiros. htm que fornecem informações extensas eventuais erros de HTTP que ocorreram.
 * **Os registos do servidor de Web** -/LogFiles/http/RawLogs. Esta pasta contém uma ou mais ficheiros de texto formatado utilizando o [formato de ficheiro de registo expandido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Registos de implementação** -LogFiles/Git. Esta pasta contém registos gerados pelos processos de implementação interno utilizados por aplicações web do Azure, bem como os registos para implementações do Git.
+* **Registos de implementação** -LogFiles/Git. Esta pasta contém registos gerados pelos processos de implementação interno utilizados por aplicações web do Azure, bem como os registos para implementações do Git. Também pode encontrar registos de implementação em D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
 
@@ -141,7 +141,7 @@ Visual Studio Application Insights fornece ferramentas para filtrar e procurar o
 
 [Saiba mais sobre o desempenho de controlo com o Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a>Como: registos de fluxo
+## <a name="streamlogs"></a> Como: registos de fluxo
 Ao desenvolver uma aplicação, muitas vezes, é útil ver informações de registo em tempo quase real. Pode transmitir informações de registo para o ambiente de desenvolvimento utilizando o Azure PowerShell ou a Interface de linha de comandos do Azure.
 
 > [!NOTE]
@@ -194,7 +194,7 @@ Para filtrar os tipos de registo específicos, tal como HTTP, utilize o **– ca
 >
 >
 
-## <a name="understandlogs"></a>Como: compreender os registos de diagnóstico
+## <a name="understandlogs"></a> Como: compreender os registos de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Registos de diagnóstico de aplicações
 Diagnóstico de aplicação armazena informações num formato específico para aplicações de .NET, dependendo se armazenar os registos para o sistema de ficheiros, o armazenamento de tabelas ou o armazenamento de Blobs. O conjunto de base de dados armazenados é igual em todos os três tipos de armazenamento - a data e hora que do evento ocorreu, o ID do processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento.
 
@@ -223,7 +223,7 @@ Quando o registo para o table storage, propriedades adicionais são utilizadas p
 | ApplicationName |O nome da aplicação web |
 | Nível |Nível do evento (por exemplo, erro, aviso, informações) |
 | EventId |O ID de evento deste evento<p><p>Por predefinição, 0 se nenhum especificado |
-| Id da Instância |Instância da aplicação web que ocorreu o mesmo |
+| InstanceId |Instância da aplicação web que ocorreu o mesmo |
 | PID |ID de Processo |
 | TID |O ID de thread do thread que produziu o evento |
 | Mensagem |Mensagem de detalhes do evento |
@@ -237,7 +237,7 @@ Ao iniciar sessão para o armazenamento de BLOBs, os dados são armazenados no f
 | Data |A data e hora em que ocorreu o evento |
 | Nível |Nível do evento (por exemplo, erro, aviso, informações) |
 | ApplicationName |O nome da aplicação web |
-| Id da Instância |Instância da aplicação web que o evento ocorreu |
+| InstanceId |Instância da aplicação web que o evento ocorreu |
 | EventTickCount |A data e hora em que o evento ocorreu, no formato de marcas de escala (maior precisão) |
 | EventId |O ID de evento deste evento<p><p>Por predefinição, 0 se nenhum especificado |
 | PID |ID de Processo |

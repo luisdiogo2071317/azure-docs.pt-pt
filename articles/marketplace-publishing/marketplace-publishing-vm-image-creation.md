@@ -3,8 +3,8 @@ title: "Criar uma imagem de máquina virtual para o Azure Marketplace | Microsof
 description: "Instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprar."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -29,7 +29,7 @@ Nesta secção, saiba definir as ofertas e os respetivos SKUs associados.
 Uma oferta funciona como o "elemento principal" de todos os SKUs correspondentes. Pode ter várias ofertas. A forma como as ofertas são estruturadas é uma questão que lhe cabe a si decidir. Quando uma oferta é emitida para teste, a emissão é propagada por todos os SKUs correspondentes. Considere cuidadosamente os identificadores SKU, porque estará visíveis no URL:
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Portal de pré-visualização do Azure: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
+* Portal de pré-visualização do Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 Um SKU é o nome comercial para uma imagem de VM. Uma imagem de VM contém disco de um sistema operativo e zero ou mais discos de dados. Trata-se, no fundo, do perfil de armazenamento completo de uma máquina virtual. É necessário um VHD por disco. Os discos de dados, mesmo em branco precisam de um VHD ser criado.
 
@@ -372,7 +372,7 @@ Seguem-se os passos para gerar o SAS URL utilizando o Explorador de armazenament
 
 Seguem-se os passos para gerar o SAS URL utilizando o Explorador de armazenamento do Microsoft Azure
 
-1.  Transferir o formulário do Explorador de armazenamento do Microsoft Azure [http://storageexplorer.com/](http://storageexplorer.com/) Web site. Aceda a [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **"Transferir para Windows"**.
+1.  Transferir o formulário do Explorador de armazenamento do Microsoft Azure [ http://storageexplorer.com/ ](http://storageexplorer.com/) Web site. Aceda a [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **"Transferir para Windows"**.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
@@ -474,7 +474,7 @@ Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
 
     Exemplo:
 
-    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD 
+    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

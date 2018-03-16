@@ -1,6 +1,6 @@
 ---
 title: "Implementar um executável existente para o Azure Service Fabric | Microsoft Docs"
-description: "Instruções sobre como uma aplicação existente como convidado executável, o pacote, para que possa ser implementado para um cluster do Service Fabric"
+description: "Saiba como uma aplicação existente como convidado executável, o pacote, para que possa ser implementado para um cluster do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,68 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: c851e1f756957d58d5f7372098620e4b7129b089
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="deploy-a-guest-executable-to-service-fabric"></a>Implementar um executável de convidado para o Service Fabric
-Pode executar qualquer tipo de código, tal como o Node.js, Java ou C++ no Service Fabric do Azure como um serviço. Service Fabric refere-se para estes tipos de serviços como convidado executáveis.
-
-Executáveis de convidado são tratadas pelo serviço de recursos de infraestrutura, como serviços sem monitorização de estado. Como resultado, são colocadas em nós num cluster, com base na disponibilidade e outras métricas. Este artigo descreve como o pacote e implementar um executável de convidado para um cluster do Service Fabric, utilizando o Visual Studio ou um utilitário da linha de comandos.
-
-Neste artigo, vamos abordar os passos para um convidado executável do pacote e implementá-la para o Service Fabric.  
-
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Benefícios da execução de um convidado executável no Service Fabric
-Existem várias vantagens à execução de um convidado executável num cluster de Service Fabric:
-
-* Elevada disponibilidade. Aplicações executadas no Service Fabric que são efetuadas altamente disponíveis. Service Fabric assegura que as instâncias de uma aplicação estão em execução.
-* Monitorização de estado de funcionamento. Monitorização de estado de funcionamento do Service Fabric Deteta se uma aplicação está em execução e fornece informações de diagnóstico, se ocorrer uma falha.   
-* Gestão de ciclo de vida de aplicações. Para além de fornecer atualizações sem período de indisponibilidade, o Service Fabric fornece Reversão automática para a versão anterior se houver um evento de estado de funcionamento incorreto comunicado durante uma atualização.    
-* Densidade. Pode executar várias aplicações num cluster, que elimina a necessidade de cada aplicação para ser executada no seu próprio hardware.
-* Capacidade de Deteção: Utilizar REST pode chamar o serviço de nomenclatura de recursos de infraestrutura de serviço para localizar outros serviços em cluster. 
-
-## <a name="samples"></a>Amostras
-* [Exemplo de empacotamento e implementação de um executável de convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomes através de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-
-## <a name="overview-of-application-and-service-manifest-files"></a>Descrição geral da aplicação e ficheiros de manifesto do serviço
-Como parte da implementação de um executável de convidado, é útil para entender o modelo de empacotamento e implementação do Service Fabric, conforme descrito em [modelo de aplicação](service-fabric-application-model.md). O modelo de empacotamento de Service Fabric baseia-se em dois ficheiros XML: os manifestos da aplicação e serviços. A definição de esquema para os ficheiros ApplicationManifest.xml e ServiceManifest.xml é instalada com o SDK de Service Fabric para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
-
-* **O manifesto da aplicação** o manifesto da aplicação utilizado para descrever a aplicação. Lista os serviços que compõem-lo e outros parâmetros que são utilizados para definir como um ou mais serviços devem ser implementados, como o número de instâncias.
-
-  No Service Fabric, uma aplicação é uma unidade de implementação e a atualização. É possível atualizar uma aplicação como uma única unidade em que é geridos os potenciais falhas e reverte potenciais. Service Fabric garante que o processo de atualização é concluída com êxito, ou, se a atualização falhar, deixe a aplicação num Estado desconhecido ou instável.
-* **O manifesto do serviço** o manifesto do serviço descreve os componentes de um serviço. Inclui dados, tais como o nome e tipo de serviço e o código e a configuração. O manifesto do serviço também inclui alguns parâmetros adicionais que podem ser utilizados para configurar o serviço uma vez que é implementado.
-
-## <a name="application-package-file-structure"></a>Estrutura de ficheiros do pacote de aplicação
-Para implementar uma aplicação de Service Fabric, a aplicação deve seguir a estrutura de diretórios predefinidos. Segue-se um exemplo dessa estrutura.
-
-```
-|-- ApplicationPackageRoot
-    |-- GuestService1Pkg
-        |-- Code
-            |-- existingapp.exe
-        |-- Config
-            |-- Settings.xml
-        |-- Data
-        |-- ServiceManifest.xml
-    |-- ApplicationManifest.xml
-```
-
-O ApplicationPackageRoot contém o ficheiro de ApplicationManifest.xml que define a aplicação. Um subdiretório para cada serviço incluído na aplicação é utilizado para conter todos os artefactos requer que o serviço. Estes subdiretórios são o ServiceManifest.xml e, normalmente, o seguinte:
-
-* *Código*. Este diretório contém o código do serviço.
-* *Configuração*. Este diretório contém um ficheiro de Settings.xml (e outros ficheiros, se necessário) que o serviço pode aceder no tempo de execução para obter as definições de configuração específicos.
-* *Dados*. Este é um diretório adicional para armazenar os dados locais adicionais que poderá ter o serviço. Dados devem ser utilizados para armazenar apenas os dados de efémeras. Service Fabric não copie ou replicar as alterações para o diretório de dados se o serviço tem de ser relocalizada (por exemplo, durante a ativação pós-falha).
-
-> [!NOTE]
-> Não tem de criar o `config` e `data` diretórios se não precisar deles.
->
->
-
-## <a name="package-an-existing-executable"></a>Pacote de um executável existente
-Quando o empacotamento um executável de convidado, pode escolher a utilizar um modelo de projeto do Visual Studio ou [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacote de aplicação e ficheiros de manifesto são criados pelo modelo de projeto novo.
+# <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>O pacote e implementar um executável existente para o Service Fabric
+Quando o empacotamento um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), pode escolher a utilizar um modelo de projeto do Visual Studio ou [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacote de aplicação e ficheiros de manifesto são criados pelo modelo de projeto novo.
 
 > [!TIP]
 > A forma mais fácil para compactar um executável para um serviço existentes do Windows está a utilizar o Visual Studio e em Linux para utilizar o Yeoman
@@ -91,13 +37,15 @@ O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar a im
    * *Programa* Especifica o executável que deve ser executado para iniciar o serviço.
    * *Argumentos* Especifica os argumentos que devem ser transmitidos para o executável. Pode ser uma lista de parâmetros com argumentos.
    * *WorkingFolder* Especifica o diretório de trabalho para o processo que vai ser iniciado. Pode especificar três valores:
-     * `CodeBase`Especifica que o diretório de trabalho vai ser definido para o diretório de código no pacote de aplicação (`Code` directory apresentados na estrutura de ficheiros anterior).
-     * `CodePackage`Especifica que o diretório de trabalho vai ser definido para a raiz do pacote de aplicação (`GuestService1Pkg` mostrada na estrutura de ficheiros anterior).
-     * `Work`Especifica que os ficheiros são colocados num subdiretório chamado trabalho.
+     * `CodeBase` Especifica que o diretório de trabalho vai ser definido para o diretório de código no pacote de aplicação (`Code` directory apresentados na estrutura de ficheiros anterior).
+     * `CodePackage` Especifica que o diretório de trabalho vai ser definido para a raiz do pacote de aplicação (`GuestService1Pkg` mostrada na estrutura de ficheiros anterior).
+     * `Work` Especifica que os ficheiros são colocados num subdiretório chamado trabalho.
 4. Dê um nome ao serviço e clique em **OK**.
 5. Se o serviço precisa de um ponto final para a comunicação, agora pode adicionar o protocolo, porta e tipo para o ficheiro ServiceManifest.xml. Por exemplo: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Agora pode utilizar o pacote e publique ação contra o seu cluster local através da depuração a solução no Visual Studio. Quando estiver pronto, pode publicar a aplicação para um cluster remoto ou verifique a solução ao controlo de origem.
-7. Aceda ao fim deste artigo para ver como visualizar o seu serviço executável do convidado em execução no Service Fabric Explorer.
+7. Leitura [verificar a sua aplicação em execução](#check-your-running-application) Consulte como visualizar o seu serviço executável do convidado em execução no Service Fabric Explorer.
+
+Para um exemplo de instruções, consulte [criar a primeira aplicação executável de convidados utilizando o Visual Studio](quickstart-guest-app.md).
 
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Utilizar Yeoman ao pacote e implementar um executável existente no Linux
 
@@ -192,7 +140,7 @@ O elemento de CodePackage Especifica a localização (e versão) de código do s
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-O `Name` elemento é utilizado para especificar o nome do diretório no pacote de aplicação que contém o código do serviço. `CodePackage`Também tem o `version` atributo. Isto pode ser utilizado para especificar a versão do código e também potencialmente pode ser utilizado para atualizar o código do serviço, utilizando a infraestrutura de gestão do ciclo de vida de aplicação no Service Fabric.
+O `Name` elemento é utilizado para especificar o nome do diretório no pacote de aplicação que contém o código do serviço. `CodePackage` Também tem o `version` atributo. Isto pode ser utilizado para especificar a versão do código e também potencialmente pode ser utilizado para atualizar o código do serviço, utilizando a infraestrutura de gestão do ciclo de vida de aplicação no Service Fabric.
 
 #### <a name="optional-update-setupentrypoint"></a>Opcional: SetupEntrypoint de atualização
 ```xml
@@ -208,7 +156,7 @@ Não há SetupEntryPoint apenas uma, pelo que os scripts de configuração tem d
 
 No exemplo anterior, o SetupEntryPoint executa um ficheiro batch chamado `LaunchConfig.cmd` que está localizado no `scripts` subdiretório do diretório de código (assumindo que o elemento de WorkingFolder está definido como base de código).
 
-#### <a name="update-entrypoint"></a>Atualizar o ponto de entrada
+#### <a name="update-entrypoint"></a>Update EntryPoint
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -221,12 +169,12 @@ No exemplo anterior, o SetupEntryPoint executa um ficheiro batch chamado `Launch
 
 O `EntryPoint` elemento no ficheiro de manifesto do serviço é utilizado para especificar como iniciar o serviço. O `ExeHost` elemento Especifica o executável (e os argumentos) que deve ser utilizada para iniciar o serviço.
 
-* `Program`Especifica o nome do executável que deve iniciar o serviço.
-* `Arguments`Especifica os argumentos que devem ser transmitidos para o executável. Pode ser uma lista de parâmetros com argumentos.
-* `WorkingFolder`Especifica o diretório de trabalho para o processo que vai ser iniciado. Pode especificar três valores:
-  * `CodeBase`Especifica que o diretório de trabalho vai ser definido para o diretório de código no pacote de aplicação (`Code` diretório na estrutura de ficheiros anterior).
-  * `CodePackage`Especifica que o diretório de trabalho vai ser definido para a raiz do pacote de aplicação (`GuestService1Pkg` na estrutura de ficheiros anterior).
-    * `Work`Especifica que os ficheiros são colocados num subdiretório chamado trabalho.
+* `Program` Especifica o nome do executável que deve iniciar o serviço.
+* `Arguments` Especifica os argumentos que devem ser transmitidos para o executável. Pode ser uma lista de parâmetros com argumentos.
+* `WorkingFolder` Especifica o diretório de trabalho para o processo que vai ser iniciado. Pode especificar três valores:
+  * `CodeBase` Especifica que o diretório de trabalho vai ser definido para o diretório de código no pacote de aplicação (`Code` diretório na estrutura de ficheiros anterior).
+  * `CodePackage` Especifica que o diretório de trabalho vai ser definido para a raiz do pacote de aplicação (`GuestService1Pkg` na estrutura de ficheiros anterior).
+    * `Work` Especifica que os ficheiros são colocados num subdiretório chamado trabalho.
 
 O WorkingFolder é útil para definir o diretório de trabalho correto para que podem ser utilizados caminhos relativos pelos scripts de aplicação ou inicialização.
 
@@ -240,7 +188,7 @@ O WorkingFolder é útil para definir o diretório de trabalho correto para que 
 No exemplo anterior, o `Endpoint` elemento Especifica os pontos finais de que a aplicação pode escutar. Neste exemplo, a aplicação Node.js escuta de http na porta 3000.
 
 Além disso, pode pedir ao Service Fabric para publicar este ponto final para o serviço de nomenclatura para que outros serviços podem detetar o endereço de ponto final para este serviço. Isto permite-lhe ser capaz de comunicar entre os serviços convidados executáveis.
-O endereço de ponto final publicados tem o formato `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme`e `PathSuffix` são atributos opcionais. `IPAddressOrFQDN`é o endereço IP ou nome de domínio completamente qualificado do nó este ficheiro executável obtém colocado e esta é calculada para si.
+O endereço de ponto final publicados tem o formato `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` e `PathSuffix` são atributos opcionais. `IPAddressOrFQDN` é o endereço IP ou nome de domínio completamente qualificado do nó este ficheiro executável obtém colocado e esta é calculada para si.
 
 No exemplo seguinte, assim que o serviço é implementado, no Service Fabric Explorer verá um ponto final semelhante `http://10.1.4.92:3000/myapp/` publicados para a instância de serviço. Ou se se tratar de um computador local, consulte `http://localhost:3000/myapp/`.
 
@@ -292,11 +240,11 @@ Redirecionamento de consola pode ser configurado no `ServiceManifest.xml` fichei
 </EntryPoint>
 ```
 
-`ConsoleRedirection`pode ser utilizado para redirecionar o resultado da consola (stdout e stderr) para um diretório de trabalho. Isto fornece a capacidade para verificar se não existirem erros durante a configuração ou a execução da aplicação no cluster de Service Fabric.
+`ConsoleRedirection` pode ser utilizado para redirecionar o resultado da consola (stdout e stderr) para um diretório de trabalho. Isto fornece a capacidade para verificar se não existirem erros durante a configuração ou a execução da aplicação no cluster de Service Fabric.
 
-`FileRetentionCount`Determina quantos ficheiros são guardados no diretório de trabalho. Um valor de 5, por exemplo, significa que os ficheiros de registo para as execuções de cinco anteriores são armazenados no diretório de trabalho.
+`FileRetentionCount` Determina quantos ficheiros são guardados no diretório de trabalho. Um valor de 5, por exemplo, significa que os ficheiros de registo para as execuções de cinco anteriores são armazenados no diretório de trabalho.
 
-`FileMaxSizeInKb`Especifica o tamanho máximo dos ficheiros de registo.
+`FileMaxSizeInKb` Especifica o tamanho máximo dos ficheiros de registo.
 
 Ficheiros de registo são guardados dos diretórios de trabalho do serviço. Para determinar onde estão localizados os ficheiros, utilize o Service Fabric Explorer para determinar o nó que o serviço está em execução, e o diretório de trabalho está a ser utilizado. Este processo é descrito neste artigo.
 
@@ -345,7 +293,7 @@ Se navegar para o diretório ao utilizar o Explorador de servidores, pode encont
 
 ![Localização do registo](./media/service-fabric-deploy-existing-app/loglocation.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como um executável de convidado do pacote e implementá-la para o Service Fabric. Consulte os artigos seguintes para informações relacionadas e tarefas.
 
 * [Exemplo de empacotamento e implementação de um executável de convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo uma hiperligação para a pré-lançamento da ferramenta de empacotamento

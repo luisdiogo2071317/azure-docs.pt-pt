@@ -4,22 +4,17 @@ description: "Saiba mais sobre como configurar a base de dados do Azure SQL Serv
 services: sql-database
 documentationcenter: 
 author: veljko-msft
-manager: jhubbard
-editor: 
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/13/2018
 ms.author: vvasic
-ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3ac0c87ca41315eb3b63ddfab2736f68bac8dbee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnóstico 
 Base de dados SQL do Azure pode emitir métricas e diagnóstico registos para a monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -257,7 +252,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-storage"></a>Transferir os registos e as métricas do armazenamento
 
-Saiba como [transferir os registos de métricas e diagnóstico do armazenamento](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Saiba como [transferir os registos de métricas e diagnóstico do armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="metrics-and-logs-available"></a>Métricas e registos disponíveis
 
@@ -478,4 +473,4 @@ Para saber mais sobre os Event Hubs, leia:
 * [O que é Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Para saber mais sobre armazenamento, consulte como [transferir os registos de métricas e diagnóstico do armazenamento](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Para saber mais sobre armazenamento, consulte como [transferir os registos de métricas e diagnóstico do armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

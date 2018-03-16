@@ -12,17 +12,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd4f36bb029f123b0fa41d6dcd57547413e015c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de funções SendGrid do Azure
 
 Este artigo explica como enviar correio eletrónico com [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) enlaces de funções do Azure. As funções do Azure suporta um enlace de saída do SendGrid.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pacotes
+
+Os enlaces do SendGrid são fornecidos no [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) repositório do GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -155,7 +161,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Atributos
 
-No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) atributo.
 
 Para obter informações sobre as propriedades de atributo que pode configurar, consulte [configuração](#configuration). Eis um `SendGrid` exemplo de atributo na assinatura do método:
 
@@ -177,14 +183,14 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**|| Necessário - tem de ser definido como `sendGrid`.|
-|**direção**|| Necessário - tem de ser definido como `out`.|
-|**nome**|| Necessário - o nome da variável utilizado no código de função para o corpo do pedido ou o pedido. Este valor é ```$return``` quando existe apenas um valor de retorno. |
+|**type**|| Necessário - tem de ser definido como `sendGrid`.|
+|**direction**|| Necessário - tem de ser definido como `out`.|
+|**name**|| Necessário - o nome da variável utilizado no código de função para o corpo do pedido ou o pedido. Este valor é ```$return``` quando existe apenas um valor de retorno. |
 |**apiKey**|**ApiKey**| O nome de uma definição de aplicação que contém a chave de API. Se não conjunto, a aplicação de predefinição definir o nome é "AzureWebJobsSendGridApiKey".|
-|**para**|**Para**| endereço de e-mail do destinatário. |
-|**do**|**Do**| endereço de correio eletrónico do remetente. |
-|**requerente**|**Assunto**| o assunto do e-mail. |
-|**texto**|**Texto**| o conteúdo de e-mail. |
+|**Para**|**Para**| endereço de e-mail do destinatário. |
+|**from**|**Do**| endereço de correio eletrónico do remetente. |
+|**subject**|**Assunto**| o assunto do e-mail. |
+|**text**|**Text** (Texto)| o conteúdo de e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

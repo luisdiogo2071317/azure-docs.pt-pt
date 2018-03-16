@@ -2,23 +2,18 @@
 title: "Descrição geral de consulta elástico de base de dados SQL do Azure | Microsoft Docs"
 description: "Consulta elástica permite-lhe executar uma consulta de Transact-SQL que abrange várias bases de dados."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 6389702b1be5e52c7191e6e57d17b48289e800b2
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 76a8332b99639bacee994824b69624d7fd457a7f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Descrição geral de consulta elástico do Azure SQL Database (pré-visualização)
 A funcionalidade de consulta elástico (em pré-visualização) permite-lhe executar uma consulta de Transact-SQL que abrange várias bases de dados na base de dados do Azure SQL. Permite-lhe executar consultas de base de dados em vários locais para aceder a tabelas remotas e para estabelecer a ligação de ferramentas da Microsoft e de terceiros (Excel, PowerBI, Tableau, etc.) para consultar em camadas de dados com várias bases de dados. Utilizar esta funcionalidade, pode aumentar horizontalmente consultas para as camadas de dados de grandes dimensões na base de dados do SQL Server e visualizar os resultados em relatórios do business intelligence (BI).
@@ -143,7 +138,7 @@ Consulta elástica está incluída no custo de bases de dados do SQL Database do
 ## <a name="feedback"></a>Comentários
 . Partilhe comentários sobre a sua experiência com consultas elásticas connosco no Livefyre abaixo, os fóruns da MSDN, ou Stackoverflow. Estamos interessados em todos os tipos de comentários sobre o serviço (defeitos, contornos aproximados, intervalos de funcionalidade).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para um tutorial de criação de partições vertical, consulte [introdução à consulta de base de dados em vários locais (criação de partições vertical)](sql-database-elastic-query-getting-started-vertical.md).
 * Para consultas de sintaxe e exemplos de dados verticalmente particionadas, consulte [consultar verticalmente particionada dados)](sql-database-elastic-query-vertical-partitioning.md)

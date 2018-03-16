@@ -3,7 +3,7 @@ title: Adicione o conector de utilizadores do Office 365 em Logic Apps | Microso
 description: "Descrição geral do conector de utilizadores do Office 365 com parâmetros de REST API"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Começar a utilizar o conector de utilizadores do Office 365
 Ligar para os utilizadores do Office 365 para obter perfis, utilizadores de pesquisa e muito mais. Utilizadores do Office 365, pode:
@@ -36,7 +36,7 @@ Ao adicionar este conector para as logic apps, que tem início de sessão à sua
 > 
 > 
 
-Depois de criar a ligação, introduza as propriedades de utilizadores do Office 365, como o ID de utilizador. O **referência da REST API** neste tópico descreve estas propriedades.
+Depois de criar a ligação, introduza as propriedades de utilizadores do Office 365, como o ID de utilizador. O **referência da REST API** este artigo descreve estas propriedades.
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

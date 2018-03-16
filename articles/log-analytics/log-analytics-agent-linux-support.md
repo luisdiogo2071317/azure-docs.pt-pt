@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 80d7e39b284554ebfa8cac4488e1663b3e3648e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Como resolver problemas com o agente Linux para análise de registos
 
@@ -37,12 +37,12 @@ Este artigo fornece erros podem ocorrer com o agente Linux para análise de regi
 2. Reveja a secção [atualizar as definições de proxy](log-analytics-agent-manage.md#update-proxy-settings) para verificar que configurou corretamente o agente para comunicar através de um servidor proxy.    
 * Volte a verificar que os pontos finais de serviço de análise de registos seguintes estão na lista de permissões:
 
-    |Recursos do Agente| Portas |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | Porta 443|   
-    |*.oms.opinsights.azure.com | Porta 443|   
-    |ods.systemcenteradvisor.com | Porta 443|   
-    |*.blob.core.windows.net/ | Porta 443|   
+    |Recursos do Agente| Portas | Direção |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | Porta 443| Entrada e saída |  
+    |*.oms.opinsights.azure.com | Porta 443| Entrada e saída |  
+    |*.blob.core.windows.net | Porta 443| Entrada e saída |  
+    |*.azure-automation.net | Porta 443| Entrada e saída | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: Recebe um erro 403 ao tentar carregar
 
@@ -68,7 +68,7 @@ Este é um problema conhecido que ocorre no primeiro carregamento de dados de Li
 - Agente do OMS Linux dados de cópia de segurança
 
 ### <a name="resolutions"></a>Resoluções
-1. Verifique se a integração o serviço de análise de registos foi concluída com êxito, verificando se o ficheiro seguinte:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Verifique se a integração o serviço de análise de registos foi concluída com êxito, verificando se o ficheiro seguinte: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard utilizando o `omsadmin.sh` instruções da linha de comandos
 3. Se utilizar um proxy, consulte os passos de resolução de proxy fornecidos anteriormente.
 4. Em alguns casos, quando o agente do OMS para Linux não é possível comunicar com o serviço, dados no agente é colocado em fila para o tamanho de memória intermédia completa, o que é 50 MB. O agente do OMS para Linux deve ser reiniciado, executando o seguinte comando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 

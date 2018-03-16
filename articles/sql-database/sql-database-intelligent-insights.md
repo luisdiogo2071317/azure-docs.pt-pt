@@ -2,24 +2,19 @@
 title: "Monitorizar a utilização de base de dados com Insights inteligente - SQL Database do Azure | Microsoft Docs"
 description: "SQL Server da base de dados inteligente as informações do Azure utiliza intelligence incorporado continuamente monitorizar a utilização de base de dados através de artificial intelligence e detetar eventos acontece que causam um fraco desempenho."
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8654c35bb9c6e46a47f52dee6ab7969f996b42f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="intelligent-insights"></a>Informações Inteligentes
 
@@ -59,7 +54,7 @@ Identificou a base de dados SQL degradations de desempenho são registadas no re
 | Valor de impacto | Valor de uma métrica de medida. |
 | Consultas afetadas e códigos de erro | Consultar o código hash ou erro. Estes podem ser utilizados para correlacionar facilmente para consultas afetadas. As métricas que são compostos aumento da duração de consulta, tempo de espera, contagens de tempo limite ou códigos de erro são fornecidas. |
 | Deteções | Deteção identificada na base de dados durante a hora de um evento. Existem 15 padrões de deteção. Para obter mais informações, consulte [resolver problemas de desempenho de base de dados do Insights inteligente](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Análise da causa raiz | A causa do problema identificado num formato legível por humanos raiz. Algumas informações podem conter uma recomendação de melhoramento de desempenho, sempre que possível. |
+| Análise de causa raiz | A causa do problema identificado num formato legível por humanos raiz. Algumas informações podem conter uma recomendação de melhoramento de desempenho, sempre que possível. |
 |||
 
 Problemas de desempenho que são registados no registo de diagnóstico são sinalizados com um dos três Estados de um ciclo de vida do problema: "Ativo", "Verificar" e "Concluir". Depois de desempenho foi detetado o problema e como o tempo que tem considerado como presente pelo intelligence incorporado de base de dados SQL, o problema está assinalado como "Ativo". Quando o problema é considerado atenuados, verificá-lo e o estado do problema é alterado para "Verificar". Depois de intelligence incorporada de base de dados SQL considera o problema resolvido, o estado do problema está assinalado como "Concluir".
@@ -172,7 +167,7 @@ O registo de Insights inteligente produz a contagem de pedidos Ocorreu um erro a
 
 Se qualquer uma das exceções críticas monitorizadas cruzada os limiares absolutos geridos pelo sistema, é gerada uma informação inteligente com detalhes de exceção crítica.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [resolver problemas de desempenho de base de dados SQL com o Insights inteligente](sql-database-intelligent-insights-troubleshoot-performance.md).
 * Utilize o [registo de diagnóstico de desempenho de base de dados de SQL inteligente Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 * Saiba como [monitorizar a base de dados SQL, através da análise do SQL Server](../log-analytics/log-analytics-azure-sql.md).

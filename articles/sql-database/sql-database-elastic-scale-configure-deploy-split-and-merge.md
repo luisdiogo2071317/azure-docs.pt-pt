@@ -2,24 +2,18 @@
 title: "Implementar um serviço de divisão de intercalação | Microsoft Docs"
 description: "Utilize a intercalação de divisão demasiado para mover dados entre bases de dados em partição horizontal."
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: ed5545df8d09192eeed21dd2ac379e255b049e30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Implementar um serviço de divisão/intercalação
 A ferramenta de intercalação de divisão permite-lhe mover dados entre bases de dados em partição horizontal. Consulte [mover dados entre bases de dados de nuvem de escalamento horizontal](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -149,7 +143,7 @@ Se a função de trabalho não consegue ficar online, mas é concluída com êxi
    ```
 
 * Certifique-se de que o nome do servidor não começa com **https://**.
-* Certifique-se de que o servidor de BD SQL do Azure permite que os serviços do Azure ligar ao mesmo. Para tal, Abra https://manage.windowsazure.com, clique em "Bases de dados do SQL Server" no lado esquerdo, clique em "Servidores" na parte superior e selecione o seu servidor. Clique em **configurar** na parte superior e certifique-se de que o **serviços do Azure** definição está definida como "Yes". (Consulte a secção de pré-requisitos na parte superior deste artigo).
+* Certifique-se de que o servidor de BD SQL do Azure permite que os serviços do Azure ligar ao mesmo. Para tal, abra https://manage.windowsazure.com, clique em "Bases de dados do SQL Server" no lado esquerdo, clique em "Servidores" na parte superior e selecione o seu servidor. Clique em **configurar** na parte superior e certifique-se de que o **serviços do Azure** definição está definida como "Yes". (Consulte a secção de pré-requisitos na parte superior deste artigo).
 
 ## <a name="test-the-service-deployment"></a>Testar a implementação de serviço
 ### <a name="connect-with-a-web-browser"></a>Ligar com um browser

@@ -3,24 +3,21 @@ title: "Executar consultas ad hoc de relatórios em várias bases de dados SQL d
 description: "Execute consultas ad hoc de relatórios em várias bases de dados do SQL Server um exemplo de aplicação multi-inquilino."
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: d33b95cf4dc05f4eb9f79509cda56e8ab51b7701
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análises ad hoc através de várias bases de dados SQL do Azure
 
@@ -128,7 +125,7 @@ Quando inspecionar o plano de execução, coloque o cursor sobre os ícones de p
 
    Inspecione o plano e vê que o custo total de consulta remota porque é simplesmente ir para cada base de dados do inquilino e selecionar as informações de venue.
 
-   ![SELECIONAR * de dbo. Venues](media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
+   ![SELECT * FROM dbo.Venues](media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
 
 5. Selecione o seguinte consulta e prima **F5**.
 
@@ -145,7 +142,7 @@ Quando inspecionar o plano de execução, coloque o cursor sobre os ícones de p
    ![consulta](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

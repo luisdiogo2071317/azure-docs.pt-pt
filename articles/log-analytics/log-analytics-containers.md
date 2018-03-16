@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -51,7 +51,7 @@ A tabela seguinte descreve a orquestração de Docker e o sistema operativo de s
 | Utilizar o Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Serviço<br>Recursos de infraestrutura | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Serviço<br>Recursos de infraestrutura | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat aberta<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autónomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Servidor Linux<br>(autónomo) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -103,7 +103,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
     - Se tiver um cluster de Kubernetes utilizando o serviço de contentor do Azure, reveja [configurar um agente do OMS para Kubernetes](#configure-an-oms-agent-for-kubernetes).
     - Se tiver um cluster do serviço de contentor do Azure DC/OS, saiba mais em [monitorizar um cluster DC/OS do serviço de contentor do Azure com o Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Se tiver um ambiente de modo Docker Swarm, saiba mais em [configurar um agente do OMS para Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-    - Se utilizar contentores com o Service Fabric, saiba mais em [descrição geral do Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+    - Se tiver um cluster do Service Fabric, saiba mais em [monitorizar contentores com a análise de registos do OMS](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Reveja o [motor de Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artigo para obter informações adicionais sobre como instalar e configurar os motores de Docker nos computadores com Windows.
 
@@ -544,7 +544,7 @@ A tabela seguinte mostra exemplos de registos recolhidos pela solução de monit
 
 | Tipo de dados | Tipo de dados na pesquisa de registo | Campos |
 | --- | --- | --- |
-| Desempenho para os anfitriões e contentores | `Type=Perf` | Computador, ObjectName, CounterName &#40; de % de tempo do processador, MB de leituras de disco, disco escreve MB, MB de utilização de memória, rede receber Bytes, rede enviar Bytes, o processador de seg de utilização, rede &#41; CounterValue, TimeGenerated, CounterPath, SourceSystem |
+| Desempenho para os anfitriões e contentores | `Type=Perf` | Computador, ObjectName, CounterName &#40;% tempo do processador, o disco lê MB, disco escreve MB, MB de utilização de memória, rede receber Bytes, rede enviar Bytes, o processador de seg de utilização, rede&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | Inventário de contentor | `Type=ContainerInventory` | TimeGenerated, computador, nome do contentor, ContainerHostname, imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, comando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ID do contentor, ImageID |
 | Inventário de imagem do contentor | `Type=ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parar, falha, SourceSystem, ImageID, TotalContainer |
 | Registo de contentor | `Type=ContainerLog` | TimeGenerated, o computador, o ID de imagem, o nome do contentor, LogEntrySource, LogEntry, SourceSystem, ID do contentor |

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Ficheiros de configuração do serviço de experimentação do Machine Learning do Azure
 
@@ -206,7 +206,7 @@ O exemplo seguinte substitui as referências do "mylocal.datasource" origens de 
  
 ```
 DataSourceSubstitutions:
-    myocal.dsource: myremote.dsource
+    mylocal.dsource: myremote.dsource
 ```
 
 Com base na substituição acima, o seguinte exemplo de código agora lê a partir de "myremote.dsource" em vez de "mylocal.dsource" sem utilizadores alterar o seu código.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Estruturar dimensionável e tabelas Performant
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -51,8 +51,8 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <td>
 <table>
 <tr>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -71,8 +71,8 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <td>
 <table>
 <tr>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -108,8 +108,8 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <td>
 <table>
 <tr>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -206,10 +206,10 @@ Os exemplos seguintes partem do princípio de serviço tabela está a armazenar 
 | --- | --- |
 | **PartitionKey** (nome do departamento de) |Cadeia |
 | **RowKey** (Id de empregado) |Cadeia |
-| **Nome próprio** |Cadeia |
-| **Apelido** |Cadeia |
-| **Idade** |Número inteiro |
-| **Endereço de correio eletrónico** |Cadeia |
+| **FirstName** |Cadeia |
+| **LastName** |Cadeia |
+| **idade** |Número inteiro |
+| **EmailAddress** |Cadeia |
 
 A secção anterior [descrição geral do serviço de Azure Table](#overview) descreve algumas das principais funcionalidades do serviço tabela do Azure que tenham uma influência direta na conceção para a consulta. Estes fazer com as seguintes diretrizes gerais para conceber consultas do serviço de tabela. Tenha em atenção que a sintaxe de filtro utilizada nos exemplos abaixo é a partir da API de REST do serviço tabela para obter mais informações, consulte [entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -232,7 +232,7 @@ Para obter exemplos de código do lado do cliente que pode processar vários tip
 * [Trabalhar com tipos de entidade heterogénea](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>Escolher um PartitionKey adequado
-À sua escolha de **PartitionKey** deve balancear a necessidade de permite a utilização de EGTs (para garantir consistência) com o requisito de distribuir as entidades por várias partições (para garantir que uma solução dimensionável).  
+À sua escolha de **PartitionKey** deve balancear a necessidade de ativar a utilização de EGTs (para garantir consistência) com o requisito de distribuir as entidades por várias partições (para garantir que uma solução dimensionável).  
 
 Em uma Alpine, pode armazenar todas as entidades numa partição única, mas isto pode limitar a escalabilidade da sua solução e impediriam que o serviço de tabela a ser capaz de pedidos de balanceamento de carga. Em outra Alpine, pode armazenar uma entidade por partição, que seria altamente dimensionável e que permite que o serviço tabela pedidos de balanceamento de carga, mas que iria impedi-lo da utilização de transações do grupo de entidade.  
 
@@ -250,7 +250,7 @@ O serviço tabela indexa automaticamente os seus entidades utilizando o **Partit
 
 Muitas estruturas têm de cumprir os requisitos para ativar a pesquisa de entidades com base em vários critérios. Por exemplo, localizar entidades de empregado com base no correio eletrónico, id de empregado ou apelido. Os seguintes padrões na secção [padrões de conceção de tabela](#table-design-patterns) endereço estes tipos de requisito e descrevem formas de resolver o facto de que o serviço tabela fornecem índices secundários:  
 
-* [Padrão de índice secundário intra partição](#intra-partition-secondary-index-pattern) -armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores (na mesma partição) para ativar rápido e eficiente pesquisas e as ordens de ordenação alternada utilizando diferentes **RowKey** valores.  
+* [Padrão de índice secundário intra partição](#intra-partition-secondary-index-pattern) -armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores (a mesma partição) para ativar rápido e eficiente pesquisas e as ordens de ordenação alternada utilizando diferentes **RowKey** valores.  
 * [Padrão de índice secundário partição entre](#inter-partition-secondary-index-pattern) -armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores separar em partições ou separadas em tabelas para ativar as pesquisas de rápidos e eficientes e ordenação alternada as ordens utilizando diferentes **RowKey** valores.  
 * [Padrão de entidades do índice](#index-entities-pattern) -manter entidades de índice para ativar pesquisas eficiente que devolvem apresenta uma lista de entidades.  
 
@@ -260,8 +260,8 @@ O serviço tabela devolve entidades ordenadas por ordem, com base no ascendente 
 Muitas aplicações têm requisitos para utilizar dados ordenados as ordens de diferentes: por exemplo, ordenação dos empregados pelo nome ou ao associar data. Os seguintes padrões na secção [padrões de conceção de tabela](#table-design-patterns) como alternativa as ordens de ordenação para as entidades de endereços:  
 
 * [Padrão de índice secundário intra partição](#intra-partition-secondary-index-pattern) - armazenar várias cópias de cada entidade utilizar valores diferentes de RowKey (na mesma partição) para ativar rápido e eficiente pesquisas e ordenação alternada ordena utilizando valores RowKey diferentes.  
-* [Padrão de índice secundário partição entre](#inter-partition-secondary-index-pattern) - armazenar várias cópias de cada entidade utilizar valores diferentes de RowKey em separado partições em tabelas separadas para ativar rápido e eficiente pesquisas e ordenação alternada ordena utilizando valores RowKey diferentes.
-* [Padrão de seguimento de registo](#log-tail-pattern) -obter o  *n*  entidades recentemente adicionadas a uma partição utilizando um **RowKey** valor ordena na data inversa e ordem de tempo.  
+* [Padrão de índice secundário partição entre](#inter-partition-secondary-index-pattern) - armazenar várias cópias de cada entidade utilizar valores diferentes de RowKey em separado partições em tabelas separadas para ativar rápido e eficiente pesquisas e ordenação alternada ordena utilizando valores RowKey diferentes .
+* [Padrão de seguimento de registo](#log-tail-pattern) -obter o *n* entidades recentemente adicionadas a uma partição utilizando um **RowKey** valor ordena na data inversa e ordem de tempo.  
 
 ## <a name="design-for-data-modification"></a>Estrutura de modificação de dados
 Esta secção centra-se em considerações de design para otimizar as introduções, atualizações e elimina. Em alguns casos, terá de avaliar o compromisso entre as estruturas que otimizar para consulta contra estruturas otimizar a modificação de dados tal como o que fazer em estruturas de bases de dados relacionais (embora as técnicas para gerir os compromissos de design diferentes numa base de dados relacional). A secção [padrões de conceção de tabela](#table-design-patterns) descreve alguns padrões de conceção de detalhado para o serviço de tabela e realça algumas destas compromissos. Na prática, irá encontrar que muitas estruturas otimizadas para consultar entidades também funcionam bem para modificar as entidades.  
@@ -281,8 +281,8 @@ O fator chave que influencia à sua escolha de chaves para otimizar as modifica�
 
 Os seguintes padrões na secção [padrões de conceção de tabela](#table-design-patterns) endereço gerir consistência:  
 
-* [Padrão de índice secundário intra partição](#intra-partition-secondary-index-pattern) -armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores (na mesma partição) para ativar rápido e eficiente pesquisas e as ordens de ordenação alternada utilizando diferentes **RowKey** valores.  
-* [Padrão de índice secundário partição entre](#inter-partition-secondary-index-pattern) - armazenar várias cópias de cada entidade a utilizar valores diferentes de RowKey em partições separadas ou em tabelas separadas para ativar rápido e eficiente pesquisas e ordenação alternada ordena utilizando diferentes **RowKey** valores.  
+* [Padrão de índice secundário intra partição](#intra-partition-secondary-index-pattern) -armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores (a mesma partição) para ativar rápido e eficiente pesquisas e as ordens de ordenação alternada utilizando diferentes **RowKey** valores.  
+* [Padrão de índice secundário partição entre](#inter-partition-secondary-index-pattern) - armazenar várias cópias de cada entidade a utilizar valores diferentes de RowKey em partições separadas ou em tabelas separadas para ativar rápido e eficiente pesquisas e ordenação alternada ordena utilizando diferentes**RowKey** valores.  
 * [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern) -ativar o comportamento eventualmente consistente em limites de partição ou limites de sistema de armazenamento ao utilizar as filas do Azure.
 * [Padrão de entidades do índice](#index-entities-pattern) -manter entidades de índice para ativar pesquisas eficiente que devolvem apresenta uma lista de entidades.  
 * [Padrão de denormalization](#denormalization-pattern) -combinar dados relacionados com o em conjunto numa única entidade que lhe permite obter todos os dados que precisa com uma ponto único de consulta.  
@@ -296,7 +296,7 @@ Em muitos casos, uma estrutura eficaz resulta consultas em modificações eficie
 Os seguintes padrões na secção [padrões de conceção de tabela](#table-design-patterns) compromissos entre conceber consultas eficiente e estruturar para modificação de dados eficiente de endereços:  
 
 * [Padrão de chave composta](#compound-key-pattern) -utilização composta **RowKey** valores para permitir que um cliente para procurar dados relacionados com um ponto único de consulta.  
-* [Padrão de seguimento de registo](#log-tail-pattern) -obter o  *n*  entidades recentemente adicionadas a uma partição utilizando um **RowKey** valor ordena na data inversa e ordem de tempo.  
+* [Padrão de seguimento de registo](#log-tail-pattern) -obter o *n* entidades recentemente adicionadas a uma partição utilizando um **RowKey** valor ordena na data inversa e ordem de tempo.  
 
 ## <a name="encrypting-table-data"></a>Encriptar dados da tabela
 A biblioteca de clientes do Storage de Azure .NET suporta a encriptação das propriedades de entidade de cadeia para inserção e substitua operações. As cadeias de encriptados são armazenadas no serviço como propriedades binárias e estes são convertidos para cadeias depois de desencriptação.    
@@ -418,7 +418,7 @@ O mapa de padrão acima destaca algumas relações entre padrões (azul) e padr�
 ### <a name="intra-partition-secondary-index-pattern"></a>Padrão de índice secundário intra partição
 Armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores (na mesma partição) para ativar rápido e eficiente pesquisas e as ordens de ordenação alternada utilizando diferentes **RowKey** valores. Atualizações entre cópias podem ser mantidas consistentes através do EGT.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 O serviço tabela indexa automaticamente entidades utilizando o **PartitionKey** e **RowKey** valores. Isto permite que uma aplicação de cliente para obter uma entidade eficiente, utilizando estes valores. Por exemplo, utilizando a estrutura da tabela abaixo, uma aplicação cliente pode utilizar uma ponto de consulta para obter uma entidade de empregado individuais utilizando o nome de departamento e o id de empregado (o **PartitionKey** e **RowKey** valores). Um cliente também pode obter entidades ordenadas por id de empregado dentro de cada departamento.
 
 ![][6]
@@ -443,7 +443,7 @@ Se a consulta para um intervalo de entidades de empregado, pode especificar um i
   Tenha em atenção que é a partir da API de REST do serviço tabela para obter mais informações, consulte a sintaxe de filtro utilizada nos exemplos acima [entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * O Table storage é relativamente cheap possa utilizar a sobrecarga de custo do armazenamento de dados duplicados não deve ser uma preocupação principal. No entanto, deve sempre avaliar o custo da estrutura com base nos seus requisitos de armazenamento previsto e adicione apenas duplicadas entidades para suportar as consultas que irá executar a aplicação cliente.  
 * Porque as entidades de índice secundário são armazenadas na mesma partição como as entidades originais, deve certificar-se de que não exceda os destinos de escalabilidade para uma partição individual.  
@@ -459,7 +459,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando a aplicação cliente tem de obter entidades utilizando uma variedade de diferentes chaves, quando o cliente tem de obter as entidades das ordens de ordenação diferente e, em que possa identificar cada entidade utilizando uma variedade de valores exclusivos. No entanto, deve ser se de que não excede os limites de escalabilidade da partição quando estiver a efetuar pesquisas de entidade com os diferentes **RowKey** valores.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Padrão de índice secundário entre partição](#inter-partition-secondary-index-pattern)
@@ -470,7 +470,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="inter-partition-secondary-index-pattern"></a>Padrão de índice secundário entre partição
 Armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores separar em partições ou separadas em tabelas para ativar rápido e eficiente pesquisas e as ordens de ordenação alternada utilizando diferentes **RowKey** valores.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 O serviço tabela indexa automaticamente entidades utilizando o **PartitionKey** e **RowKey** valores. Isto permite que uma aplicação de cliente para obter uma entidade eficiente, utilizando estes valores. Por exemplo, utilizando a estrutura da tabela abaixo, uma aplicação cliente pode utilizar uma ponto de consulta para obter uma entidade de empregado individuais utilizando o nome de departamento e o id de empregado (o **PartitionKey** e **RowKey** valores). Um cliente também pode obter entidades ordenadas por id de empregado dentro de cada departamento.  
 
 ![][9]
@@ -497,7 +497,7 @@ Se a consulta para um intervalo de entidades de empregado, pode especificar um i
 Tenha em atenção que é a partir da API de REST do serviço tabela para obter mais informações, consulte a sintaxe de filtro utilizada nos exemplos acima [entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Pode manter as entidades duplicadas eventualmente consistente entre si utilizando o [padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern) para manter as entidades de índice principal e secundário.  
 * O Table storage é relativamente cheap possa utilizar a sobrecarga de custo do armazenamento de dados duplicados não deve ser uma preocupação principal. No entanto, deve sempre avaliar o custo da estrutura com base nos seus requisitos de armazenamento previsto e adicione apenas duplicadas entidades para suportar as consultas que irá executar a aplicação cliente.  
@@ -511,7 +511,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando a aplicação cliente tem de obter entidades utilizando uma variedade de diferentes chaves, quando o cliente tem de obter as entidades das ordens de ordenação diferente e, em que possa identificar cada entidade utilizando uma variedade de valores exclusivos. Utilize este padrão quando pretender evitar exceder os limites de escalabilidade da partição quando estiver a efetuar pesquisas de entidade com os diferentes **RowKey** valores.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern)  
@@ -523,7 +523,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="eventually-consistent-transactions-pattern"></a>Padrão de transações eventualmente consistente
 Ative o comportamento eventualmente consistente em limites de partição ou limites de sistema de armazenamento ao utilizar as filas do Azure.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 EGTs ativar transações atómicas entre várias entidades que partilham a mesma chave de partição. Para o desempenho e as razões de escalabilidade, pode optar por armazenar as entidades que têm requisitos de consistência em partições separadas ou num sistema de armazenamento separada: neste cenário, não é possível utilizar EGTs para manter a consistência. Por exemplo, pode ter um requisito para manter a consistência eventual entre:  
 
 * Entidades armazenadas em duas partições diferentes na mesma tabela, nas tabelas diferentes, em contas de armazenamento diferente.  
@@ -549,7 +549,7 @@ Se a função de trabalho nunca conclui passo **6**, em seguida, após um tempo 
 Alguns erros dos serviços de tabela e fila são erros transitórios e a aplicação cliente deve incluir a lógica de repetição adequado para lidar com os mesmos.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Esta solução fornece para isolamento da transação. Por exemplo, um cliente foi possível ler o **atual** e **arquivo** tabelas quando a função de trabalho foi entre passos **4** e **5**e ver uma vista dos dados inconsistente. Tenha em atenção que os dados serão consistentes eventualmente.  
 * Tem de ser se de que os passos 4 e 5 idempotent para garantir a consistência eventual.  
@@ -558,7 +558,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando pretende garantir a consistência eventual entre entidades que existe nas tabelas ou partições diferentes. Pode expandir este padrão para assegurar a consistência eventual para operações entre o serviço de tabela e o serviço Blob e outro armazenamento do Azure origens de dados, tais como a base de dados ou o sistema de ficheiros.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Transações de grupo de entidade](#entity-group-transactions)  
@@ -572,7 +572,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="index-entities-pattern"></a>Padrão de entidades de índice
 Manter as entidades de índice para ativar pesquisas eficiente que devolvem apresenta uma lista de entidades.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 O serviço tabela indexa automaticamente entidades utilizando o **PartitionKey** e **RowKey** valores. Isto permite que uma aplicação de cliente para obter uma entidade eficiente, utilizando uma consulta de ponto. Por exemplo, utilizando a estrutura da tabela abaixo, uma aplicação cliente pode eficientemente obter uma entidade de empregado individuais utilizando o nome de departamento e o id de empregado (o **PartitionKey** e **RowKey**).  
 
 ![][13]
@@ -623,7 +623,7 @@ O **EmployeeIDs** propriedade contém uma lista de ids de empregado para os func
 A terceira opção, não é possível utilizar EGTs para manter a consistência porque as entidades do índice estão numa partição separada das entidades do empregado. Deve certificar-se de que as entidades de índice são eventualmente consistentes com as entidades do empregado.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Esta solução necessita, pelo menos, duas consultas para obter entidades correspondentes: um para consultar as entidades de índice para obter a lista de **RowKey** valores e, em seguida, consultas para obter a cada entidade na lista.  
 * Uma vez que uma entidade individuais tem um tamanho máximo de 1 MB, opção #2 e a opção #3 na solução partem do princípio de que a lista de ids de empregado para qualquer apelido determinado nunca é superior a 1 MB. Se a lista de ids de empregado é provável que seja superior a 1 MB de tamanho, utilize a opção #1 e armazenar os dados do índice no blob storage.  
@@ -634,7 +634,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando pretender pesquisar um conjunto de entidades que todos os partilham um valor de propriedade comuns, como todos os funcionários com o último nome Jones.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Padrão de chave composta](#compound-key-pattern)  
@@ -645,7 +645,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="denormalization-pattern"></a>Padrão de denormalization
 Combine dados relacionados em conjunto numa única entidade que lhe permite obter todos os dados que precisa com uma ponto único de consulta.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Numa base de dados relacional, normalizar normalmente dados a remover duplicação, resultando em consultas que obtêm dados de várias tabelas. Se normalizar os dados nas tabelas do Azure, tem de se vários ida e volta do cliente para o servidor para obter os dados relacionados. Por exemplo, com a estrutura da tabela abaixo necessitam de duas ida e volta ao obter os detalhes de um departamento: um para obter a entidade de departamento, que inclui o id do gestor e, em seguida, outro pedido para obter detalhes do gestor numa entidade empregado.  
 
 ![][16]
@@ -658,7 +658,7 @@ Em vez de armazenar os dados em duas entidades separadas, denormalize os dados e
 Com entidades de departamento armazenadas com estas propriedades, agora pode obter todos os detalhes que terá sobre um departamento utilizando uma consulta de ponto.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Há alguns custos de sobrecarga associados ao armazenamento alguns dados duas vezes. O benefício de desempenho (resultantes de menos pedidos para o serviço de armazenamento), normalmente, prevalece sobre o aumento marginal custos de armazenamento (e este custo é parcialmente deslocamento por uma redução do número de transações que necessita para obter os detalhes de um departamento).  
 * Tem de manter a consistência das duas entidades que armazenam informações sobre os gestores. Pode processar o problema de consistência utilizando EGTs para atualizar várias entidades numa única transação atómica: neste caso, a entidade de departamento e a entidade de empregado para o Gestor de departamento são armazenados na mesma partição.  
@@ -666,7 +666,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando frequentemente terá de procurar informações relacionadas. Este padrão reduz o número de consultas que tem de se para obter os dados requer que o cliente.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Padrão de chave composta](#compound-key-pattern)  
@@ -676,7 +676,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="compound-key-pattern"></a>Padrão de chave composta
 Utilize composta **RowKey** valores para permitir que um cliente para procurar dados relacionados com um ponto único de consulta.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Base de dados relacional, é bastante natural utilizar associações nas consultas para devolver relacionadas peças de dados para o cliente numa única consulta. Por exemplo, poderá utilizar o id de empregado consultar uma lista de entidades relacionadas que contenham o desempenho e reveja os dados para esse empregado.  
 
 Suponha que estão a armazenar as entidades de empregado no serviço tabela utilizando a seguinte estrutura:  
@@ -701,7 +701,7 @@ O exemplo a seguir descreve como pode obter todos os dados de revisão para um f
 $filter = (PartitionKey eq 'Vendas') e (RowKey ge 'empid_000123') e (RowKey lt 'empid_000124') & $select = RowKey, Gestor de classificação, ponto a ponto de classificação, comentários  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Deve utilizar um caráter de separação adequado que torna mais fácil analisar o **RowKey** valor: por exemplo, **000123_2012**.  
 * Também estão a armazenar esta entidade na mesma partição como outras entidades que contêm dados relacionados para o empregado mesmo, o que significa que pode utilizar EGTs para manter a consistência forte.
@@ -710,7 +710,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando é necessário para armazenar um ou mais atributos relacionados. entidades essa consulta frequentemente.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Transações de grupo de entidade](#entity-group-transactions)  
@@ -718,10 +718,10 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 * [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Padrão de seguimento de registo
-Obter o  *n*  entidades recentemente adicionadas a uma partição utilizando um **RowKey** valor ordena na data inversa e ordem de tempo.  
+Obter o *n* entidades recentemente adicionadas a uma partição utilizando um **RowKey** valor ordena na data inversa e ordem de tempo.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
-Um requisito comuns está a conseguir obter as entidades criadas recentemente, por exemplo o mais recente dez despesa afirmações submetidas por um funcionário. Suporte de consulta de tabela um **$top** operação para devolver o primeiro de consulta  *n*  entidades de um conjunto: não há nenhuma operação de consulta equivalente para devolver as último entidades n num conjunto.  
+#### <a name="context-and-problem"></a>Contexto e problema
+Um requisito comuns está a conseguir obter as entidades criadas recentemente, por exemplo o mais recente dez despesa afirmações submetidas por um funcionário. Suporte de consulta de tabela um **$top** operação para devolver o primeiro de consulta *n* entidades de um conjunto: não há nenhuma operação de consulta equivalente para devolver as último entidades n num conjunto.  
 
 #### <a name="solution"></a>Solução
 Armazenar as entidades com um **RowKey** que naturalmente Ordena por ordem inversa de data/hora através da utilização de entrada, por isso, o mais recente é sempre o primeiro na tabela.  
@@ -739,7 +739,7 @@ A consulta de tabela tem o seguinte aspeto:
 `https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Tem de preencher o valor de escala inversa com líderes zeros para garantir que o valor da cadeia ordena conforme esperado.  
 * Tem de ser em consideração os destinos de escalabilidade no nível de uma partição. Seja cuidadoso não criar partições do ponto ativo.  
@@ -747,7 +747,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando precisar de aceder a entidades na ordem inversa de data/hora ou quando precisa de aceder as entidades mais recentemente adicionadas.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Preceder / acrescentar anti padrão](#prepend-append-anti-pattern)  
@@ -756,7 +756,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="high-volume-delete-pattern"></a>Padrão de eliminação de um volume elevado
 Ativar a eliminação de um grande volume de entidades armazenando todas as entidades para eliminação em simultâneo na sua própria tabela separada; Elimine as entidades por eliminar a tabela.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Muitas aplicações eliminar dados antigos que já não tem de estar disponíveis para uma aplicação cliente ou que a aplicação tem arquivadas para outro meio de armazenamento. Normalmente, identificar esses dados por uma data: por exemplo, tiver um requisito para eliminar registos de todos os pedidos de início de sessão que são mais de 60 dias.  
 
 Um design possível consiste em utilizar a data e hora do pedido no início de sessão a **RowKey**:  
@@ -769,7 +769,7 @@ Esta abordagem evita a hotspots de partição porque a aplicação pode inserir 
 Utilize uma tabela em separado para cada dia de início de sessão falhadas. Pode utilizar o design de entidade acima para evitar a hotspots quando são inserir entidades e eliminar entidades antigas agora é simplesmente uma pergunta de eliminação de uma tabela de todos os dias (uma operação de armazenamento única) em vez de localizar e eliminar centenas e milhares de entidades de início de sessão individuais todos os dias.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * A estrutura suporta outras formas a aplicação utilizará os dados, tais como procurar entidades específicas, com outros dados ou gerar agregam informações de ligação?  
 * O design evitar frequente oportunidades quando são inserir novas entidades?  
@@ -779,7 +779,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão se tiver um grande volume de entidades que tem de eliminar ao mesmo tempo.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Transações de grupo de entidade](#entity-group-transactions)
@@ -788,7 +788,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="data-series-pattern"></a>Padrão de séries de dados
 Série de dados completa de loja uma entidade única para minimizar o número de pedidos que efetuar.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Um cenário comum é para uma aplicação armazenar uma série de dados que, normalmente, tem de obter ao mesmo tempo. Por exemplo, a aplicação poderá registar como muitas mensagens de MI cada empregado envia a cada hora e, em seguida, cada utilizador enviado através de 24 horas anteriores, utilize estas informações para desenhar a quantidade de mensagens. Poderá ser uma estrutura armazenar 24 entidades para cada empregado:  
 
 ![][22]
@@ -803,7 +803,7 @@ Utilize a seguinte estrutura com uma propriedade de diferente para armazenar a c
 Com esta conceção, pode utilizar uma operação de intercalação para atualizar a contagem de mensagens para um empregado para uma hora específica. Agora, pode obter todas as informações necessárias desenhar o gráfico com um pedido para uma única entidade.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Se a série de dados completo não se ajusta uma única entidade (uma entidade pode ter até 252 propriedades), utilize um arquivo de dados alternativos, tais como um blob.  
 * Se tiver vários clientes em simultâneo a atualizar uma entidade, terá de utilizar o **ETag** para implementar a simultaneidade otimista. Se tiver muitos clientes, pode deparar-se elevada contenção.  
@@ -811,7 +811,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando necessita de atualizar e obter uma série de dados associada a uma entidade individuais.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Padrão de entidades grandes](#large-entities-pattern)  
@@ -821,7 +821,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="wide-entities-pattern"></a>Padrão de entidades Wide
 Utilize várias entidades físicas para armazenar as entidades lógicas com mais do que 252 propriedades.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Uma entidade individual pode ter mais do que 252 propriedades (excluindo as propriedades de sistema obrigatório) e não é possível armazenar mais de 1 MB de dados no total. Numa base de dados relacional, normalmente, obterá arredondar os limites de tamanho de uma linha ao adicionar uma nova tabela e impor uma relação de 1 para 1 entre eles.  
 
 #### <a name="solution"></a>Solução
@@ -832,14 +832,14 @@ Utilizar o serviço tabela, pode armazenar várias entidades para representar um
 Se precisar de efetuar uma alteração que necessita de atualizar as entidades para mantê-las sincronizados entre si pode utilizar um EGT. Caso contrário, pode utilizar uma operação de intercalação único para atualizar a contagem de mensagens de um dia específico. Para obter todos os dados para um empregado individuais tem de obter as entidades, o que pode fazer com dois pedidos eficiente que utilizam ambos um **PartitionKey** e um **RowKey** valor.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Obter uma entidade lógica completa envolve a, pelo menos, dois transações de armazenamento: uma para obter a cada entidade física.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando necessário para armazenar as entidades cujo tamanho ou o número de propriedades excede os limites de uma entidade no serviço tabela individuais.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Transações de grupo de entidade](#entity-group-transactions)
@@ -848,7 +848,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="large-entities-pattern"></a>Padrão de entidades grandes
 Utilize o blob storage para armazenar os valores de propriedade grandes.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Uma entidade individuais não é possível armazenar mais de 1 MB de dados no total. Se uma ou várias das suas propriedades armazenarem valores que fazer com que o tamanho total de entidade exceder este valor, não é possível armazenar a entidade completa no serviço tabela.  
 
 #### <a name="solution"></a>Solução
@@ -857,7 +857,7 @@ Se a entidade exceder 1 MB de tamanho, porque uma ou mais propriedades contém u
 ![][25]
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * Para manter a consistência eventual entre a entidade no serviço tabela e os dados no serviço Blob, utilize o [padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern) para manter as entidades.
 * Obter uma entidade completa envolve a, pelo menos, dois transações de armazenamento: uma para obter a entidade e outra para obter os dados de Blobs.  
@@ -865,7 +865,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Utilize este padrão quando tiver de armazenar as entidades cujo tamanho excede os limites de uma entidade no serviço tabela individuais.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Padrão de transações eventualmente consistente](#eventually-consistent-transactions-pattern)  
@@ -876,7 +876,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="prependappend-anti-pattern"></a>Preceder/acrescentar anti padrão
 Aumente a escalabilidade quando tiver um grande volume de inserções por propagando-se a inserções em várias partições.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Prefixação ou acrescentar entidades para as entidades armazenadas normalmente resulta na aplicação adicionar novas entidades à partição do primeira ou última de uma sequência de partições. Neste caso, todos os inserções em qualquer momento estão a decorrer na mesma partição, criar um hotspot que impede que o serviço de tabela de inserções de balanceamento em vários nós e, possivelmente, fazendo com que a aplicação para os destinos de escalabilidade da partição de acessos de carga. Por exemplo, se tiver uma aplicação que os registos de rede e acesso a recursos pelos funcionários, em seguida, uma estrutura de entidade conforme mostrado abaixo pode resultar numa partição a hora atual se tornar um hotspot se o volume de transações atingir o destino de escalabilidade para uma partição individual:  
 
 ![][26]
@@ -889,7 +889,7 @@ A seguinte estrutura de entidade alternativa evita um hotspot em qualquer parti�
 Aviso com este exemplo como tanto o **PartitionKey** e **RowKey** são chaves compostas. O **PartitionKey** utiliza o departamento e o empregado id para distribuir o registo através de várias partições.  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
-Quando decidir como implementar este padrão, considere os seguintes pontos:  
+Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
 * A estrutura chave alternativa que evita a criação de partições frequente no inserções de forma eficiente suporta consultas que a aplicação cliente torna?  
 * O volume previsto de transações significa que é provável que a atingir os objetivos de escalabilidade para uma partição individual e limitadas pelo serviço de armazenamento?  
@@ -897,7 +897,7 @@ Quando decidir como implementar este padrão, considere os seguintes pontos:
 #### <a name="when-to-use-this-pattern"></a>Quando utilizar este padrão
 Evite o padrão de anti prepend/acrescentar quando o volume de transações é provável que resultará na limitação pelo serviço de armazenamento ao aceder a uma partição de acesso frequente.  
 
-#### <a name="related-patterns-and-guidance"></a>Padrões relacionados e as orientações
+#### <a name="related-patterns-and-guidance"></a>Padrões e orientações relacionados
 Os padrões e orientações que se seguem podem também ser relevantes ao implementar este padrão:  
 
 * [Padrão de chave composta](#compound-key-pattern)  
@@ -907,7 +907,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 ### <a name="log-data-anti-pattern"></a>Padrão de anti de dados do registo
 Normalmente, deve utilizar o serviço Blob em vez do serviço tabela para armazenar dados de registo.  
 
-#### <a name="context-and-problem"></a>Contexto e do problema
+#### <a name="context-and-problem"></a>Contexto e problema
 Caso de utilização de um comuns para dados de registo são obter uma seleção de entradas de registo de um intervalo de data/hora específico: por exemplo, pretender localizar todos os erros e mensagens de evento crítico que a aplicação, registada entre 15:04 e 15:06 numa data específica. Não pretende utilizar a data e hora da mensagem de registo para determinar a partição Guardar entidades de registo para: que resulta numa partição frequente porque em qualquer momento, todas as entidades de registo irão partilhar o mesmo **PartitionKey** valor (consulte a secção [Prepend/acrescentar anti padrão](#prepend-append-anti-pattern)). Por exemplo, o esquema de entidade seguinte para uma mensagem do registo resulta numa partição frequente porque a aplicação escreve todas as mensagens de registo para a partição para a data atual e a hora:  
 
 ![][28]
@@ -1117,8 +1117,8 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <td>
 <table>
 <tr>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1137,8 +1137,8 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <td>
 <table>
 <tr>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1174,8 +1174,8 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <td>
 <table>
 <tr>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1210,8 +1210,8 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <table>
 <tr>
 <th>EntityType</th>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1232,8 +1232,8 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <table>
 <tr>
 <th>EntityType</th>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>
@@ -1273,8 +1273,8 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <table>
 <tr>
 <th>EntityType</th>
-<th>Nome próprio</th>
-<th>Apelido</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>E-mail</th>
 </tr>

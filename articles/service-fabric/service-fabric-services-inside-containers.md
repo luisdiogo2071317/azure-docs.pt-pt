@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Como containerize o serviço de recursos de infraestrutura Reliable Services e Reliable Actors (pré-visualização)
 
 Service Fabric suporta containerizing micro-serviços de Service Fabric (Reliable Services e serviços de Atores fiável com base em). Para obter mais informações, consulte [contentores de recursos de infraestrutura de serviço](service-fabric-containers-overview.md).
 
-
- Esta funcionalidade está em pré-visualização e este artigo fornece os vários passos para obter o serviço está em execução no interior de um contentor.  
+Esta funcionalidade está em pré-visualização e este artigo fornece os vários passos para obter o serviço está em execução no interior de um contentor.  
 
 > [!NOTE]
-> Esta funcionalidade está em pré-visualização e não é suportada na produção. Atualmente, esta funcionalidade funciona apenas para o Windows.
+> Esta funcionalidade está em pré-visualização e não é suportada na produção. Atualmente, esta funcionalidade funciona apenas para o Windows. Para executar contentores, o cluster tem de executar no Windows Server 2016 com contentores.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Passos para containerize a aplicação de recursos de infraestrutura do serviço
 
@@ -110,6 +109,6 @@ Service Fabric suporta containerizing micro-serviços de Service Fabric (Reliabl
 
 Agora, deve ter uma aplicação de Service Fabric de executar o seu cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-get-started-containers.md).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

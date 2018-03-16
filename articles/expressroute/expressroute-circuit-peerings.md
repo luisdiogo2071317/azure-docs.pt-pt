@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute e domínios de encaminhamento
  Deve ordenar um *circuito ExpressRoute* para ligar a sua infraestrutura no local para a Microsoft através de um fornecedor de conectividade. A figura seguinte mostra uma representação lógica da conetividade entre a sua WAN e a Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
-## <a name="expressroute-circuits"></a>Circuitos ExpressRoute
+## <a name="expressroute-circuits"></a>Circuitos do ExpressRoute
 Um *circuito ExpressRoute* representa uma ligação lógica entre a sua infraestrutura no local e os cloud services da Microsoft através de um fornecedor de conectividade. Pode ordenar vários circuitos do ExpressRoute. Cada circuito pode estar em regiões do idêntica ou diferentes e pode ser ligado ao local através de fornecedores de conectividade diferentes. 
 
 Circuitos ExpressRoute não mapeiam para qualquer entidades físicas. Um circuito é identificado de forma exclusiva por uma norma que GUID denominado como uma chave de serviço (s-chave). A chave de serviço é a única informação de informações trocadas entre a Microsoft, o fornecedor de conectividade e o utilizador. A chave de s não é um segredo por motivos de segurança. Não há um mapeamento de 1:1 entre um circuito ExpressRoute e a chave de s.
@@ -60,12 +60,12 @@ Conectividade é sempre iniciada a partir da sua WAN para serviços do Microsoft
 
 Pode definir filtros de rotas personalizadas dentro da sua rede para consumir apenas as rotas que terá. Consulte o [encaminhamento](expressroute-routing.md) página para obter informações detalhadas sobre a configuração de encaminhamento. 
 
-Consulte o [página de FAQ](expressroute-faqs.md) para obter mais informações sobre serviços suportada através do domínio de encaminhamento de peering público. 
+Para obter mais informações sobre serviços suportada através do domínio de encaminhamento de peering público, consulte o [FAQ](expressroute-faqs.md).
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Conectividade a todos os outros Microsoft online services (serviços do Office 365, o Dynamics 365 e o Azure PaaS) é através do peering da Microsoft. Iremos ativar a conectividade bidirecional entre os seus serviços em nuvem WAN e a Microsoft através do domínio de encaminhamento de peering de Microsoft. Tem de ligar aos serviços em nuvem da Microsoft apenas através de endereços IP públicos que pertencem ao utilizador ou o fornecedor de conectividade e terá de cumprir todas as regras definidas. Consulte o [pré-requisitos do ExpressRoute](expressroute-prerequisites.md) página para obter mais informações.
+Conectividade ao Microsoft online services (serviços do Office 365, o Dynamics 365 e o Azure PaaS) é através do peering da Microsoft. Iremos ativar a conectividade bidirecional entre os seus serviços em nuvem WAN e a Microsoft através do domínio de encaminhamento de peering de Microsoft. Tem de ligar aos serviços em nuvem da Microsoft apenas através de endereços IP públicos que pertencem ao utilizador ou o fornecedor de conectividade e terá de cumprir todas as regras definidas. Para obter mais informações, consulte o [pré-requisitos do ExpressRoute](expressroute-prerequisites.md) página.
 
 Consulte o [página de FAQ](expressroute-faqs.md) para obter mais informações sobre serviços suportados, os custos e detalhes de configuração. Consulte o [localizações do ExpressRoute](expressroute-locations.md) página para obter informações sobre a lista de fornecedores de conectividade oferta suporte de peering da Microsoft.
 
@@ -87,7 +87,7 @@ Pode optar por ativar uma ou mais domínios de encaminhamento como parte do seu 
 
 Se optar por ter todas as sessões de peering três, tem de ter pares de três das sessões de BGP (um par de cada tipo de peering). Os pares de sessão BGP fornecem uma ligação de elevada disponibilidade. Se estiver a ligar através de fornecedores de conectividade 2 camada, é responsável por configurar e gerir o encaminhamento. Pode saber mais, revendo o [fluxos de trabalho](expressroute-workflows.md) para configurar o ExpressRoute.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Encontre um fornecedor de serviços. Consulte [fornecedores e localizações do ExpressRoute service](expressroute-locations.md).
 * Confirme que todos os pré-requisitos são cumpridos. Veja os [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 * Configurar a ligação do ExpressRoute.

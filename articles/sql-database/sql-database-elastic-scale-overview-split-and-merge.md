@@ -2,23 +2,18 @@
 title: Mover dados entre bases de dados de nuvem de escalamento horizontal | Microsoft Docs
 description: "Explica como manipular shards e mover dados através de um serviço alojado automática utilizando APIs de base de dados elástica."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 Se for um Software como um programador de serviço e subitamente a sua aplicação sofre a pedido imenso, terá de acomodar o crescimento. Para adicionar mais bases de dados (shards). Como redistribuir os dados para as novas bases de dados sem perturbar a integridade dos dados? Utilize o **ferramenta de intercalação de divisão** para mover dados de bases de dados restrita para as bases de dados de novo.  
@@ -79,7 +74,7 @@ Limitar a ligação o cancelamento de lote atual de shardlets conforme mencionad
 
 O serviço de divisão de intercalação utiliza uma base de dados para manter o respetivo estado e manter registos durante o processamento do pedido. O utilizador cria esta base de dados na sua subscrição e fornece a cadeia de ligação para o mesmo no ficheiro de configuração para a implementação de serviço. Os administradores da organização do utilizador também podem ligar a esta base de dados para rever o progresso de pedido e para obter informações detalhadas sobre potenciais falhas de investigar.
 
-**Deteção de fragmentação**
+**Sharding-awareness**
 
 O serviço de divisão de intercalação distingue entre (1) a tabelas, as tabelas de referência (2) e (3) normais tabelas. A semântica de uma operação de intercalação/divisão/movimentação dependem do tipo de tabela utilizado e é definida do seguinte modo: 
 

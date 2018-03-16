@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff85991e87a4996890520a566b3909d331ed27f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurar a atualização de uma aplicação de Service Fabric no Visual Studio
 Visual Studio tools para Azure Service Fabric fornecem suporte de atualização para a publicação de clusters locais ou remotos. Existem três cenários em que pretende atualizar a sua aplicação para uma versão mais recente em vez de substituir a aplicação durante o teste e depuração:
@@ -85,5 +85,5 @@ O exemplo seguinte mostra como aplicar uma política de verificação do Estado 
     </HealthPolicy>
 </Policies>
 ```
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre como implementar uma aplicação, consulte [implementar uma aplicação existente no Azure Service Fabric](service-fabric-deploy-existing-app.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais informações sobre como atualizar uma aplicação, consulte [atualizar uma aplicação com o Visual Studio](service-fabric-application-upgrade-tutorial.md).

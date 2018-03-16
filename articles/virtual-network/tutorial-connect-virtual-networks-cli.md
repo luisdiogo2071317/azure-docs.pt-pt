@@ -13,29 +13,30 @@ ms.devlang: azurecli
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: df56f2e3e13f80e7ce2c2b6c9cffeac3d03776e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Ligar redes virtuais com o peering de rede virtual com a CLI do Azure
 
-Pode ligar redes virtuais entre si ao peering de rede virtual. Depois de redes virtuais em modo de peering, recursos em ambas as redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos foram na mesma rede virtual. Este artigo abrange a criação e o peering de duas redes virtuais. Saiba como:
+Pode ligar redes virtuais entre si ao peering de rede virtual. Depois de redes virtuais em modo de peering, recursos em ambas as redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos foram na mesma rede virtual. Neste artigo, saiba como:
 
 > [!div class="checklist"]
 > * Criar duas redes virtuais
-> * Criar um peering entre redes virtuais
-> * Peering de teste
+> * Ligar duas redes virtuais com um peering de rede virtual
+> * Implementar uma máquina virtual (VM) em cada rede virtual
+> * Comunicar entre VMs
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este guia de introdução requer que está a executar a CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
@@ -56,7 +57,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Criar uma rede virtual denominada *myVirtualNetwork2* com o prefixo de endereço *10.1.0.0/16*. O prefixo de endereço não se sobreponha a com o prefixo de endereço do *myVirtualNetwork1* rede virtual. Não é possível elemento redes virtuais com sobreposição de prefixos de endereço.
+Criar uma rede virtual denominada *myVirtualNetwork2* com o prefixo de endereço *10.1.0.0/16*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -120,17 +121,13 @@ az network vnet peering show \
 
 Recursos de uma rede virtual não é possível comunicar com os recursos na outra rede virtual até que o **peeringState** para peerings em ambas as redes virtuais é *ligado*. 
 
-Peerings estão entre duas redes virtuais, mas não estão transitivas. Sim, por exemplo, se pretendesse também a ponto *myVirtualNetwork2* para *myVirtualNetwork3*, terá de criar um peering entre redes virtuais adicionais *myVirtualNetwork2* e *myVirtualNetwork3*. Apesar de *myVirtualNetwork1* está em modo de peering com *myVirtualNetwork2*, recursos *myVirtualNetwork1* só foi possível aceder a recursos em  *myVirtualNetwork3* se *myVirtualNetwork1* foi também em modo de peering com *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Antes de peering redes virtuais de produção, recomenda-se que exaustivamente familiarizar-se com o [descrição geral do peering](virtual-network-peering-overview.md), [gerir peering](virtual-network-manage-peering.md), e [limites de rede virtual ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Embora este artigo ilustra um peering entre duas redes virtuais na mesma subscrição e localização, também pode elemento redes virtuais no [regiões diferentes](#register) e [diferentes subscrições do Azure](create-peering-different-subscriptions.md#cli). Também pode criar [hub- and -spoke designs de rede](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com peering.
+Crie uma VM em cada rede virtual para que possa comunicar entre eles num passo posterior.
 
-## <a name="test-peering"></a>Peering de teste
+### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Para testar a comunicação de rede entre máquinas virtuais nas redes virtuais diferentes através de um peering, implementar uma máquina virtual para cada sub-rede e, em seguida, comunicar entre as máquinas virtuais. 
-
-### <a name="create-virtual-machines"></a>Criar máquinas virtuais
-
-Criar uma máquina virtual com [az vm criar](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma máquina virtual denominada *myVm1* no *myVirtualNetwork1* rede virtual. Se as chaves SSH ainda não existir numa localização chaves predefinido, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O `--no-wait` opção cria a máquina virtual em segundo plano, para poder continuar para o passo seguinte.
+Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM chamada *myVm1* no *myVirtualNetwork1* rede virtual. Se as chaves SSH ainda não existir numa localização chaves predefinido, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O `--no-wait` opção cria a VM em segundo plano, para poder continuar para o passo seguinte.
 
 ```azurecli-interactive
 az vm create \
@@ -143,9 +140,9 @@ az vm create \
   --no-wait
 ```
 
-Azure atribui automaticamente 10.0.0.4 como o endereço IP privado da máquina virtual, porque 10.0.0.4 é o primeiro endereço IP disponível no *Subnet1* de *myVirtualNetwork1*. 
+### <a name="create-the-second-vm"></a>Criar a VM segundo
 
-Criar uma máquina virtual no *myVirtualNetwork2* rede virtual.
+Criar uma VM com o *myVirtualNetwork2* rede virtual.
 
 ```azurecli-interactive 
 az vm create \
@@ -157,7 +154,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A máquina virtual demora alguns minutos a criar. Depois da máquina virtual é criada, a CLI do Azure mostra as informações semelhante ao seguinte exemplo: 
+A VM demora alguns minutos a criar. Depois de criada a VM, a CLI do Azure mostra as informações semelhante ao seguinte exemplo: 
 
 ```azurecli 
 {
@@ -172,25 +169,25 @@ A máquina virtual demora alguns minutos a criar. Depois da máquina virtual é 
 }
 ```
 
-No exemplo de saída, verá que o **privateIpAddress** é *10.1.0.4*. Azure DHCP automaticamente atribuído 10.1.0.4 à máquina virtual porque é o primeiro endereço disponível no *Subnet1* de *myVirtualNetwork2*. Tome nota do **publicIpAddress**. Este endereço é utilizado para aceder a máquina virtual a partir da Internet num passo posterior.
+Tome nota do **publicIpAddress**. Este endereço é utilizado para aceder a VM a partir da Internet num passo posterior.
 
-### <a name="test-virtual-machine-communication"></a>Comunicação de máquina virtual de teste
+## <a name="communicate-between-vms"></a>Comunicar entre VMs
 
-Utilize o seguinte comando para criar uma sessão SSH com o *myVm2* máquina virtual. Substitua `<publicIpAddress>` com o endereço IP público da sua máquina virtual. No exemplo anterior, o endereço IP público é *13.90.242.231*.
+Utilize o seguinte comando para criar uma sessão SSH com o *myVm2* VM. Substitua `<publicIpAddress>` com o endereço IP público da sua VM. No exemplo anterior, o endereço IP público é *13.90.242.231*.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-Enviar um ping a máquina virtual no *myVirtualNetwork1*.
+Enviar um ping a VM no *myVirtualNetwork1*.
 
 ```bash 
 ping 10.0.0.4 -c 4
 ```
 
-Receber quatro respostas. Se executar o ping pelo nome da máquina virtual (*myVm1*), em vez do endereço IP, ping falhar, porque *myVm1* é um nome de anfitrião desconhecido. Resolução de nomes predefinido do Azure funciona entre as máquinas virtuais na mesma rede virtual, mas não entre máquinas virtuais nas redes virtuais diferentes. Para resolver nomes através de redes virtuais, terá [implementar o seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) ou utilize [domínios privados do DNS do Azure](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Receber quatro respostas. 
 
-Feche a sessão SSH para a *myVm2* máquina virtual. 
+Feche a sessão SSH para a *myVm2* VM. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -219,11 +216,11 @@ O peering de redes virtuais na mesma região encontra-se em disponibilidade gera
 
   Se tentar elemento redes virtuais em diferentes regiões antes do **RegistrationState** recebe depois de introduzir o comando anterior é de saída **registada** para ambas as subscrições, falha de peering. .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a ligar duas redes com o peering de rede virtual. Pode [ligar o seu próprio computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) através de uma VPN e interaja com os recursos numa rede virtual, ou em redes virtuais em modo de peering.
+Neste artigo, aprendeu a ligar duas redes com o peering de rede virtual. Neste artigo, aprendeu a ligar duas redes, na mesma localização do Azure, com o peering de rede virtual. Também pode elemento redes virtuais no [regiões diferentes](#register), na [diferentes subscrições do Azure](create-peering-different-subscriptions.md#portal) e pode criar [hub- and -spoke designs de rede](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com peering. Antes de peering redes virtuais de produção, recomenda-se que exaustivamente familiarizar-se com o [descrição geral do peering](virtual-network-peering-overview.md), [gerir peering](virtual-network-manage-peering.md), e [oslimitesderedevirtual](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Continue a amostras de script para scripts reutilizáveis concluir a muitas das tarefas abrangidas os artigos de rede virtual.
+Pode [ligar o seu próprio computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) através de uma VPN e interaja com os recursos numa rede virtual, ou em redes virtuais em modo de peering. Continue a amostras de script para scripts reutilizáveis concluir a muitas das tarefas abrangidas os artigos de rede virtual.
 
 > [!div class="nextstepaction"]
 > [Exemplos de script de rede virtual](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

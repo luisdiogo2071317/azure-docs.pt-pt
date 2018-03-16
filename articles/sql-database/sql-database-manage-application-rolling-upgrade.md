@@ -2,24 +2,18 @@
 title: "Implementar as atualizações de aplicações - SQL Database do Azure | Microsoft Docs"
 description: "Saiba como utilizar a georreplicação SQL Database do Azure para suportar atualizações online da sua aplicação de nuvem."
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 58f42859-1e37-463c-a3d8-a3ca2e867148
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 07/16/2016
 ms.author: sashan
-ms.openlocfilehash: deb91d55e5b796f7b1b53a99866156fe492e0a24
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6efc14e5f8fab5baafff50e8eb6844f8decca1c9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerir atualizações graduais das aplicações em nuvem utilizando o SQL Server da base de dados-georreplicação ativa
 > [!NOTE]
@@ -132,7 +126,7 @@ A chave **partido** desta opção é que pode atualizar a aplicação e respetiv
 ## <a name="summary"></a>Resumo
 Os dois métodos de atualização descritos no artigo diferem no complexidade e o dólar de custos, mas ambas as focar-se no que minimiza o tempo quando o utilizador final está limitado a operações só de leitura. Essa hora diretamente é definida pela duração do script de atualização. Não dependem de tamanho de base de dados, a camada de serviço que escolheu, a configuração do web site e ainda outros fatores não é possível controlar facilmente. Isto acontece porque todos os passos de preparação estão desacoplados dos passos de atualização e podem ser realizados sem afetar a aplicação de produção. A eficiência do script de atualização é o fator chave que determina a experiência de utilizador final durante as atualizações. Por isso, a melhor forma de possa melhorá-lo é ao concentrar-se os esforços em efetuar o script de actualização como eficiente possível.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para cenários e uma descrição geral de continuidade de negócio, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 * Para saber mais sobre o SQL do Azure, base de dados automática de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
 * Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, consulte [restaurar uma base de dados de cópias de segurança automatizadas](sql-database-recovery-using-backups.md).

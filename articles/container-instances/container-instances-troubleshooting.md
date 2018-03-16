@@ -6,22 +6,83 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Resolver problemas de implementação com instâncias de contentor do Azure
 
 Este artigo mostra como resolver problemas quando implementar contentores para instâncias de contentor do Azure. Também descreve alguns dos problemas comuns que poderá ter.
 
+## <a name="view-logs-and-stream-output"></a>Ver registos e a saída de fluxo
+
+Quando tiver um contentor funcionar incorretamente, comece por visualizar os seus registos com [az contentor registos][az-container-logs]e a saída padrão e o erro padrão com transmissão em fluxo [contentor az anexar] [az-container-attach].
+
+### <a name="view-logs"></a>Ver registos
+
+Para ver registos a partir do código da aplicação num contentor, pode utilizar o [az contentor registos] [ az-container-logs] comando.
+
+Segue-se a saída de registo do contentor de baseado em tarefas de exemplo do [executar uma tarefa de ACI](container-instances-restart-policy.md), depois de ter sejam fornecidas-processar um URL inválido:
+
+```console
+$ az container logs --resource-group myResourceGroup --name mycontainer
+Traceback (most recent call last):
+  File "wordcount.py", line 11, in <module>
+    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
+  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+```
+
+### <a name="attach-output-streams"></a>Anexar fluxos de saída
+
+O [contentor az anexar] [ az-container-attach] comando fornece informações de diagnóstico durante o arranque do contentor. Depois de ter iniciado o contentor, fluxos STDOUT e STDERR à consola local.
+
+Por exemplo, o resultado é de contentor baseado em tarefas no [executar uma tarefa de ACI](container-instances-restart-policy.md), depois de ter de indicar um URL válido de um ficheiro de texto grandes para processar:
+
+```console
+$ az container attach --resource-group myResourceGroup --name mycontainer
+Container 'mycontainer' is in state 'Unknown'...
+Container 'mycontainer' is in state 'Waiting'...
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+
+Start streaming logs:
+[('the', 22979),
+ ('I', 20003),
+ ('and', 18373),
+ ('to', 15651),
+ ('of', 15558),
+ ('a', 12500),
+ ('you', 11818),
+ ('my', 10651),
+ ('in', 9707),
+ ('is', 8195)]
+```
+
 ## <a name="get-diagnostic-events"></a>Obter eventos de diagnóstico
 
-Para ver registos a partir do código da aplicação num contentor, pode utilizar o [az contentor registos] [ az-container-logs] comando. Mas se o contentor não implementar com êxito, terá de rever as informações de diagnóstico fornecidas pelo fornecedor de recursos de instâncias de contentor do Azure. Para ver os eventos para o contentor, execute o [mostrar de contentor az] [ az-container-show] comando:
+Se o contentor não conseguir implementar com êxito, terá de rever as informações de diagnóstico fornecidas pelo fornecedor de recursos de instâncias de contentor do Azure. Para ver os eventos para o contentor, execute o [mostrar de contentor az] [ az-container-show] comando:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -90,11 +151,17 @@ O resultado inclui as propriedades de núcleo do seu contentor, juntamente com o
 
 ## <a name="common-deployment-issues"></a>Problemas comuns de implementação
 
-Existem alguns problemas comuns essa conta para a maioria dos erros na implementação.
+As secções seguintes descrevem problemas comuns que essa conta para a maioria dos erros na implementação do contentor:
+
+* [Versão da imagem não suportada](#image-version-not-supported)
+* [Não é possível a imagem de solicitação](#unable-to-pull-image)
+* [Contentor continuamente sai e reinicia](#container-continually-exits-and-restarts)
+* [Contentor demora muito tempo a iniciar](#container-takes-a-long-time-to-start)
+* [Erro de "Recurso não está disponível"](#resource-not-available-error)
 
 ## <a name="image-version-not-supported"></a>Versão da imagem não suportada
 
-Se não for especificada uma imagem que instâncias de contentor do Azure não consegue suportar, será devolvido um erro de formato `ImageVersionNotSupported`. O valor do erro mostrará `The version of image '{0}' is not supported.`. Este erro atualmente aplica-se para imagens de 1709 do Windows, a mitigar a utilizar uma imagem do LTS Windows. Suporte para imagens do Windows 1709 está em curso.
+Se especificar uma imagem que não suportem a instâncias de contentor do Azure, uma `ImageVersionNotSupported` é devolvido o erro. O valor do erro é `The version of image '{0}' is not supported.`e aplica-se atualmente para imagens de 1709 do Windows. Para atenuar este problema, utilize uma imagem do LTS Windows. Suporte para imagens do Windows 1709 está em curso.
 
 ## <a name="unable-to-pull-image"></a>Não é possível a imagem de solicitação
 
@@ -180,24 +247,39 @@ A API de instâncias de contentor inclui um `restartCount` propriedade. Para ver
 
 ## <a name="container-takes-a-long-time-to-start"></a>Contentor demora muito tempo a iniciar
 
+Os dois fatores primários que contribuem para o tempo de arranque de contentor em instâncias de contentor do Azure são:
+
+* [Tamanho da imagem](#image-size)
+* [Localização da imagem](#image-location)
+
+As imagens do Windows tem [considerações adicionais](#use-recent-windows-images).
+
+### <a name="image-size"></a>Tamanho da imagem
+
 Se o seu contentor demora muito tempo a iniciar, eventualmente, mas for bem sucedida, comece por observar o tamanho da imagem do contentor. Porque as instâncias de contentor do Azure obtém a imagem do contentor a pedido, o tempo de arranque ocorrer está diretamente relacionada com o tamanho.
 
-Pode ver o tamanho da imagem do contentor utilizando a CLI do Docker:
+Pode ver o tamanho da imagem do contentor utilizando o `docker images` da CLI do Docker:
 
-```bash
-docker images
-```
-
-Saída:
-
-```bash
-REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
+```console
+$ docker images
+REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
+microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 ```
 
 A chave para manter o tamanho de imagem pequeno é garantir que a imagem final não contém tudo o que não é necessária no tempo de execução. Uma forma para fazer isto é com [fase multi compilações][docker-multi-stage-builds]. Fase multi baseia-se disponibilizar fácil de garantir que a imagem final contém apenas os artefactos que é necessário para a sua aplicação, e não quaisquer o extra de conteúdos que era necessário no momento da compilação.
 
-É a forma como para reduzir o impacto da solicitação de imagem no tempo de arranque do contentor para alojar a imagem de contentor com o registo de contentor do Azure na mesma região em que pretende utilizar instâncias de contentor do Azure. Isto reduz o caminho de rede que a imagem do contentor tem de viajam, encurtar significativamente o tempo de transferência.
+### <a name="image-location"></a>Localização da imagem
+
+Outra forma de reduzir o impacto da solicitação de imagem no tempo de arranque do contentor é para alojar a imagem do contentor no [registo de contentor do Azure](/azure/container-registry/) na mesma região onde pretende implementar instâncias de contentor. Isto reduz o caminho de rede que a imagem do contentor tem de viajam, encurtar significativamente o tempo de transferência.
+
+### <a name="use-recent-windows-images"></a>Utilizar imagens recentes do Windows
+
+Instâncias de contentor do Azure utiliza um mecanismo de colocação em cache para ajudar a acelerar o tempo de arranque contentor para imagens com base em determinados imagens do Windows.
+
+Para garantir que o tempo de arranque de contentor mais rápido do Windows, utilize um do **três mais recente** versões dos seguintes **duas imagens** como a imagem de base:
+
+* [Windows Server 2016] [ docker-hub-windows-core] (LTS apenas)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ## <a name="resource-not-available-error"></a>Recurso erro não está disponível
 
@@ -214,7 +296,10 @@ Este erro indica que, devido a sobrecarga na região na qual está a tentar impl
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
+[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
+[az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show

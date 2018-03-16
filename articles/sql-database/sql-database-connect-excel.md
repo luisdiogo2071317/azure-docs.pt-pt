@@ -3,24 +3,18 @@ title: "Ligar o Excel à Base de Dados SQL | Microsoft Docs"
 description: "Saiba como ligar o Microsoft Excel à base de dados SQL do Azure na nuvem. Importe dados para o Excel para criação de relatórios e exploração de dados."
 services: sql-database
 keywords: ligar o excel ao sql, importar dados para o excel
-documentationcenter: 
 author: joseidz
 manager: jhubbard
-editor: 
-ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: jhubbard
-ms.openlocfilehash: 34ff5c479cfcf1e861a82205eef93dfee01cb4a2
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: craigg
+ms.openlocfilehash: 64896e87bf049c3ccd58f060ac27f35787d4ce4a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Ligar o Excel a uma base de dados SQL do Azure e criar um relatório
 
@@ -75,7 +69,7 @@ Agora que estabeleceu a ligação e criou o ficheiro com os dados e as informaç
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [Ligar a Base de Dados SQL com o SQL Server Management Studio](sql-database-connect-query-ssms.md) para consulta e análise avançadas.
 * Saiba mais sobre as vantagens dos [conjuntos elásticos](sql-database-elastic-pool.md).
 * Saiba como [criar uma aplicação Web que estabelece ligação à Base de Dados SQL no back-end](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).

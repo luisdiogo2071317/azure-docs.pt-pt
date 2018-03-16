@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Perguntas mais frequentes sobre o Azure Machine Learning
 
@@ -32,7 +32,7 @@ Serão adicionadas mais regiões como podemos desenvolver o produto.  Pode ajuda
 
 **Que outros serviços do Azure são necessários?**
 
-Para experimentar completamente todas as capacidades do Azure Machine Learning, Azure máquina Learnign irá utilizar o Visual Studio VSTS conta, Blob Storage do Azure, registo de contentor do Azure, computação VM de ciência de dados ou o HDInsight e o serviço de contentor do Azure.
+Armazenamento de Blobs do Azure e de registo de contentor do Azure são utilizadas pelo Azure Machine Learning. Além disso, terá de aprovisionar os recursos de computação, tais como um cluster de VM de ciência de dados ou o HDInsight. Computação e de alojamento também são necessários quando implementar os serviços web, tal como [serviço de contentor Azure](https://docs.microsoft.com/azure/aks).
 
 **Como é que Azure Machine Learning se relacionam com serviços do Microsoft Machine Learning no SQL Server 2017?**   
 
@@ -46,7 +46,7 @@ Iremos suporta atualmente o Python apenas. Estamos a trabalhar para integração
 
 MMLSpark fornece learning profunda e ferramentas de ciência de dados para o Apache Spark com ênfase na produtividade, facilitam de experimentação e algoritmos de-de-última geração. MMLSpark oferece integração de pipelines de Spark Machine Learning com o Toolkit de cognitivos e OpenCV. Pode criar poderosos e altamente dimensionáveis preditivos e analíticos modelos de dados de imagem e texto. MMLSpark está disponível com uma licença de open source e está incluído no AML Workbench como um conjunto de algoritmos e consumíveis modelos. Para obter mais informações sobre MMLSpark, visite a nossa documentação de produto. 
 
-**Quais as versões do Spark são suportadas pelas novas ferramentas e serviços? Secção superior**
+**Quais as versões do Spark são suportadas pelas novas ferramentas e serviços?**
 
 Atualmente, o Workbench inclui e suporta MMLSpark versão 0.8, que é compatível com o Apache Spark 2.1. Tem também uma opção para utilizar a imagem de Docker preparados para a GPU do MMLSpark 0.8 em máquinas virtuais do Linux.
 
@@ -119,7 +119,7 @@ O Workbench do Azure Machine Learning é uma aplicação de complementar incorpo
 
 **É Workbench um IDE?**
 
-Não. O Workbench do Machine Learning tem foi concebido como um complemento para IDEs populares, tais como blocos de notas do Jupyter, o Visual Studio Code e PyCharm mas não é um IDE totalmente funcional. O Workbench do Machine Learning oferece algumas texto básica capacidades de edição, mas a depuração, intellisense e outras normalmente utilizadas capacidades IDE não são suportadas. Recomendamos que utilize o IDE favorito para o desenvolvimento de código, editar e depuração. 
+Não. O Workbench do Machine Learning tem foi concebido como um complemento para IDEs populares, tais como blocos de notas do Jupyter, o Visual Studio Code e PyCharm mas não é um IDE totalmente funcional. O Workbench do Machine Learning oferece algumas texto básica capacidades de edição, mas a depuração, intellisense e outras normalmente utilizadas capacidades IDE não são suportadas. Recomendamos que utilize o IDE favorito para o desenvolvimento de código, editar e depuração. Também pode pretender tente [as ferramentas de código do Visual Studio para AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **É cobrada uma taxa para utilizar o Workbench do Azure Machine Learning?**
 

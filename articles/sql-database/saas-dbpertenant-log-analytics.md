@@ -3,24 +3,19 @@ title: "Utilizar o Log Analytics com uma aplicação multi-inquilino da Base de 
 description: "Configurar e utilizar a análise de registos (OMS) com uma aplicação de SaaS de base de dados do SQL Azure multi-inquilino"
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: billgib; sstein
-ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: sstein
+ms.reviewer: billgib
+ms.openlocfilehash: b141ca521ae9c4d9bf6a4be620bc8e5432c52f83
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurar e utilizar a análise de registos (OMS) com uma aplicação de SaaS de base de dados do SQL Azure multi-inquilino
 

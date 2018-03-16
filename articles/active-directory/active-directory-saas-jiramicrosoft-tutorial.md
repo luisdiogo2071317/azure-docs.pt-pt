@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Tutorial: Integração do Azure Active Directory com o Microsoft Azure Active Directory-início de sessão único para JIRA
 
@@ -61,6 +61,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 *   JIRA núcleos e do Software: 6.0 para 7.2.0
 *   Suporte técnico do serviço JIRA 3.0 para 3.2
+*   JIRA também suporta 5.2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory-início de sessão único para JIRA 5.2](./active-directory-saas-jira52microsoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
@@ -121,11 +122,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Microsoft Azure Active Directory-início de sessão único para URLs e JIRA domínio único início de sessão informações](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<domain:port>/`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain:port>/`
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. A porta é opcional se for um URL com nome. Estes valores são recebidos durante a configuração de Jira Plug-in do, que é explicada mais tarde no tutorial.
@@ -160,7 +161,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     ![Configurar o início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Carregar manualmente o plug-in fornecido através do Microsoft **carregar o suplemento** menu.
+8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Carregar manualmente o plug-in fornecido através do Microsoft **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/en-us/servicesagreement/).
 
     ![Configurar o início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     h. Verifique **ativar início de sessão único limite** se pretende terminar a sessão do Azure AD quando um utilizador terminar a sessão de JIRA. 
 
     i. Clique em **guardar** botão para guardar as definições.
+
+    > [!NOTE]
+    > Para obter mais informações sobre a instalação e a resolução de problemas, visite [guia de administração do conector do MS JIRA SSO](ms-confluence-jira-plugin-adminguide.md) e também existir [FAQ](ms-confluence-jira-plugin-faq.md) para a assistência
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

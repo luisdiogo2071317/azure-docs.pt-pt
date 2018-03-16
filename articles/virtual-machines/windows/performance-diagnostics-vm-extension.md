@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de diagnóstico de desempenho do Azure para Windows
 
@@ -227,9 +227,7 @@ A ferramenta de PerfInsights recolhe vários registos, configuração e dados de
 
 ## <a name="view-and-share-the-results"></a>Ver e partilhar os resultados
 
-Resultado da extensão do é armazenado numa pasta. A pasta é denominada log_collection e pode ser encontrada na unidade temporária (normalmente D:\log_collection) por predefinição. Esta pasta, pode ver ficheiros zip que contém os registos de diagnóstico e um relatório com findings e recomendações.
-
-Também pode encontrar o ficheiro zip na conta de armazenamento que indicou durante a instalação. São partilhados por 30 dias utilizando [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Um ficheiro de texto com o nome *zipfilename*_saslink.txt também é criado na pasta log_collection. Este ficheiro contém a ligação SAS criada para transferir o ficheiro zip. Qualquer pessoa que tenha esta ligação é capaz de transferir o ficheiro zip.
+Resultado da extensão do pode ser encontrado num ficheiro zip que carregou para a conta de armazenamento especificada durante a instalação e é partilhado durante 30 dias, utilizando [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este ficheiro zip contém registos de diagnóstico e de um relatório com findings e recomendações. Uma ligação SAS para o ficheiro zip de saída pode ser encontrada no interior de um ficheiro de texto com o nome *zipfilename*_saslink.txt sob a pasta **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<versão >**. Qualquer pessoa que tenha esta ligação é capaz de transferir o ficheiro zip.
 
 Para ajudar o engenheiro de suporte a trabalhar num pedido de suporte, Microsoft poderá utilizar esta ligação SAS para transferir os dados de diagnóstico.
 
@@ -240,7 +238,7 @@ Deve também conseguir transferir o ficheiro zip diretamente a partir do portal,
 ![Estado detalhado da captura de ecrã do diagnóstico de desempenho](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> A ligação SAS apresentada no portal do poderá não funcionar. Isto pode ser causado por um URL incorreto durante as operações de codificação e descodificação. Em vez disso, pode obter a ligação diretamente a partir do ficheiro *_saslink.txt da VM.
+> A ligação SAS apresentada no portal do poderá não funcionar, por vezes. Isto pode ser causado por um URL incorreto durante as operações de codificação e descodificação. Em vez disso, pode obter a ligação diretamente a partir do ficheiro *_saslink.txt da VM.
 
 ## <a name="troubleshoot-and-support"></a>Resolver problemas e suporte
 
@@ -249,6 +247,6 @@ Deve também conseguir transferir o ficheiro zip diretamente a partir do portal,
     Este problema pode ser ignorado com segurança, desde que o estado da extensão indica que a extensão é aprovisionada com êxito.
 - Pode resolver alguns problemas durante a instalação utilizando os registos de extensão. Resultado da execução de extensão é registado para ficheiros encontrados no diretório seguinte:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Se precisar de mais ajuda, a qualquer altura neste artigo, pode contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualizar dados de ramo de registo de consultas interativas com o Microsoft Power BI utilizando a consulta direta no Azure HDInsight
 
@@ -28,7 +28,7 @@ Saiba como ligar o Microsoft Power BI para clusters de consulta interativos do A
 
 ![HDInsight Power BI o relatório de mapa](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Como ligar ao ramo ODBC a utilizar, consulte [dados visualizar o Hive com o Microsoft Power BI utilizando ODBC no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+Pode tirar partido de [controlador ODBC do Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) para importar através do conector ODBC genérico no Power BI Desktop. No entanto não é recomendada para cargas de trabalho de BI fornecidas não interativo natureza do motor de consulta do Hive. [Conector de consulta interativa HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) e [conector do HDInsight Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) são melhor opções para o respetivo desempenho.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de passar neste artigo, tem de ter os seguintes itens:

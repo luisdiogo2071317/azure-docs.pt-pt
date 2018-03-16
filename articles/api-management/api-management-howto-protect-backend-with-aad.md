@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Como pretende proteger um back-end de Web API com o Azure Active Directory e a API Management
 
@@ -179,7 +179,7 @@ As APIs são configuradas a partir do portal de publicador da API, que é acedid
 
 ![Portal do publicador][api-management-management-console]
 
-As operações podem ser [adicionados manualmente a APIs](api-management-howto-add-operations.md), ou podem ser importados. Neste vídeo, as operações são importadas no formato Swagger começando 6:40.
+As operações podem ser [adicionados manualmente a APIs](api-management-howto-add-operations.md), ou podem ser importados.
 
 Crie um ficheiro denominado `calcapi.json` com o seguinte conteúdo e guarde-o para o seu computador. Certifique-se de que o `host` atributo pontos para o back-end de Web API. Neste exemplo, `"host": "apimaaddemo.azurewebsites.net"` é utilizado.
 

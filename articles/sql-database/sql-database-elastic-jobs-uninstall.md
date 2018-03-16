@@ -2,24 +2,18 @@
 title: "Como desinstalar a ferramenta de tarefas de bases de dados elástica"
 description: "Saiba como a desinstalação dos componentes de tarefas de bases de dados elásticas com o portal do Azure do PowerShell."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
+manager: craigg
+author: stevestein
 ms.service: sql-database
-ms.workload: Inactive
 ms.custom: scale out apps
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 5e665ee8cc9efacbd31111dc0458ad6096e457c0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: e6a86a3571301f6fa2a356714721daa141e696bf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Desinstalar componentes de tarefas da base de dados elástica
 **As tarefas de base de dados elásticas** componentes podem ser desinstalados através do portal do Azure ou do PowerShell.
@@ -37,7 +31,7 @@ ms.lasthandoff: 10/31/2017
      PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x* > Ferramentas de cd
 2. Execute o script do PowerShell de.\UninstallElasticDatabaseJobs.ps1.
    
-     PS c:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools > ficheiro de desbloqueio.\UninstallElasticDatabaseJobs.ps1 PS c\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools >.\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
 
 Ou simplesmente, execute o script seguinte, partindo do princípio de predefinição valores onde utilizado numa instalação dos componentes:
 
@@ -55,7 +49,7 @@ Ou simplesmente, execute o script seguinte, partindo do princípio de predefini�
         Remove-AzureResourceGroup -Name $ResourceGroupName -Force
         Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para instalar novamente as tarefas de bases de dados elásticas, consulte [instalar o serviço de tarefa da base de dados elástica](sql-database-elastic-jobs-service-installation.md)
 
 Para obter uma descrição geral das tarefas de bases de dados elásticas, consulte [descrição geral de tarefas de bases de dados elásticas](sql-database-elastic-jobs-overview.md).

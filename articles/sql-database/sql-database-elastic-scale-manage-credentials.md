@@ -2,24 +2,18 @@
 title: "Gestão de credenciais na biblioteca de cliente da base de dados elástica | Microsoft Docs"
 description: "Como definir o nível adequado de credenciais, administrador só de leitura, para aplicações de base de dados elástica"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais utilizadas para aceder a biblioteca de clientes de base de dados elástica
 O [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) utiliza três diferentes tipos de credenciais para aceder a [Gestor de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md). Consoante a necessidade de utilizar a credencial com o nível mais baixo de acesso possíveis.
@@ -71,7 +65,7 @@ Neste exemplo, **smmUserConnectionString** contém a cadeia de ligação para as
 
 Conforme com as credenciais de administrador, não utilize valores no formato "username@server". Em alternativa, utilize "nomedeutilizador" apenas.  Note também que a cadeia de ligação não contém um nome de servidor e um nome de base de dados. Isto acontece porque o **OpenConnectionForKey** chamada direciona automaticamente a ligação para o ID de partição horizontal correto com base na chave. Por conseguinte, o nome de base de dados e o nome do servidor não são fornecidos. 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Gerir bases de dados e inícios de sessão na Base de Dados SQL do Azure](sql-database-manage-logins.md)
 
 [Securing your SQL Database (Proteger a sua Base de Dados SQL)](sql-database-security-overview.md)

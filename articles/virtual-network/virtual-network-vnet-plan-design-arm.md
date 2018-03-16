@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planear e estruturar as redes virtuais do Azure
 Criar uma VNet para experimentar fácil suficiente, mas possibilidades são, irá implementar várias VNets ao longo do tempo para suportar as necessidades de produção da sua organização. Com algum planeamento e conceção, poderá implementar as VNets e ligar os recursos que necessita de forma mais eficaz. Se não estiver familiarizado com as VNets, é recomendado que lhe [Saiba mais sobre as VNets](virtual-networks-overview.md) e [como implementar](quick-create-portal.md) um antes de continuar.
@@ -112,10 +112,10 @@ A tabela abaixo mostra alguns padrões de conceção comuns para a utilização 
 
 | Cenário | Diagrama | Profissionais de TI | Contras |
 | --- | --- | --- | --- |
-| Subscrição único, duas VNets por aplicação |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Apenas uma subscrição para gerir. |Número máximo de VNets por região do Azure. Precisa de mais subscrições depois disso. Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
-| Uma subscrição por aplicação, duas VNets por aplicação |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Utiliza apenas duas VNets por subscrição. |Mais difícil de gerir quando existem demasiadas aplicações. |
-| Uma subscrição por unidade de negócio, duas VNets por aplicação. |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balancear entre o número de subscrições e as VNets. |Número máximo de VNets por unidade de negócio (subscrição). Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
-| Uma subscrição por unidade de negócio, duas VNets por grupo de aplicações. |![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balancear entre o número de subscrições e as VNets. |Aplicações tem de ser isoladas através da utilização de sub-redes e NSGs. |
+| Subscrição único, duas VNets por aplicação |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Apenas uma subscrição para gerir. |Número máximo de VNets por região do Azure. Precisa de mais subscrições depois disso. Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
+| Uma subscrição por aplicação, duas VNets por aplicação |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Utiliza apenas duas VNets por subscrição. |Mais difícil de gerir quando existem demasiadas aplicações. |
+| Uma subscrição por unidade de negócio, duas VNets por aplicação. |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balancear entre o número de subscrições e as VNets. |Número máximo de VNets por unidade de negócio (subscrição). Reveja o [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo para obter detalhes. |
+| Uma subscrição por unidade de negócio, duas VNets por grupo de aplicações. |![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balancear entre o número de subscrições e as VNets. |Aplicações tem de ser isoladas através da utilização de sub-redes e NSGs. |
 
 ### <a name="number-of-subnets"></a>Número de sub-redes
 Deve considerar a várias sub-redes numa VNet nos seguintes cenários:
@@ -202,7 +202,7 @@ Os seguintes requisitos estão relacionadas com as subscrições e as VNets:
 
 Com base nesses requisitos, precisa de uma subscrição para cada unidade de negócio. Dessa forma, consumo de recursos a partir de uma unidade de negócio não contabilizará limites para outras unidades de negócio. E uma vez que pretendem minimizar o número de VNets, deve considerar a utilização de **uma subscrição por unidade de negócio, duas VNets por grupo de aplicações** padrão, como mostrado abaixo.
 
-![Subscrição única](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Subscrição único](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
 Terá também de especificar o espaço de endereços para cada VNet. Uma vez que terá de centros de conectividade entre os dados no local e regiões do Azure, o espaço de endereços utilizado para as VNets do Azure não é possível clash com a rede no local e o espaço de endereços utilizado por cada VNet não deve clash com outras VNets existentes. Pode utilizar os espaços de endereços na tabela abaixo para satisfazer estes requisitos.  
 
@@ -247,8 +247,8 @@ Os seguintes requisitos estão relacionadas com controlo de acesso:
 
 Com base nesses requisitos, pode adicionar utilizadores da equipa de rede incorporada **contribuinte de rede** função em cada subscrição; e criar uma função personalizada para os programadores da aplicação em cada subscrição conceder direitos Para adicionar VMs a sub-redes existentes.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Implementar uma rede virtual](virtual-networks-create-vnet-arm-template-click.md) com base no cenário.
+## <a name="next-steps"></a>Passos seguintes
+* [Implementar uma rede virtual](quick-create-portal.md).
 * Compreender como [o balanceamento de carga](../load-balancer/load-balancer-overview.md) VMs de IaaS e [Gerir encaminhamento por várias regiões do Azure](../traffic-manager/traffic-manager-overview.md).
-* Saiba mais sobre [NSGs e sobre como planear e estruturar](virtual-networks-nsg.md) uma solução NSG.
+* Saiba mais sobre [grupos de segurança de rede](security-overview.md) uma solução NSG.
 * Saiba mais sobre o [em vários locais e opções de conectividade de VNet](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

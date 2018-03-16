@@ -3,7 +3,7 @@ title: Adicione o conector do armazenamento de Blobs do Azure nas suas Logic App
 description: "Começar a utilizar e configurar o conector de armazenamento de Blobs do Azure numa aplicação lógica"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: e12669abd41f09d161fab786af29955da54a1633
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 7aaff2ac78201c4484105c6cacc5f0fef19ca7b5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Utilizar o conector de armazenamento de Blobs do Azure numa aplicação lógica
 Utilize o conector de armazenamento de Blobs do Azure para carregar, atualizar, obter e eliminar os blobs na sua conta de armazenamento, tudo dentro de uma aplicação lógica.  

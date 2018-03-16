@@ -1,20 +1,20 @@
 ---
 title: Criar um servidor do Jenkins no Azure
 description: "Instale o Jenkins numa máquina virtual do Linux do Azure a partir do modelo de solução do Jenkins e crie uma aplicação Java de exemplo."
-author: mlearned
-manager: douge
+author: tomarcher
+manager: rloutlaw
 ms.service: multiple
 ms.workload: web
-ms.devlang: java
+ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: mlearned
+ms.date: 03/12/2018
+ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor do Jenkins numa VM do Linux do Azure a partir do portal do Azure
 
@@ -28,28 +28,9 @@ Este guia de introdução mostra como instalar o [Jenkins](https://jenkins.io) n
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Criar a VM do Jenkins a partir do modelo de solução
+Jenkins suporta um modelo de onde Jenkins delegados servidor funcionam para um ou mais agentes para permitir uma instalação de Jenkins único para alojar um grande número de projetos de ou para fornecer diferentes ambientes necessários para baseia-se ou os testes. Os passos nesta secção ajudá-lo a instalar e configurar um servidor de Jenkins no Azure.
 
-Abra a [imagem do marketplace para o Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) no seu browser e selecione **OBTER AGORA** no lado esquerdo da página. Consulte os detalhes de preços e selecione **Continuar**, em seguida selecione **Criar** para configurar o servidor do Jenkins no portal do Azure. 
-   
-![Caixa de diálogo do portal do Azure](./media/install-jenkins-solution-template/ap-create.png)
-
-No separador **Configurar definições básicas**, preencha os campos seguintes:
-
-![Configurar as definições básicas](./media/install-jenkins-solution-template/ap-basic.png)
-
-* Utilize **Jenkins** no **Nome**.
-* Introduza um **Nome de utilizador**. O nome de utilizador tem de cumprir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-* Selecione a **Palavra-passe** como o **Tipo de autenticação** e introduza uma palavra-passe. A palavra-passe tem de ter um caráter maiúsculo, um número e um caráter especial.
-* Utilize **myJenkinsResourceGroup** no **Grupo de Recursos**.
-* Escolha **E.U.A. Leste** na [Região do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) na lista pendente **Localização**.
-
-Selecione **OK** para continuar para o separador **Configurar opções adicionais**. Introduza um nome de domínio exclusivo para identificar o servidor do Jenkins e selecione **OK**.
-
-![Configurar opções adicionais](./media/install-jenkins-solution-template/ap-addtional.png)  
-
- Depois de passar a validação, selecione **OK** novamente no separador **Resumo**. Por fim, selecione **Comprar** para criar a VM do Jenkins. Quando o servidor estiver pronto, recebe uma notificação no portal do Azure:   
-
-![A notificação do Jenkins está pronta](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Ligar-se ao Jenkins
 

@@ -3,8 +3,8 @@ title: Criar e registar a conta de publicador | Microsoft Docs
 description: "Instruções para criar uma conta Microsoft Developer, pelo que, após a aprovação, pode propor vários oferecem tipos no Azure Marketplace."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Criar uma conta Microsoft Developer
 Este artigo orienta-o através da criação de contas necessárias e o processo de registo para se tornar um Developer Microsoft aprovados para o Azure Marketplace.
 
-## <a name="1-create-a-microsoft-account"></a>1. Criar conta Microsoft
+## <a name="1-create-a-microsoft-account"></a>1. Criar uma conta Microsoft
 Para iniciar o processo de publicação, terá de criar uma conta Microsoft. Esta conta será utilizada para registar para ambos os **Microsoft Developer Center** e **Portal de publicação do Azure**. Deve ter apenas uma conta Microsoft para as ofertas do Azure Marketplace. Não deve ser específico para serviços ou ofertas.
 
 O endereço de que forma o nome de utilizador deve estar no seu domínio e controladas pela sua equipa de TI. Todas as atividades relacionadas com publicação devem ser feitas esta conta.
@@ -45,7 +45,7 @@ Ao criar uma conta da empresa, siga estas diretrizes se mais do que uma pessoa p
 * Adicione um número de telefone da empresa que não necessita de uma extensão e está acessível para os membros da equipa de chave.
 * Ter em geral, os programadores utilizar dispositivos fidedignos para iniciar sessão conta de programador da sua empresa. Todos os membros da equipa de chave devem ter acesso a estes dispositivos fidedignos. Isto irá reduzir a necessidade de códigos de segurança para serem enviados ao aceder a conta.
 * Se precisar de permitir o acesso à conta de um computador não fidedigno, limite o que o acesso a um máximo de cinco programadores. Idealmente, estes programadores devem aceder à conta de máquinas que partilhar o mesmo geográfica e a localização de rede.
-* Frequentemente, reveja as informações de segurança da sua empresa em [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) para se certificar de que está tudo atual.
+* Frequentemente, reveja as informações de segurança da sua empresa em [ https://account.live.com/proofs/Manage ](https://account.live.com/proofs/Manage) para se certificar de que está tudo atual.
 
 A conta de programador deve ser acedida principalmente a partir de PCs fidedignos. Isto é crucial, porque não há um limite ao número de códigos gerados por conta, por semana. Também permite que a experiência de início de sessão mais integrada.
 
@@ -53,7 +53,7 @@ Para obter mais informações sobre as diretrizes de conta de programador adicio
 
 ### <a name="instructions"></a>Instruções
 1. Abra uma nova Chrome Incognito ou Internet Explorer InPrivate navegação sessão para se certificar de que tem não sessão iniciada numa conta existente.
-2. Registar a mensagem de e-mail (pelas diretrizes acima por exemplo, windowsapp@fabrikam.com) como uma conta Microsoft, utilizando a hiperligação [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Siga as instruções abaixo.
+2. Registar a mensagem de e-mail (pelas diretrizes acima por exemplo, windowsapp@fabrikam.com) como uma conta Microsoft, utilizando a hiperligação [ https://signup.live.com/signup.aspx ](https://signup.live.com/signup.aspx). Siga as instruções abaixo.
 
    1. Durante a registar a sua conta como uma conta Microsoft, tem de fornecer um número de telefone válido para o sistema para lhe enviar um código de verificação de conta como uma mensagem de texto ou chamada automática.
    2. Durante a registar a sua conta como uma conta Microsoft, tem de indicar um id de correio eletrónico válido para receber uma mensagem de e-mail automatizada para verificação da conta.
@@ -68,7 +68,7 @@ A Microsoft Developer Center é utilizado para registar as informações da empr
 >
 >
 
-| Perfil de programador | Para iniciar o rascunho | Transição | Publicar livre e modelo de solução | Publicar comerciais |
+| Perfil de programador | Para iniciar o rascunho | Testes | Publicar livre e modelo de solução | Publicar comerciais |
 | --- | --- | --- | --- | --- |
 | Registo da empresa |Tem de ter |Tem de ter |Tem de ter |Tem de ter |
 | ID de perfil dedução dos impostos |Opcional |Opcional |Opcional |Tem de ter |
@@ -81,7 +81,7 @@ A Microsoft Developer Center é utilizado para registar as informações da empr
 
 ### <a name="register-your-company-account"></a>Registar a sua conta de empresa
 1. Abra uma nova Internet Explorer InPrivate ou Incognito Chrome navegação sessão para se certificar de que tem não sessão iniciada para uma conta pessoal.
-2. Aceda a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) para registar-se como um vendedor no Dev Center. Leia a seguinte nota importante antes de continuar.
+2. Aceda a [ http://dev.windows.com/registration?accountprogram=azure ](http://dev.windows.com/registration?accountprogram=azure) para registar-se como um vendedor no Dev Center. Leia a seguinte nota importante antes de continuar.
 
    > [!IMPORTANT]
    > Certifique-se de que o id ou a distribuição de lista de e-mail (uma lista de distribuição é recomendada para remover a dependência indivíduos) que irá utilizar para registar no Dev Center no primeiro registado como uma conta Microsoft. Se não estiver, em seguida, registe-se utilizar esta [ligação](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Além disso, **qualquer id sob o domínio de empresa do Microsoft de e-mail ou seja, @microsoft.com não é possível utilizar** para o registo de Dev Center.
@@ -175,7 +175,7 @@ Se preferir Atualize as informações dedução dos impostos e banco mais tarde,
 
 Se tiver problemas com o registo do Centro de programadores, inicie um pedido de suporte, tal como indicado abaixo
 
-1. Aceda ao link do suporte [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
+1. Consulte a hiperligação de suporte [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
 2. Em **contacte-na** secção, clique no botão **submeter um incidente** (conforme ilustrado na captura de ecrã abaixo)
 
     ![desenho](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
@@ -191,7 +191,7 @@ Se tiver problemas com o registo do Centro de programadores, inicie um pedido de
 O [publicação portal](http://publish.windowsazure.com) é utilizado para publicar e gerir a sua offer(s).
 
 1. Abra uma nova Chrome Incognito ou Internet Explorer InPrivate navegação sessão para se certificar de que tem não sessão iniciada para uma conta pessoal.
-2. Aceda a [http://publish.windowsazure.com](http://publish.windowsazure.com).
+2. Vá para [http://publish.windowsazure.com](http://publish.windowsazure.com).
 3. Se for um novo utilizador e o início de sessão para a publicação portal pela primeira vez, em seguida, deve iniciar sessão com o mesmo id de correio eletrónico na qual a sua conta do Dev Center está registada. Desta forma sua conta do Dev Center e a conta do portal de publicação serão ligado entre si. Posteriormente, pode adicionar os outros membros da empresa, que estiver a trabalhar na aplicação, como um coadministrador na publicação portal seguindo os passos abaixo.
 
 Se é adicionado como coadministrador na publicação portal, em seguida, pode iniciar sessão com a sua conta de co-admin.
@@ -226,10 +226,10 @@ Se é adicionado como coadministrador na publicação portal, em seguida, pode i
 
     ![desenho](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que a conta é criada e registada, certifique-se de satisfazer ou corresponder a todos os pré-requisitos não técnico para publicar a sua oferta revendo [pré-requisitos não técnicos](marketplace-publishing-pre-requisites.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg

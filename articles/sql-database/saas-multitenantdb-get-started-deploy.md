@@ -3,23 +3,19 @@ title: "Implementar uma aplicação SaaS a base de dados do multi-inquilino que 
 description: "Implementar e explorar em partição horizontal Wingtip pedidos da base de dados do multi-inquilino aplicação SaaS, que demonstra padrões de SaaS ao utilizar a SQL Database do Azure."
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: billgib;anjangsh
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma a aplicação multi-inquilino que utiliza a SQL Database do Azure
 
@@ -60,7 +56,7 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 #### <a name="plan-the-names"></a>Planear os nomes
 
 Os passos desta secção, deve fornecer um *utilizador* valor que é utilizado para garantir que os nomes de recursos são exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implementação da aplicação. Para uma pessoa designada *Ann Finley*, sugerimos que:
-- *Utilizador:* **af1***(respetivo iniciais, mais um dígito.   Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
+- *Utilizador:* **af1***(respetivo iniciais, mais um dígito. Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
 - *Grupo de recursos:* **wingtip-dpt-af1** *(wingtip dpt indica que esta é a aplicação de base de dados por inquilino. Acrescentar o af1 de nome de utilizador está correlacionada com o nome do grupo de recursos com os nomes dos recursos que nele contidos.)*
 
 Escolha os nomes agora e escrevê-las para baixo. 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 8584cade8e12b4f06ae455227e702844a06f512a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 02b3e0e0808cb9a1a8a2186b1abe6da7dd13e56e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Manual de comunicação social vehicle solução de análise de telemetria
 Liga menu-capítulos neste manual de comunicação social: 
@@ -26,9 +26,9 @@ Liga menu-capítulos neste manual de comunicação social:
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Descrição geral
-Supercomputers movido fora do laboratório e agora são parqueados no garages. Estes automóveis inovadores contenham sensores conjunto, o qual conceder-lhes a capacidade de controlar e monitorizar milhões de eventos a cada segundo. Por 2020, a maioria destas veículos será ligada à Internet. Ao tocar em para este variedade de dados pode fornecer maior segurança, fiabilidade e uma melhor despertar experiência. Microsoft faz com que esta dream uma realidade com Cortana Intelligence.
+Computadores superutilizadores movido fora do laboratório e agora são parqueados no garages. Estes são agora a ser colocados em automóveis inovadores que contêm os sensores de conjunto. Destes sensores a conceder-lhes a capacidade de controlar e monitorizar milhões de eventos a cada segundo. Por 2020, a maioria destas veículos será ligada à Internet. Ao tocar em para este variedade de dados fornece maior segurança, fiabilidade, e, por isso, ocasionar uma melhor experiência. Microsoft faz com que esta dream uma realidade com Cortana Intelligence.
 
-Cortana Intelligence é um macrodados completamente geridos e suite análises avançadas que pode utilizar para transformar os dados para a ação inteligente. O modelo de solução de análise de telemetria do Cortana Intelligence Vehicle demonstra como dealerships carro, fabricantes automóveis e insurance empresas podem obter em tempo real e conhecimentos aprofundados preditivos acerca do Estado de funcionamento vehicle e ocasionar hábitos. 
+Cortana Intelligence é um macrodados completamente geridos e suite análises avançadas que pode utilizar para transformar os dados para a ação inteligente. O modelo de solução de análise de telemetria do Cortana Intelligence Vehicle demonstra como dealerships carro, fabricantes automóveis e as empresas insurance conseguem obter em tempo real e conhecimentos aprofundados preditivos acerca do Estado de funcionamento vehicle e ocasionar hábitos.
 
 A solução é implementada como um [padrão de arquitetura de lambda](https://en.wikipedia.org/wiki/Lambda_architecture), que mostra o completo potenciais da plataforma Cortana Intelligence para em tempo real e processamento em lote.
 
@@ -38,7 +38,7 @@ A arquitetura de solução de análise de telemetria Vehicle é ilustrada neste 
 ![Diagrama de arquitetura de solução](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-Esta solução inclui os seguintes componentes do Cortana Intelligence e showcases os respetivos integração de ponto a ponto:
+Esta solução inclui os seguintes componentes do Cortana Intelligence e showcases os respetivos integração:
 
 * **Os Hubs de eventos do Azure** ingere milhões de eventos de telemetria vehicle no Azure.
 * **O Azure Stream Analytics** fornece informações em tempo real sobre o estado de funcionamento do vehicle e persistir os dados para armazenamento a longo prazo para a análise de lote mais rico.
@@ -50,5 +50,5 @@ Esta solução inclui os seguintes componentes do Cortana Intelligence e showcas
 Esta solução acede duas origens de dados diferentes: 
 
 * **Simulated vehicle sinais e diagnóstico**: um simulador de telematics vehicle emite informações de diagnóstico e sinais que correspondem para o estado do veículo e o padrão despertar num determinado ponto no tempo. 
-* **Catálogo de vehicle**: este conjunto de dados de referência mapeia VINs para modelos.
+* **Catálogo de vehicle**: este conjunto de dados de referência mapeia números VIN para modelos.
 

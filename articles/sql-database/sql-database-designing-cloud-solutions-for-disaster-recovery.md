@@ -3,25 +3,19 @@ title: "Design serviço altamente disponível a utilizar a SQL Database do Azure
 description: "Saiba mais sobre a estrutura de aplicação para os serviços de elevada disponibilidade utilizando a SQL Database do Azure."
 keywords: "nuvem de recuperação após desastre, as soluções de recuperação após desastre, cópia de segurança de dados de aplicação, replicação geográfica, planeamento de continuidade de negócio"
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Conceber serviços de elevada disponibilidade utilizando a SQL Database do Azure
 

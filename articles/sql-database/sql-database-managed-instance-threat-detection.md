@@ -3,18 +3,18 @@ title: "Deteção - de ameaças base de dados SQL do Azure gerida instância | M
 description: "A Deteção de Ameaças deteta atividades de base de dados anómalas, indicando potenciais ameaças de segurança para a base de dados."
 services: sql-database
 author: rmatchoro
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: security, managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: f8c08bc16d622516958b8bd182179d07edfa4891
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2112a0a3997af478de6b8c80abcf7924a66302f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Base de dados SQL do Azure gerida a deteção de ameaças de instância
 
@@ -29,7 +29,7 @@ A deteção de ameaças fornece uma nova camada de segurança, o que permite que
 A deteção de ameaças do SQL Server integra-se de alertas com [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), e, em cada instância geridos protegido é faturada o mesmo preço como o escalão padrão de centro de segurança do Azure, no $15/nó/mês, onde cada protegidas instância geridos é contabilizado como um nó.  
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurar a deteção de ameaças para a instância geridos no portal do Azure
-1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
 2. Navegue para a página de configuração da instância gerido que pretende proteger. No **definições** página, selecione **a deteção de ameaças**. 
 3. Na página de configuração da deteção de ameaças 
    - Ativar **ON** deteção de ameaças.

@@ -87,6 +87,6 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Canadá Central, Leste do Canadá, Centro de França, Alemanha Central, Leste do Japão, Coreia Central, E.U.A. Centro-Sul, Sudeste Asiático, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. 
+> \* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Canadá Central, Canadá leste, França Central, Alemanha Central, leste do Japão, Coreia Central, Sul Central nos, Sul Oriental, nos East2, EUA oeste, Virginia us-nos e oeste Europa. 
 >
 

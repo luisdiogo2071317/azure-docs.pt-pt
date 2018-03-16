@@ -3,7 +3,7 @@ title: Utilizar o conector do servidor do SharePoint nas suas Logic Apps | Micro
 description: "Começar a utilizar o conector do SharePoint Server, nas suas Logic apps"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Começar a utilizar o conector do SharePoint
-O conector do SharePoint fornece uma forma de trabalhar com apresenta uma lista do SharePoint.
+O conector do SharePoint fornece uma forma para trabalhar com apresenta uma lista do SharePoint.
 
 Começar através da criação de uma aplicação lógica; consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -31,11 +31,11 @@ Para utilizar o conector do SharePoint, tem primeiro de criar um **ligação** ,
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Token |Sim |Fornecer Credenciais do SharePoint |
+| Certificado de |Sim |Forneça credenciais do SharePoint |
 
-Para ligar ao **SharePoint**, introduza a sua identidade (nome de utilizador e palavra-passe, smart card credenciais, etc.) para SharePoint. Uma vez que já foi autenticado, pode continuar a utilizar o conector do SharePoint na sua aplicação lógica. 
+Para ligar ao **SharePoint**, introduza a sua identidade (nome de utilizador e palavra-passe, as credenciais de smartcart e assim sucessivamente). Assim que tiver autenticado, pode continuar a utilizar o conector do SharePoint na sua aplicação lógica. 
 
-Enquanto no designer da sua aplicação lógica, siga estes passos para iniciar sessão no SharePoint para criar a ligação **ligação** para utilização na sua aplicação lógica:
+Enquanto no designer da sua aplicação lógica, utilize os seguintes passos para iniciar sessão e criar o **ligação** para utilização na sua aplicação lógica:
 
 1. Introduza o SharePoint na caixa de pesquisa e aguarde que a procura para devolver todas as entradas com o SharePoint no nome:   
    ![Configurar o SharePoint][1]  
@@ -44,10 +44,10 @@ Enquanto no designer da sua aplicação lógica, siga estes passos para iniciar 
    ![Configurar o SharePoint][2]    
 4. Fornecer as credenciais do SharePoint para iniciar sessão autenticar com o SharePoint   
    ![Configurar o SharePoint][3]     
-5. Depois de concluir a autenticação irá ser redirecionado para a sua aplicação lógica para concluí-la através da configuração do SharePoint **quando é criado um ficheiro** caixa de diálogo.          
+5. Após a conclusão da autenticação, está a ser redirecionado para a sua aplicação lógica para concluí-la através da configuração do SharePoint **quando é criado um ficheiro** caixa de diálogo.          
    ![Configurar o SharePoint][4]  
 6. Em seguida, pode adicionar outros acionadores e ações que precisa para concluir a sua aplicação lógica.   
-7. Guarde o trabalho selecionando **guardar** na barra de menus acima.  
+7. Guarde o trabalho selecionando **guardar** no menu (direção ao topo).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

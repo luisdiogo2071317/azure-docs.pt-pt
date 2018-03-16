@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar PerfInsights 
 
@@ -238,11 +238,11 @@ Para executar a ferramenta de PerfInsights, siga estes passos:
     >
     >Se a duração **/d** não for especificado, PerfInsights irá solicitar-lhe para repro o problema ao executar vmslow, azurefiles e cenários personalizados. 
 
-Quando os rastreios nem de operações estiverem concluídas, um novo ficheiro aparece no d:\\registo\_coleção (ou unidade temporária). O nome do ficheiro é **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip.** Pode enviar este ficheiro para o agente de suporte para o Analysis Services ou abrir o relatório dentro do ficheiro zip para rever findings e recomendações.
+Quando os rastreios nem de operações estiverem concluídas, é apresentado um novo ficheiro na mesma pasta que PerfInsights. O nome do ficheiro é **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** Pode enviar este ficheiro para o agente de suporte para o Analysis Services ou abrir o relatório dentro do ficheiro zip para rever findings e recomendações.
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnóstico
 
-Dentro do **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** ficheiro, pode encontrar um relatório HTML que explica em detalhe findings de PerfInsights. Para rever o relatório, expanda o **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** de ficheiros e, em seguida, abra o **PerfInsights Report.html** ficheiro.
+Dentro do **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip** ficheiro, pode encontrar um relatório HTML que explica em detalhe findings de PerfInsights. Para rever o relatório, expanda o **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip** de ficheiros e, em seguida, abra o **PerfInsights Report.html** ficheiro.
 
 Selecione o **Findings** separador.
 
@@ -297,7 +297,7 @@ O Diskspd é um armazenamento de carga e o desempenho do gerador de ferramenta d
 
 XPerf é uma ferramenta da linha de comandos para capturar rastreios a partir do Toolkit de desempenho do Windows. Para obter mais informações, consulte [Toolkit de desempenho do Windows – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Pode carregar registos de diagnóstico e de relatórios ao Microsoft Support para uma revisão mais aprofundada. O suporte poderá pedir que transmitir o resultado que é gerado pelo PerfInsights para ajudá-lo com o processo de resolução de problemas.
 
@@ -307,4 +307,4 @@ A seguinte captura de ecrã mostra uma mensagem semelhante ao que poderá recebe
 
 Siga as instruções na mensagem para aceder à área de trabalho de transferência de ficheiros. Para segurança adicional, tem de alterar a palavra-passe na primeira utilização.
 
-Depois de iniciar sessão, irá encontrar uma caixa de diálogo para carregar o **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** ficheiro que foi recolhido por PerfInsights.
+Depois de iniciar sessão, irá encontrar uma caixa de diálogo para carregar o **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip** ficheiro que foi recolhido por PerfInsights.

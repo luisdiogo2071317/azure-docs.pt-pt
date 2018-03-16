@@ -3,7 +3,7 @@ title: "Referência de tokens do Azure Active Directory v 2.0 | Microsoft Docs"
 description: "Os tipos de tokens e afirmações emitidas pelo ponto final v 2.0 do Azure AD"
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens de v 2.0 do Azure Active Directory
 O ponto de final de v 2.0 do Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, características de segurança e conteúdo de cada tipo de token.
@@ -86,7 +86,7 @@ Os tokens de atualização são vários recursos. Um token de atualização rece
 
 Para receber uma atualização numa resposta token, a aplicação tem de pedir e receber o `offline_acesss` âmbito. Para saber mais sobre o `offline_access` âmbito, consulte o [consentimento e âmbitos](active-directory-v2-scopes.md) artigo.
 
-Tokens de atualização são e sempre serão, completamente opaco à sua aplicação. Estes são emitidos pelo ponto final v 2.0 do Azure AD e podem apenas ser inspecionadas e interpretados pelo ponto final v 2.0. Estão longa duração, mas a aplicação não deve ser escrita esperar que um token de atualização duram qualquer período de tempo. Atualização de tokens pode ser inválida em qualquer momento por vários motivos. É a única forma da sua aplicação para saber se um token de atualização é válido para tentar resgatar-ao efetuar um pedido de token para o ponto final v 2.0.
+Tokens de atualização são e sempre serão, completamente opaco à sua aplicação. Estes são emitidos pelo ponto final v 2.0 do Azure AD e podem apenas ser inspecionadas e interpretados pelo ponto final v 2.0. Estão longa duração, mas a aplicação não deve ser escrita esperar que um token de atualização duram qualquer período de tempo. Atualização de tokens pode ser inválida em qualquer momento por vários motivos - para obter detalhes, consulte [token revogação](active-directory-token-and-claims.md#token-revocation). É a única forma da sua aplicação para saber se um token de atualização é válido para tentar resgatar-ao efetuar um pedido de token para o ponto final v 2.0.
 
 Quando resgatar a um token de atualização para um novo token de acesso (e se a aplicação tivesse sido concedida a `offline_access` âmbito), receberá um novo token de atualização na resposta token. Guarde o token de atualização emitidos recentemente, para substituir a utilizado no pedido. Esta ação garante que os tokens de atualização mantêm-se válidas para, desde que possível.
 
@@ -140,10 +140,10 @@ Para obter uma lista completa de validações de afirmação que deve executar a
 
 Detalhes dos valores esperados para estas afirmações incluídos no [ID tokens](# ID tokens) secção.
 
-## <a name="token-lifetimes"></a>Durações de token
+## <a name="token-lifetimes"></a>Durações dos tokens
 Podemos fornecer as durações de token seguintes apenas para sua informação. As informações podem ajudá-lo como desenvolver e depurar aplicações. As suas aplicações não devem ser escritas esperar qualquer um destes durações permaneça constante. Pode durações do token e mudará em qualquer altura.
 
-| Token | Duração | Descrição |
+| Certificado de | Duração | Descrição |
 | --- | --- | --- |
 | ID de tokens (contas profissionais ou escolares) |1 hora |Tokens de ID normalmente são válidos para 1 hora. A aplicação web pode utilizar esta duração mesma para manter a sua própria sessão com o utilizador (recomendado) ou, pode escolher uma duração de sessão totalmente diferente. Se a aplicação tem de obter um novo ID de token, é necessário tornar um novo início de sessão pedido para a v 2.0 autorizar o ponto final. Se o utilizador tem uma sessão de browser válido com o ponto final v 2.0, o utilizador não poderá ser necessário para introduzir as respetivas credenciais novamente. |
 | ID de tokens (contas pessoais) |24 horas |Tokens de ID para contas pessoais normalmente são válidos durante 24 horas. A aplicação web pode utilizar esta duração mesma para manter a sua própria sessão com o utilizador (recomendado) ou, pode escolher uma duração de sessão totalmente diferente. Se a aplicação tem de obter um novo ID de token, é necessário tornar um novo início de sessão pedido para a v 2.0 autorizar o ponto final. Se o utilizador tem uma sessão de browser válido com o ponto final v 2.0, o utilizador não poderá ser necessário para introduzir as respetivas credenciais novamente. |

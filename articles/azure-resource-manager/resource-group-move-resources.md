@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -123,7 +123,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Clusters do HDInsight - consulte [limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
 * Cofre de Chaves
-* Balanceadores de Carga
+* Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Lógicas
 * Machine Learning
 * Serviços de Multimédia
@@ -132,6 +132,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Informações Operacionais
 * Gestão de Operações
 * Power BI
+* IP público - consulte [limitações de IP público](#pip-limitations)
 * Cache de Redis
 * Scheduler
 * Pesquisa
@@ -161,8 +162,10 @@ Os serviços que atualmente não permitem mover um recurso são:
 * ExpressRoute
 * DevTest Labs - vá para o novo grupo de recursos na mesma subscrição está ativada, mas mover subscrição cruzada não está ativada.
 * Dynamics LCS
+* Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Geridas
 * Discos geridos - Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
+* IP público - consulte [limitações de IP público](#pip-limitations)
 * Cofre dos serviços de recuperação - também efetue não mover os recursos de computação, rede e armazenamento associados ao Cofre de serviços de recuperação, consulte [limitações de serviços de recuperação](#recovery-services-limitations).
 * Segurança
 * Gestor de Dispositivos do StorSimple
@@ -320,6 +323,16 @@ Quando move um cluster do HDInsight para uma nova subscrição, mova primeiro ou
 
 Não é possível mover vários recursos de pesquisa colocados em regiões diferentes, uma vez.
 Nesse caso, tem de movê-los separadamente.
+
+## <a name="lb-limitations"></a> Limitações de Balanceador de carga
+
+É possível mover o Balanceador de carga de SKU básico.
+Não é possível mover o Balanceador de carga de SKU Standard.
+
+## <a name="pip-limitations"></a> Limitações de IP públicas
+
+IP público de SKU básico pode ser movido.
+Não é possível mover o IP público de SKU Standard.
 
 ## <a name="use-portal"></a>Utilizar o portal
 

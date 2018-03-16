@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um cluster de computação de alto desempenho (HPC) de Linux com o script de implementação do IaaS do HPC Pack
-Execute a script do PowerShell para implementar um cluster HPC Pack 2012 R2 completado para cargas de trabalho do Linux em máquinas virtuais do Azure de implementação do HPC Pack IaaS. O cluster é constituído por um nó principal associados ao Active Directory com o Windows Server e o Microsoft HPC Pack e nós de computação que execute um das distribuições de Linux suportadas pelo pacote HPC. Se pretender implementar um cluster HPC Pack em cargas de trabalho do Azure para Windows, consulte [criar um cluster Windows HPC com o script de implementação do HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Também pode utilizar um modelo Azure Resource Manager para implementar um cluster HPC Pack. Por exemplo, consulte [criar um cluster HPC connosco de computação do Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
-
+Execute a script do PowerShell para implementar um cluster HPC Pack 2012 R2 completado para cargas de trabalho do Linux em máquinas virtuais do Azure de implementação do HPC Pack IaaS. O cluster é constituído por um nó principal associados ao Active Directory com o Windows Server e o Microsoft HPC Pack e nós de computação que execute um das distribuições de Linux suportadas pelo pacote HPC. Se pretender implementar um cluster HPC Pack em cargas de trabalho do Azure para Windows, consulte [criar um cluster Windows HPC com o script de implementação do HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 > [!IMPORTANT] 
 > O script do PowerShell descrito neste artigo cria um cluster do Microsoft HPC Pack 2012 R2 no Azure utilizando o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
-> Além disso, o script descrito neste artigo não suporta HPC Pack 2016.
+> Além disso, o script descrito neste artigo não suporta HPC Pack 2016. Para obter informações sobre modelos do Resource Manager HPC Pack 2012 R2 e HPC Pack 2016, consulte o [opções de implementação de cluster HPC Pack no Azure](../hpcpack-cluster-options.md).
+
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -82,7 +82,7 @@ Substitua os seus próprios valores para o nome da sua subscrição e os nomes d
   
     Para contornar este problema, inicie sessão no controlador de domínio e remover a definição de configuração de reencaminhador ou configurar um servidor DNS do reencaminhador válido. Para tal, no Gestor de servidores, clique em **ferramentas** > **DNS** para abrir o Gestor de DNS e, em seguida, faça duplo clique em **reencaminhadores**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte [começar connosco de computação do Linux num cluster HPC Pack no Azure](hpcpack-cluster.md) para obter informações sobre as distribuições Linux suportadas, mover dados e submeter as tarefas para um cluster HPC Pack com o Linux nós de computação.
 * Para tutoriais que utilizam o script para criar um cluster e executar uma carga de trabalho do Linux HPC, consulte:
   * [Executar NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure](hpcpack-cluster-namd.md)

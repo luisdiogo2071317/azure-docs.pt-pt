@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Resolver problemas relacionados com tarefas do Azure Data Lake Analytics utilizando o Portal do Azure
-Saiba como utilizar o Portal do Azure para resolver problemas de tarefas de Data Lake Analytics.
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Resolver problemas relacionados com tarefas do Azure Data Lake Analytics com o portal do Azure
+Saiba como utilizar o portal do Azure para resolver problemas de tarefas de Data Lake Analytics.
 
-Neste tutorial, irá configurar a um problema de ficheiro de origem em falta e utilizar o Portal do Azure para resolver o problema.
+Neste tutorial, irá configurar um problema de ficheiro de origem em falta e utilizar o portal do Azure para resolver o problema.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Submeter uma tarefa do Data Lake Analytics
 
@@ -62,7 +62,7 @@ O ficheiro de origem definido no script está **/Samples/Data/SearchLog.tsv1**, 
 3. Clique em de **de tarefas gestão** mosaico para obter as tarefas. As tarefas são categorizadas em **executar**, **em fila**, e **terminado**. Deverá ver a tarefa falhada no **terminado** secção. Este deverá ser primeiro na lista. Quando tiver um grande número de tarefas, pode clicar em **filtro** para ajudar a localizar tarefas.
 
     ![Tarefas de filtro do Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Clique na tarefa falhada a partir da lista para abrir os detalhes da tarefa num novo painel:
+4. Clique na tarefa falhada a partir da lista para abrir os detalhes da tarefa:
 
     ![Tarefa de falha do Azure Data Lake Analytics](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
@@ -73,13 +73,13 @@ O ficheiro de origem definido no script está **/Samples/Data/SearchLog.tsv1**, 
 
     Indica que a pasta de origem não foi encontrada.
 6. Clique em **duplicado Script**.
-7. Atualização do **FROM** caminho para o seguinte:
+7. Atualização do **FROM** caminho:
 
-    "/ Samples/Data/SearchLog.tsv"
+    "/Samples/Data/SearchLog.tsv"
 8. Clique em **Submeter Tarefa**.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral da análise do Azure Data Lake](data-lake-analytics-overview.md)
 * [Introdução ao Azure Data Lake Analytics com o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introdução ao Azure Data Lake Analytics e U-SQL com o Visual Studio](data-lake-analytics-u-sql-get-started.md)
-* [Gerir o Azure Data Lake Analytics com o Portal do Azure](data-lake-analytics-manage-use-portal.md)
+* [Gerir o Azure Data Lake Analytics com o portal do Azure](data-lake-analytics-manage-use-portal.md)
