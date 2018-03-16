@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5f867140981649b73bf6d0bc13eca539c7dc2209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de computação de elevado desempenho
 
@@ -29,12 +29,11 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>Instâncias com capacidade RDMA
-Uma interface de rede para a conectividade de (RDMA) de acesso remoto direto à memória de funcionalidade de um subconjunto das instâncias intensivas de computação (H16r, H16mr, NC24r, A8 e A9). Esta interface está além da interface de rede do Azure padrão disponível para outros tamanhos de VM. 
-  
-Esta interface que permite que as instâncias comunicar através de uma rede InfiniBand, operativo FDR as taxas de máquinas virtuais H16r, H16mr e NC24r e QDR as taxas de A8 e A9 as máquinas virtuais com capacidade RDMA. Estas capacidades RDMA podem melhorar a escalabilidade e o desempenho de aplicações de Interface de passagem de mensagens (MPI) em execução em Intel MPI apenas 5. x. Versões posteriores (2017, 2018) da biblioteca de tempo de execução Intel MPI não são compatíveis com os controladores de Azure RDMA.
 
-Implemente as VMs com capacidade RDMA no mesmo conjunto de disponibilidade (ao utilizar o modelo de implementação Azure Resource Manager) ou o mesmo serviço de nuvem (quando utiliza o modelo de implementação clássica). Siga a requisitos adicionais para VMs com Linux com capacidade RDMA à rede Azure RDMA.
+### <a name="mpi"></a>MPI 
+
+Versões de 5. x de Intel MPI só são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução Intel MPI não são compatíveis com os controladores de Azure Linux RDMA.
+
 
 ### <a name="distributions"></a>Distribuições
  
@@ -50,7 +49,7 @@ Implemente uma VM de computação intensivas de uma das imagens no Azure Marketp
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **Com base em centOS HPC** -com base em CentOS 7.3 HPC, com base em CentOS 7.1 HPC, com base em CentOS 6.8 HPC ou baseada em CentOS HPC 6.5 (para a série H, versão 7.1 ou posterior é recomendado). Controladores RDMA e Intel MPI 5.1 são instaladas na VM.  
+* **Com base em centOS HPC** -com base em CentOS 6.5 HPC ou uma versão posterior (para a série H, versão 7.1 ou posterior é recomendado). Controladores RDMA e Intel MPI 5.1 são instaladas na VM.  
  
   > [!NOTE]
   > Nas imagens de HPC com base em CentOS, atualizações de kernel estão desativadas no **yum** ficheiro de configuração. Isto acontece porque os controladores de Linux RDMA são distribuídos como um pacote RPM e atualizações de controladores poderão não funcionar se kernel é atualizado.
@@ -63,7 +62,8 @@ Implemente uma VM de computação intensivas de uma das imagens no Azure Marketp
 ### <a name="network-topology-considerations"></a>Considerações de topologia de rede
 * Em com capacidade RDMA VMs com Linux no Azure, Eth1 está reservado para o tráfego de rede RDMA. Não altere as definições de Eth1 ou quaisquer informações no ficheiro de configuração que faça referência a esta rede. Eth0 está reservado para regular tráfego de rede do Azure.
 
-* No Azure, o IP através de InfiniBand (IB) não é suportada. Apenas RDMA sobre IB é suportada.
+* O endereço espaço 172.16.0.0/16 de reservas de rede RDMA no Azure. 
+
 
 ## <a name="using-hpc-pack"></a>Utilizar o pacote HPC
 [Pacote HPC](https://technet.microsoft.com/library/jj899572.aspx), gratuita HPC cluster e a tarefa de solução de gestão da Microsoft, é uma opção para utilizar as instâncias intensivas de computação com Linux. As versões mais recentes do suporte de HPC Pack várias distribuições em Linux para executar em nós de computação do implementado em VMs do Azure, gerido por um nó principal do Windows Server. Connosco de computação do Linux com capacidade RDMA com Intel MPI, HPC Pack pode agendar e executar Linux MPI aplicações que acedam à rede RDMA. Consulte [começar connosco de computação do Linux num cluster HPC Pack no Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 91819d0fba30dd2ada981435fa13b8ae0a7fcc45
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Processar os erros e exceções em aplicações lógicas
 
@@ -64,7 +64,7 @@ Quando não definir uma política de repetição no **retryPolicy** secção, a 
 }
 ```
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
 Se definir **retryPolicy** para **nenhum**, esta política não repete a ação pedidos falhados.
 
@@ -280,8 +280,6 @@ Para avaliar os Estados da execução, pode monitorizar os registos e as métric
 
 * [Veja como um cliente baseia-se com Azure Logic Apps de processamento de erros](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Localizar mais cenários e exemplos de Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Saiba como criar implementações automatizadas para aplicações lógicas](../logic-apps/logic-apps-create-deploy-template.md)
-* [Criar e implementar aplicações lógicas com o Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

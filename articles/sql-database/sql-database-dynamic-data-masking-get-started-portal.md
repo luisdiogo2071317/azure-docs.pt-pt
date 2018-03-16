@@ -2,24 +2,18 @@
 title: "Portal do Azure: máscara de dados dinâmicos da base de dados SQL | Microsoft Docs"
 description: "Como começar com a máscara de dados dinâmicos da base de dados SQL no portal do Azure"
 services: sql-database
-documentationcenter: 
 author: ronitr
-manager: jhubbard
-editor: 
-ms.assetid: "2"
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 11/22/2016
 ms.author: ronitr
-ms.openlocfilehash: 20d344bc6ae971012bd181d14d130432263a3b76
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2db546d8165956dc6f9fad21f66af315ba301c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Começar com o portal do Azure de máscara de dados dinâmicos da base de dados do SQL Server
 
@@ -27,7 +21,7 @@ Este artigo mostra como implementar [máscara de dados dinâmicos](sql-database-
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configurar dados dinâmicos máscara da base de dados no portal do Azure
-1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
 2. Navegue para a página de definições da base de dados que inclui os dados confidenciais que pretende mascarar.
 3. Clique em de **máscara de dados dinâmicos** mosaico inicia a **máscara de dados dinâmicos** página de configuração.
    
@@ -56,7 +50,7 @@ Este artigo mostra como implementar [máscara de dados dinâmicos](sql-database-
 10. Clique em **guardar** nos página de configuração para guardar a nova ou atualizada de máscara de dados de política de máscara.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma descrição geral de máscara de dados dinâmicos, consulte [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md).
 * Também pode implementar através de máscara de dados dinâmicos [cmdlets da SQL Database do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) ou [REST API](https://msdn.microsoft.com/library/dn505719.aspx).

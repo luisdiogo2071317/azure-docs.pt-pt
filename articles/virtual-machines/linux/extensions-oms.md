@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.author: danis
-ms.openlocfilehash: 5497c0151117c26e66e9669ed8da1ab7f9506b5a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5174e599f12314a657d142304ffec18fbff847b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual OMS para Linux
 
@@ -43,10 +43,11 @@ A extensão de agente do OMS pode ser executada em relação a estas distribuiç
 | Servidor Linux Empresarial SUSE | 11 e 12 |
 
 ### <a name="agent-and-vm-extension-version"></a>Versão do agente e extensão de VM
-A tabela seguinte fornece um mapeamento da versão da OMS VM extensão e pacote de agente do OMS para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do OMS está incluída.  
+A tabela seguinte fornece um mapeamento da versão da OMS VM extensão e pacote de agente do OMS para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do OMS está incluída. Notas de versão incluem detalhes sobre correções e novas funcionalidades disponíveis para uma versão do agente especificado.  
 
 | Versão da extensão de VM de Linux do OMS | Versão do pacote de agente do OMS | 
 |--------------------------------|--------------------------|
+| 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
 | 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|

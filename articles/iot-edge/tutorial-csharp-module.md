@@ -5,15 +5,15 @@ services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implementar um módulo de limite de IoT c# para o seu dispositivo simulado – pré-visualização
 
@@ -48,7 +48,7 @@ Pode utilizar qualquer registo compatível com o Docker para este tutorial. Dois
 3. Selecione **Criar**.
 4. Assim que for criado o seu registo de contentor, navegue até ao mesmo e selecione **chaves de acesso**. 
 5. Ativar/desativar **utilizador de Admin** para **ativar**.
-6. Copie os valores para **servidor de início de sessão**, **Username**, e **palavra-passe**. Irá utilizar estes valores mais tarde no tutorial. 
+6. Copie os valores para **servidor de início de sessão**, **Username**, e **palavra-passe**. Irá utilizar estes valores mais tarde no tutorial quando publicar a imagem de Docker no seu registo e, quando adiciona as credenciais de registo para o tempo de execução do limite. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto do módulo de limite de IoT
 A mostrar os passos seguintes, como criar um módulo de limite de IoT com base no .NET core 2.0 utilizando o Visual Studio Code e a extensão de limite de IoT do Azure.
@@ -227,15 +227,14 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
 2. Clique com botão direito do **Dockerfile** do ficheiro e clique em **imagem de Docker do módulo de limite de IoT criar**. 
 3. No **selecionar pasta** janela, procurar ou introduzir `./bin/Debug/netcoreapp2.0/publish`. Clique em **selecionar pasta como EXE_DIR**.
 4. Na caixa de texto de pop-up na parte superior da janela VS Code, introduza o nome da imagem. Por exemplo: `<your container registry address>/filtermodule:latest`. O endereço de registo do contentor é o mesmo que o servidor de início de sessão que copiou do seu registo. Deverá estar no formato `<your container registry name>.azurecr.io`.
-5. Iniciar sessão para Docker, introduzindo o comando seguinte no terminal VS Code integrado: 
+5. Inicie sessão no Docker utilizando o nome de utilizador, a palavra-passe e o servidor de início de sessão que copiou do seu registo de contentor do Azure quando o criou. Introduza o comando seguinte no terminal VS Code integrado: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Utilize o nome de utilizador, a palavra-passe e o servidor de início de sessão que copiou do seu registo de contentor do Azure quando o criou.
 
-3. A imagem de emissão para o seu repositório de Docker. Selecione **vista** > **paleta de comando** e procure o **Edge: imagem de Docker do módulo de limite de Push de IoT** comandos de menu. Introduza o nome da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo nome de imagem utilizada no passo 4.
+6. Enviar a imagem para o registo de contentor. Selecione **vista** > **paleta de comando** e procure o **Edge: imagem de Docker do módulo de limite de Push de IoT** comandos de menu. Introduza o nome da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo nome de imagem utilizada no passo 4.
+7. Para ver a imagem no portal do Azure, navegue para o registo de contentor do Azure e selecione **repositórios**. Deverá ver **filtermodule** listados.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Adicionar credenciais de registo ao tempo de execução do contorno
 Adicione as credenciais para o registo para o tempo de execução do Edge no computador onde está a executar o dispositivo de limite. Estas credenciais conceder o acesso de tempo de execução para o contentor de extração. 

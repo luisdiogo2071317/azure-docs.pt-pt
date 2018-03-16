@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Armazenar dados no limite com bases de dados do SQL Server
 
@@ -67,7 +67,7 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -94,7 +94,12 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
         }
    ```
 
-3. Dependendo do sistema operativo que estiver a executar, Atualize as definições para o módulo SQL com o seguinte código: 
+3. Substitua o `<docker registry address>` com o endereço preenchido o tutorial concluída [pré-visualizar a implementar a função do Azure como um módulo de limite de IoT -](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+
+   >[!NOTE]
+   >O endereço de registo do contentor é o mesmo que o servidor de início de sessão que copiou do seu registo. Deverá estar no formato `<your container registry name>.azurecr.io`
+
+4. Dependendo do sistema operativo que estiver a executar, Atualize as definições para o módulo SQL com o seguinte código: 
 
    * Windows:
 
@@ -110,11 +115,11 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Guarde o ficheiro. 
-5. Na paleta de comando VS Code, selecione **Edge: criar a implementação para o dispositivo de limite**. 
-6. Selecione o seu ID de dispositivo de limite de IoT.
-7. Selecione o `deployment.json` ficheiro que tenha atualizado. Na janela de resultados, pode ver saídas correspondentes para a sua implementação. 
-8. Para iniciar o tempo de execução de limite, selecione **Edge: Iniciar Edge** na paleta do comando.
+5. Guarde o ficheiro. 
+6. Na paleta de comando VS Code, selecione **Edge: criar a implementação para o dispositivo de limite**. 
+7. Selecione o seu ID de dispositivo de limite de IoT.
+8. Selecione o `deployment.json` ficheiro que tenha atualizado. Na janela de resultados, pode ver saídas correspondentes para a sua implementação. 
+9. Para iniciar o tempo de execução de limite, selecione **Edge: Iniciar Edge** na paleta do comando.
 
 >[!TIP]
 >Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema de predefinição](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).

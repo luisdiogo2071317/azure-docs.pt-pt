@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como utilizar a identidade de serviço geridas (pré-visualização pública) do Azure no serviço de aplicações e funções do Azure
 
 > [!NOTE] 
 > Identidade de serviço geridas para o serviço de aplicações e funções do Azure está atualmente em pré-visualização.
 
-Este tópico mostra-lhe como criar uma identidade de aplicação gerida para aplicações de serviço de aplicações e funções do Azure e como utilizá-la para aceder a outros recursos. Uma identidade de serviço gerida do Azure Active Directory permite à aplicação aceder facilmente a outros recursos protegidos do AAD, tais como o Cofre de chaves do Azure. A identidade é gerida pela plataforma do Azure e não necessita de aprovisionar ou rodar os segredos. Para obter mais informações sobre a identidade de serviço geridas, consulte o [descrição geral de identidade de serviço geridas](../active-directory/msi-overview.md).
+Este tópico mostra-lhe como criar uma identidade de aplicação gerida para aplicações de serviço de aplicações e funções do Azure e como utilizá-la para aceder a outros recursos. Uma identidade de serviço gerida do Azure Active Directory permite à aplicação aceder facilmente a outros recursos protegidos do AAD, tais como o Cofre de chaves do Azure. A identidade é gerida pela plataforma do Azure e não necessita de aprovisionar ou rodar os segredos. Para obter mais informações sobre a identidade de serviço geridas, consulte o [descrição geral de identidade de serviço geridas](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Criar uma aplicação com uma identidade
 
@@ -126,7 +126,7 @@ Onde `<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedade 
 Uma aplicação pode utilizar a respetiva identidade para obter os tokens para outros recursos protegidos pelo AAD, como o Cofre de chaves do Azure. Estes tokens representam a aplicação de aceder o recursos e não a qualquer utilizador específico da aplicação. 
 
 > [!IMPORTANT]
-> Terá de configurar o recurso de destino para permitir o acesso da sua aplicação. Por exemplo, se pedir um token ao Cofre de chaves, terá de certificar-se de que adicionou uma política de acesso que inclui a identidade da aplicação. Caso contrário, as chamadas para o Cofre de chaves serão rejeitadas, mesmo que incluem o token. Para saber mais sobre os recursos que suportam tokens de identidade de serviço geridas, consulte [que suporte do Azure AD a autenticação de serviços do Azure](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Terá de configurar o recurso de destino para permitir o acesso da sua aplicação. Por exemplo, se pedir um token ao Cofre de chaves, terá de certificar-se de que adicionou uma política de acesso que inclui a identidade da aplicação. Caso contrário, as chamadas para o Cofre de chaves serão rejeitadas, mesmo que incluem o token. Para saber mais sobre os recursos que suportam tokens de identidade de serviço geridas, consulte [que suporte do Azure AD a autenticação de serviços do Azure](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
 
 Não há um protocolo REST simple para obter um token no serviço de aplicações e funções do Azure. Para aplicações de .NET, a biblioteca de Microsoft.Azure.Services.AppAuthentication fornece uma abstração relativamente este protocolo e suporta uma experiência de desenvolvimento local.
 

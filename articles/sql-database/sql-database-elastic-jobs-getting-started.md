@@ -2,23 +2,18 @@
 title: "Introdução às tarefas de bases de dados elásticas | Microsoft Docs"
 description: "Utilize tarefas de bases de dados elásticas para executar scripts T-SQL que abrangem várias bases de dados."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: sstein
+ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução às tarefas de base de dados elástica
 As tarefas de base de dados elásticas (pré-visualização) para a SQL Database do Azure permite-lhe fiável executar scripts T-SQL que abrangem várias bases de dados ao repetir e fornecer garantias de conclusão de uma eventual automaticamente. Para obter mais informações sobre a funcionalidade de tarefa de bases de dados elásticas, consulte [as tarefas elásticas](sql-database-elastic-jobs-overview.md).

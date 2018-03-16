@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 03/13/2018
 ms.author: glenga
-ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Ferramentas de funções do Azure para Visual Studio  
 
@@ -38,9 +38,13 @@ Este tópico mostra como utilizar as ferramentas de funções do Azure para Visu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Ferramentas de funções do Azure está incluída na carga de trabalho de desenvolvimento do Azure de [Visual Studio 2017 versão 15.4](https://www.visualstudio.com/vs/), ou uma versão posterior. Certifique-se de que inclui o **programação do Azure** carga de trabalho na instalação do Visual Studio 2017:
+Ferramentas de funções do Azure está incluída na carga de trabalho de desenvolvimento do Azure de [Visual Studio 2017 versão 15.5](https://www.visualstudio.com/vs/), ou uma versão posterior. Certifique-se de que inclui o **programação do Azure** carga de trabalho na instalação do Visual Studio 2017:
 
 ![Instalar o Visual Studio 2017 com a carga de trabalho de desenvolvimento do Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+Certifique-se de que o Visual Studio está atualizado e que está a utilizar o [versão mais recente](#check-your-tools-version) das ferramentas de funções do Azure.
+
+### <a name="other-requirements"></a>Outros requisitos
 
 Para criar e implementar funções, é também necessário:
 
@@ -48,11 +52,33 @@ Para criar e implementar funções, é também necessário:
 
 * Uma conta do Armazenamento do Azure. Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
+### <a name="check-your-tools-version"></a>Verificar a sua versão de ferramentas
+
+1. Do **ferramentas** menu, escolha **extensões e atualizações**. Expanda **instalada** > **ferramentas** e escolha **das funções do Azure e ferramentas de trabalhos Web**.
+
+    ![Verificar a versão de ferramentas de funções](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. Tenha em atenção o instalado **versão**. Pode comparar nesta versão, com a versão mais recente listada [nas notas de versão](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+3. Se a versão mais antiga, Atualize as ferramentas no Visual Studio, conforme mostrado na secção seguinte.
+
+### <a name="update-your-tools"></a>As ferramentas de atualização
+
+1. No **extensões e atualizações** caixa de diálogo, expanda **atualizações** > **Visual Studio Marketplace**, escolha **das funções do Azure e ferramentas de trabalhos Web**  e selecione **atualização**.
+
+    ![Atualizar a versão de ferramentas de funções](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. Após a atualização de ferramentas é transferida, feche o Visual Studio para as ferramentas de atualização utilizando o instalador VSIX de Acionador.
+
+3. No instalador do, escolha **OK** para iniciar e, em seguida, **modificar** para atualizar as ferramentas. 
+
+4. Após a atualização estiver concluída, escolha **fechar** e reinicie o Visual Studio.
+
 ## <a name="create-an-azure-functions-project"></a>Criar um projeto de funções do Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-O modelo de projeto cria um projeto de c#, instala o `Microsoft.NET.Sdk.Functions` pacote NuGet e define o framework de destino. Funciona destinos de 1. x do .NET Framework e funciona 2 destinos .NET padrão. O novo projeto contém os seguintes ficheiros:
+O modelo de projeto cria um projeto de c#, instala o `Microsoft.NET.Sdk.Functions` pacote NuGet e define o framework de destino. Funciona destinos de 1. x do .NET Framework e funciona 2 destinos .NET padrão. O novo projeto tem os seguintes ficheiros:
 
 * **Host.JSON**: permite-lhe configurar o anfitrião de funções. Estas definições aplicam-se tanto ao executar localmente e no Azure. Para obter mais informações, consulte [host.json referência](functions-host-json.md).
     

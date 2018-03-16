@@ -2,24 +2,18 @@
 title: "Ativação pós-falha de grupos e a georreplicação ativa - SQL Database do Azure | Microsoft Docs"
 description: "Utilizar grupos de ativação de pós-falha automática com georreplicação ativa e ativar a ativação pós-falha de autoomatic na eventualidade de ocorrer uma falha."
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Descrição geral: Grupos de ativação pós-falha e a georreplicação ativa
 Replicação geográfica activa permite-lhe configurar até quatro legíveis secundários bases de dados em localizações de centro de dados idêntica ou diferente (regiões). Bases de dados secundárias estão disponíveis para consulta e de ativação pós-falha se existir uma falha do Centro de dados ou a impossibilidade de estabelecer ligação à base de dados primária. A ativação pós-falha tem de ser iniciada manualmente a aplicação do utilizador. Após a ativação pós-falha, a nova principal tem um ponto final de ligação diferente. 
@@ -77,7 +71,7 @@ A funcionalidade replicação geográfica activa fornece as seguintes capacidade
 * **Suporte de bases de dados do conjunto elástico**: georreplicação ativa pode ser configurada para uma base de dados em qualquer conjunto elástico. A base de dados secundária pode ser noutro conjunto elástico. Para bases de dados normais, secundário pode ser uma se elástico de agrupamento e vice-versa desde que os escalões de serviço são os mesmos. 
 * **Nível de desempenho configurável da base de dados secundária**: bases de dados primários e secundários são necessários para ter a mesma camada de serviço (básica, Standard, Premium). Uma base de dados secundária pode ser criado com o nível de desempenho inferior (DTUs) ao principal. Esta opção não é recomendada para aplicações com a atividade de escrita da base de dados elevada porque o desfasamento de aumento aumenta o risco de perda de dados substanciais após uma ativação pós-falha. Além disso, após a ativação pós-falha desempenho da aplicação é afetado até que a nova principal é atualizado para um nível de desempenho superior. O gráfico de percentagem de e/s de registo no portal do Azure fornece uma boa forma de estimar o nível de desempenho mínima de secundário que é necessário para Suster a carga de replicação. Por exemplo, se a base de dados primária é P6 (1000 DTU) e o percentagem de e/s de registo corresponde a 50% secundário tem de ser, pelo menos, P4 (500 DTU). Também pode obter os dados de e/s de registo utilizando [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vistas da base de dados.  Para obter mais informações sobre os níveis de desempenho de base de dados SQL, consulte [opções de base de dados SQL e desempenho](sql-database-service-tiers.md). 
 * **Ativação pós-falha controlado de utilizador e a reativação pós-falha**: uma base de dados secundária pode explicitamente mudar para a função primária em qualquer altura, a aplicação ou o utilizador. Durante uma falha real a opção "não planeada" deve ser utilizada, que promove imediatamente uma secundária para ser o primário. Quando o principal falha recupera e esteja novamente disponível, o sistema marca primário como um elemento secundário recuperado automaticamente e colocá-lo com a nova principal. Devido à natureza assíncrona de replicação, uma pequena quantidade de dados pode ser perdida durante as ativações pós-falha não planeadas se falhar de um site primário antes de ser replicado as alterações mais recentes para o secundário. Quando um site primário com várias bases de dados secundárias foi falhar, o sistema é automaticamente reconfigura as relações de replicação e liga as restantes secundárias primário recentemente promovido sem exigir qualquer intervenção do utilizador. Após a interrupção que causou a ativação pós-falha é atenuada, pode ser preferível para devolver a aplicação para a região primária. Para tal, o comando de ativação pós-falha deve ser invocado com a opção "planeada". 
-* **Manter sincronizadas as credenciais e regras de firewall**: Recomendamos que utilize [regras de firewall de base de dados](sql-database-firewall-configure.md) para georreplicação bases de dados para estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundários tem as mesmas regras de firewall como principal. Esta abordagem elimina a necessidade dos clientes manualmente, configurar e manter as regras de firewall nos servidores que alojam as bases de dados primários e secundários. Da mesma forma, [continha os utilizadores de base de dados](sql-database-manage-logins.md) para dados de acesso garante bases de dados principais e secundários têm sempre as mesmas credenciais de utilizador, pelo que durante uma ativação pós-falha, não existe nenhum interrupções devido a correspondência com inícios de sessão e palavras-passe. Com a adição de [do Azure Active Directory](../active-directory/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primários e secundários e elimina a necessidade de gerir as credenciais de bases de dados completamente.
+* **Manter sincronizadas as credenciais e regras de firewall**: Recomendamos que utilize [regras de firewall de base de dados](sql-database-firewall-configure.md) para georreplicação bases de dados para estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias tiverem o mesmo as regras de firewall como principal. Esta abordagem elimina a necessidade dos clientes manualmente, configurar e manter as regras de firewall nos servidores que alojam as bases de dados primários e secundários. Da mesma forma, [continha os utilizadores de base de dados](sql-database-manage-logins.md) para dados de acesso garante bases de dados principais e secundários têm sempre as mesmas credenciais de utilizador, pelo que durante uma ativação pós-falha, não existe nenhum interrupções devido a correspondência com inícios de sessão e palavras-passe. Com a adição de [do Azure Active Directory](../active-directory/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primários e secundários e elimina a necessidade de gerir as credenciais de bases de dados completamente.
 
 ## <a name="auto-failover-group-capabilities"></a>Capacidades do grupo de ativação de pós-falha automática
 
@@ -136,7 +130,7 @@ Devido à latência elevada de redes de área alargada, a cópia contínua utili
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Através de programação gerir grupos de ativação pós-falha e a georreplicação ativa
 Tal como abordado anteriormente, grupos de auto-ativação pós-falha (em pré-visualização) e o Active Directory georreplicação também pode ser gerida através de programação utilizando o Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis.
 
-**API de Gestor de recursos do Azure e a segurança baseada em funções**: georreplicação ativa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API de REST de base de dados do Azure SQL](https://docs.microsoft.com/rest/api/sql/) e [cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso em funções do Azure](../active-directory/role-based-access-control-what-is.md).
+**API de Gestor de recursos do Azure e a segurança baseada em funções**: georreplicação ativa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API de REST de base de dados do Azure SQL](https://docs.microsoft.com/rest/api/sql/) e [Azure Cmdlets do PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso em funções do Azure](../active-directory/role-based-access-control-what-is.md).
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gerir a ativação pós-falha de base de dados do SQL Server com o Transact-SQL
 
@@ -155,11 +149,11 @@ Tal como abordado anteriormente, grupos de auto-ativação pós-falha (em pré-v
 
 | Cmdlet | Descrição |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bases de dados. |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém uma ou mais bases de dados. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Cria uma base de dados secundária para uma base de dados existente e começa a replicação de dados. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Muda uma base de dados secundária para ser primário para iniciar a ativação pós-falha. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Termina a replicação de dados entre uma base de dados do SQL Server e base de dados secundária especificada. |
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Obtém as ligações de georreplicação entre uma base de dados do SQL do Azure e um grupo de recursos ou do SQL Server. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Muda uma base de dados secundária para primária, para iniciar a ativação pós-falha. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Termina a replicação de dados entre uma Base de Dados SQL e a base de dados secundária especificada. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Obtém as ligações de georreplicação entre uma Base de Dados SQL do Azure e um grupo de recursos ou o SQL Server. |
 | [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primários e secundários|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Elimina o grupo de ativação pós-falha do servidor e todas as bases de dados secundárias incluído o grupo |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Obtém a configuração do grupo de ativação pós-falha |

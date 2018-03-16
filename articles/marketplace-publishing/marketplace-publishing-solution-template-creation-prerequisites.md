@@ -3,8 +3,8 @@ title: "Pré-requisitos técnicos para criar um modelo de solução para o Marke
 description: "Compreender os requisitos para criar um modelo de solução para implementar e propor no Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.author: mbaldwin
+ms.openlocfilehash: 4de9f66b4632f2573299757b2e40fae65f86f7d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Pré-requisitos técnicos para criar um modelo de solução para o Azure Marketplace
 Leia o processo cuidadosamente antes de começar e compreenda o onde e por que motivo é efetuado cada passo. Quanto possível, deve preparar as informações da sua empresa e outros dados, descarregar as ferramentas necessárias, e/ou criar os componentes de técnicos antes de iniciar o processo de criação de oferta.  

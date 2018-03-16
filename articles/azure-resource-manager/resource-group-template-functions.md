@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 725f12a6b5dcf4b66109512336e8a617013c5974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções de modelo do Azure Resource Manager
-Este tópico descreve todos os as funções que pode utilizar num modelo Azure Resource Manager.
+Este artigo descreve todas as funções que pode utilizar um modelo Azure Resource Manager.
 
 Adicione funções nos seus modelos por envolvente-los entre parênteses Retos: `[` e `]`, respetivamente. A expressão é avaliada durante a implementação. Enquanto escritos como uma cadeia literal, o resultado da avaliação da expressão pode ser um tipo JSON diferente, tal como uma matriz, um objeto nem um número inteiro. Apenas como em JavaScript, chamadas de função estejam formatadas como `functionName(arg1,arg2,arg3)`. Referenciar propriedades utilizando os operadores de ponto e [Índice].
 
@@ -37,6 +37,7 @@ Funções de modelo e os respetivos parâmetros são sensível. Por exemplo, o G
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -49,23 +50,23 @@ Funções de modelo e os respetivos parâmetros são sensível. Por exemplo, o G
 ## <a name="array-and-object-functions"></a>Funções de matriz e o objeto
 O Resource Manager fornece várias funções para trabalhar com objetos e matrizes.
 
-* [matriz](resource-group-template-functions-array.md#array)
-* [Unir](resource-group-template-functions-array.md#coalesce)
+* [array](resource-group-template-functions-array.md#array)
+* [coalesce](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
-* [contém](resource-group-template-functions-array.md#contains)
+* [contains](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
-* [vazio](resource-group-template-functions-array.md#empty)
-* [primeiro](resource-group-template-functions-array.md#first)
-* [intersecção](resource-group-template-functions-array.md#intersection)
-* [JSON](resource-group-template-functions-array.md#json)
-* [última](resource-group-template-functions-array.md#last)
-* [comprimento](resource-group-template-functions-array.md#length)
-* [Mín.](resource-group-template-functions-array.md#min)
-* [Máx.](resource-group-template-functions-array.md#max)
-* [intervalo](resource-group-template-functions-array.md#range)
-* [Ignorar](resource-group-template-functions-array.md#skip)
-* [tirar](resource-group-template-functions-array.md#take)
-* [União](resource-group-template-functions-array.md#union)
+* [empty](resource-group-template-functions-array.md#empty)
+* [first](resource-group-template-functions-array.md#first)
+* [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
+* [last](resource-group-template-functions-array.md#last)
+* [length](resource-group-template-functions-array.md#length)
+* [min](resource-group-template-functions-array.md#min)
+* [max](resource-group-template-functions-array.md#max)
+* [range](resource-group-template-functions-array.md#range)
+* [skip](resource-group-template-functions-array.md#skip)
+* [take](resource-group-template-functions-array.md#take)
+* [union](resource-group-template-functions-array.md#union)
 
 <a id="equals" />
 <a id="less" />
@@ -76,10 +77,10 @@ O Resource Manager fornece várias funções para trabalhar com objetos e matriz
 ## <a name="comparison-functions"></a>Funções de comparação
 O Resource Manager fornece várias funções, para efetuar comparações nos seus modelos.
 
-* [igual a](resource-group-template-functions-comparison.md#equals)
+* [equals](resource-group-template-functions-comparison.md#equals)
 * [menor](resource-group-template-functions-comparison.md#less)
 * [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
-* [maior](resource-group-template-functions-comparison.md#greater)
+* [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" />
@@ -89,9 +90,24 @@ O Resource Manager fornece várias funções, para efetuar comparações nos seu
 ## <a name="deployment-value-functions"></a>Funções de valor de implementação
 O Resource Manager fornece as seguintes funções, para obter os valores de secções do modelo e os valores relacionados com a implementação:
 
-* [implementação](resource-group-template-functions-deployment.md#deployment)
-* [parâmetros](resource-group-template-functions-deployment.md#parameters)
-* [variáveis](resource-group-template-functions-deployment.md#variables)
+* [deployment](resource-group-template-functions-deployment.md#deployment)
+* [parameters](resource-group-template-functions-deployment.md#parameters)
+* [variables](resource-group-template-functions-deployment.md#variables)
+
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## <a name="logical-functions"></a>Funções lógicas
+O Resource Manager fornece as seguintes funções para trabalhar com condições lógicas:
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -104,27 +120,18 @@ O Resource Manager fornece as seguintes funções, para obter os valores de sec�
 <a id="mul" />
 <a id="sub" />
 
-## <a name="logical-functions"></a>Funções lógicas
-O Resource Manager fornece as seguintes funções para trabalhar com condições lógicas:
-
-* [e](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [Se](resource-group-template-functions-logical.md#if)
-* [não](resource-group-template-functions-logical.md#not)
-* [ou](resource-group-template-functions-logical.md#or)
-
 ## <a name="numeric-functions"></a>Funções numérico
 O Resource Manager fornece as seguintes funções para trabalhar com números inteiros:
 
-* [Adicionar](resource-group-template-functions-numeric.md#add)
+* [add](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
-* [Div](resource-group-template-functions-numeric.md#div)
-* [número de vírgula flutuante](resource-group-template-functions-numeric.md#float)
-* [Int](resource-group-template-functions-numeric.md#int)
-* [Mín.](resource-group-template-functions-numeric.md#min)
-* [Máx.](resource-group-template-functions-numeric.md#max)
-* [MOD](resource-group-template-functions-numeric.md#mod)
-* [MUL](resource-group-template-functions-numeric.md#mul)
+* [div](resource-group-template-functions-numeric.md#div)
+* [float](resource-group-template-functions-numeric.md#float)
+* [int](resource-group-template-functions-numeric.md#int)
+* [min](resource-group-template-functions-numeric.md#min)
+* [max](resource-group-template-functions-numeric.md#max)
+* [mod](resource-group-template-functions-numeric.md#mod)
+* [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
 <a id="listkeys" />
@@ -140,7 +147,7 @@ O Resource Manager fornece as seguintes funções, para obter valores de recurso
 
 * [listKeys e lista {Value}](resource-group-template-functions-resource.md#listkeys)
 * [fornecedores](resource-group-template-functions-resource.md#providers)
-* [referência](resource-group-template-functions-resource.md#reference)
+* [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscrição](resource-group-template-functions-resource.md#subscription)
@@ -155,6 +162,7 @@ O Resource Manager fornece as seguintes funções, para obter valores de recurso
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />
@@ -178,38 +186,38 @@ O Resource Manager fornece as seguintes funções, para obter valores de recurso
 ## <a name="string-functions"></a>Funções de cadeia
 O Resource Manager fornece as seguintes funções para trabalhar com cadeias de:
 
-* [Base64](resource-group-template-functions-string.md#base64)
+* [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
 * [concat](resource-group-template-functions-string.md#concat)
-* [contém](resource-group-template-functions-string.md#contains)
+* [contains](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)
 * [dataUriToString](resource-group-template-functions-string.md#datauritostring)
-* [vazio](resource-group-template-functions-string.md#empty)
+* [empty](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
-* [primeiro](resource-group-template-functions-string.md#first)
-* [GUID](resource-group-template-functions-string.md#guid)
+* [first](resource-group-template-functions-string.md#first)
+* [guid](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
-* [última](resource-group-template-functions-string.md#last)
+* [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
-* [comprimento](resource-group-template-functions-string.md#length)
-* [padleft do modelo](resource-group-template-functions-string.md#padleft)
-* [substituir](resource-group-template-functions-string.md#replace)
-* [Ignorar](resource-group-template-functions-string.md#skip)
+* [length](resource-group-template-functions-string.md#length)
+* [padLeft](resource-group-template-functions-string.md#padleft)
+* [replace](resource-group-template-functions-string.md#replace)
+* [skip](resource-group-template-functions-string.md#skip)
 * [dividir](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [cadeia](resource-group-template-functions-string.md#string)
-* [subcadeia](resource-group-template-functions-string.md#substring)
-* [tirar](resource-group-template-functions-string.md#take)
+* [string](resource-group-template-functions-string.md#string)
+* [substring](resource-group-template-functions-string.md#substring)
+* [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [limitação](resource-group-template-functions-string.md#trim)
+* [trim](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
-* [URI](resource-group-template-functions-string.md#uri)
+* [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md)
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md)
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Gestor de recursos do Azure](resource-group-create-multiple.md)

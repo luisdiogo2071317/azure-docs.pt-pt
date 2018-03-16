@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de .NET do Cosmos BD do Azure para a API do SQL Server: transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* KeyNotFoundException fixo para cruzada ordem da partição por consultas nos casos extremos.
+* Erros fixo onde JsonPropery atributo na cláusula select para consultas LINQ não estava a ser cumprido.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Fixo erros que é atingido em determinadas condições race, o que resulta em intermitente "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" erros ao utilizar o nível de consistência de sessão.
@@ -290,6 +295,8 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |09 de Março de 2018 |--- |
+| [1.20.2](#1.20.1) |21 de fevereiro de 2018 |--- |
 | [1.20.1](#1.20.1) |05 de Fevereiro de 2018 |--- |
 | [1.19.1](#1.19.1) |16 de novembro de 2017 |--- |
 | [1.19.0](#1.19.0) |10 de Novembro de 2017 |--- |

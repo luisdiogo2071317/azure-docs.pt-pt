@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8dfb664c7041d70f3ece812edb76df38a35e41f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar várias instâncias de um recurso ou a propriedade de modelos Azure Resource Manager
 Este artigo mostra-lhe como implementar condicionalmente um recurso e como iterar no modelo Azure Resource Manager para criar várias instâncias de um recurso.
@@ -72,7 +72,7 @@ O recurso para criar várias vezes assume o formato seguinte:
 }
 ```
 
-Tenha em atenção que o nome de cada recurso inclui o `copyIndex()` função, que devolve a atual iteração do ciclo. `copyIndex()`é baseado em zero. Deste modo, o exemplo seguinte:
+Tenha em atenção que o nome de cada recurso inclui o `copyIndex()` função, que devolve a atual iteração do ciclo. `copyIndex()` é baseado em zero. Deste modo, o exemplo seguinte:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -345,6 +345,8 @@ Especifique a que um recurso é implementado depois de outro recurso utilizando 
 }
 ```
 
+<a id="looping-on-a-nested-resource" />
+
 ## <a name="iteration-for-a-child-resource"></a>Iteração para um recurso de subordinados
 Não é possível utilizar um ciclo de cópia para um recurso subordinado. Para criar várias instâncias de um recurso que normalmente definir como aninhada dentro de outro recurso, em vez disso, tem de criar o recurso de como um recurso de nível superior. É possível definir a relação com o recurso principal através de propriedades de tipo e nome.
 
@@ -409,7 +411,7 @@ Os exemplos seguintes mostram cenários comuns para criar vários recursos ou pr
 |[Variáveis de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes formas de iterating em variáveis. |
 |[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa múltiplas regras de segurança para um grupo de segurança de rede. -Constrói as regras de segurança de um parâmetro. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Se pretender saber mais sobre as secções de um modelo, consulte [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber como implementar o modelo, consulte o artigo [implementar uma aplicação com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

@@ -2,24 +2,18 @@
 title: "Máscara de dados dinâmicos de base de dados SQL do Azure | Documentos da Microsoft"
 description: "Máscara de dados dinâmicos da base de dados SQL limita a exposição de dados confidenciais através da máscara-lo para utilizadores não privilegiados"
 services: sql-database
-documentationcenter: 
 author: ronitr
-manager: shaik
-editor: 
-ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 03/09/2017
 ms.author: ronitr
-ms.openlocfilehash: 883a00176207701a0bbda8d196114d9964ce8f17
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 543b4bc15177cc198aaa3c312b563a4bd6e844fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos da base de dados SQL
 
@@ -46,7 +40,7 @@ Máscara de dados dinâmicos pode ser configurada pelo administrador de base de 
 | **Cartão de crédito** |**Máscara de método, o que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia constante como um prefixo sob a forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-mail** |**Máscara de método, o que expõe a primeira letra e substitui o domínio por XXX.com** utilizando um prefixo de constante de cadeia no formato de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** |**Máscara de método, o que gera um número aleatório** , de acordo com os limites selecionados e os tipos de dados real. Se os limites designados são iguais, a função de máscara é um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **Texto personalizado** |**Método, o que expõe o primeiro e último carateres de máscara** e adiciona uma cadeia de preenchimento personalizado no meio. Se for mais curta do que o prefixo exposto e o sufixo da cadeia original, é utilizada apenas a cadeia de preenchimento. <br/>sufixo de prefixo [preenchimento]<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| **Texto personalizado** |**Método, o que expõe o primeiro e último carateres de máscara** e adiciona uma cadeia de preenchimento personalizado no meio. Se for mais curta do que o prefixo exposto e o sufixo da cadeia original, é utilizada apenas a cadeia de preenchimento. <br/>prefix[padding]suffix<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 

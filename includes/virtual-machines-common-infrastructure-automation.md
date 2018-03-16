@@ -14,7 +14,7 @@ Para criar e gerir máquinas virtuais do Azure (VMs) de uma forma consistente à
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) é um motor de automatização para gestão de configuração, a criação de VM ou implementação de aplicação. Ansible utiliza um modelo sem agente, normalmente com chaves SSH para autenticar e gerir máquinas de destino. Tarefas de configuração estão definidas em runbooks, com um número de módulos Ansible disponíveis para realizar tarefas específicas. Para obter mais informações, consulte [funciona como Ansible](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) é um motor de automatização para gestão de configuração, a criação de VM ou implementação de aplicação. Ansible utiliza um modelo sem agente, normalmente com chaves SSH para autenticar e gerir máquinas de destino. Tarefas de configuração estão definidas em playbooks, com um número de módulos Ansible disponíveis para realizar tarefas específicas. Para obter mais informações, consulte [funciona como Ansible](https://www.ansible.com/how-ansible-works).
 
 Aprenda a:
 
@@ -41,19 +41,19 @@ Aprenda a:
 
 
 ## <a name="cloud-init"></a>Inicialização da cloud
-[Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados em base64.
+[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` os ficheiros são ficheiros de texto codificados em base64.
 
-Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
+O cloud-init também funciona em distribuições. Por exemplo, não utiliza **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes a instalar. O cloud-init utiliza automaticamente a ferramenta de gestão de pacotes nativa para a distribuição que selecionar.
 
  Estamos ativamente a trabalhar com os nossos parceiros de distro Linux endorsed para ter imagens de nuvem-init ativada disponíveis no Azure marketplace. Estas imagens se as implementações de nuvem init e configurações funcionam sem problemas com as VMs e conjuntos de dimensionamento de máquina virtual. A tabela seguinte descreve a disponibilidade de imagens de nuvem-init ativada atual na plataforma do Azure:
 
 | Publicador | Oferta | SKU | Versão | nuvem init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canónico |UbuntuServer |16.04 LTS |mais recente |sim | 
+|Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic |CentOS |7 CI |mais recente |pré-visualizar |
-|RedHat |RHEL |7 CI NÃO PROCESSADOS |mais recente |pré-visualizar |
+|OpenLogic |CentOS |7-CI |mais recente |pré-visualização |
+|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualização |
 
 Saiba mais detalhes sobre init de nuvem no Azure:
 
@@ -103,14 +103,14 @@ Aprenda a:
 
 
 ## <a name="azure-automation"></a>Automatização do Azure
-[A automatização do Azure](https://azure.microsoft.com/services/automation/) utiliza runbooks para processar um conjunto de tarefas em VMs de destino. A automatização do Azure é utilizada para gerir VMs existentes em vez de criar uma infraestrutura. A automatização do Azure pode ser executados através de Linux e VMs do Windows, bem como a máquinas virtuais ou físicos no local com um runbook worker híbrido. Os Runbooks podem ser armazenados num repositório de controlo de origem, como o GitHub. Estes runbooks, em seguida, pode executar manualmente ou com base numa agenda definida.
+[A automatização do Azure](https://azure.microsoft.com/services/automation/) utiliza runbooks para processar um conjunto de tarefas em VMs de destino. A automatização do Azure é utilizada para gerir VMs existentes em vez de criar uma infraestrutura. A automatização do Azure pode ser executados através de Linux e VMs do Windows, bem como máquinas virtuais ou físicos no local com um runbook worker híbrido. Os Runbooks podem ser armazenados num repositório de controlo de origem, como o GitHub. Estes runbooks, em seguida, pode executar manualmente ou com base numa agenda definida.
 
 A automatização do Azure também fornece um serviço de configuração de estado pretendido (DSC) que permite-lhe criar as definições para a forma como deve ser configurado um determinado conjunto de VMs. DSC, em seguida, assegura que a configuração necessária é aplicada a VM permanece consistente. Automation DSC do Azure é executado em computadores Windows e Linux.
 
 Aprenda a:
 
 - [Criar um runbook de PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Utilize o trabalho de Runbook híbrida para gerir recursos no local](../articles/automation/automation-hybrid-runbook-worker.md).
+- [Utilizar o Runbook Worker híbrido para gerir recursos no local](../articles/automation/automation-hybrid-runbook-worker.md).
 - [Utilizar o DSC de automatização do Azure](../articles/automation/automation-dsc-getting-started.md).
 
 

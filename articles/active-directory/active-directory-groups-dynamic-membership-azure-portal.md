@@ -16,11 +16,11 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8a52d80f32f822691be862d566c17c84efc73c26
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para filiação dinâmica em grupos no Azure Active Directory
 No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos.
@@ -35,6 +35,8 @@ Quando forem efetuadas alterações de atributos de um utilizador ou dispositivo
 > Pode criar um grupo dinâmico para utilizadores ou dispositivos, mas não é possível criar uma regra que contém objetos de dispositivo e utilizador.
 > 
 > De momento, não é possível criar um grupo de dispositivos com base nos atributos do utilizador proprietário. Regras de associação do dispositivo só podem referenciar imediatos atributos de objetos de dispositivo no diretório.
+> 
+> Microsoft Teams ainda não suporta a filiação dinâmica do grupo. Pode validar o erro nos registos associados "Não é possível migrar o grupo de associação dinâmica"
 
 ## <a name="to-create-an-advanced-rule"></a>Para criar uma regra avançada
 1. Iniciar sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de conta de utilizador.

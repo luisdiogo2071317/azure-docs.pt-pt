@@ -2,24 +2,19 @@
 title: "Azure SQL Database automáticas georredundante cópias de segurança | Microsoft Docs"
 description: "Base de dados SQL cria uma cópia de segurança da base de dados local cada alguns minutos e utiliza o Azure armazenamento georredundante com acesso de leitura para a redundância geográfica automaticamente."
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: 
-ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 57132367faaa4c4869f2415f32897562c8056fb1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança de base de dados SQL automáticas
 

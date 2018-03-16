@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9626b3caaa7188a4e9a37f83d1fbf091951714f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva os erros de modelo inválido
 
@@ -38,6 +38,8 @@ A mensagem de erro depende do tipo de erro.
 
 Este erro poderá resultar de vários tipos diferentes de erros. Estão normalmente relacionados um erro de sintaxe ou estrutural no modelo.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>Solução 1 - erro de sintaxe
 
 Se receber uma mensagem de erro que indica a validação do modelo falha, pode ter um problema de sintaxe no seu modelo.
@@ -56,6 +58,8 @@ Este erro é fácil fazer como expressões de modelo podem ser intricate. Por ex
 Se não fornecer a sintaxe correspondente, o modelo produz um valor que é diferente da sua intenção.
 
 Quando receber este tipo de erro, reveja cuidadosamente a sintaxe de expressão. Considere a utilização de um editor de JSON como [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou [Visual Studio Code](resource-manager-vs-code.md), que pode avisá-lo sobre os erros de sintaxe.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Solução 2 - comprimentos de segmento incorreto
 
@@ -116,6 +120,8 @@ Obter os segmentos direita pode ser tricky com tipos de Gestor de recursos que s
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>Solução 3 - parâmetro não é válido
 
 Se fornecer um valor de parâmetro que não é um dos valores permitidos, receberá uma mensagem semelhante ao seguinte erro:
@@ -129,9 +135,13 @@ part of the allowed values
 
 Duplo Verifique os valores permitidos no modelo e forneça um durante a implementação. Para obter mais informações sobre os valores de parâmetros permitidas, consulte [secção de parâmetros de modelos Azure Resource Manager](resource-manager-templates-parameters.md).
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 - demasiados grupos de recursos de destino
 
 Se especificar mais de cinco grupos de recursos de destino numa única implementação, receberá o erro. Considere consolidar o número de grupos de recursos na sua implementação, ou implementar alguns dos modelos como implementações separadas. Para obter mais informações, consulte [recursos do Azure de implementar a mais do que uma subscrição ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Solução 5 - dependência circular detetada
 

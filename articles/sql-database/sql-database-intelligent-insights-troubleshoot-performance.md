@@ -2,24 +2,19 @@
 title: Resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente | Microsoft Docs
 description: Inteligentes Insights ajuda a resolver problemas de desempenho de SQL Database do Azure.
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente
 

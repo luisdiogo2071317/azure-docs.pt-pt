@@ -3,8 +3,8 @@ title: "Criar uma imagem de máquina virtual no local para o Azure Marketplace |
 description: Compreender e executar os passos para criar uma imagem VM no local e implementar no Azure Marketplace para outras pessoas para comprar.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual no local para o Azure Marketplace
 Recomendamos vivamente que desenvolver Azure discos rígidos virtuais (VHDs) diretamente na nuvem utilizando o protocolo de ambiente de trabalho remoto. No entanto, se necessário, é possível transferir um VHD e desenvolvê-lo utilizando a infraestrutura no local.  
@@ -92,7 +92,7 @@ Para criar uma conta de armazenamento, pode utilizar o [portal do Microsoft Azur
 
 **Criar uma conta do storage a partir do portal do Microsoft Azure**
 
-1. Clique em **crie um recurso**.
+1. Clique em **Criar um recurso**.
 2. Selecione **armazenamento**.
 3. Preencha o nome da conta de armazenamento e, em seguida, selecione uma localização.
    

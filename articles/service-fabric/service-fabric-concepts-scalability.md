@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Dimensionamento nos recursos de infraestrutura de serviço
-Azure Service Fabric torna mais fácil criar aplicações dimensionáveis ao gerir os serviços, partições e réplicas em nós do cluster. Muitas cargas de trabalho a ser executado no mesmo hardware permite a utilização máxima de recursos, mas também fornece flexibilidade em termos de como escolher dimensionar as cargas de trabalho. 
+Azure Service Fabric torna mais fácil criar aplicações dimensionáveis ao gerir os serviços, partições e réplicas em nós do cluster. Muitas cargas de trabalho a ser executado no mesmo hardware permite a utilização máxima de recursos, mas também fornece flexibilidade em termos de como escolher dimensionar as cargas de trabalho. Este vídeo de Channel 9 descreve como pode criar aplicações dimensionáveis micro-serviços:
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
 Dimensionamento no Service Fabric é conseguido várias formas diferentes:
 
@@ -33,7 +35,7 @@ Dimensionamento no Service Fabric é conseguido várias formas diferentes:
 6. Dimensionamento, através de métricas de Gestor de recursos de Cluster
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Dimensionamento ao criar ou remover instâncias de serviço sem monitorização de estado
-Uma das formas mais simples para dimensionar dentro do Service Fabric funciona com os serviços sem monitorização de estado. Quando cria um serviço sem monitorização de estado, obter uma oportunidade para definir um `InstanceCount`. `InstanceCount`Define o número de cópias em execução de código esse serviço é criado quando inicia o serviço cópia de segurança. Vamos supor que, por exemplo, se existirem 100 nós no cluster. Também Digamos que é criado um serviço com um `InstanceCount` de 10. Durante o tempo de execução, esses 10 cópias em execução do código pode todas ficar demasiado ocupadas (ou pode não ser suficientemente ocupadas). É uma forma de escala que carga de trabalho para alterar o número de instâncias. Por exemplo, alguns fragmento de código de monitorização ou a gestão de pode alterar o número de instâncias existente para 50 ou para 5, dependendo se a carga de trabalho tem de aumentar ou reduzir baseia-se a carga. 
+Uma das formas mais simples para dimensionar dentro do Service Fabric funciona com os serviços sem monitorização de estado. Quando cria um serviço sem monitorização de estado, obter uma oportunidade para definir um `InstanceCount`. `InstanceCount` Define o número de cópias em execução de código esse serviço é criado quando inicia o serviço cópia de segurança. Vamos supor que, por exemplo, se existirem 100 nós no cluster. Também Digamos que é criado um serviço com um `InstanceCount` de 10. Durante o tempo de execução, esses 10 cópias em execução do código pode todas ficar demasiado ocupadas (ou pode não ser suficientemente ocupadas). É uma forma de escala que carga de trabalho para alterar o número de instâncias. Por exemplo, alguns fragmento de código de monitorização ou a gestão de pode alterar o número de instâncias existente para 50 ou para 5, dependendo se a carga de trabalho tem de aumentar ou reduzir baseia-se a carga. 
 
 C#:
 
@@ -69,7 +71,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Dimensionamento ao criar ou remover novos com o nome de serviços
 Uma instância de serviço com nome é uma instância específica de um tipo de serviço (consulte [ciclo de vida de aplicação de Service Fabric](service-fabric-application-lifecycle.md)) dentro de alguns instância da aplicação com o nome do cluster. 
 
-Novas instâncias de serviço com nome podem ser criadas (ou removidas) como serviços que tornam-se mais ou menos ocupados. Isto permite que os pedidos a serem distribuídos por mais instâncias de serviço, normalmente, permitindo que carga nos serviços existentes para diminuir. Ao criar serviços, o Gestor de recursos de Cluster do Service Fabric coloca os serviços no cluster de forma distribuída. As decisões exatas são regidas pelo [métricas](service-fabric-cluster-resource-manager-metrics.md) no cluster e de outras regras de posicionamento. Os serviços podem ser criados várias formas diferentes, mas as mais comuns são através de ações administrativas como alguém chamar [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), ou ao chamar código [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`Pode ainda ser chamado a partir de dentro de outros serviços em execução no cluster.
+Novas instâncias de serviço com nome podem ser criadas (ou removidas) como serviços que tornam-se mais ou menos ocupados. Isto permite que os pedidos a serem distribuídos por mais instâncias de serviço, normalmente, permitindo que carga nos serviços existentes para diminuir. Ao criar serviços, o Gestor de recursos de Cluster do Service Fabric coloca os serviços no cluster de forma distribuída. As decisões exatas são regidas pelo [métricas](service-fabric-cluster-resource-manager-metrics.md) no cluster e de outras regras de posicionamento. Os serviços podem ser criados várias formas diferentes, mas as mais comuns são através de ações administrativas como alguém chamar [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), ou ao chamar código [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` Pode ainda ser chamado a partir de dentro de outros serviços em execução no cluster.
 
 Criar serviços dinamicamente podem ser utilizados em todos os tipos de cenários e é um padrão comum. Por exemplo, considere um serviço com estado que representa um fluxo de trabalho específico. Chamadas que representa o trabalho vai aparecer para este serviço e este serviço vai executar os passos para esse fluxo de trabalho e o registo de progresso. 
 
@@ -145,7 +147,7 @@ Esta criação dinâmica padrão várias vantagens:
   - Não está a executar um bunch de instâncias de serviço ou réplicas enquanto aguarda para os clientes apresentar
   - Se alguma vez perder um cliente, em seguida, remover as respetivas informações do seu serviço é tão simple como tendo o Gestor de eliminar esse serviço ou aplicação que tenha criado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre os conceitos de Service Fabric, consulte os artigos seguintes:
 
 * [Disponibilidade dos serviços do Service Fabric](service-fabric-availability-services.md)

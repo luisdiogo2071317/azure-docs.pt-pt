@@ -3,25 +3,19 @@ title: Aprovisionar em SaaS multi-inquilino do Azure | Microsoft Docs
 description: "Saiba como aprovisionar e novos inquilinos na aplicação de SaaS SQL Database do Azure multi-inquilino de catálogo"
 keywords: tutorial de base de dados sql
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: MightyPen
 ms.reviewer: billgib;andrela;genemi
-ms.assetid: 
 ms.service: sql-database
 ms.custom: saas apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billgib
-ms.openlocfilehash: 42bbb6131aa71520410b22af4d74e99a63fe81cf
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: fb2f2bcbbc8b7f0b0012c4e7baf4a274671d4af0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionar e catálogo novos inquilinos numa aplicação SaaS utilizando uma base de dados de SQL do Azure em partição horizontal do multi-inquilino
 
@@ -241,7 +235,7 @@ A lista completa de inquilinos e a base de dados correspondente para cada está 
 - O nome do inquilino é armazenado na tabela de inquilinos.
 - O nome de base de dados é armazenado nas tabelas de gestão de partições horizontais.
 
-1. No SQL Server Management Studio (SSMS), ligar ao servidor de inquilinos em **catálogo mt.\<utilizador\>. database.windows.net**, com início de sessão = **programador**e a palavra-passe =**P@ssword1**
+1. No SQL Server Management Studio (SSMS), ligar ao servidor de inquilinos em **catálogo mt.\<utilizador\>. database.windows.net**, com início de sessão = **programador**e a palavra-passe = **P@ssword1**
 
     ![Caixa de diálogo de ligação de SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

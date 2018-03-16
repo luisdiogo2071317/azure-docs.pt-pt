@@ -2,25 +2,19 @@
 title: "Sincronização de dados SQL do Azure (pré-visualização) | Microsoft Docs"
 description: "Esta descrição geral apresenta a sincronização de dados de SQL do Azure (pré-visualização)"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: data-sync
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados do SQL Server (pré-visualização)
 
@@ -78,7 +72,7 @@ Sincronização de dados não é adequada para os seguintes cenários:
     -   Se selecionar *Hub wins*, as alterações no hub substitui sempre as alterações no membro.
     -   Se selecionar *wins membro*, as alterações nas alterações de substituição de membro no hub. Se existir mais do que um membro, o valor final depende que membro sincroniza-se primeiro.
 
-## <a name="sync-req-lim"></a>Requisitos e limitações
+## <a name="sync-req-lim"></a> Requisitos e limitações
 
 ### <a name="general-considerations"></a>Considerações gerais
 
@@ -114,7 +108,7 @@ Sincronização de dados utiliza insere, atualizar e eliminar acionadores para c
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitações sobre dimensões de serviço e a base de dados
 
-| **Dimensões**                                                      | **Limite**              | **Solução**              |
+| **Dimensões**                                                      | **Limit**              | **Solução**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Número máximo de grupos de sincronização qualquer base de dados pode pertencer a.       | 5                      |                             |
 | Número máximo de pontos finais de um grupo de sincronização único              | 30                     | Criar vários grupos de sincronização |
@@ -122,7 +116,7 @@ Sincronização de dados utiliza insere, atualizar e eliminar acionadores para c
 | Nomes de base de dados, de tabela, de esquema e de coluna                       | 50 carateres por nome |                             |
 | Tabelas num grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas existentes numa tabela num grupo de sincronização                              | 1000                   |                             |
-| Tamanho de linha de dados numa tabela                                        | 24 mb                  |                             |
+| Tamanho de linha de dados numa tabela                                        | 24 Mb                  |                             |
 | Intervalo de sincronização mínima                                           | 5 minutos              |                             |
 |||
 
@@ -164,7 +158,7 @@ Sim. Sincronização de dados do SQL Server suporta o agrupamento nos seguintes 
 
 Base de dados de raiz de Federação pode ser utilizado no serviço de sincronização de dados do SQL Server (pré-visualização) sem qualquer limitação. Não é possível adicionar o ponto final de base de dados federada para a versão atual de sincronização de dados do SQL Server (pré-visualização).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
 

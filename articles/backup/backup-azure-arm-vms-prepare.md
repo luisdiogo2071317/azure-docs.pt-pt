@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -49,12 +49,6 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
 Antes de preparar o seu ambiente, é necessário compreender estas limitações:
 
 * Não é suportada a cópia de segurança de máquinas virtuais com mais de 16 discos de dados.
-* Não é suportada a cópia de segurança das máquinas virtuais com dados tamanhos de disco superiores 1,023 GB.
-
-  > [!NOTE]
-  > Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com maior do que um discos de TB. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
-  >
-
 * Não é suportada a cópia de segurança de máquinas virtuais com um endereço IP reservado e nenhum ponto final de definidos.
 * Não é suportada a cópia de segurança de VMs com Linux encriptados através de encriptação de Linux Unified chave configuração (LUKS).
 * Não recomendamos a cópia de segurança de VMs que contém a configuração de Volumes Partilhados de Cluster (CSV) ou servidor de ficheiros de escalamento horizontal. Necessitam que envolvem todas as VMs incluídas na configuração do cluster durante a uma tarefa de instantâneo. A consistência multi VM não suporta a cópia de segurança do Azure. 

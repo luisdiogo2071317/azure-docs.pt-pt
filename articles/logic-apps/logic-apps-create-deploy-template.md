@@ -1,10 +1,10 @@
 ---
 title: "Criar modelos de implementação para o Azure Logic Apps | Microsoft Docs"
-description: "Criar modelos do Azure Resource Manager para aplicações lógicas gestão de implementação e a versão do"
+description: Criar modelos do Azure Resource Manager para implementar as logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: SyntaxC4
 editor: 
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cfbb294010d48deaf4b4c78c6a6bcd59a387d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 91d93a02bb9bf48c5bda0304c9d3d52c22e30209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Criar modelos para as logic apps gestão de implementação e a versão do
+# <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implementar as logic apps
 
 Depois de criar uma aplicação lógica, pode querer criá-la como um modelo Azure Resource Manager.
 Desta forma, facilmente pode implementar a aplicação lógica para qualquer ambiente ou grupo de recursos onde poderá ser necessário.
@@ -46,7 +46,7 @@ Em alternativa, pode querer implementar em diferentes subscrições ou grupos de
 
 ## <a name="create-a-logic-app-deployment-template"></a>Criar um modelo de implementação de aplicação lógica
 
-A forma mais fácil para ter um modelo de implementação de aplicação lógica válido consiste em utilizar o [Visual Studio Tools para aplicações lógicas](logic-apps-deploy-from-vs.md).
+A forma mais fácil para ter um modelo de implementação de aplicação lógica válido consiste em utilizar o [Visual Studio Tools para aplicações lógicas](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
 As ferramentas do Visual Studio geram um modelo de implementação válida que possa ser utilizado em qualquer subscrição ou localização.
 
 Algumas outras ferramentas podem ajudá-lo como criar um modelo de implementação de aplicação lógica.
@@ -74,10 +74,106 @@ Depois do PowerShell está instalado, pode gerar um modelo utilizando o seguinte
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId`é o ID de subscrição do Azure. Esta linha primeiro obtém acesso token através de ARMClient, em seguida, encaminha-lo ao script do PowerShell e, em seguida, cria o modelo de um ficheiro JSON.
+`$SubscriptionId` é o ID de subscrição do Azure. Esta linha primeiro obtém acesso token através de ARMClient, em seguida, encaminha-lo ao script do PowerShell e, em seguida, cria o modelo de um ficheiro JSON.
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>Adicionar parâmetros a um modelo de aplicação lógica
 Depois de criar o modelo de aplicação lógica, pode continuar a adicionar ou modificar os parâmetros que poderá ser necessário. Por exemplo, se a definição incluir um ID de recurso a uma função do Azure ou o fluxo de trabalho aninhado que planeia implementar numa única implementação, pode adicionar mais recursos ao seu modelo e parametrizar IDs conforme necessário. O mesmo se aplica a quaisquer referências a personalizado APIs ou Swagger pontos finais que pretende implementar com cada grupo de recursos.
+
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Adicione referências para os recursos dependentes para modelos de implementação do Visual Studio
+
+Quando pretender que a sua aplicação lógica para referenciar recursos dependentes, pode utilizar [funções de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) no seu modelo de implementação de aplicação lógica. Por exemplo, poderá pretender que a aplicação lógica para fazer referência a uma conta de função do Azure ou de integração que pretende implementar juntamente com a sua aplicação lógica. Siga estas diretrizes sobre como utilizar parâmetros no seu modelo de implementação para que o Designer de aplicação lógica compõe corretamente. 
+
+Pode utilizar os parâmetros de aplicação de lógica nestes tipos de acionadores e ações:
+
+*   Fluxo de trabalho subordinado
+*   Function App
+*   Chamada APIM
+*   URL de tempo de execução de ligação de API
+*   Caminho de ligação de API
+
+E pode utilizar funções de modelo como parâmetros, variáveis, resourceId, concat, etc. Por exemplo, eis como pode substituir o ID de recurso da função do Azure:
+
+```
+"parameters":{
+    "functionName": {
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
+    }
+},
+```
+
+E, em que pretende utilizar parâmetros:
+
+```
+"MyFunction": {
+    "type": "Function",
+    "inputs": {
+        "body":{},
+        "function":{
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
+}
+```
+Outro exemplo pode parametrizar a operação de mensagem de envio do Service Bus:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl é opcional e pode ser removido do seu modelo, se estiver presente.
+> 
+
+
+> [!NOTE] 
+> Para o Designer de aplicação lógica funcionar ao utilizar parâmetros, tem de fornecer valores predefinidos, por exemplo:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Adicionar a sua aplicação lógica para um projeto do grupo de recursos existente
+
+Se tiver um projeto do grupo de recursos existente, pode adicionar a sua aplicação lógica para esse projeto na janela contorno de JSON. Também pode adicionar outra aplicação de lógica juntamente com a aplicação que criou anteriormente.
+
+1. Abra o ficheiro `<template>.json`.
+
+2. Para abrir a janela contorno de JSON, aceda a **vista** > **outras janelas** > **contorno de JSON**.
+
+3. Para adicionar um recurso para o ficheiro de modelo, clique em **adicionar recursos** na parte superior da janela contorno de JSON. Ou na janela contorno de JSON, clique com botão direito **recursos**e selecione **adicionar novo recurso**.
+
+    ![Janela contorno de JSON](./media/logic-apps-create-deploy-template/jsonoutline.png)
+    
+4. No **adicionar recursos** caixa de diálogo, localize e selecione **aplicação lógica**. Nome da sua aplicação lógica e escolha **adicionar**.
+
+    ![Adicionar recurso](./media/logic-apps-create-deploy-template/addresource.png)
+
 
 ## <a name="deploy-a-logic-app-template"></a>Implementar um modelo de aplicação lógica
 

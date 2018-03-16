@@ -2,24 +2,18 @@
 title: "Gerir dados históricos em tabelas temporais com a política de retenção | Microsoft Docs"
 description: "Saiba como utilizar a política de retenção temporal para manter os dados históricos sob o seu controlo."
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: drasumic
-editor: 
-ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/12/2016
 ms.author: bonova
-ms.openlocfilehash: b4e1524008837094b57a3df469439ceaebf9c166
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 36ce6889cccbf5ae7df519c5c73846f12eed4a08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerir dados históricos em tabelas temporais com a política de retenção
 As tabelas temporais podem aumentar o tamanho da base de dados com mais de tabelas regulares, especialmente se mantiver dados históricos para um período de tempo. Por conseguinte, a política de retenção de dados históricos é um aspeto importante de planeamento e a gerir o ciclo de vida de cada tabela temporal. As tabelas temporais na SQL Database do Azure são fornecidos com o mecanismo de retenção de fácil utilização que o ajuda a realizar esta tarefa.
@@ -119,7 +113,7 @@ Compressão de dados excelente e retenção eficiente limpeza torna columnstore 
 ## <a name="index-considerations"></a>Considerações de índice
 A tarefa de limpeza para tabelas com o índice em cluster rowstore requer índice a começar com a coluna correspondente ao fim do período SYSTEM_TIME. Se esses índice não existe, não é possível configurar um período de retenção finito:
 
-*Tarifas de mensagens 13765, 16 nível, estado 1 <br> </br> a definição de período de retenção finito falhou na tabela temporal com versão do sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' porque a tabela de histórico 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' não contém um índice em cluster necessário. Considere a criação de um columnstore em cluster ou o índice de árvore B, começando com a coluna correspondente ao fim do SYSTEM_TIME period, na tabela de histórico.*
+*Tarifas de mensagens 13765, 16 nível, estado 1 <br> </br> definir período de retenção finito falhou na tabela temporal com versão do sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' porque a tabela de histórico ' temporalstagetestdb.dbo.WebsiteUserInfoHistory' não contém o índice em cluster necessário. Considere a criação de um columnstore em cluster ou o índice de árvore B, começando com a coluna correspondente ao fim do SYSTEM_TIME period, na tabela de histórico.*
 
 É importante notar que a tabela de histórico predefinida criada pelo SQL Database do Azure já tem um índice em cluster, que está em conformidade com a política de retenção. Se tentar remover o índice numa tabela com o período de retenção finito, operação falha com o seguinte erro:
 
@@ -180,7 +174,7 @@ ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber como utilizar as tabelas temporais nas suas aplicações, veja [introdução tabelas temporais na SQL Database do Azure](sql-database-temporal-tables.md).
 
 Visite Channel 9 ouvi um [história de sucesso de implementação temporal clientes reais](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e veja um [em direto demonstração temporal](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).

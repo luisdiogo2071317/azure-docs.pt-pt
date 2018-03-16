@@ -2,25 +2,20 @@
 title: "Monitorização e a otimização de desempenho - SQL Database do Azure | Microsoft Docs"
 description: "Sugestões de otimização na SQL Database do Azure através de avaliação e melhoramento do desempenho."
 services: sql-database
-documentationcenter: 
 author: v-shysun
-manager: felixwu
+manager: craigg
 editor: 
 keywords: "Otimização de otimização de desempenho de sql sugestões, a otimização de desempenho de base de dados de desempenho de SQL otimização de desempenho de base de dados do SQL Server"
-ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: v-shysun
-ms.openlocfilehash: 1791c56f86ee1997177daa95638c4f14068f8115
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 273a80134975fb9aa4d40b132c1403cc27246371
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitorização e a otimização de desempenho
 
@@ -63,7 +58,7 @@ Por fim, se existem quaisquer itens passíveis de ação que podem melhorar o de
 Pode alterar o código de aplicação mais ideal, utilizar a base de dados, alterar os índices, forçar planos ou utilizar sugestões para adaptar manualmente a base de dados para a carga de trabalho. Localizar algumas orientações e sugestões de Otimização e conversão de código no manual de [tópico de documentação de orientação de desempenho](sql-database-performance-guidance.md) artigo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para ativar a otimização automática da base de dados do Azure SQL e permitir que a funcionalidade de otimização automática gerir totalmente a carga de trabalho, consulte [ativar a otimização automática](sql-database-automatic-tuning-enable.md).
 - Para utilizar a otimização manual, pode rever [otimização recomendações no portal do Azure](sql-database-advisor-portal.md) e aplicar manualmente aqueles que melhoram o desempenho das consultas.

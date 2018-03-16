@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -164,24 +164,25 @@ Na sua política de acesso condicional, pode selecionar **clientes de ambiente d
 Esta definição não tem um impacto em tentativas de acesso dos clientes de ambiente de trabalho e as seguintes aplicações móveis: 
 
 
-|Aplicações do cliente|Serviço de destino|Plataforma|
-|---|---|---|
-|Aplicação remota do Azure|Remoto App service do Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
-|Aplicação do Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS e Android|
-|Aplicação de correio/calendário/pessoas, Outlook 2016, Outlook 2013 (com a autenticação moderna)|Office 365 Exchange Online|Windows 10|
-|Política de MFA e a localização para aplicações. Não são suportadas políticas de dispositivo baseada-se. |Qualquer serviço de aplicações de aplicações My|Android e iOS|
-|Serviços de equipas da Microsoft - Isto controla todos os serviços que suportam Teams da Microsoft e todas as respetivas aplicações de cliente - ambiente de trabalho do Windows, iOS, Android, WP e cliente web|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-|Cliente de sincronização de aplicações do Office 2016, Office 2013 (com a autenticação moderna), no OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Aplicações do Office 2016, Universal Office aplicações, Office 2013 (com a autenticação moderna), cliente de sincronização do OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), o suporte de grupos do Office é planeado para o futuro, suporte para aplicações do SharePoint é planeada para o futuro|Office 365 SharePoint Online|Windows 10|
-|Office 2016 para macOS (Word, Excel, PowerPoint, OneNote apenas). OneDrive para empresas o suporte para o futuro|Office 365 SharePoint Online|Mac OS X|
-|Aplicações móveis do Office|Office 365 SharePoint Online|Android, iOS|
-|Aplicação do Office Yammer|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, o Outlook 2013 (com a autenticação moderna), o Skype para empresas (com a autenticação moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Aplicação móvel do Outlook|Office 365 Exchange Online|Android, iOS|
-|Aplicação Power BI|Serviço do Power BI|Windows 10, Windows 8.1, Windows 7 e iOS|
-|Skype para Empresas|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services aplicação|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
+| Aplicações do cliente| Serviço de destino| Plataforma |
+| --- | --- | --- |
+| Aplicação remota do Azure| Remoto App service do Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
+| Aplicação do Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+| Aplicação de correio/calendário/pessoas, Outlook 2016, Outlook 2013 (com a autenticação moderna)| Office 365 Exchange Online| Windows 10|
+| Política de MFA e a localização para aplicações. Não são suportadas políticas de dispositivo baseada-se.| Qualquer serviço de aplicações de aplicações My| Android e iOS|
+| Serviços de equipas da Microsoft - Isto controla todos os serviços que suportam Teams da Microsoft e todas as respetivas aplicações de cliente - ambiente de trabalho do Windows, iOS, Android, WP e cliente web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS|
+| Cliente de sincronização de aplicações do Office 2016, Office 2013 (com a autenticação moderna), no OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Aplicações do Office 2016, Universal Office aplicações, Office 2013 (com a autenticação moderna), cliente de sincronização do OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), o suporte de grupos do Office é planeado para o futuro, suporte para aplicações do SharePoint é planeada para o futuro| Office 365 SharePoint Online| Windows 10|
+| Office 2016 para macOS (Word, Excel, PowerPoint, OneNote apenas). OneDrive para empresas o suporte para o futuro| Office 365 SharePoint Online| Mac OS X|
+| Aplicações móveis do Office| Office 365 SharePoint Online| Android, iOS|
+| Aplicação do Office Yammer| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office para macOS)| Office 365 Exchange Online| Mac OS X|
+| Outlook 2016, o Outlook 2013 (com a autenticação moderna), o Skype para empresas (com a autenticação moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Aplicação móvel do Outlook| Office 365 Exchange Online| Android, iOS|
+| Aplicação Power BI| Serviço do Power BI| Windows 10, Windows 8.1, Windows 7, Android e iOS|
+| Skype para Empresas| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services aplicação| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+
 
 
 ## <a name="approved-client-app-requirement"></a>Requisito da aplicação de cliente aprovada 
@@ -221,10 +222,6 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
 - O **requerem a aplicação de cliente aprovada** requisito:
 
     - Só suporta o iOS e Android para [condição de plataforma de dispositivo](#device-platforms-condition).
-
-    - Não suporta o **Browser** opção para o [condição de aplicações de cliente](#supported-browsers).
-    
-    - Substitui o **clientes de ambiente de trabalho e aplicações móveis** opção para o [condição de aplicações de cliente](#supported-mobile-apps-and-desktop-clients) quando esta opção está selecionada.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -1,5 +1,5 @@
 ---
-title: "Problemas em iniciar sessão a uma aplicação de galeria do Azure AD configurada para Federado de sessão único-| Microsoft Docs"
+title: "Problemas em iniciar sessão a uma aplicação de galeria do Azure AD configurada para a palavra-passe de sessão único-| Microsoft Docs"
 description: "Como resolver problemas com a aplicação de galeria do Azure AD configurado para a palavra-passe-início de sessão único"
 documentationcenter: 
 author: ajamess
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: de6c876c7583da0b00ae2365646b1d381fda2b1e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b6de9d066f861d300bbe3601701e846410e93773
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Problemas em iniciar sessão a uma aplicação de galeria do Azure AD configurada para federado-início de sessão único
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas em iniciar sessão a uma aplicação de galeria do Azure AD configurada para a palavra-passe-início de sessão único
 
 O painel de acesso é um portal baseado na web que permite que um utilizador que tenha uma conta escolar ou profissional no Azure Active Directory (Azure AD) para ver e iniciar baseado na nuvem as aplicações que o administrador do Azure AD concedeu-lhes acesso. Um utilizador que possua as edições do Azure AD também pode utilizar grupos self-service e capacidades de gestão de aplicações através do painel de acesso. O painel de acesso separado do portal do Azure e não exige que os utilizadores tenham uma subscrição do Azure.
 

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Descrição geral do Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Melhores práticas para utilizar o Azure Data Lake Store
 Neste artigo, pode saber mais sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações em torno da segurança, desempenho, resiliência e monitorização para o Data Lake Store. Antes de Data Lake Store, como trabalhar com macrodados verdadeiramente nos serviços como o Azure HDInsight era demasiado complexo. Era necessário dividir os dados em várias contas do Blob storage para que podem ser alcançados petabyte armazenamento e um desempenho ideal que escala. Com o Data Lake Store, a maioria dos limites de tamanho e o desempenho do disco rígidos é removida. No entanto, ainda existem algumas considerações que este artigo abrange, de modo a que possa obter o melhor desempenho com o Data Lake Store. 
 
 ## <a name="security-considerations"></a>Considerações de segurança
@@ -139,7 +139,7 @@ Se Data Lake Store o envio de registo não está ativado, Azure HDInsight també
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Quando isto estiver definido e os nós são reiniciados, diagnóstico de Data Lake Store é escrito os registos YARN em nós (/tmp/<user>/yarn.log) e detalhes importantes, como erros ou de limitação (código de erro HTTP 429) pode ser monitorizado. Esta mesma informação também pode ser monitorizada no OMS ou onde quer que os registos são fornecidos no [diagnóstico](data-lake-store-diagnostic-logs.md) painel da conta do Data Lake Store. Recomenda-se para, pelo menos, tem de ativar o registo do lado do cliente ou utilizar o opção de Data Lake Store para operacional visibilidade e mais fácil a depuração do envio do registo.
+Assim que a propriedade está definida e os nós são reiniciados, diagnóstico de Data Lake Store é escrito para os registos YARN em nós (/tmp/<user>/yarn.log) e detalhes importantes, como erros ou de limitação (código de erro HTTP 429) pode ser monitorizado. Esta mesma informação também pode ser monitorizada no OMS ou onde quer que os registos são fornecidos no [diagnóstico](data-lake-store-diagnostic-logs.md) painel da conta do Data Lake Store. Recomenda-se para, pelo menos, tem de ativar o registo do lado do cliente ou utilizar o opção de Data Lake Store para operacional visibilidade e mais fácil a depuração do envio do registo.
 
 ### <a name="run-synthetic-transactions"></a>Executar transações sintéticas 
 
@@ -155,7 +155,7 @@ Em cargas de trabalho do IoT, pode existir uma grande quantidade de dados que es
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Por exemplo, destino telemetria de um motor de avião dentro de RU poderá ter o seguinte aspeto: 
+Por exemplo, destino telemetria de um motor de avião dentro de RU aspeto que poderá ter a estrutura seguinte: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Não há um motivo importante para colocar a data no fim da estrutura de pastas.
 
 ### <a name="batch-jobs-structure"></a>Estrutura de tarefas do batch 
 
-De um nível elevado, uma abordagem frequentemente utilizada no processamento de batches é encaminhado para dados numa pasta "em". Em seguida, depois dos dados são processados, colocar os novos dados para uma pasta "out" para a jusante processos a consumir. Isto é utilizado, por vezes, para tarefas que necessitam de processamento em ficheiros individuais e poderão não requerer processamento paralelo em massa através de grandes conjuntos de dados. Como a estrutura de IoT recomendada acima, uma estrutura de diretórios boa tem as pastas de nível de principal para coisas como região e o requerente é importante (por exemplo, organização, produto/produtor). Isto ajuda-o com a proteger os dados na sua organização e uma melhor gestão de dados nas cargas de trabalho. Além disso, considere a data e hora na estrutura para permitir uma melhor organização, de pesquisas filtradas, de segurança e de automatização no processamento. O nível de granularidade da estrutura de data é determinado pelo intervalo no qual os dados são carregados ou processados, tais como a hora a hora, diária ou até mesmo mensal. 
+De um nível elevado, uma abordagem frequentemente utilizada no processamento de batches é encaminhado para dados numa pasta "em". Em seguida, depois dos dados são processados, colocar os novos dados para uma pasta "out" para a jusante processos a consumir. Esta estrutura de diretório é utilizada, por vezes, para tarefas que necessitam de processamento em ficheiros individuais e poderão não requerer processamento paralelo em massa através de grandes conjuntos de dados. Como a estrutura de IoT recomendada acima, uma estrutura de diretórios boa tem as pastas de nível de principal para coisas como região e o requerente é importante (por exemplo, organização, produto/produtor). Esta estrutura ajuda com a proteger os dados na sua organização e uma melhor gestão de dados nas cargas de trabalho. Além disso, considere a data e hora na estrutura para permitir uma melhor organização, de pesquisas filtradas, de segurança e de automatização no processamento. O nível de granularidade da estrutura de data é determinado pelo intervalo no qual os dados são carregados ou processados, tais como a hora a hora, diária ou até mesmo mensal. 
 
 O ficheiro, por vezes, o processamento é concluído com êxito devido a danos nos dados ou formatos inesperados. Nestes casos, poderá beneficiar a estrutura de diretórios um **/incorreto** pasta para mover os ficheiros para aproveitarem inspeção. A tarefa de lote também poderá processe o Reporting Services ou notificação destes *incorreto* ficheiros de intervenção manual. Considere a seguinte estrutura do modelo: 
 
@@ -171,7 +171,7 @@ O ficheiro, por vezes, o processamento é concluído com êxito devido a danos n
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Por exemplo, um firm marketing receber extrai dados diários de atualizações de cliente dos respetivos clientes na América do Norte poderá ter o seguinte aspeto antes e depois a ser processado: 
+Por exemplo, um firm marketing recebe extrai dados diários de atualizações de cliente dos respetivos clientes na América do Norte. Este aspeto que poderá ter o seguinte fragmento antes e depois a ser processado: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b21c7b18c31f3111caa13d08efb5aa42ecc0e49
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d893b55e2e771035bbd1097da678830fafb24e7a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Azure Active Directory com o ServiceNow
 
@@ -40,6 +40,7 @@ Para configurar a integração do Azure AD com ServiceNow, terá dos seguintes i
 - Para o ServiceNow, uma instância ou o inquilino do ServiceNow, versão Calgary ou superior
 - Para expressas ServiceNow, uma instância do ServiceNow rápida, versão Helsinki ou superior
 - O inquilino do ServiceNow tem de ter o [vários fornecedor único início de sessão no plug-in](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) ativada. Isto pode ser feito [submeter um pedido de serviço](https://hi.service-now.com).
+- Para a configuração automática, ative o plug-in do fornecedor de multi para ServiceNow.
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
@@ -111,9 +112,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio de ServiceNow e URLs único informações de início de sessão](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<instance-name>.service-now.com/navpage.do`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instance-name>.service-now.com/navpage.do`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<instance-name>.service-now.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instance-name>.service-now.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Terá de atualizar estes valores do URL de início de sessão real e o identificador que é explicada mais tarde no tutorial.
@@ -146,17 +147,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     e. Gerar o **URL de metadados** através do padrão de seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Copie o valor gerado no bloco de notas como estes metadados que URL será utilizado mais tarde no tutorial.
 
-7. Um clique configurar o serviço é fornecida para ServiceNow ou seja, para que o Azure AD configurar automaticamente ServiceNow para autenticação baseada em SAML. Para ativar este serviço, aceda ao **ServiceNow configuração** secção, clique em **configurar ServiceNow** para abrir a janela de início de sessão de configurar.
+7. Inicie sessão aplicação ServiceNow como administrador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_configure.png)
-
-8. Introduza o seu nome de instância do ServiceNow, o nome de utilizador de administrador e a palavra-passe de administrador no **configurar início de sessão** formam e clique em **configurar agora**. Tenha em atenção que o nome de utilizador do administrador fornecido tem de ter o **security_admin** função atribuída em ServiceNow para isto funcionar. Caso contrário, para configurar manualmente o ServiceNow ao utilizar o Azure AD como um fornecedor de identidade, clique em **configurar manualmente o início de sessão único** e copie o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** da secção de referência rápida.
-
-    ![Configurar o URL da aplicação](./media/active-directory-saas-servicenow-tutorial/configure.png "configurar o URL da aplicação")
-
-9. Inicie sessão aplicação ServiceNow como administrador.
-
-10. Ativar o **integração - vários único início de sessão instalador de fornecedor** Plug-in, seguindo os passos seguintes:
+8. Ativar o **integração - vários único início de sessão instalador de fornecedor** Plug-in, seguindo os passos seguintes:
 
     a. No painel de navegação no lado esquerdo, procurar **definição de sistema** secção na barra de pesquisa e, em seguida, clique em **plug-ins**.
 
@@ -170,11 +163,53 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. Clique em de **ativar** botão.
 
-11. No painel de navegação no lado esquerdo, procurar **SSO do fornecedor de Multi** secção na barra de pesquisa e, em seguida, clique em **propriedades**.
+9. Existem duas formas em que **ServiceNow** pode ser configurada automática e manual.
+
+10. Para configurar **ServiceNow** automaticamente siga os passos abaixo
+
+    a. Volte à **ServiceNow** Signle início de sessão na página no portal do Azure.
+
+    b. Um clique configurar o serviço é fornecida para ServiceNow ou seja, para que o Azure AD configurar automaticamente ServiceNow para autenticação baseada em SAML. Para ativar este serviço, aceda ao **ServiceNow configuração** secção, clique em **configurar ServiceNow** para abrir a janela de início de sessão de configurar.
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_configure.png)
+
+    c. Introduza o seu nome de instância do ServiceNow, o nome de utilizador de administrador e a palavra-passe de administrador no **configurar início de sessão** formam e clique em **configurar agora**. Tenha em atenção que o nome de utilizador do administrador fornecido tem de ter o **security_admin** função atribuída em ServiceNow para isto funcionar. Caso contrário, para configurar manualmente o ServiceNow ao utilizar o Azure AD como um fornecedor de identidade, clique em **configurar manualmente o início de sessão único** e copie o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** da secção de referência rápida.
+
+    ![Configurar o URL da aplicação](./media/active-directory-saas-servicenow-tutorial/configure.png "configurar o URL da aplicação")
+
+    d. Inicie sessão aplicação ServiceNow como administrador.
+
+    e. A configuração automática todas as definições necessárias são configuradas no **ServiceNow** lado, mas a **certificado x. 509** não está ativada por predefinição. Tem de mapeá-lo manualmente para o fornecedor de identidade no ServiceNow. Siga os passos para o mesmo abaixo:
+    
+    * No painel de navegação no lado esquerdo, clique em **fornecedores de identidade** em **SSO do fornecedor de Multi**.
+
+      ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "configurar o início de sessão único")
+
+    * Clique no fornecedor de identidade gerada automaticamente
+
+      ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_08.png "configurar o início de sessão único")
+
+    * Desloque para baixo até o **certificado x. 509** secção. Selecione **Editar**.
+
+      ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_09.png "configurar o início de sessão único")
+    
+    * Selecione o certificado e clique em ícone de seta para a direita para adicionar o certificado
+
+      ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_11.png "configurar o início de sessão único")
+
+    * Clique em **Guardar**.
+
+    * Clique em **ativar** no canto superior direito da página.
+
+11. Para configurar **ServiceNow** manualmente siga os passos abaixo
+
+12. Inicie sessão aplicação ServiceNow como administrador.
+
+13. No painel de navegação no lado esquerdo, procurar **SSO do fornecedor de Multi** secção na barra de pesquisa e, em seguida, clique em **propriedades**.
 
     ![Configurar o URL da aplicação](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "configurar o URL da aplicação")
 
-12. No **várias propriedades do fornecedor de SSO** caixa de diálogo, execute os seguintes passos:
+14. No **várias propriedades do fornecedor de SSO** caixa de diálogo, execute os seguintes passos:
 
     ![Configurar o URL da aplicação](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "configurar o URL da aplicação")
 
@@ -188,15 +223,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     e. Clique em **Guardar**.
 
-13. No painel de navegação no lado esquerdo, procurar **SSO do fornecedor de Multi** secção na barra de pesquisa e, em seguida, clique em **certificados x509**.
+14. No painel de navegação no lado esquerdo, procurar **SSO do fornecedor de Multi** secção na barra de pesquisa e, em seguida, clique em **certificados x509**.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "configurar o início de sessão único")
 
-14. No **certificados x. 509** caixa de diálogo, clique em **novo**.
+15. No **certificados x. 509** caixa de diálogo, clique em **novo**.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694974.png "configurar o início de sessão único")
 
-15. No **certificados x. 509** caixa de diálogo, execute os seguintes passos:
+16. No **certificados x. 509** caixa de diálogo, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "configurar o início de sessão único")
 
@@ -212,19 +247,19 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
      f. Clique em **submeter**.
 
-16. No painel de navegação no lado esquerdo, clique em **fornecedores de identidade**.
+17. No painel de navegação no lado esquerdo, clique em **fornecedores de identidade**.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "configurar o início de sessão único")
 
-17. No **fornecedores de identidade** caixa de diálogo, clique em **novo**.
+18. No **fornecedores de identidade** caixa de diálogo, clique em **novo**.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694977.png "configurar o início de sessão único")
 
-18. No **fornecedores de identidade** caixa de diálogo, clique em **SAML2 atualização1?**.
+19. No **fornecedores de identidade** caixa de diálogo, clique em **SAML2 atualização1?**.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694978.png "configurar o início de sessão único")
 
-19. Na caixa de diálogo Propriedades de atualização1 SAML2, execute os seguintes passos:
+20. Na caixa de diálogo Propriedades de atualização1 SAML2, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/idp.png "configurar o início de sessão único")
 
@@ -234,25 +269,71 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. Clique em **importar**.
 
-20. Lê o URL de metadados do IdP e preenche a todas as informações de campos.
+21. Lê o URL de metadados do IdP e preenche a todas as informações de campos.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694982.png "configurar o início de sessão único")
 
     a. No **nome** caixa de texto, escreva um nome para a sua configuração (por exemplo, **SAML 2.0**).
-
-    b. No **campo utilizador** caixa de texto, tipo **e-mail** ou **user_name**, consoante o campo que é utilizado para identificar exclusivamente os utilizadores na sua implementação do ServiceNow.
-
-    > [!NOTE]
-    > Pode configurar o Azure AD para emitir o ID de utilizador do Azure AD (nome principal de utilizador) ou o endereço de e-mail como o identificador exclusivo no SAML token acedendo ao **ServiceNow > atributos > Single Sign-On** secção do portal do Azure e o mapeamento do campo pretendido para o **nameidentifier** atributo. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome principal de utilizador) tem de corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name)
-
-    c. Cópia **home page do ServiceNow** valor, cole-a no **URL de início de sessão** textbox em **ServiceNow domínio e os URLs** secção no portal do Azure.
+    
+    b. Cópia **home page do ServiceNow** valor, cole-a no **URL de início de sessão** textbox em **ServiceNow domínio e os URLs** secção no portal do Azure.
 
     > [!NOTE]
     > Home page ServiceNow instância é uma concatenação do seu **URL de inquilino ServieNow** e **/navpage.do** (por exemplo:`https://fabrikam.service-now.com/navpage.do`).
 
-    d. Cópia **ID de entidade / emissor** valor, cole-a no **identificador** textbox em **ServiceNow domínio e os URLs** secção no portal do Azure.
+    c. Cópia **ID de entidade / emissor** valor, cole-a no **identificador** textbox em **ServiceNow domínio e os URLs** secção no portal do Azure.
+
+    d. Clique em **avançadas**. No **campo utilizador** caixa de texto, tipo **e-mail** ou **user_name**, consoante o campo que é utilizado para identificar exclusivamente os utilizadores na sua implementação do ServiceNow.
+
+    > [!NOTE]
+    > Pode configurar o Azure AD para emitir o ID de utilizador do Azure AD (nome principal de utilizador) ou o endereço de e-mail como o identificador exclusivo no SAML token acedendo ao **ServiceNow > atributos > Single Sign-On** secção do portal do Azure e o mapeamento do campo pretendido para o **nameidentifier** atributo. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome principal de utilizador) tem de corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name)
 
      e. Em **x509 certificado**, apresenta o certificado que criou no passo anterior.
+
+     > [!NOTE]
+     > ServiceNow não permite a ativação do Idp sem clicar no botão de ligação de teste, para substituir o mesmo, siga os passos abaixo.
+
+22. Clique no ícone de menu através do seu novo fornecedor de identidade que criou como parte da configuração e a lista, selecione **copiar sys_id**
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694992.png "configurar o início de sessão único")
+
+23. Na caixa de pesquisa esquerdo superior, procure **sys_properties.list** e prima enter.
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694993.png "configurar o início de sessão único")
+
+24. Clique em **Novo**.
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694994.png "configurar o início de sessão único")
+
+25. No **propriedade de sistema** secção, execute os seguintes passos:
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694995.png "configurar o início de sessão único")
+
+    a. Introduza `glide.authenticate.sso.redirect.idp` valor na caixa de texto do nome.
+
+    b. No **valor** caixa de texto, cole o sys_id cópia valor que copiou nos passos anteriores.
+
+    c. Selecione **privada**.
+
+    d. Clique em **submeter**.
+
+26. Clique em **Novo**.
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694994.png "configurar o início de sessão único")
+
+27. No **propriedade de sistema** secção, execute os seguintes passos:
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/ic7694996.png "configurar o início de sessão único")
+
+    a. Introduza `glide.authenticate.multisso.test.connection.mandatory` valor na caixa de texto do nome.
+
+    b. No **valor** caixa de texto, introduza **falso**.
+
+    c. Clique em **submeter**.
+
+28. Depois de fazê-lo passos acima, agora poderá ativar o novo fornecedor de identidade e o SSO deverão funcionar
+
+> [!NOTE]
+> Também tenha em atenção que, tem de testar a nova configuração de Idp numa nova janela incognito
 
 ### <a name="configure-azure-ad-single-sign-on-for-servicenow-express"></a>Configurar o Azure AD início de sessão único para ServiceNow rápida
 
@@ -268,9 +349,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://<instance-name>.service-now.com/navpage.do`
+    a. No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://<instance-name>.service-now.com/navpage.do`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<instance-name>.service-now.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instance-name>.service-now.com`
 
     > [!NOTE]
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente do ServiceNow](https://www.servicenow.com/support/contact-support.html) para obter estes valores.
@@ -337,11 +418,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. No **nome** caixa de texto, escreva um nome para a sua configuração (por exemplo: **SAML 2.0**).
 
-    b. No **URL do fornecedor de identidade** campo, cole o valor de **ID do fornecedor de identidade** que copiou do portal do Azure.
+    b. No **URL do fornecedor de identidade** campo, cole o valor de **ID do fornecedor de identidade**, que copiou do portal do Azure.
     
-    c. No **AuthnRequest do fornecedor de identidade** campo, cole o valor de **URL de pedido de autenticação** que copiou do portal do Azure.
+    c. No **AuthnRequest do fornecedor de identidade** campo, cole o valor de **URL de pedido de autenticação**, que copiou do portal do Azure.
 
-    d. No **SingleLogoutRequest do fornecedor de identidade** campo, cole o valor de **único URL de serviço Sign-Out** que copiou do portal do Azure
+    d. No **SingleLogoutRequest do fornecedor de identidade** campo, cole o valor de **único URL de serviço Sign-Out**, que copiou do portal do Azure
 
     e. Como **certificado do fornecedor de identidade**, selecione o certificado que criou no passo anterior.
 
@@ -380,7 +461,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     f. Clique em **Guardar**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação! Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

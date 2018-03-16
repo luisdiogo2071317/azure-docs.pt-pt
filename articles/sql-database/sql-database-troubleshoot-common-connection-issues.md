@@ -2,24 +2,18 @@
 title: "Resolver problemas comuns de ligação para a Base de Dados SQL do Azure"
 description: "Passos para identificar e resolver erros comuns de ligação de SQL Database do Azure."
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56ebe6876d621e190b4e808804113ff80cb3f50c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Resolver problemas de ligação à SQL Database do Azure
 Quando a falha a ligação à SQL Database do Azure, receber [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que o ajuda a resolver problemas de conectividade da SQL Database do Azure. Introduz [as causas comuns](#cause) dos problemas de ligação, recomenda [uma ferramenta de resolução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identidade o problema e fornece passos de resolução de problemas para resolver [transitório erros](#troubleshoot-transient-errors) e [persistentes ou não transitório erros](#troubleshoot-persistent-errors). 
@@ -80,7 +74,7 @@ Se a aplicação de forma permanente não for possível ligar à SQL Database do
 3. Certifique-se de que a cadeia de ligação e outras definições de ligação. Consulte a secção de cadeia de ligação no [tópico de problemas de conectividade](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Verifique o estado de funcionamento do serviço no dashboard. Se considerar que não há uma falha regional, consulte [recuperar a partir de uma falha](sql-database-disaster-recovery.md) para obter passos para recuperar para uma região de novo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Resolver problemas de desempenho de SQL Database do Azure](sql-database-troubleshoot-performance.md)
 * [Procurar documentação no Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Ver as atualizações mais recentes para o serviço SQL Database do Azure](http://azure.microsoft.com/updates/?service=sql-database)

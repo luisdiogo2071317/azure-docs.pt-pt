@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações na pilha do Azure
 
@@ -47,7 +47,7 @@ Antes de implementar o serviço de aplicações do Azure na pilha do Azure, tem 
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 
-Devido a versão de 1802 da pilha do Azure, que foi adicionado suporte para domínios de falhas, as novas implementações do serviço de aplicações do Azure na pilha do Azure irão ser distribuídas por domínios de falhas e fornecem tolerância a falhas.  Para as implementações existentes do serviço de aplicações do Azure na pilha do Azure que foram implementadas antes do lançamento do 1802 de atualização, consulte a documentação (azure-stack-app-service-fault-domain-update.md) como rebalancear a implementação.
+Devido a versão de 1802 da pilha do Azure, que foi adicionado suporte para domínios de falhas, as novas implementações do serviço de aplicações do Azure na pilha do Azure irão ser distribuídas por domínios de falhas e fornecem tolerância a falhas.  Para as implementações existentes do serviço de aplicações do Azure na pilha do Azure que foram implementadas antes do lançamento do 1802 de atualização, consulte o [documentação](azure-stack-app-service-fault-domain-update.md) como rebalancear a implementação.
 
 Além do serviço de aplicações do Azure na pilha do Azure para elevada disponibilidade, implementar o servidor de ficheiros necessários e a instância do SQL Server numa configuração altamente disponível. 
 

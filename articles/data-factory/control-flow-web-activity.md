@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade de Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir. 
@@ -69,7 +69,7 @@ Propriedade | Descrição | Valores permitidos | Necessário
 nome | Nome da atividade de web | Cadeia | Sim
 tipo | Tem de ser definido como **WebActivity**. | Cadeia | Sim
 método | Método de REST API para o ponto final de destino. | Cadeia. <br/><br/>Tipos suportados: "GET", "Publicar", "Colocar" | Sim
-url | Ponto final de destino e o caminho | Cadeia (ou expressão com o resultType da cadeia) | Sim
+url | Ponto final de destino e o caminho | Cadeia (ou expressão com o resultType da cadeia). A atividade será tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia (ou expressão com o resultType da cadeia) | Sim, é necessário o cabeçalho Content-type. `"headers":{ "Content-Type":"application/json"}`
 corpo | Representa o payload de que é enviado para o ponto final. Necessário para métodos POST/PUT.  | Cadeia (ou expressão com o resultType da cadeia). <br/><br/>Consulte o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | Não
 autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se não for necessária a autenticação, exclua esta propriedade. | Cadeia (ou expressão com o resultType da cadeia) | Não
@@ -77,7 +77,7 @@ Conjuntos de dados | Lista de conjuntos de dados transmitido para o ponto final.
 linkedServices | Lista de serviços ligados transmitido para o ponto final. | Matriz de referências de serviço ligado. Pode ser uma matriz vazia. | Sim
 
 > [!NOTE]
-> Pontos finais REST, que invoca a atividade de web tem de devolver uma resposta de tipo de JSON.
+> Pontos finais REST, que invoca a atividade de web tem de devolver uma resposta de tipo de JSON. A atividade será tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final.
 
 ## <a name="authentication"></a>Autenticação
 

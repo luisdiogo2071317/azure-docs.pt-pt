@@ -2,24 +2,18 @@
 title: Aumentar horizontalmente uma base de dados SQL do Azure | Microsoft Docs
 description: "Como utilizar o ShardMapManager, a biblioteca de clientes de base de dados elástica"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: fe4c8b7b2a9d199c85faf11fcd35382d586fc009
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: sstein
+ms.openlocfilehash: beddb3d9ac4a8c1ec5bd034c959c6b734c5b4403
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentar horizontalmente bases de dados com o Gestor de mapa de partições horizontais
 Para ampliar facilmente as bases de dados SQL Azure, utilize um Gestor de mapa de partições horizontais. O Gestor de mapa de partições horizontais é uma base de dados especial que mantém as informações de mapeamento global sobre todas as partições horizontais (bases de dados) de um conjunto de partições horizontais. Os metadados permite que uma aplicação ligar à base de dados correto com base no valor da **chave de fragmentação**. Além disso, todas as partições horizontais no conjunto contém maps que monitorizam os dados de partições horizontais local (conhecido como **shardlets**). 
@@ -53,13 +47,13 @@ Dimensionamento elástico suporta os seguintes tipos como chaves de fragmentaç�
 
 | .NET | Java |
 | --- | --- |
-| número inteiro |número inteiro |
+| integer |integer |
 | longa |longa |
 | GUID |UUID |
-| Byte]  |Byte] |
-| DateTime | carimbo de data/hora |
+| byte[]  |byte[] |
+| datetime | carimbo de data/hora |
 | TimeSpan | Duração|
-| Datetimeoffset |offsetdatetime |
+| datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Lista e o intervalo de mapas de partições horizontais
 ID de partição horizontal maps podem ser construídos com **valores de chave de listas de fragmentação individuais**, ou podem ser construídos com **valores de chave de intervalos de fragmentação**. 

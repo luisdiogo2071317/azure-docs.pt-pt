@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
-ms.author: magoedte
-ms.openlocfilehash: 30ed7c2f9a65f66d9d45b1bdd5be2957cfe1d08a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/14/2018
+ms.author: gwallace
+ms.openlocfilehash: 467ff5ae3a9478c32ba212774cf7040f03dec00a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação da conta de Automatização com contas Run As 
 Pode atualizar a sua conta de Automatização existente a partir do portal do Azure ou utilizar o PowerShell, se:
@@ -49,27 +49,27 @@ Se optar por [utilizar o PowerShell para criar as contas Run As](#create-run-as-
 
 Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são parâmetros necessários para o script, faça o seguinte:
 
-1. No portal do Azure, clique em **todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
 2. Na página da conta de Automatização, selecione a sua conta de Automatização e, em **Definições da Conta** selecione **Propriedades**.  
 3. Repare nos valores na página **Propriedades**.<br><br> ![O painel “Propriedades” da conta de Automatização](media/automation-create-runas-account/automation-account-properties.png)  
 
 ### <a name="required-permissions-to-update-your-automation-account"></a>Permissões necessárias para atualizar a conta de Automatização
 Para atualizar uma conta de Automatização, tem de ter os seguintes privilégios específicos e as permissões necessárias para concluir este tópico.   
  
-* A sua conta de utilizador do AD tem de ser adicionada a uma função com permissões equivalentes à função de Contribuidor para recursos Microsoft.Automation, conforme descrito no artigo [Controlo de acesso baseado em funções na Automatização do Azure](automation-role-based-access-control.md#contributor-role-permissions).  
+* A conta de utilizador do AD tem de ser adicionada a uma função com permissões equivalentes à função de contribuinte Microsoft recursos conforme descrito no artigo [controlo de acesso baseado em funções na automatização do Azure](automation-role-based-access-control.md#contributor).  
 * Os utilizadores não administradores no seu inquilino do Azure AD podem [registar aplicações AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os utilizadores podem registar aplicações** do inquilino do Azure AD na página **Definições de utilizadores** está definida como **Sim**. Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
 
 Se não for membro da instância do Active Directory da subscrição antes de ser adicionado à função de administrador global/coadministrador da mesma, é adicionado ao Active Directory como convidado. Nesta situação, recebe o aviso "Não tem permissões para criar..." no painel **Adicionar Conta de Automatização**. Os utilizadores que foram adicionados primeiro à função de administrador global/coadministrador podem ser removidos da instância do Active Directory da subscrição e adicionados novamente, para que se tornem em Utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
 
 ## <a name="create-run-as-account-from-the-portal"></a>Criar conta Run As no portal
-Nesta secção, execute os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure.  Crie as contas Run As e Classic Run As individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.  
+Nesta secção, execute os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure. Crie as contas Run As e Classic Run As individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.  
 
 1. Inicie sessão no portal do Azure com uma conta que seja membro da função Administradores da Subscrição e coadministrador da subscrição.
-2. No portal do Azure, clique em **todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
 3. Na página **Contas de Automatização**, selecione a sua conta de Automatização a partir da lista de contas de Automatização.
 4. No painel da esquerda, selecione **Contas Run As** na secção **Definições da Conta**.  
-5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**.  Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.  
-6. Enquanto o Azure cria a conta Run As, pode acompanhar o progresso em **Notificações** a partir do menu.  Também é apresentada uma faixa a indicar que a conta está a ser criada.  Este processo pode demorar alguns minutos a concluir.  
+5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**. Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.  
+6. Enquanto o Azure cria a conta Run As, pode acompanhar o progresso em **Notificações** a partir do menu. Também é apresentada uma faixa a indicar que a conta está a ser criada. Este processo pode demorar alguns minutos a concluir.  
 
 ## <a name="create-run-as-account-using-powershell-script"></a>Criar conta Run As com o script do PowerShell
 Este script do PowerShell inclui suporte para as seguintes configurações:
@@ -85,174 +85,176 @@ Este script do PowerShell inclui suporte para as seguintes configurações:
 
 1. Guarde o seguinte script no seu computador. Neste exemplo, guarde-o com o nome de ficheiro *New-RunAsAccount.ps1*.
 
-         #Requires -RunAsAdministrator
-         Param (
-         [Parameter(Mandatory=$true)]
-         [String] $ResourceGroup,
-
-         [Parameter(Mandatory=$true)]
-         [String] $AutomationAccountName,
-
-         [Parameter(Mandatory=$true)]
-         [String] $ApplicationDisplayName,
-
-         [Parameter(Mandatory=$true)]
-         [String] $SubscriptionId,
-
-         [Parameter(Mandatory=$true)]
-         [Boolean] $CreateClassicRunAsAccount,
-
-         [Parameter(Mandatory=$true)]
-         [String] $SelfSignedCertPlainPassword,
-
-         [Parameter(Mandatory=$false)]
-         [String] $EnterpriseCertPathForRunAsAccount,
-
-         [Parameter(Mandatory=$false)]
-         [String] $EnterpriseCertPlainPasswordForRunAsAccount,
-
-         [Parameter(Mandatory=$false)]
-         [String] $EnterpriseCertPathForClassicRunAsAccount,
-
-         [Parameter(Mandatory=$false)]
-         [String] $EnterpriseCertPlainPasswordForClassicRunAsAccount,
-
-         [Parameter(Mandatory=$false)]
-         [ValidateSet("AzureCloud","AzureUSGovernment")]
-         [string]$EnvironmentName="AzureCloud",
-
-         [Parameter(Mandatory=$false)]
-         [int] $SelfSignedCertNoOfMonthsUntilExpired = 12
-         )
-
-         function CreateSelfSignedCertificate([string] $certificateName, [string] $selfSignedCertPlainPassword,
-                                        [string] $certPath, [string] $certPathCer, [string] $selfSignedCertNoOfMonthsUntilExpired ) {
-         $Cert = New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation cert:\LocalMachine\My `
-             -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-             -NotAfter (Get-Date).AddMonths($selfSignedCertNoOfMonthsUntilExpired) -HashAlgorithm SHA256
-
-         $CertPassword = ConvertTo-SecureString $selfSignedCertPlainPassword -AsPlainText -Force
-         Export-PfxCertificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPath -Password $CertPassword -Force | Write-Verbose
-         Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose
-         }
-
-         function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {  
-         $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
-         $keyId = (New-Guid).Guid
-
-         $startDate = Get-Date
-         $endDate = (Get-Date $PfxCert.GetExpirationDateString()).AddDays(-1)
-         
-         #Create an Azure AD application, AD App Credential, AD ServicePrincipal
-         $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId) 
-         $ApplicationCredential = New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $startDate -EndDate $endDate 
-         $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
-         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
-
-         # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
-         Sleep -s 15
-         $NewRole = New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-         $Retries = 0;
-         While ($NewRole -eq $null -and $Retries -le 6)
-         {
-             Sleep -s 10
-             New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-             $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-             $Retries++;
-         }
-             return $Application.ApplicationId.ToString();
-         }
-
-         function CreateAutomationCertificateAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $certifcateAssetName,[string] $certPath, [string] $certPlainPassword, [Boolean] $Exportable) {
-         $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force   
-         Remove-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $certifcateAssetName -ErrorAction SilentlyContinue
-         New-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Path $certPath -Name $certifcateAssetName -Password $CertPassword -Exportable:$Exportable  | write-verbose
-         }
-
-         function CreateAutomationConnectionAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $connectionAssetName, [string] $connectionTypeName, [System.Collections.Hashtable] $connectionFieldValues ) {
-         Remove-AzureRmAutomationConnection -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -Force -ErrorAction SilentlyContinue
-         New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -ConnectionTypeName $connectionTypeName -ConnectionFieldValues $connectionFieldValues
-         }
-
-         Import-Module AzureRM.Profile
-         Import-Module AzureRM.Resources
-
-         $AzureRMProfileVersion= (Get-Module AzureRM.Profile).Version
-         if (!(($AzureRMProfileVersion.Major -ge 3 -and $AzureRMProfileVersion.Minor -ge 4) -or ($AzureRMProfileVersion.Major -gt 3)))
-         {
-             Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
-             return
-         }
-
-         Login-AzureRmAccount -Environment $EnvironmentName 
-         $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
-
-         # Create a Run As account by using a service principal
-         $CertifcateAssetName = "AzureRunAsCertificate"
-         $ConnectionAssetName = "AzureRunAsConnection"
-         $ConnectionTypeName = "AzureServicePrincipal"
-
-         if ($EnterpriseCertPathForRunAsAccount -and $EnterpriseCertPlainPasswordForRunAsAccount) {
-         $PfxCertPathForRunAsAccount = $EnterpriseCertPathForRunAsAccount
-         $PfxCertPlainPasswordForRunAsAccount = $EnterpriseCertPlainPasswordForRunAsAccount
-         } else {
-            $CertificateName = $AutomationAccountName+$CertifcateAssetName
-            $PfxCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".pfx")
-            $PfxCertPlainPasswordForRunAsAccount = $SelfSignedCertPlainPassword
-            $CerCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".cer")
-            CreateSelfSignedCertificate $CertificateName $PfxCertPlainPasswordForRunAsAccount $PfxCertPathForRunAsAccount $CerCertPathForRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
-         }
-
-         # Create a service principal
-         $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
-         $ApplicationId=CreateServicePrincipal $PfxCert $ApplicationDisplayName
-
-         # Create the Automation certificate asset
-         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
-
-         # Populate the ConnectionFieldValues
-         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
-         $TenantID = $SubscriptionInfo | Select TenantId -First 1
-         $Thumbprint = $PfxCert.Thumbprint
-         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
-         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
-
-         if ($CreateClassicRunAsAccount) {
-              # Create a Run As account by using a service principal
-              $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
-              $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
-              $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
-              $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
-                      "Then click Upload and upload the .cer format of #CERT#"
-
-               if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
-               $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
-               $PfxCertPlainPasswordForClassicRunAsAccount = $EnterpriseCertPlainPasswordForClassicRunAsAccount
-               $UploadMessage = $UploadMessage.Replace("#CERT#", $PfxCertPathForClassicRunAsAccount)
-         } else {
-               $ClassicRunAsAccountCertificateName = $AutomationAccountName+$ClassicRunAsAccountCertifcateAssetName
-               $PfxCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".pfx")
-               $PfxCertPlainPasswordForClassicRunAsAccount = $SelfSignedCertPlainPassword
-               $CerCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".cer")
-               $UploadMessage = $UploadMessage.Replace("#CERT#", $CerCertPathForClassicRunAsAccount)
-               CreateSelfSignedCertificate $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
-         }
-
-         # Create the Automation certificate asset
-         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
-
-         # Populate the ConnectionFieldValues
-         $SubscriptionName = $subscription.Subscription.Name
-         $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
-
-         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName $ClassicRunAsAccountConnectionFieldValues
-
-         Write-Host -ForegroundColor red $UploadMessage
-         }
+    ```powershell
+    #Requires -RunAsAdministrator
+    Param (
+        [Parameter(Mandatory = $true)]
+        [String] $ResourceGroup,
+        
+        [Parameter(Mandatory = $true)]
+        [String] $AutomationAccountName,
+        
+        [Parameter(Mandatory = $true)]
+        [String] $ApplicationDisplayName,
+        
+        [Parameter(Mandatory = $true)]
+        [String] $SubscriptionId,
+        
+        [Parameter(Mandatory = $true)]
+        [Boolean] $CreateClassicRunAsAccount,
+        
+        [Parameter(Mandatory = $true)]
+        [String] $SelfSignedCertPlainPassword,
+        
+        [Parameter(Mandatory = $false)]
+        [String] $EnterpriseCertPathForRunAsAccount,
+        
+        [Parameter(Mandatory = $false)]
+        [String] $EnterpriseCertPlainPasswordForRunAsAccount,
+        
+        [Parameter(Mandatory = $false)]
+        [String] $EnterpriseCertPathForClassicRunAsAccount,
+        
+        [Parameter(Mandatory = $false)]
+        [String] $EnterpriseCertPlainPasswordForClassicRunAsAccount,
+        
+        [Parameter(Mandatory = $false)]
+        [ValidateSet("AzureCloud", "AzureUSGovernment")]
+        [string]$EnvironmentName = "AzureCloud",
+        
+        [Parameter(Mandatory = $false)]
+        [int] $SelfSignedCertNoOfMonthsUntilExpired = 12
+    )
+        
+    function CreateSelfSignedCertificate([string] $certificateName, [string] $selfSignedCertPlainPassword,
+        [string] $certPath, [string] $certPathCer, [string] $selfSignedCertNoOfMonthsUntilExpired ) {
+        $Cert = New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation cert:\LocalMachine\My `
+            -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+            -NotAfter (Get-Date).AddMonths($selfSignedCertNoOfMonthsUntilExpired) -HashAlgorithm SHA256
+        
+        $CertPassword = ConvertTo-SecureString $selfSignedCertPlainPassword -AsPlainText -Force
+        Export-PfxCertificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPath -Password $CertPassword -Force | Write-Verbose
+        Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose
+    }
+        
+    function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {  
+        $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
+        $keyId = (New-Guid).Guid
+        
+        $startDate = Get-Date
+        $endDate = (Get-Date $PfxCert.GetExpirationDateString()).AddDays(-1)
+        
+        #Create an Azure AD application, AD App Credential, AD ServicePrincipal
+        $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId) 
+        $ApplicationCredential = New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $startDate -EndDate $endDate 
+        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+        $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
+        
+        # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
+        Sleep -s 15
+        $NewRole = New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+        $Retries = 0;
+        While ($NewRole -eq $null -and $Retries -le 6) {
+            Sleep -s 10
+            New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+            $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+            $Retries++;
+        }
+        return $Application.ApplicationId.ToString();
+    }
+        
+    function CreateAutomationCertificateAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $certifcateAssetName, [string] $certPath, [string] $certPlainPassword, [Boolean] $Exportable) {
+        $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force   
+        Remove-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $certifcateAssetName -ErrorAction SilentlyContinue
+        New-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Path $certPath -Name $certifcateAssetName -Password $CertPassword -Exportable:$Exportable  | write-verbose
+    }
+        
+    function CreateAutomationConnectionAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $connectionAssetName, [string] $connectionTypeName, [System.Collections.Hashtable] $connectionFieldValues ) {
+        Remove-AzureRmAutomationConnection -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -Force -ErrorAction SilentlyContinue
+        New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -ConnectionTypeName $connectionTypeName -ConnectionFieldValues $connectionFieldValues
+    }
+        
+    Import-Module AzureRM.Profile
+    Import-Module AzureRM.Resources
+        
+    $AzureRMProfileVersion = (Get-Module AzureRM.Profile).Version
+    if (!(($AzureRMProfileVersion.Major -ge 3 -and $AzureRMProfileVersion.Minor -ge 4) -or ($AzureRMProfileVersion.Major -gt 3))) {
+        Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
+        return
+    }
+        
+    Login-AzureRmAccount -Environment $EnvironmentName 
+    $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+        
+    # Create a Run As account by using a service principal
+    $CertifcateAssetName = "AzureRunAsCertificate"
+    $ConnectionAssetName = "AzureRunAsConnection"
+    $ConnectionTypeName = "AzureServicePrincipal"
+        
+    if ($EnterpriseCertPathForRunAsAccount -and $EnterpriseCertPlainPasswordForRunAsAccount) {
+        $PfxCertPathForRunAsAccount = $EnterpriseCertPathForRunAsAccount
+        $PfxCertPlainPasswordForRunAsAccount = $EnterpriseCertPlainPasswordForRunAsAccount
+    }
+    else {
+        $CertificateName = $AutomationAccountName + $CertifcateAssetName
+        $PfxCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".pfx")
+        $PfxCertPlainPasswordForRunAsAccount = $SelfSignedCertPlainPassword
+        $CerCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".cer")
+        CreateSelfSignedCertificate $CertificateName $PfxCertPlainPasswordForRunAsAccount $PfxCertPathForRunAsAccount $CerCertPathForRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
+    }
+        
+    # Create a service principal
+    $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
+    $ApplicationId = CreateServicePrincipal $PfxCert $ApplicationDisplayName
+        
+    # Create the Automation certificate asset
+    CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
+        
+    # Populate the ConnectionFieldValues
+    $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
+    $TenantID = $SubscriptionInfo | Select TenantId -First 1
+    $Thumbprint = $PfxCert.Thumbprint
+    $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
+        
+    # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+    CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
+        
+    if ($CreateClassicRunAsAccount) {
+        # Create a Run As account by using a service principal
+        $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
+        $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
+        $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
+        $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
+        "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
+        "Then click Upload and upload the .cer format of #CERT#"
+        
+        if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
+            $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
+            $PfxCertPlainPasswordForClassicRunAsAccount = $EnterpriseCertPlainPasswordForClassicRunAsAccount
+            $UploadMessage = $UploadMessage.Replace("#CERT#", $PfxCertPathForClassicRunAsAccount)
+        }
+        else {
+            $ClassicRunAsAccountCertificateName = $AutomationAccountName + $ClassicRunAsAccountCertifcateAssetName
+            $PfxCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".pfx")
+            $PfxCertPlainPasswordForClassicRunAsAccount = $SelfSignedCertPlainPassword
+            $CerCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".cer")
+            $UploadMessage = $UploadMessage.Replace("#CERT#", $CerCertPathForClassicRunAsAccount)
+            CreateSelfSignedCertificate $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
+        }
+        
+        # Create the Automation certificate asset
+        CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
+        
+        # Populate the ConnectionFieldValues
+        $SubscriptionName = $subscription.Subscription.Name
+        $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
+        
+        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName   $ClassicRunAsAccountConnectionFieldValues
+        
+        Write-Host -ForegroundColor red       $UploadMessage
+    }
+    ```
 
 2. No seu computador, inicie o **Windows PowerShell** a partir do ecrã **Iniciar** ecrã com direitos de utilizador elevados.
 3. A partir da shell da linha de comandos elevada, aceda à pasta que contém o script que criou no passo 1.  
@@ -280,6 +282,16 @@ Depois de o script ser executado com êxito, tenha em conta o seguinte:
 * Se tiver criado uma conta Run As Clássica com um certificado público empresarial (ficheiro .cer), utilize esse certificado. Siga as instruções para [carregar um certificado da API de gestão para o portal do Azure](../azure-api-management-certs.md)e, em seguida, validar a configuração das credenciais com recursos de implementação clássica, utilizando o [código para autenticação de exemplo com os recursos de implementação clássico do Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Se *não* tiver criado uma conta Run As Clássica, autentique com recursos do Resource Manager e utilize o [código de exemplo para autenticar com recursos da Gestão do Serviço](automation-verify-runas-authentication.md#automation-run-as-authentication) para validar a configuração da credencial.
 
+## <a name="limiting-run-as-account-permissions"></a>Limitar as permissões da conta Run As
+
+Para controlar a filtragem de automatização relativamente aos recursos na automatização do Azure, a conta Run As por predefinição é direitos Contribuidor na subscrição. Se precisar de restringir o principal de serviço RunAs pode fazer, pode remover a conta da função de Contribuidor na subscrição e adicione-o como um contribuinte para os grupos de recursos que pretende especificar.
+
+No portal do Azure, selecione **subscrições** e selecione a subscrição da sua conta de automatização. Selecione **(IAM) do controlo de acesso** e procure o principal de serviço para a sua conta de automatização (parece \<AutomationAccountName\>identificador _unique). Selecione a conta e clique em **remover** removê-lo da subscrição.
+
+![Contribuintes de subscrição](media/automation-create-runas-account/automation-account-remove-subscription.png)
+
+Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no Azure portal e selecione **(IAM) do controlo de acesso**. Selecione **adicionar**, esta ação abre o **adicionar permissões** página. Para **função**, selecione **contribuinte**. No **selecione** texto caixa escreva o nome do principal de serviço para a sua conta Run As e selecione-a partir da lista. Clique em **Guardar** para guardar as alterações. Fazê-lo para os grupos de recursos que pretende conceder o automatização Run As do Azure serviço principal acesso.
+
 ## <a name="next-steps"></a>Passos Seguintes
-* Para mais informações sobre Principais de Serviço, consulte a [Objetos da Aplicação e Objetos de Principais de Serviço](../active-directory/active-directory-application-objects.md).
-* Para obter mais informações sobre certificados e serviços do Azure, consulte [Certificates overview for Azure Cloud Services (Descrição geral de certificados para Serviços Cloud do Azure)](../cloud-services/cloud-services-certs-create.md).
+* Para obter mais informações sobre principais de serviço, consulte [objectos da aplicação e objetos de principais de serviço](../active-directory/active-directory-application-objects.md).
+* Para obter mais informações sobre certificados e serviços do Azure, consulte [descrição geral de certificados para serviços de nuvem do Azure](../cloud-services/cloud-services-certs-create.md).

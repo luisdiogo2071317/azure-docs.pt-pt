@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure
 
@@ -81,6 +81,7 @@ Para especificar a chave de um URI, siga estes passos:
 
     ![Captura de ecrã Portal, com encriptação com introduzir uri chave opção](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### <a name="specify-a-key-from-a-key-vault"></a>Especifique uma chave de um cofre de chaves 
 
 Para especificar a chave de um cofre de chaves, siga estes passos:
@@ -96,6 +97,17 @@ Se a conta de armazenamento não tem acesso ao Cofre de chaves, pode executar o 
 ![Captura de ecrã portal com acesso negado para o Cofre de chaves](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 Também pode conceder o acesso através do portal do Azure ao navegar para o Cofre de chaves do Azure no portal do Azure e conceder acesso à conta de armazenamento.
+
+
+Pode associar a chave acima com uma conta de armazenamento existente usando os seguintes comandos do PowerShell:
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passo 5: Copiar dados para a conta de armazenamento
 
@@ -155,7 +167,7 @@ R: SSE com chaves gerida pelo cliente está disponível em todas as regiões par
 
 R: contacto [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) para quaisquer problemas relacionados com a encriptação do serviço de armazenamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 -   Para mais informações sobre o conjunto completo de segurança capacidades que ajudam os programadores criem aplicações seguras, consulte o [manual de segurança de armazenamento](storage-security-guide.md).
 

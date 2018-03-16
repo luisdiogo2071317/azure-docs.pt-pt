@@ -3,8 +3,8 @@ title: "Preparar e testar a sua oferta para a implementação no Azure Marketpla
 description: "Instruções detalhadas sobre fornecer conteúdo de marketing, configurar planos de preços e testar a sua oferta antes de implementar no Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Conclua a criação de oferta com conteúdo de marketing
 Neste passo do processo de publicação, terá de fornecer determinados conteúdo de marketing e detalhes sobre a sua oferta e/ou SKUs no Azure Marketplace. Por exemplo, irá fornecer uma descrição do seu produto, logótipos da empresa, planos de preços, os detalhes dos planos e outras informações necessárias para enviar a sua oferta e/ou SKU para teste. Estas informações são utilizadas como conteúdo marketing no portal do Azure. Irá iniciar este processo no [portal publicação][link-pubportal].
@@ -26,7 +26,7 @@ Neste passo do processo de publicação, terá de fornecer determinados conteúd
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Passo 1: Fornecer conteúdo de marketing do Marketplace
 **O inglês é o predefinido e idioma suportado apenas.** Certifique-se de que todas as informações fornecidas nos campos estão em inglês. Todas as informações podem ser editadas em qualquer altura até emitir para a fase de testes.
 
-1. Aceda ao portal de publicação, [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Aceda ao portal de publicação, [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. No menu da esquerda, clique em de **Marketing** separador.
 3. No painel principal, clique em de **inglês (EUA)** botão.
    
@@ -228,9 +228,9 @@ Planos podem ser qualquer combinação de base + consumo, onde a base é o preç
 | Bronze |$10/ mês |Funcionalidades básicas e uma quota de 1.000 da funcionalidade X. |Pode migrar para planos de Bronze Plus, prata e Gold |
 | Bronze Plus |Período de avaliação gratuita: $0/ mês + $0/meter01 |Funcionalidades básicas e uma quota de 10.000 de funcionalidade X.  Assim que a quota de funcionalidade X é utilizada, o cliente pode paga por utilização através de meter01. |Pode migrar para planos Silver Plus e Gold |
 | Bronze Plus |Paga período (a.k.a. avaliação gratuita expirou): $10/mês + $ 0,05/meter01 |Funcionalidades básicas e uma quota de 10.000 de funcionalidade X.  Assim que a quota de funcionalidade X é utilizada, o cliente pode paga por utilização através de meter01. |Pode migrar para planos Silver Plus e Gold |
-| Silver |$0.15/meter01 |O cliente pode paga por utilização através de meter01, que se destine a funcionalidade de X. |Pode migrar para planos de Bronze e Gold |
+| Prata |$0.15/meter01 |O cliente pode paga por utilização através de meter01, que se destine a funcionalidade de X. |Pode migrar para planos de Bronze e Gold |
 | Prata Plus |$20/ mês + $0.15/meter01 + $0.01/meter02 |Funcionalidades básicas e uma quota de 10 000 da funcionalidade X e 100 da funcionalidade Y.  Assim que a quota de funcionalidade X é utilizada, o cliente pode paga por utilização através de meter01.  Assim que a quota de funcionalidade Y é utilizada, o cliente pode paga por utilização através de meter02. |Pode migrar para planos de Bronze Plus e Gold |
-| Gold |$ 1000/mês |Quota de 10.000 de funcionalidade X, 1000 da funcionalidade Y e ilimitado da funcionalidade Z. |Pode migrar para todos os planos exceto livre |
+| Dourado |$ 1000/mês |Quota de 10.000 de funcionalidade X, 1000 da funcionalidade Y e ilimitado da funcionalidade Z. |Pode migrar para todos os planos exceto livre |
 
 ## <a name="step-3-provide-support-information"></a>Passo 3: Fornecer suporte de informações
 Os detalhes de contactos são utilizados para internas as comunicações entre o parceiro e a Microsoft apenas. O URL de suporte estará disponível para clientes finais.
@@ -270,13 +270,13 @@ Segue-se uma vista detalhada de como é utilizada a oferta de marketing informa�
 
 *Detalhes de descrição de oferta no portal do Azure*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que o conteúdo de Marketplace estiver carregado, vamos avançar com a testar a sua oferta no modo de transição. No entanto, tem de selecionar o tipo de oferta adequado na lista abaixo, como os passos variam consoante o tipo de oferta.
 
 * [Testar a sua oferta do VM no modo de transição](marketplace-publishing-vm-image-test-in-staging.md)
 * [Testar a sua oferta do modelo de solução no modo de transição](marketplace-publishing-solution-template-test-in-staging.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg

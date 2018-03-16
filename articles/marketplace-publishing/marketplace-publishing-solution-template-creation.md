@@ -3,8 +3,8 @@ title: "Guia para criar um modelo de solução para o Marketplace | Microsoft Do
 description: "Instruções detalhadas sobre como criar, certificar e implementar um modelo de solução da imagem de várias VMS para comprar no Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guia para criar um modelo de solução para o Azure Marketplace
 Depois de concluir o passo 1, [conta criação e registo][link-acct-creation], iremos orientado na criação de um modelo de solução do Azure compatível em [pré-requisitos técnicos para criar um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora iremos irá guiá-lo através dos passos para criar um modelo de solução para várias VMs no [Portal publicação] [ link-pubportal] para o Azure Marketplace.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Criar a sua oferta do modelo de solução no Portal de publicação
-Aceda a [https://publish.windowsazure.com](http://publish.windowsazure.com). Quando iniciar sessão pela primeira vez para o [Portal publicação](https://publish.windowsazure.com/), utilize a mesma conta com que foi registado o perfil de vendedor da sua empresa. Mais tarde, pode adicionar qualquer empregado da sua empresa como coadministrador no Portal de publicação.
+Aceda a [ https://publish.windowsazure.com ](http://publish.windowsazure.com). Quando iniciar sessão pela primeira vez para o [Portal publicação](https://publish.windowsazure.com/), utilize a mesma conta com que foi registado o perfil de vendedor da sua empresa. Mais tarde, pode adicionar qualquer empregado da sua empresa como coadministrador no Portal de publicação.
 
 ### <a name="1-select-solution-templates"></a>1. Selecione "Modelos de solução"
   ![desenho][img-pubportal-menu-sol-templ]
@@ -37,9 +37,9 @@ Um modelo de solução é um "elemento principal" para todas as suas topologias.
 
 * Cria uma topologia: "Identificador de topologia" é, geralmente, o nome da topologia para o modelo de solução. O identificador de topologia é utilizado no URL, como mostrado abaixo:
 
-  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/ {PublisherNamespace} / {OfferIdentifier} {TopologyIdentifier}
+  Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Portal do Azure: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {TopologyIdentifier}
+  Azure Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Adicione uma nova versão.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. Obter as versões de topologia certificadas
@@ -53,7 +53,7 @@ Carregar um ficheiro zip que contém todos os ficheiros necessários para aprovi
   >
   >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que criou o seu modelo de solução e carregado o ficheiro zip, siga as instruções de [guia conteúdo de marketing Marketplace](marketplace-publishing-push-to-staging.md) antes de enviar a oferta para teste. Para ver o conjunto completo de marketplace publicação artigos, visite [introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md).
 
 Poderá também estar interessado nestes artigos relacionados:

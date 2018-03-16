@@ -17,17 +17,23 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador para as funções do Azure 
 
 Este artigo explica como trabalhar com os acionadores de temporizador nas funções do Azure. Um acionador de temporizador permite-lhe executar uma função com base numa agenda. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pacotes
+
+O acionador de temporizador é fornecido no [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -136,7 +142,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Atributos
 
-No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
 O construtor do atributo aceita uma expressão de CRON, conforme mostrado no exemplo seguinte:
 
@@ -158,10 +164,10 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definida para "timerTrigger". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | n/d | Tem de ser definida para "em". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**nome** | n/d | O nome da variável que representa o objeto temporizador no código da função. | 
-|**agenda**|**ScheduleExpression**|No plano de consumo, pode definir agendas com uma expressão de CRON. Se estiver a utilizar um plano do App Service, também pode utilizar um `TimeSpan` cadeia. As secções seguintes explicam as expressões de CRON. Pode colocar a expressão de agenda uma definição de aplicação e definir esta propriedade para um valor moldado numa  **%**  inicia, tal como neste exemplo: "% NameOfAppSettingWithCRONExpression %". |
+|**type** | n/d | Tem de ser definida para "timerTrigger". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direction** | n/d | Tem de ser definida para "em". Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**name** | n/d | O nome da variável que representa o objeto temporizador no código da função. | 
+|**schedule**|**ScheduleExpression**|No plano de consumo, pode definir agendas com uma expressão de CRON. Se estiver a utilizar um plano do App Service, também pode utilizar um `TimeSpan` cadeia. As secções seguintes explicam as expressões de CRON. Pode colocar a expressão de agenda uma definição de aplicação e definir esta propriedade para um valor moldado numa  **%**  inicia, tal como neste exemplo: "% NameOfAppSettingWithCRONExpression %". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

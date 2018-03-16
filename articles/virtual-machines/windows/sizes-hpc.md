@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6f2c72689811d26f95a64fdf5f473606f3ea3f7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VM de computação de elevado desempenho
 
@@ -29,16 +29,8 @@ ms.lasthandoff: 02/22/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>Instâncias com capacidade RDMA
-Uma interface de rede para a conectividade de (RDMA) de acesso remoto direto à memória de funcionalidade de um subconjunto das instâncias intensivas de computação (H16r, H16mr, A8 e A9). Esta interface está além da interface de rede do Azure padrão disponível para outros tamanhos de VM. 
-  
-Esta interface que permite que as instâncias comunicar através de uma rede InfiniBand, operativo FDR as taxas de máquinas virtuais H16r e H16mr e QDR as taxas de A8 e A9 as máquinas virtuais com capacidade RDMA. Estas capacidades RDMA podem melhorar a escalabilidade e o desempenho de aplicações de Interface de passagem de mensagens (MPI).
-
-Seguem-se os requisitos para VMs do Windows com capacidade RDMA à rede Azure RDMA: 
 
 * **Sistema operativo** -Windows Server 2016, o Windows Server 2012 R2, Windows Server 2012
-
-* **Conjunto de disponibilidade ou serviço em nuvem** – implementar as VMs com capacidade RDMA no mesmo conjunto de disponibilidade (ao utilizar o modelo de implementação Azure Resource Manager) ou o mesmo serviço de nuvem (quando utiliza o modelo de implementação clássica). Se utilizar o Azure Batch, as VMs com capacidade RDMA tem de estar no mesmo conjunto.
 
 * **MPI** -MPI Microsoft (MS-MPI) 2012 R2 ou posterior, Intel MPI biblioteca 5. x
 
@@ -64,7 +56,6 @@ Seguem-se os requisitos para VMs do Windows com capacidade RDMA à rede Azure RD
 
 
 
-
 ## <a name="other-sizes"></a>Outros tamanhos de
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
@@ -72,7 +63,7 @@ Seguem-se os requisitos para VMs do Windows com capacidade RDMA à rede Azure RD
 - [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)
 - [Com otimização de GPU](sizes-gpu.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para listas de verificação utilizar as instâncias intensivas de computação com o HPC Pack no Windows Server, consulte [configurar um cluster do Windows RDMA com o HPC Pack para executar aplicações MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -106,7 +106,7 @@ Por exemplo, um URL de back-end de *https://%ORDER_PROCESSING_HOST%/api/orders* 
 
 ## <a name="debugProxies"></a>Resolver problemas de Proxies
 
-Ao adicionar o sinalizador `"debug":true` para qualquer proxy no seu `proxy.json` irá ativar o registo de depuração. Os registos são armazenados em `D:\home\LogFiles\Application\Proxies\DetailedTrace` e acessível através de ferramentas avançadas (kudu). As respostas HTTP irão conter também uma `Proxy-Trace-Location` cabeçalho com um URL para aceder ao ficheiro de registo.
+Ao adicionar o sinalizador `"debug":true` para qualquer proxy no seu `proxies.json` irá ativar o registo de depuração. Os registos são armazenados em `D:\home\LogFiles\Application\Proxies\DetailedTrace` e acessível através de ferramentas avançadas (kudu). As respostas HTTP irão conter também uma `Proxy-Trace-Location` cabeçalho com um URL para aceder ao ficheiro de registo.
 
 Pode depurar um proxy no lado do cliente, adicionando um `Proxy-Trace-Enabled` cabeçalho definido como `true`. Isto será um rastreio de registo para o sistema de ficheiros e o URL de rastreio ser devolvido como um cabeçalho na resposta.
 
@@ -114,7 +114,7 @@ Pode depurar um proxy no lado do cliente, adicionando um `Proxy-Trace-Enabled` c
 
 Por motivos de segurança não poderá permitir que qualquer pessoa chamar o serviço para gerar um rastreio. Não poderão aceder ao conteúdo de rastreio sem as suas credenciais de início de sessão, mas a gerar o rastreio consome recursos e expõe que está a utilizar os Proxies de função.
 
-Desativar completamente os rastreios adicionando `"debug":false` para qualquer proxy específica no seu `proxy.json`.
+Desativar completamente os rastreios adicionando `"debug":false` para qualquer proxy específica no seu `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 

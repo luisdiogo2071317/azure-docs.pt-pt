@@ -2,23 +2,18 @@
 title: "Atualizar para a biblioteca de cliente mais recente da base de dados elásticas | Microsoft Docs"
 description: "Utilize o Nuget para a biblioteca de cliente de atualização de base de dados elásticas."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: ddove
-ms.openlocfilehash: 62609f2488a01d9b406c6b730c53ecc9f9b6ea1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 54ddde10935fa5add07aaf0c514cf48c6115678e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualizar uma aplicação para utilizar a biblioteca de cliente mais recente da base de dados elástica
 Novas versões do [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) estão disponíveis através de NuGetand da interface do Gestor de NuGetPackage no Visual Studio. Atualização contém correções de erros e suporte para novas capacidades da biblioteca de clientes.
@@ -47,8 +42,8 @@ Executar estes passos pela ordem garante que versões antigas da biblioteca de c
 ***Opção 1: Atualizar metadados com o PowerShell***
 
 1. Transferir o utilitário mais recente da linha de comandos para NuGet da [aqui](http://nuget.org/nuget.exe) e guardar para uma pasta. 
-2. Abra uma linha de comandos, navegue para a mesma pasta e emitir o comando:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-3. Navegue para a subpasta que contém a nova versão da DLL de cliente que ter acabou de transferir, por exemplo:`cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
+2. Abra uma linha de comandos, navegue para a mesma pasta e emitir o comando: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
+3. Navegue para a subpasta que contém a nova versão da DLL de cliente que ter acabou de transferir, por exemplo: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Transferir o scriptlet de atualização de cliente de base de dados elástica do [Centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)e guarde-o para a mesma pasta que contém a DLL.
 5. A partir dessa pasta, execute "PowerShell.\upgrade.ps1" na linha de comandos e siga as instruções.
 

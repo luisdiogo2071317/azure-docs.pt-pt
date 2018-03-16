@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2017
-ms.author: yurid
-ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="pen-testing"></a>Teste de caneta
 Uma das vantagens da utilização do Azure para implementação e teste de aplicações é que pode obter rapidamente ambientes criados.  Não tem de se preocupar com requisitioning, aquisição, "racking e empilhamento" hardware os seus próprios no local.
@@ -31,7 +31,7 @@ Iremos não o caneta testar a aplicação por si, mas compreendemos que irá pre
 
 O que fazer?
 
-A partir do dia 15 de Junho de 2017, Microsoft já não necessita de aprovação anterior ao realizar uma penetração testes relativamente aos recursos do Azure. Os clientes que pretendem formally documento futuros penetração testar ações de envolvimento com o Microsoft Azure são encorajados a preencher a [formulário de notificação de teste do Azure Service penetração](https://portal.msrc.microsoft.com/engage/pentest). Esta é apenas relacionados com o processo para o Microsoft Azure e não é aplicável a qualquer outro serviço de nuvem da Microsoft. 
+A partir do dia 15 de Junho de 2017, Microsoft já não necessita de aprovação anterior ao realizar uma penetração testes relativamente aos recursos do Azure. Os clientes que pretendem formally documento futuros penetração testar ações de envolvimento com o Microsoft Azure são encorajados a preencher a [formulário de notificação de teste do Azure Service penetração](https://portal.msrc.microsoft.com/en-us/engage/pentest). Esta é apenas relacionados com o processo para o Microsoft Azure e não é aplicável a qualquer outro serviço de nuvem da Microsoft. 
 
 >[!IMPORTANT] 
 >Enquanto notificar Microsoft a respeito de caneta atividades de teste já não é necessário clientes tem ainda está em conformidade com a [Microsoft Cloud Unified penetração testar regras do Engagement](https://technet.microsoft.com/en-us/mt784683). 
@@ -44,6 +44,6 @@ Testes padrão, que pode realizar incluem:
 
 É de um tipo de teste que não é possível executar quaisquer tipos de [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) ataque. Isto inclui a iniciar um ataque DoS próprio ou efetuar testes relacionados que podem determinar, demonstrar ou simular qualquer tipo de um ataque.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Pronto para começar a caneta irá testar as suas aplicações alojadas no Microsoft Azure? Se Sim, em seguida, vá na ativação pós-falha para o [descrição geral do teste penetração](https://technet.microsoft.com/library/mt784683.aspx) página (e clique em criar uma pedido de teste na parte inferior da página. 

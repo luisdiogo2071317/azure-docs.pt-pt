@@ -2,24 +2,19 @@
 title: "Registo de inteligente diagnósticos de desempenho do Insights - SQL Database do Azure | Microsoft Docs"
 description: "Inteligentes Insights fornece um registo de diagnóstico de problemas de desempenho de SQL Database do Azure"
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho inteligente Insights SQL Database do Azure
 
@@ -89,10 +84,10 @@ Consoante o problema de desempenho detetado, os detalhes debitados no diagnósti
 | Aumento MAXDOP | <li>Hashes de consulta</li><li>Tempos de espera CXP</li><li>Tempos de espera</li> |
 | Pagelatch contenção | <li>Os hashes de consultas, fazendo com que a contenção de consulta</li> |
 | Índice em falta | <li>Hashes de consulta</li> |
-| Nova consulta | <li>Consulta de hash das consultas novo</li> |
+| Nova Consulta | <li>Consulta de hash das consultas novo</li> |
 | Estatística de espera invulgar | <li>Tipos de atividade invulgar espera</li><li>Hashes de consulta</li><li>Tempos de espera de consulta</li> |
 | TempDB contenção | <li>Os hashes de consultas, fazendo com que a contenção de consulta</li><li>Atribuição de consulta para a base de dados pagelatch contenção espera tempo geral [%]</li> |
-| Falta DTU do conjunto elástico | <li>Agrupamento elástico</li><li>Base de dados de consumo de DTU superior</li><li>Percentagem de DTU utilizada pelo consumidor superior do conjunto</li> |
+| Falta DTU do conjunto elástico | <li>Conjunto elástico</li><li>Base de dados de consumo de DTU superior</li><li>Percentagem de DTU utilizada pelo consumidor superior do conjunto</li> |
 | Plano de regressão | <li>Hashes de consulta</li><li>Bom plano IDs</li><li>Os IDs de plano incorreto</li> |
 | Alteração de valor de configuração de âmbito de base de dados | <li>Alterações de configuração de âmbito de base de dados em comparação comparadas os valores predefinidos</li> |
 | Cliente lenta | <li>Hashes de consulta</li><li>Tempos de espera</li> |
@@ -141,7 +136,7 @@ A última parte do registo de desempenho Insights inteligente diz respeito à an
 
 Pode utilizar o registo de desempenho Insights inteligente com [Log Analytics do Azure]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para DevOps personalizado alertas e as capacidades de relatórios.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [Insights inteligente](sql-database-intelligent-insights.md) conceitos.
 - Saiba como [resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Saiba como [monitorizar SQL Database do Azure utilizando o Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

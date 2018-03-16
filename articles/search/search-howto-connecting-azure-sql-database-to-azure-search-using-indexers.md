@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ligação SQL Database do Azure para a Azure Search utilizando indexadores
 
@@ -57,6 +57,9 @@ Dependendo de vários fatores relacionados com os dados, a utilização do index
 | Tipos de dados são compatíveis | A maioria das mas não todos os tipos de SQL Server são suportados num índice da Azure Search. Para obter uma lista, consulte [mapeamento de tipos de dados](#TypeMapping). |
 | Não é necessária a sincronização de dados em tempo real | Um indexador novamente pode indexar a tabela no máximo a cada cinco minutos. Se precisam de frequentemente as alterações de dados e as alterações sejam refletidas no índice em segundos ou minutos únicos, recomendamos que utilize o [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) ou [.NET SDK](search-import-data-dotnet.md) para emitir linhas atualizadas diretamente. |
 | A indexação incremental é possível | Se tiver um grande conjunto de dados e o plano para executar o indexador com base numa agenda, pesquisa do Azure tem de ser capaz de forma eficiente identificar linhas novas, alteradas ou eliminadas. A indexação não incremental só é permitida se estiver a indexação a pedido (não numa agenda) ou indexação menos de 100 000 linhas. Para obter mais informações, consulte [capturar alterar e eliminar linhas](#CaptureChangedRows) abaixo. |
+
+> [!NOTE] 
+> A pesquisa do Azure suporta apenas a autenticação do SQL Server. Se necessitar de suporte para a autenticação do Azure Active Directory palavra-passe, votar para este [UserVoice sugestão](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Criar um indexador SQL do Azure
 
@@ -221,7 +224,7 @@ Esta política de deteção de alteração depende de uma coluna de "nível máx
 * Inserções de todos os especificar um valor para a coluna.
 * Todas as atualizações de um item também alterar o valor da coluna.
 * O valor desta coluna aumenta com cada insert ou update.
-* As consultas com o seguinte onde e ORDER BY cláusulas podem ser executadas de forma eficiente:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* As consultas com o seguinte onde e ORDER BY cláusulas podem ser executadas de forma eficiente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
 > Recomendamos vivamente a utilização de [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) tipo de dados para a coluna de nível máximo. Se for utilizado a qualquer outro tipo de dados, controlo de alterações não é assegurada para capturar todas as alterações na presença de transações executar simultaneamente com uma consulta do indexador. Quando utilizar **rowversion** numa configuração com réplicas só de leitura, tem de apontar o indexador na réplica primária. Apenas uma réplica primária pode ser utilizada para cenários de sincronização de dados.
@@ -285,13 +288,13 @@ O **softDeleteMarkerValue** tem de ser uma cadeia – utilize a representação 
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mapeamento entre os tipos de dados do SQL Server e da Azure Search
 | Tipo de dados do SQL Server | Permitido tipos de campo de índice de destino | Notas |
 | --- | --- | --- |
-| bits |Boolean, EDM | |
-| int, smallint, tinyint |EDM Edm.Int32, Edm.Int64, | |
-| bigint |Edm.Int64, EDM | |
-| número de vírgula flutuante real, |Edm.Double, EDM | |
+| bits |Edm.Boolean, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
+| número de vírgula flutuante real, |Edm.Double, Edm.String | |
 | em smallmoney, numérica decimal dinheiro |Edm.String |A pesquisa do Azure não suporta a conversão de tipos decimais numa Edm.Double porque este perderia precisão |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Coleção (Edm.String) |Uma cadeia de SQL Server pode ser utilizada para preencher um campo Collection(Edm.String) se a cadeia representa uma matriz de cadeias de JSON:`["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, EDM | |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Coleção (Edm.String) |Uma cadeia de SQL Server pode ser utilizada para preencher um campo Collection(Edm.String) se a cadeia representa uma matriz de cadeias de JSON: `["red", "white", "blue"]` |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geografia |Edm.GeographyPoint |São suportadas apenas instâncias de geografia de tipo de ponto de 4326 SRID (que é a predefinição) |
 | ROWVERSION |N/A |Colunas de versão de linha não podem ser armazenadas no índice de pesquisa, mas podem ser utilizadas para controlo de alterações |
@@ -303,7 +306,7 @@ Indexador SQL expõe várias definições de configuração:
 | Definição | Tipo de dados | Objetivo | Valor predefinido |
 | --- | --- | --- | --- |
 | queryTimeout |string |Define o tempo limite para a execução da consulta SQL |5 minutos ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL utilizada pela política de nível máximo para omita a cláusula ORDER BY. Consulte [política de nível máximo](#HighWaterMarkPolicy) |falso |
+| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL utilizada pela política de nível máximo para omita a cláusula ORDER BY. Consulte [política de nível máximo](#HighWaterMarkPolicy) |false |
 
 Estas definições são utilizadas no `parameters.configuration` objeto na definição do indexador. Por exemplo, para definir o tempo limite de consulta para 10 minutos, criar ou atualizar o indexador com a seguinte configuração:
 

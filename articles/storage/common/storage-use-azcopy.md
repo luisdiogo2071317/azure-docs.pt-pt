@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferência de dados com o AzCopy no Windows
 O AzCopy é um utilitário da linha de comandos concebido para copiar dados do armazenamento de Blobs do Microsoft Azure, ficheiros e tabela, utilizando os comandos simples concebidos para um desempenho ideal. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento, ou entre contas de armazenamento.  
@@ -56,7 +56,7 @@ Tenha em atenção que, se a pasta `C:\myfolder` não existir, AzCopy cria e tra
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Transferir um blob único a partir da região secundária
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Tenha em atenção que tem de ter o armazenamento georredundante de acesso de leitura ativado para aceder a região secundária.
@@ -106,7 +106,7 @@ Após a operação de transferência, a pasta `C:\myfolder` inclui os seguintes 
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-O prefixo aplica-se para o diretório virtual, o que faz a primeira parte do nome do blob. No exemplo mostrado acima, o diretório virtual não corresponde o prefixo especificado, pelo que não está a ser transferido. Além disso, se a opção `\S` não for especificado, AzCopy não transferir blobs.
+O prefixo aplica-se para o diretório virtual, o que faz a primeira parte do nome do blob. No exemplo mostrado acima, o diretório virtual não corresponde o prefixo especificado, pelo que não está a ser transferido. Além disso, se a opção `/S` não for especificado, AzCopy não transferir blobs.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Defina o período de última modificação de ficheiros exportados para ser o mesmo que os blobs de origem
 
@@ -276,7 +276,7 @@ O `/SyncCopy` opção garante que a operação de cópia obtém velocidade consi
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-`/SyncCopy`pode gerar o custo de saída adicionais em comparação com a cópia assíncrona, a abordagem recomendada é para utilizar esta opção na VM do Azure que se encontra na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
+`/SyncCopy` pode gerar o custo de saída adicionais em comparação com a cópia assíncrona, a abordagem recomendada é para utilizar esta opção na VM do Azure que se encontra na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
 
 ## <a name="download-files-from-file-storage"></a>Transferir ficheiros do armazenamento de ficheiros
 
@@ -614,9 +614,9 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 Parâmetros para AzCopy são descritos abaixo. Também pode escrever um dos seguintes comandos na linha de comandos para obter ajuda na utilização AzCopy:
 
-* Para obter ajuda detalhada da linha de comandos do AzCopy:`AzCopy /?`
-* Para obter ajuda detalhada com quaisquer parâmetros de AzCopy:`AzCopy /?:SourceKey`
-* Para obter exemplos da linha de comandos:`AzCopy /?:Samples`
+* Para obter ajuda detalhada da linha de comandos do AzCopy: `AzCopy /?`
+* Para obter ajuda detalhada com quaisquer parâmetros de AzCopy: `AzCopy /?:SourceKey`
+* Para obter exemplos da linha de comandos: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/ De origem: "origem"
 
@@ -967,7 +967,7 @@ Para a propriedade "AzureStorageUseV1MD5":
 
 Algoritmos compatíveis com FIPS estão desativados por predefinição no Windows. Pode alterar esta definição de política no seu computador. Na janela executar (Windows + R), escreva secpol.msc para abrir o **política de segurança Local** janela. No **definições de segurança** janela, navegue para **definições de segurança** > **políticas locais** > **opções de segurança**. Localize o **criptografia de sistema: algoritmos compatíveis com o utilize FIPS para encriptação, hashing e iniciar sessão** política. Faça duplo clique na política para ver o valor apresentado no **definição de segurança** coluna.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Storage do Azure e AzCopy, consulte os seguintes recursos:
 

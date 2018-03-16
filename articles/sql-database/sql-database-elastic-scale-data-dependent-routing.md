@@ -2,24 +2,18 @@
 title: Dados dependentes de encaminhamento com a SQL Database do Azure | Microsoft Docs
 description: "Como utilizar a classe de ShardMapManager nas aplicações de .NET de dados dependentes do encaminhamento, uma funcionalidade de bases de dados em partição horizontal na SQL Database do Azure"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: 2add03568f1d111010cdfb49d850d33cdab8e21b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sstein
+ms.openlocfilehash: 5685c1e1c502b5f3700fb1c4487778d38ff19d1e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="data-dependent-routing"></a>Encaminhamento dependente de dados
 **Dados dependentes encaminhamento** é a capacidade de utilizar os dados numa consulta para encaminhar o pedido para uma base de dados adequada. Este é um padrão fundamental ao trabalhar com a bases de dados. O contexto do pedido também pode ser utilizado para encaminhar o pedido, especialmente se a chave de fragmentação não faz parte da consulta. Cada consulta específicas ou a transação de uma aplicação utilizar dados dependentes encaminhamento está restrita a aceder a uma base de dados individual por pedido. Para as ferramentas do Azure SQL da base de dados elásticas, este encaminhamento é efetuado com o **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) classe.
@@ -167,7 +161,7 @@ Pacotes necessários para implementar o processamento de falhas transitórias se
 ## <a name="transactional-consistency"></a>Consistência transacional
 Propriedades transacionais garantidas para todas as operações locais para um ID de partição horizontal. Por exemplo, as transações submetidas através de encaminhamento de dados dependentes executar no âmbito do ID de partição horizontal destino para a ligação. Neste momento, não existem nenhum capacidades fornecidas para inscrever várias ligações para uma transação e, por conseguinte, não existem nenhum garantias transacionais para operações executadas em partições horizontais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Anular a exposição de um ID de partição horizontal ou reattach um ID de partição horizontal, consulte [utilizando a classe de RecoveryManager para corrigir problemas de mapa de partições horizontais](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

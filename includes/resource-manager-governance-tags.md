@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 13aa40331849c775898913129f8048a06a1f8456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69c67f437d2f0b7bd6c1f5311eb5ba1d962d889a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 O utilizador aplica as etiquetas nos recursos do Azure para as organizar por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
@@ -24,4 +24,4 @@ As seguintes limitações aplicam-se às etiquetas:
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
 * As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
 * Não não possível aplicar etiquetas recursos clássicos como os serviços de nuvem.
-* Não são suportados os seguintes carateres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+* Os nomes de tag não podem conter os seguintes carateres: `<`, `>`, `%`, `&`, `\`, `?`, `/`

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços ligados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ O exemplo na secção anterior, o tipo do conjunto de dados está definido como 
 }
 ```
 ## <a name="dataset-structure"></a>Estrutura do conjunto de dados
-O **estrutura** secção é opcional. Define o esquema do conjunto de dados, que contém uma coleção de nomes e tipos de dados das colunas. Utilize a secção de estrutura para fornecer informações de tipo que são utilizadas para converter os tipos de modelo e mapeie as colunas de origem para o destino. No exemplo seguinte, o conjunto de dados tem três colunas: timestamp, projectname e pageviews. São do tipo String, String e Decimal, respetivamente.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+O **estrutura** secção é opcional. Define o esquema do conjunto de dados, que contém uma coleção de nomes e tipos de dados das colunas. Utilize a secção de estrutura para fornecer informações de tipo que são utilizadas para converter os tipos de modelo e mapeie as colunas de origem para o destino.
 
 Cada coluna na estrutura de contém as seguintes propriedades:
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
 nome | Nome da coluna. | Sim
-tipo | Tipo de dados da coluna. | Não
+tipo | Tipo de dados da coluna. Fábrica de dados suporta os seguintes tipos de dados provisória como valores permitidos: **Int16, Int32, Int64, único, Double, Decimal, Byte [], booleano, String, Guid, Datetime, Datetimeoffset e Timespan** | Não
 Cultura | . Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
-formato | Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. | Não
+formato | Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [data personalizada e cadeias de formato de hora](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formato datetime. | Não
 
-As seguintes diretrizes ajudam a determinar quando deve incluir informações de estrutura e o que incluir no **estrutura** secção.
+### <a name="example"></a>Exemplo
+No seguinte exemplo, suponha que a origem de dados de Blob está num formato CSV e contém três colunas: userid, nome e lastlogindate. São do tipo Int64, cadeia e Datetime com um formato de datetime personalizado utilizando abreviados nomes francês para um dia da semana.
 
-- **Para origens de dados estruturados**, especificar a secção de estrutura apenas se pretender mapear colunas de origem para sink colunas e os respetivos nomes não são iguais. Este tipo de origem de dados estruturados armazena informações de esquema e o tipo de dados, juntamente com dados propriamente ditos. Exemplos de origens de dados estruturados incluem o SQL Server, Oracle e SQL Database do Azure.<br/><br/>Como informações sobre o tipo já se encontra disponível para origens de dados estruturados, não deve incluir informações sobre o tipo ao incluir a secção de estrutura.
-- **Para o esquema em origens de dados de leitura (especificamente o armazenamento de BLOBs)**, pode optar por armazenar os dados sem armazenar quaisquer informações de esquema ou tipo com os dados. Para estes tipos de origens de dados, inclua estrutura quando pretende mapear colunas de origem para sink colunas. Também inclua estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia e tipos de dados do conjunto de dados de origem devem ser convertidos para tipos de nativos para o sink.<br/><br/> Fábrica de dados suporta os seguintes valores para fornecer informações de tipo na estrutura: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Defina a estrutura do conjunto de dados de BLOBs da seguinte forma juntamente com as definições de tipo para as colunas:
 
-Saiba mais sobre como o factory de dados mapeia os dados de origem para sink do [esquema e o mapeamento do tipo]( copy-activity-schema-and-type-mapping.md) e especificar as informações de estrutura.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Orientação
+
+As seguintes diretrizes ajudam a compreender quando incluir informações de estrutura e o que pretende incluir no **estrutura** secção. Saiba mais sobre como origem de dados para sink os mapas de fábrica de dados e especificar as informações de estrutura de [esquema e o mapeamento do tipo](copy-activity-schema-and-type-mapping.md).
+
+- **Para origens de dados de esquema forte**, especificar a secção de estrutura apenas se pretender mapear colunas de origem para sink colunas e os respetivos nomes não são iguais. Este tipo de origem de dados estruturados armazena informações de esquema e o tipo de dados, juntamente com dados propriamente ditos. Exemplos de origens de dados estruturados incluem o SQL Server, Oracle e SQL Database do Azure.<br/><br/>Como informações sobre o tipo já se encontra disponível para origens de dados estruturados, não deve incluir informações sobre o tipo ao incluir a secção de estrutura.
+- **Para o esquema não/weak por exemplo, o ficheiro de texto no armazenamento de BLOBs de origens de dados**, incluir estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia e tipos de dados do conjunto de dados de origem devem ser convertidos para tipos de nativos para o sink. E incluir estrutura quando pretende mapear colunas de origem para sink colunas...
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Pode criar conjuntos de dados utilizando um destas ferramentas ou SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modelo do Azure Resource Manager e o portal do Azure

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2050741b46699043836cae1e6465e18dbae87d25
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel ao Hadoop no Azure HDInsight com o controlador Microsoft ODBC do Hive
 
@@ -31,10 +31,7 @@ Solução de macrodados da Microsoft integra-se os componentes do Microsoft Busi
 
 Também é possível ligar os dados associados um cluster do HDInsight e outras origens de dados, incluindo outros clusters do Hadoop (não HDInsight), a partir do Excel utilizando o suplemento do Microsoft Power Query para Excel. Para obter informações sobre como instalar e utilizar o Power Query, consulte [ligar o Excel para o HDInsight com o Power Query][hdinsight-power-query].
 
-> [!NOTE]
-> Enquanto os passos neste artigo podem ser utilizados com o cluster de um Linux ou o HDInsight baseado em Windows, Windows é necessário para a estação de trabalho do cliente.
-> 
-> 
+
 
 **Pré-requisitos**:
 

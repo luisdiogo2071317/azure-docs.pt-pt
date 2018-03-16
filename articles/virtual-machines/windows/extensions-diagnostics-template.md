@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utilizar a monitorização e diagnóstico com modelos de VM do Windows e o Azure Resource Manager
 A extensão de diagnóstico do Azure fornece as capacidades de monitorização e diagnóstico numa máquina virtual baseado no Windows Azure. Pode ativar estas capacidades na máquina virtual, incluindo a extensão como parte do modelo Azure Resource Manager. Consulte [criação de modelos de Gestor de recursos do Azure com extensões de VM](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) para obter mais informações sobre incluindo qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como adicionar a extensão de diagnóstico do Azure para um modelo de máquina virtual do windows.  
@@ -152,7 +152,7 @@ Se estiver a criar várias máquinas virtuais num ciclo, terá de preencher o *r
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-O valor MetricAggregation *PT1H* e *PT1M* significam uma agregação ao longo de um minuto e uma agregação mais de uma hora.
+O valor MetricAggregation *PT1M* e *PT1H* significam uma agregação ao longo de um minuto e uma agregação ao longo de uma hora, respetivamente.
 
 ## <a name="wadmetrics-tables-in-storage"></a>Tabelas de WADMetrics no armazenamento
 A configuração de métricas acima gera tabelas na sua conta de armazenamento de diagnóstico com as seguintes convenções de nomenclatura:
@@ -168,7 +168,7 @@ Exemplo: *WADMetricsPT1HP10DV2S20151108* irá conter os dados de métricas agreg
 Cada tabela WADMetrics irá conter as seguintes colunas:
 
 * **PartitionKey**: A chave de partição é criada com base no *resourceID* valor exclusivamente para identificar o recurso VM. Por exemplo: 002Fsubscriptions:<subscriptionID>: 002FresourceGroups:002F<ResourceGroupName>: 002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey**: respeita o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo de marcas de escala de tempo descendente é ticks tempo máximo, menos a hora de início do período de agregação. Por exemplo, se o período de exemplo iniciado em 10-Novembro de 2015 e 00:00Hrs UTC, em seguida, o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para os bytes disponíveis de memória a chave de linha de contador de desempenho irá ter o seguinte aspeto:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **RowKey**: respeita o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo de marcas de escala de tempo descendente é ticks tempo máximo, menos a hora de início do período de agregação. Por exemplo, se o período de exemplo iniciado em 10-Novembro de 2015 e 00:00Hrs UTC, em seguida, o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para os bytes disponíveis de memória a chave de linha de contador de desempenho irá ter o seguinte aspeto: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: É o nome do contador de desempenho. Isto corresponde a *counterSpecifier* definidos na configuração de xml.
 * **Máximo**: O valor máximo do contador de desempenho durante o período de agregação.
 * **Mínimo**: O valor mínimo de contador de desempenho durante o período de agregação.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com lr | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e lr."
+title: "Tutorial: Integração do Azure Active Directory com LoginRadius | Microsoft Docs"
+description: "Saiba como configurar o início de sessão entre o Azure Active Directory e LoginRadius."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: f7728c37db286b130a79db1353ee40825e8a4336
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 22f937a2ae9a2c715ce0866c2db0ac17769f0399
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lr"></a>Tutorial: Integração do Azure Active Directory com lr
+# <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integração do Azure Active Directory com LoginRadius
 
-Neste tutorial, irá aprender a integrar lr com o Azure Active Directory (Azure AD).
+Neste tutorial, irá aprender a integrar LoginRadius com o Azure Active Directory (Azure AD).
 
-Integrar lr com o Azure AD fornece as seguintes vantagens:
+Integrar LoginRadius com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao lr.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para lr (Single Sign-On) com as respetivas contas do Azure AD.
+- Pode controlar no Azure AD que tenha acesso ao LoginRadius.
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para LoginRadius (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com lr, terá dos seguintes itens:
+Para configurar a integração do Azure AD com LoginRadius, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um lr-início de sessão único ativada subscrição
+- Um LoginRadius início de sessão único subscrição ativado
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
@@ -50,13 +50,13 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
 
-1. Adicionar lr a partir da Galeria
+1. Adicionar LoginRadius a partir da Galeria
 2. Configurar e testar o Azure AD de sessão único-
 
-## <a name="adding-lr-from-the-gallery"></a>Adicionar lr a partir da Galeria
-Para configurar a integração de lr com o Azure AD, terá de adicionar lr a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-loginradius-from-the-gallery"></a>Adicionar LoginRadius a partir da Galeria
+Para configurar a integração de LoginRadius com o Azure AD, terá de adicionar LoginRadius a partir da Galeria à sua lista de aplicações SaaS geridas.
 
-**Para adicionar lr a partir da galeria, execute os seguintes passos:**
+**Para adicionar LoginRadius a partir da galeria, execute os seguintes passos:**
 
 1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
@@ -70,58 +70,58 @@ Para configurar a integração de lr com o Azure AD, terá de adicionar lr a par
 
     ![O novo botão de aplicação][3]
 
-4. Na caixa de pesquisa, escreva **lr**, selecione **lr** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **LoginRadius**, selecione **LoginRadius** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
-    ![LR na lista de resultados](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+    ![LoginRadius na lista de resultados](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com lr com base num utilizador de teste chamado "Britta Simon".
+Nesta secção, configure e teste do Azure AD-início de sessão único com LoginRadius com base num utilizador de teste chamado "Britta Simon".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no lr é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no lr tem de ser estabelecida.
+Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no LoginRadius é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no LoginRadius tem de ser estabelecida.
 
-Para configurar e testar o Azure AD-início de sessão único com lr, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD-início de sessão único com LoginRadius, tem de concluir os blocos modulares seguintes:
 
 1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
 2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste lr](#create-a-lr-test-user)**  - para ter um homólogo de Britta Simon no lr que está ligada a representação do Azure AD do utilizador.
+3. **[Criar um utilizador de teste LoginRadius](#create-a-loginradius-test-user)**  - para ter um homólogo de Britta Simon LoginRadius que está ligada a representação do Azure AD do utilizador.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
 5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação lr.
+Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação LoginRadius.
 
-**Para configurar o Azure AD-início de sessão único com lr, execute os seguintes passos:**
+**Para configurar o Azure AD-início de sessão único com LoginRadius, execute os seguintes passos:**
 
-1. No portal do Azure, no **lr** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, no **LoginRadius** página de integração de aplicações, clique em **de sessão único-**.
 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
  
-    ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+    ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_samlbase.png)
 
-3. No **lr domínios e URLs** secção, execute os seguintes passos:
+3. No **LoginRadius domínio e os URLs** secção, execute os seguintes passos:
 
-    ![LR URLs e de domínio único início de sessão informações](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+    ![Domínio LoginRadius e os URLs únicos de informações de início de sessão](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_url.png)
 
-    a.  No **URL de início de sessão** caixa de texto, escreva um URL:`https://secure.loginradius.com/login`
+    a.  No **URL de início de sessão** caixa de texto, escreva um URL: `https://secure.loginradius.com/login`
 
-    b. No **identificador** caixa de texto, escreva um URL:`https://lr.hub.loginradius.com/`
+    b. No **identificador** caixa de texto, escreva um URL: `https://LoginRadius.hub.loginradius.com/`
      
     > [!NOTE] 
-    > Abra a página de início de sessão no URL. Clique em **Single Sign-On** separador e introduza **nome de plug-in** fornecido pelo [lr a equipa de suporte](mailto:support@loginradius.com) , em seguida, clique em **sessão** botão e serão redirecionado para a página do Azure AD para início de sessão. 
+    > Abra a página de início de sessão no URL. Clique em **Single Sign-On** separador e introduza **nome de plug-in** fornecido pelo [LoginRadius suporta equipa](mailto:support@loginradius.com) , em seguida, clique em **iniciar sessão** botão e serão ser redirecionados para a página do Azure AD para início de sessão. 
 
 5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_certificate.png) 
 
 6. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
     
-7. Para configurar o início de sessão único em **lr** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de lr](mailto:support@loginradius.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+7. Para configurar o início de sessão único em **LoginRadius** lado, terá de enviar o transferido **XML de metadados** para [LoginRadius suporta equipa](mailto:support@loginradius.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,25 +158,25 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
     d. Clique em **Criar**.
  
-### <a name="create-a-lr-test-user"></a>Criar um utilizador de teste lr
+### <a name="create-a-loginradius-test-user"></a>Criar um utilizador de teste LoginRadius
 
-Nesta secção, vai criar um utilizador chamado Britta Simon lr. Trabalhar com [equipa de suporte de lr](mailto:support@loginradius.com) para adicionar os utilizadores na plataforma lr. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um utilizador chamado Britta Simon LoginRadius. Trabalhar com [LoginRadius suporta equipa](mailto:support@loginradius.com) para adicionar os utilizadores na plataforma LoginRadius. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso aos lr.
+Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para LoginRadius.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a lr, execute os seguintes passos:**
+**Para atribuir Britta Simon a LoginRadius, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
     ![Atribua o utilizador][201] 
 
-2. Na lista de aplicações, selecione **lr**.
+2. Na lista de aplicações, selecione **LoginRadius**.
 
-    ![A ligação de lr na lista de aplicações](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+    ![A ligação de LoginRadius na lista de aplicações](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_app.png)  
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
@@ -196,7 +196,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
-Quando clica no mosaico lr no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de lr.
+Quando clica no mosaico LoginRadius no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de LoginRadius.
 Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais

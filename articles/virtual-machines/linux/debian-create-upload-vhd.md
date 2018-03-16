@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9b32b298f141e9ee54b4c42d3ee9c15174daf8b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD Debian para o Azure
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -30,7 +30,7 @@ Esta secção assume que já tem instalado um sistema operativo Debian Linux de 
 * O formato VHDX mais recente não é suportado no Azure. Pode converter o disco para o formato VHD utilizando o Gestor de Hyper-V ou o **convert-vhd** cmdlet.
 * Ao instalar o sistema Linux é recomendado que utilize partições padrão em vez de LVM (muitas vezes, a predefinição para instalações muitos). Evitará LVM nome entra em conflito com VMs Clonadas, particularmente se um disco de SO alguma vez precisar de ser ligado a outra VM para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser utilizado em discos de dados se preferencial.
 * Não configure uma partição de comutação no disco do SO. O agente Linux do Azure pode ser configurado para criar um ficheiro de comutação no disco de recursos temporário. Podem encontrar mais informações sobre esta nos passos abaixo.
-* Todos os VHDs têm de ter tamanhos que estão em múltiplos de 1 MB.
+* Todos os VHDs no Azure tem de ter um tamanho virtual alinhado com 1MB. Ao converter de um disco não processado para o VHD tem de se certificar de que o tamanho do disco não processados é um múltiplo de 1MB antes de conversão. Consulte [Linux instalação notas](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Utilize a gerir o Azure para criar Debian VHDs
 Existem ferramentas disponíveis para a geração de VHDs Debian do Azure, tal como o [azure-gerir](https://github.com/credativ/azure-manage) scripts de [credativ](http://www.credativ.com/). Esta é a abordagem recomendada versus criar uma imagem a partir do zero. Por exemplo, para criar um VHD de 8 Debian, execute os seguintes comandos para transferir o azure gerir (e as dependências) e execute o script de azure_build_image:

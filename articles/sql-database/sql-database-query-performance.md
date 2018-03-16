@@ -2,24 +2,18 @@
 title: "Informações acerca do desempenho de consulta para a SQL Database do Azure | Microsoft Docs"
 description: "Monitorização do desempenho de consulta identifica a maior parte das consultas de consumo de CPU para uma base de dados do SQL do Azure."
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>SQL do Azure da base de dados desempenho das consultas
 Gerir e otimizar o desempenho das bases de dados relacionais são uma tarefa um desafio que requer conhecimentos significativos e o investimento de tempo. Desempenho das consultas permite-lhe gaste menos tempo a resolução de problemas de desempenho de base de dados ao fornecer o seguinte:
@@ -37,7 +31,7 @@ Gerir e otimizar o desempenho das bases de dados relacionais são uma tarefa um 
 ## <a name="permissions"></a>Permissões
 O seguinte [controlo de acesso baseado em funções](../active-directory/role-based-access-control-what-is.md) são necessárias permissões para utilizar o desempenho das consultas: 
 
-* **Leitor**, **proprietário**, **contribuinte**, **contribuinte da BD SQL**, ou **contribuinte de servidor de SQL** são permissões necessário para ver o recurso superior consumir consultas e gráficos. 
+* **Leitor**, **proprietário**, **contribuinte**, **contribuinte da BD SQL**, ou **contribuinte de servidor de SQL** são necessárias permissões Para ver o recurso superior consumir consultas e gráficos. 
 * **Proprietário**, **contribuinte**, **contribuinte da BD SQL**, ou **contribuinte de servidor de SQL** são necessárias permissões para ver o texto da consulta.
 
 ## <a name="using-query-performance-insight"></a>Utilizar o desempenho das consultas
@@ -93,7 +87,7 @@ Para ver detalhes de consulta:
 
 1. Clique em qualquer consulta na lista de consultas superiores.
    
-    ![Detalhes](./media/sql-database-query-performance/details.png)
+    ![detalhes](./media/sql-database-query-performance/details.png)
 2. Abre a vista de detalhes e a contagem de consumo/duração/execução de CPU de consultas é reduzida ao longo do tempo.
 3. Clique em torno do gráfico para obter mais detalhes.
    
@@ -209,7 +203,7 @@ Aplicar estas definições, eventualmente, faz com que o arquivo de consultas re
 ## <a name="summary"></a>Resumo
 Desempenho das consultas ajuda-o a compreender o impacto da sua carga de trabalho de consulta e como se relaciona com consumo de recursos de base de dados. Com esta funcionalidade, irá saber mais sobre as melhores consultas de consumo e identificar facilmente aqueles para corrigir antes de ficarem um problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter recomendações adicionais sobre como melhorar o desempenho da base de dados SQL, clique em [recomendações](sql-database-advisor.md) no **Query Performance Insight** painel.
 
 ![Advisor de desempenho](./media/sql-database-query-performance/ia.png)

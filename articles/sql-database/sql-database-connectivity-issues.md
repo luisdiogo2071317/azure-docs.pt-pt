@@ -3,24 +3,18 @@ title: "Corrija um erro de ligação de SQL, erro transitório | Microsoft Docs"
 description: "Saiba como resolver problemas, diagnosticar e prevenir um erro de ligação do SQL Server ou um erro transitório na SQL Database do Azure."
 keywords: "ligação SQL, cadeia de ligação, problemas de conectividade, erro transitório, erro de ligação"
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: 7d393cd08ef5c20ef680e4e1ab3aded191abe932
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f6b5f825d7f8111075fe37b5dc29d174928d913e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Resolver problemas, diagnosticar e prevenir erros de ligação e erros transitórios do SQL para a Base de Dados SQL
 Este artigo descreve como impedir, resolver problemas, diagnosticar e atenuar os erros de ligação e erros transitórios que a aplicação cliente encontra quando interage com a SQL Database do Azure. Saiba como configurar a lógica de repetição, criar a cadeia de ligação e ajustar as outras definições de ligação.
@@ -131,7 +125,7 @@ Quando criar o [cadeia de ligação](http://msdn.microsoft.com/library/System.Da
 
 Especificamente, os valores que escolheu devem certificar-true de igualdade seguintes:
 
-Tempo limite da ligação = ConnectRetryCount * ConnectionRetryInterval
+Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
 Por exemplo, se a contagem de é igual a 3 e o intervalo de é igual a 10 segundos, um tempo limite de apenas 29 segundos não dar ao sistema tempo suficiente para a repetição de terceiro e final ligar: 29 < 3 * 10.
 
@@ -327,7 +321,7 @@ No espaço de nomes **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandli
   
   * **ExecuteAction** método
 * **ExponentialBackoff** classe
-* **SqlDatabaseTransientErrorDetectionStrategy** classe
+* **SqlDatabaseTransientErrorDetectionStrategy** class
 * **ReliableSqlConnection** classe
   
   * **ExecuteCommand** método
@@ -427,7 +421,7 @@ public bool IsTransient(Exception ex)
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações sobre como resolver outros problemas de ligação de base de dados SQL comuns, consulte [resolver problemas de ligação à SQL Database do Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Bibliotecas de ligação para base de dados SQL e SQL Server](sql-database-libraries.md)
 * [Ligação do SQL Server agrupamento (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)

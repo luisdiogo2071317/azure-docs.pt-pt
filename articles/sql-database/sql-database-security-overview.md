@@ -2,25 +2,19 @@
 title: "Descrição Geral da Segurança da Base de Dados SQL do Azure | Microsoft Docs"
 description: "Saiba mais sobre a segurança da base de dados do Azure SQL e SQL Server, incluindo as diferenças entre a nuvem e o SQL Server no local."
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: 
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Proteger a sua Base de Dados SQL
 
@@ -62,7 +56,6 @@ Para ajudar a proteger os seus dados, as firewalls impedem todo o acesso ao seu 
 
 ### <a name="authentication"></a>Autenticação
 A autenticação da Base de Dados SQL diz respeito à forma como o utilizador prova a sua identidade quando se liga à base de dados. A Base de Dados SQL suporta dois tipos de autenticação:
-
 * **Autenticação SQL**, que utiliza um nome de utilizador e palavra-passe. Quando criou o servidor lógico para a sua base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Com estas credenciais, pode autenticar-se em qualquer base de dados nesse servidor como o proprietário da base de dados ou "dbo". 
 * **Autenticação do Azure Active Directory**, que utiliza identidades geridas pelo Azure Active Directory e é suportada para domínios geridos e integrados. Utilize a autenticação do Active Directory (segurança integrada) [sempre que possível](https://msdn.microsoft.com/library/ms144284.aspx). Se pretender utilizar a autenticação do Azure Active Directory, tem de criar outro administrador de servidor, denominado "Administrador do Azure AD", que tem permissão para administrar utilizadores e grupos do Azure AD. Este administrador também pode fazer todas as operações que um administrador de servidor normal faz. Veja [Connecting to SQL Database By Using Azure Active Directory Authentication (Utilizar a Autenticação do Azure Active Directory para Ligar à Base de Dados SQL)](sql-database-aad-authentication.md) para obter instruções sobre como criar um administrador do Azure AD e ativar a Autenticação do Azure Active Directory.
 
@@ -86,6 +79,21 @@ A deteção de ameaças complementa a auditoria, fornecendo uma camada adicional
  
 ## <a name="compliance"></a>Conformidade
 Além das funcionalidades e funcionalidade que pode ajudar a sua aplicação cumpre os requisitos de segurança de vários, SQL Database do Azure também acima participa numa auditorias regulares e certificou contra um número de normas de conformidade. Para obter mais informações, veja o [Centro de Fidedignidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde pode encontrar a lista mais recente de [certificações de conformidade da Base de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
+
+
+## <a name="security-management"></a>Gestão de segurança
+
+Base de dados SQL ajuda-o a gerir a segurança dos dados ao fornecer análises de base de dados e um dashboard de segurança centralizada utilizar [avaliação da vulnerabilidade SQL](sql-vulnerability-assessment.md).
+
+**Avaliação da vulnerabilidade**: [avaliação da vulnerabilidade SQL](sql-vulnerability-assessment.md) (atualmente em pré-visualização) é uma fácil de configurar a ferramenta incorporada no Azure SQL da base de dados que podem ajudar a detetar, controlar e remediar potencial da base de dados vulnerabilidades. A avaliação executa uma análise de vulnerabilidade na base de dados e gera um relatório que dá-lhe visibilidade para o estado de segurança, incluindo os passos acionáveis para resolver problemas de segurança e para melhorar a segurança da base de dados. O relatório de avaliação pode ser personalizado para o seu ambiente, definindo uma linha de base aceitável para configurações de permissão, configurações de funcionalidades e definições de base de dados. Isto pode ajudá-lo a:
+
+- Cumpre os requisitos de conformidade que exigem a relatórios de análise da base de dados. 
+
+- Cumprir as normas de privacidade de dados. 
+
+- Monitorize um ambiente de base de dados dinâmico onde são difíceis de controlar as alterações.
+
+Para obter mais informações, consulte [avaliação da vulnerabilidade SQL](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

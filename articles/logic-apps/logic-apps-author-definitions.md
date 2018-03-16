@@ -1,42 +1,63 @@
 ---
-title: "Criar definições da aplicação lógica com JSON - Azure Logic Apps | Microsoft Docs"
-description: "Adicionar parâmetros, processar cadeias, criar os mapas de parâmetro e obter dados com as funções de data"
+title: "Criar, editar ou expandir JSON para a lógica de definições da aplicação - Azure Logic Apps | Microsoft Docs"
+description: "Criar e personalizar definições da aplicação lógica no JSON"
 author: ecfan
-manager: anneta
+manager: SyntaxC4
 editor: 
 services: logic-apps
 documentationcenter: 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>A definição da aplicação lógica com o JSON de compilação
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Criar, editar ou personalizar JSON para definições da aplicação lógica
 
-Para efetuar mais avançadas de tarefas com [Azure Logic Apps](../logic-apps/logic-apps-overview.md), pode utilizar a vista de código para editar a definição da aplicação lógica, que utiliza o idioma JSON simple e declarativo. Se ainda não o fez, consulte primeiro [como criar a sua primeira aplicação de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Além disso, consulte o [completa de referência para o idioma de definição de fluxo de trabalho](http://aka.ms/logicappsdocs).
+Quando criar enterprise soluções de integração com a atribuição de fluxos de trabalho no [Azure Logic Apps](../logic-apps/logic-apps-overview.md), as definições de aplicação lógica subjacente utilizam simples e declarativo JavaScript Object Notation (JSON) juntamente com o [ Esquema de linguagem de definição (WDL) de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md) para a respetiva descrição e a validação. Estes formatos de facilitar a lógica de definições da aplicação para Leia e compreenda sem saber muito sobre código. Quando pretende automatizar criar e implementar as logic apps, pode incluir definições da aplicação lógica como [recursos do Azure](../azure-resource-manager/resource-group-overview.md) dentro [modelos Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Para criar, gerir e implementar as logic apps, em seguida, pode utilizar [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md), ou o [APIs REST do Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+
+Para trabalhar com definições de aplicação lógica em JSON, abra o editor de código vista quando trabalhar no portal do Azure ou no Visual Studio ou copiar a definição para qualquer editor de que pretende. Se estiver familiarizado com as logic apps, reveja [como criar a sua primeira aplicação de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Algumas funcionalidades do Azure Logic Apps, como parâmetros, estão disponíveis apenas quando trabalha na vista de código para a definição da sua aplicação lógica. Os parâmetros permitem-lhe reutilizar os valores em toda a sua aplicação lógica. Por exemplo, se pretender utilizar o mesmo endereço de e-mail em várias ações, defina esse endereço de e-mail como um parâmetro.
+> Algumas capacidades do Azure Logic Apps, tais como definir os parâmetros e múltiplos acionadores nas definições da aplicação lógica, estão disponíveis apenas em JSON, não o Designer de aplicações lógicas. Por isso, para estas tarefas, tem de trabalhar numa vista de código ou outro editor.
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Ver e editar a lógica definição da aplicação no JSON
+## <a name="edit-json---azure-portal"></a>Editar JSON - portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure").
+1. Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
 
-2. No menu à esquerda, escolha **mais serviços**. Em **Integração Empresarial**, escolha **Aplicações Lógicas**. Selecione a sua aplicação lógica.
+2. No menu à esquerda, escolha **todos os serviços**. Na caixa de pesquisa, localize "logic apps" e, em seguida, na lista de resultados, selecione a aplicação lógica.
 
-3. Partir do menu aplicação lógica, sob **ferramentas de desenvolvimento**, escolha **vista de código de aplicação lógica**.
+3. No menu da sua aplicação lógica, sob **ferramentas de desenvolvimento**, selecione **vista de código de aplicação lógica**.
 
-   A janela de vista de código abre-se e mostra a definição da aplicação lógica.
+   O editor de vista de código abre-se e mostra a definição da aplicação lógica no formato JSON.
+
+## <a name="edit-json---visual-studio"></a>Editar JSON - Visual Studio
+
+Antes de pode trabalhar na sua definição de aplicação lógica no Visual Studio, certifique-se de que já [instalado as ferramentas necessárias](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Para criar uma aplicação lógica com o Visual Studio, consulte [início rápido: automatizar tarefas e processos com Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+No Visual Studio, pode abrir as logic apps que foram criadas e implementados a diretamente do portal do Azure ou como projetos do Azure Resource Manager a partir do Visual Studio.
+
+1. Abra a solução do Visual Studio, ou [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) projeto, que contém a sua aplicação lógica.
+
+2. Localize e abra a definição da sua aplicação lógica, que, por predefinição, é apresentado num [modelo do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), denominado **LogicApp.json**. Pode utilizar e personalizar este modelo para implementação em ambientes diferentes.
+
+3. Abra o menu de atalho para a definição da aplicação lógica e os modelos. Selecione **aberta com o Designer de aplicação lógica**.
+
+   ![Aplicação de lógica de abrir numa solução Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. Na parte inferior do designer, escolha **vista de código**. 
+
+   O editor de vista de código abre-se e mostra a definição da aplicação lógica no formato JSON.
+
+5. Para regressar à vista designer, na parte inferior do editor de vista de código, escolha **Design**.
 
 ## <a name="parameters"></a>Parâmetros
 

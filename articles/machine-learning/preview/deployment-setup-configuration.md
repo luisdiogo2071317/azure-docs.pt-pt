@@ -2,19 +2,19 @@
 title: "A configuração de gestão de modelo do Azure Machine Learning e configuração | Microsoft Docs"
 description: "Este documento descreve os conceitos e os passos envolvidos na configuração e como configurar a gestão de modelo do Azure Machine Learning."
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: AashishB
+ms.author: AashishB
 manager: hjerez
-ms.reviewer: jmartens,jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: 4e2ac548ee08f1a20cf2c1744242ee13535e55cc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c3efc7373e8825115af9b08f3f46e55e8490758a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -37,7 +37,7 @@ Em todos os outros sistemas, terá de instalar os CLIs.
 
 ### <a name="installing-or-updating-on-windows"></a>Instalar (ou atualizar) no Windows
 
-Instale o Python https://www.python.org/. Certifique-se de que selecionou para instalar o pip.
+Instalar o Python de https://www.python.org/. Certifique-se de que selecionou para instalar o pip.
 
 Abra uma linha de comandos utilizando executar como administrador e execute os seguintes comandos:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -38,6 +38,7 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | Conflito | Está a pedir uma operação que não é permitida no estado atual do recurso. Por exemplo, redimensionamento de disco é permitido apenas quando criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde pela implementação simultânea para este grupo de recursos para concluir. | |
 | DeploymentFailed | O erro de DeploymentFailed é um erro geral que não fornece os detalhes que tem de resolver o erro. Consulte os detalhes do erro para um código de erro que fornece mais informações. | [Localizar o código de erro](#find-error-code) |
+| DeploymentQuotaExceeded | Se atingir o limite de 800 implementações por grupo de recursos, elimine as implementações de histórico que já não são necessárias. Pode eliminar as entradas do histórico com [eliminar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_delete) para a CLI do Azure, ou [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) no PowerShell. Eliminar uma entrada do histórico de implementação não afeta os recursos de implementar. | |
 | DnsRecordInUse | O nome do registo DNS tem de ser exclusivo. Fornecer um nome diferente ou modifique o registo existente. | |
 | ImageNotFound | Verifique as definições de imagem VM. |  |
 | InUseSubnetCannotBeDeleted | Pode encontrar este erro quando tentar atualizar um recurso, mas o processamento do pedido por eliminar e criar o recurso. Certifique-se especificar todos os valores não alterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | InvalidResourceNamespace | Verificar o espaço de nomes de recurso especificado no **tipo** propriedade. | [Referência de modelo](/azure/templates/) |
 | InvalidResourceReference | O recurso ainda não existe ou está incorretamente referenciado. Verifique se tem de adicionar uma dependência. Certifique-se de que a utilização de **referência** função inclui os parâmetros necessários para o seu cenário. | [Resolver dependências do](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Verifique o recurso de tipo que especificou no **tipo** propriedade. | [Referência de modelo](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Registe a sua subscrição com o fornecedor de recursos. | [Resolver o registo](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Verifique a sintaxe do modelo de erros. | [Resolver modelo inválido](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Verifique se a sua conta pertencer ao mesmo inquilino como o grupo de recursos que está a implementar. | |
 | LinkedInvalidPropertyId | O ID de recurso para um recurso não está a resolver corretamente. Certifique-se de que forneça valores todos requeridos para o ID de recurso, incluindo o ID de subscrição, nome do grupo de recursos, tipo de recurso, nome de recurso principal (se necessário) e nome do recurso. | |
 | LocationRequired | Forneça uma localização para o seu recurso. | [Definir localização](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | Certifique-se de que aninhada recurso tem o número correto de segmentos de nome e tipo. | [Resolva os segmentos de recursos](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Verifique o estado de registo do fornecedor de recursos e localizações suportadas. | [Resolver o registo](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registe a sua subscrição com o fornecedor de recursos. | [Resolver o registo](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Verifique o estado de registo do fornecedor de recursos. | [Resolver o registo](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | StorageAccountAlreadyTaken | Forneça um nome exclusivo para a conta de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Verifique a subscrição, o grupo de recursos e o nome da conta de armazenamento que está a tentar utilizar. | |
 | SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Quando implementar vários NICs, certifique-se de que pertencem à mesma rede virtual. | [Vários NICs](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implementação. | [Implementação entre grupos de recursos](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>Localizar o código de erro
 

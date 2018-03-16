@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Aumentar a sua empresa utilizando o Azure Marketplace
 
@@ -129,7 +129,8 @@ Para maximizar o impacto destas atividades, Aconselhamo-lo com o seu plano de in
 >[!NOTE]
 >Um catálogo de parceiros comerciais (catálogo OCP) é uma vantagem da adesão ao Microsoft Partner Network. 
 
-![Vantagens GTM do Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Vantagens GTM do Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Para obter suporte, visite [aceda ao mercado Microsoft](https://www.microsoftgotomarket.com). Aqui, pode encontrar modelos, conteúdo web, formação e ferramentas para promover a sua empresa.
 

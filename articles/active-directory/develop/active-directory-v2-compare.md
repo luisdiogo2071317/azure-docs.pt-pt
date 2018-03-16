@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>O que é diferente sobre o ponto final v 2.0?
 Se estiver familiarizado com o Azure Active Directory ou ter integrado a aplicações com o Azure AD no passado, poderão existir algumas diferenças no ponto final v 2.0 não esperados.  Este documento chama dessas diferenças pela sua compreensão.
@@ -56,7 +56,7 @@ Nosso objetivo é isto irá originar uma experiência de desenvolvimento e gest�
 ## <a name="scopes-not-resources"></a>Âmbitos de recursos não
 No Azure Active Directory, uma aplicação pode ter um comportamento como um **recursos**, ou um destinatário de tokens.  Um recurso pode definir um número de **âmbitos** ou **oAuth2Permissions** que compreende, permitindo aplicações pedir tokens para esse recurso para um determinado conjunto de âmbitos de cliente.  Considere a AD Graph API do Azure como um exemplo de um recurso:
 
-* Identificador de recurso, ou `AppID URI`:`https://graph.windows.net/`
+* Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
 * Âmbitos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
 
 Tudo isto se aplica para o ponto final v 2.0.  Uma aplicação ainda pode ter um comportamento como recurso, definir âmbitos e ser identificado por um URI.  Aplicações de cliente ainda podem pedir acesso a esses âmbitos.  No entanto, foi alterada a forma no qual um cliente solicita essas permissões.  No passado, autorizar um OAuth 2.0 pedido para o Azure AD poderão ter comparados como:

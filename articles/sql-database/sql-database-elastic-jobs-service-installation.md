@@ -2,24 +2,18 @@
 title: "Instalar as tarefas de bases de dados elásticas | Microsoft Docs"
 description: "Percorrer a instalação da funcionalidade tarefa elástico."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Descrição geral de tarefas de bases de dados elásticas instalar
 [**As tarefas de base de dados elásticas** ](sql-database-elastic-jobs-overview.md) podem ser instalados através do PowerShell ou através do portal do Azure. Pode obter acesso ao criar e gerir tarefas utilizando a API de PowerShell apenas se instalar o pacote do PowerShell. Além disso, as APIs do PowerShell proporcionar significativamente mais funcionalidade que o portal, neste ponto no tempo.
@@ -68,7 +62,7 @@ Os parâmetros fornecidos nesta invocação de exemplo podem ser modificados par
   </tr>
 
 <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Fornece o nome do grupo de recursos do Azure criado para conter os componentes do Azure criados recentemente. Este parâmetro assume como "__ElasticDatabaseJob". Não se recomenda alterar este valor.</td>
     </tr>
 
@@ -129,7 +123,7 @@ Para atualizar o tamanho da VM de uma instalação, execute o seguinte script co
 </tr>
 
   <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Identifica o nome do grupo de recursos do Azure utilizado quando os componentes de tarefa de base de dados elástica inicialmente foram instalados. Este parâmetro assume como "__ElasticDatabaseJob". Uma vez que não se recomenda alterar este valor, não deve tem de especificar este parâmetro.</td>
     </tr>
 </tr>
@@ -173,7 +167,7 @@ Assim que tiver [criado um conjunto elástico](sql-database-elastic-pool-manage-
 
 Se for necessário desinstalar, elimine o grupo de recursos. Consulte [como desinstalar os componentes de tarefa da base de dados elástica](sql-database-elastic-jobs-uninstall.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Certifique-se de uma credencial com os direitos adequados para a execução do script é criada em cada base de dados no grupo, para obter mais informações, consulte [proteger a sua base de dados do SQL Server](sql-database-manage-logins.md).
 Consulte [criar e gerir tarefas de uma base de dados elástica](sql-database-elastic-jobs-create-and-manage.md) para começar a utilizar.
 

@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização pública)
 Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir token durações para todas as aplicações na sua organização, para uma aplicação de (multi organização) de multi-inquilino ou para um principal de serviço específicos na sua organização.
@@ -276,7 +276,7 @@ Neste exemplo, criar uma política que requer que os utilizadores autentiquem co
 
 2.  Atribua a política para o principal de serviço. Também tem de obter o **ObjectId** do seu principal de serviço. 
 
-    1.  Para ver os principais de serviço da sua organização, pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [Explorador do Azure AD Graph](https://graphexplorer.cloudapp.net/), inicie sessão na sua conta do Azure AD.
+    1.  Para ver os principais de serviço da sua organização, pode consultar o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, pode testar o resultado no [Explorador do Azure AD Graph](https://graphexplorer.cloudapp.net/)e o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) utilizando a sua conta do Azure AD.
 
     2.  Se tiver o **ObjectId** do seu principal de serviço, execute o seguinte comando:
 
@@ -332,7 +332,7 @@ Neste exemplo, criar algumas políticas, para saber como funciona o sistema de p
 
     Agora, tem uma política que se aplica a toda a organização. Pode querer manter esta política de 30 dias para um principal de serviço específica, mas a alterar a política predefinida de organização para o limite superior de "até-revogado."
 
-    1.  Para ver os principais de serviço da sua organização, pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, no [Explorador do Azure AD Graph](https://graphexplorer.cloudapp.net/), inicie sessão com a sua conta do Azure AD.
+    1.  Para ver os principais de serviço da sua organização, pode consultar o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, pode testar o resultado no [Explorador do Azure AD Graph](https://graphexplorer.cloudapp.net/)e o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) utilizando a sua conta do Azure AD.
 
     2.  Se tiver o **ObjectId** do seu principal de serviço, execute o seguinte comando:
 

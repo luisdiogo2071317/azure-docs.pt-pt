@@ -2,24 +2,18 @@
 title: "Contadores de desempenho do gestor de mapas de partições horizontais"
 description: ShardMapManager classe e dados dependentes encaminhamento contadores de desempenho
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
-ms.openlocfilehash: 4a7a2e0b4f2be852c61fc3ccdd4dea2034b80918
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 11f19348e91f11d73d885f5d9bb70245c709fab9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contadores de desempenho do gestor de mapas de partições horizontais
 Pode capturar o desempenho de um [Gestor de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md), especialmente quando utilizar [dados dependentes encaminhamento](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos da classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -61,8 +55,8 @@ Os contadores de desempenho serão atualizados por todas as operações de cache
 * Criação de categoria de desempenho e contadores deve ser efetuada apenas uma vez antes da criação do objeto de ShardMapManager. Cada execução do comando CreatePerformanceCategoryAndCounters() limpa os contadores anteriores (perda de dados comunicados por todas as instâncias) e cria novas.  
 * Instâncias do contador de desempenho são criadas por processo. Quaisquer falhas de aplicação ou a remoção de um mapa de partições horizontais da cache resultará na eliminação das instâncias de contadores de desempenho.  
 
-### <a name="see-also"></a>Consultar também
-[Descrição geral de funcionalidades de base de dados elástica](sql-database-elastic-scale-introduction.md)  
+### <a name="see-also"></a>Consulte também
+[Descrição geral das funcionalidades da Base de Dados Elástica](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

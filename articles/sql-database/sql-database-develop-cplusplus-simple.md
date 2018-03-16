@@ -2,24 +2,19 @@
 title: "Ligar à base de dados SQL com C e C++ | Microsoft Docs"
 description: "Utilize o código de exemplo neste início rápido para criar uma moderna aplicação com C++ e de segurança por poderosa base de dados relacional na nuvem com o SQL Database do Azure."
 services: sql-database
-documentationcenter: 
 author: edmacauley
-manager: jhubbard
-editor: 
-ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: edmacauley
-ms.openlocfilehash: 7c78f90c14c1915c760720948d6d7ae99ceb6f1d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 659b413b2686a50a0681e7307b51188e6e6d0859
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ligar à base de dados SQL com C e C++
 Esta mensagem é diversificada C e C++ programadores tentar ligar-se a BD SQL do Azure. Este é dividido em secções pelo que pode ir para a secção que capture melhor o seu interesse. 
@@ -127,7 +122,7 @@ Pode encontrar a solução GetStarted que contém todos os exemplos neste artigo
 * [Exemplo de ODBC C++ Windows](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29), transferir o exemplo de ODBC do Windows C++ para ligar ao SQL do Azure
 * [Exemplo de ODBC C++ Linux](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29), transferir o exemplo de ODBC do Linux C++ para ligar ao SQL do Azure
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Reveja o [descrição geral do desenvolvimento de base de dados SQL](sql-database-develop-overview.md)
 * Obter mais informações sobre o [referência da API de ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais do certificado para autenticação de aplicação
 
@@ -32,7 +32,7 @@ Para calcular a asserção, provavelmente pretende utilizar um dos muitos [JSON 
 #### <a name="header"></a>Cabeçalho
 
 | Parâmetro |  Remark |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Deve ser **RS256** |
 | `typ` | Deve ser **JWT** |
 | `x5t` | Deve ser o thumbprint do certificado de x. 509 SHA-1 |
@@ -40,8 +40,8 @@ Para calcular a asserção, provavelmente pretende utilizar um dos muitos [JSON 
 #### <a name="claims-payload"></a>Afirmações (Payload)
 
 | Parâmetro |  Remark |
-| --- | --- | --- |
-| `aud` | : Público-alvo **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token** |
+| --- | --- |
+| `aud` | : Público-alvo  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token** |
 | `exp` | Data de expiração: a data em que o token expira. A hora é representada como o número de segundos de 1 de Janeiro de 1970 (1970-01-01T0:0:0Z) UTC até que a hora a validade do token expira.|
 | `iss` | Emissor: deve ser o client_id (Id de aplicação do serviço de cliente) |
 | `jti` | GUID: o ID de JWT |
@@ -49,9 +49,11 @@ Para calcular a asserção, provavelmente pretende utilizar um dos muitos [JSON 
 | `sub` | Requerente: como para `iss`, deve ser o client_id (Id de aplicação do serviço de cliente) |
 
 #### <a name="signature"></a>Assinatura
+
 A assinatura é calculada ao aplicar o certificado, conforme descrito no [especificação de JSON Web Token RFC7519](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Exemplo de uma asserção JWT descodificado
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ A assinatura é calculada ao aplicar o certificado, conforme descrito no [especi
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Exemplo de uma asserção JWT codificado
+
 A cadeia seguinte é um exemplo de asserção codificado. Se procurar cuidadosamente, repare três secções separadas por pontos (.).
 A primeira secção codifica o cabeçalho, o segundo o payload e do último é a assinatura calculada com os certificados do conteúdo das duas primeiras secções.
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registar o certificado com o Azure AD
+
 Para associar a credencial de certificado com a aplicação de cliente no Azure AD, terá de editar o manifesto da aplicação.
 Ter espera de um certificado, terá de computação:
+
 - `$base64Thumbprint`, que é o base64 codificação do Hash de certificado
 - `$base64Value`, que é o base64 codificação de dados brutos do certificado
 
-terá também de fornecer um GUID para identificar a chave no manifesto da aplicação (`$keyId`)
+Terá também de fornecer um GUID para identificar a chave no manifesto da aplicação (`$keyId`).
 
 No registo de aplicações do Azure para a aplicação de cliente, abra o manifesto da aplicação e substitua o *keyCredentials* propriedade com as novas informações de certificado utilizando o esquema seguinte:
+
 ```
 "keyCredentials": [
     {

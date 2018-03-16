@@ -1,11 +1,26 @@
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 03/16/2018
+---
 A família VM de série B permite-lhe escolher o tamanho da VM que fornece-lhe o desempenho de nível de base necessário para a carga de trabalho, a capacidade de impulsar desempenho da CPU de até 100% de um v4 Intel® Broadwell E5-2673 2.3 GHz ou um processador de v3 Intel® Haswell 2.4 GHz E5-2673 vCPU.
 
 As VMs de série B são ideais para cargas de trabalho que não tem o desempenho total da CPU continuamente, como servidores web, desenvolvimento de bases de dados pequenas e ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece-lhe a possibilidade de comprar um tamanho VM com o desempenho da linha de base e a instância VM cria créditos quando está a utilizar menor do que a linha de base. Quando a VM terem sido acumulados crédito, a VM pode impulsar acima a linha de base com até 100% do vCPU, quando a aplicação requer um desempenho superior da CPU.
 
 A série B é apresentada nos tamanhos VM de seis seguintes:
 
-| Tamanho          | do vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Base de CPU de desempenho da VM | Desempenho de CPU máx. de VM | Créditos Banked / hora | Os créditos de Banked máx. |
+| Tamanho          | vCPU's | Memória: GiB | Armazenamento (SSD) temporário GiB | Base de CPU de desempenho da VM | Desempenho de CPU máx. de VM | Créditos Banked / hora | Os créditos de Banked máx. |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
@@ -20,11 +35,11 @@ A série B é apresentada nos tamanhos VM de seis seguintes:
 ## <a name="q--a"></a>P&R 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: como é obter o desempenho da linha de base de 135% de uma VM?
-**A**: 135% é partilhado entre a 8 vCPU que compõem o tamanho da VM. Por exemplo, se 4 os 8 núcleos de trabalhar no processamento em lote tira partido da sua aplicação e cada um desses 4 vCPU são executadas em 30% de utilização a quantidade total de desempenho de VM CPU seria igual a % de 120.  O que significa que a VM iria criar tempo de crédito com base no delta de 15% do desempenho da sua linha de base.  Mas também significa que se tiver disponíveis que mesma VM pode utilizar a 100% de vCPU 8 todos os créditos da fornecer essa VM de desempenho de CPU máx. de 800%.
+**A**: 135% é partilhado entre a 8 vCPU que compõem o tamanho da VM. Por exemplo, se a sua aplicação utiliza 4 os 8 núcleos de trabalhar no processamento em lote e cada um desses 4 vCPU são executadas em 30% de utilização a quantidade total de desempenho de VM CPU seria igual a % de 120.  O que significa que a VM iria criar tempo de crédito com base no delta de 15% do desempenho da sua linha de base.  Mas também significa que se tiver disponíveis que mesma VM pode utilizar a 100% de vCPU 8 todos os créditos da fornecer essa VM de desempenho de CPU máx. de 800%.
 
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: como posso monitorizar as minhas saldo do crédito e consumo
-**A**: podemos irá introduzir 2 nova métrica nas próximas semanas, o **crédito** métrica irá permitir-lhe ver quantas créditos a VM tem banked e o **ConsumedCredit** métrica mostra quantos Créditos de CPU VM consumiu do banco.    Poderá ver estas métricas no painel de métricas no portal ou de forma programática através das APIs do Monitor do Azure.
+**A**: podemos irá introduzir 2 nova métrica nas próximas semanas, o **crédito** métrica irá permitir-lhe ver quantas créditos a VM tem banked e o **ConsumedCredit** métrica mostrará a quantidade de CPU a VM consumiu créditos do banco.    Poderá ver estas métricas no painel de métricas no portal ou de forma programática através das APIs do Monitor do Azure.
 
 Para obter mais informações sobre como aceder aos dados de métricas para o Azure, consulte [descrição geral das métricas no Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 

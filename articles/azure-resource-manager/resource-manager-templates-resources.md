@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Secção de recursos de modelos Azure Resource Manager
 
@@ -213,7 +213,7 @@ Se precisar que codifique os a localização no seu modelo, forneça o nome de u
 ```
 
 ## <a name="tags"></a>Etiquetas
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="add-tags-to-your-template"></a>Adicionar etiquetas ao seu modelo
 
@@ -242,9 +242,9 @@ Dentro de alguns tipos de recursos, também pode definir uma matriz de recursos 
 
 Quando aninhados, o tipo está definido como `databases` , mas o respetivo tipo de recurso completo é `Microsoft.Sql/servers/databases`. Não fornecem `Microsoft.Sql/servers/` porque é suposto o principal do tipo de recurso. O nome do recurso subordinado está definido como `exampledatabase` , mas o nome completo inclui o nome do principal. Não fornecem `exampleserver` porque é suposto do recurso principal.
 
-O formato do tipo de recurso subordinado é:`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+O formato do tipo de recurso subordinado é: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-O formato do nome de recurso subordinado é:`{parent-resource-name}/{child-resource-name}`
+O formato do nome de recurso subordinado é: `{parent-resource-name}/{child-resource-name}`
 
 No entanto, não terá de definir a base de dados no servidor. Pode definir os recursos subordinados no nível superior. Poderá utilizar esta abordagem se o recurso principal não está implementado no mesmo modelo ou se pretende utilizar `copy` criar subordinados vários recursos. Com esta abordagem, tem de fornecer o tipo de recurso completo e incluir o nome do recurso principal no nome de recurso do subordinado.
 
@@ -273,7 +273,7 @@ Ao construir uma referência a um recurso completamente qualificada, a ordem com
 
 Por exemplo:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
 
 ## <a name="recommendations"></a>Recomendações
 As seguintes informações podem ser úteis quando trabalhar com recursos:
@@ -388,7 +388,7 @@ As seguintes informações podem ser úteis quando trabalhar com recursos:
    > 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).

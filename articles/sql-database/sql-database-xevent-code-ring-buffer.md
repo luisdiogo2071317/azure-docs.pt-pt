@@ -2,25 +2,18 @@
 title: "Código de memória intermédia de anel de XEvent para a base de dados SQL | Microsoft Docs"
 description: "Fornece um exemplo de código de Transact-SQL que foi criado, fácil e rápido pela utilização de destino de memória intermédia de anel, na SQL Database do Azure."
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: 61251eb9b125209ffd15adafdb0bace495e7cadd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f553933d5a1435a96421939af8522daf53db1ff3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Anel código de destino de memória intermédia de eventos expandidos na base de dados SQL
 

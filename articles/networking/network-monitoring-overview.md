@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
 
@@ -82,6 +82,36 @@ Para obter mais informações, veja os artigos seguintes:
 
 * [Configurar o Monitor de desempenho de rede para a monitorização de pontos finais de serviço](https://aka.ms/applicationconnectivitymonitorguide)
 * [mensagem de blogue](https://aka.ms/svcendptmonitor)
+
+## <a name="traffic-analytics"></a>Análise de Tráfego
+Análise de tráfego é uma solução baseada na nuvem que fornece visibilidade para a atividade de utilizador e da aplicação nas redes em nuvem. Fluxo de NSG registos serem analisados para fornecer informações sobre:
+
+* O tráfego que flui entre as redes entre o Azure e Internet, regiões de nuvem pública, VNETs e sub-redes
+* As aplicações e os protocolos na sua rede, sem a necessidade de sniffers ou aparelhos de recoletor de fluxo dedicado
+* Talkers superiores, aplicações chatty, conversações de VM na nuvem, hotspots de tráfego
+* As origens e destinos de tráfego entre as VNETs, entre as relações entre aplicações e serviços críticos de negócio
+* Segurança – tráfego malicioso, portas abertas para a Internet, aplicações ou VMs tentativa de acesso à Internet...
+
+Análise de tráfego equips-lhe informações acionáveis, que ajuda a auditoria da sua organização atividade de rede, proteger aplicações e dados, otimizar o desempenho da carga de trabalho e a manter em conformidade.
+
+![Tráfego de apresentação do mapa Georreplicação em regiões](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+Ligações relacionadas:
+* [Mensagem de blogue](https://aka.ms/trafficanalytics), [documentação](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>Análise de DNS
+Incorporado para os administradores de DNS, esta solução recolhe, analisa e está correlacionada com registos DNS para fornecer segurança, desempenho e operações relacionadas com insights.  Algumas das capacidades são:
+
+* Identificação de clientes que tentam resolver a domínios maliciosos
+* Identificação dos registos de recursos obsoletos
+* Visibilidade frequentemente consultado nomes de domínio e talkative clientes DNS
+* Visibilidade para o pedido de carga nos servidores DNS
+* Monitorização de falhas de registo DNS dinâmicas
+
+![Dashboard de análise DNS](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Ligações relacionadas:
+* [Mensagem de blogue](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentação](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

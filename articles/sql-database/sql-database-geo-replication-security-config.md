@@ -2,24 +2,18 @@
 title: "Configurar a segurança de SQL Database do Azure para recuperação após desastre | Microsoft Docs"
 description: "Saiba as considerações de segurança para configurar e gerir a segurança depois de restaurar uma base de dados ou uma ativação pós-falha para um servidor secundário."
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 10/13/2016
 ms.author: sashan
-ms.openlocfilehash: 5bdcdba4956a12b54559b8accf822a4f41656045
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 758096692c83ae08c8ef2bce8ec67dd9bc6e878d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerir a segurança de SQL Database do Azure para georrestauro ou de ativação pós-falha 
 
@@ -96,7 +90,7 @@ O último passo consiste em Ir para o servidor de destino ou os servidores e ger
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações sobre a gestão de acesso de base de dados e inícios de sessão, consulte [segurança da base de dados SQL: Gerir a segurança da base de dados de início de sessão e acesso](sql-database-manage-logins.md).
 * Para obter mais informações sobre os utilizadores de base de dados contida, consulte [contidos base de dados de utilizadores - tornar a base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 * Para obter informações sobre como utilizar e configurar a replicação geográfica activa, consulte [georreplicação ativa](sql-database-geo-replication-overview.md)

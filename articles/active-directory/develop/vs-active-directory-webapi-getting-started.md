@@ -4,7 +4,7 @@ description: "Como começar a utilizar o Azure Active Directory nos projetos de 
 services: active-directory
 documentationcenter: 
 author: kraigb
-manager: mtillman
+manager: ghogen
 editor: 
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
 ms.service: active-directory
@@ -12,25 +12,30 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 3d510c193ab8c7e65340275017cb2dcd4c76def0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a5953a8ae4ef3fc221c984cc7520422251ef2c82
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>Get iniciado com o Azure Active Directory e os serviços do Visual Studio ligado (end WebApi projetos)
+# <a name="get-started-with-azure-active-directory-webapi-projects"></a>Introdução ao Azure Active Directory (end WebApi projetos)
+
 > [!div class="op_single_selector"]
-> * [Introdução](vs-active-directory-webapi-getting-started.md)
-> * [O que aconteceu](vs-active-directory-webapi-what-happened.md)
-> 
-> 
+> - [Introdução](vs-active-directory-webapi-getting-started.md)
+> - [O que aconteceu](vs-active-directory-webapi-what-happened.md)
+
+Este artigo fornece orientação adicional depois de acrescentar do Active Directory para um projeto de end de ASP.NET WebAPI através de **projeto > Serviços ligados** comando do Visual Studio. Se ainda não adicionou o serviço ao seu projeto, pode fazê-lo em qualquer altura.
+
+Consulte [o que aconteceu ao meu projeto end WebAPI?](vs-active-directory-webapi-what-happened.md) para que as alterações efetuadas ao seu projeto ao adicionar o serviço ligado.
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Exigir autenticação para os controladores de acesso
-Foram adorned todos os controladores no seu projeto com o **autorizar** atributo. Este atributo exige que o utilizador ser autenticado antes de aceder a APIs definido por estes controladores. Para permitir que o controlador ser acedida anonimamente, remova este atributo do controlador de. Se pretender definir as permissões de um nível mais granular, aplique o atributo para cada método de que necessita de autorização em vez de aplicá-la para a classe de controlador.
+
+Foram adorned todos os controladores no seu projeto com o `[Authorize]` atributo. Este atributo exige que o utilizador ser autenticado antes de aceder a APIs definido por estes controladores. Para permitir que o controlador ser acedida anonimamente, remova este atributo do controlador de. Se pretender definir as permissões de um nível mais granular, aplique o atributo para cada método de que necessita de autorização em vez de aplicá-la para a classe de controlador.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Cenários de autenticação do Azure Active Directory](active-directory-authentication-scenarios.md)
+- [Adicionar início de sessão com a Microsoft para uma aplicação web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)

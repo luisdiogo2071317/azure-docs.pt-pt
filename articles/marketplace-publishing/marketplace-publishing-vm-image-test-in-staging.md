@@ -3,8 +3,8 @@ title: Testar a sua oferta VM para o Marketplace | Microsoft Docs
 description: Compreenda como a imagem VM de teste para o Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 7f225f113dd465f79d5d195b59a809fe3be6a1f8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testar a sua oferta VM para o Azure Marketplace em transição
 Transição significa implementar o SKU no privado "sandbox", onde pode testar e validar a sua funcionalidade antes de o implementar no Marketplace. O SKU não aparece na transição faria para um cliente que tenha implementado. A imagem VM tem de ser certificada para ser enviado para o teste.
@@ -47,7 +47,7 @@ Transição significa implementar o SKU no privado "sandbox", onde pode testar e
    * Certifique-se de que marketing conteúdo apresentado corretamente no Marketplace.
    * Implementação de ponto a ponto da imagem de VM.
      
-      ![portal de mapa img](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
+      ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
 > [!IMPORTANT]
 > A oferta irá permanecer na transição até notificar Microsoft através do Portal de publicação [**publicar** separador > clique no botão **"Pedir aprovação para Push para Production"**] que está pronto para emitir para produção. Este é um ideal têm todos os membros da sua equipa de verificação sobre tudo em preparação para a sua oferta vai listadas.
@@ -56,9 +56,9 @@ Transição significa implementar o SKU no privado "sandbox", onde pode testar e
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que a oferta é "teste" e tiver testado as suas funcionalidades e conteúdo de marketing, pode avançar para a fase final de publicação, **passo 4**: [implementar oferta do Marketplace](marketplace-publishing-push-to-production.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 

@@ -3,7 +3,7 @@ title: "Crie parceiros para mensagens de empresa-empresa (B2B) – Azure Logic A
 description: "Saiba como adicionar parceiros à sua conta de integração com o pacote de integração do Enterprise e Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89066ba062c2b243136a03a52144fd99ae87eddc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 17f15c49e0f8137d5f11c57fa600588cda791c28
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Adicionar ou atualizar parceiros nos contratos de empresa-empresa no seu fluxo de trabalho
 

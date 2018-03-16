@@ -2,24 +2,18 @@
 title: "Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho da aplicação SQL Database do Azure"
 description: "O tópico fornece uma prova que operações de base de dados lotes imroves significativamente a velocidade e escalabilidade das suas aplicações de base de dados do Azure SQL. Embora estas técnicas de lotes de trabalho para qualquer base de dados do SQL Server, o foco do artigo é no Azure."
 services: sql-database
-documentationcenter: na
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 Criação de batches de operações para a SQL Database do Azure significativamente melhora o desempenho e a escalabilidade das suas aplicações. Para compreender as vantagens, a primeira parte deste artigo abrange alguns resultados do teste de exemplo que comparam sequenciais e batches pedidos para uma base de dados do SQL Server. O resto do artigo mostra as técnicas, cenários e as considerações para ajudar a utilizar a criação de batches com êxito nas suas aplicações do Azure.
@@ -300,10 +294,10 @@ Consoante a arquitetura, a criação de batches pode envolver uma variação ent
 
 Devido a esta compromisso, avalie o tipo de operações que o batch. Batch de forma mais agressiva (lotes maiores e mais intervalos de tempo) com dados seja menos críticos.
 
-### <a name="batch-size"></a>Tamanho do lote
+### <a name="batch-size"></a>Tamanho do batch
 No nossos testes, normalmente, não havia nenhuma vantagem em lotes grande de última hora para segmentos mais pequenos. Na verdade, muitas vezes, esta subdivision resultou no desempenho mais lento ao submeter um único lote grande. Por exemplo, considere um cenário onde pretende inserir linhas de 1000. A tabela seguinte mostra como tempo que demora a utilizar os parâmetros de valor de tabela para inserir linhas 1000 quando dividido em lotes mais pequenos.
 
-| Tamanho do lote | Iterações | Parâmetros de valor de tabela (ms) |
+| Tamanho do batch | Iterações | Parâmetros de valor de tabela (ms) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |
@@ -617,6 +611,6 @@ A lista seguinte fornece um resumo das recomendações lotes debatidos neste tó
 * Evite a execução paralela de lotes funcionar numa tabela na base de dados de um único. Se optar por dividir um único lote em vários threads de trabalho, execute testes para determinar o número ideal de threads. Depois de um limiar não especificado, mais threads irão diminuir o desempenho em vez de o aumente demasiado.
 * Considere a memória intermédia de tamanho e a hora como uma forma de implementar a criação de batches para cenários mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo concentra-se na forma como programação técnicas relacionadas com a criação de batches e de design de base de dados podem melhorar o desempenho da aplicação e a escalabilidade. Mas este é um fator na sua estratégia geral. Para obter mais formas de melhorar o desempenho e escalabilidade, consulte [orientações de desempenho de SQL Database do Azure para bases de dados individuais](sql-database-performance-guidance.md) e [considerações sobre preço e desempenho de um conjunto elástico](sql-database-elastic-pool-guidance.md).
 

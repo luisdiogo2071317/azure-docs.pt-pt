@@ -8,7 +8,7 @@
 | Servidores de base de dados SQL por subscrição |6 |150 |
 | Servidores DNS por subscrição |9 |100 |
 | IPs reservados por subscrição |20 |100 |
-| Certificados de serviço alojado por subscrição |400 |400 |
+| Certificados de serviço alojado por subscrição |199 |199 |
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por subscrição |256 |256 |
 
 

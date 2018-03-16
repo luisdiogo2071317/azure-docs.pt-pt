@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82aa2942a6a4fe6a3ac1c3ec2c0710e39f4282b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um Windows cluster de computação de alto desempenho (HPC) com o script de implementação do IaaS do HPC Pack
-Execute a script do PowerShell para implementar um cluster HPC Pack 2012 R2 completado para cargas de trabalho do Windows em máquinas virtuais do Azure de implementação do HPC Pack IaaS. O cluster é composta por um nó principal associados ao Active Directory com o Windows Server e o Microsoft HPC Pack e especificar de recursos de computação adicionais do Windows. Se pretender implementar um cluster HPC Pack no Azure para cargas de trabalho do Linux, consulte [criar um cluster Linux HPC com o script de implementação do HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). Também pode utilizar um modelo Azure Resource Manager para implementar um cluster HPC Pack. Para obter exemplos, consulte [criar um cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) e [criar um cluster HPC com uma imagem do nó de computação personalizada](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+Execute a script do PowerShell para implementar um cluster HPC Pack 2012 R2 completado para cargas de trabalho do Windows em máquinas virtuais do Azure de implementação do HPC Pack IaaS. O cluster é composta por um nó principal associados ao Active Directory com o Windows Server e o Microsoft HPC Pack e especificar de recursos de computação adicionais do Windows. Se pretender implementar um cluster HPC Pack no Azure para cargas de trabalho do Linux, consulte [criar um cluster Linux HPC com o script de implementação do HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 
 
 > [!IMPORTANT] 
 > O script do PowerShell descrito neste artigo cria um cluster do Microsoft HPC Pack 2012 R2 no Azure utilizando o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
-> Além disso, o script descrito neste artigo não suporta HPC Pack 2016.
+> Além disso, o script descrito neste artigo não suporta HPC Pack 2016. Para obter informações sobre modelos do Resource Manager HPC Pack 2012 R2 e HPC Pack 2016, consulte o [opções de implementação de cluster HPC Pack no Azure](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -257,9 +257,9 @@ O ficheiro de configuração seguintes implementa um cluster HPC Pack numa flore
 ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-* **Erro "Não existe VNet"** -se que execute o script para implementar vários clusters no Azure em simultâneo com uma subscrição, uma ou mais implementações poderão falhar com o erro "VNet *VNet\_nome* não existe".
+* **Erro "Não existe VNet"** -se que execute o script para implementar vários clusters no Azure em simultâneo com uma subscrição, uma ou mais implementações poderão falhar com o erro "VNet *VNet\_nome* não existe ".
   Se este erro ocorrer, execute o script novamente para a implementação com falhas.
-* **Problema de acesso à Internet a partir da rede virtual do Azure** - se que crie um cluster com um novo controlador de domínio utilizando o script de implementação, ou manualmente promover um nó principal VM ao controlador de domínio, podem ocorrer problemas ligar as VMs para a Internet. Este problema pode ocorrer se um servidor DNS do reencaminhador é automaticamente configurado no controlador de domínio, e este servidor DNS do reencaminhador não resolve corretamente.
+* **Problema de acesso à Internet a partir da rede virtual do Azure** - se que crie um cluster com um novo controlador de domínio utilizando o script de implementação, ou manualmente promover um nó principal VM ao controlador de domínio, podem ocorrer problemas de ligação do VMs para a Internet. Este problema pode ocorrer se um servidor DNS do reencaminhador é automaticamente configurado no controlador de domínio, e este servidor DNS do reencaminhador não resolve corretamente.
   
     Para contornar este problema, inicie sessão no controlador de domínio e remover a definição de configuração de reencaminhador ou configurar um servidor DNS do reencaminhador válido. Para configurar esta definição, no Gestor de servidores, clique em **ferramentas** >
     **DNS** para abrir o Gestor de DNS e, em seguida, faça duplo clique em **reencaminhadores**.
@@ -267,7 +267,7 @@ O ficheiro de configuração seguintes implementa um cluster HPC Pack numa flore
   
     Para contornar este problema, verifique primeiro o estado da extensão nas VMs. Se a extensão não está instalada corretamente, tente remover nós do HPC cluster e, em seguida, adicione novamente os nós. Por exemplo, pode adicionar o nó de computação VMs ao executar o script de adicionar HpcIaaSNode.ps1 no nó principal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Tente executar uma carga de trabalho de teste no cluster. Por exemplo, consulte o HPC Pack [guia de introdução](https://technet.microsoft.com/library/jj884144).
 * Para um tutorial para a implementação do cluster de scripts e executar uma carga de trabalho HPC, consulte [começar com um cluster HPC Pack no Azure para executar cargas de trabalho do Excel e SOA](../../virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Tente ferramentas HPC Pack para iniciar, parar, adicionar e remover nós de computação de um cluster que cria. Consulte [cluster de nós de computação de gerir num pacote HPC no Azure](hpcpack-cluster-node-manage.md).

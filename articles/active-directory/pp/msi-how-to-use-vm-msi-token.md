@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Adquirir um token de acesso para uma VM atribuída utilizador da identidade de serviço geridas (MSI)
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 Este artigo fornece vários exemplos de código e o script para a aquisição do token, bem como orientações tópicos importantes, como o tratamento de expiração do token e erros de HTTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 Se planeia utilizar os Azure PowerShell exemplos neste artigo, não se esqueça de instalar a versão mais recente do [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ Uma aplicação cliente pode pedir um MSI [token de acesso só de aplicação](~
 
 ## <a name="get-a-token-using-http"></a>Obter um token através de HTTP 
 
-A interface fundamental para adquirir um token de acesso é baseada em REST, tornando-o acessível para qualquer aplicação de cliente em execução na VM que pode efetuar chamadas de REST de HTTP. Isto é semelhante para o modelo de programação do Azure AD, exceto o cliente utiliza um ponto final localhost na máquina virtual (vs um Azure ponto final do AD).
+A interface fundamental para adquirir um token de acesso é baseada em REST, tornando-o acessível para qualquer aplicação de cliente em execução na VM que pode efetuar chamadas de REST de HTTP. Isto é semelhante para o modelo de programação do Azure AD, exceto o cliente utiliza um ponto final na máquina virtual (vs um Azure ponto final do AD).
 
-Exemplo de pedido:
+Exemplo de pedido utilizando o ponto final de serviço de metadados da instância (IMDS):
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+Exemplo de pedido utilizando o Endpoint de extensão de VM MSI (preterição futuras):
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, com a indicação de que pretende obter dados do ponto final. Neste caso, um OAuth token de acesso ao. | 
-| `http://localhost:50342/oauth2/token` | O MSI ponto final, onde 50342 é a porta predefinida e é configurável. |
-| `resource` | Um cadeia parâmetro de consulta, que indica que o URI de ID de aplicação do recurso de destino. É também apresentado no `aud` afirmação (público-alvo) do token emitido. Neste exemplo pedidos de um token de acesso do Azure Resource Manager, que tem um URI de ID de aplicação de https://management.azure.com/. |
-| `client_id` | Um cadeia parâmetro de consulta, que indica o ID de cliente (também conhecido como ID de aplicação) do principal de serviço que representa o MSI utilizador atribuído. Este valor é devolvido no `clientId` propriedade durante a criação de um MSI utilizador atribuído. Neste exemplo pedidos um token de ID de cliente "712eac09-e943-418c-9be6-9fd5c91078bl". |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | O ponto final MSI para o serviço de metadados de instância. |
+| `http://localhost:50342/oauth2/token` | O ponto final MSI para a extensão VM, onde 50342 é a porta predefinida e é configurável. |
+| `api-version`  | Um cadeia parâmetro de consulta, que indica a versão da API para o ponto final IMDS.  |
+| `resource` | Um cadeia parâmetro de consulta, que indica que o URI de ID de aplicação do recurso de destino. É também apresentado no `aud` afirmação (público-alvo) do token emitido. Neste exemplo solicita um token para aceder ao Gestor de recursos do Azure, que tem um URI de ID de aplicação de https://management.azure.com/. |
+| `client_id` |  Um *opcional* parâmetro de cadeia, que indica o ID de cliente (também conhecido como ID de aplicação) de consulta do principal de serviço que representa um MSI utilizador atribuído. Se estiver a utilizar o sistema atribuídas MSI, este parâmetro não é necessário. Este valor é devolvido no `clientId` propriedade durante a criação de um MSI utilizador atribuído. Neste exemplo pedidos um token de ID de cliente "712eac09-e943-418c-9be6-9fd5c91078bl". |
 | `Metadata` | Um HTTP pedido campo do cabeçalho, necessário para MSI como uma mitigação de ataques de falsificação de pedidos de lado do servidor (SSRF). Este valor tem de ser definido como "true", em todas as letras maiúsculas e minúsculas.
 
 Resposta de amostra:
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>Obter um token utilizando CURL
 
 Não se esqueça de substituir o ID de cliente (também conhecido como ID de aplicação), do utilizador atribuído do MSI principal do serviço, para o <MSI CLIENT ID> valor o `client_id` parâmetro. Este valor é devolvido no `clientId` propriedade durante a criação de um MSI utilizador atribuído.
+  
+Exemplo de pedido utilizando o ponto final de serviço de metadados da instância (IMDS):
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Exemplo de pedido utilizando o Endpoint de extensão de VM MSI (preterição futuras):
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ Não se esqueça de substituir o ID de cliente (também conhecido como ID de apl
    Respostas de exemplo:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ Não se esqueça de substituir o ID de cliente (também conhecido como ID de apl
 
 ## <a name="handling-token-expiration"></a>Processamento de expiração do token
 
-O subsistema MSI local coloca em cache tokens. Por conseguinte, pode chamar-as vezes que é que gosta e resulta de uma chamada no-durante a transmissão para o Azure AD apenas se:
+O subsistema MSI coloca em cache tokens. Por conseguinte, pode chamar-as vezes que é que gosta e resulta de uma chamada no-durante a transmissão para o Azure AD apenas se:
 - ocorre uma falha de acerto na cache devido a nenhum token na cache
 - o token expirou
 
@@ -142,7 +157,7 @@ Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é um
 | ----------- | ----- | ----------------- | -------- |
 | Pedido de 400 incorreta | invalid_resource | AADSTS50001: A aplicação com o nome  *\<URI\>*  não foi encontrado no inquilino com o nome  *\<ID do INQUILINO\>*. Isto pode acontecer se a aplicação não foi instalada pelo administrador do inquilino ou autorizada por qualquer utilizador no inquilino. Poderá ter enviado o pedido de autenticação para o inquilino incorreto. \ | (Apenas Linux) |
 | Pedido de 400 incorreta | bad_request_102 | Cabeçalho de metadados necessários não especificado | Ambos os `Metadata` campo de cabeçalho do pedido está em falta o pedido ou está formatado incorretamente. O valor tem de ser especificado como `true`, em todas as letras maiúsculas e minúsculas. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo.|
-| 401 não autorizado | unknown_source | Origem  *\<URI\>* | Certifique-se de que o URI do pedido HTTP GET está formatado corretamente. O `scheme:host/resource-path` parte tem de ser especificada como `http://localhost:50342/oauth2/token`. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo.|
+| 401 não autorizado | unknown_source | Origem  *\<URI\>* | Certifique-se de que o URI do pedido HTTP GET está formatado corretamente. O `scheme:host/resource-path` parte tem de ser especificada como `http://169.254.169.254/metadata/identity/oath2/token` ou `http://localhost:50342/oauth2/token`. Consulte o "exemplo de pedido" no [obter um token a utilizar HTTP](#get-a-token-using-http) secção para obter um exemplo.|
 |           | invalid_request | O pedido tem um parâmetro necessário em falta, inclui um valor de parâmetro inválido, inclui um parâmetro de mais do que uma vez ou caso contrário, tem um formato incorreto. |  |
 |           | unauthorized_client | O cliente não está autorizado para pedir um token de acesso através deste método. | Causado por um pedido que não utiliza local loopback para chamar a extensão ou numa VM que não tem um MSI configurado corretamente. Consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](msi-qs-configure-portal-windows-vm.md) se necessitar de assistência com a configuração de VM. |
 |           | access_denied | O proprietário do recurso ou autorização servidor negou o pedido. |  |

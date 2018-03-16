@@ -2,25 +2,19 @@
 title: "Configurar a sincronização de dados de SQL do Azure (pré-visualização) | Microsoft Docs"
 description: "Este tutorial mostra como configurar a sincronização de dados de SQL do Azure (pré-visualização)"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurar a sincronização de dados do SQL Server (pré-visualização)
 Neste tutorial, irá aprender a configurar a sincronização de dados SQL do Azure através da criação de um grupo de sincronização de híbridos que contenha as instâncias de SQL Database do Azure e SQL Server. O novo grupo de sincronização está completamente configurado e sincroniza na agenda que definir.
@@ -110,7 +104,7 @@ No **configurar a base de dados do Azure** página, efetue os seguintes procedim
 
     ![Novo membro de sincronização da base de dados SQL foi adicionado](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-on-prem"></a>Adicionar uma base de dados do SQL Server no local
+### <a name="add-on-prem"></a> Adicionar uma base de dados do SQL Server no local
 
 No **base de dados do membro** secção, opcionalmente, adicione um servidor de SQL no local para o grupo de sincronização selecionando **adicionar uma base de dados do On-Premises**. O **configurar On-Premises** é aberta a página.
 
@@ -159,7 +153,7 @@ No **configurar On-Premises** página, efetue os seguintes procedimentos:
 
         ![Adicionar e configurar uma base de dados do SQL Server](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. No **configuração do SQL Server** diálogo caixa, escolha se pretende ligar-se utilizando a autenticação do SQL Server ou a autenticação do Windows. Se tiver escolhido a autenticação do SQL Server, introduza as credenciais existentes. Forneça o nome do SQL Server e o nome da base de dados que pretende sincronizar. Selecione **Testar ligação** para testar as suas definições. Em seguida, selecione **guardar**. A base de dados registado aparece na lista.
+    10. No **configuração do SQL Server** diálogo caixa, escolha se pretende ligar-se utilizando a autenticação do SQL Server ou a autenticação do Windows. Se tiver escolhido a autenticação do SQL Server, introduza as credenciais existentes. Forneça o nome do SQL Server e o nome da base de dados que pretende sincronizar. Selecione **Testar ligação** para testar as suas definições. Em seguida, selecione **Guardar**. A base de dados registado aparece na lista.
 
         ![Base de dados do SQL Server está agora registado](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
@@ -185,11 +179,11 @@ Depois dos novos membros do grupo de sincronização são criados e implementado
 
 2.  Na lista de tabelas disponíveis, selecione as tabelas que pretende sincronizar.
 
-    ![Selecione as tabelas para sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+    ![Selecionar tabelas a sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
 3.  Por predefinição, estão selecionadas todas as colunas na tabela. Se não quiser sincronizar todas as colunas, desative a caixa de verificação para as colunas que não pretende sincronizar. Lembre-se de que deixe a coluna de chave primária selecionada.
 
-    ![Selecionar campos para sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+    ![Selecionar campos a sincronizar](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Por fim, selecione **guardar**.
 
@@ -270,7 +264,7 @@ Se pretender executar o agente local partir de outro computador que está atualm
 
 5. Forneça credenciais da base de dados para todas as bases de dados que são apresentadas como inacessível. Estas bases de dados tem de ser acessíveis a partir do novo computador no qual o agente está instalado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Parabéns! Criou um grupo de sincronização que inclui uma instância de base de dados SQL e uma base de dados do SQL Server.
 
 Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:

@@ -2,23 +2,18 @@
 title: "Relatório entre bases de dados de nuvem de escalamento horizontal (criação de partições horizontais) | Microsoft Docs"
 description: "Utilize base de dados entre consultas de base de dados ao relatório em várias bases de dados."
 services: sql-database
-documentationcenter: 
 manager: jhubbard
 author: MladjoA
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 996ad1d47ece592dcf03a6eb8ed1c1916ceba374
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 29f1291f5c5d6023ca7bcd47fc2c0d9b69fd39fa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Comunicar entre bases de dados de nuvem de escalamento horizontal (pré-visualização)
 Pode criar relatórios a partir de várias bases de dados SQL do Azure a partir de um ponto de ligação única utilizando um [consulta elástica](sql-database-elastic-query-overview.md). As bases de dados têm de ser particionados horizontalmente (também conhecido como "a").
@@ -104,7 +99,7 @@ Execute esta consulta na base de dados ElasticDBQuery:
 
 Irá reparar que a consulta agrega os resultados de todas as partições horizontais e fornece o seguinte resultado:
 
-![Detalhes de saída][4]
+![Detalhes da saída][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importar os resultados da consulta de base de dados elástica para Excel
  Pode importar os resultados de uma consulta para um ficheiro do Excel.
@@ -128,7 +123,7 @@ Não há sem encargos adicionais para utilizar a funcionalidade de consulta de b
 
 Para obter informações sobre preços, consulte [detalhes de preços de base de dados do SQL Server](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma descrição geral da consulta elástica, consulte [descrição geral de consulta elástico](sql-database-elastic-query-overview.md).
 * Para um tutorial de criação de partições vertical, consulte [introdução à consulta de base de dados em vários locais (criação de partições vertical)](sql-database-elastic-query-getting-started-vertical.md).

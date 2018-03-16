@@ -2,24 +2,18 @@
 title: "Com a biblioteca de cliente de bases de dados elásticas com o Entity Framework | Microsoft Docs"
 description: "Utilizar a biblioteca de clientes de base de dados elástica e do Entity Framework para codificação bases de dados"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com o Entity Framework
 Este documento mostra as alterações de uma aplicação do Entity Framework, que são necessários para integrar com o [ferramentas de base de dados elástica](sql-database-elastic-scale-introduction.md). O foco incide na composição [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md) e [encaminhamento de dados dependentes](sql-database-elastic-scale-data-dependent-routing.md) com o Entity Framework **Code First** abordagem. O [Code primeiro - nova base de dados](http://msdn.microsoft.com/data/jj193542.aspx) tutorial para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte das ferramentas de base de dados elástica conjunto de exemplos exemplos de código do Visual Studio.
@@ -180,13 +174,13 @@ Os exemplos de código acima mostram a predefinição construtor reescreve neces
 
 | Construtor atual | Construtor de conversão de dados | Construtor base | Notas |
 | --- | --- | --- | --- |
-| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |A ligação tem de ser uma função de mapa de partições horizontais e a chave de encaminhamento de dados dependentes. Tem de criação de ligação automática de ignorar por EF e em vez disso, utilize o mapa de partições horizontais para mediador a ligação. |
-| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |A ligação é uma função do mapa de partições horizontais e a chave de encaminhamento de dados dependentes. Uma cadeia de ligação ou nome de base de dados fixa não funcionar à medida que a validação de ignorar pelo mapa de partições horizontais. |
-| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A ligação é criada para a chave de mapa e a fragmentação de determinada partição horizontal com o modelo fornecido. O modelo compilado é transmitido para o c'tor base. |
-| MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |A ligação tem de ser inferidos a partir do mapa de partições horizontais e a chave. Não pode ser fornecido como entrada (exceto se essa entrada já estava a utilizar o mapa de partições horizontais e a chave). O valor boleano é transmitido. |
-| MyContext (cadeia, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A ligação tem de ser inferidos a partir do mapa de partições horizontais e a chave. Não pode ser fornecido como entrada (exceto se essa entrada estava a utilizar o mapa de partições horizontais e a chave). O modelo compilado é transmitido. |
-| MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |Este novo construtor tem Certifique-se de que todas as ligações no ObjectContext transmitido como uma entrada novamente encaminhada para uma ligação gerida pelo horizontal elástico. Ver um debate detalhado dos ObjectContexts está fora do âmbito deste documento. |
-| MyContext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |A ligação tem de ser inferidos a partir do mapa de partições horizontais e a chave. A ligação não pode ser fornecida como entrada (exceto se essa entrada já estava a utilizar o mapa de partições horizontais e a chave). Modelo e o valor boleano são transmitido a este construtor de classe base. |
+| MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |A ligação tem de ser uma função de mapa de partições horizontais e a chave de encaminhamento de dados dependentes. Tem de criação de ligação automática de ignorar por EF e em vez disso, utilize o mapa de partições horizontais para mediador a ligação. |
+| MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |A ligação é uma função do mapa de partições horizontais e a chave de encaminhamento de dados dependentes. Uma cadeia de ligação ou nome de base de dados fixa não funcionar à medida que a validação de ignorar pelo mapa de partições horizontais. |
+| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |A ligação é criada para a chave de mapa e a fragmentação de determinada partição horizontal com o modelo fornecido. O modelo compilado é transmitido para o c'tor base. |
+| MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext (DbConnection, bool) |A ligação tem de ser inferidos a partir do mapa de partições horizontais e a chave. Não pode ser fornecido como entrada (exceto se essa entrada já estava a utilizar o mapa de partições horizontais e a chave). O valor boleano é transmitido. |
+| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |A ligação tem de ser inferidos a partir do mapa de partições horizontais e a chave. Não pode ser fornecido como entrada (exceto se essa entrada estava a utilizar o mapa de partições horizontais e a chave). O modelo compilado é transmitido. |
+| MyContext (ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |Este novo construtor tem Certifique-se de que todas as ligações no ObjectContext transmitido como uma entrada novamente encaminhada para uma ligação gerida pelo horizontal elástico. Ver um debate detalhado dos ObjectContexts está fora do âmbito deste documento. |
+| MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |A ligação tem de ser inferidos a partir do mapa de partições horizontais e a chave. A ligação não pode ser fornecida como entrada (exceto se essa entrada já estava a utilizar o mapa de partições horizontais e a chave). Modelo e o valor boleano são transmitido a este construtor de classe base. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Implementação de esquema de partições horizontais através de migrações do EF
 Gestão automática de esquema está para efeitos práticos fornecido o Entity Framework. No contexto das aplicações a utilizar as ferramentas de base de dados elástica, que pretenda manter esta capacidade para aprovisionar automaticamente o esquema para shards recentemente criados quando são adicionadas as bases de dados para a aplicação em partição horizontal. O caso de utilização principal é aumentar a capacidade na camada de dados para aplicações em partição horizontal com EF. Entidade confiadora nas capacidades do EF para a gestão de esquema reduz o esforço de administração de base de dados com uma aplicação em partição horizontal incorporada no EF. 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Manual de comunicação social vehicle solução de análise de telemetria: avançada aprofundar a solução
 Hiperligações este menu a secções deste manual de comunicação social: 
@@ -305,7 +305,7 @@ Os dados agora são otimizados, mais fácil de gerir e pronto para processamento
 ## <a name="data-analysis"></a>Análise de dados
 Nesta secção, pode ver como combinar o Stream Analytics, o Azure Machine Learning, o Data Factory e o HDInsight para avançada análise avançada no estado de funcionamento vehicle e ocasionar hábitos.
 
-### <a name="machine-learning"></a>Machine learning
+### <a name="machine-learning"></a>Aprendizagem automática
 O objetivo aqui é para prever veículos que necessitam de manutenção ou devolução de chamada com base em certas estatísticas de estado de funcionamento, com base em pressupostos os seguintes:
 
 * Se um dos três seguintes condições for VERDADEIRO, os veículos necessitam de manutenção de manutenção:

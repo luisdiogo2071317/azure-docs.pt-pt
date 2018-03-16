@@ -3,7 +3,7 @@ title: Conector de Trello no Azure Logic Apps | Microsoft Docs
 description: "Crie aplicações lógicas com o App service do Azure. Trello dá-lhe perspetiva através de todos os seus projetos, no trabalho e em casa.  É uma forma fácil, gratuita, flexível e visual para gerir os seus projetos e organizar qualquer coisa.  Ligar ao Trello para gerir os seus quadros, listas e cartões"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: fedf0ffe11763dcfccadf78c0b258c8bce773376
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 6773ddd1da5c013b7a0ca7d2855806d606720469
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-trello-connector"></a>Começar a utilizar o conector Trello
 Trello dá-lhe perspetiva através de todos os seus projetos, no trabalho e em casa.  É uma forma fácil, gratuita, flexível e visual para gerir os seus projetos e organizar qualquer coisa.  Ligar ao Trello para gerir os seus quadros, listas e cartões.
@@ -31,7 +31,7 @@ Para criar aplicações lógicas com Trello, primeiro crie um **ligação**e int
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Token |Sim |Fornecer Credenciais do Trello |
+| Certificado de |Sim |Fornecer Credenciais do Trello |
 
 Depois de criar a ligação, pode utilizá-lo para executar as ações e escutar de acionadores.
 

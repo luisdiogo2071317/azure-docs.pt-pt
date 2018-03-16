@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rota
 
@@ -30,7 +30,7 @@ Azure automaticamente encaminha o tráfego entre sub-redes do Azure, redes virtu
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar o portal, Abra https://portal.azure.com e iniciar sessão com a sua conta do Azure.
+- Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Executar `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
@@ -40,7 +40,7 @@ Não há um limite para quantas tabelas de rota, pode criar por localização do
 
 1. No canto superior esquerdo do portal, selecione **+ criar um recurso**.
 2. Selecione **redes**, em seguida, selecione **tabela de rotas**.
-3. Introduza um **nome** para a tabela de rotas, selecione o **subscrição**, crie um novo **grupo de recursos**, ou selecione um grupo de recursos existente, selecione um **localização** , em seguida, selecione **criar**. O **propagação de rota BGP desativar** opção impede rotas no local do propagado a uma rede virtual do Azure através do BGP. Se a rede virtual não está ligada a um gateway de rede do Azure (VPN ou ExpressRoute), deixe a opção *desativado*. 
+3. Introduza um **nome** para a tabela de rotas, selecione o **subscrição**, crie um novo **grupo de recursos**, ou selecione um grupo de recursos existente, selecione um **localização** , em seguida, selecione **criar**. O **propagação de rota BGP desativar** opção impede rotas no local, de que está a ser propagados por BGP para as interfaces de rede em nenhuma sub-rede que está associada a tabela de rotas. Se a rede virtual não está ligada a um gateway de rede do Azure (VPN ou ExpressRoute), deixe a opção *desativado*.
 
 **Comandos**
 

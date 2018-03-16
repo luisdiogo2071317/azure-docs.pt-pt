@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticação de v 2.0 do Azure Active Directory
 O [ponto final v 2.0 do Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) suporta os protocolos de OAuth 2.0 e o OpenID Connect 1.0 de norma da indústria. Pode utilizar bibliotecas vários da Microsoft e de outras organizações com o ponto final v 2.0.
@@ -27,9 +27,9 @@ O [ponto final v 2.0 do Azure Active Directory (Azure AD)](https://docs.microsof
 Quando criar uma aplicação que utiliza o ponto final v 2.0, recomendamos a utilização de bibliotecas que são escritas por especialistas de domínio de protocolo que siga uma metodologia Security Development Lifecycle (SDL), como [o seguido pela Microsoft][Microsoft-SDL]. Se optar por suporte de código mão para os protocolos, recomendamos que siga metodologia SDL e preste especial atenção para as considerações de segurança nas especificações normas para cada protocolo.
 
 > [!NOTE]
-> Procurar as bibliotecas de v 1.0 do Azure AD (ADAL)? Finalizar a [guia da biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
-> 
-> 
+> Procurar as bibliotecas de v 1.0 do Azure AD (ADAL)? Finalizar a [guia da biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+>
+>
 
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
 Ponto final v 2.0 do AD do Azure funciona com dois tipos de bibliotecas:
@@ -42,7 +42,7 @@ Uma vez que pode escolher qualquer biblioteca compatível com normas quando util
 
 Bibliotecas são fornecidos em duas categorias de suporte:
 
-* **Microsoft-suportado**. Microsoft disponibiliza correções para estas bibliotecas e tem feito SDL diligence devida nestas bibliotecas.
+* **Microsoft-supported**. Microsoft disponibiliza correções para estas bibliotecas e tem feito SDL diligence devida nestas bibliotecas.
 * **Compatível**. Microsoft foi testado estas bibliotecas em cenários básicos e ter confirmado que funcionam com o ponto final v 2.0. A Microsoft não cede corrige para estas bibliotecas e não tiver efetuado uma revisão destas bibliotecas. Problemas e pedidos de funcionalidades devem ser direcionados para o projeto de fonte aberta da biblioteca.
 
 Para obter uma lista de bibliotecas que funcionam com o ponto final v 2.0, consulte as secções seguintes neste artigo.
@@ -64,9 +64,9 @@ Para obter uma lista de bibliotecas que funcionam com o ponto final v 2.0, consu
 
 | Plataforma | Biblioteca | Transferência | Código de origem | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
-| .NET 4. x | Middleware OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Aplicação MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
-| .NET 4. x | Middleware de portador de OAuth da OWIN para AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
-| .NET 4. x | Processador JWT para o .NET 4.5 | [NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/4.0.4.403061554) | [GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| .NET 4.x | Middleware OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Aplicação MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
+| .NET 4.x | Middleware de portador de OAuth da OWIN para AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
+| .NET 4.x | Processador JWT para o .NET 4.5 | [NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/4.0.4.403061554) | [GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET Core | Middleware OpenID Connect do ASP.NET |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[Segurança do ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Aplicação MVC](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2) |
 | .NET Core | ASP.NET middleware de portador do OAuth |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Segurança do ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |  |
 | .NET Core | Processador JWT para .NET Core  |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
@@ -78,13 +78,8 @@ Para obter uma lista de bibliotecas que funcionam com o ponto final v 2.0, consu
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Exemplo de aplicação nativa](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Exemplo de aplicação nativa](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-
-## <a name="compatible-server-middleware-libraries"></a>Bibliotecas de middleware servidor compatível
-| Plataforma | Nome da biblioteca | Versão testada | Código de origem | Sample |
-|:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribejava Scribe Java](https://github.com/scribejava/scribejava) | [Versão 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
-| PHP | [O PHP League oauth2 cliente](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [cliente de oauth2](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
-| Python Flask |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |[Aplicação Web](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
+| PHP | [O PHP League oauth2 cliente](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Conteúdo relacionado

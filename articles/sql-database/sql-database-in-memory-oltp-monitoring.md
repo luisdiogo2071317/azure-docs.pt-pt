@@ -2,24 +2,18 @@
 title: "Monitorizar o armazenamento de dentro da memória XTP | Microsoft Docs"
 description: "Monitor de armazenamento de dentro da memória XTP e estimativa utilizam, capacidade; Resolva o erro de capacidade 41823"
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: 1e7088e80cc86e3c7cf8ae8ea180d797de613e71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c1adc6e98f7d101a6e5f3227f44b0035d9b9d157
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Armazenamento de monitor de memória OLTP
 Quando utilizar [OLTP na memória](sql-database-in-memory.md), dados em tabelas com otimização de memória e variáveis de tabela residem no armazenamento do OLTP dentro da memória. Cada escalão de serviço Premium tem um tamanho de armazenamento de OLTP na memória máximo, o que é descrito da [única dos limites de recursos de base de dados](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) e [dos limites de recursos do conjunto elástico](sql-database-resource-limits.md#elastic-pool-change-storage-size). Depois deste limite for excedido, insira e atualizar operações poderão começam a falhar com o erro 41823 para bases de dados autónomo e o erro 41840 para conjuntos elásticos. Nesse momento é necessário para eliminar dados para reclamar memória, ou Atualize o escalão de desempenho da base de dados.

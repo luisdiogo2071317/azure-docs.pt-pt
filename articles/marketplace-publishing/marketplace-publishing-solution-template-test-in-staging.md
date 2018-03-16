@@ -3,8 +3,8 @@ title: "Testar a sua oferta do modelo de solução para o Marketplace | Microsof
 description: "Compreenda como testar a sua oferta do modelo de solução para o Azure Marketplace."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
-ms.author: hascipio; v-divte
-ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: e789d0996e72c935ed9d5f456f9868b73d5ef4ee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testar a sua oferta do modelo de solução no modo de transição
 Transição significa implementar a sua oferta no privado "sandbox", onde pode testar e verificar a respetiva funcionalidade antes de enviá-lo para produção. A oferta é apresentada no teste faria para um cliente que tenha implementado. A oferta tem de estar certificada para ser enviado para o teste.
@@ -36,7 +36,7 @@ Siga os passos abaixo para push oferta para teste e testá-lo no [Portal do Azur
    * Execute testes de desempenho e o teste de esforço.
    * Certifique-se de que a topologia respeite as melhores práticas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se estiver satisfeito com os resultados, em seguida, pode avançar para a fase de publicação de oferta final, **passo 4**: [implementar oferta do Marketplace](marketplace-publishing-push-to-production.md). Caso contrário, efetue alterações na sua oferta e solicitar certificação novamente.
 
 > [!NOTE]

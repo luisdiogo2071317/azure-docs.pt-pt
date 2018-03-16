@@ -3,7 +3,7 @@ title: "Descrição geral do modelo de programação do Service Fabric | Microso
 description: "Recursos de infraestrutura de serviço oferece dois estruturas para a criação de serviços: a estrutura de ator e a arquitetura de serviços. Oferecem distintos compromissos na simplicidade e controlo."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Descrição geral do modelo programação Service Fabric
-Recursos de infraestrutura de serviço oferece várias formas para escrever e gerir os seus serviços. Serviços podem optar por utilizar as APIs de recursos de infraestrutura de serviço para tirar partido das funcionalidades e estruturas de aplicações da plataforma. Os serviços também podem ser qualquer programa do executável compilado escrito em qualquer idioma ou código em execução num contentor simplesmente alojado num cluster do Service Fabric.
+Recursos de infraestrutura de serviço oferece várias formas para escrever e gerir os seus serviços. Serviços podem optar por utilizar as APIs de recursos de infraestrutura de serviço para tirar partido das funcionalidades e estruturas de aplicações da plataforma. Os serviços também podem ser qualquer programa do executável compilado escrito em qualquer idioma ou código em execução num contentor alojado num cluster do Service Fabric.
 
 ## <a name="guest-executables"></a>Executáveis de convidado
-A [executável convidado](service-fabric-deploy-existing-app.md) é um existente, o executável arbitrário (escritos em qualquer idioma) que pode ser executado como um serviço na sua aplicação. Executáveis convidado não chamam diretamente as APIs do SDK do serviço de recursos de infraestrutura. No entanto, ainda beneficiam das funcionalidades a plataforma oferece, tais como a capacidade de deteção do serviço, estado de funcionamento personalizado e carregar relatórios ao chamar as APIs REST exposta pelo Service Fabric. Também têm o suporte de ciclo de vida de aplicação completa.
+A [executável convidado](service-fabric-guest-executables-introduction.md) é um existente, o executável arbitrário (escritos em qualquer idioma) que pode ser executado como um serviço na sua aplicação. Executáveis convidado não chamam diretamente as APIs do SDK do serviço de recursos de infraestrutura. No entanto, ainda beneficiam das funcionalidades a plataforma oferece, tais como a capacidade de deteção do serviço, estado de funcionamento personalizado e carregar relatórios ao chamar as APIs REST exposta pelo Service Fabric. Também têm o suporte de ciclo de vida de aplicação completa.
 
 Introdução ao executáveis convidado ao implementar o primeiro [aplicação executável convidado](service-fabric-deploy-existing-app.md).
 
 ## <a name="containers"></a>Contentores
-Por predefinição, o Service Fabric implementa e ativa serviços como processos. Serviço de recursos de infraestrutura também pode implementar serviços no [contentores](service-fabric-containers-overview.md). Serviço de recursos de infraestrutura suporta a implementação do Linux contentores e contentores do Windows no Windows Server 2016. Imagens de contentor podem ser solicitadas a partir de qualquer repositório de contentor e implementar a máquina. Pode implementar as aplicações existentes como convidado exectuables, Service Fabric sem monitorização de estado ou com monitorização de estado Reliable services ou Reliable Actors nos contentores, e pode combinar os serviços de processos e serviços nos contentores na mesma aplicação.
+Por predefinição, o Service Fabric implementa e ativa serviços como processos. Serviço de recursos de infraestrutura também pode implementar serviços no [contentores](service-fabric-containers-overview.md). Serviço de recursos de infraestrutura suporta a implementação do Linux contentores e contentores do Windows no Windows Server 2016. Imagens de contentor podem ser solicitadas a partir de qualquer repositório de contentor e implementar a máquina. Pode implementar as aplicações existentes como convidado executáveis, Service Fabric sem monitorização de estado ou com monitorização de estado Reliable services ou Reliable Actors nos contentores, e pode combinar os serviços de processos e serviços nos contentores na mesma aplicação.
 
 [Saiba mais sobre containerizing os serviços no Windows ou Linux](service-fabric-deploy-container.md)
 
@@ -50,7 +50,7 @@ ASP.NET Core é uma arquitetura de open source e plataforma novo para a criaçã
 ## <a name="reliable-actors"></a>Reliable Actors
 Desenvolvida Reliable Services, a arquitetura de Ator fiável é uma arquitetura de aplicações que implementa o padrão de Ator Virtual, com base num padrão de conceção ator. A estrutura de Ator fiável utiliza independentes unidades de estado e de computação com single-threaded execução chamada atores. A estrutura de Ator fiável fornece comunicação incorporada de atores e configurações de persistência e escalável de estado predefinido.
 
-Como Reliable Actors em si é uma arquitetura de aplicações incorporada no Reliable Services, estão totalmente integrado com a plataforma de Service Fabric e os benefícios do conjunto completo de funcionalidades oferecidas da plataforma.
+Uma vez Reliable Actors é uma arquitetura de aplicações incorporada no Reliable Services, estão totalmente integrado com a plataforma de Service Fabric e os benefícios do conjunto completo de funcionalidades oferecidas da plataforma.
 
 [Saiba mais sobre Reliable Actors](service-fabric-reliable-actors-introduction.md) ou começar por [ao escrever o seu primeiro serviço de Atores fiável](service-fabric-reliable-actors-get-started.md)
 
@@ -64,7 +64,7 @@ Como Reliable Actors em si é uma arquitetura de aplicações incorporada no Rel
 
 [Descrição geral de Atores fiável](service-fabric-reliable-actors-introduction.md)
 
-[Recursos de infraestrutura de serviço e o ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+[Recursos de infraestrutura de serviço e o ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

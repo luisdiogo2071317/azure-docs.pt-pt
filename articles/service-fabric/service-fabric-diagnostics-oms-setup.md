@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurar a análise de registos do Operations Management Suite para um cluster
 
@@ -48,7 +48,7 @@ Se estiver a utilizar o Windows, continue com os seguintes passos para ligar OMS
 >[!NOTE]
 >Ativar esta experiência para os clusters do Linux ainda não está disponível. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>Adicionar o agente do OMS ao cluster 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>Ligar a área de trabalho do OMS ao cluster 
 
 1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfOMSWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições de solução, as definições de área de trabalho e aceder ao portal do OMS.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para coleções fiável no Azure Service Fabric
 Esta secção fornece orientações para utilizar o Gestor de estado fiável e fiável de coleções. O objetivo é ajudar os utilizadores a evitar pitfalls comuns.
@@ -26,7 +26,7 @@ Esta secção fornece orientações para utilizar o Gestor de estado fiável e f
 As diretrizes são organizadas como recomendações simples, o prefixo com os termos *fazer*, *considere*, *Evite* e *não*.
 
 * Não modifique um objeto do tipo personalizado devolvido por operações de leitura (por exemplo, `TryPeekAsync` ou `TryGetValueAsync`). Coleções fiáveis, tal como coleções em simultâneo, é devolvida uma referência para os objetos e não uma cópia.
-* Fazer cópia profunda o objeto devolvido do tipo personalizado antes de modificá-lo. Uma vez que estruturas e tipos incorporados passagem por valor, não precisa de fazer uma cópia profunda nos mesmos.
+* Fazer cópia profunda o objeto devolvido do tipo personalizado antes de modificá-lo. Uma vez que estruturas e tipos incorporados passagem por valor, não precisa de fazer uma cópia profunda nos mesmos, a menos que contêm o tipo de referência de campos ou propriedades que pretende modificar.
 * Não utilize `TimeSpan.MaxValue` para tempos limite. Tempos limite deve ser utilizada para detetar a impasses.
 * Não utilize uma transação depois foi consolidada, abortado ou eliminado.
 * Não utilize uma enumeração fora do âmbito de transação que foi criado numa.
@@ -49,7 +49,7 @@ Seguem-se alguns aspetos a ter em mente:
   Isto significa que uma versão de dados que se leia uma secundária única pode ser progredida false.
   Leituras de primário encontram-se sempre estáveis: pode nunca ser false progredido.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [Gestor de estado fiável e características de coleção](service-fabric-reliable-services-reliable-collections-internals.md)

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de palavras-passe perguntas mais frequentes
 
@@ -40,7 +40,7 @@ Estas FAQ é dividida nas seguintes secções:
 
 * **P: os meus utilizadores registar os seus próprios dados de reposição de palavra-passe?**
 
-  > **R:** Sim. Desde que a reposição de palavra-passe está ativada e são licenciados, os utilizadores podem aceder para o portal de registo de reposição (https://aka.ms/ssprsetup) de palavra-passe para registar as suas informações de autenticação. Os utilizadores também podem registar através do painel de acesso (http://myapps.microsoft.com). Para registar através do painel de acesso, que precisam para selecionar a imagem do perfil, selecione **perfil**e, em seguida, selecione o **registar para a reposição de palavra-passe** opção.
+  > **R:** Sim. Desde que a reposição de palavra-passe está ativada e são licenciados, os utilizadores podem aceder ao portal de registo de reposição de palavra-passe (https://aka.ms/ssprsetup) para registar as suas informações de autenticação. Os utilizadores também podem registar através do painel de acesso (http://myapps.microsoft.com). Para registar através do painel de acesso, que precisam para selecionar a imagem do perfil, selecione **perfil**e, em seguida, selecione o **registar para a reposição de palavra-passe** opção.
   >
   >
 * **P: Se ativar a palavra-passe de reposição de um grupo e, em seguida, optar por ativá-la para todos os utilizadores são os meus utilizadores necessário voltar a registar?**
@@ -269,7 +269,7 @@ Estas FAQ é dividida nas seguintes secções:
   >
 * **P: quais são os tipos de contas de repetição de escrita de palavras-passe funciona?**
 
-  > **R:** palavra-passe de repetição de escrita funciona para Federado e hash de palavra-passe sincronizados os utilizadores.
+  > **R:** funciona de repetição de escrita de palavras-passe para contas de utilizador que são sincronizadas a partir do Active Directory no local ao Azure AD, incluindo federada, hash de palavra-passe sincronizadas e os utilizadores de Autentication pass-through.
   >
   >
 * **P: repetição de escrita de palavras-passe impor políticas de palavra-passe do meu domínio?**

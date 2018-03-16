@@ -2,23 +2,18 @@
 title: "Criar e gerir as tarefas elásticas com o PowerShell | Microsoft Docs"
 description: PowerShell utilizado para gerir agrupamentos da SQL Database do Azure
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: sstein
+ms.openlocfilehash: 17e4176129da747925596c66ca9df936a3828c2d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir tarefas elásticas da base de dados do SQL Server através do PowerShell (pré-visualização)
 
@@ -50,7 +45,7 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     <td>Credencial</td>
     <td>Nome de utilizador e palavra-passe a utilizar quando ligar às bases de dados para aplicação de DACPACs ou execução de scripts. <p>A palavra-passe é encriptada antes de enviar para e armazenar na base de dados de tarefas de base de dados elásticas.  A palavra-passe é desencriptada pelo serviço de tarefas de base de dados elásticas através de credencial criado e carregado a partir do script de instalação.</td>
     <td><p>Get-AzureSqlJobCredential</p>
-    <p>Novo AzureSqlJobCredential</p><p>Conjunto AzureSqlJobCredential</p></td></td>
+    <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
@@ -60,8 +55,8 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     <td>
     <p>Get-AzureSqlJobContent</p>
     <p>Get-AzureSqlJobContentDefinition</p>
-    <p>Novo AzureSqlJobContent</p>
-    <p>Conjunto AzureSqlJobContentDefinition</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
 
@@ -71,8 +66,8 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
-    <p>Novo AzureSqlJobContent</p>
-    <p>Conjunto AzureSqlJobContentDefinition</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
   <tr>
@@ -81,7 +76,7 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Novo AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
   <tr>
@@ -90,8 +85,8 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Novo AzureSqlJobTarget</p>
-    <p>Conjunto AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
+    <p>Set-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
@@ -99,15 +94,15 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     <td>Definido grupo de bases de dados a utilizar coletivamente para execução.</td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>Novo AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
     <td>Destino de subordinados de recolha personalizada</td>
     <td>Destino de base de dados que é referenciado a partir de uma coleção personalizada.</td>
     <td>
-    <p>AzureSqlJobChildTarget adicionar</p>
-    <p>Remover AzureSqlJobChildTarget</p>
+    <p>Add-AzureSqlJobChildTarget</p>
+    <p>Remove-AzureSqlJobChildTarget</p>
     </td>
   </tr>
 
@@ -118,8 +113,8 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJob</p>
-    <p>Novo AzureSqlJob</p>
-    <p>Conjunto AzureSqlJob</p>
+    <p>New-AzureSqlJob</p>
+    <p>Set-AzureSqlJob</p>
     </td>
   </tr>
 
@@ -130,9 +125,9 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
-    <p>Início AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
     <p>Stop-AzureSqlJobExecution</p>
-    <p>Espera-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -143,9 +138,9 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
-    <p>Início AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
     <p>Stop-AzureSqlJobExecution</p>
-    <p>Espera-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -156,8 +151,8 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJobExecutionPolicy</p>
-    <p>Novo AzureSqlJobExecutionPolicy</p>
-    <p>Conjunto AzureSqlJobExecutionPolicy</p>
+    <p>New-AzureSqlJobExecutionPolicy</p>
+    <p>Set-AzureSqlJobExecutionPolicy</p>
     </td>
   </tr>
 
@@ -168,8 +163,8 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     </td>
     <td>
     <p>Get-AzureSqlJobSchedule</p>
-    <p>Novo AzureSqlJobSchedule</p>
-    <p>Conjunto AzureSqlJobSchedule</p>
+    <p>New-AzureSqlJobSchedule</p>
+    <p>Set-AzureSqlJobSchedule</p>
     </td>
   </tr>
 
@@ -179,8 +174,8 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
     <p>Um mapeamento entre uma tarefa e uma agenda a execução do acionador de tarefa, de acordo com a agenda.</p>
     </td>
     <td>
-    <p>Novo AzureSqlJobTrigger</p>
-    <p>Remover AzureSqlJobTrigger</p>
+    <p>New-AzureSqlJobTrigger</p>
+    <p>Remove-AzureSqlJobTrigger</p>
     </td>
   </tr>
 </table>

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentor em instâncias de contentor do Azure
 
@@ -35,7 +35,11 @@ Este grupo de contentor de exemplo:
 * Inclui duas partilham de ficheiros do Azure como volume monta e cada contentor monta uma das partilhas localmente.
 
 > [!NOTE]
-> Os grupos de contentor multi são atualmente restritos para contentores de Linux. Enquanto que estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar a atual plataforma as diferenças no [Quotas e disponibilidade de região para instâncias de contentor do Azure](container-instances-quotas.md).
+> Os grupos de contentor multi são atualmente restritos para contentores de Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
+
+### <a name="deployment"></a>Implementação
+
+**Grupos de contentor** tem uma alocação de recursos mínimo de 1 vCPU e 1 GB de memória. Individuais **contentores** pode ser aprovisionado com menos de 1 vCPU e 1 GB de memória. Dentro de um grupo contentor, a distribuição de recursos pode ser personalizada para vários contentores dentro dos limites de estabelecer o nível de grupo do contentor. Por exemplo, dois contentores com vCPU 0.5 que reside num grupo contentor atribuído 1 vCPU.
 
 ### <a name="networking"></a>Redes
 

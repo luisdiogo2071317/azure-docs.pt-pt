@@ -12,19 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de tabelas do Azure com o Azure PowerShell 
-
->[!NOTE]
->API de tabela de base de dados do Azure Cosmos fornece as funcionalidades premium para armazenamento de tabelas como chave na mão distribuição global, leituras de latência baixa e escritas, indexação secundário automática e débito dedicado. Na maioria dos casos, os comandos do PowerShell no trabalho artigo para armazenamento de API de tabela de base de dados do Azure Cosmos e tabelas do Azure, mas este artigo é específico ao Table storage do Azure. Se estiver a utilizar o Azure Cosmos DB tabela API, consulte o artigo [operações de API de tabela de base de dados do Azure Cosmos com o Azure PowerShell](table-powershell.md).
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Table storage do Azure é um arquivo de dados NoSQL que pode utilizar para armazenar e consultar conjuntos enormes de dados estruturados não relacionais. Componentes principais do serviço são propriedades, tabelas e entidades. Uma tabela é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades que são todos os pares nome-valor. Este artigo pressupõe que já estiver familiarizado com os conceitos do serviço de armazenamento de tabela do Azure. Para obter informações detalhadas, consulte [compreender o modelo de dados do serviço tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) e [introdução ao Table storage do Azure através do .NET](table-storage-how-to-use-dotnet.md).
 
@@ -38,7 +35,7 @@ Este artigo procedimentos abrange operações comuns do armazenamento de tabelas
 > * Eliminar entidades da tabela
 > * Eliminar uma tabela
 
-Este artigo procedimentos mostra como criar uma nova conta de armazenamento num novo grupo de recursos, pelo que pode remover facilmente quando tiver terminado. Se em vez disso seria utilizar uma conta de armazenamento existente, pode fazê-lo em vez disso.
+Este artigo procedimentos mostra como criar uma nova conta de armazenamento do Azure num novo grupo de recursos, pelo que pode remover facilmente quando tiver terminado. Se em vez disso seria utilizar uma conta de armazenamento existente, pode fazê-lo em vez disso.
 
 Os exemplos necessitam do Azure PowerShell versão do módulo 4.4.0 ou posterior. Na janela do PowerShell, execute `Get-Module -ListAvailable AzureRM` para localizar a versão. Se será apresentado nada ou terá de atualizar, consulte [módulo Azure PowerShell instalar](/powershell/azure/install-azurerm-ps). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Obter uma lista de tabelas a conta de armazenamento utilizando [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Obter uma referência a uma tabela específica

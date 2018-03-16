@@ -2,24 +2,18 @@
 title: Os limites de recursos de base de dados SQL do Azure | Microsoft Docs
 description: "Esta página descreve alguns limites de recursos comuns para a SQL Database do Azure."
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6e6aaeea0375e92d7913e47c6b929a469ceb5c94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos de base de dados SQL do Azure
 
@@ -64,7 +58,7 @@ A duração de todo o processo de aumento vertical depende do tamanho e do escal
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Base de dados individual: limitações de P11 e P15 quando o número máximo tamanho superior a 1 TB
 
-Um tamanho máximo superior a 1 TB para base de dados P11 e P15 é suportada nas seguintes regiões: East2 nos, EUA oeste, Virginia us dos EUA, Europa Ocidental, Alemanha Central, Sul Oriental, leste do Japão, leste da Austrália, Canadá Central e Canadá Leste. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um tamanho máximo superior a 1 TB:
+Um tamanho máximo superior a 1 TB para base de dados P11 e P15 é suportada nas seguintes regiões: East2 nos, EUA oeste, Virginia us dos EUA, Europa Ocidental, Alemanha Central, Sul Oriental, leste do Japão, Canadá Central e Canadá Leste. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um tamanho máximo superior a 1 TB:
 
 - Se escolher um tamanho máximo superior a 1 TB ao criar uma base de dados (utilizando um valor de 4096 GB ou de 4 TB), o comando create falha com um erro se a base de dados é aprovisionado numa região não suportada.
 - Para existentes P11 P15 bases de dados e localizados das regiões suportadas, pode aumentar o máximo de armazenamento para além de 1 TB em incrementos de 256 GB até 4 TB. Para ver se um tamanho maior é suportado na sua região, utilize o [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) funcionar ou Inspecione o tamanho de base de dados no portal do Azure. Atualizar um P11 existente ou P15 base de dados só pode ser efetuada por um início de sessão principal ao nível do servidor ou por membros da função de base de dados de dbmanager. 

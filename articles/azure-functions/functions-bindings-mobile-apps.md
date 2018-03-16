@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
 
@@ -28,6 +28,12 @@ Este artigo explica como trabalhar com [Mobile Apps do Azure](../app-service-mob
 Os enlaces de aplicações móveis permitem-lhe ler e atualizar as tabelas de dados em aplicações móveis.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Pacotes
+
+Enlaces de aplicações móveis são fornecidos no [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) repositório do GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Input
 
@@ -128,7 +134,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrada - atributos
 
-No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo.
 
 Para obter informações sobre as propriedades de atributo que pode configurar, consulte [a secção de configuração seguintes](#input---configuration).
 
@@ -138,12 +144,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo**|| Tem de ser definido como "mobileTable"|
-| **direção**||Tem de ser definido como "em"|
-| **nome**|| Nome do parâmetro de entrada na assinatura da função.|
+| **type**|| Tem de ser definido como "mobileTable"|
+| **direction**||Tem de ser definido como "em"|
+| **name**|| Nome do parâmetro de entrada na assinatura da função.|
 |**tableName** |**TableName**|Nome da tabela de dados da aplicação móvel|
-| **ID**| **ID** | O identificador do registo para obter. Pode ser estático ou com base no acionador que invoca a função. Por exemplo, se utilizar um acionador de fila para a sua função, em seguida, `"id": "{queueTrigger}"` utiliza o valor da cadeia da mensagem de fila como o ID do registo para obter.|
-|**ligação**|**Ligação**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
+| **id**| **Id** | O identificador do registo para obter. Pode ser estático ou com base no acionador que invoca a função. Por exemplo, se utilizar um acionador de fila para a sua função, em seguida, `"id": "{queueTrigger}"` utiliza o valor da cadeia da mensagem de fila como o ID do registo para obter.|
+|**connection**|**Ligação**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|O nome de uma definição de aplicação que tenha a chave de API da sua aplicação móvel. Forneça a caso da chave de API [uma chave de API de implementar na sua aplicação móvel do Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), ou [uma chave de API de implementar na sua aplicação móvel .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de aplicação na sua aplicação de função que contém a chave de API, em seguida, adicione o `apiKey` propriedade no seu enlace de entrada com o nome da definição de aplicação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -274,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo.
 
 Para obter informações sobre as propriedades de atributo que pode configurar, consulte [de saída - configuração](#output---configuration). Eis um `MobileTable` exemplo de atributo na assinatura do método:
 
@@ -297,11 +303,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo**|| Tem de ser definido como "mobileTable"|
-| **direção**||Tem de ser definido como "out"|
-| **nome**|| Nome do parâmetro de saída na assinatura da função.|
+| **type**|| Tem de ser definido como "mobileTable"|
+| **direction**||Tem de ser definido como "out"|
+| **name**|| Nome do parâmetro de saída na assinatura da função.|
 |**tableName** |**TableName**|Nome da tabela de dados da aplicação móvel|
-|**ligação**|**MobileAppUriSetting**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
+|**connection**|**MobileAppUriSetting**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|O nome de uma definição de aplicação que tenha a chave de API da sua aplicação móvel. Forneça a caso da chave de API [implementar uma chave de API no seu back-end da aplicação móvel de Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), ou [implementar uma chave de API no seu back-end da aplicação móvel de .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de aplicação na sua aplicação de função que contém a chave de API, em seguida, adicione o `apiKey` propriedade no seu enlace de entrada com o nome da definição de aplicação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -313,9 +319,9 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 Em c# funções de script, utilize um parâmetro de saída com o nome do tipo `out object` para aceder ao registo de saída. Em c# bibliotecas de classes, o `MobileTable` atributo pode ser utilizado com qualquer um dos seguintes tipos:
 
-* `ICollector<T>`ou `IAsyncCollector<T>`, onde `T` está `JObject` ou de qualquer tipo com um `public string Id` propriedade.
+* `ICollector<T>` ou `IAsyncCollector<T>`, onde `T` está `JObject` ou de qualquer tipo com um `public string Id` propriedade.
 * `out JObject`
-* `out T`ou `out T[]`, onde `T` é qualquer tipo com um `public string Id` propriedade.
+* `out T` ou `out T[]`, onde `T` é qualquer tipo com um `public string Id` propriedade.
 
 Nas funções de Node.js, utilize `context.bindings.<name>` para aceder ao registo de saída.
 

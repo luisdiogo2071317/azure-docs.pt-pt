@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 3/15/2018
 ms.author: johnkem
-ms.openlocfilehash: abd5ef0ffbaaa78ae4c968fdd208916825d0398a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 44315b88d55d370c8200952dc2ff9d64d64cf524
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiro de Monitor do Azure
 | Parceiros |  |  |
 | --- | --- | --- |
 | [![Logótipo do parceiro][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Logótipo do parceiro][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logótipo do parceiro][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Logótipo do parceiro][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Logótipo do parceiro][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Logótipo do parceiro][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![Logótipo do parceiro][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Logótipo do parceiro][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Logótipo do parceiro][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![Logótipo do parceiro][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logótipo do parceiro][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Logótipo do parceiro][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor]  |
-| [![Logótipo do parceiro][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Logótipo do parceiro][sumologic-logo]<br/>**Sumo lógica**][sumologic-anchor] | |
+| [**Botmetric**][botmetric-anchor] | [![Logótipo do parceiro][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Logótipo do parceiro][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] |
+| [![Logótipo do parceiro][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Logótipo do parceiro][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Logótipo do parceiro][datadog-logo]<br/>**Datadog**][datadog-anchor] |
+| [![Logótipo do parceiro][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Logótipo do parceiro][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![Logótipo do parceiro][logicmonitor-logo]<br/>**lógica Monitor**][logicmonitor-anchor] |
+| [![Logótipo do parceiro][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![Logótipo do parceiro][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logótipo do parceiro][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![Logótipo do parceiro][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![Logótipo do parceiro][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Logótipo do parceiro][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
+| [![Logótipo do parceiro][signl4-logo]<br/>**SIGNL4**][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [![Logótipo do parceiro][splunk-logo]<br/>**Splunk**][splunk-anchor] |
+| [![Logótipo do parceiro][sumologic-logo]<br/>**Sumo lógica**][sumologic-anchor] | [![Logótipo do parceiro][turbonomic-logo]<br/>**Turbonomic**][turbonomic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>Gestor de registos de AlertLogic
 Gestor de registos do alerta lógica recolhe registos de plataforma do Azure para análise de segurança e retenção, de aplicações e de VM. Recolhe também o registo de atividade do Azure através da API de Monitor do Azure. Estas informações são utilizadas para detetar malfeasance e cumprem os requisitos de conformidade.
@@ -43,6 +46,10 @@ Gestão de desempenho de aplicações (APM) do AppDynamics permite que os propri
 Pode criar pedidos de suporte de JIRA em alertas de monitorização do Azure.
 
 [Vá para a documentação.][atlassian-doc]
+
+## <a name="botmetric"></a>Botmetric
+
+[Saiba mais.][botmetric-doc]
 
 ## <a name="circonus"></a>Circonus
 Circonus é uma plataforma de análise incorporado no local ou implementação de SaaS e micro-serviços monitorização. É completamente automatable API centrado em plataforma mais escalável e fiável do que os sistemas que monitoriza. Desenvolvido para os requisitos de DevOps, Circonus fornece alertas com base em percentil, gráficos, dashboards e intelligence de machine-learning que ativar a otimização de negócio. Circonus monitoriza os seus recursos de nuvem do Microsoft Azure e as aplicações em tempo real. Pode utilizar Circonus para recolher e monitorizar as métricas para as variáveis que pretende medir para os seus recursos e aplicações. Com Circonus, obter visibilidade de todo o sistema para a utilização de recursos do Azure, do desempenho de aplicações e estado de funcionamento operacional.
@@ -74,6 +81,28 @@ O Dynatrace OneAgent integra-se com as VMs do Azure e os serviços de aplicaçõ
 
 [Vá para a documentação.][dynatrace-doc]
 
+## <a name="grafana"></a>Grafana
+Grafana é uma aplicação de código aberto que lhe permite visualizar dados de métrica de séries de tempo.
+
+[Vá para a documentação.][grafana-doc]
+
+## <a name="logic-monitor"></a>Monitor de lógica
+LogicMonitor® é o esquerda baseados em SaaS, monitorização do desempenho de plataforma para a infraestrutura de TI complexa. Com cobertura para milhares de tecnologias, LogicMonitor fornece granular visibilidade para o desempenho de aplicações e de infraestrutura. LM em nuvem do Azure monitorização completa permite aos utilizadores correlacionar o desempenho de nuvem do Azure, no local e recursos de nuvem híbrida, tudo a partir de uma plataforma única. Deteção automática de recursos, incorporada monitorização modelos, pré-configurada limiares de alertas e dashboards personalizáveis combinam para dar IT, a velocidade, flexibilidade e visibilidade necessitem para ter êxito.
+
+[Vá para a documentação.][logicmonitor-doc]
+
+## <a name="moogsoft"></a>Moogsoft
+Moogsoft AIOps acelera a transformação de negócio seja ágil.
+
+Ferramentas de automatização do Microsoft Azure e o controlo de fornecem uma janela em tempo real para o estado das aplicações e micro-serviços implementados no Azure e ajudam a orquestrar diagnósticos e runbooks para remediação mais rápida.
+Outras ferramentas de terceiros fornecem uma janela para no local as aplicações e o estado da infraestrutura.
+
+Moogsoft AIOps automatiza o evento para o fluxo de trabalho de remediação, sem alterar a estrutura organizacional e processos existentes. 
+
+Executar no seu Azure disponível, com a integração com ferramentas de monitorização e de automatização em recursos de infraestrutura híbrida, Moogsoft AIOps ativamente detetar aplicação afetar incidentes anteriormente, orquestra dinamicamente os recursos adequados para torná-los situação conhecimento e, reduz o tempo médio para remediar e um impacto adverso na experiência do cliente. 
+
+[Vá para a documentação.][moogsoft-doc]
+
 ## <a name="opsgenie"></a>OpsGenie
 OpsGenie atua como um distribuidor para os alertas gerados pelo Azure. OpsGenie determina as pessoas a notificar corretas com base na chamada agendas e Escalamentos de clientes. -Pode notificá-los por correio eletrónico, mensagens de texto (SMS), as chamadas de telefone ou notificações push. O Azure gera alertas de problemas detetados. OpsGenie assegura que as pessoas corretas estão a funcionar sobre o problema.
 
@@ -84,10 +113,27 @@ PagerDuty, a solução de gestão de incidentes à esquerda, forneceu suporte de
 
 [Vá para a documentação.][pagerduty-doc]
 
+## <a name="qradar"></a>QRadar
+O Microsoft Azure DSM e protocolo de Hub de eventos do Microsoft Azure estão disponíveis para transferência a partir do [do site de suporte do IBM](http://www.ibm.com/support). Pode [saber mais sobre a integração com o Azure aqui][qradar-doc].
+
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic fornece a próxima geração de plataforma do IT service garantia para a gestão de qualquer tecnologia, em qualquer lugar. ScienceLogic fornece o dimensionamento, segurança, automatização e resiliência necessária para simplificar as tarefas de gestão de recursos de TI, serviços e aplicações. A plataforma de ScienceLogic utiliza APIs do Azure para a interface com o Microsoft Azure. ScienceLogic dá-lhe visibilidade em tempo real para os seus serviços do Azure e recursos. Para saber quando algo não está a funcionar e podem corrigi-la mais rapidamente. Também pode gerir o Azure juntamente com outros sistemas de centro de dados e nuvens e serviços.
 
 [Saiba mais.][sciencelogic-doc]
+
+## <a name="signalfx"></a>SignalFx
+SignalFx é leader no intelligence operacional em tempo real para DevOps condicionada por dados. O serviço Deteta e recolhe métricas em todos os componentes na nuvem, ferramentas tradicionais de ponto a substituir e fornecendo visibilidade em tempo real em ambientes dinâmicos hoje. Tirar partido da plataforma SignalFx extremamente dimensionável, a plataforma de SaaS está otimizada para o contentor e micro-serviços baseia arquiteturas e fornecem visualização poderosa, proativos e as capacidades de triagem de colaboração entre organizações de todos os tamanhos de. SignalFx integra-se diretamente com a monitorização do Azure, bem como através de conectores de código aberto como Telegraf, statsD e collectd para fornecer a melhor nos dashboards de classe, análise e alertas para o Azure.
+
+[Vá para a documentação.][signalfx-doc]
+
+## <a name="signl4"></a>SIGNL4
+SIGNL4 - o alerta móveis aplicação para as equipas de operações - é a forma mais rápida para encaminhar os alertas críticos de Monitor do Azure para as pessoas corretas no momento certo – em qualquer lugar por chamadas de push, o texto e voz. SIGNL4 gere na chamada deveres e desvia da sua equipa, a entrega de faixas e a propriedade dos alertas e escalar se necessário. É fornecida a transparência completa entre a sua equipa. Utilizar o super-obrigatórios fácil REST web-hook de SIGNL4 qualquer serviço do Azure pode ser ligado com nenhum esforço. Com SIGNL4, verá uma até 10x uma resposta mais rápida através de notificações por e-mail e os alertas manual.
+
+[Vá para a documentação.][signl4-doc]
+
+## <a name="solarwinds"></a>SolarWinds
+
+[Saiba mais.][solarwinds-doc]
 
 ## <a name="azure-monitor-add-on-for-splunk"></a>Suplemento do Monitor do Azure para Splunk
 O suplemento de Monitor do Azure para Splunk é [disponíveis no aqui o Splunkbase](https://splunkbase.splunk.com/app/3534/).
@@ -99,6 +145,12 @@ Sumo lógica é um serviço de análise de dados segura, nuvem nativo, máquina,
 
 [Saiba mais.][sumologic-doc]
 
+## <a name="turbonomic"></a>Turbonomic
+Turbonomic fornece a automatização de carga de trabalho para nuvens híbrida por otimizar o desempenho, o custo e conformidade em tempo real em simultâneo. Ajuda-o Turbonomic organizações ser elástico na respetiva propriedade do Azure por continuamente otimizar a propriedade para garantir que as aplicações constantemente obter os recursos que necessitam para fornecer as respetivas SLA e nada mais através de computação, armazenamento e de rede para o IaaS e PaaS camada. As organizações podem simular migrações, corretamente dimensionar as cargas de trabalho e extinguir recursos de centro de dados de forma responsável migrar para o Azure de tempo, dentro do orçamento, ao assuring desempenho e conformidade. Turbonomic é suscitada pelo departamento de API e é executado como uma VM sem agente no Azure e no local.
+
+[Saiba mais.][turbonomic-doc]
+
+
 ## <a name="next-steps"></a>Próximos Passos
 * [Saiba mais sobre o Monitor do Azure](monitoring-overview.md)
 * [Métricas de acesso utilizando a API REST](monitoring-rest-api-walkthrough.md)
@@ -109,17 +161,26 @@ Sumo lógica é um serviço de análise de dados segura, nuvem nativo, máquina,
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[botmetric-anchor]: #botmetric "Botmetric"
 [circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
+[grafana-anchor]: #grafana "Grafana"
+[logicmonitor-anchor]: #logic-monitor "Monitor de lógica"
+[moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
+[qradar-anchor]: #qradar "QRadar"
 [sciencelogic-anchor]: #sciencelogic "ScienceLogic"
+[signalfx-anchor]: #signalfx "SignalFx"
+[signl4-anchor]: #signl4 "SIGNL4"
+[solarwinds-anchor]: #solarwinds "SolarWinds"
 [splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo lógica"
+[turbonomic-anchor]: #turbonomic "Turbonomic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
@@ -131,24 +192,40 @@ Sumo lógica é um serviço de análise de dados segura, nuvem nativo, máquina,
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
+[grafana-logo]: ./media/partner-logos/grafana.png
+[logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
+[moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
 [pagerduty-logo]: ./media/partner-logos/pagerduty.png
+[qradar-logo]: ./media/partner-logos/qradar.png
 [sciencelogic-logo]: ./media/partner-logos/sciencelogic.png
+[signalfx-logo]: ./media/partner-logos/signalfx.png
+[signl4-logo]: ./media/partner-logos/signl4.png
 [splunk-logo]: ./media/partner-logos/splunk.png
 [sumologic-logo]: ./media/partner-logos/sumologic.png
+[turbonomic-logo]: ./media/partner-logos/turbonomic.png
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentação de AlertLogic."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Documentação de AppDynamics."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introdução Botmetric."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introdução CloudMonix."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introdução Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentação de Datadog."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentação de Dynatrace."
+[grafana-doc]: ./monitor-send-to-grafana.md "Integração do Monitor Grafana do Azure."
+[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentação do Monitor de lógica."
+[moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentação de Moogsoft."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentação de OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentação de PagerDuty."
+[qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Documentação de QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentação de ScienceLogic."
+[signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "Documentação de SignalFx."
+[signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "Documentação de SIGNL4."
+[solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "Documentação de SolarWinds."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentação de Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentação de SumoLogic."
+[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Introdução Turbonomic."

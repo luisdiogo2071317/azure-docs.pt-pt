@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporta chamadas REST, pode efetuar operações de atualização de dados assíncrona nos seus modelos em tabela do Analysis Services do Azure. Isto inclui a sincronização de réplicas de só de leitura para consulta Escalamento horizontal. 
@@ -36,7 +36,7 @@ O URL de base segue este formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por exemplo, considere um modelo com o nome AdventureWorks, num servidor com o nome myserver, localizado na região do Azure do Oeste dos EUA, o nome do servidor é:
+Por exemplo, considere um modelo com o nome AdventureWorks num servidor com o nome myserver, localizado na região do Azure do Oeste-nos. O nome do servidor é:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ O URL de base para este nome de servidor é:
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Ao utilizar o URL de base, recursos e operações possam ser acrescentadas com base no seguinte: 
+Ao utilizar o URL de base, recursos e operações possam ser acrescentadas com base nos parâmetros seguintes: 
 
 ![Atualização assíncrona](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ Ao utilizar o URL de base, recursos e operações possam ser acrescentadas com b
 - Tudo o que termina com **()** é uma função.
 - Tudo o resto é um objeto/recursos.
 
-Por exemplo, pode utilizar o verbo POST na coleção de atualizações para efetuar uma operação de atualização, como esta:
+Por exemplo, pode utilizar o verbo POST na coleção de atualizações para efetuar uma operação de atualização:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -106,7 +106,7 @@ Não é necessário especificar parâmetros. A predefinição é aplicada.
 |---------|---------|---------|---------|
 |Tipo     |  Enum       |  O tipo de processamento para executar. Os tipos estão alinhados com o TMSL [atualizar comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) tipos: completa, clearValues, calcular apenas dados automático, adicione e desfragmentar.       |   Automática      |
 |CommitMode     |  Enum       |  Determina se os objetos serão confirmados em lotes ou apenas após concluir o procedimento. Modos incluem: partialBatch transacional, predefinição,.  |  transacional       |
-|MaxParallelism     |   Int      |  Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Isto alinhada com a propriedade MaxParallelism que pode ser definida no TMSL [sequência comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou através de outros métodos.       | 10        |
+|MaxParallelism     |   Int      |  Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Este valor alinhada com a propriedade MaxParallelism que pode ser definida no TMSL [sequência comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou através de outros métodos.       | 10        |
 |RetryCount    |    Int     |   Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
 |Objetos     |   Matriz      |   Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se não existem objetos forem especificados, é atualizar o modelo de todo. |   Processar o modelo completo      |
 
@@ -188,7 +188,7 @@ Para verificar o estado de uma operação de sincronização, utilize o verbo GE
 }
 ```
 
-Valores da syncstate:
+Os valores de `syncstate`:
 
 - 0: a replicar. Ficheiros de base de dados estão a ser replicados para uma pasta de destino.
 - 1: reativar. A base de dados está a ser rehydrated em instâncias de servidor só de leitura.
@@ -228,7 +228,7 @@ Esta forma de autenticação necessita de ser criada uma aplicação do Azure co
 
     ![Adicionar acesso à API](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  No **selecionar um API**, tipo **SQL Server Analysis Services** para a caixa de pesquisa e, em seguida, selecione **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  No **selecionar um API**, tipo **Azure Analysis Services** para a pesquisa caixa e, em seguida, selecioná-lo.
 
     ![Selecionar API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Esta forma de autenticação necessita de ser criada uma aplicação do Azure co
 
 #### <a name="service-principal"></a>Principal de serviço
 
-Consulte o [automatização do Azure Analysis Services com principais de serviço e o PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blogue para saber como configurar um principal de serviço e atribuir as permissões necessárias no Azure Analysis Services. Depois de concluir os passos detalhados na mensagem de blogue, conclua os seguintes passos adicionais:
+Consulte [criar principal de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um principal de serviço e atribuir as permissões necessárias nas do Azure . Depois de concluir os passos, conclua os seguintes passos adicionais:
 
 1.  O código de exemplo, encontrar **cadeia autoridade =...** , substitua **comuns** com a sua organização ID de inquilino.
 2.  Comentário/anule os comentários para a classe de ClientCredential é utilizada para instanciar o objeto de cred. Certifique-se a \<ID da aplicação > e \<chave da aplicação > valores são acedidos de forma segura ou utilizar a autenticação baseada em certificado para principais de serviço.
