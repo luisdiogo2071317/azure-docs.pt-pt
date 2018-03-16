@@ -2,29 +2,26 @@
 title: "Descrição geral de instância de geridos de base de dados SQL do Azure | Microsoft Docs"
 description: "Este tópico descreve uma instância do Azure SQL da base de dados geridos e explica como funciona e como é diferente da base de dados individual na SQL Database do Azure."
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
 Instância do Azure SQL da base de dados geridos (pré-visualização) é uma nova funcionalidade da SQL Database do Azure, fornecendo quase 100% a compatibilidade com SQL Server no local, fornecendo um nativo [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) implementação endereços preocupações de segurança comuns e um [modelo de negócio](https://azure.microsoft.com/pricing/details/sql-database/) favoráveis para clientes de SQL Server no local. Instância gerida permite que os clientes existentes do SQL Server para comparação de precisão e deslocar às suas aplicações no local para a nuvem com alterações mínimas de aplicação e da base de dados. Ao mesmo tempo, a instância geridos preserva todas as PaaS capacidades (atualizações automáticas de aplicação de patches e a versão da cópia de segurança, elevada disponibilidade), que reduz significativamente a sobrecarga de gestão e o TCO.
+
+> [!IMPORTANT]
+> Para obter uma lista de regiões em que está atualmente disponível instância geridos, consulte [migrar as bases de dados para um serviço completamente gerido com o Azure SQL da base de dados geridos instância](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 O diagrama a seguir descreve as principais funcionalidades de instância geridos:
 
