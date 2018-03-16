@@ -16,10 +16,10 @@ ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitorização externa com pilha do Azure
 
@@ -221,7 +221,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*fabricname*     |    Nome de recursos de infraestrutura registados do componente defeituoso.   |
 |*description*     |  Descrição do componente registados infraestrutura.   |
 |*servicetype*     |   Tipo de serviço a recursos de infraestrutura registado.   |
-|*remediação*     |   Passos de remediação recomendada.    |
+|*Remediação*     |   Passos de remediação recomendada.    |
 |*type*     |   Tipo de alerta.    |
 |*resourceRegistrationid*    |     ID do recurso registado afetado.    |
 |*resourceProviderRegistrationID*   |    ID do fornecedor de recursos registado do componente afetado.  |
@@ -364,7 +364,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*fabricname*     |    Nome de recursos de infraestrutura registados do componente defeituoso.   |
 |*description*     |  Descrição do componente registados infraestrutura.   |
 |*servicetype*     |   Tipo de serviço a recursos de infraestrutura registado.   |
-|*remediação*     |   Passos de remediação recomendada.    |
+|*Remediação*     |   Passos de remediação recomendada.    |
 |*type*     |   Tipo de alerta.    |
 |*resourceRegistrationid*    |     ID do recurso registado afetado.    |
 |*resourceProviderRegistrationID*   |    ID do fornecedor de recursos registado do componente afetado.  |
@@ -393,7 +393,7 @@ O pedido obtém o estado de funcionamento de todos os fornecedores de recursos r
 
 |Argumentos  |Descrição  |
 |---------|---------|
-|*armendpoint*     |    O ponto final do Gestor de recursos do ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e nome de região é local, o ponto final do Gestor de recursos é https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    O ponto final do Gestor de recursos do ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e nome de região é local, em seguida, o ponto final do Gestor de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID de subscrição do utilizador que está a efetuar a chamada. Pode utilizar esta API para consulta apenas com um utilizador que tenha permissão para a subscrição do fornecedor predefinido.    |
 |*RegionName*     |     O nome de região da implementação da pilha do Azure.    |
 |*api-version*     |   Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.      |
@@ -462,7 +462,7 @@ O pedido obtém o estado de funcionamento para um fornecedor de recursos regista
 
 |Argumentos  |Descrição  |
 |---------|---------|
-|*armendpoint*     |    O ponto final do Gestor de recursos do ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e nome de região é local, o ponto final do Gestor de recursos é https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    O ponto final do Gestor de recursos do ambiente de pilha do Azure, na https://adminmanagement formato. {RegionName}. {FQDN externo}. Por exemplo, se o FQDN externo é azurestack.external e nome de região é local, em seguida, o ponto final do Gestor de recursos é https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID de subscrição do utilizador que está a efetuar a chamada. Pode utilizar esta API para consulta apenas com um utilizador que tenha permissão para a subscrição do fornecedor predefinido.         |
 |*RegionName*     |  O nome de região da implementação da pilha do Azure.       |
 |*api-version*     |  Versão do protocolo que é utilizado para efetuar este pedido. Tem de utilizar 2016-05-01.       |

@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalize a IU da journey utilizador com as políticas personalizadas
 
@@ -72,7 +72,7 @@ Para se certificar de que tudo funciona conforme esperado, tem de:
 - Utilize URLS absolutos como https://yourdomain/content para todas as ligações e conteúdo do CSS.
 
 > [!TIP]
-> Para verificar se o site que está a alojar o conteúdo tem CORS ativada e testar pedidos CORS, pode utilizar o http://test-cors.org/ site. Graças deste site, pode enviar o pedido CORS para um servidor remoto (para testar se for suportada CORS), ou enviar o pedido CORS para um servidor de teste (para explorar determinadas funcionalidades de CORS).
+> Para verificar se o site que está a alojar o conteúdo tem CORS ativada e testar pedidos CORS, pode utilizar o site http://test-cors.org/. Graças deste site, pode enviar o pedido CORS para um servidor remoto (para testar se for suportada CORS), ou enviar o pedido CORS para um servidor de teste (para explorar determinadas funcionalidades de CORS).
 
 > [!TIP]
 > O site http://enable-cors.org/ também constitui um mais do que recursos úteis no CORS.

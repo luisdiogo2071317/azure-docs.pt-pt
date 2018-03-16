@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b45d1287444d200727550a81ce72a19a417fe510
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Realizar a ativação pós-falha e a reativação pós-falha das VMs do Azure entre regiões do Azure (Pré-visualização)
 
@@ -30,7 +30,7 @@ Este tutorial descreve como realizar a ativação pós-falha numa única VM do A
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Certifique-se de que concluiu um [teste de recuperação após desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se está tudo a funcionar conforme esperado.
-- Verifique as propriedades da VM antes de executar a ativação pós-falha de teste. A VM tem de cumprir os [Requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Verifique as propriedades da VM antes de executar a ativação pós-falha de teste. A VM tem de cumprir os [Requisitos do Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Realize uma ativação pós-falha para a região secundária
 

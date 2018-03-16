@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utilize a autenticação do Azure AD para aceder à API de serviços de suporte de dados do Azure com REST
 
@@ -59,10 +59,10 @@ Para aceder à API de serviços de suporte de dados, terá de recolher os seguin
 
 |Definição|Exemplo|Descrição|
 |---|-------|-----|
-|Domínio de inquilino do Azure Active Directory|Microsoft.onmicrosoft.com|Azure AD como um ponto final de proteger o Token serviço (STS) é criado utilizando o seguinte formato: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. O Azure AD emite um JWT para poder aceder aos recursos (um token de acesso).|
-|Ponto final de API REST|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|Este é o ponto final com que todas as API de REST de serviços de suporte de dados são efetuadas chamadas na sua aplicação.|
+|Domínio de inquilino do Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como um ponto final de proteger o Token serviço (STS) é criado utilizando o seguinte formato: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. O Azure AD emite um JWT para poder aceder aos recursos (um token de acesso).|
+|Ponto final de API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Este é o ponto final com que todas as API de REST de serviços de suporte de dados são efetuadas chamadas na sua aplicação.|
 |ID de cliente (ID de aplicação)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID de aplicação (cliente) do Azure AD O ID de cliente é necessária para obter o token de acesso. |
-|Segredo do Cliente|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Chaves de aplicação do Azure AD (segredo do cliente). O segredo do cliente é necessária para obter o token de acesso.|
+|Segredo do Cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chaves de aplicação do Azure AD (segredo do cliente). O segredo do cliente é necessária para obter o token de acesso.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Obter informações de autenticação do AAD do portal do Azure
 
@@ -123,7 +123,7 @@ Esta secção mostra como utilizar **Postman** para executar uma API de REST que
 2. Selecione **PUBLICAR**.
 3. Introduza o URL que inclua o nome do inquilino com o seguinte formato: o nome de inquilino deve terminar com **. onmicrosoft.com** e o URL deve terminar com **oauth2/token**: 
 
-    https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Selecione o **cabeçalhos** separador.
 5. Introduza o **cabeçalhos** informações utilizando a grelha de dados de "Chave/valor". 
@@ -159,7 +159,7 @@ Esta secção mostra como pode aceder a **ativos** API utilizando **Postman**.
 
 1. Abra **Postman**.
 2. Selecione **OBTER**.
-3. Cole o ponto final de REST API (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Cole (por exemplo, o ponto final de REST API https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selecione o **autorização** separador. 
 5. Selecione **Token de portador**.
 6. Cole o token que foi criado na secção anterior.

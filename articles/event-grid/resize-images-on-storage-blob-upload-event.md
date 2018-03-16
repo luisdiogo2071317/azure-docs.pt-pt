@@ -1,7 +1,7 @@
 ---
 title: Utilizar o Azure Event Grid para automatizar o redimensionamento de imagens carregadas | Microsoft Docs
 description: "O Azure Event Grid pode acionar carregamentos de blobs no Armazenamento do Azure. Pode utilizá-lo para enviar ficheiros de imagem carregados para o Armazenamento do Azure para outros serviços, como as Funções do Azure, para redimensionar e outras melhorias."
-services: event-grid
+services: event-grid, functions
 author: ggailey777
 manager: cfowler
 editor: 
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b0fccd058620537f6dcfaf37ee14c1ff0cb8857a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar o redimensionamento de imagens carregadas com o Event Grid
 

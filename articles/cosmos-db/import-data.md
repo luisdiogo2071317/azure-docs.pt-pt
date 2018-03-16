@@ -17,10 +17,10 @@ ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
 ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Do Azure Cosmos DB: Ferramenta de migração de dados
 
@@ -196,7 +196,7 @@ Semelhante à origem de SQL Server, a propriedade de separador aninhamento pode 
 
 Tenha em atenção os aliases como DomainInfo.Domain_Name e RedirectInfo.Redirecting. Ao especificar um separador de aninhamento de '.', a ferramenta de importação irá criar subdocuments DomainInfo e RedirectInfo durante a importação. Eis um exemplo de um documento do BD Azure Cosmos resultante:
 
-*{"DomainInfo": {"Nome_domínio": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV"}, "Agência Federal": "administrativos conferência do dos Estados Unidos", "RedirectInfo": {"Redirecionar": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
+*{"DomainInfo": {"Nome_domínio": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV"}, "Agência Federal": "administrativos conferência do dos Estados Unidos", "RedirectInfo": {"Redirecionar": "0", "Redirect_Destination": ""}, "id": " 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
 
 A ferramenta de importação tenta inferir informações de tipo por valores unquoted ficheiros CSV (delimitado por aspas valores sempre são tratados como cadeias).  Tipos são identificados pela seguinte ordem: número, datetime, booleano.  
 

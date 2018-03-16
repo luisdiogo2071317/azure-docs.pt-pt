@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Utilizar o portal de administrador na pilha do Azure
 
@@ -35,7 +35,7 @@ Para aceder ao portal de administrador, navegue para o URL e o início de sessã
 | Ambiente | URL do Portal de administrador |   
 | -- | -- | 
 | Kit de desenvolvimento| https://adminportal.local.azurestack.external  |
-| Sistemas integrados | https://adminportal. &lt; *região*&gt;.&lt; *FQDN*&gt; | 
+| Sistemas integrados | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
  ![O portal de administrador](media/azure-stack-manage-portals/image1.png)
@@ -79,6 +79,6 @@ Se clicar no ícone de ajuda e suporte (ponto de interrogação) no canto superi
 - Se estiver a utilizar um sistema integrado, esta ação abre-se um site, onde pode diretamente abrir um pedido de suporte com o Microsoft ao cliente suportar (CSS). Consulte a secção "Onde obter suporte" [Noções básicas de administração do Azure pilha](azure-stack-manage-basics.md) compreender quando deve passar através de suporte da Microsoft ou através do suporte de fornecedor de hardware de fabricante de equipamento original (OEM).
 - Se estiver a utilizar o kit de desenvolvimento, esta ação abre-se o site de fóruns do Azure pilha diretamente. Estes fóruns regularmente são monitorizados. Porque o kit de desenvolvimento é um ambiente de avaliação, não há nenhum oficial de suporte oferecida através do Microsoft CSS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gestão de região na pilha do Azure](azure-stack-region-management.md)

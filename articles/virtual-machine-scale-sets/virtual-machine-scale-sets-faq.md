@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -77,7 +77,7 @@ Pode criar alertas nas métricas para conjuntos de dimensionamento de máquina v
 
 TargetResourceId do conjunto de dimensionamento de máquina virtual tem o seguinte aspeto: 
 
-/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/Providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
+/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
 Pode escolher qualquer contador de desempenho da VM como a métrica para definir um alerta para. Para obter mais informações, consulte [métricas de SO convidado para VMs do Windows baseados no Resource Manager](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) e [métricas de SO convidado para VMs com Linux](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) no [métricas comuns de dimensionamento automático Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)artigo.
 
@@ -218,7 +218,7 @@ Pode fornecer as chaves públicas SSH em texto simples quando criar uma VM com L
  
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
 --- | --- | --- | --- |  ---
-SSH | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
+ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
 caminho | Sim | Cadeia | Especifica o caminho de ficheiro do Linux em que as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | Cadeia | Especifica uma chave pública de SSH com codificação base64
 
@@ -291,9 +291,9 @@ Não ocorrer este problema durante a ampliação porque não existe uma cópia e
  
 A documentação do Cofre de chaves do Azure indica se a API de REST do segredo obter deverá devolver a versão mais recente do segredo do se a versão não for especificada.
  
-Método | URL
+Método | do IdP
 --- | ---
-GET | https://mykeyvault.Vault.Azure.NET/Secrets/ {nome-segredo} / {segredo-version}? api-version = {api-version}
+INTRODUÇÃO | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Substitua {*segredo-name*} com o nome e a substituir {*segredo versão*} com a versão do segredo que pretende obter. A versão secreta poderão ser excluída. Nesse caso, é obtida a versão atual.
   
@@ -674,7 +674,7 @@ Para ativar o diagnóstico de arranque, primeiro, crie uma conta de armazenament
 }
 ```
 
-Quando é criada uma nova VM, a propriedade InstanceView da VM mostra os detalhes para a captura de ecrã e assim sucessivamente. Eis um exemplo:
+Quando é criada uma nova VM, a propriedade InstanceView da VM mostra os detalhes para a captura de ecrã e assim sucessivamente. Segue-se um exemplo:
  
 ```json
 "bootDiagnostics": {
@@ -690,7 +690,7 @@ Quando é criada uma nova VM, a propriedade InstanceView da VM mostra os detalhe
 
 Para obter informações sobre propriedades para cada VM sem fazer chamadas de várias, pode chamar `ListVMInstanceViews` efetuando uma API REST `GET` no URI do recurso seguinte:
 
-/subscriptions/{targetsubscriptionid}/resourcegroups/{targetresourcegroupname} < subscription_id > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtualMachines? $expand = instanceView & $select = instanceView
+/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Pode passar argumentos da extensão diferentes para diferentes VMs num conjunto de dimensionamento de máquina virtual?
 

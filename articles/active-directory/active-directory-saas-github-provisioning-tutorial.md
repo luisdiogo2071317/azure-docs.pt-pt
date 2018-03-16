@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.openlocfilehash: 53eb2d0e76cb4765612dfd30226979d839a96235
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para aprovisionamento de utilizadores automática
 
@@ -78,7 +78,7 @@ Esta secção orienta-o de ligar o seu Azure AD a API de aprovisionamento da con
 
     ![Caixa de diálogo de autorização](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
-7. No portal do Azure, de entrada **URL de inquilino** e clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação do GitHub. Se a ligação falhar, certifique-se a conta do GitHub possui permissões de administrador e **URl de inquilino** é inputted corretamente, em seguida, repita o passo de "opção autorizar" (pode constituem **URL de inquilino** pela regra: "https://api.github.com/scim/v2/organizations/ + < Organizations_name >", pode encontrar as organizações na sua conta do GitHub: **definições** > **organizações**).
+7. No portal do Azure, de entrada **URL de inquilino** e clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação do GitHub. Se a ligação falhar, certifique-se a conta do GitHub possui permissões de administrador e **URl de inquilino** é inputted corretamente, em seguida, repita o passo de "opção autorizar" (pode constituem **URL de inquilino** pela regra: "https://api.github.com/scim/v2/organizations/ + < Organizations_name > ", pode encontrar as organizações na sua conta do GitHub: **definições** > **organizações**).
 
     ![Caixa de diálogo de autorização](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 

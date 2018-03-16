@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>A página não funciona para uma aplicação de Proxy de aplicações
 
@@ -42,8 +42,8 @@ Existem três formas para resolver este problema. As opções abaixo no constam 
 
 3.  Se nenhuma destas opções exequível, associe a pré-visualização para uma nova funcionalidade que efetuar a conversão/tradução de URL. Com esta opção, interno URLs ou ligações que existem no corpo HTML das suas aplicações ser traduzidas, ou "mapeadas", para os URLs de Proxy da aplicação externo publicada. Isto funciona apenas para ligações no HTML ou CSS e esta ajuda se a ligação é gerada através de JS. 
 
-Como resultado, recomendamos vivamente a utilizar o [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) solução se possível. Se pretende associar a pré-visualização, e-mail < aadapfeedback@microsoft.com > com o applicationId(s).
+Como resultado, recomendamos vivamente a utilizar o [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) solução se possível. Se pretende associar a pré-visualização, e-mail <aadapfeedback@microsoft.com> com o applicationId(s).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Trabalhar com servidores de proxy no local existentes](application-proxy-working-with-proxy-servers.md)
 

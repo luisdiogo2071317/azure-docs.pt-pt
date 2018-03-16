@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -40,12 +40,12 @@ Cada rota contém um prefixo de endereço e o tipo de salto seguinte. Quando o t
 |Predefinição|0.0.0.0/0                                               |Internet       |
 |Predefinição|10.0.0.0/8                                              |Nenhuma           |
 |Predefinição|172.16.0.0/12                                           |Nenhum           |
-|Predefinição|192.168.0.0/16                                          |Nenhuma           |
-|Predefinição|100.64.0.0/10                                           |Nenhuma           |
+|Predefinição|192.168.0.0/16                                          |Nenhum           |
+|Predefinição|100.64.0.0/10                                           |Nenhum           |
 
 Os tipos de salto seguintes listados na tabela anterior representam a forma como o Azure encaminha o tráfego destinado ao prefixo de endereço listado. As explicações para os tipos de salto seguintes são as seguintes:
 
-- **Rede virtual**: encaminha o tráfego entre intervalos de endereços dentro do [espaço de endereços](virtual-network-manage-network.md#add-address-spaces) de uma rede virtual. O Azure cria uma rota com um prefixo de endereço que corresponde a cada intervalo de endereços definido dentro do espaço de endereços de uma rede virtual. Se o espaço de endereços da rede virtual tiver vários intervalos de endereços definidos, o Azure cria uma rota individual para cada intervalo. O Azure utiliza as rotas criadas para cada intervalo de endereços para encaminhar automaticamente o tráfego entre as sub-redes. Não precisa de definir gateways para que o Azure encaminhe o tráfego entre sub-redes. Embora as redes virtuais contenham sub-redes e cada sub-rede tenha um intervalo de endereços definido, o Azure *não* cria rotas predefinidas para os intervalos de endereços das sub-redes, pois estes estão entro de um intervalo de endereços do espaço de endereços de uma rede virtual.
+- **Rede virtual**: encaminha o tráfego entre intervalos de endereços dentro do [espaço de endereços](manage-virtual-network.md#add-or-remove-an-address-range) de uma rede virtual. O Azure cria uma rota com um prefixo de endereço que corresponde a cada intervalo de endereços definido dentro do espaço de endereços de uma rede virtual. Se o espaço de endereços da rede virtual tiver vários intervalos de endereços definidos, o Azure cria uma rota individual para cada intervalo. O Azure utiliza as rotas criadas para cada intervalo de endereços para encaminhar automaticamente o tráfego entre as sub-redes. Não precisa de definir gateways para que o Azure encaminhe o tráfego entre sub-redes. Embora as redes virtuais contenham sub-redes e cada sub-rede tenha um intervalo de endereços definido, o Azure *não* cria rotas predefinidas para os intervalos de endereços das sub-redes, pois estes estão entro de um intervalo de endereços do espaço de endereços de uma rede virtual.
 
 - **Internet**: encaminha o tráfego especificado pelo prefixo de endereço para a Internet. A rota predefinida do sistema especifica o prefixo de endereço 0.0.0.0/0. Se não substituir as rotas predefinidas do Azure, o Azure encaminha o tráfego de qualquer endereço não especificado por um intervalo de endereços dentro de uma rede virtual para a Internet, com uma exceção. Se o endereço de destino for para um dos serviços do Azure, o Azure encaminha o tráfego diretamente para o serviço através da rede principal do Azure, em vez de o encaminhar para a Internet. O tráfego entre os serviços do Azure não atravessa a Internet, independentemente da região do Azure na qual a rede virtual existe ou da região em que uma instância do serviço Azure está implementada. Pode substituir a rota do sistema predefinida do Azure para o prefixo de endereço 0.0.0.0/0 por uma [rota personalizada](#custom-routes).
 
@@ -110,7 +110,7 @@ O nome apresentado e referenciado para os tipos de próximo salto são diferente
 |Rede virtual                 |VNetLocal                                       |VNETLocal (não disponível na CLI 1.0 no modo asm)|
 |Internet                        |Internet                                        |Internet (não disponível na CLI 1.0 no modo asm)|
 |Aplicação virtual               |VirtualAppliance                                |VirtualAppliance|
-|Nenhum                            |Nenhuma                                            |Null (não disponível na CLI 1.0 no modo asm)|
+|Nenhuma                            |Nenhum                                            |Null (não disponível na CLI 1.0 no modo asm)|
 |Peering de rede virtual         |VNet peering                                    |Não aplicável|
 |Ponto final do serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
 
@@ -207,7 +207,7 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 |3   |Utilizador   |Ativa |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Predefinição|Inválido|10.1.0.0/16         |VNet peering           |                   |              |
 |5   |Predefinição|Inválido|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhuma                   |                   |ToVNet2-1-Drop|
+|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
 |7   |Utilizador   |Ativa |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
 |8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
 |9   |Utilizador   |Ativa |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
@@ -250,7 +250,7 @@ A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pel
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação de rede virtual](create-user-defined-route-portal.md)
+- [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação de rede virtual](tutorial-create-route-table-portal.md)
 - [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Utilizar o BGP com o ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Ver todas as rotas de uma sub-rede](virtual-network-routes-troubleshoot-portal.md). As tabelas de rotas definidas pelo utilizador só lhe mostram este tipo de rotas e não as rotas predefinidas nem do BGP relativas às sub-redes. Ver todas as rotas mostra as rotas predefinidas, do BGP e definidas pelo utilizador relativas à sub-rede na qual a interface de rede se encontra.

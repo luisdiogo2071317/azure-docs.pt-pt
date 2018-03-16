@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 976ddf25a57dd1eff66e121c5a66bc31f664a9dc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Introdução ao Azure Data Lake Store com a CLI 2.0 do Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Aprenda a utilizar a CLI 2.0 do Azure para criar uma conta do Azure Data Lake Store e executar operações básicas, tais como criar pastas, carregar e transferir ficheiros de dados, eliminar a conta, entre outras. Para obter mais informações sobre o Data Lake Store, veja [Descrição geral do Data Lake Store](data-lake-store-overview.md).
 
-A CLI 2.0 do Azure é nova experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para obter mais informações, consulte [Overview of Azure CLI 2.0 (Descrição geral da CLI 2.0 do Azure)](https://docs.microsoft.com/cli/azure/overview). Também pode ver a [Azure Data Lake Store CLI 2.0 reference (referência da CLI 2.0 do Azure Data Lake Store)](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e a sintaxe.
+A CLI 2.0 do Azure é nova experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para obter mais informações, consulte [Overview of Azure CLI 2.0 (Descrição geral da CLI 2.0 do Azure)](https://docs.microsoft.com/cli/azure). Também pode ver a [Azure Data Lake Store CLI 2.0 reference (referência da CLI 2.0 do Azure Data Lake Store)](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e a sintaxe.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

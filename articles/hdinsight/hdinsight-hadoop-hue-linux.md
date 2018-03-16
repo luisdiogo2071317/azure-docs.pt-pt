@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar Hue em clusters do HDInsight Hadoop
 
@@ -42,13 +42,13 @@ Hue é um conjunto de aplicações Web utilizado para interagir com um cluster d
 > [!WARNING]
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportados e Support da Microsoft irá ajudá-lo para isolar e resolver problemas relacionados com estes componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudar a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudar a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para interagir com os canais disponíveis para as tecnologias de open source para onde se encontra profundo conhecimentos para que a tecnologia. Por exemplo, existem vários sites de Comunidade que podem ser utilizadas, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos do Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>Instalar a Hue utilizando ações de Script
 
-O script para instalar a Hue num cluster do HDInsight baseado em Linux está disponível em https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Pode utilizar este script para instalar a Hue em clusters com Blobs de armazenamento do Azure (WASB) ou do Azure Data Lake Store, como armazenamento de predefinido.
+O script para instalar a Hue num cluster do HDInsight baseado em Linux está disponível no https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Pode utilizar este script para instalar a Hue em clusters com Blobs de armazenamento do Azure (WASB) ou do Azure Data Lake Store, como armazenamento de predefinido.
 
 Esta secção fornece instruções sobre como utilizar o script quando aprovisionar o cluster utilizando o portal do Azure.
 
@@ -68,7 +68,7 @@ Esta secção fornece instruções sobre como utilizar o script quando aprovisio
     ![Fornecer parâmetros de ação de script para Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "fornecer parâmetros de ação de script para Hue")
 
    * **NOME**: introduza um nome amigável para a ação de script.
-   * **URI de SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: esta opção de verificação
    * **TRABALHO**: deixar isto em branco.
    * **ZOOKEEPER**: deixar isto em branco.
@@ -146,7 +146,7 @@ Túnel SSH é a única forma de aceder a Hue num cluster assim que estiver em ex
    Isto acontece devido a um problema conhecido. Como solução, modifique o Ambari para que o Gestor de recursos do Active Directory também é executada no headnode primário.
 5. Hue compreende WebHDFS ao utilizam de clusters do HDInsight utilizando o armazenamento do Azure `wasb://`. Por isso, o script personalizado utilizado com a ação de script instala WebWasb, que é um serviço compatível com WebHDFS para falar com WASB. Sim, apesar do portal da Hue indica HDFS em locais (como ao mover o rato o **ficheiro Browser**), deve ser interpretado como WASB.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Instalar Giraph nos clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilize personalização de cluster para instalar Giraph em clusters do HDInsight Hadoop. Giraph permite-lhe efetuar o processamento de gráfico com o Hadoop e pode ser utilizado com o Azure HDInsight.
 * [Instalar Solr nos clusters do HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilize personalização de cluster para instalar Solr em clusters do HDInsight Hadoop. Solr permite-lhe efetuar operações de pesquisa poderosas em dados armazenados.
 * [Instalar o R nos clusters do HDInsight](hdinsight-hadoop-r-scripts-linux.md). Utilize a personalização de cluster para instalar o R nos clusters do HDInsight Hadoop. R é um idioma de open source e o ambiente para o cálculo estatístico. Fornece centenas de incorporada funções estatísticas e a suas próprias linguagem de programação que combina aspetos funciona e orientado para objetos de programação. Também fornece extensas capacidades de gráficas.

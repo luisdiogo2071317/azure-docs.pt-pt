@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ee01b83101d4ab4ee8665c32aca22a793b41ac0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar Pontos Finais do Serviço de Rede Virtual
 
-Os pontos finais do serviço de rede virtual (VNet) permitem-lhe obter os recursos de serviço do Azure na sua Rede Virtual do Azure, removendo totalmente o acesso a estes recursos via Internet. Os pontos finais de serviço fornecem ligação direta a um serviço do Azure a partir da rede virtual, permitindo-lhe utilizar o espaço de endereço privado da sua VNet para aceder aos serviços do Azure. O tráfego destinado aos serviços do Azure através de pontos finais de serviço permanece sempre na rede backbone do Microsoft Azure. Saiba mais sobre [“Pontos finais dE serviço de rede virtual”](virtual-network-service-endpoints-overview.md)
+Os pontos finais do serviço de rede virtual (VNet) permitem-lhe obter os recursos de serviço do Azure na sua Rede Virtual do Azure, removendo totalmente o acesso a estes recursos via Internet. Os pontos finais de serviço fornecem ligação direta a um serviço do Azure a partir da rede virtual, permitindo-lhe utilizar o espaço de endereço privado da sua VNet para aceder aos serviços do Azure. O tráfego destinado aos serviços do Azure através de pontos finais de serviço permanece sempre na rede backbone do Microsoft Azure. Saiba mais sobre ["Pontos finais dE serviço de rede virtual"](virtual-network-service-endpoints-overview.md)
 
 Este artigo indica os passos para ativar e desativar pontos finais de serviço. Assim que os pontos finais forem ativados numa sub-rede para um serviço do Azure, pode obter recursos específicos do serviço para uma rede virtual.
 
@@ -47,11 +47,11 @@ Durante a pré-visualização, a funcionalidade de pontos finais de serviço da 
   >[!NOTE]
   Dependendo do tamanho da sub-rede/VNet, a ativação do ponto final de serviço pode levar algum tempo a ser concluída. Certifique-se de que não existem tarefas críticas em curso quando ativar pontos finais de serviço. Os pontos finais de serviço mudam de rota em cada NIC na sua sub-rede e podem terminar em ligações TCP abertas. 
 
-- A chamada de ponto final de serviço devolve “com êxito” depois de os fluxos de tráfego para o serviço em todas as NICs na sub-rede terem sido comutadas para os endereços IP privados da Vnet.
+- A chamada de ponto final de serviço devolve "com êxito" depois de os fluxos de tráfego para o serviço em todas as NICs na sub-rede terem sido comutadas para os endereços IP privados da Vnet.
 
 - Rotas efetivas para validar a configuração do ponto final:
 
-   Para validar se o ponto final de serviço está configurado corretamente, as “rotas efetivas” em qualquer NIC na sub-rede mostram uma nova rota “predefinida” com nextHopType: VirtualNetworkServiceEndpoint por serviço e região. Saiba mais sobre [resolver problemas com rotas efetivas](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+   Para validar se o ponto final de serviço está configurado corretamente, as "rotas efetivas" em qualquer NIC na sub-rede mostram uma nova rota "predefinida" com nextHopType: VirtualNetworkServiceEndpoint por serviço e região. Saiba mais sobre [resolver problemas com rotas efetivas](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
    >[!NOTE]
    As rotas efetivas só podem ser visualizadas se tiver uma ou mais interfaces de rede (NICs) configuradas e associadas a uma máquina virtual em execução na sub-rede.
@@ -75,11 +75,11 @@ Grupo de recursos|Deixe a opção Criar novo selecionada e, em seguida, introduz
 Localização|É suportada qualquer região; por exemplo, Leste da Austrália
 Subscrição|Selecione a sua subscrição.
 __ServiceEndpoints__|Ativado
-__Serviços__ | Selecione um ou todos os serviços disponíveis. Serviços suportados: __“Microsoft”, “Microsoft.Sql”__.
+__Serviços__ | Selecione um ou todos os serviços disponíveis. Serviços suportados: __"Microsoft", "Microsoft.Sql"__.
 
 Selecione os serviços para os pontos finais: ![Selecionar Serviços dos Pontos Final de Serviço](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
-4. Valide se todas as definições estão corretas e clique em “Criar”.
+4. Valide se todas as definições estão corretas e clique em "Criar".
 
 ![Definir ponto final de serviço](media/virtual-network-service-endpoints-portal/create-vnet-flow.png)
 
@@ -90,33 +90,33 @@ Selecione os serviços para os pontos finais: ![Selecionar Serviços dos Pontos 
 
 Confirme se os pontos finais de serviço estão configurados ao utilizar os seguintes passos:
 
-- Nos recursos, clique em “Redes virtuais”. Pesquise a VNet.
-- Clique no nome da Vnet e navegue para “Pontos finais de serviço”
-- Os pontos finais configurados apresentam “Com êxito”. Também é possível ver as localizações configuradas automaticamente
+- Nos recursos, clique em "Redes virtuais". Pesquise a VNet.
+- Clique no nome da Vnet e navegue para "Pontos finais de serviço"
+- Os pontos finais configurados apresentam "Com êxito". Também é possível ver as localizações configuradas automaticamente
 
 ![Confirmar a Configuração dos Pontos Finais de Serviço](media/virtual-network-service-endpoints-portal/vnet-validate-settings.png
 )
 
 ### <a name="effective-routes-to-validate-endpoint-configuration"></a>Rotas efetivas para validar a configuração do ponto final
 
-Para ver as rotas efetivas numa interface de rede (NIC) na sub-rede, clique em qualquer NIC nessa sub-rede. Em “Suporte + Resolução de problemas”, clique em “Rotas efetivas”. Se o ponto final estiver configurado, verá uma nova rota “predefinida” com prefixos de endereço do serviço como destino e nextHopType como “VirtualNetworkServiceEndpoint”.
+Para ver as rotas efetivas numa interface de rede (NIC) na sub-rede, clique em qualquer NIC nessa sub-rede. Em "Suporte + Resolução de problemas", clique em "Rotas efetivas". Se o ponto final estiver configurado, verá uma nova rota "predefinida" com prefixos de endereço do serviço como destino e nextHopType como "VirtualNetworkServiceEndpoint".
 
 ![Rotas efetivas para pontos finais de serviço](media/virtual-network-service-endpoints-portal/effective-routes.png)
 
 ### <a name="setting-up-service-endpoints-for-existing-subnets-in-a-vnet"></a>Configurar pontos finais de serviço para sub-redes existentes numa VNet
 
-1. Nos recursos, clique em “Redes virtuais” e pesquise uma VNet existente
-2. Clique no nome da Vnet e navegue para “Pontos finais de serviço”
-3. Clique em “Adicionar”. Selecione “Serviço”. Pode criar um ponto final para apenas um serviço de cada vez. 
-4. Selecione todas as sub-redes em que pretende aplicar o ponto final. Clique em “Adicionar”
+1. Nos recursos, clique em "Redes virtuais" e pesquise uma VNet existente
+2. Clique no nome da Vnet e navegue para "Pontos finais de serviço"
+3. Clique em "Adicionar". Selecione "Serviço". Pode criar um ponto final para apenas um serviço de cada vez. 
+4. Selecione todas as sub-redes em que pretende aplicar o ponto final. Clique em "Adicionar"
 
 ![Configuração de pontos finais de serviço](media/virtual-network-service-endpoints-portal/existing-subnet.png)
 
 ### <a name="deleting-service-endpoints"></a>Eliminar pontos finais de serviço
-1. Nos recursos, clique em “Redes virtuais”. Pesquise uma VNet existente ao filtrar pelo nome da VNet.
-2. Clique no nome da Vnet e navegue para “Pontos finais de serviço”
+1. Nos recursos, clique em "Redes virtuais". Pesquise uma VNet existente ao filtrar pelo nome da VNet.
+2. Clique no nome da Vnet e navegue para "Pontos finais de serviço"
 3. Clique no nome do serviço e clique com o botão direito do rato na entrada de ponto final de serviço
-4. Selecione “Eliminar”
+4. Selecione "Eliminar"
 
 ![Eliminação do Ponto Final de Serviço](media/virtual-network-service-endpoints-portal/delete-endpoint.png)
 
@@ -149,7 +149,7 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 
 New-AzureRmVirtualNetwork -Name "myVNet" -AddressPrefix "10.0.0.0/16" -Subnet $subnet -ResourceGroupName "myRG" -Location "WestUS"
 ```
 Pode ativar vários serviços utilizando a lista de valores separados por vírgulas de nomes de serviço.
-Exemplo: “Microsoft.Storage”, “Microsoft.Sql”
+Exemplo: "Microsoft.Storage", "Microsoft.Sql"
 
 Saída Esperada:
 ```
@@ -230,14 +230,14 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>CLI do Azure
 
 Pré-requisitos da configuração:
-- Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/#az_login) e siga as instruções no ecrã. Para obter mais informações sobre o início de sessão, veja [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/reference-index#az_login) e siga as instruções no ecrã. Para obter mais informações sobre o início de sessão, veja [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
  - A conta deve ter as [permissões](#provisioning) necessárias para criar uma rede virtual e o ponto final de serviço.
 
  Para obter uma lista completa dos comandos para as redes virtuais, consulte [Comandos de Rede Virtual do CLI do Azure](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)
 
 ### <a name="get-available-service-endpoints-for-azure-region"></a>Obter pontos finais de serviço disponíveis para a região do Azure
 
-Utilize o comando abaixo para obter a lista dos serviços suportados para pontos finais para uma região do Azure; por exemplo, “EUA Ocidental”.
+Utilize o comando abaixo para obter a lista dos serviços suportados para pontos finais para uma região do Azure; por exemplo, "EUA Ocidental".
 ```azure-cli
 az network vnet list-endpoint-services -l eastus
 ```
@@ -383,7 +383,7 @@ Para voltar a obter o recurso de serviço para esta sub-rede, tem de:
 
 Os pontos finais de serviço podem ser configurados de forma independente por um utilizador com acesso de escrita para a rede virtual em redes virtuais.
 
-Para obter os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão para “Microsoft.Network/JoinServicetoaSubnet” para as sub-redes que estão a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
+Para obter os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão para "Microsoft.Network/JoinServicetoaSubnet" para as sub-redes que estão a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
 
 Saiba mais sobre [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 

@@ -4,23 +4,21 @@ description: Utilize este script de exemplo da CLI do Azure para criar uma base 
 services: sql-database
 documentationcenter: sql-database
 author: janeng
-manager: jstrauss
+manager: janeng
 editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 10/11/2017
+ms.date: 03/01/2018
 ms.author: janeng
-ms.openlocfilehash: 5824821a2e1f06425cae46cf8b3cf28582e63056
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bb80421b360f43df82ea4a9b2dff5ccc1efdb4a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Utilizar a CLI para criar uma base de dados SQL do Azure única e configurar uma regra de firewall
 
@@ -59,7 +57,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
 Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../sql-database-cli-samples.md).
 

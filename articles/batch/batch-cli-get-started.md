@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
 A CLI 2.0 do Azure é nova experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. A CLI 2.0 do Azure está otimizada para gerir e administrar recursos do Azure a partir da linha de comandos. Pode utilizar o Azure CLI para gerir as suas contas do Azure Batch e os seus recursos, como agrupamentos, trabalhos e tarefas. Com a CLI do Azure, pode criar scripts de muitas das mesmas tarefas que desempenha com as APIs do Batch, o portal do Azure e os cdmlets do Batch PowerShell.
 
-Este artigo disponibiliza uma descrição geral da utilização da [CLI do Azure versão 2.0](https://docs.microsoft.com/cli/azure/overview) com o Batch. Veja [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para obter uma descrição geral da utilização da CLI com o Azure.
+Este artigo disponibiliza uma descrição geral da utilização da [CLI do Azure versão 2.0](https://docs.microsoft.com/cli/azure) com o Batch. Veja [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para obter uma descrição geral da utilização da CLI com o Azure.
 
 A Microsoft recomenda utilizar a versão mais recente da CLI do Azure, a versão 2.0. Para obter mais informações sobre a versão 2.0, veja [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (Linha de Comandos do Azure 2.0 agora disponível geralmente).
 
@@ -69,7 +69,7 @@ Existem algumas formas diferentes de iniciar sessão no Azure, que estão descri
 1. [Iniciar sessão interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Inicie sessão interativamente se estiver a executar comandos da CLI do Azure manualmente a partir da linha de comandos.
 2. [Iniciar sessão com um principal de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Inicie sessão com um principal de serviço se estiver a executar comandos da CLI do Azure a partir de um script ou de uma aplicação.
 
-Para os objetivos deste artigo, vamos mostrar como iniciar sessão no Azure interativamente. Escreva [az login](https://docs.microsoft.com/cli/azure/#az_login) na linha de comandos:
+Para os objetivos deste artigo, vamos mostrar como iniciar sessão no Azure interativamente. Escreva [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) na linha de comandos:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -178,7 +178,7 @@ As sugestões seguintes podem ajudá-lo a resolver problemas da CLI do Azure:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+* Para obter mais informações sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 * Para obter mais informações sobre os recursos do Batch, veja [Descrição geral do Azure Batch para programadores](batch-api-basics.md).
 * Para obter mais informações sobre como utilizar modelos do Batch para criar conjuntos, trabalhos e tarefas sem ter de escrever código, veja [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md) [Utilizar Modelos da CLI do Azure Batch e a Transferência de Ficheiros (Pré-visualização)].
 

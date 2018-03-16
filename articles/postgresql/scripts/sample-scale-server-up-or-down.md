@@ -11,18 +11,18 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: 21021485a7fe5f9bf32da76b507360290b8cfe66
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 10ce026b4cef4ef06d379a35a4109544ce8573e5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorizar e dimensionar um único servidor PostgreSQL com a CLI do Azure
 Este script de exemplo da CLI dimensiona um único servidor da Base de Dados do Azure para PostgreSQL para um nível de desempenho diferente depois de consultar as métricas. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por executar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Verifique a versão, executando `az --version`. Veja [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli) para instalar ou atualizar a sua versão da CLI do Azure.
+Se optar por executar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Verifique a versão ao executar `az --version`. Veja [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli) para instalar ou atualizar a sua versão da CLI do Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 Neste script de exemplo, edite as linhas realçadas para atualizar o nome de utilizador administrador e a palavra-passe com os seus. Substitua o SubscriptionID utilizado nos comandos `az monitor` pelo seu ID da subscrição.
@@ -43,6 +43,6 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
-- Ler mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure/overview)
+- Ler mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure)
 - Experimente scripts adicionais: [Amostras da CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - Ler mais informações sobre como dimensionar: [Escalões de Serviço](../concepts-service-tiers.md) e [Unidades de Computação e Unidades de Armazenamento](../concepts-compute-unit-and-storage.md)
