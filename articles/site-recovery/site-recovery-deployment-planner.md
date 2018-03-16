@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
@@ -36,7 +36,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 **Avaliação de compatibilidade**
 
 * Avaliação de elegibilidade de VMs com base no número de discos, no tamanho do disco, em IOPS, na alteração a dados, no tipo de arranque (EFI/BIOS) e versão de SO
- 
+
 **Necessidade de largura de banda de rede vs avaliação de RPO**
 
 * Largura de banda de rede estimada necessária para a replicação delta
@@ -93,13 +93,16 @@ A ferramenta tem duas fases principais – a criação de perfis e a geração d
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Transferir e extrair a ferramenta Planeador de Implementações
-1. Transfira a versão mais recente do [ Planeador de Implementações do Site Recovery](https://aka.ms/asr-deployment-planner). A ferramenta está comprimida numa pasta .zip. A versão atual só suporta o cenário de VMware para o Azure.
+1. Transfira a versão mais recente do [ Planeador de Implementações do Site Recovery](https://aka.ms/asr-deployment-planner).
+A ferramenta está comprimida numa pasta .zip. A versão atual só suporta o cenário de VMware para o Azure.
 
-2. Copie a pasta .zip para o Windows Server a partir do qual quer executar a ferramenta. Pode executá-la no Windows Server 2012 R2 se o servidor tiver acesso à rede para ligar ao vCenter Server/anfitrião ESXi do vSphere que contém as VMs para as quais criar perfis. No entanto, recomendamos que execute num servidor cuja configuração de hardware cumpra as [orientações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components). Se já tiver implementado componentes do Site Recovery no local, execute a ferramenta no servidor de configuração.
+2. Copie a pasta .zip para o Windows Server a partir do qual quer executar a ferramenta.
+Pode executá-la no Windows Server 2012 R2 se o servidor tiver acesso à rede para ligar ao vCenter Server/anfitrião ESXi do vSphere que contém as VMs para as quais criar perfis. No entanto, recomendamos que execute num servidor cuja configuração de hardware cumpra as [orientações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components). Se já tiver implementado componentes do Site Recovery no local, execute a ferramenta no servidor de configuração.
 
     Recomendamos que a configuração do hardware seja igual à do servidor de configuração (que tem um servidor de processos incorporado) no qual vai executar a ferramenta. Esta configuração garante que o débito obtido comunicado pela ferramenta corresponde ao débito real que o Site Recovery pode obter durante a replicação. O cálculo de débito depende da largura de banda de rede disponível na configuração do servidor e do hardware (como a CPU e o armazenamento) do servidor. Se executar a ferramenta a partir de qualquer outro servidor, o débito é calculado a partir desse servidor para o Azure. Além disso, uma vez que a configuração de hardware do servidor pode diferir da configuração do servidor de configuração, o débito obtido que a ferramenta comunica poderá estar incorreto.
 
-3. Extraia a pasta .zip. Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
+3. Extraia a pasta .zip.
+Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
     Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o.
     E:\ASR Deployment Planner_v2.1zip

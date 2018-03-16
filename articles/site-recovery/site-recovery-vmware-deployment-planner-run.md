@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Executar Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modos de executar o planeador de implementação
-Pode executar a ferramenta de linha de comandos (ASRDeploymentPlanner.exe) num dos quatro modos seguintes: 
+Pode executar a ferramenta de linha de comandos (ASRDeploymentPlanner.exe) num dos quatro modos seguintes:
 
 1.  [Criação de perfis](#profile-vmware-vms)
 2.  [Geração de relatórios](#generate-report)
@@ -49,8 +49,8 @@ Em primeiro lugar, precisa de uma lista das VMs para as quais vão ser criados p
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. Opcionalmente, o utilizador pode necessitar executar o seguinte comando, se o Connect-VIServer não for reconhecido como o nome do cmdlet.
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. Para obter todos os nomes de VMs num vCenter Server/anfitrião ESXi do vSphere e armazená-los num ficheiro .txt, execute os dois comandos listados aqui.
 Substitua &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo; pelas suas entradas.
@@ -101,7 +101,7 @@ Por predefinição, a ferramenta está configurada para criar perfis e gerar rel
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Com as predefinições, para criar um perfil de, por exemplo, 1500 VMs, crie dois ficheiros VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planeador de Implementações do ASR, uma com o VMList1.txt e outra com o VMList2.txt. Pode utilizar o mesmo caminho de diretório para armazenar os dados de criação de perfis das duas VMs VMList. 
+Com as predefinições, para criar um perfil de, por exemplo, 1500 VMs, crie dois ficheiros VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planeador de Implementações do ASR, uma com o VMList1.txt e outra com o VMList2.txt. Pode utilizar o mesmo caminho de diretório para armazenar os dados de criação de perfis das duas VMs VMList.
 
 Constatámos que, com base na configuração de hardware, especialmente o tamanho de RAM do servidor a partir do qual a ferramenta é executada para gerar o relatório, a operação poderá falhar com memória insuficiente. Se o hardware for bom, pode alterar o MaxVMsSupported para qualquer valor superior.  
 
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Analisar o relatório gerado](site-recovery-vmware-deployment-planner-analyze-report.md).
-

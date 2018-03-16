@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sessão com o seu telemóvel, não a palavra-passe
 
@@ -87,7 +87,7 @@ Para o seu PC, recomendamos que iniciar sessão com Windows Hello no Windows 10 
 ### <a name="can-i-sign-in-with-my-windows-phone"></a>Pode iniciar sessão com o meu telefone do Windows?  
 Neste momento, estamos não estiver a desenvolver esta funcionalidade para a Microsoft Authenticator no Windows Phone. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se ainda não transferiu a aplicação Authenticator da Microsoft, consulte o-lo. A aplicação está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), e o telefone início de sessão está disponível na aplicação Microsoft Authenticator para [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Se tiver dúvidas sobre a aplicação em geral, observe o [perguntas frequentes do autenticador Microsoft](microsoft-authenticator-app-faq.md)

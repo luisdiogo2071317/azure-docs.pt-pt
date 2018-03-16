@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos replicados no Azure
 
@@ -48,7 +48,7 @@ A ativação pós-falha e a reativação pós-falha têm quatro fases:
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
-Verifique as propriedades da VM e certifique-se de que a VM está em conformidade com [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Verifique as propriedades da VM e certifique-se de que a VM está em conformidade com [requisitos do Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 
@@ -88,7 +88,7 @@ O servidor de processos recebe dados da VM do Azure e envia-os para o site no lo
 
 - Para fins de teste, se tiver uma ligação do Azure ExpressRoute, pode utilizar o servidor de processos no local que é instalado automaticamente no servidor de configuração.
 - Se tiver uma ligação VPN ou se estiver a executar a reativação pós-falha num ambiente de produção, tem de configurar uma VM do Azure como um servidor de processos baseado no Azure para reativação pós-falha.
-- Para configurar um servidor de processos no Azure, siga as instruções [neste artigo](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+- Para configurar um servidor de processos no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

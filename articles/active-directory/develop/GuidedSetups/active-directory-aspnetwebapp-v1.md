@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
 ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adicionar início de sessão com a Microsoft para uma aplicação web ASP.NET
@@ -66,14 +66,14 @@ Esta secção mostra os passos para instalar e configurar o pipeline de autentic
 > Prefere transferir o projeto do Visual Studio este exemplo em vez disso? [Transferir um projeto](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip) e avance para o [passo da configuração](#configure-your-webconfig-and-register-an-application) para configurar o exemplo de código antes de executar.
 
 ## <a name="create-your-aspnet-project"></a>Criar o projeto ASP.NET
-1. No Visual Studio:`File` > `New` > `Project`<br/>
+1. No Visual Studio: `File` > `New` > `Project`<br/>
 2. Em *Visual C# \Web*, selecione `ASP.NET Web Application (.NET Framework)`.
 3. Nome da aplicação e clique em *OK*
 4. Selecione `Empty` e, em seguida, selecione a caixa de verificação para adicionar `MVC` referências
 
 ## <a name="add-authentication-components"></a>Adicionar componentes de autenticação
 
-1. No Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`
+1. No Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Adicionar *pacotes de NuGet OWIN middleware* , escrevendo o seguinte na janela da consola do Gestor de pacotes:
 
     ```powershell
@@ -92,8 +92,8 @@ Os seguintes passos são utilizados para criar um middleware OWIN *classe de Sta
 
 > [!TIP]
 > Se o seu projeto não tem um `Startup.cs` ficheiro na pasta raiz:<br/>
-> 1. Clique com o botão direito na pasta de raiz do projeto: >`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Nome`Startup.cs`<br/>
+> 1. Clique com o botão direito na pasta de raiz do projeto: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Nome `Startup.cs`<br/>
 >
 >> Certifique-se a classe selecionada uma classe de Startup da OWIN e não uma padrão c# classe. Confirmar isto, verificando se vir `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` acima o espaço de nomes.
 
@@ -119,7 +119,7 @@ Os seguintes passos são utilizados para criar um middleware OWIN *classe de Sta
 
 Este passo mostra como criar um novo controlador para expor os métodos de início de sessão e fim de sessão.
 
-1.  Clique com botão direito do `Controllers` pastas e selecione`Add` > `Controller`
+1.  Clique com botão direito do `Controllers` pastas e selecione `Add` > `Controller`
 2.  Selecione `MVC (.NET version) Controller – Empty`.
 3.  Clique em *adicionar*
 4.  Nome `HomeController` e clique em *adicionar*
@@ -135,7 +135,7 @@ Este passo mostra como criar um novo controlador para expor os métodos de iníc
 
 No Visual Studio, crie uma nova vista para adicionar o botão de início de sessão e apresentar informações de utilizador após a autenticação:
 
-1.  Clique com botão direito do `Views\Home` pastas e selecione`Add View`
+1.  Clique com botão direito do `Views\Home` pastas e selecione `Add View`
 2.  Dê-lhe o nome `Index`.
 3.  Adicione o seguinte HTML, que inclui o botão de início de sessão, para o ficheiro:
 
@@ -149,10 +149,10 @@ No Visual Studio, crie uma nova vista para adicionar o botão de início de sess
 ## <a name="display-users-claims-by-adding-a-controller"></a>Apresentar as afirmações do utilizador através da adição de um controlador
 Este controlador demonstra as utilizações do `[Authorize]` atributo para proteger um controlador. Este atributo restringe o acesso para o controlador, permitindo apenas que os utilizadores autenticados. O seguinte código faz com que utiliza o atributo para apresentar as afirmações de utilizador que foram obtidas como parte de início de sessão.
 
-1.  Clique com botão direito do `Controllers` pasta:`Add` > `Controller`
+1.  Clique com botão direito do `Controllers` pasta: `Add` > `Controller`
 2.  Selecione `MVC {version} Controller – Empty`.
 3.  Clique em *adicionar*
-4.  Nome`ClaimsController`
+4.  Nome `ClaimsController`
 5.  Substitua o código da sua classe de controlador com o seguinte código - esta ação adiciona a `[Authorize]` atributo para a classe:
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
@@ -166,7 +166,7 @@ Este controlador demonstra as utilizações do `[Authorize]` atributo para prote
 
 No Visual Studio, crie uma nova vista para apresentar afirmações do utilizador numa página web:
 
-1.  Clique com botão direito do `Views\Claims` pasta e:`Add View`
+1.  Clique com botão direito do `Views\Claims` pasta e: `Add View`
 2.  Dê-lhe o nome `Index`.
 3.  Adicione o seguinte HTML para o ficheiro:
 
@@ -186,7 +186,7 @@ No Visual Studio, crie uma nova vista para apresentar afirmações do utilizador
     <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
     ```
 2. No Explorador de soluções, selecione o projeto e observe o <i>propriedades</i> janela (se não for apresentada uma janela de propriedades, prima F4)
-3. Alteração SSL ativado para<code>True</code>
+3. Alteração SSL ativado para <code>True</code>
 4. Copie o URL de SSL do projeto para a área de transferência:<br/><br/>![Propriedades do projeto](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
 5. No <code>web.config</code>, substitua <code>Enter_the_Redirect_URL_here</code> com o URL de SSL do seu projeto 
 
@@ -213,8 +213,8 @@ Pode configurar a sua aplicação para permitir que apenas os utilizadores que p
 Siga os passos seguintes se pretender aceitar inícios de sessão das contas profissionais e escolares de qualquer da empresa ou organização que tem integrado com o Azure Active Directory. Este é um cenário comum para *aplicações SaaS*:
 
 1. Volte ao [Portal do Microsoft Azure - registos de aplicação](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) e localize a aplicação que acabou de ser registado
-2. Em `All Settings` selecione`Properties`
-3. Alteração `Multi-tenanted` propriedade `Yes` e clique em`Save`
+2. Em `All Settings` selecione `Properties`
+3. Alteração `Multi-tenanted` propriedade `Yes` e clique em `Save`
 
 Para obter mais informações sobre esta definição e o conceito de aplicações de multi-inquilinos, consulte [neste artigo](../active-directory-devhowto-multi-tenant-overview.md "descrição geral da multi-inquilino").
 
@@ -271,7 +271,7 @@ Selecione a hiperligação para ver as afirmações do utilizador. Esta ação o
 |---|---|---|
 | Nome | {Nome completo do utilizador} | O utilizador do primeiro e último nome
 |Nome de utilizador | <span>user@domain.com</span>| O nome de utilizador utilizado para identificar o utilizador com sessão iniciada
-| Assunto| {Requerente}|Uma cadeia para identificar exclusivamente o início de sessão do utilizador através da web|
+| Assunto| {Subject}|Uma cadeia para identificar exclusivamente o início de sessão do utilizador através da web|
 | ID do inquilino| {Guid}| A *guid* para exclusivamente representar a organização do utilizador do Azure Active Directory.|
 
 Além disso, pode ver uma tabela, incluindo todas as afirmações de utilizador incluídas no pedido de autenticação. Para obter uma lista de todas as afirmações no respetiva explicação e um Token de ID, consulte este [artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "lista de afirmações do Token de ID de").

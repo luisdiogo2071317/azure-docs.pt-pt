@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory totalmente integrada Single Sign-On: início rápido
 
@@ -101,7 +101,7 @@ Por predefinição, o browser calcula automaticamente a zona correta, Internet o
 
     O resultado tem o seguinte aspeto:
 
-    Value: https://autologon.microsoftazuread-sso.com
+    Valor:https://autologon.microsoftazuread-sso.com
   
     Dados: 1
 
@@ -138,7 +138,7 @@ Certifique-se de que o computador que executa o Mac OS está associado ao Azure 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
-Se tiver substituído o [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) definições de política no seu ambiente, certifique-se de que adiciona URL do Azure AD (https://autologon.microsoftazuread-sso.com) aos mesmos, bem como.
+Se tiver substituído o [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) definições de política no seu ambiente, certifique-se de que adiciona o URL do Azure AD (https://autologon.microsoftazuread-sso.com) aos mesmos, bem como.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (apenas no Mac SO)
 

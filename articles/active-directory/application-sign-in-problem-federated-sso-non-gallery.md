@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas em iniciar sessão a uma aplicação de Galeria não configurada para federado-início de sessão único
 
@@ -31,7 +31,7 @@ Para resolver o problema, tem de verificar a configuração de aplicação no Az
 
 ## <a name="application-not-found-in-directory"></a>Não foi encontrada no diretório de aplicação
 
-*AADSTS70001 de erro: A aplicação com o identificador 'https://contoso.com' não foi encontrada no diretório*.
+*Erro AADSTS70001: Aplicação com o identificador 'https://contoso.com' não foi encontrada no diretório*.
 
 **Uma causa possível**
 
@@ -63,7 +63,7 @@ Depois de ter atualizado o valor do identificador no Azure AD e -correspondênci
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não correspondem aos endereços resposta configurados para a aplicação. 
 
-*AADSTS50011 de erro: O endereço de resposta 'https://contoso.com' não correspondem aos endereços resposta configurados para a aplicação* 
+*AADSTS50011 de erro: O endereço de respostahttps://contoso.com' não coincide com os endereços de resposta configurados para a aplicação* 
 
 **Uma causa possível** 
 

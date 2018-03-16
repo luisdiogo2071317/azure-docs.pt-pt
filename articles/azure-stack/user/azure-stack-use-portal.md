@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Utilizar o portal de pilha do Azure
 
@@ -70,6 +70,6 @@ Se precisar de suporte adicional, contacte o seu fornecedor de serviço ou organ
 
 Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure, o [fórum de Azure pilha](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) é o único método de suporte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Considerações da chave: utilizar os serviços ou na criação de aplicações para a pilha do Azure](azure-stack-considerations.md)

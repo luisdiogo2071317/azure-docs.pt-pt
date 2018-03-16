@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
 
@@ -78,7 +78,7 @@ As secções seguintes explicam os pré-requisitos de configuração para a Stor
 Antes de aprovisionar a aplicação da cloud, terá de efetuar os seguintes preparativos no ambiente do Azure:
 
 * Certifique-se de que tem um dispositivo físico da série StorSimple 8000 (modelo 8100 ou 8600) implementado e em execução no datacenter. Registe este dispositivo com o mesmo serviço de Gestor de Dispositivos do StorSimple para qual pretende criar uma StorSimple Cloud Appliance.
-* Para a aplicação da cloud, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Se utilizar o Premium Storage, tem de criar uma rede virtual numa região do Azure que suporte o Premium Storage. As regiões de Armazenamento Premium são regiões que correspondem à linha para Armazenamento no disco na [lista de Serviços do Azure por Região](https://azure.microsoft.com/regions/services/).
+* Para a aplicação da cloud, [configure uma rede virtual no Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se utilizar o Premium Storage, tem de criar uma rede virtual numa região do Azure que suporte o Premium Storage. As regiões de Armazenamento Premium são regiões que correspondem à linha para Armazenamento no disco na [lista de Serviços do Azure por Região](https://azure.microsoft.com/regions/services/).
 * É recomendado que utilize o servidor DNS predefinido fornecido pelo Azure em vez de especificar o próprio nome de servidor DNS. Se o nome de servidor DNS não for válido ou se o servidor DNS não for capaz de resolver corretamente os endereços IP, a criação da aplicação da cloud irá falhar.
 * As opções de ponto a site e site a site são opcionais, mas não obrigatórias. Se desejar, pode configurar estas opções para cenários mais avançados.
 * Pode criar [máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (servidores anfitriões) na rede virtual que pode utilizar os volumes expostos pela aplicação da cloud. Estes servidores devem cumprir os seguintes requisitos:

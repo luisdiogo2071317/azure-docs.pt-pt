@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas mais frequentes sobre Databricks do Azure
 
@@ -101,7 +101,7 @@ Databricks clusters utilizam um endereço IP público por nó. Se a sua subscri�
 #### <a name="error-message"></a>Mensagem de erro
 
 "Falha ao iniciar o fornecedor de nuvem: foi encontrado um erro do fornecedor de nuvem ao configurar o cluster. Para obter mais informações, consulte o guia de Databricks.
-Código de erro do Azure: mensagem de erro do MissingSubscriptionRegistration Azure: A subscrição não está registada para utilizar o espaço de nomes 'Microsoft. Compute'. Consulte https://aka.ms/rps-not-found sobre como registar subscrições".
+Código de erro do Azure: mensagem de erro do MissingSubscriptionRegistration Azure: A subscrição não está registada para utilizar o espaço de nomes 'Microsoft. Compute'. Consulte https://aka.ms/rps-not-found sobre como registar subscrições. "
 
 #### <a name="solution"></a>Solução
 
@@ -113,7 +113,7 @@ Para obter instruções mais detalhadas, consulte [fornecedores de recursos e ti
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problema: Databricks do Azure necessita de permissões para aceder a recursos na sua organização que apenas um administrador pode conceder.
 
-#### <a name="background"></a>Em segundo plano
+#### <a name="background"></a>Segundo plano
 
 Databricks do Azure está integrado com o Azure AD. Isto permite-lhe definir permissões na Databricks do Azure (por exemplo, em blocos de notas ou clusters) ao especificar os utilizadores do Azure AD. Para o Azure Databricks conseguir lista os nomes dos utilizadores do seu Azure AD, requer permissão de leitura para essas informações. Isto requer um consentimento. Se o consentimento do utilizador já não estiver disponível, consulte o erro.
 

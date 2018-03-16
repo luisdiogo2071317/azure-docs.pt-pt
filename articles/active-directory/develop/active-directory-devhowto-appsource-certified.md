@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter AppSource certificada para Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) é um destino para os utilizadores empresariais, detetar, tente e gerir aplicações de SaaS de linha de negócio (autónomo SaaS e suplementares para produtos de Microsoft SaaS existentes).
@@ -35,7 +35,7 @@ Uma aplicação que aceite inícios de sessão dos utilizadores de qualquer empr
 
 Para ativar vários inquilinos na sua aplicação:
 - Definir `Multi-Tenanted` propriedade `Yes` nas informações do seu registo de aplicação do [Portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (por predefinição, as aplicações criadas no Portal do Azure estão configuradas como *deinquilinoúnico*)
-- Atualizar o código para enviar pedidos para o '`common`' ponto final (atualizar o ponto final de *https://login.microsoftonline.com/ {yourtenant}* para *https://login.microsoftonline.com/common*)
+- Atualizar o código para enviar pedidos para o '`common`' ponto final (atualizar o ponto final de  *https://login.microsoftonline.com/{yourtenant}*  para  *https://login.microsoftonline.com/common* )
 - Em algumas plataformas, como o ASP.NET, também tem de atualizar o seu código para aceitar vários emissores
 
 Para obter mais informações sobre vários inquilinos, consulte: [como iniciar sessão em qualquer utilizador do Azure Active Directory (AD) através do padrão de aplicação multi-inquilino](./active-directory-devhowto-multi-tenant-overview.md).
@@ -100,7 +100,7 @@ O *experiência de avaliação gratuita do parceiro* podem ser utilizados quando
 ### <a name="more-information"></a>Mais informações
 Para obter mais informações sobre a experiência de avaliação AppSource, consulte [este vídeo](https://aka.ms/trialexperienceforwebapps). 
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Para obter mais informações sobre como criar aplicações que suportam o Azure Active Directory inícios de sessão, consulte [cenários de autenticação para o Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
 

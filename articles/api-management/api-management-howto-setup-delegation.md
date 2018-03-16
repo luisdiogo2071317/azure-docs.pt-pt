@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar a subscrição de produto e registo de utilizador
 Delegação permite-lhe utilizar o seu Web site existente para processar programador sessão-na/sessão-up e subscrição produtos, por oposição a utilizar a funcionalidade incorporada no portal do programador. Isto permite que o seu Web site para proprietários de dados de utilizador e efetuar a validação destes passos de uma forma personalizada.
@@ -44,7 +44,7 @@ Agora tem de criar o **ponto final de delegação**. Tem de efetuar várias aç�
 
 1. Recebe um pedido no seguinte formato:
    
-   > *http://www.yourwebsite.com/apimdelegation?Operation=SignIn&returnUrl= {URL da página de origem} & salt = {cadeia} & sig = {cadeia}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL página de origem} & salt = {cadeia} & sig = {cadeia}*
    > 
    > 
    
@@ -101,7 +101,7 @@ Certifique-se que o ponto final de delegação efetua as seguintes ações:
 
 1. Recebe um pedido no seguinte formato:
    
-   > *http://www.yourwebsite.com/apimdelegation?Operation= {operação} & productId = {produto subscrever} & userId = {efetuar o pedido de utilizador} & salt = {cadeia} & sig = {cadeia}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product Para subscrever} & userId = {efetuar o pedido de utilizador} & salt = {cadeia} & sig = {cadeia}*
    > 
    > 
    
