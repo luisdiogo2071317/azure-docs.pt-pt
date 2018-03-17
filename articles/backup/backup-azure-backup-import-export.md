@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/6/2018
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 306c4c7498601cf3ab7e918ba6ce6bfef173236a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7af2623a25f73f6d9062d476309ecd53da542f70
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 Cópia de segurança do Azure tem vários resulta numa eficiência incorporada que reduzir os custos de armazenamento e de rede durante as cópias de segurança completas iniciais dos dados no Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e necessitam de mais largura de banda quando comparado com as cópias de segurança subsequentes transferir apenas as diferenças/incrementais. Cópia de segurança do Azure comprime as cópias de segurança iniciais. Durante o processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar o comprimido inicial cópia de segurança de dados offline para o Azure.  
@@ -46,6 +46,8 @@ Cópia de segurança offline é suportada para todos os modelos de implementaç�
 
    > [!NOTE]
    > Cópia de segurança offline não é suportada para cópias de segurança do Estado do sistema feitas com o agente de cópia de segurança do Azure. 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que os seguintes pré-requisitos são cumpridos antes de iniciar o fluxo de trabalho de cópia de segurança Offline

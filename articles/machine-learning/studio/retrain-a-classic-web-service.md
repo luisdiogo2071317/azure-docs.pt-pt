@@ -3,8 +3,9 @@ title: "Reparametrização de um serviço de web clássico | Microsoft Docs"
 description: "Saiba como programaticamente reparametrização de um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Voltar a preparar um Serviço Web Clássico
 O serviço Web preditiva implementou é a predefinição da classificação de ponto final. Pontos finais predefinidos são mantidos sincronizados com a formação original e a classificação de experimentações, e, por conseguinte, não é possível substituir o modelo treinado para o ponto final predefinido. Para a reparametrização do serviço web, tem de adicionar um novo ponto final para o serviço web. 
@@ -68,7 +68,7 @@ Para obter o URL de caminho:
 2. Clique na ligação de recursos de atualização.
 3. Copie o URL de publicação do pedido PATCH. Por exemplo:
    
-     PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     URL DE PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Agora, pode utilizar o modelo treinado para atualizar o ponto final de classificação que criou anteriormente.
 

@@ -1,24 +1,18 @@
 ---
-title: "Recursos de variável na automatização do Azure | Microsoft Docs"
+title: "Recursos de variável na automatização do Azure"
 description: "Recursos de variável são valores que estão disponíveis para todos os runbooks e configurações de DSC na automatização do Azure.  Este artigo explica os detalhes de variáveis e como trabalhar com os mesmos no texto e gráficos de criação."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/07/2018
-ms.author: magoedte;bwren
-ms.openlocfilehash: 2ed4cf16615a0ca1789b789a635de564af568eb9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: carmonm
+ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variável na automatização do Azure
 
@@ -34,8 +28,8 @@ As variáveis da automatização são mantidas, de modo a que continuam a estar 
 
 Quando uma variável é criada, pode especificar que é armazenado encriptado. Quando uma variável é encriptada, é armazenado em segurança na automatização do Azure e o valor não é possível obter a partir de [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet que é incluído como parte do módulo Azure PowerShell. É a única forma que um valor encriptado pode ser obtido a partir de **Get-AutomationVariable** atividade num runbook ou configuração de DSC.
 
-> [!NOTE]
-> Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é encriptada por um certificado principal e armazenada na automatização do Azure. Antes de o armazenamento de um recurso seguro, a chave da conta de automatização é desencriptada utilizando o certificado principal e, em seguida, utilizado para encriptar o elemento.
+>[!NOTE]
+>Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada no Cofre de chaves. Antes de o armazenamento de um recurso seguro, a chave é carregada a partir do Cofre de chaves e, em seguida, utilizada para encriptar o elemento.
 
 ## <a name="variable-types"></a>Tipos de variável
 

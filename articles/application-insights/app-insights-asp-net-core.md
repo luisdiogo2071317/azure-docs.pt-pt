@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: e9fb3e68db66449d9ca3b43e6974910cb9477e62
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para Núcleo do ASP.NET
 
@@ -214,5 +214,6 @@ _Contadores de desempenho_ neste contexto refere-se ao [contadores de desempenho
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Explorar os utilizadores flui](app-insights-usage-flows.md) para compreender como os utilizadores navegam através da sua aplicação.
+* [Configurar a recolha de instantâneo](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) para ver o estado do código de origem e as variáveis de momento, é emitida uma exceção.
 * [Utilize a API](app-insights-api-custom-events-metrics.md) para enviar os seus próprios eventos e as métricas para uma vista mais detalhada do desempenho e a utilização da sua aplicação.
 * [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) verificar a sua aplicação constantemente a partir em todo o mundo.

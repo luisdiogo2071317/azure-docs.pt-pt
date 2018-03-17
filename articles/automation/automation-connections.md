@@ -1,24 +1,20 @@
 ---
-title: "Recursos de ligação da automatização do Azure | Microsoft Docs"
+title: "Recursos de ligação da automatização do Azure"
 description: "Recursos de ligação da automatização do Azure contêm as informações necessárias para ligar a uma aplicação ou serviço externo, a partir de um runbook ou a configuração de DSC. Este artigo explica os detalhes das ligações e como trabalhar com os mesmos no texto e gráficos de criação."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/13/2017
-ms.author: magoedte; bwren
-ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de ligação da automatização do Azure
 
@@ -26,8 +22,8 @@ Um recurso de ligação da automatização contém as informações necessárias
 
 Quando criar uma ligação, tem de especificar um *tipo de ligação*. O tipo de ligação é um modelo que define um conjunto de propriedades. A ligação define valores para cada propriedade definida no respetivo tipo de ligação. Tipos de ligação são adicionados a automatização do Azure em módulos de integração ou criados com o [API de automatização do Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx) se o módulo de integração inclui um tipo de ligação e é importado para a sua conta de automatização. Caso contrário, terá de criar um ficheiro de metadados para especificar um tipo de ligação de automatização.  Para obter mais informações sobre isto, consulte [módulos de integração](automation-integration-modules.md).  
 
->[!NOTE] 
->Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é encriptada por um certificado principal e armazenada na automatização do Azure. Antes de o armazenamento de um recurso seguro, a chave da conta de automatização é desencriptada utilizando o certificado principal e, em seguida, utilizado para encriptar o elemento.
+>[!NOTE]
+>Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada no Cofre de chaves. Antes de o armazenamento de um recurso seguro, a chave é carregada a partir do Cofre de chaves e, em seguida, utilizada para encriptar o elemento.
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
 
@@ -36,9 +32,9 @@ Os cmdlets na tabela seguinte são utilizados para criar e gerir ligações de a
 |Cmdlet|Descrição|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Obtém uma ligação. Inclui uma tabela hash com os valores dos campos da ligação.|
-|[Novo AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Cria uma nova ligação.|
-|[Remover AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Remove uma ligação existente.|
-|[Conjunto AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Define o valor de um determinado campo para uma ligação existente.|
+|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Cria uma nova ligação.|
+|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Remove uma ligação existente.|
+|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Define o valor de um determinado campo para uma ligação existente.|
 
 ## <a name="activities"></a>Atividades
 

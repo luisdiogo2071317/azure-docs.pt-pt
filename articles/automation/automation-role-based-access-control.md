@@ -1,25 +1,19 @@
 ---
-title: "Controlo de acesso baseado em funções na Automatização do Azure | Microsoft Docs"
+title: "Controlo de acesso baseado em funções na Automatização do Azure"
 description: "O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Este artigo descreve como configurar o RBAC na Automatização do Azure."
-services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
 keywords: "rbac de automatização, controlo de acesso baseado em funções , rbac do azure"
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
+services: automation
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/05/2018
-ms.author: magoedte;sngun
-ms.openlocfilehash: 753c06ec4a20650f779b68e11e1d6d6fd27a0141
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
@@ -203,7 +197,7 @@ Um administrador de acesso de utilizador pode gerir o acesso de utilizador nos r
 |Microsoft.Authorization/*|Gerir autorização|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
-## <a name="onboarding"></a>Carregamento
+## <a name="onboarding"></a>Inclusão
 
 As tabelas seguintes mostram as permissões necessárias mínimo necessárias para as máquinas virtuais de integração para a registo de alterações ou atualizar as soluções de gestão.
 

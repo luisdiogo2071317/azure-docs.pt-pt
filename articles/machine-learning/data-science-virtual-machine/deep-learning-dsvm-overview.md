@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a3e4c989c1dbb31b237115acfcc032aa2dee4f2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74b5c68c2c04eebc1d6f1e59fac8cbb11fef46a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introdução ao avançada de aprendizagem Máquina Virtual
 
@@ -30,7 +30,7 @@ Algoritmos de aprendizagem de cada vez mais, profundo / as redes neurais profund
 ## <a name="what-is-deep-learning-virtual-machine"></a>O que é profunda virtual de Machine Learning? 
 A máquina de Virtual Learning profunda é uma variante especial configurada do [máquinas de virtuais de ciência de dados](overview.md) (DSVM) torna mais fácil de utilizar a VM com base em GPU instâncias modelos learning profunda de preparação. É suportada no Windows 2016 e a Máquina Virtual de ciência de dados de Ubuntu.  Partilha as imagens VM principal mesmas (e, por conseguinte, todos os o conjunto de ferramentas avançado) como o DSVM mas está configurada para facilitar a aprendizagem profunda. Também podemos fornecer exemplos de ponto a ponto para a imagem e a compreensão de texto, amplamente aplicáveis para vários cenários de AI vida real. A máquina virtual de aprendizagem profunda também tenta efetuar ao conjunto avançado de ferramentas e exemplos de DSVM mais facilmente Detetáveis pelo analisar um catálogo das ferramentas e exemplos na máquina virtual. Em termos de ferramentas, o Virtual Machine profunda Learning fornece várias arquiteturas populares learning profunda, ferramentas para adquirir e imagem previamente processo, dados textual. Para obter uma lista completa das ferramentas, pode consultar o [página de descrição geral de Máquina Virtual de ciência de dados](overview.md#whats-included-in-the-data-science-vm). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Começar a utilizar com a profunda aprendizagem Máquina Virtual com os seguintes passos:
 

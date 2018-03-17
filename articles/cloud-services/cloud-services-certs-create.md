@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Descrição geral de certificados para serviços de nuvem do Azure
 Certificados são utilizados no Azure para serviços em nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com a API de gestão ([certificados de gestão](#what-are-management-certificates)). Este tópico fornece uma descrição geral de ambos os tipos de certificado, como a [criar](#create) e [implementar](#deploy) -las para o Azure.
@@ -48,8 +48,6 @@ Certificados de gestão permitem-lhe autenticar com o modelo de implementação 
 ### <a name="limitations"></a>Limitações
 Não há um limite de 100 certificados de gestão por subscrição. Há também um limite de 100 certificados de gestão para todas as subscrições no ID de utilizador de. um administrador de serviço específicos Se o ID de utilizador para o administrador de conta já foi utilizado para adicionar 100 certificados de gestão e for necessário mais certificados, pode adicionar um coadministrador para adicionar os certificados adicionais. 
 
-Antes de adicionar mais do que 100 certificados, consulte o artigo se pode reutilizar um certificado existente. Utilizar os coadministradores adiciona complexidade potencialmente desnecessárias consoante o processo de gestão de certificados.
-
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Criar um novo certificado autoassinado
 Pode utilizar qualquer ferramenta disponível para criar um certificado autoassinado, desde adira a estas definições:
@@ -66,7 +64,7 @@ Pode utilizar qualquer ferramenta disponível para criar um certificado autoassi
 
 Existem duas formas de fácil de criar um certificado no Windows, com o `makecert.exe` utilitário nem o IIS.
 
-### <a name="makecertexe"></a>MakeCert.exe
+### <a name="makecertexe"></a>Makecert.exe
 Este utilitário foi preterido e já não é documentado aqui. Para obter mais informações, consulte [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell
@@ -92,7 +90,7 @@ Existem várias páginas na internet que abrangem como fazê-lo com o IIS. [Aqui
 ### <a name="linux"></a>Linux
 [Isto](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artigo descreve como criar certificados com SSH.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Carregue o certificado de serviço para o portal do Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Carregar um [certificado da API de gestão](../azure-api-management-certs.md) ao portal do Azure.

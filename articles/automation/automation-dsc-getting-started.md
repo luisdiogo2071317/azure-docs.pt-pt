@@ -1,24 +1,20 @@
 ---
-title: "Introdução ao Azure Automation DSC | Microsoft Docs"
+title: "Introdução ao Azure Automation DSC"
 description: "Explicação e exemplos das tarefas mais comuns no Automation DSC do Azure pretendido Estado Configuration)"
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 11/21/2016
-ms.author: magoedte;gwallace
-ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e6e4df6fce783e7b4cc33d7f3c26136680ceb44f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introdução ao Azure Automation DSC
 Este artigo explica como efetuar tarefas mais comuns com Automation DSC do Azure pretendido Estado Configuration (), tais como criar, importar e configurações de máquinas de integração para gerir, a compilação e visualizar relatórios. Para obter uma descrição geral sobre o DSC de automatização do Azure é, consulte [descrição geral do Azure Automation DSC](automation-dsc-overview.md). Para obter documentação de DSC, consulte [Windows PowerShell Desired Configuration descrição geral do estado](https://msdn.microsoft.com/PowerShell/dsc/overview).

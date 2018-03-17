@@ -1,24 +1,20 @@
 ---
-title: "Implementação contínua do DSC de automatização do Azure com Chocolatey | Microsoft Docs"
+title: "Implementação contínua do DSC de automatização do Azure com Chocolatey"
 description: "Implementação contínua de DevOps com Automation DSC do Azure e o Gestor de pacote Chocolatey.  Exemplo com o modelo JSON ARM completo e de origem do PowerShell."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 10/29/2016
-ms.author: golive
-ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemplo de utilização: A implementação contínua para máquinas virtuais utilizando o DSC de automatização e Chocolatey
 Um universo de DevOps existem diversas ferramentas para ajudá-lo com vários pontos no pipeline de integração contínua.  Configuração de estado de Desired de automatização do Azure (DSC) é uma adição de nova boas-vindas para as opções que podem utilizar agrupamentos de DevOps.  Este artigo demonstra definição cópia contínua implementação (CD) para um computador Windows.  Pode expandir facilmente técnica para incluir tantos computadores Windows, conforme necessário na função (um web site, por exemplo) e a partir daí, bem como funções adicionais.
@@ -77,7 +73,7 @@ Ou, existe a abordagem manual.  A estrutura de pastas de um módulo de integraç
 
 * Instale o módulo que precisa na sua estação de trabalho, da seguinte forma:
   * Instalar [Windows Management Framework, versão 5](http://aka.ms/wmf5latest) (não é necessária para o Windows 10)
-  * `Install-Module –Name MODULE-NAME`< — grabs o módulo a partir da galeria do PowerShell 
+  * `Install-Module –Name MODULE-NAME`    < — grabs o módulo a partir da galeria do PowerShell 
 * Copie a pasta do módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` para uma pasta temporária 
 * Eliminar exemplos e documentação da pasta principal 
 * Zip a pasta principal, o ficheiro ZIP de nomenclatura exatamente o mesmo que a pasta 
@@ -138,7 +134,7 @@ ISVBoxConfig.ps1:
         }    
     }
 
-Novo-ConfigurationScript.ps1:
+New-ConfigurationScript.ps1:
 
     Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
@@ -172,7 +168,7 @@ Obviamente, quando atualizar um pacote de uma VM que estiver em produção, ter�
 
 Origem completo para este exemplo de utilização está a ser [este projeto do Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) no GitHub.
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>Artigos Relacionados
 * [Descrição geral do DSC da automatização do Azure](automation-dsc-overview.md)
 * [Cmdlets do DSC da automatização do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Máquinas de integração de gestão do Automation DSC do Azure](automation-dsc-onboarding.md)

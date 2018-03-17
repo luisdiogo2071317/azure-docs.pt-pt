@@ -1,32 +1,27 @@
 ---
-title: "Certificado ativos na automatização do Azure | Microsoft Docs"
+title: "Ativos de certificado na automatização do Azure"
 description: "Certificados podem ser armazenados em segurança na automatização do Azure para que possam ser acedidos por runbooks ou configurações de DSC para se autenticarem do Azure e os recursos de terceiros.  Este artigo explica os detalhes de certificados e como trabalhar com os mesmos no texto e gráficos de criação."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: ac9c22ae-501f-42b9-9543-ac841cf2cc36
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 1201b78fd20d527399751210466ec89cdc9cae53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d4e205365b884b683928e42d538c085c4df2d6ed
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na automatização do Azure
 
 Certificados podem ser armazenados em segurança na automatização do Azure para que possam ser acedidos por runbooks ou configurações de DSC utilizando o **Get-AzureRmAutomationCertificate** atividade para recursos do Azure Resource Manager. Esta capacidade permite-lhe criar runbooks e configurações de DSC que utilizam certificados para autenticação ou adiciona-os para o Azure ou recursos de terceiros.
 
-> [!NOTE] 
-> Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é encriptada por um certificado principal e armazenada na automatização do Azure. Antes de o armazenamento de um recurso seguro, a chave da conta de automatização é desencriptada utilizando o certificado principal e, em seguida, utilizado para encriptar o elemento.
-> 
+>[!NOTE]
+>Proteger recursos na automatização do Azure incluem as credenciais, certificados, ligações e as variáveis encriptadas. Estes elementos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada no Cofre de chaves. Antes de o armazenamento de um recurso seguro, a chave é carregada a partir do Cofre de chaves e, em seguida, utilizada para encriptar o elemento.
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell
 Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial de automatização com o Windows PowerShell. Estes são enviados como parte do [AzureRM.Automation módulo](/powershell/azure/overview) que está disponível para utilização nos runbooks de automatização e configurações de DSC.

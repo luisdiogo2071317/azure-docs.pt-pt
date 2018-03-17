@@ -11,13 +11,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: db1360fa54d82c50adc04194697d994925338296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma
+ms.openlocfilehash: 75baef65b8a826009cdbaac3a260d021559504da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionar uma profunda aprendizagem Máquina Virtual no Azure 
 
@@ -46,7 +46,7 @@ Eis os passos para criar uma instância da máquina de Virtual profunda do Learn
 > [!NOTE]
 > Uma vez que é aprovisionado DLVM em instâncias de VM de GPU de série de NC do Azure, tem de escolher uma das localizações no Azure que tenha GPUs. Atualmente as localizações que tenham GPU VMs são: **EUA leste, Norte Central dos EUA, Sul Central dos EUA, EUA oeste, 2, Europa do Norte, Europa Ocidental**. Para obter a lista mais recente, verifique o [produtos do Azure por região página](https://azure.microsoft.com/en-us/regions/services/) e procure **NC série** em **computação**. 
 
-   2. **Definições**: selecione um tamanho da máquina virtual para a série de NC GPU que cumpra os requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para a VM.  ![definições de dlvm](./media/dlvm-provision-step-2.PNG)
+   2. **Definições**: selecione um tamanho da máquina virtual para a série de NC GPU que cumpra os requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para a VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Resumo**: Certifique-se de que todas as informações que introduziu estão corretas.
    5. **Comprar**: clique em **comprar** para iniciar o aprovisionamento. É fornecida uma ligação para os termos da transação. A VM não tem quaisquer taxas adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
@@ -58,7 +58,7 @@ Eis os passos para criar uma instância da máquina de Virtual profunda do Learn
 
 ## <a name="how-to-access-the-deep-learning-virtual-machine"></a>Como aceder a máquina de Virtual Learning profunda
 
-### <a name="windows-edition"></a>Edição do Windows
+### <a name="windows-edition"></a>Windows Edition
 Depois da VM é criada, pode ambiente de trabalho remoto para a mesma utilizando as credenciais de conta de administrador que configurou no precedente **Noções básicas** secção. 
 
 ### <a name="linux-edition"></a>Edição do Linux

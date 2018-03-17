@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure 
 
-Se tiver várias subscrições, pode organizá-los em contentores chamados "grupos de gestão" para o ajudar a gerir o acesso, políticas e conformidade nas suas subscrições. Grupos de gestão dão-lhe a gestão de nível empresarial em grande escala, independentemente do tipo de subscrições que poderá ser necessário.  
+Se a sua organização tiver várias subscrições, poderá ter uma forma de gerir de forma eficiente o acesso, políticas e conformidade para essas subscrições. Grupos de gestão do Azure fornece um nível de âmbito acima subscrições. Organizar as subscrições para contentores chamados "grupos de gestão" e aplicam-se a condições de governação para os grupos de gestão. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão. Grupos de gestão dão-lhe a gestão de nível empresarial em grande escala, independentemente do tipo de subscrições que poderá ser necessário.
 
 A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) e procure **grupos de gestão** no **todos os serviços** secção. 
 

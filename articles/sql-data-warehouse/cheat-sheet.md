@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Cheat folha para o Azure SQL Data Warehouse
 Este cábula fornece sugestões úteis e melhores práticas para criar as suas soluções do Azure SQL Data Warehouse. Antes de começar, saiba mais sobre cada passo detalhadamente o lendo [padrões de carga de trabalho de armazém de dados SQL do Azure e padrões de anti](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), que explica o que é o SQL Data Warehouse e que não se encontra.
@@ -45,7 +45,7 @@ Em primeiro lugar, carregar os dados em [Azure Data Lake Store](https://docs.mic
 |:--- |:--- |
 | Distribuição | Round Robin |
 | Indexação | Área dinâmica para dados |
-| Criação de partições | Nenhum |
+| Criação de partições | Nenhuma |
 | Classe de Recursos | largerc ou xlargerc |
 
 Saiba mais sobre [migração de dados], [carregamento de dados]e o [processo de extração, carregamento e transformação (ELT)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
@@ -146,12 +146,12 @@ Implemente um clique a spokes realizar nas bases de dados do SQL Server do armaz
 [Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[carregamento de dados]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[índices]:./sql-data-warehouse-tables-index.md
-[partições]:./sql-data-warehouse-tables-partition.md
-[estatísticas]:./sql-data-warehouse-tables-statistics.md
-[classes de recursos e simultaneidade]:./sql-data-warehouse-develop-concurrency.md
+[carregamento de dados]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[índices]:sql-data-warehouse-tables-index.md
+[partições]:sql-data-warehouse-tables-partition.md
+[estatísticas]:sql-data-warehouse-tables-statistics.md
+[classes de recursos e simultaneidade]:resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 

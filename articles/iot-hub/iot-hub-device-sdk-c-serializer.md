@@ -3,7 +3,7 @@ title: Dispositivos de IoT do Azure SDK para C - serializador | Microsoft Docs
 description: "Como utilizar a biblioteca de serializador do dispositivo IoT do Azure SDK para C para criar aplicações de dispositivos que comunicam com um IoT hub."
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Do Azure IoT device SDK para C – mais informações sobre o serializador
 O [primeiro artigo](iot-hub-device-sdk-c-intro.md) nesta série introduzida o **dispositivos de IoT do Azure SDK para C**. O seguinte artigo fornecida uma descrição mais detalhada do [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Este artigo conclusão da cobertura do SDK ao fornecer uma descrição mais detalhada do componente restantes: o **serializador** biblioteca.
@@ -68,15 +68,15 @@ Os seguintes tipos de dados são suportados em modelos criados com o **serializa
 | --- | --- |
 | duplo |dupla precisão flutuante ponto número |
 | Int |número inteiro de 32 bits |
-| Número de vírgula flutuante |número de ponto flutuante de precisão única |
+| float |número de ponto flutuante de precisão única |
 | longa |número inteiro longo |
 | int8\_t |número inteiro de 8 bits |
-| Int16\_t |número inteiro de 16 bits |
-| Int32\_t |número inteiro de 32 bits |
-| Int64\_t |número inteiro de 64 bits |
-| bool |Valor booleano |
-| ASCII\_char\_ptr |Cadeia de ASCII |
-| EDM\_DATA\_TEMPO\_DESLOCAMENTO |compensação de tempo data |
+| int16\_t |número inteiro de 16 bits |
+| int32\_t |número inteiro de 32 bits |
+| int64\_t |número inteiro de 64 bits |
+| bool |boolean |
+| ascii\_char\_ptr |Cadeia de ASCII |
+| EDM\_DATE\_TIME\_OFFSET |compensação de tempo data |
 | EDM\_GUID |GUID |
 | EDM\_BINÁRIO |Binário |
 | DECLARAR\_STRUCT |tipo de dados complexo |
@@ -366,15 +366,15 @@ Pode adivinhar que o resultado deste código é que os dados de dois eventos sã
 
 [
 
-{"Temperatura": 75},
+{"Temperature":75},
 
-{"Humidade": 45}
+{"Humidity":45}
 
 ]
 
 Por outras palavras, que seria de esperar que este código é igual a enviar **temperatura** e **humidade** separadamente. É apenas para efeitos práticos para passar a ambos os eventos para **SERIALIZAR** na mesma chamada. No entanto, não for esse o caso. Em vez disso, o código acima envia este evento de dados individual ao IoT Hub:
 
-{"Temperatura": "Humidade" 75,: 45}
+{"Temperature":75, "Humidity":45}
 
 Isto pode parecer um porque o nosso modelo define **temperatura** e **humidade** como dois *separado* eventos:
 
@@ -594,7 +594,7 @@ Para poder utilizar a nova versão da macro\_utils.h, remova o **serializador** 
 
 Em seguida, adicione este projeto a sua solução Visual Studio:
 
-> . \\c\\serializador\\criar\\windows\\serializer.vcxproj
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
 > 
 > 
 
@@ -616,16 +616,16 @@ Conforme descrito num [artigo anterior](iot-hub-device-sdk-c-iothubclient.md), h
 * IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* IoTHubClient\_destruir
+* IoTHubClient\_Destroy
 
 Estas APIs são demonstrados **simplesample\_amqp**.
 
 Há também um semelhante conjunto de APIs de nível inferior.
 
-* IoTHubClient\_odas\_CreateFromConnectionString
-* IoTHubClient\_odas\_SendEventAsync
-* IoTHubClient\_odas\_SetMessageCallback
-* IoTHubClient\_odas\_destruir
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Tenha em atenção que as APIs de nível inferior funcionam exatamente da mesma forma, conforme descrito nos artigos anteriores. Pode utilizar o primeiro conjunto de APIs, se pretender que o thread de segundo plano para processar eventos de envio e receção de mensagens. Utilizar o segundo conjunto de APIs se quiser explícito controlo sobre quando enviar e receber dados a partir do IoT Hub. O conjunto de trabalho APIs igualmente bem com o **serializador** biblioteca.
 
@@ -662,7 +662,7 @@ serializer_deinit();
 
 Caso contrário, todas as outras funcionalidades listadas acima funcionam da mesma **serializador** biblioteca tal como **IoTHubClient** biblioteca. Para obter mais informações sobre qualquer um destes tópicos, consulte o [artigo anterior](iot-hub-device-sdk-c-iothubclient.md) nesta série.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo descreve em detalhe os aspetos exclusivos a **serializador** biblioteca contida no **dispositivos de IoT do Azure SDK para C**. Com as informações fornecidas que devem ter uma boa compreensão sobre como utilizar modelos de eventos de enviar e receber mensagens a partir do IoT Hub.
 
 Isto também conclui a série de três partes sobre como desenvolver aplicações com o **dispositivos de IoT do Azure SDK para C**. Deve ser suficiente informações não só começar, mas dão-lhe uma compreensão profunda sobre do como funcionam as APIs. Para obter informações adicionais, existem alguns exemplos o SDK não abordado aqui. Caso contrário, o [documentação do SDK](https://github.com/Azure/azure-iot-sdk-c) é um boa recursos para obter informações adicionais.
@@ -671,7 +671,7 @@ Para saber mais sobre como desenvolver para o IoT Hub, veja o [SDKs IoT do Azure
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

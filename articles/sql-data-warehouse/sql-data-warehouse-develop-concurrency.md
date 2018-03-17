@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gestão de simultaneidade e carga de trabalho do armazém de dados do SQL Server
 Para fornecer um desempenho previsível à escala, ajuda-o armazém de dados SQL do Microsoft Azure controla os níveis de simultaneidade e alocações de recursos, como a memória e a atribuição de prioridades da CPU. Este artigo apresenta os conceitos de gestão de simultaneidade e carga de trabalho, explicar foi implementadas como ambas as funcionalidades e como pode controlá-los no seu armazém de dados. Destina-se a gestão de carga de trabalho do armazém de dados do SQL Server para o ajudar a suportar ambientes de vários utilizadores. Não se destina de cargas de trabalho do multi-inquilinos.
@@ -224,9 +224,9 @@ Eis o objetivo deste procedimento armazenado:
 #### <a name="usage-example"></a>Exemplo de utilização:
 Sintaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Ou forneça um parâmetro nulo para extrair o DWU atual da base de dados do armazém de dados ou forneça quaisquer DWU suportado no formato 'DW100'
-2. @SCHEMA_NAME:Forneça um nome de esquema da tabela
-3. @TABLE_NAME:Forneça um nome de tabela de interesse
+1. @DWU: Ou forneça um parâmetro nulo para extrair o DWU atual da base de dados do armazém de dados ou forneça quaisquer DWU suportado no formato 'DW100'
+2. @SCHEMA_NAME: Forneça um nome de esquema da tabela
+3. @TABLE_NAME: Forneça um nome de tabela de interesse
 
 Exemplos de executar este procedimento armazenado:  
 ```sql  
@@ -641,7 +641,7 @@ A maioria das consultas são regidas pelas classes de recursos. Estas consultas 
 
 Para reiterate, as seguintes declarações honrar classes de recursos:
 
-* INSERT SELECT
+* INSERT-SELECT
 * ATUALIZAÇÃO
 * ELIMINAR
 * SELECIONE (quando consultar tabelas de utilizador)
@@ -682,7 +682,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-##  <a name="changing-user-resource-class-example"></a>Alterar um exemplo de classe de recursos de utilizador
+##  <a name="changing-user-resource-class-example"></a> Alterar um exemplo de classe de recursos de utilizador
 1. **Criar o início de sessão:** abrir uma ligação à sua **mestre** da base de dados no SQL server que aloja a base de dados do armazém de dados do SQL Server e execute os seguintes comandos.
    
     ```sql
@@ -699,7 +699,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```sql
     CREATE USER newperson FOR LOGIN newperson;
     ```
-3. **Conceder permissões:** concede o exemplo seguinte `CONTROL` no **SQL Data Warehouse** base de dados. `CONTROL`na base de dados do nível é o equivalente do db_owner no SQL Server.
+3. **Conceder permissões:** concede o exemplo seguinte `CONTROL` no **SQL Data Warehouse** base de dados. `CONTROL` na base de dados do nível é o equivalente do db_owner no SQL Server.
    
     ```sql
     GRANT CONTROL ON DATABASE::MySQLDW to newperson;
@@ -827,7 +827,7 @@ SELECT    w.[pdw_node_id]
 FROM    sys.dm_pdw_wait_stats w;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a gestão de utilizadores de base de dados e segurança, consulte [proteger uma base de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre como maiores classes de recurso podem melhorar a qualidade de índice columnstore em cluster, consulte [reconstruir índices para melhorar a qualidade de segmento].
 
 <!--Image references-->

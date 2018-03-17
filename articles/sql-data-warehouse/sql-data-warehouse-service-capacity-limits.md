@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 As tabelas seguintes contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
@@ -28,7 +28,7 @@ As tabelas seguintes contêm os valores máximos permitidos para vários compone
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [Unidades do Data Warehouse (DWU)][Data Warehouse Units (DWU)] |DWU máx. para um SQL Data Warehouse único | Otimizado para elasticidade [camada de desempenho](performance-tiers.md): DW6000<br></br>Otimizado para computação [camada de desempenho](performance-tiers.md): DW30000c |
-| [Unidades do Data Warehouse (DWU)][Data Warehouse Units (DWU)] |Predefinição DTU por servidor |54,000<br></br>Por predefinição, cada SQL server (por exemplo, myserver.database.windows.net) tem uma Quota de DTU de 54,000, que permite até DW6000c. Esta quota é apenas um limite de segurança. Pode aumentar a quota por [criar um pedido de suporte] [ creating a support ticket] e selecionando *Quota* como o tipo de pedido.  Para calcular a DTU necessita de, multiplique a 7.5 pelo total que DWU necessários, ou multiplicar 9.0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7.5 = 45.000 DTUs<br></br>DW600c x 9.0 = 54,000 DTUs.<br></br>Pode ver o consumo de DTU atual a partir da opção de servidor do SQL Server no portal. Bases de dados em pausa e retomadas contam para a quota DTU. |
+| [Unidades do Data Warehouse (DWU)][Data Warehouse Units (DWU)] |Predefinição DTU por servidor |54,000<br></br>Por predefinição, cada SQL server (por exemplo, myserver.database.windows.net) tem uma Quota de DTU de 54,000, que permite até DW6000c. Esta quota é apenas um limite de segurança. Pode aumentar a quota por [criar um pedido de suporte] [ creating a support ticket] e selecionando *Quota* como o tipo de pedido.  Para calcular a DTU necessita de, multiplique a 7.5 pelo total que DWU necessários, ou multiplicar 9.0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7.5 = 45.000 DTUs<br></br>DW600c x 9.0 = 54,000 DTUs.<br></br>Pode ver o consumo de DTU atual a partir da opção de servidor do SQL Server no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
 | Ligação à base de dados |Sessões abertas em simultâneo |1024<br/><br/>Cada um das sessões ativas 1024 pode submeter pedidos para uma base de dados do armazém de dados do SQL Server ao mesmo tempo. Tenha em atenção de que existem limites sobre o número de consultas que podem ser executados em simultâneo. Quando o limite de concorrência for excedido, o pedido entra uma fila interna onde deve aguardar para ser processado. |
 | Ligação à base de dados |Memória máxima instruções preparado |20 MB |
 | [Gestão de carga de trabalho][Workload management] |Consultas em simultâneo máximas |32<br/><br/> Por predefinição, o SQL Data Warehouse pode ser executado um máximo de 32 consultas em simultâneo e filas restantes consultas.<br/><br/>O número de consultas em simultâneo pode descrease quando os utilizadores são atribuídos aos superiores classes de recursos ou quando o SQL Data Warehouse tem um inferior [nível de serviço](performance-tiers.md#service-levels). Algumas consultas, como consultas DMV, sempre estão autorizadas a executar. |
@@ -37,8 +37,8 @@ As tabelas seguintes contêm os valores máximos permitidos para vários compone
 ## <a name="database-objects"></a>Objetos de base de dados
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Base de Dados |Tamanho máx. |240 TB comprimido no disco<br/><br/>Este espaço é independente de espaço em tempdb ou de registo e, por conseguinte, este espaço dedicado para tabelas permanentes.  Compressão columnstore em cluster estima-se em 5 X.  Esta compressão permite que a base de dados aumente aproximadamente 1 PB quando todas as tabelas columnstore em cluster (o tipo de tabela predefinido). |
-| Tabela |Tamanho máx. |60 TB comprimido no disco |
+| Base de Dados |Tamanho máximo |240 TB comprimido no disco<br/><br/>Este espaço é independente de espaço em tempdb ou de registo e, por conseguinte, este espaço dedicado para tabelas permanentes.  Compressão columnstore em cluster estima-se em 5 X.  Esta compressão permite que a base de dados aumente aproximadamente 1 PB quando todas as tabelas columnstore em cluster (o tipo de tabela predefinido). |
+| Tabela |Tamanho máximo |60 TB comprimido no disco |
 | Tabela |Tabelas por base de dados |2 mil milhões |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Depende de coluna [tipo de dados][data type].  Limite é 8000 para tipos de dados char, 4000 para nvarchar, ou 2 GB para os tipos de dados máxima. |
@@ -69,10 +69,10 @@ As tabelas seguintes contêm os valores máximos permitidos para vários compone
 | Consulta |Parâmetros máximos |2098 |
 | Batch |Tamanho máximo |65,536*4096 |
 | SELECIONADOS resultados |Colunas por linha |4096<br/><br/>Nunca pode ter mais de 4096 colunas por linha no resultado de SELECT. Não há nenhuma garantia que pode ter sempre 4096. Se o plano de consulta necessita de uma tabela temporária, podem ser aplicadas as colunas de 1024 por tabela máxima. |
-| SELECIONE |Subconsultas aninhadas |32<br/><br/>Nunca pode ter mais do que 32 subconsultas aninhadas numa instrução SELECT. Não há nenhuma garantia que possam ter sempre a 32. Por exemplo, uma associação pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
-| SELECIONE |Colunas por associação |1024 colunas<br/><br/>Nunca pode ter mais de 1024 colunas na União. Não há nenhuma garantia que possam ter sempre a 1024. Se o plano de associação necessita de uma tabela temporária com mais colunas do que o resultado da JUNÇÃO, o limite de 1024 aplica-se a tabela temporária. |
-| SELECIONE |Total de bytes por grupo por colunas. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter um máximo de 8060 bytes. |
-| SELECIONE |Bytes por colunas ORDER BY |8060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes. |
+| SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca pode ter mais do que 32 subconsultas aninhadas numa instrução SELECT. Não há nenhuma garantia que possam ter sempre a 32. Por exemplo, uma associação pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
+| SELECIONAR |Colunas por associação |1024 colunas<br/><br/>Nunca pode ter mais de 1024 colunas na União. Não há nenhuma garantia que possam ter sempre a 1024. Se o plano de associação necessita de uma tabela temporária com mais colunas do que o resultado da JUNÇÃO, o limite de 1024 aplica-se a tabela temporária. |
+| SELECIONAR |Total de bytes por grupo por colunas. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter um máximo de 8060 bytes. |
+| SELECIONAR |Bytes por colunas ORDER BY |8060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes. |
 | Os identificadores e constantes por declaração |Número de identificadores referenciados e constantes. |65,535<br/><br/>O SQL Data Warehouse limita o número de identificadores e constantes que podem ser incluídas sob uma única expressão de uma consulta. Este limite é de 65535. A exceder este número resulta num erro do SQL Server 8632. Para obter mais informações, consulte [erro interno: foi atingido um limite de serviços de expressão][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Metadados
@@ -88,7 +88,7 @@ As tabelas seguintes contêm os valores máximos permitidos para vários compone
 | sys.dm_pdw_os_event_logs |10,000 |
 | sys.dm_pdw_sql_requests |O SQL mais recente de 1000 pedidos que são armazenados no sys.dm_pdw_exec_requests. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações de referência, consulte [descrição geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->
@@ -96,7 +96,7 @@ Para obter mais informações de referência, consulte [descrição geral de ref
 <!--Article references-->
 [Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
 [creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: efetuar uma alteração para a configuração predefinida
 O objetivo deste artigo é para guiá-lo como efetuar alterações à configuração de predefinição na sincronização Connect do Azure Active Directory (Azure AD). Fornece os passos para alguns cenários comuns. Com este conhecimento, deverá conseguir efetuar alterações simples à sua própria configuração com base nas suas regras de negócio.
@@ -245,7 +245,7 @@ Por predefinição, o atributo UserType não é importado para o Azure AD Connec
  1. Vá para o **conectores** separador o Synchronization Service Manager.
  2. Clique com botão direito do **conector do Azure AD** e selecione **propriedades**.
  3. Na caixa de diálogo de pop-up, vá para o **selecionar atributos** separador.
- 4. Certifique-se de que o atributo PreferredDataLocation está selecionado na lista de atributos.
+ 4. Certifique-se de que o atributo UserType está selecionado na lista de atributos.
  5. Clique em **OK** para guardar.
 
 ![Adicione o atributo de origem para o esquema do conector do Azure AD](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -263,7 +263,7 @@ A regra de sincronização de entrada permite que o valor de atributo para o flu
     | Nome | *Forneça um nome* | Por exemplo, *do AD – UserType do utilizador* |
     | Descrição | *Forneça uma descrição* |  |
     | Sistema ligado | *Escolha no local conector AD* |  |
-    | Tipo de objeto de sistema ligado | **Utilizador** |  |
+    | Tipo de objeto de sistema ligado | **utilizador** |  |
     | Tipo de objeto de Metaverso | **Person** |  |
     | Tipo de ligação | **Associar** |  |
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
@@ -272,7 +272,7 @@ A regra de sincronização de entrada permite que o valor de atributo para o flu
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | adminDescription | NOTSTARTWITH | Utilizador\_ |
+    | adminDescription | NOTSTARTWITH | utilizador\_ |
 
     O filtro de âmbito determina qual no local AD objetos que esta regra de sincronização de entrada é aplicada. Neste exemplo, utilizamos o filtro de âmbito mesmo utilizado o *do AD – utilizador comuns* regra de sincronização de out-of-box, o que impede que a regra de sincronização a ser aplicadas a objetos de utilizador criados através do utilizador do Azure AD funcionalidade de repetição de escrita. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.
 
@@ -293,7 +293,7 @@ A regra de sincronização de entrada permite que o valor de atributo para o flu
 ![Criar regra de sincronização de entrada](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Passo 5: Criar uma regra de sincronização de saída para passar o valor do atributo com o Azure AD
-A regra de sincronização de saída permite que o valor de atributo para o fluxo do metaverso ao atributo PreferredDataLocation no Azure AD:
+A regra de sincronização de saída permite que o valor de atributo para o fluxo do metaverso para o atributo UserType no Azure AD:
 
 1. Aceda ao Editor de regras de sincronização.
 2. Definir o filtro de pesquisa **direção** ser **saída**.
@@ -305,7 +305,7 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
     | Nome | *Forneça um nome* | Por exemplo, *Out para o AAD – UserType do utilizador* |
     | Descrição | *Forneça uma descrição* ||
     | Sistema ligado | *Seleccione o conector AAD* ||
-    | Tipo de objeto de sistema ligado | **Utilizador** ||
+    | Tipo de objeto de sistema ligado | **utilizador** ||
     | Tipo de objeto de Metaverso | **Person** ||
     | Tipo de ligação | **Associar** ||
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |

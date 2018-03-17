@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 11439a8bc10e616773068416b5a7def2f4becb36
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de funcionalidades: base de dados de SQL do Azure versus do SQL Server 
 
@@ -51,7 +51,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [Utilizadores contidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sim | Sim |
 | [Controlo de palavras-chave de idioma de fluxo](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sim | Sim |
 | [Consultas de base de dados em vários locais](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não - consulte [consultas elásticas](sql-database-elastic-query-overview.md) | Sim, plus [consultas elásticas](sql-database-elastic-query-overview.md) |
-| [Transações entre bases de dados]((https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine)) | Não | Sim |
+| [Transações entre bases de dados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não | Sim |
 | [Cursores](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Sim |Sim | 
 | [Compressão de dados](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Sim |Sim |
 | [Correio de base de dados](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Não | Sim |

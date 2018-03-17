@@ -380,7 +380,6 @@
             - name: Aprovisionar inquilinos
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Base de dados por inquilino
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Introdução ao tutorial
               href: saas-dbpertenant-wingtip-app-overview.md

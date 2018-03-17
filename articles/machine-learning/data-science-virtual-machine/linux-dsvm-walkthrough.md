@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com um dados ciência de Máquina Virtual com Linux no Azure
 Estas instruções mostram como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que seja pré-instaladas com uma coleção de ferramentas normalmente utilizado para análise de dados e de aprendizagem. Os componentes de chaves de software estão descritos a [aprovisionar a Máquina Virtual de ciência de dados de Linux](linux-dsvm-intro.md) tópico. A imagem VM torna mais fácil começar a utilizar ao executar a ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se for necessário e pare-quando não está em utilização. Por isso este recurso é elástico e económico.
@@ -78,7 +78,7 @@ Para obter cópias dos exemplos de código utilizados nestas instruções, clone
 Abra uma janela de terminal e iniciar uma nova sessão de R com a consola interativa do R.
 
 > [!NOTE]
-> Também pode utilizar RStudio para os seguintes procedimentos. Para instalar RStudio, execute este comando num terminal:`./Desktop/DSVM\ tools/installRStudio.sh`
+> Também pode utilizar RStudio para os seguintes procedimentos. Para instalar RStudio, execute este comando num terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
 >
 >
 
@@ -238,7 +238,7 @@ As secções restantes mostram como utilizar algumas das ferramentas instaladas 
 * Jupyterhub
 * Rattle
 * PostgreSQL & Squirrel SQL
-* Armazém de dados do SQL Server
+* SQL Server Data Warehouse
 
 ## <a name="xgboost"></a>XGBoost
 [XGBoost](https://xgboost.readthedocs.org/en/latest/) é uma ferramenta que fornece uma implementação de árvore rápido e preciso elevada.
@@ -499,7 +499,7 @@ A maioria dos e-mails que tenham uma ocorrência elevada *3d* são parecer lhe e
 
 Se pretendesse executar aprendizagem com dados armazenados numa base de dados PostgreSQL, considere utilizar [MADlib](http://madlib.incubator.apache.org/).
 
-## <a name="sql-server-data-warehouse"></a>Armazém de dados do SQL Server
+## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
 O Azure SQL Data Warehouse é uma base de dados de escalabilidade horizontal, baseada na nuvem, capaz de processar grandes volumes de dados, tanto relacionais como não relacionais. Para obter mais informações, consulte [que é o Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Para ligar ao armazém de dados e criar a tabela, execute o seguinte comando numa linha de comandos:
@@ -527,7 +527,7 @@ E consultar com sqlcmd:
 
 Também pode consultar com Squirrel SQL. Seguir passos semelhantes para PostgreSQL, utilizando o controlador JDBC de servidor do Microsoft MSSQL, que pode ser encontrado na ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma descrição geral de tópicos que descrevem as tarefas que compõem o processo de ciência de dados no Azure, consulte [o processo de ciência de dados de equipa](http://aka.ms/datascienceprocess).
 
 Para obter uma descrição de outras instruções ponto-a-ponto que demonstram os passos no processo de ciência de dados de agrupamento para cenários específicos, consulte [instruções do processo de ciência de dados de equipa](../team-data-science-process/walkthroughs.md). As instruções também mostram como combinar as ferramentas de nuvem e no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente.

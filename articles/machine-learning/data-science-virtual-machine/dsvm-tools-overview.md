@@ -13,26 +13,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6948447ea7bfa6219bf70d46d14f82724fa0c60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce99577d57179e641b86385fd1b543e327d7474
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conhecer a sua máquina de Virtual de ciência de dados
 
-As máquinas de ciência de dados (**DSVM**) inclui uma lista extensa popular de ciência de dados, Machine Learning / AI ferramentas e plataformas de dados. Estas tiverem sido configuradas nas configurações que são testadas rigorosamente por cientistas de dados e os programadores na Microsoft, bem como pela Comunidade de ciência de dados mais abrangente para garantir a estabilidade e viability geral.
+A Máquina Virtual de ciência de dados (DSVM) inclui uma lista extensa de ciência de dados mais populares, ferramentas do machine learning/AI e plataformas de dados. As configurações de ferramenta rigorosamente são testadas cientistas de dados e os programadores na Microsoft e pela Comunidade de ciência de dados mais abrangente para garantir a estabilidade e viability geral.
 
 O DSVM também inclui vários exemplos de código e instruções sob a forma de blocos de notas Jupyter que podem ser executados localmente. Também é documentação para estes exemplos ajudar a compreensão. 
 
-As ferramentas, plataformas, utilitários e amostras incluídas no DSVM tem sido organizadas nas seguintes secções:
+As ferramentas, plataformas, utilitários e exemplos que estão incluídos na VM de ciência de dados estão organizados nas seguintes secções:
 
-1. **[Learning profunda & estruturas de AI](dsvm-deep-learning-ai-frameworks.md)**
-2. **[ML & ferramentas de ciência de dados](dsvm-ml-data-science-tools.md)**
+1. **[Learning profunda e arquiteturas de AI](dsvm-deep-learning-ai-frameworks.md)**
+2. **[Machine Learning e ferramentas de ciência de dados](dsvm-ml-data-science-tools.md)**
 3. **[Linguagens de programação](dsvm-languages.md)**
-4. **[Ferramentas de desenvolvimento & IDEs](dsvm-tools-development.md)**
+4. **[Ferramentas de desenvolvimento e IDEs](dsvm-tools-development.md)**
 5. **[Ferramentas de ingestão de dados](dsvm-tools-ingestion.md)**
 6. **[Exploração de dados e ferramentas de visualização](dsvm-tools-explore-and-visualize.md)**
 7. **[Plataformas de dados](dsvm-data-platforms.md)**

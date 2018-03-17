@@ -1,24 +1,18 @@
 ---
-title: "Galleries módulos e Runbooks de automatização do Azure | Microsoft Docs"
+title: "Galleries módulos e Runbooks de automatização do Azure"
 description: "Os Runbooks e módulos da Microsoft e a Comunidade estão disponíveis para instalar e utilizar no seu ambiente de automatização do Azure.  Este artigo descreve como pode aceder a estes recursos e para contribuir com os runbooks para a galeria."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: d3fee7b4-630a-4c10-8425-9bf51d7c9e58
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: 6a9298c0b7331bfa8af76eb904d256f6302816bf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galleries módulos e Runbooks de automatização do Azure
 Em vez de criar os seus próprios runbooks e módulos na automatização do Azure, pode aceder a uma variedade de cenários que já ter sido criadas pela Microsoft e a Comunidade.  Pode utilizar estes cenários sem modificações ou pode utilizá-los como um ponto de partida e editá-los para os seus requisitos específicos.

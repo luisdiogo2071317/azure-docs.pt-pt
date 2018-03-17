@@ -6,23 +6,22 @@ documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
 editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e25a1f8d807fa317e8ce246fd49de034182af96
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorizar a carga de trabalho com DMVs
-Este artigo descreve como utilizar as vistas de gestão dinâmica (DMVs) para monitorizar a carga de trabalho e investigar a execução de consultas no armazém de dados SQL do Azure.
+Este artigo descreve como utilizar as vistas de gestão dinâmica (DMVs) para monitorizar a carga de trabalho. Isto inclui a execução de consultas no armazém de dados SQL do Azure a investigar.
 
 ## <a name="permissions"></a>Permissões
 Para consultar os DMVs neste artigo, necessita de permissão de vista de estado de base de dados ou controlo. Normalmente, conceder vista base de dados de estado é a permissão preferencial é muito mais restritiva.
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 Nos resultados de consulta anterior, **tenha em atenção o ID do pedido** da consulta que pretende investigar.
 
-As consultas no **suspenso** Estado estão a ser colocados em fila devido a limites de concorrência. Estas consultas são também apresentados na consulta aguarda sys.dm_pdw_waits com um tipo de UserConcurrencyResourceType. Consulte [simultaneidade e carga de trabalho de gestão] [ Concurrency and workload management] para obter mais detalhes sobre os limites de concorrência. As consultas também podem aguardar por outros motivos, tais como de bloqueios de objeto.  Se a consulta está à espera de um recurso, consulte o artigo [investigar consultas aguardar recursos] [ Investigating queries waiting for resources] mais abaixo neste artigo.
+As consultas no **suspenso** Estado estão a ser colocados em fila devido a limites de concorrência. Estas consultas são também apresentados na consulta aguarda sys.dm_pdw_waits com um tipo de UserConcurrencyResourceType. Para obter informações sobre limites de simultaneidade, consulte [escalões de desempenho](performance-tiers.md) ou [classes de recursos para a gestão de carga de trabalho](resource-classes-for-workload-management.md). As consultas também podem aguardar por outros motivos, tais como de bloqueios de objeto.  Se a consulta está à espera de um recurso, consulte o artigo [investigar consultas aguardar recursos] [ Investigating queries waiting for resources] mais abaixo neste artigo.
 
 Para simplificar a pesquisa de uma consulta na tabela sys.dm_pdw_exec_requests, utilize [etiqueta] [ LABEL] para atribuir um comentário a sua consulta que pode ser pesquisada na vista de sys.dm_pdw_exec_requests.
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Verifique o *total_elapsed_time* coluna para ver se uma determinada distribuição está a demorar significativamente maior do que outras pessoas para movimento de dados.
-* Para a distribuição de longa execução, verifique o *rows_processed* coluna para ver se o número de linhas a ser movidos dessa distribuição é significativamente maior do que outras pessoas. Se Sim, isto pode indicar dissimetrias dos seus dados subjacentes.
+* Para a distribuição de longa execução, verifique o *rows_processed* coluna para ver se o número de linhas a ser movidos dessa distribuição é significativamente maior do que outras pessoas. Se Sim, esta localizar poderá indicar dissimetrias dos seus dados subjacentes.
 
 Se estiver a executar a consulta, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] pode ser utilizado para obter o plano de estimado do SQL Server da cache de planos de SQL Server para o passo de SQL Server em execução dentro de uma distribuição específica.
 
@@ -174,9 +173,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se a consulta está ativamente aguardar a resposta de recursos a partir de outra consulta, em seguida, o estado será **AcquireResources**.  Se a consulta tem todos os recursos necessários, em seguida, o estado será **Granted**.
 
 ## <a name="monitor-tempdb"></a>Monitor tempdb
-A utilização de tempdb elevado pode ser a causa de raiz para um desempenho lento e fora de problemas de memória. Considere a dimensionar o seu armazém de dados se encontrar tempdb atingir os limites durante a execução de consulta. O seguinte descreve como identificar a utilização de tempdb por consulta em cada nó. 
+A utilização de tempdb elevado pode ser a causa de raiz para um desempenho lento e fora de problemas de memória. Considere a dimensionar o seu armazém de dados se encontrar tempdb atingir os limites durante a execução de consulta. As informações seguintes descrevem como identificar a utilização de tempdb por consulta em cada nó. 
 
-Crie a vista seguinte para associar o id de nó adequado para sys.dm_pdw_sql_requests. Isto permitirá tirar partido de outras DMVs pass-through e associar as tabelas com sys.dm_pdw_sql_requests.
+Crie a vista seguinte para associar o ID de nó adequado para sys.dm_pdw_sql_requests. Com o ID de nó permitem-lhe utilizar outras DMVs pass-through e associar as tabelas com sys.dm_pdw_sql_requests.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -200,7 +199,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-Execute a seguinte consulta para monitorizar tempdb:
+Para monitorizar tempdb, execute a seguinte consulta:
 
 ```sql
 -- Monitor tempdb
@@ -258,7 +257,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Tamanho do registo de transação de monitor
-A seguinte consulta devolve o tamanho do registo de transações em cada distribuição. Se um dos ficheiros de registo está a atingir 160GB, deve considerar como aumentar verticalmente a sua instância ou limitar o tamanho da transação. 
+A seguinte consulta devolve o tamanho do registo de transações em cada distribuição. Se um dos ficheiros de registo está a atingir 160 GB, deve considerar como aumentar verticalmente a sua instância ou limitar o tamanho da transação. 
 ```sql
 -- Transaction log size
 SELECT
@@ -284,8 +283,8 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte [vistas de sistema] [ System views] para obter mais informações sobre DMVs.
-Consulte [melhores práticas do SQL Data Warehouse] [ SQL Data Warehouse best practices] para obter mais informações sobre as melhores práticas
+Para obter mais informações sobre DMVs, consulte [vistas de sistema][System views].
+
 
 <!--Image references-->
 
@@ -294,7 +293,6 @@ Consulte [melhores práticas do SQL Data Warehouse] [ SQL Data Warehouse best pr
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

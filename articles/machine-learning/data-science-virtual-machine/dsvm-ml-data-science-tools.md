@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 03/16/2018
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1897f793b5907a304af0859a1ab321a06d1ce808
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e de aprendizagem máquina
 A Máquina Virtual de ciência de dados (DSVM) tem um conjunto avançado de ferramentas e as bibliotecas do machine learning disponível nos idiomas populares, como o Python, R, Leonor. 
@@ -48,7 +48,7 @@ Aqui estão algumas do machine learning ferramentas e bibliotecas no DSVM.
 | Como é mesmo configurado / instalado o DSVM?      |  Windows - instalador do msi, Linux - apt get |
 | Como utilizar / executá-lo?      | Como uma ferramenta de linha de comandos no caminho (`C:\Program Files\VowpalWabbit\vw.exe` no Windows, `/usr/bin/vw` no Linux)    |
 | Ligações para amostras      | [Exemplos de VowPal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
-| Ferramentas relacionadas no DSVM      |XGBoost LightGBM, MXNet,   |
+| Ferramentas relacionadas no DSVM      |LightGBM, MXNet, XGBoost   |
 
 
 ## <a name="weka"></a>Weka
@@ -59,7 +59,7 @@ Aqui estão algumas do machine learning ferramentas e bibliotecas no DSVM.
 | Utilizações comuns      | Ferramenta de ML geral     |
 | Como utilizar / executá-lo?      | No Windows, procure Weka no Menu Iniciar. No Linux, inicie sessão com X2Go, em seguida, navegue para aplicações -> desenvolvimento -> Weka. |
 | Ligações para amostras      | [Exemplos de weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Ferramentas relacionadas no DSVM      |XGBooost LightGBM, Rattle,   |
+| Ferramentas relacionadas no DSVM      |LightGBM, Rattle, XGBooost   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |

@@ -2,8 +2,8 @@
 title: "Referência da interface de linha de comandos de gestão de modelo do Machine Learning do Azure | Microsoft Docs"
 description: "Referência da interface de linha de comandos de gestão de modelo do Machine Learning do Azure."
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 27361c5b92a8748a026d457875fadfc1f3529076
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referência de interface de linha de comandos de gestão de modelo
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/23/2018
 
 **Criar conta de gestão de modelo**
 
-Crie uma conta de gestão de modelo utilizando o seguinte comando. Esta conta será utilizada para faturação.
+Crie uma conta de gestão de modelo para Faturação utilizando o seguinte comando:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -76,7 +76,7 @@ Existem duas opções para a implementação: *local* e *cluster*. Definir o `--
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Isto inicia do Azure machine learning ambiente com uma conta de armazenamento, o registo ACR e o serviço de informações de aplicação criado na sua subscrição. Por predefinição, o ambiente é inicializado para locais apenas implementações (nenhum ACS) se não for especificado nenhum sinalizador. Se precisar de dimensionar o serviço, especifique o `--cluster` (ou `-c`) sinalizador para criar um cluster de ACS.
+Este comando inicia a sua do Azure machine learning ambiente com uma conta de armazenamento, o registo ACR e o serviço de informações de aplicação criado na sua subscrição. Por predefinição, o ambiente é inicializado para locais apenas implementações (nenhum ACS) se não for especificado nenhum sinalizador. Se precisar de dimensionar o serviço, especifique o `--cluster` (ou `-c`) sinalizador para criar um cluster de ACS.
 
 Detalhes do comando:
 
@@ -89,12 +89,12 @@ Detalhes do comando:
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 Argumentos global
 ```
@@ -110,7 +110,7 @@ Argumentos global
     register
     show
 
-Registar um modelo
+**Registar um modelo**
 
 Comando para registar o modelo.
 
@@ -143,7 +143,7 @@ Argumentos global
 
 **Criar o manifesto**
 
-Cria um ficheiro de manifesto para o modelo. 
+O comando seguinte cria um ficheiro de manifesto para o modelo. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -289,7 +289,7 @@ Argumentos global
 
 Tenha em atenção no `-d` sinalizador para anexar dependências: se a transmitir o nome de um diretório que não se encontre incluídas (zip, tar, etc.), esse directório automaticamente obtém tar'ed e é transferido along, em seguida, automaticamente unbundled na outra extremidade. 
 
-Se passar num diretório que já está agrupado, iremos processá-la como um ficheiro e transmiti-lo ao longo que é. Não será unbundled automaticamente; é esperado para processar que no seu código.
+Se passar num diretório que já está agrupado, o diretório é tratado como um ficheiro e transmitido como está. É unbundled automaticamente; é esperado para processar que no seu código.
 
 **Obter os detalhes do serviço**
 

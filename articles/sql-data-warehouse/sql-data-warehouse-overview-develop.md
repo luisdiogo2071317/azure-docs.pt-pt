@@ -6,56 +6,55 @@ documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
 editor: 
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>As decisões de conceção e técnicas de programação para o SQL Data Warehouse
 Veja através destes artigos de desenvolvimento para compreender melhor as decisões de conceção importantes, recomendações e técnicas de programação para o SQL Data Warehouse.
 
 ## <a name="key-design-decisions"></a>Decisões de conceção de chave
-Os artigos seguintes realçam alguns dos conceitos chave e as decisões de conceção, terá de compreender para o desenvolvimento do seu armazém de dados distribuídos através do armazém de dados do SQL Server:
+Os artigos seguintes realce conceitos e as decisões de conceção para desenvolver um armazém de dados distribuídos através do armazém de dados do SQL Server:
 
-* [ligações][connections]
-* [simultaneidade][concurrency]
-* [transações][transactions]
-* [esquemas definido pelo utilizador][user-defined schemas]
+* [connections][connections]
+* [concurrency][concurrency]
+* [transactions][transactions]
+* [Esquemas definido pelo utilizador][user-defined schemas]
 * [distribuição de tabela][table distribution]
 * [índices da tabela][table indexes]
 * [partições da tabela][table partitions]
 * [CTAS][CTAS]
-* [estatísticas][statistics]
+* [statistics][statistics]
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendações de desenvolvimento e técnicas de programação
 Estes artigos realce técnicas de programação específicas, sugestões e as recomendações para desenvolver o seu armazém de dados do SQL Server:
 
-* [procedimentos armazenados][stored procedures]
-* [etiquetas][labels]
-* [vistas][views]
+* [Procedimentos armazenados][stored procedures]
+* [labels][labels]
+* [views][views]
 * [tabelas temporárias][temporary tables]
-* [SQL dinâmico][dynamic SQL]
-* [ciclo][looping]
+* [dynamic SQL][dynamic SQL]
+* [looping][looping]
 * [Agrupar por opções][group by options]
-* [atribuição de variáveis][variable assignment]
+* [Atribuição de variáveis][variable assignment]
 
-## <a name="next-steps"></a>Passos seguintes
-Depois de ter sido através dos artigos de desenvolvimento veja através de [referência de Transact-SQL] [ Transact-SQL reference] página para obter mais detalhes sobre a sintaxe suportado para o SQL Data Warehouse.
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais informações de referência, consulte o [referência de Transact-SQL] [ Transact-SQL reference] página para o SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[concurrency]: ./resource-classes-for-workload-management.md
 [connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md

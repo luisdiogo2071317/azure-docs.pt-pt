@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-em funções durável - exemplo de cópia de segurança de nuvem
 
@@ -156,9 +156,9 @@ Eis o orchestration como um único c# ficheiro um projeto do Visual Studio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Este exemplo foi apresentado como implementar o padrão fan-out/fan-em. O exemplo seguinte mostra como implementar o [singleton com monitorização de estado](durable-functions-singletons.md) padrão num [eternal orchestration](durable-functions-eternal-orchestrations.md).
+Este exemplo foi apresentado como implementar o padrão fan-out/fan-em. O exemplo seguinte mostra como implementar o padrão de monitor utilizando [temporizadores duráveis](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Executar o exemplo de singleton com monitorização de estado](durable-functions-counter.md)
+> [Executar o exemplo de monitor](durable-functions-monitor.md)

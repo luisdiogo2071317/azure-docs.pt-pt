@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: de04e54c290657bc4e2ca20bbf10ba03f883dd42
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quais são os escalões de serviço do SQL Database do Azure?
 
@@ -62,7 +62,7 @@ Os níveis de desempenho são expressos em Unidades de Transação de Base de Da
 > [!IMPORTANT]
 > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> \* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: sul do Brasil, Canadá Central, Canadá leste, EUA Central, França Central, Alemanha Central, leste do Japão, oeste do Japão, Central Coreia, Norte Central nos, Europa do Norte, Sul E.u. a central, Sudeste asiático, sul do RU, RU oeste, E.U.A. East2, EUA oeste, E.U.A. us Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 Para obter detalhes sobre as opções de tamanho de armazenamento disponíveis e níveis de desempenho específicos, consulte [dos limites de recursos de base de dados SQL](sql-database-resource-limits.md).

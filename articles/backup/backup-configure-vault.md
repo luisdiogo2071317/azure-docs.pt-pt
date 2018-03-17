@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 0adb2565299a2cd613068539736d4272d59a2397
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer cópias de segurança de um servidor ou cliente Windows para o Azure com o modelo de implementação Resource Manager
 Este artigo explica como fazer cópias de segurança do Windows Server (ou cliente Windows) ficheiros e pastas para o Azure com cópia de segurança do Azure utilizando o modelo de implementação Resource Manager.
@@ -34,7 +34,7 @@ Um cofre dos serviços de recuperação é uma entidade que armazena todas as c�
 
 ### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre dos Serviços de Recuperação
 1. Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com/) através da sua subscrição do Azure.
-2. No Hub menu, clique em **todos os serviços** e, na lista de recursos, escreva **dos serviços de recuperação** e clique em **cofres dos serviços de recuperação**.
+2. No menu Hub, clique em **Todos os serviços** e, na lista de recursos, escreva **Serviços de Recuperação** e clique em **cofres dos Serviços de Recuperação**.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -144,6 +144,9 @@ Agora que criou um cofre, prepare a infraestrutura para fazer uma cópia de segu
 
   ![as credenciais do cofre terminaram de ser transferidas](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
 > [!NOTE]
@@ -178,7 +181,7 @@ Se o computador/proxy limitou o acesso à internet, certifique-se de que as defi
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.net
+    5. \*.windows.net
 
 
 ## <a name="create-the-backup-policy"></a>Criar a política de cópias de segurança

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de desempenho de rede para o ExpressRoute
 
@@ -118,7 +118,7 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação Exp
   >
   
   >[!NOTE]
-  >Agentes do SCOM poderão não conseguir detetar consistentemente se estes estão alojados no Azure.  Recomendamos que não utilize agentes SCOM as VNETs do Azure para monitorizar o ExpressRoute.
+  >Agentes enviado por SCOM (inclui [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) poderá não conseguir detetar consistentemente a respetiva localização, se estes estão alojados no Azure.  Recomendamos que não utilize estes agentes as VNETs do Azure para monitorizar o ExpressRoute.
   >
   >
 

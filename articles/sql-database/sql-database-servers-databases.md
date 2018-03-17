@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: a6e1b6230742c1c2f065418110f76932306a9588
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerir servidores SQL Database do Azure e as bases de dados
 
@@ -21,7 +21,7 @@ Base de dados do SQL Server oferece três tipos de bases de dados:
 
 - Uma base de dados criada dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de [recursos de computação e armazenamento para cargas de trabalho diferentes](sql-database-service-tiers.md). Uma base de dados SQL do Azure está associado um servidor lógico da SQL Database do Azure, que é criado numa região do Azure específica.
 - Uma base de dados criada como parte de um [conjunto de bases de dados](sql-database-elastic-pool.md) dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de [recursos de computação e armazenamento para cargas de trabalho diferentes](sql-database-service-tiers.md) que são partilhado entre todas as bases de dados no conjunto. Uma base de dados SQL do Azure está associado um servidor lógico da SQL Database do Azure, que é criado numa região do Azure específica.
-- Um [instância do SQL server](sql-database-managed-instance.md) criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de recursos de armazenamento e computação para todas as bases de dados nessa instância de servidor. Uma instância gerida contém bases de dados de sistema e o utilizador. Instância gerida foi concebida para ativar a base de dados comparação de precisão-e-shift para uma PaaS completamente gerido, ao reestruturar a aplicação. Instância gerida fornece elevada compatibilidade com o modelo de programação do SQL Server no local e suporta a grande maioria das funcionalidades do SQL Server e associada ferramentas e serviços.  
+- Um [instância do SQL server](sql-database-managed-instance.md) (uma instância geridos) criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de recursos de armazenamento e computação para todas as bases de dados nessa instância de servidor. Uma instância gerida contém bases de dados de sistema e o utilizador. Instância gerida foi concebida para ativar a base de dados comparação de precisão-e-shift para uma PaaS completamente gerido, ao reestruturar a aplicação. Instância gerida fornece elevada compatibilidade com o modelo de programação do SQL Server no local e suporta a grande maioria das funcionalidades do SQL Server e associada ferramentas e serviços.  
 
 Base de dados do Microsoft Azure SQL Server suporta a versão de cliente de protocolo do tabular data stream (recebido) 7.3 ou posterior e permite que apenas as ligações de TCP/IP encriptadas.
 
@@ -140,7 +140,7 @@ Para criar e gerir o servidor SQL do Azure, as bases de dados e firewalls com a 
 |[az group create](/cli/azure/group#az_group_create)|Cria um grupo de recursos|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Cria um servidor|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Apresenta uma lista de servidores|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Devolve as utilizações de servidor|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Devolve as utilizações de servidor|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtém um servidor|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Um servidor de atualizações|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Elimina um servidor|
@@ -196,7 +196,6 @@ Para criar e gerir o servidor SQL do Azure, as bases de dados e as firewalls, ut
 |[Servidores - lista](/rest/api/sql/servers/list)|Devolve uma lista de servidores.|
 |[Servidores - lista por grupo de recursos](/rest/api/sql/servers/listbyresourcegroup)|Devolve uma lista de servidores num grupo de recursos.|
 |[Servidores - atualização](/rest/api/sql/servers/update)|As atualizações de um servidor existente.|
-|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Determina se um recurso pode ser criado com o nome especificado.|
 |[Bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza uma base de dados existente.|
 |[Get - bases de dados](/rest/api/sql/databases/get)|Obtém uma base de dados.|
 |[Para obter agrupamento elástico de bases de dados-](/rest/api/sql/databases/getbyelasticpool)|Obtém uma base de dados dentro de um conjunto elástico.|

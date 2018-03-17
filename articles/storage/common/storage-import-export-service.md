@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Storage do Azure
 Neste artigo, fornecemos instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure para transferir de forma segura grandes quantidades de dados para o Blob storage do Azure e ficheiros do Azure por envio unidades de disco para um centro de dados do Azure. Este serviço também pode ser utilizado para transferir dados do storage do Azure para unidades de disco rígido e são enviados para os sites no local. Dados a partir de uma única unidade de disco SATA interna podem ser importados o Blob storage do Azure ou os ficheiros do Azure. 
@@ -47,7 +47,7 @@ Siga o procedimento abaixo se os dados no disco para serem importados para o Sto
     |/j:     |O nome do ficheiro diário de alterações, com a extensão de .jrn. Um ficheiro do diário de alterações é gerado por unidade. É recomendado utilizar o número de série de disco como o nome de ficheiro do diário de alterações.         |
     |/sk:     |A chave de conta do Storage do Azure.         |
     |/t:     |A letra de unidade do disco para enviada. Por exemplo, unidade `D`.         |
-    |/bk:     |A chave do BitLocker para a unidade.         |
+    |/bk:     |A chave do BitLocker para a unidade. A palavra-passe numérica da saída de ` manage-bde -protectors -get D: `      |
     |/srcdir:     |A letra de unidade do disco para enviada seguido `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contentor de destino no armazenamento do Azure         |
     |/skipwrite:     |É a opção que não especifica que não existe nenhum novos dados necessários para ser copiado e a dados existentes no disco para estar preparado         |
@@ -263,7 +263,7 @@ Vê um dos seguintes Estados de tarefas, dependendo de onde a unidade está no p
 |:--- |:--- |
 | Criação | Depois de uma tarefa é criada, o estado é definido para o criar. Enquanto a tarefa está no estado de criar, assume que o serviço importar/exportar as unidades não foram fornecidas para o Centro de dados. Uma tarefa pode permanecer no estado de criar para até duas semanas, após o qual é automaticamente eliminado pelo serviço. |
 | Envio | Depois de enviar o pacote, deve atualizar as informações de controlo no portal do Azure.  Isto irá ativar a tarefa para "Envio". A tarefa irá permanecer no estado de envio para duas semanas. 
-| Recebidas | Depois de todas as unidades foram recebidas no Centro de dados, o estado da tarefa será definido para o recebidos. |
+| Recebido | Depois de todas as unidades foram recebidas no Centro de dados, o estado da tarefa será definido para o recebidos. |
 | A transferir | Depois de pelo menos uma unidade começou a processar, o estado da tarefa será definido para o Transferring. Consulte a secção de Estados de unidade abaixo para obter informações detalhadas. |
 | Empacotamento | Depois de todas as unidades concluiu o processamento, a tarefa será colocada no estado de empacotamento até que as unidades são fornecidas para lhe. |
 | Concluída | Depois de todas as unidades foram fornecidas para o cliente, se a tarefa tiver sido concluída sem erros, a tarefa será definida para o estado de concluído. A tarefa será eliminada automaticamente após 90 dias no estado concluído. |
@@ -275,7 +275,7 @@ A tabela seguinte descreve cada Estado de cada unidade de uma tarefa pode pass-t
 | Unidade de estado | Descrição |
 |:--- |:--- |
 | Especificado | Para uma tarefa de importação, quando a tarefa é criada a partir do portal do Azure, o estado inicial para uma unidade é o estado especificado. Para uma tarefa de exportação, uma vez que não existem unidade é especificada quando a tarefa é criada, o estado de unidade inicial é Estado Received. |
-| Recebidas | Transições de unidade para o estado de recebidos quando o operador de serviço de importação/exportação processou as unidades que foram recebidas a partir da empresa de envio para uma tarefa de importação. Para uma tarefa de exportação, o estado da unidade inicial é Estado Received. |
+| Recebido | Transições de unidade para o estado de recebidos quando o operador de serviço de importação/exportação processou as unidades que foram recebidas a partir da empresa de envio para uma tarefa de importação. Para uma tarefa de exportação, o estado da unidade inicial é Estado Received. |
 | NeverReceived | A unidade irá mudar para o estado de NeverReceived quando chega o pacote para uma tarefa, mas o pacote não contém a unidade. Pode também mover uma unidade neste estado se duas semanas, uma vez que o serviço recebeu as informações de envio, mas o pacote ainda não chegaram do Centro de dados. |
 | A transferir | Uma unidade será movido para o estado de Transferring quando o serviço começa a transferência de dados da unidade para armazenamento do Microsoft Azure. |
 | Concluída | Uma unidade será movido para o estado de concluído, quando o serviço com êxito tenha transferido todos os dados sem erros.

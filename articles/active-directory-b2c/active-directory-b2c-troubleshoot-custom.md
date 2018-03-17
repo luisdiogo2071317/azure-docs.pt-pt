@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>B2C do Azure Active Directory: Recolher registos
 
@@ -52,16 +52,16 @@ O Azure AD B2C suporta uma funcionalidade para enviar dados para o Application I
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Se não existir já, adicionar um nó subordinado `<UserJourneyBehaviors>` para o `<RelyingParty>` nós. Tem de estar localizado imediatamente após o`<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
+1. Se não existir já, adicionar um nó subordinado `<UserJourneyBehaviors>` para o `<RelyingParty>` nós. Tem de estar localizado imediatamente após o `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Adicionar o nó seguinte como um elemento subordinado do `<UserJourneyBehaviors>` elemento. Certifique-se de que substitui `{Your Application Insights Key}` com o **chave de instrumentação** que obteve do Application Insights na secção anterior.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"`indica ApplicationInsights a fim de acelerar a telemetria através do pipeline de processamento, aconselhável para o desenvolvimento, mas restrita em volumes elevadas.
-  * `ClientEnabled="true"`envia o script do lado do cliente ApplicationInsights para o registo de erros de vista e do lado do cliente de página (e não necessários).
-  * `ServerEnabled="true"`envia o JSON de UserJourneyRecorder existente como um evento personalizado para o Application Insights.
+  * `DeveloperMode="true"` indica ApplicationInsights a fim de acelerar a telemetria através do pipeline de processamento, aconselhável para o desenvolvimento, mas restrita em volumes elevadas.
+  * `ClientEnabled="true"` envia o script do lado do cliente ApplicationInsights para o registo de erros de vista e do lado do cliente de página (e não necessários).
+  * `ServerEnabled="true"` envia o JSON de UserJourneyRecorder existente como um evento personalizado para o Application Insights.
 Exemplo:
 
   ```XML
@@ -105,6 +105,8 @@ Pode saber mais sobre a ferramenta de análise [aqui](https://docs.microsoft.com
 
 >[!NOTE]
 >A Comunidade desenvolveu um Visualizador de journey de utilizador para ajudar os programadores de identidade.  Não é suportada pela Microsoft e disponibilizado estritamente como-é.  Este lê a partir da sua instância do Application Insights e fornece uma vista de estrutura de bem do utilizador eventos journey.  Obter o código de origem e implementá-la na sua própria solução.
+
+A versão do Visualizador de que lê os eventos do Application Insights está localizada [aqui](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
 >Atualmente, os registos de atividade de detalhado descritos aqui concebidos **apenas** para ajudar no desenvolvimento de políticas personalizadas. Utilize o modo de desenvolvimento em produção.  Os registos de recolhem todas as afirmações enviadas de e para os fornecedores de identidade durante o desenvolvimento.  Se utilizar na produção, o programador assume a responsabilidade para PII (privada informações de identificação) recolhida no registo de aplicação Insights que possuem.  Estes registos detalhados apenas são recolhidos quando a política é colocada no **modo de desenvolvimento**.

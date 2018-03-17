@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8384d17405653a29207cdfa4f6143504d0db2022
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: ea8b5db946d6b35ea4583d9170ec36e5f95e16cd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orchestrators singleton nas funções durável (funções do Azure)
 
@@ -61,10 +61,7 @@ Por predefinição, a instância IDs aleatoriamente são gerados GUIDs. Mas nest
 
 Os detalhes de implementação da função do orchestrator, na verdade, é importante. Pode ser uma função do regular orchestrator que é iniciada e concluída ou pode ser um que é executada indefinidamente (ou seja, um [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). O ponto importante é o que há alguma vez apenas uma instância em execução num momento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como chamar orchestrations secundárias](durable-functions-sub-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Executar um singleton de exemplo](durable-functions-counter.md)

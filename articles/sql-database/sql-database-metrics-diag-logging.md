@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 3ac0c87ca41315eb3b63ddfab2736f68bac8dbee
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnóstico 
 Base de dados SQL do Azure pode emitir métricas e diagnóstico registos para a monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -47,8 +47,8 @@ Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. De
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contém informações sobre as estatísticas de tempo de execução de consulta, por exemplo, a duração de consulta e de utilização da CPU.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contém informações sobre as estatísticas de espera de consulta, que indica que as suas consultas aguardaram, tais como CPU, o registo e o bloqueio.
 - [Erros](sql-database-metrics-diag-logging.md#errors-dataset): contém informações sobre erros do SQL Server que tenham acontecido nesta base de dados.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): contém informações sobre a quantidade de tempo uma base de dados despende a aguardar a resposta de espera de diferentes tipos.
-- [Tempos limite](sql-database-metrics-diag-logging.md#timeouts-dataset): contém informações sobre tempos limite que tenham acontecido numa base de dados.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contém informações sobre a quantidade de tempo uma base de dados despende a aguardar a resposta de espera de diferentes tipos.
+- [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): contém informações sobre tempos limite que tenham acontecido numa base de dados.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): contém informações sobre eventos que aconteceram numa base de dados a bloquear.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contém informações inteligentes. [Saiba mais sobre as informações inteligente](sql-database-intelligent-insights.md).
 

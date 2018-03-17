@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentor em instâncias de contentor do Azure
 
@@ -23,13 +23,14 @@ O recurso de nível superior em instâncias de contentor do Azure está a *grupo
 
 Um grupo contentor é uma coleção de contentores que obter agendada no mesmo computador anfitrião. Os contentores de um grupo contentor partilham um ciclo de vida, rede local e volumes de armazenamento. É semelhante ao conceito de uma *pod* no [Kubernetes] [ kubernetes-pod] e [DC/SO][dcos-pod].
 
-O diagrama seguinte mostra um exemplo de um grupo contentor, que inclui vários contentores.
+O diagrama seguinte mostra um exemplo de um grupo contentor, que inclui vários contentores:
 
 ![Diagrama de grupos de contentor][container-groups-example]
 
 Este grupo de contentor de exemplo:
 
 * Está agendada uma máquina de anfitrião único.
+* É atribuído uma etiqueta de nome DNS.
 * Expõe um único endereço IP público, com uma porta exposto.
 * É composta por dois contentores. Um contentor escuta na porta 80, enquanto o outro escuta na porta 5000.
 * Inclui duas partilham de ficheiros do Azure como volume monta e cada contentor monta uma das partilhas localmente.
@@ -51,7 +52,7 @@ Pode especificar volumes externos para montar dentro de um grupo contentor. Pode
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-Os grupos de contentor multi são útil nos casos em que pretende dividir segurança uma única tarefa funcional num pequeno número de imagens de contentor, que podem ser fornecidas por equipas diferentes e tem os requisitos de recursos separado.
+Os grupos de contentor multi são útil nos casos em que pretende dividir uma única tarefa funcional num pequeno número de imagens do contentor. Estas imagens, em seguida, podem ser fornecidas por equipas diferentes e têm requisitos de recursos separado.
 
 Exemplo de utilização pode incluir:
 

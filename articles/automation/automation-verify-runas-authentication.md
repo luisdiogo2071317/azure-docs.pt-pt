@@ -1,24 +1,18 @@
 ---
-title: "Validar a configuração da conta de Automatização do Azure | Microsoft Docs"
+title: "Validar a configuração de conta de automatização do Azure"
 description: "Este artigo descreve como confirmar que a configuração da sua conta de automatização está corretamente configurada."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 1413b5d9625ebc2e3b2419f50e7e78be994d8d68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+manager: carmonm
+ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testar a autenticação da conta Run As de Automatização do Azure
 Depois de criar uma conta de Automatização com êxito, pode executar um teste simples para confirmar que consegue autenticar com êxito no Azure Resource Manager ou na implementação clássica do Azure com a sua conta Run As de Automatização recentemente criada ou atualizada.    

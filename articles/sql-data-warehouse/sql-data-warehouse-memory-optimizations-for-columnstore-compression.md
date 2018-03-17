@@ -6,20 +6,19 @@ documentationcenter: NA
 author: barbkess
 manager: jhubbard
 editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizar a forma de qualidade de rowgroup para columnstore
 
@@ -140,9 +139,9 @@ OPTION (MAXDOP 1);
 Tamanho DWU e a classe de recursos de utilizador em conjunto determinam a quantidade de memória está disponível para uma consulta do utilizador. Para aumentar a concessão de memória para uma consulta de carga, pode aumentar o número de DWUs ou aumentar a classe de recursos.
 
 - Para aumentar as DWUs, consulte [como aumentar o desempenho?](quickstart-scale-compute-portal.md)
-- Para alterar a classe de recursos para uma consulta, consulte [alterar um exemplo de classe de recursos de utilizador](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+- Para alterar a classe de recursos para uma consulta, consulte [alterar um exemplo de classe de recursos de utilizador](resource-classes-for-workload-management.md#assigning-resource-classes).
 
-Por exemplo, no DWU 100 um utilizador na classe de recurso smallrc pode utilizar a 100 MB de memória para cada distribuição. Para obter mais detalhes, consulte [simultaneidade no SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
+Por exemplo, no DWU 100 um utilizador na classe de recurso smallrc pode utilizar a 100 MB de memória para cada distribuição. Para obter mais detalhes, consulte [simultaneidade no SQL Data Warehouse](resource-classes-for-workload-management.md).
 
 Suponha que determine que tem de 700 MB de memória para obter os tamanhos de rowgroup de alta qualidade. Estes exemplos mostram como pode executar a consulta de carga com memória suficiente.
 

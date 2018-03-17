@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Melhores práticas de matriz Virtual StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -38,7 +38,7 @@ Implemente as seguintes melhores práticas quando aprovisionar a matriz virtual:
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Tipo de máquina virtual** |**Geração 2** VM para utilização com o Windows Server 2012 ou posterior e um *. vhdx* imagem. <br></br> **Geração 1** VM para utilização com o Windows Server 2008 ou posterior e um *. vhd* imagem. |Utilize a versão de máquina virtual 8-11 ao utilizar *. vmdk* imagem. |
+| **Tipo de máquina virtual** |**Geração 2** VM para utilização com o Windows Server 2012 ou posterior e um *. vhdx* imagem. <br></br> **Geração 1** VM para utilização com o Windows Server 2008 ou posterior e um *. vhd* imagem. |Versão de máquina virtual utilize 8 quando utilizar *. vmdk* imagem. |
 | **Tipo de memória** |Configurar como **memória estática**. <br></br> Não utilize o **memória dinâmica** opção. | |
 | **Tipo de disco de dados** |Se aprovisionar como **expansão dinâmica**.<br></br> **Um tamanho fixo** demora muito tempo. <br></br> Não utilize o **diferenciação** opção. |Utilize o **dinâmico aprovisionar** opção. |
 | **Modificação do disco de dados** |Não é permitida a expansão ou reduzir. Uma tentativa para tal resulta na perda de todos os dados locais no dispositivo. |Não é permitida a expansão ou reduzir. Uma tentativa para tal resulta na perda de todos os dados locais no dispositivo. |
@@ -191,7 +191,7 @@ Utilize as seguintes melhores práticas, ao configurar ACRs para volumes do Stor
 
 * Ao atribuir ACR mais do que um a um volume, certifique-se de que o volume não está exposto de forma onde pode ser simultaneamente acedido por mais do que um anfitrião agrupado. Se tiver atribuído ACRs vários para um volume, uma mensagem de aviso aparece para rever a configuração.
 
-### <a name="data-security-and-encryption"></a>Encriptação e de segurança dos dados
+### <a name="data-security-and-encryption"></a>Segurança e encriptação de dados
 A matriz de Virtual StorSimple tem funcionalidades de segurança e a encriptação de dados que garantem a integridade dos dados e confidencialidade. Ao utilizar estas funcionalidades, recomenda-se que siga estas práticas recomendadas: 
 
 * Defina uma chave de encriptação de armazenamento na nuvem para gerar a encriptação AES 256 antes dos dados são enviados da sua matriz virtual à nuvem. Esta chave não é necessária se os dados são encriptados lugar. A chave pode ser gerada e mantida segura através de um sistema de gestão de chaves, como [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md).
@@ -282,6 +282,6 @@ Várias matrizes de virtuais poderão ter de ser implementado para a conta para 
 * Se implementar várias matrizes de virtuais, recomendamos que do balanceamento de carga perspetiva, distribuir a matriz em todos os anfitriões hipervisores diferentes.
 * Várias matrizes de virtuais (quando configurado como um servidor de ficheiros ou um servidor de iSCSI) podem ser implementadas num distribuídas ficheiro sistema espaço de nomes. Para obter passos detalhados, aceda a [distribuídas ficheiro espaço de nomes de solução do sistema com o guia de implementação de armazenamento de nuvem híbrida](https://www.microsoft.com/download/details.aspx?id=45507). Replicação de sistema de ficheiros distribuído atualmente não é recomendada para utilização com a matriz virtual. 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Saiba como [administrar a matriz de Virtual StorSimple](storsimple-virtual-array-manager-service-administration.md) através do serviço StorSimple Manager.
 
